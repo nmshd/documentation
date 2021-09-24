@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Understand Enmeshed
+title: Explore Enmeshed
 ---
 
 - Reiterating the digitalization of the user
