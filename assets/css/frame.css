@@ -89,10 +89,13 @@ body .form-control:focus {
     color: #ffffff;
 }
 
-main {
+body > main {
     margin-top: 60px;
-    margin-bottom: -60px;
     scroll-behavior: smooth;
+}
+
+body > footer {
+  
 }
 
 section {
