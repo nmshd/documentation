@@ -1,0 +1,8 @@
+@startuml Test
+
+participant "App" as app
+participant "Backbone" as backbone
+
+app -> backbone: Test
+
+@enduml
