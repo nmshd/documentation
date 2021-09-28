@@ -22,3 +22,9 @@ Some API Examples:
 ></rapi-doc-mini>
 
 The full set of APIs can be found <a href="https://enmeshed.is.enmeshed.eu/docs/rapidoc">in the OpenAPI specification</a> of every connector.
+
+
+
+Some Flows:
+![Test Diagram]({{layout.plantuml}}integrate/diagrams/Test.pu)
+
