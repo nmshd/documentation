@@ -2,7 +2,7 @@
 
 '300 is very good retina/printing resolution
 '150 is ok
-skinparam dpi 300
+skinparam dpi 150
 
 skinparam Shadowing false
 'skinparam defaultFontName Calibri
@@ -353,6 +353,11 @@ skinparam Caption {
 'Legend
 
 
+skinparam ParticipantPadding 20
+skinparam BoxPadding 20
+hide footbox
+
+'autoactivate on
 
 
 @enduml
