@@ -1,0 +1,358 @@
+@startuml default
+
+'300 is very good retina/printing resolution
+'150 is ok
+skinparam dpi 300
+
+skinparam Shadowing false
+'skinparam defaultFontName Calibri
+'skinparam defaultFontColor #333333
+'//skinparam defaultFontSize 12
+skinparam roundcorner 2
+skinparam title {
+    fontname "Calibri Light"
+    fontcolor #000000
+    fontsize 16
+}
+skinparam default {
+    fontname "Calibri Light"
+    fontcolor #000000
+    fontsize 8
+    fontstyle normal
+    backgroundcolor #ffffff
+    bordercolor #555555
+    borderthickness 1
+    arrowcolor #555555
+}
+
+hide footbox
+'skinparam 
+
+
+'skinparam defaultBackgroundColor #ffffff
+'skinparam defaultBorderColor #777777
+'skinparam defaultBorderThickness 1
+
+'skinparam defaultArrowColor #777777
+skinparam Database {
+    BackgroundColor #ffffff
+    FontColor #000000
+    BorderColor #777777
+    
+}
+
+skinparam ActorStereotypeFontColor #ff0000
+skinparam SequenceDelayFontColor #ff0000
+
+
+skinparam Sequence {
+
+    BoxBorderColor #e2f3fe
+    BoxBackgroundColor #e2f3fe
+    BoxFontColor #38a8e0
+    'BoxFontName Calibri
+    BoxFontSize 12
+    BoxFontStyle normal
+
+    GroupBorderThickness 1
+    GroupBorderColor #777777
+
+    
+
+    'ActorFontName Calibri
+    ActorFontSize 12
+    ActorBorderColor Grey
+    ActorBackgroundColor White
+    ActorBorderThickness 1
+
+    'ParticipantFontName Calibri
+    ParticipantFontSize 12
+    ParticipantFontColor #000000
+    ParticipantFontStyle normal
+    ParticipantBackgroundColor White
+    ParticipantBorderColor #38a8e0
+    ParticipantBorderThickness 3
+    
+    ArrowColor #b2b2b2
+    ArrowThickness 1
+
+    LifeLineBorderColor #38a8e0
+    LifeLineBorderThickness 3
+    LifeLineBackgroundColor #38a8e0
+
+    DividerBackgroundColor #ffffff
+    DividerBorderColor #788475
+
+    NewpageSeparatorColor #b2b2b2
+}
+
+skinparam Activity {
+    BackgroundColor #ffffff
+    BorderColor #b2b2b2
+    BarColor #38a8e0
+    EndColor #38a8e0
+    StartColor #38a8e0
+}
+
+skinparam ActivityDiamond {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+}
+
+skinparam Note {
+    BackgroundColor #ffffff
+    BorderColor #333333
+}
+
+skinparam Agent {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Artifact {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Boundary {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Card {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam CircledCharacter {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Class {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Cloud {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Collections {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Component {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Condition {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Control {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Database {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Designed {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Domain {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Entity {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam File {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Folder {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Frame {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Interface {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Lexical {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Machine {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Node {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Note {
+    BackgroundColor #f0f0f0
+    BorderColor #e5e5e5
+    BorderThickness 1
+}
+
+skinparam Object {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Package {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Page {
+    BackgroundColor #ffffff
+    ExternalColor #ff0000
+}
+
+skinparam Participant {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 3
+    Padding 400
+}
+
+skinparam Partition {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Queue {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Rectangle {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Requirement {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Stack {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam State {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Stereotype {
+    'A
+    'C
+    'E
+    'I
+    'N
+}
+
+skinparam Storage {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Swimlane {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Usecase {
+    BackgroundColor #ffffff
+    BorderColor #38a8e0
+    BorderThickness 1
+}
+
+skinparam Legend {
+    BackgroundColor #e2f3fe
+    BorderColor #e2f3fe
+    BorderThickness 1
+}
+
+skinparam Footer {
+    FontColor #b2b2b2
+    FontSize 10
+}
+
+skinparam Caption {
+    FontColor #b2b2b2
+    FontSize 8
+    TextAlignmeht right
+}
+
+'Stereotype
+
+'Caption
+'Header
+'Footer
+'Legend
+
+
+
+
+@enduml
