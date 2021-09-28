@@ -1,3 +1,5 @@
+!includeurl  https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/diagrams/styles.iuml
+
 @startuml Test
 
 participant "App" as app
