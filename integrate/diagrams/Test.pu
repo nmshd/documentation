@@ -1,6 +1,6 @@
-!includeurl  https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/diagrams/styles.iuml
-
 @startuml Test
+
+!includeurl  https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/diagrams/styles.iuml
 
 participant "App" as app
 participant "Backbone" as backbone
