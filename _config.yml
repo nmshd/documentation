@@ -1,1 +1,161 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: enmeshed
+email: info@enmeshed.eu
+description: >- # this means to ignore newlines until "baseurl:"
+  enmeshed is a home of various open source components, making the digital life
+  of users and organizations easier.
+github_username: nmshd
+repository: "nmshd/nmshd.github.io"
+minimal_mistakes_skin: air
+search: true
+
+plantuml: https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/
+
+# Build settings
+markdown: kramdown
+remote_theme: mmistakes/minimal-mistakes
+# Outputting
+permalink: /:categories/:title/
+paginate: 5 # amount of posts to show
+paginate_path: /page:num/
+timezone: Europe/Berlin # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+include:
+  - _pages
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+# Plugins (previously gems:)
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+  - jekyll-redirect-from
+
+collections:
+  docs_explore:
+    output: true
+    permalink: /:collection/:path/
+  docs_use:
+    output: true
+    permalink: /:collection/:path/
+  docs_integrate:
+    output: true
+    permalink: /:collection/:path/
+
+author:
+  name: "enmeshed Team"
+  avatar: "/assets/images/Logo.svg"
+  bio: "The official enmeshed Team"
+  links:
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://www.enmeshed.eu"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/nmshd"
+    - label: "NPM"
+      icon: "fab fa-fw fa-npm"
+      url: "https://www.npmjs.com/search?q=%40nmshd"
+
+footer:
+  links:
+    - label: "Imprint"
+      icon: "fas fa-fw fa-info"
+      url: "/imprint"
+    - label: "Privacy"
+      icon: "fas fa-fw fa-user-shield"
+      url: "/privacy"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://www.enmeshed.eu"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/nmshd"
+    - label: "NPM"
+      icon: "fab fa-fw fa-npm"
+      url: "https://www.npmjs.com/search?q=%40nmshd"
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: false
+      share: true
+      related: true
+  # use
+  - scope:
+      path: ""
+      type: docs_use
+    values:
+      layout: single
+      author_profile: false
+      sidebar:
+        - title: "Use Enmeshed"
+          nav: "docs_use"
+  # explore
+  - scope:
+      path: ""
+      type: docs_explore
+    values:
+      layout: single
+      author_profile: false
+      sidebar:
+        - title: "Explore Enmeshed"
+          nav: "docs_explore"
+  # integrate
+  - scope:
+      path: ""
+      type: docs_integrate
+    values:
+      layout: single
+      author_profile: false
+      sidebar:
+        - title: "Integrate Enmeshed"
+          nav: "docs_integrate"
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: false
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/

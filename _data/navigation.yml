@@ -1,0 +1,172 @@
+main:
+  - title: "Use"
+    url: /use
+  - title: "Explore"
+    url: /explore
+  - title: "Integrate"
+    url: /integrate
+  - title: "Contribute"
+    url: /contribute
+  - title: "Blog"
+    url: /blog
+  - title: "About"
+    url: /about
+
+docs_explore:
+  - title: First things first
+    children:
+      - title: "What is Enmeshed?"
+        url: /explore/the-what
+      - title: "Why Enmeshed?"
+        url: /explore/the-why
+      - title: "How does it work?"
+        url: /explore/the-how
+      - title: "Who is behind Enmeshed?"
+        url: /explore/the-who
+      - title: "Example Scenarios"
+        url: /explore/example-scenarios
+      - title: "Use Cases"
+        url: /explore/use-cases
+      - title: "Frequently Asked Questions"
+        url: /explore/faq
+
+  - title: Capabilities
+    children:
+      - title: "Self-sovereign Identity"
+        url: /explore/ssi
+      - title: "Structured Communication"
+        url: /explore/structured-communication
+      - title: "Datawallet"
+        url: /explore/datawallet
+      - title: "Automated Data Processing"
+        url: /explore/data-processing
+      - title: "Zero Knowledge"
+        url: /explore/zero-knowledge
+
+  - title: How we think
+    children:
+      - title: "Usage Considerations"
+        url: /explore/usage
+      - title: "Integration Considerations"
+        url: /explore/integration
+      - title: "Security Considerations"
+        url: /explore/security
+      - title: "Privacy Considerations"
+        url: /explore/privacy
+      - title: "Performance Considerations"
+        url: /explore/performance
+      - title: "Data Considerations"
+        url: /explore/data
+      - title: "Process Considerations"
+        url: /explore/process
+
+  - title: Technical Perspective
+    children:
+      - title: "Architecture"
+        url: /explore/architecture
+      - title: "Layers"
+        url: /explore/layers
+      - title: "Components"
+        url: /explore/components
+      - title: "Technical Building Blocks"
+        url: /explore/technical-building-blocks
+
+  - title: Expert Corner
+    children:
+      - title: "Cryptography"
+        url: /explore/cryptography
+      - title: "Why no blockchain?"
+        url: /explore/blockchain
+
+docs_use:
+  - title: Getting Started
+    children:
+      - title: "Basics"
+        url: /use/basics
+      - title: "Create an identity"
+        url: /use/create-identity
+      - title: "The first contact"
+        url: /use/first-contact
+      - title: "Fill the wallet"
+        url: /use/fill-the-wallet
+      - title: "Second contact"
+        url: /use/second-contact
+      - title: "Communicate"
+        url: /use/communicate
+      - title: "Handling Requests"
+        url: /use/handling-requests
+      - title: "What's next?"
+        url: /use/whats-next
+
+  - title: Advanced Topics
+    children:
+      - title: "Configuration"
+        url: /use/configuration
+      - title: "Use multiple devices"
+        url: /use/multi-device
+      - title: "Share Data"
+        url: /use/share-data
+      - title: "Share Contact"
+        url: /use/share-contact
+      - title: "Use multiple identities"
+        url: /use/multiple-identities
+      - title: "Device Updates"
+        url: /use/device-updates
+      - title: "Use the log"
+        url: /use/the-log
+      - title: "Identity Backup"
+        url: /use/backup
+
+docs_integrate:
+  - title: Getting Started
+    children:
+      - title: "Integration Basics"
+        url: /integrate/basics
+      - title: "Connector Tutorial"
+        url: /integrate/connector-tutorial
+
+  - title: Setting up the Connector
+    children:
+      - title: "Connector Installation"
+        url: /integrate/connector-installation
+      - title: "Connector Configuration"
+        url: /integrate/connector-configuration
+      - title: "Troubleshooting"
+        url: /integrate/connector-troubleshooting
+
+  - title: REST API
+    children:
+      - title: "API Documentation"
+        url: /integrate/connector-api
+      - title: "Using Templates"
+        url: /integrate/connector-flows-templates
+      - title: "Synchronization"
+        url: /integrate/connector-flows-synchronization
+      - title: "Handling Relationships"
+        url: /integrate/connector-flows-relationships
+      - title: "Sending Messages"
+        url: /integrate/connector-flows-messages
+      - title: "Requesting Data"
+        url: /integrate/connector-flows-requests
+      - title: "Integrating Authentication"
+        url: /integrate/connector-flows-authentication
+
+  - title: Programming
+    children:
+      - title: "Connector SDKs"
+        url: /integrate/connector-sdks
+      - title: "Modules"
+        url: /integrate/connector-modules
+
+  - title: Operations
+    children:
+      - title: "Connector Operations"
+        url: /integrate/connector-operations
+      - title: "Security Considerations"
+        url: /integrate/connector-security
+      - title: "Privacy Considerations"
+        url: /integrate/connector-privacy
+      - title: "Performance Considerations"
+        url: /integrate/connector-performance
+      - title: "Data Considerations"
+        url: /integrate/connector-data
