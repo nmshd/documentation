@@ -120,7 +120,7 @@ docs_use:
 docs_integrate:
   - title: Getting Started
     children:
-      - title: "Integration Basics"
+      - title: "Basics"
         url: /integrate/basics
       - title: "Connector Tutorial"
         url: /integrate/connector-tutorial
@@ -150,6 +150,10 @@ docs_integrate:
         url: /integrate/connector-flows-requests
       - title: "Integrating Authentication"
         url: /integrate/connector-flows-authentication
+      - title: "Requests, Parameters and Filters"
+        url: /integrate/connector-requests
+      - title: "Responses and Errors"
+        url: /integrate/connector-responses
 
   - title: Programming
     children:

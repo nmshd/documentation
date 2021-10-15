@@ -1,0 +1,102 @@
+@startuml Create Template
+!include ../../assets/plantuml/styles.iuml
+
+
+
+
+box "Organization's Infrastructure"
+participant "Website" as website
+participant "Business\nSystem" as backend
+participant "Enmeshed\nConnector" as connector
+end box
+participant "Enmeshed\nBackbone" as backbone
+participant "Enmeshed\nApp" as app
+actor "User" as user
+
+== Rahmenbedinungen ==
+backbone <-> connector: Enmeshed Connector hat eine\ndigitale Identität der Organisation.\nEnmeshed Plattform kennt diese.
+connector <-> backend: Bestehende Systeme sind\nüber Integrationsmodule\nmit Enmeshed Connector verbunden
+
+
+== Enmeshed Onboarding ==
+
+user -> website: Möchte Enmeshed Verknüpfung
+activate website
+website -> backend: Enmeshed Verknüpfung eingehen
+activate backend
+backend -> connector: Generiere Template für Nutzer\n(mit Nutzerdaten & Random Token)
+backend -> backend: Verknüpft Random Token\nund SessionID
+activate connector
+connector -> connector: Template erzeugen\n& verschlüsseln
+connector -> backbone: Verschlüsseltes Template\nregistrieren\n(Löschung nach x Minuten)
+activate backbone
+backbone --> connector: OK
+deactivate backbone
+connector --> backend: Template + Schlüssel\n(z.B. QR-Code/Link)
+deactivate connector
+backend --> website: QR-Code und Link
+deactivate backend
+website --> user: QR-Code und Link
+
+
+user -> app: Installiert & startet Enmeshed App
+activate app
+app -> app: Erstellt Identität\n(falls keine vorhanden)
+app -> backbone: Registriert Identität
+activate backbone
+backbone -> app: OK
+deactivate backbone
+app --> user: Lauffähig
+user -> app: Scan QR-Code
+app -> app: Lese QR-Code\n(TemplateId & Schlüssel)
+app -> backbone: Lade Template
+activate backbone
+backbone -> app: Rückgabe Template
+deactivate backbone
+app -> app: Entschlüsselung\nTemplate
+app --> user: Anzeige Template
+user -> app: Annahme Template
+app -> app: Daten aufbereiten\nEnmeshed Adresse\nevtl. Daten des Nutzers
+app -> app: Beziehung vorbereiten
+app -> app: Anfrage verschlüsseln
+app -> backbone: Anfrage senden
+activate backbone
+backbone --> app: OK
+app --> user: OK (müssen auf Annahme warten)
+deactivate app
+backbone -> connector: Anfrage senden
+deactivate backbone
+activate connector
+connector -> connector: Anfrage entschlüsseln
+connector -> connector: Anfrage prüfen
+connector -> backend: Anfrage weitergeben
+activate backend
+backend -> backend: Mapping Enmeshed Adresse\nmit RandomToken\nmit UserID
+backend -> website: Enmeshed Anfrage angekommen
+website -> user: Enmeshed Anfrage angekommen
+backend --> connector: OK
+deactivate backend
+connector -> connector: Beziehung vorbereiten
+connector -> connector: Annahme verschlüsseln
+connector -> backbone: Annahme versenden
+activate backbone
+backbone --> connector: OK
+connector -> backend: Angenommen
+activate backend
+backend -> website: Angenommen
+deactivate backend
+backbone -> app: Annahme
+deactivate backbone
+activate app
+app -> app: Annahme entschlüsseln
+app -> app: Annahme prüfen
+app <--> connector: Hello World
+
+
+
+
+
+
+
+
+@enduml

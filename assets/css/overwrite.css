@@ -77,3 +77,21 @@ html,
   -moz-box-shadow: 0px 2px 2px 0px rgba(221, 221, 221, 0.8);
   box-shadow: 0px 2px 2px 0px rgba(221, 221, 221, 0.8);
 }
+
+#main h1:not(:first-child) {
+  margin-top: 4rem;
+}
+
+#main h1:not(:first-child)::before {
+  display: inline-block;
+  content: "";
+  left: 0px;
+  top: 0px;
+  height: 1.2rem;
+  background-image: url(/assets/images/Logo.svg);
+  background-size: 0.8rem;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 1rem;
+  margin-right: 0.5rem;
+}
