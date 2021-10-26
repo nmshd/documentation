@@ -39,20 +39,32 @@ input[type="submit"],
 .sidebar a:hover {
   text-decoration: underline;
 }
+.sidebar {
+  opacity: 1;
+}
 
 @media (min-width: 80em) {
   html {
     font-size: 18px;
+  }
+  .sidebar {
+    opacity: 1;
   }
 }
 @media (min-width: 64em) {
   html {
     font-size: 18px;
   }
+  .sidebar {
+    opacity: 1;
+  }
 }
 @media (min-width: 48em) {
   html {
     font-size: 18px;
+  }
+  .sidebar {
+    opacity: 1;
   }
 }
 

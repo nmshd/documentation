@@ -9,14 +9,12 @@ main:
     url: /contribute
   - title: "Blog"
     url: /blog
-  - title: "About"
-    url: /about
 
 docs_explore:
   - title: First things first
     children:
       - title: "Introduction"
-        url: /explore/introduction
+        url: /explore
       - title: "Example Scenarios"
         url: /explore/example-scenarios
       - title: "Use Cases"

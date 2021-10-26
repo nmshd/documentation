@@ -1,4 +1,0 @@
----
-permalink: /imprint
-title: "Imprint"
----

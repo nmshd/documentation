@@ -87,10 +87,10 @@ author:
 
 footer:
   links:
-    - label: "Imprint"
+    - label: "Legal Disclosure"
       icon: "fas fa-fw fa-info"
-      url: "/imprint"
-    - label: "Privacy"
+      url: "/legal"
+    - label: "Privacy Statement"
       icon: "fas fa-fw fa-user-shield"
       url: "/privacy"
     - label: "Website"

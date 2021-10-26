@@ -1,6 +1,6 @@
 ---
 title: "Introduction"
-permalink: /explore/introduction
+permalink: /explore
 toc: true
 ---
 

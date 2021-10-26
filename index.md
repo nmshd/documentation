@@ -25,7 +25,7 @@ feature_row:
     alt: "placeholder image 2"
     title: "Explore"
     excerpt: "Find use cases, background information and introductions in the Explore Enmeshed section."
-    url: "#test-link"
+    url: "/explore"
     btn_label: "Explore"
     btn_class: "btn--primary"
   - image_path: /assets/images/integrate.jpg
