@@ -15,33 +15,16 @@ main:
 docs_explore:
   - title: First things first
     children:
-      - title: "What is Enmeshed?"
-        url: /explore/the-what
-      - title: "Why Enmeshed?"
-        url: /explore/the-why
-      - title: "How does it work?"
-        url: /explore/the-how
-      - title: "Who is behind Enmeshed?"
-        url: /explore/the-who
+      - title: "Introduction"
+        url: /explore/introduction
       - title: "Example Scenarios"
         url: /explore/example-scenarios
       - title: "Use Cases"
         url: /explore/use-cases
+      - title: "Features"
+        url: /explore/features
       - title: "Frequently Asked Questions"
         url: /explore/faq
-
-  - title: Capabilities
-    children:
-      - title: "Self-sovereign Identity"
-        url: /explore/ssi
-      - title: "Structured Communication"
-        url: /explore/structured-communication
-      - title: "Datawallet"
-        url: /explore/datawallet
-      - title: "Automated Data Processing"
-        url: /explore/data-processing
-      - title: "Zero Knowledge"
-        url: /explore/zero-knowledge
 
   - title: How we think
     children:
@@ -60,16 +43,31 @@ docs_explore:
       - title: "Process Considerations"
         url: /explore/process
 
-  - title: Technical Perspective
+  - title: Our Layers
     children:
-      - title: "Architecture"
-        url: /explore/architecture
-      - title: "Layers"
-        url: /explore/layers
-      - title: "Components"
-        url: /explore/components
-      - title: "Technical Building Blocks"
-        url: /explore/technical-building-blocks
+      - title: "Backbone Layer"
+        url: /explore/layers/backbone
+      - title: "Transport Layer"
+        url: /explore/layers/transport
+      - title: "Content Layer"
+        url: /explore/layers/content
+      - title: "Consumption Layer"
+        url: /explore/layers/consumption
+      - title: "Integration Layer"
+        url: /explore/layers/integration
+      - title: "User-Experience Layer"
+        url: /explore/layers/user-experience
+
+  - title: Components in-detail
+    children:
+      - title: "App"
+        url: /explore/app
+      - title: "Backbone"
+        url: /explore/backbone
+      - title: "Connector"
+        url: /explore/connector
+      - title: "Runtime"
+        url: /explore/runtime
 
   - title: Expert Corner
     children:
@@ -124,6 +122,8 @@ docs_integrate:
         url: /integrate/basics
       - title: "Connector Tutorial"
         url: /integrate/connector-tutorial
+      - title: "Create Relationships"
+        url: /integrate/create-relationships
 
   - title: Setting up the Connector
     children:

@@ -6,7 +6,7 @@ toc: true
 
 # Can you read my data?
 
-Short answer: No, we don't.
+Short answer: No, we can't.
 
 Long answer: Depends who "you" is and what you mean by "data".
 
