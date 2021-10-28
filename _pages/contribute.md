@@ -18,7 +18,7 @@ Additionally, there are multiple ways how you can contribute to Enmeshed:
 
 ## contribute documentation
 
-The documentation site itself uses gh pages and thus `jekyll` as the technical framework.  
+The documentation site itself uses GitHub Pages as the technical framework.  
 The preferred way of setting up a local "instance" of the environment is via a so-called "Development Container" in VS Code:
 
 install:
