@@ -18,16 +18,55 @@ Usually there are three Backbone Landscapes hosted in parallel: dev, stage and p
 
 It is possible to bring up additional landscapes on a temporary basis. These could be used for security or performance tests.
 
+A landscape can be trimmed by different scalability options, depending on the workload – and the actual usage of components.
+
 ## Backbone Infrastructure (Runtime)
 
 All required infrastructure and infrastructure services, like a database, a load balancer or a file storage are combined within the infrastructure building block. The infrastructure itself is not Enmeshed-specific, the composition of services and the overall configuration however is.
 
-The current infrastructure provider is Microsoft Azure.
+There are different possible cloud providers to host the backbone, the big hyperscalers or smaller ones. Even regional cloud providers would make sense for specific use-cases.
 
-- Gateway: A combination of firewall, load balancer, and proxy for the different services
-- BLOB Storage: Storage for binary large objects (BLOBs)
-- Database: Storage for columnar data
-- Notification Hub
+The current cloud provider for the centrally hosted Enmeshed Backbone is Microsoft Azure and as thus, the landscape details (and terminology) are primarily focused on the Azure setup. Although there are some Azure-specific components and configurations, most of the components are cloud-provider agnostic, i.e. they will exist in other cloud providers in an equivalent form.
+
+### Gateway
+
+The gateway is the very first touchpoint of an external request to the landscape. Its major tasks are load balancing and proxying, breaking up https-traffic and block malicious requests.
+
+Thus, the gateway is the first component which needs to be scaled depending on the workload. This is usually done by increasing the number of instances.
+
+### Virtual Network
+
+A virtual network is an internal network for custom routing and network separation rules. Some components, like the gateway, require virtual networks to be set up, as the components itself are routing traffic from one network (e.g. public Internet) to another network (internal network).
+
+With a virtual network, network traffic is encapsulated for every landscape. Servers and services within the virtual network are not reachable from the outside world and are not allowed to talk to external systems. However, the virtual network is not an encrypted network within the cloud provider, as this is technically so far not possible.
+
+### Key Vault
+
+Private keys, credentials or other secrets must be securely stored. For this, multiple key vaults are used. Depending on the security level, secrets can even be stored on a hardware security module. In addition to the encryption of the secrets, the key vault manages the authorizations of (admin-)users or services to this secret.
+
+### Service Bus
+
+The service bus is an event bus between all the different services which can be leveraged for cross-service communication and message handling.
+
+### Notification Hub
+
+To manage push notifications to the various push notification providers – like Apple Push Notification Service, Firebase Cloud Messaging, or Windows Notification Service – the notification hub is a service which manages registered devices and a generic interface to send out messages, no matter which push notification service needs to be addressed.
+
+### Database
+
+A database is used for columnar data storage and access. It is used to store metadata of the different Backbone entities.
+
+Nearly every request to a landscape results in a request to the database. Thus, the database also needs to be scaled depending on the number of requests and the complexity of database queries. The database can be scaled vertically (more power) and horizontally (more servers).
+
+### BLOB Storage
+
+Data of binary large objects (BLOBs) is not stored on the database, but on a kind of file system. Binary data is usually queried by ids and process in a whole (e.g. by providing a download for an encrypted file).
+
+A BLOB storage is usually scaled horizontally (more storage). Access performance is not critical for the given use-cases.
+
+### Kubernetes Cluster/Nodes
+
+Each request is handled by a service, running on a Kubernetes node within a whole Kubernetes cluster. Nodes can be scaled vertically (more power) and horizontally (more nodes). Depending on the number or complexity of the requests, the nodes are automatically scaled.
 
 ## Backbone Services (Runtime)
 

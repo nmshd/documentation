@@ -47,8 +47,6 @@ docs_explore:
         url: /explore/layers/backbone
       - title: "Transport Layer"
         url: /explore/layers/transport
-      - title: "Content Layer"
-        url: /explore/layers/content
       - title: "Consumption Layer"
         url: /explore/layers/consumption
       - title: "Integration Layer"

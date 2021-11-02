@@ -4,6 +4,19 @@ permalink: /explore/layers/consumption
 toc: true
 ---
 
+# Enmeshed Schema
+
+Cross-identity payload definitions, normalized structured data
+
+Examples:
+
+- Definition of "Mail"
+- Definition of how someone can request a certain attribute of another identity?
+
+# Possible additional Schemas
+
+# Schema Consumption
+
 Single-identity business logic implementation and data structures, either for persons or organizational identities.
 
 Examples:
