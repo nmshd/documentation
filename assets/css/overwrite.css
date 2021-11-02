@@ -107,3 +107,7 @@ html,
   width: 1rem;
   margin-right: 0.5rem;
 }
+
+.author__avatar img {
+  max-height: 110px;
+}
