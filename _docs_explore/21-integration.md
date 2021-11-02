@@ -9,5 +9,5 @@ Enmeshed is a flexible communication platform, with a rich default feature set a
 
 The Enmeshed Connector is the heart of an organization's Enmeshed identity: It provides a modern REST API within the organizations network.
 
-- Easy setup & integration
-- Support for integration modules and partner ecosystem
+-   Easy setup & integration
+-   Support for integration modules and partner ecosystem

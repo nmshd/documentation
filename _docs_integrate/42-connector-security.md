@@ -15,13 +15,13 @@ Additionally, any software component the Connector or its data touches should be
 
 Examples are:
 
-- the Docker host system (operating system, virtual machine, ...)
-- the Docker Runtime
-- the database (e.g. MongoDB)
-- the firewall
-- the virus scanner
-- the firmwares of any (network) component
-- possible integration platforms and modules
+-   the Docker host system (operating system, virtual machine, ...)
+-   the Docker Runtime
+-   the database (e.g. MongoDB)
+-   the firewall
+-   the virus scanner
+-   the firmwares of any (network) component
+-   possible integration platforms and modules
 
 # Trust
 

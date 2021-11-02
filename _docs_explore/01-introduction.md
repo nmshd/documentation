@@ -44,17 +44,17 @@ Enmeshed consists of three main components using different layers to communicate
 
 **Components:**
 
-- [App](/explore/app): Mobile and desktop software client for end users or small companies
-- [Backbone](/explore/backbone): A central communication component routing messages between identities without having access to the payload
-- [Connector](/explore/connector): Client for organizations which is hosted on-site with integration capabilities for business systems
+-   [App](/explore/app): Mobile and desktop software client for end users or small companies
+-   [Backbone](/explore/backbone): A central communication component routing messages between identities without having access to the payload
+-   [Connector](/explore/connector): Client for organizations which is hosted on-site with integration capabilities for business systems
 
 **Layers:**
 
-- [Backbone Layer](/explore/layers/backbone): Secured, zero-knowledge synchronization layer between App-to-Backbone or Connector-to-Backbone with cross-device capabilities and postal services
-- [Transport Layer](/explore/layers/transport): Cross-identity secure communication tunnel App-to-App, App-to-Connector or Connector-to-Connector
-- [Consumption Layer](/explore/layers/consumption): Cross-identity payload definitions and normalized data structures (schemas), as well as single-identity business logic implementation and data structures, either for persons or organizational identities.
-- [Integration Layer](/explore/layers/integration): Single-identity integration logic to existing business systems primarily for organizational identities.
-- [User Experience Layer](/explore/layers/user-experience): The user experience for Enmeshed related features primarily for end users.
+-   [Backbone Layer](/explore/layers/backbone): Secured, zero-knowledge synchronization layer between App-to-Backbone or Connector-to-Backbone with cross-device capabilities and postal services
+-   [Transport Layer](/explore/layers/transport): Cross-identity secure communication tunnel App-to-App, App-to-Connector or Connector-to-Connector
+-   [Consumption Layer](/explore/layers/consumption): Cross-identity payload definitions and normalized data structures (schemas), as well as single-identity business logic implementation and data structures, either for persons or organizational identities.
+-   [Integration Layer](/explore/layers/integration): Single-identity integration logic to existing business systems primarily for organizational identities.
+-   [User Experience Layer](/explore/layers/user-experience): The user experience for Enmeshed related features primarily for end users.
 
 ## The Enmeshed App
 

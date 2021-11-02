@@ -27,9 +27,9 @@ No special hardware requirements have been identified so far and as always, hard
 
 A good starting point for hosting the Docker image of the Connector would be the following:
 
-- 1 CPU
-- 512MB RAM
-- 1GB HDD
+-   1 CPU
+-   512MB RAM
+-   1GB HDD
 
 Depending on the usage scenario, higher hardware requirements might be necessary.
 

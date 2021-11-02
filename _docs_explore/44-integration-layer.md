@@ -8,5 +8,5 @@ Single-identity integration logic to existing business systems primarily for org
 
 Examples:
 
-- Automatically send a received "AttributesChangeRequest" to an enterprise service bus
-- Create tickets on the integrated HCM system if an answer to a sent salary statement was received
+-   Automatically send a received "AttributesChangeRequest" to an enterprise service bus
+-   Create tickets on the integrated HCM system if an answer to a sent salary statement was received

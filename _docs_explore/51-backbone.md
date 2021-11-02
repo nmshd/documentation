@@ -12,9 +12,9 @@ The Enmeshed Backbone embraces the whole centrally hosted services. It consists 
 
 Usually there are three Backbone Landscapes hosted in parallel: dev, stage and prod.
 
-- Dev Landscape: Is used for Backbone development purposes only and shouldn't be used for Enmeshed clients
-- Stage Landscape: Is used for Enmeshed tests on the current Backbone version or might be used for tests on a future Backbone version
-- Prod Landscape: All productive environments should access the prod landscape only. Only the prod landscape has a productive configuration like scalability, replication or operations in place.
+-   Dev Landscape: Is used for Backbone development purposes only and shouldn't be used for Enmeshed clients
+-   Stage Landscape: Is used for Enmeshed tests on the current Backbone version or might be used for tests on a future Backbone version
+-   Prod Landscape: All productive environments should access the prod landscape only. Only the prod landscape has a productive configuration like scalability, replication or operations in place.
 
 It is possible to bring up additional landscapes on a temporary basis. These could be used for security or performance tests.
 
@@ -74,12 +74,12 @@ Each request is handled by a service, running on a Kubernetes node within a whol
 
 The following services are available on the runtime:
 
-- Devices Service: Manages the device profiles for authenticating against the different services. Additionally keeps track of the identity behind devices and the registration of push notification tokens of the respective messaging providers (e.g. Apple Push Notification Service, Firebase Cloud Messaging)
-- Messages Service: Provides an interface for submitting and receiving messages
-- Relationships Service: Keeps track of relationships between identities, their status and possible change requests
-- Files Service: Files or other "static" binaries can be stored via the files service and used as attachments for messages.
-- Tokens Service: A repository for storing and consuming usually short-lived encrypted information, e.g. for QRCode contents.
-- Synchronization Service: Cross device synchronization of local identity data
+-   Devices Service: Manages the device profiles for authenticating against the different services. Additionally keeps track of the identity behind devices and the registration of push notification tokens of the respective messaging providers (e.g. Apple Push Notification Service, Firebase Cloud Messaging)
+-   Messages Service: Provides an interface for submitting and receiving messages
+-   Relationships Service: Keeps track of relationships between identities, their status and possible change requests
+-   Files Service: Files or other "static" binaries can be stored via the files service and used as attachments for messages.
+-   Tokens Service: A repository for storing and consuming usually short-lived encrypted information, e.g. for QRCode contents.
+-   Synchronization Service: Cross device synchronization of local identity data
 
 ## Backbone Services and Libraries (Designtime)
 
