@@ -8,12 +8,12 @@ permalink: /integrate/connector-installation
 ## MongoDB
 
 The Connector requires a MongoDB database as its data storage. MongoDB is a document-oriented database. For compatibility and security reasons, the most up-to-date version of MongoDB should be used.
-For more information, please see https://www.mongodb.com
+For more information, please see <https://www.mongodb.com>.
 
 ## Docker Runtime
 
 The Connector requires a Docker Runtime: Docker is a virtualization technology which introduces highly portable software containers. The connector is shipped and updated as such a Docker container - the Docker Runtime is the runtime environment which can execute the Docker containers. For compatibility and security reasons, the most up-to-date version of the Docker Runtime should be used.
-For more information, please see https://www.docker.com
+For more information, please see <https://www.docker.com>.
 
 Visit [the official docker docs](https://docs.docker.com/get-docker/) for installation guides.
 
@@ -27,15 +27,15 @@ No special hardware requirements have been identified so far and as always, hard
 
 A good starting point for hosting the Docker image of the Connector would be the following:
 
-- 1 CPU
-- 512MB RAM
-- 1GB HDD
+-   1 CPU
+-   512MB RAM
+-   1GB HDD
 
 Depending on the usage scenario, higher hardware requirements might be necessary.
 
 ## Internet Connectivity
 
-A reliable and fast internet connection is mandatory for running the Connector. However, the Connector is only communicating with the Backbone so the corresponding domain (e.g. https://prod.enmeshed.eu) can be whitelisted and the associated certificate can be additionally pinned.
+A reliable and fast internet connection is mandatory for running the Connector. However, the Connector is only communicating with the Backbone so the corresponding domain (e.g. `https://prod.enmeshed.eu`) can be whitelisted and the associated certificate can be additionally pinned.
 
 ## Organization's Identity
 

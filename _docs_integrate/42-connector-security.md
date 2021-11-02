@@ -15,13 +15,13 @@ Additionally, any software component the Connector or its data touches should be
 
 Examples are:
 
-- the Docker host system (operating system, virtual machine, ...)
-- the Docker Runtime
-- the database (e.g. MongoDB)
-- the firewall
-- the virus scanner
-- the firmwares of any (network) component
-- possible integration platforms and modules
+-   the Docker host system (operating system, virtual machine, ...)
+-   the Docker Runtime
+-   the database (e.g. MongoDB)
+-   the firewall
+-   the virus scanner
+-   the firmwares of any (network) component
+-   possible integration platforms and modules
 
 # Trust
 
@@ -43,7 +43,7 @@ It is best practice to block unnecessary access from and to software components 
 
 ## Outbound External Connection: Internet
 
-The connector uses an TLS-secured Internet connection to the Enmeshed Backbone which runs on the domain https://prod.enmeshed.eu. Your firewall must not block access to this domain, otherwise the Connector won't work.
+The connector uses an TLS-secured Internet connection to the Enmeshed Backbone which runs on the domain `https://prod.enmeshed.eu`. Your firewall must not block access to this domain, otherwise the Connector won't work.
 
 To access the latest updates, other routes might need to be opened within the firewall settings.
 

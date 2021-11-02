@@ -28,12 +28,12 @@ This approach allows us to implement features for cryptographic classes, for exa
 
 The implementation of the transport layer is the transport library. It combines the features of different third party libraries and the crypto library to support the following features:
 
-- Communication with the Backbone
-- Synchronization with the Backbone
-- Encrypting and decrypting communication with other identities
-- Managing identities and devices
-- Managing cryptographic artifacts
-- Cross-device synchronization of the datawallet
+-   Communication with the Backbone
+-   Synchronization with the Backbone
+-   Encrypting and decrypting communication with other identities
+-   Managing identities and devices
+-   Managing cryptographic artifacts
+-   Cross-device synchronization of the datawallet
 
 ## Content Library
 
@@ -43,10 +43,10 @@ To separate the actual payload of messages with the message structure and envelo
 
 Whereas the transport library implements the foundation of communication between identities and the actual secure tunnel between identities, the content library defines the payload on top of this tunnel. You can see it as the definition of a contract between all identities.
 
-- Attributes
-- Claims
-- Message formats like Mails, RequestMails, technical messages
-- Transactional formats like Requests
+-   Attributes
+-   Claims
+-   Message formats like Mails, RequestMails, technical messages
+-   Transactional formats like Requests
 
 ## Consumption Library
 

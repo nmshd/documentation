@@ -6,8 +6,8 @@ toc: true
 
 For creating a relationship, we differentiate between "incoming" and "outgoing" flows:
 
-- Incoming means, that the Connector creates a template, shares it over a separate channel and receives a relationship creation change request, which it then can accept or reject. From an organization's perspective, this is the common flow.
-- Outgoing is the other way round: The Connector (or a business user of the organization) receives a relationship template created by another party, and sends out the relationship creation change request to the other party, which can then be accepted (or rejected).
+-   Incoming means, that the Connector creates a template, shares it over a separate channel and receives a relationship creation change request, which it then can accept or reject. From an organization's perspective, this is the common flow.
+-   Outgoing is the other way round: The Connector (or a business user of the organization) receives a relationship template created by another party, and sends out the relationship creation change request to the other party, which can then be accepted (or rejected).
 
 # Incoming Flow
 
@@ -23,8 +23,8 @@ In order to receive relationships, an own relationship template needs to be crea
 
 We differentiate between two types of relationship templates:
 
-- Identity-specific templates which are short-living personalized templates for known identities/users, which also could incorporate personal data to fill the user's identity when scanned. This is usually the case if the template is created for an authenticated user session. It must be ensured that only the user which personal data is stored within the template has access to the template.
-- Identity-agnostic templates for unknown identities/users or scenarios where personal information should not be available in the template. These templates are usually long-living templates for new user registrations or printouts.
+-   Identity-specific templates which are short-living personalized templates for known identities/users, which also could incorporate personal data to fill the user's identity when scanned. This is usually the case if the template is created for an authenticated user session. It must be ensured that only the user which personal data is stored within the template has access to the template.
+-   Identity-agnostic templates for unknown identities/users or scenarios where personal information should not be available in the template. These templates are usually long-living templates for new user registrations or printouts.
 
 ## Create Token for Relationship Template
 

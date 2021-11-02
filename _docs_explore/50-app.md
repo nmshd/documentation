@@ -12,17 +12,17 @@ For each of the various platforms, each version of the app is packaged into a pl
 
 Following binaries are currently created:
 
-- iOS App for the Apple AppStore
-- Android App Bundle for the Google PlayStore
-- Electron App for Microsoft Windows
+-   iOS App for the Apple AppStore
+-   Android App Bundle for the Google PlayStore
+-   Electron App for Microsoft Windows
 
 ## Platform-dependant App Sourcecode and Build environment
 
 Alongside the platform-independant code, platform-dependant source code is sometimes necessary. Also the build-steps and processes vary across the different platforms.
 
-- Cordova Environment for building iOS and Android apps
-- Electron Environment for building Windows applications
-- Web Environment for developing the app
+-   Cordova Environment for building iOS and Android apps
+-   Electron Environment for building Windows applications
+-   Web Environment for developing the app
 
 ## App User Interface
 

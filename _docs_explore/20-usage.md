@@ -60,9 +60,9 @@ Once there is a single player in the game, and even if this single player is a "
 
 Looking at the history of decentral platforms, there also have been quite complex solutions to simple problems, like:
 
-- Network outages effectively tear the decentralized network in parts. A so-called "network split" happens, in which two separate networks forge separate blocks with the given transactions. After the outage is fixed, both chains must be merged into one. The former forged transactions within separated blocks need to be completely rewritten to new blocks (receiving new timestamps).
-- Parties do not agree on common terms, or network protocols, or default configurations with regards to the platform. The platform is split up, resulting in two completely separate running instances of one platform.
-- A bad party does not play nice. The platform either does something against the bad party (e.g. reverting bad transactions) or not depending on an unspecified rule-set - or who was affected in the end.
+-   Network outages effectively tear the decentralized network in parts. A so-called "network split" happens, in which two separate networks forge separate blocks with the given transactions. After the outage is fixed, both chains must be merged into one. The former forged transactions within separated blocks need to be completely rewritten to new blocks (receiving new timestamps).
+-   Parties do not agree on common terms, or network protocols, or default configurations with regards to the platform. The platform is split up, resulting in two completely separate running instances of one platform.
+-   A bad party does not play nice. The platform either does something against the bad party (e.g. reverting bad transactions) or not depending on an unspecified rule-set - or who was affected in the end.
 
 {% endcomment %}
 
@@ -70,22 +70,22 @@ Looking at the history of decentral platforms, there also have been quite comple
 
 Let us categorize the
 
-- Secure communication between parties which cannot be read by an outsider (nobody can read communication from others)
-- Trusted communication between parties which cannot be changed by anyone (nobody can change the payload of communications)
-- Trusted communication between parties which cannot be faked by anyone (nobody can impersonate another identity)
-- Trusted timestamps of the communication between parties (having a proof that a communication happened at a given time)
-- Securely authenticate a digital identity (nobody can impersonate another identity)
-- Securely proof the authorization of a digital identity (having a proof that an identity received something by another identity)
-- Having a normalized set of attributes for identites, like person or organization details, addresses, communication information
-- Possibility to define a custom set of attributes for specific business domains, e.g. digital school certificates
-- Request and share attributes between identities
-- Have an overview of contacts who store attributes
-- Manage attributes of an identity
-- Automate attribute management and sharing, e.g. automatically submit an address change to contacts who had the old address
+-   Secure communication between parties which cannot be read by an outsider (nobody can read communication from others)
+-   Trusted communication between parties which cannot be changed by anyone (nobody can change the payload of communications)
+-   Trusted communication between parties which cannot be faked by anyone (nobody can impersonate another identity)
+-   Trusted timestamps of the communication between parties (having a proof that a communication happened at a given time)
+-   Securely authenticate a digital identity (nobody can impersonate another identity)
+-   Securely proof the authorization of a digital identity (having a proof that an identity received something by another identity)
+-   Having a normalized set of attributes for identites, like person or organization details, addresses, communication information
+-   Possibility to define a custom set of attributes for specific business domains, e.g. digital school certificates
+-   Request and share attributes between identities
+-   Have an overview of contacts who store attributes
+-   Manage attributes of an identity
+-   Automate attribute management and sharing, e.g. automatically submit an address change to contacts who had the old address
 
 Enmeshed tries to tackle all of these problems with a single solution.
 
-- Existing digital accounts for customers or employees can be integrated (supporting multiple identity providers)
-- Existing data can be shared with the identity to speed up the onboarding
-- Multi-Device Support
-- Multi-Device Synchronization
+-   Existing digital accounts for customers or employees can be integrated (supporting multiple identity providers)
+-   Existing data can be shared with the identity to speed up the onboarding
+-   Multi-Device Support
+-   Multi-Device Synchronization
