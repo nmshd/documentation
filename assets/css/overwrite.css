@@ -1,0 +1,113 @@
+@-webkit-keyframes intro {
+}
+@keyframes intro {
+}
+
+b,
+i,
+strong,
+em,
+blockquote,
+p,
+q,
+span,
+figure,
+img,
+h1,
+h2,
+header,
+input,
+a,
+tr,
+td,
+form button,
+input[type="submit"],
+.btn,
+.highlight,
+.archive__item-teaser {
+  -webkit-transition: none;
+  transition: none;
+}
+
+.sidebar p,
+.sidebar li {
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
+    "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.sidebar a:hover {
+  text-decoration: underline;
+}
+.sidebar {
+  opacity: 1;
+}
+
+@media (min-width: 80em) {
+  html {
+    font-size: 18px;
+  }
+  .sidebar {
+    opacity: 1;
+  }
+}
+@media (min-width: 64em) {
+  html {
+    font-size: 18px;
+  }
+  .sidebar {
+    opacity: 1;
+  }
+}
+@media (min-width: 48em) {
+  html {
+    font-size: 18px;
+  }
+  .sidebar {
+    opacity: 1;
+  }
+}
+
+html,
+.greedy-nav {
+  background-color: #ffffff !important;
+}
+
+.greedy-nav::before {
+  position: relative;
+  left: 0px;
+  content: "";
+  background-image: url(/assets/images/Logo.svg);
+  background-size: 100% 100%;
+  width: 30px;
+  height: 30px;
+}
+
+.masthead {
+  border-bottom: 1px #cccccc solid;
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(221, 221, 221, 0.8);
+  -moz-box-shadow: 0px 2px 2px 0px rgba(221, 221, 221, 0.8);
+  box-shadow: 0px 2px 2px 0px rgba(221, 221, 221, 0.8);
+}
+
+#main h1:not(:first-child) {
+  margin-top: 4rem;
+}
+
+#main h1:not(:first-child)::before {
+  display: inline-block;
+  content: "";
+  left: 0px;
+  top: 0px;
+  height: 1.2rem;
+  background-image: url(/assets/images/Logo.svg);
+  background-size: 0.8rem;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 1rem;
+  margin-right: 0.5rem;
+}
+
+.author__avatar img {
+  max-height: 110px;
+}

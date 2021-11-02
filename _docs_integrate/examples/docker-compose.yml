@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  connector:
+    container_name: connector
+    image: registry.enmeshed.eu/bc:<version-or-latest> # specify a tag (e.g. 1.0.0) or use the 'latest' tag
+    environment:
+      DATABASE_CONNECTION_STRING: mongodb://<db-username>:<db-password>@mongodb:27017/?authSource=admin&readPreference=primary&ssl=false
+      ACCOUNT: <account-name> # define an account name here (useful for running multiple connectors on one MongoDB)
+      API_KEY: <api-key> # choose a secure api key to communicate with the connector
+    ports:
+      - <exposed-port>:80 # define the port the connector should listen to on the host
+    # volumes:
+    #   - </folder/of/your/choice>:/usr/app/logs # select an existing directory of your choice where your log files should be saved
+    depends_on:
+      - mongodb
+    restart: always
+
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: <db-username>
+      MONGO_INITDB_ROOT_PASSWORD: <db-password>
+    volumes:
+      - mongodb_data:/data/db
+    restart: always
+
+volumes:
+  mongodb_data:

@@ -1,0 +1,14 @@
+{
+  "name": "@nmshd/docs",
+  "version": "1.0.0",
+  "description": "The overarching Enmeshed documentation",
+  "homepage": "https://enmeshed.eu",
+  "license": "MIT",
+  "author": "j&s-soft GmbH",
+  "scripts": {
+    "start": "bundle exec jekyll serve"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

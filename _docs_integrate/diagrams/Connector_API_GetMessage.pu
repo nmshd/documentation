@@ -1,0 +1,34 @@
+@startuml Connector_GetMessage
+!include ../../assets/plantuml/styles.iuml
+
+title Connector: Get Message
+caption Copyright 2021, j&s-soft GmbH
+
+box "Organizations's Infrastructure"
+participant "Business\nSystem" as backend
+participant "Enmeshed\nConnector" as connector
+end box
+participant "Enmeshed\nBackbone" as backbone
+actor "Sender" as user
+
+== Prerequisites ==
+backbone <-> connector: Verified Enmeshed Organization Identity
+connector <-> user: Existing Enmeshed Relationship
+
+== Send Message ==
+
+-> backend ++: Start\n(with sender id)
+backend -> connector ++: GET /Messages\n- senderId
+
+connector -> backbone ++: Get messages
+backbone -> backbone: Retrieve messages\nof sender
+backbone --> connector --: Returns messages
+
+connector -> connector: Decrypt every message
+connector -> connector: Validate every message
+
+connector --> backend --: Returns messages
+
+<-- backend --: Stop\n(with messages)
+
+@enduml
