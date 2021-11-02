@@ -24,13 +24,6 @@
         "source.organizeImports": true
     },
     "files.eol": "\n",
-    "todo-tree.filtering.excludeGlobs": [
-        "**/node_modules/**",
-        "**/dist/**",
-        "**/dist-test/**",
-        "**/lib-web/**",
-        "**/*.min.*",
-        "**/*.map"
-    ],
+    "todo-tree.filtering.excludeGlobs": ["**/node_modules/**", "**/dist/**", "**/dist-test/**", "**/lib-web/**", "**/*.min.*", "**/*.map"],
     "todo-tree.general.tags": ["TODO:"]
 }
