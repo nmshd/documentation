@@ -47,7 +47,3 @@ Alternatively, you can use the predefined VS Code Tasks
 
 -   `Serve` &rarr; see above
 -   `Build` &rarr; build the jekyll site
-
-```js
-console.log();
-```
