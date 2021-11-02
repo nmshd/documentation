@@ -25,7 +25,7 @@
     "fenced-code-language": true,
     "no-empty-links": true,
     "proper-names": {
-        "names": ["JavaScript", "VSCode"]
+        "names": ["JavaScript", "VSCode", "OpenAPI"]
     },
     "no-alt-text": true,
     "code-block-style": { "style": "fenced" }
