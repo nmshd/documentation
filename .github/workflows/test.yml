@@ -1,0 +1,13 @@
+name: Test
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  run-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npx prettier -c **/*.md **/*.json **/*.yml **/*.js **/*.html
