@@ -1,0 +1,32 @@
+{
+    "default": false,
+    "header-increment": true,
+    "header-style": {
+        "style": "atx"
+    },
+    "no-reversed-links": true,
+    "commands-show-output": true,
+    "no-missing-space-atx": true,
+    "no-duplicate-header": {
+        "siblings_only": true
+    },
+    "no-trailing-punctuation": {
+        "punctuation": ".,;:。，；："
+    },
+    "no-blanks-blockquote": true,
+    "ol-prefix": {
+        "style": "ordered"
+    },
+    "no-inline-html": true,
+    "no-bare-urls": true,
+    "no-space-in-emphasis": true,
+    "no-space-in-code": true,
+    "no-space-in-links": true,
+    "fenced-code-language": true,
+    "no-empty-links": true,
+    "proper-names": {
+        "names": ["JavaScript", "VSCode"]
+    },
+    "no-alt-text": true,
+    "code-block-style": { "style": "fenced" }
+}

@@ -20,7 +20,7 @@ match-type="regex"
 
 > </rapi-doc-mini>
 
-The full set of APIs can be found <a href="https://enmeshed.is.enmeshed.eu/docs/rapidoc">in the OpenAPI specification</a> of every Connector.
+The full set of APIs can be found [in the OpenAPI specification](https://enmeshed.is.enmeshed.eu/docs/rapidoc) of every Connector.
 
 Some Flows:
 ![Test Diagram]({{site.plantuml}}integrate/diagrams/Test.pu)

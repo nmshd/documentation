@@ -12,3 +12,4 @@ jobs:
       - uses: actions/checkout@v2
       - run: npx prettier -c .
       - run: npm audit
+      - run: npx markdownlint-cli **/*.md

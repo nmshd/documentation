@@ -17,6 +17,9 @@ This documentation is meant as an overarching documentation for the whole Enmesh
 The documentation itself uses GitHub pages and thus `jekyll` as the technical framework.  
 The preferred way of setting up a local "instance" of the environment is via a so-called "Development Container" in VS Code:
 
+VSCode
+JavaScript
+
 Install:
 
 -   [Visual Studio Code](https://code.visualstudio.com/)
@@ -44,3 +47,7 @@ Alternatively, you can use the predefined VS Code Tasks
 
 -   `Serve` &rarr; see above
 -   `Build` &rarr; build the jekyll site
+
+```js
+console.log();
+```
