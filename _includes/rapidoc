@@ -8,7 +8,7 @@
   default-api-server="https://enmeshed.is.enmeshed.eu/"
   api-key-name="x-api-key"
   api-key-location="header"
-  api-key-value="Ewf5f2fL9IC5qFLHSJx2mJcjY3b4BwRq"
+  api-key-value="apikey"
   layout="column"
   spec-url="https://enmeshed.is.enmeshed.eu/docs/json"
   paths-expanded="false"
