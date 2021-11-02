@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npx prettier -c **/*.md **/*.json **/*.yml **/*.js **/*.html
+      - run: npx prettier -c .
