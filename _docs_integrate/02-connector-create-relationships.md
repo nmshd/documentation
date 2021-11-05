@@ -17,7 +17,9 @@ The Connector creates the relationship template, renders it for a user and event
 
 In order to receive relationships, an own relationship template needs to be created first. This is done by calling the POST /RelationshipTemplates/Own route.
 
-![Create Relationship Template Sequence Diagram](images/Connector_CreateTemplate.png "Create Relationship Template")
+![Create Relationship Template Sequence Diagram](/assets/diagrams/integrate/Connector_CreateTemplate.png "Create Relationship Template")
+
+### try it out
 
 {% include rapidoc api_route_regex="^post /api/v1/RelationshipTemplates/Own$" %}
 
@@ -44,7 +46,7 @@ Once the user has reviewed the relationship template and created the correspondi
 
 The relationship creation change request can be accessed either manually via a REST API (pull) or it can be pushed to a configurable custom HTTP endpoint.
 
-![Get Open Relationship Requests Sequence Diagram](images/Connector_GetOpenRelationshipRequests.png "Get Open Relationship Requests")
+![Get Open Relationship Requests Sequence Diagram](/assets/diagrams/integrate/Connector_GetOpenRelationshipRequests.png "Get Open Relationship Requests")
 
 {% include rapidoc api_route_regex="^post /api/v1/Account/Sync$" %}
 
@@ -59,7 +61,7 @@ Once the data has been processed on the business system, it is time to respond t
 
 If the change is accepted, the connection to the requestor is automatically generated and from this point in time, both parties may communicate over a secure, bi-directional tunnel.
 
-![Accept Relationship Request Sequence Diagram](images/Connector_AcceptRelationshipRequest.png "Accept Relationship Request")
+![Accept Relationship Request Sequence Diagram](/assets/diagrams/integrate/Connector_AcceptRelationshipRequest.png "Accept Relationship Request")
 
 {% include rapidoc api_route_regex="^put /api/v1/Relationships/{id}/Changes/{changeId}/Accept|put /api/v1/Relationships/{id}/Changes/{changeId}/Reject$" %}
 
@@ -71,7 +73,7 @@ The Connector receives a Relationship Template (or Token) from an external party
 
 In order to send out own relationship request to other parties, a template must be fetched from the external party. The template is created by the external party and then usually shared by a truncated reference over a link or QR code. This reference can be used to retrieve the actual template, for example with requested attribute.
 
-![Get Relationship Template Sequence Diagram](images/Connector_GetTemplate.png "Get Relationship Template")
+![Get Relationship Template Sequence Diagram](/assets/diagrams/integrate/Connector_GetTemplate.png "Get Relationship Template")
 
 {% include rapidoc api_route_regex="^post /api/v1/RelationshipTemplates/Peer$" %}
 
@@ -80,7 +82,7 @@ In order to send out own relationship request to other parties, a template must 
 Once the external relationship template has been successfully read in, and the terms/requested content be found acceptable, one can answer the template with a relationship creation change request. This is done by calling the POST /Relationships route.
 This request contains - equivalent to incoming relationship creation changes - any information the other party requested, for example legal and contact information. Thus, one should parse the given relationship template correctly and send the required attributes within this request. Otherwise the other party might reject the relationship creation change, as requested attributes are not existing.
 
-![Create Relationship Request Sequence Diagram](images/Connector_CreateRelationshipRequest.png "Create Relationship Request")
+![Create Relationship Request Sequence Diagram](/assets/diagrams/integrate/Connector_CreateRelationshipRequest.png "Create Relationship Request")
 
 {% include rapidoc api_route_regex="^post /api/v1/Relationships$" %}
 
