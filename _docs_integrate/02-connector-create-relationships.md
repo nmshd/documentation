@@ -19,13 +19,11 @@ In order to receive relationships, an own relationship template needs to be crea
 
 ![Create Relationship Template Sequence Diagram](/assets/diagrams/integrate/Connector_CreateTemplate.png "Create Relationship Template")
 
-### try it out
-
 {% include rapidoc api_route_regex="^post /api/v1/RelationshipTemplates/Own$" %}
 
 We differentiate between two types of relationship templates:
 
--   Identity-specific templates which are short-living personalized templates for known identities/users, which also could incorporate personal data to fill the user's identity when scanned. This is usually the case if the template is created for an authenticated user session. It must be ensured that only the user which personal data is stored within the template has access to the template.
+-   Identity-specific templates which are short-living personalized templates for known identities/users, which also could incorporate personal data to fill the user's identity when scanned. This is usually the case if the template is created for an authenticated user session. It must be ensured that only the user whose personal data is stored within the template has access to the template.
 -   Identity-agnostic templates for unknown identities/users or scenarios where personal information should not be available in the template. These templates are usually long-living templates for new user registrations or printouts.
 
 ## Create Token for Relationship Template
