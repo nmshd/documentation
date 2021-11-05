@@ -68,6 +68,12 @@ Go through the following steps to start the connector.
 4. (optional) follow the steps under [log file mounting](#log-file-mounting) if you want to persist and access the log files on the host system
 5. execute `docker-compose up -d` in the shell
 
+# Validate the connector installation
+
+You can validate the connector installation by checking it's health route. Simply access `<connector-baseurl>/health` in your browser or using curl.
+
+If the swagger documentation is enabled you can also access it under `<connector-baseurl>/docs`
+
 # Log file mounting
 
 1. Uncomment the volume mapping in the created `docker-compose.yml` file
