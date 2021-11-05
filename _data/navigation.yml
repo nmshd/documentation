@@ -123,9 +123,9 @@ docs_integrate:
 
   - title: Setting up the Connector
     children:
-      - title: "Connector Installation"
+      - title: "Installation"
         url: /integrate/connector-installation
-      - title: "Connector Configuration"
+      - title: "Configuration"
         url: /integrate/connector-configuration
       - title: "Troubleshooting"
         url: /integrate/connector-troubleshooting
@@ -155,8 +155,8 @@ docs_integrate:
     children:
       - title: "Connector SDKs"
         url: /integrate/connector-sdks
-      - title: "Modules"
-        url: /integrate/connector-modules
+      - title: "Custom Connector Modules"
+        url: /integrate/custom-connector-modules
 
   - title: Operations
     children:

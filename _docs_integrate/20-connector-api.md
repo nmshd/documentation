@@ -22,7 +22,7 @@ To fetch the Open API documentation of the Connector's REST API, visit the follo
 -   /docs/yaml : The Connector's OpenAPI specification in YAML format
 -   /docs/json : The Connector's OpenAPI specification in JSON format
 
-You can view these files with the [Swagger Editor](https://editor.swagger.io/) or automatically create test routes within your favorite API Clients (e.g. Postman or Insomnia).
+You can view these files with the [Swagger Editor](https://editor.swagger.io/) or automatically import them within your favorite API Clients (e.g. Postman or Insomnia).
 
 # API Authentication
 

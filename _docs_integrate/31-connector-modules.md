@@ -1,4 +1,4 @@
 ---
-title: "Connector Modules"
-permalink: /integrate/connector-modules
+title: "Custom Connector Modules"
+permalink: /integrate/custom-connector-modules
 ---

@@ -23,8 +23,6 @@ repository: "nmshd/nmshd.github.io"
 minimal_mistakes_skin: air
 search: true
 
-plantuml: https://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/
-
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
