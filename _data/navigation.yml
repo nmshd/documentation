@@ -155,8 +155,8 @@ docs_integrate:
     children:
       - title: "Connector SDKs"
         url: /integrate/connector-sdks
-      - title: "Modules"
-        url: /integrate/connector-modules
+      - title: "Custom Connector Modules"
+        url: /integrate/custom-connector-modules
 
   - title: Operations
     children:
