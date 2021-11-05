@@ -3,7 +3,7 @@ title: "Connector Tutorial"
 permalink: /integrate/connector-tutorial
 ---
 
-We've summarized all the information you need to get an Connector up and running in this tutorial.
+We've summarized all the information you need to get a Connector up and running in this tutorial.
 
 # Testing the Connector
 

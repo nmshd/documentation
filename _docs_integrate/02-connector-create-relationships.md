@@ -42,7 +42,7 @@ There are multiple ways how the token reference can be communicated to the user:
 
 Once the user has reviewed the relationship template and created the corresponding relationship creation change request, it is submitted over the backbone (as a cipher only the organization can decrypt) to the organization's Connector. The Connector decrypts the cipher and stores the relationship creation change request in the database.
 
-The relationship creation change request can be accessed either manually via a REST API (pull) or it can be pushed to a configurable custom HTTP endpoint.
+The relationship creation change request can be accessed either manually via a REST API (pull) or it can be pushed to a [configurable custom HTTP endpoint](/integrate/connector-configuration).
 
 ![Get Open Relationship Requests Sequence Diagram](/assets/diagrams/integrate/Connector_GetOpenRelationshipRequests.png "Get Open Relationship Requests")
 
@@ -55,7 +55,7 @@ But please keep in mind that the user might not like to wait that long. If there
 
 ## Respond to Relationship Change Request
 
-Once the data has been processed on the business system, it is time to respond to the requested relationship change: Either the change is accepted, or rejected. Both responses can transfer additional data to the requestor, e.g. the created customer id, contract id or suchlike (accept) - or the rejection reason, like an invalid required attribute or an insufficient financial score.
+Once the data has been processed on the business system, it is time to respond to the relationship change request: you can either accept or reject it. Both responses can transfer additional data to the requestor, e.g. the created customer id, contract id or suchlike (accept) - or the rejection reason, like an invalid required attribute or an insufficient financial score.
 
 If the change is accepted, the connection to the requestor is automatically generated and from this point in time, both parties may communicate over a secure, bi-directional tunnel.
 
