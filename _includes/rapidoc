@@ -16,6 +16,5 @@
     bg-color="#f9f9fb"
     match-paths="{{ include.api_route_regex }}"
     match-type="regex"
->
-</rapi-doc-mini>
-<br>
+></rapi-doc-mini>
+<br />
