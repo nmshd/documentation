@@ -47,3 +47,12 @@ Alternatively, you can use the predefined VS Code Tasks
 
 -   `Serve` &rarr; see above
 -   `Build` &rarr; build the jekyll site
+
+## regenerate diagrams
+
+execute
+
+```shell
+java -jar puml.jar _docs_integrate/diagrams/*.pu -o "$PWD/assets/diagrams/integrate"
+
+```
