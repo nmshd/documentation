@@ -61,6 +61,10 @@ Extendable excerpt of the default config
 
 ```json
 {
+    "transportLibrary": {
+        "platformClientId": "CLIENT_ID"
+        "platformClientSecret": "CLIENT_SECRET"
+    },
     "database": {
         "connectionString": "mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]",
         "dbName": "a-db-name"
@@ -68,6 +72,20 @@ Extendable excerpt of the default config
     "modules": { ... }
 }
 ```
+
+## `transportLibrary`
+
+### `clientId`
+
+> environment variable alias: PLATFORM_CLIENT_ID
+
+The client id required to contact the enmeshed platform.
+
+### `clientSecret`
+
+> environment variable alias: PLATFORM_CLIENT_SECRET
+
+The client secret required to contact the enmeshed platform.
 
 ## `database`
 
