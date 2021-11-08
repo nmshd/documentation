@@ -9,9 +9,9 @@ There are two ways to configure the connector
 
 Environment variables are translated to JSON and are overwriting the default config.
 
--   Uppercase words become lowercase (e.G. ACCOUNT -> account)
--   Nested JSON structures can be shaped using a double underscore. (e.g. `X__Y__Z="a"` becomes { "x": { "y": { "z": "a" } } })
--   A single underscore is translated to camelCase. (e.g.)
+-   Uppercase words become lowercase (e.G. `ACCOUNT` -> `account`)
+-   Nested JSON structures can be shaped using a double underscore. (e.g. `X__Y__Z="a"` becomes `{ "x": { "y": { "z": "a" } } }`)
+-   A single underscore is translated to camelCase. (e.g. `CONNECTION_STRING` -> `connectionString`)
 
 > Example: You want to enable the autoAcceptRelationshipCreationChanges module using an environment variable
 >
