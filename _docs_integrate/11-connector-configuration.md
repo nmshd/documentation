@@ -118,11 +118,14 @@ Extendable configuration:
     "enabled": true,
     "cors": {
         "origin": false
-    }
+    },
+    "apiKey": "an-api-key"
 }
 ```
 
 -   `cors`: configure the CORS headers. Valid options can be found [here](https://github.com/expressjs/cors#configuration-options).
+-   `apiKey`: configure the API-Key used to authenticate on the Connector
+    > environment variable alias: API_KEY
 
 ### `sync`
 
