@@ -3,7 +3,7 @@ title: "Connector Configuration"
 permalink: /integrate/Connector-configuration
 ---
 
-There are two ways to configure the Connector
+There are two ways to configure the Connector:
 
 ## Environment variables
 
@@ -18,7 +18,13 @@ Environment variables are translated to JSON and are overwriting the default con
 > The JSON representation would be:
 >
 > ```json
-> { "modules": { "autoAcceptRelationshipCreationChanges": { "enabled": true } } }
+> {
+>     "modules": {
+>         "autoAcceptRelationshipCreationChanges": {
+>             "enabled": true
+>         }
+>     }
+> }
 > ```
 >
 > If you want to set this property via an environment variable, you need to use `MODULES__AUTO_ACCEPT_RELATIONSHIP_CREATION_CHANGES__ENABLED="true"`.
@@ -46,7 +52,7 @@ You can image that this could easily get out of control. This is where you shoul
         }
     }
     ```
-3. Mount the created config file into the Docker container (e.g. to /config.json). See the official [documentation](https://LINK_TO_DOCUMENTATION) for more information on how to mount files into a Docker container.
+3. Mount the created config file into the Docker container (e.g. to /config.json). See the official [documentation](https://docs.docker.com/storage/bind-mounts/) for more information on how to mount files into a Docker container.
 4. Set the environment variable `CUSTOM_CONFIG_LOCATION` to the path you mounted your config file to (e.g. CUSTOM_CONFIG_LOCATION="/config.json").
 
 # Configuration options
@@ -110,6 +116,8 @@ Extendable configuration:
 ```
 
 ### `autoAcceptRelationshipCreationChanges`
+
+> It is not recommended to use this module in production.
 
 The `autoAcceptRelationshipCreationChanges` module listenes for incoming relationship requests using events from the `sync` module. Afterwards it accepts the relationship request using the configured `responseContent`.
 
