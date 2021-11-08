@@ -149,13 +149,13 @@ Extendable configuration:
 
 -   `docs.enabled`: enable / disable the `/docs/json` and `/docs/yaml` routes and the rendered swagger / rapidoc documentations
 
-### `httpEndpointEventPublisher`
+### `webhooks`
 
 With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: The Connector is synchronizing its state with the Platform and submits events to the organization's backend services only if there are any events.
 
 For this, the Connector supports the configuration of an HTTP Endpoint which is called if there are events available (e.g. a new message has been received).
 
-The `httpEndpointEventPublisher` module heavily depends on the `sync` module so it has to be enabled to work.
+The `webhooks` module heavily depends on the `sync` module so it has to be enabled to work.
 
 Extendable configuration:
 
