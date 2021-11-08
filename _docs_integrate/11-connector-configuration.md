@@ -61,25 +61,29 @@ Extendable excerpt of the default config
 
 ```json
 {
-    "account": "an-account-name",
     "database": {
-        "connectionString": "mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]"
+        "connectionString": "mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]",
+        "dbName": "a-db-name"
     },
     "modules": { ... }
 }
 ```
 
-## `account`
-
-The account string is used to select a MongoDB database. It is recommended to use your company name as the account name.
-
-If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique account name for each of them.
-
 ## `database`
 
 ### `connectionString`
 
+> environment variable alias: DATABASE_CONNECTION_STRING
+
 At this point the connection to the database can be configured. The connection string must follow the MongoDB [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/).
+
+### `dbName`
+
+> environment variable alias: DATABASE_NAME
+
+The dbName string is used to select a MongoDB database. It is recommended to use your company name as the dbName.
+
+If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique dbName for each of them.
 
 ## `modules`
 
