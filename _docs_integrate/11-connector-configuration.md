@@ -15,8 +15,9 @@ Environment variables are translated to JSON and are overwriting the default con
 
 > Example: You want to enable the autoAcceptRelationshipCreationChanges module using an environment variable
 >
-> -> { "modules": { "autoAcceptRelationshipCreationChanges": { "enabled": true } } }
-> -> MODULES\_\_AUTO_ACCEPT_RELATIONSHIP_CREATION_CHANGES\_\_ENABLED="true"
+> -> `{ "modules": { "autoAcceptRelationshipCreationChanges": { "enabled": true } } }`
+>
+> -> `MODULES__AUTO_ACCEPT_RELATIONSHIP_CREATION_CHANGES__ENABLED="true"`
 
 ### Mounting a config file
 
