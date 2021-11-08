@@ -162,7 +162,7 @@ Extendable configuration:
 ```json
 {
     "enabled": false,
-    "httpEndpoint": "http://example.com",
+    "url": "http://example.com",
     "headers": {
         "X-API-KEY": "some-super-safe-api-key"
     },
@@ -170,6 +170,6 @@ Extendable configuration:
 }
 ```
 
--   `httpEndpoint`: the endpoint the request should be sent to
+-   `url`: the endpoint the request should be sent to
 -   `headers`: headers for the request (e.G. apiKeys, ..)
 -   `publishInterval`: the interval in seconds
