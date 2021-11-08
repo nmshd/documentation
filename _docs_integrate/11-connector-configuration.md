@@ -57,12 +57,12 @@ You can image that this could easily get out of control. This is where you shoul
 
 # Configuration options
 
-Extendable excerpt of the default config
+The Connector provides the following configuration parameters:
 
 ```json
 {
     "transportLibrary": {
-        "platformClientId": "CLIENT_ID"
+        "platformClientId": "CLIENT_ID",
         "platformClientSecret": "CLIENT_SECRET"
     },
     "database": {
@@ -85,7 +85,7 @@ The client id required to contact the enmeshed platform.
 
 > environment variable alias: PLATFORM_CLIENT_SECRET
 
-The client secret required to contact the enmeshed platform.
+The client secret required to communicate with the Enmeshed platform.
 
 ## `database`
 
@@ -99,9 +99,9 @@ At this point the connection to the database can be configured. The connection s
 
 > environment variable alias: DATABASE_NAME
 
-The dbName string is used to select a MongoDB database. It is recommended to use your company name as the dbName.
+The `dbName` string is used as the name of the MongoDB database. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new Enmeshed identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
 
-If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique dbName for each of them.
+If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
 
 ## `modules`
 
@@ -111,7 +111,7 @@ Every module can be enabled or disabled by passing true / false to `enabled`.
 
 The http server is the base for the `coreHttpApi` module. It opens an express http server where modules can register endpoints.
 
-Extendable configuration:
+Configuration:
 
 ```json
 {
@@ -123,15 +123,15 @@ Extendable configuration:
 }
 ```
 
--   `cors`: configure the CORS headers. Valid options can be found [here](https://github.com/expressjs/cors#configuration-options).
+-   `cors`: configure the CORS middleware. Valid options can be found [here](https://github.com/expressjs/cors#configuration-options).
 -   `apiKey`: configure the API-Key used to authenticate on the Connector
     > environment variable alias: API_KEY
 
 ### `sync`
 
-The `sync` module synchronizes the content in the Connector with the backbone and sends events to the event-bus (e.G. new messages / new incoming relationship request). These events can be processed by custom modules or existing modules like the `autoAcceptRelationshipCreationChanges` and `httpEndpointEventPublisher` modules.
+The `sync` module regularly fetches changes from the Backbone (e.g. new messages / new incoming relationship requests) and notifies other modules like the `httpEndpointEventPublisher` about them.
 
-Extendable configuration:
+Configuration:
 
 ```json
 {
@@ -148,9 +148,9 @@ Extendable configuration:
 
 > It is not recommended to use this module in production.
 
-The `autoAcceptRelationshipCreationChanges` module listenes for incoming relationship requests using events from the `sync` module. Afterwards it accepts the relationship request using the configured `responseContent`.
+The `autoAcceptRelationshipCreationChanges` module depends on the `sync` module and listens to the notifications about incoming Relationship Requests. It immediately accepts the Requests, using the configured `responseContent`.
 
-Extendable configuration:
+Configuration:
 
 ```json
 {
@@ -159,7 +159,7 @@ Extendable configuration:
 }
 ```
 
--   `responseContent`: the content that is used to accept the incoming relationship request
+-   `responseContent`: the content that is used to accept the incoming Relationship Request
 
 ### `coreHttpApi`
 
@@ -180,18 +180,18 @@ Extendable configuration:
 
 ### `webhooks`
 
-With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: The Connector is synchronizing its state with the Platform and submits events to the organization's backend services only if there are any events.
+With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
 
-For this, the Connector supports the configuration of an HTTP Endpoint which is called if there are events available (e.g. a new message has been received).
+For this, the Connector supports the configuration of a webhook which is called in case there is something new (e.g. a new message has been received).
 
 The `webhooks` module heavily depends on the `sync` module so it has to be enabled to work.
 
-Extendable configuration:
+Configuration:
 
 ```json
 {
     "enabled": false,
-    "url": "http://example.com",
+    "url": "https://example.com/enmeshed/webhook",
     "headers": {
         "X-API-KEY": "some-super-safe-api-key"
     },
@@ -199,6 +199,6 @@ Extendable configuration:
 }
 ```
 
--   `url`: the endpoint the request should be sent to
--   `headers`: headers for the request (e.G. apiKeys, ..)
--   `publishInterval`: the interval in seconds
+-   `url`: the URL the request should be sent to
+-   `headers`: HTTP headers that should be sent with the request
+-   `publishInterval`: the interval in seconds in which new items should be published
