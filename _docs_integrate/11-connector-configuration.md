@@ -140,6 +140,10 @@ Extendable configuration:
 }
 ```
 
+-   `enabled`: enable / disable the module
+    > environment variable alias: SYNC_ENABLED
+-   `interval`: the interval in seconds the sync is executed
+
 ### `autoAcceptRelationshipCreationChanges`
 
 > It is not recommended to use this module in production.
