@@ -4,13 +4,13 @@
 <h6>Corresponding interactive API docs excerpt:</h6>
 {% endif %}
 <rapi-doc-mini
-    server-url="https://enmeshed.is.enmeshed.eu/"
-    default-api-server="https://enmeshed.is.enmeshed.eu/"
+    server-url="https://doc-demo.is.enmeshed.eu/"
+    default-api-server="https://doc-demo.is.enmeshed.eu/"
     api-key-name="x-api-key"
     api-key-location="header"
     api-key-value="apikey"
     layout="column"
-    spec-url="https://enmeshed.is.enmeshed.eu/docs/json"
+    spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
     paths-expanded="false"
     theme="light"
     bg-color="#f9f9fb"
