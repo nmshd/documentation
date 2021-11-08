@@ -1,6 +1,6 @@
 ---
 title: "Connector Configuration"
-permalink: /integrate/Connector-configuration
+permalink: /integrate/connector-configuration
 ---
 
 There are two ways to configure the Connector:
