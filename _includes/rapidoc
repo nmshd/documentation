@@ -10,6 +10,7 @@
     api-key-location="header"
     api-key-value="apikey"
     layout="column"
+    default-schema-tab="example"
     spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
     paths-expanded="false"
     theme="light"
