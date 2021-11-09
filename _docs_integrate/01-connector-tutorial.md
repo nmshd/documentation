@@ -11,7 +11,7 @@ You will further need the [Enmeshed App]({% link _docs_use/01-basics.md %}) if y
 
 # Establishing a Relationship
 
-In order to communicate with another Identity, a Relationship to that Identity is required.
+In order to communicate with another Identity, a Relationship to that Identity is required. In this first part of the tutorial you will learn how to establish a Relationship between your Connector and another Identity. In this case the other Identity will be the using the App, but it could be another Connector as well.
 
 ## Connector: Create a Relationship Template
 
