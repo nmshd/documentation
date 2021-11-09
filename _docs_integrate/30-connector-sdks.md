@@ -3,17 +3,17 @@ title: "Connector Software Development Kits"
 permalink: /integrate/connector-sdks
 ---
 
-So far, there is only one TypeScript / JavaScript SDK publicly available for the Connector. We've developed a first TypeScript SDK for accessing the Connector's Rest API.
+## TypeScript SDK
 
-# TypeScript SDK
+There is an SDK written in TypeScript you can use to communicate with your Connector from your TypeScript/JavaScript application. It is avaliable on [npmjs](https://www.npmjs.com/package/@nmshd/connector-sdk).
 
-## Installation
+### Installation
 
 ```bash
 npm i @nmshd/connector-sdk
 ```
 
-## Usage
+### Usage
 
 1. Initialize the `ConnectorClient`
 
@@ -42,10 +42,3 @@ npm i @nmshd/connector-sdk
         console.log(uploadOwnFileResponse.error);
     }
     ```
-
-## Endpoint Documentation
-
-For a description of the different methods you can look at one of the OpenAPI UIs, which are hosted on your Connector:
-
--   SwaggerUI: `https://<INSERT_YOUR_CONNECTOR_DOMAIN_HERE>/docs/swagger`
--   SwaggerUI: `https://<INSERT_YOUR_CONNECTOR_DOMAIN_HERE>/docs/rapidoc`
