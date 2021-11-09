@@ -41,9 +41,9 @@ A reliable and fast internet connection is mandatory for running the Connector. 
 
 As the connector acts as trusted communication instance for an organization, a signature keypair for the organization is mandatory and needs to be generated and verified upfront. Please refer to the Identity Guide for creating such an identity.
 
-## Login to the Docker Registry
+## Lookup docker image versions
 
-Run `docker login enmeshed.docker.io` and enter the login information you received from the support.
+The docker images are hosted in the GitHub container registry. An overview of the available images is available [here](https://github.com/nmshd/cns-connector/pkgs/container/connector).
 
 # Installation
 

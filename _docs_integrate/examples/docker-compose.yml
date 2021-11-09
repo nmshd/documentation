@@ -3,10 +3,10 @@ version: "3.7"
 services:
   connector:
     container_name: connector
-    image: registry.enmeshed.eu/bc:<version-or-latest> # specify a tag (e.g. 1.0.0) or use the 'latest' tag
+    image: ghcr.io/nmshd/connector:<version-or-latest> # specify a tag (e.g. 1.0.0) or use the 'latest' tag
     environment:
       DATABASE_CONNECTION_STRING: mongodb://<db-username>:<db-password>@mongodb:27017/?authSource=admin&readPreference=primary&ssl=false
-      ACCOUNT: <account-name> # define an account name here (useful for running multiple connectors on one MongoDB)
+      DATABASE_NAME: <account-name> # define an account name here (useful for running multiple connectors on one MongoDB)
       API_KEY: <api-key> # choose a secure api key to communicate with the connector
       CLIENT_ID: "<client-id>" # the client id you received from the enmeshed support
       CLIENT_SECRET: "<client-secret>" # the client secret you received from the enmeshed support
