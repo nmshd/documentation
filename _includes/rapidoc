@@ -1,9 +1,7 @@
-
-{% if include.title == "" %} 
-{% elsif include.title} %}
-    <h5>{{ include.title }}</h5>
+{% if include.title == "" %} {% elsif include.title} %}
+<h5>{{ include.title }}</h5>
 {% else %}
-    <h6>Corresponding interactive API docs excerpt:</h6>
+<h6>Corresponding interactive API docs excerpt:</h6>
 {% endif %}
 <rapi-doc-mini
     server-url="https://doc-demo.is.enmeshed.eu/"
