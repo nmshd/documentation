@@ -38,11 +38,11 @@ Yes, within Enmeshed we think differently about decentralization. And we do not 
 
 Yes, we decided against blockchain and a decentral approach. There are many reasons for it.
 
-First an foremost, a central architecture, hosted by a single third party is quite simple. There is only one party responsible for hosting the service. There is only one party which has to set something up. There is only one party with which contracts or agreements might be set up. There is only one party which will receive the blame if something does not work. But also there is only one party which does support and operations.
+First an foremost, a central architecture, hosted by a single third party is quite simple. There is only one party responsible for hosting the service. There is only one party which has to set something up. There is only one party with which contracts or agreements might be set up. There is only one party which will receive the blame if something does not work. But also there is only one party which does the operation and supports the solution.
 
 A centrally hosted service can be scaled up and down in a very fast and effective way. Thus saving costs, energy and manpower. In addition, the overall throughput is very high.
 
-Speaking of energy: We love our planet. We envisioned a technology / architecture where it is not needed to spend hell-a-lot of energy to solve stupid puzzles only to decide who next is allowed to forge a new block on a blockchain. Those technologies might make sense for certain kind of scenarios and usecases. But they cannot act as a main pillar for digitalizating whole economies and countries.
+Speaking of energy: We love our planet. We envisioned a technology / architecture where it is not needed to spend hell-a-lot of energy to solve stupid puzzles only to decide who next is allowed to forge a new block on a blockchain. Those technologies might make sense for certain kinds of scenarios and usecases. But they cannot act as a main pillar for digitalizing whole economies and countries.
 
 We acknowledge, that there are decentralized technologies out there, which do not run on proof-of-work principles, primarily those which are based on a round-robin or proof-of-stake principles. Those are however usually linked with another central asset, a management/government layer which needs to be set up on top of the consortium.
 
@@ -54,7 +54,7 @@ Thinking about major "decentral" platforms, there is still a mismatch about the 
 
 If there needs to be a central organizational component which governs, administers or manages the parties within the platform - or worse there are different roles within the network with more or less rights - why does one need a decentral technology in the end?
 
-Once there is a single player in the game, and even if this single player is a "management board" which is voted by the various parties within the network, why can't this management board just host a central solution? Who stops this management board blocking attempts of competitors to take part in the decentral network?
+Once there is a single player in the game, and even if this single player is a "management board" which is voted by the various parties within the network, why can't this management board just host a central solution? Who stops this management board from blocking attempts of competitors to take part in the decentral network?
 
 {% comment %}
 

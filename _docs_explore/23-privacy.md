@@ -7,13 +7,13 @@ Privacy is one of the main pillars of digitalization approaches. It might be the
 
 There are many laws, regulations, user and organizational notions to take into consideration.
 
-We did our best to come up with an approach, which is highly scalable and maintainable, without the hazzle of having personal or sensitive data in access. Additionally, the actual processes between persons and organizations were considered. Which data is exactly needed for which scenario.
+We came up with an approach which is highly scalable and maintainable, without having personal or sensitive data in access. Additionally, the actual processes between persons and organizations were considered and the personal data shared between them is reduced to a minimum.
 
 # Backbone Privacy
 
-The most prominent component in terms of privacy is the Backbone. As a centrally hosted component by a third-party, it is understandable that privacy-related questions usually focus on the Backbone.
+The most prominent component in terms of privacy is the Backbone. As a centrally hosted component by a third-party, it is understandable that privacy-related questions usually focus this component.
 
-The answer to those questions is usually simple: No personal data is stored within the Backbone. Thus privacy is of less concern in the backbone. In the whole user registration and onboarding processes, third parties hosting the Backbone won't receive any personal data, thus can additionally not store any personal data outside the backbone.
+The answer to those questions is simple: No personal data is stored within the Backbone. Thus privacy is of less concern in the backbone. In the whole user registration and onboarding processes, third parties hosting the Backbone won't receive any personal data, thus can additionally not store any personal data outside the backbone.
 
 Without the actual keys from the respective identities (which the hosting party does not receive) the actual data cannot be decrypted or analyzed.
 
@@ -35,7 +35,7 @@ Thus, the centrally hosted Backbone has no access to any personal data. In our d
 
 ## Analyzing metadata
 
-The threat of metadata analytics should not be underestimated but cannot be eradicated by us.
+The threat of metadata analytics should not be underestimated and can also not be eradicated by us unfortunately. Thus, a Backbone operator might still be able to analyze metadata stored within the Backbone although it is "zero knowledge".
 
 # Comparison to decentral technologies
 

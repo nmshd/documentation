@@ -34,7 +34,7 @@ The identity's public key which acts as the primary form of verifying data signe
 
 With the identity's public key, the identity's address is calculated.
 
-Usually, you receive another identity's signature public key while making the first contact (e.g. from the relationship template or the relationship creation change request followed upon it).
+Usually, you receive another identity's signature public key while making the first contact (e.g. from the relationship template or the relationship request followed upon it).
 
 ### Synchronization Derived Secret Key
 
@@ -187,11 +187,11 @@ With each relationship, there are relationship keys automatically generated. The
 
 Relationships are agreements between two identities. Thus, to change a relationship both parties have to accept on the new "terms". This is done by requesting a change which the other party can accept or reject. The requestor could also revoke a requested change, as long as the other party did not react to the change yet.
 
-The very first agreement between both parties is to actually create the relationship, the "relationship creation change". It was also called "relationship request" in the past.
+The very first agreement between both parties is to actually create the relationship, the "relationship request". Technically, the term "relationship creation change request" would be more correct but is seldomly used in the documentation because of readability.
 
 ### Relationship Creation Change Requests
 
-The relationship creation change requests - next to the required technical information - usually contain:
+The relationship request - next to the required technical information - usually contains:
 
 -   Requested information from the requestor
     -   Required/optional attributes
@@ -222,7 +222,7 @@ In addition to technical information like public keys, certificates or signature
     -   Data privacy guidelines
     -   EULAs
 
-A relationship template needs to be created in order to receive relationship creation change requests and ultimately create an active relationship between two identities. The relationship template is then usually shared with the user via a token.
+A relationship template needs to be created in order to receive relationship requests and ultimately create an active relationship between two identities. The relationship template is then usually shared with the user via a token.
 
 Relationship templates can be both: identity-specific (template is personalized for one specific identity - which might not exist yet) or identity-agnostic (template is open for multiple identities).
 

@@ -17,10 +17,10 @@ docs_explore:
         url: /explore
       - title: "Example Scenarios"
         url: /explore/example-scenarios
-      - title: "Use Cases"
-        url: /explore/use-cases
       - title: "Features"
         url: /explore/features
+      - title: "Use Cases"
+        url: /explore/use-cases
       - title: "Frequently Asked Questions"
         url: /explore/faq
 

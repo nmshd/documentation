@@ -3,7 +3,7 @@ title: "Example Scenarios"
 permalink: /explore/example-scenarios
 ---
 
-Enmeshed supports many possible business scenarios within various lines-of-businesses or industries. But not only enterprises, companies or organizations benefit of these approaches. Also leisure activities with clubs or communities can make use of Enmeshed.
+Enmeshed supports many possible business scenarios within various lines of businesses or industries. But not only enterprises, companies or organizations benefit of these approaches. Also leisure activities with clubs or communities can make use of Enmeshed.
 
 Though the digital life of persons is used as a prominent example throughout this documentation, organizations or businesses can communicate with Enmeshed as well, as we are creating actual digital identities of them.
 

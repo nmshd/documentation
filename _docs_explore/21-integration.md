@@ -3,7 +3,7 @@ title: "Integration Considerations"
 permalink: /explore/integration
 ---
 
-Enmeshed should not only enable users taking part of the digitalization process. Organizations should benefit of Enmeshed as well, maybe even more than the users, as organizations usually need to invest heavily to stay up to date in todays technological race.
+Enmeshed does not only enable users taking part of the digitalization process. Organizations also benefit of Enmeshed as well, as they usually need to invest heavily to stay up to date in today's technological race.
 
 Enmeshed is a flexible communication platform, with a rich default feature set and possibilities to extend the features at will. Additionally, we tried to be as integrateable as possible, encapsulating the complexity within the underlying layers.
 

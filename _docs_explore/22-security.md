@@ -34,7 +34,7 @@ We do run on a complete web stack, meaning that all runtime coding so far is dev
 
 Even if malware would be executed within the Enmeshed runtime, it would need to break out of the sandbox to do evil stuff with the actual device. This applies primarily to the Enmeshed App.
 
-There is a downside: Malware could still access the data within the Enmeshed runtime, meaning Enmeshed keys and communication payloads.
+However a malware could still access the data within the Enmeshed runtime, meaning Enmeshed keys and communication payloads which is highly sensitive data.
 
 # Connector Security
 
@@ -55,7 +55,7 @@ It is explicitly enforced, that the addresses of all recipients of the mail are 
 
 The message payload is symmetrically encrypted with a randomly generated high entropy key. The generated high entropy key itself is encrypted with the next transmission key derivate of a contact-specific encryption master key.
 
-Thus, a messsage consists of multiple ciphers, one for the message content and one cipher for every recipient. In other words: Every recipient receives the same symmetric key (to decipher the message content) with a contact-specific key cipher which only the respective recipient can decrypt with a specific derived key. The same message with the same cipher of the message content can thus be decrypted by different recipients.
+Thus, a message consists of multiple ciphers, one for the message content and one cipher for every recipient. In other words: Every recipient receives the same symmetric key (to decipher the message content) with a contact-specific key cipher which only the respective recipient can decrypt with a specific derived key. The same message with the same cipher of the message content can thus be decrypted by different recipients.
 
 Once the signing and encryption processes are done, the sender submits the encrypted message to the Backbone. The Backbone creates a unique id for this message, in addition to a Backbone timestamp - which is in fact the timestamp on which every participant would agree on.
 
@@ -65,5 +65,8 @@ Once a device of a recipient receives the notification, it fetches the message f
 
 # Law Enforcement Compliance
 
--   Block accounts if they do not comply to the law
--   We can support any law enforcement, up to a certain degree (e.g. point them to organizations which might have some personal data)
+It is possible to temporarily or permanently block access or delete identities, if illegal activities are brought to the attention of the Backbone's operator. For this the Backbone operator requires the help of at least one of the parties which received illegal content from a sender.
+
+In addition, Enmeshed supports law enforcement up to a certain degree. As like any other central provider, it is possible to block access or delete content if the Backbone operator gets the official task to comply (although the Backbone operator wouldn't know who the user is or which content it deletes).
+
+Additionally, it is possible to point law enforcement organizations to other identities which have communicated with an unknown target identity in the past. If the actual real-world entity behind such an identity is known (e.g. a company) they might know who the target identity is and could further help law enforcement.
