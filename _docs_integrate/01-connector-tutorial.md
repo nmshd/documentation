@@ -7,10 +7,13 @@ In this tutorial we go through the basic steps necessary to establish a Relation
 
 The following steps include small pieces of the Connector's API documentation that, when executed, fire requests on a Connector created for testing purposes. So if you don't have an own Connector installed, feel free to use the samples directly. Otherwise you can use your own Connector either with a REST client (e.g. [Insomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/)) or by using the RapiDoc documentation (`/docs/rapidoc`) hosted on your connector (you have to [enable docs on your connector](http://localhost:4000/integrate/connector-configuration#corehttpapi) for the documentation route to work).
 
-You will further need the [Enmeshed App]({% link _docs_use/01-basics.md %}) if you want to follow this tutorial.
+# Prerequisites
 
-
-You will further need the [Enmeshed App]({% link _docs_use/01-basics.md %}) if you want to follow this tutorial. The app is available for iOS and Android.
+-   If you want to use your own Connector for executing the examples
+    -   [install the Connector]({% link _docs_integrate/10-connector-installation.md %})
+    -   make sure the [Sync Module is disabled]({% link _docs_integrate/11-connector-configuration.md %}) (because in this tutorial we will synchronize manually via the HTTP endpoint)
+    -   get the API key configured for the Connector. Ask the person who installed the Connector for it.
+-   You need the [Enmeshed App]({% link _docs_use/01-basics.md %}) installed on your mobile device.
 
 # Establishing a Relationship
 
