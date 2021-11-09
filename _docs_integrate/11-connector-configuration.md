@@ -13,21 +13,21 @@ Environment variables are translated to JSON and are overwriting the default con
 -   Nested JSON structures can be shaped using a double underscore (e.g. `X__Y__Z="a"` becomes `{ "x": { "y": { "z": "a" } } }`)
 -   A single underscore is translated to camelCase (e.g. `CONNECTION_STRING` becomes `connectionString`)
 
-> Example: You want to enable the autoAcceptRelationshipCreationChanges module using an environment variable
+> Example: You want to enable the httpServer module using an environment variable
 >
 > The JSON representation would be:
 >
 > ```json
 > {
 >     "modules": {
->         "autoAcceptRelationshipCreationChanges": {
+>         "httpServer": {
 >             "enabled": true
 >         }
 >     }
 > }
 > ```
 >
-> If you want to set this property via an environment variable, you need to use `MODULES__AUTO_ACCEPT_RELATIONSHIP_CREATION_CHANGES__ENABLED="true"`.
+> If you want to set this property via an environment variable, you need to use `MODULES__HTTP_SERVER__ENABLED="true"`.
 
 ## Mounting a config file
 
@@ -46,7 +46,7 @@ You can image that this could easily get out of control. This is where you shoul
     ```json
     {
         "modules": {
-            "autoAcceptRelationshipCreationChanges": {
+            "httpServer": {
                 "enabled": true
             }
         }
