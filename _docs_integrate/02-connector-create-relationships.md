@@ -32,7 +32,7 @@ Once the relationship template is created, a token needs to be created for the t
 
 {% include rapidoc api_route_regex="^post /api/v1/RelationshipTemplates/Own/{id}/Token$" %}
 
-The "Accept" header defines which output format of the token should be returned: Either a png file with the QR code or a json-representation of the whole token (including the truncated reference which could be encoded as a link).
+The "Accept" header defines which output format of the token should be returned: Either a png file with the QR code or a JSON-representation of the whole token (including the truncated reference which could be encoded as a link).
 
 ## Communicate Token Reference
 
@@ -40,9 +40,9 @@ There are multiple ways how the token reference can be communicated to the user:
 
 ## Receive Relationship Request
 
-Once the user has reviewed the relationship template and created the corresponding relationship creation change request, it is submitted over the backbone (as a cipher only the organization can decrypt) to the organization's Connector. The Connector decrypts the cipher and stores the relationship creation change request in the database.
+Once the user has reviewed the relationship template and created the corresponding relationship request, it is submitted over the backbone (as a cipher only the organization can decrypt) to the organization's Connector. The Connector decrypts the cipher and stores the relationship request in the database.
 
-The relationship creation change request can be accessed either manually via a REST API (pull) or it can be pushed to a [configurable custom HTTP endpoint](/integrate/connector-configuration).
+The relationship request can be accessed either manually via a REST API (pull) or it can be pushed to a [configurable custom HTTP endpoint](/integrate/connector-configuration).
 
 ![Get Open Relationship Requests Sequence Diagram](/assets/diagrams/integrate/Connector_GetOpenRelationshipRequests.png "Get Open Relationship Requests")
 
@@ -53,9 +53,9 @@ The relationship creation change request can be accessed either manually via a R
 The organization's business system can then use the structured data coming with the Relationship Request. For example, a manual or automated check can be performed, the data could be verified over third parties, or such like. This step can take from milliseconds to days, depending on the business scenario.
 But please keep in mind that the user might not like to wait that long. If there are business processes taking such a long time, it might make more sense to first accept a Relationship Request and then start the long-running process, in order to be able to communicate with the user in parallel.
 
-## Respond to Relationship Change Request
+## Respond to Relationship Request
 
-Once the data has been processed on the business system, it is time to respond to the relationship change request: you can either accept or reject it. Both responses can transfer additional data to the requestor, e.g. the created customer id, contract id or suchlike (accept) - or the rejection reason, like an invalid required attribute or an insufficient financial score.
+Once the data has been processed on the business system, it is time to respond to the relationship request: you can either accept or reject it. Both responses can transfer additional data to the requestor, e.g. the created customer id, contract id or suchlike (accept) - or the rejection reason, like an invalid required attribute or an insufficient financial score.
 
 If the change is accepted, the connection to the requestor is automatically generated and from this point in time, both parties may communicate over a secure, bi-directional tunnel.
 
@@ -77,7 +77,7 @@ In order to send out own relationship request to other parties, a template must 
 
 ## Create a Relationship
 
-Once the external relationship template has been successfully read in, and the terms/requested content be found acceptable, one can answer the template with a relationship creation change request. This is done by calling the POST /Relationships route.
+Once the external relationship template has been successfully read in, and the terms/requested content be found acceptable, one can answer the template with a relationship request. This is done by calling the POST /Relationships route.
 This request contains - equivalent to incoming relationship creation changes - any information the other party requested, for example legal and contact information. Thus, one should parse the given relationship template correctly and send the required attributes within this request. Otherwise the other party might reject the relationship creation change, as requested attributes are not existing.
 
 ![Create Relationship Request Sequence Diagram](/assets/diagrams/integrate/Connector_CreateRelationshipRequest.png "Create Relationship Request")
@@ -86,7 +86,7 @@ This request contains - equivalent to incoming relationship creation changes - a
 
 ## Check outgoing Relationship Changes
 
-In order to create relationships out of accepted relationship creation change requests, the Connector needs to track the status of these requests. This can be done manually with the POST /Account/Sync route. The return values then contain possible changed relationships.
+In order to create relationships out of accepted relationship requests, the Connector needs to track the status of these requests. This can be done manually with the POST /Account/Sync route. The return values then contain possible changed relationships.
 
 {% include rapidoc api_route_regex="^post /api/v1/Account/Sync$" %}
 

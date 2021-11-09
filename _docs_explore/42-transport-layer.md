@@ -34,7 +34,7 @@ The identity's public key which acts as the primary form of verifying data signe
 
 With the identity's public key, the identity's address is calculated.
 
-Usually, you receive another identity's signature public key while making the first contact (e.g. from the relationship template or the relationship creation change request followed upon it).
+Usually, you receive another identity's signature public key while making the first contact (e.g. from the relationship template or the relationship request followed upon it).
 
 ### Synchronization Derived Secret Key
 
@@ -172,8 +172,8 @@ Relationships are usually used as the technical term, whereas contact is used as
 
 With each relationship, there are relationship keys automatically generated. These keys are used for signing and encrypting the communication with the relationship on a technical level.
 
--   Relationship own exchange keypair: A pair of relationship own exchange private key (PrivOwnX) and corresponding relationship own exchange public key (PubOwnX). The relationship own exchange private key is used to derive the masterRelationship secret keys (transmit and receive). The relationship own exchange public key is communicated within the relationship creation change request or the relationship creation change response.
--   Relationship own signature keypair: A pair of relationship signature private key (PrivOwn) and corresponding relationship signature public key (PubOwn). The signature own private key is used for signing the communication with this relationship. It is synchronized across all devices and signed by the device signature private key of the device which creates the relationship creation change request or the relationship template. The signature own public key is used for verifying the signatures of all communications with this relationship.
+-   Relationship own exchange keypair: A pair of relationship own exchange private key (PrivOwnX) and corresponding relationship own exchange public key (PubOwnX). The relationship own exchange private key is used to derive the masterRelationship secret keys (transmit and receive). The relationship's own exchange public key is communicated within the relationship request or the relationship creation change response.
+-   Relationship own signature keypair: A pair of relationship signature private key (PrivOwn) and corresponding relationship signature public key (PubOwn). The signature own private key is used for signing the communication with this relationship. It is synchronized across all devices and signed by the device signature private key of the device which creates the relationship response to it, or the relationship template. The signature own public key is used for verifying the signatures of all communications with this relationship.
 -   Relationship peer exchange public key: The peer's exchange public key (PubPeerX) which is used to derive the master relationship secret keys (transmit and receive).
 -   Relationship peer signature public key: The peer's signature public key which is used to verify communication sent by the peer.
 -   Relationship receive derived secret key (SecPeer'): A derived symmetric key of the master, which is actually used for decryption.
@@ -191,7 +191,7 @@ The very first agreement between both parties is to actually create the relation
 
 ### Relationship Creation Change Requests
 
-The relationship creation change requests - next to the required technical information - usually contain:
+The relationship creation change requests (short: Relationship Requests) - next to the required technical information - usually contain:
 
 -   Requested information from the requestor
     -   Required/optional attributes
@@ -222,7 +222,7 @@ In addition to technical information like public keys, certificates or signature
     -   Data privacy guidelines
     -   EULAs
 
-A relationship template needs to be created in order to receive relationship creation change requests and ultimately create an active relationship between two identities. The relationship template is then usually shared with the user via a token.
+A relationship template needs to be created in order to receive relationship requests and ultimately create an active relationship between two identities. The relationship template is then usually shared with the user via a token.
 
 Relationship templates can be both: identity-specific (template is personalized for one specific identity - which might not exist yet) or identity-agnostic (template is open for multiple identities).
 
