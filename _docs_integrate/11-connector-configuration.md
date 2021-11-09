@@ -111,7 +111,7 @@ Every module can be enabled or disabled by passing true / false to `enabled`.
 
 The http server is the base for the `coreHttpApi` module. It opens an express http server where modules can register endpoints.
 
-Configuration:
+#### Configuration
 
 ```json
 {
@@ -131,7 +131,7 @@ Configuration:
 
 The `sync` module regularly fetches changes from the Backbone (e.g. new messages / new incoming relationship requests) and notifies other modules like the `httpEndpointEventPublisher` about them.
 
-Configuration:
+#### Configuration
 
 ```json
 {
@@ -150,7 +150,7 @@ Configuration:
 
 The `autoAcceptRelationshipCreationChanges` module depends on the `sync` module and listens to the notifications about incoming Relationship Requests. It immediately accepts the Requests, using the configured `responseContent`.
 
-Configuration:
+#### Configuration
 
 ```json
 {
@@ -165,7 +165,7 @@ Configuration:
 
 This module contains the HTTP API with all Enmeshed base functionalities.
 
-Extendable configuration:
+#### Configuration
 
 ```json
 {
@@ -186,7 +186,7 @@ For this, the Connector supports the configuration of a webhook which is called 
 
 The `webhooks` module heavily depends on the `sync` module so it has to be enabled to work.
 
-Configuration:
+#### Configuration
 
 ```json
 {
@@ -202,3 +202,68 @@ Configuration:
 -   `url`: the URL the request should be sent to
 -   `headers`: HTTP headers that should be sent with the request
 -   `publishInterval`: the interval in seconds in which new items should be published
+
+#### Payload
+
+The service under the configured `url` will receive the following payload:
+
+```ts
+interface WebhooksModulePayload {
+    relationships: Relationship[];
+    messages: Message[];
+}
+
+interface Message {
+    id: string;
+    content: any;
+    createdBy: string;
+    createdByDevice: string;
+    recipients: Recipient[];
+    relationshipIds: string[];
+    createdAt: string;
+    attachments: string[];
+}
+
+interface Recipient {
+    address: string;
+}
+
+interface Relationship {
+    id: string;
+    template: RelationshipTemplate;
+    status: string;
+    peer: string;
+    changes: RelationshipChange[];
+    lastMessageSentAt?: string;
+    lastMessageReceivedAt?: string;
+}
+
+interface RelationshipTemplate {
+    id: string;
+    isOwn: boolean;
+    createdBy: string;
+    createdByDevice: string;
+    createdAt: string;
+    content: any;
+    expiresAt?: string;
+    maxNumberOfRelationships?: number;
+}
+
+interface RelationshipChange {
+    id: string;
+    request: {
+        createdBy: string;
+        createdByDevice: string;
+        createdAt: string;
+        content?: any;
+    };
+    status: "Pending" | "Rejected" | "Revoked" | "Accepted";
+    type: "Creation" | "Termination" | "TerminationCancellation";
+    response?: {
+        createdBy: string;
+        createdByDevice: string;
+        createdAt: string;
+        content?: any;
+    };
+}
+```
