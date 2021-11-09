@@ -205,12 +205,12 @@ The `webhooks` module heavily depends on the `sync` module so it has to be enabl
 
 #### Payload
 
-The service under the configured `url` will receive the following payload:
+The payload that is sent to the service under the configured `url` has the following format:
 
 ```ts
 interface WebhooksModulePayload {
-    relationships: Relationship[];
     messages: Message[];
+    relationships: Relationship[];
 }
 
 interface Message {

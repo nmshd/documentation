@@ -43,7 +43,7 @@ As the connector acts as trusted communication instance for an organization, a s
 
 ## Lookup docker image versions
 
-The docker images are hosted in the GitHub container registry. An overview of the available images is available [here](https://github.com/nmshd/cns-connector/pkgs/container/connector).
+You can find an overview of the available images in [our container registry](https://github.com/nmshd/cns-connector/pkgs/container/connector) hosted on GitHub.
 
 # Installation
 
@@ -70,7 +70,7 @@ Go through the following steps to start the connector.
 
 # Validate the connector installation
 
-You can validate the connector installation by checking it's health route. Simply access `<connector-baseurl>/health` in your browser or using curl.
+You can validate the connector installation by checking its health route. Simply access `<connector-baseurl>/health` in your browser or using curl.
 
 If the swagger documentation is enabled you can also access it under `<connector-baseurl>/docs`
 
