@@ -146,7 +146,7 @@ The `sync` module regularly fetches changes from the Backbone (e.g. new messages
 
 ### `autoAcceptRelationshipCreationChanges`
 
-> It is not recommended to use this module in production.
+> It is not recommended to use this module for production szenarios.
 
 The `autoAcceptRelationshipCreationChanges` module depends on the `sync` module and listens to the notifications about incoming Relationship Requests. It immediately accepts the Requests, using the configured `responseContent`.
 
