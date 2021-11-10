@@ -41,33 +41,25 @@ You can validate the config using our [schema file](https://raw.githubuserconten
 
 ## `transportLibrary`
 
-### `clientId`
+-   **clientId** `required field`
 
-> environment variable alias: PLATFORM_CLIENT_ID
+    The client id is required to communicate with the Enmeshed platform.
 
-The client id required to contact the enmeshed platform.
+-   **clientSecret** `required field`
 
-### `clientSecret`
-
-> environment variable alias: PLATFORM_CLIENT_SECRET
-
-The client secret required to communicate with the Enmeshed platform.
+    The client secret is required to communicate with the Enmeshed platform.
 
 ## `database`
 
-### `connectionString`
+-   **connectionString** `required field`
 
-> environment variable alias: DATABASE_CONNECTION_STRING
+    At this point the connection to the database can be configured. The connection string must follow the MongoDB [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/).
 
-At this point the connection to the database can be configured. The connection string must follow the MongoDB [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/).
+-   **dbName** `default: "default"`
 
-### `dbName`
+    The `dbName` string is used as the name of the MongoDB database. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new Enmeshed identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
 
-> environment variable alias: DATABASE_NAME
-
-The `dbName` string is used as the name of the MongoDB database. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new Enmeshed identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
-
-If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
+    If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
 
 ## `modules`
 
@@ -89,9 +81,17 @@ The http server is the base for the `coreHttpApi` module. It opens an express ht
 }
 ```
 
--   `cors`: configure the CORS middleware. Valid options can be found [here](https://github.com/expressjs/cors#configuration-options).
--   `apiKey`: configure the API-Key used to authenticate on the Connector
-    > environment variable alias: API_KEY
+-   **enabled** `default: true`
+
+    Enable or disable the http server.
+
+-   **cors** `default: { "origin": false }`
+
+    configure the CORS middleware. Valid options can be found [here](https://github.com/expressjs/cors#configuration-options).
+
+-   **apiKey** `default: undefined`
+
+    Configure the API-Key used to authenticate on the Connector. If the apiKey is not set the connector will be accessible without authentication.
 
 ### `sync`
 
@@ -106,9 +106,13 @@ The `sync` module regularly fetches changes from the Backbone (e.g. new messages
 }
 ```
 
--   `enabled`: enable / disable the module
-    > environment variable alias: SYNC_ENABLED
--   `interval`: the interval in seconds the sync is executed
+-   **enabled** `default: false`
+
+    Enable or disable the sync module.
+
+-   **interval** `default: 60`
+
+    The interval in seconds at which the sync module will fetch changes from the Backbone.
 
 ### `autoAcceptRelationshipCreationChanges`
 
@@ -125,7 +129,13 @@ The `autoAcceptRelationshipCreationChanges` module depends on the `sync` module 
 }
 ```
 
--   `responseContent`: the content that is used to accept the incoming Relationship Request
+-   **enabled** `default: false`
+
+    Enable or disable the autoAcceptRelationshipCreationChanges module.
+
+-   **responseContent** `default: {}`
+
+    The content that is used to accept the incoming Relationship Request.
 
 ### `coreHttpApi`
 
@@ -142,7 +152,13 @@ This module contains the HTTP API with all Enmeshed base functionalities.
 }
 ```
 
--   `docs.enabled`: enable / disable the `/docs/json` and `/docs/yaml` routes and the rendered swagger / rapidoc documentations
+-   **enabled** `default: true`
+
+    Enable or disable the coreHttpApi module.
+
+-   **docs:enabled** `default: true`
+
+    Enable / disable the `/docs/json` and `/docs/yaml` routes and the rendered swagger / rapidoc documentations.
 
 ### `webhooks`
 
@@ -165,9 +181,21 @@ The `webhooks` module heavily depends on the `sync` module so it has to be enabl
 }
 ```
 
--   `url`: the URL the request should be sent to
--   `headers`: HTTP headers that should be sent with the request
--   `publishInterval`: the interval in seconds in which new items should be published
+-   **enabled** `default: false`
+
+    Enable or disable the webhooks module.
+
+-   **url** `required`
+
+    The URL to which the webhooks will be sent.
+
+-   **headers** `default: {}`
+
+    The headers that will be sent with the webhooks.
+
+-   **publishInterval** `default: 60`
+
+    The interval in seconds at which the webhooks will be sent.
 
 #### Payload
 
