@@ -43,5 +43,6 @@ When comparing the Enmeshed privacy with decentral approaches discussed in the w
 
 There are some advantages to decentral technologies however:
 
+-   With a central architecture, it is generally possible to restrict the access to data on a network level. Only the sender and recipients of a message have access to the encrypted payload of this message, for example. Even if the data is encrypted or pseunodymized, on a decentral architecture everybody would still have access to the encrypted payload.
 -   With a central architecture, the analysis of metadata can only be done by the central player. On a decentral system, anybody could analyse the metadata.
 -   With a central architecture, it is generally possible to effectively delete data (or let it expire). Although there are also some decentral technologies allowing the deletion of data, there is no guarantee, that data which was available in the decentral network prior to deletion, is really deleted from any node or node backup of the network.
