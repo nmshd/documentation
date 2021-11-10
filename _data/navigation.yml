@@ -26,20 +26,20 @@ docs_explore:
 
   - title: How we think
     children:
-      - title: "Usage Considerations"
-        url: /explore/usage
+      # - title: "Usage Considerations"
+      #  url: /explore/usage
       - title: "Integration Considerations"
         url: /explore/integration
       - title: "Security Considerations"
         url: /explore/security
       - title: "Privacy Considerations"
         url: /explore/privacy
-      - title: "Performance Considerations"
-        url: /explore/performance
-      - title: "Data Considerations"
-        url: /explore/data
-      - title: "Process Considerations"
-        url: /explore/process
+      # - title: "Performance Considerations"
+      #   url: /explore/performance
+      #- title: "Data Considerations"
+      #  url: /explore/data
+      #- title: "Process Considerations"
+      #  url: /explore/process
 
   - title: Our Layers
     children:
@@ -62,11 +62,13 @@ docs_explore:
         url: /explore/backbone
       - title: "Connector"
         url: /explore/connector
-      - title: "Runtime"
-        url: /explore/runtime
 
   - title: Expert Corner
     children:
+      - title: "Runtime"
+        url: /explore/runtime
+      - title: "Schema"
+        url: /explore/schema
       - title: "Cryptography"
         url: /explore/cryptography
       - title: "Why no blockchain?"

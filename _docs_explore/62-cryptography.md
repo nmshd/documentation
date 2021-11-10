@@ -3,8 +3,6 @@ title: "Cryptography"
 permalink: /explore/cryptography
 ---
 
-# Introduction
-
 # Backbone Layer Encryption
 
 The communication with the Backbone is encrypted on the http transport layer. This is done by using the transport-layer-security (TLS) standard which is common throughout the Internet. This prevents third parties to access any data communication to and from the Backbone.

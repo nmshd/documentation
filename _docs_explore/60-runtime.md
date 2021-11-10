@@ -4,7 +4,7 @@ permalink: /explore/runtime
 toc: true
 ---
 
-# Runtime Components
+# Runtime Building Blocks
 
 ## Runtime Library
 
