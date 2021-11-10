@@ -3,6 +3,10 @@
 @keyframes intro {
 }
 
+.page__content li p {
+    margin-bottom: 0;
+}
+
 b,
 i,
 strong,
