@@ -3,43 +3,7 @@ title: "Connector Configuration"
 permalink: /integrate/connector-configuration
 ---
 
-There are two ways to configure the Connector:
-
-## Environment variables
-
-Environment variables are translated to JSON and are overwriting the default config.
-
--   Uppercase words become lowercase (e.G. `ACCOUNT` becomes `account`)
--   Nested JSON structures can be shaped using a double underscore (e.g. `X__Y__Z="a"` becomes `{ "x": { "y": { "z": "a" } } }`)
--   A single underscore is translated to camelCase (e.g. `CONNECTION_STRING` becomes `connectionString`)
-
-> Example: You want to enable the httpServer module using an environment variable
->
-> The JSON representation would be:
->
-> ```json
-> {
->     "modules": {
->         "httpServer": {
->             "enabled": true
->         }
->     }
-> }
-> ```
->
-> If you want to set this property via an environment variable, you need to use `MODULES__HTTP_SERVER__ENABLED="true"`.
-
 ## Mounting a config file
-
-At some point environment variables come to their limits. E.g. you cannot set complex values. So if you want to set multiple properties on a single object, you need to add a separate environment variable for each property:
-
-```text
-A__B__C1="c1"
-A__B__C2="c2"
-A__B__C3="c3"
-```
-
-You can image that this could easily get out of control. This is where you should consider mounting a config file. In order to do so, you need to:
 
 1. Create a config file in JSON format in a folder of your choice.
 2. Fill the config file with your desired configuration (it's sufficient to add values you want to change; the Connector will merge your config file with the default configuration) Example:
@@ -52,7 +16,7 @@ You can image that this could easily get out of control. This is where you shoul
         }
     }
     ```
-3. Mount the created config file into the Docker container (e.g. to /config.json). See the official [documentation](https://docs.docker.com/storage/bind-mounts/) for more information on how to mount files into a Docker container. This is also possible using [docker compose](https://docs.docker.com/compose/compose-file/compose-file-v3/#volumes).
+3. Mount the created config file into the Docker container (e.g. to `/config.json`). See the official [documentation](https://docs.docker.com/storage/bind-mounts/) for more information on how to mount files into a Docker container. This is also possible using [docker compose](https://docs.docker.com/compose/compose-file/compose-file-v3/#volumes).
 4. Set the environment variable `CUSTOM_CONFIG_LOCATION` to the path you mounted your config file to (e.g. `CUSTOM_CONFIG_LOCATION="/config.json"`).
 
 # Configuration options
@@ -72,6 +36,8 @@ The Connector provides the following configuration parameters:
     "modules": { ... }
 }
 ```
+
+You can validate the config using our [schema file](https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json). This is possible with [VSCode](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) and online tools like [https://www.jsonschemavalidator.net].
 
 ## `transportLibrary`
 
