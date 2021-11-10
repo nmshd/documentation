@@ -4,7 +4,7 @@
         {
             "label": "Serve",
             "type": "shell",
-            "command": "bundle exec jekyll serve --livereload",
+            "command": "bundle exec jekyll serve --livereload --incremental",
             "group": {
                 "kind": "test",
                 "isDefault": true

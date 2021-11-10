@@ -129,8 +129,6 @@ docs_integrate:
         url: /integrate/connector-installation
       - title: "Configuration"
         url: /integrate/connector-configuration
-      - title: "Troubleshooting"
-        url: /integrate/connector-troubleshooting
 
   - title: REST API
     children:
@@ -164,6 +162,8 @@ docs_integrate:
     children:
       - title: "Connector Operations"
         url: /integrate/connector-operations
+      - title: "Connector Troubleshooting"
+        url: /integrate/connector-troubleshooting
       - title: "Security Considerations"
         url: /integrate/connector-security
       - title: "Privacy Considerations"

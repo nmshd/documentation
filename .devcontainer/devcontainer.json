@@ -15,7 +15,7 @@
     // Set *default* container specific settings.json values on container create.
     "settings": {},
     // Add the IDs of extensions you want installed when the container is created.
-    "extensions": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint", "davidanson.vscode-markdownlint", "eamodio.gitlens"],
+    "extensions": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint", "davidanson.vscode-markdownlint", "eamodio.gitlens", "yzhang.markdown-all-in-one"],
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [
         // Jekyll server
