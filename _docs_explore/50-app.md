@@ -4,17 +4,18 @@ permalink: /explore/app
 toc: true
 ---
 
-# App Components
+# App Building Blocks
 
 ## Platform-dependant App Binaries
 
-For each of the various platforms, each version of the app is packaged into a platform-dependant binary. This binary is then executable / installable for the users. The binaries of the Enmeshed App are created, maintained and published by j&amp;s-soft GmbH.
+For each of the various platforms, each version of the app is packaged into a platform-dependant binary. This binary is then executable / installable for the users. The binaries of the Enmeshed App are created, maintained and published by j&amp;s-soft GmbH and are available free for use within the respective stores.
 
 Following binaries are currently created:
 
 -   iOS App for the Apple AppStore
 -   Android App Bundle for the Google PlayStore
--   Electron App for Microsoft Windows
+
+An Electron App for Microsoft Windows is currently planned.
 
 ## Platform-dependant App Sourcecode and Build environment
 
@@ -30,4 +31,4 @@ The user interface of the Enmeshed App is platform-independently built with [Ope
 
 ## App Runtime
 
-The Enmeshed business logic for the app is extending the [Enmeshed Runtime](#enmeshed-runtime) with app-specific implementations, like multi-profile support, local data handling or automations. You can think of the App Runtime as a more user-interface-friendly way of the Enmeshed Runtime.
+The Enmeshed business logic for the app is extending the [Enmeshed Runtime](/explore/runtime) with app-specific implementations, like multi-profile support, local data handling or automations. You can think of the App Runtime as a more user-interface-friendly way of the Enmeshed Runtime.

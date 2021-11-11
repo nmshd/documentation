@@ -4,7 +4,9 @@ permalink: /explore/connector
 toc: true
 ---
 
-# Connector Components
+You can find many Connector-specific information in the [integrate](/integrate) part of these docs.
+
+# Connector Building Blocks
 
 ## Connector Docker Image
 
@@ -12,12 +14,20 @@ The Connector is usually deployed with a Docker image. The Docker images can be 
 
 ## Connector Runtime
 
-Just like the [App Runtime](#app-runtime) extends the [Enmeshed Runtime](#enmeshed-runtime) for user interfaces, the Connector Runtime is extending the [Enmeshed Runtime](#enmeshed-runtime) for the use within services and programs. For example, it maps REST-API-calls to Enmeshed business-logic.
+Just like the [App Runtime](/explore/app#app-runtime) extends the [Enmeshed Runtime](/explore/runtime) for user interfaces, the Connector Runtime is extending the [Enmeshed Runtime](/explore/runtime) for the use within services and programs. For example, it maps REST-API-calls to Enmeshed business-logic.
 
 ## Connector API
 
 to-be-documented
 
 ## Connector Modules
+
+to-be-documented
+
+## Connector Database
+
+to-be-documented
+
+## Connector SDK
 
 to-be-documented

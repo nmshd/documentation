@@ -53,10 +53,16 @@ Enmeshed consists of three main components using different layers to communicate
 -   [Backbone Layer](/explore/layers/backbone): Secured, zero-knowledge synchronization layer between App-to-Backbone or Connector-to-Backbone with cross-device capabilities and postal services
 -   [Transport Layer](/explore/layers/transport): Cross-identity secure communication tunnel App-to-App, App-to-Connector or Connector-to-Connector
 -   [Consumption Layer](/explore/layers/consumption): Cross-identity payload definitions and normalized data structures (schemas), as well as single-identity business logic implementation and data structures, either for persons or organizational identities.
--   [Integration Layer](/explore/layers/integration): Single-identity integration logic to existing business systems primarily for organizational identities.
+-   [Integration Layer](/explore/layers/integration): Single-identity integration logic to integrate existing business systems primarily for organizational identities.
 -   [User Experience Layer](/explore/layers/user-experience): The user experience for Enmeshed related features primarily for end users.
 
-## The Enmeshed App
+The following high-level picture shows the whole ensemble of Enmeshed components and layers:
+
+![High level architecture diagram of Enmeshed components and layers](/assets/images/explore/layers.png){: .align-center}
+
+The "Zero Knowledge Border" marks the area where data is encrypted or pseudonymized to a point that the Backbone operator has no chance of accessing personal data. The secure communication between identities happens within the [Transport Layer](/explore/layers/transport) based on a normalized Enmeshed schema.
+
+## Enmeshed App
 
 End-users are able to install the [Enmeshed App](/explore/app) from their favorite app stores for free. It is also available to download for various desktop operating systems.
 
@@ -86,4 +92,4 @@ It so far is not capable communicating on a content, consumption and integration
 
 The idea of Enmeshed is based on the work of many others in the area of open source software, encryption, decentralized identities, decentralized ledgers, and so on. These approaches were combined by a group of people who envisioned a great digital experience for everybody.
 
-The primary implementation provider is j&amp;s-soft GmbH in Heidelberg, Germany.
+So far, the primary implementation work has been done by j&amp;s-soft GmbH in Heidelberg, Germany.

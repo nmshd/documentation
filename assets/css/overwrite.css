@@ -60,6 +60,12 @@ input[type="submit"],
     }
     .sidebar {
         opacity: 1;
+        width: calc(300px - 1em);
+    }
+    .page {
+        float: right;
+        width: calc(100% - 300px);
+        padding-right: 200px;
     }
 }
 @media (min-width: 48em) {
@@ -72,8 +78,12 @@ input[type="submit"],
 }
 
 html,
-.greedy-nav {
+.masthead {
     background-color: #ffffff !important;
+}
+
+.greedy-nav {
+    background-color: transparent !important;
 }
 
 .greedy-nav::before {
@@ -97,7 +107,7 @@ html,
     margin-top: 4rem;
 }
 
-#main h1:not(:first-child)::before {
+#main h1::before {
     display: inline-block;
     content: "";
     left: 0px;
@@ -111,6 +121,22 @@ html,
     margin-right: 0.5rem;
 }
 
+#main h1 > a {
+    margin-left: -0.2em;
+}
+
 .author__avatar img {
     max-height: 110px;
+}
+
+.initial-content:after {
+    content: "Work-in-progress!";
+    position: absolute;
+    right: -4em;
+    top: 9em;
+    font-size: 12px;
+    background-color: #f7b232;
+    color: #ffffff;
+    padding: 7px 50px;
+    transform: rotate(45deg);
 }

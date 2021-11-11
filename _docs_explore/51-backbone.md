@@ -4,9 +4,11 @@ permalink: /explore/backbone
 toc: true
 ---
 
-# Backbone Components
+# Backbone Building Blocks
 
-The Enmeshed Backbone embraces the whole centrally hosted services. It consists of the underlying infrastructure, its hosted services, and the libraries used within the services. The Enmeshed Backbone is hosted and maintained by j&amp;s-soft GmbH.
+The Enmeshed Backbone embraces all central services required by the Enmeshed platform to work. It consists of the underlying infrastructure, its hosted services, and the libraries used within the services. There could be many Enmeshed Backbones hosted along the same number of Enmeshed Apps. But careful, so far it is not possible for users to communicate across different Backbones.
+
+One Enmeshed Backbone is currently hosted and maintained by j&amp;s-soft GmbH.
 
 ## Backbone Landscapes (Runtime)
 
@@ -26,7 +28,7 @@ All required infrastructure and infrastructure services, like a database, a load
 
 There are different possible cloud providers to host the backbone, the big hyperscalers or smaller ones. Even regional cloud providers would make sense for specific use-cases.
 
-The current cloud provider for the centrally hosted Enmeshed Backbone is Microsoft Azure and as thus, the landscape details (and terminology) are primarily focused on the Azure setup. Although there are some Azure-specific components and configurations, most of the components are cloud-provider agnostic, i.e. they will exist in other cloud providers in an equivalent form.
+The current cloud provider for the centrally hosted Enmeshed Backbone is Microsoft Azure and as thus, the landscape details (and terminology) are primarily focused on the Azure setup. Although there are Azure-specific components and configurations, most of the components used are cloud-provider agnostic, i.e. they will exist in other cloud providers in an equivalent form.
 
 ### Gateway
 

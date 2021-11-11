@@ -4,7 +4,7 @@ permalink: /explore/runtime
 toc: true
 ---
 
-# Runtime Components
+# Runtime Building Blocks
 
 ## Runtime Library
 
@@ -39,7 +39,7 @@ The implementation of the transport layer is the transport library. It combines 
 
 [Content Library GitHub Repository](https://github.com/nmshd/cns-content)
 
-To separate the actual payload of messages with the message structure and envelope, the content library was set up. It is a repository of interfaces and types which are used as the payload of communication between identities.
+To separate the actual payload of messages from the message structure and envelope, the content library was set up. It is a repository of interfaces and types which are used as the payload of communication between identities.
 
 Whereas the transport library implements the foundation of communication between identities and the actual secure tunnel between identities, the content library defines the payload on top of this tunnel. You can see it as the definition of a contract between all identities.
 

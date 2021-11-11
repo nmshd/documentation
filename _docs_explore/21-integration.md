@@ -3,11 +3,8 @@ title: "Integration Considerations"
 permalink: /explore/integration
 ---
 
-Enmeshed should not only enable users taking part of the digitalization process. Organizations should benefit of Enmeshed as well, maybe even more than the users, as organizations usually need to invest heavily to stay up to date in todays technological race.
+Enmeshed does not only enable users taking part of the digitalization process. Organizations also benefit of Enmeshed as well, as they usually need to invest heavily to stay up to date in today's technological race.
 
-Enmeshed is a flexible communication platform, with a rich default feature set and possibilities to extend the features at will. Additionally, we tried to be as integrateable as possible, encapsulating the complexity within the underlying layers.
+Enmeshed is a flexible communication platform, with a rich default feature set and possibilities to extend the features at will. The extensibility can be done within the Connector itself via modules, on top of the Connector via custom implementation or by the use of integration platforms. Additionally, we tried to be as integrateable as possible, encapsulating the complexity within the underlying layers.
 
-The Enmeshed Connector is the heart of an organization's Enmeshed identity: It provides a modern REST API within the organizations network.
-
--   Easy setup & integration
--   Support for integration modules and partner ecosystem
+The Enmeshed Connector is the heart of an organization's Enmeshed identity: It provides a modern REST API within the organizations network. Thus, the decryption, verification and storage of the data happens within the trusted environment of the organization and not on a third party site. This is also relevant for data privacy related regulations like the GDPR.

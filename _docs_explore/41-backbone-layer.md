@@ -3,11 +3,33 @@ title: "Backbone Layer"
 permalink: /explore/layers/backbone
 ---
 
-From a user perspective, the outmost or deepest layer is the backbone layer. It handles the "untrusted" communication with the backbone. Payload sent to and received from the Backbone is encrypted.
+From a user perspective, the outmost or deepest layer is the backbone layer. It handles the "untrusted" communication with the Backbone and the processing of data within the Backbone. Payload sent to and received from the Backbone is encrypted.
 
 The Backbone itself requires metadata to work, thus there is also unencrypted data sent and received between the transport layer and the Backbone. However, this data is non-personal and cannot be linked back to any real-world persons by the Backbone operator.
 
-# Challenges
+**Components**
+
+-   App
+-   Backbone
+-   Connector
+
+# Tasks
+
+## Identity to Backbone Communication
+
+One of the backbone layer's tasks is the communication between the App or Connector and the Backbone. This includes the authentication with the Backbone, the request and response behaviors and data serialization and deserialization.
+
+## Syntactical validation of encrypted data/metadata
+
+The backbone layer is responsible for validating the data sent to or received from the Backbone.
+
+## External Events
+
+The backbone layer keeps track of the current synchronization state of identities and devices and is able to manually synchronize with the Backbone.
+
+# Entities
+
+## Challenges
 
 Abbreviated: CHL
 
@@ -22,7 +44,7 @@ Submitted data to Backbone:
 
 -   id
 
-# Datawallet Modifications
+## Datawallet Modifications
 
 Stored data on Backbone:
 
@@ -73,7 +95,7 @@ Data submitted to Backbone:
         -   type: string
         -   encryptedPayload?: string
 
-# Devices
+## Devices
 
 Abbreviated: DEV
 
@@ -96,7 +118,7 @@ Submitted data to Backbone:
 -   handle
 -   installationId
 
-# Identities
+## Identities
 
 Stored data on Backbone:
 
@@ -111,7 +133,7 @@ Submitted data to Backbone:
 -   clientId
 -   clientSecret
 
-# Tokens
+## Tokens
 
 Abbreviated: TOK
 
@@ -129,7 +151,7 @@ Submitted data to Backbone:
 -   content
 -   expiresAt
 
-# Files
+## Files
 
 Abbreviated: FIL
 
@@ -162,9 +184,7 @@ Submitted data to Backbone:
 -   expiresAt
 -   encryptedProperties
 
-## File Structure
-
-# Messages
+## Messages
 
 Abbreviated: MSG
 
@@ -192,7 +212,7 @@ Data submitted to Backbone:
 -   attachments[]
     -   file id
 
-# Relationships
+## Relationships
 
 Abbreviated: REL
 
@@ -227,7 +247,7 @@ Data submitted to Backbone:
 -   relationshipTemplateId
 -   relationshipChangeContent
 
-# Relationship Templates
+## Relationship Templates
 
 Abbreviated: RLT
 
