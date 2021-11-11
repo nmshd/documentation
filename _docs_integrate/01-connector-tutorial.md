@@ -1,6 +1,7 @@
 ---
 title: "Connector Tutorial"
 permalink: /integrate/connector-tutorial
+toc: true
 ---
 
 In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization.
@@ -10,9 +11,9 @@ The following steps include small pieces of the Connector's API documentation th
 # Prerequisites
 
 -   If you want to use your own Connector for executing the examples
-    -   [install the Connector]({% link _docs_integrate/10-connector-installation.md %})
-    -   make sure the [Sync Module is disabled]({% link _docs_integrate/11-connector-configuration.md %}#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
-    -   get the API key configured for the Connector. Ask the person who installed the Connector for it.
+    -   [Install the Connector]({% link _docs_integrate/10-connector-installation.md %})
+    -   Make sure the [Sync Module is disabled]({% link _docs_integrate/11-connector-configuration.md %}#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
+    -   Get the API key configured for the Connector. Ask the person who installed the Connector for it.
 -   You need the [Enmeshed App]({% link _docs_use/01-basics.md %}) installed on your mobile device.
 
 -   Diagramm
