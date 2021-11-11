@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  connector:
+    container_name: connector
+    image: ghcr.io/nmshd/connector:<tag-or-latest> # specify a tag (e.g. 1.0.0) or use the latest tag
+    environment:
+      CUSTOM_CONFIG_LOCATION: "/config.json"
+    ports:
+      - <exposed-port>:80 # define the port the connector should listen to on the host
+    volumes:
+      - <path-to-config-file>:/config.json:RO
+    #   - </folder/of/your/choice>:/usr/app/logs # select an existing directory of your choice where your log files should be saved
+    restart: always
