@@ -115,7 +115,7 @@ Remember the `id` of the Relationship (`REL_________________`) as well as the `i
 
 Now the Relationship is in the `Active` state, so we can start to communicate with the opposite Identity, which we will do in the next part of this tutorial. In order to do so we will need the Address of that Identity. So in the response of the last request look for the `peer` property and write down its value. It should start with `id1`.
 
-# Sending and Reveiving Messages
+# Sending and Receiving Messages
 
 After you have established a Relationship to an Identity, you can start to exchange Messages. Enmeshed defines different types of Messages. For this tutorial we will focus on Messages of type Mail, which you can compare to a classic email: you can specify one or more recpipients, a subject and a body, as well as add some attachments.
 
