@@ -118,8 +118,8 @@ docs_integrate:
         url: /integrate/basics
       - title: "Connector Tutorial"
         url: /integrate/connector-tutorial
-      - title: "Create Relationships"
-        url: /integrate/create-relationships
+      # - title: "Create Relationships"
+      #   url: /integrate/create-relationships
 
   - title: Setting up the Connector
     children:
@@ -132,22 +132,22 @@ docs_integrate:
     children:
       - title: "API Documentation"
         url: /integrate/connector-api
-      - title: "Using Templates"
-        url: /integrate/connector-flows-templates
-      - title: "Synchronization"
-        url: /integrate/connector-flows-synchronization
-      - title: "Handling Relationships"
-        url: /integrate/connector-flows-relationships
+      # - title: "Using Templates"
+      #   url: /integrate/connector-flows-templates
+      # - title: "Synchronization"
+      #   url: /integrate/connector-flows-synchronization
+      # - title: "Handling Relationships"
+      #   url: /integrate/connector-flows-relationships
       - title: "Sending Messages"
         url: /integrate/connector-flows-messages
-      - title: "Requesting Data"
-        url: /integrate/connector-flows-requests
-      - title: "Integrating Authentication"
-        url: /integrate/connector-flows-authentication
-      - title: "Requests, Parameters and Filters"
-        url: /integrate/connector-requests
-      - title: "Responses and Errors"
-        url: /integrate/connector-responses
+      # - title: "Requesting Data"
+      #   url: /integrate/connector-flows-requests
+      # - title: "Integrating Authentication"
+      #   url: /integrate/connector-flows-authentication
+      # - title: "Requests, Parameters and Filters"
+      #   url: /integrate/connector-requests
+      # - title: "Responses and Errors"
+      #   url: /integrate/connector-responses
 
   - title: Programming
     children:
@@ -160,13 +160,13 @@ docs_integrate:
     children:
       - title: "Connector Operations"
         url: /integrate/connector-operations
-      - title: "Connector Troubleshooting"
-        url: /integrate/connector-troubleshooting
+      # - title: "Connector Troubleshooting"
+      #   url: /integrate/connector-troubleshooting
       - title: "Security Considerations"
         url: /integrate/connector-security
       - title: "Privacy Considerations"
         url: /integrate/connector-privacy
       - title: "Performance Considerations"
         url: /integrate/connector-performance
-      - title: "Data Considerations"
-        url: /integrate/connector-data
+      # - title: "Data Considerations"
+      #   url: /integrate/connector-data
