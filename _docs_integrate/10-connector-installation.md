@@ -43,7 +43,7 @@ As the connector acts as trusted communication instance for an organization, a s
 
 ## List docker image tags
 
-Read more about listing available docker image tags [here](/explore/connector#connector-docker-image)
+Read more about listing available docker image tags [here](/explore/connector#connector-docker-image).
 
 # Installation
 
