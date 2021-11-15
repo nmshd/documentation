@@ -10,7 +10,12 @@ You can find many Connector-specific information in the [integrate](/integrate) 
 
 ## Connector Docker Image
 
-The Connector is usually deployed with a Docker image. The Docker images can be fetched from [the GitHub container registry](https://github.com/nmshd/cns-connector/pkgs/container/connector) from your Docker client. The Docker images are created, maintained and published by j&amp;s-soft GmbH.
+The Connector is usually deployed with a Docker image. The Docker images can be fetched from [the GitHub container registry](https://github.com/nmshd/cns-connector/pkgs/container/connector) using your Docker client.
+
+**Note:** You have to be logged in using a GitHub account to list available tags.
+{: .notice--warning}
+
+The Docker images are created, maintained and published by j&amp;s-soft GmbH.
 
 ## Connector Runtime
 
