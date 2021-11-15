@@ -41,9 +41,9 @@ A reliable and fast internet connection is mandatory for running the Connector. 
 
 As the connector acts as trusted communication instance for an organization, a signature keypair for the organization is mandatory and needs to be generated and verified upfront. Please refer to the Identity Guide for creating such an identity.
 
-## Lookup docker image versions
+## List docker image tags
 
-You can find an overview of the available images in [our container registry](https://github.com/nmshd/cns-connector/pkgs/container/connector) hosted on GitHub.
+Read more about listing available docker image tags [here](/explore/connector#connector-docker-image).
 
 # Installation
 
