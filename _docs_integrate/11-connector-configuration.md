@@ -47,17 +47,17 @@ You can validate the config using our [schema file](https://raw.githubuserconten
 
 ## `transportLibrary`
 
--   **clientId** `required field`
+-   **clientId** `required`
 
     The client id is required to communicate with the Enmeshed platform.
 
--   **clientSecret** `required field`
+-   **clientSecret** `required`
 
     The client secret is required to communicate with the Enmeshed platform.
 
 ## `database`
 
--   **connectionString** `required field`
+-   **connectionString** `required`
 
     At this point the connection to the database can be configured. The connection string must follow the MongoDB [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/).
 
@@ -95,7 +95,7 @@ The http server is the base for the `coreHttpApi` module. It opens an express ht
 
     configure the CORS middleware. Valid options can be found [here](https://github.com/expressjs/cors#configuration-options).
 
--   **apiKey** `required field`
+-   **apiKey** `required`
 
     Configure the API-Key used to authenticate on the Connector.
 
@@ -195,7 +195,7 @@ The `webhooks` module heavily depends on the `sync` module so it has to be enabl
 
     Enable or disable the webhooks module.
 
--   **url** `required field`
+-   **url** `required`
 
     The URL to which the webhooks will be sent.
 
