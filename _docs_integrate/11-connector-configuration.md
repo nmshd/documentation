@@ -9,7 +9,7 @@ permalink: /integrate/connector-configuration
 2. Fill the config file with your desired configuration (it's sufficient to add values you want to change; the Connector will merge your config file with the default configuration) Example:
     ```json
     {
-        "modules": {
+        "infrastructure": {
             "httpServer": {
                 "enabled": true
             }

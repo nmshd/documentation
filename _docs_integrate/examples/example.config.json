@@ -7,14 +7,16 @@
         "connectionString": "mongodb://user:pass@mongodb:27017/?authSource=admin&readPreference=primary&ssl=false",
         "dbName": "demo"
     },
-    "modules": {
+    "infrastructure": {
         "httpServer": {
             "enabled": true,
             "cors": {
                 "origin": false
             },
             "apiKey": "apiKey"
-        },
+        }
+    },
+    "modules": {
         "sync": {
             "enabled": false,
             "interval": 60
