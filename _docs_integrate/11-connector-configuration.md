@@ -9,7 +9,7 @@ permalink: /integrate/connector-configuration
 2. Fill the config file with your desired configuration (it's sufficient to add values you want to change; the Connector will merge your config file with the default configuration) Example:
     ```json
     {
-        "modules": {
+        "infrastructure": {
             "httpServer": {
                 "enabled": true
             }
@@ -23,6 +23,9 @@ There is also an [example config file](https://raw.githubusercontent.com/nmshd/n
 
 # Configuration options
 
+**Applicable for Connector version >= 2.1.0**
+{: .notice--warning}
+
 The Connector provides the following configuration parameters:
 
 ```json
@@ -35,25 +38,26 @@ The Connector provides the following configuration parameters:
         "connectionString": "mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]",
         "dbName": "a-db-name"
     },
+    "infrastructure": { ... },
     "modules": { ... }
 }
 ```
 
-You can validate the config using our [schema file](https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json). This is possible with [VSCode](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) and online tools like [https://www.jsonschemavalidator.net].
+You can validate the config using our [schema file](https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json). This is possible with [VSCode](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) and online tools like [jsonschemavalidator.net](https://www.jsonschemavalidator.net).
 
 ## `transportLibrary`
 
--   **clientId** `required field`
+-   **clientId** `required`
 
     The client id is required to communicate with the Enmeshed platform.
 
--   **clientSecret** `required field`
+-   **clientSecret** `required`
 
     The client secret is required to communicate with the Enmeshed platform.
 
 ## `database`
 
--   **connectionString** `required field`
+-   **connectionString** `required`
 
     At this point the connection to the database can be configured. The connection string must follow the MongoDB [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/).
 
@@ -63,9 +67,9 @@ You can validate the config using our [schema file](https://raw.githubuserconten
 
     If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
 
-## `modules`
+## `infrastructure`
 
-Every module can be enabled or disabled by passing true / false to `enabled`.
+Each infrastructure can be enabled or disabled by passing true / false to `enabled`.
 
 ### `httpServer`
 
@@ -91,9 +95,13 @@ The http server is the base for the `coreHttpApi` module. It opens an express ht
 
     configure the CORS middleware. Valid options can be found [here](https://github.com/expressjs/cors#configuration-options).
 
--   **apiKey** `default: undefined`
+-   **apiKey** `required`
 
-    Configure the API-Key used to authenticate on the Connector. If the apiKey is not set the connector will be accessible without authentication.
+    Configure the API-Key used to authenticate on the Connector.
+
+## `modules`
+
+Every module can be enabled or disabled by passing true / false to `enabled`.
 
 ### `sync`
 
