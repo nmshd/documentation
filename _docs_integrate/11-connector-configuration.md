@@ -23,6 +23,8 @@ There is also an [example config file](https://raw.githubusercontent.com/nmshd/n
 
 # Configuration options
 
+> For Connector version > 2.1.0
+
 The Connector provides the following configuration parameters:
 
 ```json
