@@ -37,6 +37,7 @@ The Connector provides the following configuration parameters:
         "connectionString": "mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]",
         "dbName": "a-db-name"
     },
+    "infrastructure": { ... },
     "modules": { ... }
 }
 ```
@@ -65,9 +66,9 @@ You can validate the config using our [schema file](https://raw.githubuserconten
 
     If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
 
-## `modules`
+## `infrastructure`
 
-Every module can be enabled or disabled by passing true / false to `enabled`.
+Each infrastructure can be enabled or disabled by passing true / false to `enabled`.
 
 ### `httpServer`
 
@@ -93,9 +94,13 @@ The http server is the base for the `coreHttpApi` module. It opens an express ht
 
     configure the CORS middleware. Valid options can be found [here](https://github.com/expressjs/cors#configuration-options).
 
--   **apiKey** `default: undefined`
+-   **apiKey** `required field`
 
-    Configure the API-Key used to authenticate on the Connector. If the apiKey is not set the connector will be accessible without authentication.
+    Configure the API-Key used to authenticate on the Connector.
+
+## `modules`
+
+Every module can be enabled or disabled by passing true / false to `enabled`.
 
 ### `sync`
 
@@ -189,7 +194,7 @@ The `webhooks` module heavily depends on the `sync` module so it has to be enabl
 
     Enable or disable the webhooks module.
 
--   **url** `required`
+-   **url** `required field`
 
     The URL to which the webhooks will be sent.
 
