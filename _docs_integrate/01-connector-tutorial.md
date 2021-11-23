@@ -29,7 +29,7 @@ Start by creating a so called Relationship Template on the Connector. You can do
 ```json
 {
     "maxNumberOfRelationships": 10,
-    "expiresAt": "2022-06-01T00:00.000Z",
+    "expiresAt": "2022-06-01T00:00:00.000Z",
     "content": {
         "attributes": [
             {
