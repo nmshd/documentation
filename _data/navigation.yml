@@ -129,6 +129,8 @@ docs_integrate:
         url: /integrate/connector-installation
       - title: "Configuration"
         url: /integrate/connector-configuration
+      - title: "FAQ"
+        url: /integrate/connector-faq
 
   - title: REST API
     children:
