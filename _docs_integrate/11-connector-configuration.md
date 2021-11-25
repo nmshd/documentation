@@ -97,7 +97,7 @@ The http server is the base for the `coreHttpApi` module. It opens an express ht
 
 -   **apiKey** `required`
 
-    Define the API-Key the Connector should use to authenticate requests.
+    Define the API-Key the Connector should use to authenticate requests. The API-Key can be chosen freely and has to be send with every request in the `X-API-KEY` header.
 
 ## `modules`
 
