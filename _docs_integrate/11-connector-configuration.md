@@ -49,11 +49,11 @@ You can validate the config using our [schema file](https://raw.githubuserconten
 
 -   **clientId** `required`
 
-    The client id is required to communicate with the Enmeshed platform.
+    The client id is required to communicate with the Enmeshed platform. It can be aqquired from the [Enmeshed Support](/integrate/basics#support).
 
 -   **clientSecret** `required`
 
-    The client secret is required to communicate with the Enmeshed platform.
+    The client secret is required to communicate with the Enmeshed platform. It can be aqquired from the [Enmeshed Support](/integrate/basics#support).
 
 ## `database`
 

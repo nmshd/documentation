@@ -30,3 +30,7 @@ Unfortunately, there is no button with which you can switch on the digitalizatio
 We propose to set up a first test connector by your IT department or let us do the hosting. Then you can decide in how far Enmeshed and its supported features and processes work for you.
 
 If you like to try on your own: There is a Connector Tutorial in the next chapter which is a good starting point to set up the Connector on a try out basis. More details are available in the "Setting up the Connector" and integration sections. If you like to dig deeper, there are operation tutorials which might answer some questions with regards to overall security and privacy.
+
+# Support
+
+There is no general support for the Connector. Customer support can be addressed under `support[at]enmeshed.eu`.
