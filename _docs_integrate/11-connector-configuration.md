@@ -97,7 +97,13 @@ The http server is the base for the `coreHttpApi` module. It opens an express ht
 
 -   **apiKey** `required`
 
-    Define the API-Key the Connector should use to authenticate requests. The API-Key can be chosen freely and has to be sent with every request in the `X-API-KEY` header.
+    Define the API-Key the Connector should use to authenticate requests.
+
+    The API-Key can be chosen arbitrarily and has to be sent with every request in the `X-API-KEY` HTTP-Header.
+
+    There are no limitations regarding the allowed characters. We recommend using an API-Key that is at least 20 characters long.
+
+    The API-Key protects your Connector from unauthorized access and should therefore be kept secret.
 
 ## `modules`
 
