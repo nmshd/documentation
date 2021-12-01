@@ -37,10 +37,6 @@ Depending on the usage scenario, higher hardware requirements might be necessary
 
 A reliable and fast internet connection is mandatory for running the Connector. However, the Connector is only communicating with the Backbone so the corresponding domain (e.g. `https://prod.enmeshed.eu`) can be whitelisted and the associated certificate can be additionally pinned.
 
-## Organization's Identity
-
-As the connector acts as trusted communication instance for an organization, a signature keypair for the organization is mandatory and needs to be generated and verified upfront. Please refer to the Identity Guide for creating such an identity.
-
 ## List docker image tags
 
 Read more about listing available docker image tags [here](/explore/connector#connector-docker-image).
