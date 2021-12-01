@@ -33,4 +33,4 @@ If you like to try on your own: There is a Connector Tutorial in the next chapte
 
 # Support
 
-There is no general support for the Connector. Customer support can be addressed under `support[at]enmeshed.eu`.
+There is no general support for the Connector. Customer support can be addressed under `support[at]enmeshed.eu` in english or in german.
