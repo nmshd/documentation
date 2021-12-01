@@ -23,9 +23,6 @@ There is also an [example config file](https://raw.githubusercontent.com/nmshd/n
 
 # Configuration options
 
-**Applicable for Connector version >= 2.1.0**
-{: .notice--warning}
-
 The Connector provides the following configuration parameters:
 
 ```json
