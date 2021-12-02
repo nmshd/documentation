@@ -77,7 +77,7 @@ Finally, click on "Kontakt hinzufügen" to send the Relationship Request. This w
 
 ## Connector: Accept the Relationship Request
 
-In order to move it into the `Active` state, you now need to accept the Relationship Request with the Connector. In order to do so, first execute the `POST /api/v1/api/v1/Account/Sync` route, which will fetch all changes that occurred since the last time this endpoint was executed.
+In order to move it into the `Active` state, you now need to accept the Relationship Request with the Connector. In order to do so, first execute the `POST /api/v1/Account/Sync` route, which will fetch all changes that occurred since the last time this endpoint was executed.
 
 {% include rapidoc api_route_regex="^post /api/v1/Account/Sync$" %}
 
