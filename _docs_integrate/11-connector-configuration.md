@@ -7,15 +7,18 @@ permalink: /integrate/connector-configuration
 
 1. Create a config file in JSON format in a folder of your choice.
 2. Fill the config file with your desired configuration (it's sufficient to add values you want to change; the Connector will merge your config file with the default configuration) Example:
+
     ```json
     {
         "infrastructure": {
             "httpServer": {
-                "enabled": true
+                "enabled": true,
+                "apiKey": "an-api-key"
             }
         }
     }
     ```
+
 3. Mount the created config file into the Docker container (e.g. to `/config.json`). See the official [documentation](https://docs.docker.com/storage/bind-mounts/) for more information on how to mount files into a Docker container. This is also possible using [docker compose](https://docs.docker.com/compose/compose-file/compose-file-v3/#volumes).
 4. Set the environment variable `CUSTOM_CONFIG_LOCATION` to the path you mounted your config file to (e.g. `CUSTOM_CONFIG_LOCATION="/config.json"`).
 
