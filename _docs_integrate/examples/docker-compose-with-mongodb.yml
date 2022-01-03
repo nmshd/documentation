@@ -9,7 +9,7 @@ services:
     ports:
       - <exposed-port>:80 # define the port the connector should listen to on the host
     volumes:
-      - <path-to-config-file>/config.json:/config.json:RO
+      - <path-to-config-file>/config.json:/config.json:ro
     #   - </folder/of/your/choice>:/usr/app/logs # select an existing directory of your choice where your log files should be saved
     depends_on:
       - mongodb
