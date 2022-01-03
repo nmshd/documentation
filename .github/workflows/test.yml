@@ -4,6 +4,10 @@ on:
   push:
     branches-ignore:
       - main
+  pull_request_target:
+    types: [opened, edited]
+  pull_request:
+    types: [opened, edited]
 
 jobs:
   run-checks:
