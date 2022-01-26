@@ -163,7 +163,10 @@ This module contains the HTTP API with all Enmeshed base functionalities.
 {
     "enabled": true,
     "docs": {
-        "enabled": true
+        "enabled": true,
+        "rapidoc": {
+            "persistAuth": false
+        }
     }
 }
 ```
@@ -175,6 +178,10 @@ This module contains the HTTP API with all Enmeshed base functionalities.
 -   **docs:enabled** `default: true`
 
     Enable / disable the `/docs/json` and `/docs/yaml` routes and the rendered swagger / rapidoc documentations.
+
+-   **docs:rapidoc:persistAuth** `default: false`
+
+    If set to `true` rapidoc persists the API Key in the local storage of the browser.
 
 ### `webhooks`
 
