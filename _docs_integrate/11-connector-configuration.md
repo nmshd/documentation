@@ -185,7 +185,7 @@ This module contains the HTTP API with all Enmeshed base functionalities.
 
 -   **docs:rapidoc:persistAuth** `default: false`
 
-    It is not recommended to enable the docs in production szenarios.
+    It is not recommended to enable the authentication persistence in production szenarios.
     {: .notice--danger}
 
     If set to `true` rapidoc persists the API Key in the local storage of the browser.
