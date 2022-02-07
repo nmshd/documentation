@@ -291,3 +291,5 @@ interface RelationshipChange {
     };
 }
 ```
+
+The payload of the webhook is the same as the response payload of the `/api/v1/Account/Sync` endpoint. Thus the type `ConnectorSyncResult` of the [TypeScript SDK](./connector-sdks#typescript-sdk) can be used for specifing the webhook's payload type.
