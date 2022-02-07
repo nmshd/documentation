@@ -7,6 +7,15 @@
     margin-bottom: 0;
 }
 
+.notice,
+.notice--primary,
+.notice--info,
+.notice--warning,
+.notice--danger,
+.notice--success {
+    margin: 1em !important;
+}
+
 b,
 i,
 strong,
