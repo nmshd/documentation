@@ -5,9 +5,9 @@ on:
     branches-ignore:
       - main
   pull_request_target:
-    types: [opened, edited]
+    types: [opened, synchronize, reopened]
   pull_request:
-    types: [opened, edited]
+    types: [opened, synchronize, reopened]
 
 jobs:
   run-checks:
