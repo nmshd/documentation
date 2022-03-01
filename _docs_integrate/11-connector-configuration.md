@@ -24,6 +24,38 @@ permalink: /integrate/connector-configuration
 
 There is also an [example config file](https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json) available. It sets some default values, please only use the fields you require
 
+## Environment variables
+
+The configuration can also be done using environment variables.
+
+### Parsing rules
+
+1.  Nested fields can be represented using a colon (`:`) as a separator.
+
+    The `:` separator doesn't work with environment variable hierarchical keys on all platforms. The double underscore (`__`) is supported on all platforms (e.g. bash does not support the `:` separator but it supports `__` ). The connector will therefore convert `__` to `:` so you can use it on that systems.
+    {: .notice--warning}
+
+2.  The parameter casing must be the same as the config file casing.
+3.  The strings "true" and "false" are converted to the respective boolean values.
+
+### Example
+
+You want to configure the following values:
+
+```jsonc
+{
+    "infrastructure": {
+        "httpServer": {
+            "enabled": true,
+            "apiKey": "an-api-key"
+        }
+    }
+}
+```
+
+-   The first value can be configured using the variable `infrastructure:httpServer:enabled="true"`. Note that the value is represented as a string in the environment variable and the connector will rewrite it to boolean.
+-   The second value can be configured using the variable `infrastructure:httpServer:apiKey="an-api-key"`.
+
 # Configuration options
 
 The Connector provides the following configuration parameters:
