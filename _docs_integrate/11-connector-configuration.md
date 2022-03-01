@@ -37,24 +37,28 @@ The configuration can also be done using environment variables.
 
 2.  The parameter casing must be the same as the config file casing.
 3.  The strings "true" and "false" are converted to the respective boolean values.
+4.  Numbers strings (`"1"` / `"1.1"`) will be converted to the respective number types.
+5.  Complex structures (arrays, objects) are not supported. (=> `modules:aModule:aKey='{"a": "x", "b": "y"}'` or `modules:aModule:aKey='["a", "b"]'` is not valid)
 
 ### Example
 
 You want to configure the following values:
 
-```jsonc
+```json
 {
     "infrastructure": {
         "httpServer": {
             "enabled": true,
+            "port": 8080,
             "apiKey": "an-api-key"
         }
     }
 }
 ```
 
--   The first value can be configured using the variable `infrastructure:httpServer:enabled="true"`. Note that the value is represented as a string in the environment variable and the connector will rewrite it to boolean.
--   The second value can be configured using the variable `infrastructure:httpServer:apiKey="an-api-key"`.
+-   The first value can be configured using the variable `infrastructure:httpServer:enabled="true"`. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its boolean representation.
+-   The second value can be configured using the variable `infrastructure:httpServer:port="8080"`. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its number representation.
+-   The third value can be configured using the variable `infrastructure:httpServer:apiKey="an-api-key"`.
 
 # Configuration options
 
