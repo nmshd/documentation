@@ -37,7 +37,7 @@ The configuration can also be done using environment variables. This feature is 
 
 2.  The parameter casing must be the same as the config file casing.
 3.  The strings "true" and "false" are converted to the respective boolean values.
-4.  Numbers strings (`"1"` / `"1.1"`) will be converted to the respective number types.
+4.  Number strings (`"1"` / `"1.1"`) will be converted to the respective number types.
 5.  Complex structures (arrays, objects) are not supported. (=> `modules:aModule:aKey='{"a": "x", "b": "y"}'` or `modules:aModule:aKey='["a", "b"]'` is not valid)
 
 ### Example
