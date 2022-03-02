@@ -24,6 +24,42 @@ permalink: /integrate/connector-configuration
 
 There is also an [example config file](https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json) available. It sets some default values, please only use the fields you require
 
+## Environment variables
+
+The configuration can also be done using environment variables. This feature is included in the connector since version `2.2.1`.
+
+### Parsing rules
+
+1.  Nested fields can be represented using a colon (`:`) as a separator.
+
+    The `:` separator doesn't work with environment variable hierarchical keys on all platforms. The double underscore (`__`) is supported on all platforms (e.g. bash does not support the `:` separator but it supports `__` ). The connector will therefore convert `__` to `:` so you can use it on that systems.
+    {: .notice--warning}
+
+2.  The parameter casing must be the same as the config file casing.
+3.  The strings "true" and "false" are converted to the respective boolean values.
+4.  Number strings (`"1"` / `"1.1"`) will be converted to the respective number types.
+5.  Complex structures (arrays, objects) are not supported. (=> `modules:aModule:aKey='{"a": "x", "b": "y"}'` or `modules:aModule:aKey='["a", "b"]'` is not valid)
+
+### Example
+
+You want to configure the following values:
+
+```json
+{
+    "infrastructure": {
+        "httpServer": {
+            "enabled": true,
+            "port": 8080,
+            "apiKey": "an-api-key"
+        }
+    }
+}
+```
+
+-   The first value can be configured using the variable `infrastructure:httpServer:enabled="true"`. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its boolean representation.
+-   The second value can be configured using the variable `infrastructure:httpServer:port="8080"`. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its number representation.
+-   The third value can be configured using the variable `infrastructure:httpServer:apiKey="an-api-key"`.
+
 # Configuration options
 
 The Connector provides the following configuration parameters:
