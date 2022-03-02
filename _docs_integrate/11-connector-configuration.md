@@ -228,6 +228,9 @@ This module contains the HTTP API with all Enmeshed base functionalities.
 
 ### `webhooks`
 
+This module is deprecated in favor of the [webhooksV2](/integrate/connector-configuration#webhooksv2) module.
+{: .notice--warning}
+
 With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
 
 For this, the Connector supports the configuration of a webhook which is called in case there is something new (e.g. a new message has been received).
@@ -329,3 +332,84 @@ interface RelationshipChange {
 ```
 
 The payload of the webhook is the same as the response payload of the `/api/v1/Account/Sync` endpoint. Thus the type `ConnectorSyncResult` of the [TypeScript SDK](./connector-sdks#typescript-sdk) can be used for specifing the webhook's payload type.
+
+### `webhooksV2`
+
+With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
+
+For this, the Connector supports the configuration of multiple webhooks which is called for [events](TODO) (e.g. a new message has been received => `transport.messageReceived`).
+
+The `webhooksV2` module heavily depends on the `sync` module so it has to be enabled to work.
+
+#### Configuration
+
+```json
+{
+    "enabled": false,
+    "targets": {},
+    "webhooks": {}
+}
+```
+
+-   **enabled** `default: false`
+
+    Enable or disable the webhooks module.
+
+-   **targets** `default: {}`
+
+    The targets that can be referenced in the webhooks list.
+
+    ##### Targets example
+
+    ```jsonc
+    {
+        // a target with headers, the header object is optional
+        "target1": {
+            "url": "https://example.com/enmeshed/webhook2",
+
+            // the following headers will be sent with the webhook
+            "headers": {
+                "a-header": "a-value",
+                "another-header": "another-value"
+            }
+        },
+
+        // a target without headers
+        "target2": {
+            "url": "https://example.com/enmeshed/webhook"
+        }
+    }
+    ```
+
+-   **webhooks** `default: []`
+
+    The webhooks that will be called for given events.
+
+    ##### Webhooks example
+
+    ```jsonc
+    [
+        {
+            "triggers": ["transport.messageReceived"],
+            "target": {
+                "url": "https://example.com/enmeshed/webhook"
+            }
+        },
+        {
+            "triggers": ["transport.messageReceived"],
+            "target": {
+                "url": "https://example.com/enmeshed/webhook2",
+                "headers": {
+                    "a-header": "a-value",
+                    "another-header": "another-value"
+                }
+            }
+        },
+        {
+            "triggers": ["transport.messageReceived"],
+
+            // target is a target reference defined in the targets section
+            "target": "target1"
+        }
+    ]
+    ```
