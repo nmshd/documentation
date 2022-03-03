@@ -235,7 +235,7 @@ With the REST API, pull mechanisms are supported. However, as there are many bid
 
 For this, the Connector supports the configuration of a webhook which is called in case there is something new (e.g. a new message has been received).
 
-The `webhooks` module heavily depends on the `sync` module so it has to be enabled to work.
+Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive webhooks. The `sync` module automates this, but you can also do this manually by calling the `/api/v1/Account/Sync` route.
 
 #### Configuration
 
@@ -401,12 +401,16 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
     [
         {
             "triggers": ["transport.messageReceived"],
+
+            // the target definition is the same as in the targets section
             "target": {
                 "url": "https://example.com/enmeshed/webhook"
             }
         },
         {
             "triggers": ["transport.messageReceived"],
+
+            // the target definition is the same as in the targets section
             "target": {
                 "url": "https://example.com/enmeshed/webhook2",
                 "headers": {
@@ -423,3 +427,17 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
         }
     ]
     ```
+
+#### Payload
+
+```jsonc
+{
+    // the event name (e.g. transport.messageReceived) that triggered the webhook
+    "trigger": "transport.messageReceived",
+
+    // the payload of the event
+    "data": {}
+}
+```
+
+The payload data is documented in the [events](/integrate/connector-events) section.
