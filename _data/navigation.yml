@@ -159,6 +159,8 @@ docs_integrate:
         url: /integrate/connector-sdks
       - title: "Custom Connector Modules"
         url: /integrate/custom-connector-modules
+      - title: "Connector Events"
+        url: /integrate/connector-events
 
   - title: Operations
     children:
