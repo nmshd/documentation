@@ -379,6 +379,12 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
         // a target without headers
         "target2": {
             "url": "https://example.com/enmeshed/webhook"
+        },
+
+        // a target with the {{trigger}} placeholder in the URL
+        "target3": {
+            // {{trigger}} will be replaced with the event name (e.g. transport.messageReceived)
+            "url": "https://example.com/enmeshed/webhook/{{trigger}}"
         }
     }
     ```
