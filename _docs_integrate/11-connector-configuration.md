@@ -337,9 +337,9 @@ The payload of the webhook is the same as the response payload of the `/api/v1/A
 
 With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
 
-For this, the Connector supports the configuration of multiple webhooks which is called for [events](TODO) (e.g. a new message has been received => `transport.messageReceived`).
+For this, the Connector supports the configuration of multiple webhooks which are called for [events](/integrate/connector-events) (e.g. a new message has been received => `transport.messageReceived`).
 
-The `webhooksV2` module heavily depends on the `sync` module so it has to be enabled to work.
+Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The `sync` module automates this, but you can also do this manually by calling the `/api/v1/Account/Sync` route.
 
 #### Configuration
 
@@ -357,9 +357,11 @@ The `webhooksV2` module heavily depends on the `sync` module so it has to be ena
 
 -   **targets** `default: {}`
 
-    The targets that can be referenced in the webhooks list.
+    Here you can predefine targets so you can reuse them for different webhooks.
 
-    ##### Targets example
+    <br>
+
+    **Example**
 
     ```jsonc
     {
@@ -385,7 +387,9 @@ The `webhooksV2` module heavily depends on the `sync` module so it has to be ena
 
     The webhooks that will be called for given events.
 
-    ##### Webhooks example
+    <br>
+
+    **Example**
 
     ```jsonc
     [
@@ -408,7 +412,7 @@ The `webhooksV2` module heavily depends on the `sync` module so it has to be ena
         {
             "triggers": ["transport.messageReceived"],
 
-            // target is a target reference defined in the targets section
+            // a reference to a target defined in the targets section
             "target": "target1"
         }
     ]
