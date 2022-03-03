@@ -27,7 +27,7 @@ The new module gives you the possibility to define so called `triggers`, which r
 While in the old module you could configure an interval in which the new information is published, the new module calls the webhook immediately after the configured event was triggered.
 _Do you miss the possibility to configure a publish interval? Raise a feature request in our [feedback repository](https://github.com/nmshd/nmshd.github.io/issues/new/choose), and we will see what we can do about it._
 
-Since you can use arbitrary events as triggers now, the new module gives you much more points at which you can integrate. For a full list of events you can use as triggers, see [here](/integrate/connector-events). Note that the list will grow in the next weeks, so check the docs from time to time. If you wish for a specific event, you can also [raise a feature request](https://github.com/nmshd/nmshd.github.io/issues/new/choose).
+Since you can use arbitrary events as triggers now, the new module gives you much more points at which you can integrate. We provide a [list of these events](/integrate/connector-events). Note that the list will grow in the next weeks, so check the docs from time to time. If you wish for a specific event, you can also [raise a feature request](https://github.com/nmshd/nmshd.github.io/issues/new/choose).
 
 ## Migration
 
