@@ -17,7 +17,6 @@
     "ol-prefix": {
         "style": "ordered"
     },
-    "no-inline-html": true,
     "no-bare-urls": true,
     "no-space-in-emphasis": true,
     "no-space-in-code": true,

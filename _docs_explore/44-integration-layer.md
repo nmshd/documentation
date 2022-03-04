@@ -32,4 +32,4 @@ Whenever a synchronization with the Backbone takes place, new messages or relati
 
 ## Monitoring and Logging Capabilities
 
-The operation of a connector is supported by monitoring and logging capabilities of the integration layer.
+The operation of a Connector is supported by monitoring and logging capabilities of the integration layer.

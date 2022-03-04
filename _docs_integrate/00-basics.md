@@ -27,7 +27,7 @@ If you ask yourself now "Why does Enmeshed itself host Connectors then?" - good 
 
 Unfortunately, there is no button with which you can switch on the digitalization. Processes need to be set up, old processes need to be digitalized, data might need to be mapped, and so on. However, one needs to start somehow and we can help you on your journey.
 
-We propose to set up a first test connector by your IT department or let us do the hosting. Then you can decide in how far Enmeshed and its supported features and processes work for you.
+We propose to set up a first test Connector by your IT department or let us do the hosting. Then you can decide in how far Enmeshed and its supported features and processes work for you.
 
 If you like to try on your own: There is a Connector Tutorial in the next chapter which is a good starting point to set up the Connector on a try out basis. More details are available in the "Setting up the Connector" and integration sections. If you like to dig deeper, there are operation tutorials which might answer some questions with regards to overall security and privacy.
 

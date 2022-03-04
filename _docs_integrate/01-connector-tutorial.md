@@ -6,7 +6,7 @@ toc: true
 
 In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization.
 
-The following steps include small pieces of the Connector's API documentation that, when executed, fire requests on a Connector created for testing purposes. So if you don't have an own Connector installed, feel free to use the samples directly. Otherwise you can use your own Connector either with a REST client (e.g. [Insomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/)) or by using the RapiDoc documentation (`/docs/rapidoc`) hosted on your connector (you have to [enable docs on your connector]({% link _docs_integrate/11-connector-configuration.md %}#corehttpapi) for the documentation route to work).
+The following steps include small pieces of the Connector's API documentation that, when executed, fire requests on a Connector created for testing purposes. So if you don't have an own Connector installed, feel free to use the samples directly. Otherwise you can use your own Connector either with a REST client (e.g. [Insomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/)) or by using the RapiDoc documentation (`/docs/rapidoc`) hosted on your Connector (you have to [enable docs on your connector]({% link _docs_integrate/11-connector-configuration.md %}#corehttpapi) for the documentation route to work).
 
 # Prerequisites
 
