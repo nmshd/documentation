@@ -48,6 +48,10 @@ Alternatively, you can use the predefined VS Code Tasks
 -   `Serve` &rarr; see above
 -   `Build` &rarr; build the jekyll site
 
+## update dependencies
+
+You can update dependencies using the command `bundle update`.
+
 ## regenerate diagrams
 
 execute

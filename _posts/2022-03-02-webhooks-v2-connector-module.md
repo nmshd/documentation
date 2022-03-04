@@ -1,5 +1,5 @@
 ---
-title: "The new Webhooks Connector module"
+title: "The new webhooks Connector module"
 date: 2022-03-02T12:00:00+02:00
 categories:
     - blog
@@ -12,7 +12,7 @@ tags:
 
 Hello everyone!
 
-Today we want to announce a new version of the Webhooks Connector module.
+Today we want to announce a new version of the webhooks Connector module.
 
 The old version of the module had many limitations that we could only address with a complete rewrite. To be backwards compatible the old version of the module is still available under the name `webhooks`.
 The new module can be configured under the name `webhooksV2`.
