@@ -26,7 +26,7 @@ There is also an [example config file](https://raw.githubusercontent.com/nmshd/n
 
 ## Environment variables
 
-The configuration can also be done using environment variables. This feature is included in Connector the since version `2.2.1`.
+The configuration can also be done using environment variables. This feature is included in the Connector since version `2.2.1`.
 
 ### Parsing rules
 
