@@ -361,6 +361,9 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
 
     A target consists of a URL as well as optional arbitrary headers, which the Connector should send as part of the request. Optionally, your URL can contain the placeholder {% raw %}`{{trigger}}`{% endraw %}, which at runtime will be replaced with the event name that triggered the webhook (e.g. transport.messageReceived). This way, you can reuse the same target for multiple webhooks and still have different URLs for different events. See the code below for an example.
 
+    The server under the URL must respond to the request with a 200 status code. Otherwise the Connector will log a warning.
+    {: .notice--warning}
+
     <br>
 
     **Example**
