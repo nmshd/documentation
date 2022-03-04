@@ -3,13 +3,13 @@ title: "Connector Events"
 permalink: /integrate/connector-events
 ---
 
-| Event                         | Payload                       | Description                                                                                                                                                                                                                                        |
-| ----------------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transport.messageReceived     | [Message](#message)           | This event is triggered if the connector receives a message via the Synchonization either triggered manually or by the `sync` module.                                                                                                              |
-| transport.messageSent         | [Message](#message)           | This event is triggered when a message is sent from the Connector via the `POST /api/v1/Messages` route or from a module.                                                                                                                          |
-| transport.relationshipChanged | [Relationship](#relationship) | This event is triggered when a relationship has changed due to the following cases: <br> • you create a Relationship <br> • you accept, reject or revoke a relationship change <br> • the sync (manual or automatic) received a RelationshipChange |
+| Event                         | Data                          | Description                                                                                                                                                                                                                                                        |
+| ----------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| transport.messageReceived     | [Message](#message)           | This event is triggered when a Message is received during synchonization.                                                                                                                                                                                          |
+| transport.messageSent         | [Message](#message)           | This event is triggered whenever a Message is sent.                                                                                                                                                                                                                |
+| transport.relationshipChanged | [Relationship](#relationship) | This event is triggered when a Relationship has changed. This can be due to one of the following cases: <br> • you create a Relationship <br> • you accept, reject or revoke a Relationship Change <br> • a Relationship Change is received during synchronization |
 
-## Payloads
+## Type definitions
 
 ### Message
 

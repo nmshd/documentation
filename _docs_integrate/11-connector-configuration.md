@@ -26,13 +26,13 @@ There is also an [example config file](https://raw.githubusercontent.com/nmshd/n
 
 ## Environment variables
 
-The configuration can also be done using environment variables. This feature is included in the connector since version `2.2.1`.
+The configuration can also be done using environment variables. This feature is included in Connector the since version `2.2.1`.
 
 ### Parsing rules
 
 1.  Nested fields can be represented using a colon (`:`) as a separator.
 
-    The `:` separator doesn't work with environment variable hierarchical keys on all platforms. The double underscore (`__`) is supported on all platforms (e.g. bash does not support the `:` separator but it supports `__` ). The connector will therefore convert `__` to `:` so you can use it on that systems.
+    The `:` separator doesn't work with environment variable hierarchical keys on all platforms. The double underscore (`__`) is supported on all platforms (e.g. bash does not support the `:` separator but it supports `__` ). The Connector will therefore convert `__` to `:` so you can use it on that systems.
     {: .notice--warning}
 
 2.  The parameter casing must be the same as the config file casing.
@@ -337,7 +337,7 @@ The payload of the webhook is the same as the response payload of the `/api/v1/A
 
 With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
 
-For this, the Connector supports the configuration of multiple webhooks which are called for [events](/integrate/connector-events) (e.g. a new message has been received => `transport.messageReceived`).
+For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Events]({% link _docs_integrate/32-connector-events.md %}) is triggered (e.g. a new message has been received => `transport.messageReceived`).
 
 Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The `sync` module automates this, but you can also do this manually by calling the `/api/v1/Account/Sync` route.
 
@@ -357,7 +357,9 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
 
 -   **targets** `default: {}`
 
-    Here you can predefine targets so you can reuse them for different webhooks.
+    Here you can predefine targets so you can reuse them for multiple webhooks.
+
+    A target consists of a URL as well as optional arbitrary headers, which the Connector should send as part of the request. Optionally, your URL can contain the placeholder {% raw %}`{{trigger}}`{% endraw %}, which at runtime will be replaced with the event name that triggered the webhook (e.g. transport.messageReceived). This way, you can reuse the same target for multiple webhooks and still have different URLs for different events. See the code below for an example.
 
     <br>
 
@@ -365,11 +367,11 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
 
     ```jsonc
     {
-        // a target with headers, the header object is optional
+        // a target with headers
         "target1": {
             "url": "https://example.com/enmeshed/webhook2",
 
-            // the following headers will be sent with the webhook
+            // the following headers will be sent as part of the webhook
             "headers": {
                 "a-header": "a-value",
                 "another-header": "another-value"
@@ -381,9 +383,8 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
             "url": "https://example.com/enmeshed/webhook"
         },
 
-        // a target with the {{trigger}} placeholder in the URL
+        // a target with the {% raw %}{{trigger}}{% endraw %} placeholder as part of the URL
         "target3": {
-            // {{trigger}} will be replaced with the event name (e.g. transport.messageReceived)
             "url": "https://example.com/enmeshed/webhook/{{trigger}}"
         }
     }
@@ -391,7 +392,7 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
 
 -   **webhooks** `default: []`
 
-    The webhooks that will be called for given events.
+    The webhooks that will be called. A webhook consists of one or more [Connector Events]({% link _docs_integrate/32-connector-events.md %}) on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the `targets` object.
 
     <br>
 
@@ -402,27 +403,15 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
         {
             "triggers": ["transport.messageReceived"],
 
-            // the target definition is the same as in the targets section
+            // inline declaration of a target
             "target": {
-                "url": "https://example.com/enmeshed/webhook"
+                // see the targets section for a description of how to configure a target
             }
         },
         {
             "triggers": ["transport.messageReceived"],
 
-            // the target definition is the same as in the targets section
-            "target": {
-                "url": "https://example.com/enmeshed/webhook2",
-                "headers": {
-                    "a-header": "a-value",
-                    "another-header": "another-value"
-                }
-            }
-        },
-        {
-            "triggers": ["transport.messageReceived"],
-
-            // a reference to a target defined in the targets section
+            // a reference to a target defined in the 'targets' object
             "target": "target1"
         }
     ]
@@ -435,9 +424,9 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
     // the event name (e.g. transport.messageReceived) that triggered the webhook
     "trigger": "transport.messageReceived",
 
-    // the payload of the event
+    // the data of the event
     "data": {}
 }
 ```
 
-The payload data is documented in the [events](/integrate/connector-events) section.
+You can find type definitions of the event data in the [Connector Events]({% link _docs_integrate/32-connector-events.md %}) section.
