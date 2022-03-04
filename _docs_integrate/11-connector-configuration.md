@@ -228,7 +228,7 @@ This module contains the HTTP API with all Enmeshed base functionalities.
 
 ### `webhooks`
 
-This module is deprecated in favor of the [webhooksV2](/integrate/connector-configuration#webhooksv2) module.
+This module is deprecated in favor of the [webhooksV2](#webhooksv2) module.
 {: .notice--warning}
 
 With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
