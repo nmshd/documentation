@@ -337,7 +337,7 @@ The payload of the webhook is the same as the response payload of the `/api/v1/A
 
 With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
 
-For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Events]({% link _docs_integrate/32-connector-events.md %}) is triggered (e.g. a new message has been received => `transport.messageReceived`).
+For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Event]({% link _docs_integrate/32-connector-events.md %}) is triggered (e.g. a new message has been received => `transport.messageReceived`).
 
 Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The `sync` module automates this, but you can also do this manually by calling the `/api/v1/Account/Sync` route.
 
