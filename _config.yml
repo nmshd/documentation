@@ -100,6 +100,9 @@ footer:
     - label: "NPM"
       icon: "fab fa-fw fa-npm"
       url: "https://www.npmjs.com/search?q=%40nmshd"
+    - label: "twitter"
+      icon: "fab fa-fw fa-twitter"
+      url: "https://twitter.com/nmshd_"
 
 defaults:
   # _posts
