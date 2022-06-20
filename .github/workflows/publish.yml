@@ -5,13 +5,15 @@ on:
     branches: [main, release/**]
 
 jobs:
-  run-checks:
+  publish:
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/vscode/devcontainers/ruby:2.7-bullseye
     steps:
       - uses: actions/checkout@v2
-      - run: gem install bundler jekyll github-pages
-      - run: bundle install
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "2.7"
+          bundler-cache: true
       - run: bundle exec jekyll build
       - uses: actions/setup-node@v2
       - name: Deploy to gh-pages
