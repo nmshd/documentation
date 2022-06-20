@@ -1,0 +1,491 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Connector Installation - enmeshed</title>
+<meta name="description" content="Prerequisites">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Connector Installation">
+<meta property="og:url" content="/integrate/connector-installation">
+
+
+  <meta property="og:description" content="Prerequisites">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-06-20T17:06:22+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/integrate/connector-installation">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog">Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate Enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/basics">Basics</a></li>
+          
+            <li><a href="/integrate/connector-tutorial">Connector Tutorial</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Setting up the Connector</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/connector-installation" class="active">Installation</a></li>
+          
+            <li><a href="/integrate/connector-configuration">Configuration</a></li>
+          
+            <li><a href="/integrate/connector-setup-troubleshooting">Troubleshooting</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">REST API</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/connector-api">API Documentation</a></li>
+          
+            <li><a href="/integrate/connector-flows-messages">Sending Messages</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Programming</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/connector-sdks">Connector SDKs</a></li>
+          
+            <li><a href="/integrate/custom-connector-modules">Custom Connector Modules</a></li>
+          
+            <li><a href="/integrate/connector-events">Connector Events</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Operations</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/connector-operations">Connector Operations</a></li>
+          
+            <li><a href="/integrate/connector-security">Security Considerations</a></li>
+          
+            <li><a href="/integrate/connector-privacy">Privacy Considerations</a></li>
+          
+            <li><a href="/integrate/connector-performance">Performance Considerations</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Connector Installation">
+    <meta itemprop="description" content="Prerequisites">
+    <meta itemprop="datePublished" content="2022-06-20T17:06:22+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/integrate/connector-installation" class="u-url" itemprop="url">Connector Installation
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h1 id="prerequisites">Prerequisites</h1>
+
+<h2 id="mongodb">MongoDB</h2>
+
+<p>The Connector requires a MongoDB database as its data storage. MongoDB is a document-oriented database. For compatibility and security reasons, the most up-to-date version of MongoDB should be used.
+For more information, please see <a href="https://www.mongodb.com">https://www.mongodb.com</a>.</p>
+
+<h2 id="docker-runtime">Docker Runtime</h2>
+
+<p>The Connector requires a Docker Runtime: Docker is a virtualization technology which introduces highly portable software containers. The Connector is shipped and updated as such a Docker container - the Docker Runtime is the runtime environment which can execute the Docker containers. For compatibility and security reasons, the most up-to-date version of the Docker Runtime should be used.
+For more information, please see <a href="https://www.docker.com">https://www.docker.com</a>.</p>
+
+<p>Visit <a href="https://docs.docker.com/get-docker/">the official docker docs</a> for installation guides.</p>
+
+<h2 id="docker-compose">Docker Compose</h2>
+
+<p>Make sure that you have installed docker-compose. Visit <a href="https://docs.docker.com/compose/install/">the official installation guide</a> for more information.</p>
+
+<h2 id="hardware-requirements">Hardware Requirements</h2>
+
+<p>No special hardware requirements have been identified so far and as always, hardware requirements strongly correlate with the envisoned usage scenario.</p>
+
+<p>A good starting point for hosting the Docker image of the Connector would be the following:</p>
+
+<ul>
+  <li>1 CPU</li>
+  <li>512MB RAM</li>
+  <li>1GB HDD</li>
+</ul>
+
+<p>Depending on the usage scenario, higher hardware requirements might be necessary.</p>
+
+<h2 id="internet-connectivity">Internet Connectivity</h2>
+
+<p>A reliable and fast internet connection is mandatory for running the Connector. However, the Connector is only communicating with the Backbone so the corresponding domain (e.g. <code class="language-plaintext highlighter-rouge">https://prod.enmeshed.eu</code>) can be whitelisted and the associated certificate can be additionally pinned.</p>
+
+<h2 id="list-docker-image-tags">List docker image tags</h2>
+
+<p>Read more about listing available docker image tags <a href="/explore/connector#connector-docker-image">here</a>.</p>
+
+<h1 id="installation">Installation</h1>
+
+<h2 id="option-1-docker-compose-with-mongodb">Option 1: docker compose with MongoDB</h2>
+
+<p>Go through the following steps to start the Connector:</p>
+
+<ol>
+  <li>place the file <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/docker-compose-with-mongodb.yml">examples/docker-compose-with-mongodb.yml</a> as <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> in a folder of your choice</li>
+  <li>create a config file that can be mounted inside the Connector. Fill the config file using the <a href="/integrate/connector-configuration">configuration docs</a> and the <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json">example config file</a>. The connection string is <code class="language-plaintext highlighter-rouge">mongodb://user:pass@mongodb:27017/?authSource=admin&amp;readPreference=primary&amp;ssl=false</code>.</li>
+  <li>replace the marked &lt;fields&gt; in the compose file with your values</li>
+  <li>(optional) follow the steps under <a href="#log-file-mounting">log file mounting</a> if you want to persist and access the log files on the host system</li>
+  <li>execute <code class="language-plaintext highlighter-rouge">docker compose up -d</code> in the shell</li>
+</ol>
+
+<h2 id="option-2-docker-compose-with-existing-mongodb">Option 2: docker compose with existing MongoDB</h2>
+
+<p>Visit the official <a href="https://www.mongodb.com/">MongoDB website</a> for installation without docker or cloud usage or the <a href="https://hub.docker.com/_/mongo">docker hub page</a> for information about the installation with docker.</p>
+
+<p>Go through the following steps to start the Connector:</p>
+
+<ol>
+  <li>make your existing MongoDB available for the connector</li>
+  <li>place the file <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/docker-compose-with-existing-mongodb.yml">examples/docker-compose-with-existing-mongodb.yml</a> as <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> in a folder of your choice</li>
+  <li>create a config file that can be mounted inside the Connector. Fill the config file using the <a href="/integrate/connector-configuration">configuration docs</a> and the <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json">example config file</a></li>
+  <li>replace the marked &lt;fields&gt; in the compose file with your values</li>
+  <li>(optional) follow the steps under <a href="#log-file-mounting">log file mounting</a> if you want to persist and access the log files on the host system</li>
+  <li>execute <code class="language-plaintext highlighter-rouge">docker compose up -d</code> in the shell</li>
+</ol>
+
+<h1 id="validate-the-connector-installation">Validate the Connector installation</h1>
+
+<p>You can validate the Connector installation by checking its health route. Simply access <code class="language-plaintext highlighter-rouge">&lt;connector-baseurl&gt;/health</code> in your browser or using curl.</p>
+
+<p>If the swagger documentation is enabled you can also access it under <code class="language-plaintext highlighter-rouge">&lt;connector-baseurl&gt;/docs</code></p>
+
+<h1 id="log-file-mounting">Log file mounting</h1>
+
+<ol>
+  <li>Uncomment the volume mapping in the created <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> file</li>
+  <li>Create a folder where the log files shall be placed</li>
+  <li>replace <code class="language-plaintext highlighter-rouge">&lt;/folder/of/your/choice&gt;</code> with the path to your created folder</li>
+</ol>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-06-20T17:06:22+02:00">June 20, 2022</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/integrate/connector-tutorial" class="pagination--pager" title="Connector Tutorial
+">Previous</a>
+    
+    
+      <a href="/integrate/connector-configuration" class="pagination--pager" title="Connector Configuration
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+          
+        <li>
+            <a href="https://twitter.com/nmshd_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> twitter</a>
+        </li>
+           
+        <li>
+            <a href="/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2022
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

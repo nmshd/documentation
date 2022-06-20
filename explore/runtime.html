@@ -1,0 +1,484 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Enmeshed Runtime - enmeshed</title>
+<meta name="description" content="Runtime Building Blocks">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Enmeshed Runtime">
+<meta property="og:url" content="/explore/runtime">
+
+
+  <meta property="og:description" content="Runtime Building Blocks">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-06-20T17:06:22+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/explore/runtime">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog">Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Explore Enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">First things first</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore">Introduction</a></li>
+          
+            <li><a href="/explore/example-scenarios">Example Scenarios</a></li>
+          
+            <li><a href="/explore/features">Features</a></li>
+          
+            <li><a href="/explore/use-cases">Use Cases</a></li>
+          
+            <li><a href="/explore/faq">Frequently Asked Questions</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How we think</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/integration">Integration Considerations</a></li>
+          
+            <li><a href="/explore/security">Security Considerations</a></li>
+          
+            <li><a href="/explore/privacy">Privacy Considerations</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Our Layers</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/layers/backbone">Backbone Layer</a></li>
+          
+            <li><a href="/explore/layers/transport">Transport Layer</a></li>
+          
+            <li><a href="/explore/layers/consumption">Consumption Layer</a></li>
+          
+            <li><a href="/explore/layers/integration">Integration Layer</a></li>
+          
+            <li><a href="/explore/layers/user-experience">User-Experience Layer</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Components in-detail</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/app">App</a></li>
+          
+            <li><a href="/explore/backbone">Backbone</a></li>
+          
+            <li><a href="/explore/connector">Connector</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Expert Corner</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/runtime" class="active">Runtime</a></li>
+          
+            <li><a href="/explore/schema">Schema</a></li>
+          
+            <li><a href="/explore/cryptography">Cryptography</a></li>
+          
+            <li><a href="/explore/blockchain">Why no blockchain?</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Enmeshed Runtime">
+    <meta itemprop="description" content="Runtime Building Blocks">
+    <meta itemprop="datePublished" content="2022-06-20T17:06:22+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/explore/runtime" class="u-url" itemprop="url">Enmeshed Runtime
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#runtime-building-blocks">Runtime Building Blocks</a><ul><li><a href="#runtime-library">Runtime Library</a></li><li><a href="#crypto-library">Crypto Library</a></li><li><a href="#transport-library">Transport Library</a></li><li><a href="#content-library">Content Library</a></li><li><a href="#consumption-library">Consumption Library</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="runtime-building-blocks">Runtime Building Blocks</h1>
+
+<h2 id="runtime-library">Runtime Library</h2>
+
+<p><a href="https://github.com/nmshd/cns-runtime">Enmeshed Runtime GitHub Repository</a></p>
+
+<p>The Runtime wraps all features of Enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser.</p>
+
+<p>Versions, local and remote data, synchronization, communication, and many more items are tracked by the Runtime in order to provide an easy-to-use interface.</p>
+
+<h2 id="crypto-library">Crypto Library</h2>
+
+<p><a href="https://github.com/nmshd/cns-crypto">Crypto Library GitHub Repository</a></p>
+
+<p>To separate the cryptographic interfaces from the used cryptographic library (e.g. libsodium), the crypto library acts as a wrapper. Additionally, cryptographically-related source code is bundled within this library.</p>
+
+<p>This approach allows us to implement features for cryptographic classes, for example the serialization of keys. Additionally, security audits could focus on this library.</p>
+
+<h2 id="transport-library">Transport Library</h2>
+
+<p><a href="https://github.com/nmshd/cns-transport">Transport Library GitHub Repository</a></p>
+
+<p>The implementation of the transport layer is the transport library. It combines the features of different third party libraries and the crypto library to support the following features:</p>
+
+<ul>
+  <li>Communication with the Backbone</li>
+  <li>Synchronization with the Backbone</li>
+  <li>Encrypting and decrypting communication with other identities</li>
+  <li>Managing identities and devices</li>
+  <li>Managing cryptographic artifacts</li>
+  <li>Cross-device synchronization of the datawallet</li>
+</ul>
+
+<h2 id="content-library">Content Library</h2>
+
+<p><a href="https://github.com/nmshd/cns-content">Content Library GitHub Repository</a></p>
+
+<p>To separate the actual payload of messages from the message structure and envelope, the content library was set up. It is a repository of interfaces and types which are used as the payload of communication between identities.</p>
+
+<p>Whereas the transport library implements the foundation of communication between identities and the actual secure tunnel between identities, the content library defines the payload on top of this tunnel. You can see it as the definition of a contract between all identities.</p>
+
+<ul>
+  <li>Attributes</li>
+  <li>Claims</li>
+  <li>Message formats like Mails, RequestMails, technical messages</li>
+  <li>Transactional formats like Requests</li>
+</ul>
+
+<h2 id="consumption-library">Consumption Library</h2>
+
+<p><a href="https://github.com/nmshd/cns-consumption">Consumption Library GitHub Repository</a></p>
+
+<p>Due to the fact that the Backbone cannot implement business logic to process content sent over the wire just like any other central service, the business logic needs to reside on the respective clients.</p>
+
+<p>The consumption library implements this business logic and additionally introduces some local data structures for keeping track of the sent and received payload.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-06-20T17:06:22+02:00">June 20, 2022</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/explore/connector" class="pagination--pager" title="Enmeshed Connector
+">Previous</a>
+    
+    
+      <a href="/explore/schema" class="pagination--pager" title="Enmeshed Schema
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+          
+        <li>
+            <a href="https://twitter.com/nmshd_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> twitter</a>
+        </li>
+           
+        <li>
+            <a href="/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2022
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

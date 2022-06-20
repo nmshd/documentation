@@ -1,0 +1,481 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Connector Operations - enmeshed</title>
+<meta name="description" content="Basic Tasks">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Connector Operations">
+<meta property="og:url" content="/integrate/connector-operations">
+
+
+  <meta property="og:description" content="Basic Tasks">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-06-20T17:06:22+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/integrate/connector-operations">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog">Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate Enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/basics">Basics</a></li>
+          
+            <li><a href="/integrate/connector-tutorial">Connector Tutorial</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Setting up the Connector</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/connector-installation">Installation</a></li>
+          
+            <li><a href="/integrate/connector-configuration">Configuration</a></li>
+          
+            <li><a href="/integrate/connector-setup-troubleshooting">Troubleshooting</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">REST API</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/connector-api">API Documentation</a></li>
+          
+            <li><a href="/integrate/connector-flows-messages">Sending Messages</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Programming</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/connector-sdks">Connector SDKs</a></li>
+          
+            <li><a href="/integrate/custom-connector-modules">Custom Connector Modules</a></li>
+          
+            <li><a href="/integrate/connector-events">Connector Events</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Operations</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/connector-operations" class="active">Connector Operations</a></li>
+          
+            <li><a href="/integrate/connector-security">Security Considerations</a></li>
+          
+            <li><a href="/integrate/connector-privacy">Privacy Considerations</a></li>
+          
+            <li><a href="/integrate/connector-performance">Performance Considerations</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Connector Operations">
+    <meta itemprop="description" content="Basic Tasks">
+    <meta itemprop="datePublished" content="2022-06-20T17:06:22+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/integrate/connector-operations" class="u-url" itemprop="url">Connector Operations
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h1 id="basic-tasks">Basic Tasks</h1>
+
+<h2 id="stopping-the-connector">Stopping the Connector</h2>
+
+<h2 id="starting-the-connector-after-a-downtime">Starting the Connector after a Downtime</h2>
+
+<p>Be advised that before starting the Connector after a downtime, you should ensure that the data within the database is on the most up-to-date time. Once the Connector starts its internal synchronization mechanism, it will update the database with the new information from the Backbone and if there are any automatismns set up (e.g. automatically accept relationships) the Connector updates the database with this new information. Thus, if the database is not on the very last point in time, there would be two inconsistent versions split across two databases.</p>
+
+<h1 id="update">Update</h1>
+
+<h1 id="backup--recovery">Backup &amp; Recovery</h1>
+
+<p>All of the Connector data is stored in the MongoDB. Therefore we suggest you to use <a href="https://www.mongodb.com/basics/replication">MongoDB replicas</a> in a productive setup, to avoid having data loss.</p>
+
+<p>Additionally, offline backups of the replicas might make sense. For backup and recovery methods visit the official <a href="https://docs.mongodb.com/manual/core/backups/">MongoDB docs</a>. These backups might come in handy if the data within the database was compromised.</p>
+
+<p>In general, there is no need to backup the Connector itself. However, it makes sense to backup configuration and log files. Additionally, it might speed up the recovery process if a complete system image of the Connector is available.</p>
+
+<p>For a recovery, you should be able to just start the Connector again with the recovered database. For recovering the database itself, please also refer the MongoDB documentation.</p>
+
+<h1 id="proposed-system-tasks">Proposed System Tasks</h1>
+
+<h2 id="check-health">Check Health</h2>
+
+<p>The Business Connector exposes a health route. You can check the health with a http request to <code class="language-plaintext highlighter-rouge">&lt;connector-url&gt;/health</code>.</p>
+
+<h2 id="check-available-resources">Check Available Resources</h2>
+
+<h3 id="check-cpu-workload">Check CPU Workload</h3>
+
+<p>The CPU workload can be checked using tools like <a href="https://htop.dev/">htop</a> or <a href="https://ctop.sh/">ctop</a> on the host system.</p>
+
+<h3 id="check-memory-consumption">Check Memory Consumption</h3>
+
+<p>The Memory Consumption can be checked using tools like <a href="https://htop.dev/">htop</a> or <a href="https://ctop.sh/">ctop</a> on the host system.</p>
+
+<h3 id="check-harddisk-quota">Check Harddisk Quota</h3>
+
+<p>The Harddisk Quota can be checked using linux tools like <strong>df</strong>. Please ensure, that sufficient free space is available.</p>
+
+<h2 id="check-for-connector-updates">Check for Connector Updates</h2>
+
+<p>New Connector versions are regularly published to the given Docker registry. Depending on your installation method, the Docker image can be automatically updated by the provided Docker registry.</p>
+
+<h2 id="check-for-system-and-docker-updates">Check for System and Docker Updates</h2>
+
+<p>Please consult the documentation of your operating system about system updates. Additionally, the Docker runtime should be regularly updated as well.
+We recommend to keep your operating system and Docker as up to date as possible.</p>
+
+<h2 id="check-error-logs">Check Error Logs</h2>
+
+<p>You can check the log using <code class="language-plaintext highlighter-rouge">docker logs &lt;your-container-name&gt;</code> or by checking the <a href="Connector_Installation_Guide.md#log-file-mounting">mounted log files</a>.</p>
+
+<h1 id="proposed-connector-tasks">Proposed Connector Tasks</h1>
+
+<p>As some of the operative tasks should be done on a regular basis, please find a proposal for these tasks below.</p>
+
+<h2 id="check-access-to-key-material">Check Access to Key Material</h2>
+
+<h2 id="check-old-material">Check old Material</h2>
+
+<h2 id="check-connector-systems">Check Connector Systems</h2>
+
+<ul>
+  <li>Every Connector instance and host system should be regularly checked for available resources (CPU, RAM, HDD) and system updates.</li>
+</ul>
+
+<h2 id="check-third-party-systems">Check Third-Party Systems</h2>
+
+<ul>
+  <li>Every third-party system (e.g. database, event buses, network components) and host system should be regularly checked for available resources (CPU, RAM, HDD) and system updates.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-06-20T17:06:22+02:00">June 20, 2022</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/integrate/connector-events" class="pagination--pager" title="Connector Events
+">Previous</a>
+    
+    
+      <a href="/integrate/connector-troubleshooting" class="pagination--pager" title="Connector Troubleshooting
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+          
+        <li>
+            <a href="https://twitter.com/nmshd_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> twitter</a>
+        </li>
+           
+        <li>
+            <a href="/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2022
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

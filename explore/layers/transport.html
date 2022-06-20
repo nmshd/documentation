@@ -1,0 +1,758 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Transport Layer - enmeshed</title>
+<meta name="description" content="The transport layer is located between the backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is the primary technical building block, containing the transport library, the content library and the crypto library.">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Transport Layer">
+<meta property="og:url" content="/explore/layers/transport">
+
+
+  <meta property="og:description" content="The transport layer is located between the backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is the primary technical building block, containing the transport library, the content library and the crypto library.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-06-20T17:06:22+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/explore/layers/transport">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog">Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Explore Enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">First things first</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore">Introduction</a></li>
+          
+            <li><a href="/explore/example-scenarios">Example Scenarios</a></li>
+          
+            <li><a href="/explore/features">Features</a></li>
+          
+            <li><a href="/explore/use-cases">Use Cases</a></li>
+          
+            <li><a href="/explore/faq">Frequently Asked Questions</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How we think</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/integration">Integration Considerations</a></li>
+          
+            <li><a href="/explore/security">Security Considerations</a></li>
+          
+            <li><a href="/explore/privacy">Privacy Considerations</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Our Layers</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/layers/backbone">Backbone Layer</a></li>
+          
+            <li><a href="/explore/layers/transport" class="active">Transport Layer</a></li>
+          
+            <li><a href="/explore/layers/consumption">Consumption Layer</a></li>
+          
+            <li><a href="/explore/layers/integration">Integration Layer</a></li>
+          
+            <li><a href="/explore/layers/user-experience">User-Experience Layer</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Components in-detail</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/app">App</a></li>
+          
+            <li><a href="/explore/backbone">Backbone</a></li>
+          
+            <li><a href="/explore/connector">Connector</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Expert Corner</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/runtime">Runtime</a></li>
+          
+            <li><a href="/explore/schema">Schema</a></li>
+          
+            <li><a href="/explore/cryptography">Cryptography</a></li>
+          
+            <li><a href="/explore/blockchain">Why no blockchain?</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Transport Layer">
+    <meta itemprop="description" content="The transport layer is located between the backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is the primary technical building block, containing the transport library, the content library and the crypto library.">
+    <meta itemprop="datePublished" content="2022-06-20T17:06:22+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/explore/layers/transport" class="u-url" itemprop="url">Transport Layer
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#tasks">Tasks</a><ul><li><a href="#data-handling">Data Handling</a></li><li><a href="#syntactical-validation-of-plaintext-data">Syntactical validation of plaintext data</a></li><li><a href="#encryption">Encryption</a></li><li><a href="#key-handling">Key Handling</a></li><li><a href="#cross-device-synchronization">Cross-Device Synchronization</a></li><li><a href="#cross-device-versioning">Cross-Device Versioning</a></li></ul></li><li><a href="#entities">Entities</a><ul><li><a href="#identity">Identity</a><ul><li><a href="#address">Address</a></li></ul></li><li><a href="#devices">Devices</a><ul><li><a href="#device-structure">Device Structure</a></li><li><a href="#device-onboarding-info">Device Onboarding Info</a></li></ul></li><li><a href="#files">Files</a><ul><li><a href="#file-structure">File Structure</a></li><li><a href="#file-reference">File Reference</a></li></ul></li><li><a href="#messages">Messages</a><ul><li><a href="#message-structure">Message Structure</a></li></ul></li><li><a href="#relationships">Relationships</a><ul><li><a href="#relationship-structure">Relationship Structure</a></li></ul></li><li><a href="#relationship-changes">Relationship Changes</a><ul><li><a href="#relationship-creation-change-requests">Relationship Creation Change Requests</a></li></ul></li><li><a href="#relationship-templates">Relationship Templates</a><ul><li><a href="#generic-templates">Generic Templates</a></li><li><a href="#personalized-templates">Personalized Templates</a></li><li><a href="#relationship-template-structure">Relationship Template Structure</a></li></ul></li><li><a href="#tokens">Tokens</a><ul><li><a href="#token-references">Token References</a></li><li><a href="#token-structure">Token Structure</a></li></ul></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>The transport layer is located between the backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the <a href="/explore/connector">Connector</a> or programmatically accessed by the <a href="/explore/app">App</a>. The <a href="/explore/runtime">Runtime</a> is the primary technical building block, containing the transport library, the content library and the crypto library.</p>
+
+<p><strong>Components</strong></p>
+
+<ul>
+  <li>App</li>
+  <li>Connector</li>
+</ul>
+
+<h1 id="tasks">Tasks</h1>
+
+<h2 id="data-handling">Data Handling</h2>
+
+<p>The transport layer introduces a local storage based on a document database. In this database all relevant data is persisted or cached. In addition to the database, the transport layer takes care of serializing and deserializing data structures.</p>
+
+<h2 id="syntactical-validation-of-plaintext-data">Syntactical validation of plaintext data</h2>
+
+<p>Inbound and outbound data must be validated by the transport layer. It is responsible for checking the syntactical correctness of all data within the local or communicated data structures.</p>
+
+<h2 id="encryption">Encryption</h2>
+
+<p>All encryption-relevant topics like key handling and signature verification are encapsulated by the transport layer. The transport layer communicates in plaintext to the consumers building on top of the transport layer. All traffic to the backbone layer is encrypted or “zero knowledge”.</p>
+
+<h2 id="key-handling">Key Handling</h2>
+
+<p>As the transport layer encapsulates all encryption-relevant topics, keys are generated, used and stored within the transport layer.</p>
+
+<h2 id="cross-device-synchronization">Cross-Device Synchronization</h2>
+
+<p>The synchronization between the devices is completely encrypted and works a bit like the communication with other identities. When an identity is created, a random synchronization key is generated and used to encrypt and synchronize all local data to the backbone. This synchronization key is then shared when onboarding a new device, allowing the new device to have access to the complete (encrypted) history of the identity on the backbone which can then be downloaded and applied.</p>
+
+<p>Changes on one device are directly synchronized with the backbone and thus communicated to and reflected on other devices. The synchronization service (we also call it datawallet service) only adds information to the identity’s history. Therefore, Enmeshed would even be able to roll back local changes on user errors, as we have a kind of local data versioning across devices with this approach.</p>
+
+<p>We have a blocking mechanism in place that only one device can update the identity’s history on a single point in time.</p>
+
+<h2 id="cross-device-versioning">Cross-Device Versioning</h2>
+
+<p>The transport layer is also responsible to keep track of the versions used on the actual devices and the possible upgrade of the respective data structures locally and for the device synchronization.</p>
+
+<h1 id="entities">Entities</h1>
+
+<h2 id="identity">Identity</h2>
+
+<p>The identity semantically is the “digital twin” of the actual real-world person or organization.</p>
+
+<p>Technically, the identity primarily consists of one keypair. By signing with the identity’s private key, one is able to prove the ownership of the identity and thus manage the identity completely. Based on the identity’s public key, the primary identification property, the address is created.</p>
+
+<p>One has to keep in mind that Enmeshed doesn’t enforce the validation of the real-world entities. Thus one real-world entity could create fake identities.</p>
+
+<p>Additionally, Enmeshed cannot enforce a uniqueness of real-world entities, i.e. one real-world entity could create multiple Enmeshed identities for itself.</p>
+
+<h3 id="address">Address</h3>
+
+<p>The identity’s address is the primary way to identify an identity. It is a calculated property based on the identity’s public key and thus cannot be changed for an identity.</p>
+
+<h2 id="devices">Devices</h2>
+
+<p>A device is a technical part of the identity. One identity can use multiple devices to interact with the outside world. The outside world however usually doesn’t care about the devices of one identity. An example of an exception would be multi-device authentication in business processes, where the devices (actually their signatures) would take part in the process itself.</p>
+
+<p>Thus devices are usually handled within the identity, just like one person uses multiple devices for reading mails or browsing the web.</p>
+
+<p>A very interesting part of Enmeshed is, that devices are usually kept in synchronization with each other over a synchronization service. This is a big difference to other communication providers where there is usually a “main” device which is remotely controlled by other devices.</p>
+
+<p>Thus, every device has the complete access on the identity and its data without relying on another device. This is a great backup and recovery mechanism, as having two devices for an identity means an automatic backup device if one device is broken.</p>
+
+<h3 id="device-structure">Device Structure</h3>
+
+<p>Devices in the Transport Layer have a different set of attributes as devices in the Backbone Layer. The devices of one identity know each other and this is the information which is shared accross the devices.</p>
+
+<ul>
+  <li>id</li>
+  <li>publicKey (optional)</li>
+  <li>certificate (optional)</li>
+  <li>name</li>
+  <li>description (optional)</li>
+  <li>createdAt</li>
+  <li>createdByDevice</li>
+  <li>operatingSystem (optional)</li>
+  <li>lastLoginAt (optional)</li>
+  <li>type</li>
+  <li>username</li>
+</ul>
+
+<h3 id="device-onboarding-info">Device Onboarding Info</h3>
+
+<p>If a new device is onboarded, the device onboarding info is shared via a side channel. Within this information, all key material is exchanged to access the identity. So this should be kept very secure.</p>
+
+<ul>
+  <li>id</li>
+  <li>createdAt</li>
+  <li>createdByDevice</li>
+  <li>name (optional)</li>
+  <li>description (optional)</li>
+  <li>secretBaseKey</li>
+  <li>deviceIndex</li>
+  <li>synchronizationKey</li>
+  <li>identityPrivateKey (optional)</li>
+  <li>identity</li>
+  <li>password</li>
+  <li>username</li>
+</ul>
+
+<h2 id="files">Files</h2>
+
+<p>Abbreviated: FIL</p>
+
+<p>A file is an Enmeshed representation of any binary-large object (BLOB). Handling files is similar to handling tokens, the big difference is, that tokens provide a means to share structured content whereas files are uploaded to and downloaded from the backbone by the help of binary transfer methods.</p>
+
+<p>The actual file is then shared by a file reference to a recipient. Files can be short-lived or long-lived, depending on the business case - use the expiresAt property to define the expiry of a file.</p>
+
+<h3 id="file-structure">File Structure</h3>
+
+<ul>
+  <li>id: Random file id generated by the backbone once the upload was finished</li>
+  <li>title: Human readable file title</li>
+  <li>description: Description of the file</li>
+  <li>filename: Filename of the original file (used for storing the file on local systems)</li>
+  <li>filesize: Plaintext size of the original file’s payload</li>
+  <li>createdAt: ISO String when the file has been created</li>
+  <li>createdBy: Address of the identity which created the file</li>
+  <li>createdByDevice: Device id of the device which created the file</li>
+  <li>expiresAt: ISO String when the file expires</li>
+  <li>mimetype: Mimetype of the file’s payload</li>
+  <li>isOwn: Whether or not the file was uploaded by the current identity</li>
+  <li>deletedAt: ISO String when the file has been deleted</li>
+  <li>deletedBy: Address of the identity which deleted the file</li>
+  <li>deletedByDevice: Device id of the device which deleted the file</li>
+</ul>
+
+<h3 id="file-reference">File Reference</h3>
+
+<p>The file id and the generated metadata secret key are the only two properties which need to be submitted to another user. Both properties are usually sent within a message to the recipients.</p>
+
+<h2 id="messages">Messages</h2>
+
+<p>Abbreviated: MSG</p>
+
+<p>A message is any kind of structured content which should be securely transmitted to relationships. Messages can be submitted to multiple recipients and can deliver multiple attachments (in form of file references).
+Depending on the content of the message, a message could act as a technical message (e.g. a multi-factor authentication request) which shouldn’t be rendered.</p>
+
+<h3 id="message-structure">Message Structure</h3>
+
+<ul>
+  <li>id: random message id generated by the backbone once the message has been created</li>
+  <li>createdAt: ISO String when the message has been created</li>
+  <li>createdBy: Address of the identity which created the message</li>
+  <li>createdByDevice: Device id of the device which created the message</li>
+  <li>recipients: Array of recipients
+    <ul>
+      <li>address: Address of one of the identity which should receive the message</li>
+      <li>receivedAt: ISO String when the recipient received the message</li>
+      <li>receivedByDevice: Device id of the recipient’s device which received the message</li>
+    </ul>
+  </li>
+  <li>relationshipIds: Array of relationship ids of the recipients (same order as recipients)</li>
+  <li>content: The content of the message</li>
+  <li>attachments: Array of files which are attached to this message</li>
+</ul>
+
+<h2 id="relationships">Relationships</h2>
+
+<p>The link between two identities is called relationship. From the view of one identity or its device, the “own” keyword decribes content created by its own. The “peer” keyword describes content of the other party.</p>
+
+<p>Relationships are usually used as the technical term, whereas contact is used as a business terminology. To be more strict, one could say that contacts are active relationships, as a relationship could also be terminated (thus a communication would no longer be possible).</p>
+
+<h3 id="relationship-structure">Relationship Structure</h3>
+
+<ul>
+  <li>id</li>
+  <li>template</li>
+  <li>status</li>
+  <li>peer</li>
+  <li>changes
+    <ul>
+      <li>id</li>
+      <li>type</li>
+      <li>status</li>
+      <li>request
+        <ul>
+          <li>createdBy</li>
+          <li>createdByDevice</li>
+          <li>createdAt</li>
+          <li>content</li>
+        </ul>
+      </li>
+      <li>response
+        <ul>
+          <li>createdBy</li>
+          <li>createdByDevice</li>
+          <li>createdAt</li>
+          <li>content</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>lastMessageSentAt</li>
+  <li>lastMessageReceivedAt</li>
+</ul>
+
+<h2 id="relationship-changes">Relationship Changes</h2>
+
+<p>Relationships are agreements between two identities. Thus, to change a relationship both parties have to accept on the new “terms”. This is done by requesting a change which the other party can accept or reject. The requestor could also revoke a requested change, as long as the other party did not react to the change yet.</p>
+
+<p>The very first agreement between both parties is to actually create the relationship, the “relationship request”. Technically, the term “relationship creation change request” would be more correct but is seldomly used in the documentation because of readability.</p>
+
+<h3 id="relationship-creation-change-requests">Relationship Creation Change Requests</h3>
+
+<p>The relationship request - next to the required technical information - usually contains:</p>
+
+<ul>
+  <li>Requested information from the requestor
+    <ul>
+      <li>Required/optional attributes</li>
+      <li>Certificates</li>
+      <li>Signatures</li>
+      <li>Answers to questionnaire</li>
+    </ul>
+  </li>
+  <li>Websession information</li>
+  <li>OK to privacy statement</li>
+  <li>OK to EULA</li>
+</ul>
+
+<h2 id="relationship-templates">Relationship Templates</h2>
+
+<p>A relationship template is a structured representation of data which is required for a relationship to be established. Thus, it is usually also addressing the required information for a business process to start.</p>
+
+<p>Templates solve the problem of linking Enmeshed identities to a currently existing real world context, e.g. an existing customer account or an anonymous web session.</p>
+
+<p>In addition to technical information like public keys, certificates or signatures, it usually contains:</p>
+
+<ul>
+  <li>Information which the templator would like to share about itself
+    <ul>
+      <li>Templator attributes (e.g. company name, address, phone numbers)</li>
+      <li>Contact details</li>
+    </ul>
+  </li>
+  <li>Private information which the templator would like to share about the requestor
+    <ul>
+      <li>Requestor attributes</li>
+      <li>Websession information</li>
+    </ul>
+  </li>
+  <li>Requested additional information about the requestor
+    <ul>
+      <li>Required/optional attributes</li>
+      <li>Certificates</li>
+      <li>Signatures</li>
+      <li>Questionnaires</li>
+    </ul>
+  </li>
+  <li>Meta information
+    <ul>
+      <li>Data privacy guidelines</li>
+      <li>EULAs</li>
+    </ul>
+  </li>
+</ul>
+
+<p>A relationship template needs to be created in order to receive relationship requests and ultimately create an active relationship between two identities. The relationship template is then usually shared with the user via a token.</p>
+
+<p>Relationship templates can be both: identity-specific (template is personalized for one specific identity - which might not exist yet) or identity-agnostic (template is open for multiple identities).</p>
+
+<h3 id="generic-templates">Generic Templates</h3>
+
+<p>Generic templates are used if the counterpart is not known at all. They include the own data which one like to share (e.g. the name of the company) and also data required for the business process.</p>
+
+<p>It does not matter however, who is using the template, as there is no sensitive data stored in the template. Anyone could scan the template and create a relationship with it.</p>
+
+<p>It is possible to use a generic template multiple times, e.g. for anonymous web sites or printed flyers.</p>
+
+<p>It is also possible to create a generic template for every user accesing an anonymous website including a unique id of the web session. This is handy if the website should for example redirect the user to the profile page once the user scanned in the QR-code and the relationship was accepted.</p>
+
+<h3 id="personalized-templates">Personalized Templates</h3>
+
+<p>Personalized templates are short-lived relationship templates including sensitive or personal data of a specific person. They are meant to be used by this specific person only, in order to share personalized data when onboarding.</p>
+
+<p>This is usually combined with an upfront digital authentication of the person, e.g. existing web sessions of the user. Only this specific user would then have access to the personalized template within the secured website (e.g. over an QR-code).</p>
+
+<p>Personalized templates are primary used for a much better onboarding experience of net-new Enmeshed users: they won’t need to enter their data again, even if the data is already stored somehow.</p>
+
+<p>Personalized templates can only be used if the person is authenticated upfront or it is ensured that only the respective person can receive the template.</p>
+
+<p>It should also be clear that personalized templates should expire as soon as possible, depending on the context. The <code class="language-plaintext highlighter-rouge">maxNumberOfRelationships</code> property when creating the template should be set to 1, so that the template can only be used once. Careful, it could still be scanned in multiple times - including the access of the personalized data - as long as it is not expired.</p>
+
+<p><strong>Example 1</strong>
+Horst has an online account of his favorite webshop and is already logged in there. The webshop can create a personalized template for Horst which includes Horst’s private address. If Horst scans this template, the app can automatically fill Horst’s datawallet with the private address. The personalized relationship template might expire after 5 minutes.</p>
+
+<p><strong>Example 2</strong>
+A company has no customer system where customers can log in but would still like to submit information digitally to its customers. The company creates a personalized template for a customer, e.g. Susan and prints the QR-Code on a letter. Susan can then scan in the QR-Code and can establish a secure connection to the company, although there is no online customer system. The personalized relationship template might expire after two weeks.</p>
+
+<h3 id="relationship-template-structure">Relationship Template Structure</h3>
+
+<ul>
+  <li>id</li>
+  <li>maxNumberOfRelationships</li>
+  <li>isOwn</li>
+  <li>createdBy</li>
+  <li>createdByDevice</li>
+  <li>createdAt</li>
+  <li>expiresAt</li>
+  <li>content</li>
+</ul>
+
+<h2 id="tokens">Tokens</h2>
+
+<p>Commonly used data-sharing possibilities like links (URIs) or QR codes are limited in size. Thus, even compressed representations of - e.g. relationship templates - are too big to be stored in a QR code. In addition, the data which is shared usually should expire after a certain period in time. For example, a personalized relationship template containing sensitive data should be deleted after 5 minutes.</p>
+
+<p>To overcome these technical limitations, an indirection with a shared token is introduced. The token acts as a small data-reference object: The actual to-be-shared data is encrypted with a random key and the corresponding cipher is stored on the central platform with additional information like an expiry date.</p>
+
+<p>Tokens can be accessed by everyone (having a correct token id and the respective token secret key). Tokens are usually short lived content, however the expiry of tokens can be set to any date.</p>
+
+<h3 id="token-references">Token References</h3>
+
+<p>The token id and the generated secret key are then the only two properties which need to be submitted to another user. Both properties are usually encoded into a base64url-encoded format which is called token reference. This token reference is usually transfered to another user in the shape of a link or a QR code.</p>
+
+<h3 id="token-structure">Token Structure</h3>
+
+<ul>
+  <li>id</li>
+  <li>createdBy</li>
+  <li>createdByDevice</li>
+  <li>createdAt</li>
+  <li>expiresAt</li>
+  <li>content</li>
+  <li>secretKey</li>
+  <li>truncatedReference</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-06-20T17:06:22+02:00">June 20, 2022</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/explore/layers/backbone" class="pagination--pager" title="Backbone Layer
+">Previous</a>
+    
+    
+      <a href="/explore/layers/consumption" class="pagination--pager" title="Consumption Layer
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+          
+        <li>
+            <a href="https://twitter.com/nmshd_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> twitter</a>
+        </li>
+           
+        <li>
+            <a href="/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2022
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

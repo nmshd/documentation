@@ -1,0 +1,768 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Backbone Layer - enmeshed</title>
+<meta name="description" content="From a user perspective, the outmost or deepest layer is the backbone layer. It handles the “untrusted” communication with the Backbone and the processing of data within the Backbone. Payload sent to and received from the Backbone is encrypted.">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Backbone Layer">
+<meta property="og:url" content="/explore/layers/backbone">
+
+
+  <meta property="og:description" content="From a user perspective, the outmost or deepest layer is the backbone layer. It handles the “untrusted” communication with the Backbone and the processing of data within the Backbone. Payload sent to and received from the Backbone is encrypted.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-06-20T17:06:22+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/explore/layers/backbone">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog">Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Explore Enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">First things first</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore">Introduction</a></li>
+          
+            <li><a href="/explore/example-scenarios">Example Scenarios</a></li>
+          
+            <li><a href="/explore/features">Features</a></li>
+          
+            <li><a href="/explore/use-cases">Use Cases</a></li>
+          
+            <li><a href="/explore/faq">Frequently Asked Questions</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How we think</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/integration">Integration Considerations</a></li>
+          
+            <li><a href="/explore/security">Security Considerations</a></li>
+          
+            <li><a href="/explore/privacy">Privacy Considerations</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Our Layers</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/layers/backbone" class="active">Backbone Layer</a></li>
+          
+            <li><a href="/explore/layers/transport">Transport Layer</a></li>
+          
+            <li><a href="/explore/layers/consumption">Consumption Layer</a></li>
+          
+            <li><a href="/explore/layers/integration">Integration Layer</a></li>
+          
+            <li><a href="/explore/layers/user-experience">User-Experience Layer</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Components in-detail</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/app">App</a></li>
+          
+            <li><a href="/explore/backbone">Backbone</a></li>
+          
+            <li><a href="/explore/connector">Connector</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Expert Corner</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/runtime">Runtime</a></li>
+          
+            <li><a href="/explore/schema">Schema</a></li>
+          
+            <li><a href="/explore/cryptography">Cryptography</a></li>
+          
+            <li><a href="/explore/blockchain">Why no blockchain?</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Backbone Layer">
+    <meta itemprop="description" content="From a user perspective, the outmost or deepest layer is the backbone layer. It handles the “untrusted” communication with the Backbone and the processing of data within the Backbone. Payload sent to and received from the Backbone is encrypted.">
+    <meta itemprop="datePublished" content="2022-06-20T17:06:22+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/explore/layers/backbone" class="u-url" itemprop="url">Backbone Layer
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>From a user perspective, the outmost or deepest layer is the backbone layer. It handles the “untrusted” communication with the Backbone and the processing of data within the Backbone. Payload sent to and received from the Backbone is encrypted.</p>
+
+<p>The Backbone itself requires metadata to work, thus there is also unencrypted data sent and received between the transport layer and the Backbone. However, this data is non-personal and cannot be linked back to any real-world persons by the Backbone operator.</p>
+
+<p><strong>Components</strong></p>
+
+<ul>
+  <li>App</li>
+  <li>Backbone</li>
+  <li>Connector</li>
+</ul>
+
+<h1 id="tasks">Tasks</h1>
+
+<h2 id="identity-to-backbone-communication">Identity to Backbone Communication</h2>
+
+<p>One of the backbone layer’s tasks is the communication between the App or Connector and the Backbone. This includes the authentication with the Backbone, the request and response behaviors and data serialization and deserialization.</p>
+
+<h2 id="syntactical-validation-of-encrypted-datametadata">Syntactical validation of encrypted data/metadata</h2>
+
+<p>The backbone layer is responsible for validating the data sent to or received from the Backbone.</p>
+
+<h2 id="external-events">External Events</h2>
+
+<p>The backbone layer keeps track of the current synchronization state of identities and devices and is able to manually synchronize with the Backbone.</p>
+
+<h1 id="entities">Entities</h1>
+
+<h2 id="challenges">Challenges</h2>
+
+<p>Abbreviated: CHL</p>
+
+<p>Stored data on Backbone:</p>
+
+<ul>
+  <li>id</li>
+  <li>createdBy</li>
+  <li>createdByDevice</li>
+  <li>expiresAt</li>
+</ul>
+
+<p>Submitted data to Backbone:</p>
+
+<ul>
+  <li>id</li>
+</ul>
+
+<h2 id="datawallet-modifications">Datawallet Modifications</h2>
+
+<p>Stored data on Backbone:</p>
+
+<ul>
+  <li>Datawallet Modifications
+    <ul>
+      <li>id: string</li>
+      <li>index: number</li>
+      <li>objectIdentifier: string</li>
+      <li>payloadCategory?: string</li>
+      <li>createdAt: string</li>
+      <li>createdByDevice: string</li>
+      <li>collection: string</li>
+      <li>type: string</li>
+      <li>encryptedPayload?: string</li>
+    </ul>
+  </li>
+  <li>External Events
+    <ul>
+      <li>id: string</li>
+      <li>type: string</li>
+      <li>index: number</li>
+      <li>createdAt: string</li>
+      <li>syncErrorCount: number</li>
+      <li>payload: object</li>
+    </ul>
+  </li>
+  <li>Backbone sync run
+    <ul>
+      <li>id: string</li>
+      <li>expiresAt: string</li>
+      <li>index: number</li>
+      <li>createdAt: string</li>
+      <li>createdBy: string</li>
+      <li>createdByDevice: string</li>
+      <li>eventCount: number</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Data submitted to Backbone:</p>
+
+<ul>
+  <li>Datawallet Modifications
+    <ul>
+      <li>localIndex</li>
+      <li>modifications[]
+        <ul>
+          <li>objectIdentifier: string</li>
+          <li>payloadCategory?: string</li>
+          <li>collection: string</li>
+          <li>type: string</li>
+          <li>encryptedPayload?: string</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>FinalizeSyncRun
+    <ul>
+      <li>externalEventResults[]
+        <ul>
+          <li>externalEventId: string</li>
+          <li>errorCode?: string</li>
+        </ul>
+      </li>
+      <li>datawalletModifications[]
+        <ul>
+          <li>objectIdentifier?: string</li>
+          <li>payloadCategory?: string</li>
+          <li>collection: string</li>
+          <li>type: string</li>
+          <li>encryptedPayload?: string</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="devices">Devices</h2>
+
+<p>Abbreviated: DEV</p>
+
+<p>Stored data on Backbone:</p>
+
+<ul>
+  <li>id</li>
+  <li>createdAt</li>
+  <li>createdByDevice</li>
+  <li>devicePassword</li>
+  <li>username</li>
+  <li>platform</li>
+  <li>handle</li>
+  <li>installationId</li>
+</ul>
+
+<p>Submitted data to Backbone:</p>
+
+<ul>
+  <li>devicePassword</li>
+  <li>signedChallenge</li>
+  <li>platform</li>
+  <li>handle</li>
+  <li>installationId</li>
+</ul>
+
+<h2 id="identities">Identities</h2>
+
+<p>Stored data on Backbone:</p>
+
+<ul>
+  <li>address</li>
+  <li>createdAt</li>
+  <li>identityPublicKey</li>
+</ul>
+
+<p>Submitted data to Backbone:</p>
+
+<ul>
+  <li>devicePassword</li>
+  <li>signedChallenge</li>
+  <li>clientId</li>
+  <li>clientSecret</li>
+</ul>
+
+<h2 id="tokens">Tokens</h2>
+
+<p>Abbreviated: TOK</p>
+
+<p>Stored data on Backbone:</p>
+
+<ul>
+  <li>id: string</li>
+  <li>content: string</li>
+  <li>createdAt: string</li>
+  <li>createdBy: string</li>
+  <li>createdByDevice: string</li>
+  <li>expiresAt: string</li>
+</ul>
+
+<p>Submitted data to Backbone:</p>
+
+<ul>
+  <li>content</li>
+  <li>expiresAt</li>
+</ul>
+
+<h2 id="files">Files</h2>
+
+<p>Abbreviated: FIL</p>
+
+<p>Stored data on Backbone:</p>
+
+<ul>
+  <li>id</li>
+  <li>createdAt</li>
+  <li>createdBy</li>
+  <li>createdByDevice</li>
+  <li>modifiedAt</li>
+  <li>modifiedBy</li>
+  <li>modifiedByDevice</li>
+  <li>deletedAt</li>
+  <li>deletedBy</li>
+  <li>deletedByDevice</li>
+  <li>owner</li>
+  <li>ownerSignature</li>
+  <li>cipherSize: number</li>
+  <li>cipherHash</li>
+  <li>expiresAt</li>
+  <li>encryptedProperties</li>
+  <li>file cipher</li>
+</ul>
+
+<p>Submitted data to Backbone:</p>
+
+<ul>
+  <li>file cipher</li>
+  <li>cipherHash</li>
+  <li>owner</li>
+  <li>ownerSignature</li>
+  <li>expiresAt</li>
+  <li>encryptedProperties</li>
+</ul>
+
+<h2 id="messages">Messages</h2>
+
+<p>Abbreviated: MSG</p>
+
+<p>Data stored on Backbone:</p>
+
+<ul>
+  <li>id</li>
+  <li>createdAt</li>
+  <li>createdBy</li>
+  <li>createdByDevice</li>
+  <li>body</li>
+  <li>attachments[]
+    <ul>
+      <li>file id</li>
+    </ul>
+  </li>
+  <li>recipients[]
+    <ul>
+      <li>address</li>
+      <li>encryptedKey</li>
+      <li>receivedAt</li>
+      <li>receivedByDevice</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Data submitted to Backbone:</p>
+
+<ul>
+  <li>body</li>
+  <li>recipients[]
+    <ul>
+      <li>address</li>
+      <li>encryptedKey</li>
+    </ul>
+  </li>
+  <li>attachments[]
+    <ul>
+      <li>file id</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="relationships">Relationships</h2>
+
+<p>Abbreviated: REL</p>
+
+<p>Data stored on Backbone:</p>
+
+<ul>
+  <li>id</li>
+  <li>relationshipTemplateId</li>
+  <li>from</li>
+  <li>to</li>
+  <li>
+    <p>changes[]</p>
+
+    <ul>
+      <li>id</li>
+      <li>relationshipId</li>
+      <li>request
+        <ul>
+          <li>createdBy</li>
+          <li>createdByDevice</li>
+          <li>createdAt</li>
+          <li>content?</li>
+        </ul>
+      </li>
+      <li>response?: BackboneGetRelationshipsChangesSingleChangeResponse
+        <ul>
+          <li>createdBy</li>
+          <li>createdByDevice</li>
+          <li>createdAt</li>
+          <li>content?</li>
+        </ul>
+      </li>
+      <li>status: RelationshipChangeStatus</li>
+      <li>type: RelationshipChangeType</li>
+    </ul>
+  </li>
+  <li>createdAt</li>
+  <li>status</li>
+</ul>
+
+<p>Data submitted to Backbone:</p>
+
+<ul>
+  <li>relationshipTemplateId</li>
+  <li>relationshipChangeContent</li>
+</ul>
+
+<h2 id="relationship-templates">Relationship Templates</h2>
+
+<p>Abbreviated: RLT</p>
+
+<p>Data stored on Backbone:</p>
+
+<ul>
+  <li>id: string</li>
+  <li>createdBy: string</li>
+  <li>createdByDevice: string</li>
+  <li>maxNumberOfRelationships?: number</li>
+  <li>expiresAt?: string</li>
+  <li>content: string</li>
+  <li>createdAt: string</li>
+  <li>deletedAt?: string</li>
+</ul>
+
+<p>Data submitted to Backbone:</p>
+
+<ul>
+  <li>expiresAt?: string</li>
+  <li>maxNumberOfRelationships?: number</li>
+  <li>content: string</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-06-20T17:06:22+02:00">June 20, 2022</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/explore/privacy" class="pagination--pager" title="Privacy Considerations
+">Previous</a>
+    
+    
+      <a href="/explore/layers/transport" class="pagination--pager" title="Transport Layer
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+          
+        <li>
+            <a href="https://twitter.com/nmshd_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> twitter</a>
+        </li>
+           
+        <li>
+            <a href="/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2022
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
