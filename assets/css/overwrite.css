@@ -137,15 +137,3 @@ html,
 .author__avatar img {
     max-height: 110px;
 }
-
-.initial-content:after {
-    content: "Work-in-progress!";
-    position: absolute;
-    right: -4em;
-    top: 9em;
-    font-size: 12px;
-    background-color: #f7b232;
-    color: #ffffff;
-    padding: 7px 50px;
-    transform: rotate(45deg);
-}
