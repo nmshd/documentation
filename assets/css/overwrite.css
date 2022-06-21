@@ -137,3 +137,11 @@ html,
 .author__avatar img {
     max-height: 110px;
 }
+
+div#banner {
+    background-color: rgb(230, 167, 0);
+    width: 100%;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 10px;
+}
