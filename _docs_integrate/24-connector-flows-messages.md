@@ -7,7 +7,7 @@ permalink: /integrate/connector-flows-messages
 
 In order to send messages to recipients, a REST request can be sent with the given `recipients` and message `content`. Different message content structures are possible and defined in the chapter Data Structures. Additionally, an array of file ids can be added for property `attachments` in order to send attachments.
 
-![Send Message Sequence Diagram](/assets/diagrams/integrate/Connector_SendMessage.png "Send Message")
+![Send Message Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_SendMessage.png' | relative_url }} "Send Message")
 
 # Upload Files
 
@@ -18,7 +18,7 @@ These FileIds can then be used as attachments to send messages with attachments.
 
 Messages can be directly queried from the Connector.
 
-![Get Message Sequence Diagram](/assets/diagrams/integrate/Connector_GetMessage.png "Get Message")
+![Get Message Sequence Diagram]({{ 'assets/diagrams/integrate/Connector_GetMessage.png' | relative_url }} "Get Message")
 
 # Download Attachments of Messages
 
