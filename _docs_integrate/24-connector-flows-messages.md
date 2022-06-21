@@ -18,7 +18,7 @@ These FileIds can then be used as attachments to send messages with attachments.
 
 Messages can be directly queried from the Connector.
 
-![Get Message Sequence Diagram]({{ 'assets/diagrams/integrate/Connector_GetMessage.png' | relative_url }} "Get Message")
+![Get Message Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_GetMessage.png' | relative_url }} "Get Message")
 
 # Download Attachments of Messages
 
