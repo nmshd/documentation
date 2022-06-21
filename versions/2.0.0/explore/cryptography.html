@@ -1,0 +1,511 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Cryptography - enmeshed</title>
+<meta name="description" content="Backbone Layer Encryption">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Cryptography">
+<meta property="og:url" content="/explore/cryptography">
+
+
+  <meta property="og:description" content="Backbone Layer Encryption">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-06-21T13:31:29+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/explore/cryptography">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/2.0.0">v2.0.0 Preview</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Explore Enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">First things first</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore">Introduction</a></li>
+          
+            <li><a href="/explore/example-scenarios">Example Scenarios</a></li>
+          
+            <li><a href="/explore/features">Features</a></li>
+          
+            <li><a href="/explore/use-cases">Use Cases</a></li>
+          
+            <li><a href="/explore/faq">Frequently Asked Questions</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How we think</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/integration">Integration Considerations</a></li>
+          
+            <li><a href="/explore/security">Security Considerations</a></li>
+          
+            <li><a href="/explore/privacy">Privacy Considerations</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Our Layers</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/layers/backbone">Backbone Layer</a></li>
+          
+            <li><a href="/explore/layers/transport">Transport Layer</a></li>
+          
+            <li><a href="/explore/layers/consumption">Consumption Layer</a></li>
+          
+            <li><a href="/explore/layers/integration">Integration Layer</a></li>
+          
+            <li><a href="/explore/layers/user-experience">User-Experience Layer</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Components in-detail</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/app">App</a></li>
+          
+            <li><a href="/explore/backbone">Backbone</a></li>
+          
+            <li><a href="/explore/connector">Connector</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Expert Corner</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/runtime">Runtime</a></li>
+          
+            <li><a href="/explore/schema">Schema</a></li>
+          
+            <li><a href="/explore/cryptography" class="active">Cryptography</a></li>
+          
+            <li><a href="/explore/blockchain">Why no blockchain?</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Cryptography">
+    <meta itemprop="description" content="Backbone Layer Encryption">
+    <meta itemprop="datePublished" content="2022-06-21T13:31:29+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/explore/cryptography" class="u-url" itemprop="url">Cryptography
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h1 id="backbone-layer-encryption">Backbone Layer Encryption</h1>
+
+<p>The communication with the Backbone is encrypted on the http transport layer. This is done by using the transport-layer-security (TLS) standard which is common throughout the Internet. This prevents third parties to access any data communication to and from the Backbone.</p>
+
+<p>Data at rest is encrypted on the respective systems. This is relevant for the underlying infrastructure services of the Backbone. The infrastructure provider, e.g. Microsoft Azure, is not able to access the data from the hard drives, as it is encrypted.</p>
+
+<h1 id="transport-layer-encryption">Transport Layer Encryption</h1>
+
+<p>The communication between identities via the Backbone is end-to-end encrypted. This is done by using our own cryptography library based on standard implementations of elliptic curve cryptograhic algorithms.</p>
+
+<p>This prevents even the operator of the Backbone to access the payload which is sent between identities. It is also reducing the threats of data leaks to a minimum, as only the metadata could be leaked.</p>
+
+<p>We use modern cryptographic algorithms to our best knowledge. The cryptographic library we use is <a href="https://doc.libsodium.org/">libsodium</a> and its JavaScript wrapper <a href="https://github.com/jedisct1/libsodium.js">libsodium.js</a>. Libsodium is a fork of NaCl which is primarily stripping out unnecessary or dangerours interfaces or algorithms.</p>
+
+<p>Based on libsodium, we use elliptic curve cryptography with the Edwards Curve (Ed25519 or Curve25519) which is one of the most secure curves available - see <a href="https://safecurves.cr.yp.to">safecurves.cr.yp.to/</a>.</p>
+
+<p>Key derivations are used as often as possible, in addition to strong and unique initialization vectors.</p>
+
+<h2 id="used-algorithms">Used Algorithms</h2>
+
+<p>Symmetric Encryption: <a href="https://doc.libsodium.org/secret-key_cryptography/aead/chacha20-poly1305/xchacha20-poly1305_construction">XChaCha-Poly1305 (256 bit)</a></p>
+
+<p>Digital Signatures: ECDSA Ed25519 (Elliptic Curve Digital Signature Algorithm with Curve25519)</p>
+
+<p>Key Exchange: ECDH X25519 (Elliptic Curve Diffie Hellman with Curve25519)</p>
+
+<h2 id="identity-keys">Identity Keys</h2>
+
+<h3 id="identity-signature-private-key">Identity Signature Private Key</h3>
+
+<p>Abbreviated: PrivId</p>
+
+<p>The identity’s most secret, private signature key with which it is signing certificates, documents or the creation of new devices.</p>
+
+<h3 id="identity-signature-public-key">Identity Signature Public Key</h3>
+
+<p>Abbreviated: PubId</p>
+
+<p>The identity’s public key which acts as the primary form of verifying data signed by an identity. Only with a known Identity Signature Public Key of an identity, the signature of an identity can be securely verified.</p>
+
+<p>With the identity’s public key, the identity’s address is calculated.</p>
+
+<p>Usually, you receive another identity’s signature public key while making the first contact (e.g. from the relationship template or the relationship request followed upon it).</p>
+
+<h3 id="synchronization-derived-secret-key">Synchronization Derived Secret Key</h3>
+
+<p>The symmetric keys which are derived from the synchronization master key and are used to actually encrypt/decrypt the synchronization events.</p>
+
+<h3 id="synchronization-master-secret-key">Synchronization Master Secret Key</h3>
+
+<p>The symmetric master key which is used to derive the synchronization derived secret keys. The synchronization master secret key is randomly generated on creation for every identity.</p>
+
+<h2 id="device-keys">Device Keys</h2>
+
+<h2 id="device-signature-private-key">Device Signature Private Key</h2>
+
+<p>Every device of an identity has its own private key which is also not shared to other devices. With this, it is possible to have multi-factor authentication capabilities across different devices of one identity.</p>
+
+<p>Additionally, the private signature keys can be used to sign data which is synchronized across devices.</p>
+
+<h2 id="device-signature-public-key">Device Signature Public Key</h2>
+
+<p>The device’s public key which is stored in the Datawallet of an identity and thus is know to any other device of the identity. The public key can be used to verify data coming from other devices of an identity.</p>
+
+<h2 id="file-encryption">File Encryption</h2>
+
+<p>As with tokens, prior to the upload, a random secret key is generated and used to encrypt the file payload. In addition to the file payload, metadata (like filename or mimetype) to the file is stored next to it. For this, another random secret key is generated for encrypting the metadata. To omit unnecessary payload while sharing files, the generated secret key for actual file payload is encrypted with its metadata, so that only the generated secret key for the metadata must be shared (in addition to the file id).</p>
+
+<h2 id="relationship-keys">Relationship Keys</h2>
+
+<p>With each relationship, there are relationship keys automatically generated. These keys are used for signing and encrypting the communication with the relationship on a technical level.</p>
+
+<ul>
+  <li>Relationship own exchange keypair: A pair of relationship own exchange private key (PrivOwnX) and corresponding relationship own exchange public key (PubOwnX). The relationship own exchange private key is used to derive the masterRelationship secret keys (transmit and receive). The relationship own exchange public key is communicated within the relationship creation change request or the relationship creation change response.</li>
+  <li>Relationship own signature keypair: A pair of relationship signature private key (PrivOwn) and corresponding relationship signature public key (PubOwn). The signature own private key is used for signing the communication with this relationship. It is synchronized across all devices and signed by the device signature private key of the device which creates the relationship creation change request or the relationship template. The signature own public key is used for verifying the signatures of all communications with this relationship.</li>
+  <li>Relationship peer exchange public key: The peer’s exchange public key (PubPeerX) which is used to derive the master relationship secret keys (transmit and receive).</li>
+  <li>Relationship peer signature public key: The peer’s signature public key which is used to verify communication sent by the peer.</li>
+  <li>Relationship receive derived secret key (SecPeer’): A derived symmetric key of the master, which is actually used for decryption.</li>
+  <li>Relationship receive master secret key (SecPeer):
+The symmetric master key for receiving communication of the relationship. The key is derived by the relationship peer exchange public key and the relationship own exchange private key while onboarding. This key equals to the relationship transmit master key of the peer.</li>
+  <li>Relationship transmit derived secret key (SecOwn’): A derived symmetric key of the master, which is actually used for encryption.</li>
+  <li>Relationship transmit master secret key (SecOwn):
+The derived symmetric master key for transmitting communication to the relationship. The key is derived by the relationship peer exchange public key and the relationship own exchange private key. This key equals to the relationship receive master key of the peer.</li>
+</ul>
+
+<h2 id="relationship-template-encryption">Relationship Template Encryption</h2>
+
+<h2 id="token-encryption">Token Encryption</h2>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-06-21T13:31:29+02:00">June 21, 2022</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/explore/schema" class="pagination--pager" title="Enmeshed Schema
+">Previous</a>
+    
+    
+      <a href="/explore/blockchain" class="pagination--pager" title="Why we do not use a blockchain
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+          
+        <li>
+            <a href="https://twitter.com/nmshd_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> twitter</a>
+        </li>
+           
+        <li>
+            <a href="/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2022
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

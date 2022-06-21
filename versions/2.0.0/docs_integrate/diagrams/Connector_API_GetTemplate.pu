@@ -1,0 +1,41 @@
+@startuml Connector_GetTemplate
+!include ../../assets/plantuml/styles.iuml
+
+title Connector: Get Template
+caption Copyright 2021, j&s-soft GmbH
+
+box "Organizations's Infrastructure"
+participant "Business\nSystem" as backend
+participant "Enmeshed\nConnector" as connector
+end box
+participant "Enmeshed\nBackbone" as backbone
+
+== Prerequisites ==
+backbone <-> connector: Verified Enmeshed Organization Identity
+
+
+== Get Template ==
+
+-> backend ++: Start\n(with truncatedReference)
+backend -> connector ++: POST /RelationshipTemplates\n- truncatedReference
+connector -> connector: Validate input
+connector -> connector: Extract tokenId and secretKey\nout of reference
+connector -> connector: Validate tokenId and secretKey
+connector -> backbone ++: Get token\n- tokenId
+backbone -> backbone: Retrieve token
+backbone --> connector --: Returns token
+
+connector -> connector: Decrypt token\nwith secretKey
+connector -> connector: Validate token
+connector -> connector: Extract templateId and templateKey\nout of token
+
+connector -> backbone ++: Get template\n- templateId
+backbone -> backbone: Retrieve template
+backbone --> connector --: Returns template
+connector -> connector: Decrypt template\nwith templateKey
+connector -> connector: Validate template
+
+connector --> backend: Returns template
+<-- backend --: Stop\n(with Template)
+
+@enduml

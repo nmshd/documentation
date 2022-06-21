@@ -1,0 +1,517 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Enmeshed Backbone - enmeshed</title>
+<meta name="description" content="Backbone Building Blocks">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Enmeshed Backbone">
+<meta property="og:url" content="/explore/backbone">
+
+
+  <meta property="og:description" content="Backbone Building Blocks">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-06-21T13:31:29+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/explore/backbone">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/2.0.0">v2.0.0 Preview</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Explore Enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">First things first</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore">Introduction</a></li>
+          
+            <li><a href="/explore/example-scenarios">Example Scenarios</a></li>
+          
+            <li><a href="/explore/features">Features</a></li>
+          
+            <li><a href="/explore/use-cases">Use Cases</a></li>
+          
+            <li><a href="/explore/faq">Frequently Asked Questions</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How we think</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/integration">Integration Considerations</a></li>
+          
+            <li><a href="/explore/security">Security Considerations</a></li>
+          
+            <li><a href="/explore/privacy">Privacy Considerations</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Our Layers</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/layers/backbone">Backbone Layer</a></li>
+          
+            <li><a href="/explore/layers/transport">Transport Layer</a></li>
+          
+            <li><a href="/explore/layers/consumption">Consumption Layer</a></li>
+          
+            <li><a href="/explore/layers/integration">Integration Layer</a></li>
+          
+            <li><a href="/explore/layers/user-experience">User-Experience Layer</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Components in-detail</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/app">App</a></li>
+          
+            <li><a href="/explore/backbone" class="active">Backbone</a></li>
+          
+            <li><a href="/explore/connector">Connector</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Expert Corner</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/runtime">Runtime</a></li>
+          
+            <li><a href="/explore/schema">Schema</a></li>
+          
+            <li><a href="/explore/cryptography">Cryptography</a></li>
+          
+            <li><a href="/explore/blockchain">Why no blockchain?</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Enmeshed Backbone">
+    <meta itemprop="description" content="Backbone Building Blocks">
+    <meta itemprop="datePublished" content="2022-06-21T13:31:29+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/explore/backbone" class="u-url" itemprop="url">Enmeshed Backbone
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#backbone-building-blocks">Backbone Building Blocks</a><ul><li><a href="#backbone-landscapes-runtime">Backbone Landscapes (Runtime)</a></li><li><a href="#backbone-infrastructure-runtime">Backbone Infrastructure (Runtime)</a><ul><li><a href="#gateway">Gateway</a></li><li><a href="#virtual-network">Virtual Network</a></li><li><a href="#key-vault">Key Vault</a></li><li><a href="#service-bus">Service Bus</a></li><li><a href="#notification-hub">Notification Hub</a></li><li><a href="#database">Database</a></li><li><a href="#blob-storage">BLOB Storage</a></li><li><a href="#kubernetes-clusternodes">Kubernetes Cluster/Nodes</a></li></ul></li><li><a href="#backbone-services-runtime">Backbone Services (Runtime)</a></li><li><a href="#backbone-services-and-libraries-designtime">Backbone Services and Libraries (Designtime)</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="backbone-building-blocks">Backbone Building Blocks</h1>
+
+<p>The Enmeshed Backbone embraces all central services required by the Enmeshed platform to work. It consists of the underlying infrastructure, its hosted services, and the libraries used within the services. There could be many Enmeshed Backbones hosted along the same number of Enmeshed Apps. But careful, so far it is not possible for users to communicate across different Backbones.</p>
+
+<p>One Enmeshed Backbone is currently hosted and maintained by j&amp;s-soft GmbH.</p>
+
+<h2 id="backbone-landscapes-runtime">Backbone Landscapes (Runtime)</h2>
+
+<p>Usually there are three Backbone Landscapes hosted in parallel: dev, stage and prod.</p>
+
+<ul>
+  <li>Dev Landscape: Is used for Backbone development purposes only and shouldn’t be used for Enmeshed clients</li>
+  <li>Stage Landscape: Is used for Enmeshed tests on the current Backbone version or might be used for tests on a future Backbone version</li>
+  <li>Prod Landscape: All productive environments should access the prod landscape only. Only the prod landscape has a productive configuration like scalability, replication or operations in place.</li>
+</ul>
+
+<p>It is possible to bring up additional landscapes on a temporary basis. These could be used for security or performance tests.</p>
+
+<p>A landscape can be trimmed by different scalability options, depending on the workload – and the actual usage of components.</p>
+
+<h2 id="backbone-infrastructure-runtime">Backbone Infrastructure (Runtime)</h2>
+
+<p>All required infrastructure and infrastructure services, like a database, a load balancer or a file storage are combined within the infrastructure building block. The infrastructure itself is not Enmeshed-specific, the composition of services and the overall configuration however is.</p>
+
+<p>There are different possible cloud providers to host the backbone, the big hyperscalers or smaller ones. Even regional cloud providers would make sense for specific use-cases.</p>
+
+<p>The current cloud provider for the centrally hosted Enmeshed Backbone is Microsoft Azure and as thus, the landscape details (and terminology) are primarily focused on the Azure setup. Although there are Azure-specific components and configurations, most of the components used are cloud-provider agnostic, i.e. they will exist in other cloud providers in an equivalent form.</p>
+
+<h3 id="gateway">Gateway</h3>
+
+<p>The gateway is the very first touchpoint of an external request to the landscape. Its major tasks are load balancing and proxying, breaking up https-traffic and block malicious requests.</p>
+
+<p>Thus, the gateway is the first component which needs to be scaled depending on the workload. This is usually done by increasing the number of instances.</p>
+
+<h3 id="virtual-network">Virtual Network</h3>
+
+<p>A virtual network is an internal network for custom routing and network separation rules. Some components, like the gateway, require virtual networks to be set up, as the components itself are routing traffic from one network (e.g. public Internet) to another network (internal network).</p>
+
+<p>With a virtual network, network traffic is encapsulated for every landscape. Servers and services within the virtual network are not reachable from the outside world and are not allowed to talk to external systems. However, the virtual network is not an encrypted network within the cloud provider, as this is technically so far not possible.</p>
+
+<h3 id="key-vault">Key Vault</h3>
+
+<p>Private keys, credentials or other secrets must be securely stored. For this, multiple key vaults are used. Depending on the security level, secrets can even be stored on a hardware security module. In addition to the encryption of the secrets, the key vault manages the authorizations of (admin-)users or services to this secret.</p>
+
+<h3 id="service-bus">Service Bus</h3>
+
+<p>The service bus is an event bus between all the different services which can be leveraged for cross-service communication and message handling.</p>
+
+<h3 id="notification-hub">Notification Hub</h3>
+
+<p>To manage push notifications to the various push notification providers – like Apple Push Notification Service, Firebase Cloud Messaging, or Windows Notification Service – the notification hub is a service which manages registered devices and a generic interface to send out messages, no matter which push notification service needs to be addressed.</p>
+
+<h3 id="database">Database</h3>
+
+<p>A database is used for columnar data storage and access. It is used to store metadata of the different Backbone entities.</p>
+
+<p>Nearly every request to a landscape results in a request to the database. Thus, the database also needs to be scaled depending on the number of requests and the complexity of database queries. The database can be scaled vertically (more power) and horizontally (more servers).</p>
+
+<h3 id="blob-storage">BLOB Storage</h3>
+
+<p>Data of binary large objects (BLOBs) is not stored on the database, but on a kind of file system. Binary data is usually queried by ids and process in a whole (e.g. by providing a download for an encrypted file).</p>
+
+<p>A BLOB storage is usually scaled horizontally (more storage). Access performance is not critical for the given use-cases.</p>
+
+<h3 id="kubernetes-clusternodes">Kubernetes Cluster/Nodes</h3>
+
+<p>Each request is handled by a service, running on a Kubernetes node within a whole Kubernetes cluster. Nodes can be scaled vertically (more power) and horizontally (more nodes). Depending on the number or complexity of the requests, the nodes are automatically scaled.</p>
+
+<h2 id="backbone-services-runtime">Backbone Services (Runtime)</h2>
+
+<p>(Micro-)Services of the Backbone are deployed on a Kubernetes cluster within the Backbone Infrastructure. These services implement the Enmeshed business logic on top of the infrastructure services provided by the Backbone Infrastructure.</p>
+
+<p>The following services are available on the runtime:</p>
+
+<ul>
+  <li>Devices Service: Manages the device profiles for authenticating against the different services. Additionally keeps track of the identity behind devices and the registration of push notification tokens of the respective messaging providers (e.g. Apple Push Notification Service, Firebase Cloud Messaging)</li>
+  <li>Messages Service: Provides an interface for submitting and receiving messages</li>
+  <li>Relationships Service: Keeps track of relationships between identities, their status and possible change requests</li>
+  <li>Files Service: Files or other “static” binaries can be stored via the files service and used as attachments for messages.</li>
+  <li>Tokens Service: A repository for storing and consuming usually short-lived encrypted information, e.g. for QRCode contents.</li>
+  <li>Synchronization Service: Cross device synchronization of local identity data</li>
+</ul>
+
+<h2 id="backbone-services-and-libraries-designtime">Backbone Services and Libraries (Designtime)</h2>
+
+<p>The implementation of the Enmeshed logic is done via the respective services, libraries are used for common source code. The open sourcing of the Backbone is still in progress.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-06-21T13:31:29+02:00">June 21, 2022</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/explore/app" class="pagination--pager" title="Enmeshed App
+">Previous</a>
+    
+    
+      <a href="/explore/connector" class="pagination--pager" title="Enmeshed Connector
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+          
+        <li>
+            <a href="https://twitter.com/nmshd_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> twitter</a>
+        </li>
+           
+        <li>
+            <a href="/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2022
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
