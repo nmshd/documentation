@@ -58,7 +58,7 @@ Enmeshed consists of three main components using different layers to communicate
 
 The following high-level picture shows the whole ensemble of Enmeshed components and layers:
 
-![High level architecture diagram of Enmeshed components and layers](/assets/images/explore/layers.png){: .align-center}
+![High level architecture diagram of Enmeshed components and layers]({{ '/assets/images/explore/layers.png' | relative_url }}){: .align-center}
 
 The "Zero Knowledge Border" marks the area where data is encrypted or pseudonymized to a point that the Backbone operator has no chance of accessing personal data. The secure communication between identities happens within the [Transport Layer](/explore/layers/transport) based on a normalized Enmeshed schema.
 

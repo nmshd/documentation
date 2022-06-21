@@ -8,7 +8,14 @@ main)
     ;;
 release/*)
     # use the release version as folder (e.g. release/2.0.0 => versions/2.0.0)
-    DEST="${CURRENT_BRANCH_NAME/release/"./versions"}"
+    PATH="${CURRENT_BRANCH_NAME/release/"/versions"}"
+    DEST=".${PATH}"
+
+    # download and install yq
+    wget https://github.com/mikefarah/yq/releases/download/v4.25.2/yq_linux_amd64 -O /usr/bin/yq && chmod +x /usr/bin/yq
+
+    # update the baseurl in _config.yml
+    yq -i '.baseurl = "${PATH}"' _config.yml
     ;;
 *)
     # exit if not on main or release/* branch

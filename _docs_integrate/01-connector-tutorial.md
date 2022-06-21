@@ -71,7 +71,8 @@ We don't care about the parameters here, so just send an empty JSON in the reque
 ## App: Send a Relationship Request
 
 Open the created QR Code, start the Enmeshed App, select or create a profile, navigate to "Kontakte", click on "Kontakt hinzufügen" and scan the QR Code. This will open a screen similar to the one below, where you can see the information that you have added as content to the Relationship Template.
-!["Add contact" screen](/assets/images/add-contact-screen.jpg)
+
+!["Add contact" screen]( {{ '/assets/images/add-contact-screen.jpg' | relative_url }} )
 
 Finally, click on "Kontakt hinzufügen" to send the Relationship Request. This will create a new Relationship to the Backbone, which has the status `Pending`.
 
