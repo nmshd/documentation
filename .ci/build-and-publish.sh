@@ -26,6 +26,8 @@ release/*)
     ;;
 esac
 
+bundle exec jekyll build
+
 echo "Publishing to $DEST"
 
 git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
