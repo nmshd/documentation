@@ -18,7 +18,7 @@ release/*)
     DEST=".${DEST_PATH}"
 
     # update the baseurl in _config.yml
-    yq -i '.baseurl = "${DEST_PATH}"' _config.yml
+    yq -i ".baseurl = \"${DEST_PATH}\"" _config.yml
     ;;
 *)
     # exit if not on main or release/* branch
@@ -29,6 +29,8 @@ esac
 bundle exec jekyll build
 
 echo "Publishing to $DEST"
+
+exit 1
 
 git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
 npx gh-pages --dist _site --dest $DEST --branch gh-pages --user "github-actions-bot <support+actions@github.com>"
