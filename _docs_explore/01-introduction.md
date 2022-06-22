@@ -44,27 +44,27 @@ Enmeshed consists of three main components using different layers to communicate
 
 **Components:**
 
--   [App](/explore/app): Mobile and desktop software client for end users or small companies
--   [Backbone](/explore/backbone): A central communication component routing messages between identities without having access to the payload
--   [Connector](/explore/connector): Client for organizations which is hosted on-site with integration capabilities for business systems
+-   [App]({{ site.baseurl }}{% link _docs_explore/50-app.md %}): Mobile and desktop software client for end users or small companies
+-   [Backbone]({{ site.baseurl }}{% link _docs_explore/51-backbone.md %}): A central communication component routing messages between identities without having access to the payload
+-   [Connector]({{ site.baseurl }}{% link _docs_explore/52-connector.md %}): Client for organizations which is hosted on-site with integration capabilities for business systems
 
 **Layers:**
 
--   [Backbone Layer](/explore/layers/backbone): Secured, zero-knowledge synchronization layer between App-to-Backbone or Connector-to-Backbone with cross-device capabilities and postal services
--   [Transport Layer](/explore/layers/transport): Cross-identity secure communication tunnel App-to-App, App-to-Connector or Connector-to-Connector
--   [Consumption Layer](/explore/layers/consumption): Cross-identity payload definitions and normalized data structures (schemas), as well as single-identity business logic implementation and data structures, either for persons or organizational identities.
--   [Integration Layer](/explore/layers/integration): Single-identity integration logic to integrate existing business systems primarily for organizational identities.
--   [User Experience Layer](/explore/layers/user-experience): The user experience for Enmeshed related features primarily for end users.
+-   [Backbone Layer]({{ site.baseurl }}{% link _docs_explore/41-backbone-layer.md %}): Secured, zero-knowledge synchronization layer between App-to-Backbone or Connector-to-Backbone with cross-device capabilities and postal services
+-   [Transport Layer]({{ site.baseurl }}{% link _docs_explore/42-transport-layer.md %}): Cross-identity secure communication tunnel App-to-App, App-to-Connector or Connector-to-Connector
+-   [Consumption Layer]({{ site.baseurl }}{% link _docs_explore/43-consumption-layer.md %}): Cross-identity payload definitions and normalized data structures (schemas), as well as single-identity business logic implementation and data structures, either for persons or organizational identities.
+-   [Integration Layer]({{ site.baseurl }}{% link _docs_explore/44-integration-layer.md %}): Single-identity integration logic to integrate existing business systems primarily for organizational identities.
+-   [User Experience Layer]({{ site.baseurl }}{% link _docs_explore/45-user-experience-layer.md %}): The user experience for Enmeshed related features primarily for end users.
 
 The following high-level picture shows the whole ensemble of Enmeshed components and layers:
 
 ![High level architecture diagram of Enmeshed components and layers]({{ '/assets/images/explore/layers.png' | relative_url }}){: .align-center}
 
-The "Zero Knowledge Border" marks the area where data is encrypted or pseudonymized to a point that the Backbone operator has no chance of accessing personal data. The secure communication between identities happens within the [Transport Layer](/explore/layers/transport) based on a normalized Enmeshed schema.
+The "Zero Knowledge Border" marks the area where data is encrypted or pseudonymized to a point that the Backbone operator has no chance of accessing personal data. The secure communication between identities happens within the [Transport Layer]({{ site.baseurl }}{% link _docs_explore/42-transport-layer.md %}) based on a normalized Enmeshed schema.
 
 ## Enmeshed App
 
-End-users are able to install the [Enmeshed App](/explore/app) from their favorite app stores for free. It is also available to download for various desktop operating systems.
+End-users are able to install the [Enmeshed App]({{ site.baseurl }}{% link _docs_explore/50-app.md %}) from their favorite app stores for free. It is also available to download for various desktop operating systems.
 
 The App provides the user experience for the user's digital identity. With it, the user can access the features of the transport, content and consumption layers.
 
@@ -72,7 +72,7 @@ It is possible to use multiple identities with the same App. It is also possible
 
 ## Enmeshed Backbone
 
-The [Enmeshed Backbone](/explore/backbone) provides the foundation to communicate between the components on the backbone layer. It hosts the central services which are required for a seamless experience across identities and the devices of one identity.
+The [Enmeshed Backbone]({{ site.baseurl }}{% link _docs_explore/51-backbone.md %}) provides the foundation to communicate between the components on the backbone layer. It hosts the central services which are required for a seamless experience across identities and the devices of one identity.
 
 It is an encrypted storage layer for all kind of information. Although the messages, files, tokens, etc. have a certain expiry date, the data is stored on the backbone until this expiry date. Thus, the backbone acts as an data-access, backup and synchronization helper for the identities.
 
@@ -82,7 +82,7 @@ The Backbone is based on a micro-service architecture and is highly virtualized 
 
 ## Enmeshed Connector
 
-The client for organizations is the [Enmeshed Connector](/explore/connector). It acts with a separate digital identity of the organization within the network of the organization. Thus, it is in the hands of the corresponding IT department and can be set up next to the organization's business systems using the majority of the features.
+The client for organizations is the [Enmeshed Connector]({{ site.baseurl }}{% link _docs_explore/52-connector.md %}). It acts with a separate digital identity of the organization within the network of the organization. Thus, it is in the hands of the corresponding IT department and can be set up next to the organization's business systems using the majority of the features.
 
 The Connector is hosted by a single Docker image and provides a REST API for all features of the transport layer. It can thus be perfectly used for integration purposes. The Connector transparently encrypts or decrypts the respective payload, synchronizes with the Backbone and keeps track of the Enmeshed data.
 

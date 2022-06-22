@@ -31,4 +31,4 @@ The user interface of the Enmeshed App is platform-independently built with [Ope
 
 ## App Runtime
 
-The Enmeshed business logic for the app is extending the [Enmeshed Runtime](/explore/runtime) with app-specific implementations, like multi-profile support, local data handling or automations. You can think of the App Runtime as a more user-interface-friendly way of the Enmeshed Runtime.
+The Enmeshed business logic for the app is extending the [Enmeshed Runtime]({{ site.baseurl }}{% link _docs_explore/60-runtime.md %}) with app-specific implementations, like multi-profile support, local data handling or automations. You can think of the App Runtime as a more user-interface-friendly way of the Enmeshed Runtime.

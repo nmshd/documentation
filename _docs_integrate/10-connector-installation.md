@@ -39,7 +39,7 @@ A reliable and fast internet connection is mandatory for running the Connector. 
 
 ## List docker image tags
 
-Read more about listing available docker image tags [here](/explore/connector#connector-docker-image).
+Read more about listing available docker image tags [here]({{ site.baseurl }}{% link _docs_explore/52-connector.md %}#connector-docker-image).
 
 # Installation
 
@@ -48,7 +48,7 @@ Read more about listing available docker image tags [here](/explore/connector#co
 Go through the following steps to start the Connector:
 
 1. place the file [examples/docker-compose-with-mongodb.yml](https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/docker-compose-with-mongodb.yml) as `docker-compose.yml` in a folder of your choice
-2. create a config file that can be mounted inside the Connector. Fill the config file using the [configuration docs](/integrate/connector-configuration) and the [example config file](https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json). The connection string is `mongodb://user:pass@mongodb:27017/?authSource=admin&readPreference=primary&ssl=false`.
+2. create a config file that can be mounted inside the Connector. Fill the config file using the [configuration docs]({{ site.baseurl }}{% link _docs_integrate/11-connector-configuration.md %}) and the [example config file](https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json). The connection string is `mongodb://user:pass@mongodb:27017/?authSource=admin&readPreference=primary&ssl=false`.
 3. replace the marked \<fields\> in the compose file with your values
 4. (optional) follow the steps under [log file mounting](#log-file-mounting) if you want to persist and access the log files on the host system
 5. execute `docker compose up -d` in the shell
@@ -61,7 +61,7 @@ Go through the following steps to start the Connector:
 
 1. make your existing MongoDB available for the connector
 2. place the file [examples/docker-compose-with-existing-mongodb.yml](https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/docker-compose-with-existing-mongodb.yml) as `docker-compose.yml` in a folder of your choice
-3. create a config file that can be mounted inside the Connector. Fill the config file using the [configuration docs](/integrate/connector-configuration) and the [example config file](https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json)
+3. create a config file that can be mounted inside the Connector. Fill the config file using the [configuration docs]({{ site.baseurl }}{% link _docs_integrate/11-connector-configuration.md %}) and the [example config file](https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json)
 4. replace the marked \<fields\> in the compose file with your values
 5. (optional) follow the steps under [log file mounting](#log-file-mounting) if you want to persist and access the log files on the host system
 6. execute `docker compose up -d` in the shell
