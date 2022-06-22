@@ -1,1 +1,1 @@
-Sitemap: /$%7BDEST_PATH%7D/sitemap.xml
+Sitemap: /versions/2.0.0/sitemap.xml
