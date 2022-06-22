@@ -18,7 +18,6 @@
         "style": "ordered"
     },
     "no-bare-urls": true,
-    "no-space-in-emphasis": true,
     "no-space-in-code": true,
     "no-space-in-links": true,
     "fenced-code-language": true,

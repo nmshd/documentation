@@ -4,7 +4,7 @@ permalink: /explore/connector
 toc: true
 ---
 
-You can find many Connector-specific information in the [integrate](/integrate) part of these docs.
+You can find many Connector-specific information in the [integrate]({{ site.baseurl }}{% link _pages/integrate.md %}) part of these docs.
 
 # Connector Building Blocks
 
@@ -19,7 +19,7 @@ The Docker images are created, maintained and published by j&s-soft GmbH.
 
 ## Connector Runtime
 
-Just like the [App Runtime](/explore/app#app-runtime) extends the [Enmeshed Runtime](/explore/runtime) for user interfaces, the Connector Runtime is extending the [Enmeshed Runtime](/explore/runtime) for the use within services and programs. For example, it maps REST-API-calls to Enmeshed business-logic.
+Just like the [App Runtime]({{ site.baseurl }}{% link _docs_explore/50-app.md %}) extends the [Enmeshed Runtime]({{ site.baseurl }}{% link _docs_explore/60-runtime.md %}) for user interfaces, the Connector Runtime is extending the [Enmeshed Runtime]({{ site.baseurl }}{% link _docs_explore/60-runtime.md %}) for the use within services and programs. For example, it maps REST-API-calls to Enmeshed business-logic.
 
 ## Connector API
 
