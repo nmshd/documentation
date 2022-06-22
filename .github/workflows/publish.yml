@@ -13,11 +13,10 @@ jobs:
         with:
           ruby-version: "2.7"
           bundler-cache: true
-      - run: bundle exec jekyll build
       - uses: actions/setup-node@v2
       - name: install yq
         run: sudo wget https://github.com/mikefarah/yq/releases/download/v4.25.2/yq_linux_amd64 -O /usr/bin/yq && sudo chmod +x /usr/bin/yq
       - name: Deploy to gh-pages
-        run: bash .ci/publish.sh
+        run: bash .ci/build-and-publish.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
