@@ -325,12 +325,12 @@ If you don’t want to use the new module it doesn’t require further actions.<
 
 <h2 id="the-new-module">The new module</h2>
 
-<p>The new module gives you the possibility to define so called <code class="language-plaintext highlighter-rouge">triggers</code>, which represent the names of the events we already send Connector-internally (e.g. <code class="language-plaintext highlighter-rouge">transport.messageReceived</code>). The module then listens to the configured events and simply sends the event data to the configured URL. For a detailed documentation of how to configure the new webhooks module, see <a href="/integrate/connector-configuration#webhooksv2">the Connector configuration docs</a>.</p>
+<p>The new module gives you the possibility to define so called <code class="language-plaintext highlighter-rouge">triggers</code>, which represent the names of the events we already send Connector-internally (e.g. <code class="language-plaintext highlighter-rouge">transport.messageReceived</code>). The module then listens to the configured events and simply sends the event data to the configured URL. For a detailed documentation of how to configure the new webhooks module, see <a href="/versions/2.0.0/integrate/connector-configuration#webhooksv2">the Connector configuration docs</a>.</p>
 
 <p>While in the old module you could configure an interval in which the new information is published, the new module calls the webhook immediately after the configured event was triggered.
 <em>Do you miss the possibility to configure a publish interval? Raise a feature request in our <a href="https://github.com/nmshd/nmshd.github.io/issues/new/choose">feedback repository</a>, and we will see what we can do about it.</em></p>
 
-<p>Since you can use arbitrary events as triggers now, the new module gives you much more points at which you can integrate. We provide a <a href="/integrate/connector-events">list of these events</a>. Note that the list will grow in the next weeks, so check the docs from time to time. If you wish for a specific event, you can also <a href="https://github.com/nmshd/nmshd.github.io/issues/new/choose">raise a feature request</a>.</p>
+<p>Since you can use arbitrary events as triggers now, the new module gives you much more points at which you can integrate. We provide a <a href="/versions/2.0.0/integrate/connector-events">list of these events</a>. Note that the list will grow in the next weeks, so check the docs from time to time. If you wish for a specific event, you can also <a href="https://github.com/nmshd/nmshd.github.io/issues/new/choose">raise a feature request</a>.</p>
 
 <h2 id="migration">Migration</h2>
 
@@ -363,7 +363,7 @@ If you don’t want to use the new module it doesn’t require further actions.<
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>In the POST body you will receive the <code class="language-plaintext highlighter-rouge">trigger</code> of the webhook (which is the name of the event), as well as the <code class="language-plaintext highlighter-rouge">data</code> of the event. Both are documented in the <a href="/integrate/connector-events">Connector Events</a> section.</p>
+<p>In the POST body you will receive the <code class="language-plaintext highlighter-rouge">trigger</code> of the webhook (which is the name of the event), as well as the <code class="language-plaintext highlighter-rouge">data</code> of the event. Both are documented in the <a href="/versions/2.0.0/integrate/connector-events">Connector Events</a> section.</p>
 
         
       </section>
