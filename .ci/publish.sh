@@ -1,5 +1,10 @@
 set -e
 
+if [ -z "$(which yq)" ]; then
+    echo "yq could not be found"
+    exit 1
+fi
+
 CURRENT_BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 
 case "$CURRENT_BRANCH_NAME" in
@@ -10,9 +15,6 @@ release/*)
     # use the release version as folder (e.g. release/2.0.0 => versions/2.0.0)
     DEST_PATH="${CURRENT_BRANCH_NAME/release/"/versions"}"
     DEST=".${DEST_PATH}"
-
-    # download and install yq
-    sudo wget https://github.com/mikefarah/yq/releases/download/v4.25.2/yq_linux_amd64 -O /usr/bin/yq && sudo chmod +x /usr/bin/yq
 
     # update the baseurl in _config.yml
     yq -i '.baseurl = "${DEST_PATH}"' _config.yml
