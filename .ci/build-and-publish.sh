@@ -18,7 +18,7 @@ release/*)
     DEST=".${DEST_PATH}"
 
     # update the baseurl in _config.yml
-    yq -i '.baseurl = "${DEST_PATH}"' _config.yml
+    yq -i ".baseurl = \"${DEST_PATH}\"" _config.yml
     ;;
 *)
     # exit if not on main or release/* branch
