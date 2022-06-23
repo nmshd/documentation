@@ -27,6 +27,7 @@ release/*)
 esac
 
 bundle exec jekyll build
+echo "enmeshed.eu" >_site/CNAME
 
 echo "Publishing to $DEST"
 
