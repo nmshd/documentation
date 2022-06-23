@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/versions/2.0.0/feed.xml" rel="self" type="application/atom+xml" /><link href="/versions/2.0.0/" rel="alternate" type="text/html" /><updated>2022-06-23T13:24:02+02:00</updated><id>/versions/2.0.0/feed.xml</id><title type="html">enmeshed</title><subtitle>enmeshed is a home of various open source components, making the digital life of users and organizations easier.</subtitle><author><name>enmeshed Team</name></author><entry><title type="html">The new webhooks Connector module</title><link href="/versions/2.0.0/blog/webhooks-v2-connector-module/" rel="alternate" type="text/html" title="The new webhooks Connector module" /><published>2022-03-02T11:00:00+01:00</published><updated>2022-03-02T11:00:00+01:00</updated><id>/versions/2.0.0/blog/webhooks-v2-connector-module</id><content type="html" xml:base="/versions/2.0.0/blog/webhooks-v2-connector-module/"><![CDATA[<h2 id="introduction">Introduction</h2>
+
+<p>Hello everyone!</p>
+
+<p>Today we want to announce a new version of the webhooks Connector module.</p>
+
+<p>The old version of the module had many limitations that we could only address with a complete rewrite. To be backwards compatible the old version of the module is still available under the name <code class="language-plaintext highlighter-rouge">webhooks</code>.
+The new module can be configured under the name <code class="language-plaintext highlighter-rouge">webhooksV2</code>.
+If you don’t want to use the new module it doesn’t require further actions.</p>
+
+<p>We still recommend to switch to the new module as soon as possible as the old module is now deprecated and will not be maintained anymore.</p>
+
+<h2 id="the-new-module">The new module</h2>
+
+<p>The new module gives you the possibility to define so called <code class="language-plaintext highlighter-rouge">triggers</code>, which represent the names of the events we already send Connector-internally (e.g. <code class="language-plaintext highlighter-rouge">transport.messageReceived</code>). The module then listens to the configured events and simply sends the event data to the configured URL. For a detailed documentation of how to configure the new webhooks module, see <a href="/versions/2.0.0/integrate/connector-configuration#webhooksv2">the Connector configuration docs</a>.</p>
+
+<p>While in the old module you could configure an interval in which the new information is published, the new module calls the webhook immediately after the configured event was triggered.
+<em>Do you miss the possibility to configure a publish interval? Raise a feature request in our <a href="https://github.com/nmshd/nmshd.github.io/issues/new/choose">feedback repository</a>, and we will see what we can do about it.</em></p>
+
+<p>Since you can use arbitrary events as triggers now, the new module gives you much more points at which you can integrate. We provide a <a href="/versions/2.0.0/integrate/connector-events">list of these events</a>. Note that the list will grow in the next weeks, so check the docs from time to time. If you wish for a specific event, you can also <a href="https://github.com/nmshd/nmshd.github.io/issues/new/choose">raise a feature request</a>.</p>
+
+<h2 id="migration">Migration</h2>
+
+<p>In order to be notified about the same stuff as with the old module, you should configure the new module in the following way:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"webhooksV2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"targets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"target1"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/webhook"</span><span class="p">,</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+        </span><span class="nl">"webhooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"transport.messageReceived"</span><span class="p">,</span><span class="w"> </span><span class="s2">"transport.relationshipChanged"</span><span class="p">],</span><span class="w">
+                </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"target1"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The data sent to the given URL has changed though:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">trigger</span><span class="dl">"</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1">// properties depend on the event</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In the POST body you will receive the <code class="language-plaintext highlighter-rouge">trigger</code> of the webhook (which is the name of the event), as well as the <code class="language-plaintext highlighter-rouge">data</code> of the event. Both are documented in the <a href="/versions/2.0.0/integrate/connector-events">Connector Events</a> section.</p>]]></content><author><name>enmeshed Team</name></author><category term="blog" /><category term="connector" /><category term="update" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">Introducing Enmeshed</title><link href="/versions/2.0.0/blog/introducing-enmeshed/" rel="alternate" type="text/html" title="Introducing Enmeshed" /><published>2021-11-01T11:00:00+01:00</published><updated>2021-11-01T11:00:00+01:00</updated><id>/versions/2.0.0/blog/introducing-enmeshed</id><content type="html" xml:base="/versions/2.0.0/blog/introducing-enmeshed/"><![CDATA[<p>Hello everyone!</p>
+
+<p>We are delighted to introduce a new open source project named Enmeshed. It is the home of software libraries, components, ideas, discussions, and many more in the area of digitalization.</p>
+
+<p>We think the world is ready for a whole new adventure of digital communication, easy and secure data sharing, and empowering the user - while using state-of-the-art technologies and proven architectures without forgetting the user experience, integration, processes, security or privacy.</p>
+
+<p>This site is still under construction and as such, we will update it regularly in the coming weeks.</p>
+
+<p>Your Enmeshed Team</p>]]></content><author><name>enmeshed Team</name></author><category term="blog" /><category term="page" /><category term="update" /><summary type="html"><![CDATA[Hello everyone!]]></summary></entry></feed>
