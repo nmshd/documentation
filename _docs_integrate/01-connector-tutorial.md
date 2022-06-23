@@ -6,15 +6,15 @@ toc: true
 
 In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization.
 
-The following steps include small pieces of the Connector's API documentation that, when executed, fire requests on a Connector created for testing purposes. So if you don't have an own Connector installed, feel free to use the samples directly. Otherwise you can use your own Connector either with a REST client (e.g. [Insomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/)) or by using the RapiDoc documentation (`/docs/rapidoc`) hosted on your Connector (you have to [enable docs on your connector]({% link _docs_integrate/11-connector-configuration.md %}#corehttpapi) for the documentation route to work).
+The following steps include small pieces of the Connector's API documentation that, when executed, fire requests on a Connector created for testing purposes. So if you don't have an own Connector installed, feel free to use the samples directly. Otherwise you can use your own Connector either with a REST client (e.g. [Insomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/)) or by using the RapiDoc documentation (`/docs/rapidoc`) hosted on your Connector (you have to [enable docs on your connector]({{ site.baseurl }}{% link _docs_integrate/11-connector-configuration.md %}#corehttpapi) for the documentation route to work).
 
 # Prerequisites
 
 -   If you want to use your own Connector for executing the examples
-    -   [Install the Connector]({% link _docs_integrate/10-connector-installation.md %})
-    -   Make sure the [Sync Module is disabled]({% link _docs_integrate/11-connector-configuration.md %}#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
+    -   [Install the Connector]({{ site.baseurl }}{% link _docs_integrate/10-connector-installation.md %})
+    -   Make sure the [Sync Module is disabled]({{ site.baseurl }}{% link _docs_integrate/11-connector-configuration.md %}#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
     -   Get the API key configured for the Connector. Ask the person who installed the Connector for it.
--   You need the [Enmeshed App]({% link _docs_use/01-basics.md %}) installed on your mobile device.
+-   You need the [Enmeshed App]({{ site.baseurl }}{% link _docs_use/01-basics.md %}) installed on your mobile device.
 
 -   Diagramm
 
@@ -71,7 +71,8 @@ We don't care about the parameters here, so just send an empty JSON in the reque
 ## App: Send a Relationship Request
 
 Open the created QR Code, start the Enmeshed App, select or create a profile, navigate to "Kontakte", click on "Kontakt hinzufügen" and scan the QR Code. This will open a screen similar to the one below, where you can see the information that you have added as content to the Relationship Template.
-!["Add contact" screen](/assets/images/add-contact-screen.jpg)
+
+!["Add contact" screen]( {{ '/assets/images/add-contact-screen.jpg' | relative_url }} )
 
 Finally, click on "Kontakt hinzufügen" to send the Relationship Request. This will create a new Relationship to the Backbone, which has the status `Pending`.
 
