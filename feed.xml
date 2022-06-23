@@ -1,61 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-06-23T11:54:58+02:00</updated><id>/feed.xml</id><title type="html">enmeshed</title><subtitle>enmeshed is a home of various open source components, making the digital life of users and organizations easier.</subtitle><author><name>enmeshed Team</name></author><entry><title type="html">The new webhooks Connector module</title><link href="/blog/webhooks-v2-connector-module/" rel="alternate" type="text/html" title="The new webhooks Connector module" /><published>2022-03-02T11:00:00+01:00</published><updated>2022-03-02T11:00:00+01:00</updated><id>/blog/webhooks-v2-connector-module</id><content type="html" xml:base="/blog/webhooks-v2-connector-module/">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-06-23T13:19:43+02:00</updated><id>/feed.xml</id><title type="html">enmeshed</title><subtitle>enmeshed is a home of various open source components, making the digital life of users and organizations easier.</subtitle><author><name>enmeshed Team</name></author><entry><title type="html">The new webhooks Connector module</title><link href="/blog/webhooks-v2-connector-module/" rel="alternate" type="text/html" title="The new webhooks Connector module" /><published>2022-03-02T11:00:00+01:00</published><updated>2022-03-02T11:00:00+01:00</updated><id>/blog/webhooks-v2-connector-module</id><content type="html" xml:base="/blog/webhooks-v2-connector-module/"><![CDATA[<h2 id="introduction">Introduction</h2>
 
-&lt;p&gt;Hello everyone!&lt;/p&gt;
+<p>Hello everyone!</p>
 
-&lt;p&gt;Today we want to announce a new version of the webhooks Connector module.&lt;/p&gt;
+<p>Today we want to announce a new version of the webhooks Connector module.</p>
 
-&lt;p&gt;The old version of the module had many limitations that we could only address with a complete rewrite. To be backwards compatible the old version of the module is still available under the name &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;webhooks&lt;/code&gt;.
-The new module can be configured under the name &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;webhooksV2&lt;/code&gt;.
-If you don’t want to use the new module it doesn’t require further actions.&lt;/p&gt;
+<p>The old version of the module had many limitations that we could only address with a complete rewrite. To be backwards compatible the old version of the module is still available under the name <code class="language-plaintext highlighter-rouge">webhooks</code>.
+The new module can be configured under the name <code class="language-plaintext highlighter-rouge">webhooksV2</code>.
+If you don’t want to use the new module it doesn’t require further actions.</p>
 
-&lt;p&gt;We still recommend to switch to the new module as soon as possible as the old module is now deprecated and will not be maintained anymore.&lt;/p&gt;
+<p>We still recommend to switch to the new module as soon as possible as the old module is now deprecated and will not be maintained anymore.</p>
 
-&lt;h2 id=&quot;the-new-module&quot;&gt;The new module&lt;/h2&gt;
+<h2 id="the-new-module">The new module</h2>
 
-&lt;p&gt;The new module gives you the possibility to define so called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;triggers&lt;/code&gt;, which represent the names of the events we already send Connector-internally (e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;transport.messageReceived&lt;/code&gt;). The module then listens to the configured events and simply sends the event data to the configured URL. For a detailed documentation of how to configure the new webhooks module, see &lt;a href=&quot;/integrate/connector-configuration#webhooksv2&quot;&gt;the Connector configuration docs&lt;/a&gt;.&lt;/p&gt;
+<p>The new module gives you the possibility to define so called <code class="language-plaintext highlighter-rouge">triggers</code>, which represent the names of the events we already send Connector-internally (e.g. <code class="language-plaintext highlighter-rouge">transport.messageReceived</code>). The module then listens to the configured events and simply sends the event data to the configured URL. For a detailed documentation of how to configure the new webhooks module, see <a href="/integrate/connector-configuration#webhooksv2">the Connector configuration docs</a>.</p>
 
-&lt;p&gt;While in the old module you could configure an interval in which the new information is published, the new module calls the webhook immediately after the configured event was triggered.
-&lt;em&gt;Do you miss the possibility to configure a publish interval? Raise a feature request in our &lt;a href=&quot;https://github.com/nmshd/nmshd.github.io/issues/new/choose&quot;&gt;feedback repository&lt;/a&gt;, and we will see what we can do about it.&lt;/em&gt;&lt;/p&gt;
+<p>While in the old module you could configure an interval in which the new information is published, the new module calls the webhook immediately after the configured event was triggered.
+<em>Do you miss the possibility to configure a publish interval? Raise a feature request in our <a href="https://github.com/nmshd/nmshd.github.io/issues/new/choose">feedback repository</a>, and we will see what we can do about it.</em></p>
 
-&lt;p&gt;Since you can use arbitrary events as triggers now, the new module gives you much more points at which you can integrate. We provide a &lt;a href=&quot;/integrate/connector-events&quot;&gt;list of these events&lt;/a&gt;. Note that the list will grow in the next weeks, so check the docs from time to time. If you wish for a specific event, you can also &lt;a href=&quot;https://github.com/nmshd/nmshd.github.io/issues/new/choose&quot;&gt;raise a feature request&lt;/a&gt;.&lt;/p&gt;
+<p>Since you can use arbitrary events as triggers now, the new module gives you much more points at which you can integrate. We provide a <a href="/integrate/connector-events">list of these events</a>. Note that the list will grow in the next weeks, so check the docs from time to time. If you wish for a specific event, you can also <a href="https://github.com/nmshd/nmshd.github.io/issues/new/choose">raise a feature request</a>.</p>
 
-&lt;h2 id=&quot;migration&quot;&gt;Migration&lt;/h2&gt;
+<h2 id="migration">Migration</h2>
 
-&lt;p&gt;In order to be notified about the same stuff as with the old module, you should configure the new module in the following way:&lt;/p&gt;
+<p>In order to be notified about the same stuff as with the old module, you should configure the new module in the following way:</p>
 
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;webhooksV2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;targets&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;target1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://example.com/webhook&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;webhooks&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;triggers&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;transport.messageReceived&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;transport.relationshipChanged&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;target&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;target1&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"webhooksV2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"targets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"target1"</span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/webhook"</span><span class="p">,</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+        </span><span class="nl">"webhooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"transport.messageReceived"</span><span class="p">,</span><span class="w"> </span><span class="s2">"transport.relationshipChanged"</span><span class="p">],</span><span class="w">
+                </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"target1"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-&lt;p&gt;The data sent to the given URL has changed though:&lt;/p&gt;
+<p>The data sent to the given URL has changed though:</p>
 
-&lt;div class=&quot;language-ts highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;trigger&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// properties depend on the event&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">trigger</span><span class="dl">"</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1">// properties depend on the event</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;In the POST body you will receive the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;trigger&lt;/code&gt; of the webhook (which is the name of the event), as well as the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;data&lt;/code&gt; of the event. Both are documented in the &lt;a href=&quot;/integrate/connector-events&quot;&gt;Connector Events&lt;/a&gt; section.&lt;/p&gt;</content><author><name>enmeshed Team</name></author><category term="blog" /><category term="connector" /><category term="update" /><summary type="html">Introduction</summary></entry><entry><title type="html">Introducing Enmeshed</title><link href="/blog/introducing-enmeshed/" rel="alternate" type="text/html" title="Introducing Enmeshed" /><published>2021-11-01T11:00:00+01:00</published><updated>2021-11-01T11:00:00+01:00</updated><id>/blog/introducing-enmeshed</id><content type="html" xml:base="/blog/introducing-enmeshed/">&lt;p&gt;Hello everyone!&lt;/p&gt;
+<p>In the POST body you will receive the <code class="language-plaintext highlighter-rouge">trigger</code> of the webhook (which is the name of the event), as well as the <code class="language-plaintext highlighter-rouge">data</code> of the event. Both are documented in the <a href="/integrate/connector-events">Connector Events</a> section.</p>]]></content><author><name>enmeshed Team</name></author><category term="blog" /><category term="connector" /><category term="update" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">Introducing Enmeshed</title><link href="/blog/introducing-enmeshed/" rel="alternate" type="text/html" title="Introducing Enmeshed" /><published>2021-11-01T11:00:00+01:00</published><updated>2021-11-01T11:00:00+01:00</updated><id>/blog/introducing-enmeshed</id><content type="html" xml:base="/blog/introducing-enmeshed/"><![CDATA[<p>Hello everyone!</p>
 
-&lt;p&gt;We are delighted to introduce a new open source project named Enmeshed. It is the home of software libraries, components, ideas, discussions, and many more in the area of digitalization.&lt;/p&gt;
+<p>We are delighted to introduce a new open source project named Enmeshed. It is the home of software libraries, components, ideas, discussions, and many more in the area of digitalization.</p>
 
-&lt;p&gt;We think the world is ready for a whole new adventure of digital communication, easy and secure data sharing, and empowering the user - while using state-of-the-art technologies and proven architectures without forgetting the user experience, integration, processes, security or privacy.&lt;/p&gt;
+<p>We think the world is ready for a whole new adventure of digital communication, easy and secure data sharing, and empowering the user - while using state-of-the-art technologies and proven architectures without forgetting the user experience, integration, processes, security or privacy.</p>
 
-&lt;p&gt;This site is still under construction and as such, we will update it regularly in the coming weeks.&lt;/p&gt;
+<p>This site is still under construction and as such, we will update it regularly in the coming weeks.</p>
 
-&lt;p&gt;Your Enmeshed Team&lt;/p&gt;</content><author><name>enmeshed Team</name></author><category term="blog" /><category term="page" /><category term="update" /><summary type="html">Hello everyone!</summary></entry></feed>
+<p>Your Enmeshed Team</p>]]></content><author><name>enmeshed Team</name></author><category term="blog" /><category term="page" /><category term="update" /><summary type="html"><![CDATA[Hello everyone!]]></summary></entry></feed>
