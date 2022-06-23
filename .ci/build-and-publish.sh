@@ -31,4 +31,4 @@ bundle exec jekyll build
 echo "Publishing to $DEST"
 
 git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-npx gh-pages --dist _site --dest $DEST --branch gh-pages --user "github-actions-bot <support+actions@github.com>"
+npx gh-pages --add --dist _site --dest $DEST --branch gh-pages --user "github-actions-bot <support+actions@github.com>"

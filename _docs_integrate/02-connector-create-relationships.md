@@ -41,7 +41,7 @@ There are multiple ways how the token reference can be communicated to the user:
 
 Once the user has reviewed the relationship template and created the corresponding relationship request, it is submitted over the backbone (as a cipher only the organization can decrypt) to the organization's Connector. The Connector decrypts the cipher and stores the relationship request in the database.
 
-The relationship request can be accessed either manually via a REST API (pull) or it can be pushed to a [configurable custom HTTP endpoint]({{ site.baseurl }}{% link _docs_integrate/11-connector-configuration.md %}).
+The relationship request can be accessed either manually via a REST API (pull) or it can be pushed to a [configurable custom HTTP endpoint]({% link _docs_integrate/11-connector-configuration.md %}).
 
 ![Get Open Relationship Requests Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_GetOpenRelationshipRequests.png' | relative_url }} "Get Open Relationship Requests")
 

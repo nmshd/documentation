@@ -85,11 +85,11 @@ You can validate the config using our [schema file](https://raw.githubuserconten
 
 -   **platformClientId** `required`
 
-    The client id is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({{ site.baseurl }}{% link _docs_integrate/00-basics.md %}#support).
+    The client id is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({% link _docs_integrate/00-basics.md %}#support).
 
 -   **platformClientSecret** `required`
 
-    The client secret is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({{ site.baseurl }}{% link _docs_integrate/00-basics.md %}#support).
+    The client secret is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({% link _docs_integrate/00-basics.md %}#support).
 
 ## `database`
 
@@ -337,7 +337,7 @@ The payload of the webhook is the same as the response payload of the `/api/v1/A
 
 With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
 
-For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Event]({{ site.baseurl }}{% link _docs_integrate/32-connector-events.md %}) is triggered (e.g. a new message has been received => `transport.messageReceived`).
+For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Event]({% link _docs_integrate/32-connector-events.md %}) is triggered (e.g. a new message has been received => `transport.messageReceived`).
 
 Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The `sync` module automates this, but you can also do this manually by calling the `/api/v1/Account/Sync` route.
 
@@ -394,7 +394,7 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
 
 -   **webhooks** `default: []`
 
-    The webhooks that will be called. A webhook consists of one or more [Connector Events]({{ site.baseurl }}{% link _docs_integrate/32-connector-events.md %}) on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the `targets` object.
+    The webhooks that will be called. A webhook consists of one or more [Connector Events]({% link _docs_integrate/32-connector-events.md %}) on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the `targets` object.
 
     <br>
 
@@ -431,4 +431,4 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
 }
 ```
 
-You can find type definitions of the event data in the [Connector Events]({{ site.baseurl }}{% link _docs_integrate/32-connector-events.md %}) section.
+You can find type definitions of the event data in the [Connector Events]({% link _docs_integrate/32-connector-events.md %}) section.
