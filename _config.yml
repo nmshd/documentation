@@ -27,7 +27,7 @@ search: true
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
 # Outputting
-permalink: /:categories/:title/
+permalink: /:categories/:title
 # paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 timezone: Europe/Berlin # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -60,13 +60,13 @@ plugins:
 collections:
   docs_explore:
     output: true
-    permalink: /:collection/:path/
+    permalink: /:collection/:path
   docs_use:
     output: true
-    permalink: /:collection/:path/
+    permalink: /:collection/:path
   docs_integrate:
     output: true
-    permalink: /:collection/:path/
+    permalink: /:collection/:path
 
 author:
   name: "enmeshed Team"
