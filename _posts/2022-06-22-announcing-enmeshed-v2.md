@@ -8,7 +8,7 @@ tags:
     - v2
 ---
 
-We are currently working on enmeshed version 2. At the moment we are in the alpha phase and have already published some [connector alpha versions](https://github.com/nmshd/cns-connector/pkgs/container/connector/versions) and [alpha versions for all of our core libraries](https://www.npmjs.com/search?q=%40nmshd).
+We are currently working on Enmeshed version 2. At the moment we are in the alpha phase and have already published some [connector alpha versions](https://github.com/nmshd/cns-connector/pkgs/container/connector/versions) and [alpha versions for all of our core libraries](https://www.npmjs.com/search?q=%40nmshd).
 
 - [What will be new in v2?](#what-will-be-new-in-v2)
   - [Attributes](#attributes)
@@ -17,11 +17,11 @@ We are currently working on enmeshed version 2. At the moment we are in the alph
 
 # What will be new in v2?
 
-We got a lot of feedback from the community and we are currently working on improvements in different areas of enmeshed to tackle it. For a better overview this blog is divided into two sequential sections:
+We got a lot of feedback from the community and we are currently working on improvements in different areas of Enmeshed to tackle it. For a better overview this blog is divided into two sequential sections:
 
 ## Attributes
 
-Attributes in enmeshed have been a huge painpoint during the integration using the Enmeshed Connector but also while using the Enmeshed App as an end user. For Enmeshed V2 we are working on a new way to handle, store and transfer attributes.
+Attributes in Enmeshed have been a huge painpoint during the integration using the Enmeshed Connector but also while using the Enmeshed App as an end user. For Enmeshed V2 we are working on a new way to handle, store and transfer attributes.
 
 For an overview of the changes regarding the Attributes, please refer to the [corresponding blog post]({{ site.baseurl }}{% post_url 2022-06-22-announcing-enmeshed-v2-attributes %}).
 
