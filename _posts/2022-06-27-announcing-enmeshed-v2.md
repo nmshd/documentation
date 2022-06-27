@@ -1,11 +1,11 @@
 ---
-title: "Announcing Enmeshed v2"
+title: "Announcing Enmeshed V2"
 date: 2022-06-27T12:00:00+02:00
 categories:
     - blog
 tags:
     - announcement
-    - v2
+    - V2
 ---
 
 We are currently working on Enmeshed version 2. At the moment we are in the alpha phase and have already published some [connector alpha versions](https://github.com/nmshd/cns-connector/pkgs/container/connector/versions) and [alpha versions for all of our core libraries](https://www.npmjs.com/search?q=%40nmshd).
