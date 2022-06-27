@@ -13,10 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: enmeshed
+title: Enmeshed
 email: info@enmeshed.eu
 description: >- # this means to ignore newlines until "baseurl:"
-  enmeshed is a home of various open source components, making the digital life
+  Enmeshed is a home of various open source components, making the digital life
   of users and organizations easier.
 github_username: nmshd
 repository: "nmshd/nmshd.github.io"
@@ -69,9 +69,9 @@ collections:
     permalink: /:collection/:path
 
 author:
-  name: "enmeshed Team"
+  name: "Enmeshed Team"
   avatar: "/assets/images/Logo.svg"
-  bio: "The official enmeshed Team"
+  bio: "The official Enmeshed Team"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
