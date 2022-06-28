@@ -13,10 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: enmeshed
+title: Enmeshed
 email: info@enmeshed.eu
 description: >- # this means to ignore newlines until "baseurl:"
-  enmeshed is a home of various open source components, making the digital life
+  Enmeshed is a home of various open source components, making the digital life
   of users and organizations easier.
 github_username: nmshd
 repository: "nmshd/nmshd.github.io"
@@ -27,8 +27,8 @@ search: true
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
 # Outputting
-permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
+permalink: /:categories/:title
+# paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 timezone: Europe/Berlin # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
@@ -60,18 +60,18 @@ plugins:
 collections:
   docs_explore:
     output: true
-    permalink: /:collection/:path/
+    permalink: /:collection/:path
   docs_use:
     output: true
-    permalink: /:collection/:path/
+    permalink: /:collection/:path
   docs_integrate:
     output: true
-    permalink: /:collection/:path/
+    permalink: /:collection/:path
 
 author:
-  name: "enmeshed Team"
+  name: "Enmeshed Team"
   avatar: "/assets/images/Logo.svg"
-  bio: "The official enmeshed Team"
+  bio: "The official Enmeshed Team"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"

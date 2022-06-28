@@ -42,19 +42,19 @@ Mature technologies and architectures are used as a base for Enmeshed. In combin
 
 Enmeshed consists of three main components using different layers to communicate between:
 
-**Components:**
+## Components
 
 -   [App]({% link _docs_explore/50-app.md %}): Mobile and desktop software client for end users or small companies
 -   [Backbone]({% link _docs_explore/51-backbone.md %}): A central communication component routing messages between identities without having access to the payload
 -   [Connector]({% link _docs_explore/52-connector.md %}): Client for organizations which is hosted on-site with integration capabilities for business systems
 
-**Layers:**
+## Layers
 
 -   [Backbone Layer]({% link _docs_explore/41-backbone-layer.md %}): Secured, zero-knowledge synchronization layer between App-to-Backbone or Connector-to-Backbone with cross-device capabilities and postal services
 -   [Transport Layer]({% link _docs_explore/42-transport-layer.md %}): Cross-identity secure communication tunnel App-to-App, App-to-Connector or Connector-to-Connector
 -   [Consumption Layer]({% link _docs_explore/43-consumption-layer.md %}): Cross-identity payload definitions and normalized data structures (schemas), as well as single-identity business logic implementation and data structures, either for persons or organizational identities.
 -   [Integration Layer]({% link _docs_explore/44-integration-layer.md %}): Single-identity integration logic to integrate existing business systems primarily for organizational identities.
--   [User Experience Layer]({% link _docs_explore/45-user-experience-layer.md %}): The user experience for Enmeshed related features primarily for end users.
+-   [User-Experience Layer]({% link _docs_explore/45-user-experience-layer.md %}): The user experience for Enmeshed related features primarily for end users.
 
 The following high-level picture shows the whole ensemble of Enmeshed components and layers:
 
