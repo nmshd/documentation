@@ -8,11 +8,7 @@ tags:
     - V2
 ---
 
-We are currently working on Enmeshed version 2. If you are curious you can already check out one of the early [connector versions](https://github.com/nmshd/cns-connector/pkgs/container/connector/versions) tagged as `alpha`. Keep in mind that these are highly experimental and shouldn't be used in production scenarios, because there can be API changes at any time.
-
-During the prerelease we will continue to publish new versions of the connector and the app. You will find docs of the V2 version [here](https://enmeshed.eu/versions/2.0.0) and we are also constantly updating it.
-
-We got a lot of feedback from the community and we are currently working on improvements in different areas of Enmeshed to tackle it.
+We are currently working on Enmeshed version 2. We got a lot of feedback from the community and we are currently working on improvements in different areas of Enmeshed to tackle it.
 
 ## Attributes
 
@@ -31,6 +27,12 @@ We will publish a blog post with details about the changes regarding Requests in
 All these new features required a huge amount of changes behind the scenes. If we wanted to be backwards compatible, we would have had to spend a lot of extra work, which would have delayed the release by several weeks. Therefore we decided to pay the price that comes with this backwards incompatibility in favor of the earlier release date.
 
 If you need a compatibility of Enmeshed V1 and V2, please contact us [here](https://www.js-soft.com/enmeshed/) and we will try to sort out a solution.
+
+## Getting Prereleases
+
+During the development of Enmeshed V2 we will continue to publish new versions of the connector and the app. You will find docs of the version 2 [here](https://enmeshed.eu/versions/2.0.0) and we are also constantly updating it.
+
+If you are curious you can already check out one of the early [connector versions](https://github.com/nmshd/cns-connector/pkgs/container/connector/versions) tagged as `alpha`. Keep in mind that these are highly experimental and shouldn't be used in production scenarios, because there can be API changes at any time.
 
 ## Feedback
 
