@@ -22,13 +22,13 @@ We will publish a blog post with details about the changes regarding Attributes 
 
 ## Requests
 
-In Enmeshed V1 `RelationshipTemplates` and `RequestMails` both defined their own way for exchanging Attributes. Further only the app could process them, when integrating via the Connector you had to manually process all Requests. For Enmeshed V2 we pulled the Request handling [from the User-Experience Layer to the Consumption layer]({% link _docs_explore/01-introduction.md %}/#layers). This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.
+In Enmeshed V1 `RelationshipTemplates` and `RequestMails` each defined their own way for exchanging Attributes. Further only the app could process them. When integrating via the Connector you had to manually process all Requests. For Enmeshed V2 we pulled the Request handling [from the User-Experience Layer to the Consumption layer]({% link _docs_explore/01-introduction.md %}/#layers). This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.
 
 We will publish a blog post with details about the changes regarding Requests in Enmeshed V2 in the coming days.
 
 ## Backwards compatibility
 
-Unfortunately Enmeshed V2 comes with a big drawback: it is currently not planned to be backwards-compatible with Enmeshed V1. It was discussed with the community that it is more important to provide the features faster and therefore backwards-incompatible.
+All these new features required a huge amount of changes behind the scenes. If we wanted to be backwards compatible, we would have had to spend a lot of extra work, which would have delayed the release by several weeks. Therefore we decided to pay the price that comes with this backwards incompatibility in favor of the earlier release date.
 
 If you need a compatibility of Enmeshed V1 and V2, please contact us [here](https://www.js-soft.com/enmeshed/) and we will try to sort out a solution.
 
