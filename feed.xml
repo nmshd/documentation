@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-06-23T13:19:43+02:00</updated><id>/feed.xml</id><title type="html">enmeshed</title><subtitle>enmeshed is a home of various open source components, making the digital life of users and organizations easier.</subtitle><author><name>enmeshed Team</name></author><entry><title type="html">The new webhooks Connector module</title><link href="/blog/webhooks-v2-connector-module/" rel="alternate" type="text/html" title="The new webhooks Connector module" /><published>2022-03-02T11:00:00+01:00</published><updated>2022-03-02T11:00:00+01:00</updated><id>/blog/webhooks-v2-connector-module</id><content type="html" xml:base="/blog/webhooks-v2-connector-module/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-06-28T12:52:08+02:00</updated><id>/feed.xml</id><title type="html">Enmeshed</title><subtitle>Enmeshed is a home of various open source components, making the digital life of users and organizations easier.</subtitle><author><name>Enmeshed Team</name></author><entry><title type="html">Announcing Enmeshed V2</title><link href="/blog/announcing-enmeshed-v2" rel="alternate" type="text/html" title="Announcing Enmeshed V2" /><published>2022-06-27T12:00:00+02:00</published><updated>2022-06-27T12:00:00+02:00</updated><id>/blog/announcing-enmeshed-v2</id><content type="html" xml:base="/blog/announcing-enmeshed-v2"><![CDATA[<p>We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.</p>
+
+<h2 id="attributes">Attributes</h2>
+
+<p>Attributes in Enmeshed have been a huge painpoint during the integration using the Enmeshed Connector but also while using the Enmeshed App as an end user. For Enmeshed V2 we are working on a new way to handle, store and transfer Attributes.</p>
+
+<p>We will publish a blog post with details about the changes regarding Attributes in V2 in the coming days.</p>
+
+<h2 id="requests">Requests</h2>
+
+<p>Requests in Enmeshed always defined a way to exchange structured data. In Enmeshed V1 this was exclusively about attributes. Requests in V2 will also be able to exchange data without persisting them to the user’s attributes, e.g. using a form.</p>
+
+<p>In Enmeshed V1 <code class="language-plaintext highlighter-rouge">RelationshipTemplates</code> and <code class="language-plaintext highlighter-rouge">RequestMails</code> each defined their own way for exchanging Attributes. Further only the App could process them. When integrating via the Connector you had to manually process all Requests. For V2 we pulled the Request handling <a href="/explore/#layers">from the User-Experience Layer to the Consumption layer</a>. This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.</p>
+
+<p>We will publish a blog post with details about the changes regarding Requests in V2 in the coming days.</p>
+
+<h2 id="backwards-compatibility">Backwards compatibility</h2>
+
+<p>All these new features required a huge amount of changes behind the scenes. If we wanted to be backwards compatible, we would have had to spend a lot of extra work, which would have delayed the release by several weeks. Therefore we decided to pay the price that comes with this backwards incompatibility in favor of the earlier release date.</p>
+
+<p>Backwards incompatiblity in this case means that all the data stored by the App and Connector V1 will be invalid and cannot be used anymore.</p>
+
+<p>If you need a compatibility of V1 and V2, please contact us <a href="https://www.js-soft.com/enmeshed/">here</a> and we will try to sort out a solution.</p>
+
+<h2 id="getting-prereleases">Getting Prereleases</h2>
+
+<p>During the development of Enmeshed V2 we will continue to publish new versions of the Connector and the app. You will find docs of version 2 <a href="https://enmeshed.eu/versions/2.0.0">here</a> and we are also constantly updating it.</p>
+
+<p>If you are curious you can already check out one of the early <a href="https://github.com/nmshd/cns-connector/pkgs/container/connector/versions">Connector versions</a> tagged as <code class="language-plaintext highlighter-rouge">alpha</code>. Keep in mind that these are highly experimental and shouldn’t be used in production scenarios, because there can be API changes at any time.</p>
+
+<h2 id="feedback">Feedback</h2>
+
+<p>As always we are happy to hear from you through the usual channels! Feel free to share your thoughts and feedback and discuss the changes in the <a href="https://github.com/nmshd/feedback/discussions/17">V2 GitHub Discussion</a>.</p>]]></content><author><name>Enmeshed Team</name></author><category term="blog" /><category term="announcement" /><category term="V2" /><summary type="html"><![CDATA[We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.]]></summary></entry><entry><title type="html">The new webhooks Connector module</title><link href="/blog/webhooks-v2-connector-module" rel="alternate" type="text/html" title="The new webhooks Connector module" /><published>2022-03-02T11:00:00+01:00</published><updated>2022-03-02T11:00:00+01:00</updated><id>/blog/webhooks-v2-connector-module</id><content type="html" xml:base="/blog/webhooks-v2-connector-module"><![CDATA[<h2 id="introduction">Introduction</h2>
 
 <p>Hello everyone!</p>
 
@@ -50,7 +82,7 @@ If you don’t want to use the new module it doesn’t require further actions.<
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>In the POST body you will receive the <code class="language-plaintext highlighter-rouge">trigger</code> of the webhook (which is the name of the event), as well as the <code class="language-plaintext highlighter-rouge">data</code> of the event. Both are documented in the <a href="/integrate/connector-events">Connector Events</a> section.</p>]]></content><author><name>enmeshed Team</name></author><category term="blog" /><category term="connector" /><category term="update" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">Introducing Enmeshed</title><link href="/blog/introducing-enmeshed/" rel="alternate" type="text/html" title="Introducing Enmeshed" /><published>2021-11-01T11:00:00+01:00</published><updated>2021-11-01T11:00:00+01:00</updated><id>/blog/introducing-enmeshed</id><content type="html" xml:base="/blog/introducing-enmeshed/"><![CDATA[<p>Hello everyone!</p>
+<p>In the POST body you will receive the <code class="language-plaintext highlighter-rouge">trigger</code> of the webhook (which is the name of the event), as well as the <code class="language-plaintext highlighter-rouge">data</code> of the event. Both are documented in the <a href="/integrate/connector-events">Connector Events</a> section.</p>]]></content><author><name>Enmeshed Team</name></author><category term="blog" /><category term="connector" /><category term="update" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">Introducing Enmeshed</title><link href="/blog/introducing-enmeshed" rel="alternate" type="text/html" title="Introducing Enmeshed" /><published>2021-11-01T11:00:00+01:00</published><updated>2021-11-01T11:00:00+01:00</updated><id>/blog/introducing-enmeshed</id><content type="html" xml:base="/blog/introducing-enmeshed"><![CDATA[<p>Hello everyone!</p>
 
 <p>We are delighted to introduce a new open source project named Enmeshed. It is the home of software libraries, components, ideas, discussions, and many more in the area of digitalization.</p>
 
@@ -58,4 +90,4 @@ If you don’t want to use the new module it doesn’t require further actions.<
 
 <p>This site is still under construction and as such, we will update it regularly in the coming weeks.</p>
 
-<p>Your Enmeshed Team</p>]]></content><author><name>enmeshed Team</name></author><category term="blog" /><category term="page" /><category term="update" /><summary type="html"><![CDATA[Hello everyone!]]></summary></entry></feed>
+<p>Your Enmeshed Team</p>]]></content><author><name>Enmeshed Team</name></author><category term="blog" /><category term="page" /><category term="update" /><summary type="html"><![CDATA[Hello everyone!]]></summary></entry></feed>
