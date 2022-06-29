@@ -81,7 +81,7 @@ The Connector provides the following configuration parameters:
 
 You can validate the config using our [schema file](https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json). This is possible with [VSCode](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) and online tools like [jsonschemavalidator.net](https://www.jsonschemavalidator.net).
 
-## `transportLibrary`
+## transportLibrary
 
 -   **platformClientId** `required`
 
@@ -91,7 +91,7 @@ You can validate the config using our [schema file](https://raw.githubuserconten
 
     The client secret is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({% link _docs_integrate/00-basics.md %}#support).
 
-## `database`
+## database
 
 -   **connectionString** `required`
 
@@ -103,11 +103,11 @@ You can validate the config using our [schema file](https://raw.githubuserconten
 
     If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
 
-## `infrastructure`
+## infrastructure
 
 Each infrastructure can be enabled or disabled by passing true / false to `enabled`.
 
-### `httpServer`
+### httpServer
 
 The http server is the base for the `coreHttpApi` module. It opens an express http server where modules can register endpoints.
 
@@ -141,11 +141,11 @@ The http server is the base for the `coreHttpApi` module. It opens an express ht
 
     The API-Key protects your Connector from unauthorized access and should therefore be kept secret.
 
-## `modules`
+## modules
 
 Every module can be enabled or disabled by passing true / false to `enabled`.
 
-### `sync`
+### sync
 
 The `sync` module regularly fetches changes from the Backbone (e.g. new messages / new incoming relationship requests) and notifies other modules like the `httpEndpointEventPublisher` about them.
 
@@ -166,7 +166,7 @@ The `sync` module regularly fetches changes from the Backbone (e.g. new messages
 
     The interval in seconds at which the sync module will fetch changes from the Backbone.
 
-### `autoAcceptRelationshipCreationChanges`
+### autoAcceptRelationshipCreationChanges
 
 It is not recommended to use this module for production szenarios.
 {: .notice--danger}
@@ -190,7 +190,7 @@ The `autoAcceptRelationshipCreationChanges` module depends on the `sync` module 
 
     The content that is used to accept the incoming Relationship Request.
 
-### `coreHttpApi`
+### coreHttpApi
 
 This module contains the HTTP API with all Enmeshed base functionalities.
 
@@ -226,7 +226,7 @@ This module contains the HTTP API with all Enmeshed base functionalities.
 
     If set to `true` rapidoc persists the API Key in the local storage of the browser.
 
-### `webhooks`
+### webhooks
 
 This module is deprecated in favor of the [webhooksV2](#webhooksv2) module.
 {: .notice--warning}
@@ -333,7 +333,7 @@ interface RelationshipChange {
 
 The payload of the webhook is the same as the response payload of the `/api/v1/Account/Sync` endpoint. Thus the type `ConnectorSyncResult` of the [TypeScript SDK](./connector-sdks#typescript-sdk) can be used for specifing the webhook's payload type.
 
-### `webhooksV2`
+### webhooksV2
 
 With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
 
