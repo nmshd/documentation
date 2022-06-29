@@ -326,12 +326,18 @@ var store = [{
         "title": "Introducing Enmeshed",
         "excerpt":"Hello everyone! We are delighted to introduce a new open source project named Enmeshed. It is the home of software libraries, components, ideas, discussions, and many more in the area of digitalization. We think the world is ready for a whole new adventure of digital communication, easy and secure data...","categories": ["blog"],
         "tags": ["page","update"],
-        "url": "/versions/2.0.0/blog/introducing-enmeshed/",
+        "url": "/versions/2.0.0/blog/introducing-enmeshed",
         "teaser": null
       },{
         "title": "The new webhooks Connector module",
         "excerpt":"Introduction Hello everyone! Today we want to announce a new version of the webhooks Connector module. The old version of the module had many limitations that we could only address with a complete rewrite. To be backwards compatible the old version of the module is still available under the name...","categories": ["blog"],
         "tags": ["connector","update"],
-        "url": "/versions/2.0.0/blog/webhooks-v2-connector-module/",
+        "url": "/versions/2.0.0/blog/webhooks-v2-connector-module",
+        "teaser": null
+      },{
+        "title": "Announcing Enmeshed V2",
+        "excerpt":"We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it. Attributes Attributes in Enmeshed have been a huge painpoint during the integration using the Enmeshed Connector but also while using the...","categories": ["blog"],
+        "tags": ["announcement","V2"],
+        "url": "/versions/2.0.0/blog/announcing-enmeshed-v2",
         "teaser": null
       }]
