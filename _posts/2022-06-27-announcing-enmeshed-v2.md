@@ -14,7 +14,7 @@ We are currently working on Enmeshed version 2. We got a lot of feedback from th
 
 Attributes in Enmeshed have been a huge pain point during the integration using the Enmeshed Connector but also while using the Enmeshed App as an end user. For Enmeshed V2 we are working on a new way to handle, store and transfer Attributes.
 
-For an overview of the changes regarding the Attributes, please refer to the [corresponding blog post]({% post_url 2022-06-30-announcing-enmeshed-v2-attributes %}).
+For an overview of the changes regarding Attributes, please refer to the [corresponding blog post]({% post_url 2022-06-30-announcing-enmeshed-v2-attributes %}).
 
 ## Requests
 
