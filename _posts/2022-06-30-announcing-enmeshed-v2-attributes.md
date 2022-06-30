@@ -46,6 +46,8 @@ Attributes are uniquely identified by name for each identity. There are consider
 
 We therefore decided to completely revamp the attribute handling to a new version, which unfortunately will be backward-incompatible to the old attribute handling. Otherwise, we would have to live with too many constraints.
 
+To get started with the V2 Attributes here you can see the same attribute as shown above in the V1 Attributes section transferred to a V2 Attribute:
+
 ```json
 {
     "@type": "Attribute",
