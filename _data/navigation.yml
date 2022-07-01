@@ -69,6 +69,8 @@ docs_explore:
     children:
       - title: "Runtime"
         url: /explore/runtime
+      - title: "Data Model"
+        url: /explore/data-model
       - title: "Schema"
         url: /explore/schema
       - title: "Cryptography"
