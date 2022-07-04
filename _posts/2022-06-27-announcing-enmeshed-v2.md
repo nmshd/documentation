@@ -22,7 +22,7 @@ Requests in Enmeshed always defined a way to exchange structured data. In Enmesh
 
 In Enmeshed V1 `RelationshipTemplates` and `RequestMails` each defined their own way for exchanging Attributes. Further only the App could process them. When integrating via the Connector you had to manually process all Requests. For V2 we pulled the Request handling [from the User-Experience Layer to the Consumption layer]({% link _docs_explore/01-introduction.md %}/#layers). This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.
 
-We will publish a blog post with details about the changes regarding Requests in V2 in the coming days.
+For an overview of requests, please refer to the [corresponding blog post]({% post_url 2022-07-01-announcing-enmeshed-v2-requests %}).
 
 ## Backwards compatibility
 
