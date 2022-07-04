@@ -59,12 +59,4 @@ feature_integrate:
 
 {% include feature_row %}
 
----
-
-### Under Construction
-
-This documentation is still under construction and content is coming in regularly. Please be patient while we try to put our thoughts into words.
-
----
-
 {% include feature_row id="feature_ssi" type="center" %}
