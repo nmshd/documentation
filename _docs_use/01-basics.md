@@ -1,6 +1,7 @@
 ---
 title: "Basics"
 permalink: /use/basics
+published: false
 ---
 
 First and foremost, you can get the Enmeshed App over your favorite app stores. Please find the links below:

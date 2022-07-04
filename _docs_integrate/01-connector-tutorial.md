@@ -14,7 +14,7 @@ The following steps include small pieces of the Connector's API documentation th
     -   [Install the Connector]({% link _docs_integrate/10-connector-installation.md %})
     -   Make sure the [Sync Module is disabled]({% link _docs_integrate/11-connector-configuration.md %}#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
     -   Get the API key configured for the Connector. Ask the person who installed the Connector for it.
--   You need the [Enmeshed App]({% link _docs_use/01-basics.md %}) installed on your mobile device.
+-   You need the [Enmeshed App]({% link _pages/use.md %}) installed on your mobile device.
 
 -   Diagramm
 

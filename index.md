@@ -7,7 +7,7 @@ header:
     overlay_image: /assets/images/background.jpg
     actions:
         - label: "Get Started"
-          url: "/use/basics"
+          url: "/use"
     caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Digitalization on a whole new level"
 intro:
