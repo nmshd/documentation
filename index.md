@@ -7,7 +7,7 @@ header:
     overlay_image: /assets/images/background.jpg
     actions:
         - label: "Get Started"
-          url: "/use/basics"
+          url: "/use"
     caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Digitalization on a whole new level"
 intro:
@@ -58,13 +58,5 @@ feature_integrate:
 {% include feature_row id="intro" type="center" %}
 
 {% include feature_row %}
-
----
-
-### Under Construction
-
-This documentation is still under construction and content is coming in regularly. Please be patient while we try to put our thoughts into words.
-
----
 
 {% include feature_row id="feature_ssi" type="center" %}

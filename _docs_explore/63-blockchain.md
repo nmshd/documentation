@@ -12,7 +12,7 @@ Having full control over data, authorizations, or the hard- and software one can
 **Example:**
 The common scenario in the Internet is, to create a user profile on a website, enter all the required information including username, password, e-mail address, and many more personal information. This data is stored on one central solution provider which has the complete authority over your account. This authority can be used for tracing or blocking users. A user would not be able to login or use all the features anymore - a common topic with social login providers.
 
-A self-sovereign identity wouldn’t work it that way: The user will always have the full control over this identity – only the usage for a specific service (e.g. a specific social network) could be blocked by the network. But the identity itself could still be used for any other tasks.
+A self-sovereign identity wouldn't work it that way: The user will always have the full control over this identity – only the usage for a specific service (e.g. a specific social network) could be blocked by the network. But the identity itself could still be used for any other tasks.
 
 ## Decentralization
 
