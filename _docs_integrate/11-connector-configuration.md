@@ -168,7 +168,7 @@ The `sync` module regularly fetches changes from the Backbone (e.g. new messages
 
 ### autoAcceptRelationshipCreationChanges
 
-It is not recommended to use this module for production szenarios.
+It is not recommended to use this module for production scenarios.
 {: .notice--danger}
 
 The `autoAcceptRelationshipCreationChanges` module depends on the `sync` module and listens to the notifications about incoming Relationship Requests. It immediately accepts the Requests, using the configured `responseContent`.
@@ -214,14 +214,14 @@ This module contains the HTTP API with all Enmeshed base functionalities.
 
 -   **docs:enabled** `default: true`
 
-    It is not recommended to enable the docs in production szenarios.
+    It is not recommended to enable the docs in production scenarios.
     {: .notice--danger}
 
     Enable / disable the `/docs/json` and `/docs/yaml` routes and the rendered swagger / rapidoc documentations.
 
 -   **docs:rapidoc:persistAuth** `default: false`
 
-    It is not recommended to enable the authentication persistence in production szenarios.
+    It is not recommended to enable the authentication persistence in production scenarios.
     {: .notice--danger}
 
     If set to `true` rapidoc persists the API Key in the local storage of the browser.
