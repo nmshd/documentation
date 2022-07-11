@@ -1,0 +1,1 @@
+`true` if the {{ include.class }} was created by yourself, `false` if it was created by someone else.
