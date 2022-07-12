@@ -84,4 +84,4 @@ Below you can find the major changes of the new Attribute handling:
 
 ## Conclusion
 
-All in all, many changes which will make the Attribute management of and between Identities much more mature. Together with a [new way of handling requests (and responses)]({% post_url 2022-07-01-announcing-enmeshed-v2-requests %}), we think Enmeshed has a much more holistic feature set.
+All in all, many changes which will make the Attribute management of and between Identities much more mature. Together with a [new way of handling requests (and responses)]({% post_url 2022-07-12-announcing-enmeshed-v2-requests %}), we think Enmeshed has a much more holistic feature set.
