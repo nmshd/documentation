@@ -101,6 +101,12 @@ var store = [{
         "url": "/versions/2.0.0/explore/runtime",
         "teaser": null
       },{
+        "title": "Enmeshed Data Model",
+        "excerpt":"The documentation of the Enmeshed V2 Data Model is currently under construction and will be available soon.  ","categories": [],
+        "tags": [],
+        "url": "/versions/2.0.0/explore/data-model",
+        "teaser": null
+      },{
         "title": "Enmeshed Schema",
         "excerpt":"The Enmeshed Schema normalized many common data structures to a single set which can be understood by all Enmeshed participants. It is the definition of cross-identity payload schemas and thus needs to be kept as stable as possible. In general, structured data communicated via Enmeshed is in JSON format. It...","categories": [],
         "tags": [],
@@ -186,7 +192,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Connector Events",
-        "excerpt":"Event Data Description transport.messageReceived Message This event is triggered when a Message is received during synchonization. transport.messageSent Message This event is triggered whenever a Message is sent. transport.relationshipChanged Relationship This event is triggered when a Relationship has changed. This can be due to one of the following cases: • you...","categories": [],
+        "excerpt":"Event Data Description (This event is triggered when …) consumption.attributeCreated LocalAttribute … an Attribute was created manually or through a Request. consumption.attributeDeleted LocalAttribute … an Attribute was deleted manually or through a Request. consumption.attributeSucceded LocalAttribute … an Attribute was succeeded manually or through a Request. consumption.attributeUpdated LocalAttribute … an Attribute...","categories": [],
         "tags": [],
         "url": "/versions/2.0.0/integrate/connector-events",
         "teaser": null
