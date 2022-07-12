@@ -3,107 +3,41 @@ title: "Connector Events"
 permalink: /integrate/connector-events
 ---
 
-| Event                         | Data                          | Description                                                                                                                                                                                                                                                        |
-| ----------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| transport.messageReceived     | [Message](#message)           | This event is triggered when a Message is received during synchonization.                                                                                                                                                                                          |
-| transport.messageSent         | [Message](#message)           | This event is triggered whenever a Message is sent.                                                                                                                                                                                                                |
-| transport.relationshipChanged | [Relationship](#relationship) | This event is triggered when a Relationship has changed. This can be due to one of the following cases: <br> • you create a Relationship <br> • you accept, reject or revoke a Relationship Change <br> • a Relationship Change is received during synchronization |
+| Event                                                                                | Data                                                                                   | Description (This event is triggered when ...)                                                                                                                                                                                         |
+| ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| consumption.attributeCreated                                                         | [LocalAttribute]({% link _docs_explore/61-data-model.md %}#LocalAttribute)             | ... an Attribute was created manually or through a Request.                                                                                                                                                                            |
+| consumption.attributeDeleted                                                         | [LocalAttribute]({% link _docs_explore/61-data-model.md %}#LocalAttribute)             | ... an Attribute was deleted manually or through a Request.                                                                                                                                                                            |
+| consumption.attributeSucceded                                                        | [LocalAttribute]({% link _docs_explore/61-data-model.md %}#LocalAttribute)             | ... an Attribute was succeeded manually or through a Request.                                                                                                                                                                          |
+| consumption.attributeUpdated                                                         | [LocalAttribute]({% link _docs_explore/61-data-model.md %}#LocalAttribute)             | ... an Attribute was updated manually or through a Request.                                                                                                                                                                            |
+| consumption.incomingRequestReceived                                                  | [LocalRequest]({% link _docs_explore/61-data-model.md %}#LocalRequest)                 | ... an incoming Request was received either by loading a Relationship Template or by receiving a Message                                                                                                                               |
+| consumption.incomingRequestStatusChanged                                             | [RequestStatusChangedEventData](#requeststatuschangedeventdata)                        | ... the status of an incoming Request has changed.                                                                                                                                                                                     |
+| consumption.outgoingRquestCreated                                                    | [LocalRequest]({% link _docs_explore/61-data-model.md %}#LocalRequest)                 | ... an outgoing Request was created.                                                                                                                                                                                                   |
+| consumption.<br>outgoingRequestFromRelationshipCreationChange<br>CreatedAndCompleted | [LocalRequest]({% link _docs_explore/61-data-model.md %}#LocalRequest)                 | ... an outgoing Request was created and directly completed.<br>This happens if the Response came in with a new Relationship.                                                                                                           |
+| consumption.outgoingRequestStatusChanged                                             | [RequestStatusChangedEventData](#requeststatuschangedeventdata)                        | ... the status of an outgoing Request has changed.                                                                                                                                                                                     |
+| consumption.sharedAttributeCopyCreated                                               | [LocalAttribute]({% link _docs_explore/61-data-model.md %}#LocalAttribute)             | ... an Attribute is copied for sharing with another identity.                                                                                                                                                                          |
+| transport.MessageReceived                                                            | [Message]({% link _docs_explore/61-data-model.md %}#Message)                           | ... a Message is received during synchronization.                                                                                                                                                                                      |
+| transport.MessageSent                                                                | [Message]({% link _docs_explore/61-data-model.md %}#Message)                           | ... a Message was sent.                                                                                                                                                                                                                |
+| transport.peerRelationshipTemplateLoaded                                             | [RelationshipTemplate]({% link _docs_explore/61-data-model.md %}#RelationshipTemplate) | ... a Relationship Template was loaded that belongs to another identity.                                                                                                                                                               |
+| transport.relationshipChanged                                                        | [Relationship]({% link _docs_explore/61-data-model.md %}#Relationship)                 | ... a Relationship has changed. This can be due to one of the following cases:<br> • you create a Relationship<br> • you accept, reject or revoke a Relationship Change<br> • a Relationship Change is received during synchronization |
 
-## Type definitions
+## RequestStatusChangedEventData
 
-### Message
+Every event is structured as follows (TData depends on the actual event, e.g. `LocalAttribute`):
 
 ```ts
-interface Message {
-    id: string;
-    content: unknown;
-    createdBy: string;
-    createdByDevice: string;
-    recipients: Recipient[];
-    relationshipIds: string[];
-    createdAt: string;
-    attachments: string[];
-}
-
-interface Recipient {
-    address: string;
-    receivedAt?: string;
-    receivedByDevice?: string;
+interface Event<TData> {
+    namespace: string;
+    eventTargetAddress: string;
+    data: TData;
 }
 ```
 
-### Relationship
+### RequestStatusChangedEventData
 
 ```ts
-interface Relationship {
-    id: string;
-    template: RelationshipTemplate;
-    status: RelationshipStatus;
-    peer: string;
-    peerIdentity: Identity;
-    changes: RelationshipChange[];
-    lastMessageSentAt?: string;
-    lastMessageReceivedAt?: string;
-}
-
-interface RelationshipTemplate {
-    id: string;
-    isOwn: boolean;
-    createdBy: string;
-    createdByDevice: string;
-    createdAt: string;
-    content: unknown;
-    expiresAt?: string;
-    maxNumberOfRelationships?: number;
-}
-
-enum RelationshipStatus {
-    Pending = "Pending",
-    Active = "Active",
-    Rejected = "Rejected",
-    Revoked = "Revoked",
-    Terminating = "Terminating",
-    Terminated = "Terminated"
-}
-
-interface Identity {
-    address: string;
-    publicKey: string;
-    realm: string;
-}
-
-interface RelationshipChange {
-    id: string;
-    request: RelationshipChangeRequest;
-    status: RelationshipChangeStatus;
-    type: RelationshipChangeType;
-    response?: RelationshipChangeResponse;
-}
-
-interface RelationshipChangeRequest {
-    createdBy: string;
-    createdByDevice: string;
-    createdAt: string;
-    content?: unknown;
-}
-
-enum RelationshipChangeStatus {
-    Pending = "Pending",
-    Rejected = "Rejected",
-    Revoked = "Revoked",
-    Accepted = "Accepted"
-}
-
-enum RelationshipChangeType {
-    Creation = "Creation",
-    Termination = "Termination",
-    TerminationCancellation = "TerminationCancellation"
-}
-
-interface RelationshipChangeResponse {
-    createdBy: string;
-    createdByDevice: string;
-    createdAt: string;
-    content?: unknown;
+export interface RequestStatusChangedEventData {
+    Request: LocalRequestDTO;
+    oldStatus: LocalRequestStatus;
+    newStatus: LocalRequestStatus;
 }
 ```
