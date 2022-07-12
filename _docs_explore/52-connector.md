@@ -21,18 +21,14 @@ The Docker images are created, maintained and published by j&s-soft GmbH.
 
 Just like the [App Runtime]({% link _docs_explore/50-app.md %}) extends the [Enmeshed Runtime]({% link _docs_explore/60-runtime.md %}) for user interfaces, the Connector Runtime is extending the [Enmeshed Runtime]({% link _docs_explore/60-runtime.md %}) for the use within services and programs. For example, it maps REST-API-calls to Enmeshed business-logic.
 
-## Connector API
-
-to-be-documented
-
 ## Connector Modules
 
-to-be-documented
+The Connector is built modular and provides some built-in modules. A list of the available modules and how to configure them can be found in [the module section of the Connector configuration guide]({% link _docs_integrate/11-connector-configuration.md %}#modules).
 
 ## Connector Database
 
-to-be-documented
+The Connector is powered by a MongoDB database. You can read more about it's configuration in the [database section of the Connector configuration guide]({% link _docs_integrate/11-connector-configuration.md %}#database).
 
 ## Connector SDK
 
-to-be-documented
+Read more about the [Connector SDKs]({% link _docs_integrate/30-connector-sdks.md %}).
