@@ -3,107 +3,19 @@ title: "Connector Events"
 permalink: /integrate/connector-events
 ---
 
-| Event                         | Data                          | Description                                                                                                                                                                                                                                                        |
-| ----------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| transport.messageReceived     | [Message](#message)           | This event is triggered when a Message is received during synchonization.                                                                                                                                                                                          |
-| transport.messageSent         | [Message](#message)           | This event is triggered whenever a Message is sent.                                                                                                                                                                                                                |
-| transport.relationshipChanged | [Relationship](#relationship) | This event is triggered when a Relationship has changed. This can be due to one of the following cases: <br> • you create a Relationship <br> • you accept, reject or revoke a Relationship Change <br> • a Relationship Change is received during synchronization |
-
-## Type definitions
-
-### Message
-
-```ts
-interface Message {
-    id: string;
-    content: unknown;
-    createdBy: string;
-    createdByDevice: string;
-    recipients: Recipient[];
-    relationshipIds: string[];
-    createdAt: string;
-    attachments: string[];
-}
-
-interface Recipient {
-    address: string;
-    receivedAt?: string;
-    receivedByDevice?: string;
-}
-```
-
-### Relationship
-
-```ts
-interface Relationship {
-    id: string;
-    template: RelationshipTemplate;
-    status: RelationshipStatus;
-    peer: string;
-    peerIdentity: Identity;
-    changes: RelationshipChange[];
-    lastMessageSentAt?: string;
-    lastMessageReceivedAt?: string;
-}
-
-interface RelationshipTemplate {
-    id: string;
-    isOwn: boolean;
-    createdBy: string;
-    createdByDevice: string;
-    createdAt: string;
-    content: unknown;
-    expiresAt?: string;
-    maxNumberOfRelationships?: number;
-}
-
-enum RelationshipStatus {
-    Pending = "Pending",
-    Active = "Active",
-    Rejected = "Rejected",
-    Revoked = "Revoked",
-    Terminating = "Terminating",
-    Terminated = "Terminated"
-}
-
-interface Identity {
-    address: string;
-    publicKey: string;
-    realm: string;
-}
-
-interface RelationshipChange {
-    id: string;
-    request: RelationshipChangeRequest;
-    status: RelationshipChangeStatus;
-    type: RelationshipChangeType;
-    response?: RelationshipChangeResponse;
-}
-
-interface RelationshipChangeRequest {
-    createdBy: string;
-    createdByDevice: string;
-    createdAt: string;
-    content?: unknown;
-}
-
-enum RelationshipChangeStatus {
-    Pending = "Pending",
-    Rejected = "Rejected",
-    Revoked = "Revoked",
-    Accepted = "Accepted"
-}
-
-enum RelationshipChangeType {
-    Creation = "Creation",
-    Termination = "Termination",
-    TerminationCancellation = "TerminationCancellation"
-}
-
-interface RelationshipChangeResponse {
-    createdBy: string;
-    createdByDevice: string;
-    createdAt: string;
-    content?: unknown;
-}
-```
+| Event                                                                                | Data               | Description (This event is triggered when ...)                                                                                                                                                                                         |
+| ------------------------------------------------------------------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| consumption.attributeCreated                                                         | [Event Data](#tbd) | ... an Attribute was created manually or through a Request.                                                                                                                                                                            |
+| consumption.attributeDeleted                                                         | [Event Data](#tbd) | ... an Attribute was deleted manually or through a Request.                                                                                                                                                                            |
+| consumption.attributeSucceded                                                        | [Event Data](#tbd) | ... an Attribute was succeeded manually or through a Request.                                                                                                                                                                          |
+| consumption.attributeUpdated                                                         | [Event Data](#tbd) | ... an Attribute was updated manually or through a Request.                                                                                                                                                                            |
+| consumption.incomingRequestReceived                                                  | [Event Data](#tbd) | ... an incoming request was received either by loading a RelationshipTemplate or by receiving a message                                                                                                                                |
+| consumption.incomingRequestStatusChanged                                             | [Event Data](#tbd) | ... the status of an incoming request has changed.                                                                                                                                                                                     |
+| consumption.outgoingRquestCreated                                                    | [Event Data](#tbd) | ... an outgoing Request was created.                                                                                                                                                                                                   |
+| consumption.<br>outgoingRequestFromRelationshipCreationChange<br>CreatedAndCompleted | [Event Data](#tbd) | ... an outgoing Request was created and directly completed.<br>This happens if the Response came in from a new Relationship.                                                                                                           |
+| consumption.outgoingRequestStatusChanged                                             | [Event Data](#tbd) | ... the status of an outgoing Request has changed.                                                                                                                                                                                     |
+| consumption.sharedAttributeCopyCreated                                               | [Event Data](#tbd) | ... an Attribute is copied for sharing with another identity.                                                                                                                                                                          |
+| transport.messageReceived                                                            | [Event Data](#tbd) | ... a Message is received during synchonization.                                                                                                                                                                                       |
+| transport.messageSent                                                                | [Event Data](#tbd) | ... a Message is sent.                                                                                                                                                                                                                 |
+| transport.peerRelationshipTemplateLoaded                                             | [Event Data](#tbd) | ... a RelationshipTemplate is loaded that belongs to another identity.                                                                                                                                                                 |
+| transport.relationshipChanged                                                        | [Event Data](#tbd) | ... a Relationship has changed. This can be due to one of the following cases:<br> • you create a Relationship<br> • you accept, reject or revoke a Relationship Change<br> • a Relationship Change is received during synchronization |
