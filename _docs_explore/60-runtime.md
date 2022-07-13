@@ -10,6 +10,65 @@ The Runtime wraps all features of Enmeshed into a single programming interface. 
 
 Versions, local and remote data, synchronization, communication, and many more items are tracked by the Runtime in order to provide an easy-to-use interface.
 
+## Runtime Modules
+
+The Runtime is built with the focus to be as modular as possible. Therefore, it is possible to write own modules for it.
+
+One feature of the Runtime are its builtin modules. These modules are available by default, but can be configured by the user of the runtime. They can be configured using the runtime prefix (`@nmshd/runtime:<module-name>`) as the location field in the modules part of the runtime configuration.
+
+```jsonc
+{
+    // ...
+    "modules": {
+        "decider": {
+            "enabled": true,
+            "displayName": "Decider Module",
+            "name": "DeciderModule",
+            "location": "@nmshd/runtime:DeciderModule"
+        }
+    }
+}
+```
+
+The following modules are available:
+
+### Request Module
+
+**Note:** This module is responsible for important logic in the Enmeshed ecosystem and therefore enabled by default in every official Enmeshed Application.
+{: .notice--warning}
+
+In this guide, we will often Talk about [Requests]({% link _docs_explore/61-data-model.md %}#Request) and [LocalRequests]({% link _docs_explore/61-data-model.md %}#LocalRequest). Read more about the differences between the two by clicking on the links.
+
+The module is responsible for:
+
+-   creating an incoming LocalRequest when a peer RelationshipTemplate is loaded
+-   scanning for Requests in received Messages to store it as incoming LocalRequests in the database
+-   scanning for Responses in received Messages to close outgoing LocalRequests in the database
+-   scanning for Requests in outgoing Messages to store it as outgoing LocalRequests in the database
+-   taking action when the User decides (accepts or rejects) a Request
+    -   when the Request came from a Template the module creates a Relationship with the contents of the User's response if the User accepted the Request (rejection is currently not handled)
+    -   when the Request came from a Message the module sends back a Message containing the User's response (accept and reject)
+-   listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent with the RelationshipCreationChange
+
+### Decider Module
+
+**Note:** This module is responsible for important logic in the Enmeshed ecosystem and therefore enabled by default in every official Enmeshed Application.
+{: .notice--warning}
+
+Currently this module is only responsible for moving a Request from the status `DecisionRequired` to the status `ManualDecisionRequired` in which e.g. the Enmeshed App can prompt the User to manually review the Request.
+
+In the future, it will be possible to configure the Decider Module so it automatically accepts certain Requests without any User interaction.
+
+### Message Module
+
+For an overview about the mentioned events in this section please refer to the [Events]({% link _docs_integrate/32-connector-events.md %}) docs.
+
+The Message Module is responsible for processing `transport.MessageReceived` events and re-publish them as events that are able to handle and consume in different situations.
+
+In every case the MessageModule will publish a `consumption.relationshipEvent.<relationshipID-between-the-sender-and-you>` for e.g. reloading the Relationship including its newest messages in an UI.
+
+When the Message is a [Mail]({% link _docs_explore/61-data-model.md %}#Mail) a `consumption.mailReceived` event will be published. This is useful if you only want to refresh your UI that is rendering structured Mails.
+
 ## Runtime Building Blocks
 
 ### Crypto Library <a href="https://github.com/nmshd/cns-crypto"><i class="fab fa-fw fa-github"/></a> {#crypto-library}
