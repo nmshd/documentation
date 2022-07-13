@@ -4,17 +4,15 @@ permalink: /explore/runtime
 toc: true
 ---
 
-# Runtime Building Blocks
-
-## Runtime Library
-
 [Enmeshed Runtime GitHub Repository](https://github.com/nmshd/cns-runtime)
 
 The Runtime wraps all features of Enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser.
 
 Versions, local and remote data, synchronization, communication, and many more items are tracked by the Runtime in order to provide an easy-to-use interface.
 
-## Crypto Library
+## Runtime Building Blocks
+
+### Crypto Library
 
 [Crypto Library GitHub Repository](https://github.com/nmshd/cns-crypto)
 
@@ -22,7 +20,7 @@ To separate the cryptographic interfaces from the used cryptographic library (e.
 
 This approach allows us to implement features for cryptographic classes, for example the serialization of keys. Additionally, security audits could focus on this library.
 
-## Transport Library
+### Transport Library
 
 [Transport Library GitHub Repository](https://github.com/nmshd/cns-transport)
 
@@ -35,7 +33,7 @@ The implementation of the transport layer is the transport library. It combines 
 -   Managing cryptographic artifacts
 -   Cross-device synchronization of the datawallet
 
-## Content Library
+### Content Library
 
 [Content Library GitHub Repository](https://github.com/nmshd/cns-content)
 
@@ -48,7 +46,7 @@ Whereas the transport library implements the foundation of communication between
 -   Message formats like Mails, RequestMails, technical messages
 -   Transactional formats like Requests
 
-## Consumption Library
+### Consumption Library
 
 [Consumption Library GitHub Repository](https://github.com/nmshd/cns-consumption)
 
