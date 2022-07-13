@@ -250,4 +250,10 @@ var store = [{
         "tags": ["announcement","V2","Attributes"],
         "url": "/blog/announcing-enmeshed-v2-attributes",
         "teaser": null
+      },{
+        "title": "Announcing Enmeshed v2 Requests",
+        "excerpt":"This is one of the blog posts regarding Enmeshed v2. For an overview of all Enmeshed v2 blog posts, please refer to the Enmeshed v2 announcement blog post. This blog post requires a superficial understanding of the new Attribute handling. Please refer to the corresponding blog post to learn more...","categories": ["blog"],
+        "tags": ["announcement","v2","Requests"],
+        "url": "/blog/announcing-enmeshed-v2-requests",
+        "teaser": null
       }]
