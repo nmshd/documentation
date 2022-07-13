@@ -1,4 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/versions/2.0.0/feed.xml" rel="self" type="application/atom+xml" /><link href="/versions/2.0.0/" rel="alternate" type="text/html" /><updated>2022-07-12T17:11:23+02:00</updated><id>/versions/2.0.0/feed.xml</id><title type="html">Enmeshed</title><subtitle>Enmeshed is a home of various open source components, making the digital life of users and organizations easier.</subtitle><author><name>Enmeshed Team</name></author><entry><title type="html">Announcing Enmeshed V2 Attributes</title><link href="/versions/2.0.0/blog/announcing-enmeshed-v2-attributes" rel="alternate" type="text/html" title="Announcing Enmeshed V2 Attributes" /><published>2022-06-30T12:00:00+02:00</published><updated>2022-06-30T12:00:00+02:00</updated><id>/versions/2.0.0/blog/announcing-enmeshed-v2-attributes</id><content type="html" xml:base="/versions/2.0.0/blog/announcing-enmeshed-v2-attributes"><![CDATA[<p>This is one of the blog posts regarding Enmeshed V2. For an overview of all V2 blog posts, please refer to the <a href="/versions/2.0.0/blog/announcing-enmeshed-v2">V2 announcement blog post</a>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/versions/2.0.0/feed.xml" rel="self" type="application/atom+xml" /><link href="/versions/2.0.0/" rel="alternate" type="text/html" /><updated>2022-07-13T10:18:42+02:00</updated><id>/versions/2.0.0/feed.xml</id><title type="html">Enmeshed</title><subtitle>Enmeshed is a home of various open source components, making the digital life of users and organizations easier.</subtitle><author><name>Enmeshed Team</name></author><entry><title type="html">Announcing Enmeshed v2 Requests</title><link href="/versions/2.0.0/blog/announcing-enmeshed-v2-requests" rel="alternate" type="text/html" title="Announcing Enmeshed v2 Requests" /><published>2022-07-13T01:00:00+02:00</published><updated>2022-07-13T01:00:00+02:00</updated><id>/versions/2.0.0/blog/announcing-enmeshed-v2-requests</id><content type="html" xml:base="/versions/2.0.0/blog/announcing-enmeshed-v2-requests"><![CDATA[<p>This is one of the blog posts regarding Enmeshed v2. For an overview of all Enmeshed v2 blog posts, please refer to the <a href="/versions/2.0.0/blog/announcing-enmeshed-v2">Enmeshed v2 announcement blog post</a>.</p>
+
+<p>This blog post requires a superficial understanding of the new Attribute handling. Please refer to the <a href="/versions/2.0.0/blog/announcing-enmeshed-v2-attributes">corresponding blog post</a> to learn more about it if you are not yet familiar with it.</p>
+
+<p>This blog post describes what Requests are in the Enmeshed universe and how they are used to exchange Attributes and establish Relationships.</p>
+
+<p>When we mention “the App” or “the Connector” in this blog post, we mean the official <a href="/versions/2.0.0/explore/app">Enmeshed App</a> and <a href="/versions/2.0.0/explore/connector">Enmeshed Connector</a>.</p>
+
+<p>Keep in mind that we cannot describe all details in this blog post. Refer to the V2 documentation for further information about how Requests are working “under the hood”.</p>
+
+<h2 id="requests">Requests</h2>
+
+<p>Requests in Enmeshed always defined a way to exchange structured data. In Enmeshed V1 this was exclusively about exchanging structured Attributes with its AttributesChangeRequest and AttributesShareRequest. In V1 there also was no defined response structure, as well as no track record of Requests and their status. Thus, V1 Requests were quite limited.</p>
+
+<p>Requests in V2 extend the Request featureset by providing more structured Requests, as well as Requests for unstructured data. Additionally, they are not fixed to the Identitity’s Attributes. One example is a form you can send to a User, which contains some questions in natural language, which does not affect the Attributes. Another example is a Multi-Factor-Authentication Request which might be available in the future.</p>
+
+<p>In Enmeshed V1 <code class="language-plaintext highlighter-rouge">RelationshipTemplates</code> and <code class="language-plaintext highlighter-rouge">RequestMails</code> each defined their own way for exchanging Attributes. Further only the App could process them. When integrating via the Connector you had to manually process all Requests. For V2 we pulled the Request handling <a href="/versions/2.0.0/explore/#layers">from the User-Experience Layer to the Consumption layer</a>. This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.</p>
+
+<h2 id="exchanging-requests">Exchanging Requests</h2>
+
+<p>The simplest way to exchange Requests is using Messages. But for sending Messages a Relationship is required. To create a Relationship we also wanted the possiblity to exchange Requests with the same structure.</p>
+
+<h3 id="relationships-and-relationshiptemplates">Relationships and RelationshipTemplates</h3>
+
+<p>The flow for establishing a Relationship between the App and another App or Connector has changed significantly. The body of the RelationshipTemplate is now a strict type that can be processed by the App and the Connector. It looks as follows:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">RelationshipTemplateBody</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">@type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RelationshipTemplateBody</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nl">title</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">metadata</span><span class="p">?:</span> <span class="nx">object</span><span class="p">;</span>
+    <span class="nl">onNewRelationship</span><span class="p">:</span> <span class="nx">Request</span><span class="p">;</span>
+    <span class="nl">onExistingRelationship</span><span class="p">?:</span> <span class="nx">Request</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>More about the structure of a Request will follow in the V2 documentation.</p>
+
+<p>When the RelationshipTemplate is scanned by the App, the Request (defined by the creator of the Template) is rendered for the User. This is similar to the flow in V1. The App will then automatically create the Relationship when the User accepts the Request.</p>
+
+<h3 id="messages">Messages</h3>
+
+<p>Messages can now be used to exchange the same Requests that are used to enter a Relationship. A Message can now simply contain the content <code class="language-plaintext highlighter-rouge">{ "@type": "Request", ... }</code> or <code class="language-plaintext highlighter-rouge">{ "@type": "Response", ... }</code>. The <code class="language-plaintext highlighter-rouge">RequestMail</code>, <code class="language-plaintext highlighter-rouge">AttributesChangeRequest</code> and <code class="language-plaintext highlighter-rouge">AttributesShareRequest</code> types are now deprecated and will be removed in the future. Because the Enmeshed V2 App will stop processing these types we strictly advise against further using them.</p>
+
+<p>So far, only one Request can be sent with one Message. This is intentional, as with RequestItemGroups and RequestItems, various data or actions can be requested. If there is the need to submit multiple Requests, send multiple Messages.</p>
+
+<h2 id="modules-managing-requests">Modules managing Requests</h2>
+
+<p>The main component powering the Enmeshed App and the Enmeshed Connector is the Runtime. The Runtime is modular and we decided to use this to provide a module that automatically manages Requests. This module is highly important for the complete Enmeshed Logic and therefore automatically enabled and not possible to disable in the App and the Connector.</p>
+
+<p>The module is responsible for:</p>
+
+<ul>
+  <li>creating an incoming Request when a peer RelationshipTemplate is loaded</li>
+  <li>scanning for Requests in received Messages to store it as incoming Requests in the database</li>
+  <li>scanning for Responses in received Messages to close outgoing Requests in the database</li>
+  <li>scanning for Requests in outgoing Messages to store it as outgoing Requests in the database</li>
+  <li>taking action when the User decides (accepts or rejects) a Request
+    <ul>
+      <li>when the Request came from a Template the module creates a Relationship with the contents of the User’s response if the User accepted the Request (rejection is currently not handled)</li>
+      <li>when the Request came from a Message the module sends back a Message containing the User’s response (accept and reject)</li>
+    </ul>
+  </li>
+  <li>listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent with the RelationshipCreationChange</li>
+</ul>
+
+<p>The second module is the Decider Module. At the moment this module is only responsible for moving a Request from the status <code class="language-plaintext highlighter-rouge">DecisionRequired</code> to the status <code class="language-plaintext highlighter-rouge">ManualDecisionRequired</code>. This indirection is a preparation for a feature we are planning to implement in the future, with which you will be able to configure the Decider Module so it automatically accepts certain Requests. We will publish a blog post about this when it is implemented.</p>]]></content><author><name>Enmeshed Team</name></author><category term="blog" /><category term="announcement" /><category term="v2" /><category term="Requests" /><summary type="html"><![CDATA[This is one of the blog posts regarding Enmeshed v2. For an overview of all Enmeshed v2 blog posts, please refer to the Enmeshed v2 announcement blog post.]]></summary></entry><entry><title type="html">Announcing Enmeshed V2 Attributes</title><link href="/versions/2.0.0/blog/announcing-enmeshed-v2-attributes" rel="alternate" type="text/html" title="Announcing Enmeshed V2 Attributes" /><published>2022-06-30T12:00:00+02:00</published><updated>2022-06-30T12:00:00+02:00</updated><id>/versions/2.0.0/blog/announcing-enmeshed-v2-attributes</id><content type="html" xml:base="/versions/2.0.0/blog/announcing-enmeshed-v2-attributes"><![CDATA[<p>This is one of the blog posts regarding Enmeshed V2. For an overview of all V2 blog posts, please refer to the <a href="/versions/2.0.0/blog/announcing-enmeshed-v2">V2 announcement blog post</a>.</p>
 
 <p>In this blog post we want to talk about pain points of the V1 Attributes and how we reworked the Attributes to tackle them.</p>
 
@@ -92,7 +157,7 @@
 
 <h2 id="conclusion">Conclusion</h2>
 
-<p>All in all, many changes which will make the Attribute management of and between Identities much more mature. Together with a new way of handling Requests (and Responses) about which we’ll be blogging in the near future, we think Enmeshed has a much more holistic feature set.</p>]]></content><author><name>Enmeshed Team</name></author><category term="blog" /><category term="announcement" /><category term="V2" /><category term="Attributes" /><summary type="html"><![CDATA[This is one of the blog posts regarding Enmeshed V2. For an overview of all V2 blog posts, please refer to the V2 announcement blog post.]]></summary></entry><entry><title type="html">Announcing Enmeshed V2</title><link href="/versions/2.0.0/blog/announcing-enmeshed-v2" rel="alternate" type="text/html" title="Announcing Enmeshed V2" /><published>2022-06-27T12:00:00+02:00</published><updated>2022-06-27T12:00:00+02:00</updated><id>/versions/2.0.0/blog/announcing-enmeshed-v2</id><content type="html" xml:base="/versions/2.0.0/blog/announcing-enmeshed-v2"><![CDATA[<p>We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.</p>
+<p>All in all, many changes which will make the Attribute management of and between Identities much more mature. Together with a <a href="/versions/2.0.0/blog/announcing-enmeshed-v2-requests">new way of handling Requests (and Responses)</a>, we think Enmeshed has a much more holistic feature set.</p>]]></content><author><name>Enmeshed Team</name></author><category term="blog" /><category term="announcement" /><category term="V2" /><category term="Attributes" /><summary type="html"><![CDATA[This is one of the blog posts regarding Enmeshed V2. For an overview of all V2 blog posts, please refer to the V2 announcement blog post.]]></summary></entry><entry><title type="html">Announcing Enmeshed V2</title><link href="/versions/2.0.0/blog/announcing-enmeshed-v2" rel="alternate" type="text/html" title="Announcing Enmeshed V2" /><published>2022-06-27T12:00:00+02:00</published><updated>2022-06-27T12:00:00+02:00</updated><id>/versions/2.0.0/blog/announcing-enmeshed-v2</id><content type="html" xml:base="/versions/2.0.0/blog/announcing-enmeshed-v2"><![CDATA[<p>We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.</p>
 
 <h2 id="attributes">Attributes</h2>
 
@@ -106,7 +171,7 @@
 
 <p>In Enmeshed V1 <code class="language-plaintext highlighter-rouge">RelationshipTemplates</code> and <code class="language-plaintext highlighter-rouge">RequestMails</code> each defined their own way for exchanging Attributes. Further only the App could process them. When integrating via the Connector you had to manually process all Requests. For V2 we pulled the Request handling <a href="/versions/2.0.0/explore/#layers">from the User-Experience Layer to the Consumption layer</a>. This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.</p>
 
-<p>We will publish a blog post with details about the changes regarding Requests in V2 in the coming days.</p>
+<p>For an overview of requests, please refer to the <a href="/versions/2.0.0/blog/announcing-enmeshed-v2-requests">corresponding blog post</a>.</p>
 
 <h2 id="backwards-compatibility">Backwards compatibility</h2>
 

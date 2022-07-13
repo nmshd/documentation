@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Announcing Enmeshed V2 - Enmeshed</title>
-<meta name="description" content="We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.">
+<!-- begin _includes/seo.html --><title>Announcing Enmeshed v2 Requests - Enmeshed</title>
+<meta name="description" content="This is one of the blog posts regarding Enmeshed v2. For an overview of all Enmeshed v2 blog posts, please refer to the Enmeshed v2 announcement blog post.">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -22,26 +22,26 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Enmeshed">
-<meta property="og:title" content="Announcing Enmeshed V2">
-<meta property="og:url" content="/versions/2.0.0/blog/announcing-enmeshed-v2">
+<meta property="og:title" content="Announcing Enmeshed v2 Requests">
+<meta property="og:url" content="/versions/2.0.0/blog/announcing-enmeshed-v2-requests">
 
 
-  <meta property="og:description" content="We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2022-06-27T12:00:00+02:00">
+  <meta property="og:description" content="This is one of the blog posts regarding Enmeshed v2. For an overview of all Enmeshed v2 blog posts, please refer to the Enmeshed v2 announcement blog post.">
 
 
 
 
 
 
-<link rel="canonical" href="/versions/2.0.0/blog/announcing-enmeshed-v2">
+
+  <meta property="article:published_time" content="2022-07-13T01:00:00+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/2.0.0/blog/announcing-enmeshed-v2-requests">
 
 
 
@@ -273,16 +273,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Announcing Enmeshed V2">
-    <meta itemprop="description" content="We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.">
-    <meta itemprop="datePublished" content="2022-06-27T12:00:00+02:00">
+    <meta itemprop="headline" content="Announcing Enmeshed v2 Requests">
+    <meta itemprop="description" content="This is one of the blog posts regarding Enmeshed v2. For an overview of all Enmeshed v2 blog posts, please refer to the Enmeshed v2 announcement blog post.">
+    <meta itemprop="datePublished" content="2022-07-13T01:00:00+02:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="/versions/2.0.0/blog/announcing-enmeshed-v2" class="u-url" itemprop="url">Announcing Enmeshed V2
+            <a href="/versions/2.0.0/blog/announcing-enmeshed-v2-requests" class="u-url" itemprop="url">Announcing Enmeshed v2 Requests
 </a>
           </h1>
           
@@ -299,7 +299,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          2 minute read
+          4 minute read
         
       </span>
     
@@ -311,39 +311,80 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <p>We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.</p>
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#requests">Requests</a></li><li><a href="#exchanging-requests">Exchanging Requests</a><ul><li><a href="#relationships-and-relationshiptemplates">Relationships and RelationshipTemplates</a></li><li><a href="#messages">Messages</a></li></ul></li><li><a href="#modules-managing-requests">Modules managing Requests</a></li></ul>
 
-<h2 id="attributes">Attributes</h2>
+            </nav>
+          </aside>
+        
+        <p>This is one of the blog posts regarding Enmeshed v2. For an overview of all Enmeshed v2 blog posts, please refer to the <a href="/versions/2.0.0/blog/announcing-enmeshed-v2">Enmeshed v2 announcement blog post</a>.</p>
 
-<p>Attributes in Enmeshed have been a huge pain point during the integration using the Enmeshed Connector but also while using the Enmeshed App as an end user. For Enmeshed V2 we are working on a new way to handle, store and transfer Attributes.</p>
+<p>This blog post requires a superficial understanding of the new Attribute handling. Please refer to the <a href="/versions/2.0.0/blog/announcing-enmeshed-v2-attributes">corresponding blog post</a> to learn more about it if you are not yet familiar with it.</p>
 
-<p>For an overview of the changes regarding Attributes, please refer to the <a href="/versions/2.0.0/blog/announcing-enmeshed-v2-attributes">corresponding blog post</a>.</p>
+<p>This blog post describes what Requests are in the Enmeshed universe and how they are used to exchange Attributes and establish Relationships.</p>
+
+<p>When we mention “the App” or “the Connector” in this blog post, we mean the official <a href="/versions/2.0.0/explore/app">Enmeshed App</a> and <a href="/versions/2.0.0/explore/connector">Enmeshed Connector</a>.</p>
+
+<p>Keep in mind that we cannot describe all details in this blog post. Refer to the V2 documentation for further information about how Requests are working “under the hood”.</p>
 
 <h2 id="requests">Requests</h2>
 
-<p>Requests in Enmeshed always defined a way to exchange structured data. In Enmeshed V1 this was exclusively about attributes. Requests in V2 will also be able to exchange data without persisting them to the user’s attributes, e.g. using a form.</p>
+<p>Requests in Enmeshed always defined a way to exchange structured data. In Enmeshed V1 this was exclusively about exchanging structured Attributes with its AttributesChangeRequest and AttributesShareRequest. In V1 there also was no defined response structure, as well as no track record of Requests and their status. Thus, V1 Requests were quite limited.</p>
+
+<p>Requests in V2 extend the Request featureset by providing more structured Requests, as well as Requests for unstructured data. Additionally, they are not fixed to the Identitity’s Attributes. One example is a form you can send to a User, which contains some questions in natural language, which does not affect the Attributes. Another example is a Multi-Factor-Authentication Request which might be available in the future.</p>
 
 <p>In Enmeshed V1 <code class="language-plaintext highlighter-rouge">RelationshipTemplates</code> and <code class="language-plaintext highlighter-rouge">RequestMails</code> each defined their own way for exchanging Attributes. Further only the App could process them. When integrating via the Connector you had to manually process all Requests. For V2 we pulled the Request handling <a href="/versions/2.0.0/explore/#layers">from the User-Experience Layer to the Consumption layer</a>. This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.</p>
 
-<p>For an overview of requests, please refer to the <a href="/versions/2.0.0/blog/announcing-enmeshed-v2-requests">corresponding blog post</a>.</p>
+<h2 id="exchanging-requests">Exchanging Requests</h2>
 
-<h2 id="backwards-compatibility">Backwards compatibility</h2>
+<p>The simplest way to exchange Requests is using Messages. But for sending Messages a Relationship is required. To create a Relationship we also wanted the possiblity to exchange Requests with the same structure.</p>
 
-<p>All these new features required a huge amount of changes behind the scenes. If we wanted to be backwards compatible, we would have had to spend a lot of extra work, which would have delayed the release by several weeks. Therefore we decided to pay the price that comes with this backwards incompatibility in favor of the earlier release date.</p>
+<h3 id="relationships-and-relationshiptemplates">Relationships and RelationshipTemplates</h3>
 
-<p>Backwards incompatiblity in this case means that all the data stored by the App and Connector V1 will be invalid and cannot be used anymore.</p>
+<p>The flow for establishing a Relationship between the App and another App or Connector has changed significantly. The body of the RelationshipTemplate is now a strict type that can be processed by the App and the Connector. It looks as follows:</p>
 
-<p>If you need a compatibility of V1 and V2, please contact us <a href="https://www.js-soft.com/enmeshed/">here</a> and we will try to sort out a solution.</p>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">RelationshipTemplateBody</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">@type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RelationshipTemplateBody</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nl">title</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">metadata</span><span class="p">?:</span> <span class="nx">object</span><span class="p">;</span>
+    <span class="nl">onNewRelationship</span><span class="p">:</span> <span class="nx">Request</span><span class="p">;</span>
+    <span class="nl">onExistingRelationship</span><span class="p">?:</span> <span class="nx">Request</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<h2 id="getting-prereleases">Getting Prereleases</h2>
+<p>More about the structure of a Request will follow in the V2 documentation.</p>
 
-<p>During the development of Enmeshed V2 we will continue to publish new versions of the Connector and the app. You will find docs of version 2 <a href="https://enmeshed.eu/versions/2.0.0">here</a> and we are also constantly updating it.</p>
+<p>When the RelationshipTemplate is scanned by the App, the Request (defined by the creator of the Template) is rendered for the User. This is similar to the flow in V1. The App will then automatically create the Relationship when the User accepts the Request.</p>
 
-<p>If you are curious you can already check out one of the early <a href="https://github.com/nmshd/cns-connector/pkgs/container/connector/versions">Connector versions</a> tagged as <code class="language-plaintext highlighter-rouge">alpha</code>. Keep in mind that these are highly experimental and shouldn’t be used in production scenarios, because there can be API changes at any time.</p>
+<h3 id="messages">Messages</h3>
 
-<h2 id="feedback">Feedback</h2>
+<p>Messages can now be used to exchange the same Requests that are used to enter a Relationship. A Message can now simply contain the content <code class="language-plaintext highlighter-rouge">{ "@type": "Request", ... }</code> or <code class="language-plaintext highlighter-rouge">{ "@type": "Response", ... }</code>. The <code class="language-plaintext highlighter-rouge">RequestMail</code>, <code class="language-plaintext highlighter-rouge">AttributesChangeRequest</code> and <code class="language-plaintext highlighter-rouge">AttributesShareRequest</code> types are now deprecated and will be removed in the future. Because the Enmeshed V2 App will stop processing these types we strictly advise against further using them.</p>
 
-<p>As always we are happy to hear from you through the usual channels! Feel free to share your thoughts and feedback and discuss the changes in the <a href="https://github.com/nmshd/feedback/discussions/17">V2 GitHub Discussion</a>.</p>
+<p>So far, only one Request can be sent with one Message. This is intentional, as with RequestItemGroups and RequestItems, various data or actions can be requested. If there is the need to submit multiple Requests, send multiple Messages.</p>
+
+<h2 id="modules-managing-requests">Modules managing Requests</h2>
+
+<p>The main component powering the Enmeshed App and the Enmeshed Connector is the Runtime. The Runtime is modular and we decided to use this to provide a module that automatically manages Requests. This module is highly important for the complete Enmeshed Logic and therefore automatically enabled and not possible to disable in the App and the Connector.</p>
+
+<p>The module is responsible for:</p>
+
+<ul>
+  <li>creating an incoming Request when a peer RelationshipTemplate is loaded</li>
+  <li>scanning for Requests in received Messages to store it as incoming Requests in the database</li>
+  <li>scanning for Responses in received Messages to close outgoing Requests in the database</li>
+  <li>scanning for Requests in outgoing Messages to store it as outgoing Requests in the database</li>
+  <li>taking action when the User decides (accepts or rejects) a Request
+    <ul>
+      <li>when the Request came from a Template the module creates a Relationship with the contents of the User’s response if the User accepted the Request (rejection is currently not handled)</li>
+      <li>when the Request came from a Message the module sends back a Message containing the User’s response (accept and reject)</li>
+    </ul>
+  </li>
+  <li>listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent with the RelationshipCreationChange</li>
+</ul>
+
+<p>The second module is the Decider Module. At the moment this module is only responsible for moving a Request from the status <code class="language-plaintext highlighter-rouge">DecisionRequired</code> to the status <code class="language-plaintext highlighter-rouge">ManualDecisionRequired</code>. This indirection is a preparation for a feature we are planning to implement in the future, with which you will be able to configure the Decider Module so it automatically accepts certain Requests. We will publish a blog post about this when it is implemented.</p>
 
         
       </section>
@@ -362,7 +403,9 @@
     
       <a href="/versions/2.0.0/tags/#announcement" class="page__taxonomy-item p-category" rel="tag">announcement</a><span class="sep">, </span>
     
-      <a href="/versions/2.0.0/tags/#v2" class="page__taxonomy-item p-category" rel="tag">V2</a>
+      <a href="/versions/2.0.0/tags/#requests" class="page__taxonomy-item p-category" rel="tag">Requests</a><span class="sep">, </span>
+    
+      <a href="/versions/2.0.0/tags/#v2" class="page__taxonomy-item p-category" rel="tag">v2</a>
     
     </span>
   </p>
@@ -387,30 +430,29 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-06-27T12:00:00+02:00">June 27, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-07-13T01:00:00+02:00">July 13, 2022</time></p>
 
       </footer>
 
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=Announcing+Enmeshed+V2%20%2Fversions%2F2.0.0%2Fblog%2Fannouncing-enmeshed-v2" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=Announcing+Enmeshed+v2+Requests%20%2Fversions%2F2.0.0%2Fblog%2Fannouncing-enmeshed-v2-requests" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=%2Fversions%2F2.0.0%2Fblog%2Fannouncing-enmeshed-v2" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=%2Fversions%2F2.0.0%2Fblog%2Fannouncing-enmeshed-v2-requests" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2Fversions%2F2.0.0%2Fblog%2Fannouncing-enmeshed-v2" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2Fversions%2F2.0.0%2Fblog%2Fannouncing-enmeshed-v2-requests" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/versions/2.0.0/blog/webhooks-v2-connector-module" class="pagination--pager" title="The new webhooks Connector module
+      <a href="/versions/2.0.0/blog/announcing-enmeshed-v2-attributes" class="pagination--pager" title="Announcing Enmeshed V2 Attributes
 ">Previous</a>
     
     
-      <a href="/versions/2.0.0/blog/announcing-enmeshed-v2-attributes" class="pagination--pager" title="Announcing Enmeshed V2 Attributes
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -424,46 +466,6 @@
     <div class="page__related">
       <h2 class="page__related-title">You May Also Enjoy</h2>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/versions/2.0.0/blog/announcing-enmeshed-v2-requests" rel="permalink">Announcing Enmeshed v2 Requests
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          4 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">This is one of the blog posts regarding Enmeshed v2. For an overview of all Enmeshed v2 blog posts, please refer to the Enmeshed v2 announcement blog post.
-</p>
-  </article>
-</div>
-
         
           
 
@@ -500,6 +502,46 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">This is one of the blog posts regarding Enmeshed V2. For an overview of all V2 blog posts, please refer to the V2 announcement blog post.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/versions/2.0.0/blog/announcing-enmeshed-v2" rel="permalink">Announcing Enmeshed V2
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.
 </p>
   </article>
 </div>
