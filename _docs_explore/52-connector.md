@@ -27,7 +27,7 @@ The Connector is built modular and provides some built-in modules. A list of the
 
 ## Connector Database
 
-The Connector is using a MongoDB database to store its data. You can read more about its configuration in the [database section of the Connector configuration guide]({% link _docs_integrate/11-connector-configuration.md %}#database).
+The Connector uses a MongoDB database to store its data. You can read more about its configuration in the [database section of the Connector configuration guide]({% link _docs_integrate/11-connector-configuration.md %}#database).
 
 ## Connector SDK
 
