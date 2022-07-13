@@ -12,17 +12,13 @@ Versions, local and remote data, synchronization, communication, and many more i
 
 ## Runtime Building Blocks
 
-### Crypto Library
-
-[Crypto Library GitHub Repository](https://github.com/nmshd/cns-crypto)
+### Crypto Library <a href="https://github.com/nmshd/cns-crypto"><i class="fab fa-fw fa-github"/></a> {#crypto-library}
 
 To separate the cryptographic interfaces from the used cryptographic library (e.g. libsodium), the crypto library acts as a wrapper. Additionally, cryptographically-related source code is bundled within this library.
 
 This approach allows us to implement features for cryptographic classes, for example the serialization of keys. Additionally, security audits could focus on this library.
 
-### Transport Library
-
-[Transport Library GitHub Repository](https://github.com/nmshd/cns-transport)
+### Transport Library <a href="https://github.com/nmshd/cns-transport"><i class="fab fa-fw fa-github"/></a> {#transport-library}
 
 The implementation of the transport layer is the transport library. It combines the features of different third party libraries and the crypto library to support the following features:
 
@@ -33,9 +29,7 @@ The implementation of the transport layer is the transport library. It combines 
 -   Managing cryptographic artifacts
 -   Cross-device synchronization of the datawallet
 
-### Content Library
-
-[Content Library GitHub Repository](https://github.com/nmshd/cns-content)
+### Content Library <a href="https://github.com/nmshd/cns-content"><i class="fab fa-fw fa-github"/></a> {#content-library}
 
 To separate the actual payload of messages from the message structure and envelope, the content library was set up. It is a repository of interfaces and types which are used as the payload of communication between identities.
 
@@ -46,9 +40,7 @@ Whereas the transport library implements the foundation of communication between
 -   Message formats like Mails, RequestMails, technical messages
 -   Transactional formats like Requests
 
-### Consumption Library
-
-[Consumption Library GitHub Repository](https://github.com/nmshd/cns-consumption)
+### Consumption Library <a href="https://github.com/nmshd/cns-consumption"><i class="fab fa-fw fa-github"/></a> {#consumption-library}
 
 Due to the fact that the Backbone cannot implement business logic to process content sent over the wire just like any other central service, the business logic needs to reside on the respective clients.
 
