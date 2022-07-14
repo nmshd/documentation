@@ -280,8 +280,7 @@ interface WebhooksModulePayload {
 }
 ```
 
-The payload of the webhook is the same as the response payload of the `/api/v1/Account/Sync` endpoint. Thus the type `ConnectorSyncResult` of the [TypeScript SDK](./connector-sdks#typescript-sdk) can be used for specifing the webhook's payload type. Klick the links for a
-<a href="{% link _docs_explore/61-data-model.md %}#Message">Message Definition <i class="fas fa-fw fa-book"/></a> and
+Click the links for a <a href="{% link _docs_explore/61-data-model.md %}#Message">Message Definition <i class="fas fa-fw fa-book"/></a> and
 <a href="{% link _docs_explore/61-data-model.md %}#Relationship">Relationship Definition <i class="fas fa-fw fa-book"/></a>
 
 ### webhooksV2 <a href="{% link _docs_integrate/03-connector-modules.md %}#webhooksv2"><i class="fas fa-fw fa-info-circle"/></a> {#webhooksv2}

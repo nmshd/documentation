@@ -69,6 +69,8 @@ In every case the MessageModule will publish a `consumption.relationshipEvent.<r
 
 When the Message is a [Mail]({% link _docs_explore/61-data-model.md %}#Mail) a `consumption.mailReceived` event will be published. This is useful if you only want to refresh your UI that is rendering structured Mails.
 
+If you are interested in these events you need to enable this module, because it is not enabled by default.
+
 ## Runtime Building Blocks
 
 ### Crypto Library <a href="https://github.com/nmshd/cns-crypto"><i class="fab fa-fw fa-github"/></a> {#crypto-library}
