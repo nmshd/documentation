@@ -144,7 +144,7 @@ The http server is the base for the `coreHttpApi` Module. It opens an express ht
 
 ## modules
 
-Every Module can be enabled or disabled by passing true / false to `enabled`. Read more about the Module on the <i class="fas fa-fw fa-info-circle"/> icon in each title.
+Every Module can be enabled or disabled by passing true / false to `enabled`. Read more about the Module by clicking on the <i class="fas fa-fw fa-info-circle"/> icon in each title.
 
 ### amqpPublisher <a href="{% link _docs_integrate/03-connector-modules.md %}#amqppublisher"><i class="fas fa-fw fa-info-circle"/></a> {#amqppublisher}
 

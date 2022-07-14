@@ -14,7 +14,7 @@ Versions, local and remote data, synchronization, communication, and many more i
 
 The Runtime is built with the focus to be as modular as possible. Therefore, it is possible to write own Modules for it.
 
-One feature of the Runtime are its builtin Modules. These Modules are available by default, but can be configured by the User of the Runtime. They can be configured using the `@nmshd/runtime:` prefix (e.g. `@nmshd/runtime:<module-name>`) as the location field in the Modules part of the Runtime configuration.
+The Runtime provides its own builtin Modules. These Modules are available by default, but can be configured by the User of the Runtime. They can be configured using the `@nmshd/runtime:` prefix (e.g. `@nmshd/runtime:<module-name>`) as the location field in the Modules part of the Runtime configuration.
 
 ```jsonc
 {
@@ -30,11 +30,11 @@ One feature of the Runtime are its builtin Modules. These Modules are available 
 }
 ```
 
-The following Modules are available:
+Find a description of the available Modules in the following sections.
 
 ### Request Module
 
-**Note:** This Module is responsible for important logic in the Enmeshed ecosystem and therefore enabled by default in every official Enmeshed Application.
+**Note:** This Module is responsible for important logic in the Enmeshed ecosystem and is therefore enabled by default in every official Enmeshed Application.
 {: .notice--warning}
 
 This Module makes heavy use of Requests, LocalRequests and Response. Head over to the description of our [data model]({% link _docs_explore/61-data-model.md %}, where you can find a detailed description of them.
@@ -52,7 +52,7 @@ The Module is responsible for:
 
 ### Decider Module
 
-**Note:** This Module is responsible for important logic in the Enmeshed ecosystem and therefore enabled by default in every official Enmeshed Application.
+**Note:** This Module is responsible for important logic in the Enmeshed ecosystem and is therefore enabled by default in every official Enmeshed Application.
 {: .notice--warning}
 
 Currently this Module is only responsible for moving a Request from the status `DecisionRequired` to the status `ManualDecisionRequired` in which e.g. the Enmeshed App can prompt the User to manually review the Request.
