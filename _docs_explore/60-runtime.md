@@ -37,7 +37,7 @@ The following Modules are available:
 **Note:** This Module is responsible for important logic in the Enmeshed ecosystem and therefore enabled by default in every official Enmeshed Application.
 {: .notice--warning}
 
-In this guide, we will often Talk about [Requests]({% link _docs_explore/61-data-model.md %}#Request) and [LocalRequests]({% link _docs_explore/61-data-model.md %}#LocalRequest). Read more about the differences between the two by clicking on the links.
+This module is using some data structures. Read more about [Requests]({% link _docs_explore/61-data-model.md %}#Request), [LocalRequests]({% link _docs_explore/61-data-model.md %}#LocalRequest) and their differences by clicking on the the respective links.
 
 The Module is responsible for:
 
