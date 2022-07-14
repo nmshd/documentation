@@ -23,7 +23,7 @@ Just like the [App Runtime]({% link _docs_explore/50-app.md %}) extends the [Enm
 
 ## Connector Modules
 
-The Connector is built modular and provides some built-in modules. A list of the available modules and how to configure them can be found in [the module section of the Connector configuration guide]({% link _docs_integrate/11-connector-configuration.md %}#modules).
+The Connector is built modular and provides some built-in Modules. A list of the available Modules and how to configure them can be found in [the Connector Modules guide]({% link _docs_integrate/13-connector-modules.md %}).
 
 ## Connector Database
 

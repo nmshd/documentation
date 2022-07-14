@@ -12,9 +12,9 @@ Versions, local and remote data, synchronization, communication, and many more i
 
 ## Runtime Modules
 
-The Runtime is built with the focus to be as modular as possible. Therefore, it is possible to write own modules for it.
+The Runtime is built with the focus to be as modular as possible. Therefore, it is possible to write own Modules for it.
 
-One feature of the Runtime are its builtin modules. These modules are available by default, but can be configured by the User of the Runtime. They can be configured using the `@nmshd/runtime:` prefix (e.g. `@nmshd/runtime:<module-name>`) as the location field in the modules part of the Runtime configuration.
+One feature of the Runtime are its builtin Modules. These Modules are available by default, but can be configured by the User of the Runtime. They can be configured using the `@nmshd/runtime:` prefix (e.g. `@nmshd/runtime:<module-name>`) as the location field in the Modules part of the Runtime configuration.
 
 ```jsonc
 {
@@ -30,32 +30,32 @@ One feature of the Runtime are its builtin modules. These modules are available 
 }
 ```
 
-The following modules are available:
+The following Modules are available:
 
 ### Request Module
 
-**Note:** This module is responsible for important logic in the Enmeshed ecosystem and therefore enabled by default in every official Enmeshed Application.
+**Note:** This Module is responsible for important logic in the Enmeshed ecosystem and therefore enabled by default in every official Enmeshed Application.
 {: .notice--warning}
 
 In this guide, we will often Talk about [Requests]({% link _docs_explore/61-data-model.md %}#Request) and [LocalRequests]({% link _docs_explore/61-data-model.md %}#LocalRequest). Read more about the differences between the two by clicking on the links.
 
-The module is responsible for:
+The Module is responsible for:
 
 -   creating an incoming LocalRequest when a peer RelationshipTemplate is loaded
 -   scanning for Requests in received Messages to store it as incoming LocalRequests in the database
 -   scanning for Responses in received Messages to close outgoing LocalRequests in the database
 -   scanning for Requests in outgoing Messages to store it as outgoing LocalRequests in the database
 -   taking action when the User decides (accepts or rejects) a Request
-    -   when the Request came from a Template the module creates a Relationship with the contents of the User's response if the User accepted the Request (rejection is currently not handled)
-    -   when the Request came from a Message the module sends back a Message containing the User's response (accept and reject)
+    -   when the Request came from a Template the Module creates a Relationship with the contents of the User's response if the User accepted the Request (rejection is currently not handled)
+    -   when the Request came from a Message the Module sends back a Message containing the User's response (accept and reject)
 -   listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent with the RelationshipCreationChange
 
 ### Decider Module
 
-**Note:** This module is responsible for important logic in the Enmeshed ecosystem and therefore enabled by default in every official Enmeshed Application.
+**Note:** This Module is responsible for important logic in the Enmeshed ecosystem and therefore enabled by default in every official Enmeshed Application.
 {: .notice--warning}
 
-Currently this module is only responsible for moving a Request from the status `DecisionRequired` to the status `ManualDecisionRequired` in which e.g. the Enmeshed App can prompt the User to manually review the Request.
+Currently this Module is only responsible for moving a Request from the status `DecisionRequired` to the status `ManualDecisionRequired` in which e.g. the Enmeshed App can prompt the User to manually review the Request.
 
 In the future, it will be possible to configure the Decider Module so it automatically accepts certain Requests without any User interaction.
 

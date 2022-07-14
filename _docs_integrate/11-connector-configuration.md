@@ -110,7 +110,7 @@ Each infrastructure can be enabled or disabled by passing true / false to `enabl
 
 ### httpServer
 
-The http server is the base for the `coreHttpApi` module. It opens an express http server where modules can register endpoints.
+The http server is the base for the `coreHttpApi` Module. It opens an express http server where Modules can register endpoints.
 
 #### Configuration
 
@@ -144,7 +144,7 @@ The http server is the base for the `coreHttpApi` module. It opens an express ht
 
 ## modules
 
-Every module can be enabled or disabled by passing true / false to `enabled`. Read more about the module on the <i class="fas fa-fw fa-info-circle"/> icon in each title.
+Every Module can be enabled or disabled by passing true / false to `enabled`. Read more about the Module on the <i class="fas fa-fw fa-info-circle"/> icon in each title.
 
 ### amqpPublisher <a href="{% link _docs_integrate/03-connector-modules.md %}#amqppublisher"><i class="fas fa-fw fa-info-circle"/></a> {#amqppublisher}
 
@@ -158,7 +158,7 @@ Every module can be enabled or disabled by passing true / false to `enabled`. Re
 
 -   **enabled** `default: false`
 
-    Enable or disable the AMQP Publisher module.
+    Enable or disable the AMQP Publisher Module.
 
 -   **url** `required`
 
@@ -170,7 +170,7 @@ Every module can be enabled or disabled by passing true / false to `enabled`. Re
 
 ### autoAcceptRelationshipCreationChanges <a href="{% link _docs_integrate/03-connector-modules.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationshipcreationchanges}
 
-It is not recommended to use this module for production szenarios.
+It is not recommended to use this Module for production szenarios.
 {: .notice--danger}
 
 ```json
@@ -182,7 +182,7 @@ It is not recommended to use this module for production szenarios.
 
 -   **enabled** `default: false`
 
-    Enable or disable the autoAcceptRelationshipCreationChanges module.
+    Enable or disable the autoAcceptRelationshipCreationChanges Module.
 
 -   **responseContent** `default: {}`
 
@@ -204,7 +204,7 @@ It is not recommended to use this module for production szenarios.
 
 -   **enabled** `default: true`
 
-    Enable or disable the coreHttpApi module.
+    Enable or disable the coreHttpApi Module.
 
 -   **docs:enabled** `default: true`
 
@@ -231,15 +231,15 @@ It is not recommended to use this module for production szenarios.
 
 -   **enabled** `default: false`
 
-    Enable or disable the sync module.
+    Enable or disable the sync Module.
 
 -   **interval** `default: 60`
 
-    The interval in seconds at which the sync module will fetch changes from the Backbone.
+    The interval in seconds at which the sync Module will fetch changes from the Backbone.
 
 ### webhooks <a href="{% link _docs_integrate/03-connector-modules.md %}#webhooks"><i class="fas fa-fw fa-info-circle"/></a> {#webhooks}
 
-This module is deprecated in favor of the [webhooksV2](#webhooksv2) module.
+This Module is deprecated in favor of the [webhooksV2](#webhooksv2) Module.
 {: .notice--warning}
 
 ```json
@@ -255,7 +255,7 @@ This module is deprecated in favor of the [webhooksV2](#webhooksv2) module.
 
 -   **enabled** `default: false`
 
-    Enable or disable the webhooks module.
+    Enable or disable the webhooks Module.
 
 -   **url** `required`
 
@@ -296,7 +296,7 @@ The payload of the webhook is the same as the response payload of the `/api/v1/A
 
 -   **enabled** `default: false`
 
-    Enable or disable the webhooks module.
+    Enable or disable the webhooksV2 Module.
 
 -   **targets** `default: {}`
 
