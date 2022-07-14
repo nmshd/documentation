@@ -14,7 +14,7 @@ Versions, local and remote data, synchronization, communication, and many more i
 
 The Runtime is built with the focus to be as modular as possible. Therefore, it is possible to write own modules for it.
 
-One feature of the Runtime are its builtin modules. These modules are available by default, but can be configured by the user of the runtime. They can be configured using the runtime prefix (`@nmshd/runtime:<module-name>`) as the location field in the modules part of the runtime configuration.
+One feature of the Runtime are its builtin modules. These modules are available by default, but can be configured by the User of the Runtime. They can be configured using the `@nmshd/runtime:` prefix (e.g. `@nmshd/runtime:<module-name>`) as the location field in the modules part of the Runtime configuration.
 
 ```jsonc
 {
