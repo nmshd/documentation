@@ -26,7 +26,7 @@ This module contains the HTTP API with all Enmeshed base functionalities.
 
 ### Sync <a href="{% link _docs_integrate/11-connector-configuration.md %}#sync"><i class="fas fa-fw fa-cog"/></a> {#sync}
 
-The `sync` module regularly fetches changes from the Backbone (e.g. new messages / new incoming relationship requests) and notifies other modules like the `httpEndpointEventPublisher` about them.
+The `sync` module regularly fetches changes from the Backbone (e.g. new messages / new incoming relationship requests) and notifies other modules like the `webhooks` module about them.
 
 ### Webhooks <a href="{% link _docs_integrate/11-connector-configuration.md %}#webhooks"><i class="fas fa-fw fa-cog"/></a> {#webhooks}
 
