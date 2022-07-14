@@ -26,7 +26,7 @@ This Module contains the HTTP API with all Enmeshed base functionalities.
 
 ### Sync <a href="{% link _docs_integrate/11-connector-configuration.md %}#sync"><i class="fas fa-fw fa-cog"/></a> {#sync}
 
-The `sync` Module regularly fetches changes from the Backbone (e.g. new messages / new incoming relationship requests) and notifies other Modules like the `webhooks` Module about them.
+The `sync` Module regularly fetches changes from the Backbone (e.g. new Messages / new incoming Relationship Requests) and notifies other Modules like the `webhooks` Module about them.
 
 ### Webhooks <a href="{% link _docs_integrate/11-connector-configuration.md %}#webhooks"><i class="fas fa-fw fa-cog"/></a> {#webhooks}
 
@@ -35,7 +35,7 @@ The `sync` Module regularly fetches changes from the Backbone (e.g. new messages
 
 With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
 
-For this, the Connector supports the configuration of a webhook which is called in case there is something new (e.g. a new message has been received).
+For this, the Connector supports the configuration of a webhook which is called in case there is something new (e.g. a new Message has been received).
 
 Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive webhooks. The `sync` Module automates this, but you can also do this manually by calling the `/api/v1/Account/Sync` route.
 
@@ -43,6 +43,6 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
 
 With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
 
-For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Event]({% link _docs_integrate/32-connector-events.md %}) is triggered (e.g. a new message has been received => `transport.messageReceived`).
+For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Event]({% link _docs_integrate/32-connector-events.md %}) is triggered (e.g. a new Message has been received => `transport.messageReceived`).
 
 Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The `sync` Module automates this, but you can also do this manually by calling the `/api/v1/Account/Sync` route.

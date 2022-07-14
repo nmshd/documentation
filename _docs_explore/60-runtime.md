@@ -65,7 +65,7 @@ For an overview about the mentioned events in this section please refer to the [
 
 The Message Module is responsible for processing `transport.MessageReceived` events and re-publish them as events that are able to handle and consume in different situations.
 
-In every case the MessageModule will publish a `consumption.relationshipEvent.<relationshipID-between-the-sender-and-you>` for e.g. reloading the Relationship including its newest messages in an UI.
+In every case the MessageModule will publish a `consumption.relationshipEvent.<relationshipID-between-the-sender-and-you>` for e.g. reloading the Relationship including its newest Messages in an UI.
 
 When the Message is a [Mail]({% link _docs_explore/61-data-model.md %}#Mail) a `consumption.mailReceived` event will be published. This is useful if you only want to refresh your UI that is rendering structured Mails.
 
@@ -90,13 +90,13 @@ The implementation of the transport layer is the transport library. It combines 
 
 ### Content Library <a href="https://github.com/nmshd/cns-content"><i class="fab fa-fw fa-github"/></a> {#content-library}
 
-To separate the actual payload of messages from the message structure and envelope, the content library was set up. It is a repository of interfaces and types which are used as the payload of communication between identities.
+To separate the actual payload of Messages from the Message structure and envelope, the content library was set up. It is a repository of interfaces and types which are used as the payload of communication between identities.
 
 Whereas the transport library implements the foundation of communication between identities and the actual secure tunnel between identities, the content library defines the payload on top of this tunnel. You can see it as the definition of a contract between all identities.
 
 -   Attributes
 -   Claims
--   Message formats like Mails, RequestMails, technical messages
+-   Message formats like Mails, RequestMails, technical Messages
 -   Transactional formats like Requests
 
 ### Consumption Library <a href="https://github.com/nmshd/cns-consumption"><i class="fab fa-fw fa-github"/></a> {#consumption-library}
