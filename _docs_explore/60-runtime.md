@@ -37,7 +37,7 @@ The following Modules are available:
 **Note:** This Module is responsible for important logic in the Enmeshed ecosystem and therefore enabled by default in every official Enmeshed Application.
 {: .notice--warning}
 
-This module is using some data structures. Read more about [Requests]({% link _docs_explore/61-data-model.md %}#Request), [LocalRequests]({% link _docs_explore/61-data-model.md %}#LocalRequest) and their differences by clicking on the the respective links.
+This Module makes heavy use of Requests, LocalRequests and Response. Head over to the description of our [data model]({% link _docs_explore/61-data-model.md %}, where you can find a detailed description of them.
 
 The Module is responsible for:
 
@@ -46,8 +46,8 @@ The Module is responsible for:
 -   scanning for Responses in received Messages to close outgoing LocalRequests in the database
 -   scanning for Requests in outgoing Messages to store it as outgoing LocalRequests in the database
 -   taking action when the User decides (accepts or rejects) a Request
-    -   when the Request came from a Template the Module creates a Relationship with the contents of the User's response if the User accepted the Request (rejection is currently not handled)
-    -   when the Request came from a Message the Module sends back a Message containing the User's response (accept and reject)
+    -   when the Request came from a Template the Module creates a Relationship with the contents of the User's Response if the User accepted the Request (rejection is currently not handled)
+    -   when the Request came from a Message the Module sends back a Message containing the User's Response (accept and reject)
 -   listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent with the RelationshipCreationChange
 
 ### Decider Module
