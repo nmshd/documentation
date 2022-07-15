@@ -14,7 +14,7 @@ Read more about the Module configuration on the <i class="fas fa-fw fa-cog"/> ic
 
 This Module proxies all events in the internal event bus of the Connector to an exchange in a configurable AMQP server.
 
-Compared to [webhooks](#webhooksv2)., this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
+Compared to [webhooks](#webhooksv2), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
 
 -   You need persistence for the triggered events.
 -   You want to integrate Enmeshed into an already existing message broker.
@@ -24,7 +24,7 @@ Compared to [webhooks](#webhooksv2)., this gives you the full feature set of a m
 It is not recommended to use this Module for production szenarios.
 {: .notice--danger}
 
-The `autoAcceptRelationshipCreationChanges` Module listens to the notifications about incoming Relationship Change Requests. It immediately accepts the Requests, using the configured `responseContent`.
+The `autoAcceptRelationshipCreationChanges` Module listens to the events about incoming Relationship Change Requests. It immediately accepts the Requests, using the configured `responseContent`.
 
 Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive incoming Relationship Requests. The `sync` Module automates this, but you can also do this manually by calling the `/api/v1/Account/Sync` route.
 
