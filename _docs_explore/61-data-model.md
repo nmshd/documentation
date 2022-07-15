@@ -268,4 +268,3 @@ The Local Attribute Share Info help to keep track of how the Local Attribute was
 | requestReference | string                | The ID of the Local Request the Local Attribute was received in/sent with.                                                  |         |
 | peer             | string                | The Address of the Identity the Local Attribute was received from/shared with.                                              |         |
 | sourceAttribute  | string \| `undefined` | If the Local Attribute is a copy of a Repository Attribute, then this property contains the ID of the Repository Attribute. |         |
-

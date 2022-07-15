@@ -37,8 +37,8 @@ Attributes are uniquely identified by name for each Identity. There are consider
 -   No binary content is possible as an Attribute value and thus binary content (like files) could not be stored or shared as Attributes
 -   There is no inheritance of Attributes. An Attribute can only be queried by a name with an exact match by a string comparison. Different addresses, e.g. a street address or a post office box cannot be queried with a single query
 -   Attributes can only be stored for Identities and not for Relationships
--   A manual user decision is always required to change Attributes, even if the user has no say in the Attributes at all (e.g. a company moves its headquarters and would like to update the primary address)
--   Querying Attributes of a user by only supplying a name is too broad and error prone
+-   A manual User decision is always required to change Attributes, even if the User has no say in the Attributes at all (e.g. a company moves its headquarters and would like to update the primary address)
+-   Querying Attributes of a User by only supplying a name is too broad and error prone
 
 ## V2 Attributes
 
@@ -67,21 +67,21 @@ Below you can find the major changes of the new Attribute handling:
     -   Binary content is now possible, i.e. storing and querying Files as Attributes of Identities
 -   The Attribute value type is replacing the Attribute name most of the time
     -   With typed Attribute values introduced above, we no longer require a specific Attribute name to be set. The normalized type `GivenName` replaces the old Attribute name `Person.givenName` and so on.
-    -   Due to inheritance of Attribute values, querying a super type `Address` would imply, that the user could select between a stored `StreetAddress` and a stored `PostalBoxAddress`. On the other hand, querying a `StreetAddress` automatically implies, that only the stored `StreetAddress` can be selected.
+    -   Due to inheritance of Attribute values, querying a super type `Address` would imply, that the User could select between a stored `StreetAddress` and a stored `PostalBoxAddress`. On the other hand, querying a `StreetAddress` automatically implies, that only the stored `StreetAddress` can be selected.
 -   Multiple Attribute values of the same type are supported
     -   Thus, multiple addresses or communication properties are supported inherently
-    -   The user can decide between possible Attribute values if multiple values do fit to the query
+    -   The User can decide between possible Attribute values if multiple values do fit to the query
 -   Further semantics of an Attribute can be set by tagging an Attribute according to predefined or custom Attribute tags. Whereas an Attribute's type defines its structure (e.g. `Address`) the Attribute's tags might define that it is a work or a private address.
     -   Tags introduce a new semantic metadata set to an Attribute, allowing to specify its predominant use.
     -   With tags it is possible to differentiate Attributes with the same type:
         -   An Attribute `StreetAddress` with value X is stored with tags `personal` and `official`.
         -   A second Attribute `StreetAddress` with value Y is stored with tag `work`.
-        -   Value Y will be proposed to the user if a `StreetAddress` with tag `work` is queried.
+        -   Value Y will be proposed to the User if a `StreetAddress` with tag `work` is queried.
 -   In addition to the tags, we would like to introduce a Relationship store concept, with which Attributes can be stored between Identities on a per-Relationship base. This comes in handy for use cases with Relationship-specific or contract-specific Attributes:
-    -   Think about a customer number which needs to be stored between a user and a webshop somehow. It doesn't belong to the user but it also does not belong to the webshop.
-    -   Additionally, this concept can be used for submitting Relationship metadata like company brand/theme information, possible actions a user could trigger for the relationship or other cool stuff.
-    -   A restriction of who can change the Relationship Attribute can block users messing around with their `customerId`.
+    -   Think about a customer number which needs to be stored between a User and a webshop somehow. It doesn't belong to the User but it also does not belong to the webshop.
+    -   Additionally, this concept can be used for submitting Relationship metadata like company brand/theme information, possible actions a User could trigger for the relationship or other cool stuff.
+    -   A restriction of who can change the Relationship Attribute can block Users messing around with their `customerId`.
 
 ## Conclusion
 
-All in all, many changes which will make the Attribute management of and between Identities much more mature. Together with a new way of handling Requests (and Responses) about which we'll be blogging in the near future, we think Enmeshed has a much more holistic feature set.
+All in all, many changes which will make the Attribute management of and between Identities much more mature. Together with a [new way of handling Requests (and Responses)]({% post_url 2022-07-13-announcing-enmeshed-v2-requests %}), we think Enmeshed has a much more holistic feature set.
