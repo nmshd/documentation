@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Connector Security Considerations - Enmeshed</title>
-<meta name="description" content="The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Connector and its data.">
+<!-- begin _includes/seo.html --><title>Connector Modules - Enmeshed</title>
+<meta name="description" content="Since the Connector is based on the Runtime, all Modules of the Runtime are also available in the Connector.">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Enmeshed">
-<meta property="og:title" content="Connector Security Considerations">
-<meta property="og:url" content="/versions/2.0.0/integrate/connector-security">
+<meta property="og:title" content="Connector Modules">
+<meta property="og:url" content="/versions/2.0.0/integrate/connector-modules">
 
 
-  <meta property="og:description" content="The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Connector and its data.">
+  <meta property="og:description" content="Since the Connector is based on the Runtime, all Modules of the Runtime are also available in the Connector.">
 
 
 
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="/versions/2.0.0/integrate/connector-security">
+<link rel="canonical" href="/versions/2.0.0/integrate/connector-modules">
 
 
 
@@ -188,7 +188,7 @@
           
             <li><a href="/versions/2.0.0/integrate/connector-tutorial">Connector Tutorial</a></li>
           
-            <li><a href="/versions/2.0.0/integrate/connector-modules">Connector Modules</a></li>
+            <li><a href="/versions/2.0.0/integrate/connector-modules" class="active">Connector Modules</a></li>
           
         </ul>
         
@@ -256,7 +256,7 @@
           
             <li><a href="/versions/2.0.0/integrate/connector-operations">Connector Operations</a></li>
           
-            <li><a href="/versions/2.0.0/integrate/connector-security" class="active">Security Considerations</a></li>
+            <li><a href="/versions/2.0.0/integrate/connector-security">Security Considerations</a></li>
           
             <li><a href="/versions/2.0.0/integrate/connector-privacy">Privacy Considerations</a></li>
           
@@ -277,8 +277,8 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Connector Security Considerations">
-    <meta itemprop="description" content="The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Connector and its data.">
+    <meta itemprop="headline" content="Connector Modules">
+    <meta itemprop="description" content="Since the Connector is based on the Runtime, all Modules of the Runtime are also available in the Connector.">
     <meta itemprop="datePublished" content="2022-07-15T09:13:55+02:00">
     
 
@@ -286,7 +286,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="/versions/2.0.0/integrate/connector-security" class="u-url" itemprop="url">Connector Security Considerations
+            <a href="/versions/2.0.0/integrate/connector-modules" class="u-url" itemprop="url">Connector Modules
 </a>
           </h1>
           
@@ -297,71 +297,64 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <p>The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Connector and its data.</p>
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#amqppublisher">AMQP Publisher </a></li><li><a href="#autoacceptrelationshipcreationchange">Auto Accept Relationship Creation Changes </a></li><li><a href="#corehttpapi">Core HTTP API </a></li><li><a href="#sync">Sync </a></li><li><a href="#webhooks">Webhooks </a></li><li><a href="#webhooksv2">WebhooksV2 </a></li></ul>
 
-<p>And as the Connector is handling very sensitive data (please see chapter Privacy), it should be treated as any other business system - with the same requirements in terms of privacy, security, access or network setup.</p>
+            </nav>
+          </aside>
+        
+        <p>Since the Connector is based on the Runtime, <a href="/versions/2.0.0/explore/runtime#runtime-modules">all Modules of the Runtime</a> are also available in the Connector.</p>
 
-<h1 id="updates">Updates</h1>
+<p>Additionally, the Connector defines its own Modules that only make sense in the context of a Connector and are therefore not defined in the Runtime.</p>
 
-<p>As with every software, it is important that you update the Connector regularly from the official Docker repositories. We do our best to keep the whole Enmeshed project (of course including the Connector) as up-to-date as possible, having multiple checks with regards to security and the open-source-software lifecycle.</p>
+<p>Read more about the Module configuration on the <i class="fas fa-fw fa-cog"></i> icon in each title.</p>
 
-<p>Additionally, any software component the Connector or its data touches should be updated regularly.</p>
+<h3 id="amqppublisher">AMQP Publisher <a href="/versions/2.0.0/integrate/connector-configuration#amqppublisher"><i class="fas fa-fw fa-cog"></i></a></h3>
 
-<p>Examples are:</p>
+<p>This Module proxies all events in the internal event bus of the Connector to an exchange in a configurable AMQP server.</p>
+
+<p>Compared to <a href="#webhooksv2">webhooks</a>, this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:</p>
 
 <ul>
-  <li>the Docker host system (operating system, virtual machine, …)</li>
-  <li>the Docker Runtime</li>
-  <li>the database (e.g. MongoDB)</li>
-  <li>the firewall</li>
-  <li>the virus scanner</li>
-  <li>the firmwares of any (network) component</li>
-  <li>possible integration platforms and modules</li>
+  <li>You need persistence for the triggered events.</li>
+  <li>You want to integrate Enmeshed into an already existing message broker.</li>
 </ul>
 
-<h1 id="trust">Trust</h1>
+<h3 id="autoacceptrelationshipcreationchange">Auto Accept Relationship Creation Changes <a href="/versions/2.0.0/integrate/connector-configuration#autoacceptrelationshipcreationchange"><i class="fas fa-fw fa-cog"></i></a></h3>
 
-<p>Although Enmeshed introduces a secure way of knowing who is sending messages to the Connector, and the corresponding Backbone is blocking messages from unknown parties, you shouldn’t trust others to not send you invalid, incorrect, illegal, or outright harmful data over the secure connection.</p>
+<p class="notice--danger">It is not recommended to use this Module for production szenarios.</p>
 
-<p>Especially the encrypted data coming from the Backbone - which hasn’t been decrypted yet - might be harmful. We cannot check if the data is correctly encrypted. Only the Connector in your landscape does this automatically (in terms of decrypting the data and verifying its digital signature).</p>
+<p>The <code class="language-plaintext highlighter-rouge">autoAcceptRelationshipCreationChanges</code> Module listens to the events about incoming Relationship Change Requests. It immediately accepts the Requests, using the configured <code class="language-plaintext highlighter-rouge">responseContent</code>.</p>
 
-<p>This brings us to the next point: Virus Scans.</p>
+<p>Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive incoming Relationship Requests. The <code class="language-plaintext highlighter-rouge">sync</code> Module automates this, but you can also do this manually by calling the <code class="language-plaintext highlighter-rouge">/api/v1/Account/Sync</code> route.</p>
 
-<h1 id="virus-scans">Virus Scans</h1>
+<h3 id="corehttpapi">Core HTTP API <a href="/versions/2.0.0/integrate/connector-configuration#corehttpapi"><i class="fas fa-fw fa-cog"></i></a></h3>
 
-<p>You should do Virus Scans regularly whenever sending or receiving data. However, the Connector has no integration capability for Virus Scanners (yet). This means, we cannot call for a virus scan while we are encrypting or decrypting Enmeshed payload.</p>
+<p>This Module contains the HTTP API with all Enmeshed base functionalities.</p>
 
-<p>Thus please consider scanning the host systems and the database for viruses regularly. Additionally, even encrypted data sent to and received from the Backbone should be scanned for viruses.</p>
+<h3 id="sync">Sync <a href="/versions/2.0.0/integrate/connector-configuration#sync"><i class="fas fa-fw fa-cog"></i></a></h3>
 
-<h1 id="networking">Networking</h1>
+<p>The <code class="language-plaintext highlighter-rouge">sync</code> Module regularly fetches changes from the Backbone (e.g. new Messages / new incoming Relationship Requests). This process automatically triggers the events used by other Modules like the <code class="language-plaintext highlighter-rouge">webhooks</code> Module.</p>
 
-<p>It is best practice to block unnecessary access from and to software components between networks. In this chapter it is described which access the Connector actually required and which requests could be blocked.</p>
+<h3 id="webhooks">Webhooks <a href="/versions/2.0.0/integrate/connector-configuration#webhooks"><i class="fas fa-fw fa-cog"></i></a></h3>
 
-<h2 id="outbound-external-connection-internet">Outbound External Connection: Internet</h2>
+<p class="notice--warning"><strong>Note:</strong> This Module is deprecated in favor of the <a href="#webhooksv2">WebhooksV2 Module</a>.</p>
 
-<p>The Connector uses an TLS-secured Internet connection to the Enmeshed Backbone which runs on the domain <code class="language-plaintext highlighter-rouge">https://prod.enmeshed.eu</code>. Your firewall must not block access to this domain, otherwise the Connector won’t work.</p>
+<p>With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization’s backend services about changes.</p>
 
-<p>To access the latest updates, other routes might need to be opened within the firewall settings.</p>
+<p>For this, the Connector supports the configuration of a webhook which is called in case there is something new (e.g. a new Message has been received).</p>
 
-<h2 id="no-inbound-external-connections">No Inbound External Connections</h2>
+<p>Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive webhooks. The <code class="language-plaintext highlighter-rouge">sync</code> Module automates this, but you can also do this manually by calling the <code class="language-plaintext highlighter-rouge">/api/v1/Account/Sync</code> route.</p>
 
-<p>The Connector synchronizes itself with the Backbone by a long-polling mechanism (it accesses the Internet). There is no data transfer triggered by the Backbone (or other users) and thus, there is no need for opening up special ports or reverse proxies for inbound connections from the Internet.</p>
+<h3 id="webhooksv2">WebhooksV2 <a href="/versions/2.0.0/integrate/connector-configuration#webhooksv2"><i class="fas fa-fw fa-cog"></i></a></h3>
 
-<h2 id="oubound-communication-to-internal-networks">Oubound Communication to Internal Networks</h2>
+<p>With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization’s backend services about changes.</p>
 
-<p>The Connector does need to access its database. Access to other networks or systems from the Connector can be blocked unless there is a synchronization route (webhook) set up in the Connector configuration. Otherwise, the Connector needs to access the provided internal domains for submitting new data.</p>
+<p>For this, the Connector supports the configuration of webhooks which are called every time a specific <a href="/versions/2.0.0/integrate/connector-events">Connector Event</a> is triggered (e.g. a new Message has been received =&gt; <code class="language-plaintext highlighter-rouge">transport.messageReceived</code>).</p>
 
-<h2 id="inbound-communication-from-internal-networks">Inbound Communication from Internal Networks</h2>
-
-<p>Depending on the integration setup, access to the Connector from the internal network could be blocked for the majority of requests. Usually, only requests from the integration systems, the developers or administrators need to be allowed.</p>
-
-<h2 id="authentication-and-user-management">Authentication and User Management</h2>
-
-<p>So far, the Connector supports API-Key authentication to securely authenticate technical users. These API-Keys are random character strings with a high entropy and should be kept confidential at all times. Each internal system communicating with the Connector should receive its own API-Key.</p>
-
-<p>There is no authorization set up, thus every API-Key can call any API of the Connector API.</p>
-
-<p>End user authentication, e.g. business users accessing the system, should be done on the respective business system. Usually, there is no need for end users to access the Connector and thus they should not have access to the Connector (from a network and authentication perspective).</p>
+<p>Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The <code class="language-plaintext highlighter-rouge">sync</code> Module automates this, but you can also do this manually by calling the <code class="language-plaintext highlighter-rouge">/api/v1/Account/Sync</code> route.</p>
 
         
       </section>
@@ -382,11 +375,11 @@
       
   <nav class="pagination">
     
-      <a href="/versions/2.0.0/integrate/connector-troubleshooting" class="pagination--pager" title="Connector Troubleshooting
+      <a href="/versions/2.0.0/integrate/connector-tutorial" class="pagination--pager" title="Connector Tutorial
 ">Previous</a>
     
     
-      <a href="/versions/2.0.0/integrate/connector-privacy" class="pagination--pager" title="Connector Privacy Considerations
+      <a href="/versions/2.0.0/integrate/connector-installation" class="pagination--pager" title="Connector Installation
 ">Next</a>
     
   </nav>

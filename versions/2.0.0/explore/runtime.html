@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Enmeshed Runtime - Enmeshed</title>
-<meta name="description" content="Runtime Building Blocks">
+<meta name="description" content="Enmeshed Runtime GitHub Repository">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="/versions/2.0.0/explore/runtime">
 
 
-  <meta property="og:description" content="Runtime Building Blocks">
+  <meta property="og:description" content="Enmeshed Runtime GitHub Repository">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-07-13T10:18:42+02:00">
+  <meta property="article:published_time" content="2022-07-15T09:13:55+02:00">
 
 
 
@@ -288,8 +288,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Enmeshed Runtime">
-    <meta itemprop="description" content="Runtime Building Blocks">
-    <meta itemprop="datePublished" content="2022-07-13T10:18:42+02:00">
+    <meta itemprop="description" content="Enmeshed Runtime GitHub Repository">
+    <meta itemprop="datePublished" content="2022-07-15T09:13:55+02:00">
     
 
     <div class="page__inner-wrap">
@@ -310,32 +310,89 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#runtime-building-blocks">Runtime Building Blocks</a><ul><li><a href="#runtime-library">Runtime Library</a></li><li><a href="#crypto-library">Crypto Library</a></li><li><a href="#transport-library">Transport Library</a></li><li><a href="#content-library">Content Library</a></li><li><a href="#consumption-library">Consumption Library</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#runtime-modules">Runtime Modules</a><ul><li><a href="#request-module">Request Module</a></li><li><a href="#decider-module">Decider Module</a></li><li><a href="#message-module">Message Module</a></li></ul></li><li><a href="#runtime-building-blocks">Runtime Building Blocks</a><ul><li><a href="#crypto-library">Crypto Library </a></li><li><a href="#transport-library">Transport Library </a></li><li><a href="#content-library">Content Library </a></li><li><a href="#consumption-library">Consumption Library </a></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        <h1 id="runtime-building-blocks">Runtime Building Blocks</h1>
-
-<h2 id="runtime-library">Runtime Library</h2>
-
-<p><a href="https://github.com/nmshd/cns-runtime">Enmeshed Runtime GitHub Repository</a></p>
+        <p><a href="https://github.com/nmshd/cns-runtime">Enmeshed Runtime GitHub Repository</a></p>
 
 <p>The Runtime wraps all features of Enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser.</p>
 
 <p>Versions, local and remote data, synchronization, communication, and many more items are tracked by the Runtime in order to provide an easy-to-use interface.</p>
 
-<h2 id="crypto-library">Crypto Library</h2>
+<h2 id="runtime-modules">Runtime Modules</h2>
 
-<p><a href="https://github.com/nmshd/cns-crypto">Crypto Library GitHub Repository</a></p>
+<p>The Runtime is built with the focus to be as modular as possible. Therefore, it is possible to write own Modules for it.</p>
+
+<p>The Runtime provides its own builtin Modules. These Modules are available by default, but can be configured by the User of the Runtime. They can be configured using the <code class="language-plaintext highlighter-rouge">@nmshd/runtime:</code> prefix (e.g. <code class="language-plaintext highlighter-rouge">@nmshd/runtime:&lt;module-name&gt;</code>) as the location field in the Modules part of the Runtime configuration.</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="c1">// ...</span><span class="w">
+    </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"decider"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Decider Module"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DeciderModule"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@nmshd/runtime:DeciderModule"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Find a description of the available Modules in the following sections.</p>
+
+<h3 id="request-module">Request Module</h3>
+
+<p class="notice--warning"><strong>Note:</strong> This Module is responsible for important logic in the Enmeshed ecosystem and is therefore enabled by default in every official Enmeshed Application.</p>
+
+<p>This Module makes heavy use of Requests, LocalRequests and Response. Head over to the description of our [data model](/versions/2.0.0/explore/data-model, where you can find a detailed description of them.</p>
+
+<p>The Module is responsible for:</p>
+
+<ul>
+  <li>creating an incoming LocalRequest when a peer RelationshipTemplate is loaded</li>
+  <li>scanning for Requests in received Messages to store it as incoming LocalRequests in the database</li>
+  <li>scanning for Responses in received Messages to close outgoing LocalRequests in the database</li>
+  <li>scanning for Requests in outgoing Messages to store it as outgoing LocalRequests in the database</li>
+  <li>taking action when the User decides (accepts or rejects) a Request
+    <ul>
+      <li>when the Request came from a Template the Module creates a Relationship with the contents of the User’s Response if the User accepted the Request (rejection is currently not handled)</li>
+      <li>when the Request came from a Message the Module sends back a Message containing the User’s Response (accept and reject)</li>
+    </ul>
+  </li>
+  <li>listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent with the RelationshipCreationChange</li>
+</ul>
+
+<h3 id="decider-module">Decider Module</h3>
+
+<p class="notice--warning"><strong>Note:</strong> This Module is responsible for important logic in the Enmeshed ecosystem and is therefore enabled by default in every official Enmeshed Application.</p>
+
+<p>Currently this Module is only responsible for moving a Request from the status <code class="language-plaintext highlighter-rouge">DecisionRequired</code> to the status <code class="language-plaintext highlighter-rouge">ManualDecisionRequired</code> in which e.g. the Enmeshed App can prompt the User to manually review the Request.</p>
+
+<p>In the future, it will be possible to configure the Decider Module so it automatically accepts certain Requests without any User interaction.</p>
+
+<h3 id="message-module">Message Module</h3>
+
+<p>For an overview about the mentioned events in this section please refer to the <a href="/versions/2.0.0/integrate/connector-events">Events</a> docs.</p>
+
+<p>The Message Module is responsible for processing <code class="language-plaintext highlighter-rouge">transport.MessageReceived</code> events and re-publish them as events that are able to handle and consume in different situations.</p>
+
+<p>In every case the MessageModule will publish a <code class="language-plaintext highlighter-rouge">consumption.relationshipEvent.&lt;relationshipID-between-the-sender-and-you&gt;</code> for e.g. reloading the Relationship including its newest Messages in an UI.</p>
+
+<p>When the Message is a <a href="/versions/2.0.0/explore/data-model#Mail">Mail</a> a <code class="language-plaintext highlighter-rouge">consumption.mailReceived</code> event will be published. This is useful if you only want to refresh your UI that is rendering structured Mails.</p>
+
+<p>If you are interested in these events you need to enable this module, because it is not enabled by default.</p>
+
+<h2 id="runtime-building-blocks">Runtime Building Blocks</h2>
+
+<h3 id="crypto-library">Crypto Library <a href="https://github.com/nmshd/cns-crypto"><i class="fab fa-fw fa-github"></i></a></h3>
 
 <p>To separate the cryptographic interfaces from the used cryptographic library (e.g. libsodium), the crypto library acts as a wrapper. Additionally, cryptographically-related source code is bundled within this library.</p>
 
 <p>This approach allows us to implement features for cryptographic classes, for example the serialization of keys. Additionally, security audits could focus on this library.</p>
 
-<h2 id="transport-library">Transport Library</h2>
-
-<p><a href="https://github.com/nmshd/cns-transport">Transport Library GitHub Repository</a></p>
+<h3 id="transport-library">Transport Library <a href="https://github.com/nmshd/cns-transport"><i class="fab fa-fw fa-github"></i></a></h3>
 
 <p>The implementation of the transport layer is the transport library. It combines the features of different third party libraries and the crypto library to support the following features:</p>
 
@@ -348,24 +405,20 @@
   <li>Cross-device synchronization of the datawallet</li>
 </ul>
 
-<h2 id="content-library">Content Library</h2>
+<h3 id="content-library">Content Library <a href="https://github.com/nmshd/cns-content"><i class="fab fa-fw fa-github"></i></a></h3>
 
-<p><a href="https://github.com/nmshd/cns-content">Content Library GitHub Repository</a></p>
-
-<p>To separate the actual payload of messages from the message structure and envelope, the content library was set up. It is a repository of interfaces and types which are used as the payload of communication between identities.</p>
+<p>To separate the actual payload of Messages from the Message structure and envelope, the content library was set up. It is a repository of interfaces and types which are used as the payload of communication between identities.</p>
 
 <p>Whereas the transport library implements the foundation of communication between identities and the actual secure tunnel between identities, the content library defines the payload on top of this tunnel. You can see it as the definition of a contract between all identities.</p>
 
 <ul>
   <li>Attributes</li>
   <li>Claims</li>
-  <li>Message formats like Mails, RequestMails, technical messages</li>
+  <li>Message formats like Mails, RequestMails, technical Messages</li>
   <li>Transactional formats like Requests</li>
 </ul>
 
-<h2 id="consumption-library">Consumption Library</h2>
-
-<p><a href="https://github.com/nmshd/cns-consumption">Consumption Library GitHub Repository</a></p>
+<h3 id="consumption-library">Consumption Library <a href="https://github.com/nmshd/cns-consumption"><i class="fab fa-fw fa-github"></i></a></h3>
 
 <p>Due to the fact that the Backbone cannot implement business logic to process content sent over the wire just like any other central service, the business logic needs to reside on the respective clients.</p>
 
@@ -381,7 +434,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-07-13T10:18:42+02:00">July 13, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-07-15T09:13:55+02:00">July 15, 2022</time></p>
 
       </footer>
 

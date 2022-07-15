@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>The new webhooks Connector module - Enmeshed</title>
+<!-- begin _includes/seo.html --><title>The new webhooks Connector Module - Enmeshed</title>
 <meta name="description" content="Introduction">
 
 
@@ -22,7 +22,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Enmeshed">
-<meta property="og:title" content="The new webhooks Connector module">
+<meta property="og:title" content="The new webhooks Connector Module">
 <meta property="og:url" content="/versions/2.0.0/blog/webhooks-v2-connector-module">
 
 
@@ -273,7 +273,7 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="The new webhooks Connector module">
+    <meta itemprop="headline" content="The new webhooks Connector Module">
     <meta itemprop="description" content="Introduction">
     <meta itemprop="datePublished" content="2022-03-02T11:00:00+01:00">
     
@@ -282,7 +282,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="/versions/2.0.0/blog/webhooks-v2-connector-module" class="u-url" itemprop="url">The new webhooks Connector module
+            <a href="/versions/2.0.0/blog/webhooks-v2-connector-module" class="u-url" itemprop="url">The new webhooks Connector Module
 </a>
           </h1>
           
@@ -315,26 +315,26 @@
 
 <p>Hello everyone!</p>
 
-<p>Today we want to announce a new version of the webhooks Connector module.</p>
+<p>Today we want to announce a new version of the webhooks Connector Module.</p>
 
-<p>The old version of the module had many limitations that we could only address with a complete rewrite. To be backwards compatible the old version of the module is still available under the name <code class="language-plaintext highlighter-rouge">webhooks</code>.
-The new module can be configured under the name <code class="language-plaintext highlighter-rouge">webhooksV2</code>.
-If you don’t want to use the new module it doesn’t require further actions.</p>
+<p>The old version of the Module had many limitations that we could only address with a complete rewrite. To be backwards compatible the old version of the Module is still available under the name <code class="language-plaintext highlighter-rouge">webhooks</code>.
+The new Module can be configured under the name <code class="language-plaintext highlighter-rouge">webhooksV2</code>.
+If you don’t want to use the new Module it doesn’t require further actions.</p>
 
-<p>We still recommend to switch to the new module as soon as possible as the old module is now deprecated and will not be maintained anymore.</p>
+<p>We still recommend to switch to the new Module as soon as possible as the old Module is now deprecated and will not be maintained anymore.</p>
 
-<h2 id="the-new-module">The new module</h2>
+<h2 id="the-new-module">The new Module</h2>
 
-<p>The new module gives you the possibility to define so called <code class="language-plaintext highlighter-rouge">triggers</code>, which represent the names of the events we already send Connector-internally (e.g. <code class="language-plaintext highlighter-rouge">transport.messageReceived</code>). The module then listens to the configured events and simply sends the event data to the configured URL. For a detailed documentation of how to configure the new webhooks module, see <a href="/versions/2.0.0/integrate/connector-configuration#webhooksv2">the Connector configuration docs</a>.</p>
+<p>The new Module gives you the possibility to define so called <code class="language-plaintext highlighter-rouge">triggers</code>, which represent the names of the events we already send Connector-internally (e.g. <code class="language-plaintext highlighter-rouge">transport.messageReceived</code>). The Module then listens to the configured events and simply sends the event data to the configured URL. For a detailed documentation of how to configure the new webhooks Module, see <a href="/versions/2.0.0/integrate/connector-configuration#webhooksv2">the Connector configuration docs</a>.</p>
 
-<p>While in the old module you could configure an interval in which the new information is published, the new module calls the webhook immediately after the configured event was triggered.
+<p>While in the old Module you could configure an interval in which the new information is published, the new Module calls the webhook immediately after the configured event was triggered.
 <em>Do you miss the possibility to configure a publish interval? Raise a feature request in our <a href="https://github.com/nmshd/nmshd.github.io/issues/new/choose">feedback repository</a>, and we will see what we can do about it.</em></p>
 
-<p>Since you can use arbitrary events as triggers now, the new module gives you much more points at which you can integrate. We provide a <a href="/versions/2.0.0/integrate/connector-events">list of these events</a>. Note that the list will grow in the next weeks, so check the docs from time to time. If you wish for a specific event, you can also <a href="https://github.com/nmshd/nmshd.github.io/issues/new/choose">raise a feature request</a>.</p>
+<p>Since you can use arbitrary events as triggers now, the new Module gives you much more points at which you can integrate. We provide a <a href="/versions/2.0.0/integrate/connector-events">list of these events</a>. Note that the list will grow in the next weeks, so check the docs from time to time. If you wish for a specific event, you can also <a href="https://github.com/nmshd/nmshd.github.io/issues/new/choose">raise a feature request</a>.</p>
 
 <h2 id="migration">Migration</h2>
 
-<p>In order to be notified about the same stuff as with the old module, you should configure the new module in the following way:</p>
+<p>In order to be notified about the same stuff as with the old Module, you should configure the new Module in the following way:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"webhooksV2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -414,7 +414,7 @@ If you don’t want to use the new module it doesn’t require further actions.<
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=The+new+webhooks+Connector+module%20%2Fversions%2F2.0.0%2Fblog%2Fwebhooks-v2-connector-module" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=The+new+webhooks+Connector+Module%20%2Fversions%2F2.0.0%2Fblog%2Fwebhooks-v2-connector-module" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=%2Fversions%2F2.0.0%2Fblog%2Fwebhooks-v2-connector-module" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
@@ -472,7 +472,7 @@ If you don’t want to use the new module it doesn’t require further actions.<
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          4 minute read
+          3 minute read
         
       </span>
     

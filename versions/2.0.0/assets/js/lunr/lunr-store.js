@@ -96,7 +96,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Enmeshed Runtime",
-        "excerpt":"Runtime Building Blocks Runtime Library Enmeshed Runtime GitHub Repository The Runtime wraps all features of Enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even...","categories": [],
+        "excerpt":"Enmeshed Runtime GitHub Repository The Runtime wraps all features of Enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser. Versions, local...","categories": [],
         "tags": [],
         "url": "/versions/2.0.0/explore/runtime",
         "teaser": null
@@ -135,6 +135,12 @@ var store = [{
         "excerpt":"In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization. The following steps include small...","categories": [],
         "tags": [],
         "url": "/versions/2.0.0/integrate/connector-tutorial",
+        "teaser": null
+      },{
+        "title": "Connector Modules",
+        "excerpt":"Since the Connector is based on the Runtime, all Modules of the Runtime are also available in the Connector. Additionally, the Connector defines its own Modules that only make sense in the context of a Connector and are therefore not defined in the Runtime. Read more about the Module configuration...","categories": [],
+        "tags": [],
+        "url": "/versions/2.0.0/integrate/connector-modules",
         "teaser": null
       },{
         "title": "Connector Installation",
@@ -186,7 +192,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Custom Connector Modules",
-        "excerpt":"   At the moment custom Connector modules are not supported.   ","categories": [],
+        "excerpt":"   At the moment custom Connector Modules are not supported.   ","categories": [],
         "tags": [],
         "url": "/versions/2.0.0/integrate/custom-connector-modules",
         "teaser": null
@@ -239,8 +245,8 @@ var store = [{
         "url": "/versions/2.0.0/blog/introducing-enmeshed",
         "teaser": null
       },{
-        "title": "The new webhooks Connector module",
-        "excerpt":"Introduction Hello everyone! Today we want to announce a new version of the webhooks Connector module. The old version of the module had many limitations that we could only address with a complete rewrite. To be backwards compatible the old version of the module is still available under the name...","categories": ["blog"],
+        "title": "The new webhooks Connector Module",
+        "excerpt":"Introduction Hello everyone! Today we want to announce a new version of the webhooks Connector Module. The old version of the Module had many limitations that we could only address with a complete rewrite. To be backwards compatible the old version of the Module is still available under the name...","categories": ["blog"],
         "tags": ["connector","update"],
         "url": "/versions/2.0.0/blog/webhooks-v2-connector-module",
         "teaser": null
