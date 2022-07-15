@@ -124,6 +124,8 @@ docs_integrate:
         url: /integrate/connector-tutorial
       # - title: "Create Relationships"
       #   url: /integrate/create-relationships
+      - title: "Connector Modules"
+        url: /integrate/connector-modules
 
   - title: Setting up the Connector
     children:

@@ -30,11 +30,11 @@ When talking about the Backbone, one has to have trust in it in order to fulfill
 
 # Web Stack
 
-We do run on a complete web stack, meaning that all runtime coding so far is developed for a sandboxed web environment. While this sounds scary at first - there are still voices that believe browsers and website to be highly insecure - it introduces a very interesting security measure: It is sandboxed.
+We do run on a complete web stack, meaning that all Runtime coding so far is developed for a sandboxed web environment. While this sounds scary at first - there are still voices that believe browsers and website to be highly insecure - it introduces a very interesting security measure: It is sandboxed.
 
-Even if malware would be executed within the Enmeshed runtime, it would need to break out of the sandbox to do evil stuff with the actual device. This applies primarily to the Enmeshed App.
+Even if malware would be executed within the Enmeshed Runtime, it would need to break out of the sandbox to do evil stuff with the actual device. This applies primarily to the Enmeshed App.
 
-However a malware could still access the data within the Enmeshed runtime, meaning Enmeshed keys and communication payloads which is highly sensitive data.
+However a malware could still access the data within the Enmeshed Runtime, meaning Enmeshed keys and communication payloads which is highly sensitive data.
 
 # Connector Security
 

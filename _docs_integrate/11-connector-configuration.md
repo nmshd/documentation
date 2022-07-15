@@ -1,6 +1,7 @@
 ---
 title: "Connector Configuration"
 permalink: /integrate/connector-configuration
+toc: true
 ---
 
 ## Mounting a config file
@@ -109,7 +110,7 @@ Each infrastructure can be enabled or disabled by passing true / false to `enabl
 
 ### httpServer
 
-The http server is the base for the `coreHttpApi` module. It opens an express http server where modules can register endpoints.
+The http server is the base for the `coreHttpApi` Module. It opens an express http server where Modules can register endpoints.
 
 #### Configuration
 
@@ -143,37 +144,34 @@ The http server is the base for the `coreHttpApi` module. It opens an express ht
 
 ## modules
 
-Every module can be enabled or disabled by passing true / false to `enabled`.
+Every Module can be enabled or disabled by passing true / false to `enabled`. Read more about the Module by clicking on the <i class="fas fa-fw fa-info-circle"/> icon in each title.
 
-### sync
-
-The `sync` module regularly fetches changes from the Backbone (e.g. new messages / new incoming relationship requests) and notifies other modules like the `httpEndpointEventPublisher` about them.
-
-#### Configuration
+### amqpPublisher <a href="{% link _docs_integrate/03-connector-modules.md %}#amqppublisher"><i class="fas fa-fw fa-info-circle"/></a> {#amqppublisher}
 
 ```json
 {
     "enabled": false,
-    "interval": 60
+    "url": "amqp://example.com:5672",
+    "exchange": "myExchange"
 }
 ```
 
 -   **enabled** `default: false`
 
-    Enable or disable the sync module.
+    Enable or disable the AMQP Publisher Module.
 
--   **interval** `default: 60`
+-   **url** `required`
 
-    The interval in seconds at which the sync module will fetch changes from the Backbone.
+    The URL of the AMQP server.
 
-### autoAcceptRelationshipCreationChanges
+-   **exchange** `default: ""`
 
-It is not recommended to use this module for production szenarios.
+    The name of the AMQP exchange to publish to.
+
+### autoAcceptRelationshipCreationChanges <a href="{% link _docs_integrate/03-connector-modules.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationshipcreationchanges}
+
+It is not recommended to use this Module for production szenarios.
 {: .notice--danger}
-
-The `autoAcceptRelationshipCreationChanges` module depends on the `sync` module and listens to the notifications about incoming Relationship Requests. It immediately accepts the Requests, using the configured `responseContent`.
-
-#### Configuration
 
 ```json
 {
@@ -184,17 +182,13 @@ The `autoAcceptRelationshipCreationChanges` module depends on the `sync` module 
 
 -   **enabled** `default: false`
 
-    Enable or disable the autoAcceptRelationshipCreationChanges module.
+    Enable or disable the autoAcceptRelationshipCreationChanges Module.
 
 -   **responseContent** `default: {}`
 
     The content that is used to accept the incoming Relationship Request.
 
-### coreHttpApi
-
-This module contains the HTTP API with all Enmeshed base functionalities.
-
-#### Configuration
+### coreHttpApi <a href="{% link _docs_integrate/03-connector-modules.md %}#corehttpapi"><i class="fas fa-fw fa-info-circle"/></a> {#corehttpapi}
 
 ```json
 {
@@ -210,7 +204,7 @@ This module contains the HTTP API with all Enmeshed base functionalities.
 
 -   **enabled** `default: true`
 
-    Enable or disable the coreHttpApi module.
+    Enable or disable the coreHttpApi Module.
 
 -   **docs:enabled** `default: true`
 
@@ -226,18 +220,27 @@ This module contains the HTTP API with all Enmeshed base functionalities.
 
     If set to `true` rapidoc persists the API Key in the local storage of the browser.
 
-### webhooks
+### sync <a href="{% link _docs_integrate/03-connector-modules.md %}#sync"><i class="fas fa-fw fa-info-circle"/></a> {#sync}
 
-This module is deprecated in favor of the [webhooksV2](#webhooksv2) module.
+```json
+{
+    "enabled": false,
+    "interval": 60
+}
+```
+
+-   **enabled** `default: false`
+
+    Enable or disable the sync Module.
+
+-   **interval** `default: 60`
+
+    The interval in seconds at which the sync Module will fetch changes from the Backbone.
+
+### webhooks <a href="{% link _docs_integrate/03-connector-modules.md %}#webhooks"><i class="fas fa-fw fa-info-circle"/></a> {#webhooks}
+
+This Module is deprecated in favor of the [webhooksV2](#webhooksv2) Module.
 {: .notice--warning}
-
-With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
-
-For this, the Connector supports the configuration of a webhook which is called in case there is something new (e.g. a new message has been received).
-
-Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive webhooks. The `sync` module automates this, but you can also do this manually by calling the `/api/v1/Account/Sync` route.
-
-#### Configuration
 
 ```json
 {
@@ -252,7 +255,7 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
 
 -   **enabled** `default: false`
 
-    Enable or disable the webhooks module.
+    Enable or disable the webhooks Module.
 
 -   **url** `required`
 
@@ -275,73 +278,12 @@ interface WebhooksModulePayload {
     messages: Message[];
     relationships: Relationship[];
 }
-
-interface Message {
-    id: string;
-    content: any;
-    createdBy: string;
-    createdByDevice: string;
-    recipients: Recipient[];
-    relationshipIds: string[];
-    createdAt: string;
-    attachments: string[];
-}
-
-interface Recipient {
-    address: string;
-}
-
-interface Relationship {
-    id: string;
-    template: RelationshipTemplate;
-    status: string;
-    peer: string;
-    changes: RelationshipChange[];
-    lastMessageSentAt?: string;
-    lastMessageReceivedAt?: string;
-}
-
-interface RelationshipTemplate {
-    id: string;
-    isOwn: boolean;
-    createdBy: string;
-    createdByDevice: string;
-    createdAt: string;
-    content: any;
-    expiresAt?: string;
-    maxNumberOfRelationships?: number;
-}
-
-interface RelationshipChange {
-    id: string;
-    request: {
-        createdBy: string;
-        createdByDevice: string;
-        createdAt: string;
-        content?: any;
-    };
-    status: "Pending" | "Rejected" | "Revoked" | "Accepted";
-    type: "Creation" | "Termination" | "TerminationCancellation";
-    response?: {
-        createdBy: string;
-        createdByDevice: string;
-        createdAt: string;
-        content?: any;
-    };
-}
 ```
 
-The payload of the webhook is the same as the response payload of the `/api/v1/Account/Sync` endpoint. Thus the type `ConnectorSyncResult` of the [TypeScript SDK](./connector-sdks#typescript-sdk) can be used for specifing the webhook's payload type.
+Click the links for a <a href="{% link _docs_explore/61-data-model.md %}#Message">Message Definition <i class="fas fa-fw fa-book"/></a> and
+<a href="{% link _docs_explore/61-data-model.md %}#Relationship">Relationship Definition <i class="fas fa-fw fa-book"/></a>
 
-### webhooksV2
-
-With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
-
-For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Event]({% link _docs_integrate/32-connector-events.md %}) is triggered (e.g. a new message has been received => `transport.messageReceived`).
-
-Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The `sync` module automates this, but you can also do this manually by calling the `/api/v1/Account/Sync` route.
-
-#### Configuration
+### webhooksV2 <a href="{% link _docs_integrate/03-connector-modules.md %}#webhooksv2"><i class="fas fa-fw fa-info-circle"/></a> {#webhooksv2}
 
 ```json
 {
@@ -353,7 +295,7 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
 
 -   **enabled** `default: false`
 
-    Enable or disable the webhooks module.
+    Enable or disable the webhooksV2 Module.
 
 -   **targets** `default: {}`
 
