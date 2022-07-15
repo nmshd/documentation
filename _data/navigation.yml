@@ -71,8 +71,6 @@ docs_explore:
         url: /explore/runtime
       - title: "Data Model"
         url: /explore/data-model
-      - title: "Schema"
-        url: /explore/schema
       - title: "Cryptography"
         url: /explore/cryptography
       - title: "Why no blockchain?"
