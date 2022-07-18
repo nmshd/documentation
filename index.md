@@ -10,8 +10,6 @@ header:
           url: "/use"
     caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Digitalization on a whole new level"
-intro:
-    - excerpt: ""
 feature_row:
     - image_path: /assets/images/use.jpg
       alt: "placeholder image 1"
@@ -37,22 +35,6 @@ feature_row:
 feature_ssi:
     - title: "The digital home in your pocket"
       excerpt: "Take your digital identity wherever you go. Access, change and easily share the most important data of you without bothering about security, privacy or paperwork."
-feature_use:
-    - image_path: /assets/images/use.jpg
-      alt: "placeholder image 2"
-      title: "Use Enmeshed"
-      excerpt: "Discover how to get up and running with Enmeshed."
-      url: "/use"
-      btn_label: "Use Enmeshed"
-      btn_class: "btn--primary"
-feature_integrate:
-    - image_path: /assets/images/integrate.jpg
-      alt: "placeholder image 2"
-      title: "Integrate Enmeshed"
-      excerpt: ""
-      url: "/integrate"
-      btn_label: "Integrate Enmeshed"
-      btn_class: "btn--primary"
 feature_v2:
     - title: "Enmeshed V2"
       excerpt: "We are working on a new version of Enmeshed. Read more about it in the [V2 announcement blog post](/blog/announcing-enmeshed-v2)."
