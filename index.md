@@ -53,9 +53,12 @@ feature_integrate:
       url: "/integrate"
       btn_label: "Integrate Enmeshed"
       btn_class: "btn--primary"
+feature_v2:
+    - title: "Enmeshed V2"
+      excerpt: "We are working on a new version of Enmeshed. Read more about it in the [V2 announcement blog post](/blog/announcing-enmeshed-v2)."
 ---
 
-{% include feature_row id="intro" type="center" %}
+{% include feature_row id="feature_v2" type="center" %}
 
 {% include feature_row %}
 
