@@ -40,7 +40,7 @@ interface Event<TData> {
 
 ```ts
 export interface RequestStatusChangedEventData {
-    Request: LocalRequest;
+    request: LocalRequest;
     oldStatus: LocalRequestStatus;
     newStatus: LocalRequestStatus;
 }
