@@ -14,9 +14,7 @@ The following steps include small pieces of the Connector's API documentation th
     -   [Install the Connector]({% link _docs_integrate/10-connector-installation.md %})
     -   Make sure the [Sync Module is disabled]({% link _docs_integrate/11-connector-configuration.md %}#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
     -   Get the API key configured for the Connector. Ask the person who installed the Connector for it.
--   You need the [Enmeshed App]({% link _pages/use.md %}) installed on your mobile device.
-
--   Diagramm
+-   You need the [Enmeshed App]({% link _pages/use.md %}) installed on your mobile device (App language set to `English`).
 
 # Establishing Relationships
 
@@ -24,31 +22,97 @@ In order to communicate with another Identity, a Relationship to that Identity i
 
 ## Connector: Create a Relationship Template
 
+As a prerequisite we provided an Attribute in the Connector that can be shared in the following step by executing `POST /api/v1/Attributes` with the following payload:
+
+```json
+{
+    "content": {
+        "@type": "IdentityAttribute",
+        "owner": "id16RPQxvUC8S5aTrRhs3yrDXq6cLkbbBsTY",
+        "value": {
+            "@type": "DisplayName",
+            "value": "ConnectorV2 Demo"
+        }
+    }
+}
+```
+
+This request resulted in the following response. The `id` of the resulting attribute will be used to share it in the next step.
+
+```jsonc
+{
+    "result": {
+        "id": "ATT4wDrIP5ryRAMipaDv",
+        "content": {
+            // the content of the request above
+        },
+        "createdAt": "2022-08-10T12:47:42.160Z"
+    }
+}
+```
+
 Start by creating a so called Relationship Template on the Connector. You can do so by calling the `POST /api/v1/RelationshipTemplates/Own` route. Use the following JSON in the request body:
 
 ```json
 {
-    "maxNumberOfRelationships": 10,
-    "expiresAt": "2022-06-01T00:00:00.000Z",
+    "maxNumberOfAllocations": 1,
+    "expiresAt": "2023-06-01T00:00:00.000Z",
     "content": {
-        "attributes": [
-            {
-                "name": "Thing.name",
-                "value": "Contoso"
-            }
-        ],
-        "request": {
-            "required": [
+        "@type": "RelationshipTemplateBody",
+        "title": "Connector Demo Contact",
+        "onNewRelationship": {
+            "@type": "Request",
+            "items": [
                 {
-                    "attribute": "Person.familyName"
+                    "@type": "RequestItemGroup",
+                    "mustBeAccepted": true,
+                    "title": "Shared Attributes",
+                    "items": [
+                        {
+                            "@type": "CreateAttributeRequestItem",
+                            "mustBeAccepted": true,
+                            "attribute": {
+                                "@type": "IdentityAttribute",
+                                "owner": "id16RPQxvUC8S5aTrRhs3yrDXq6cLkbbBsTY",
+                                "value": {
+                                    "@type": "DisplayName",
+                                    "value": "ConnectorV2 Demo"
+                                }
+                            },
+                            "sourceAttributeId": "ATT4wDrIP5ryRAMipaDv"
+                        }
+                    ]
                 },
                 {
-                    "attribute": "Person.givenName"
-                }
-            ],
-            "optional": [
-                {
-                    "attribute": "Comm.email"
+                    "@type": "RequestItemGroup",
+                    "mustBeAccepted": true,
+                    "title": "Requested Attributes",
+                    "items": [
+                        {
+                            "@type": "ReadAttributeRequestItem",
+                            "mustBeAccepted": true,
+                            "query": {
+                                "@type": "IdentityAttributeQuery",
+                                "valueType": "Surname"
+                            }
+                        },
+                        {
+                            "@type": "ReadAttributeRequestItem",
+                            "mustBeAccepted": true,
+                            "query": {
+                                "@type": "IdentityAttributeQuery",
+                                "valueType": "GivenName"
+                            }
+                        },
+                        {
+                            "@type": "ReadAttributeRequestItem",
+                            "mustBeAccepted": false,
+                            "query": {
+                                "@type": "IdentityAttributeQuery",
+                                "valueType": "EMailAddress"
+                            }
+                        }
+                    ]
                 }
             ]
         }
@@ -60,21 +124,21 @@ Start by creating a so called Relationship Template on the Connector. You can do
 
 Remember the `id` of the Relationship Template that you can find in the response. You will need it in the next step.
 
-## Connector: Create a Token
+## Connector: Create a QRCode for the Relationship Template
 
-Now you need a so called Token. Since we will use the Enmeshed App to send a Relationship Request to the Connector, we further have to create a QR Code one can scan with the App to retrieve the Relationship Template and send a Relationship Request to the Connector. Execute the `POST /api/v1/RelationshipTemplates/Own/{id}/Token` route to create such a Token. Use the ID of the Relationship Template from the previous step as the value for `id`. Make sure you select `image/png` as the `Accept` header by selecting the corresponding value from the dropdown list in the bottom right of the Rapidoc route section.
+Since we will use the Enmeshed App to send a Relationship Request to the Connector, we further have to create a QR Code one can scan with the App to retrieve the Relationship Template and send a Relationship Request to the Connector. Execute the `POST /api/v1/RelationshipTemplates/{id}` route (`image/png`) to create a QRCode. Use the ID of the Relationship Template from the previous step as the value for `id`. Make sure you select `image/png` as the `Accept` header by selecting the corresponding value from the dropdown list in the bottom right of the Rapidoc route section.
 
 We don't care about the parameters here, so just send an empty JSON in the request body.
 
-{% include rapidoc api_route_regex="^post /api/v1/RelationshipTemplates/Own/{id}/Token$" %}
+{% include rapidoc api_route_regex="^get /api/v1/RelationshipTemplates/{id}$" %}
 
 ## App: Send a Relationship Request
 
-Open the created QR Code, start the Enmeshed App, select or create a profile, navigate to "Kontakte", click on "Kontakt hinzufügen" and scan the QR Code. This will open a screen similar to the one below, where you can see the information that you have added as content to the Relationship Template.
+Open the created QR Code, start the Enmeshed App, select or create a profile, navigate to "Contacts", click on "Add contact" and scan the QR Code. This will open a screen similar to the one below, where you can see the information that you have added as content to the Relationship Template.
 
 !["Add contact" screen]( {{ '/assets/images/add-contact-screen.jpg' | relative_url }} )
 
-Finally, click on "Kontakt hinzufügen" to send the Relationship Request. This will create a new Relationship to the Backbone, which has the status `Pending`.
+Finally, fill out the required fields and click on "Accept Relationship" to send the Relationship Request. This will create a new Relationship to the Backbone, which has the status `Pending`.
 
 ## Connector: Accept the Relationship Request
 
@@ -138,11 +202,11 @@ To send a Message, all you need to do is call the `POST /api/v1/Messages` endpoi
 
 {% include rapidoc api_route_regex="^post /api/v1/Messages$" %}
 
-After you have sent this request, you should receive a push notification on your phone. Open the Enmeshed App, navigate to "Kontakte" and select your Relationship. You should see the Message in the list. You can show details by tapping on it.
+After you have sent this request, you should receive a push notification on your phone. Open the Enmeshed App, navigate to "Contacts" and select your Relationship. You should see the Message in the list. You can show details by tapping on it.
 
 ## Receiving a Message with a Connector
 
-Next we are going to send a Message from the App to the Connector. Therefore, open the App, navigate to "Kontakte" and select your Relationship. Next, tap on "Neue Nachricht". Enter subject and body an tap on "Absenden".
+Next we are going to send a Message from the App to the Connector. Therefore, open the App, navigate to "Contacts" and select your Relationship. Next, tap on "New Message". Enter subject and body an tap on "Send".
 
 In order to fetch the Message, we need to call the `POST /api/v1/Account/Sync` endpoint again.
 
