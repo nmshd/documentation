@@ -20,7 +20,7 @@ The following steps include small pieces of the Connector's API documentation th
 
 In order to communicate with another Identity, a Relationship to that Identity is required. In this first part of the tutorial you will learn how to establish a Relationship between your Connector and another Identity. In this case the other Identity will be the using the App, but it could be another Connector as well.
 
-## Connector: Create a Relationship Template
+## Connector: Create an Attribute
 
 As a prerequisite we provided an Attribute in the Connector that can be shared in the following step by executing `POST /api/v1/Attributes` with the following payload:
 
@@ -28,28 +28,23 @@ As a prerequisite we provided an Attribute in the Connector that can be shared i
 {
     "content": {
         "@type": "IdentityAttribute",
-        "owner": "id16RPQxvUC8S5aTrRhs3yrDXq6cLkbbBsTY",
+        "owner": "<your connector's identity address>",
         "value": {
             "@type": "DisplayName",
-            "value": "ConnectorV2 Demo"
+            "value": "Connector Tutorial"
         }
     }
 }
 ```
 
-This request resulted in the following response. The `id` of the resulting attribute will be used to share it in the next step.
+You can query the Connectors Address under the route `/api/v1/Account/IdentityInfo`. If you are using our provided Connector please use `id16RPQxvUC8S5aTrRhs3yrDXq6cLkbbBsTY`.
+{: .notice--info}
 
-```jsonc
-{
-    "result": {
-        "id": "ATT4wDrIP5ryRAMipaDv",
-        "content": {
-            // the content of the request above
-        },
-        "createdAt": "2022-08-10T12:47:42.160Z"
-    }
-}
-```
+{% include rapidoc api_route_regex="^post /api/v1/Attributes$" %}
+
+Remember the `id` of the Attribute that you can find in the response. You will need it in the next step.
+
+## Connector: Create a Relationship Template
 
 Start by creating a so called Relationship Template on the Connector. You can do so by calling the `POST /api/v1/RelationshipTemplates/Own` route. Use the following JSON in the request body:
 
