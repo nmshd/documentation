@@ -8,6 +8,8 @@ In this tutorial we go through the basic steps necessary to establish a Relation
 
 The following steps include small pieces of the Connector's API documentation that, when executed, fire requests on a Connector created for testing purposes. So if you don't have an own Connector installed, feel free to use the samples directly. Otherwise you can use your own Connector either with a REST client (e.g. [Insomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/)) or by using the RapiDoc documentation (`/docs/rapidoc`) hosted on your Connector (you have to [enable docs on your connector]({% link _docs_integrate/11-connector-configuration.md %}#corehttpapi) for the documentation route to work).
 
+The payloads for the requests the will be performed during this tutorial contain placeholders marked with `<...>`. Please replace them with values.
+
 # Prerequisites
 
 -   If you want to use your own Connector for executing the examples
@@ -68,13 +70,13 @@ Start by creating a so called Relationship Template on the Connector. You can do
                             "mustBeAccepted": true,
                             "attribute": {
                                 "@type": "IdentityAttribute",
-                                "owner": "id16RPQxvUC8S5aTrRhs3yrDXq6cLkbbBsTY",
+                                "owner": "<your connector's identity address>",
                                 "value": {
                                     "@type": "DisplayName",
                                     "value": "ConnectorV2 Demo"
                                 }
                             },
-                            "sourceAttributeId": "ATT4wDrIP5ryRAMipaDv"
+                            "sourceAttributeId": "<the id of the attribute created above>"
                         }
                     ]
                 },
