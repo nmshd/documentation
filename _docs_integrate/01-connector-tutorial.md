@@ -46,6 +46,72 @@ You can query the Connectors Address under the route `/api/v1/Account/IdentityIn
 
 Remember the `id` of the Attribute that you can find in the response. You will need it in the next step.
 
+## Connector: Test your Requests Validity
+
+In order to make sure the Request and its items are valid you can validate it calling the `POST /api/v1/Requests/Outgoing/Validate` route. Send the Request that will be used later under `onNewRelationship` in the Relationship Template.
+
+```json
+{
+    "content": {
+        "items": [
+            {
+                "@type": "RequestItemGroup",
+                "mustBeAccepted": true,
+                "title": "Shared Attributes",
+                "items": [
+                    {
+                        "@type": "ShareAttributeRequestItem",
+                        "mustBeAccepted": true,
+                        "attribute": {
+                            "@type": "IdentityAttribute",
+                            "owner": "",
+                            "value": {
+                                "@type": "DisplayName",
+                                "value": "ConnectorV2 Demo"
+                            }
+                        },
+                        "sourceAttributeId": "<the id of the attribute created above>"
+                    }
+                ]
+            },
+            {
+                "@type": "RequestItemGroup",
+                "mustBeAccepted": true,
+                "title": "Requested Attributes",
+                "items": [
+                    {
+                        "@type": "ReadAttributeRequestItem",
+                        "mustBeAccepted": true,
+                        "query": {
+                            "@type": "IdentityAttributeQuery",
+                            "valueType": "Surname"
+                        }
+                    },
+                    {
+                        "@type": "ReadAttributeRequestItem",
+                        "mustBeAccepted": true,
+                        "query": {
+                            "@type": "IdentityAttributeQuery",
+                            "valueType": "GivenName"
+                        }
+                    },
+                    {
+                        "@type": "ReadAttributeRequestItem",
+                        "mustBeAccepted": false,
+                        "query": {
+                            "@type": "IdentityAttributeQuery",
+                            "valueType": "EMailAddress"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
+{% include rapidoc api_route_regex="^post /api/v1/Requests/Outgoing/Validate$" %}
+
 ## Connector: Create a Relationship Template
 
 Start by creating a so called Relationship Template on the Connector. You can do so by calling the `POST /api/v1/RelationshipTemplates/Own` route. Use the following JSON in the request body:
@@ -58,7 +124,6 @@ Start by creating a so called Relationship Template on the Connector. You can do
         "@type": "RelationshipTemplateBody",
         "title": "Connector Demo Contact",
         "onNewRelationship": {
-            "@type": "Request",
             "items": [
                 {
                     "@type": "RequestItemGroup",
@@ -66,11 +131,11 @@ Start by creating a so called Relationship Template on the Connector. You can do
                     "title": "Shared Attributes",
                     "items": [
                         {
-                            "@type": "CreateAttributeRequestItem",
+                            "@type": "ShareAttributeRequestItem",
                             "mustBeAccepted": true,
                             "attribute": {
                                 "@type": "IdentityAttribute",
-                                "owner": "<your connector's identity address>",
+                                "owner": "",
                                 "value": {
                                     "@type": "DisplayName",
                                     "value": "ConnectorV2 Demo"
