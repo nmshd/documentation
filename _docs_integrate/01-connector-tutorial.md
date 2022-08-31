@@ -116,7 +116,7 @@ In order to make sure the Request and its items are valid you can validate it ca
 
 Start by creating a so called Relationship Template on the Connector. You can do so by calling the `POST /api/v1/RelationshipTemplates/Own` route. Use the following JSON in the request body:
 
-```json
+```jsonc
 {
     "maxNumberOfAllocations": 1,
     "expiresAt": "2023-06-01T00:00:00.000Z",
@@ -124,7 +124,7 @@ Start by creating a so called Relationship Template on the Connector. You can do
         "@type": "RelationshipTemplateBody",
         "title": "Connector Demo Contact",
         "onNewRelationship": {
-            // the content validated in the step before
+            // <the content validated in the step before>
         }
     }
 }
