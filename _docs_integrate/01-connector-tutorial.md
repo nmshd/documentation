@@ -8,7 +8,7 @@ In this tutorial we go through the basic steps necessary to establish a Relation
 
 The following steps include small pieces of the Connector's API documentation that, when executed, fire requests on a Connector created for testing purposes. So if you don't have an own Connector installed, feel free to use the samples directly. Otherwise you can use your own Connector either with a REST client (e.g. [Insomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/)) or by using the RapiDoc documentation (`/docs/rapidoc`) hosted on your Connector (you have to [enable docs on your connector]({% link _docs_integrate/11-connector-configuration.md %}#corehttpapi) for the documentation route to work).
 
-The payloads for the requests the will be performed during this tutorial contain placeholders marked with `<...>`. Please replace them with values.
+The payloads for the requests that will be performed during this tutorial contain placeholders marked with `<...>`. Please replace them with values.
 
 # Prerequisites
 
@@ -16,7 +16,7 @@ The payloads for the requests the will be performed during this tutorial contain
     -   [Install the Connector]({% link _docs_integrate/10-connector-installation.md %})
     -   Make sure the [Sync Module is disabled]({% link _docs_integrate/11-connector-configuration.md %}#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
     -   Get the API key configured for the Connector. Ask the person who installed the Connector for it.
--   You need the [Enmeshed App]({% link _pages/use.md %}) installed on your mobile device (App language set to `English`).
+-   You need the [Enmeshed App]({% link _pages/use.md %}) installed on your mobile device (in this tutorial we refer to the UI texts in English).
 
 # Establishing Relationships
 
@@ -24,7 +24,7 @@ In order to communicate with another Identity, a Relationship to that Identity i
 
 ## Connector: Create an Attribute
 
-As a prerequisite we provided an Attribute in the Connector that can be shared in the following step by executing `POST /api/v1/Attributes` with the following payload:
+In order to share an Attribute via a Relationship Template, we need to create one by executing `POST /api/v1/Attributes` with the following payload:
 
 ```json
 {
@@ -39,7 +39,7 @@ As a prerequisite we provided an Attribute in the Connector that can be shared i
 }
 ```
 
-You can query the Connectors Address under the route `/api/v1/Account/IdentityInfo`. If you are using our provided Connector please use `id16RPQxvUC8S5aTrRhs3yrDXq6cLkbbBsTY`.
+You can query the Connector's Address under the route `/api/v1/Account/IdentityInfo`. If you are using the Demo Connector of this Tutorial, the Address is `id16RPQxvUC8S5aTrRhs3yrDXq6cLkbbBsTY`.
 {: .notice--info}
 
 {% include rapidoc api_route_regex="^post /api/v1/Attributes$" %}
@@ -48,7 +48,7 @@ Remember the `id` of the Attribute that you can find in the response. You will n
 
 ## Connector: Test your Requests Validity
 
-In order to make sure the Request and its items are valid you can validate it calling the `POST /api/v1/Requests/Outgoing/Validate` route. Send the Request that will be used later under `onNewRelationship` in the Relationship Template.
+In order to make sure the Request and its items are valid you can validate it calling the `POST /api/v1/Requests/Outgoing/Validate` route. The payload contains one group of Requests containing Attributes that will be shared to the peer and one group of Requests that queries Attributes by the peer.
 
 ```json
 {
@@ -124,59 +124,7 @@ Start by creating a so called Relationship Template on the Connector. You can do
         "@type": "RelationshipTemplateBody",
         "title": "Connector Demo Contact",
         "onNewRelationship": {
-            "items": [
-                {
-                    "@type": "RequestItemGroup",
-                    "mustBeAccepted": true,
-                    "title": "Shared Attributes",
-                    "items": [
-                        {
-                            "@type": "ShareAttributeRequestItem",
-                            "mustBeAccepted": true,
-                            "attribute": {
-                                "@type": "IdentityAttribute",
-                                "owner": "",
-                                "value": {
-                                    "@type": "DisplayName",
-                                    "value": "ConnectorV2 Demo"
-                                }
-                            },
-                            "sourceAttributeId": "<the id of the attribute created above>"
-                        }
-                    ]
-                },
-                {
-                    "@type": "RequestItemGroup",
-                    "mustBeAccepted": true,
-                    "title": "Requested Attributes",
-                    "items": [
-                        {
-                            "@type": "ReadAttributeRequestItem",
-                            "mustBeAccepted": true,
-                            "query": {
-                                "@type": "IdentityAttributeQuery",
-                                "valueType": "Surname"
-                            }
-                        },
-                        {
-                            "@type": "ReadAttributeRequestItem",
-                            "mustBeAccepted": true,
-                            "query": {
-                                "@type": "IdentityAttributeQuery",
-                                "valueType": "GivenName"
-                            }
-                        },
-                        {
-                            "@type": "ReadAttributeRequestItem",
-                            "mustBeAccepted": false,
-                            "query": {
-                                "@type": "IdentityAttributeQuery",
-                                "valueType": "EMailAddress"
-                            }
-                        }
-                    ]
-                }
-            ]
+            // the content validated in the step before
         }
     }
 }
@@ -188,7 +136,7 @@ Remember the `id` of the Relationship Template that you can find in the response
 
 ## Connector: Create a QRCode for the Relationship Template
 
-Since we will use the Enmeshed App to send a Relationship Request to the Connector, we further have to create a QR Code one can scan with the App to retrieve the Relationship Template and send a Relationship Request to the Connector. Execute the `POST /api/v1/RelationshipTemplates/{id}` route (`image/png`) to create a QRCode. Use the ID of the Relationship Template from the previous step as the value for `id`. Make sure you select `image/png` as the `Accept` header by selecting the corresponding value from the dropdown list in the bottom right of the Rapidoc route section.
+Since we will use the Enmeshed App to send a Relationship Request to the Connector, we further have to create a QR Code one can scan with the App to retrieve the Relationship Template and send a Relationship Request to the Connector. Execute the `GET /api/v1/RelationshipTemplates/{id}` route (Accept Header: `image/png`) to create a QRCode. Use the ID of the Relationship Template from the previous step as the value for `id`. Make sure you select `image/png` as the `Accept` header by selecting the corresponding value from the dropdown list in the bottom right of the Rapidoc route section.
 
 We don't care about the parameters here, so just send an empty JSON in the request body.
 
