@@ -48,7 +48,7 @@ Remember the `id` of the Attribute that you can find in the response. You will n
 
 ## Connector: Test your Requests Validity
 
-In order to make sure the Request and its items are valid you can validate it calling the `POST /api/v1/Requests/Outgoing/Validate` route. The payload contains one group of Requests containing Attributes that will be shared to the peer and one group of Requests that queries Attributes by the peer.
+In order to make sure the Request and its items are valid you can validate it calling the `POST /api/v1/Requests/Outgoing/Validate` route. The payload contains one group of Requests containing Attributes that will be shared to the peer and one group of Requests that queries Attributes of the peer.
 
 ```json
 {
