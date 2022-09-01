@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-08-10T11:04:03+02:00">
+  <meta property="article:published_time" content="2022-09-01T09:30:23+02:00">
 
 
 
@@ -279,7 +279,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Tutorial">
     <meta itemprop="description" content="In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization.">
-    <meta itemprop="datePublished" content="2022-08-10T11:04:03+02:00">
+    <meta itemprop="datePublished" content="2022-09-01T09:30:23+02:00">
     
 
     <div class="page__inner-wrap">
@@ -300,7 +300,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#establishing-relationships">Establishing Relationships</a><ul><li><a href="#connector-create-a-relationship-template">Connector: Create a Relationship Template</a></li><li><a href="#connector-create-a-token">Connector: Create a Token</a></li><li><a href="#app-send-a-relationship-request">App: Send a Relationship Request</a></li><li><a href="#connector-accept-the-relationship-request">Connector: Accept the Relationship Request</a></li></ul></li><li><a href="#sending-and-receiving-messages">Sending and Receiving Messages</a><ul><li><a href="#sending-a-message-with-a-connector">Sending a Message with a Connector</a></li><li><a href="#receiving-a-message-with-a-connector">Receiving a Message with a Connector</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#establishing-relationships">Establishing Relationships</a><ul><li><a href="#connector-create-an-attribute">Connector: Create an Attribute</a></li><li><a href="#connector-test-your-requests-validity">Connector: Test your Requests Validity</a></li><li><a href="#connector-create-a-relationship-template">Connector: Create a Relationship Template</a></li><li><a href="#connector-create-a-qrcode-for-the-relationship-template">Connector: Create a QRCode for the Relationship Template</a></li><li><a href="#app-send-a-relationship-request">App: Send a Relationship Request</a></li><li><a href="#connector-accept-the-relationship-request">Connector: Accept the Relationship Request</a></li></ul></li><li><a href="#sending-and-receiving-messages">Sending and Receiving Messages</a><ul><li><a href="#sending-a-message-with-a-connector">Sending a Message with a Connector</a></li><li><a href="#receiving-a-message-with-a-connector">Receiving a Message with a Connector</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -308,6 +308,8 @@
         <p>In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization.</p>
 
 <p>The following steps include small pieces of the Connector’s API documentation that, when executed, fire requests on a Connector created for testing purposes. So if you don’t have an own Connector installed, feel free to use the samples directly. Otherwise you can use your own Connector either with a REST client (e.g. <a href="https://insomnia.rest/">Insomnia</a> or <a href="https://www.postman.com/">Postman</a>) or by using the RapiDoc documentation (<code class="language-plaintext highlighter-rouge">/docs/rapidoc</code>) hosted on your Connector (you have to <a href="/versions/2.0.0/integrate/connector-configuration#corehttpapi">enable docs on your connector</a> for the documentation route to work).</p>
+
+<p>The payloads for the requests that will be performed during this tutorial contain placeholders marked with <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code>. Please replace them with values.</p>
 
 <h1 id="prerequisites">Prerequisites</h1>
 
@@ -319,44 +321,118 @@
       <li>Get the API key configured for the Connector. Ask the person who installed the Connector for it.</li>
     </ul>
   </li>
-  <li>
-    <p>You need the <a href="/versions/2.0.0/use">Enmeshed App</a> installed on your mobile device.</p>
-  </li>
-  <li>Diagramm</li>
+  <li>You need the <a href="/versions/2.0.0/use">Enmeshed App</a> installed on your mobile device (in this tutorial we refer to the UI texts in English).</li>
 </ul>
 
 <h1 id="establishing-relationships">Establishing Relationships</h1>
 
 <p>In order to communicate with another Identity, a Relationship to that Identity is required. In this first part of the tutorial you will learn how to establish a Relationship between your Connector and another Identity. In this case the other Identity will be the using the App, but it could be another Connector as well.</p>
 
+<h2 id="connector-create-an-attribute">Connector: Create an Attribute</h2>
+
+<p>In order to share an Attribute via a Relationship Template, we need to create one by executing <code class="language-plaintext highlighter-rouge">POST /api/v1/Attributes</code> with the following payload:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;your connector's identity address&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DisplayName"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Connector Tutorial"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p class="notice--info">You can query the Connector’s Address under the route <code class="language-plaintext highlighter-rouge">/api/v1/Account/IdentityInfo</code>. If you are using the Demo Connector of this Tutorial, the Address is <code class="language-plaintext highlighter-rouge">id16RPQxvUC8S5aTrRhs3yrDXq6cLkbbBsTY</code>.</p>
+
+<h6>Corresponding interactive API docs excerpt:</h6>
+
+<rapi-doc-mini server-url="https://doc-demo-v2.is.enmeshed.eu/" default-api-server="https://doc-demo-v2.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v2.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v1/Attributes$" match-type="regex"></rapi-doc-mini>
+<p><br /></p>
+
+<p>Remember the <code class="language-plaintext highlighter-rouge">id</code> of the Attribute that you can find in the response. You will need it in the next step.</p>
+
+<h2 id="connector-test-your-requests-validity">Connector: Test your Requests Validity</h2>
+
+<p>In order to make sure the Request and its items are valid you can validate it calling the <code class="language-plaintext highlighter-rouge">POST /api/v1/Requests/Outgoing/Validate</code> route. The payload contains one group of Requests containing Attributes that will be shared to the peer and one group of Requests that queries Attributes of the peer.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RequestItemGroup"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shared Attributes"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ShareAttributeRequestItem"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DisplayName"</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ConnectorV2 Demo"</span><span class="w">
+                            </span><span class="p">}</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nl">"sourceAttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;the id of the attribute created above&gt;"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RequestItemGroup"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Requested Attributes"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ReadAttributeRequestItem"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttributeQuery"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Surname"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ReadAttributeRequestItem"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttributeQuery"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GivenName"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ReadAttributeRequestItem"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttributeQuery"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMailAddress"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h6>Corresponding interactive API docs excerpt:</h6>
+
+<rapi-doc-mini server-url="https://doc-demo-v2.is.enmeshed.eu/" default-api-server="https://doc-demo-v2.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v2.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v1/Requests/Outgoing/Validate$" match-type="regex"></rapi-doc-mini>
+<p><br /></p>
+
 <h2 id="connector-create-a-relationship-template">Connector: Create a Relationship Template</h2>
 
 <p>Start by creating a so called Relationship Template on the Connector. You can do so by calling the <code class="language-plaintext highlighter-rouge">POST /api/v1/RelationshipTemplates/Own</code> route. Use the following JSON in the request body:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"maxNumberOfRelationships"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"expiresAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-06-01T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"maxNumberOfAllocations"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expiresAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-01T00:00:00.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thing.name"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contoso"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person.familyName"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person.givenName"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nl">"optional"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comm.email"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RelationshipTemplateBody"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Connector Demo Contact"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"onNewRelationship"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="c1">// &lt;the content validated in the step before&gt;</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -364,29 +440,29 @@
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v1/RelationshipTemplates/Own$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v2.is.enmeshed.eu/" default-api-server="https://doc-demo-v2.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v2.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v1/RelationshipTemplates/Own$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <p>Remember the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship Template that you can find in the response. You will need it in the next step.</p>
 
-<h2 id="connector-create-a-token">Connector: Create a Token</h2>
+<h2 id="connector-create-a-qrcode-for-the-relationship-template">Connector: Create a QRCode for the Relationship Template</h2>
 
-<p>Now you need a so called Token. Since we will use the Enmeshed App to send a Relationship Request to the Connector, we further have to create a QR Code one can scan with the App to retrieve the Relationship Template and send a Relationship Request to the Connector. Execute the <code class="language-plaintext highlighter-rouge">POST /api/v1/RelationshipTemplates/Own/{id}/Token</code> route to create such a Token. Use the ID of the Relationship Template from the previous step as the value for <code class="language-plaintext highlighter-rouge">id</code>. Make sure you select <code class="language-plaintext highlighter-rouge">image/png</code> as the <code class="language-plaintext highlighter-rouge">Accept</code> header by selecting the corresponding value from the dropdown list in the bottom right of the Rapidoc route section.</p>
+<p>Since we will use the Enmeshed App to send a Relationship Request to the Connector, we further have to create a QR Code one can scan with the App to retrieve the Relationship Template and send a Relationship Request to the Connector. Execute the <code class="language-plaintext highlighter-rouge">GET /api/v1/RelationshipTemplates/{id}</code> route (Accept Header: <code class="language-plaintext highlighter-rouge">image/png</code>) to create a QRCode. Use the ID of the Relationship Template from the previous step as the value for <code class="language-plaintext highlighter-rouge">id</code>. Make sure you select <code class="language-plaintext highlighter-rouge">image/png</code> as the <code class="language-plaintext highlighter-rouge">Accept</code> header by selecting the corresponding value from the dropdown list in the bottom right of the Rapidoc route section.</p>
 
 <p>We don’t care about the parameters here, so just send an empty JSON in the request body.</p>
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v1/RelationshipTemplates/Own/{id}/Token$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v2.is.enmeshed.eu/" default-api-server="https://doc-demo-v2.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v2.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^get /api/v1/RelationshipTemplates/{id}$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <h2 id="app-send-a-relationship-request">App: Send a Relationship Request</h2>
 
-<p>Open the created QR Code, start the Enmeshed App, select or create a profile, navigate to “Kontakte”, click on “Kontakt hinzufügen” and scan the QR Code. This will open a screen similar to the one below, where you can see the information that you have added as content to the Relationship Template.</p>
+<p>Open the created QR Code, start the Enmeshed App, select or create a profile, navigate to “Contacts”, click on “Add contact” and scan the QR Code. This will open a screen similar to the one below, where you can see the information that you have added as content to the Relationship Template.</p>
 
 <p><img src="/versions/2.0.0/assets/images/add-contact-screen.jpg" alt="&quot;Add contact&quot; screen" /></p>
 
-<p>Finally, click on “Kontakt hinzufügen” to send the Relationship Request. This will create a new Relationship to the Backbone, which has the status <code class="language-plaintext highlighter-rouge">Pending</code>.</p>
+<p>Finally, fill out the required fields and click on “Accept Relationship” to send the Relationship Request. This will create a new Relationship to the Backbone, which has the status <code class="language-plaintext highlighter-rouge">Pending</code>.</p>
 
 <h2 id="connector-accept-the-relationship-request">Connector: Accept the Relationship Request</h2>
 
@@ -394,7 +470,7 @@
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v1/Account/Sync$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v2.is.enmeshed.eu/" default-api-server="https://doc-demo-v2.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v2.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v1/Account/Sync$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <p>In the response you will receive the created Relationship, which contains corresponding Relationship Creation Change.</p>
@@ -428,7 +504,7 @@
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^put /api/v1/Relationships/{id}/Changes/{changeId}/Accept$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v2.is.enmeshed.eu/" default-api-server="https://doc-demo-v2.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v2.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^put /api/v1/Relationships/{id}/Changes/{changeId}/Accept$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <p>Now the Relationship is in the <code class="language-plaintext highlighter-rouge">Active</code> state, so we can start to communicate with the opposite Identity, which we will do in the next part of this tutorial. In order to do so we will need the Address of that Identity. So in the response of the last request look for the <code class="language-plaintext highlighter-rouge">peer</code> property and write down its value. It should start with <code class="language-plaintext highlighter-rouge">id1</code>.</p>
@@ -454,20 +530,20 @@
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v1/Messages$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v2.is.enmeshed.eu/" default-api-server="https://doc-demo-v2.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v2.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v1/Messages$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
-<p>After you have sent this request, you should receive a push notification on your phone. Open the Enmeshed App, navigate to “Kontakte” and select your Relationship. You should see the Message in the list. You can show details by tapping on it.</p>
+<p>After you have sent this request, you should receive a push notification on your phone. Open the Enmeshed App, navigate to “Contacts” and select your Relationship. You should see the Message in the list. You can show details by tapping on it.</p>
 
 <h2 id="receiving-a-message-with-a-connector">Receiving a Message with a Connector</h2>
 
-<p>Next we are going to send a Message from the App to the Connector. Therefore, open the App, navigate to “Kontakte” and select your Relationship. Next, tap on “Neue Nachricht”. Enter subject and body an tap on “Absenden”.</p>
+<p>Next we are going to send a Message from the App to the Connector. Therefore, open the App, navigate to “Contacts” and select your Relationship. Next, tap on “New Message”. Enter subject and body an tap on “Send”.</p>
 
 <p>In order to fetch the Message, we need to call the <code class="language-plaintext highlighter-rouge">POST /api/v1/Account/Sync</code> endpoint again.</p>
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v1/Account/Sync$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v2.is.enmeshed.eu/" default-api-server="https://doc-demo-v2.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v2.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v1/Account/Sync$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <p>The response should contain a Message with the content you entered in the App.</p>
@@ -482,7 +558,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-08-10T11:04:03+02:00">August 10, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-09-01T09:30:23+02:00">September 1, 2022</time></p>
 
       </footer>
 
