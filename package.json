@@ -8,8 +8,5 @@
     "author": "j&s-soft GmbH",
     "scripts": {
         "start": "bundle exec jekyll serve"
-    },
-    "devDependencies": {
-        "prettier": "^2.7.1"
     }
 }
