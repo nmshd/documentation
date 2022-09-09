@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Enmeshed Data Model - Enmeshed</title>
-<meta name="description" content="The documentation of the Enmeshed V2 Data Model is currently under construction and will be available soon.">
+<meta name="description" content="The Enmeshed data model can be devided into three parts:">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="/versions/2.0.0/explore/data-model">
 
 
-  <meta property="og:description" content="The documentation of the Enmeshed V2 Data Model is currently under construction and will be available soon.">
+  <meta property="og:description" content="The Enmeshed data model can be devided into three parts:">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-09-01T09:30:23+02:00">
+  <meta property="article:published_time" content="2022-09-09T11:57:13+02:00">
 
 
 
@@ -266,7 +266,7 @@
           
             <li><a href="/versions/2.0.0/explore/runtime">Runtime</a></li>
           
-            <li><a href="/versions/2.0.0/explore/schema">Schema</a></li>
+            <li><a href="/versions/2.0.0/explore/data-model" class="active">Data Model</a></li>
           
             <li><a href="/versions/2.0.0/explore/cryptography">Cryptography</a></li>
           
@@ -288,8 +288,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Enmeshed Data Model">
-    <meta itemprop="description" content="The documentation of the Enmeshed V2 Data Model is currently under construction and will be available soon.">
-    <meta itemprop="datePublished" content="2022-09-01T09:30:23+02:00">
+    <meta itemprop="description" content="The Enmeshed data model can be devided into three parts:">
+    <meta itemprop="datePublished" content="2022-09-09T11:57:13+02:00">
     
 
     <div class="page__inner-wrap">
@@ -310,12 +310,581 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#transport-types">Transport Types</a><ul><li><a href="#token">Token</a></li><li><a href="#relationshiptemplate">RelationshipTemplate</a></li><li><a href="#relationship">Relationship</a><ul><li><a href="#relationship-change">Relationship Change</a></li><li><a href="#relationshipchangerequest">RelationshipChangeRequest</a></li><li><a href="#relationshipchangeresponse">RelationshipChangeResponse</a></li></ul></li><li><a href="#message">Message</a><ul><li><a href="#recipient">Recipient</a></li></ul></li><li><a href="#file">File</a></li></ul></li><li><a href="#local-types">Local Types</a></li></ul>
 
             </nav>
           </aside>
         
-        <p>The documentation of the Enmeshed V2 Data Model is currently under construction and will be available soon.</p>
+        <p>The Enmeshed data model can be devided into three parts:</p>
+
+<ul>
+  <li>Transport types</li>
+  <li>Local types</li>
+  <li>Content types</li>
+</ul>
+
+<p>The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail.</p>
+
+<div style="width: 100%; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:100%; height:480px" src="https://lucid.app/documents/embedded/66e3002c-335a-4c22-a352-3a7a50a17d37" id="uPhuT48AMcNp"></iframe></div>
+
+<p>At a first glance the amount of types is overwhelming. But in the following chapters all of them are explained in detail.</p>
+
+<h1 id="transport-types">Transport Types</h1>
+
+<p>Transport types like <code class="language-plaintext highlighter-rouge">RelationshipTemplate</code>, <code class="language-plaintext highlighter-rouge">Token</code> or <code class="language-plaintext highlighter-rouge">File</code> are types that are “exchanged” between Identities via the Backbone. They are created and updated by the <a href="/versions/2.0.0/explore/layers/transport">Transport Layer</a>. In most cases they have a <code class="language-plaintext highlighter-rouge">content</code> property, which contains the actual payload that should be transferred between the Identities. This payload is being encrypted when it is sent to the Backbone, and decrypted by the other Identity when it is received. The following sections describe the differnt Transport types and their properties.</p>
+
+<p>Note that the properties of the types are the ones that exist locally (aka on the Connector/in the App). The Backbone does not necessarily know about them. The properties that only exist locally are marked accordingly in the tables below. Further there are properties that are confidential and are therefore encrypted before sent to the Backbone, in order to enable end-to-end encryption. Both kinds of these properties are marked accordingly in the “Remarks” coloumn of the property tables below.</p>
+
+<h2 id="token">Token</h2>
+
+<p>Tokens can be used to save arbitrary structured data on the Backbone, which is encrypted with a random symmetric key. You can then pass the ID of the Token, together with the random key, to another Identity, which can then retrieve the token and decrypt it, e.g. inside of a QR Code, which you send to the recipient via letter. Tokens can be handy in a lot of scenarios, for example:</p>
+
+<ul>
+  <li>You want to share secret information with someone you don’t have a Relationship with.</li>
+  <li>The Enmeshed App currently uses a Token to save a Backup of the Identity. ID and secret key are then encoded in a QR Code, which the user can print out and scan later in order to restore the Identity on a new device.</li>
+</ul>
+
+<p>A token has the following properties:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique identifier of this object. <br /><em>Remark: the ID of each Token starts with the letters “TOK”. This way you can tell apart a Token ID from any other ID just by looking at the prefix.</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>createdBy</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The Address of the Identity that created the Token.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>createdByDevice</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The ID of the Device that created the Token. You can use this information to track back who exactly did what.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>content</td>
+      <td><code class="language-plaintext highlighter-rouge">unknown</code></td>
+      <td>The content of the Token. You can add whatever you want here.</td>
+      <td>will be encrypted before sent to the Backbone</td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A timestamp that describes when the Token was created</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>expiresAt</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A timestamp that describes when the Token expires on the Backbone. An expired Token cannot be fetched from the Backbone anymore. However, the cached version of the Token on Connector and App will still be accesible.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>secretKey</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The key with which the Token was encrypted.</td>
+      <td>saved only locally</td>
+    </tr>
+    <tr>
+      <td>truncatedReference</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A base64 encoded string containing all information necessary for another Identity to load the Token. You can use it to share the Token with someone else.</td>
+      <td>saved only locally</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="relationshiptemplate">RelationshipTemplate</h2>
+
+<p>A Relationship Template serves to purposes:</p>
+
+<ol>
+  <li>It represents the permission to establish a Relationship. When sending a Relationship request, the sender has to attach the ID of a valid Relationship Template created by the recipient. Otherwise the Backbone blocks the Relationship request. And since the IDs are randomly generated, you can only obtain such an ID from the recipient.</li>
+  <li>It can contain data which is of intereset for the one who uses the Relationship Template. The Enmeshed App for example expects a Relationship Template content which contains a <code class="language-plaintext highlighter-rouge">Request</code> which contains e.g. Attributes about the creator of the Template as well as queries for Attributes that the Template creator wants to receive together with the Relationship request.</li>
+</ol>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique identifier of this object. <br /><em>Remark: the ID of each Relationship Template starts with the letters “RLT”. This way you can tell apart a Relationship Template ID from any other ID just by looking at the prefix.</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>isOwn</td>
+      <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code> if the Relationship Template was created by yourself, <code class="language-plaintext highlighter-rouge">false</code> if it was created by someone else.</td>
+      <td>saved only locally</td>
+    </tr>
+    <tr>
+      <td>createdBy</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The Address of the Identity that created the Relationship Template.</td>
+      <td>remark</td>
+    </tr>
+    <tr>
+      <td>createdByDevice</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The ID of the Device that created the Relationship Template. You can use this information to track back who exactly did what.</td>
+      <td>remark</td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A timestamp that describes when the Token was created</td>
+      <td>remark</td>
+    </tr>
+    <tr>
+      <td>content</td>
+      <td><a href="#RelationshipTemplateBody"><code class="language-plaintext highlighter-rouge">RelationshipTemplateBody</code></a> | <code class="language-plaintext highlighter-rouge">unknown</code></td>
+      <td>The content of the Relationship Template. You can add whatever you want here. However, if it is intendend for a User of the Enmeshed App, <code class="language-plaintext highlighter-rouge">RelationshipTemplateBody</code> has to be used. Otherwise feel free to insert whatever you want or need.</td>
+      <td>remark</td>
+    </tr>
+    <tr>
+      <td>expiresAt</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A timestamp that describes when the Token expires on the Backbone. An expired Token cannot be fetched from the Backbone anymore. However, the cached version of the Token on Connector and App will still be accesible.</td>
+      <td>will be encrypted before sent to the Backbone</td>
+    </tr>
+    <tr>
+      <td>maxNumberOfRelationships</td>
+      <td><code class="language-plaintext highlighter-rouge">number</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>Can be set to limit the number of Relationships that can be established using this Relationship Template. After this value is reached, the Backbone rejects each request of any new Identity that wants to establish a new Relationship with this Template.</td>
+      <td><em>This property is deprecated and will be removed in the future - use maxNumberOfAllocations instead</em></td>
+    </tr>
+    <tr>
+      <td>maxNumberOfAllocations</td>
+      <td><code class="language-plaintext highlighter-rouge">number</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>Can be set to limit the number of allocations of this template. A Relationship Template is allocated by another Identity when it is first retrieved by it from the Backbone. After this value is reached, the Backbone rejects each request of any new Identity that wants to retrieve it. Identities that already allocated it will still be able to retrieve it.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="relationship">Relationship</h2>
+
+<p>A Relationshipsss between two Identities is the prerequisite for them to exchange Messages. If there is no Relationship, the Backbone blocks all Messages that are tried to be sent. This ensures that you only receive Messages from Identities you know, so you are protected from any harmful Messages like spam or fishing mails.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Remarks</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique identifier of this object. <br /><em>Remark: the ID of each Relationship starts with the letters “REL”. This way you can tell apart a Relationship ID from any other ID just by looking at the prefix.</em></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>template</td>
+      <td><code class="language-plaintext highlighter-rouge">RelationshipTemplate</code></td>
+      <td>The Relationship Template that was used to establish this Relationship.</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td><code class="language-plaintext highlighter-rouge">"Pending"</code> | <code class="language-plaintext highlighter-rouge">"Active"</code> | <code class="language-plaintext highlighter-rouge">"Rejected"</code> | <code class="language-plaintext highlighter-rouge">"Revoked"</code></td>
+      <td>The status of this Relationship. <br /><ul><li>Pending: the Relationship was created, but not yet accepted the recipient. In this state you cannot send Messages yet.</li><li>Active: this means that the Relationship is active. As long as it is active, both participants can exchange Messages.</li><li>Rejected: the Relationship was rejected by the recipient.</li><li>Revoked: the Relationship was revoked by the sender.</li></ul></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>changes</td>
+      <td><code class="language-plaintext highlighter-rouge">RelationshipChange[]</code></td>
+      <td>The history of changes made to this Relationship. You can find the definition of a Relationship Change below.</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>peer</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The Address of the Identity with which you have this Relationship.</td>
+      <td>saved only locally</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastMessageSentAt</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td><code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>A timestamp that describes when you last</td>
+      <td>saved only locally</td>
+    </tr>
+    <tr>
+      <td>lastMessageReceivedAt</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td><code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="relationship-change">Relationship Change</h3>
+
+<p>Since a Relationship “belongs” to two Identities, each change on such a Relationship demands for the agreement of both parties. That’s where Relationship Changes come into play. Whenenver one party wants to make a change to the Relationship (like create or terminate it), it sends a Relationship Change to the other party, which has to accept it in order for the change to take effect. If the other party doesn’t want to accept it, it can also reject it. And if the party that created the Relationship Change changes its mind, it can revoke the Relationship Change. The Backbone makes sure that a Relationship Change can only be completed in one of those three ways (accepted, rejected, revoked). So for example if you try to accept a Relationship Change that is already revoked, you will receive an error.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique identifier of this object. <br /><em>Remark: the ID of each Relationship Change starts with the letters “RCH”. This way you can tell apart a Relationship Change ID from any other ID just by looking at the prefix.</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td><code class="language-plaintext highlighter-rouge">"Pending"</code> |<code class="language-plaintext highlighter-rouge">"Accepted"</code> |<code class="language-plaintext highlighter-rouge">"Rejected"</code> |<code class="language-plaintext highlighter-rouge">"Revoked"</code></td>
+      <td>The current status of the Relationship Change.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td><code class="language-plaintext highlighter-rouge">"Creation"</code></td>
+      <td>The type of the Relationship Change. Currently the only existing type is <code class="language-plaintext highlighter-rouge">Creation</code>. As soon as the termination of Relationships is supported, <code class="language-plaintext highlighter-rouge">Termination</code> will be a second Relationship Change type.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>request</td>
+      <td><code class="language-plaintext highlighter-rouge">RelationshipChangeRequest</code></td>
+      <td>Information about the request of the Relationship Change.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>response</td>
+      <td><code class="language-plaintext highlighter-rouge">RelationshipChangeResponse</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>Information about the response of the Relationship Change.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Note that RelationshipChangeRequest and RelationshipChangeResponse have nothing to do with <a href="#request">Requests</a> and <a href="#response">Responses</a>, which we will discuss later.</p>
+
+<h3 id="relationshipchangerequest">RelationshipChangeRequest</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>createdBy</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The Address of the Identity that created the Relationship Change Request.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>createdByDevice</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The ID of the Device that created the Relationship Change Request. You can use this information to track back who exactly did what.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A timestamp that describes when the Relationship Change Request was created</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>content</td>
+      <td><code class="language-plaintext highlighter-rouge">unknown</code></td>
+      <td>The content of the Relationship Change Request. You can add whatever you want here. However, if the other party uses the Enmeshed App, and the type of the Relationship Change is <code class="language-plaintext highlighter-rouge">Creation</code>, <code class="language-plaintext highlighter-rouge">RelationshipCreationChangeRequestBody</code> has to be used. Otherwise feel free to insert whatever you want or need.</td>
+      <td>will be encrypted before sent to the Backbone</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="relationshipchangeresponse">RelationshipChangeResponse</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>createdBy</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The Address of the Identity that created the Relationship Change Response.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>createdByDevice</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The ID of the Device that created the Relationship Change Response. You can use this information to track back who exactly did what.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A timestamp that describes when the Relationship Change Response was created</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>content</td>
+      <td><code class="language-plaintext highlighter-rouge">unknown</code></td>
+      <td>The content of the Relationship Change Response. You can add whatever you want here. Since the Enmeshed App doesn’t expect any special content here, there is no need to watch out.</td>
+      <td>will be encrypted before sent to the Backbone</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="message">Message</h2>
+
+<p>A Message is a piece of data that can be sent to one or more recipients. The sender is completely free in what the content of the Message looks like. Though in order to enable a normalized communication, Enmeshed defines some content structures for Messages, and in the future there will be more of those. Consider that the Enmeshed App only supports those normalized Message contents. Currently there are:</p>
+
+<ul>
+  <li><a href="#Mail"><code class="language-plaintext highlighter-rouge">Mail</code></a></li>
+  <li><a href="#Request"><code class="language-plaintext highlighter-rouge">Request</code></a></li>
+  <li><a href="#Response"><code class="language-plaintext highlighter-rouge">Response</code></a></li>
+</ul>
+
+<p>You can read more details about each of these in the corresponding sections of the “Content Types” chapter.</p>
+
+<p>But if you are communicating with another Connector, feel free to settle on any content structure that fits your needs.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique identifier of this object. <br /><em>Remark: the ID of each Message starts with the letters “MSG”. This way you can tell apart a Message ID from any other ID just by looking at the prefix.</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>content</td>
+      <td><code class="language-plaintext highlighter-rouge">unknown</code></td>
+      <td>The content of the Message. You can add whatever you want here. However, if it is intendend for a User of the Enmeshed App, use either <code class="language-plaintext highlighter-rouge">Mail</code>, <code class="language-plaintext highlighter-rouge">Request</code> or <code class="language-plaintext highlighter-rouge">Response</code>. Otherwise feel free to insert whatever you want or need.</td>
+      <td>will be encrypted before sent to the Backbone</td>
+    </tr>
+    <tr>
+      <td>createdBy</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The Address of the Identity that created the Message.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>createdByDevice</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The ID of the Device that created the Message. You can use this information to track back who exactly did what.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>recipients</td>
+      <td><code class="language-plaintext highlighter-rouge">Recipient[]</code></td>
+      <td>A list of recipients of this Message.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A timestamp that describes when the Message was created</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>attachments</td>
+      <td><code class="language-plaintext highlighter-rouge">string[]</code></td>
+      <td>A list of <a href="#file">File</a> IDs you want to attach to your Message. You receive the File ID after you uploaded a file to the Backbone. By attaching a File to a Message, you share the secret key used to encrypt/decrypt the File, which cannot be undone.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="recipient">Recipient</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>address</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The Address of the recipient of the Message.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>relationshipId</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The ID of the Relationship between the recipient and the sender of the Message.</td>
+      <td>saved only locally</td>
+    </tr>
+    <tr>
+      <td>receivedAt</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>A timestamp that describes when the recipient retrieved the Message from the Backbone. <code class="language-plaintext highlighter-rouge">undefined</code> when the Message wasn’t received yet. Caution: “received”” does not mean that it was read, so don’t mix this up with a read receipt.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>receivedByDevice</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>The ID of the Device that first retrieved the Message. <code class="language-plaintext highlighter-rouge">undefined</code> when the Message wasn’t received yet. This is of no interest for the sender of the Message, but rather for the recipient itself, since they can use it for audit purposes. sender</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="file">File</h2>
+
+<p>The Backbone allows you to upload files, which are saved as - you guessed it - <code class="language-plaintext highlighter-rouge">Files</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique identifier of this object. <br /><em>Remark: the ID of each File starts with the letters “FIL”. This way you can tell apart a File ID from any other ID just by looking at the prefix.</em></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>createdAt</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A timestamp that describes when the File was created</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>createdBy</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The Address of the Identity that created the File.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>createdByDevice</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The ID of the Device that created the File. You can use this information to track back who exactly did what.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>expiresAt</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A timestamp that describes when the File expires on the Backbone. An expired File cannot be fetched from the Backbone anymore. However, the cached version of the File on Connector and App will still be accesible.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>filename</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The name of the file as it was on the device that uploaded it.</td>
+      <td>will be encrypted before sent to the Backbone</td>
+    </tr>
+    <tr>
+      <td>filesize</td>
+      <td><code class="language-plaintext highlighter-rouge">number</code></td>
+      <td>The size of the plaintext file in bytes.</td>
+      <td>will be encrypted before sent to the Backbone</td>
+    </tr>
+    <tr>
+      <td>mimetype</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types">mimetype</a> of the file.</td>
+      <td>will be encrypted before sent to the Backbone</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A human readable title of the file, which can be defined when uploading the File.</td>
+      <td>will be encrypted before sent to the Backbone</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>A human readable description of the file, which can be defined when uploading the File.</td>
+      <td>will be encrypted before sent to the Backbone</td>
+    </tr>
+    <tr>
+      <td>secretKey</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The key that was used to encrypt the File.</td>
+      <td>saved only locally</td>
+    </tr>
+    <tr>
+      <td>isOwn</td>
+      <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code> if the File was created by yourself, <code class="language-plaintext highlighter-rouge">false</code> if it was created by someone else.</td>
+      <td>saved only locally</td>
+    </tr>
+    <tr>
+      <td>truncatedReference</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A base64 encoded string containing all information necessary for another Identity to load the File. You can use it to share the File with someone else.</td>
+      <td>saved only locally</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A File further has its content, of course. But since this is not a JSON property, it is not included in this table. You can download the content of the File separately.</p>
+
+<h1 id="local-types">Local Types</h1>
+
+<p>The documentation of Local Types will follow soon.</p>
 
         
       </section>
@@ -327,7 +896,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-09-01T09:30:23+02:00">September 1, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-09-09T11:57:13+02:00">September 9, 2022</time></p>
 
       </footer>
 
@@ -340,7 +909,7 @@
 ">Previous</a>
     
     
-      <a href="/versions/2.0.0/explore/schema" class="pagination--pager" title="Enmeshed Schema
+      <a href="/versions/2.0.0/explore/cryptography" class="pagination--pager" title="Cryptography
 ">Next</a>
     
   </nav>

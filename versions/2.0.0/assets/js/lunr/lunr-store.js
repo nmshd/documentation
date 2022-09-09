@@ -102,15 +102,9 @@ var store = [{
         "teaser": null
       },{
         "title": "Enmeshed Data Model",
-        "excerpt":"The documentation of the Enmeshed V2 Data Model is currently under construction and will be available soon.  ","categories": [],
+        "excerpt":"The Enmeshed data model can be devided into three parts: Transport types Local types Content types The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail. At a first glance the...","categories": [],
         "tags": [],
         "url": "/versions/2.0.0/explore/data-model",
-        "teaser": null
-      },{
-        "title": "Enmeshed Schema",
-        "excerpt":"The Enmeshed Schema normalized many common data structures to a single set which can be understood by all Enmeshed participants. It is the definition of cross-identity payload schemas and thus needs to be kept as stable as possible. In general, structured data communicated via Enmeshed is in JSON format. It...","categories": [],
-        "tags": [],
-        "url": "/versions/2.0.0/explore/schema",
         "teaser": null
       },{
         "title": "Cryptography",
