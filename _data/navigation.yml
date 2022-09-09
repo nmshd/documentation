@@ -69,8 +69,8 @@ docs_explore:
     children:
       - title: "Runtime"
         url: /explore/runtime
-      - title: "Schema"
-        url: /explore/schema
+      - title: "Data Model"
+        url: /explore/data-model
       - title: "Cryptography"
         url: /explore/cryptography
       - title: "Why no blockchain?"

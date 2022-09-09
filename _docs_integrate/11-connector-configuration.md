@@ -170,7 +170,7 @@ Every Module can be enabled or disabled by passing true / false to `enabled`. Re
 
 ### autoAcceptRelationshipCreationChanges <a href="{% link _docs_integrate/03-connector-modules.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationshipcreationchanges}
 
-It is not recommended to use this Module for production szenarios.
+It is not recommended to use this Module for production scenarios.
 {: .notice--danger}
 
 ```json
@@ -208,14 +208,14 @@ It is not recommended to use this Module for production szenarios.
 
 -   **docs:enabled** `default: true`
 
-    It is not recommended to enable the docs in production szenarios.
+    It is not recommended to enable the docs in production scenarios.
     {: .notice--danger}
 
     Enable / disable the `/docs/json` and `/docs/yaml` routes and the rendered swagger / rapidoc documentations.
 
 -   **docs:rapidoc:persistAuth** `default: false`
 
-    It is not recommended to enable the authentication persistence in production szenarios.
+    It is not recommended to enable the authentication persistence in production scenarios.
     {: .notice--danger}
 
     If set to `true` rapidoc persists the API Key in the local storage of the browser.

@@ -21,7 +21,7 @@ Compared to [webhooks](#webhooksv2), this gives you the full feature set of a me
 
 ### Auto Accept Relationship Creation Changes <a href="{% link _docs_integrate/11-connector-configuration.md %}#autoacceptrelationshipcreationchange"><i class="fas fa-fw fa-cog"/></a> {#autoacceptrelationshipcreationchange}
 
-It is not recommended to use this Module for production szenarios.
+It is not recommended to use this Module for production scenarios.
 {: .notice--danger}
 
 The `autoAcceptRelationshipCreationChanges` Module listens to the events about incoming Relationship Change Requests. It immediately accepts the Requests, using the configured `responseContent`.
