@@ -166,12 +166,12 @@ Every Module can be enabled or disabled by passing true / false to `enabled`. Re
 
 -   **exchange** `default: ""`
 
-It is not recommended to use this module for production scenarios.
-{: .notice--danger}
+    The name of the AMQP exchange to publish to.
 
 ### autoAcceptRelationshipCreationChanges <a href="{% link _docs_integrate/03-connector-modules.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationshipcreationchanges}
 
-#### Configuration
+It is not recommended to use this Module for production scenarios.
+{: .notice--danger}
 
 ```json
 {
@@ -220,18 +220,27 @@ It is not recommended to use this module for production scenarios.
 
     If set to `true` rapidoc persists the API Key in the local storage of the browser.
 
-### webhooks
+### sync <a href="{% link _docs_integrate/03-connector-modules.md %}#sync"><i class="fas fa-fw fa-info-circle"/></a> {#sync}
 
-This module is deprecated in favor of the [webhooksV2](#webhooksv2) module.
+```json
+{
+    "enabled": false,
+    "interval": 60
+}
+```
+
+-   **enabled** `default: false`
+
+    Enable or disable the sync Module.
+
+-   **interval** `default: 60`
+
+    The interval in seconds at which the sync Module will fetch changes from the Backbone.
+
+### webhooks <a href="{% link _docs_integrate/03-connector-modules.md %}#webhooks"><i class="fas fa-fw fa-info-circle"/></a> {#webhooks}
+
+This Module is deprecated in favor of the [webhooksV2](#webhooksv2) Module.
 {: .notice--warning}
-
-With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
-
-For this, the Connector supports the configuration of a webhook which is called in case there is something new (e.g. a new message has been received).
-
-Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive webhooks. The `sync` module automates this, but you can also do this manually by calling the `/api/v1/Account/Sync` route.
-
-#### Configuration
 
 ```json
 {
