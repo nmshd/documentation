@@ -214,6 +214,9 @@ Completed
 : In case of an incoming Request, the Runtime Module listens to an Event saying that a Request moved to status `Decided`. It then checks on which way the Request was received (Message/RelationshipTemplate) and sends the Response on the corresponding way (by sending a message or creating a Relationship). After the Response was successfuly sent, it moves the Local Request to `Completed`.
 : In case of an outgoing Request, the Runtime Module listens to the `MessageReceivedEvent` and checks the content of the sent Message for a Response. If there is one, it moves the corresponding Local Request to `Completed`.
 
+Expired
+: When the timestamp in `expiresAt` of a Request is reached, the Request automatically moves to the status `Expired`.
+
 ### LocalRequestSource
 
 With the information in this type you can clearly identify the Transport object the Request was sent/received in. Currently there are only two possibilities: Message and Relationship Template.
