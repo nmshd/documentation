@@ -6,7 +6,7 @@ toc: true
 
 In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization.
 
-The following steps include small pieces of the Connector's API documentation that, when executed, fire requests on a Connector created for testing purposes. So if you don't have an own Connector installed, feel free to use the samples directly. Otherwise you can use your own Connector either with a REST client (e.g. [Insomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/)) or by using the RapiDoc documentation (`/docs/rapidoc`) hosted on your Connector (you have to [enable docs on your connector]({% link _docs_integrate/11-connector-configuration.md %}#corehttpapi) for the documentation route to work).
+The following steps include small pieces of the Connector's API documentation that, when executed, fire requests on a Connector we provided for testing purposes. So if you don't have an own Connector installed, feel free to use the samples directly. Note that if you want detailed information about the HTTP request payload you can click on the "Schema" tab within these API documentation excerpts. If you do have your own Connector, you can use it either with a REST client (e.g. [Insomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/)) or by using the RapiDoc documentation (`/docs/rapidoc`) hosted on your Connector (you have to [enable docs on your connector]({% link _docs_integrate/11-connector-configuration.md %}#corehttpapi) for the documentation route to work).
 
 The payloads for the requests that will be performed during this tutorial contain placeholders marked with `<...>`. Please replace them with values.
 
@@ -15,8 +15,8 @@ The payloads for the requests that will be performed during this tutorial contai
 -   If you want to use your own Connector for executing the examples
     -   [Install the Connector]({% link _docs_integrate/10-connector-installation.md %})
     -   Make sure the [Sync Module is disabled]({% link _docs_integrate/11-connector-configuration.md %}#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
-    -   Get the API key configured for the Connector. Ask the person who installed the Connector for it.
--   You need the [Enmeshed App]({% link _pages/use.md %}) installed on your mobile device (in this tutorial we refer to the UI texts in English).
+    -   Get the API key configured for the Connector. Ask the person who installed the Connector for it. The API key has to be sent as a HTTP header with the name `X-API-Key` for each request, in order to authenticate.
+-   You need **version 2** of the [Enmeshed App]({% link _pages/use.md %}) installed on your mobile device. _Since Enmeshed v2 is not officially released yet, you need to [write us an email](mailto://info@enmeshed.eu?subject=Access%20to%20the%20closed%20beta%20of%20Enmeshed%20v2) with your Apple ID or the email address of your Google account you use on your phone, so we can add you to the closed beta._
 
 # Establishing Relationships
 
@@ -30,7 +30,7 @@ In order to share an Attribute via a Relationship Template, we need to create on
 {
     "content": {
         "@type": "IdentityAttribute",
-        "owner": "<your connector's identity address>",
+        "owner": "<your connector's Address>",
         "value": {
             "@type": "DisplayName",
             "value": "Connector Tutorial"
@@ -46,7 +46,7 @@ You can query the Connector's Address under the route `/api/v1/Account/IdentityI
 
 Remember the `id` of the Attribute that you can find in the response. You will need it in the next step.
 
-## Connector: Test your Requests Validity
+## Connector: Test your Request's Validity
 
 In order to make sure the Request and its items are valid you can validate it calling the `POST /api/v1/Requests/Outgoing/Validate` route. The payload contains one group of Requests containing Attributes that will be shared to the peer and one group of Requests that queries Attributes of the peer.
 
