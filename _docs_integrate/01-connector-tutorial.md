@@ -124,7 +124,7 @@ Start by creating a so called Relationship Template on the Connector. You can do
         "@type": "RelationshipTemplateBody",
         "title": "Connector Demo Contact",
         "onNewRelationship": {
-            // <the content validated in the step before>
+            // <the value of the 'content' property validated in the previous step>
         }
     }
 }
