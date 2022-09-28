@@ -26,7 +26,7 @@ It is not recommended to use this Module for production scenarios.
 
 The `autoAcceptRelationshipCreationChanges` Module listens to the events about incoming Relationship Change Requests. It immediately accepts the Requests, using the configured `responseContent`.
 
-Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive incoming Relationship Requests. The `sync` Module automates this, but you can also do this manually by calling the `/api/v1/Account/Sync` route.
+Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive incoming Relationship Requests. The `sync` Module automates this, but you can also do this manually by calling the `/api/v2/Account/Sync` route.
 
 ### Core HTTP API <a href="{% link _docs_integrate/11-connector-configuration.md %}#corehttpapi"><i class="fas fa-fw fa-cog"/></a> {#corehttpapi}
 
@@ -45,7 +45,7 @@ With the REST API, pull mechanisms are supported. However, as there are many bid
 
 For this, the Connector supports the configuration of a webhook which is called in case there is something new (e.g. a new Message has been received).
 
-Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive webhooks. The `sync` Module automates this, but you can also do this manually by calling the `/api/v1/Account/Sync` route.
+Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive webhooks. The `sync` Module automates this, but you can also do this manually by calling the `/api/v2/Account/Sync` route.
 
 ### WebhooksV2 <a href="{% link _docs_integrate/11-connector-configuration.md %}#webhooksv2"><i class="fas fa-fw fa-cog"/></a> {#webhooksv2}
 
@@ -53,4 +53,4 @@ With the REST API, pull mechanisms are supported. However, as there are many bid
 
 For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Event]({% link _docs_integrate/32-connector-events.md %}) is triggered (e.g. a new Message has been received => `transport.messageReceived`).
 
-Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The `sync` Module automates this, but you can also do this manually by calling the `/api/v1/Account/Sync` route.
+Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The `sync` Module automates this, but you can also do this manually by calling the `/api/v2/Account/Sync` route.
