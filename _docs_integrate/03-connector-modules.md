@@ -36,17 +36,6 @@ This Module contains the HTTP API with all Enmeshed base functionalities.
 
 The `sync` Module regularly fetches changes from the Backbone (e.g. new Messages / new incoming Relationship Requests). This process automatically triggers the events used by other Modules like the `webhooks` Module.
 
-### Webhooks <a href="{% link _docs_integrate/11-connector-configuration.md %}#webhooks"><i class="fas fa-fw fa-cog"/></a> {#webhooks}
-
-**Note:** This Module is deprecated in favor of the [WebhooksV2 Module](#webhooksv2).
-{: .notice--warning}
-
-With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
-
-For this, the Connector supports the configuration of a webhook which is called in case there is something new (e.g. a new Message has been received).
-
-Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive webhooks. The `sync` Module automates this, but you can also do this manually by calling the `/api/v1/Account/Sync` route.
-
 ### WebhooksV2 <a href="{% link _docs_integrate/11-connector-configuration.md %}#webhooksv2"><i class="fas fa-fw fa-cog"/></a> {#webhooksv2}
 
 With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
