@@ -18,10 +18,10 @@ backbone <-> connector: Verified Enmeshed Organization Identity
 
 -> backend ++: Start\n(with User)
 backend -> backend: Create template content\nfor User
-backend -> connector ++: POST /RelationshipTemplates\n- content\n- expiresAt\n- maxNumberOfRelationships
+backend -> connector ++: POST /RelationshipTemplates\n- content\n- expiresAt\n- maxNumberOfAllocations
 connector -> connector: Validate input
 connector -> connector: Encrypt template content\nwith random key
-connector -> backbone ++: Create template\n- templateCipher\n- expiresAt\n- maxNumberOfRelationships
+connector -> backbone ++: Create template\n- templateCipher\n- expiresAt\n- maxNumberOfAllocations
 backbone -> backbone: Store template
 backbone --> connector --: Returns templateId
 connector --> backend --: Returns template
