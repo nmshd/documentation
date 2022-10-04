@@ -256,7 +256,7 @@ Data stored on Backbone:
 -   id: string
 -   createdBy: string
 -   createdByDevice: string
--   maxNumberOfRelationships?: number
+-   maxNumberOfAllocations?: number
 -   expiresAt?: string
 -   content: string
 -   createdAt: string
@@ -265,5 +265,5 @@ Data stored on Backbone:
 Data submitted to Backbone:
 
 -   expiresAt?: string
--   maxNumberOfRelationships?: number
+-   maxNumberOfAllocations?: number
 -   content: string
