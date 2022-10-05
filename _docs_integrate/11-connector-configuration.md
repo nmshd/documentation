@@ -170,7 +170,7 @@ Every Module can be enabled or disabled by passing true / false to `enabled`. Re
 
 ### autoAcceptRelationshipCreationChanges <a href="{% link _docs_integrate/03-connector-modules.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationshipcreationchanges}
 
-It is not recommended to use this Module for production szenarios.
+It is not recommended to use this Module for production scenarios.
 {: .notice--danger}
 
 ```json
@@ -208,14 +208,14 @@ It is not recommended to use this Module for production szenarios.
 
 -   **docs:enabled** `default: true`
 
-    It is not recommended to enable the docs in production szenarios.
+    It is not recommended to enable the docs in production scenarios.
     {: .notice--danger}
 
     Enable / disable the `/docs/json` and `/docs/yaml` routes and the rendered swagger / rapidoc documentations.
 
 -   **docs:rapidoc:persistAuth** `default: false`
 
-    It is not recommended to enable the authentication persistence in production szenarios.
+    It is not recommended to enable the authentication persistence in production scenarios.
     {: .notice--danger}
 
     If set to `true` rapidoc persists the API Key in the local storage of the browser.
@@ -236,52 +236,6 @@ It is not recommended to use this Module for production szenarios.
 -   **interval** `default: 60`
 
     The interval in seconds at which the sync Module will fetch changes from the Backbone.
-
-### webhooks <a href="{% link _docs_integrate/03-connector-modules.md %}#webhooks"><i class="fas fa-fw fa-info-circle"/></a> {#webhooks}
-
-This Module is deprecated in favor of the [webhooksV2](#webhooksv2) Module.
-{: .notice--warning}
-
-```json
-{
-    "enabled": false,
-    "url": "https://example.com/enmeshed/webhook",
-    "headers": {
-        "X-API-KEY": "some-super-safe-api-key"
-    },
-    "publishInterval": 60
-}
-```
-
--   **enabled** `default: false`
-
-    Enable or disable the webhooks Module.
-
--   **url** `required`
-
-    The URL to which the webhooks will be sent.
-
--   **headers** `default: {}`
-
-    The headers that will be sent with the webhooks.
-
--   **publishInterval** `default: 60`
-
-    The interval in seconds at which the webhooks will be sent.
-
-#### Payload
-
-The payload that is sent to the service under the configured `url` has the following format:
-
-```ts
-interface WebhooksModulePayload {
-    messages: Message[];
-    relationships: Relationship[];
-}
-```
-
-Click the links for a <a href="{% link _docs_explore/61-data-model.md %}#Message">Message Definition <i class="fas fa-fw fa-book"/></a> and
-<a href="{% link _docs_explore/61-data-model.md %}#Relationship">Relationship Definition <i class="fas fa-fw fa-book"/></a>
 
 ### webhooksV2 <a href="{% link _docs_integrate/03-connector-modules.md %}#webhooksv2"><i class="fas fa-fw fa-info-circle"/></a> {#webhooksv2}
 

@@ -24,7 +24,7 @@ In order to communicate with another Identity, a Relationship to that Identity i
 
 ## Connector: Create an Attribute
 
-In order to share an Attribute via a Relationship Template, we need to create one by executing `POST /api/v1/Attributes` with the following payload:
+In order to share an Attribute via a Relationship Template, we need to create one by executing `POST /api/v2/Attributes` with the following payload:
 
 ```json
 {
@@ -39,16 +39,16 @@ In order to share an Attribute via a Relationship Template, we need to create on
 }
 ```
 
-You can query the Connector's Address under the route `/api/v1/Account/IdentityInfo`. If you are using the Demo Connector of this Tutorial, the Address is `id16RPQxvUC8S5aTrRhs3yrDXq6cLkbbBsTY`.
+You can query the Connector's Address under the route `/api/v2/Account/IdentityInfo`. If you are using the Demo Connector of this Tutorial, the Address is `id1DpGUgSDKxiYerQ1bNbiqH8aWahTByvc6q`.
 {: .notice--info}
 
-{% include rapidoc api_route_regex="^post /api/v1/Attributes$" %}
+{% include rapidoc api_route_regex="^post /api/v2/Attributes$" %}
 
 Remember the `id` of the Attribute that you can find in the response. You will need it in the next step.
 
 ## Connector: Test your Requests Validity
 
-In order to make sure the Request and its items are valid you can validate it calling the `POST /api/v1/Requests/Outgoing/Validate` route. The payload contains one group of Requests containing Attributes that will be shared to the peer and one group of Requests that queries Attributes of the peer.
+In order to make sure the Request and its items are valid you can validate it calling the `POST /api/v2/Requests/Outgoing/Validate` route. The payload contains one group of Requests containing Attributes that will be shared to the peer and one group of Requests that queries Attributes of the peer.
 
 ```json
 {
@@ -110,11 +110,11 @@ In order to make sure the Request and its items are valid you can validate it ca
 }
 ```
 
-{% include rapidoc api_route_regex="^post /api/v1/Requests/Outgoing/Validate$" %}
+{% include rapidoc api_route_regex="^post /api/v2/Requests/Outgoing/Validate$" %}
 
 ## Connector: Create a Relationship Template
 
-Start by creating a so called Relationship Template on the Connector. You can do so by calling the `POST /api/v1/RelationshipTemplates/Own` route. Use the following JSON in the request body:
+Start by creating a so called Relationship Template on the Connector. You can do so by calling the `POST /api/v2/RelationshipTemplates/Own` route. Use the following JSON in the request body:
 
 ```jsonc
 {
@@ -130,17 +130,17 @@ Start by creating a so called Relationship Template on the Connector. You can do
 }
 ```
 
-{% include rapidoc api_route_regex="^post /api/v1/RelationshipTemplates/Own$" %}
+{% include rapidoc api_route_regex="^post /api/v2/RelationshipTemplates/Own$" %}
 
 Remember the `id` of the Relationship Template that you can find in the response. You will need it in the next step.
 
 ## Connector: Create a QRCode for the Relationship Template
 
-Since we will use the Enmeshed App to send a Relationship Request to the Connector, we further have to create a QR Code one can scan with the App to retrieve the Relationship Template and send a Relationship Request to the Connector. Execute the `GET /api/v1/RelationshipTemplates/{id}` route (Accept Header: `image/png`) to create a QRCode. Use the ID of the Relationship Template from the previous step as the value for `id`. Make sure you select `image/png` as the `Accept` header by selecting the corresponding value from the dropdown list in the bottom right of the Rapidoc route section.
+Since we will use the Enmeshed App to send a Relationship Request to the Connector, we further have to create a QR Code one can scan with the App to retrieve the Relationship Template and send a Relationship Request to the Connector. Execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Header: `image/png`) to create a QRCode. Use the ID of the Relationship Template from the previous step as the value for `id`. Make sure you select `image/png` as the `Accept` header by selecting the corresponding value from the dropdown list in the bottom right of the Rapidoc route section.
 
 We don't care about the parameters here, so just send an empty JSON in the request body.
 
-{% include rapidoc api_route_regex="^get /api/v1/RelationshipTemplates/{id}$" %}
+{% include rapidoc api_route_regex="^get /api/v2/RelationshipTemplates/{id}$" %}
 
 ## App: Send a Relationship Request
 
@@ -152,9 +152,9 @@ Finally, fill out the required fields and click on "Accept Relationship" to send
 
 ## Connector: Accept the Relationship Request
 
-In order to move it into the `Active` state, you now need to accept the Relationship Request with the Connector. In order to do so, first execute the `POST /api/v1/Account/Sync` route, which will fetch all changes that occurred since the last time this endpoint was executed.
+In order to move it into the `Active` state, you now need to accept the Relationship Request with the Connector. In order to do so, first execute the `POST /api/v2/Account/Sync` route, which will fetch all changes that occurred since the last time this endpoint was executed.
 
-{% include rapidoc api_route_regex="^post /api/v1/Account/Sync$" %}
+{% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
 In the response you will receive the created Relationship, which contains corresponding Relationship Creation Change.
 
@@ -184,9 +184,9 @@ Example:
 }
 ```
 
-Remember the `id` of the Relationship (`REL_________________`) as well as the `id` of the first Relationship Change (`RCH_________________`) in the `changes` array and use them as input to the `PUT /api/v1/Relationships/{id}/Changes/{changeId}/Accept` route. You can leave that request body as it is.
+Remember the `id` of the Relationship (`REL_________________`) as well as the `id` of the first Relationship Change (`RCH_________________`) in the `changes` array and use them as input to the `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept` route. You can leave that request body as it is.
 
-{% include rapidoc api_route_regex="^put /api/v1/Relationships/{id}/Changes/{changeId}/Accept$" %}
+{% include rapidoc api_route_regex="^put /api/v2/Relationships/{id}/Changes/{changeId}/Accept$" %}
 
 Now the Relationship is in the `Active` state, so we can start to communicate with the opposite Identity, which we will do in the next part of this tutorial. In order to do so we will need the Address of that Identity. So in the response of the last request look for the `peer` property and write down its value. It should start with `id1`.
 
@@ -196,7 +196,7 @@ After you have established a Relationship to an Identity, you can start to excha
 
 ## Sending a Message with a Connector
 
-To send a Message, all you need to do is call the `POST /api/v1/Messages` endpoint. You can use the content below, while replacing the placeholders in `recipients` and `to` with the Address you copied previously. You can further modify the `subject` and `body` properties to add some custom content.
+To send a Message, all you need to do is call the `POST /api/v2/Messages` endpoint. You can use the content below, while replacing the placeholders in `recipients` and `to` with the Address you copied previously. You can further modify the `subject` and `body` properties to add some custom content.
 
 ```json
 {
@@ -210,7 +210,7 @@ To send a Message, all you need to do is call the `POST /api/v1/Messages` endpoi
 }
 ```
 
-{% include rapidoc api_route_regex="^post /api/v1/Messages$" %}
+{% include rapidoc api_route_regex="^post /api/v2/Messages$" %}
 
 After you have sent this request, you should receive a push notification on your phone. Open the Enmeshed App, navigate to "Contacts" and select your Relationship. You should see the Message in the list. You can show details by tapping on it.
 
@@ -218,8 +218,8 @@ After you have sent this request, you should receive a push notification on your
 
 Next we are going to send a Message from the App to the Connector. Therefore, open the App, navigate to "Contacts" and select your Relationship. Next, tap on "New Message". Enter subject and body an tap on "Send".
 
-In order to fetch the Message, we need to call the `POST /api/v1/Account/Sync` endpoint again.
+In order to fetch the Message, we need to call the `POST /api/v2/Account/Sync` endpoint again.
 
-{% include rapidoc api_route_regex="^post /api/v1/Account/Sync$" %}
+{% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
 The response should contain a Message with the content you entered in the App.
