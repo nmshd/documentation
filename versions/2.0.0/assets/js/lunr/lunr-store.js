@@ -155,6 +155,12 @@ var store = [{
         "url": "/versions/2.0.0/integrate/connector-setup-troubleshooting",
         "teaser": null
       },{
+        "title": "ErrorCodes",
+        "excerpt":"Please find a list of Enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using Enmeshed or cannot deduce the reason for your error, please report it in the Enmeshed Issue Tracker. ErrorCode Description error.connector.http.methodNotAllowed This method...","categories": [],
+        "tags": [],
+        "url": "/versions/2.0.0/integrate/error-codes",
+        "teaser": null
+      },{
         "title": "Connector API",
         "excerpt":"The primary integration capability of the Connector is the REST API. In order to use it, you should have received an API-Key for the respective Connector. An API-Key so far has all authorizations for accessing the API. Interactive Documentation You can find the REST API documentation hosted on your Connector...","categories": [],
         "tags": [],

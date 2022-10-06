@@ -1,0 +1,702 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>ErrorCodes - Enmeshed</title>
+<meta name="description" content="Please find a list of Enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using Enmeshed or cannot deduce the reason for your error, please report it in the Enmeshed Issue Tracker.">
+
+
+  <meta name="author" content="Enmeshed Team">
+  
+  <meta property="article:author" content="Enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Enmeshed">
+<meta property="og:title" content="ErrorCodes">
+<meta property="og:url" content="/versions/2.0.0/integrate/error-codes">
+
+
+  <meta property="og:description" content="Please find a list of Enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using Enmeshed or cannot deduce the reason for your error, please report it in the Enmeshed Issue Tracker.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-10-06T15:34:27+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/2.0.0/integrate/error-codes">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/versions/2.0.0/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/2.0.0/feed.xml" type="application/atom+xml" rel="alternate" title="Enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/2.0.0/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/2.0.0/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of Enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/2.0.0/">
+          Enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/versions/2.0.0/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/2.0.0/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/2.0.0/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/2.0.0/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/2.0.0/blog">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/2.0.0/versions/2.0.0">v2.0.0 Preview</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate Enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/2.0.0/integrate/basics">Basics</a></li>
+          
+            <li><a href="/versions/2.0.0/integrate/connector-tutorial">Connector Tutorial</a></li>
+          
+            <li><a href="/versions/2.0.0/integrate/connector-modules">Connector Modules</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Setting up the Connector</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/2.0.0/integrate/connector-installation">Installation</a></li>
+          
+            <li><a href="/versions/2.0.0/integrate/connector-configuration">Configuration</a></li>
+          
+            <li><a href="/versions/2.0.0/integrate/connector-setup-troubleshooting">Troubleshooting</a></li>
+          
+            <li><a href="/versions/2.0.0/integrate/error-codes" class="active">Error Codes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">REST API</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/2.0.0/integrate/connector-api">API Documentation</a></li>
+          
+            <li><a href="/versions/2.0.0/integrate/connector-flows-messages">Sending Messages</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Programming</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/2.0.0/integrate/connector-sdks">Connector SDKs</a></li>
+          
+            <li><a href="/versions/2.0.0/integrate/custom-connector-modules">Custom Connector Modules</a></li>
+          
+            <li><a href="/versions/2.0.0/integrate/connector-events">Connector Events</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Operations</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/2.0.0/integrate/connector-operations">Connector Operations</a></li>
+          
+            <li><a href="/versions/2.0.0/integrate/connector-security">Security Considerations</a></li>
+          
+            <li><a href="/versions/2.0.0/integrate/connector-privacy">Privacy Considerations</a></li>
+          
+            <li><a href="/versions/2.0.0/integrate/connector-performance">Performance Considerations</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="ErrorCodes">
+    <meta itemprop="description" content="Please find a list of Enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using Enmeshed or cannot deduce the reason for your error, please report it in the Enmeshed Issue Tracker.">
+    <meta itemprop="datePublished" content="2022-10-06T15:34:27+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/versions/2.0.0/integrate/error-codes" class="u-url" itemprop="url">ErrorCodes
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>Please find a list of Enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using Enmeshed or cannot deduce the reason for your error, please report it in the <a href="https://github.com/nmshd/feedback/issues">Enmeshed Issue Tracker</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ErrorCode</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>error.connector.http.methodNotAllowed <a name="error.connector.http.methodNotAllowed"></a></td>
+      <td>This method is not supported for the requested resource.</td>
+    </tr>
+    <tr>
+      <td>error.connector.http.notAcceptable <a name="error.connector.http.notAcceptable"></a></td>
+      <td>The requested resource is capable of generating only content not acceptable according to the Accept headers sent in the request.</td>
+    </tr>
+    <tr>
+      <td>error.connector.http.routeDoesNotExist <a name="error.connector.http.routeDoesNotExist"></a></td>
+      <td>The requested route does not exist.</td>
+    </tr>
+    <tr>
+      <td>error.connector.unauthorized <a name="error.connector.unauthorized"></a></td>
+      <td>Unauthorized.</td>
+    </tr>
+    <tr>
+      <td>error.connector.validation.invalidJsonInPayload <a name="error.connector.validation.invalidJsonInPayload"></a></td>
+      <td>The given payload is not a valid json object.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.cannotSucceedAttributesWithAParent <a name="error.consumption.attributes.cannotSucceedAttributesWithAParent"></a></td>
+      <td>The Attribute you want to succeed has a parent. You cannot succeed Attributes with a parent. Instead, succeed the parent, which will implicitly succeed all its children. For example, if you want to change a HouseNumber, you should succeed the Address it is part of.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.requests.decide.validation.invalidNumberOfItems <a name="error.consumption.requests.decide.validation.invalidNumberOfItems"></a></td>
+      <td>The Request and the Response item count is different.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.requests.decide.validation.itemAcceptedButParentNotAccepted <a name="error.consumption.requests.decide.validation.itemAcceptedButParentNotAccepted"></a></td>
+      <td>You accepted an item of a Request or RequestItemGroup, but you rejected the parent. If you accept a RequestItem, you need to accept all parents up to the root.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.requests.decide.validation.mustBeAcceptedItemNotAccepted <a name="error.consumption.requests.decide.validation.mustBeAcceptedItemNotAccepted"></a></td>
+      <td>The Request was accepted but an item that was flagged as ‘mustBeAccepted’ was not accepted.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.requests.decide.validation.requestItemAnsweredAsRequestItemGroup <a name="error.consumption.requests.decide.validation.requestItemAnsweredAsRequestItemGroup"></a></td>
+      <td>You answered a RequestItem as a RequestItemGroup.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.requests.decide.validation.requestItemGroupAnsweredAsRequestItem <a name="error.consumption.requests.decide.validation.requestItemGroupAnsweredAsRequestItem"></a></td>
+      <td>You answered a RequestItemGroup as a RequestItem.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.requests.invalidRequestItem <a name="error.consumption.requests.invalidRequestItem"></a></td>
+      <td>The given RequestItem is invalid.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.requests.servalErrorDuringRequestItemProcessing <a name="error.consumption.requests.servalErrorDuringRequestItemProcessing"></a></td>
+      <td>A serialization / validation error occurred during the RequestItem processing. Check the type definitions of your used types.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.requests.unexpectedErrorDuringRequestItemProcessing <a name="error.consumption.requests.unexpectedErrorDuringRequestItemProcessing"></a></td>
+      <td>An unknown error occurred during the RequestItem processing.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.alreadyInitialized <a name="error.runtime.alreadyInitialized"></a></td>
+      <td>The runtime is already initialized. The init method can only be executed once.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.alreadyStarted <a name="error.runtime.alreadyStarted"></a></td>
+      <td>The runtime is already started. You should stop it first for a restart.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.cacheEmpty <a name="error.runtime.cacheEmpty"></a></td>
+      <td>The cache of the requested entity is empty.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.challenges.invalidChallenge <a name="error.runtime.challenges.invalidChallenge"></a></td>
+      <td>The challengeString is invalid.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.challenges.invalidSignature <a name="error.runtime.challenges.invalidSignature"></a></td>
+      <td>The signature is invalid.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.files.invalidReference <a name="error.runtime.files.invalidReference"></a></td>
+      <td>The given reference is not valid. The reference for a file must start with ‘VE9L’ or ‘RklM’.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.invalidTokenContent <a name="error.runtime.invalidTokenContent"></a></td>
+      <td>The given token has an invalid content for this route.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.messages.fileNotFoundInMessage <a name="error.runtime.messages.fileNotFoundInMessage"></a></td>
+      <td>The requested file was not found in the given message.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.notInitialized <a name="error.runtime.notInitialized"></a></td>
+      <td>The runtime is not initialized. You must run init before you can start or stop the runtime.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.notStarted <a name="error.runtime.notStarted"></a></td>
+      <td>The runtime is not started. You can only stop the runtime if you executed start before.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.notSupported <a name="error.runtime.notSupported"></a></td>
+      <td>The requested feature is not supported.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.recordNotFound <a name="error.runtime.recordNotFound"></a></td>
+      <td>The requested Record was not found. Make sure the ID exists and the record is not expired.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.relationshipTemplates.cannotCreateQRCodeForPeerTemplate <a name="error.runtime.relationshipTemplates.cannotCreateQRCodeForPeerTemplate"></a></td>
+      <td>You cannot create a QRCode for a peer template.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.relationshipTemplates.cannotCreateTokenForPeerTemplate <a name="error.runtime.relationshipTemplates.cannotCreateTokenForPeerTemplate"></a></td>
+      <td>You cannot create a token for a peer template.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.relationshipTemplates.invalidReference <a name="error.runtime.relationshipTemplates.invalidReference"></a></td>
+      <td>The given reference is not valid. The reference for a relationship template must start with ‘VE9L’ or ‘VE9L’.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.requestDeserialization <a name="error.runtime.requestDeserialization"></a></td>
+      <td>There was an error during the request deserialization.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.servalError <a name="error.runtime.servalError"></a></td>
+      <td>A serialization / validation error occurred.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.startup.noActiveAccount <a name="error.runtime.startup.noActiveAccount"></a></td>
+      <td>No AccountController could be found. You might have to login first.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.startup.noActiveConsumptionController <a name="error.runtime.startup.noActiveConsumptionController"></a></td>
+      <td>No ConsumptionController could be found. You might have to login first.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.startup.noActiveExpander <a name="error.runtime.startup.noActiveExpander"></a></td>
+      <td>No DataViewExpander could be found. You might have to login first.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.unknown <a name="error.runtime.unknown"></a></td>
+      <td>An unknown error occurred. Check the error message or the stack trace to learn more.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.unknownType <a name="error.runtime.unknownType"></a></td>
+      <td>The given ‘@type’ could not be found during the deserialization.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.validation.invalidPayload <a name="error.runtime.validation.invalidPayload"></a></td>
+      <td>The given combination of properties in the payload is not supported.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.validation.invalidPropertyValue <a name="error.runtime.validation.invalidPropertyValue"></a></td>
+      <td>A property of the given payload is invalid.</td>
+    </tr>
+    <tr>
+      <td>error.transport.challenges.challengeTypeRequiresRelationship <a name="error.transport.challenges.challengeTypeRequiresRelationship"></a></td>
+      <td>The challenge type ‘Relationship’ requires a relationship for the challenge creation.</td>
+    </tr>
+    <tr>
+      <td>error.transport.datawallet.currentBiggerThanTarget <a name="error.transport.datawallet.currentBiggerThanTarget"></a></td>
+      <td>The current datawallet version is bigger than the target version.</td>
+    </tr>
+    <tr>
+      <td>error.transport.datawallet.encryptedPayloadIsNoCipher <a name="error.transport.datawallet.encryptedPayloadIsNoCipher"></a></td>
+      <td>The given encrypted payload is no cipher.</td>
+    </tr>
+    <tr>
+      <td>error.transport.datawallet.insufficientSupportedDatawalletVersion <a name="error.transport.datawallet.insufficientSupportedDatawalletVersion"></a></td>
+      <td>The current SupportedDatawalletVersion is too low to perform the requested operation.</td>
+    </tr>
+    <tr>
+      <td>error.transport.datawallet.unsupportedModification <a name="error.transport.datawallet.unsupportedModification"></a></td>
+      <td>A collection was recieved in a CacheChanged datawallet modification but is not supported in the current version of the library.</td>
+    </tr>
+    <tr>
+      <td>error.transport.devices.alreadyOnboarded <a name="error.transport.devices.alreadyOnboarded"></a></td>
+      <td>The device that you try to create an onboarding code for has already been onboarded.</td>
+    </tr>
+    <tr>
+      <td>error.transport.files.cipherMismatch <a name="error.transport.files.cipherMismatch"></a></td>
+      <td>The actual hash of the cipher does not match the given cipherHash. Something went wrong while storing/transmitting the file.</td>
+    </tr>
+    <tr>
+      <td>error.transport.files.fileContentUndefined <a name="error.transport.files.fileContentUndefined"></a></td>
+      <td>The given files content is undefined.</td>
+    </tr>
+    <tr>
+      <td>error.transport.files.invalidMetadata <a name="error.transport.files.invalidMetadata"></a></td>
+      <td>The metadata of the file is invalid.</td>
+    </tr>
+    <tr>
+      <td>error.transport.files.invalidTruncatedReference <a name="error.transport.files.invalidTruncatedReference"></a></td>
+      <td>The given truncated reference is invalid.</td>
+    </tr>
+    <tr>
+      <td>error.transport.files.maxFileSizeExceeded <a name="error.transport.files.maxFileSizeExceeded"></a></td>
+      <td>The given file content size exceeds the max file size the backbone accepts.</td>
+    </tr>
+    <tr>
+      <td>error.transport.files.plaintextHashMismatch <a name="error.transport.files.plaintextHashMismatch"></a></td>
+      <td>The actual hash of the plaintext does not match the given plaintextHash. Something went wrong while encrypting/decrypting the file.</td>
+    </tr>
+    <tr>
+      <td>error.transport.general.baseUrlNotSet <a name="error.transport.general.baseUrlNotSet"></a></td>
+      <td>The baseUrl was not set.</td>
+    </tr>
+    <tr>
+      <td>error.transport.general.platformClientIdNotSet <a name="error.transport.general.platformClientIdNotSet"></a></td>
+      <td>The platform clientId was not set.</td>
+    </tr>
+    <tr>
+      <td>error.transport.general.platformClientInvalid <a name="error.transport.general.platformClientInvalid"></a></td>
+      <td>The combination of platform clientId and clientSecret is invalid.</td>
+    </tr>
+    <tr>
+      <td>error.transport.general.platformClientSecretNotSet <a name="error.transport.general.platformClientSecretNotSet"></a></td>
+      <td>The platform clientSecret was not set.</td>
+    </tr>
+    <tr>
+      <td>error.transport.identity.realmLength <a name="error.transport.identity.realmLength"></a></td>
+      <td>The given realm is not 3 characters long.</td>
+    </tr>
+    <tr>
+      <td>error.transport.messages.noMatchingRelationship <a name="error.transport.messages.noMatchingRelationship"></a></td>
+      <td>A Relationship with the given address does not exist.</td>
+    </tr>
+    <tr>
+      <td>error.transport.messages.ownAddressNotInList <a name="error.transport.messages.ownAddressNotInList"></a></td>
+      <td>The recipients list of a message didn’t contain an entry for the own address. This message should not have been received.</td>
+    </tr>
+    <tr>
+      <td>error.transport.messages.plaintextMismatch <a name="error.transport.messages.plaintextMismatch"></a></td>
+      <td>The own address was not named as a recipient within the signed MessagePlaintext. For example this can be caused by a replay attack.</td>
+    </tr>
+    <tr>
+      <td>error.transport.messages.signatureListMismatch <a name="error.transport.messages.signatureListMismatch"></a></td>
+      <td>The signature list didn’t contain an entry for a given address.</td>
+    </tr>
+    <tr>
+      <td>error.transport.messages.signatureNotValid <a name="error.transport.messages.signatureNotValid"></a></td>
+      <td>The digital signature on a message for a peer key is invalid. An impersonination attack might be the cause of this.</td>
+    </tr>
+    <tr>
+      <td>error.transport.notSupported <a name="error.transport.notSupported"></a></td>
+      <td>The requested method is not yet supported.</td>
+    </tr>
+    <tr>
+      <td>error.transport.recordNotFound <a name="error.transport.recordNotFound"></a></td>
+      <td>The requested record was not found.</td>
+    </tr>
+    <tr>
+      <td>error.transport.relationships.wrongChangeStatus <a name="error.transport.relationships.wrongChangeStatus"></a></td>
+      <td>The relationship change has the wrong status to run the requested operation.</td>
+    </tr>
+    <tr>
+      <td>error.transport.secrets.secretNotFound <a name="error.transport.secrets.secretNotFound"></a></td>
+      <td>No secret was found for a specific type.</td>
+    </tr>
+    <tr>
+      <td>error.transport.secrets.wrongBaseKeyType <a name="error.transport.secrets.wrongBaseKeyType"></a></td>
+      <td>The given secret type is not supported!</td>
+    </tr>
+    <tr>
+      <td>error.transport.signatureNotValid <a name="error.transport.signatureNotValid"></a></td>
+      <td>A signature is invalid.</td>
+    </tr>
+    <tr>
+      <td>error.transport.tokens.invalidTokenContent <a name="error.transport.tokens.invalidTokenContent"></a></td>
+      <td>The given token content is invalid.</td>
+    </tr>
+  </tbody>
+</table>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-06T15:34:27+02:00">October 6, 2022</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/versions/2.0.0/integrate/connector-setup-troubleshooting" class="pagination--pager" title="Troubleshooting
+">Previous</a>
+    
+    
+      <a href="/versions/2.0.0/integrate/connector-api" class="pagination--pager" title="Connector API
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+          
+        <li>
+            <a href="https://twitter.com/nmshd_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> twitter</a>
+        </li>
+           
+        <li>
+            <a href="/versions/2.0.0/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2022
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/2.0.0/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/2.0.0/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/2.0.0/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/2.0.0/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
