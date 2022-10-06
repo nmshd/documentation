@@ -268,4 +268,10 @@ var store = [{
         "tags": ["announcement","v2","Requests"],
         "url": "/versions/2.0.0/blog/announcing-enmeshed-v2-requests",
         "teaser": null
+      },{
+        "title": "The (bumpy) road to Enmeshed V2",
+        "excerpt":"Hey there, as we’ve already communicated in the previous blogs, we would like to release Enmeshed version 2 soon. As it is incompatible with version 1, the switch to version 2 is unfortunately not as straightforward as we’d hoped. We’ve had many discussions about the pros and cons of different...","categories": ["blog"],
+        "tags": ["announcement","v2"],
+        "url": "/versions/2.0.0/blog/road-to-enmeshed-v2",
+        "teaser": null
       }]
