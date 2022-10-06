@@ -136,7 +136,7 @@ docs_integrate:
       - title: "Troubleshooting"
         url: /integrate/connector-setup-troubleshooting
       - title: "Error Codes"
-        url: /integrate/errorCodes
+        url: /integrate/error-codes
 
   - title: REST API
     children:
