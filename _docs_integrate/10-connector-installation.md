@@ -75,5 +75,5 @@ If the swagger documentation is enabled you can also access it under `<connector
 # Log file mounting
 
 1. Uncomment the volume mapping in the created `docker-compose.yml` file
-2. Create a folder where the log files shall be placed
+2. Create a folder where the log files shall be placed. Make sure that the process in the container has write access to the folder e.g. by executing `chmod 777 <folder>` on your created folder.
 3. replace `</folder/of/your/choice>` with the path to your created folder
