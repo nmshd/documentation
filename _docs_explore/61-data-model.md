@@ -273,4 +273,124 @@ The Local Attribute Share Info help to keep track of how the Local Attribute was
 
 # Content Types
 
-The documentation of Content Types will follow soon.
+Content Types can be seen as a data contract between Identities. The medium through which this data is exchanged are the Transport types (e.g. Messages, Tokens, ...). This chapter shows all the Content types and describes their intended usage.
+
+## Request
+
+A Request allows you to ask another Identity to do something. What this "something" is depends on which of the so called [Request Items](#requestitem) were added to the Request (e.g. `CreateAttributeRequestItem`, `ReadAttributeRequestItem`, ...). The Request is then sent to the peer via Message or Relationship Template. The peer can then review the Request and decide whether they want to accept or reject it. And if they accept it, they can even choose which of the Items they want to accept. You can also put multiple Items into a [group](#requestitemgroup) in order to ensure that they can only be accepted/rejected as a unit.
+
+| Name      | Type                                    | Description                                                                                                                                                                                                                                                                           | Remarks |
+| --------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | --- | --- |
+| id        | `string` \| `undefined`                 | Unique identifier of this object. This property is `undefined` if the Request is inside of a Relationship Template. <br>_Remark: the ID of each Request starts with the letters "REQ". This way you can tell apart a Request ID from any other ID just by looking at the prefix._<br> |         |
+| expiresAt | `string` \| `undefined`                 | {% include descr_expiresAt class="Request" %}                                                                                                                                                                                                                                         |         |
+| items     | (`RequestItemGroup` \| `RequestItem`)[] | A list of Request Items and Groups that are part of the Request. There must be at least one Item or Group per Request.                                                                                                                                                                |
+| metadata  | `string` \| `undefined`                 | Optional custom metadata that can be sent together with the Request. This property is meant purely for developers who integrate with Enmeshed. They can write for example some kind of key into this property, which can be used later to identify the content of this Request.       |         |     |     |
+
+### RequestItem
+
+Request Items can be sent inside of a Request and specify what should be done when the Request is accepted. `RequestItem` itself only defines some common properties. There are multiple types that inherit from `RequestItem`, like `CreateAttributeRequestItem` or `ReadAttributeRequestItem`.
+
+The base properties are:
+
+| Name           | Type                    | Description                                                                                                                                                                                                                                         | Remarks |
+| -------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| title          | `string` \| `undefined` | An optional, human readable title for the Request Item.                                                                                                                                                                                             |         |
+| description    | `string` \| `undefined` | An optional, human readable description for the Request Item.                                                                                                                                                                                       |         |
+| metadata       | `object` \| `undefined` | Optional metadata that can be sent together with this Request Item. The intended usage is the same as of the metadata property of the Request.                                                                                                      |         |
+| mustBeAccepted | boolean                 | If set to `true`, then this Request Item has to be accepted when the Request is accepted. Note that if the Request Item is inside of a Request Item Group, and the Request Item Group is rejected, then this Request Item must **not** be accepted. |         |
+
+There is a [dedicated site](!!!!!!!!!!!!!!!!!!!!!TODO: INSERT LINK!!!!!!!!!!!!!!!!!!!!) that lists all available kinds of Request Items.
+
+### RequestItemGroup
+
+| Name           | Type                    | Description                                                                                                                                                                                                                                                                                                                             | Remarks |
+| -------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| title          | `string` \| `undefined` | An optional, human readable title for the Request Item Group.                                                                                                                                                                                                                                                                           |         |
+| description    | `string` \| `undefined` | An optional, human readable description for the RequestItem.                                                                                                                                                                                                                                                                            |         |
+| metadata       | `object` \| `undefined` | Optional metadata that can be sent together with this RequestItem. The intended usage is the same as of the metadata property of the Request.                                                                                                                                                                                           |         |
+| mustBeAccepted | boolean                 | If set to `true`, then this Request Item Group has to be accepted when the Request is accepted.                                                                                                                                                                                                                                         |         |
+| items          | `RequestItem[]`         | The items inside of this Group. There has to be at least one Request Item per Group. Note that we do not support nested Groups at the moment. If you need this feature, you can [raise a feature request](https://github.com/nmshd/feedback/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=%5BFEATURE%5D+). |         |
+
+## Response
+
+| Name      | Type                                      | Description                                                                                                                                                                                                                                                   | Remarks |
+| --------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| result    | `"Accepted"` \| `"Rejected"`              | Whether the Response was accepted or rejected by the recipient of the Request.                                                                                                                                                                                |         |
+| requestId | `string`                                  | The `id` of the Request this Response belongs to. The Sender of the Request needs this information to map the Response to the corresponding Request.                                                                                                          |         |
+| items     | (`ResponseItemGroup` \| `ResponseItem`)[] | A list of Response Items and Groups that are part of the Response. For each Request Item (Group) of the Request, there must be one Response Item (Group) in the Response. Note that the indicees have to be the same for matching Request and Response Items. |         |
+
+### ResponseItem
+
+Response Items are sent inside of a Response. They contain the response data that is sent by the recipient of the Request. There are three different kinds of Response Items: `AcceptResponseItem`, `RejectResponseItem` and `ErrorResponseItem`. Depending on the actual Request Item, there can be different derivations of these three items. For example, in case of a `CreateAttributeRequestItem`, there is a special `CreateAttributeResponseItem`, while for a `AuthenticationRequestItem`, the `AcceptResponseItem` can be used, because there is no additional information necessary next to whether it was accepted or rejected.
+
+The properties of the `AcceptResponseItem` are:
+
+| Name   | Type         | Description                                              | Remarks |
+| ------ | ------------ | -------------------------------------------------------- | ------- |
+| result | `"Accepted"` | The only possible value here is the string `"Accepted"`. |         |
+
+The properties of the `RejectResponseItem` are:
+
+| Name     | Type                    | Description                                                   | Remarks |
+| -------- | ----------------------- | ------------------------------------------------------------- | ------- |
+| result   | `"Rejected"`            | The only possible value here is the string `"Rejected"`.      |         |
+| code?    | `string` \| `undefined` | A code telling the sender about the reason for the rejection. |         |
+| message? | `string` \| `undefined` | A human readable message with details about the rejection.    |         |
+
+The `ErrorResponseItem` is only created by the Enmeshed Runtime, in case something happens which hinders you from further processing of the Request Item. It will never be created manually. The properties are:
+
+| Name    | Type      | Description                                                             | Remarks |
+| ------- | --------- | ----------------------------------------------------------------------- | ------- |
+| result  | `"Error"` | The only possible value here is the string `"Error"`.                   |         |
+| code    | `string`  | An error code telling the sender about the kind of error that occurred. |         |
+| message | `string`  | A human readable error message with details about the error.            |         |
+
+There is a [dedicated site](!!!!!!!!!!!!!!!!!!!!!TODO: INSERT LINK!!!!!!!!!!!!!!!!!!!!) that lists all available kinds of Response Items.
+
+### ResponseItemGroup
+
+| Name  | Type             | Description                                                                                                                                                                                                                      | Remarks |
+| ----- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| items | `ResponseItem[]` | The items inside of this Group. For each Request Item of the Request Item Group, there must be one Response Item in the Response Item Group. Note that the indicees have to be the same for matching Request and Response Items. |         |
+
+## AbstractAttribute
+
+An Attribute is some piece of information about an Identity on itself(e.g. its name, address, birth date, etc.) or in the context of a Relationship (e.g. the customer id the of the user the Relationship).
+
+This type defines common metadata properties for RelationshipAttributes and IdentityAttributes. It is not meant to be used directly. The properties are:
+
+| Name      | Type                    | Description                                                                                                       | Remarks |
+| --------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------- | ------- |
+| owner     | `string`                | The Identity that owns this Attribute. Only the owner of an Attribute is allowed to change it after its creation. |         |
+| validFrom | `string` \| `undefined` | The date from which on the Attribute is valid. Could be in the future if the Attribute is not yet valid.          |         |
+| validTo   | `string` \| `undefined` | The date until this Attribute is valid. Could be in the past if the Attribute is already expired.                 |         |
+
+## IdentityAttribute
+
+Identity Attributes describe an Identity itself. Their values are strongly normalized. There is a list of available values [here](!!!!!!!!!!!!!!!!!!!!!TODO: INSERT LINK!!!!!!!!!!!!!!!!!!!!).
+
+| Name  | Type                                                                                   | Description            | Remarks |
+| ----- | -------------------------------------------------------------------------------------- | ---------------------- | ------- |
+| value | [`IdentityAttributeValue`](!!!!!!!!!!!!!!!!!!!!!TODO: INSERT LINK!!!!!!!!!!!!!!!!!!!!) | The Attriubte's value. |         |
+
+## RelationshipAttribute
+
+Identity Attributes describe an Identity in the context of a Relationship. While there are some types that can be used as a value for a RelationshipAttribute, these types are rather generic (e.g. `ProprietaryString`, `ProprietaryInteger`, ...).
+
+| Name            | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                               | Remarks |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| key             | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | An arbitrary key that is set by the creator of this Attribute. It is used to identify the Attribute in a query, especially by a third party. Example: you could set something like `customerId` in case of a customer id. |         |
+| isTechnical     | `boolean` \| `undefined`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Defines whether the Relationship Attribute contains data that is actually relevant for the user (`isTechnical=true`) or whether it should be hidden in the UI (`isTechnical=false`).                                      |         |
+| value           | [`RelationshipAttributeValue`](!!!!!!!!!!!TODO: INSERT LINK!!!!!!!!!!)                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | The Attriubte's value.                                                                                                                                                                                                    |         |
+| confidentiality | `"Public"` \| `"Protected"` \| `"Private"` \| When this property is set to `"Private"`, it means that third parties are not able to query this Relationship Attribute. It therefore only exists in the Relationshp it was created in. If the confidentiality is `"Protected"`, third parties can query the Relationship Attribute, but the App shows a warning saying that you should only share it with someone you trust. If the confidentiality is `"Public"`, everybody can query the Attribute, without anything special to happen. |                                                                                                                                                                                                                           |         |
+
+## RelationshipTemplateContent
+
+Theoretically you can send any kind of data in a Relationship Template. However, if your peer uses the Enmeshed App, it will only be able to process Relationship Templates that contain a `RelationshipTemplateBody`, which looks like this:
+
+| Name                   | Type                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                | Remarks |
+| ---------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| title                  | `string` \| `undefined` | An optional, human readable title that should be rendered in the UI.                                                                                                                                                                                                                                                                                                                                                       |         |
+| metadata               | `object` \| `undefined` | Optional custom metadata that can be sent together with the Relationship Template. This property is meant purely for developers who integrate with Enmeshed. They can write for example some kind of key into this property, which can be used later to identify the content of this Template.                                                                                                                             |         |
+| onNewRelationship      | [`Request`](#request)   | The Request that should pop up to the user in case there is no Relationship yet. In this Request you can send Attributes of yourself the user needs to in order to know who's Template it is (e.g. company name, address, ...), as ask for Attributes of the user you need to know in the Relationship, or send some information you already know about the user, so it can be saved in its wallet (e.g. the customer id). |         |
+| onExistingRelationship | [`Request`](#request)   | The Request that should pop up to the user in case a Relationship already exists. An example usage is a Request with an `AuthenticationRequestItem` for the sake of two-factor authentication.                                                                                                                                                                                                                             |         |
