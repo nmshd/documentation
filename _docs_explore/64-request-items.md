@@ -31,9 +31,6 @@ Please do not use the ConsentRequestItem to submit tons of text to the peer Iden
 The ConsentRequestItem is also not meant for contractual agreements.
 {: .notice--info}
 
-We have not yet reached a decision in order to how a consent could be automatically accepted for the user. So far, a ConsentRequestItem is best used with the requireManualDecision property set to true.
-{: .notice--warning}
-
 ### Examples
 
 -   "I hereby confirm that I have read the privacy terms of this cloud service and agree to them."
