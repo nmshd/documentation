@@ -15,7 +15,7 @@ With this item the sender can request the peer for an authentication for a certa
 -   Authentication for a login to a website
 -   Authentication for opening a door
 
-### This RequestItem has the following properties
+### Properties
 
 | Name  | Type                        | Description                                         |
 | ----- | --------------------------- | --------------------------------------------------- |
@@ -41,7 +41,7 @@ We have not yet reached a decision in order to how a consent could be automatica
 -   "Yes, I have backed up all of my data of this PC and you can wipe it."
 -   "I opt in to the newsletter"
 
-### This RequestItem has the following properties
+### Properties
 
 | Name    | Type                 | Description                                                                                                                                                                     |
 | ------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -61,7 +61,7 @@ To create a peer Attribute (owner = peer) with a fixed value defined by the send
 -   Send a certificate of the peer to the peer, so that the peer is able to easily share it
 -   Create a RelationshipAttribute for the peer
 
-### This RequestItem has the following properties
+### Properties
 
 | Name      | Type                                                                                                                                                                         | Description                                                                                                                                                                                      |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -79,7 +79,7 @@ To create a peer Attribute (owner = peer) with a value proposed by the sender, a
 -   Onboard an authenticated user and propose the known private Attributes
 -   Ask the user if a newsletter would be of interest and propose the opt-in. This could be stored as a RelationshipAttribute with the owner = recipient and could then be changed by the recipient at will.
 
-### This RequestItem has the following properties
+### Properties
 
 | Name      | Type                                                                                                                                                                                                                                                                                                                       | Description                                                                                                                                                                          |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -99,7 +99,7 @@ To query peer Attributes (owner = peer) which are not known to the sender, an Id
 -   Required query of the Age, to check if alkohol may be bought
 -   Required query of the Address, to send an invoice to the recipient
 
-### This RequestItem has the following properties
+### Properties
 
 | Name  | Type                                                                                                                                                                                                                                                                                                                       | Description                                                             |
 | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
@@ -114,7 +114,7 @@ This item is used to register a listener for a specific Attribute. The listener 
 
 -   Asking for a specific RelationshipAttribute of a partner organization.
 
-### This RequestItem has the following properties
+### Properties
 
 | Name  | Type                                                                                                                                                                                                                 | Description                                                           |
 | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
@@ -132,7 +132,7 @@ To share own IdentityAttributes (owner = self) an Identity uses the ShareAttribu
 -   Share own DisplayName
 -   Share own Address
 
-### This RequestItem has the following properties
+### Properties
 
 | Name              | Type                                                                                                                                                                         | Description                                                                                                                                                                                                                     |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
