@@ -394,3 +394,15 @@ Theoretically you can send any kind of data in a Relationship Template. However,
 | metadata               | `object` \| `undefined` | Optional custom metadata that can be sent together with the Relationship Template. This property is meant purely for developers who integrate with Enmeshed. They can write for example some kind of key into this property, which can be used later to identify the content of this Template.                                                                                                                             |         |
 | onNewRelationship      | [`Request`](#request)   | The Request that should pop up to the user in case there is no Relationship yet. In this Request you can send Attributes of yourself the user needs to in order to know who's Template it is (e.g. company name, address, ...), as ask for Attributes of the user you need to know in the Relationship, or send some information you already know about the user, so it can be saved in its wallet (e.g. the customer id). |         |
 | onExistingRelationship | [`Request`](#request)   | The Request that should pop up to the user in case a Relationship already exists. An example usage is a Request with an `AuthenticationRequestItem` for the sake of two-factor authentication.                                                                                                                                                                                                                             |         |
+
+
+## Mail
+
+A Mail is usually sent as the content of a [Message](#message). It is comparable with the classic email, so its properties should not contain any suprise.
+
+| Name    | Type       | Description                                                                                                 | Remarks |
+| ------- | ---------- | ----------------------------------------------------------------------------------------------------------- | ------- |
+| to      | `string[]` | The Enmeshed Addresses of the main recipients of this Mail.                                                 |         |
+| cc      | `string[]` | The Enmeshed Addresses that should receive a copy of this Mail, additionally to the ones specified in `to`. |         |
+| subject | `string`   | The subject of the Mail.                                                                                    |         |
+| body    | `string`   | The body of the Mail.                                                                                       |         |
