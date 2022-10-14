@@ -395,6 +395,15 @@ Theoretically you can send any kind of data in a Relationship Template. However,
 | onNewRelationship      | [`Request`](#request)   | The Request that should pop up to the user in case there is no Relationship yet. In this Request you can send Attributes of yourself the user needs to in order to know who's Template it is (e.g. company name, address, ...), as ask for Attributes of the user you need to know in the Relationship, or send some information you already know about the user, so it can be saved in its wallet (e.g. the customer id). |         |
 | onExistingRelationship | [`Request`](#request)   | The Request that should pop up to the user in case a Relationship already exists. An example usage is a Request with an `AuthenticationRequestItem` for the sake of two-factor authentication.                                                                                                                                                                                                                             |         |
 
+## RelationshipCreationChangeRequestContent
+
+The naming on this one in combination with its `response` property is a bit confusing. Even though the `RelationshipCreationChangeRequestContent` contains the word "Request", it has a `response` property.
+This is because in the context of Relationships, there are [Relationship Changes](#relationship-change), which have a `request` and a `response` property. But caution: these have nothing to do with the Content-types `Request` and `Response`.
+
+| Name                    | Type                    | Description | Remarks |
+| ----------------------- | ----------------------- | ----------- | ------- |
+| templateContentMetadata | `object` \| `undefined` |             |         |
+| response                | `ResponseJSON`          |             |         |
 
 ## Mail
 
