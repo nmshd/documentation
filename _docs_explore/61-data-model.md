@@ -13,6 +13,7 @@ The Enmeshed data model can be devided into three parts:
 The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail.
 
 <div style="width: 100%; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:100%; height:480px" src="https://lucid.app/documents/embedded/66e3002c-335a-4c22-a352-3a7a50a17d37" id="uPhuT48AMcNp"></iframe></div>
+(note that you can click on each type in order to navigate to the paragraph with the corresponding description)
 
 At a first glance the amount of types is overwhelming. But in the following chapters all of them are explained in detail.
 
@@ -56,7 +57,7 @@ A Relationship Template serves to purposes:
 | createdBy              | `string`                                                                   | {% include descr_createdBy class="Relationship Template" %}                                                                                                                                                                                                                                                                                                        | remark                                        |
 | createdByDevice        | `string`                                                                   | {% include descr_createdByDevice class="Relationship Template" %}                                                                                                                                                                                                                                                                                                  | remark                                        |
 | createdAt              | `string`                                                                   | {% include descr_createdAt class="Token" %}                                                                                                                                                                                                                                                                                                                        | remark                                        |
-| content                | [`RelationshipTemplateContent`](#RelationshipTemplateContent) \| `unknown` | The content of the Relationship Template. You can add whatever you want here. However, if it is intendend for a User of the Enmeshed App, `RelationshipTemplateContent` has to be used. Otherwise feel free to insert whatever you want or need.                                                                                                                   | remark                                        |
+| content                | [`RelationshipTemplateContent`](#relationshiptemplatecontent) \| `unknown` | The content of the Relationship Template. You can add whatever you want here. However, if it is intendend for a User of the Enmeshed App, `RelationshipTemplateContent` has to be used. Otherwise feel free to insert whatever you want or need.                                                                                                                   | remark                                        |
 | expiresAt              | `string`                                                                   | {% include descr_expiresAt class="Token" %}                                                                                                                                                                                                                                                                                                                        | will be encrypted before sent to the Backbone |
 | maxNumberOfAllocations | `number` \| `undefined`                                                    | Can be set to limit the number of allocations of this template. A Relationship Template is allocated by another Identity when it is first retrieved by it from the Backbone. After this value is reached, the Backbone rejects each request of any new Identity that wants to retrieve it. Identities that already allocated it will still be able to retrieve it. |                                               |
 
@@ -108,9 +109,9 @@ Note that RelationshipChangeRequest and RelationshipChangeResponse have nothing 
 
 A Message is a piece of data that can be sent to one or more recipients. The sender is completely free in what the content of the Message looks like. Though in order to enable a normalized communication, Enmeshed defines some content structures for Messages, and in the future there will be more of those. Consider that the Enmeshed App only supports those normalized Message contents. Currently there are:
 
--   [`Mail`](#Mail)
--   [`Request`](#Request)
--   [`Response`](#Response)
+-   [`Mail`](#mail)
+-   [`Request`](#request)
+-   [`Response`](#response)
 
 You can read more details about each of these in the corresponding sections of the "Content Types" chapter.
 
@@ -132,7 +133,7 @@ But if you are communicating with another Connector, feel free to settle on any 
 | ---------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | address          | `string`                | The Address of the recipient of the Message.                                                                                                                                                                                                         |                    |
 | relationshipId   | `string`                | The ID of the Relationship between the recipient and the sender of the Message.                                                                                                                                                                      | saved only locally |
-| receivedAt       | `string` \| `undefined` | A timestamp that describes when the recipient retrieved the Message from the Backbone. `undefined` when the Message wasn't received yet. Caution: "received"" does not mean that it was read, so don't mix this up with a read receipt.              |                    |
+| receivedAt       | `string` \| `undefined` | A timestamp that describes when the recipient retrieved the Message from the Backbone. `undefined` when the Message wasn't received yet. Caution: "received" does not mean that it was read, so don't mix this up with a read receipt.               |                    |
 | receivedByDevice | `string` \| `undefined` | The ID of the Device that first retrieved the Message. `undefined` when the Message wasn't received yet. This is of no interest for the sender of the Message, but rather for the recipient itself, since they can use it for audit purposes. sender |                    |
 
 ## File
@@ -180,10 +181,10 @@ A Local Request contains the local metadata for a [Request](#request).
 | isOwn     | `boolean`                                                  | `true` if you sent the Request, `false` if you received it.                                                                                  |
 | peer      | `string`                                                   | The Identity that sent you the corresponding Request/that you sent the Request to.                                                           |
 | createdAt | `string`                                                   | {% include descr_createdAt class="LocalRequest" %}                                                                                           |
-| status    | [`LocalRequestStatus`](#LocalRequestStatus)                | The current status of the Request. See [below](#LocalRequestStatus) for a list of all possible values.                                       |
-| content   | [`Request`](#Request)                                      | The actual Content object this Local Request defines the metadata for.                                                                       |
-| source    | [`LocalRequestSource`](#LocalRequestSource) \| `undefined` | Information about the Transport object with which the Request came in/was sent. This property is `undefined` if the Request is not sent yet. |
-| response  | [`LocalResponse`](#LocalResponse) \| `undefined`           | Metadata + Content object of the response. If there is no response yet, this property is `undefined`.                                        |
+| status    | [`LocalRequestStatus`](#localrequeststatus)                | The current status of the Request. See [below](#localrequeststatus) for a list of all possible values.                                       |
+| content   | [`Request`](#request)                                      | The actual Content object this Local Request defines the metadata for.                                                                       |
+| source    | [`LocalRequestSource`](#localrequestsource) \| `undefined` | Information about the Transport object with which the Request came in/was sent. This property is `undefined` if the Request is not sent yet. |
+| response  | [`LocalResponse`](#localresponse) \| `undefined`           | Metadata + Content object of the response. If there is no response yet, this property is `undefined`.                                        |
 
 ### LocalRequestStatus
 
@@ -199,7 +200,7 @@ Open
 : In case of an incoming Request, `Open` means that the Local Request was received.
 
 DecisionRequired
-: After the prerequisites of the Request and all of its Request Items were checked, a decision can be made. At first, the [Decider Module]({% link _docs_integrate/11-connector-configuration.md %}#decider) tries to make an automatic decision. It therefore checks all LocalRequests in status `DecisionRequired`.
+: After the prerequisites of the Request and all of its Request Items were checked, a decision can be made. At first, the [Decider Module]({% link _docs_explore/60-runtime.md %}#decider-module) tries to make an automatic decision. It therefore checks all LocalRequests in status `DecisionRequired`.
 
 ManualDecisionRequired
 : If the Decider Module cannot make a decision, it moves the Local Request to `ManualDecisionRequired`. When the Local Request is in this status, it's the User's turn to decide whether they want to accept or reject the Request.
@@ -282,20 +283,20 @@ A LocalAttributeListener is created when you accept an incoming Request with a [
 
 # Content Types
 
-Content Types can be seen as a data contract between Identities. The medium through which this data is exchanged are the Transport types (e.g. Messages, Tokens, ...). This chapter shows all the Content types and describes their intended usage.
+Content Types can be seen as a data contract between Identities. The medium through which this data is exchanged are the [Transport types](#transport-types) (e.g. Messages, Tokens, ...). This chapter shows all the Content types and describes their intended usage.
 
 ## Request
 
-A Request allows you to ask another Identity to do something. What this "something" is depends on which of the so called [Request Items](#requestitem) were added to the Request (e.g. `CreateAttributeRequestItem`, `ReadAttributeRequestItem`, ...). The Request is then sent to the peer via Message or Relationship Template. The peer can then review the Request and decide whether they want to accept or reject it. And if they accept it, they can even choose which of the Items they want to accept. You can also put multiple Items into a [group](#requestitemgroup) in order to ensure that they can only be accepted/rejected as a unit.
+A Request allows you to ask another Identity to do something. What this "something" is depends on which of the so called [Request Items](#requestitem) were added to the Request (e.g. [`CreateAttributeRequestItem`]({% link _docs_explore/64-request-items.md %}#createattributerequestitem), [`ReadAttributeRequestItem`]({% link _docs_explore/64-request-items.md %}#readattributerequestitem), ...). The Request is then sent to the peer via Message or Relationship Template. The peer can then review the Request and decide whether they want to accept or reject it. And if they accept it, they can even choose which of the Items they want to accept. You can also put multiple Items into a [group](#requestitemgroup) in order to ensure that they can only be accepted/rejected as a unit.
 
-| Name        | Type                                                                             | Description                                                                                                                                                                                                                                                                           |
-| ----------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id          | `string` \| `undefined`                                                          | Unique identifier of this object. This property is `undefined` if the Request is inside of a Relationship Template. <br>_Remark: the ID of each Request starts with the letters "REQ". This way you can tell apart a Request ID from any other ID just by looking at the prefix._<br> |
-| title       | `string` \| `undefined`                                                          | An optional, human readable title for the Request.                                                                                                                                                                                                                                    |
-| description | `string` \| `undefined`                                                          | An optional, human readable description for the Request.                                                                                                                                                                                                                              |
-| expiresAt   | `string` \| `undefined`                                                          | {% include descr_expiresAt class="Request" %}                                                                                                                                                                                                                                         |
-| items       | `(`[`RequestItemGroup`](#requestitemgroup)`\|`[`RequestItem`](#requestitem)`)[]` | A list of Request Items and Groups that are part of the Request. There must be at least one Item or Group per Request.                                                                                                                                                                |
-| metadata    | `string` \| `undefined`                                                          | Optional custom metadata that can be sent together with the Request. This property is meant purely for developers who integrate with Enmeshed. They can write for example some kind of key into this property, which can be used later to identify the content of this Request.       |
+| Name        | Type                                        | Description                                                                                                                                                                                                                                                                           |
+| ----------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| id          | `string` \| `undefined`                     | Unique identifier of this object. This property is `undefined` if the Request is inside of a Relationship Template. <br>_Remark: the ID of each Request starts with the letters "REQ". This way you can tell apart a Request ID from any other ID just by looking at the prefix._<br> |
+| title       | `string` \| `undefined`                     | An optional, human readable title for the Request.                                                                                                                                                                                                                                    |
+| description | `string` \| `undefined`                     | An optional, human readable description for the Request.                                                                                                                                                                                                                              |
+| expiresAt   | `string` \| `undefined`                     | {% include descr_expiresAt class="Request" %}                                                                                                                                                                                                                                         |
+| items       | `(`[`RequestItemGroup`](#requestitemgroup)` | `[`RequestItem`](#requestitem)`)[]`                                                                                                                                                                                                                                                   | An array of Request Items and Groups that are part of the Request. There must be at least one Item or Group per Request. |
+| metadata    | `string` \| `undefined`                     | Optional custom metadata that can be sent together with the Request. This property is meant purely for developers who integrate with Enmeshed. They can write for example some kind of key into this property, which can be used later to identify the content of this Request.       |
 
 ### RequestItem
 
@@ -333,13 +334,19 @@ There is a [dedicated site]({% link _docs_explore/64-request-items.md %}) that l
 
 ### ResponseItem
 
-Response Items are sent inside of a Response. They contain the response data that is sent by the recipient of the Request. There are three different kinds of Response Items: `AcceptResponseItem`, `RejectResponseItem` and `ErrorResponseItem`. Depending on the actual Request Item, there can be different derivations of these three items. For example, in case of a `CreateAttributeRequestItem`, there is a special `CreateAttributeResponseItem`, while for a `AuthenticationRequestItem`, the `AcceptResponseItem` can be used, because there is no additional information necessary next to whether it was accepted or rejected.
+Response Items are sent inside of a Response. They contain the response data that is sent by the recipient of the Request. There are three different kinds of Response Items: `AcceptResponseItem`, `RejectResponseItem` and `ErrorResponseItem`. Depending on the actual Request Item, there can be different derivations of these three items. For example, in case of a [`CreateAttributeRequestItem`]({% link _docs_explore/64-request-items.md %}#createattributerequestitem), there is a special [`CreateAttributeResponseItem`]({% link _docs_explore/64-request-items.md %}#createattributeresponseitem), while for an [`AuthenticationRequestItem`]({% link _docs_explore/64-request-items.md %}#authenticationrequestitem), the [`AcceptResponseItem`](#acceptresponseitem) can be used, because there is no additional information necessary next to whether it was accepted or rejected.
+
+The [site documenting the Request Items]({% link _docs_explore/64-request-items.md %}) shows which Response Item is required for each Request Item.
+
+#### AcceptResponseItem
 
 The properties of the `AcceptResponseItem` are:
 
 | Name   | Type         | Description                                              |
 | ------ | ------------ | -------------------------------------------------------- |
 | result | `"Accepted"` | The only possible value here is the string `"Accepted"`. |
+
+#### RejectResponseItem
 
 The properties of the `RejectResponseItem` are:
 
@@ -349,6 +356,8 @@ The properties of the `RejectResponseItem` are:
 | code?    | `string` \| `undefined` | A code telling the sender about the reason for the rejection. |
 | message? | `string` \| `undefined` | A human readable message with details about the rejection.    |
 
+#### ErrorResponseItem
+
 The `ErrorResponseItem` is only created by the Enmeshed Runtime, in case something happens which hinders you from further processing of the Request Item. It will never be created manually. The properties are:
 
 | Name    | Type      | Description                                                             |
@@ -356,8 +365,6 @@ The `ErrorResponseItem` is only created by the Enmeshed Runtime, in case somethi
 | result  | `"Error"` | The only possible value here is the string `"Error"`.                   |
 | code    | `string`  | An error code telling the sender about the kind of error that occurred. |
 | message | `string`  | A human readable error message with details about the error.            |
-
-There is a [dedicated site](!!!!!!!!!!!!!!!!!!!!!TODO: INSERT LINK!!!!!!!!!!!!!!!!!!!!) that lists all available kinds of Response Items.
 
 ### ResponseItemGroup
 
@@ -484,7 +491,7 @@ This is because in the context of Relationships, there are [Relationship Changes
 
 ## Mail
 
-A Mail is usually sent as the content of a [Message](#message). It is comparable with the classic email, so its properties should not contain any suprise.
+A Mail can be sent as the content of a [Message](#message). It is comparable with the classic email, so its properties should not contain any suprise.
 
 | Name    | Type       | Description                                                                                                 |
 | ------- | ---------- | ----------------------------------------------------------------------------------------------------------- |
