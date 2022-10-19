@@ -9,17 +9,20 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  compile:
+  build:
     runs-on: ubuntu-latest
-    container:
-      image: jekyll/jekyll
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "2.7"
+          bundler-cache: true
+      - name: Build
+        run: bundle exec jekyll build
+  run-checks:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: npx prettier -c .
       - run: npm audit
       - run: npx markdownlint-cli **/*.md
-  run-checks:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: bundle exec jekyll build
