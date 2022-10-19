@@ -121,7 +121,7 @@ Start by creating a so called Relationship Template on the Connector. You can do
     "maxNumberOfAllocations": 1,
     "expiresAt": "2023-06-01T00:00:00.000Z",
     "content": {
-        "@type": "RelationshipTemplateBody",
+        "@type": "RelationshipTemplateContent",
         "title": "Connector Demo Contact",
         "onNewRelationship": {
             // <the content validated in the step before>
