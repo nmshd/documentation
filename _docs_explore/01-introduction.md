@@ -14,7 +14,7 @@ On the other hand, many organizations are still having trouble to digitize their
 
 The adjective "enmeshed" (\in'meshd\ or \en'meshd\ or /ɪnˈmeʃt/ ) means "to be entangled in s.th." or "parts which are patched together". Though sometimes used with a negative touch, nowadays we are all enmeshed in digital processes somehow, with more or less user satisfactory and effectiveness.
 
-We think by not only connecting identities of users and organizations to those digital processes, but tighly interweaving them within the actual processes, the overall user experience and process efficiency will rise. Enmeshed identities have a secure, digital and modern link between each other, which is not only used for overall communication but for professional processes.
+We think by not only connecting identities of users and organizations to those digital processes, but tightly interweaving them within the actual processes, the overall user experience and process efficiency will rise. Enmeshed identities have a secure, digital and modern link between each other, which is not only used for overall communication but for professional processes.
 
 For us, being enmeshed is a very good thing: you know what is going on and the data which is used. You can take part in completely digital processes, without the hazzle of repeating yourself again and again. Even automated actions are available for end users.
 
@@ -74,19 +74,17 @@ It is possible to use multiple identities with the same App. It is also possible
 
 The [Enmeshed Backbone]({% link _docs_explore/51-backbone.md %}) provides the foundation to communicate between the components on the backbone layer. It hosts the central services which are required for a seamless experience across identities and the devices of one identity.
 
-It is an encrypted storage layer for all kind of information. Although the messages, files, tokens, etc. have a certain expiry date, the data is stored on the backbone until this expiry date. Thus, the backbone acts as an data-access, backup and synchronization helper for the identities.
+It is an encrypted storage layer for all kind of information. Although the messages, files, tokens, etc. have a certain expiry date, the data is stored on the backbone until this expiry date. Thus, the backbone acts as a data-access, backup and synchronization helper for the identities.
 
-Due to the fact that devices of end-users are not always online, a "technical recipient" needs to be introduced which receives the (encrypted) messages by senders and stores them. The recipients are notified automatically by push channels.
+Due to the fact that devices of end-users are not always online, a "technical recipient" needs to be introduced which receives the (encrypted) messages from senders and stores them. The recipients are notified automatically by push channels.
 
-The Backbone is based on a micro-service architecture and is highly virtualized with Docker containers. It is thus quite capable to scale vertically and horizontally.
+The Backbone is based on a microservice architecture and is highly virtualized with Docker containers. It is thus quite capable to scale vertically and horizontally.
 
 ## Enmeshed Connector
 
 The client for organizations is the [Enmeshed Connector]({% link _docs_explore/52-connector.md %}). It acts with a separate digital identity of the organization within the network of the organization. Thus, it is in the hands of the corresponding IT department and can be set up next to the organization's business systems using the majority of the features.
 
-The Connector is hosted by a single Docker image and provides a REST API for all features of the transport layer. It can thus be perfectly used for integration purposes. The Connector transparently encrypts or decrypts the respective payload, synchronizes with the Backbone and keeps track of the Enmeshed data.
-
-It so far is not capable communicating on a content, consumption and integration layer.
+The Connector is hosted by a single Docker container and provides a REST API for all features of the transport layer. It can thus be perfectly used for integration purposes. The Connector transparently encrypts or decrypts the respective payload, synchronizes with the Backbone and keeps track of the Enmeshed data.
 
 # Who is behind Enmeshed?
 
