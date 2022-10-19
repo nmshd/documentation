@@ -380,13 +380,12 @@ An Attribute is some piece of information about an Identity itself(e.g. its name
 
 Identity Attributes describe an Identity itself. Their values are strongly normalized. There is a list of available values here.
 
-| Name                   | Type                     | Description                                                                                                       |
-| ---------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| owner                  | `string`                 | The Identity that owns this Attribute. Only the owner of an Attribute is allowed to change it after its creation. |
-| validFrom              | `string` \| `undefined`  | The date from which on the Attribute is valid. Could be in the future if the Attribute is not yet valid.          |
-| validTo                | `string` \| `undefined`  | The date until this Attribute is valid. Could be in the past if the Attribute is already expired.                 |
-| value                  | `IdentityAttributeValue` |
-| The Attriubte's value. |
+| Name      | Type                                                                                                                                 | Description                                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| owner     | `string`                                                                                                                             | The Identity that owns this Attribute. Only the owner of an Attribute is allowed to change it after its creation. |
+| validFrom | `string` \| `undefined`                                                                                                              | The date from which on the Attribute is valid. Could be in the future if the Attribute is not yet valid.          |
+| validTo   | `string` \| `undefined`                                                                                                              | The date until this Attribute is valid. Could be in the past if the Attribute is already expired.                 |
+| value     | `IdentityAttributeValue`<!--[`IdentityAttributeValue`]({% link _docs_explore/65-attribute-values.md %}#identity-attribute-values)--> | The Attriubte's value.                                                                                            |
 
 ### RelationshipAttribute
 
