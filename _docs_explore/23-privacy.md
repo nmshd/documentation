@@ -41,7 +41,7 @@ The threat of metadata analytics should not be underestimated and can also not b
 
 When comparing the Enmeshed privacy with decentral approaches discussed in the world wide web, we do not see any disadvantages with a central architecture. The data stored or shared is effectively the same, resulting in the same possible metadata analysis.
 
-However, there are some advantages to a central arechitecture:
+However, there are some advantages to a central architecture:
 
 -   With a central architecture, it is generally possible to restrict the access to data on a network level. Only the sender and recipients of a message have access to the encrypted payload of this message, for example. Even if the data is encrypted or pseunodymized, on a decentral architecture everybody would still have access to the encrypted payload.
 -   With a central architecture, the analysis of metadata can only be done by the central player. On a decentral system, anybody could analyse the metadata.
