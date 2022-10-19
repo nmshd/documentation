@@ -3,12 +3,20 @@ name: Test
 on:
   push:
     branches-ignore: [main, release/**]
-  pull_request_target:
-    types: [opened, synchronize, reopened]
   pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "2.7"
+          bundler-cache: true
+      - name: Build
+        run: bundle exec jekyll build
   run-checks:
     runs-on: ubuntu-latest
     steps:
