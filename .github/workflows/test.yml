@@ -9,10 +9,17 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  run-checks:
+  compile:
     runs-on: ubuntu-latest
+    container:
+      image: jekyll/jekyll
     steps:
       - uses: actions/checkout@v2
       - run: npx prettier -c .
       - run: npm audit
       - run: npx markdownlint-cli **/*.md
+  run-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: bundle exec jekyll build
