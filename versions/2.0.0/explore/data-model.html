@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-10-11T15:11:58+02:00">
+  <meta property="article:published_time" content="2022-10-19T17:17:34+02:00">
 
 
 
@@ -289,7 +289,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Enmeshed Data Model">
     <meta itemprop="description" content="The Enmeshed data model can be devided into three parts:">
-    <meta itemprop="datePublished" content="2022-10-11T15:11:58+02:00">
+    <meta itemprop="datePublished" content="2022-10-19T17:17:34+02:00">
     
 
     <div class="page__inner-wrap">
@@ -310,7 +310,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#transport-types">Transport Types</a><ul><li><a href="#token">Token</a></li><li><a href="#relationshiptemplate">RelationshipTemplate</a></li><li><a href="#relationship">Relationship</a><ul><li><a href="#relationship-change">Relationship Change</a></li><li><a href="#relationshipchangerequest">RelationshipChangeRequest</a></li><li><a href="#relationshipchangeresponse">RelationshipChangeResponse</a></li></ul></li><li><a href="#message">Message</a><ul><li><a href="#recipient">Recipient</a></li></ul></li><li><a href="#file">File</a></li></ul></li><li><a href="#local-types">Local Types</a><ul><li><a href="#localrequest">LocalRequest</a><ul><li><a href="#localrequeststatus">LocalRequestStatus</a></li><li><a href="#localrequestsource">LocalRequestSource</a></li><li><a href="#localresponse">LocalResponse</a></li><li><a href="#localresponsesource">LocalResponseSource</a></li></ul></li><li><a href="#localattribute">LocalAttribute</a></li><li><a href="#localattributeshareinfo">LocalAttributeShareInfo</a></li></ul></li><li><a href="#content-types">Content Types</a></li></ul>
+              <ul class="toc__menu"><li><a href="#transport-types">Transport Types</a><ul><li><a href="#token">Token</a></li><li><a href="#relationshiptemplate">RelationshipTemplate</a></li><li><a href="#relationship">Relationship</a><ul><li><a href="#relationshipchange">RelationshipChange</a></li><li><a href="#relationshipchangerequest">RelationshipChangeRequest</a></li><li><a href="#relationshipchangeresponse">RelationshipChangeResponse</a></li></ul></li><li><a href="#message">Message</a><ul><li><a href="#recipient">Recipient</a></li></ul></li><li><a href="#file">File</a></li></ul></li><li><a href="#local-types">Local Types</a><ul><li><a href="#localrequest">LocalRequest</a><ul><li><a href="#localrequeststatus">LocalRequestStatus</a></li><li><a href="#localrequestsource">LocalRequestSource</a></li><li><a href="#localresponse">LocalResponse</a></li><li><a href="#localresponsesource">LocalResponseSource</a></li></ul></li><li><a href="#localattribute">LocalAttribute</a><ul><li><a href="#localattributeshareinfo">LocalAttributeShareInfo</a></li></ul></li><li><a href="#localattributelistener">LocalAttributeListener</a></li></ul></li><li><a href="#content-types">Content Types</a><ul><li><a href="#request">Request</a><ul><li><a href="#requestitem">RequestItem</a></li><li><a href="#requestitemgroup">RequestItemGroup</a></li></ul></li><li><a href="#response">Response</a><ul><li><a href="#responseitem">ResponseItem</a><ul><li><a href="#acceptresponseitem">AcceptResponseItem</a></li><li><a href="#rejectresponseitem">RejectResponseItem</a></li><li><a href="#errorresponseitem">ErrorResponseItem</a></li></ul></li><li><a href="#responseitemgroup">ResponseItemGroup</a></li></ul></li><li><a href="#attributes">Attributes</a><ul><li><a href="#identityattribute">IdentityAttribute</a></li><li><a href="#relationshipattribute">RelationshipAttribute</a></li></ul></li><li><a href="#attributequeries">AttributeQueries</a><ul><li><a href="#identityattributequery">IdentityAttributeQuery</a></li><li><a href="#relationshipattributequery">RelationshipAttributeQuery</a><ul><li><a href="#relationshipattributecreationhints">RelationshipAttributeCreationHints</a></li><li><a href="#valuehints">ValueHints</a></li><li><a href="#valuehintsvalue">ValueHintsValue</a></li></ul></li><li><a href="#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a></li></ul></li><li><a href="#relationshiptemplatecontent">RelationshipTemplateContent</a></li><li><a href="#relationshipcreationchangerequestcontent">RelationshipCreationChangeRequestContent</a></li><li><a href="#mail">Mail</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -326,6 +326,7 @@
 <p>The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail.</p>
 
 <div style="width: 100%; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:100%; height:480px" src="https://lucid.app/documents/embedded/66e3002c-335a-4c22-a352-3a7a50a17d37" id="uPhuT48AMcNp"></iframe></div>
+<p>(note that you can click on each type in order to navigate to the paragraph with the corresponding description)</p>
 
 <p>At a first glance the amount of types is overwhelming. But in the following chapters all of them are explained in detail.</p>
 
@@ -458,8 +459,8 @@
     </tr>
     <tr>
       <td>content</td>
-      <td><a href="#RelationshipTemplateBody"><code class="language-plaintext highlighter-rouge">RelationshipTemplateBody</code></a> | <code class="language-plaintext highlighter-rouge">unknown</code></td>
-      <td>The content of the Relationship Template. You can add whatever you want here. However, if it is intendend for a User of the Enmeshed App, <code class="language-plaintext highlighter-rouge">RelationshipTemplateBody</code> has to be used. Otherwise feel free to insert whatever you want or need.</td>
+      <td><a href="#relationshiptemplatecontent"><code class="language-plaintext highlighter-rouge">RelationshipTemplateContent</code></a> | <code class="language-plaintext highlighter-rouge">unknown</code></td>
+      <td>The content of the Relationship Template. You can add whatever you want here. However, if it is intendend for a User of the Enmeshed App, <code class="language-plaintext highlighter-rouge">RelationshipTemplateContent</code> has to be used. Otherwise feel free to insert whatever you want or need.</td>
       <td>remark</td>
     </tr>
     <tr>
@@ -479,7 +480,7 @@
 
 <h2 id="relationship">Relationship</h2>
 
-<p>A Relationshipsss between two Identities is the prerequisite for them to exchange Messages. If there is no Relationship, the Backbone blocks all Messages that are tried to be sent. This ensures that you only receive Messages from Identities you know, so you are protected from any harmful Messages like spam or fishing mails.</p>
+<p>A Relationships between two Identities is the prerequisite for them to exchange Messages. If there is no Relationship, the Backbone blocks all Messages that are tried to be sent. This ensures that you only receive Messages from Identities you know, so you are protected from any harmful Messages like spam or fishing mails.</p>
 
 <table>
   <thead>
@@ -488,7 +489,6 @@
       <th>Type</th>
       <th>Description</th>
       <th>Remarks</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -497,13 +497,11 @@
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>Unique identifier of this object. <br /><em>Remark: the ID of each Relationship starts with the letters “REL”. This way you can tell apart a Relationship ID from any other ID just by looking at the prefix.</em></td>
       <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>template</td>
       <td><code class="language-plaintext highlighter-rouge">RelationshipTemplate</code></td>
       <td>The Relationship Template that was used to establish this Relationship.</td>
-      <td> </td>
       <td> </td>
     </tr>
     <tr>
@@ -511,13 +509,11 @@
       <td><code class="language-plaintext highlighter-rouge">"Pending"</code> | <code class="language-plaintext highlighter-rouge">"Active"</code> | <code class="language-plaintext highlighter-rouge">"Rejected"</code> | <code class="language-plaintext highlighter-rouge">"Revoked"</code></td>
       <td>The status of this Relationship. <br /><ul><li>Pending: the Relationship was created, but not yet accepted the recipient. In this state you cannot send Messages yet.</li><li>Active: this means that the Relationship is active. As long as it is active, both participants can exchange Messages.</li><li>Rejected: the Relationship was rejected by the recipient.</li><li>Revoked: the Relationship was revoked by the sender.</li></ul></td>
       <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>changes</td>
-      <td><code class="language-plaintext highlighter-rouge">RelationshipChange[]</code></td>
+      <td><a href="#relationshipchange"><code class="language-plaintext highlighter-rouge">RelationshipChange</code></a><code class="language-plaintext highlighter-rouge">[]</code></td>
       <td>The history of changes made to this Relationship. You can find the definition of a Relationship Change below.</td>
-      <td> </td>
       <td> </td>
     </tr>
     <tr>
@@ -525,26 +521,11 @@
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>The Address of the Identity with which you have this Relationship.</td>
       <td>saved only locally</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>lastMessageSentAt</td>
-      <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td><code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>A timestamp that describes when you last</td>
-      <td>saved only locally</td>
-    </tr>
-    <tr>
-      <td>lastMessageReceivedAt</td>
-      <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td><code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td> </td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="relationship-change">Relationship Change</h3>
+<h3 id="relationshipchange">RelationshipChange</h3>
 
 <p>Since a Relationship “belongs” to two Identities, each change on such a Relationship demands for the agreement of both parties. That’s where Relationship Changes come into play. Whenenver one party wants to make a change to the Relationship (like create or terminate it), it sends a Relationship Change to the other party, which has to accept it in order for the change to take effect. If the other party doesn’t want to accept it, it can also reject it. And if the party that created the Relationship Change changes its mind, it can revoke the Relationship Change. The Backbone makes sure that a Relationship Change can only be completed in one of those three ways (accepted, rejected, revoked). So for example if you try to accept a Relationship Change that is already revoked, you will receive an error.</p>
 
@@ -578,13 +559,13 @@
     </tr>
     <tr>
       <td>request</td>
-      <td><code class="language-plaintext highlighter-rouge">RelationshipChangeRequest</code></td>
+      <td><a href="#relationshipchangerequest"><code class="language-plaintext highlighter-rouge">RelationshipChangeRequest</code></a></td>
       <td>Information about the request of the Relationship Change.</td>
       <td> </td>
     </tr>
     <tr>
       <td>response</td>
-      <td><code class="language-plaintext highlighter-rouge">RelationshipChangeResponse</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td><a href="#relationshipchangeresponse"><code class="language-plaintext highlighter-rouge">RelationshipChangeResponse</code></a> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>Information about the response of the Relationship Change.</td>
       <td> </td>
     </tr>
@@ -625,8 +606,8 @@
     </tr>
     <tr>
       <td>content</td>
-      <td><code class="language-plaintext highlighter-rouge">unknown</code></td>
-      <td>The content of the Relationship Change Request. You can add whatever you want here. However, if the other party uses the Enmeshed App, and the type of the Relationship Change is <code class="language-plaintext highlighter-rouge">Creation</code>, <code class="language-plaintext highlighter-rouge">RelationshipCreationChangeRequestBody</code> has to be used. Otherwise feel free to insert whatever you want or need.</td>
+      <td><a href="#relationshipcreationchangerequestcontent"><code class="language-plaintext highlighter-rouge">RelationshipCreationChangeRequestContent</code></a> | <code class="language-plaintext highlighter-rouge">unknown</code></td>
+      <td>The content of the Relationship Change Request. You can add whatever you want here. However, if the other party uses the Enmeshed App, and the type of the Relationship Change is <code class="language-plaintext highlighter-rouge">Creation</code>, <a href="#relationshipcreationchangerequestcontent"><code class="language-plaintext highlighter-rouge">RelationshipCreationChangeRequestContent</code></a> has to be used. Otherwise feel free to insert whatever you want or need.</td>
       <td>will be encrypted before sent to the Backbone</td>
     </tr>
   </tbody>
@@ -676,9 +657,9 @@
 <p>A Message is a piece of data that can be sent to one or more recipients. The sender is completely free in what the content of the Message looks like. Though in order to enable a normalized communication, Enmeshed defines some content structures for Messages, and in the future there will be more of those. Consider that the Enmeshed App only supports those normalized Message contents. Currently there are:</p>
 
 <ul>
-  <li><a href="#Mail"><code class="language-plaintext highlighter-rouge">Mail</code></a></li>
-  <li><a href="#Request"><code class="language-plaintext highlighter-rouge">Request</code></a></li>
-  <li><a href="#Response"><code class="language-plaintext highlighter-rouge">Response</code></a></li>
+  <li><a href="#mail"><code class="language-plaintext highlighter-rouge">Mail</code></a></li>
+  <li><a href="#request"><code class="language-plaintext highlighter-rouge">Request</code></a></li>
+  <li><a href="#response"><code class="language-plaintext highlighter-rouge">Response</code></a></li>
 </ul>
 
 <p>You can read more details about each of these in the corresponding sections of the “Content Types” chapter.</p>
@@ -721,8 +702,8 @@
     </tr>
     <tr>
       <td>recipients</td>
-      <td><code class="language-plaintext highlighter-rouge">Recipient[]</code></td>
-      <td>A list of recipients of this Message.</td>
+      <td><a href="#recipient"><code class="language-plaintext highlighter-rouge">Recipient</code></a><code class="language-plaintext highlighter-rouge">[]</code></td>
+      <td>An array of recipients of this Message.</td>
       <td> </td>
     </tr>
     <tr>
@@ -734,7 +715,7 @@
     <tr>
       <td>attachments</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code></td>
-      <td>A list of <a href="#file">File</a> IDs you want to attach to your Message. You receive the File ID after you uploaded a file to the Backbone. By attaching a File to a Message, you share the secret key used to encrypt/decrypt the File, which cannot be undone.</td>
+      <td>An array of <a href="#file">File</a> IDs you want to attach to your Message. You receive the File ID after you uploaded a file to the Backbone. By attaching a File to a Message, you share the secret key used to encrypt/decrypt the File, which cannot be undone.</td>
       <td> </td>
     </tr>
   </tbody>
@@ -767,7 +748,7 @@
     <tr>
       <td>receivedAt</td>
       <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>A timestamp that describes when the recipient retrieved the Message from the Backbone. <code class="language-plaintext highlighter-rouge">undefined</code> when the Message wasn’t received yet. Caution: “received”” does not mean that it was read, so don’t mix this up with a read receipt.</td>
+      <td>A timestamp that describes when the recipient retrieved the Message from the Backbone. <code class="language-plaintext highlighter-rouge">undefined</code> when the Message wasn’t received yet. Caution: “received” does not mean that it was read, so don’t mix this up with a read receipt.</td>
       <td> </td>
     </tr>
     <tr>
@@ -901,7 +882,6 @@
       <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-      <th>Remarks</th>
     </tr>
   </thead>
   <tbody>
@@ -909,49 +889,41 @@
       <td>id</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>Unique identifier of this object. <br /><em>Remark: the ID of each LocalRequest starts with the letters “FIL”. This way you can tell apart a LocalRequest ID from any other ID just by looking at the prefix.</em></td>
-      <td> </td>
     </tr>
     <tr>
       <td>isOwn</td>
       <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
       <td><code class="language-plaintext highlighter-rouge">true</code> if you sent the Request, <code class="language-plaintext highlighter-rouge">false</code> if you received it.</td>
-      <td> </td>
     </tr>
     <tr>
       <td>peer</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>The Identity that sent you the corresponding Request/that you sent the Request to.</td>
-      <td> </td>
     </tr>
     <tr>
       <td>createdAt</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>A timestamp that describes when the LocalRequest was created</td>
-      <td> </td>
     </tr>
     <tr>
       <td>status</td>
-      <td><a href="#LocalRequestStatus"><code class="language-plaintext highlighter-rouge">LocalRequestStatus</code></a></td>
-      <td>The current status of the Request. See <a href="#LocalRequestStatus">below</a> for a list of all possible values.</td>
-      <td> </td>
+      <td><a href="#localrequeststatus"><code class="language-plaintext highlighter-rouge">LocalRequestStatus</code></a></td>
+      <td>The current status of the Request. See <a href="#localrequeststatus">below</a> for a list of all possible values.</td>
     </tr>
     <tr>
       <td>content</td>
-      <td><a href="#Request"><code class="language-plaintext highlighter-rouge">Request</code></a></td>
+      <td><a href="#request"><code class="language-plaintext highlighter-rouge">Request</code></a></td>
       <td>The actual Content object this Local Request defines the metadata for.</td>
-      <td> </td>
     </tr>
     <tr>
       <td>source</td>
-      <td><a href="#LocalRequestSource"><code class="language-plaintext highlighter-rouge">LocalRequestSource</code></a> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td><a href="#localrequestsource"><code class="language-plaintext highlighter-rouge">LocalRequestSource</code></a> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>Information about the Transport object with which the Request came in/was sent. This property is <code class="language-plaintext highlighter-rouge">undefined</code> if the Request is not sent yet.</td>
-      <td> </td>
     </tr>
     <tr>
       <td>response</td>
-      <td><a href="#LocalResponse"><code class="language-plaintext highlighter-rouge">LocalResponse</code></a> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td><a href="#localresponse"><code class="language-plaintext highlighter-rouge">LocalResponse</code></a> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>Metadata + Content object of the response. If there is no response yet, this property is <code class="language-plaintext highlighter-rouge">undefined</code>.</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -969,7 +941,7 @@
   <dd>In case of an outgoing Request, <code class="language-plaintext highlighter-rouge">Open</code> means that the Request was sent. The transition to <code class="language-plaintext highlighter-rouge">Open</code> happens automatically when you send the Request with a Message.</dd>
   <dd>In case of an incoming Request, <code class="language-plaintext highlighter-rouge">Open</code> means that the Local Request was received.</dd>
   <dt>DecisionRequired</dt>
-  <dd>After the prerequisites of the Request and all of its Request Items were checked, a decision can be made. At first, the <a href="/versions/2.0.0/integrate/connector-configuration#decider">Decider Module</a> tries to make an automatic decision. It therefore checks all LocalRequests in status <code class="language-plaintext highlighter-rouge">DecisionRequired</code>.</dd>
+  <dd>After the prerequisites of the Request and all of its Request Items were checked, a decision can be made. At first, the <a href="/versions/2.0.0/explore/runtime#decider-module">Decider Module</a> tries to make an automatic decision. It therefore checks all LocalRequests in status <code class="language-plaintext highlighter-rouge">DecisionRequired</code>.</dd>
   <dt>ManualDecisionRequired</dt>
   <dd>If the Decider Module cannot make a decision, it moves the Local Request to <code class="language-plaintext highlighter-rouge">ManualDecisionRequired</code>. When the Local Request is in this status, it’s the User’s turn to decide whether they want to accept or reject the Request.</dd>
   <dt>Decided</dt>
@@ -991,7 +963,6 @@
       <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-      <th>Remarks</th>
     </tr>
   </thead>
   <tbody>
@@ -999,13 +970,11 @@
       <td>type</td>
       <td>“Message” | “RelationshipTemplate”</td>
       <td>The type of Transport object the Request was sent/received in.</td>
-      <td> </td>
     </tr>
     <tr>
       <td>reference</td>
-      <td>string</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>The ID of the Transport object the Request was sent/received in.</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -1020,27 +989,23 @@
       <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-      <th>Remarks</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>createdAt</td>
-      <td>string</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>A timestamp that describes when the LocalResponse was created</td>
-      <td> </td>
     </tr>
     <tr>
       <td>content</td>
-      <td>Response</td>
+      <td><a href="#response"><code class="language-plaintext highlighter-rouge">Response</code></a></td>
       <td>The actual Content object this Local Response defines the metadata for.</td>
-      <td> </td>
     </tr>
     <tr>
       <td>source</td>
-      <td>LocalResponseSource | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td><a href="#localresponsesource"><code class="language-plaintext highlighter-rouge">LocalResponseSource</code></a> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>Information about the Transport object with which the Response came in/was sent. This property is <code class="language-plaintext highlighter-rouge">undefined</code> if the Response is not sent/received yet.</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -1055,7 +1020,6 @@
       <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-      <th>Remarks</th>
     </tr>
   </thead>
   <tbody>
@@ -1063,20 +1027,18 @@
       <td>type</td>
       <td>“Message” | “RelationshipChange”</td>
       <td>The type of Transport object the Response was sent/received in.</td>
-      <td> </td>
     </tr>
     <tr>
       <td>reference</td>
-      <td>string</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>The ID of the Transport object the Response was sent/received in.</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="localattribute">LocalAttribute</h2>
 
-<p>A Local Attribute contains the local metadata for an <a href="#attribute">Attribute</a>. There are three situation a Local Attribute is created in the database:</p>
+<p>A Local Attribute contains the local metadata for an <a href="#attributes">Attribute</a>. There are three situation a Local Attribute is created in the database:</p>
 
 <ul>
   <li>The Identity maintains an Attribute about itself (e.g. sets its first name). We call such a Local Attribute “Repository Attribute”.</li>
@@ -1090,7 +1052,6 @@
       <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-      <th>Remarks</th>
     </tr>
   </thead>
   <tbody>
@@ -1098,42 +1059,41 @@
       <td>id</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>Unique identifier of this object. <br /><em>Remark: the ID of each LocalAttribute starts with the letters “ATT”. This way you can tell apart a LocalAttribute ID from any other ID just by looking at the prefix.</em></td>
-      <td> </td>
+    </tr>
+    <tr>
+      <td>parentId</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>If the Attribute referenced by this Local Attribute is a component of a composite Attribute, the <code class="language-plaintext highlighter-rouge">parentId</code> property is set to the id of the composite Attribute. Example: if a Local Attribute is created with the content <code class="language-plaintext highlighter-rouge">StreetAddres</code>, for each property of the <code class="language-plaintext highlighter-rouge">StreetAddres</code> an additional Local Attribute is created. And each of these will have <code class="language-plaintext highlighter-rouge">parentId</code> set to the <code class="language-plaintext highlighter-rouge">id</code> of the Local Attribute for the <code class="language-plaintext highlighter-rouge">StreetAddress</code>.</td>
     </tr>
     <tr>
       <td>createdAt</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>A timestamp that describes when the LocalAttribute was created</td>
-      <td> </td>
     </tr>
     <tr>
       <td>content</td>
-      <td><code class="language-plaintext highlighter-rouge">IdentityAttribute</code> | <code class="language-plaintext highlighter-rouge">RelationshipAttribute</code></td>
+      <td><a href="#identityattribute"><code class="language-plaintext highlighter-rouge">IdentityAttribute</code></a> | <a href="#relationshipattribute"><code class="language-plaintext highlighter-rouge">RelationshipAttribute</code></a></td>
       <td>The actual Content object this Local Attribute defines the metadata for.</td>
-      <td> </td>
     </tr>
     <tr>
       <td>succeeds</td>
       <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>The ID of the Local Attribute that succeeds the current one.</td>
-      <td> </td>
     </tr>
     <tr>
       <td>succeededBy</td>
       <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>The ID of the Local Attribute that is succeeded by the current one.</td>
-      <td> </td>
     </tr>
     <tr>
       <td>shareInfo</td>
-      <td><code class="language-plaintext highlighter-rouge">LocalAttributeShareInfo</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td><a href="#localattributeshareinfo"><code class="language-plaintext highlighter-rouge">LocalAttributeShareInfo</code></a> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>Information about the peer this Local Attribute was received from/shared with, as well as via which Local Request it was received/sent. If the Local Attribute refers to a Repository Attribute, this property is <code class="language-plaintext highlighter-rouge">undefined</code>.</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="localattributeshareinfo">LocalAttributeShareInfo</h2>
+<h3 id="localattributeshareinfo">LocalAttributeShareInfo</h3>
 
 <p>The Local Attribute Share Info help to keep track of how the Local Attribute was received/sent, from whom it was received/who sent it, as well as which Local Attribute it was copied from (in case of a shared Repository Attribute). For example, this enables us to track back who we shared a certain Repository Attribute with, so we are able to notify each of them when changing the Repository Attribute.</p>
 
@@ -1143,7 +1103,6 @@
       <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-      <th>Remarks</th>
     </tr>
   </thead>
   <tbody>
@@ -1151,26 +1110,732 @@
       <td>requestReference</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>The ID of the Local Request the Local Attribute was received in/sent with.</td>
-      <td> </td>
     </tr>
     <tr>
       <td>peer</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>The Address of the Identity the Local Attribute was received from/shared with.</td>
-      <td> </td>
     </tr>
     <tr>
       <td>sourceAttribute</td>
       <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>If the Local Attribute is a copy of a Repository Attribute, then this property contains the ID of the Repository Attribute.</td>
-      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="localattributelistener">LocalAttributeListener</h2>
+
+<p>A LocalAttributeListener is created when you accept an incoming Request with a <a href="/versions/2.0.0/explore/request-items#registerattributelistenerrequestitem"><code class="language-plaintext highlighter-rouge">RegisterAttributeListenerRequestItem</code></a>. It is used to keep track of which Attribute Listeners currently exist and what they are listening for.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique identifier of this object. <br /><em>Remark: the ID of each LocalAttributeListener starts with the letters “ATL”. This way you can tell apart a LocalAttributeListener ID from any other ID just by looking at the prefix.</em></td>
+    </tr>
+    <tr>
+      <td>query</td>
+      <td><a href="#identityattributequery"><code class="language-plaintext highlighter-rouge">IdentityAttributeQuery</code></a> | <a href="#thirdpartyrelationshipattributequery"><code class="language-plaintext highlighter-rouge">ThirdPartyRelationshipAttributeQuery</code></a></td>
+      <td>The query the Attribute that is listened to must match. Note that you cannot send a <a href="#relationshipattributequery"><code class="language-plaintext highlighter-rouge">RelationshipAttributeQuery</code></a> here, because it doesn’t make sense: by definition, both parties know about a Relationship Attribute right from the beginning, because one party requests its creation, and the other one accepts it.</td>
+    </tr>
+    <tr>
+      <td>peer</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The Address of the peer that requested the Attribute Listener.</td>
     </tr>
   </tbody>
 </table>
 
 <h1 id="content-types">Content Types</h1>
 
-<p>The documentation of Content Types will follow soon.</p>
+<p>Content Types can be seen as a data contract between Identities. The medium through which this data is exchanged are the <a href="#transport-types">Transport types</a> (e.g. Messages, Tokens, …). This chapter shows all the Content types and describes their intended usage.</p>
+
+<h2 id="request">Request</h2>
+
+<p>A Request allows you to ask another Identity to do something. What this “something” is depends on which of the so called <a href="#requestitem">Request Items</a> were added to the Request (e.g. <a href="/versions/2.0.0/explore/request-items#createattributerequestitem"><code class="language-plaintext highlighter-rouge">CreateAttributeRequestItem</code></a>, <a href="/versions/2.0.0/explore/request-items#readattributerequestitem"><code class="language-plaintext highlighter-rouge">ReadAttributeRequestItem</code></a>, …). The Request is then sent to the peer via Message or Relationship Template. The peer can then review the Request and decide whether they want to accept or reject it. And if they accept it, they can even choose which of the Items they want to accept. You can also put multiple Items into a <a href="#requestitemgroup">group</a> in order to ensure that they can only be accepted/rejected as a unit.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>Unique identifier of this object. This property is <code class="language-plaintext highlighter-rouge">undefined</code> if the Request is inside of a Relationship Template. <br /><em>Remark: the ID of each Request starts with the letters “REQ”. This way you can tell apart a Request ID from any other ID just by looking at the prefix.</em><br /></td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>An optional, human readable title for the Request.</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>An optional, human readable description for the Request.</td>
+    </tr>
+    <tr>
+      <td>expiresAt</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>A timestamp that describes when the Request expires on the Backbone. An expired Request cannot be fetched from the Backbone anymore. However, the cached version of the Request on Connector and App will still be accesible.</td>
+    </tr>
+    <tr>
+      <td>items</td>
+      <td><code class="language-plaintext highlighter-rouge">(</code><a href="#requestitemgroup"><code class="language-plaintext highlighter-rouge">RequestItemGroup</code></a><code class="language-plaintext highlighter-rouge"> | </code><a href="#requestitem"><code class="language-plaintext highlighter-rouge">RequestItem</code></a><code class="language-plaintext highlighter-rouge">)[]</code></td>
+      <td>An array of Request Items and Groups that are part of the Request. There must be at least one Item or Group per Request.</td>
+    </tr>
+    <tr>
+      <td>metadata</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>Optional custom metadata that can be sent together with the Request. This property is meant purely for developers who integrate with Enmeshed. They can write for example some kind of key into this property, which can be used later to identify the content of this Request.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="requestitem">RequestItem</h3>
+
+<p>Request Items can be sent inside of a Request and specify what should be done when the Request is accepted. <code class="language-plaintext highlighter-rouge">RequestItem</code> itself only defines some common properties. There are multiple types that inherit from <code class="language-plaintext highlighter-rouge">RequestItem</code>, like <code class="language-plaintext highlighter-rouge">CreateAttributeRequestItem</code> or <code class="language-plaintext highlighter-rouge">ReadAttributeRequestItem</code>.</p>
+
+<p>The base properties are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>title</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>An optional, human readable title for the Request Item.</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>An optional, human readable description for the Request Item.</td>
+    </tr>
+    <tr>
+      <td>metadata</td>
+      <td><code class="language-plaintext highlighter-rouge">object</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>The metadata property can be used to provide arbitrary JSON content by the sender of the request. The metadata is not processed by Enmeshed. It is a great way to use your own process descriptors at the time of sending the request which helps you identify the correct internal process at the time of receiving the response.</td>
+    </tr>
+    <tr>
+      <td>mustBeAccepted</td>
+      <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
+      <td>The mandatory mustBeAccepted property is used to differentiate between required and optional Request Items within the Request. In other words, if the peer Identity may or may not decide to ignore this specific Request Item. If set to true, the peer cannot accept the Request without accepting this item. For example, some Attributes are mandatory for the business process and thus the respective Request Items must be accepted (mustBeAccepted = true). A consent to a newsletter is optional and thus only can be accepted (mustBeAccepted = false). Keep in mind that if the Request Item is inside of a Request Item Group, then this flag takes effect only when the Group is accepted. So as long as the Group is not accepted, the Item does not have to be accepted either.</td>
+    </tr>
+    <tr>
+      <td>requireManualDecision</td>
+      <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
+      <td>To block the automated acceptance of Requests, the requireManualDecision property can be set to true. The default is, that each Request Item may be automatically processed on the peer side. If the sender would like to have an enforced manual acceptance step of for example an <a href="/versions/2.0.0/explore/request-items#authenticationrequestitem">AuthenticationRequestItem</a> or a <a href="/versions/2.0.0/explore/request-items#consentrequestitem">ConsentRequestItem</a>, the requireManualDecision property can be set to true.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>There is a <a href="/versions/2.0.0/explore/request-items">dedicated site</a> that lists all available kinds of Request Items.</p>
+
+<h3 id="requestitemgroup">RequestItemGroup</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>title</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>An optional, human readable title for the Request Item Group.</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>An optional, human readable description for the RequestItem.</td>
+    </tr>
+    <tr>
+      <td>metadata</td>
+      <td><code class="language-plaintext highlighter-rouge">object</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>Optional metadata that can be sent together with this RequestItem. The intended usage is the same as of the metadata property of the Request.</td>
+    </tr>
+    <tr>
+      <td>mustBeAccepted</td>
+      <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
+      <td>If set to <code class="language-plaintext highlighter-rouge">true</code>, then this Request Item Group has to be accepted when the Request is accepted.</td>
+    </tr>
+    <tr>
+      <td>items</td>
+      <td><a href="#requestitem"><code class="language-plaintext highlighter-rouge">RequestItem</code></a><code class="language-plaintext highlighter-rouge">[]</code></td>
+      <td>The items inside of this Group. There has to be at least one Request Item per Group. Note that we do not support nested Groups at the moment. If you need this feature, you can <a href="https://github.com/nmshd/feedback/issues/new?assignees=&amp;labels=enhancement&amp;template=feature_request.md&amp;title=%5BFEATURE%5D+">raise a feature request</a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="response">Response</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>result</td>
+      <td><code class="language-plaintext highlighter-rouge">"Accepted"</code> | <code class="language-plaintext highlighter-rouge">"Rejected"</code></td>
+      <td>Whether the Response was accepted or rejected by the recipient of the Request.</td>
+    </tr>
+    <tr>
+      <td>requestId</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The <code class="language-plaintext highlighter-rouge">id</code> of the Request this Response belongs to. The Sender of the Request needs this information to map the Response to the corresponding Request.</td>
+    </tr>
+    <tr>
+      <td>items</td>
+      <td><code class="language-plaintext highlighter-rouge">(</code><a href="#responseitemgroup"><code class="language-plaintext highlighter-rouge">ResponseItemGroup</code></a><code class="language-plaintext highlighter-rouge">\|</code><a href="#responseitem"><code class="language-plaintext highlighter-rouge">ResponseItem</code></a><code class="language-plaintext highlighter-rouge">)[]</code></td>
+      <td>An array of Response Items and Groups that are part of the Response. For each Request Item (Group) of the Request, there must be one Response Item (Group) in the Response. Note that the indicees have to be the same for matching Request and Response Items.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="responseitem">ResponseItem</h3>
+
+<p>Response Items are sent inside of a Response. They contain the response data that is sent by the recipient of the Request. There are three different kinds of Response Items: <code class="language-plaintext highlighter-rouge">AcceptResponseItem</code>, <code class="language-plaintext highlighter-rouge">RejectResponseItem</code> and <code class="language-plaintext highlighter-rouge">ErrorResponseItem</code>. Depending on the actual Request Item, there can be different derivations of these three items. For example, in case of a <a href="/versions/2.0.0/explore/request-items#createattributerequestitem"><code class="language-plaintext highlighter-rouge">CreateAttributeRequestItem</code></a>, there is a special <a href="/versions/2.0.0/explore/request-items#createattributeresponseitem"><code class="language-plaintext highlighter-rouge">CreateAttributeResponseItem</code></a>, while for an <a href="/versions/2.0.0/explore/request-items#authenticationrequestitem"><code class="language-plaintext highlighter-rouge">AuthenticationRequestItem</code></a>, the <a href="#acceptresponseitem"><code class="language-plaintext highlighter-rouge">AcceptResponseItem</code></a> can be used, because there is no additional information necessary next to whether it was accepted or rejected.</p>
+
+<p>The <a href="/versions/2.0.0/explore/request-items">site documenting the Request Items</a> shows which Response Item is required for each Request Item.</p>
+
+<h4 id="acceptresponseitem">AcceptResponseItem</h4>
+
+<p>The properties of the <code class="language-plaintext highlighter-rouge">AcceptResponseItem</code> are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>result</td>
+      <td><code class="language-plaintext highlighter-rouge">"Accepted"</code></td>
+      <td>The only possible value here is the string <code class="language-plaintext highlighter-rouge">"Accepted"</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="rejectresponseitem">RejectResponseItem</h4>
+
+<p>The properties of the <code class="language-plaintext highlighter-rouge">RejectResponseItem</code> are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>result</td>
+      <td><code class="language-plaintext highlighter-rouge">"Rejected"</code></td>
+      <td>The only possible value here is the string <code class="language-plaintext highlighter-rouge">"Rejected"</code>.</td>
+    </tr>
+    <tr>
+      <td>code?</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>A code telling the sender about the reason for the rejection.</td>
+    </tr>
+    <tr>
+      <td>message?</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>A human readable message with details about the rejection.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="errorresponseitem">ErrorResponseItem</h4>
+
+<p>The <code class="language-plaintext highlighter-rouge">ErrorResponseItem</code> is only created by the Enmeshed Runtime, in case something happens which hinders you from further processing of the Request Item. It will never be created manually. The properties are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>result</td>
+      <td><code class="language-plaintext highlighter-rouge">"Error"</code></td>
+      <td>The only possible value here is the string <code class="language-plaintext highlighter-rouge">"Error"</code>.</td>
+    </tr>
+    <tr>
+      <td>code</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>An error code telling the sender about the kind of error that occurred.</td>
+    </tr>
+    <tr>
+      <td>message</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A human readable error message with details about the error.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="responseitemgroup">ResponseItemGroup</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>items</td>
+      <td><a href="#responseitem"><code class="language-plaintext highlighter-rouge">ResponseItem</code></a><code class="language-plaintext highlighter-rouge">[]</code></td>
+      <td>The items inside of this Group. For each Request Item of the Request Item Group, there must be one Response Item in the Response Item Group. Note that the indicees have to be the same for matching Request and Response Items.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="attributes">Attributes</h2>
+
+<p>An Attribute is some piece of information about an Identity itself(e.g. its name, address, birth date, etc.) or about an Identity in the context of a Relationship (e.g. the customer id the of the user the Relationship). Since the two scenarios differ quite a lot, there are two different types for them: IdentityAttribute and RelationshipAttribute.</p>
+
+<h3 id="identityattribute">IdentityAttribute</h3>
+
+<p>Identity Attributes describe an Identity itself. Their values are strongly normalized. There is a list of available values here<!--[here](/versions/2.0.0/explore/attribute-values)-->.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>owner</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The Identity that owns this Attribute. Only the owner of an Attribute is allowed to change it after its creation.</td>
+    </tr>
+    <tr>
+      <td>validFrom</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>The date from which on the Attribute is valid. Could be in the future if the Attribute is not yet valid.</td>
+    </tr>
+    <tr>
+      <td>validTo</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>The date until this Attribute is valid. Could be in the past if the Attribute is already expired.</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td><code class="language-plaintext highlighter-rouge">IdentityAttributeValue</code><!--[`IdentityAttributeValue`](/versions/2.0.0/explore/attribute-values#identity-attribute-values)--></td>
+      <td>The Attriubte’s value.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="relationshipattribute">RelationshipAttribute</h3>
+
+<p>Identity Attributes describe an Identity in the context of a Relationship. While there are some types that can be used as a value for a RelationshipAttribute, these types are rather generic (e.g. <code class="language-plaintext highlighter-rouge">ProprietaryString</code>, <code class="language-plaintext highlighter-rouge">ProprietaryInteger</code>, …).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>owner</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The Identity that owns this Attribute. Only the owner of an Attribute is allowed to change it after its creation.</td>
+    </tr>
+    <tr>
+      <td>validFrom</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>The date from which on the Attribute is valid. Could be in the future if the Attribute is not yet valid.</td>
+    </tr>
+    <tr>
+      <td>validTo</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>The date until this Attribute is valid. Could be in the past if the Attribute is already expired.</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>An arbitrary key that is set by the creator of this Attribute. It is used to identify the Attribute in a query, especially by a third party. Example: you could set something like <code class="language-plaintext highlighter-rouge">customerId</code> in case of a customer id.</td>
+    </tr>
+    <tr>
+      <td>isTechnical</td>
+      <td><code class="language-plaintext highlighter-rouge">boolean</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>Defines whether the Relationship Attribute contains data that is actually relevant for the user (<code class="language-plaintext highlighter-rouge">isTechnical=true</code>) or whether it should be hidden in the UI (<code class="language-plaintext highlighter-rouge">isTechnical=false</code>).</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td><code class="language-plaintext highlighter-rouge">RelationshipAttributeValue</code><!--[`RelationshipAttributeValue`](/versions/2.0.0/explore/attribute-values#relationship-attribute-values --></td>
+      <td>The Attriubte’s value.</td>
+    </tr>
+    <tr>
+      <td>confidentiality</td>
+      <td><code class="language-plaintext highlighter-rouge">"Public"</code> | <code class="language-plaintext highlighter-rouge">"Protected"</code> | <code class="language-plaintext highlighter-rouge">"Private"</code> | When this property is set to <code class="language-plaintext highlighter-rouge">"Private"</code>, it means that third parties are not able to query this Relationship Attribute. It therefore only exists in the Relationshp it was created in. If the confidentiality is <code class="language-plaintext highlighter-rouge">"Protected"</code>, third parties can query the Relationship Attribute, but the App shows a warning saying that you should only share it with someone you trust. If the confidentiality is <code class="language-plaintext highlighter-rouge">"Public"</code>, everybody can query the Attribute, without anything special to happen.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="attributequeries">AttributeQueries</h2>
+
+<p>One of the main features of Enmeshed is sharing Attributes. For this, an Identity either proactively sends its Attributes to a peer. Or, if let’s say a company wants to know the birth date of its customer, it can ask for it. Depending on the exact use case, the latter can be achieved with one of a bunch of Request Items, like for example a <a href="/versions/2.0.0/explore/request-items#readattributerequestitem"><code class="language-plaintext highlighter-rouge">ReadAttributeRequestItem</code></a>, or a <a href="/versions/2.0.0/explore/request-items#createattributerequestitem"><code class="language-plaintext highlighter-rouge">CreateAttributeListenerRequestItem</code></a>. All of them have in common that they define a <code class="language-plaintext highlighter-rouge">query</code> property, which contains either an <a href="#identityattributequery"><code class="language-plaintext highlighter-rouge">IdentityAttributeQuery</code></a> or a <a href="#relationshipattributequery"><code class="language-plaintext highlighter-rouge">RelationshipAttributeQuery</code></a>.</p>
+
+<h3 id="identityattributequery">IdentityAttributeQuery</h3>
+
+<p>An Identity Attribute Query is used to query for Identity Attributes. For that, it defines the following properties:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>validFrom</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>The start date of the time frame the returned Attribute should be valid in.</td>
+    </tr>
+    <tr>
+      <td>validTo</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>The end date of the time frame the returned Attribute should be valid in.</td>
+    </tr>
+    <tr>
+      <td>valueType</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The type of value that should be queried, e.g. <code class="language-plaintext highlighter-rouge">"StreetAddress"</code>, <code class="language-plaintext highlighter-rouge">"BirthDate"</code> or <code class="language-plaintext highlighter-rouge">"Nationality"</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You can only query Identity Attributes owned by the recipient of the query.</p>
+
+<h3 id="relationshipattributequery">RelationshipAttributeQuery</h3>
+
+<p>There are cases in which you want to query some data from your peer that is not an Identity Attribute. An example for this is when an elictricity provider asks for the electric meter number of a new customer. Since this information is only relevant in the context of the Relationship, an Identity Attribute wouldn’t make any sense here. That’s why you would send a RelationshipAttributeQuery. Its properties are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>validFrom</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>The start date of the time frame the returned Attribute should be valid in.</td>
+    </tr>
+    <tr>
+      <td>validTo</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>The end date of the time frame the returned Attribute should be valid in.</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The key of the Relationship Attribute that should be queried.</td>
+    </tr>
+    <tr>
+      <td>attributeCreationHints</td>
+      <td><a href="#relationshipattributecreationhints"><code class="language-plaintext highlighter-rouge">RelationshipAttributeCreationHints</code></a></td>
+      <td>Contains information about the value that will be created, like the value type or its confidentiality.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="relationshipattributecreationhints">RelationshipAttributeCreationHints</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>title</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A short text describing the purpose of the Attribute that is about to be created.</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>A long text describing the purpose of the Attribute that is about to be created.</td>
+    </tr>
+    <tr>
+      <td>valueType</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The value type of the Attribute to be created (e.g. <code class="language-plaintext highlighter-rouge">"ProprietaryInteger"</code>, <code class="language-plaintext highlighter-rouge">"ProprietaryString"</code>, …)</td>
+    </tr>
+    <tr>
+      <td>confidentiality</td>
+      <td><code class="language-plaintext highlighter-rouge">"Public"</code> |<code class="language-plaintext highlighter-rouge">"Protected"</code> |<code class="language-plaintext highlighter-rouge">"Private"</code> |</td>
+      <td>The confidentiality of the Attribute to be created. See <a href="#relationshipattribute"><code class="language-plaintext highlighter-rouge">RelationshipAttribute</code></a> for a more detailed description of confidentialities.</td>
+    </tr>
+    <tr>
+      <td>valueHints</td>
+      <td><a href="#valuehints"><code class="language-plaintext highlighter-rouge">ValueHints</code></a> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>Hints for validating the value, e.g. a regular expression or a min/max length.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="valuehints">ValueHints</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>editHelp?</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A help text you can use to describe the purpose of the Attribute.</td>
+    </tr>
+    <tr>
+      <td>min?</td>
+      <td><code class="language-plaintext highlighter-rouge">number</code></td>
+      <td>In case of a string: the minimum length of the string. In case of an integer: the minimum value.</td>
+    </tr>
+    <tr>
+      <td>max?</td>
+      <td><code class="language-plaintext highlighter-rouge">number</code></td>
+      <td>In case of a string: the maximum length of the string. In case of an integer: the maximum value.</td>
+    </tr>
+    <tr>
+      <td>pattern?</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expression</a> that is used to validate the value. Only applicable if the value is a string.</td>
+    </tr>
+    <tr>
+      <td>values?</td>
+      <td><a href="#valuehintsvalue"><code class="language-plaintext highlighter-rouge">ValueHintsValue</code></a><code class="language-plaintext highlighter-rouge">[]</code></td>
+      <td>An array of allowed values.</td>
+    </tr>
+    <tr>
+      <td>defaultValue?</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">number</code> | <code class="language-plaintext highlighter-rouge">boolean</code></td>
+      <td>The default value that is used if no value is provided.</td>
+    </tr>
+    <tr>
+      <td>propertyHints?</td>
+      <td><code class="language-plaintext highlighter-rouge">Record&lt;string,</code> <a href="#valuehints"><code class="language-plaintext highlighter-rouge">ValueHints&gt;</code></a></td>
+      <td>A set of Value Hints of all properties. The key is the name of the property and the value a <code class="language-plaintext highlighter-rouge">ValueHints</code> object. Only applicable if the value is complex.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="valuehintsvalue">ValueHintsValue</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>key</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">number</code> | <code class="language-plaintext highlighter-rouge">boolean</code></td>
+      <td>The actual value.</td>
+    </tr>
+    <tr>
+      <td>displayName</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>How the value should be displayed on the UI.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</h3>
+
+<p>If you want to query Attributes the user has in the context of a Relationship with a third party, you can use the <code class="language-plaintext highlighter-rouge">ThirdPartyRelationshipAttributeQuery</code>. An example would be the query for the number of a bonus card managed by another company (like Payback). A ThirdPartyRelationshipAttributeQuery has the following properties:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>validFrom</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>The start date of the time frame the returned Attribute should be valid in.</td>
+    </tr>
+    <tr>
+      <td>validTo</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>The end date of the time frame the returned Attribute should be valid in.</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The key of the Relationship Attribute that should be queried.</td>
+    </tr>
+    <tr>
+      <td>owner</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The owner of the queried Relationship Attribute.</td>
+    </tr>
+    <tr>
+      <td>thirdParty</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The Address of the third party the Relationship Attribute should be queried from.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="relationshiptemplatecontent">RelationshipTemplateContent</h2>
+
+<p>Theoretically you can send any kind of data in a Relationship Template. However, if your peer uses the Enmeshed App, it will only be able to process Relationship Templates that contain a <code class="language-plaintext highlighter-rouge">RelationshipTemplateContent</code>, which looks like this:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>title</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>An optional, human readable title that should be rendered in the UI.</td>
+    </tr>
+    <tr>
+      <td>metadata</td>
+      <td><code class="language-plaintext highlighter-rouge">object</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>Optional custom metadata that can be sent together with the Relationship Template. This property is meant purely for developers who integrate with Enmeshed. They can write for example some kind of key into this property, which can be used later to identify the content of this Template.</td>
+    </tr>
+    <tr>
+      <td>onNewRelationship</td>
+      <td><a href="#request"><code class="language-plaintext highlighter-rouge">Request</code></a></td>
+      <td>The Request that should pop up to the user in case there is no Relationship yet. In this Request you can send Attributes of yourself the user needs to in order to know who’s Template it is (e.g. company name, address, …), as ask for Attributes of the user you need to know in the Relationship, or send some information you already know about the user, so it can be saved in its wallet (e.g. the customer id).</td>
+    </tr>
+    <tr>
+      <td>onExistingRelationship</td>
+      <td><a href="#request"><code class="language-plaintext highlighter-rouge">Request</code></a></td>
+      <td>The Request that should pop up to the user in case a Relationship already exists. An example usage is a Request with an <code class="language-plaintext highlighter-rouge">AuthenticationRequestItem</code> for the sake of two-factor authentication.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="relationshipcreationchangerequestcontent">RelationshipCreationChangeRequestContent</h2>
+
+<p>The naming on this one in combination with its <code class="language-plaintext highlighter-rouge">response</code> property is a bit confusing. Even though the <code class="language-plaintext highlighter-rouge">RelationshipCreationChangeRequestContent</code> contains the word “Request”, it has a <code class="language-plaintext highlighter-rouge">response</code> property.
+This is because in the context of Relationships, there are <a href="#relationshipchange">Relationship Changes</a>, which have a <code class="language-plaintext highlighter-rouge">request</code> and a <code class="language-plaintext highlighter-rouge">response</code> property. But caution: these have nothing to do with the Content-types <code class="language-plaintext highlighter-rouge">Request</code> and <code class="language-plaintext highlighter-rouge">Response</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>response</td>
+      <td><a href="#response"><code class="language-plaintext highlighter-rouge">Response</code></a></td>
+      <td>The Response to the Request that was contained in the <a href="#relationshiptemplatecontent">RelationshipTemplateContent</a> (either in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property or in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="mail">Mail</h2>
+
+<p>A Mail can be sent as the content of a <a href="#message">Message</a>. It is comparable with the classic email, so its properties should not contain any suprise.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>to</td>
+      <td><code class="language-plaintext highlighter-rouge">string[]</code></td>
+      <td>The Enmeshed Addresses of the main recipients of this Mail.</td>
+    </tr>
+    <tr>
+      <td>cc</td>
+      <td><code class="language-plaintext highlighter-rouge">string[]</code></td>
+      <td>The Enmeshed Addresses that should receive a copy of this Mail, additionally to the ones specified in <code class="language-plaintext highlighter-rouge">to</code>.</td>
+    </tr>
+    <tr>
+      <td>subject</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The subject of the Mail.</td>
+    </tr>
+    <tr>
+      <td>body</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The body of the Mail.</td>
+    </tr>
+  </tbody>
+</table>
 
         
       </section>
@@ -1182,7 +1847,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-11T15:11:58+02:00">October 11, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-19T17:17:34+02:00">October 19, 2022</time></p>
 
       </footer>
 

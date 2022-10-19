@@ -48,7 +48,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Backbone Layer",
-        "excerpt":"From a user perspective, the outmost or deepest layer is the backbone layer. It handles the “untrusted” communication with the Backbone and the processing of data within the Backbone. Payload sent to and received from the Backbone is encrypted. The Backbone itself requires metadata to work, thus there is also...","categories": [],
+        "excerpt":"From a user perspective, the deepest layer is the backbone layer. It handles the “untrusted” communication with the Backbone and the processing of data within the Backbone. Payload sent to and received from the Backbone is encrypted. The Backbone itself requires metadata to work, thus there is also unencrypted data...","categories": [],
         "tags": [],
         "url": "/versions/2.0.0/explore/layers/backbone",
         "teaser": null
@@ -102,7 +102,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Enmeshed Data Model",
-        "excerpt":"The Enmeshed data model can be devided into three parts: Transport types Local types Content types The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail. At a first glance the...","categories": [],
+        "excerpt":"The Enmeshed data model can be devided into three parts: Transport types Local types Content types The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail. (note that you can click...","categories": [],
         "tags": [],
         "url": "/versions/2.0.0/explore/data-model",
         "teaser": null
@@ -117,6 +117,18 @@ var store = [{
         "excerpt":"The new world of identities Self-Sovereignty and Self-Sovereign Identities Having full control over data, authorizations, or the hard- and software one can use for using the data is called self-sovereignty. A self-sovereign Identity is a digital identity which anybody can set up, without the power of somebody else to deny...","categories": [],
         "tags": [],
         "url": "/versions/2.0.0/explore/blockchain",
+        "teaser": null
+      },{
+        "title": "Request Items",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/versions/2.0.0/explore/request-items",
+        "teaser": null
+      },{
+        "title": "Attribute Values",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/versions/2.0.0/explore/attribute-values",
         "teaser": null
       },{
         "title": "Basics",
