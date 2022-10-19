@@ -6,6 +6,18 @@ toc: true
 
 All the RequestItems listed below inherit from the [RequestItem]({% link _docs_explore/61-data-model.md %}#RequestItem) and are therefore sharing its properties.
 
+## Response Items
+
+To answer the RequestItems an [AcceptResponseItem]({% link _docs_explore/61-data-model.md %}#AcceptResponseItem), a [RejectResponseItem]({% link _docs_explore/61-data-model.md %}#RejectResponseItem) or an [ErrorResponseItem]({% link _docs_explore/61-data-model.md %}#ErrorResponseItem) will be transferred.
+Some RequestItems will need additional information to be able to accept the request. Therefore these RequestItems have a specific AcceptResponseItem. These Items inherit from the AcceptResponseItem and are therefore sharing its properties.
+
+## Response Parameters
+
+To siplify the usage of the ResponseItems the Enmeshed libraries are providing simplified versions (so called Parameters) that will be processed and enriched to RequestItems.
+Answering a RequestItem that does not need additional information is as simple as sending `{ "accept": true }` to accept the RequestItem or `{ "accept": false }` to reject it.
+
+The RequestItems that need additional information for the accept are documented besides the respective RequestItems.
+
 ## AuthenticationRequestItem
 
 With this item the sender can request the peer for an authentication for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived and limited in time.
@@ -65,6 +77,15 @@ To create a peer Attribute (owner = peer) with a fixed value defined by the send
 | @type     | "CreateAttributeRequestItem"                                                                                                                                                 | Specifies the type of the Request item for parsing.                                                                                                                                              |
 | attribute | [IdentityAttribute]({% link _docs_explore/61-data-model.md %}#IdentityAttribute) \| [RelationshipAttribute]({% link _docs_explore/61-data-model.md %}#RelationshipAttribute) | The IdentityAttribute or RelationshipAttribute to create for the peer within the Identity of the peer.<br>The owner of the Attribute which should be created can only be the recipient Identity. |
 
+### Response
+
+#### Item Properties
+
+| Name        | Type                                | Description                      |
+| ----------- | ----------------------------------- | -------------------------------- |
+| @type       | "CreateAttributeAcceptResponseItem" | The type of the ResponseItem.    |
+| attributeId | `string`                            | The id of the created Attribute. |
+
 ### Combinations and usage scenarios
 
 | Attribute Type | Attribute Owner | Possible? | Automation      | Examples/Reason                                                                                                                                                                                                                                                       |
@@ -95,6 +116,16 @@ To create a peer Attribute (owner = peer) with a value proposed by the sender, a
 | attribute | [IdentityAttribute]({% link _docs_explore/61-data-model.md %}#IdentityAttribute) \| [RelationshipAttribute]({% link _docs_explore/61-data-model.md %}#RelationshipAttribute)                                                                                                                                               | The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute.<br>The owner of the Attribute which is proposed can only be the recipient Identity. |
 | query     | [IdentityAttributeQuery]({% link _docs_explore/61-data-model.md %}#IdentityAttributeQuery) \| [RelationshipAttributeQuery]({% link _docs_explore/61-data-model.md %}#RelationshipAttributeQuery) \| [ThirdPartyRelationshipAttributeQuery]({% link _docs_explore/61-data-model.md %}#ThirdPartyRelationshipAttributeQuery) | The structured query of the Attribute the sender would like to receive.                                                                                                              |
 
+### Response
+
+#### Item Properties
+
+| Name        | Type                                                                                                                                                                         | Description                                                                                                                                                                          |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| @type       | "ProposeAttributeAcceptResponseItem"                                                                                                                                         | The type of the ResponseItem.                                                                                                                                                        |
+| attributeId | `string`                                                                                                                                                                     | The id of the created Attribute.                                                                                                                                                     |
+| attribute   | [IdentityAttribute]({% link _docs_explore/61-data-model.md %}#IdentityAttribute) \| [RelationshipAttribute]({% link _docs_explore/61-data-model.md %}#RelationshipAttribute) | The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute.<br>The owner of the Attribute which is proposed can only be the recipient Identity. |
+
 ### Combinations and usage scenarios
 
 | Attribute Type | Attribute Owner | Possible? | Automation      | Examples/Reason                                                                                                                                                                                                                                                                                                  |
@@ -123,6 +154,16 @@ To query peer Attributes (owner = peer) which are not known to the sender, an Id
 | @type | "ReadAttributeRequestItem"                                                                                                                                                                                                                                                                                                 | Specifies the type of the Request item for parsing.                     |
 | query | [IdentityAttributeQuery]({% link _docs_explore/61-data-model.md %}#IdentityAttributeQuery) \| [RelationshipAttributeQuery]({% link _docs_explore/61-data-model.md %}#RelationshipAttributeQuery) \| [ThirdPartyRelationshipAttributeQuery]({% link _docs_explore/61-data-model.md %}#ThirdPartyRelationshipAttributeQuery) | The structured query of the Attribute the sender would like to receive. |
 
+### Response
+
+#### Item Properties
+
+| Name        | Type                                                                                                                                                                         | Description                                                                                                                                                                          |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| @type       | "ReadAttributeAcceptResponseItem"                                                                                                                                            | The type of the ResponseItem.                                                                                                                                                        |
+| attributeId | `string`                                                                                                                                                                     | The id of the returned Attribute.                                                                                                                                                    |
+| attribute   | [IdentityAttribute]({% link _docs_explore/61-data-model.md %}#IdentityAttribute) \| [RelationshipAttribute]({% link _docs_explore/61-data-model.md %}#RelationshipAttribute) | The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute.<br>The owner of the Attribute which is proposed can only be the recipient Identity. |
+
 ### Combinations and usage scenarios
 
 | Attribute Type | Attribute Owner | Third Party | Possible? | Automation                   | Examples/Reason                                                                                                                                                                                                                                                                                                  |
@@ -149,6 +190,15 @@ This item is used to register a listener for a specific Attribute. The listener 
 | @type | "RegisterAttributeListenerRequestItem"                                                                                                                                                                               | Specifies the type of the Request item for parsing.                   |
 | query | [IdentityAttributeQuery]({% link _docs_explore/61-data-model.md %}#IdentityAttributeQuery) \| [ThirdPartyRelationshipAttributeQuery]({% link _docs_explore/61-data-model.md %}#ThirdPartyRelationshipAttributeQuery) | The structured query of the Attribute the sender would like to query. |
 
+### Response
+
+#### Item Properties
+
+| Name       | Type                                          | Description                              |
+| ---------- | --------------------------------------------- | ---------------------------------------- |
+| @type      | "RegisterAttributeListenerAcceptResponseItem" | The type of the ResponseItem.            |
+| listenerId | `string`                                      | The id of the created AttributeListener. |
+
 ## ShareAttributeRequestItem
 
 If you want to share the own DisplayName and possibly other Attributes this is done with the ShareAttributeRequestItem.
@@ -167,6 +217,15 @@ To share own IdentityAttributes (owner = self) an Identity uses the ShareAttribu
 | @type             | "ShareAttributeRequestItem"                                                                                                                                                  | Specifies the type of the Request item for parsing.                                                                                                                                                                             |
 | attribute         | [IdentityAttribute]({% link _docs_explore/61-data-model.md %}#IdentityAttribute) \| [RelationshipAttribute]({% link _docs_explore/61-data-model.md %}#RelationshipAttribute) | The IdentityAttribute or RelationshipAttribute to share. This is not the LocalAttribute but the content data structure of the attribute. <br>The owner of the Attribute which should be shared can only be the sender Identity. |
 | sourceAttributeId | `string`                                                                                                                                                                     | The id of the LocalAttribute which is the source of the shared Attribute. This will be used later to reference the sourceAttribute from its shared copy.                                                                        |
+
+### Response
+
+#### Item Properties
+
+| Name        | Type                               | Description                      |
+| ----------- | ---------------------------------- | -------------------------------- |
+| @type       | "ShareAttributeAcceptResponseItem" | The type of the ResponseItem.    |
+| attributeId | `string`                           | The id of the created Attribute. |
 
 ### Combinations and usage scenarios
 
