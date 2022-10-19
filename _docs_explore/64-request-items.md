@@ -126,6 +126,28 @@ To create a peer Attribute (owner = peer) with a value proposed by the sender, a
 | attributeId | `string`                                                                                                                                                                     | The id of the created Attribute.                                                                                                                                                     |
 | attribute   | [IdentityAttribute]({% link _docs_explore/61-data-model.md %}#IdentityAttribute) \| [RelationshipAttribute]({% link _docs_explore/61-data-model.md %}#RelationshipAttribute) | The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute.<br>The owner of the Attribute which is proposed can only be the recipient Identity. |
 
+#### Parameters
+
+When accepting the ProposeAttributeRequestItem you can decide:
+
+-   to use an existing Attribute.
+
+    | Name      | Type                                                                                                                                                                         | Description                                                           |
+    | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+    | attribute | [IdentityAttribute]({% link _docs_explore/61-data-model.md %}#IdentityAttribute) \| [RelationshipAttribute]({% link _docs_explore/61-data-model.md %}#RelationshipAttribute) | The IdentityAttribute or RelationshipAttribute that shall be created. |
+
+-   to use the proposed Attribute.
+
+    | Name      | Type                                                                                                                                                                         | Description                                                                          |
+    | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+    | attribute | [IdentityAttribute]({% link _docs_explore/61-data-model.md %}#IdentityAttribute) \| [RelationshipAttribute]({% link _docs_explore/61-data-model.md %}#RelationshipAttribute) | The IdentityAttribute or RelationshipAttribute that was provided in the RequestItem. |
+
+-   to create a new Attribute.
+
+    | Name                | Type     | Description                      |
+    | ------------------- | -------- | -------------------------------- |
+    | existingAttributeId | `string` | The id of the attribute to send. |
+
 ### Combinations and usage scenarios
 
 | Attribute Type | Attribute Owner | Possible? | Automation      | Examples/Reason                                                                                                                                                                                                                                                                                                  |
@@ -163,6 +185,22 @@ To query peer Attributes (owner = peer) which are not known to the sender, an Id
 | @type       | "ReadAttributeAcceptResponseItem"                                                                                                                                            | The type of the ResponseItem.                                                                                                                                                        |
 | attributeId | `string`                                                                                                                                                                     | The id of the returned Attribute.                                                                                                                                                    |
 | attribute   | [IdentityAttribute]({% link _docs_explore/61-data-model.md %}#IdentityAttribute) \| [RelationshipAttribute]({% link _docs_explore/61-data-model.md %}#RelationshipAttribute) | The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute.<br>The owner of the Attribute which is proposed can only be the recipient Identity. |
+
+#### Parameters
+
+When accepting the ReadAttributeRequestItem you can decide:
+
+-   to use an existing Attribute.
+
+    | Name      | Type                                                                                                                                                                         | Description                                                           |
+    | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+    | attribute | [IdentityAttribute]({% link _docs_explore/61-data-model.md %}#IdentityAttribute) \| [RelationshipAttribute]({% link _docs_explore/61-data-model.md %}#RelationshipAttribute) | The IdentityAttribute or RelationshipAttribute that shall be created. |
+
+-   to create a new Attribute.
+
+    | Name                | Type     | Description                      |
+    | ------------------- | -------- | -------------------------------- |
+    | existingAttributeId | `string` | The id of the attribute to send. |
 
 ### Combinations and usage scenarios
 
