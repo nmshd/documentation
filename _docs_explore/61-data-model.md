@@ -270,6 +270,16 @@ The Local Attribute Share Info help to keep track of how the Local Attribute was
 | peer             | `string`                | The Address of the Identity the Local Attribute was received from/shared with.                                              |
 | sourceAttribute  | `string` \| `undefined` | If the Local Attribute is a copy of a Repository Attribute, then this property contains the ID of the Repository Attribute. |
 
+## LocalAttributeListener
+
+A LocalAttributeListener is created when you accept an incoming Request with a [`RegisterAttributeListenerRequestItem`]({% link _docs_explore/64-request-items.md %}#registerattributelistenerrequestitem). It is used to keep track of which Attribute Listeners currently exist and what they are listening for.
+
+| Name  | Type                                                                                                                                   | Description                                                                                                                                                                                                                                                                                                                                           |
+| ----- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id    | `string`                                                                                                                               | {% include descr_id class="LocalAttributeListener" prefix="ATL" %}                                                                                                                                                                                                                                                                                    |
+| query | [`IdentityAttributeQuery`](#identityattributequery) \| [`ThirdPartyRelationshipAttributeQuery`](#thirdpartyrelationshipattributequery) | The query the Attribute that is listened to must match. Note that you cannot send a [`RelationshipAttributeQuery`](#relationshipattributequery) here, because it doesn't make sense: by definition, both parties know about a Relationship Attribute right from the beginning, because one party requests its creation, and the other one accepts it. |
+| peer  | `string`                                                                                                                               | The Address of the peer that requested the Attribute Listener.                                                                                                                                                                                                                                                                                        |
+
 # Content Types
 
 Content Types can be seen as a data contract between Identities. The medium through which this data is exchanged are the Transport types (e.g. Messages, Tokens, ...). This chapter shows all the Content types and describes their intended usage.
@@ -384,6 +394,73 @@ Identity Attributes describe an Identity in the context of a Relationship. While
 | value           | [`RelationshipAttributeValue`](!!!!!!!!!!!TODO: INSERT LINK!!!!!!!!!!)                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | The Attriubte's value.                                                                                                                                                                                                    |
 | confidentiality | `"Public"` \| `"Protected"` \| `"Private"` \| When this property is set to `"Private"`, it means that third parties are not able to query this Relationship Attribute. It therefore only exists in the Relationshp it was created in. If the confidentiality is `"Protected"`, third parties can query the Relationship Attribute, but the App shows a warning saying that you should only share it with someone you trust. If the confidentiality is `"Public"`, everybody can query the Attribute, without anything special to happen. |                                                                                                                                                                                                                           |
 
+## AttributeQueries
+
+One of the main features of Enmeshed is sharing Attributes. For this, an Identity either proactively sends its Attributes to a peer. Or, if let's say a company wants to know the birth date of its customer, it can ask for it. Depending on the exact use case, the latter can be achieved with one of a bunch of Request Items, like for example a [`ReadAttributeRequestItem`]({% link _docs_explore/64-request-items.md %}#readattributerequestitem), or a [`CreateAttributeListenerRequestItem`]({% link _docs_explore/64-request-items.md %}#createattributerequestitem). All of them have in common that they define a `query` property, which contains either an [`IdentityAttributeQuery`](#identityattributequery) or a [`RelationshipAttributeQuery`](#relationshipattributequery).
+
+### IdentityAttributeQuery
+
+An Identity Attribute Query is used to query for Identity Attributes. For that, it defines the following properties:
+
+| Name      | Type                    | Description                                                                                         |
+| --------- | ----------------------- | --------------------------------------------------------------------------------------------------- |
+| validFrom | `string` \| `undefined` | The start date of the time frame the returned Attribute should be valid in.                         |
+| validTo   | `string` \| `undefined` | The end date of the time frame the returned Attribute should be valid in.                           |
+| valueType | `string`                | The type of value that should be queried, e.g. `"StreetAddress"`, `"BirthDate"` or `"Nationality"`. |
+
+You can only query Identity Attributes owned by the recipient of the query.
+
+### RelationshipAttributeQuery
+
+There are cases in which you want to query some data from your peer that is not an Identity Attribute. An example for this is when an elictricity provider asks for the electric meter number of a new customer. Since this information is only relevant in the context of the Relationship, an Identity Attribute wouldn't make any sense here. That's why you would send a RelationshipAttributeQuery. Its properties are:
+
+| Name                   | Type                                                                        | Description                                                                                            |
+| ---------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| validFrom              | `string` \| `undefined`                                                     | The start date of the time frame the returned Attribute should be valid in.                            |
+| validTo                | `string` \| `undefined`                                                     | The end date of the time frame the returned Attribute should be valid in.                              |
+| key                    | `string`                                                                    | The key of the Relationship Attribute that should be queried.                                          |
+| attributeCreationHints | [`RelationshipAttributeCreationHints`](#relationshipattributecreationhints) | Contains information about the value that will be created, like the value type or its confidentiality. |
+
+#### RelationshipAttributeCreationHints
+
+| Name            | Type                                        | Description                                                                                                                                                     |
+| --------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title           | `string`                                    | A short text describing the purpose of the Attribute that is about to be created.                                                                               |
+| description     | `string` \| `undefined`                     | A long text describing the purpose of the Attribute that is about to be created.                                                                                |
+| valueType       | `string`                                    | The value type of the Attribute to be created (e.g. `"ProprietaryInteger"`, `"ProprietaryString"`, ...)                                                         |
+| confidentiality | `"Public"` \|`"Protected"` \|`"Private"` \| | The confidentiality of the Attribute to be created. See [`RelationshipAttribute`](#relationshipattribute) for a more detailed description of confidentialities. |
+| valueHints      | [`ValueHints`](#valuehints) \| `undefined`  | Hints for validating the value, e.g. a regular expression or a min/max length.                                                                                  |
+
+#### ValueHints
+
+| Name           | Type                                            | Description                                                                                                                                               |
+| -------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| editHelp?      | `string`                                        | A help text you can use to describe the purpose of the Attribute.                                                                                         |
+| min?           | `number`                                        | In case of a string: the minimum length of the string. In case of an integer: the minimum value.                                                          |
+| max?           | `number`                                        | In case of a string: the maximum length of the string. In case of an integer: the maximum value.                                                          |
+| pattern?       | `string`                                        | A [regular expression](https://en.wikipedia.org/wiki/Regular_expression) that is used to validate the value. Only applicable if the value is a string.    |
+| values?        | [`ValueHintsValue`](#valuehintsvalue)`[]`       | A list of allowed values.                                                                                                                                 |
+| defaultValue?  | `string` \| `number` \| `boolean`               | The default value that is used if no value is provided.                                                                                                   |
+| propertyHints? | `Record<string, `[`ValueHints`](#valuehints)`>` | A set of Value Hints of all properties. The key is the name of the property and the value a `ValueHints` object. Only applicable if the value is complex. |
+
+#### ValueHintsValue
+
+| Name        | Type                              | Description                                  |
+| ----------- | --------------------------------- | -------------------------------------------- |
+| key         | `string` \| `number` \| `boolean` | The actual value.                            |
+| displayName | `string`                          | How the value should be displayed on the UI. |
+
+### ThirdPartyRelationshipAttributeQuery
+
+If you want to query Attributes the user has in the context of a Relationship with a third party, you can use the `ThirdPartyRelationshipAttributeQuery`. An example would be the query for the number of a bonus card managed by another company (like Payback). A ThirdPartyRelationshipAttributeQuery has the following properties:
+
+| Name       | Type                    | Description                                                                       |
+| ---------- | ----------------------- | --------------------------------------------------------------------------------- |
+| validFrom  | `string` \| `undefined` | The start date of the time frame the returned Attribute should be valid in.       |
+| validTo    | `string` \| `undefined` | The end date of the time frame the returned Attribute should be valid in.         |
+| key        | `string`                | The key of the Relationship Attribute that should be queried.                     |
+| owner      | `string`                | The owner of the queried Relationship Attribute.                                  |
+| thirdParty | `string`                | The Address of the third party the Relationship Attribute should be queried from. |
 
 ## RelationshipTemplateContent
 
