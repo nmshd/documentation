@@ -37,8 +37,8 @@ The simplest way to exchange Requests is using Messages. But for sending Message
 The flow for establishing a Relationship between the App and another App or Connector has changed significantly. The body of the RelationshipTemplate is now a strict type that can be processed by the App and the Connector. It looks as follows:
 
 ```ts
-interface RelationshipTemplateBody {
-    "@type": "RelationshipTemplateBody";
+interface RelationshipTemplateContent {
+    "@type": "RelationshipTemplateContent";
     title?: string;
     metadata?: object;
     onNewRelationship: Request;
