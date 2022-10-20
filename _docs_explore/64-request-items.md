@@ -20,7 +20,26 @@ Answering a RequestItem that does not need additional information is as simple a
 
 The RequestItems that need additional information for the accept are documented besides the respective RequestItems.
 
-If you have a CreateAttributeRequestItem `{ "@type": "CreateAttributeRequestItem", "attribute": { ... } }` and answer it with `{ "accept": true }` the ResponseItem `{ "@type": "CreateAttributeAcceptResponseItem", "attributeId": "ATT..." }` will automatically be created for you.
+#### Example
+
+```jsonc
+// If you answer the CreateAttributeRequestItem
+{
+    "@type": "CreateAttributeRequestItem",
+    "attribute": { /* ... */ }
+}
+
+// with this parameters
+{
+    "accept": true,
+}
+
+// the following ResponseItem will be created for you
+{
+    "@type": "CreateAttributeAcceptResponseItem",
+    "attributeId": "ATT..."
+}
+```
 
 ## AuthenticationRequestItem
 
@@ -279,3 +298,7 @@ To share own IdentityAttributes (owner = self) an Identity uses the ShareAttribu
 | Relationship   | Sender          | Y         | `AUTO ACCEPT` | Share Customer ID from Company A with Company B (e.g. Payback number) |
 | Relationship   | Recipient       | N         | `N/A`         | You cannot share an Attribute of which you are not the owner.         |
 | Relationship   | `<empty>`       | Y         | `AUTO ACCEPT` | An empty owner defaults to an Attribute with owner=`<sender>`.        |
+
+```
+
+```
