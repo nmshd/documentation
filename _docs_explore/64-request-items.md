@@ -144,7 +144,7 @@ To create a peer Attribute (owner = peer) with a fixed value defined by the send
 
 | Attribute Type | Attribute Owner | Possible? | Automation      | Examples/Reason                                                                                                                                                                                                                                                       |
 | -------------- | --------------- | --------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Identity       | Sender          | N         | `N/A`           | Use ShareAttributeRequestItem instead.                                                                                                                                                                                                                                |
+| Identity       | Sender          | N         | `N/A`           | Use [ShareAttributeRequestItem](#shareattributerequestitem) instead.                                                                                                                                                                                                  |
 | Identity       | Recipient       | Y         | `USER_DECISION` | University sends student his certificate (Propose would be inappropriate in this case, because the student should not be able to return his own value)                                                                                                                |
 | Identity       | `<empty>`       | Y         | `USER_DECISION` | An empty owner defaults to an Attribute with owner=`<recipient>`. This is needed for Requests inside of Relationship Templates, since you don’t know the Enmeshed Address of your peer before the Relationship is established.                                        |
 | Relationship   | Sender          | Y         | `AUTO_ACCEPT`   | Company sends new customer his customer number.                                                                                                                                                                                                                       |
@@ -159,7 +159,7 @@ To create a peer Attribute (owner = peer) with a value proposed by the sender, a
 
 ### Examples {#proposeattributerequestitem-examples}
 
--   Onboard an authenticated user and propose the known private Attributes
+-   Onboard an existing customer to Enmeshed and propose the known private Attributes, like its name or address.
 -   Ask the user if a newsletter would be of interest and propose the opt-in. This could be stored as a RelationshipAttribute with owner = recipient and could then be changed by the recipient at will.
 
 ### Properties {#proposeattributerequestitem-properties}
@@ -213,14 +213,14 @@ To create a peer Attribute (owner = peer) with a value proposed by the sender, a
 
 | Attribute Type | Attribute Owner | Possible? | Automation      | Examples/Reason                                                                                                                                                                                                                                                                                                  |
 | -------------- | --------------- | --------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Identity       | Sender          | N         | `N/A`           | It makes no sense to propose own Attributes, use ShareAttributeRequestItem instead.                                                                                                                                                                                                                              |
+| Identity       | Sender          | N         | `N/A`           | It makes no sense to propose own Attributes, use [ShareAttributeRequestItem](#shareattributerequestitem) instead.                                                                                                                                                                                                |
 | Identity       | Recipient       | Y         | `USER_DECISION` | Company sends name and address to new customer during its onboarding process.                                                                                                                                                                                                                                    |
 | Relationship   | Sender          | Y         | `USER_DECISION` | With this combination the **sender gives the recipient the one-time permission** to write a Relationship Attribute once AND the **sender proposes a value** which might make sense as a default.<br>Example: Electricity provider asks new customer for the electricity meter number and proposes a known number |
 | Relationship   | Recipient       | Y         | `USER_DECISION` | With this combination the **sender asks the recipient for the one-time permission** to write a Relationship Attribute once AND the **sender proposes a value** which might make sense as a default.<br>Example: Asking for a newsletter subscription                                                             |
 
 ## ReadAttributeRequestItem {#readattributerequestitem}
 
-If you want to query an identities DisplayName and possibly other Attributes this is done with the ReadAttributeRequestItem.
+If you want to query an identity's Attributes this is done with the ReadAttributeRequestItem.
 
 To query peer Attributes (owner = peer) which are not known to the sender, an Identity uses the ReadAttributeRequestItem.
 
