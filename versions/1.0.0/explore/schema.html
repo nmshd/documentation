@@ -1,0 +1,633 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Enmeshed Schema - Enmeshed</title>
+<meta name="description" content="The Enmeshed Schema normalized many common data structures to a single set which can be understood by all Enmeshed participants. It is the definition of cross-identity payload schemas and thus needs to be kept as stable as possible.">
+
+
+  <meta name="author" content="Enmeshed Team">
+  
+  <meta property="article:author" content="Enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Enmeshed">
+<meta property="og:title" content="Enmeshed Schema">
+<meta property="og:url" content="/versions/1.0.0/explore/schema">
+
+
+  <meta property="og:description" content="The Enmeshed Schema normalized many common data structures to a single set which can be understood by all Enmeshed participants. It is the definition of cross-identity payload schemas and thus needs to be kept as stable as possible.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-10-24T14:37:01+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/1.0.0/explore/schema">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/versions/1.0.0/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/1.0.0/feed.xml" type="application/atom+xml" rel="alternate" title="Enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/1.0.0/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/1.0.0/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of Enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/1.0.0/">
+          Enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/blog">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/versions/2.0.0">v2.0.0 Preview</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Explore Enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">First things first</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/1.0.0/explore">Introduction</a></li>
+          
+            <li><a href="/versions/1.0.0/explore/example-scenarios">Example Scenarios</a></li>
+          
+            <li><a href="/versions/1.0.0/explore/features">Features</a></li>
+          
+            <li><a href="/versions/1.0.0/explore/use-cases">Use Cases</a></li>
+          
+            <li><a href="/versions/1.0.0/explore/faq">Frequently Asked Questions</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How we think</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/1.0.0/explore/integration">Integration Considerations</a></li>
+          
+            <li><a href="/versions/1.0.0/explore/security">Security Considerations</a></li>
+          
+            <li><a href="/versions/1.0.0/explore/privacy">Privacy Considerations</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Our Layers</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/1.0.0/explore/layers/backbone">Backbone Layer</a></li>
+          
+            <li><a href="/versions/1.0.0/explore/layers/transport">Transport Layer</a></li>
+          
+            <li><a href="/versions/1.0.0/explore/layers/consumption">Consumption Layer</a></li>
+          
+            <li><a href="/versions/1.0.0/explore/layers/integration">Integration Layer</a></li>
+          
+            <li><a href="/versions/1.0.0/explore/layers/user-experience">User-Experience Layer</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Components in-detail</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/1.0.0/explore/app">App</a></li>
+          
+            <li><a href="/versions/1.0.0/explore/backbone">Backbone</a></li>
+          
+            <li><a href="/versions/1.0.0/explore/connector">Connector</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Expert Corner</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/1.0.0/explore/runtime">Runtime</a></li>
+          
+            <li><a href="/versions/1.0.0/explore/schema" class="active">Schema</a></li>
+          
+            <li><a href="/versions/1.0.0/explore/cryptography">Cryptography</a></li>
+          
+            <li><a href="/versions/1.0.0/explore/blockchain">Why no blockchain?</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Enmeshed Schema">
+    <meta itemprop="description" content="The Enmeshed Schema normalized many common data structures to a single set which can be understood by all Enmeshed participants. It is the definition of cross-identity payload schemas and thus needs to be kept as stable as possible.">
+    <meta itemprop="datePublished" content="2022-10-24T14:37:01+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/versions/1.0.0/explore/schema" class="u-url" itemprop="url">Enmeshed Schema
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#entities">Entities</a><ul><li><a href="#attributes">Attributes</a><ul><li><a href="#person-attributes">Person Attributes</a></li><li><a href="#address-attributes">Address Attributes</a></li><li><a href="#communication-attributes">Communication Attributes</a></li></ul></li><li><a href="#mails">Mails</a></li><li><a href="#requests">Requests</a><ul><li><a href="#attributeschangerequest">AttributesChangeRequest</a></li><li><a href="#attributessharerequest">AttributesShareRequest</a></li></ul></li><li><a href="#requestmails">RequestMails</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>The Enmeshed Schema normalized many common data structures to a single set which can be understood by all Enmeshed participants. It is the definition of cross-identity payload schemas and thus needs to be kept as stable as possible.</p>
+
+<p>In general, structured data communicated via Enmeshed is in JSON format. It is strongly typed, enabling the consumers to validate and process the communicated data in a common way.</p>
+
+<h1 id="entities">Entities</h1>
+
+<h2 id="attributes">Attributes</h2>
+
+<p>Attributes are a generic way to share normalized data between identities.</p>
+
+<ul>
+  <li>@type=”Attribute”</li>
+  <li>name: The name of the attribute which should be shared</li>
+  <li>value: The value of the attribute</li>
+  <li>validFrom: From which date on the attribute is valid (optional)</li>
+  <li>validTo: To which date the attribute should be valid (optional)</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attribute"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"somebonuscompany.id"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xyz77920993882"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"validFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-01"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="person-attributes">Person Attributes</h3>
+
+<p>Based upon: <a href="https://schema.org/Person">Person Schema</a></p>
+
+<ul>
+  <li>Person.givenName</li>
+  <li>Person.familyName</li>
+  <li>Person.title</li>
+  <li>Person.gender</li>
+  <li>Person.bithDate</li>
+  <li>Person.birthPlace</li>
+  <li>Person.birthName</li>
+  <li>Person.nationality</li>
+</ul>
+
+<h3 id="address-attributes">Address Attributes</h3>
+
+<h3 id="communication-attributes">Communication Attributes</h3>
+
+<h2 id="mails">Mails</h2>
+
+<p>Mails are the primary communication payload if persons are addressed.</p>
+
+<ul>
+  <li>@type=”Mail”</li>
+  <li>to[]: An array of direct recipients (as addresses)</li>
+  <li>cc[]: An array of recipients (as addresses) who should regard this mail as “for your information”</li>
+  <li>subject: The subject of the mail</li>
+  <li>body: The body of the mail. Simple HTML formatting should be allowed with a very limited subset.</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mail"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"IdentityAddress"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"cc"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome Anne"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome Anne,&lt;br /&gt;&lt;br /&gt;You are now onboarded with your digital identity and we can securely submit sensitive data to you.&lt;br /&gt;&lt;br /&gt;Please let us know what you think about this solutions by answering to this mail.&lt;br /&gt;&lt;br /&gt;Best Regards!&lt;br /&gt;Your Team"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="requests">Requests</h2>
+
+<p>Structured digital requests allow the manual or automated processing and sharing of data between identities. Once a request is received, a client should act in standardized ways and either ask the user to accept the request or automatically process them based on a ruleset.</p>
+
+<p>Messages (not to confuse with Mails) could be sent with a Request as the only content. Such a message is then regarded as technical message and thus is not displayed to the user. However, if the request cannot be processed automatically (e.g. if it requires user approval), it should be automatically declined if it is not sent with a RequestMail.</p>
+
+<p>In other words, when sending a request to any identity, the RequestMail should be used with a human-readable explanation, just like a person usually receive a cover letter with explanatory words next to a form which should be filled out.</p>
+
+<h3 id="attributeschangerequest">AttributesChangeRequest</h3>
+
+<p>To change attributes at the remote site - either for the receiving identity (“I like to change your data”) or the sending identity (“I like to change the data you stored of me”) - the AttributesChangeRequest can be used.</p>
+
+<ul>
+  <li>@type=”AttributesChangeRequest”</li>
+  <li>id: The unique id of the request. Optional, default is a generated REQ id</li>
+  <li>key: The technial key of the request which is submitted back with the answer. This can be used for mapping requests and answers. The key should be unique and non-personal.</li>
+  <li>reason: The human-readable reason for this request. This can be used to provide the user with more input why this request is necessary and should be answered. Optional</li>
+  <li>expiresAt: The point in time the request is considered obsolete either technically (e.g. the request is no longer valid or its response is no longer accepted) or from a business perspective (e.g. the request is no longer of interest). Optional, default is no expiry</li>
+  <li>attributes[]: An array of attributes which act as the new values</li>
+  <li>applyTo: Address to which the change should be applied. This is usually the sender or the recipient. Optional</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AttributesChangeRequest"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ__"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"somebonuscompany.id"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xyz77920993882"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"validFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-01"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"applyTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAddress"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your bonus card id to share and benefit of discounts."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="attributessharerequest">AttributesShareRequest</h3>
+
+<p>AttributesShareRequests are used to request the submission of attributes from one identity to other identities. Keep in mind that attributes can only be shared to established relationships. It is technically not possible to communicate with identities without an active relationship.</p>
+
+<p>If received by the app, the user is asked if the respective attributes should be shared to the given recipients. If yes, the attributes are shared with an AttributesChangeRequest with the queried attributes to the known recipients.</p>
+
+<p>If received by a connector, the corresponding business system should act accordingly and answer with an AttributesChangeRequest to the recipients if the sharing of attributes to these recipients is allowed by company policy.</p>
+
+<ul>
+  <li>@type=”AttributesShareRequest”</li>
+  <li>id: The unique id of the request. Optional, default is a generated REQ id</li>
+  <li>key: The technial key of the request which is submitted back with the answer. This can be used for mapping requests and answers. The key should be unique and non-personal.</li>
+  <li>reason: The human-readable reason for this request. This can be used to provide the user with more input why this request is necessary and should be answered. Optional</li>
+  <li>expiresAt: The point in time the request is considered obsolete either technically (e.g. the request is no longer valid or its response is no longer accepted) or from a business perspective (e.g. the request is no longer of interest). Optional, default is no expiry</li>
+  <li>attributes[]: An array of attribute keys which should be shared</li>
+  <li>recipients[]: An array of Addresses which should receive the given attributes</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AttributesShareRequest"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Person.birthDate"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"CompanyAddress"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"German regulation X2303 §35 requires us to print a birth date on language certificates."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="requestmails">RequestMails</h2>
+
+<p>A RequestMail is a special type of Mail which are human-readable forms of requests. It is especially used to address and explain machine-readable request to a human.
+The requests sent with a RequestMail could be regarded as a special kind of attachment.</p>
+
+<ul>
+  <li>@type=”RequestMail”</li>
+  <li>to[]: An array of direct recipients (as addresses)</li>
+  <li>cc[]: An array of recipients (as addresses) who should regard this mail as “for your information”</li>
+  <li>subject: The subject of the mail</li>
+  <li>body: The body of the RequestMail. It should contain an explanation, why this request should be accepted, how long the user might have to process the request and what happens if the user does or does not process it.</li>
+  <li>requests[]: An array of requests which should be sent to the user</li>
+</ul>
+
+<p><strong>Example of RequestMail to request attributes</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RequestMail"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"IdentityAddress"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"cc"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We need to know your birth date"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi Anne,&lt;br /&gt;&lt;br /&gt;We require your birth date, as German regulations have changed and official language certificates must be given out with a birth date of the participant from next month on.&lt;br /&gt;&lt;br /&gt;Please let us know your birth date by accepting this request.&lt;br /&gt;&lt;br /&gt;Best Regards!&lt;br /&gt;Your Team"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AttributesShareRequest"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Person.birthDate"</span><span class="p">],</span><span class="w">
+            </span><span class="nl">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"CompanyAddress"</span><span class="p">],</span><span class="w">
+            </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"German regulation X2303 §35 requires us to print a birth date on language certificates."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Example of RequestMail to change attributes and share them afterwards</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RequestMail"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"IdentityAddress"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"cc"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your digital bonus card"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi Anne,&lt;br /&gt;&lt;br /&gt;Attached please find your personal bonus card id. You can share this id to our partners to benefit of attractive discounts.&lt;br /&gt;&lt;br /&gt;Best Regards!&lt;br /&gt;Your Team"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AttributesChangeRequest"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ__"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attribute"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"somebonuscompany.id"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xyz77920993882"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"validFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-01"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"applyTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAddress"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your bonus card id to share and benefit of discounts."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AttributesShareRequest"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ__"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"somebonuscompany.id"</span><span class="p">],</span><span class="w">
+            </span><span class="nl">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"PartnerAddress1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PartnerAddress2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PartnerAddress3"</span><span class="p">],</span><span class="w">
+            </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You can share your new bonus card id with our partners by just accepting this request. The id is only shared with partners you already have a contact to."</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-24T14:37:01+02:00">October 24, 2022</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/versions/1.0.0/explore/runtime" class="pagination--pager" title="Enmeshed Runtime
+">Previous</a>
+    
+    
+      <a href="/versions/1.0.0/explore/cryptography" class="pagination--pager" title="Cryptography
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+          
+        <li>
+            <a href="https://twitter.com/nmshd_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> twitter</a>
+        </li>
+           
+        <li>
+            <a href="/versions/1.0.0/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2022
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/1.0.0/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/1.0.0/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/1.0.0/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/1.0.0/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

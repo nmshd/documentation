@@ -1,0 +1,442 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Troubleshooting - Enmeshed</title>
+<meta name="description" content="Common Errors">
+
+
+  <meta name="author" content="Enmeshed Team">
+  
+  <meta property="article:author" content="Enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Enmeshed">
+<meta property="og:title" content="Troubleshooting">
+<meta property="og:url" content="/versions/1.0.0/integrate/connector-setup-troubleshooting">
+
+
+  <meta property="og:description" content="Common Errors">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-10-24T14:37:01+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/1.0.0/integrate/connector-setup-troubleshooting">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/versions/1.0.0/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/1.0.0/feed.xml" type="application/atom+xml" rel="alternate" title="Enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/1.0.0/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/1.0.0/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of Enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/1.0.0/">
+          Enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/blog">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/versions/2.0.0">v2.0.0 Preview</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate Enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/1.0.0/integrate/basics">Basics</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-tutorial">Connector Tutorial</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Setting up the Connector</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-installation">Installation</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-configuration">Configuration</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-setup-troubleshooting" class="active">Troubleshooting</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">REST API</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-api">API Documentation</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-flows-messages">Sending Messages</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Programming</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-sdks">Connector SDKs</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/custom-connector-modules">Custom Connector Modules</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-events">Connector Events</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Operations</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-operations">Connector Operations</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-security">Security Considerations</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-privacy">Privacy Considerations</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-performance">Performance Considerations</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Troubleshooting">
+    <meta itemprop="description" content="Common Errors">
+    <meta itemprop="datePublished" content="2022-10-24T14:37:01+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/versions/1.0.0/integrate/connector-setup-troubleshooting" class="u-url" itemprop="url">Troubleshooting
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="common-errors">Common Errors</h2>
+
+<h3 id="config-file-mounting-eisdir--invalid-mode-ro">Config file mounting (<code class="language-plaintext highlighter-rouge">EISDIR</code> | <code class="language-plaintext highlighter-rouge">invalid mode: RO</code>)</h3>
+
+<p><strong>Symptoms</strong></p>
+
+<p>One of the following errors are logged during the startup of the connector:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Error parsing your configuration file: [/config.json]: EISDIR: illegal operation on a directory, read</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ERROR: for connector Cannot create container for service connector: invalid mode: RO</code></li>
+</ul>
+
+<p><strong>How to fix?</strong></p>
+
+<p>Given the following filesystem structure:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>home/
+└── connector/
+    ├── config.json
+    └── docker-compose.yml
+</code></pre></div></div>
+
+<p>If you mount <code class="language-plaintext highlighter-rouge">/home/connector:/config.json:RO</code>, the created <code class="language-plaintext highlighter-rouge">/config.json</code> in the container will be a directory. To fix this the mount has to be <code class="language-plaintext highlighter-rouge">/home/connector/config.json:/config.json:RO</code> or <code class="language-plaintext highlighter-rouge">./config.json:/config.json:RO</code> (docker compose translates relative links to absolute links).</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-24T14:37:01+02:00">October 24, 2022</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/versions/1.0.0/integrate/connector-configuration" class="pagination--pager" title="Connector Configuration
+">Previous</a>
+    
+    
+      <a href="/versions/1.0.0/integrate/connector-api" class="pagination--pager" title="Connector API
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+          
+        <li>
+            <a href="https://twitter.com/nmshd_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> twitter</a>
+        </li>
+           
+        <li>
+            <a href="/versions/1.0.0/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2022
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/1.0.0/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/1.0.0/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/1.0.0/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/1.0.0/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

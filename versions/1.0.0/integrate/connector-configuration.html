@@ -1,0 +1,882 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Connector Configuration - Enmeshed</title>
+<meta name="description" content="Mounting a config file">
+
+
+  <meta name="author" content="Enmeshed Team">
+  
+  <meta property="article:author" content="Enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Enmeshed">
+<meta property="og:title" content="Connector Configuration">
+<meta property="og:url" content="/versions/1.0.0/integrate/connector-configuration">
+
+
+  <meta property="og:description" content="Mounting a config file">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-10-24T14:37:01+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/1.0.0/integrate/connector-configuration">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/versions/1.0.0/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/1.0.0/feed.xml" type="application/atom+xml" rel="alternate" title="Enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/1.0.0/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/1.0.0/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of Enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/1.0.0/">
+          Enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/blog">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0/versions/2.0.0">v2.0.0 Preview</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate Enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/1.0.0/integrate/basics">Basics</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-tutorial">Connector Tutorial</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Setting up the Connector</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-installation">Installation</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-configuration" class="active">Configuration</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-setup-troubleshooting">Troubleshooting</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">REST API</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-api">API Documentation</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-flows-messages">Sending Messages</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Programming</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-sdks">Connector SDKs</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/custom-connector-modules">Custom Connector Modules</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-events">Connector Events</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Operations</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-operations">Connector Operations</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-security">Security Considerations</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-privacy">Privacy Considerations</a></li>
+          
+            <li><a href="/versions/1.0.0/integrate/connector-performance">Performance Considerations</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Connector Configuration">
+    <meta itemprop="description" content="Mounting a config file">
+    <meta itemprop="datePublished" content="2022-10-24T14:37:01+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/versions/1.0.0/integrate/connector-configuration" class="u-url" itemprop="url">Connector Configuration
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="mounting-a-config-file">Mounting a config file</h2>
+
+<ol>
+  <li>Create a config file in JSON format in a folder of your choice.</li>
+  <li>
+    <p>Fill the config file with your desired configuration (it’s sufficient to add values you want to change; the Connector will merge your config file with the default configuration) Example:</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"infrastructure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"httpServer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+             </span><span class="nl">"apiKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"an-api-key"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>Mount the created config file into the Docker container (e.g. to <code class="language-plaintext highlighter-rouge">/config.json</code>). See the official <a href="https://docs.docker.com/storage/bind-mounts/">documentation</a> for more information on how to mount files into a Docker container. This is also possible using <a href="https://docs.docker.com/compose/compose-file/compose-file-v3/#volumes">docker compose</a>.</li>
+  <li>Set the environment variable <code class="language-plaintext highlighter-rouge">CUSTOM_CONFIG_LOCATION</code> to the path you mounted your config file to (e.g. <code class="language-plaintext highlighter-rouge">CUSTOM_CONFIG_LOCATION="/config.json"</code>).</li>
+</ol>
+
+<p>There is also an <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json">example config file</a> available. It sets some default values, please only use the fields you require</p>
+
+<h2 id="environment-variables">Environment variables</h2>
+
+<p>The configuration can also be done using environment variables. This feature is included in the Connector since version <code class="language-plaintext highlighter-rouge">2.2.1</code>.</p>
+
+<h3 id="parsing-rules">Parsing rules</h3>
+
+<ol>
+  <li>
+    <p>Nested fields can be represented using a colon (<code class="language-plaintext highlighter-rouge">:</code>) as a separator.</p>
+
+    <p class="notice--warning">The <code class="language-plaintext highlighter-rouge">:</code> separator doesn’t work with environment variable hierarchical keys on all platforms. The double underscore (<code class="language-plaintext highlighter-rouge">__</code>) is supported on all platforms (e.g. bash does not support the <code class="language-plaintext highlighter-rouge">:</code> separator but it supports <code class="language-plaintext highlighter-rouge">__</code> ). The Connector will therefore convert <code class="language-plaintext highlighter-rouge">__</code> to <code class="language-plaintext highlighter-rouge">:</code> so you can use it on that systems.</p>
+  </li>
+  <li>The parameter casing must be the same as the config file casing.</li>
+  <li>The strings “true” and “false” are converted to the respective boolean values.</li>
+  <li>Number strings (<code class="language-plaintext highlighter-rouge">"1"</code> / <code class="language-plaintext highlighter-rouge">"1.1"</code>) will be converted to the respective number types.</li>
+  <li>Complex structures (arrays, objects) are not supported. (=&gt; <code class="language-plaintext highlighter-rouge">modules:aModule:aKey='{"a": "x", "b": "y"}'</code> or <code class="language-plaintext highlighter-rouge">modules:aModule:aKey='["a", "b"]'</code> is not valid)</li>
+</ol>
+
+<h3 id="example">Example</h3>
+
+<p>You want to configure the following values:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"infrastructure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"httpServer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apiKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"an-api-key"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>The first value can be configured using the variable <code class="language-plaintext highlighter-rouge">infrastructure:httpServer:enabled="true"</code>. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its boolean representation.</li>
+  <li>The second value can be configured using the variable <code class="language-plaintext highlighter-rouge">infrastructure:httpServer:port="8080"</code>. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its number representation.</li>
+  <li>The third value can be configured using the variable <code class="language-plaintext highlighter-rouge">infrastructure:httpServer:apiKey="an-api-key"</code>.</li>
+</ul>
+
+<h1 id="configuration-options">Configuration options</h1>
+
+<p>The Connector provides the following configuration parameters:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"transportLibrary"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"platformClientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT_ID"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"platformClientSecret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT_SECRET"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"database"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"connectionString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dbName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-db-name"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"infrastructure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>You can validate the config using our <a href="https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json">schema file</a>. This is possible with <a href="https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings">VSCode</a> and online tools like <a href="https://www.jsonschemavalidator.net">jsonschemavalidator.net</a>.</p>
+
+<h2 id="transportlibrary">transportLibrary</h2>
+
+<ul>
+  <li>
+    <p><strong>platformClientId</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
+
+    <p>The client id is required to communicate with the Enmeshed platform. It can be acquired from the <a href="/versions/1.0.0/integrate/basics#support">Enmeshed Support</a>.</p>
+  </li>
+  <li>
+    <p><strong>platformClientSecret</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
+
+    <p>The client secret is required to communicate with the Enmeshed platform. It can be acquired from the <a href="/versions/1.0.0/integrate/basics#support">Enmeshed Support</a>.</p>
+  </li>
+</ul>
+
+<h2 id="database">database</h2>
+
+<ul>
+  <li>
+    <p><strong>connectionString</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
+
+    <p>At this point the connection to the database can be configured. The connection string must follow the MongoDB <a href="https://docs.mongodb.com/manual/reference/connection-string/">Connection String URI Format</a>.</p>
+  </li>
+  <li>
+    <p><strong>dbName</strong> <code class="language-plaintext highlighter-rouge">default: "default"</code></p>
+
+    <p>The <code class="language-plaintext highlighter-rouge">dbName</code> string is used as the name of the MongoDB database. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new Enmeshed identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the <code class="language-plaintext highlighter-rouge">dbName</code> back to its original value.</p>
+
+    <p>If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique <code class="language-plaintext highlighter-rouge">dbName</code> for each of them.</p>
+  </li>
+</ul>
+
+<h2 id="infrastructure">infrastructure</h2>
+
+<p>Each infrastructure can be enabled or disabled by passing true / false to <code class="language-plaintext highlighter-rouge">enabled</code>.</p>
+
+<h3 id="httpserver">httpServer</h3>
+
+<p>The http server is the base for the <code class="language-plaintext highlighter-rouge">coreHttpApi</code> module. It opens an express http server where modules can register endpoints.</p>
+
+<h4 id="configuration">Configuration</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"origin"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"apiKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"an-api-key"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: true</code></p>
+
+    <p>Enable or disable the http server.</p>
+  </li>
+  <li>
+    <p><strong>cors</strong> <code class="language-plaintext highlighter-rouge">default: { "origin": false }</code></p>
+
+    <p>configure the CORS middleware. Valid options can be found <a href="https://github.com/expressjs/cors#configuration-options">here</a>.</p>
+  </li>
+  <li>
+    <p><strong>apiKey</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
+
+    <p>Define the API-Key the Connector should use to authenticate requests.</p>
+
+    <p>The API-Key can be chosen arbitrarily and has to be sent with every request in the <code class="language-plaintext highlighter-rouge">X-API-KEY</code> HTTP-Header.</p>
+
+    <p>There are no limitations regarding the allowed characters. We recommend using an API-Key that is at least 20 characters long.</p>
+
+    <p>The API-Key protects your Connector from unauthorized access and should therefore be kept secret.</p>
+  </li>
+</ul>
+
+<h2 id="modules">modules</h2>
+
+<p>Every module can be enabled or disabled by passing true / false to <code class="language-plaintext highlighter-rouge">enabled</code>.</p>
+
+<h3 id="sync">sync</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">sync</code> module regularly fetches changes from the Backbone (e.g. new messages / new incoming relationship requests) and notifies other modules like the <code class="language-plaintext highlighter-rouge">httpEndpointEventPublisher</code> about them.</p>
+
+<h4 id="configuration-1">Configuration</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p>Enable or disable the sync module.</p>
+  </li>
+  <li>
+    <p><strong>interval</strong> <code class="language-plaintext highlighter-rouge">default: 60</code></p>
+
+    <p>The interval in seconds at which the sync module will fetch changes from the Backbone.</p>
+  </li>
+</ul>
+
+<h3 id="autoacceptrelationshipcreationchanges">autoAcceptRelationshipCreationChanges</h3>
+
+<p class="notice--danger">It is not recommended to use this module for production szenarios.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">autoAcceptRelationshipCreationChanges</code> module depends on the <code class="language-plaintext highlighter-rouge">sync</code> module and listens to the notifications about incoming Relationship Requests. It immediately accepts the Requests, using the configured <code class="language-plaintext highlighter-rouge">responseContent</code>.</p>
+
+<h4 id="configuration-2">Configuration</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"responseContent"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p>Enable or disable the autoAcceptRelationshipCreationChanges module.</p>
+  </li>
+  <li>
+    <p><strong>responseContent</strong> <code class="language-plaintext highlighter-rouge">default: {}</code></p>
+
+    <p>The content that is used to accept the incoming Relationship Request.</p>
+  </li>
+</ul>
+
+<h3 id="corehttpapi">coreHttpApi</h3>
+
+<p>This module contains the HTTP API with all Enmeshed base functionalities.</p>
+
+<h4 id="configuration-3">Configuration</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"docs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rapidoc"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"persistAuth"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: true</code></p>
+
+    <p>Enable or disable the coreHttpApi module.</p>
+  </li>
+  <li>
+    <p><strong>docs:enabled</strong> <code class="language-plaintext highlighter-rouge">default: true</code></p>
+
+    <p class="notice--danger">It is not recommended to enable the docs in production szenarios.</p>
+
+    <p>Enable / disable the <code class="language-plaintext highlighter-rouge">/docs/json</code> and <code class="language-plaintext highlighter-rouge">/docs/yaml</code> routes and the rendered swagger / rapidoc documentations.</p>
+  </li>
+  <li>
+    <p><strong>docs:rapidoc:persistAuth</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p class="notice--danger">It is not recommended to enable the authentication persistence in production szenarios.</p>
+
+    <p>If set to <code class="language-plaintext highlighter-rouge">true</code> rapidoc persists the API Key in the local storage of the browser.</p>
+  </li>
+</ul>
+
+<h3 id="webhooks">webhooks</h3>
+
+<p class="notice--warning">This module is deprecated in favor of the <a href="#webhooksv2">webhooksV2</a> module.</p>
+
+<p>With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization’s backend services about changes.</p>
+
+<p>For this, the Connector supports the configuration of a webhook which is called in case there is something new (e.g. a new message has been received).</p>
+
+<p>Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive webhooks. The <code class="language-plaintext highlighter-rouge">sync</code> module automates this, but you can also do this manually by calling the <code class="language-plaintext highlighter-rouge">/api/v1/Account/Sync</code> route.</p>
+
+<h4 id="configuration-4">Configuration</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/enmeshed/webhook"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"X-API-KEY"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some-super-safe-api-key"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"publishInterval"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p>Enable or disable the webhooks module.</p>
+  </li>
+  <li>
+    <p><strong>url</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
+
+    <p>The URL to which the webhooks will be sent.</p>
+  </li>
+  <li>
+    <p><strong>headers</strong> <code class="language-plaintext highlighter-rouge">default: {}</code></p>
+
+    <p>The headers that will be sent with the webhooks.</p>
+  </li>
+  <li>
+    <p><strong>publishInterval</strong> <code class="language-plaintext highlighter-rouge">default: 60</code></p>
+
+    <p>The interval in seconds at which the webhooks will be sent.</p>
+  </li>
+</ul>
+
+<h4 id="payload">Payload</h4>
+
+<p>The payload that is sent to the service under the configured <code class="language-plaintext highlighter-rouge">url</code> has the following format:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">WebhooksModulePayload</span> <span class="p">{</span>
+    <span class="nl">messages</span><span class="p">:</span> <span class="nx">Message</span><span class="p">[];</span>
+    <span class="nl">relationships</span><span class="p">:</span> <span class="nx">Relationship</span><span class="p">[];</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">Message</span> <span class="p">{</span>
+    <span class="nl">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="kr">any</span><span class="p">;</span>
+    <span class="nl">createdBy</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">createdByDevice</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">recipients</span><span class="p">:</span> <span class="nx">Recipient</span><span class="p">[];</span>
+    <span class="nl">relationshipIds</span><span class="p">:</span> <span class="kr">string</span><span class="p">[];</span>
+    <span class="nl">createdAt</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">attachments</span><span class="p">:</span> <span class="kr">string</span><span class="p">[];</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">Recipient</span> <span class="p">{</span>
+    <span class="nl">address</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">Relationship</span> <span class="p">{</span>
+    <span class="nl">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">template</span><span class="p">:</span> <span class="nx">RelationshipTemplate</span><span class="p">;</span>
+    <span class="nl">status</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">peer</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">changes</span><span class="p">:</span> <span class="nx">RelationshipChange</span><span class="p">[];</span>
+    <span class="nl">lastMessageSentAt</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">lastMessageReceivedAt</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">RelationshipTemplate</span> <span class="p">{</span>
+    <span class="nl">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">isOwn</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+    <span class="nl">createdBy</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">createdByDevice</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">createdAt</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="kr">any</span><span class="p">;</span>
+    <span class="nl">expiresAt</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">maxNumberOfRelationships</span><span class="p">?:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">RelationshipChange</span> <span class="p">{</span>
+    <span class="nl">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">request</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">createdBy</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+        <span class="nl">createdByDevice</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+        <span class="nl">createdAt</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+        <span class="nl">content</span><span class="p">?:</span> <span class="kr">any</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nl">status</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Pending</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">Rejected</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">Revoked</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">Accepted</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nl">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Creation</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">Termination</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">TerminationCancellation</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nl">response</span><span class="p">?:</span> <span class="p">{</span>
+        <span class="na">createdBy</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+        <span class="nl">createdByDevice</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+        <span class="nl">createdAt</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+        <span class="nl">content</span><span class="p">?:</span> <span class="kr">any</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The payload of the webhook is the same as the response payload of the <code class="language-plaintext highlighter-rouge">/api/v1/Account/Sync</code> endpoint. Thus the type <code class="language-plaintext highlighter-rouge">ConnectorSyncResult</code> of the <a href="./connector-sdks#typescript-sdk">TypeScript SDK</a> can be used for specifing the webhook’s payload type.</p>
+
+<h3 id="webhooksv2">webhooksV2</h3>
+
+<p>With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization’s backend services about changes.</p>
+
+<p>For this, the Connector supports the configuration of webhooks which are called every time a specific <a href="/versions/1.0.0/integrate/connector-events">Connector Event</a> is triggered (e.g. a new message has been received =&gt; <code class="language-plaintext highlighter-rouge">transport.messageReceived</code>).</p>
+
+<p>Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The <code class="language-plaintext highlighter-rouge">sync</code> module automates this, but you can also do this manually by calling the <code class="language-plaintext highlighter-rouge">/api/v1/Account/Sync</code> route.</p>
+
+<h4 id="configuration-5">Configuration</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"targets"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nl">"webhooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p>Enable or disable the webhooks module.</p>
+  </li>
+  <li>
+    <p><strong>targets</strong> <code class="language-plaintext highlighter-rouge">default: {}</code></p>
+
+    <p>Here you can predefine targets so you can reuse them for multiple webhooks.</p>
+
+    <p>A target consists of a URL as well as optional arbitrary headers, which the Connector should send as part of the request. Optionally, your URL can contain the placeholder <code class="language-plaintext highlighter-rouge">{{trigger}}</code>, which at runtime will be replaced with the event name that triggered the webhook (e.g. transport.messageReceived). This way, you can reuse the same target for multiple webhooks and still have different URLs for different events. See the code below for an example.</p>
+
+    <p>The server under the URL must respond to the request with a status code between 200 and 299. Otherwise the Connector will log a warning.</p>
+
+    <p><br /></p>
+
+    <p><strong>Example</strong></p>
+
+    <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="c1">// a target with headers</span><span class="w">
+    </span><span class="nl">"target1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/enmeshed/webhook2"</span><span class="p">,</span><span class="w">
+
+        </span><span class="c1">// the following headers will be sent as part of the webhook</span><span class="w">
+        </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"a-header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-value"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"another-header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"another-value"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="c1">// a target without headers</span><span class="w">
+    </span><span class="nl">"target2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/enmeshed/webhook"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="c1">// a target with the {{trigger}} placeholder as part of the URL</span><span class="w">
+    </span><span class="nl">"target3"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/enmeshed/webhook/"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>webhooks</strong> <code class="language-plaintext highlighter-rouge">default: []</code></p>
+
+    <p>The webhooks that will be called. A webhook consists of one or more <a href="/versions/1.0.0/integrate/connector-events">Connector Events</a> on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the <code class="language-plaintext highlighter-rouge">targets</code> object.</p>
+
+    <p><br /></p>
+
+    <p><strong>Example</strong></p>
+
+    <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"transport.messageReceived"</span><span class="p">],</span><span class="w">
+
+        </span><span class="c1">// inline declaration of a target</span><span class="w">
+        </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="c1">// see the targets section for a description of how to configure a target</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"transport.messageReceived"</span><span class="p">],</span><span class="w">
+
+        </span><span class="c1">// a reference to a target defined in the 'targets' object</span><span class="w">
+        </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"target1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="payload-1">Payload</h4>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="c1">// the event name (e.g. transport.messageReceived) that triggered the webhook</span><span class="w">
+    </span><span class="nl">"trigger"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transport.messageReceived"</span><span class="p">,</span><span class="w">
+
+    </span><span class="c1">// the data of the event</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>You can find type definitions of the event data in the <a href="/versions/1.0.0/integrate/connector-events">Connector Events</a> section.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-24T14:37:01+02:00">October 24, 2022</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/versions/1.0.0/integrate/connector-installation" class="pagination--pager" title="Connector Installation
+">Previous</a>
+    
+    
+      <a href="/versions/1.0.0/integrate/connector-setup-troubleshooting" class="pagination--pager" title="Troubleshooting
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+          
+        <li>
+            <a href="https://twitter.com/nmshd_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> twitter</a>
+        </li>
+           
+        <li>
+            <a href="/versions/1.0.0/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2022
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/1.0.0/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/1.0.0/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/1.0.0/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/1.0.0/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

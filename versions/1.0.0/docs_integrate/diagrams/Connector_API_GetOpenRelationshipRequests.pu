@@ -1,0 +1,33 @@
+@startuml Connector_GetOpenRelationshipRequests
+!include ../../assets/plantuml/styles.iuml
+
+title Connector: Get Open Relationship Requests
+caption Copyright 2021, j&s-soft GmbH
+
+box "Organizations's Infrastructure"
+participant "Business\nSystem" as backend
+participant "Enmeshed\nConnector" as connector
+end box
+participant "Enmeshed\nBackbone" as backbone
+
+== Prerequisites ==
+backbone <-> connector: Verified Enmeshed Organization Identity
+
+
+== Get Open Relationship Requests ==
+
+-> backend ++: Start
+backend -> connector ++: GET /RelationshipRequests\n/OpenIncoming
+
+connector -> backbone ++: Get relationship requests
+backbone -> backbone: Retrieve requests
+backbone --> connector --: Returns requests
+
+connector -> connector: Decrypt every request
+connector -> connector: Validate every request
+
+connector --> backend --: Returns requests
+
+<-- backend --: Stop\n(with Requests)
+
+@enduml
