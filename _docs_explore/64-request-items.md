@@ -6,36 +6,6 @@ toc: true
 
 All the RequestItems listed below inherit from the [RequestItem]({% link _docs_explore/61-data-model.md %}#requestitem) and are therefore sharing its properties.
 
-## Preamble
-
-### Response Parameters
-
-To simplify the usage of the ResponseItems the Enmeshed libraries are providing simplified versions (so called Parameters) that will be processed and enriched to RequestItems.
-Answering a RequestItem that does not need additional information is as simple as sending `{ "accept": true }` to accept the RequestItem or `{ "accept": false }` to reject it.
-
-The RequestItems that need additional information for the accept are documented besides the respective RequestItems.
-
-#### Example
-
-```jsonc
-// If you answer the CreateAttributeRequestItem
-{
-    "@type": "CreateAttributeRequestItem",
-    "attribute": { /* ... */ }
-}
-
-// with this parameters
-{
-    "accept": true,
-}
-
-// the following ResponseItem will be created for you
-{
-    "@type": "CreateAttributeAcceptResponseItem",
-    "attributeId": "ATT..."
-}
-```
-
 ## AuthenticationRequestItem {#authenticationrequestitem}
 
 With this item the sender can request the peer for an authentication in a business context for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived and limited in time.
@@ -106,7 +76,7 @@ The ConsentRequestItem is also not meant for contractual agreements.
 
 If you want to create Identity- or RelationshipAttributes for the peer, the CreateAttributeRequestItem can be used. Please have a look at the ProposeAttributeRequestItem if the peer should be able to overwrite the Attribute.
 
-To create a peer Attribute (owner = peer) with a fixed value defined by the sender, an Identity uses the CreateAttributeRequestItem. A fixed value in this case means, that the recipient is not allowed to change the value when accepting the request.
+To create an Attribute with a fixed value defined by the sender, an Identity uses the CreateAttributeRequestItem. A fixed value in this case means, that the recipient is not allowed to change the value when accepting the request.
 
 ### Examples {#createattributerequestitem-examples}
 
@@ -116,10 +86,10 @@ To create a peer Attribute (owner = peer) with a fixed value defined by the send
 
 ### Properties {#createattributerequestitem-properties}
 
-| Name      | Type                                                                                                                                                                             | Description                                                                                                                                                                                      |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `@type`   | `"CreateAttributeRequestItem"`                                                                                                                                                   | Specifies the type of the RequestItem for internal processing.                                                                                                                                   |
-| attribute | [`IdentityAttribute`]({% link _docs_explore/61-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/61-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute to create for the peer within the Identity of the peer.<br>The owner of the Attribute which should be created can only be the recipient Identity. |
+| Name        | Type                                                                                                                                                                             | Description                                                                                            |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `@type`     | `"CreateAttributeRequestItem"`                                                                                                                                                   | Specifies the type of the RequestItem for internal processing.                                         |
+| `attribute` | [`IdentityAttribute`]({% link _docs_explore/61-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/61-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute to create for the peer within the Identity of the peer. |
 
 ### Response {#createattributerequestitem-response}
 
@@ -127,10 +97,10 @@ To create a peer Attribute (owner = peer) with a fixed value defined by the send
 
 -   To accept this RequestItem a `CreateAttributeAcceptResponseItem` will be transferred.
 
-    | Name        | Type                                  | Description                      |
-    | ----------- | ------------------------------------- | -------------------------------- |
-    | `@type`     | `"CreateAttributeAcceptResponseItem"` | The type of the ResponseItem.    |
-    | attributeId | `string`                              | The id of the created Attribute. |
+    | Name          | Type                                  | Description                      |
+    | ------------- | ------------------------------------- | -------------------------------- |
+    | `@type`       | `"CreateAttributeAcceptResponseItem"` | The type of the ResponseItem.    |
+    | `attributeId` | `string`                              | The id of the created Attribute. |
 
 -   To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/61-data-model.md %}#rejectresponseitem) will be transferred.
 -   In case of an error an [ErrorResponseItem]({% link _docs_explore/61-data-model.md %}#errorresponseitem) will be transferred.
@@ -155,7 +125,7 @@ To create a peer Attribute (owner = peer) with a fixed value defined by the send
 
 The ProposeAttributeRequestItem is a combination of [ReadAttributeRequestItem](#readattributerequestitem) and [CreateAttributeRequestItem](#createattributerequestitem). The sender would like to receive a correct Attribute from the peer, thinks it has a possible value but the peer might overrule this value with an existing or new one.
 
-To create a peer Attribute (owner = peer) with a value proposed by the sender, an Identity uses the ProposeAttributeRequestItem. A proposed value in this case means, that the recipient is allowed to change the value if accepting the request.
+To create an Attribute with a value proposed by the sender, an Identity uses the ProposeAttributeRequestItem. A proposed value in this case means, that the recipient is allowed to change the value if accepting the request.
 
 ### Examples {#proposeattributerequestitem-examples}
 
@@ -164,11 +134,11 @@ To create a peer Attribute (owner = peer) with a value proposed by the sender, a
 
 ### Properties {#proposeattributerequestitem-properties}
 
-| Name        | Type                                                                                                                                                                                                                                                                                                                             | Description                                                                                                                                                                          |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `@type`     | `"ProposeAttributeRequestItem"`                                                                                                                                                                                                                                                                                                  | Specifies the type of the RequestItem for internal processing.                                                                                                                       |
-| `attribute` | [`IdentityAttribute`]({% link _docs_explore/61-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/61-data-model.md %}#relationshipattribute)                                                                                                                                                 | The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute.<br>The owner of the Attribute which is proposed can only be the recipient Identity. |
-| `query`     | [`IdentityAttributeQuery`]({% link _docs_explore/61-data-model.md %}#identityattributequery) \| [`RelationshipAttributeQuery`]({% link _docs_explore/61-data-model.md %}#relationshipattributequery) \| [`ThirdPartyRelationshipAttributeQuery`]({% link _docs_explore/61-data-model.md %}#thirdpartyrelationshipattributequery) | The structured query of the Attribute the sender would like to receive.                                                                                                              |
+| Name        | Type                                                                                                                                                                                                                                                                                                                             | Description                                                                                      |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `@type`     | `"ProposeAttributeRequestItem"`                                                                                                                                                                                                                                                                                                  | Specifies the type of the RequestItem for internal processing.                                   |
+| `attribute` | [`IdentityAttribute`]({% link _docs_explore/61-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/61-data-model.md %}#relationshipattribute)                                                                                                                                                 | The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute. |
+| `query`     | [`IdentityAttributeQuery`]({% link _docs_explore/61-data-model.md %}#identityattributequery) \| [`RelationshipAttributeQuery`]({% link _docs_explore/61-data-model.md %}#relationshipattributequery) \| [`ThirdPartyRelationshipAttributeQuery`]({% link _docs_explore/61-data-model.md %}#thirdpartyrelationshipattributequery) | The structured query of the Attribute the sender would like to receive.                          |
 
 ### Response {#proposeattributerequestitem-response}
 
@@ -220,9 +190,9 @@ To create a peer Attribute (owner = peer) with a value proposed by the sender, a
 
 ## ReadAttributeRequestItem {#readattributerequestitem}
 
-If you want to query an identity's Attributes this is done with the ReadAttributeRequestItem.
+If you want to query an Identity's Attributes this is done with the ReadAttributeRequestItem.
 
-To query peer Attributes (owner = peer) which are not known to the sender, an Identity uses the ReadAttributeRequestItem.
+To query Attributes which are not known to the sender, an Identity uses the ReadAttributeRequestItem.
 
 ### Examples {#readattributerequestitem-examples}
 
@@ -272,18 +242,18 @@ To query peer Attributes (owner = peer) which are not known to the sender, an Id
 
 ### Combinations and usage scenarios {#readattributerequestitem-combinationsandusagescenarios}
 
-| Attribute Type | Attribute Owner | Third Party | Possible? | Automation                   | Examples/Reason                                                                                                                                                                                                                                                                                                  |
-| -------------- | --------------- | ----------- | --------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Identity       | Sender          |             | N         | `N/A`                        | It makes no sense to read own IdentityAttributes.                                                                                                                                                                                                                                                                |
-| Identity       | Recipient       |             | Y         | `USER_DECISION`              | Company asks customer for its delivery address                                                                                                                                                                                                                                                                   |
-| Relationship   | Sender          |             | Y         | `USER_DECISION`              | With this combination the **sender gives the recipient the one-time permission** to write a Relationship Attribute once<br>Example: Electricity provider asks new customers for electricity meter number                                                                                                         |
-| Relationship   | Recipient       |             | Y         | `USER_DECISION`              | With this combination the **sender asks the recipient for the one-time permission** to write a Relationship Attribute<br>Example: Company asks new customer to subscribe to the newsletter and proposes the subscription as default once                                                                         |
-| Relationship   | Recipient       | Third Party | Y         | depending on confidentiality | With this combination the **sender requests a Relationship Attribute from a Relationship between the recipient and a third party. The Attribute must be owned by the recipient**<br> Example: A Social Network asks for Facebook privacy settings of a user to get senseful defaults of its own privacy settings |
-| Relationship   | Third Party     | Third Party | Y         | depending on confidentiality | With this combination the **sender requests a Relationship Attribute from a Relationship between the recipient and a third party which is owned by the third party**<br> Example: An online shop asks for the Payback Customer Id of a user to book the order on his account                                     |
+| Attribute Type | Attribute Owner | Third Party | Possible? | Automation                                                   | Examples/Reason                                                                                                                                                                                                                                                                                                  |
+| -------------- | --------------- | ----------- | --------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Identity       | Sender          |             | N         | `N/A`                                                        | It makes no sense to read own IdentityAttributes.                                                                                                                                                                                                                                                                |
+| Identity       | Recipient       |             | Y         | `USER_DECISION`                                              | Company asks customer for its delivery address                                                                                                                                                                                                                                                                   |
+| Relationship   | Sender          |             | Y         | `USER_DECISION`                                              | With this combination the **sender gives the recipient the one-time permission** to write a Relationship Attribute once<br>Example: Electricity provider asks new customers for electricity meter number                                                                                                         |
+| Relationship   | Recipient       |             | Y         | `USER_DECISION`                                              | With this combination the **sender asks the recipient for the one-time permission** to write a Relationship Attribute<br>Example: Company asks new customer to subscribe to the newsletter and proposes the subscription as default once                                                                         |
+| Relationship   | Recipient       | Third Party | Y         | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **sender requests a Relationship Attribute from a Relationship between the recipient and a third party. The Attribute must be owned by the recipient**<br> Example: A Social Network asks for Facebook privacy settings of a user to get senseful defaults of its own privacy settings |
+| Relationship   | Third Party     | Third Party | Y         | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **sender requests a Relationship Attribute from a Relationship between the recipient and a third party which is owned by the third party**<br> Example: An online shop asks for the Payback Customer Id of a user to book the order on his account                                     |
 
 ## RegisterAttributeListenerRequestItem {#registerattributelistenerrequestitem}
 
-This item is used to register a listener for a specific Attribute. The listener will create a Draft Request if an Attribute was created that matches the given query and the user is able to sent the Request to the creator of the original `RegisterAttributeListenerRequestItem`.
+This item is used to register a [Listener]({% link _docs_explore/61-data-model.md %}#localattributelistener) for a specific Attribute. The Listener will create a Request in status `Draft` if an Attribute was created that matches the given query and the user is able to send the Request to the creator of the `RegisterAttributeListenerRequestItem`.
 
 ### Examples {#registerattributelistenerrequestitem-examples}
 
@@ -323,8 +293,9 @@ To share own IdentityAttributes (owner = self) an Identity uses the ShareAttribu
 
 ### Examples {#shareattributerequestitem-examples}
 
--   Share own DisplayName
--   Share own Address
+-   Share own DisplayName.
+-   Share own Address.
+-   Share customer number of company A with company B.
 
 ### Properties {#shareattributerequestitem-properties}
 
