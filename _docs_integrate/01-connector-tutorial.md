@@ -148,7 +148,7 @@ Open the created QR Code, start the Enmeshed App, select or create a profile, na
 
 !["Add contact" screen]( {{ '/assets/images/add-contact-screen.jpg' | relative_url }} )
 
-Finally, fill out the required fields and click on "Accept Relationship" to send the Relationship Request. This will create a new Relationship to the Backbone, which has the status `Pending`.
+Finally, fill out the required fields and click on "Accept Request" to send the Relationship Request. This will create a new Relationship to the Backbone, which has the status `Pending`.
 
 ## Connector: Accept the Relationship Request
 
