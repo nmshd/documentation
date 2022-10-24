@@ -9,8 +9,8 @@ main:
     url: /contribute
   - title: "Blog"
     url: /blog
-  - title: "v2.0.0 Preview"
-    url: /versions/2.0.0
+  - title: "v1 Docs (deprecated)"
+    url: /versions/1.0.0
 
 docs_explore:
   - title: First things first
@@ -69,8 +69,10 @@ docs_explore:
     children:
       - title: "Runtime"
         url: /explore/runtime
-      - title: "Schema"
-        url: /explore/schema
+      - title: "Data Model"
+        url: /explore/data-model
+      - title: "Request Items"
+        url: /explore/request-items
       - title: "Cryptography"
         url: /explore/cryptography
       - title: "Why no blockchain?"
@@ -124,6 +126,8 @@ docs_integrate:
         url: /integrate/connector-tutorial
       # - title: "Create Relationships"
       #   url: /integrate/create-relationships
+      - title: "Connector Modules"
+        url: /integrate/connector-modules
 
   - title: Setting up the Connector
     children:
@@ -133,6 +137,8 @@ docs_integrate:
         url: /integrate/connector-configuration
       - title: "Troubleshooting"
         url: /integrate/connector-setup-troubleshooting
+      - title: "Error Codes"
+        url: /integrate/error-codes
 
   - title: REST API
     children:

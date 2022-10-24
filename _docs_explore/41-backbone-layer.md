@@ -3,7 +3,7 @@ title: "Backbone Layer"
 permalink: /explore/layers/backbone
 ---
 
-From a user perspective, the outmost or deepest layer is the backbone layer. It handles the "untrusted" communication with the Backbone and the processing of data within the Backbone. Payload sent to and received from the Backbone is encrypted.
+From a user perspective, the deepest layer is the backbone layer. It handles the "untrusted" communication with the Backbone and the processing of data within the Backbone. Payload sent to and received from the Backbone is encrypted.
 
 The Backbone itself requires metadata to work, thus there is also unencrypted data sent and received between the transport layer and the Backbone. However, this data is non-personal and cannot be linked back to any real-world persons by the Backbone operator.
 
@@ -256,7 +256,7 @@ Data stored on Backbone:
 -   id: string
 -   createdBy: string
 -   createdByDevice: string
--   maxNumberOfRelationships?: number
+-   maxNumberOfAllocations?: number
 -   expiresAt?: string
 -   content: string
 -   createdAt: string
@@ -265,5 +265,5 @@ Data stored on Backbone:
 Data submitted to Backbone:
 
 -   expiresAt?: string
--   maxNumberOfRelationships?: number
+-   maxNumberOfAllocations?: number
 -   content: string

@@ -1,0 +1,1 @@
+A timestamp that describes when the {{ include.class }} expires on the Backbone. An expired {{ include.class }} cannot be fetched from the Backbone anymore. However, the cached version of the {{ include.class }} on Connector and App will still be accesible.

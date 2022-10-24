@@ -18,7 +18,7 @@ The Connector creates the relationship template, renders it for a user and event
 
 In order to receive relationship requests, a relationship template needs to be created first. This is done by calling the `POST /RelationshipTemplates/Own` route.
 
-{% include rapidoc api_route_regex="^post /api/v1/RelationshipTemplates/Own$" title="" %}
+{% include rapidoc api_route_regex="^post /api/v2/RelationshipTemplates/Own$" title="" %}
 
 ![Create Relationship Template Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_CreateTemplate.png' | relative_url }} "Create Relationship Template")
 
@@ -29,7 +29,7 @@ We differentiate between two types of relationship templates:
 
 Once the relationship template is created, a token needs to be created for the template, as the token is the primary way to communicate with unknown identities. The POST /Token route for a specific relationship template is used for this.
 
-{% include rapidoc api_route_regex="^post /api/v1/RelationshipTemplates/Own/{id}/Token$" %}
+{% include rapidoc api_route_regex="^post /api/v2/RelationshipTemplates/Own/{id}/Token$" %}
 
 The "Accept" header defines which output format of the token should be returned: Either a png file with the QR code or a JSON-representation of the whole token (including the truncated reference which could be encoded as a link).
 
@@ -45,7 +45,7 @@ The relationship request can be accessed either manually via a REST API (pull) o
 
 ![Get Open Relationship Requests Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_GetOpenRelationshipRequests.png' | relative_url }} "Get Open Relationship Requests")
 
-{% include rapidoc api_route_regex="^post /api/v1/Account/Sync$" %}
+{% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
 ## Check data
 
@@ -60,7 +60,7 @@ If the change is accepted, the connection to the requestor is automatically gene
 
 ![Accept Relationship Request Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_AcceptRelationshipRequest.png' | relative_url }} "Accept Relationship Request")
 
-{% include rapidoc api_route_regex="^put /api/v1/Relationships/{id}/Changes/{changeId}/Accept|put /api/v1/Relationships/{id}/Changes/{changeId}/Reject$" %}
+{% include rapidoc api_route_regex="^put /api/v2/Relationships/{id}/Changes/{changeId}/Accept|put /api/v2/Relationships/{id}/Changes/{changeId}/Reject$" %}
 
 # Outgoing Flow
 
@@ -72,7 +72,7 @@ In order to send out own relationship request to other parties, a template must 
 
 ![Get Relationship Template Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_GetTemplate.png' | relative_url }} "Get Relationship Template")
 
-{% include rapidoc api_route_regex="^post /api/v1/RelationshipTemplates/Peer$" %}
+{% include rapidoc api_route_regex="^post /api/v2/RelationshipTemplates/Peer$" %}
 
 ## Create a Relationship
 
@@ -81,16 +81,16 @@ This request contains - equivalent to incoming relationship creation changes - a
 
 ![Create Relationship Request Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_CreateRelationshipRequest.png' | relative_url }} "Create Relationship Request")
 
-{% include rapidoc api_route_regex="^post /api/v1/Relationships$" %}
+{% include rapidoc api_route_regex="^post /api/v2/Relationships$" %}
 
 ## Check outgoing Relationship Changes
 
 In order to create relationships out of accepted relationship requests, the Connector needs to track the status of these requests. This can be done manually with the POST /Account/Sync route. The return values then contain possible changed relationships.
 
-{% include rapidoc api_route_regex="^post /api/v1/Account/Sync$" %}
+{% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
 ## Revoke outgoing change
 
 An existing outgoing change request can be revoked, as long as the change was not accepted or rejected yet.
 
-{% include rapidoc api_route_regex="^put /api/v1/Relationships/{id}/Changes/{changeId}/Revoke$" %}
+{% include rapidoc api_route_regex="^put /api/v2/Relationships/{id}/Changes/{changeId}/Revoke$" %}

@@ -37,8 +37,8 @@ The simplest way to exchange Requests is using Messages. But for sending Message
 The flow for establishing a Relationship between the App and another App or Connector has changed significantly. The body of the RelationshipTemplate is now a strict type that can be processed by the App and the Connector. It looks as follows:
 
 ```ts
-interface RelationshipTemplateBody {
-    "@type": "RelationshipTemplateBody";
+interface RelationshipTemplateContent {
+    "@type": "RelationshipTemplateContent";
     title?: string;
     metadata?: object;
     onNewRelationship: Request;
@@ -58,17 +58,6 @@ So far, only one Request can be sent with one Message. This is intentional, as w
 
 ## Modules managing Requests
 
-The main component powering the Enmeshed App and the Enmeshed Connector is the Runtime. The Runtime is modular and we decided to use this to provide a module that automatically manages Requests. This module is highly important for the complete Enmeshed Logic and therefore automatically enabled and not possible to disable in the App and the Connector.
+The main component powering the Enmeshed App and the Enmeshed Connector is the Runtime. The Runtime is modular and we decided to use this to provide two Modules for managing Requests: the [Request Module]({% link _docs_explore/60-runtime.md %}#request-module) and the [Decider Module]({% link _docs_explore/60-runtime.md %}#decider-module).
 
-The module is responsible for:
-
--   creating an incoming Request when a peer RelationshipTemplate is loaded
--   scanning for Requests in received Messages to store it as incoming Requests in the database
--   scanning for Responses in received Messages to close outgoing Requests in the database
--   scanning for Requests in outgoing Messages to store it as outgoing Requests in the database
--   taking action when the User decides (accepts or rejects) a Request
-    -   when the Request came from a Template the module creates a Relationship with the contents of the User's response if the User accepted the Request (rejection is currently not handled)
-    -   when the Request came from a Message the module sends back a Message containing the User's response (accept and reject)
--   listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent with the RelationshipCreationChange
-
-The second module is the Decider Module. At the moment this module is only responsible for moving a Request from the status `DecisionRequired` to the status `ManualDecisionRequired`. This indirection is a preparation for a feature we are planning to implement in the future, with which you will be able to configure the Decider Module so it automatically accepts certain Requests. We will publish a blog post about this when it is implemented.
+The Decider Module is in its early stages and we will inform you about it in the future.

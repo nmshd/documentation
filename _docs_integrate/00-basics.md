@@ -11,7 +11,7 @@ We've built the Enmeshed Connector exactly for this scenario: to integrate exist
 
 It is a software component which runs in the network of any organization, hosting a set of APIs to easily consume Enmeshed features. It is usually run with the provided Docker image. The Connector requires a document database to store its data.
 
-Going a bit more technical, the Connector uses NodeJS with Express to host an HTTP server. It spans up REST APIs used as the primary integration mechanism. However, it is also possible to write custom TypeScript/JavaScript modules which are run on the Connector itself. The Connector makes use of the Enmeshed Runtime to provide all features of the Enmeshed Transport Layer as a consumable API.
+Going a bit more technical, the Connector uses NodeJS with Express to host an HTTP server. It spans up REST APIs used as the primary integration mechanism. However, it is also possible to write custom TypeScript/JavaScript Modules which are run on the Connector itself. The Connector makes use of the Enmeshed Runtime to provide all features of the Enmeshed Transport Layer as a consumable API.
 
 # Why does my organization need a Connector?
 
