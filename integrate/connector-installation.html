@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-10-11T15:13:07+02:00">
+  <meta property="article:published_time" content="2022-10-24T15:23:25+02:00">
 
 
 
@@ -128,7 +128,7 @@
             </li><li class="masthead__menu-item">
               <a href="/blog">Blog</a>
             </li><li class="masthead__menu-item">
-              <a href="/versions/2.0.0">v2.0.0 Preview</a>
+              <a href="/versions/1.0.0">v1 Docs (deprecated)</a>
             </li></ul>
         
         <button class="search__toggle" type="button">
@@ -183,6 +183,8 @@
           
             <li><a href="/integrate/connector-tutorial">Connector Tutorial</a></li>
           
+            <li><a href="/integrate/connector-modules">Connector Modules</a></li>
+          
         </ul>
         
       </li>
@@ -200,6 +202,8 @@
             <li><a href="/integrate/connector-configuration">Configuration</a></li>
           
             <li><a href="/integrate/connector-setup-troubleshooting">Troubleshooting</a></li>
+          
+            <li><a href="/integrate/error-codes">Error Codes</a></li>
           
         </ul>
         
@@ -272,7 +276,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Installation">
     <meta itemprop="description" content="Prerequisites">
-    <meta itemprop="datePublished" content="2022-10-11T15:13:07+02:00">
+    <meta itemprop="datePublished" content="2022-10-24T15:23:25+02:00">
     
 
     <div class="page__inner-wrap">
@@ -369,7 +373,7 @@ For more information, please see <a href="https://www.docker.com">https://www.do
 
 <ol>
   <li>Uncomment the volume mapping in the created <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> file</li>
-  <li>Create a folder where the log files shall be placed</li>
+  <li>Create a folder where the log files shall be placed. Make sure that the process in the container has write access to the folder e.g. by executing <code class="language-plaintext highlighter-rouge">chmod 777 &lt;folder&gt;</code> on your created folder.</li>
   <li>replace <code class="language-plaintext highlighter-rouge">&lt;/folder/of/your/choice&gt;</code> with the path to your created folder</li>
 </ol>
 
@@ -383,7 +387,7 @@ For more information, please see <a href="https://www.docker.com">https://www.do
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-11T15:13:07+02:00">October 11, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-24T15:23:25+02:00">October 24, 2022</time></p>
 
       </footer>
 
@@ -392,7 +396,7 @@ For more information, please see <a href="https://www.docker.com">https://www.do
       
   <nav class="pagination">
     
-      <a href="/integrate/connector-tutorial" class="pagination--pager" title="Connector Tutorial
+      <a href="/integrate/connector-modules" class="pagination--pager" title="Connector Modules
 ">Previous</a>
     
     

@@ -48,7 +48,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Backbone Layer",
-        "excerpt":"From a user perspective, the outmost or deepest layer is the backbone layer. It handles the “untrusted” communication with the Backbone and the processing of data within the Backbone. Payload sent to and received from the Backbone is encrypted. The Backbone itself requires metadata to work, thus there is also...","categories": [],
+        "excerpt":"From a user perspective, the deepest layer is the backbone layer. It handles the “untrusted” communication with the Backbone and the processing of data within the Backbone. Payload sent to and received from the Backbone is encrypted. The Backbone itself requires metadata to work, thus there is also unencrypted data...","categories": [],
         "tags": [],
         "url": "/explore/layers/backbone",
         "teaser": null
@@ -96,15 +96,15 @@ var store = [{
         "teaser": null
       },{
         "title": "Enmeshed Runtime",
-        "excerpt":"Runtime Building Blocks Runtime Library Enmeshed Runtime GitHub Repository The Runtime wraps all features of Enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even...","categories": [],
+        "excerpt":"Enmeshed Runtime GitHub Repository The Runtime wraps all features of Enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser. Versions, local...","categories": [],
         "tags": [],
         "url": "/explore/runtime",
         "teaser": null
       },{
-        "title": "Enmeshed Schema",
-        "excerpt":"The Enmeshed Schema normalized many common data structures to a single set which can be understood by all Enmeshed participants. It is the definition of cross-identity payload schemas and thus needs to be kept as stable as possible. In general, structured data communicated via Enmeshed is in JSON format. It...","categories": [],
+        "title": "Enmeshed Data Model",
+        "excerpt":"The Enmeshed data model can be devided into three parts: Transport types Local types Content types The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail. (note that you can click...","categories": [],
         "tags": [],
-        "url": "/explore/schema",
+        "url": "/explore/data-model",
         "teaser": null
       },{
         "title": "Cryptography",
@@ -119,6 +119,18 @@ var store = [{
         "url": "/explore/blockchain",
         "teaser": null
       },{
+        "title": "Request Items",
+        "excerpt":"All the RequestItems listed below inherit from the RequestItem and are therefore sharing its properties. AuthenticationRequestItem With this item the sender can request the peer for an authentication in a business context for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived...","categories": [],
+        "tags": [],
+        "url": "/explore/request-items",
+        "teaser": null
+      },{
+        "title": "Attribute Values",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/explore/attribute-values",
+        "teaser": null
+      },{
         "title": "Basics",
         "excerpt":"You want to seamlessly use Enmeshed with your processes, solutions and software components? No worries, you are good to go! We’ve built the Enmeshed Connector exactly for this scenario: to integrate existing systems with the Enmeshed approach with as less effort as possible. What is the Connector? It is a...","categories": [],
         "tags": [],
@@ -129,6 +141,12 @@ var store = [{
         "excerpt":"In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization. The following steps include small...","categories": [],
         "tags": [],
         "url": "/integrate/connector-tutorial",
+        "teaser": null
+      },{
+        "title": "Connector Modules",
+        "excerpt":"Since the Connector is based on the Runtime, all Modules of the Runtime are also available in the Connector. Additionally, the Connector defines its own Modules that only make sense in the context of a Connector and are therefore not defined in the Runtime. Read more about the Module configuration...","categories": [],
+        "tags": [],
+        "url": "/integrate/connector-modules",
         "teaser": null
       },{
         "title": "Connector Installation",
@@ -147,6 +165,12 @@ var store = [{
         "excerpt":"Common Errors Config file mounting (EISDIR | invalid mode: RO) Symptoms One of the following errors are logged during the startup of the connector: Error parsing your configuration file: [/config.json]: EISDIR: illegal operation on a directory, read ERROR: for connector Cannot create container for service connector: invalid mode: RO How...","categories": [],
         "tags": [],
         "url": "/integrate/connector-setup-troubleshooting",
+        "teaser": null
+      },{
+        "title": "ErrorCodes",
+        "excerpt":"Please find a list of Enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using Enmeshed or cannot deduce the reason for your error, please report it in the Enmeshed Issue Tracker. ErrorCode Description error.connector.http.methodNotAllowed This method...","categories": [],
+        "tags": [],
+        "url": "/integrate/error-codes",
         "teaser": null
       },{
         "title": "Connector API",
@@ -180,13 +204,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Custom Connector Modules",
-        "excerpt":"   At the moment custom Connector modules are not supported.   ","categories": [],
+        "excerpt":"   At the moment custom Connector Modules are not supported.   ","categories": [],
         "tags": [],
         "url": "/integrate/custom-connector-modules",
         "teaser": null
       },{
         "title": "Connector Events",
-        "excerpt":"Event Data Description transport.messageReceived Message This event is triggered when a Message is received during synchonization. transport.messageSent Message This event is triggered whenever a Message is sent. transport.relationshipChanged Relationship This event is triggered when a Relationship has changed. This can be due to one of the following cases: • you...","categories": [],
+        "excerpt":"Event Data Description (This event is triggered when …) consumption.attributeCreated LocalAttribute … an Attribute was created manually or through a Request. consumption.attributeDeleted LocalAttribute … an Attribute was deleted manually or through a Request. consumption.attributeSucceded LocalAttribute … an Attribute was succeeded manually or through a Request. consumption.attributeUpdated LocalAttribute … an Attribute...","categories": [],
         "tags": [],
         "url": "/integrate/connector-events",
         "teaser": null
@@ -233,8 +257,8 @@ var store = [{
         "url": "/blog/introducing-enmeshed",
         "teaser": null
       },{
-        "title": "The new webhooks Connector module",
-        "excerpt":"Introduction Hello everyone! Today we want to announce a new version of the webhooks Connector module. The old version of the module had many limitations that we could only address with a complete rewrite. To be backwards compatible the old version of the module is still available under the name...","categories": ["blog"],
+        "title": "The new webhooks Connector Module",
+        "excerpt":"Introduction Hello everyone! Today we want to announce a new version of the webhooks Connector Module. The old version of the Module had many limitations that we could only address with a complete rewrite. To be backwards compatible the old version of the Module is still available under the name...","categories": ["blog"],
         "tags": ["connector","update"],
         "url": "/blog/webhooks-v2-connector-module",
         "teaser": null

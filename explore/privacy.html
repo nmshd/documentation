@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-10-11T15:13:07+02:00">
+  <meta property="article:published_time" content="2022-10-24T15:23:25+02:00">
 
 
 
@@ -128,7 +128,7 @@
             </li><li class="masthead__menu-item">
               <a href="/blog">Blog</a>
             </li><li class="masthead__menu-item">
-              <a href="/versions/2.0.0">v2.0.0 Preview</a>
+              <a href="/versions/1.0.0">v1 Docs (deprecated)</a>
             </li></ul>
         
         <button class="search__toggle" type="button">
@@ -261,7 +261,9 @@
           
             <li><a href="/explore/runtime">Runtime</a></li>
           
-            <li><a href="/explore/schema">Schema</a></li>
+            <li><a href="/explore/data-model">Data Model</a></li>
+          
+            <li><a href="/explore/request-items">Request Items</a></li>
           
             <li><a href="/explore/cryptography">Cryptography</a></li>
           
@@ -284,7 +286,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Privacy Considerations">
     <meta itemprop="description" content="Privacy is one of the main pillars of digitalization approaches. It might be the most important one.">
-    <meta itemprop="datePublished" content="2022-10-11T15:13:07+02:00">
+    <meta itemprop="datePublished" content="2022-10-24T15:23:25+02:00">
     
 
     <div class="page__inner-wrap">
@@ -325,11 +327,11 @@
 <p>Enmeshed is based on such a zero-knowledge principle:</p>
 
 <ul>
-  <li>The Enmeshed App stores the data on a local database on the device it is running on. Data can only be sent to or received from the Backbone, no other Internet access is possible.</li>
-  <li>The Enmeshed Connector stores the data on a local database within the organization network. Data can only be sent to or received from the Backbone, no other Internet access is possible.</li>
+  <li>The Enmeshed App stores the data in a local database on the device it is running on. Data can only be sent to or received from the Backbone, no other Internet access is possible.</li>
+  <li>The Enmeshed Connector stores the data in a local database within the organization network. Data can only be sent to or received from the Backbone, no other Internet access is possible.</li>
   <li>Data received from or sent to the Backbone is either pseudonymous (e.g. addresses), non-personalized (e.g. ids, dates, states) or encrypted in a way, that the Backbone cannot process this data.</li>
-  <li>Keys to encrypted material on the Backbone are never transmitted in a way, that the Backbone could make use of it. For example, keys are shared on a side-channel (e.g. scan qr-code from website) or a end-to-end encrypted communication channel.</li>
-  <li>The Enmeshed App can synchronize data of the same identity to other Enmeshed Apps of this identity. This is done over an device-to-device encrypted communication channel (via the Backbone). The keys for this communication channel are transferred via a side-channel when onboarding a device for an identity.</li>
+  <li>Keys to encrypted material on the Backbone are never transmitted in a way, that the Backbone could make use of it. For example, keys are shared on a side-channel (e.g. scan qr-code from website) or an end-to-end encrypted communication channel.</li>
+  <li>The Enmeshed App can synchronize data of the same identity to other Enmeshed Apps of this identity. This is done over a device-to-device encrypted communication channel (via the Backbone). The keys for this communication channel are transferred via a side-channel when onboarding a device for an identity.</li>
 </ul>
 
 <p>Thus, the centrally hosted Backbone has no access to any personal data. In our diagrams, we’ve sometimes added a “zero-knowledge border” between the components to emphasize the lack of personal data.</p>
@@ -342,7 +344,7 @@
 
 <p>When comparing the Enmeshed privacy with decentral approaches discussed in the world wide web, we do not see any disadvantages with a central architecture. The data stored or shared is effectively the same, resulting in the same possible metadata analysis.</p>
 
-<p>There are some advantages to decentral technologies however:</p>
+<p>However, there are some advantages to a central architecture:</p>
 
 <ul>
   <li>With a central architecture, it is generally possible to restrict the access to data on a network level. Only the sender and recipients of a message have access to the encrypted payload of this message, for example. Even if the data is encrypted or pseunodymized, on a decentral architecture everybody would still have access to the encrypted payload.</li>
@@ -360,7 +362,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-11T15:13:07+02:00">October 11, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-24T15:23:25+02:00">October 24, 2022</time></p>
 
       </footer>
 

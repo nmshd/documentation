@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Connector Events - Enmeshed</title>
-<meta name="description" content="Event       Data       Description                       transport.messageReceived       Message       This event is triggered when a Message is received during synchonization.                 transport.messageSent       Message       This event is triggered whenever a Message is sent.                 transport.relationshipChanged       Relationship       This event is triggered when a Relationship has changed. This can be due to one of the following cases:  • you create a Relationship  • you accept, reject or revoke a Relationship Change  • a Relationship Change is received during synchronization">
+<meta name="description" content="Event       Data       Description (This event is triggered when …)                       consumption.attributeCreated       LocalAttribute       … an Attribute was created manually or through a Request.                 consumption.attributeDeleted       LocalAttribute       … an Attribute was deleted manually or through a Request.                 consumption.attributeSucceded       LocalAttribute       … an Attribute was succeeded manually or through a Request.                 consumption.attributeUpdated       LocalAttribute       … an Attribute was updated manually or through a Request.                 consumption.incomingRequestReceived       LocalRequest       … an incoming Request was received either by loading a Relationship Template or by receiving a Message                 consumption.incomingRequestStatusChanged       RequestStatusChangedEventData       … the status of an incoming Request has changed.                 consumption.messageProcessed       MessageProcessedEventData       … a Message was processed by Modules like the RequestModule or DeciderModule.                 consumption.outgoingRquestCreated       LocalRequest       … an outgoing Request was created.                 consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted       LocalRequest       … an outgoing Request was created and directly completed.This happens if the Response came in with a new Relationship.                 consumption.outgoingRequestStatusChanged       RequestStatusChangedEventData       … the status of an outgoing Request has changed.                 consumption.relationshipTemplateProcessed       RelationshipTemplateProcessedEventData       … a RelationshipTemplate was processed by Modules like the RequestModule or DeciderModule.                 consumption.sharedAttributeCopyCreated       LocalAttribute       … an Attribute is copied for sharing with another identity.                 transport.messageReceived       Message       … a Message is received during synchronization.                 transport.messageSent       Message       … a Message was sent.                 transport.peerRelationshipTemplateLoaded       RelationshipTemplate       … a Relationship Template was loaded that belongs to another identity.                 transport.relationshipChanged       Relationship       … a Relationship has changed. This can be due to one of the following cases: • you create a Relationship • you accept, reject or revoke a Relationship Change • a Relationship Change is received during synchronization">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="/integrate/connector-events">
 
 
-  <meta property="og:description" content="Event       Data       Description                       transport.messageReceived       Message       This event is triggered when a Message is received during synchonization.                 transport.messageSent       Message       This event is triggered whenever a Message is sent.                 transport.relationshipChanged       Relationship       This event is triggered when a Relationship has changed. This can be due to one of the following cases:  • you create a Relationship  • you accept, reject or revoke a Relationship Change  • a Relationship Change is received during synchronization">
+  <meta property="og:description" content="Event       Data       Description (This event is triggered when …)                       consumption.attributeCreated       LocalAttribute       … an Attribute was created manually or through a Request.                 consumption.attributeDeleted       LocalAttribute       … an Attribute was deleted manually or through a Request.                 consumption.attributeSucceded       LocalAttribute       … an Attribute was succeeded manually or through a Request.                 consumption.attributeUpdated       LocalAttribute       … an Attribute was updated manually or through a Request.                 consumption.incomingRequestReceived       LocalRequest       … an incoming Request was received either by loading a Relationship Template or by receiving a Message                 consumption.incomingRequestStatusChanged       RequestStatusChangedEventData       … the status of an incoming Request has changed.                 consumption.messageProcessed       MessageProcessedEventData       … a Message was processed by Modules like the RequestModule or DeciderModule.                 consumption.outgoingRquestCreated       LocalRequest       … an outgoing Request was created.                 consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted       LocalRequest       … an outgoing Request was created and directly completed.This happens if the Response came in with a new Relationship.                 consumption.outgoingRequestStatusChanged       RequestStatusChangedEventData       … the status of an outgoing Request has changed.                 consumption.relationshipTemplateProcessed       RelationshipTemplateProcessedEventData       … a RelationshipTemplate was processed by Modules like the RequestModule or DeciderModule.                 consumption.sharedAttributeCopyCreated       LocalAttribute       … an Attribute is copied for sharing with another identity.                 transport.messageReceived       Message       … a Message is received during synchronization.                 transport.messageSent       Message       … a Message was sent.                 transport.peerRelationshipTemplateLoaded       RelationshipTemplate       … a Relationship Template was loaded that belongs to another identity.                 transport.relationshipChanged       Relationship       … a Relationship has changed. This can be due to one of the following cases: • you create a Relationship • you accept, reject or revoke a Relationship Change • a Relationship Change is received during synchronization">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-10-11T15:13:07+02:00">
+  <meta property="article:published_time" content="2022-10-24T15:23:25+02:00">
 
 
 
@@ -128,7 +128,7 @@
             </li><li class="masthead__menu-item">
               <a href="/blog">Blog</a>
             </li><li class="masthead__menu-item">
-              <a href="/versions/2.0.0">v2.0.0 Preview</a>
+              <a href="/versions/1.0.0">v1 Docs (deprecated)</a>
             </li></ul>
         
         <button class="search__toggle" type="button">
@@ -183,6 +183,8 @@
           
             <li><a href="/integrate/connector-tutorial">Connector Tutorial</a></li>
           
+            <li><a href="/integrate/connector-modules">Connector Modules</a></li>
+          
         </ul>
         
       </li>
@@ -200,6 +202,8 @@
             <li><a href="/integrate/connector-configuration">Configuration</a></li>
           
             <li><a href="/integrate/connector-setup-troubleshooting">Troubleshooting</a></li>
+          
+            <li><a href="/integrate/error-codes">Error Codes</a></li>
           
         </ul>
         
@@ -271,8 +275,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Events">
-    <meta itemprop="description" content="            Event      Data      Description                  transport.messageReceived      Message      This event is triggered when a Message is received during synchonization.              transport.messageSent      Message      This event is triggered whenever a Message is sent.              transport.relationshipChanged      Relationship      This event is triggered when a Relationship has changed. This can be due to one of the following cases:  • you create a Relationship  • you accept, reject or revoke a Relationship Change  • a Relationship Change is received during synchronization      ">
-    <meta itemprop="datePublished" content="2022-10-11T15:13:07+02:00">
+    <meta itemprop="description" content="            Event      Data      Description (This event is triggered when …)                  consumption.attributeCreated      LocalAttribute      … an Attribute was created manually or through a Request.              consumption.attributeDeleted      LocalAttribute      … an Attribute was deleted manually or through a Request.              consumption.attributeSucceded      LocalAttribute      … an Attribute was succeeded manually or through a Request.              consumption.attributeUpdated      LocalAttribute      … an Attribute was updated manually or through a Request.              consumption.incomingRequestReceived      LocalRequest      … an incoming Request was received either by loading a Relationship Template or by receiving a Message              consumption.incomingRequestStatusChanged      RequestStatusChangedEventData      … the status of an incoming Request has changed.              consumption.messageProcessed      MessageProcessedEventData      … a Message was processed by Modules like the RequestModule or DeciderModule.              consumption.outgoingRquestCreated      LocalRequest      … an outgoing Request was created.              consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted      LocalRequest      … an outgoing Request was created and directly completed.This happens if the Response came in with a new Relationship.              consumption.outgoingRequestStatusChanged      RequestStatusChangedEventData      … the status of an outgoing Request has changed.              consumption.relationshipTemplateProcessed      RelationshipTemplateProcessedEventData      … a RelationshipTemplate was processed by Modules like the RequestModule or DeciderModule.              consumption.sharedAttributeCopyCreated      LocalAttribute      … an Attribute is copied for sharing with another identity.              transport.messageReceived      Message      … a Message is received during synchronization.              transport.messageSent      Message      … a Message was sent.              transport.peerRelationshipTemplateLoaded      RelationshipTemplate      … a Relationship Template was loaded that belongs to another identity.              transport.relationshipChanged      Relationship      … a Relationship has changed. This can be due to one of the following cases: • you create a Relationship • you accept, reject or revoke a Relationship Change • a Relationship Change is received during synchronization      ">
+    <meta itemprop="datePublished" content="2022-10-24T15:23:25+02:00">
     
 
     <div class="page__inner-wrap">
@@ -295,122 +299,138 @@
     <tr>
       <th>Event</th>
       <th>Data</th>
-      <th>Description</th>
+      <th>Description (This event is triggered when …)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td>consumption.attributeCreated</td>
+      <td><a href="/explore/data-model#LocalAttribute">LocalAttribute</a></td>
+      <td>… an Attribute was created manually or through a Request.</td>
+    </tr>
+    <tr>
+      <td>consumption.attributeDeleted</td>
+      <td><a href="/explore/data-model#LocalAttribute">LocalAttribute</a></td>
+      <td>… an Attribute was deleted manually or through a Request.</td>
+    </tr>
+    <tr>
+      <td>consumption.attributeSucceded</td>
+      <td><a href="/explore/data-model#LocalAttribute">LocalAttribute</a></td>
+      <td>… an Attribute was succeeded manually or through a Request.</td>
+    </tr>
+    <tr>
+      <td>consumption.attributeUpdated</td>
+      <td><a href="/explore/data-model#LocalAttribute">LocalAttribute</a></td>
+      <td>… an Attribute was updated manually or through a Request.</td>
+    </tr>
+    <tr>
+      <td>consumption.incomingRequestReceived</td>
+      <td><a href="/explore/data-model#LocalRequest">LocalRequest</a></td>
+      <td>… an incoming Request was received either by loading a Relationship Template or by receiving a Message</td>
+    </tr>
+    <tr>
+      <td>consumption.incomingRequestStatusChanged</td>
+      <td><a href="#requeststatuschangedeventdata">RequestStatusChangedEventData</a></td>
+      <td>… the status of an incoming Request has changed.</td>
+    </tr>
+    <tr>
+      <td>consumption.messageProcessed</td>
+      <td><a href="#messageprocessedeventdata">MessageProcessedEventData</a></td>
+      <td>… a Message was processed by Modules like the <code class="language-plaintext highlighter-rouge">RequestModule</code> or <code class="language-plaintext highlighter-rouge">DeciderModule</code>.</td>
+    </tr>
+    <tr>
+      <td>consumption.outgoingRquestCreated</td>
+      <td><a href="/explore/data-model#LocalRequest">LocalRequest</a></td>
+      <td>… an outgoing Request was created.</td>
+    </tr>
+    <tr>
+      <td>consumption.<br />outgoingRequestFromRelationshipCreationChange<br />CreatedAndCompleted</td>
+      <td><a href="/explore/data-model#LocalRequest">LocalRequest</a></td>
+      <td>… an outgoing Request was created and directly completed.<br />This happens if the Response came in with a new Relationship.</td>
+    </tr>
+    <tr>
+      <td>consumption.outgoingRequestStatusChanged</td>
+      <td><a href="#requeststatuschangedeventdata">RequestStatusChangedEventData</a></td>
+      <td>… the status of an outgoing Request has changed.</td>
+    </tr>
+    <tr>
+      <td>consumption.relationshipTemplateProcessed</td>
+      <td><a href="#relationshiptemplateprocessedeventdata">RelationshipTemplateProcessedEventData</a></td>
+      <td>… a RelationshipTemplate was processed by Modules like the <code class="language-plaintext highlighter-rouge">RequestModule</code> or <code class="language-plaintext highlighter-rouge">DeciderModule</code>.</td>
+    </tr>
+    <tr>
+      <td>consumption.sharedAttributeCopyCreated</td>
+      <td><a href="/explore/data-model#LocalAttribute">LocalAttribute</a></td>
+      <td>… an Attribute is copied for sharing with another identity.</td>
+    </tr>
+    <tr>
       <td>transport.messageReceived</td>
-      <td><a href="#message">Message</a></td>
-      <td>This event is triggered when a Message is received during synchonization.</td>
+      <td><a href="/explore/data-model#Message">Message</a></td>
+      <td>… a Message is received during synchronization.</td>
     </tr>
     <tr>
       <td>transport.messageSent</td>
-      <td><a href="#message">Message</a></td>
-      <td>This event is triggered whenever a Message is sent.</td>
+      <td><a href="/explore/data-model#Message">Message</a></td>
+      <td>… a Message was sent.</td>
+    </tr>
+    <tr>
+      <td>transport.peerRelationshipTemplateLoaded</td>
+      <td><a href="/explore/data-model#RelationshipTemplate">RelationshipTemplate</a></td>
+      <td>… a Relationship Template was loaded that belongs to another identity.</td>
     </tr>
     <tr>
       <td>transport.relationshipChanged</td>
-      <td><a href="#relationship">Relationship</a></td>
-      <td>This event is triggered when a Relationship has changed. This can be due to one of the following cases: <br /> • you create a Relationship <br /> • you accept, reject or revoke a Relationship Change <br /> • a Relationship Change is received during synchronization</td>
+      <td><a href="/explore/data-model#Relationship">Relationship</a></td>
+      <td>… a Relationship has changed. This can be due to one of the following cases:<br /> • you create a Relationship<br /> • you accept, reject or revoke a Relationship Change<br /> • a Relationship Change is received during synchronization</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="type-definitions">Type definitions</h2>
+<h2 id="requeststatuschangedeventdata">RequestStatusChangedEventData</h2>
 
-<h3 id="message">Message</h3>
+<p>Every event is structured as follows (TData depends on the actual event, e.g. <code class="language-plaintext highlighter-rouge">LocalAttribute</code>):</p>
 
-<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Message</span> <span class="p">{</span>
-    <span class="nl">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">content</span><span class="p">:</span> <span class="nx">unknown</span><span class="p">;</span>
-    <span class="nl">createdBy</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">createdByDevice</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">recipients</span><span class="p">:</span> <span class="nx">Recipient</span><span class="p">[];</span>
-    <span class="nl">relationshipIds</span><span class="p">:</span> <span class="kr">string</span><span class="p">[];</span>
-    <span class="nl">createdAt</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">attachments</span><span class="p">:</span> <span class="kr">string</span><span class="p">[];</span>
-<span class="p">}</span>
-
-<span class="kr">interface</span> <span class="nx">Recipient</span> <span class="p">{</span>
-    <span class="nl">address</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">receivedAt</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">receivedByDevice</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Event</span><span class="o">&lt;</span><span class="nx">TData</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="na">namespace</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">eventTargetAddress</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">data</span><span class="p">:</span> <span class="nx">TData</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h3 id="relationship">Relationship</h3>
+<h3 id="requeststatuschangedeventdata-1">RequestStatusChangedEventData</h3>
 
-<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Relationship</span> <span class="p">{</span>
-    <span class="nl">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">template</span><span class="p">:</span> <span class="nx">RelationshipTemplate</span><span class="p">;</span>
-    <span class="nl">status</span><span class="p">:</span> <span class="nx">RelationshipStatus</span><span class="p">;</span>
-    <span class="nl">peer</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">peerIdentity</span><span class="p">:</span> <span class="nx">Identity</span><span class="p">;</span>
-    <span class="nl">changes</span><span class="p">:</span> <span class="nx">RelationshipChange</span><span class="p">[];</span>
-    <span class="nl">lastMessageSentAt</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">lastMessageReceivedAt</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+<blockquote>
+  <p><a href="/explore/data-model#LocalRequest">LocalRequest</a></p>
+</blockquote>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">RequestStatusChangedEventData</span> <span class="p">{</span>
+    <span class="nl">request</span><span class="p">:</span> <span class="nx">LocalRequest</span><span class="p">;</span>
+    <span class="nl">oldStatus</span><span class="p">:</span> <span class="nx">LocalRequestStatus</span><span class="p">;</span>
+    <span class="nl">newStatus</span><span class="p">:</span> <span class="nx">LocalRequestStatus</span><span class="p">;</span>
 <span class="p">}</span>
+</code></pre></div></div>
 
-<span class="kr">interface</span> <span class="nx">RelationshipTemplate</span> <span class="p">{</span>
-    <span class="nl">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">isOwn</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
-    <span class="nl">createdBy</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">createdByDevice</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">createdAt</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">content</span><span class="p">:</span> <span class="nx">unknown</span><span class="p">;</span>
-    <span class="nl">expiresAt</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">maxNumberOfRelationships</span><span class="p">?:</span> <span class="kr">number</span><span class="p">;</span>
+<h2 id="messageprocessedeventdata">MessageProcessedEventData</h2>
+
+<blockquote>
+  <p><a href="/explore/data-model#Message">Message</a></p>
+</blockquote>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">MessageProcessedEventData</span> <span class="p">{</span>
+    <span class="nl">message</span><span class="p">:</span> <span class="nx">MessageDTO</span><span class="p">;</span>
+    <span class="nl">result</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ManualRequestDecisionRequired</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">NoRequest</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">Error</span><span class="dl">"</span><span class="p">;</span>
 <span class="p">}</span>
+</code></pre></div></div>
 
-<span class="kr">enum</span> <span class="nx">RelationshipStatus</span> <span class="p">{</span>
-    <span class="nx">Pending</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Pending</span><span class="dl">"</span><span class="p">,</span>
-    <span class="nx">Active</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Active</span><span class="dl">"</span><span class="p">,</span>
-    <span class="nx">Rejected</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Rejected</span><span class="dl">"</span><span class="p">,</span>
-    <span class="nx">Revoked</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Revoked</span><span class="dl">"</span><span class="p">,</span>
-    <span class="nx">Terminating</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Terminating</span><span class="dl">"</span><span class="p">,</span>
-    <span class="nx">Terminated</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Terminated</span><span class="dl">"</span>
-<span class="p">}</span>
+<h2 id="relationshiptemplateprocessedeventdata">RelationshipTemplateProcessedEventData</h2>
 
-<span class="kr">interface</span> <span class="nx">Identity</span> <span class="p">{</span>
-    <span class="nl">address</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">publicKey</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">realm</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-<span class="p">}</span>
+<blockquote>
+  <p><a href="/explore/data-model#RelationshipTemplate">RelationshipTemplate</a></p>
+</blockquote>
 
-<span class="kr">interface</span> <span class="nx">RelationshipChange</span> <span class="p">{</span>
-    <span class="nl">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">request</span><span class="p">:</span> <span class="nx">RelationshipChangeRequest</span><span class="p">;</span>
-    <span class="nl">status</span><span class="p">:</span> <span class="nx">RelationshipChangeStatus</span><span class="p">;</span>
-    <span class="nl">type</span><span class="p">:</span> <span class="nx">RelationshipChangeType</span><span class="p">;</span>
-    <span class="nl">response</span><span class="p">?:</span> <span class="nx">RelationshipChangeResponse</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kr">interface</span> <span class="nx">RelationshipChangeRequest</span> <span class="p">{</span>
-    <span class="nl">createdBy</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">createdByDevice</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">createdAt</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">content</span><span class="p">?:</span> <span class="nx">unknown</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kr">enum</span> <span class="nx">RelationshipChangeStatus</span> <span class="p">{</span>
-    <span class="nx">Pending</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Pending</span><span class="dl">"</span><span class="p">,</span>
-    <span class="nx">Rejected</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Rejected</span><span class="dl">"</span><span class="p">,</span>
-    <span class="nx">Revoked</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Revoked</span><span class="dl">"</span><span class="p">,</span>
-    <span class="nx">Accepted</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Accepted</span><span class="dl">"</span>
-<span class="p">}</span>
-
-<span class="kr">enum</span> <span class="nx">RelationshipChangeType</span> <span class="p">{</span>
-    <span class="nx">Creation</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Creation</span><span class="dl">"</span><span class="p">,</span>
-    <span class="nx">Termination</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Termination</span><span class="dl">"</span><span class="p">,</span>
-    <span class="nx">TerminationCancellation</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">TerminationCancellation</span><span class="dl">"</span>
-<span class="p">}</span>
-
-<span class="kr">interface</span> <span class="nx">RelationshipChangeResponse</span> <span class="p">{</span>
-    <span class="nl">createdBy</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">createdByDevice</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">createdAt</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">content</span><span class="p">?:</span> <span class="nx">unknown</span><span class="p">;</span>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">RelationshipTemplateProcessedEventData</span> <span class="p">{</span>
+    <span class="nl">template</span><span class="p">:</span> <span class="nx">RelationshipTemplateDTO</span><span class="p">;</span>
+    <span class="nl">result</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ManualRequestDecisionRequired</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">NonCompletedRequestExists</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">RelationshipExists</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">NoRequest</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">Error</span><span class="dl">"</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -424,7 +444,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-11T15:13:07+02:00">October 11, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-24T15:23:25+02:00">October 24, 2022</time></p>
 
       </footer>
 

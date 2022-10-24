@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Connector Software Development Kits - Enmeshed</title>
-<meta name="description" content="TypeScript SDK">
+<!-- begin _includes/seo.html --><title>Connector Modules - Enmeshed</title>
+<meta name="description" content="Since the Connector is based on the Runtime, all Modules of the Runtime are also available in the Connector.">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Enmeshed">
-<meta property="og:title" content="Connector Software Development Kits">
-<meta property="og:url" content="/integrate/connector-sdks">
+<meta property="og:title" content="Connector Modules">
+<meta property="og:url" content="/integrate/connector-modules">
 
 
-  <meta property="og:description" content="TypeScript SDK">
+  <meta property="og:description" content="Since the Connector is based on the Runtime, all Modules of the Runtime are also available in the Connector.">
 
 
 
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="/integrate/connector-sdks">
+<link rel="canonical" href="/integrate/connector-modules">
 
 
 
@@ -183,7 +183,7 @@
           
             <li><a href="/integrate/connector-tutorial">Connector Tutorial</a></li>
           
-            <li><a href="/integrate/connector-modules">Connector Modules</a></li>
+            <li><a href="/integrate/connector-modules" class="active">Connector Modules</a></li>
           
         </ul>
         
@@ -233,7 +233,7 @@
         
         <ul>
           
-            <li><a href="/integrate/connector-sdks" class="active">Connector SDKs</a></li>
+            <li><a href="/integrate/connector-sdks">Connector SDKs</a></li>
           
             <li><a href="/integrate/custom-connector-modules">Custom Connector Modules</a></li>
           
@@ -274,8 +274,8 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Connector Software Development Kits">
-    <meta itemprop="description" content="TypeScript SDK">
+    <meta itemprop="headline" content="Connector Modules">
+    <meta itemprop="description" content="Since the Connector is based on the Runtime, all Modules of the Runtime are also available in the Connector.">
     <meta itemprop="datePublished" content="2022-10-24T15:23:25+02:00">
     
 
@@ -283,7 +283,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="/integrate/connector-sdks" class="u-url" itemprop="url">Connector Software Development Kits
+            <a href="/integrate/connector-modules" class="u-url" itemprop="url">Connector Modules
 </a>
           </h1>
           
@@ -294,47 +294,54 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <h2 id="typescript-sdk">TypeScript SDK</h2>
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#amqppublisher">AMQP Publisher </a></li><li><a href="#autoacceptrelationshipcreationchange">Auto Accept Relationship Creation Changes </a></li><li><a href="#corehttpapi">Core HTTP API </a></li><li><a href="#sync">Sync </a></li><li><a href="#webhooksv2">WebhooksV2 </a></li></ul>
 
-<p>There is an SDK written in TypeScript you can use to communicate with your Connector from your TypeScript/JavaScript application. It is avaliable on <a href="https://www.npmjs.com/package/@nmshd/connector-sdk">npmjs</a>.</p>
+            </nav>
+          </aside>
+        
+        <p>Since the Connector is based on the Runtime, <a href="/explore/runtime#runtime-modules">all Modules of the Runtime</a> are also available in the Connector.</p>
 
-<h3 id="installation">Installation</h3>
+<p>Additionally, the Connector defines its own Modules that only make sense in the context of a Connector and are therefore not defined in the Runtime.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i @nmshd/connector-sdk
-</code></pre></div></div>
+<p>Read more about the Module configuration on the <i class="fas fa-fw fa-cog"></i> icon in each title.</p>
 
-<h3 id="usage">Usage</h3>
+<h3 id="amqppublisher">AMQP Publisher <a href="/integrate/connector-configuration#amqppublisher"><i class="fas fa-fw fa-cog"></i></a></h3>
 
-<ol>
-  <li>
-    <p>Initialize the <code class="language-plaintext highlighter-rouge">ConnectorClient</code></p>
+<p>This Module proxies all events in the internal event bus of the Connector to an exchange in a configurable AMQP server.</p>
 
-    <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">const</span> <span class="nx">connectorClient</span> <span class="o">=</span> <span class="nx">ConnectorClient</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
-     <span class="na">baseUrl</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://&lt;INSERT_YOUR_CONNECTOR_DOMAIN_HERE&gt;</span><span class="dl">"</span><span class="p">,</span>
-     <span class="na">apiKey</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;INSERT_YOUR_API_KEY_HERE&gt;</span><span class="dl">"</span>
- <span class="p">});</span>
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>Start using the client</p>
+<p>Compared to <a href="#webhooksv2">webhooks</a>, this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:</p>
 
-    <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">const</span> <span class="nx">FILE_PATH</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">path-to-file</span><span class="dl">"</span><span class="p">;</span>
- <span class="kd">const</span> <span class="nx">uploadOwnFileResponse</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">uploadOwnFile</span><span class="p">({</span>
-     <span class="na">title</span><span class="p">:</span> <span class="dl">"</span><span class="s2">My awesome file</span><span class="dl">"</span><span class="p">,</span>
-     <span class="na">description</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Test file</span><span class="dl">"</span><span class="p">,</span>
-     <span class="na">expiresAt</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-01-01T00:00:00Z</span><span class="dl">"</span><span class="p">,</span>
-     <span class="na">file</span><span class="p">:</span> <span class="k">await</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">promises</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="nx">FILE_PATH</span><span class="p">),</span>
-     <span class="na">filename</span><span class="p">:</span> <span class="dl">"</span><span class="s2">my-awesome-file.txt</span><span class="dl">"</span>
- <span class="p">});</span>
+<ul>
+  <li>You need persistence for the triggered events.</li>
+  <li>You want to integrate Enmeshed into an already existing message broker.</li>
+</ul>
 
- <span class="k">if</span> <span class="p">(</span><span class="nx">uploadOwnFileResponse</span><span class="p">.</span><span class="nx">isSuccess</span><span class="p">)</span> <span class="p">{</span>
-     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">uploadOwnFileResponse</span><span class="p">.</span><span class="nx">result</span><span class="p">);</span>
- <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">uploadOwnFileResponse</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
- <span class="p">}</span>
-</code></pre></div>    </div>
-  </li>
-</ol>
+<h3 id="autoacceptrelationshipcreationchange">Auto Accept Relationship Creation Changes <a href="/integrate/connector-configuration#autoacceptrelationshipcreationchange"><i class="fas fa-fw fa-cog"></i></a></h3>
+
+<p class="notice--danger">It is not recommended to use this Module for production scenarios.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">autoAcceptRelationshipCreationChanges</code> Module listens to the events about incoming Relationship Change Requests. It immediately accepts the Requests, using the configured <code class="language-plaintext highlighter-rouge">responseContent</code>.</p>
+
+<p>Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive incoming Relationship Requests. The <code class="language-plaintext highlighter-rouge">sync</code> Module automates this, but you can also do this manually by calling the <code class="language-plaintext highlighter-rouge">/api/v2/Account/Sync</code> route.</p>
+
+<h3 id="corehttpapi">Core HTTP API <a href="/integrate/connector-configuration#corehttpapi"><i class="fas fa-fw fa-cog"></i></a></h3>
+
+<p>This Module contains the HTTP API with all Enmeshed base functionalities.</p>
+
+<h3 id="sync">Sync <a href="/integrate/connector-configuration#sync"><i class="fas fa-fw fa-cog"></i></a></h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">sync</code> Module regularly fetches changes from the Backbone (e.g. new Messages / new incoming Relationship Requests). This process automatically triggers the events used by other Modules like the <code class="language-plaintext highlighter-rouge">webhooks</code> Module.</p>
+
+<h3 id="webhooksv2">WebhooksV2 <a href="/integrate/connector-configuration#webhooksv2"><i class="fas fa-fw fa-cog"></i></a></h3>
+
+<p>With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization’s backend services about changes.</p>
+
+<p>For this, the Connector supports the configuration of webhooks which are called every time a specific <a href="/integrate/connector-events">Connector Event</a> is triggered (e.g. a new Message has been received =&gt; <code class="language-plaintext highlighter-rouge">transport.messageReceived</code>).</p>
+
+<p>Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The <code class="language-plaintext highlighter-rouge">sync</code> Module automates this, but you can also do this manually by calling the <code class="language-plaintext highlighter-rouge">/api/v2/Account/Sync</code> route.</p>
 
         
       </section>
@@ -355,11 +362,11 @@
       
   <nav class="pagination">
     
-      <a href="/integrate/connector-flows-authentication" class="pagination--pager" title="Integrating Authentication
+      <a href="/integrate/connector-tutorial" class="pagination--pager" title="Connector Tutorial
 ">Previous</a>
     
     
-      <a href="/integrate/custom-connector-modules" class="pagination--pager" title="Custom Connector Modules
+      <a href="/integrate/connector-installation" class="pagination--pager" title="Connector Installation
 ">Next</a>
     
   </nav>

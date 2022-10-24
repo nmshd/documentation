@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-10-11T15:13:07+02:00</updated><id>/feed.xml</id><title type="html">Enmeshed</title><subtitle>Enmeshed is a home of various open source components, making the digital life of users and organizations easier.</subtitle><author><name>Enmeshed Team</name></author><entry><title type="html">The (bumpy) road to Enmeshed V2</title><link href="/blog/road-to-enmeshed-v2" rel="alternate" type="text/html" title="The (bumpy) road to Enmeshed V2" /><published>2022-10-06T16:00:00+02:00</published><updated>2022-10-06T16:00:00+02:00</updated><id>/blog/road-to-enmeshed-v2</id><content type="html" xml:base="/blog/road-to-enmeshed-v2"><![CDATA[<p>Hey there,</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-10-24T15:23:25+02:00</updated><id>/feed.xml</id><title type="html">Enmeshed</title><subtitle>Enmeshed is a home of various open source components, making the digital life of users and organizations easier.</subtitle><author><name>Enmeshed Team</name></author><entry><title type="html">The (bumpy) road to Enmeshed V2</title><link href="/blog/road-to-enmeshed-v2" rel="alternate" type="text/html" title="The (bumpy) road to Enmeshed V2" /><published>2022-10-06T16:00:00+02:00</published><updated>2022-10-06T16:00:00+02:00</updated><id>/blog/road-to-enmeshed-v2</id><content type="html" xml:base="/blog/road-to-enmeshed-v2"><![CDATA[<p>Hey there,</p>
 
 <p>as we’ve already communicated in the previous blogs, we would like to release Enmeshed version 2 soon. As it is incompatible with version 1, the switch to version 2 is unfortunately not as straightforward as we’d hoped.</p>
 
@@ -45,8 +45,8 @@
 
 <p>The flow for establishing a Relationship between the App and another App or Connector has changed significantly. The body of the RelationshipTemplate is now a strict type that can be processed by the App and the Connector. It looks as follows:</p>
 
-<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">RelationshipTemplateBody</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">@type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RelationshipTemplateBody</span><span class="dl">"</span><span class="p">;</span>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">RelationshipTemplateContent</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">@type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RelationshipTemplateContent</span><span class="dl">"</span><span class="p">;</span>
     <span class="nl">title</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
     <span class="nl">metadata</span><span class="p">?:</span> <span class="nx">object</span><span class="p">;</span>
     <span class="nl">onNewRelationship</span><span class="p">:</span> <span class="nx">Request</span><span class="p">;</span>
@@ -66,25 +66,9 @@
 
 <h2 id="modules-managing-requests">Modules managing Requests</h2>
 
-<p>The main component powering the Enmeshed App and the Enmeshed Connector is the Runtime. The Runtime is modular and we decided to use this to provide a module that automatically manages Requests. This module is highly important for the complete Enmeshed Logic and therefore automatically enabled and not possible to disable in the App and the Connector.</p>
+<p>The main component powering the Enmeshed App and the Enmeshed Connector is the Runtime. The Runtime is modular and we decided to use this to provide two Modules for managing Requests: the <a href="/explore/runtime#request-module">Request Module</a> and the <a href="/explore/runtime#decider-module">Decider Module</a>.</p>
 
-<p>The module is responsible for:</p>
-
-<ul>
-  <li>creating an incoming Request when a peer RelationshipTemplate is loaded</li>
-  <li>scanning for Requests in received Messages to store it as incoming Requests in the database</li>
-  <li>scanning for Responses in received Messages to close outgoing Requests in the database</li>
-  <li>scanning for Requests in outgoing Messages to store it as outgoing Requests in the database</li>
-  <li>taking action when the User decides (accepts or rejects) a Request
-    <ul>
-      <li>when the Request came from a Template the module creates a Relationship with the contents of the User’s response if the User accepted the Request (rejection is currently not handled)</li>
-      <li>when the Request came from a Message the module sends back a Message containing the User’s response (accept and reject)</li>
-    </ul>
-  </li>
-  <li>listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent with the RelationshipCreationChange</li>
-</ul>
-
-<p>The second module is the Decider Module. At the moment this module is only responsible for moving a Request from the status <code class="language-plaintext highlighter-rouge">DecisionRequired</code> to the status <code class="language-plaintext highlighter-rouge">ManualDecisionRequired</code>. This indirection is a preparation for a feature we are planning to implement in the future, with which you will be able to configure the Decider Module so it automatically accepts certain Requests. We will publish a blog post about this when it is implemented.</p>]]></content><author><name>Enmeshed Team</name></author><category term="blog" /><category term="announcement" /><category term="v2" /><category term="Requests" /><summary type="html"><![CDATA[This is one of the blog posts regarding Enmeshed v2. For an overview of all Enmeshed v2 blog posts, please refer to the Enmeshed v2 announcement blog post.]]></summary></entry><entry><title type="html">Announcing Enmeshed V2 Attributes</title><link href="/blog/announcing-enmeshed-v2-attributes" rel="alternate" type="text/html" title="Announcing Enmeshed V2 Attributes" /><published>2022-06-30T12:00:00+02:00</published><updated>2022-06-30T12:00:00+02:00</updated><id>/blog/announcing-enmeshed-v2-attributes</id><content type="html" xml:base="/blog/announcing-enmeshed-v2-attributes"><![CDATA[<p>This is one of the blog posts regarding Enmeshed V2. For an overview of all V2 blog posts, please refer to the <a href="/blog/announcing-enmeshed-v2">V2 announcement blog post</a>.</p>
+<p>The Decider Module is in its early stages and we will inform you about it in the future.</p>]]></content><author><name>Enmeshed Team</name></author><category term="blog" /><category term="announcement" /><category term="v2" /><category term="Requests" /><summary type="html"><![CDATA[This is one of the blog posts regarding Enmeshed v2. For an overview of all Enmeshed v2 blog posts, please refer to the Enmeshed v2 announcement blog post.]]></summary></entry><entry><title type="html">Announcing Enmeshed V2 Attributes</title><link href="/blog/announcing-enmeshed-v2-attributes" rel="alternate" type="text/html" title="Announcing Enmeshed V2 Attributes" /><published>2022-06-30T12:00:00+02:00</published><updated>2022-06-30T12:00:00+02:00</updated><id>/blog/announcing-enmeshed-v2-attributes</id><content type="html" xml:base="/blog/announcing-enmeshed-v2-attributes"><![CDATA[<p>This is one of the blog posts regarding Enmeshed V2. For an overview of all V2 blog posts, please refer to the <a href="/blog/announcing-enmeshed-v2">V2 announcement blog post</a>.</p>
 
 <p>In this blog post we want to talk about pain points of the V1 Attributes and how we reworked the Attributes to tackle them.</p>
 
@@ -111,8 +95,8 @@
   <li>No binary content is possible as an Attribute value and thus binary content (like files) could not be stored or shared as Attributes</li>
   <li>There is no inheritance of Attributes. An Attribute can only be queried by a name with an exact match by a string comparison. Different addresses, e.g. a street address or a post office box cannot be queried with a single query</li>
   <li>Attributes can only be stored for Identities and not for Relationships</li>
-  <li>A manual user decision is always required to change Attributes, even if the user has no say in the Attributes at all (e.g. a company moves its headquarters and would like to update the primary address)</li>
-  <li>Querying Attributes of a user by only supplying a name is too broad and error prone</li>
+  <li>A manual User decision is always required to change Attributes, even if the User has no say in the Attributes at all (e.g. a company moves its headquarters and would like to update the primary address)</li>
+  <li>Querying Attributes of a User by only supplying a name is too broad and error prone</li>
 </ul>
 
 <h2 id="v2-attributes">V2 Attributes</h2>
@@ -146,13 +130,13 @@
   <li>The Attribute value type is replacing the Attribute name most of the time
     <ul>
       <li>With typed Attribute values introduced above, we no longer require a specific Attribute name to be set. The normalized type <code class="language-plaintext highlighter-rouge">GivenName</code> replaces the old Attribute name <code class="language-plaintext highlighter-rouge">Person.givenName</code> and so on.</li>
-      <li>Due to inheritance of Attribute values, querying a super type <code class="language-plaintext highlighter-rouge">Address</code> would imply, that the user could select between a stored <code class="language-plaintext highlighter-rouge">StreetAddress</code> and a stored <code class="language-plaintext highlighter-rouge">PostalBoxAddress</code>. On the other hand, querying a <code class="language-plaintext highlighter-rouge">StreetAddress</code> automatically implies, that only the stored <code class="language-plaintext highlighter-rouge">StreetAddress</code> can be selected.</li>
+      <li>Due to inheritance of Attribute values, querying a super type <code class="language-plaintext highlighter-rouge">Address</code> would imply, that the User could select between a stored <code class="language-plaintext highlighter-rouge">StreetAddress</code> and a stored <code class="language-plaintext highlighter-rouge">PostalBoxAddress</code>. On the other hand, querying a <code class="language-plaintext highlighter-rouge">StreetAddress</code> automatically implies, that only the stored <code class="language-plaintext highlighter-rouge">StreetAddress</code> can be selected.</li>
     </ul>
   </li>
   <li>Multiple Attribute values of the same type are supported
     <ul>
       <li>Thus, multiple addresses or communication properties are supported inherently</li>
-      <li>The user can decide between possible Attribute values if multiple values do fit to the query</li>
+      <li>The User can decide between possible Attribute values if multiple values do fit to the query</li>
     </ul>
   </li>
   <li>Further semantics of an Attribute can be set by tagging an Attribute according to predefined or custom Attribute tags. Whereas an Attribute’s type defines its structure (e.g. <code class="language-plaintext highlighter-rouge">Address</code>) the Attribute’s tags might define that it is a work or a private address.
@@ -162,16 +146,16 @@
         <ul>
           <li>An Attribute <code class="language-plaintext highlighter-rouge">StreetAddress</code> with value X is stored with tags <code class="language-plaintext highlighter-rouge">personal</code> and <code class="language-plaintext highlighter-rouge">official</code>.</li>
           <li>A second Attribute <code class="language-plaintext highlighter-rouge">StreetAddress</code> with value Y is stored with tag <code class="language-plaintext highlighter-rouge">work</code>.</li>
-          <li>Value Y will be proposed to the user if a <code class="language-plaintext highlighter-rouge">StreetAddress</code> with tag <code class="language-plaintext highlighter-rouge">work</code> is queried.</li>
+          <li>Value Y will be proposed to the User if a <code class="language-plaintext highlighter-rouge">StreetAddress</code> with tag <code class="language-plaintext highlighter-rouge">work</code> is queried.</li>
         </ul>
       </li>
     </ul>
   </li>
   <li>In addition to the tags, we would like to introduce a Relationship store concept, with which Attributes can be stored between Identities on a per-Relationship base. This comes in handy for use cases with Relationship-specific or contract-specific Attributes:
     <ul>
-      <li>Think about a customer number which needs to be stored between a user and a webshop somehow. It doesn’t belong to the user but it also does not belong to the webshop.</li>
-      <li>Additionally, this concept can be used for submitting Relationship metadata like company brand/theme information, possible actions a user could trigger for the relationship or other cool stuff.</li>
-      <li>A restriction of who can change the Relationship Attribute can block users messing around with their <code class="language-plaintext highlighter-rouge">customerId</code>.</li>
+      <li>Think about a customer number which needs to be stored between a User and a webshop somehow. It doesn’t belong to the User but it also does not belong to the webshop.</li>
+      <li>Additionally, this concept can be used for submitting Relationship metadata like company brand/theme information, possible actions a User could trigger for the relationship or other cool stuff.</li>
+      <li>A restriction of who can change the Relationship Attribute can block Users messing around with their <code class="language-plaintext highlighter-rouge">customerId</code>.</li>
     </ul>
   </li>
 </ul>
@@ -182,13 +166,13 @@
 
 <h2 id="attributes">Attributes</h2>
 
-<p>Attributes in Enmeshed have been a huge pain point during the integration using the Enmeshed Connector but also while using the Enmeshed App as an end user. For Enmeshed V2 we are working on a new way to handle, store and transfer Attributes.</p>
+<p>Attributes in Enmeshed have been a huge pain point during the integration using the Enmeshed Connector but also while using the Enmeshed App as an end User. For Enmeshed V2 we are working on a new way to handle, store and transfer Attributes.</p>
 
 <p>For an overview of the changes regarding Attributes, please refer to the <a href="/blog/announcing-enmeshed-v2-attributes">corresponding blog post</a>.</p>
 
 <h2 id="requests">Requests</h2>
 
-<p>Requests in Enmeshed always defined a way to exchange structured data. In Enmeshed V1 this was exclusively about attributes. Requests in V2 will also be able to exchange data without persisting them to the user’s attributes, e.g. using a form.</p>
+<p>Requests in Enmeshed always defined a way to exchange structured data. In Enmeshed V1 this was exclusively about attributes. Requests in V2 will also be able to exchange data without persisting them to the User’s attributes, e.g. using a form.</p>
 
 <p>In Enmeshed V1 <code class="language-plaintext highlighter-rouge">RelationshipTemplates</code> and <code class="language-plaintext highlighter-rouge">RequestMails</code> each defined their own way for exchanging Attributes. Further only the App could process them. When integrating via the Connector you had to manually process all Requests. For V2 we pulled the Request handling <a href="/explore/#layers">from the User-Experience Layer to the Consumption layer</a>. This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.</p>
 
@@ -210,30 +194,30 @@
 
 <h2 id="feedback">Feedback</h2>
 
-<p>As always we are happy to hear from you through the usual channels! Feel free to share your thoughts and feedback and discuss the changes in the <a href="https://github.com/nmshd/feedback/discussions/17">V2 GitHub Discussion</a>.</p>]]></content><author><name>Enmeshed Team</name></author><category term="blog" /><category term="announcement" /><category term="V2" /><summary type="html"><![CDATA[We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.]]></summary></entry><entry><title type="html">The new webhooks Connector module</title><link href="/blog/webhooks-v2-connector-module" rel="alternate" type="text/html" title="The new webhooks Connector module" /><published>2022-03-02T11:00:00+01:00</published><updated>2022-03-02T11:00:00+01:00</updated><id>/blog/webhooks-v2-connector-module</id><content type="html" xml:base="/blog/webhooks-v2-connector-module"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>As always we are happy to hear from you through the usual channels! Feel free to share your thoughts and feedback and discuss the changes in the <a href="https://github.com/nmshd/feedback/discussions/17">V2 GitHub Discussion</a>.</p>]]></content><author><name>Enmeshed Team</name></author><category term="blog" /><category term="announcement" /><category term="V2" /><summary type="html"><![CDATA[We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.]]></summary></entry><entry><title type="html">The new webhooks Connector Module</title><link href="/blog/webhooks-v2-connector-module" rel="alternate" type="text/html" title="The new webhooks Connector Module" /><published>2022-03-02T11:00:00+01:00</published><updated>2022-03-02T11:00:00+01:00</updated><id>/blog/webhooks-v2-connector-module</id><content type="html" xml:base="/blog/webhooks-v2-connector-module"><![CDATA[<h2 id="introduction">Introduction</h2>
 
 <p>Hello everyone!</p>
 
-<p>Today we want to announce a new version of the webhooks Connector module.</p>
+<p>Today we want to announce a new version of the webhooks Connector Module.</p>
 
-<p>The old version of the module had many limitations that we could only address with a complete rewrite. To be backwards compatible the old version of the module is still available under the name <code class="language-plaintext highlighter-rouge">webhooks</code>.
-The new module can be configured under the name <code class="language-plaintext highlighter-rouge">webhooksV2</code>.
-If you don’t want to use the new module it doesn’t require further actions.</p>
+<p>The old version of the Module had many limitations that we could only address with a complete rewrite. To be backwards compatible the old version of the Module is still available under the name <code class="language-plaintext highlighter-rouge">webhooks</code>.
+The new Module can be configured under the name <code class="language-plaintext highlighter-rouge">webhooksV2</code>.
+If you don’t want to use the new Module it doesn’t require further actions.</p>
 
-<p>We still recommend to switch to the new module as soon as possible as the old module is now deprecated and will not be maintained anymore.</p>
+<p>We still recommend to switch to the new Module as soon as possible as the old Module is now deprecated and will not be maintained anymore.</p>
 
-<h2 id="the-new-module">The new module</h2>
+<h2 id="the-new-module">The new Module</h2>
 
-<p>The new module gives you the possibility to define so called <code class="language-plaintext highlighter-rouge">triggers</code>, which represent the names of the events we already send Connector-internally (e.g. <code class="language-plaintext highlighter-rouge">transport.messageReceived</code>). The module then listens to the configured events and simply sends the event data to the configured URL. For a detailed documentation of how to configure the new webhooks module, see <a href="/integrate/connector-configuration#webhooksv2">the Connector configuration docs</a>.</p>
+<p>The new Module gives you the possibility to define so called <code class="language-plaintext highlighter-rouge">triggers</code>, which represent the names of the events we already send Connector-internally (e.g. <code class="language-plaintext highlighter-rouge">transport.messageReceived</code>). The Module then listens to the configured events and simply sends the event data to the configured URL. For a detailed documentation of how to configure the new webhooks Module, see <a href="/integrate/connector-configuration#webhooksv2">the Connector configuration docs</a>.</p>
 
-<p>While in the old module you could configure an interval in which the new information is published, the new module calls the webhook immediately after the configured event was triggered.
+<p>While in the old Module you could configure an interval in which the new information is published, the new Module calls the webhook immediately after the configured event was triggered.
 <em>Do you miss the possibility to configure a publish interval? Raise a feature request in our <a href="https://github.com/nmshd/nmshd.github.io/issues/new/choose">feedback repository</a>, and we will see what we can do about it.</em></p>
 
-<p>Since you can use arbitrary events as triggers now, the new module gives you much more points at which you can integrate. We provide a <a href="/integrate/connector-events">list of these events</a>. Note that the list will grow in the next weeks, so check the docs from time to time. If you wish for a specific event, you can also <a href="https://github.com/nmshd/nmshd.github.io/issues/new/choose">raise a feature request</a>.</p>
+<p>Since you can use arbitrary events as triggers now, the new Module gives you much more points at which you can integrate. We provide a <a href="/integrate/connector-events">list of these events</a>. Note that the list will grow in the next weeks, so check the docs from time to time. If you wish for a specific event, you can also <a href="https://github.com/nmshd/nmshd.github.io/issues/new/choose">raise a feature request</a>.</p>
 
 <h2 id="migration">Migration</h2>
 
-<p>In order to be notified about the same stuff as with the old module, you should configure the new module in the following way:</p>
+<p>In order to be notified about the same stuff as with the old Module, you should configure the new Module in the following way:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"webhooksV2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">

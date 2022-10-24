@@ -128,7 +128,7 @@
             </li><li class="masthead__menu-item">
               <a href="/blog">Blog</a>
             </li><li class="masthead__menu-item">
-              <a href="/versions/2.0.0">v2.0.0 Preview</a>
+              <a href="/versions/1.0.0">v1 Docs (deprecated)</a>
             </li></ul>
         
         <button class="search__toggle" type="button">
@@ -294,7 +294,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          4 minute read
+          3 minute read
         
       </span>
     
@@ -340,8 +340,8 @@
 
 <p>The flow for establishing a Relationship between the App and another App or Connector has changed significantly. The body of the RelationshipTemplate is now a strict type that can be processed by the App and the Connector. It looks as follows:</p>
 
-<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">RelationshipTemplateBody</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">@type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RelationshipTemplateBody</span><span class="dl">"</span><span class="p">;</span>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">RelationshipTemplateContent</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">@type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RelationshipTemplateContent</span><span class="dl">"</span><span class="p">;</span>
     <span class="nl">title</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
     <span class="nl">metadata</span><span class="p">?:</span> <span class="nx">object</span><span class="p">;</span>
     <span class="nl">onNewRelationship</span><span class="p">:</span> <span class="nx">Request</span><span class="p">;</span>
@@ -361,25 +361,9 @@
 
 <h2 id="modules-managing-requests">Modules managing Requests</h2>
 
-<p>The main component powering the Enmeshed App and the Enmeshed Connector is the Runtime. The Runtime is modular and we decided to use this to provide a module that automatically manages Requests. This module is highly important for the complete Enmeshed Logic and therefore automatically enabled and not possible to disable in the App and the Connector.</p>
+<p>The main component powering the Enmeshed App and the Enmeshed Connector is the Runtime. The Runtime is modular and we decided to use this to provide two Modules for managing Requests: the <a href="/explore/runtime#request-module">Request Module</a> and the <a href="/explore/runtime#decider-module">Decider Module</a>.</p>
 
-<p>The module is responsible for:</p>
-
-<ul>
-  <li>creating an incoming Request when a peer RelationshipTemplate is loaded</li>
-  <li>scanning for Requests in received Messages to store it as incoming Requests in the database</li>
-  <li>scanning for Responses in received Messages to close outgoing Requests in the database</li>
-  <li>scanning for Requests in outgoing Messages to store it as outgoing Requests in the database</li>
-  <li>taking action when the User decides (accepts or rejects) a Request
-    <ul>
-      <li>when the Request came from a Template the module creates a Relationship with the contents of the User’s response if the User accepted the Request (rejection is currently not handled)</li>
-      <li>when the Request came from a Message the module sends back a Message containing the User’s response (accept and reject)</li>
-    </ul>
-  </li>
-  <li>listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent with the RelationshipCreationChange</li>
-</ul>
-
-<p>The second module is the Decider Module. At the moment this module is only responsible for moving a Request from the status <code class="language-plaintext highlighter-rouge">DecisionRequired</code> to the status <code class="language-plaintext highlighter-rouge">ManualDecisionRequired</code>. This indirection is a preparation for a feature we are planning to implement in the future, with which you will be able to configure the Decider Module so it automatically accepts certain Requests. We will publish a blog post about this when it is implemented.</p>
+<p>The Decider Module is in its early stages and we will inform you about it in the future.</p>
 
         
       </section>
@@ -592,7 +576,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/blog/webhooks-v2-connector-module" rel="permalink">The new webhooks Connector module
+        <a href="/blog/webhooks-v2-connector-module" rel="permalink">The new webhooks Connector Module
 </a>
       
     </h2>

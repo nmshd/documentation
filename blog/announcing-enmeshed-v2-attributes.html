@@ -128,7 +128,7 @@
             </li><li class="masthead__menu-item">
               <a href="/blog">Blog</a>
             </li><li class="masthead__menu-item">
-              <a href="/versions/2.0.0">v2.0.0 Preview</a>
+              <a href="/versions/1.0.0">v1 Docs (deprecated)</a>
             </li></ul>
         
         <button class="search__toggle" type="button">
@@ -341,8 +341,8 @@
   <li>No binary content is possible as an Attribute value and thus binary content (like files) could not be stored or shared as Attributes</li>
   <li>There is no inheritance of Attributes. An Attribute can only be queried by a name with an exact match by a string comparison. Different addresses, e.g. a street address or a post office box cannot be queried with a single query</li>
   <li>Attributes can only be stored for Identities and not for Relationships</li>
-  <li>A manual user decision is always required to change Attributes, even if the user has no say in the Attributes at all (e.g. a company moves its headquarters and would like to update the primary address)</li>
-  <li>Querying Attributes of a user by only supplying a name is too broad and error prone</li>
+  <li>A manual User decision is always required to change Attributes, even if the User has no say in the Attributes at all (e.g. a company moves its headquarters and would like to update the primary address)</li>
+  <li>Querying Attributes of a User by only supplying a name is too broad and error prone</li>
 </ul>
 
 <h2 id="v2-attributes">V2 Attributes</h2>
@@ -376,13 +376,13 @@
   <li>The Attribute value type is replacing the Attribute name most of the time
     <ul>
       <li>With typed Attribute values introduced above, we no longer require a specific Attribute name to be set. The normalized type <code class="language-plaintext highlighter-rouge">GivenName</code> replaces the old Attribute name <code class="language-plaintext highlighter-rouge">Person.givenName</code> and so on.</li>
-      <li>Due to inheritance of Attribute values, querying a super type <code class="language-plaintext highlighter-rouge">Address</code> would imply, that the user could select between a stored <code class="language-plaintext highlighter-rouge">StreetAddress</code> and a stored <code class="language-plaintext highlighter-rouge">PostalBoxAddress</code>. On the other hand, querying a <code class="language-plaintext highlighter-rouge">StreetAddress</code> automatically implies, that only the stored <code class="language-plaintext highlighter-rouge">StreetAddress</code> can be selected.</li>
+      <li>Due to inheritance of Attribute values, querying a super type <code class="language-plaintext highlighter-rouge">Address</code> would imply, that the User could select between a stored <code class="language-plaintext highlighter-rouge">StreetAddress</code> and a stored <code class="language-plaintext highlighter-rouge">PostalBoxAddress</code>. On the other hand, querying a <code class="language-plaintext highlighter-rouge">StreetAddress</code> automatically implies, that only the stored <code class="language-plaintext highlighter-rouge">StreetAddress</code> can be selected.</li>
     </ul>
   </li>
   <li>Multiple Attribute values of the same type are supported
     <ul>
       <li>Thus, multiple addresses or communication properties are supported inherently</li>
-      <li>The user can decide between possible Attribute values if multiple values do fit to the query</li>
+      <li>The User can decide between possible Attribute values if multiple values do fit to the query</li>
     </ul>
   </li>
   <li>Further semantics of an Attribute can be set by tagging an Attribute according to predefined or custom Attribute tags. Whereas an Attribute’s type defines its structure (e.g. <code class="language-plaintext highlighter-rouge">Address</code>) the Attribute’s tags might define that it is a work or a private address.
@@ -392,16 +392,16 @@
         <ul>
           <li>An Attribute <code class="language-plaintext highlighter-rouge">StreetAddress</code> with value X is stored with tags <code class="language-plaintext highlighter-rouge">personal</code> and <code class="language-plaintext highlighter-rouge">official</code>.</li>
           <li>A second Attribute <code class="language-plaintext highlighter-rouge">StreetAddress</code> with value Y is stored with tag <code class="language-plaintext highlighter-rouge">work</code>.</li>
-          <li>Value Y will be proposed to the user if a <code class="language-plaintext highlighter-rouge">StreetAddress</code> with tag <code class="language-plaintext highlighter-rouge">work</code> is queried.</li>
+          <li>Value Y will be proposed to the User if a <code class="language-plaintext highlighter-rouge">StreetAddress</code> with tag <code class="language-plaintext highlighter-rouge">work</code> is queried.</li>
         </ul>
       </li>
     </ul>
   </li>
   <li>In addition to the tags, we would like to introduce a Relationship store concept, with which Attributes can be stored between Identities on a per-Relationship base. This comes in handy for use cases with Relationship-specific or contract-specific Attributes:
     <ul>
-      <li>Think about a customer number which needs to be stored between a user and a webshop somehow. It doesn’t belong to the user but it also does not belong to the webshop.</li>
-      <li>Additionally, this concept can be used for submitting Relationship metadata like company brand/theme information, possible actions a user could trigger for the relationship or other cool stuff.</li>
-      <li>A restriction of who can change the Relationship Attribute can block users messing around with their <code class="language-plaintext highlighter-rouge">customerId</code>.</li>
+      <li>Think about a customer number which needs to be stored between a User and a webshop somehow. It doesn’t belong to the User but it also does not belong to the webshop.</li>
+      <li>Additionally, this concept can be used for submitting Relationship metadata like company brand/theme information, possible actions a User could trigger for the relationship or other cool stuff.</li>
+      <li>A restriction of who can change the Relationship Attribute can block Users messing around with their <code class="language-plaintext highlighter-rouge">customerId</code>.</li>
     </ul>
   </li>
 </ul>
@@ -559,7 +559,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          4 minute read
+          3 minute read
         
       </span>
     
@@ -621,7 +621,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/blog/webhooks-v2-connector-module" rel="permalink">The new webhooks Connector module
+        <a href="/blog/webhooks-v2-connector-module" rel="permalink">The new webhooks Connector Module
 </a>
       
     </h2>
