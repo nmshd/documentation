@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Request Items - Enmeshed</title>
-<meta name="description" content="">
+<meta name="description" content="All the RequestItems listed below inherit from the RequestItem and are therefore sharing its properties.">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="/versions/2.0.0/explore/request-items">
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="All the RequestItems listed below inherit from the RequestItem and are therefore sharing its properties.">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-10-19T17:17:34+02:00">
+  <meta property="article:published_time" content="2022-10-24T11:10:10+02:00">
 
 
 
@@ -268,6 +268,8 @@
           
             <li><a href="/versions/2.0.0/explore/data-model">Data Model</a></li>
           
+            <li><a href="/versions/2.0.0/explore/request-items" class="active">Request Items</a></li>
+          
             <li><a href="/versions/2.0.0/explore/cryptography">Cryptography</a></li>
           
             <li><a href="/versions/2.0.0/explore/blockchain">Why no blockchain?</a></li>
@@ -288,8 +290,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Request Items">
-    <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2022-10-19T17:17:34+02:00">
+    <meta itemprop="description" content="All the RequestItems listed below inherit from the RequestItem and are therefore sharing its properties.">
+    <meta itemprop="datePublished" content="2022-10-24T11:10:10+02:00">
     
 
     <div class="page__inner-wrap">
@@ -307,7 +309,889 @@
 
       <section class="page__content e-content" itemprop="text">
         
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#authenticationrequestitem">AuthenticationRequestItem</a><ul><li><a href="#authenticationrequestitem-examples">Examples</a></li><li><a href="#authenticationrequestitem-properties">Properties</a></li><li><a href="#authenticationrequestitem-response">Response Parameters</a><ul><li><a href="#authenticationrequestitem-response-itemproperties">Item Properties</a></li><li><a href="#authenticationrequestitem-response-parameters">Parameters</a></li></ul></li></ul></li><li><a href="#consentrequestitem">ConsentRequestItem</a><ul><li><a href="#consentrequestitem-examples">Examples</a></li><li><a href="#consentrequestitem-properties">Properties</a></li><li><a href="#consentrequestitem-response">Response Parameters</a><ul><li><a href="#consentrequestitem-response-itemproperties">Item Properties</a></li><li><a href="#consentrequestitem-response-parameters">Parameters</a></li></ul></li></ul></li><li><a href="#createattributerequestitem">CreateAttributeRequestItem</a><ul><li><a href="#createattributerequestitem-examples">Examples</a></li><li><a href="#createattributerequestitem-properties">Properties</a></li><li><a href="#createattributerequestitem-response">Response</a><ul><li><a href="#createattributerequestitem-response-itemproperties">Item Properties</a></li><li><a href="#createattributerequestitem-response-parameters">Parameters</a></li></ul></li><li><a href="#createattributerequestitem-combinationsandusagescenarios">Combinations and usage scenarios</a></li></ul></li><li><a href="#proposeattributerequestitem">ProposeAttributeRequestItem</a><ul><li><a href="#proposeattributerequestitem-examples">Examples</a></li><li><a href="#proposeattributerequestitem-properties">Properties</a></li><li><a href="#proposeattributerequestitem-response">Response</a><ul><li><a href="#proposeattributerequestitem-response-itemproperties">Item Properties</a></li><li><a href="#proposeattributerequestitem-response-parameters">Parameters</a></li></ul></li><li><a href="#proposeattributerequestitem-combinationsandusagescenarios">Combinations and usage scenarios</a></li></ul></li><li><a href="#readattributerequestitem">ReadAttributeRequestItem</a><ul><li><a href="#readattributerequestitem-examples">Examples</a></li><li><a href="#readattributerequestitem-properties">Properties</a></li><li><a href="#readattributerequestitem-response">Response</a><ul><li><a href="#readattributerequestitem-response-itemproperties">Item Properties</a></li><li><a href="#readattributerequestitem-response-parameters">Parameters</a></li></ul></li><li><a href="#readattributerequestitem-combinationsandusagescenarios">Combinations and usage scenarios</a></li></ul></li><li><a href="#registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</a><ul><li><a href="#registerattributelistenerrequestitem-examples">Examples</a></li><li><a href="#registerattributelistenerrequestitem-properties">Properties</a></li><li><a href="#registerattributelistenerrequestitem-response">Response</a><ul><li><a href="#registerattributelistenerrequestitem-response-itemproperties">Item Properties</a></li><li><a href="#registerattributelistenerrequestitem-response-parameters">Parameters</a></li></ul></li></ul></li><li><a href="#shareattributerequestitem">ShareAttributeRequestItem</a><ul><li><a href="#shareattributerequestitem-examples">Examples</a></li><li><a href="#shareattributerequestitem-properties">Properties</a></li><li><a href="#shareattributerequestitem-response">Response</a><ul><li><a href="#shareattributerequestitem-response-itemproperties">Item Properties</a></li><li><a href="#shareattributerequestitem-response-parameters">Parameters</a></li></ul></li><li><a href="#shareattributerequestitem-combinationsandusagescenarios">Combinations and usage scenarios</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
         
+        <p>All the RequestItems listed below inherit from the <a href="/versions/2.0.0/explore/data-model#requestitem">RequestItem</a> and are therefore sharing its properties.</p>
+
+<h2 id="authenticationrequestitem">AuthenticationRequestItem</h2>
+
+<p>With this item the sender can request the peer for an authentication in a business context for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived and limited in time.</p>
+
+<h3 id="authenticationrequestitem-examples">Examples</h3>
+
+<ul>
+  <li>Authentication for a login to a website</li>
+  <li>Authentication for opening a door</li>
+</ul>
+
+<h3 id="authenticationrequestitem-properties">Properties</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"AuthenticationRequestItem"</code></td>
+      <td>Specifies the type of the RequestItem for internal processing.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="authenticationrequestitem-response">Response Parameters</h3>
+
+<h4 id="authenticationrequestitem-response-itemproperties">Item Properties</h4>
+
+<ul>
+  <li>To accept this RequestItem an <a href="/versions/2.0.0/explore/data-model#acceptresponseitem">AcceptResponseItem</a> will be transferred.</li>
+  <li>To reject this RequestItem a <a href="/versions/2.0.0/explore/data-model#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error an <a href="/versions/2.0.0/explore/data-model#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
+
+<h4 id="authenticationrequestitem-response-parameters">Parameters</h4>
+
+<ul>
+  <li>To accept this RequestItem you can send <code class="language-plaintext highlighter-rouge">{ "accept": true }</code> as parameters.</li>
+  <li>To reject this RequestItem you can send <code class="language-plaintext highlighter-rouge">{ "accept": false }</code> as parameters.</li>
+</ul>
+
+<h2 id="consentrequestitem">ConsentRequestItem</h2>
+
+<p>With the ConsentRequestItem it is possible to request a consent of the peer to an arbitrary text and thus reach agreement on a certain non machine-processable context.</p>
+
+<p>To request an accept/reject decision from a peer to a free text, the ConsentRequestItem is used.</p>
+
+<p class="notice--info">Please do not use the ConsentRequestItem to submit tons of text to the peer Identity. It is meant to be a short consent or summary the user agrees to. Please move longer text to external websites.
+The ConsentRequestItem is also not meant for contractual agreements.</p>
+
+<h3 id="consentrequestitem-examples">Examples</h3>
+
+<ul>
+  <li>“I hereby confirm that I have read the privacy terms of this cloud service and agree to them.”</li>
+  <li>“The provided EULA has been read and agreed to.”</li>
+  <li>“Yes, I have backed up all of my data of this PC and you can wipe it.”</li>
+  <li>“I opt in to the newsletter.”</li>
+</ul>
+
+<h3 id="consentrequestitem-properties">Properties</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ConsentRequestItem"</code></td>
+      <td>Specifies the type of the RequestItem for internal processing.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">consent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The textual consent the user needs to give. This is different to the title and description of the RequestItem, as the consent would be the actual statement the user agrees to.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">link</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>A link to a website which contains more information, like the EULA or privacy terms.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="consentrequestitem-response">Response Parameters</h3>
+
+<h4 id="consentrequestitem-response-itemproperties">Item Properties</h4>
+
+<ul>
+  <li>To accept this RequestItem an <a href="/versions/2.0.0/explore/data-model#acceptresponseitem">AcceptResponseItem</a> will be transferred.</li>
+  <li>To reject this RequestItem a <a href="/versions/2.0.0/explore/data-model#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error an <a href="/versions/2.0.0/explore/data-model#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
+
+<h4 id="consentrequestitem-response-parameters">Parameters</h4>
+
+<ul>
+  <li>To accept this RequestItem you can send <code class="language-plaintext highlighter-rouge">{ "accept": true }</code> as parameters.</li>
+  <li>To reject this RequestItem you can send <code class="language-plaintext highlighter-rouge">{ "accept": false }</code> as parameters.</li>
+</ul>
+
+<h2 id="createattributerequestitem">CreateAttributeRequestItem</h2>
+
+<p>If you want to create Identity- or RelationshipAttributes for the peer, the CreateAttributeRequestItem can be used. Please have a look at the ProposeAttributeRequestItem if the peer should be able to overwrite the Attribute.</p>
+
+<p>To create an Attribute with a fixed value defined by the sender, an Identity uses the CreateAttributeRequestItem. A fixed value in this case means, that the recipient is not allowed to change the value when accepting the request.</p>
+
+<h3 id="createattributerequestitem-examples">Examples</h3>
+
+<ul>
+  <li>Share the corporate E-Mail Address of the peer to the peer</li>
+  <li>Send a certificate of the peer to the peer, so that the peer is able to easily share it</li>
+  <li>Create a RelationshipAttribute for the peer</li>
+</ul>
+
+<h3 id="createattributerequestitem-properties">Properties</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"CreateAttributeRequestItem"</code></td>
+      <td>Specifies the type of the RequestItem for internal processing.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">attribute</code></td>
+      <td><a href="/versions/2.0.0/explore/data-model#identityattribute"><code class="language-plaintext highlighter-rouge">IdentityAttribute</code></a> | <a href="/versions/2.0.0/explore/data-model#relationshipattribute"><code class="language-plaintext highlighter-rouge">RelationshipAttribute</code></a></td>
+      <td>The IdentityAttribute or RelationshipAttribute to create for the peer within the Identity of the peer.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="createattributerequestitem-response">Response</h3>
+
+<h4 id="createattributerequestitem-response-itemproperties">Item Properties</h4>
+
+<ul>
+  <li>
+    <p>To accept this RequestItem a <code class="language-plaintext highlighter-rouge">CreateAttributeAcceptResponseItem</code> will be transferred.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+          <td><code class="language-plaintext highlighter-rouge">"CreateAttributeAcceptResponseItem"</code></td>
+          <td>The type of the ResponseItem.</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">attributeId</code></td>
+          <td><code class="language-plaintext highlighter-rouge">string</code></td>
+          <td>The id of the created Attribute.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>To reject this RequestItem a <a href="/versions/2.0.0/explore/data-model#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error an <a href="/versions/2.0.0/explore/data-model#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
+
+<h4 id="createattributerequestitem-response-parameters">Parameters</h4>
+
+<ul>
+  <li>To accept this RequestItem you can send <code class="language-plaintext highlighter-rouge">{ "accept": true }</code> as parameters.</li>
+  <li>To reject this RequestItem you can send <code class="language-plaintext highlighter-rouge">{ "accept": false }</code> as parameters.</li>
+</ul>
+
+<h3 id="createattributerequestitem-combinationsandusagescenarios">Combinations and usage scenarios</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute Type</th>
+      <th>Attribute Owner</th>
+      <th>Possible?</th>
+      <th>Automation</th>
+      <th>Examples/Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identity</td>
+      <td>Sender</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
+      <td>Use <a href="#shareattributerequestitem">ShareAttributeRequestItem</a> instead.</td>
+    </tr>
+    <tr>
+      <td>Identity</td>
+      <td>Recipient</td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">USER_DECISION</code></td>
+      <td>University sends student his certificate (Propose would be inappropriate in this case, because the student should not be able to return his own value)</td>
+    </tr>
+    <tr>
+      <td>Identity</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;empty&gt;</code></td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">USER_DECISION</code></td>
+      <td>An empty owner defaults to an Attribute with owner=<code class="language-plaintext highlighter-rouge">&lt;recipient&gt;</code>. This is needed for Requests inside of Relationship Templates, since you don’t know the Enmeshed Address of your peer before the Relationship is established.</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Sender</td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">AUTO_ACCEPT</code></td>
+      <td>Company sends new customer his customer number.</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Recipient</td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">USER_DECISION</code></td>
+      <td>With this combination the <strong>sender asks the recipient for the one-time permission</strong> to write a Relationship Attribute once AND the <strong>sender defined a value</strong> which can either be accepted and stored, or rejected. Thus, the user cannot change the value by itself.</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;empty&gt;</code></td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">USER_DECISION</code></td>
+      <td>An empty owner defaults to an Attribute with owner=<code class="language-plaintext highlighter-rouge">&lt;recipient&gt;</code>. This is needed for Requests inside of Relationship Templates, since you don’t know the Enmeshed Address of your peer before the Relationship is established.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="proposeattributerequestitem">ProposeAttributeRequestItem</h2>
+
+<p>The ProposeAttributeRequestItem is a combination of <a href="#readattributerequestitem">ReadAttributeRequestItem</a> and <a href="#createattributerequestitem">CreateAttributeRequestItem</a>. The sender would like to receive a correct Attribute from the peer, thinks it has a possible value but the peer might overrule this value with an existing or new one.</p>
+
+<p>To create an Attribute with a value proposed by the sender, an Identity uses the ProposeAttributeRequestItem. A proposed value in this case means, that the recipient is allowed to change the value if accepting the request.</p>
+
+<h3 id="proposeattributerequestitem-examples">Examples</h3>
+
+<ul>
+  <li>Onboard an existing customer to Enmeshed and propose the known private Attributes, like its name or address.</li>
+  <li>Ask the user if a newsletter would be of interest and propose the opt-in. This could be stored as a RelationshipAttribute with owner = recipient and could then be changed by the recipient at will.</li>
+</ul>
+
+<h3 id="proposeattributerequestitem-properties">Properties</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ProposeAttributeRequestItem"</code></td>
+      <td>Specifies the type of the RequestItem for internal processing.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">attribute</code></td>
+      <td><a href="/versions/2.0.0/explore/data-model#identityattribute"><code class="language-plaintext highlighter-rouge">IdentityAttribute</code></a> | <a href="/versions/2.0.0/explore/data-model#relationshipattribute"><code class="language-plaintext highlighter-rouge">RelationshipAttribute</code></a></td>
+      <td>The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">query</code></td>
+      <td><a href="/versions/2.0.0/explore/data-model#identityattributequery"><code class="language-plaintext highlighter-rouge">IdentityAttributeQuery</code></a> | <a href="/versions/2.0.0/explore/data-model#relationshipattributequery"><code class="language-plaintext highlighter-rouge">RelationshipAttributeQuery</code></a> | <a href="/versions/2.0.0/explore/data-model#thirdpartyrelationshipattributequery"><code class="language-plaintext highlighter-rouge">ThirdPartyRelationshipAttributeQuery</code></a></td>
+      <td>The structured query of the Attribute the sender would like to receive.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="proposeattributerequestitem-response">Response</h3>
+
+<h4 id="proposeattributerequestitem-response-itemproperties">Item Properties</h4>
+
+<ul>
+  <li>
+    <p>To accept this RequestItem a <code class="language-plaintext highlighter-rouge">ProposeAttributeAcceptResponseItem</code> will be transferred.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+          <td><code class="language-plaintext highlighter-rouge">"ProposeAttributeAcceptResponseItem"</code></td>
+          <td>The type of the ResponseItem.</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">attributeId</code></td>
+          <td><code class="language-plaintext highlighter-rouge">string</code></td>
+          <td>The id of the created Attribute.</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">attribute</code></td>
+          <td><a href="/versions/2.0.0/explore/data-model#identityattribute"><code class="language-plaintext highlighter-rouge">IdentityAttribute</code></a> | <a href="/versions/2.0.0/explore/data-model#relationshipattribute"><code class="language-plaintext highlighter-rouge">RelationshipAttribute</code></a></td>
+          <td>The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute.<br />The owner of the Attribute which is proposed can only be the recipient Identity.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>To reject this RequestItem a <a href="/versions/2.0.0/explore/data-model#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error an <a href="/versions/2.0.0/explore/data-model#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
+
+<h4 id="proposeattributerequestitem-response-parameters">Parameters</h4>
+
+<ul>
+  <li>
+    <p>To accept this RequestItem you can send the following parameters.</p>
+
+    <ul>
+      <li>
+        <p>If you want to create a new Attribute.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code class="language-plaintext highlighter-rouge">attribute</code></td>
+              <td><a href="/versions/2.0.0/explore/data-model#identityattribute"><code class="language-plaintext highlighter-rouge">IdentityAttribute</code></a> | <a href="/versions/2.0.0/explore/data-model#relationshipattribute"><code class="language-plaintext highlighter-rouge">RelationshipAttribute</code></a></td>
+              <td>The IdentityAttribute or RelationshipAttribute that shall be created.</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        <p>If you want to use the proposed Attribute.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code class="language-plaintext highlighter-rouge">attribute</code></td>
+              <td><a href="/versions/2.0.0/explore/data-model#identityattribute"><code class="language-plaintext highlighter-rouge">IdentityAttribute</code></a> | <a href="/versions/2.0.0/explore/data-model#relationshipattribute"><code class="language-plaintext highlighter-rouge">RelationshipAttribute</code></a></td>
+              <td>The IdentityAttribute or RelationshipAttribute that was provided in the RequestItem.</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        <p>If you want to use an existing Attribute.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code class="language-plaintext highlighter-rouge">existingAttributeId</code></td>
+              <td><code class="language-plaintext highlighter-rouge">string</code></td>
+              <td>The id of the Attribute to send.</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>To reject this RequestItem you can send <code class="language-plaintext highlighter-rouge">{ "accept": false }</code> as parameters.</p>
+  </li>
+</ul>
+
+<h3 id="proposeattributerequestitem-combinationsandusagescenarios">Combinations and usage scenarios</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute Type</th>
+      <th>Attribute Owner</th>
+      <th>Possible?</th>
+      <th>Automation</th>
+      <th>Examples/Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identity</td>
+      <td>Sender</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
+      <td>It makes no sense to propose own Attributes, use <a href="#shareattributerequestitem">ShareAttributeRequestItem</a> instead.</td>
+    </tr>
+    <tr>
+      <td>Identity</td>
+      <td>Recipient</td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">USER_DECISION</code></td>
+      <td>Company sends name and address to new customer during its onboarding process.</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Sender</td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">USER_DECISION</code></td>
+      <td>With this combination the <strong>sender gives the recipient the one-time permission</strong> to write a Relationship Attribute once AND the <strong>sender proposes a value</strong> which might make sense as a default.<br />Example: Electricity provider asks new customer for the electricity meter number and proposes a known number</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Recipient</td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">USER_DECISION</code></td>
+      <td>With this combination the <strong>sender asks the recipient for the one-time permission</strong> to write a Relationship Attribute once AND the <strong>sender proposes a value</strong> which might make sense as a default.<br />Example: Asking for a newsletter subscription</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="readattributerequestitem">ReadAttributeRequestItem</h2>
+
+<p>If you want to query an Identity’s Attributes this is done with the ReadAttributeRequestItem.</p>
+
+<p>To query Attributes which are not known to the sender, an Identity uses the ReadAttributeRequestItem.</p>
+
+<h3 id="readattributerequestitem-examples">Examples</h3>
+
+<ul>
+  <li>Optional query of the BirthDate, to congratulate on birthdays</li>
+  <li>Required query of the Age, to check if alcohol may be bought</li>
+  <li>Required query of the StreetAddress, to send an invoice to the recipient</li>
+</ul>
+
+<h3 id="readattributerequestitem-properties">Properties</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ReadAttributeRequestItem"</code></td>
+      <td>Specifies the type of the RequestItem for internal processing.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">query</code></td>
+      <td><a href="/versions/2.0.0/explore/data-model#identityattributequery"><code class="language-plaintext highlighter-rouge">IdentityAttributeQuery</code></a> | <a href="/versions/2.0.0/explore/data-model#relationshipattributequery"><code class="language-plaintext highlighter-rouge">RelationshipAttributeQuery</code></a> | <a href="/versions/2.0.0/explore/data-model#thirdpartyrelationshipattributequery"><code class="language-plaintext highlighter-rouge">ThirdPartyRelationshipAttributeQuery</code></a></td>
+      <td>The structured query of the Attribute the sender would like to receive.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="readattributerequestitem-response">Response</h3>
+
+<h4 id="readattributerequestitem-response-itemproperties">Item Properties</h4>
+
+<ul>
+  <li>
+    <p>To accept this RequestItem a <code class="language-plaintext highlighter-rouge">ReadAttributeAcceptResponseItem</code> will be transferred.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+          <td><code class="language-plaintext highlighter-rouge">"ReadAttributeAcceptResponseItem"</code></td>
+          <td>The type of the ResponseItem.</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">attributeId</code></td>
+          <td><code class="language-plaintext highlighter-rouge">string</code></td>
+          <td>The id of the returned Attribute.</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">attribute</code></td>
+          <td><a href="/versions/2.0.0/explore/data-model#identityattribute"><code class="language-plaintext highlighter-rouge">IdentityAttribute</code></a> | <a href="/versions/2.0.0/explore/data-model#relationshipattribute"><code class="language-plaintext highlighter-rouge">RelationshipAttribute</code></a></td>
+          <td>The IdentityAttribute or RelationshipAttribute that will be shared to the peer.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>To reject this RequestItem a <a href="/versions/2.0.0/explore/data-model#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error an <a href="/versions/2.0.0/explore/data-model#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
+
+<h4 id="readattributerequestitem-response-parameters">Parameters</h4>
+
+<ul>
+  <li>
+    <p>To accept this RequestItem you can send the following parameters.</p>
+
+    <ul>
+      <li>
+        <p>If you want to use an existing Attribute.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code class="language-plaintext highlighter-rouge">existingAttributeId</code></td>
+              <td><code class="language-plaintext highlighter-rouge">string</code></td>
+              <td>The id of the Attribute to send.</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        <p>If you want to create a new Attribute.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code class="language-plaintext highlighter-rouge">attribute</code></td>
+              <td><a href="/versions/2.0.0/explore/data-model#identityattribute"><code class="language-plaintext highlighter-rouge">IdentityAttribute</code></a> | <a href="/versions/2.0.0/explore/data-model#relationshipattribute"><code class="language-plaintext highlighter-rouge">RelationshipAttribute</code></a></td>
+              <td>The IdentityAttribute or RelationshipAttribute that shall be created.</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>To reject this RequestItem you can send <code class="language-plaintext highlighter-rouge">{ "accept": false }</code> as parameters.</p>
+  </li>
+</ul>
+
+<h3 id="readattributerequestitem-combinationsandusagescenarios">Combinations and usage scenarios</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute Type</th>
+      <th>Attribute Owner</th>
+      <th>Third Party</th>
+      <th>Possible?</th>
+      <th>Automation</th>
+      <th>Examples/Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identity</td>
+      <td>Sender</td>
+      <td> </td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
+      <td>It makes no sense to read own IdentityAttributes.</td>
+    </tr>
+    <tr>
+      <td>Identity</td>
+      <td>Recipient</td>
+      <td> </td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">USER_DECISION</code></td>
+      <td>Company asks customer for its delivery address</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Sender</td>
+      <td> </td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">USER_DECISION</code></td>
+      <td>With this combination the <strong>sender gives the recipient the one-time permission</strong> to write a Relationship Attribute once<br />Example: Electricity provider asks new customers for electricity meter number</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Recipient</td>
+      <td> </td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">USER_DECISION</code></td>
+      <td>With this combination the <strong>sender asks the recipient for the one-time permission</strong> to write a Relationship Attribute<br />Example: Company asks new customer to subscribe to the newsletter and proposes the subscription as default once</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Recipient</td>
+      <td>Third Party</td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">USER DECISION / NOT ALLOWED</code> - depending on confidentiality</td>
+      <td>With this combination the <strong>sender requests a Relationship Attribute from a Relationship between the recipient and a third party. The Attribute must be owned by the recipient</strong><br /> Example: A Social Network asks for Facebook privacy settings of a user to get senseful defaults of its own privacy settings</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Third Party</td>
+      <td>Third Party</td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">USER DECISION / NOT ALLOWED</code> - depending on confidentiality</td>
+      <td>With this combination the <strong>sender requests a Relationship Attribute from a Relationship between the recipient and a third party which is owned by the third party</strong><br /> Example: An online shop asks for the Payback Customer Id of a user to book the order on his account</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</h2>
+
+<p>This item is used to register a <a href="/versions/2.0.0/explore/data-model#localattributelistener">Listener</a> for a specific Attribute. The Listener will create a Request in status <code class="language-plaintext highlighter-rouge">Draft</code> if an Attribute was created that matches the given query and the user is able to send the Request to the creator of the <code class="language-plaintext highlighter-rouge">RegisterAttributeListenerRequestItem</code>.</p>
+
+<h3 id="registerattributelistenerrequestitem-examples">Examples</h3>
+
+<ul>
+  <li>Asking for a specific RelationshipAttribute of a partner organization.</li>
+</ul>
+
+<h3 id="registerattributelistenerrequestitem-properties">Properties</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"RegisterAttributeListenerRequestItem"</code></td>
+      <td>Specifies the type of the RequestItem for internal processing.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">query</code></td>
+      <td><a href="/versions/2.0.0/explore/data-model#identityattributequery"><code class="language-plaintext highlighter-rouge">IdentityAttributeQuery</code></a> | <a href="/versions/2.0.0/explore/data-model#thirdpartyrelationshipattributequery"><code class="language-plaintext highlighter-rouge">ThirdPartyRelationshipAttributeQuery</code></a></td>
+      <td>The structured query of the Attribute the sender would like to query.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registerattributelistenerrequestitem-response">Response</h3>
+
+<h4 id="registerattributelistenerrequestitem-response-itemproperties">Item Properties</h4>
+
+<ul>
+  <li>
+    <p>To accept this RequestItem a <code class="language-plaintext highlighter-rouge">RegisterAttributeListenerAcceptResponseItem</code> will be transferred.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+          <td><code class="language-plaintext highlighter-rouge">"RegisterAttributeListenerAcceptResponseItem"</code></td>
+          <td>The type of the ResponseItem.</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">listenerId</code></td>
+          <td><code class="language-plaintext highlighter-rouge">string</code></td>
+          <td>The id of the created AttributeListener.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>To reject this RequestItem a <a href="/versions/2.0.0/explore/data-model#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error an <a href="/versions/2.0.0/explore/data-model#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
+
+<h4 id="registerattributelistenerrequestitem-response-parameters">Parameters</h4>
+
+<ul>
+  <li>To accept this RequestItem you can send <code class="language-plaintext highlighter-rouge">{ "accept": true }</code> as parameters.</li>
+  <li>To reject this RequestItem you can send <code class="language-plaintext highlighter-rouge">{ "accept": false }</code> as parameters.</li>
+</ul>
+
+<h2 id="shareattributerequestitem">ShareAttributeRequestItem</h2>
+
+<p>If you want to share the own DisplayName and possibly other Attributes this is done with the ShareAttributeRequestItem.</p>
+
+<p>To share own IdentityAttributes (owner = self) an Identity uses the ShareAttributeRequestItem. The Identity needs to create the IdentityAttribute separately before the Attribute can be shared.</p>
+
+<h3 id="shareattributerequestitem-examples">Examples</h3>
+
+<ul>
+  <li>Share own DisplayName.</li>
+  <li>Share own Address.</li>
+  <li>Share customer number of company A with company B.</li>
+</ul>
+
+<h3 id="shareattributerequestitem-properties">Properties</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ShareAttributeRequestItem"</code></td>
+      <td>Specifies the type of the RequestItem for internal processing.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">attribute</code></td>
+      <td><a href="/versions/2.0.0/explore/data-model#identityattribute"><code class="language-plaintext highlighter-rouge">IdentityAttribute</code></a> | <a href="/versions/2.0.0/explore/data-model#relationshipattribute"><code class="language-plaintext highlighter-rouge">RelationshipAttribute</code></a></td>
+      <td>The IdentityAttribute or RelationshipAttribute to share. This is not the LocalAttribute but the content data structure of the Attribute. <br />The owner of the Attribute which should be shared can only be the sender Identity.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">sourceAttributeId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The id of the LocalAttribute which is the source of the shared Attribute. This will be used later to reference the sourceAttribute from its shared copy.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="shareattributerequestitem-response">Response</h3>
+
+<h4 id="shareattributerequestitem-response-itemproperties">Item Properties</h4>
+
+<ul>
+  <li>
+    <p>To accept this RequestItem a <code class="language-plaintext highlighter-rouge">RegisterAttributeListenerAcceptResponseItem</code> will be transferred.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+          <td><code class="language-plaintext highlighter-rouge">"ShareAttributeAcceptResponseItem"</code></td>
+          <td>The type of the ResponseItem.</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">attributeId</code></td>
+          <td><code class="language-plaintext highlighter-rouge">string</code></td>
+          <td>The id of the created Attribute.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>To reject this RequestItem a <a href="/versions/2.0.0/explore/data-model#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error an <a href="/versions/2.0.0/explore/data-model#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
+
+<h4 id="shareattributerequestitem-response-parameters">Parameters</h4>
+
+<ul>
+  <li>To accept this RequestItem you can send <code class="language-plaintext highlighter-rouge">{ "accept": true }</code> as parameters.</li>
+  <li>To reject this RequestItem you can send <code class="language-plaintext highlighter-rouge">{ "accept": false }</code> as parameters.</li>
+</ul>
+
+<h3 id="shareattributerequestitem-combinationsandusagescenarios">Combinations and usage scenarios</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute Type</th>
+      <th>Attribute Owner</th>
+      <th>Possible?</th>
+      <th>Automation</th>
+      <th>Examples/Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identity</td>
+      <td>Sender</td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">AUTO ACCEPT</code></td>
+      <td>Company sends new customer the address of the company</td>
+    </tr>
+    <tr>
+      <td>Identity</td>
+      <td>Recipient</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
+      <td>It makes no sense to share the Attribute to the recipient, because he already owns it.</td>
+    </tr>
+    <tr>
+      <td>Identity</td>
+      <td>Third Party</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
+      <td>You cannot share an Attribute of which you are not the owner.</td>
+    </tr>
+    <tr>
+      <td>Identity</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;empty&gt;</code></td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">AUTO ACCEPT</code></td>
+      <td>An empty owner defaults to an Attribute with owner=<code class="language-plaintext highlighter-rouge">&lt;sender&gt;</code>.</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Sender</td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">USER DECISION</code> / <code class="language-plaintext highlighter-rouge">NOT ALLOWED</code> (depending on confidentiality)</td>
+      <td>A user can share own RelationshipAttributes of any Relationship to any other Relationship (if the confidentiality of the RelationshipAttribute is protected or public).<br />Example: Share Customer ID from Company A with Company B (User is owner of RelationshipAttribute)</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Recipient</td>
+      <td>N</td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
+      <td>It makes no sense to share the Attribute to the recipient, because he already owns it.</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Third Party</td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">USER DECISION</code> / <code class="language-plaintext highlighter-rouge">NOT ALLOWED</code> (depending on confidentiality)</td>
+      <td>A user can share RelationshipAttributes of any Relationship to any other Relationship (if the confidentiality of the RelationshipAttribute is protected or public).<br /> Example: Share Customer ID from Company A with Company B (Company A is owner of RelationshipAttribute), e.g. Payback number</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;empty&gt;</code></td>
+      <td>Y</td>
+      <td><code class="language-plaintext highlighter-rouge">AUTO ACCEPT</code></td>
+      <td>An empty owner defaults to an Attribute with owner=<code class="language-plaintext highlighter-rouge">&lt;sender&gt;</code>.</td>
+    </tr>
+  </tbody>
+</table>
 
         
       </section>
@@ -319,7 +1203,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-19T17:17:34+02:00">October 19, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-24T11:10:10+02:00">October 24, 2022</time></p>
 
       </footer>
 

@@ -120,7 +120,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Request Items",
-        "excerpt":" ","categories": [],
+        "excerpt":"All the RequestItems listed below inherit from the RequestItem and are therefore sharing its properties. AuthenticationRequestItem With this item the sender can request the peer for an authentication in a business context for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived...","categories": [],
         "tags": [],
         "url": "/versions/2.0.0/explore/request-items",
         "teaser": null
