@@ -50,7 +50,7 @@ The following properties were removed from the `File` entity:
 
 The reason for this is that these properties were added prematurely. At this time it is not possible to delete files. This feature will be added in the future. But for now, we decided that they are misleading and removed them.
 
-There also is a new property named `truncatedReference`, which is similar to the `truncatedReference` of a Token. It allows you to create a reference to a File containing its ID and secret key. In order to share the File with a user, you could then for example create a QR code. When the user scans this QR code with the Enmeshed app, the File is automatically downloaded. And there is no Relationship necessary!
+There also is a new property named `truncatedReference`, which is similar to the `truncatedReference` of a Token. It allows you to create a reference to a File containing its ID and secret key. In order to share the File with a user, you could then for example create a QR code for it(see the new endpoint below). When the user scans this QR code with the Enmeshed app, the File is automatically downloaded. And there is no Relationship necessary!
 
 **Endpoints**
 
@@ -113,7 +113,7 @@ There are a few minor changes to the data model and the endpoints for managing R
 
 The property `maxNumberOfRelationships` was removed from the `RelationshipTemplate` entity. It was replaced by the property `maxNumberOfAllocations` which offers a similar functionality. The reason for this change is that with let's say `maxNumberOfRelationships=5`, it was possible for 10 users to download the Relationship Template and fill it out. But at the end, when trying to create the Relationship, 5 of them would receive an error message, because the maximum number of Relationships is exhausted. This is why the Relationship Template now has the property `maxNumberOfAllocations`. Setting this property to e.g. 5 will ensure that the Template can only be fetched by 5 different Identities. The sixth will receive an error message when trying to fetch it, so it won't be able waste time by filling out the Template.
 
-There also is a new property named `truncatedReference`, which is similar to the `truncatedReference` of a Token. It allows you to create a reference to a Relationship Template containing its ID and secret key. With this, there is no need to create a Token for a the Relationship Template anymore. Just [create a QR code](#http-routes-relationship-templates) for the Relationship Template directly. When the user scans this QR code with the Enmeshed app, the Relationship Template is downloaded and displayed.
+There also is a new property named `truncatedReference`, which is similar to the `truncatedReference` of a Token. It allows you to create a reference to a Relationship Template containing its ID and secret key. With this, there is no need to create a Token for a the Relationship Template anymore. Just create a QR code for the Relationship Template directly (see the new endpoint below). When the user scans this QR code with the Enmeshed app, the Relationship Template is downloaded and displayed.
 
 **Endpoints**
 
