@@ -169,6 +169,8 @@ docs_integrate:
         url: /integrate/custom-connector-modules
       - title: "Connector Events"
         url: /integrate/connector-events
+      - title: "Migrate to v2"
+        url: /integrate/connector-migration-v2
 
   - title: Operations
     children:
