@@ -116,6 +116,7 @@ There are a few minor changes to the data model and the endpoints for managing R
 The property `maxNumberOfRelationships` was removed from the `RelationshipTemplate` entity. It was replaced by the property `maxNumberOfAllocations` which offers similar functionality. The reason for this change is that with let's say a `maxNumberOfRelationships` of 5, it was possible for 10 users to download the Relationship Template and fill it out. But finally, when trying to create the Relationship, 5 of them would receive an error message, because the maximum number of Relationships is exhausted. This is why the Relationship Template now has the property `maxNumberOfAllocations`. Setting this property to e.g. 5 will ensure that the Template can only be fetched by 5 different Identities. The sixth will receive an error message when trying to fetch it, so it won't be able waste time by filling it out.
 
 There also is a new property named `truncatedReference`, which is similar to the `truncatedReference` of a Token. It allows you to create a reference to a Relationship Template containing its ID and secret key. With this, there is no need to create a Token for a the Relationship Template anymore. Just create a QR code for the Relationship Template directly (see the new endpoint below). When the user scans this QR code with the Enmeshed app, the Relationship Template is downloaded and displayed.
+
 **Endpoints**
 
 The following endpoints have changed:
