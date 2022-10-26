@@ -33,7 +33,7 @@ You can find a description of Attributes in the [data model]({% link _docs_explo
 **Endpoints**
 
 In order to manage Attributes with the Connector, the following endpoints exist (the endpoints listed below are interactive; feel free to execute them):
-{% include rapidoc api_route_regex="^(get|post|put) /api/v2/Attributes" title="" %}
+{% include rapidoc api_route_regex="/api/v2/Attributes" title="" %}
 
 Tip: go through the new [Connector tutorial]({% link _docs_integrate/01-connector-tutorial.md %}) if you want an example of how to create An Attribute.
 {: .notice--info}
@@ -136,7 +136,7 @@ You can find a description of Requests in the [data model]({% link _docs_explore
 **Endpoints**
 
 In order to manage Requests with the Connector, the following endpoints exist:
-{% include rapidoc api_route_regex="^(get|post|put) /api/v2/Requests" title="" %}
+{% include rapidoc api_route_regex="/api/v2/Requests" title="" %}
 
 Tip: go through the new [Connector tutorial]({% link _docs_integrate/01-connector-tutorial.md %}) if you want an example of what you can do with Requests.
 {: .notice--info}
