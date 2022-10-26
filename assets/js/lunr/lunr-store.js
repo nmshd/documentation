@@ -245,6 +245,12 @@ var store = [{
         "url": "/integrate/connector-performance",
         "teaser": null
       },{
+        "title": "Migrate to v2",
+        "excerpt":"When migrating from v1 to v2, there are a few breaking changes, as well as a bunch of new features. This guide lists both of them and will help you migrate your integration coding. Backwards incompatible data structure First and foremost, as we already announced in our blog, the underlying...","categories": [],
+        "tags": [],
+        "url": "/integrate/connector-migration-v2",
+        "teaser": null
+      },{
         "title": "Connector Data Considerations",
         "excerpt":" ","categories": [],
         "tags": [],
