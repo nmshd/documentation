@@ -537,8 +537,3 @@ The Attribute values in this chapter can only be used in a [Relationship Attriub
 | `description`        | `string`                                                                             |    ✗     |                                                            |
 | `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                            |
 | `value`              | `string`                                                                             |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
-
-<!--
-TODO:
-- ValueHints properties
- -->
