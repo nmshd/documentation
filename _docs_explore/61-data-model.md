@@ -450,6 +450,10 @@ There are cases in which you want to query some data from your peer that is not 
 | defaultValue?  | `string` \| `number` \| `boolean`             | The default value that is used if no value is provided.                                                                                                   |
 | propertyHints? | `Record<string,` [`ValueHints>`](#valuehints) | A set of Value Hints of all properties. The key is the name of the property and the value a `ValueHints` object. Only applicable if the value is complex. |
 
+#### ValueHintsOverride
+
+Has the same properties as [`ValueHints`](#valuehints), except that all of them are optional. This type is used for some [Relationship Attribute values]({% link _docs_explore/65-attribute-values.md %}#relationship-attributes)
+
 #### ValueHintsValue
 
 | Name        | Type                              | Description                                  |
