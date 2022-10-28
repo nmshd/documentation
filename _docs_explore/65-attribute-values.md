@@ -399,144 +399,144 @@ The Attribute values in this chapter can only be used in a [Relationship Attriub
 
 **Properties**
 
-| Name                 | Type                                                                              | Required | Validation                                                 |
-| -------------------- | --------------------------------------------------------------------------------- | :------: | ---------------------------------------------------------- |
-| `@type`              | `"Consent"`                                                                       |    ✓     |                                                            |
-| `consent`            | `string`                                                                          |    ✓     | max. length: 2000                                          |
-| `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                                                            |
-| `link`               | `string`                                                                          |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+| Name                 | Type                                                                                 | Required | Validation                                                 |
+| -------------------- | ------------------------------------------------------------------------------------ | :------: | ---------------------------------------------------------- |
+| `@type`              | `"Consent"`                                                                          |    ✓     |                                                            |
+| `consent`            | `string`                                                                             |    ✓     | max. length: 2000                                          |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                            |
+| `link`               | `string`                                                                             |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
 
 ## ProprietaryBoolean
 
 **Properties**
 
-| Name                 | Type                                                                              | Required | Validation |
-| -------------------- | --------------------------------------------------------------------------------- | :------: | ---------- |
-| `@type`              | `"ProprietaryBoolean"`                                                            |    ✓     |            |
-| `title`              | `string`                                                                          |    ✓     |            |
-| `description`        | `string`                                                                          |    ✗     |            |
-| `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |            |
-| `value`              | `boolean`                                                                         |    ✓     |            |
+| Name                 | Type                                                                                 | Required | Validation |
+| -------------------- | ------------------------------------------------------------------------------------ | :------: | ---------- |
+| `@type`              | `"ProprietaryBoolean"`                                                               |    ✓     |            |
+| `title`              | `string`                                                                             |    ✓     |            |
+| `description`        | `string`                                                                             |    ✗     |            |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |            |
+| `value`              | `boolean`                                                                            |    ✓     |            |
 
 ## ProprietaryCountry
 
 **Properties**
 
-| Name                 | Type                                                                              | Required | Validation                                                                  |
-| -------------------- | --------------------------------------------------------------------------------- | :------: | --------------------------------------------------------------------------- |
-| `@type`              | `"ProprietaryCountry"`                                                            |    ✓     |                                                                             |
-| `title`              | `string`                                                                          |    ✓     |                                                                             |
-| `description`        | `string`                                                                          |    ✗     |                                                                             |
-| `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                                                                             |
-| `value`              | `string`                                                                          |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) |
+| Name                 | Type                                                                                 | Required | Validation                                                                  |
+| -------------------- | ------------------------------------------------------------------------------------ | :------: | --------------------------------------------------------------------------- |
+| `@type`              | `"ProprietaryCountry"`                                                               |    ✓     |                                                                             |
+| `title`              | `string`                                                                             |    ✓     |                                                                             |
+| `description`        | `string`                                                                             |    ✗     |                                                                             |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                                             |
+| `value`              | `string`                                                                             |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) |
 
 ## ProprietaryEMailAddress
 
 **Properties**
 
-| Name                 | Type                                                                              | Required | Validation                                                                                |
-| -------------------- | --------------------------------------------------------------------------------- | :------: | ----------------------------------------------------------------------------------------- |
-| `@type`              | `"ProprietaryEMailAddress"`                                                       |    ✓     |                                                                                           |
-| `title`              | `string`                                                                          |    ✓     |                                                                                           |
-| `description`        | `string`                                                                          |    ✗     |                                                                                           |
-| `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                                                                                           |
-| `value`              | `string`                                                                          |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
+| Name                 | Type                                                                                 | Required | Validation                                                                                |
+| -------------------- | ------------------------------------------------------------------------------------ | :------: | ----------------------------------------------------------------------------------------- |
+| `@type`              | `"ProprietaryEMailAddress"`                                                          |    ✓     |                                                                                           |
+| `title`              | `string`                                                                             |    ✓     |                                                                                           |
+| `description`        | `string`                                                                             |    ✗     |                                                                                           |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                                                           |
+| `value`              | `string`                                                                             |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
 
 ## ProprietaryFileReference
 
 **Properties**
 
-| Name                 | Type                                                                              | Required | Validation       |
-| -------------------- | --------------------------------------------------------------------------------- | :------: | ---------------- |
-| `@type`              | `"ProprietaryFileReference"`                                                      |    ✓     |                  |
-| `title`              | `string`                                                                          |    ✓     |                  |
-| `description`        | `string`                                                                          |    ✗     |                  |
-| `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                  |
-| `value`              | `string`                                                                          |    ✓     | max. length: 100 |
+| Name                 | Type                                                                                 | Required | Validation       |
+| -------------------- | ------------------------------------------------------------------------------------ | :------: | ---------------- |
+| `@type`              | `"ProprietaryFileReference"`                                                         |    ✓     |                  |
+| `title`              | `string`                                                                             |    ✓     |                  |
+| `description`        | `string`                                                                             |    ✗     |                  |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                  |
+| `value`              | `string`                                                                             |    ✓     | max. length: 100 |
 
 ## ProprietaryFloat
 
 **Properties**
 
-| Name                 | Type                                                                              | Required | Validation |
-| -------------------- | --------------------------------------------------------------------------------- | :------: | ---------- |
-| `@type`              | `"ProprietaryFloat"`                                                              |    ✓     |            |
-| `title`              | `string`                                                                          |    ✓     |            |
-| `description`        | `string`                                                                          |    ✗     |            |
-| `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |            |
-| `value`              | `number`                                                                          |    ✓     |            |
+| Name                 | Type                                                                                 | Required | Validation |
+| -------------------- | ------------------------------------------------------------------------------------ | :------: | ---------- |
+| `@type`              | `"ProprietaryFloat"`                                                                 |    ✓     |            |
+| `title`              | `string`                                                                             |    ✓     |            |
+| `description`        | `string`                                                                             |    ✗     |            |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |            |
+| `value`              | `number`                                                                             |    ✓     |            |
 
 ## ProprietaryHEXColor
 
 **Properties**
 
-| Name                 | Type                                                                              | Required | Validation                                                               |
-| -------------------- | --------------------------------------------------------------------------------- | :------: | ------------------------------------------------------------------------ |
-| `@type`              | `"ProprietaryHEXColor"`                                                           |    ✓     |                                                                          |
-| `title`              | `string`                                                                          |    ✓     |                                                                          |
-| `description`        | `string`                                                                          |    ✗     |                                                                          |
-| `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                                                                          |
-| `value`              | `string`                                                                          |    ✓     | min.length: 4<br> must match `^#([0-9A-F]{3}){1,2}$`<br>max. length: 100 |
+| Name                 | Type                                                                                 | Required | Validation                                                               |
+| -------------------- | ------------------------------------------------------------------------------------ | :------: | ------------------------------------------------------------------------ |
+| `@type`              | `"ProprietaryHEXColor"`                                                              |    ✓     |                                                                          |
+| `title`              | `string`                                                                             |    ✓     |                                                                          |
+| `description`        | `string`                                                                             |    ✗     |                                                                          |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                                          |
+| `value`              | `string`                                                                             |    ✓     | min.length: 4<br> must match `^#([0-9A-F]{3}){1,2}$`<br>max. length: 100 |
 
 ## ProprietaryInteger
 
 **Properties**
 
-| Name                 | Type                                                                              | Required | Validation         |
-| -------------------- | --------------------------------------------------------------------------------- | :------: | ------------------ |
-| `@type`              | `"ProprietaryInteger"`                                                            |    ✓     |                    |
-| `title`              | `string`                                                                          |    ✓     |                    |
-| `description`        | `string`                                                                          |    ✗     |                    |
-| `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                    |
-| `value`              | `number`                                                                          |    ✓     | must be an integer |
+| Name                 | Type                                                                                 | Required | Validation         |
+| -------------------- | ------------------------------------------------------------------------------------ | :------: | ------------------ |
+| `@type`              | `"ProprietaryInteger"`                                                               |    ✓     |                    |
+| `title`              | `string`                                                                             |    ✓     |                    |
+| `description`        | `string`                                                                             |    ✗     |                    |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                    |
+| `value`              | `number`                                                                             |    ✓     | must be an integer |
 
 ## ProprietaryLanguage
 
 **Properties**
 
-| Name                 | Type                                                                              | Required | Validation                                                                               |
-| -------------------- | --------------------------------------------------------------------------------- | :------: | ---------------------------------------------------------------------------------------- |
-| `@type`              | `"ProprietaryLanguage"`                                                           |    ✓     |                                                                                          |
-| `title`              | `string`                                                                          |    ✓     |                                                                                          |
-| `description`        | `string`                                                                          |    ✗     |                                                                                          |
-| `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                                                                                          |
-| `value`              | `string`                                                                          |    ✓     | only [ISO-639-1](https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes) language codes |
+| Name                 | Type                                                                                 | Required | Validation                                                                               |
+| -------------------- | ------------------------------------------------------------------------------------ | :------: | ---------------------------------------------------------------------------------------- |
+| `@type`              | `"ProprietaryLanguage"`                                                              |    ✓     |                                                                                          |
+| `title`              | `string`                                                                             |    ✓     |                                                                                          |
+| `description`        | `string`                                                                             |    ✗     |                                                                                          |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                                                          |
+| `value`              | `string`                                                                             |    ✓     | only [ISO-639-1](https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes) language codes |
 
 ## ProprietaryPhoneNumber
 
 **Properties**
 
-| Name                 | Type                                                                              | Required | Validation                                                                    |
-| -------------------- | --------------------------------------------------------------------------------- | :------: | ----------------------------------------------------------------------------- |
-| `@type`              | `"ProprietaryPhoneNumber"`                                                        |    ✓     |                                                                               |
-| `title`              | `string`                                                                          |    ✓     |                                                                               |
-| `description`        | `string`                                                                          |    ✗     |                                                                               |
-| `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                                                                               |
-| `value`              | `string`                                                                          |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[\d+\-x#*()/[\] ]{3,100}$` |
+| Name                 | Type                                                                                 | Required | Validation                                                                    |
+| -------------------- | ------------------------------------------------------------------------------------ | :------: | ----------------------------------------------------------------------------- |
+| `@type`              | `"ProprietaryPhoneNumber"`                                                           |    ✓     |                                                                               |
+| `title`              | `string`                                                                             |    ✓     |                                                                               |
+| `description`        | `string`                                                                             |    ✗     |                                                                               |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                                               |
+| `value`              | `string`                                                                             |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[\d+\-x#*()/[\] ]{3,100}$` |
 
 ## ProprietaryString
 
 **Properties**
 
-| Name                 | Type                                                                              | Required | Validation       |
-| -------------------- | --------------------------------------------------------------------------------- | :------: | ---------------- |
-| `@type`              | `"ProprietaryString"`                                                             |    ✓     |                  |
-| `title`              | `string`                                                                          |    ✓     |                  |
-| `description`        | `string`                                                                          |    ✗     |                  |
-| `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                  |
-| `value`              | `string`                                                                          |    ✓     | max. length: 100 |
+| Name                 | Type                                                                                 | Required | Validation       |
+| -------------------- | ------------------------------------------------------------------------------------ | :------: | ---------------- |
+| `@type`              | `"ProprietaryString"`                                                                |    ✓     |                  |
+| `title`              | `string`                                                                             |    ✓     |                  |
+| `description`        | `string`                                                                             |    ✗     |                  |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                  |
+| `value`              | `string`                                                                             |    ✓     | max. length: 100 |
 
 ## ProprietaryURL
 
 **Properties**
 
-| Name                 | Type                                                                              | Required | Validation                                                 |
-| -------------------- | --------------------------------------------------------------------------------- | :------: | ---------------------------------------------------------- |
-| `@type`              | `"ProprietaryURL"`                                                                |    ✓     |                                                            |
-| `title`              | `string`                                                                          |    ✓     |                                                            |
-| `description`        | `string`                                                                          |    ✗     |                                                            |
-| `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                                                            |
-| `value`              | `string`                                                                          |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+| Name                 | Type                                                                                 | Required | Validation                                                 |
+| -------------------- | ------------------------------------------------------------------------------------ | :------: | ---------------------------------------------------------- |
+| `@type`              | `"ProprietaryURL"`                                                                   |    ✓     |                                                            |
+| `title`              | `string`                                                                             |    ✓     |                                                            |
+| `description`        | `string`                                                                             |    ✗     |                                                            |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                            |
+| `value`              | `string`                                                                             |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
 
 <!--
 TODO:
