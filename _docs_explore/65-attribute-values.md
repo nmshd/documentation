@@ -8,7 +8,7 @@ toc: true
 
 The Attribute values in this chapter can only be used in a [Identity Attriubte]({% link _docs_explore/61-data-model.md %}#identityattribute).
 
-## {% include anchorl a="DeliveryBoxAddress" %}
+## DeliveryBoxAddress
 
 **Properties**
 
@@ -24,7 +24,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `phoneNumber`   | [`PhoneNumber`](#phonenumber) |    ✗     |                  |
 | `state`         | [`State`](#state)             |    ✗     |                  |
 
-## {% include anchorl a="PostOfficeBoxAddress" %}
+## PostOfficeBoxAddress
 
 **Properties**
 
@@ -38,7 +38,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `country`   | [`Country`](#country)    |    ✓     |                  |
 | `state`     | [`State`](#state)        |    ✗     |                  |
 
-## {% include anchorl a="StreetAddress" %}
+## StreetAddress
 
 **Properties**
 
@@ -53,7 +53,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `country`     | [`Country`](#country)         |    ✓     |                  |
 | `state`       | [`State`](#state)             |    ✓     |                  |
 
-## {% include anchorl a="Street" %}
+## Street
 
 **Properties**
 
@@ -62,7 +62,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"Street"` |    ✓     |                  |
 | `value` | `string`   |    ✓     | max. length: 100 |
 
-## {% include anchorl a="HouseNumber" %}
+## HouseNumber
 
 **Properties**
 
@@ -71,7 +71,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"HouseNumber"` |    ✓     |                  |
 | `value` | `string`        |    ✓     | max. length: 100 |
 
-## {% include anchorl a="City" %}
+## City
 
 **Properties**
 
@@ -80,7 +80,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"City"` |    ✓     |                  |
 | `value` | `string` |    ✓     | max. length: 100 |
 
-## {% include anchorl a="Country" %}
+## Country
 
 **Properties**
 
@@ -89,7 +89,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"Country"` |    ✓     |                                                                                           |
 | `value` | `string`    |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes |
 
-## {% include anchorl a="PhoneNumber" %}
+## PhoneNumber
 
 **Properties**
 
@@ -98,7 +98,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"PhoneNumber"` |    ✓     |                  |
 | `value` | `string`        |    ✓     | max. length: 100 |
 
-## {% include anchorl a="State" %}
+## State
 
 **Properties**
 
@@ -107,7 +107,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"State"` |    ✓     |                  |
 | `value` | `string`  |    ✓     | max. length: 100 |
 
-## {% include anchorl a="ZipCode" %}
+## ZipCode
 
 **Properties**
 
@@ -116,7 +116,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"ZipCode"` |    ✓     |                  |
 | `value` | `string`    |    ✓     | max. length: 100 |
 
-## {% include anchorl a="Affiliation" %}
+## Affiliation
 
 **Properties**
 
@@ -127,7 +127,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | organization | [`AffiliationOrganization`](#affiliationorganization) |    ✓     |
 | unit         | [`AffiliationUnit`](#affiliationunit)                 |    ✓     |
 
-## {% include anchorl a="AffiliationRole" %}
+## AffiliationRole
 
 **Properties**
 
@@ -136,7 +136,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"AffiliationRole"` |    ✓     |                  |
 | `value` | `string`            |    ✓     | max. length: 100 |
 
-## {% include anchorl a="AffiliationOrganization" %}
+## AffiliationOrganization
 
 **Properties**
 
@@ -147,16 +147,16 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 
 **Validation**
 
-## {% include anchorl a="AffiliationRole" %}
+## AffiliationUnit
 
 **Properties**
 
 | Name    | Type                | Required | Validation       |
 | ------- | ------------------- | :------: | ---------------- |
-| `@type` | `"AffiliationRole"` |    ✓     |                  |
+| `@type` | `"AffiliationUnit"` |    ✓     |                  |
 | `value` | `string`            |    ✓     | max. length: 100 |
 
-## {% include anchorl a="BirthDate" %}
+## BirthDate
 
 **Properties**
 
@@ -167,27 +167,27 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `month` | [`BirthMonth`](#birthmonth) |    ✓     |
 | `year`  | [`BirthYear`](#birthyear)   |    ✓     |
 
-## {% include anchorl a="BirthDay" %}
+## BirthDay
 
 | Name    | Type     | Required | Validation                              |
 | ------- | -------- | :------: | --------------------------------------- |
 | `value` | `number` |    ✓     | min: 1<br>max: 31<br>must be an integer |
 
-## {% include anchorl a="BirthMonth" %}
+## BirthMonth
 
 | Name    | Type         | Required | Validation                              |
 | ------- | ------------ | :------: | --------------------------------------- |
 | `@type` | `"BirthDay"` |    ✓     |                                         |
 | `value` | `number`     |    ✓     | min: 1<br>max: 12<br>must be an integer |
 
-## {% include anchorl a="BirthYear" %}
+## BirthYear
 
 | Name    | Type           | Required | Validation                                |
 | ------- | -------------- | :------: | ----------------------------------------- |
 | `@type` | `"BirthMonth"` |    ✓     |                                           |
 | `value` | `number`       |    ✓     | min: 1<br>max: 9999<br>must be an integer |
 
-## {% include anchorl a="BirthPlace" %}
+## BirthPlace
 
 **Properties**
 
@@ -198,7 +198,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `country` | [`BirthCountry`](#birthcountry) |    ✓     |
 | `state`   | [`BirthState`](#birthstate)     |    ✗     |
 
-## {% include anchorl a="BirthCity" %}
+## BirthCity
 
 **Properties**
 
@@ -207,7 +207,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"BirthCity"` |    ✓     |                  |
 | `value` | `string`      |    ✓     | max. length: 100 |
 
-## {% include anchorl a="BirthCountry" %}
+## BirthCountry
 
 **Properties**
 
@@ -216,7 +216,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"BirthCountry"` |    ✓     |                                                                                           |
 | `value` | `string`         |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes |
 
-## {% include anchorl a="BirthState" %}
+## BirthState
 
 **Properties**
 
@@ -225,7 +225,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"BirthState"` |    ✓     |                                                                                          |
 | `value` | `string`       |    ✓     | only [ISO-639-1](https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes) language codes |
 
-## {% include anchorl a="CommunicationLanguage" %}
+## CommunicationLanguage
 
 **Properties**
 
@@ -234,7 +234,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"CommunicationLanguage"` |    ✓     |                  |
 | `value` | `string`                  |    ✓     | max. length: 100 |
 
-## {% include anchorl a="EMailAddress" %}
+## EMailAddress
 
 **Properties**
 
@@ -243,7 +243,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"EMailAddress"` |    ✓     |                                                                                           |
 | `value` | `string`         |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
 
-## {% include anchorl a="FaxNumber" %}
+## FaxNumber
 
 **Properties**
 
@@ -252,16 +252,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"FaxNumber"` |    ✓     |                                                                               |
 | `value` | `string`      |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[\d+\-x#*()/[\] ]{3,100}$` |
 
-## {% include anchorl a="PhoneNumber" %}
-
-**Properties**
-
-| Name    | Type            | Required | Validation                                                                    |
-| ------- | --------------- | :------: | ----------------------------------------------------------------------------- |
-| `@type` | `"PhoneNumber"` |    ✓     |                                                                               |
-| `value` | `string`        |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[\d+\-x#*()/[\] ]{3,100}$` |
-
-## {% include anchorl a="Website" %}
+## Website
 
 **Properties**
 
@@ -270,7 +261,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"Website"` |    ✓     |                                                            |
 | `value` | `string`    |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
 
-## {% include anchorl a="DisplayName" %}
+## DisplayName
 
 **Properties**
 
@@ -279,7 +270,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"DisplayName"` |    ✓     |                  |
 | `value` | `string`        |    ✓     | max. length: 100 |
 
-## {% include anchorl a="FileReference" %}
+## FileReference
 
 **Properties**
 
@@ -288,7 +279,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"FileReference"` |    ✓     |                  |
 | `value` | `string`          |    ✓     | max. length: 100 |
 
-## {% include anchorl a="PersonName" %}
+## PersonName
 
 **Properties**
 
@@ -301,7 +292,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `honorificSuffix` | [`HonorificSuffix`](#honorificsuffix) |    ✗     |
 | `honorificPrefix` | [`HonorificPrefix`](#honorificprefix) |    ✗     |
 
-## {% include anchorl a="GivenName" %}
+## GivenName
 
 **Properties**
 
@@ -310,7 +301,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"GivenName"` |    ✓     |                  |
 | `value` | `string`      |    ✓     | max. length: 100 |
 
-## {% include anchorl a="HonorificPrefix" %}
+## HonorificPrefix
 
 **Properties**
 
@@ -319,7 +310,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"HonorificPrefix"` |    ✓     |                  |
 | `value` | `string`            |    ✓     | max. length: 100 |
 
-## {% include anchorl a="HonorificSuffix" %}
+## HonorificSuffix
 
 **Properties**
 
@@ -328,7 +319,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"HonorificSuffix"` |    ✓     |                  |
 | `value` | `string`            |    ✓     | max. length: 100 |
 
-## {% include anchorl a="MiddleName" %}
+## MiddleName
 
 **Properties**
 
@@ -337,7 +328,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"MiddleName"` |    ✓     |                  |
 | `value` | `string`       |    ✓     | max. length: 100 |
 
-## {% include anchorl a="Pseudonym" %}
+## Pseudonym
 
 **Properties**
 
@@ -346,7 +337,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"Pseudonym"` |    ✓     |                  |
 | `value` | `string`      |    ✓     | max. length: 100 |
 
-## {% include anchorl a="Surname" %}
+## Surname
 
 **Properties**
 
@@ -355,7 +346,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"Surname"` |    ✓     |                  |
 | `value` | `string`    |    ✓     | max. length: 100 |
 
-## {% include anchorl a="BirthName" %}
+## BirthName
 
 **Properties**
 
@@ -364,7 +355,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"BirthName"` |    ✓     |                  |
 | `value` | `string`      |    ✓     | max. length: 100 |
 
-## {% include anchorl a="Citizenship" %}
+## Citizenship
 
 **Properties**
 
@@ -373,7 +364,7 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"Citizenship"` |    ✓     |                                                                                           |
 | `value` | `string`        |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes |
 
-## {% include anchorl a="JobTitle" %}
+## JobTitle
 
 **Properties**
 
@@ -382,16 +373,16 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"JobTitle"` |    ✓     |                  |
 | `value` | `string`     |    ✓     | max. length: 100 |
 
-## {% include anchorl a="Nationality" %}
+## Nationality
 
 **Properties**
 
-| Name    | Type            | Required | Validation                                                                 |
-| ------- | --------------- | :------: | -------------------------------------------------------------------------- |
-| `@type` | `"Nationality"` |    ✓     |                                                                            |
-| `value` | `string`        |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 |
+| Name    | Type            | Required | Validation                                                                  |
+| ------- | --------------- | :------: | --------------------------------------------------------------------------- |
+| `@type` | `"Nationality"` |    ✓     |                                                                             |
+| `value` | `string`        |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) |
 
-## {% include anchorl a="Sex" %}
+## Sex
 
 **Properties**
 
@@ -400,20 +391,11 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"Sex"`  |    ✓     |                                            |
 | `value` | `string` |    ✓     | one of: `"intersex"`, `"female"`, `"male"` |
 
-## {% include anchorl a="JobTitle" %}
-
-**Properties**
-
-| Name    | Type         | Required | Validation       |
-| ------- | ------------ | :------: | ---------------- |
-| `@type` | `"JobTitle"` |    ✓     |                  |
-| `value` | `string`     |    ✓     | max. length: 100 |
-
 # Relationship Attributes
 
 The Attribute values in this chapter can only be used in a [Relationship Attriubte]({% link _docs_explore/61-data-model.md %}#relationshipattribute). Most of them are generic. You can recognize those by the prefix `Proprietary` (e.g. `ProprietaryInteger`, `ProprietaryString`, ...). In order to add some validation, you have the option to add [`valueHints`]({% link _docs_explore/61-data-model.md %}#valuehints).
 
-## {% include anchorl a="Consent" %}
+## Consent
 
 **Properties**
 
@@ -424,7 +406,7 @@ The Attribute values in this chapter can only be used in a [Relationship Attriub
 | `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                                                            |
 | `link`               | `string`                                                                          |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
 
-## {% include anchorl a="ProprietaryBoolean" %}
+## ProprietaryBoolean
 
 **Properties**
 
@@ -436,19 +418,19 @@ The Attribute values in this chapter can only be used in a [Relationship Attriub
 | `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |            |
 | `value`              | `boolean`                                                                         |    ✓     |            |
 
-## {% include anchorl a="ProprietaryCountry" %}
+## ProprietaryCountry
 
 **Properties**
 
-| Name                 | Type                                                                              | Required | Validation                                                                 |
-| -------------------- | --------------------------------------------------------------------------------- | :------: | -------------------------------------------------------------------------- |
-| `@type`              | `"ProprietaryCountry"`                                                            |    ✓     |                                                                            |
-| `title`              | `string`                                                                          |    ✓     |                                                                            |
-| `description`        | `string`                                                                          |    ✗     |                                                                            |
-| `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                                                                            |
-| `value`              | `string`                                                                          |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 |
+| Name                 | Type                                                                              | Required | Validation                                                                  |
+| -------------------- | --------------------------------------------------------------------------------- | :------: | --------------------------------------------------------------------------- |
+| `@type`              | `"ProprietaryCountry"`                                                            |    ✓     |                                                                             |
+| `title`              | `string`                                                                          |    ✓     |                                                                             |
+| `description`        | `string`                                                                          |    ✗     |                                                                             |
+| `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                                                                             |
+| `value`              | `string`                                                                          |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) |
 
-## {% include anchorl a="ProprietaryEMailAddress" %}
+## ProprietaryEMailAddress
 
 **Properties**
 
@@ -460,7 +442,7 @@ The Attribute values in this chapter can only be used in a [Relationship Attriub
 | `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                                                                                           |
 | `value`              | `string`                                                                          |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
 
-## {% include anchorl a="ProprietaryFileReference" %}
+## ProprietaryFileReference
 
 **Properties**
 
@@ -472,7 +454,7 @@ The Attribute values in this chapter can only be used in a [Relationship Attriub
 | `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                  |
 | `value`              | `string`                                                                          |    ✓     | max. length: 100 |
 
-## {% include anchorl a="ProprietaryFloat" %}
+## ProprietaryFloat
 
 **Properties**
 
@@ -484,7 +466,7 @@ The Attribute values in this chapter can only be used in a [Relationship Attriub
 | `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |            |
 | `value`              | `number`                                                                          |    ✓     |            |
 
-## {% include anchorl a="ProprietaryHEXColor" %}
+## ProprietaryHEXColor
 
 **Properties**
 
@@ -496,7 +478,7 @@ The Attribute values in this chapter can only be used in a [Relationship Attriub
 | `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                                                                          |
 | `value`              | `string`                                                                          |    ✓     | min.length: 4<br> must match `^#([0-9A-F]{3}){1,2}$`<br>max. length: 100 |
 
-## {% include anchorl a="ProprietaryInteger" %}
+## ProprietaryInteger
 
 **Properties**
 
@@ -508,7 +490,7 @@ The Attribute values in this chapter can only be used in a [Relationship Attriub
 | `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                    |
 | `value`              | `number`                                                                          |    ✓     | must be an integer |
 
-## {% include anchorl a="ProprietaryLanguage" %}
+## ProprietaryLanguage
 
 **Properties**
 
@@ -520,7 +502,7 @@ The Attribute values in this chapter can only be used in a [Relationship Attriub
 | `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                                                                                          |
 | `value`              | `string`                                                                          |    ✓     | only [ISO-639-1](https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes) language codes |
 
-## {% include anchorl a="ProprietaryPhoneNumber" %}
+## ProprietaryPhoneNumber
 
 **Properties**
 
@@ -532,7 +514,7 @@ The Attribute values in this chapter can only be used in a [Relationship Attriub
 | `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                                                                               |
 | `value`              | `string`                                                                          |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[\d+\-x#*()/[\] ]{3,100}$` |
 
-## {% include anchorl a="ProprietaryString" %}
+## ProprietaryString
 
 **Properties**
 
@@ -544,7 +526,7 @@ The Attribute values in this chapter can only be used in a [Relationship Attriub
 | `valueHintsOverride` | `Partial<`[`ValueHints`]({% link _docs_explore/61-data-model.md %}#valuehints)`>` |    ✗     |                  |
 | `value`              | `string`                                                                          |    ✓     | max. length: 100 |
 
-## {% include anchorl a="ProprietaryURL" %}
+## ProprietaryURL
 
 **Properties**
 
