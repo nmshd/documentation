@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Attribute Values - Enmeshed</title>
-<meta name="description" content="">
+<meta name="description" content="Identity Attributes">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="/explore/attribute-values">
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="Identity Attributes">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-10-26T09:23:32+02:00">
+  <meta property="article:published_time" content="2022-10-28T16:53:14+02:00">
 
 
 
@@ -265,6 +265,8 @@
           
             <li><a href="/explore/request-items">Request Items</a></li>
           
+            <li><a href="/explore/attribute-values" class="active">Attribute Values</a></li>
+          
             <li><a href="/explore/cryptography">Cryptography</a></li>
           
             <li><a href="/explore/blockchain">Why no blockchain?</a></li>
@@ -285,8 +287,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Attribute Values">
-    <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2022-10-26T09:23:32+02:00">
+    <meta itemprop="description" content="Identity Attributes">
+    <meta itemprop="datePublished" content="2022-10-28T16:53:14+02:00">
     
 
     <div class="page__inner-wrap">
@@ -307,12 +309,1872 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#identity-attributes">Identity Attributes</a><ul><li><a href="#deliveryboxaddress">DeliveryBoxAddress</a></li><li><a href="#postofficeboxaddress">PostOfficeBoxAddress</a></li><li><a href="#streetaddress">StreetAddress</a></li><li><a href="#street">Street</a></li><li><a href="#housenumber">HouseNumber</a></li><li><a href="#city">City</a></li><li><a href="#country">Country</a></li><li><a href="#phonenumber">PhoneNumber</a></li><li><a href="#state">State</a></li><li><a href="#zipcode">ZipCode</a></li><li><a href="#affiliation">Affiliation</a></li><li><a href="#affiliationrole">AffiliationRole</a></li><li><a href="#affiliationorganization">AffiliationOrganization</a></li><li><a href="#affiliationunit">AffiliationUnit</a></li><li><a href="#birthdate">BirthDate</a></li><li><a href="#birthday">BirthDay</a></li><li><a href="#birthmonth">BirthMonth</a></li><li><a href="#birthyear">BirthYear</a></li><li><a href="#birthplace">BirthPlace</a></li><li><a href="#birthcity">BirthCity</a></li><li><a href="#birthcountry">BirthCountry</a></li><li><a href="#birthstate">BirthState</a></li><li><a href="#communicationlanguage">CommunicationLanguage</a></li><li><a href="#emailaddress">EMailAddress</a></li><li><a href="#faxnumber">FaxNumber</a></li><li><a href="#website">Website</a></li><li><a href="#displayname">DisplayName</a></li><li><a href="#filereference">FileReference</a></li><li><a href="#personname">PersonName</a></li><li><a href="#givenname">GivenName</a></li><li><a href="#honorificprefix">HonorificPrefix</a></li><li><a href="#honorificsuffix">HonorificSuffix</a></li><li><a href="#middlename">MiddleName</a></li><li><a href="#pseudonym">Pseudonym</a></li><li><a href="#surname">Surname</a></li><li><a href="#birthname">BirthName</a></li><li><a href="#citizenship">Citizenship</a></li><li><a href="#jobtitle">JobTitle</a></li><li><a href="#nationality">Nationality</a></li><li><a href="#sex">Sex</a></li></ul></li><li><a href="#relationship-attributes">Relationship Attributes</a><ul><li><a href="#consent">Consent</a></li><li><a href="#proprietaryboolean">ProprietaryBoolean</a></li><li><a href="#proprietarycountry">ProprietaryCountry</a></li><li><a href="#proprietaryemailaddress">ProprietaryEMailAddress</a></li><li><a href="#proprietaryfilereference">ProprietaryFileReference</a></li><li><a href="#proprietaryfloat">ProprietaryFloat</a></li><li><a href="#proprietaryhexcolor">ProprietaryHEXColor</a></li><li><a href="#proprietaryinteger">ProprietaryInteger</a></li><li><a href="#proprietarylanguage">ProprietaryLanguage</a></li><li><a href="#proprietaryphonenumber">ProprietaryPhoneNumber</a></li><li><a href="#proprietarystring">ProprietaryString</a></li><li><a href="#proprietaryurl">ProprietaryURL</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        
+        <h1 id="identity-attributes">Identity Attributes</h1>
+
+<p>The Attribute values in this chapter can only be used in a <a href="/explore/data-model#identityattribute">Identity Attriubte</a>.</p>
+
+<h2 id="deliveryboxaddress">DeliveryBoxAddress</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"DeliveryBoxAddress"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">recipient</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">deliveryBoxId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">userId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">zipCode</code></td>
+      <td><a href="#zipcode"><code class="language-plaintext highlighter-rouge">ZipCode</code></a></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">city</code></td>
+      <td><a href="#city"><code class="language-plaintext highlighter-rouge">City</code></a></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">country</code></td>
+      <td><a href="#country"><code class="language-plaintext highlighter-rouge">Country</code></a></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">phoneNumber</code></td>
+      <td><a href="#phonenumber"><code class="language-plaintext highlighter-rouge">PhoneNumber</code></a></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">state</code></td>
+      <td><a href="#state"><code class="language-plaintext highlighter-rouge">State</code></a></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="postofficeboxaddress">PostOfficeBoxAddress</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"PostOfficeBoxAddress"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">recipient</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">boxId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">zipCode</code></td>
+      <td><a href="#zipcode"><code class="language-plaintext highlighter-rouge">ZipCode</code></a></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">city</code></td>
+      <td><a href="#city"><code class="language-plaintext highlighter-rouge">City</code></a></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">country</code></td>
+      <td><a href="#country"><code class="language-plaintext highlighter-rouge">Country</code></a></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">state</code></td>
+      <td><a href="#state"><code class="language-plaintext highlighter-rouge">State</code></a></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="streetaddress">StreetAddress</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"StreetAddress"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">recipient</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">street</code></td>
+      <td><a href="#street"><code class="language-plaintext highlighter-rouge">Street</code></a></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">houseNumber</code></td>
+      <td><a href="#housenumber"><code class="language-plaintext highlighter-rouge">HouseNumber</code></a></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">zipCode</code></td>
+      <td><a href="#zipcode"><code class="language-plaintext highlighter-rouge">ZipCode</code></a></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">city</code></td>
+      <td><a href="#city"><code class="language-plaintext highlighter-rouge">City</code></a></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">country</code></td>
+      <td><a href="#country"><code class="language-plaintext highlighter-rouge">Country</code></a></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">state</code></td>
+      <td><a href="#state"><code class="language-plaintext highlighter-rouge">State</code></a></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="street">Street</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"Street"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="housenumber">HouseNumber</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"HouseNumber"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="city">City</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"City"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="country">Country</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"Country"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>only <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="phonenumber">PhoneNumber</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"PhoneNumber"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="state">State</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"State"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="zipcode">ZipCode</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ZipCode"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="affiliation">Affiliation</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"Affiliation"</code></td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td>role</td>
+      <td><a href="#affiliationrole"><code class="language-plaintext highlighter-rouge">AffiliationRole</code></a></td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td>organization</td>
+      <td><a href="#affiliationorganization"><code class="language-plaintext highlighter-rouge">AffiliationOrganization</code></a></td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td>unit</td>
+      <td><a href="#affiliationunit"><code class="language-plaintext highlighter-rouge">AffiliationUnit</code></a></td>
+      <td style="text-align: center">✓</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="affiliationrole">AffiliationRole</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"AffiliationRole"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="affiliationorganization">AffiliationOrganization</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"AffiliationOrganization"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Validation</strong></p>
+
+<h2 id="affiliationunit">AffiliationUnit</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"AffiliationUnit"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="birthdate">BirthDate</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"BirthDate"</code></td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">day</code></td>
+      <td><a href="#birthday"><code class="language-plaintext highlighter-rouge">BirthDay</code></a></td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">month</code></td>
+      <td><a href="#birthmonth"><code class="language-plaintext highlighter-rouge">BirthMonth</code></a></td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">year</code></td>
+      <td><a href="#birthyear"><code class="language-plaintext highlighter-rouge">BirthYear</code></a></td>
+      <td style="text-align: center">✓</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="birthday">BirthDay</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">number</code></td>
+      <td style="text-align: center">✓</td>
+      <td>min: 1<br />max: 31<br />must be an integer</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="birthmonth">BirthMonth</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"BirthDay"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">number</code></td>
+      <td style="text-align: center">✓</td>
+      <td>min: 1<br />max: 12<br />must be an integer</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="birthyear">BirthYear</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"BirthMonth"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">number</code></td>
+      <td style="text-align: center">✓</td>
+      <td>min: 1<br />max: 9999<br />must be an integer</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="birthplace">BirthPlace</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"BirthPlace"</code></td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">city</code></td>
+      <td><a href="#birthcity"><code class="language-plaintext highlighter-rouge">BirthCity</code></a></td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">country</code></td>
+      <td><a href="#birthcountry"><code class="language-plaintext highlighter-rouge">BirthCountry</code></a></td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">state</code></td>
+      <td><a href="#birthstate"><code class="language-plaintext highlighter-rouge">BirthState</code></a></td>
+      <td style="text-align: center">✗</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="birthcity">BirthCity</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"BirthCity"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="birthcountry">BirthCountry</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"BirthCountry"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>only <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="birthstate">BirthState</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"BirthState"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>only <a href="https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes">ISO-639-1</a> language codes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="communicationlanguage">CommunicationLanguage</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"CommunicationLanguage"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="emailaddress">EMailAddress</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"EMailAddress"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>min. length: 3<br />max. length: 100<br />must match <code class="language-plaintext highlighter-rouge">^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="faxnumber">FaxNumber</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"FaxNumber"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>min. length: 3<br />max. length: 100<br />must match <code class="language-plaintext highlighter-rouge">^[\d+\-x#*()/[\] ]{3,100}$</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="website">Website</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"Website"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>min. length: 3<br />max. length: 1024<br />must be a valid URL</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="displayname">DisplayName</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"DisplayName"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="filereference">FileReference</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"FileReference"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="personname">PersonName</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"PersonName"</code></td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">givenName</code></td>
+      <td><a href="#givenname"><code class="language-plaintext highlighter-rouge">GivenName</code></a></td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">middleName</code></td>
+      <td><a href="#middlename"><code class="language-plaintext highlighter-rouge">MiddleName</code></a></td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">surname</code></td>
+      <td><a href="#surname"><code class="language-plaintext highlighter-rouge">Surname</code></a></td>
+      <td style="text-align: center">✓</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">honorificSuffix</code></td>
+      <td><a href="#honorificsuffix"><code class="language-plaintext highlighter-rouge">HonorificSuffix</code></a></td>
+      <td style="text-align: center">✗</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">honorificPrefix</code></td>
+      <td><a href="#honorificprefix"><code class="language-plaintext highlighter-rouge">HonorificPrefix</code></a></td>
+      <td style="text-align: center">✗</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="givenname">GivenName</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"GivenName"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="honorificprefix">HonorificPrefix</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"HonorificPrefix"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="honorificsuffix">HonorificSuffix</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"HonorificSuffix"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="middlename">MiddleName</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"MiddleName"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="pseudonym">Pseudonym</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"Pseudonym"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="surname">Surname</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"Surname"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="birthname">BirthName</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"BirthName"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="citizenship">Citizenship</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"Citizenship"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>only <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="jobtitle">JobTitle</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"JobTitle"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="nationality">Nationality</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"Nationality"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>only <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="sex">Sex</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"Sex"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>one of: <code class="language-plaintext highlighter-rouge">"intersex"</code>, <code class="language-plaintext highlighter-rouge">"female"</code>, <code class="language-plaintext highlighter-rouge">"male"</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="relationship-attributes">Relationship Attributes</h1>
+
+<p>The Attribute values in this chapter can only be used in a <a href="/explore/data-model#relationshipattribute">Relationship Attriubte</a>. Most of them are generic. You can recognize those by the prefix <code class="language-plaintext highlighter-rouge">Proprietary</code> (e.g. <code class="language-plaintext highlighter-rouge">ProprietaryInteger</code>, <code class="language-plaintext highlighter-rouge">ProprietaryString</code>, …). In order to add some validation, you have the option to add <a href="/explore/data-model#valuehints"><code class="language-plaintext highlighter-rouge">valueHints</code></a>.</p>
+
+<h2 id="consent">Consent</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"Consent"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">consent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 2000</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">valueHintsOverride</code></td>
+      <td><a href="/explore/data-model#valuehintsoverride"><code class="language-plaintext highlighter-rouge">ValueHintsOverride</code></a></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">link</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✗</td>
+      <td>min. length: 3<br />max. length: 1024<br />must be a valid URL</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="proprietaryboolean">ProprietaryBoolean</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ProprietaryBoolean"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">title</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">valueHintsOverride</code></td>
+      <td><a href="/explore/data-model#valuehintsoverride"><code class="language-plaintext highlighter-rouge">ValueHintsOverride</code></a></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="proprietarycountry">ProprietaryCountry</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ProprietaryCountry"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">title</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">valueHintsOverride</code></td>
+      <td><a href="/explore/data-model#valuehintsoverride"><code class="language-plaintext highlighter-rouge">ValueHintsOverride</code></a></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>only <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="proprietaryemailaddress">ProprietaryEMailAddress</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ProprietaryEMailAddress"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">title</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">valueHintsOverride</code></td>
+      <td><a href="/explore/data-model#valuehintsoverride"><code class="language-plaintext highlighter-rouge">ValueHintsOverride</code></a></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>min. length: 3<br />max. length: 100<br />must match <code class="language-plaintext highlighter-rouge">^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="proprietaryfilereference">ProprietaryFileReference</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ProprietaryFileReference"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">title</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">valueHintsOverride</code></td>
+      <td><a href="/explore/data-model#valuehintsoverride"><code class="language-plaintext highlighter-rouge">ValueHintsOverride</code></a></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="proprietaryfloat">ProprietaryFloat</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ProprietaryFloat"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">title</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">valueHintsOverride</code></td>
+      <td><a href="/explore/data-model#valuehintsoverride"><code class="language-plaintext highlighter-rouge">ValueHintsOverride</code></a></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">number</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="proprietaryhexcolor">ProprietaryHEXColor</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ProprietaryHEXColor"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">title</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">valueHintsOverride</code></td>
+      <td><a href="/explore/data-model#valuehintsoverride"><code class="language-plaintext highlighter-rouge">ValueHintsOverride</code></a></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>min.length: 4<br /> must match <code class="language-plaintext highlighter-rouge">^#([0-9A-F]{3}){1,2}$</code><br />max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="proprietaryinteger">ProprietaryInteger</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ProprietaryInteger"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">title</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">valueHintsOverride</code></td>
+      <td><a href="/explore/data-model#valuehintsoverride"><code class="language-plaintext highlighter-rouge">ValueHintsOverride</code></a></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">number</code></td>
+      <td style="text-align: center">✓</td>
+      <td>must be an integer</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="proprietarylanguage">ProprietaryLanguage</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ProprietaryLanguage"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">title</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">valueHintsOverride</code></td>
+      <td><a href="/explore/data-model#valuehintsoverride"><code class="language-plaintext highlighter-rouge">ValueHintsOverride</code></a></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>only <a href="https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes">ISO-639-1</a> language codes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="proprietaryphonenumber">ProprietaryPhoneNumber</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ProprietaryPhoneNumber"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">title</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">valueHintsOverride</code></td>
+      <td><a href="/explore/data-model#valuehintsoverride"><code class="language-plaintext highlighter-rouge">ValueHintsOverride</code></a></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>min. length: 3<br />max. length: 100<br />must match <code class="language-plaintext highlighter-rouge">^[\d+\-x#*()/[\] ]{3,100}$</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="proprietarystring">ProprietaryString</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ProprietaryString"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">title</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">valueHintsOverride</code></td>
+      <td><a href="/explore/data-model#valuehintsoverride"><code class="language-plaintext highlighter-rouge">ValueHintsOverride</code></a></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>max. length: 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="proprietaryurl">ProprietaryURL</h2>
+
+<p><strong>Properties</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th style="text-align: center">Required</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"ProprietaryURL"</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">title</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">valueHintsOverride</code></td>
+      <td><a href="/explore/data-model#valuehintsoverride"><code class="language-plaintext highlighter-rouge">ValueHintsOverride</code></a></td>
+      <td style="text-align: center">✗</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓</td>
+      <td>min. length: 3<br />max. length: 1024<br />must be a valid URL</td>
+    </tr>
+  </tbody>
+</table>
 
         
       </section>
@@ -324,7 +2186,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-26T09:23:32+02:00">October 26, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-28T16:53:14+02:00">October 28, 2022</time></p>
 
       </footer>
 

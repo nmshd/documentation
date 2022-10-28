@@ -126,7 +126,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Attribute Values",
-        "excerpt":" ","categories": [],
+        "excerpt":"Identity Attributes The Attribute values in this chapter can only be used in a Identity Attriubte. DeliveryBoxAddress Properties Name Type Required Validation @type \"DeliveryBoxAddress\" ✓   recipient string ✓ max. length: 100 deliveryBoxId string ✓ max. length: 100 userId string ✓ max. length: 100 zipCode ZipCode ✓   city City...","categories": [],
         "tags": [],
         "url": "/explore/attribute-values",
         "teaser": null
