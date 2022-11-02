@@ -6,7 +6,7 @@ toc: true
 
 # Identity Attributes
 
-The Attribute values in this chapter can only be used in a [Identity Attriubte]({% link _docs_explore/61-data-model.md %}#identityattribute).
+The Attribute values in this chapter can only be used in an [Identity Attriubte]({% link _docs_explore/61-data-model.md %}#identityattribute).
 
 ## Affiliation
 
