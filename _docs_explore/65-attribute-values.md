@@ -8,114 +8,6 @@ toc: true
 
 The Attribute values in this chapter can only be used in a [Identity Attriubte]({% link _docs_explore/61-data-model.md %}#identityattribute).
 
-## DeliveryBoxAddress
-
-**Properties**
-
-| Name            | Type                          | Required | Validation       |
-| --------------- | ----------------------------- | :------: | ---------------- |
-| `@type`         | `"DeliveryBoxAddress"`        |    ✓     |                  |
-| `recipient`     | `string`                      |    ✓     | max. length: 100 |
-| `deliveryBoxId` | `string`                      |    ✓     | max. length: 100 |
-| `userId`        | `string`                      |    ✓     | max. length: 100 |
-| `zipCode`       | [`ZipCode`](#zipcode)         |    ✓     |                  |
-| `city`          | [`City`](#city)               |    ✓     |                  |
-| `country`       | [`Country`](#country)         |    ✓     |                  |
-| `phoneNumber`   | [`PhoneNumber`](#phonenumber) |    ✗     |                  |
-| `state`         | [`State`](#state)             |    ✗     |                  |
-
-## PostOfficeBoxAddress
-
-**Properties**
-
-| Name        | Type                     | Required | Validation       |
-| ----------- | ------------------------ | :------: | ---------------- |
-| `@type`     | `"PostOfficeBoxAddress"` |    ✓     |                  |
-| `recipient` | `string`                 |    ✓     | max. length: 100 |
-| `boxId`     | `string`                 |    ✓     | max. length: 100 |
-| `zipCode`   | [`ZipCode`](#zipcode)    |    ✓     |                  |
-| `city`      | [`City`](#city)          |    ✓     |                  |
-| `country`   | [`Country`](#country)    |    ✓     |                  |
-| `state`     | [`State`](#state)        |    ✗     |                  |
-
-## StreetAddress
-
-**Properties**
-
-| Name          | Type                          | Required | Validation       |
-| ------------- | ----------------------------- | :------: | ---------------- |
-| `@type`       | `"StreetAddress"`             |    ✓     |                  |
-| `recipient`   | `string`                      |    ✓     | max. length: 100 |
-| `street`      | [`Street`](#street)           |    ✓     |                  |
-| `houseNumber` | [`HouseNumber`](#housenumber) |    ✓     |                  |
-| `zipCode`     | [`ZipCode`](#zipcode)         |    ✓     |                  |
-| `city`        | [`City`](#city)               |    ✓     |                  |
-| `country`     | [`Country`](#country)         |    ✓     |                  |
-| `state`       | [`State`](#state)             |    ✓     |                  |
-
-## Street
-
-**Properties**
-
-| Name    | Type       | Required | Validation       |
-| ------- | ---------- | :------: | ---------------- |
-| `@type` | `"Street"` |    ✓     |                  |
-| `value` | `string`   |    ✓     | max. length: 100 |
-
-## HouseNumber
-
-**Properties**
-
-| Name    | Type            | Required | Validation       |
-| ------- | --------------- | :------: | ---------------- |
-| `@type` | `"HouseNumber"` |    ✓     |                  |
-| `value` | `string`        |    ✓     | max. length: 100 |
-
-## City
-
-**Properties**
-
-| Name    | Type     | Required | Validation       |
-| ------- | -------- | :------: | ---------------- |
-| `@type` | `"City"` |    ✓     |                  |
-| `value` | `string` |    ✓     | max. length: 100 |
-
-## Country
-
-**Properties**
-
-| Name    | Type        | Required | Validation                                                                                |
-| ------- | ----------- | :------: | ----------------------------------------------------------------------------------------- |
-| `@type` | `"Country"` |    ✓     |                                                                                           |
-| `value` | `string`    |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes |
-
-## PhoneNumber
-
-**Properties**
-
-| Name    | Type            | Required | Validation       |
-| ------- | --------------- | :------: | ---------------- |
-| `@type` | `"PhoneNumber"` |    ✓     |                  |
-| `value` | `string`        |    ✓     | max. length: 100 |
-
-## State
-
-**Properties**
-
-| Name    | Type      | Required | Validation       |
-| ------- | --------- | :------: | ---------------- |
-| `@type` | `"State"` |    ✓     |                  |
-| `value` | `string`  |    ✓     | max. length: 100 |
-
-## ZipCode
-
-**Properties**
-
-| Name    | Type        | Required | Validation       |
-| ------- | ----------- | :------: | ---------------- |
-| `@type` | `"ZipCode"` |    ✓     |                  |
-| `value` | `string`    |    ✓     | max. length: 100 |
-
 ## Affiliation
 
 **Properties**
@@ -126,15 +18,6 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | role         | [`AffiliationRole`](#affiliationrole)                 |    ✓     |
 | organization | [`AffiliationOrganization`](#affiliationorganization) |    ✓     |
 | unit         | [`AffiliationUnit`](#affiliationunit)                 |    ✓     |
-
-## AffiliationRole
-
-**Properties**
-
-| Name    | Type                | Required | Validation       |
-| ------- | ------------------- | :------: | ---------------- |
-| `@type` | `"AffiliationRole"` |    ✓     |                  |
-| `value` | `string`            |    ✓     | max. length: 100 |
 
 ## AffiliationOrganization
 
@@ -147,6 +30,15 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 
 **Validation**
 
+## AffiliationRole
+
+**Properties**
+
+| Name    | Type                | Required | Validation       |
+| ------- | ------------------- | :------: | ---------------- |
+| `@type` | `"AffiliationRole"` |    ✓     |                  |
+| `value` | `string`            |    ✓     | max. length: 100 |
+
 ## AffiliationUnit
 
 **Properties**
@@ -155,6 +47,24 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | ------- | ------------------- | :------: | ---------------- |
 | `@type` | `"AffiliationUnit"` |    ✓     |                  |
 | `value` | `string`            |    ✓     | max. length: 100 |
+
+## BirthCity
+
+**Properties**
+
+| Name    | Type          | Required | Validation       |
+| ------- | ------------- | :------: | ---------------- |
+| `@type` | `"BirthCity"` |    ✓     |                  |
+| `value` | `string`      |    ✓     | max. length: 100 |
+
+## BirthCountry
+
+**Properties**
+
+| Name    | Type             | Required | Validation                                                                                |
+| ------- | ---------------- | :------: | ----------------------------------------------------------------------------------------- |
+| `@type` | `"BirthCountry"` |    ✓     |                                                                                           |
+| `value` | `string`         |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes |
 
 ## BirthDate
 
@@ -180,12 +90,14 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"BirthDay"` |    ✓     |                                         |
 | `value` | `number`     |    ✓     | min: 1<br>max: 12<br>must be an integer |
 
-## BirthYear
+## BirthName
 
-| Name    | Type           | Required | Validation                                |
-| ------- | -------------- | :------: | ----------------------------------------- |
-| `@type` | `"BirthMonth"` |    ✓     |                                           |
-| `value` | `number`       |    ✓     | min: 1<br>max: 9999<br>must be an integer |
+**Properties**
+
+| Name    | Type          | Required | Validation       |
+| ------- | ------------- | :------: | ---------------- |
+| `@type` | `"BirthName"` |    ✓     |                  |
+| `value` | `string`      |    ✓     | max. length: 100 |
 
 ## BirthPlace
 
@@ -198,24 +110,6 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `country` | [`BirthCountry`](#birthcountry) |    ✓     |
 | `state`   | [`BirthState`](#birthstate)     |    ✗     |
 
-## BirthCity
-
-**Properties**
-
-| Name    | Type          | Required | Validation       |
-| ------- | ------------- | :------: | ---------------- |
-| `@type` | `"BirthCity"` |    ✓     |                  |
-| `value` | `string`      |    ✓     | max. length: 100 |
-
-## BirthCountry
-
-**Properties**
-
-| Name    | Type             | Required | Validation                                                                                |
-| ------- | ---------------- | :------: | ----------------------------------------------------------------------------------------- |
-| `@type` | `"BirthCountry"` |    ✓     |                                                                                           |
-| `value` | `string`         |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes |
-
 ## BirthState
 
 **Properties**
@@ -225,6 +119,31 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"BirthState"` |    ✓     |                                                                                          |
 | `value` | `string`       |    ✓     | only [ISO-639-1](https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes) language codes |
 
+## BirthYear
+
+| Name    | Type           | Required | Validation                                |
+| ------- | -------------- | :------: | ----------------------------------------- |
+| `@type` | `"BirthMonth"` |    ✓     |                                           |
+| `value` | `number`       |    ✓     | min: 1<br>max: 9999<br>must be an integer |
+
+## Citizenship
+
+**Properties**
+
+| Name    | Type            | Required | Validation                                                                                |
+| ------- | --------------- | :------: | ----------------------------------------------------------------------------------------- |
+| `@type` | `"Citizenship"` |    ✓     |                                                                                           |
+| `value` | `string`        |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes |
+
+## City
+
+**Properties**
+
+| Name    | Type     | Required | Validation       |
+| ------- | -------- | :------: | ---------------- |
+| `@type` | `"City"` |    ✓     |                  |
+| `value` | `string` |    ✓     | max. length: 100 |
+
 ## CommunicationLanguage
 
 **Properties**
@@ -233,6 +152,40 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | ------- | ------------------------- | :------: | ---------------- |
 | `@type` | `"CommunicationLanguage"` |    ✓     |                  |
 | `value` | `string`                  |    ✓     | max. length: 100 |
+
+## Country
+
+**Properties**
+
+| Name    | Type        | Required | Validation                                                                                |
+| ------- | ----------- | :------: | ----------------------------------------------------------------------------------------- |
+| `@type` | `"Country"` |    ✓     |                                                                                           |
+| `value` | `string`    |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes |
+
+## DeliveryBoxAddress
+
+**Properties**
+
+| Name            | Type                          | Required | Validation       |
+| --------------- | ----------------------------- | :------: | ---------------- |
+| `@type`         | `"DeliveryBoxAddress"`        |    ✓     |                  |
+| `recipient`     | `string`                      |    ✓     | max. length: 100 |
+| `deliveryBoxId` | `string`                      |    ✓     | max. length: 100 |
+| `userId`        | `string`                      |    ✓     | max. length: 100 |
+| `zipCode`       | [`ZipCode`](#zipcode)         |    ✓     |                  |
+| `city`          | [`City`](#city)               |    ✓     |                  |
+| `country`       | [`Country`](#country)         |    ✓     |                  |
+| `phoneNumber`   | [`PhoneNumber`](#phonenumber) |    ✗     |                  |
+| `state`         | [`State`](#state)             |    ✗     |                  |
+
+## DisplayName
+
+**Properties**
+
+| Name    | Type            | Required | Validation       |
+| ------- | --------------- | :------: | ---------------- |
+| `@type` | `"DisplayName"` |    ✓     |                  |
+| `value` | `string`        |    ✓     | max. length: 100 |
 
 ## EMailAddress
 
@@ -252,24 +205,6 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"FaxNumber"` |    ✓     |                                                                               |
 | `value` | `string`      |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[\d+\-x#*()/[\] ]{3,100}$` |
 
-## Website
-
-**Properties**
-
-| Name    | Type        | Required | Validation                                                 |
-| ------- | ----------- | :------: | ---------------------------------------------------------- |
-| `@type` | `"Website"` |    ✓     |                                                            |
-| `value` | `string`    |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
-
-## DisplayName
-
-**Properties**
-
-| Name    | Type            | Required | Validation       |
-| ------- | --------------- | :------: | ---------------- |
-| `@type` | `"DisplayName"` |    ✓     |                  |
-| `value` | `string`        |    ✓     | max. length: 100 |
-
 ## FileReference
 
 **Properties**
@@ -278,19 +213,6 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | ------- | ----------------- | :------: | ---------------- |
 | `@type` | `"FileReference"` |    ✓     |                  |
 | `value` | `string`          |    ✓     | max. length: 100 |
-
-## PersonName
-
-**Properties**
-
-| Name              | Type                                  | Required |
-| ----------------- | ------------------------------------- | :------: |
-| `@type`           | `"PersonName"`                        |    ✓     |
-| `givenName`       | [`GivenName`](#givenname)             |    ✓     |
-| `middleName`      | [`MiddleName`](#middlename)           |    ✗     |
-| `surname`         | [`Surname`](#surname)                 |    ✓     |
-| `honorificSuffix` | [`HonorificSuffix`](#honorificsuffix) |    ✗     |
-| `honorificPrefix` | [`HonorificPrefix`](#honorificprefix) |    ✗     |
 
 ## GivenName
 
@@ -319,50 +241,14 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"HonorificSuffix"` |    ✓     |                  |
 | `value` | `string`            |    ✓     | max. length: 100 |
 
-## MiddleName
+## HouseNumber
 
 **Properties**
 
-| Name    | Type           | Required | Validation       |
-| ------- | -------------- | :------: | ---------------- |
-| `@type` | `"MiddleName"` |    ✓     |                  |
-| `value` | `string`       |    ✓     | max. length: 100 |
-
-## Pseudonym
-
-**Properties**
-
-| Name    | Type          | Required | Validation       |
-| ------- | ------------- | :------: | ---------------- |
-| `@type` | `"Pseudonym"` |    ✓     |                  |
-| `value` | `string`      |    ✓     | max. length: 100 |
-
-## Surname
-
-**Properties**
-
-| Name    | Type        | Required | Validation       |
-| ------- | ----------- | :------: | ---------------- |
-| `@type` | `"Surname"` |    ✓     |                  |
-| `value` | `string`    |    ✓     | max. length: 100 |
-
-## BirthName
-
-**Properties**
-
-| Name    | Type          | Required | Validation       |
-| ------- | ------------- | :------: | ---------------- |
-| `@type` | `"BirthName"` |    ✓     |                  |
-| `value` | `string`      |    ✓     | max. length: 100 |
-
-## Citizenship
-
-**Properties**
-
-| Name    | Type            | Required | Validation                                                                                |
-| ------- | --------------- | :------: | ----------------------------------------------------------------------------------------- |
-| `@type` | `"Citizenship"` |    ✓     |                                                                                           |
-| `value` | `string`        |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes |
+| Name    | Type            | Required | Validation       |
+| ------- | --------------- | :------: | ---------------- |
+| `@type` | `"HouseNumber"` |    ✓     |                  |
+| `value` | `string`        |    ✓     | max. length: 100 |
 
 ## JobTitle
 
@@ -373,6 +259,15 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"JobTitle"` |    ✓     |                  |
 | `value` | `string`     |    ✓     | max. length: 100 |
 
+## MiddleName
+
+**Properties**
+
+| Name    | Type           | Required | Validation       |
+| ------- | -------------- | :------: | ---------------- |
+| `@type` | `"MiddleName"` |    ✓     |                  |
+| `value` | `string`       |    ✓     | max. length: 100 |
+
 ## Nationality
 
 **Properties**
@@ -382,6 +277,51 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | `@type` | `"Nationality"` |    ✓     |                                                                             |
 | `value` | `string`        |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) |
 
+## PersonName
+
+**Properties**
+
+| Name              | Type                                  | Required |
+| ----------------- | ------------------------------------- | :------: |
+| `@type`           | `"PersonName"`                        |    ✓     |
+| `givenName`       | [`GivenName`](#givenname)             |    ✓     |
+| `middleName`      | [`MiddleName`](#middlename)           |    ✗     |
+| `surname`         | [`Surname`](#surname)                 |    ✓     |
+| `honorificSuffix` | [`HonorificSuffix`](#honorificsuffix) |    ✗     |
+| `honorificPrefix` | [`HonorificPrefix`](#honorificprefix) |    ✗     |
+
+## PhoneNumber
+
+**Properties**
+
+| Name    | Type            | Required | Validation       |
+| ------- | --------------- | :------: | ---------------- |
+| `@type` | `"PhoneNumber"` |    ✓     |                  |
+| `value` | `string`        |    ✓     | max. length: 100 |
+
+## PostOfficeBoxAddress
+
+**Properties**
+
+| Name        | Type                     | Required | Validation       |
+| ----------- | ------------------------ | :------: | ---------------- |
+| `@type`     | `"PostOfficeBoxAddress"` |    ✓     |                  |
+| `recipient` | `string`                 |    ✓     | max. length: 100 |
+| `boxId`     | `string`                 |    ✓     | max. length: 100 |
+| `zipCode`   | [`ZipCode`](#zipcode)    |    ✓     |                  |
+| `city`      | [`City`](#city)          |    ✓     |                  |
+| `country`   | [`Country`](#country)    |    ✓     |                  |
+| `state`     | [`State`](#state)        |    ✗     |                  |
+
+## Pseudonym
+
+**Properties**
+
+| Name    | Type          | Required | Validation       |
+| ------- | ------------- | :------: | ---------------- |
+| `@type` | `"Pseudonym"` |    ✓     |                  |
+| `value` | `string`      |    ✓     | max. length: 100 |
+
 ## Sex
 
 **Properties**
@@ -390,6 +330,66 @@ The Attribute values in this chapter can only be used in a [Identity Attriubte](
 | ------- | -------- | :------: | ------------------------------------------ |
 | `@type` | `"Sex"`  |    ✓     |                                            |
 | `value` | `string` |    ✓     | one of: `"intersex"`, `"female"`, `"male"` |
+
+## State
+
+**Properties**
+
+| Name    | Type      | Required | Validation       |
+| ------- | --------- | :------: | ---------------- |
+| `@type` | `"State"` |    ✓     |                  |
+| `value` | `string`  |    ✓     | max. length: 100 |
+
+## Street
+
+**Properties**
+
+| Name    | Type       | Required | Validation       |
+| ------- | ---------- | :------: | ---------------- |
+| `@type` | `"Street"` |    ✓     |                  |
+| `value` | `string`   |    ✓     | max. length: 100 |
+
+## StreetAddress
+
+**Properties**
+
+| Name          | Type                          | Required | Validation       |
+| ------------- | ----------------------------- | :------: | ---------------- |
+| `@type`       | `"StreetAddress"`             |    ✓     |                  |
+| `recipient`   | `string`                      |    ✓     | max. length: 100 |
+| `street`      | [`Street`](#street)           |    ✓     |                  |
+| `houseNumber` | [`HouseNumber`](#housenumber) |    ✓     |                  |
+| `zipCode`     | [`ZipCode`](#zipcode)         |    ✓     |                  |
+| `city`        | [`City`](#city)               |    ✓     |                  |
+| `country`     | [`Country`](#country)         |    ✓     |                  |
+| `state`       | [`State`](#state)             |    ✓     |                  |
+
+## Surname
+
+**Properties**
+
+| Name    | Type        | Required | Validation       |
+| ------- | ----------- | :------: | ---------------- |
+| `@type` | `"Surname"` |    ✓     |                  |
+| `value` | `string`    |    ✓     | max. length: 100 |
+
+## Website
+
+**Properties**
+
+| Name    | Type        | Required | Validation                                                 |
+| ------- | ----------- | :------: | ---------------------------------------------------------- |
+| `@type` | `"Website"` |    ✓     |                                                            |
+| `value` | `string`    |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+
+## ZipCode
+
+**Properties**
+
+| Name    | Type        | Required | Validation       |
+| ------- | ----------- | :------: | ---------------- |
+| `@type` | `"ZipCode"` |    ✓     |                  |
+| `value` | `string`    |    ✓     | max. length: 100 |
 
 # Relationship Attributes
 
