@@ -393,7 +393,7 @@ The Attribute values in this chapter can only be used in an [Identity Attribute]
 
 # Relationship Attributes
 
-The Attribute values in this chapter can only be used in a [Relationship Attriubte]({% link _docs_explore/61-data-model.md %}#relationshipattribute). Most of them are generic. You can recognize those by the prefix `Proprietary` (e.g. `ProprietaryInteger`, `ProprietaryString`, ...). In order to add some validation, you have the option to add [`valueHints`]({% link _docs_explore/61-data-model.md %}#valuehints).
+The Attribute values in this chapter can only be used in a [Relationship Attribute]({% link _docs_explore/61-data-model.md %}#relationshipattribute). Most of them are generic. You can recognize those by the prefix `Proprietary` (e.g. `ProprietaryInteger`, `ProprietaryString`, ...). In order to add some validation, you have the option to add [`valueHints`]({% link _docs_explore/61-data-model.md %}#valuehints).
 
 ## Consent
 
