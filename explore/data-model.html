@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Enmeshed Data Model - Enmeshed</title>
-<meta name="description" content="The Enmeshed data model can be devided into three parts:">
+<meta name="description" content="The Enmeshed data model can be divided into three parts:">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="/explore/data-model">
 
 
-  <meta property="og:description" content="The Enmeshed data model can be devided into three parts:">
+  <meta property="og:description" content="The Enmeshed data model can be divided into three parts:">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-11-03T08:30:37+01:00">
+  <meta property="article:published_time" content="2022-11-03T15:13:09+01:00">
 
 
 
@@ -287,8 +287,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Enmeshed Data Model">
-    <meta itemprop="description" content="The Enmeshed data model can be devided into three parts:">
-    <meta itemprop="datePublished" content="2022-11-03T08:30:37+01:00">
+    <meta itemprop="description" content="The Enmeshed data model can be divided into three parts:">
+    <meta itemprop="datePublished" content="2022-11-03T15:13:09+01:00">
     
 
     <div class="page__inner-wrap">
@@ -314,7 +314,7 @@
             </nav>
           </aside>
         
-        <p>The Enmeshed data model can be devided into three parts:</p>
+        <p>The Enmeshed data model can be divided into three parts:</p>
 
 <ul>
   <li>Transport types</li>
@@ -331,9 +331,9 @@
 
 <h1 id="transport-types">Transport Types</h1>
 
-<p>Transport types like <code class="language-plaintext highlighter-rouge">RelationshipTemplate</code>, <code class="language-plaintext highlighter-rouge">Token</code> or <code class="language-plaintext highlighter-rouge">File</code> are types that are “exchanged” between Identities via the Backbone. They are created and updated by the <a href="/explore/layers/transport">Transport Layer</a>. In most cases they have a <code class="language-plaintext highlighter-rouge">content</code> property, which contains the actual payload that should be transferred between the Identities. This payload is being encrypted when it is sent to the Backbone, and decrypted by the other Identity when it is received. The following sections describe the differnt Transport types and their properties.</p>
+<p>Transport types like <code class="language-plaintext highlighter-rouge">RelationshipTemplate</code>, <code class="language-plaintext highlighter-rouge">Token</code> or <code class="language-plaintext highlighter-rouge">File</code> are types that are “exchanged” between Identities via the Backbone. They are created and updated by the <a href="/explore/layers/transport">Transport Layer</a>. In most cases they have a <code class="language-plaintext highlighter-rouge">content</code> property, which contains the actual payload that should be transferred between the Identities. This payload is being encrypted when it is sent to the Backbone, and decrypted by the other Identity when it is received. The following sections describe the different Transport types and their properties.</p>
 
-<p>Note that the properties of the types are the ones that exist locally (aka on the Connector/in the App). The Backbone does not necessarily know about them. The properties that only exist locally are marked accordingly in the tables below. Further there are properties that are confidential and are therefore encrypted before sent to the Backbone, in order to enable end-to-end encryption. Both kinds of these properties are marked accordingly in the “Remarks” coloumn of the property tables below.</p>
+<p>Note that the properties of the types are the ones that exist locally (aka on the Connector/in the App). The Backbone does not necessarily know about them. The properties that only exist locally are marked accordingly in the tables below. Further there are properties that are confidential and are therefore encrypted before sent to the Backbone, in order to enable end-to-end encryption. Both kinds of these properties are marked accordingly in the “Remarks” column of the property tables below.</p>
 
 <h2 id="token">Token</h2>
 
@@ -413,7 +413,7 @@
 
 <ol>
   <li>It represents the permission to establish a Relationship. When sending a Relationship request, the sender has to attach the ID of a valid Relationship Template created by the recipient. Otherwise the Backbone blocks the Relationship request. And since the IDs are randomly generated, you can only obtain such an ID from the recipient.</li>
-  <li>It can contain data which is of intereset for the one who uses the Relationship Template. The Enmeshed App for example expects a Relationship Template content which contains a <code class="language-plaintext highlighter-rouge">Request</code> which contains e.g. Attributes about the creator of the Template as well as queries for Attributes that the Template creator wants to receive together with the Relationship request.</li>
+  <li>It can contain data which is of interest for the one who uses the Relationship Template. The Enmeshed App for example expects a Relationship Template content which contains a <code class="language-plaintext highlighter-rouge">Request</code> which contains e.g. Attributes about the creator of the Template as well as queries for Attributes that the Template creator wants to receive together with the Relationship request.</li>
 </ol>
 
 <table>
@@ -459,7 +459,7 @@
     <tr>
       <td>content</td>
       <td><a href="#relationshiptemplatecontent"><code class="language-plaintext highlighter-rouge">RelationshipTemplateContent</code></a> | <code class="language-plaintext highlighter-rouge">unknown</code></td>
-      <td>The content of the Relationship Template. You can add whatever you want here. However, if it is intendend for a User of the Enmeshed App, <code class="language-plaintext highlighter-rouge">RelationshipTemplateContent</code> has to be used. Otherwise feel free to insert whatever you want or need.</td>
+      <td>The content of the Relationship Template. You can add whatever you want here. However, if it is intended for a User of the Enmeshed App, <code class="language-plaintext highlighter-rouge">RelationshipTemplateContent</code> has to be used. Otherwise feel free to insert whatever you want or need.</td>
       <td>remark</td>
     </tr>
     <tr>
@@ -526,7 +526,7 @@
 
 <h3 id="relationshipchange">RelationshipChange</h3>
 
-<p>Since a Relationship “belongs” to two Identities, each change on such a Relationship demands for the agreement of both parties. That’s where Relationship Changes come into play. Whenenver one party wants to make a change to the Relationship (like create or terminate it), it sends a Relationship Change to the other party, which has to accept it in order for the change to take effect. If the other party doesn’t want to accept it, it can also reject it. And if the party that created the Relationship Change changes its mind, it can revoke the Relationship Change. The Backbone makes sure that a Relationship Change can only be completed in one of those three ways (accepted, rejected, revoked). So for example if you try to accept a Relationship Change that is already revoked, you will receive an error.</p>
+<p>Since a Relationship “belongs” to two Identities, each change on such a Relationship demands for the agreement of both parties. That’s where Relationship Changes come into play. Whenever one party wants to make a change to the Relationship (like create or terminate it), it sends a Relationship Change to the other party, which has to accept it in order for the change to take effect. If the other party doesn’t want to accept it, it can also reject it. And if the party that created the Relationship Change changes its mind, it can revoke the Relationship Change. The Backbone makes sure that a Relationship Change can only be completed in one of those three ways (accepted, rejected, revoked). So for example if you try to accept a Relationship Change that is already revoked, you will receive an error.</p>
 
 <table>
   <thead>
@@ -684,7 +684,7 @@
     <tr>
       <td>content</td>
       <td><code class="language-plaintext highlighter-rouge">unknown</code></td>
-      <td>The content of the Message. You can add whatever you want here. However, if it is intendend for a User of the Enmeshed App, use either <code class="language-plaintext highlighter-rouge">Mail</code>, <code class="language-plaintext highlighter-rouge">Request</code> or <code class="language-plaintext highlighter-rouge">Response</code>. Otherwise feel free to insert whatever you want or need.</td>
+      <td>The content of the Message. You can add whatever you want here. However, if it is intended for a User of the Enmeshed App, use either <code class="language-plaintext highlighter-rouge">Mail</code>, <code class="language-plaintext highlighter-rouge">Request</code> or <code class="language-plaintext highlighter-rouge">Response</code>. Otherwise feel free to insert whatever you want or need.</td>
       <td>will be encrypted before sent to the Backbone</td>
     </tr>
     <tr>
@@ -946,7 +946,7 @@
   <dt>Decided</dt>
   <dd>When the User or the Decider Module accepts or rejects the Request, the Response and ResponseItems are generated based on the passed parameters. This Response is saved in the <code class="language-plaintext highlighter-rouge">response</code> property of the <code class="language-plaintext highlighter-rouge">LocalRequest</code>, but not yet sent.</dd>
   <dt>Completed</dt>
-  <dd>In case of an incoming Request, the Runtime Module listens to an Event saying that a Request moved to status <code class="language-plaintext highlighter-rouge">Decided</code>. It then checks on which way the Request was received (Message/RelationshipTemplate) and sends the Response on the corresponding way (by sending a message or creating a Relationship). After the Response was successfuly sent, it moves the Local Request to <code class="language-plaintext highlighter-rouge">Completed</code>.</dd>
+  <dd>In case of an incoming Request, the Runtime Module listens to an Event saying that a Request moved to status <code class="language-plaintext highlighter-rouge">Decided</code>. It then checks on which way the Request was received (Message/RelationshipTemplate) and sends the Response on the corresponding way (by sending a message or creating a Relationship). After the Response was successfully sent, it moves the Local Request to <code class="language-plaintext highlighter-rouge">Completed</code>.</dd>
   <dd>In case of an outgoing Request, the Runtime Module listens to the <code class="language-plaintext highlighter-rouge">MessageReceivedEvent</code> and checks the content of the sent Message for a Response. If there is one, it moves the corresponding Local Request to <code class="language-plaintext highlighter-rouge">Completed</code>.</dd>
   <dt>Expired</dt>
   <dd>When the timestamp in <code class="language-plaintext highlighter-rouge">expiresAt</code> of a Request is reached, the Request automatically moves to the status <code class="language-plaintext highlighter-rouge">Expired</code>.</dd>
@@ -1062,7 +1062,7 @@
     <tr>
       <td>parentId</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>If the Attribute referenced by this Local Attribute is a component of a composite Attribute, the <code class="language-plaintext highlighter-rouge">parentId</code> property is set to the id of the composite Attribute. Example: if a Local Attribute is created with the content <code class="language-plaintext highlighter-rouge">StreetAddres</code>, for each property of the <code class="language-plaintext highlighter-rouge">StreetAddres</code> an additional Local Attribute is created. And each of these will have <code class="language-plaintext highlighter-rouge">parentId</code> set to the <code class="language-plaintext highlighter-rouge">id</code> of the Local Attribute for the <code class="language-plaintext highlighter-rouge">StreetAddress</code>.</td>
+      <td>If the Attribute referenced by this Local Attribute is a component of a composite Attribute, the <code class="language-plaintext highlighter-rouge">parentId</code> property is set to the id of the composite Attribute. Example: if a Local Attribute is created with the content <code class="language-plaintext highlighter-rouge">StreetAddress</code>, for each property of the <code class="language-plaintext highlighter-rouge">StreetAddress</code> an additional Local Attribute is created. And each of these will have <code class="language-plaintext highlighter-rouge">parentId</code> set to the <code class="language-plaintext highlighter-rouge">id</code> of the Local Attribute for the <code class="language-plaintext highlighter-rouge">StreetAddress</code>.</td>
     </tr>
     <tr>
       <td>createdAt</td>
@@ -1312,7 +1312,7 @@
     <tr>
       <td>items</td>
       <td><code class="language-plaintext highlighter-rouge">(</code><a href="#responseitemgroup"><code class="language-plaintext highlighter-rouge">ResponseItemGroup</code></a><code class="language-plaintext highlighter-rouge">\|</code><a href="#responseitem"><code class="language-plaintext highlighter-rouge">ResponseItem</code></a><code class="language-plaintext highlighter-rouge">)[]</code></td>
-      <td>An array of Response Items and Groups that are part of the Response. For each Request Item (Group) of the Request, there must be one Response Item (Group) in the Response. Note that the indicees have to be the same for matching Request and Response Items.</td>
+      <td>An array of Response Items and Groups that are part of the Response. For each Request Item (Group) of the Request, there must be one Response Item (Group) in the Response. Note that the indices have to be the same for matching Request and Response Items.</td>
     </tr>
   </tbody>
 </table>
@@ -1420,7 +1420,7 @@
     <tr>
       <td>items</td>
       <td><a href="#responseitem"><code class="language-plaintext highlighter-rouge">ResponseItem</code></a><code class="language-plaintext highlighter-rouge">[]</code></td>
-      <td>The items inside of this Group. For each Request Item of the Request Item Group, there must be one Response Item in the Response Item Group. Note that the indicees have to be the same for matching Request and Response Items.</td>
+      <td>The items inside of this Group. For each Request Item of the Request Item Group, there must be one Response Item in the Response Item Group. Note that the indices have to be the same for matching Request and Response Items.</td>
     </tr>
   </tbody>
 </table>
@@ -1431,7 +1431,7 @@
 
 <h3 id="identityattribute">IdentityAttribute</h3>
 
-<p>Identity Attributes describe an Identity itself. Their values are strongly normalized. There is a list of available values here<!--[here](/explore/attribute-values)-->.</p>
+<p>Identity Attributes describe an Identity itself. Their values are strongly normalized. There is a list of available values <a href="/explore/attribute-values">here</a>.</p>
 
 <table>
   <thead>
@@ -1459,8 +1459,8 @@
     </tr>
     <tr>
       <td>value</td>
-      <td><code class="language-plaintext highlighter-rouge">IdentityAttributeValue</code><!--[`IdentityAttributeValue`](/explore/attribute-values#identity-attribute-values)--></td>
-      <td>The Attriubte’s value.</td>
+      <td><a href="/explore/attribute-values#identity-attributes"><code class="language-plaintext highlighter-rouge">IdentityAttributeValue</code></a></td>
+      <td>The Attribute’s value.</td>
     </tr>
   </tbody>
 </table>
@@ -1505,12 +1505,12 @@
     </tr>
     <tr>
       <td>value</td>
-      <td><code class="language-plaintext highlighter-rouge">RelationshipAttributeValue</code><!--[`RelationshipAttributeValue`](/explore/attribute-values#relationship-attribute-values --></td>
-      <td>The Attriubte’s value.</td>
+      <td><a href="/explore/attribute-values#relationship-attributes"><code class="language-plaintext highlighter-rouge">RelationshipAttributeValue</code></a></td>
+      <td>The Attribute’s value.</td>
     </tr>
     <tr>
       <td>confidentiality</td>
-      <td><code class="language-plaintext highlighter-rouge">"Public"</code> | <code class="language-plaintext highlighter-rouge">"Protected"</code> | <code class="language-plaintext highlighter-rouge">"Private"</code> | When this property is set to <code class="language-plaintext highlighter-rouge">"Private"</code>, it means that third parties are not able to query this Relationship Attribute. It therefore only exists in the Relationshp it was created in. If the confidentiality is <code class="language-plaintext highlighter-rouge">"Protected"</code>, third parties can query the Relationship Attribute, but the App shows a warning saying that you should only share it with someone you trust. If the confidentiality is <code class="language-plaintext highlighter-rouge">"Public"</code>, everybody can query the Attribute, without anything special to happen.</td>
+      <td><code class="language-plaintext highlighter-rouge">"Public"</code> | <code class="language-plaintext highlighter-rouge">"Protected"</code> | <code class="language-plaintext highlighter-rouge">"Private"</code> | When this property is set to <code class="language-plaintext highlighter-rouge">"Private"</code>, it means that third parties are not able to query this Relationship Attribute. It therefore only exists in the Relationship it was created in. If the confidentiality is <code class="language-plaintext highlighter-rouge">"Protected"</code>, third parties can query the Relationship Attribute, but the App shows a warning saying that you should only share it with someone you trust. If the confidentiality is <code class="language-plaintext highlighter-rouge">"Public"</code>, everybody can query the Attribute, without anything special to happen.</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1555,7 +1555,7 @@
 
 <h3 id="relationshipattributequery">RelationshipAttributeQuery</h3>
 
-<p>There are cases in which you want to query some data from your peer that is not an Identity Attribute. An example for this is when an elictricity provider asks for the electric meter number of a new customer. Since this information is only relevant in the context of the Relationship, an Identity Attribute wouldn’t make any sense here. That’s why you would send a RelationshipAttributeQuery. Its properties are:</p>
+<p>There are cases in which you want to query some data from your peer that is not an Identity Attribute. An example for this is when an electricity provider asks for the electric meter number of a new customer. Since this information is only relevant in the context of the Relationship, an Identity Attribute wouldn’t make any sense here. That’s why you would send a RelationshipAttributeQuery. Its properties are:</p>
 
 <table>
   <thead>
@@ -1580,6 +1580,11 @@
       <td>key</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>The key of the Relationship Attribute that should be queried.</td>
+    </tr>
+    <tr>
+      <td>owner</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The owner of the queried Relationship Attribute.</td>
     </tr>
     <tr>
       <td>attributeCreationHints</td>
@@ -1806,7 +1811,7 @@ This is because in the context of Relationships, there are <a href="#relationshi
 
 <h2 id="mail">Mail</h2>
 
-<p>A Mail can be sent as the content of a <a href="#message">Message</a>. It is comparable with the classic email, so its properties should not contain any suprise.</p>
+<p>A Mail can be sent as the content of a <a href="#message">Message</a>. It is comparable with the classic email, so its properties should not contain any surprise.</p>
 
 <table>
   <thead>
@@ -1850,7 +1855,7 @@ This is because in the context of Relationships, there are <a href="#relationshi
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-03T08:30:37+01:00">November 3, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-03T15:13:09+01:00">November 3, 2022</time></p>
 
       </footer>
 

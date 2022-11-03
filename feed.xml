@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-11-03T08:30:37+01:00</updated><id>/feed.xml</id><title type="html">Enmeshed</title><subtitle>Enmeshed is a home of various open source components, making the digital life of users and organizations easier.</subtitle><author><name>Enmeshed Team</name></author><entry><title type="html">The (bumpy) road to Enmeshed V2</title><link href="/blog/road-to-enmeshed-v2" rel="alternate" type="text/html" title="The (bumpy) road to Enmeshed V2" /><published>2022-10-06T16:00:00+02:00</published><updated>2022-10-06T16:00:00+02:00</updated><id>/blog/road-to-enmeshed-v2</id><content type="html" xml:base="/blog/road-to-enmeshed-v2"><![CDATA[<p>Hey there,</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-11-03T15:13:09+01:00</updated><id>/feed.xml</id><title type="html">Enmeshed</title><subtitle>Enmeshed is a home of various open source components, making the digital life of users and organizations easier.</subtitle><author><name>Enmeshed Team</name></author><entry><title type="html">The (bumpy) road to Enmeshed V2</title><link href="/blog/road-to-enmeshed-v2" rel="alternate" type="text/html" title="The (bumpy) road to Enmeshed V2" /><published>2022-10-06T16:00:00+02:00</published><updated>2022-10-06T16:00:00+02:00</updated><id>/blog/road-to-enmeshed-v2</id><content type="html" xml:base="/blog/road-to-enmeshed-v2"><![CDATA[<p>Hey there,</p>
 
 <p>as we’ve already communicated in the previous blogs, we would like to release Enmeshed version 2 soon. As it is incompatible with version 1, the switch to version 2 is unfortunately not as straightforward as we’d hoped.</p>
 
@@ -35,7 +35,7 @@
 
 <p>Requests in V2 extend the Request featureset by providing more structured Requests, as well as Requests for unstructured data. Additionally, they are not fixed to the Identitity’s Attributes. One example is a form you can send to a User, which contains some questions in natural language, which does not affect the Attributes. Another example is a Multi-Factor-Authentication Request which might be available in the future.</p>
 
-<p>In Enmeshed V1 <code class="language-plaintext highlighter-rouge">RelationshipTemplates</code> and <code class="language-plaintext highlighter-rouge">RequestMails</code> each defined their own way for exchanging Attributes. Further only the App could process them. When integrating via the Connector you had to manually process all Requests. For V2 we pulled the Request handling <a href="/explore/#layers">from the User-Experience Layer to the Consumption layer</a>. This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.</p>
+<p>In Enmeshed V1 <code class="language-plaintext highlighter-rouge">RelationshipTemplates</code> and <code class="language-plaintext highlighter-rouge">RequestMails</code> each defined their own way for exchanging Attributes. Further only the App could process them. When integrating via the Connector you had to manually process all Requests. For V2 we pulled the Request handling <a href="/explore#layers">from the User-Experience Layer to the Consumption layer</a>. This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.</p>
 
 <h2 id="exchanging-requests">Exchanging Requests</h2>
 
@@ -172,11 +172,11 @@
 
 <h2 id="requests">Requests</h2>
 
-<p>Requests in Enmeshed always defined a way to exchange structured data. In Enmeshed V1 this was exclusively about attributes. Requests in V2 will also be able to exchange data without persisting them to the User’s attributes, e.g. using a form.</p>
+<p>Requests in Enmeshed always defined a way to exchange structured data. In Enmeshed V1 this was exclusively about Attributes. Requests in V2 will also be able to exchange data without persisting them to the User’s Attributes, e.g. using a form.</p>
 
 <p>In Enmeshed V1 <code class="language-plaintext highlighter-rouge">RelationshipTemplates</code> and <code class="language-plaintext highlighter-rouge">RequestMails</code> each defined their own way for exchanging Attributes. Further only the App could process them. When integrating via the Connector you had to manually process all Requests. For V2 we pulled the Request handling <a href="/explore#layers">from the User-Experience Layer to the Consumption layer</a>. This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.</p>
 
-<p>For an overview of requests, please refer to the <a href="/blog/announcing-enmeshed-v2-requests">corresponding blog post</a>.</p>
+<p>For an overview of Requests, please refer to the <a href="/blog/announcing-enmeshed-v2-requests">corresponding blog post</a>.</p>
 
 <h2 id="backwards-compatibility">Backwards compatibility</h2>
 

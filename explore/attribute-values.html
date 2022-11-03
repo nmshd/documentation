@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Attribute Values - Enmeshed</title>
-<meta name="description" content="Identity Attributes">
+<meta name="description" content="Each Attribute contains an instance of an Attribute Value within its value property. There are different types of Attribute Values. The types define the value’s structural definition, rendering information and validators. For example, an email address with the value “address@company.corp” is stored with the Attribute Value type EMailAddress, which defines">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="/explore/attribute-values">
 
 
-  <meta property="og:description" content="Identity Attributes">
+  <meta property="og:description" content="Each Attribute contains an instance of an Attribute Value within its value property. There are different types of Attribute Values. The types define the value’s structural definition, rendering information and validators. For example, an email address with the value “address@company.corp” is stored with the Attribute Value type EMailAddress, which defines">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-11-03T08:30:37+01:00">
+  <meta property="article:published_time" content="2022-11-03T15:13:09+01:00">
 
 
 
@@ -287,8 +287,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Attribute Values">
-    <meta itemprop="description" content="Identity Attributes">
-    <meta itemprop="datePublished" content="2022-11-03T08:30:37+01:00">
+    <meta itemprop="description" content="Each Attribute contains an instance of an Attribute Value within its value property. There are different types of Attribute Values. The types define the value’s structural definition, rendering information and validators. For example, an email address with the value “address@company.corp” is stored with the Attribute Value type EMailAddress, which defines">
+    <meta itemprop="datePublished" content="2022-11-03T15:13:09+01:00">
     
 
     <div class="page__inner-wrap">
@@ -314,11 +314,25 @@
             </nav>
           </aside>
         
-        <h1 id="identity-attributes">Identity Attributes</h1>
+        <p>Each <a href="/explore/data-model#attributes">Attribute</a> contains an instance of an Attribute Value within its <code class="language-plaintext highlighter-rouge">value</code> property. There are different types of Attribute Values. The types define the value’s structural definition, rendering information and validators. For example, an email address with the value “address@company.corp” is stored with the Attribute Value type <a href="#emailaddress"><code class="language-plaintext highlighter-rouge">EMailAddress</code></a>, which defines</p>
 
-<p>The Attribute values in this chapter can only be used in an <a href="/explore/data-model#identityattribute">Identity Attribute</a>.</p>
+<ul>
+  <li>the data type of the actual value (a String)</li>
+  <li>how it is validated (the pattern of an email address and a maximum length)</li>
+  <li>information about how it can be rendered on the UI</li>
+</ul>
+
+<p>Enmeshed defines a standard set of possible Attribute Value types for Identities within the Enmeshed ecosystem and its meaning for the Identities. And every Identity can understand/use/fill/query these Attribute Value types of other Identities.</p>
+
+<p>Most Attribute Value types are atomic, which means that they have only one property called <code class="language-plaintext highlighter-rouge">value</code> (e.g. <a href="#emailaddress"><code class="language-plaintext highlighter-rouge">EMailAddress</code></a>, <a href="#displayname"><code class="language-plaintext highlighter-rouge">DisplayName</code></a>, <a href="#phonenumber"><code class="language-plaintext highlighter-rouge">PhoneNumber</code></a>). But there are also more complex Attribute Value types which consist of multiple properties with a strong correlation (e.g. <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>, <a href="#personname"><code class="language-plaintext highlighter-rouge">PersonName</code></a>). These properties can (but don’t have to) contain other Attribute Values.</p>
+
+<h1 id="identity-attributes">Identity Attributes</h1>
+
+<p>The Attribute Values in this chapter can only be used in an <a href="/explore/data-model#identityattribute">Identity Attribute</a>.</p>
 
 <h2 id="affiliation">Affiliation</h2>
+
+<p>A complex Attribute Value type which defines the affiliation of a person to an organization. Inside of the organization the person can have a role and it can be assigned to a specific unit inside of the organization.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -328,6 +342,7 @@
       <th>Name</th>
       <th>Type</th>
       <th style="text-align: center">Required</th>
+      <th>Validation</th>
     </tr>
   </thead>
   <tbody>
@@ -335,26 +350,34 @@
       <td><code class="language-plaintext highlighter-rouge">@type</code></td>
       <td><code class="language-plaintext highlighter-rouge">"Affiliation"</code></td>
       <td style="text-align: center">✓</td>
+      <td> </td>
     </tr>
     <tr>
       <td>role</td>
-      <td><a href="#affiliationrole"><code class="language-plaintext highlighter-rouge">AffiliationRole</code></a></td>
-      <td style="text-align: center">✓</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✗</td>
+      <td>see <a href="#affiliationrole"><code class="language-plaintext highlighter-rouge">AffiliationRole</code></a></td>
     </tr>
     <tr>
       <td>organization</td>
-      <td><a href="#affiliationorganization"><code class="language-plaintext highlighter-rouge">AffiliationOrganization</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
+      <td>see <a href="#affiliationorganization"><code class="language-plaintext highlighter-rouge">AffiliationOrganization</code></a></td>
     </tr>
     <tr>
       <td>unit</td>
-      <td><a href="#affiliationunit"><code class="language-plaintext highlighter-rouge">AffiliationUnit</code></a></td>
-      <td style="text-align: center">✓</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✗</td>
+      <td>see <a href="#affiliationunit"><code class="language-plaintext highlighter-rouge">AffiliationUnit</code></a></td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="affiliationorganization">AffiliationOrganization</h2>
+
+<p>The organization the person is affiliated to.</p>
+
+<p class="notice--warning">It is not recommended to send an AffiliationOrganization to another Identity by its own. Instead, send an <a href="#affiliation"><code class="language-plaintext highlighter-rouge">Affiliation</code></a> with the <code class="language-plaintext highlighter-rouge">organization</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -387,6 +410,10 @@
 
 <h2 id="affiliationrole">AffiliationRole</h2>
 
+<p>The role the person has in the organization.</p>
+
+<p class="notice--warning">It is not recommended to send an AffiliationRole to another Identity by its own. Instead, send an <a href="#affiliation"><code class="language-plaintext highlighter-rouge">Affiliation</code></a> with the <code class="language-plaintext highlighter-rouge">role</code> property set.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -415,6 +442,10 @@
 </table>
 
 <h2 id="affiliationunit">AffiliationUnit</h2>
+
+<p>The organization unit the person is affiliated to.</p>
+
+<p class="notice--warning">It is not recommended to send an AffiliationUnit to another Identity by its own. Instead, send an <a href="#affiliation"><code class="language-plaintext highlighter-rouge">Affiliation</code></a> with the <code class="language-plaintext highlighter-rouge">unit</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -445,6 +476,10 @@
 
 <h2 id="birthcity">BirthCity</h2>
 
+<p>The city of birth.</p>
+
+<p class="notice--warning">It is not recommended to send a BirthCity to another Identity by its own. Instead, send a <a href="#birthplace"><code class="language-plaintext highlighter-rouge">BirthPlace</code></a> with the <code class="language-plaintext highlighter-rouge">city</code> property set.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -474,6 +509,10 @@
 
 <h2 id="birthcountry">BirthCountry</h2>
 
+<p>The country of birth.</p>
+
+<p class="notice--warning">It is not recommended to send a BirthCountry to another Identity by its own. Instead, send a <a href="#birthplace"><code class="language-plaintext highlighter-rouge">BirthPlace</code></a> with the <code class="language-plaintext highlighter-rouge">country</code> property set.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -496,12 +535,14 @@
       <td><code class="language-plaintext highlighter-rouge">value</code></td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td>only <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes</td>
+      <td>only <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">ISO 3166-1 alpha-2</a> country codes</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="birthdate">BirthDate</h2>
+
+<p>The birth date of a natural person.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -511,6 +552,7 @@
       <th>Name</th>
       <th>Type</th>
       <th style="text-align: center">Required</th>
+      <th>Validation</th>
     </tr>
   </thead>
   <tbody>
@@ -518,26 +560,34 @@
       <td><code class="language-plaintext highlighter-rouge">@type</code></td>
       <td><code class="language-plaintext highlighter-rouge">"BirthDate"</code></td>
       <td style="text-align: center">✓</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">day</code></td>
-      <td><a href="#birthday"><code class="language-plaintext highlighter-rouge">BirthDay</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">number</code></td>
       <td style="text-align: center">✓</td>
+      <td>see <a href="#birthday"><code class="language-plaintext highlighter-rouge">BirthDay</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">month</code></td>
-      <td><a href="#birthmonth"><code class="language-plaintext highlighter-rouge">BirthMonth</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">number</code></td>
       <td style="text-align: center">✓</td>
+      <td>see <a href="#birthmonth"><code class="language-plaintext highlighter-rouge">BirthMonth</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">year</code></td>
-      <td><a href="#birthyear"><code class="language-plaintext highlighter-rouge">BirthYear</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">number</code></td>
       <td style="text-align: center">✓</td>
+      <td>see <a href="#birthyear"><code class="language-plaintext highlighter-rouge">BirthYear</code></a></td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="birthday">BirthDay</h2>
+
+<p>The day of birth.</p>
+
+<p class="notice--warning">It is not recommended to send a BirthDay to another Identity by its own. Instead, send a <a href="#birthdate"><code class="language-plaintext highlighter-rouge">BirthDate</code></a> with the <code class="language-plaintext highlighter-rouge">day</code> property set.</p>
 
 <table>
   <thead>
@@ -559,6 +609,10 @@
 </table>
 
 <h2 id="birthmonth">BirthMonth</h2>
+
+<p>The day of month.</p>
+
+<p class="notice--warning">It is not recommended to send a BirthMonth to another Identity by its own. Instead, send a <a href="#birthdate"><code class="language-plaintext highlighter-rouge">BirthDate</code></a> with the <code class="language-plaintext highlighter-rouge">month</code> property set.</p>
 
 <table>
   <thead>
@@ -586,6 +640,10 @@
 </table>
 
 <h2 id="birthname">BirthName</h2>
+
+<p>The BirthName is the surname of the person at birth. Some countries allow changing the surname, thus the BirthName is also used as the identification. The BirthName is innate depending on your surname at birth.</p>
+
+<p>If this value is set, there has been a change of the surname throughout the life of the person.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -616,6 +674,8 @@
 
 <h2 id="birthplace">BirthPlace</h2>
 
+<p>The BirthPlace consists of the BirthCity and BirthCountry and can optionally include a BirthState (e.g. if the BirthCity is ambiguous within the BirthCountry).</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -624,6 +684,7 @@
       <th>Name</th>
       <th>Type</th>
       <th style="text-align: center">Required</th>
+      <th>Validation</th>
     </tr>
   </thead>
   <tbody>
@@ -631,26 +692,34 @@
       <td><code class="language-plaintext highlighter-rouge">@type</code></td>
       <td><code class="language-plaintext highlighter-rouge">"BirthPlace"</code></td>
       <td style="text-align: center">✓</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">city</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓ see</td>
       <td><a href="#birthcity"><code class="language-plaintext highlighter-rouge">BirthCity</code></a></td>
-      <td style="text-align: center">✓</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">country</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✓ see</td>
       <td><a href="#birthcountry"><code class="language-plaintext highlighter-rouge">BirthCountry</code></a></td>
-      <td style="text-align: center">✓</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">state</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td style="text-align: center">✗ see</td>
       <td><a href="#birthstate"><code class="language-plaintext highlighter-rouge">BirthState</code></a></td>
-      <td style="text-align: center">✗</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="birthstate">BirthState</h2>
+
+<p>The state of birth.</p>
+
+<p class="notice--warning">It is not recommended to send a BirthState to another Identity by its own. Instead, send a <a href="#birthplace"><code class="language-plaintext highlighter-rouge">BirthPlace</code></a> with the <code class="language-plaintext highlighter-rouge">state</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -674,12 +743,16 @@
       <td><code class="language-plaintext highlighter-rouge">value</code></td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td>only <a href="https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes">ISO-639-1</a> language codes</td>
+      <td>max. length: 100</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="birthyear">BirthYear</h2>
+
+<p>The year of birth in the Gregorian calendar.</p>
+
+<p class="notice--warning">It is not recommended to send a BirthYear to another Identity by its own. Instead, send a <a href="#birthdate"><code class="language-plaintext highlighter-rouge">BirthDate</code></a> with the <code class="language-plaintext highlighter-rouge">year</code> property set.</p>
 
 <table>
   <thead>
@@ -708,6 +781,8 @@
 
 <h2 id="citizenship">Citizenship</h2>
 
+<p>The Citizenship defines which country currently recognizes you as a citizen. Thus, the Citizenship usually refers to the country you have a passport from.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -730,12 +805,16 @@
       <td><code class="language-plaintext highlighter-rouge">value</code></td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td>only <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes</td>
+      <td>only <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">ISO 3166-1 alpha-2</a> country codes</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="city">City</h2>
+
+<p>The name of a city. This is usually used as part of a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
+
+<p class="notice--warning">It is not recommended to send a City to another Identity by its own. Instead, send a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">city</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -766,6 +845,8 @@
 
 <h2 id="communicationlanguage">CommunicationLanguage</h2>
 
+<p>The CommunicationLanguage is an officially recognized language the person can communicate with.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -788,12 +869,16 @@
       <td><code class="language-plaintext highlighter-rouge">value</code></td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td>max. length: 100</td>
+      <td>only <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO-639-1</a> language codes</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="country">Country</h2>
+
+<p>A country code according to the standard “ISO 3166-1 alpha-2”. This is usually used as part of a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
+
+<p class="notice--warning">It is not recommended to send a Country to another Identity by its own. Instead, send a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">country</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -817,12 +902,14 @@
       <td><code class="language-plaintext highlighter-rouge">value</code></td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td>only <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> country codes</td>
+      <td>only <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">ISO 3166-1 alpha-2</a> country codes</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="deliveryboxaddress">DeliveryBoxAddress</h2>
+
+<p>A complex Attribute Value defining the components of a delivery box address.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -862,38 +949,40 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">zipCode</code></td>
-      <td><a href="#zipcode"><code class="language-plaintext highlighter-rouge">ZipCode</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td> </td>
+      <td>see <a href="#zipcode"><code class="language-plaintext highlighter-rouge">ZipCode</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">city</code></td>
-      <td><a href="#city"><code class="language-plaintext highlighter-rouge">City</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td> </td>
+      <td>see <a href="#city"><code class="language-plaintext highlighter-rouge">City</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">country</code></td>
-      <td><a href="#country"><code class="language-plaintext highlighter-rouge">Country</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td> </td>
+      <td>see <a href="#country"><code class="language-plaintext highlighter-rouge">Country</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">phoneNumber</code></td>
-      <td><a href="#phonenumber"><code class="language-plaintext highlighter-rouge">PhoneNumber</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✗</td>
-      <td> </td>
+      <td>see <a href="#phonenumber"><code class="language-plaintext highlighter-rouge">PhoneNumber</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">state</code></td>
-      <td><a href="#state"><code class="language-plaintext highlighter-rouge">State</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✗</td>
-      <td> </td>
+      <td>see <a href="#state"><code class="language-plaintext highlighter-rouge">State</code></a></td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="displayname">DisplayName</h2>
+
+<p>The Display Name is the textual representation of the natural or legal person. It is usually combined out of titles, names or legal statuses.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -924,6 +1013,8 @@
 
 <h2 id="emailaddress">EMailAddress</h2>
 
+<p>The email address which can be used to reach the Identity over email systems.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -952,6 +1043,8 @@
 </table>
 
 <h2 id="faxnumber">FaxNumber</h2>
+
+<p>The telephone number which can be used to reach the Identity via fax systems.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -982,6 +1075,8 @@
 
 <h2 id="filereference">FileReference</h2>
 
+<p>A FileReference is a link to an Enmeshed <a href="/explore/data-model#files"><code class="language-plaintext highlighter-rouge">File</code></a> and can be used to add a File as an Attribute to an Identity. One example for a use case is some kind of certificate.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -1010,6 +1105,10 @@
 </table>
 
 <h2 id="givenname">GivenName</h2>
+
+<p>The Given Name, also called first name or forename, is the name given to a person at birth which differentiates it from other family, tribe or community members.</p>
+
+<p class="notice--warning">It is not recommended to send a GivenName to another Identity by its own. Instead, send a <a href="#personname"><code class="language-plaintext highlighter-rouge">PersonName</code></a> with the <code class="language-plaintext highlighter-rouge">givenName</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1040,6 +1139,10 @@
 
 <h2 id="honorificprefix">HonorificPrefix</h2>
 
+<p>The honorific prefix of a person, e.g. ‘Sir’.</p>
+
+<p class="notice--warning">It is not recommended to send a HonorificPrefix to another Identity by its own. Instead, send a <a href="#personname"><code class="language-plaintext highlighter-rouge">PersonName</code></a> with the <code class="language-plaintext highlighter-rouge">honorificPrefix</code> property set.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -1068,6 +1171,10 @@
 </table>
 
 <h2 id="honorificsuffix">HonorificSuffix</h2>
+
+<p>The honorific suffix of a person, e.g. ‘PhD’</p>
+
+<p class="notice--warning">It is not recommended to send a HonorificSuffix to another Identity by its own. Instead, send a <a href="#personname"><code class="language-plaintext highlighter-rouge">PersonName</code></a> with the <code class="language-plaintext highlighter-rouge">honorificSuffix</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1098,6 +1205,10 @@
 
 <h2 id="housenumber">HouseNumber</h2>
 
+<p>A house number. This is usually used as part of a <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
+
+<p class="notice--warning">It is not recommended to send a HouseNumber to another Identity by its own. Instead, send a <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">houseNumber</code> property set.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -1126,6 +1237,8 @@
 </table>
 
 <h2 id="jobtitle">JobTitle</h2>
+
+<p>A short phrase that describes the position an employee has within an organization. (e.g. “Senior Developer” in case of a software company).</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1156,6 +1269,10 @@
 
 <h2 id="middlename">MiddleName</h2>
 
+<p>In various cultures, a middle name is a portion of a personal name that is written between the person’s first given name and their surname.</p>
+
+<p class="notice--warning">It is not recommended to send a MiddleName to another Identity by its own. Instead, send a <a href="#personname"><code class="language-plaintext highlighter-rouge">PersonName</code></a> with the <code class="language-plaintext highlighter-rouge">middleName</code> property set.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -1185,6 +1302,8 @@
 
 <h2 id="nationality">Nationality</h2>
 
+<p>The Nationality is the citizenship of a person at birth. One cannot change the Nationality because it’s innate. Thus, the Nationality refers usually to the country where you are born.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -1207,12 +1326,14 @@
       <td><code class="language-plaintext highlighter-rouge">value</code></td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td>only <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a></td>
+      <td>only <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">ISO 3166-1 alpha-2</a> country codes</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="personname">PersonName</h2>
+
+<p>The PersonName is a complex Attribute Value type consisting of the GivenName, MiddleName, Surname, HonorificSuffix and HonorificPrefix of a person.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1222,6 +1343,7 @@
       <th>Name</th>
       <th>Type</th>
       <th style="text-align: center">Required</th>
+      <th>Validation</th>
     </tr>
   </thead>
   <tbody>
@@ -1229,36 +1351,44 @@
       <td><code class="language-plaintext highlighter-rouge">@type</code></td>
       <td><code class="language-plaintext highlighter-rouge">"PersonName"</code></td>
       <td style="text-align: center">✓</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">givenName</code></td>
-      <td><a href="#givenname"><code class="language-plaintext highlighter-rouge">GivenName</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
+      <td>see <a href="#givenname"><code class="language-plaintext highlighter-rouge">GivenName</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">middleName</code></td>
-      <td><a href="#middlename"><code class="language-plaintext highlighter-rouge">MiddleName</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✗</td>
+      <td>see <a href="#middlename"><code class="language-plaintext highlighter-rouge">MiddleName</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">surname</code></td>
-      <td><a href="#surname"><code class="language-plaintext highlighter-rouge">Surname</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
+      <td>see <a href="#surname"><code class="language-plaintext highlighter-rouge">Surname</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">honorificSuffix</code></td>
-      <td><a href="#honorificsuffix"><code class="language-plaintext highlighter-rouge">HonorificSuffix</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✗</td>
+      <td>see <a href="#honorificsuffix"><code class="language-plaintext highlighter-rouge">HonorificSuffix</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">honorificPrefix</code></td>
-      <td><a href="#honorificprefix"><code class="language-plaintext highlighter-rouge">HonorificPrefix</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✗</td>
+      <td>see <a href="#honorificprefix"><code class="language-plaintext highlighter-rouge">HonorificPrefix</code></a></td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="phonenumber">PhoneNumber</h2>
+
+<p>The telephone number which can be used to reach the Identity via telephone.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1288,6 +1418,8 @@
 </table>
 
 <h2 id="postofficeboxaddress">PostOfficeBoxAddress</h2>
+
+<p>A complex Attribute Value defining the components of a post office box address.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1321,32 +1453,34 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">zipCode</code></td>
-      <td><a href="#zipcode"><code class="language-plaintext highlighter-rouge">ZipCode</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td> </td>
+      <td>see <a href="#zipcode"><code class="language-plaintext highlighter-rouge">ZipCode</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">city</code></td>
-      <td><a href="#city"><code class="language-plaintext highlighter-rouge">City</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td> </td>
+      <td>see <a href="#city"><code class="language-plaintext highlighter-rouge">City</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">country</code></td>
-      <td><a href="#country"><code class="language-plaintext highlighter-rouge">Country</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td> </td>
+      <td>see <a href="#country"><code class="language-plaintext highlighter-rouge">Country</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">state</code></td>
-      <td><a href="#state"><code class="language-plaintext highlighter-rouge">State</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✗</td>
-      <td> </td>
+      <td>see <a href="#state"><code class="language-plaintext highlighter-rouge">State</code></a></td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="pseudonym">Pseudonym</h2>
+
+<p>The officially registered pseudonym of a person.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1377,6 +1511,11 @@
 
 <h2 id="sex">Sex</h2>
 
+<p>The Sex is the biological, medical, or public gender of a natural person.</p>
+
+<p class="notice--info">Please be advised that the possible values are defined by the public laws and technical passport measures between countries.<br /><br />
+We embrace the person’s own definition of its/her/his sexual and gender orientations. Therefore we have no “Gender” AttributeValueType (yet). We look forward in hearing your comments about this.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -1405,6 +1544,10 @@
 </table>
 
 <h2 id="state">State</h2>
+
+<p>The name of a state. This is usually used as part of a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
+
+<p class="notice--warning">It is not recommended to send a State to another Identity by its own. Instead, send a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">state</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1435,6 +1578,10 @@
 
 <h2 id="street">Street</h2>
 
+<p>A street name. This is usually used as part of a <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
+
+<p class="notice--warning">It is not recommended to send a Street to another Identity by its own. Instead, send a <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">street</code> property set.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -1464,6 +1611,8 @@
 
 <h2 id="streetaddress">StreetAddress</h2>
 
+<p>A complex Attribute Value defining the components of a “normal” address.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -1490,44 +1639,48 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">street</code></td>
-      <td><a href="#street"><code class="language-plaintext highlighter-rouge">Street</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td> </td>
+      <td>see <a href="#street"><code class="language-plaintext highlighter-rouge">Street</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">houseNumber</code></td>
-      <td><a href="#housenumber"><code class="language-plaintext highlighter-rouge">HouseNumber</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td> </td>
+      <td>see <a href="#housenumber"><code class="language-plaintext highlighter-rouge">HouseNumber</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">zipCode</code></td>
-      <td><a href="#zipcode"><code class="language-plaintext highlighter-rouge">ZipCode</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td> </td>
+      <td>see <a href="#zipcode"><code class="language-plaintext highlighter-rouge">ZipCode</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">city</code></td>
-      <td><a href="#city"><code class="language-plaintext highlighter-rouge">City</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td> </td>
+      <td>see <a href="#city"><code class="language-plaintext highlighter-rouge">City</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">country</code></td>
-      <td><a href="#country"><code class="language-plaintext highlighter-rouge">Country</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td> </td>
+      <td>see <a href="#country"><code class="language-plaintext highlighter-rouge">Country</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">state</code></td>
-      <td><a href="#state"><code class="language-plaintext highlighter-rouge">State</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td> </td>
+      <td>see <a href="#state"><code class="language-plaintext highlighter-rouge">State</code></a></td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="surname">Surname</h2>
+
+<p>The Surname, also called family name or last name, is the portion of the personal name that indicates the family, tribe or community.</p>
+
+<p class="notice--warning">It is not recommended to send a Surname to another Identity by its own. Instead, send a <a href="#personname"><code class="language-plaintext highlighter-rouge">PersonName</code></a> with the <code class="language-plaintext highlighter-rouge">surname</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1558,6 +1711,8 @@
 
 <h2 id="website">Website</h2>
 
+<p>The website of the person which can be used to get more information about the person.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -1586,6 +1741,10 @@
 </table>
 
 <h2 id="zipcode">ZipCode</h2>
+
+<p>A zip code. This is usually used as part of a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
+
+<p class="notice--warning">It is not recommended to send a ZipCode to another Identity by its own. Instead, send a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">zipCode</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1616,9 +1775,11 @@
 
 <h1 id="relationship-attributes">Relationship Attributes</h1>
 
-<p>The Attribute values in this chapter can only be used in a <a href="/explore/data-model#relationshipattribute">Relationship Attriubte</a>. Most of them are generic. You can recognize those by the prefix <code class="language-plaintext highlighter-rouge">Proprietary</code> (e.g. <code class="language-plaintext highlighter-rouge">ProprietaryInteger</code>, <code class="language-plaintext highlighter-rouge">ProprietaryString</code>, …). In order to add some validation, you have the option to add <a href="/explore/data-model#valuehints"><code class="language-plaintext highlighter-rouge">valueHints</code></a>.</p>
+<p>The Attribute Values in this chapter can only be used in a <a href="/explore/data-model#relationshipattribute">Relationship Attribute</a>. Most of them are generic. You can recognize those by the prefix <code class="language-plaintext highlighter-rouge">Proprietary</code> (e.g. <code class="language-plaintext highlighter-rouge">ProprietaryInteger</code>, <code class="language-plaintext highlighter-rouge">ProprietaryString</code>, …). In order to add some validation, you have the option to add <a href="/explore/data-model#valuehints"><code class="language-plaintext highlighter-rouge">valueHints</code></a>.</p>
 
 <h2 id="consent">Consent</h2>
+
+<p>Represents the consent of a person to a specific topic. If you want to obtain a consent, you can send a <a href="/explore/request-items#readattributerequestitem"><code class="language-plaintext highlighter-rouge">ReadAttributeRequestItem</code></a> with a Consent-<a href="/explore/data-model#relationshipattribute">RelationshipAttribute</a> where the owner is the peer.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1660,6 +1821,8 @@
 </table>
 
 <h2 id="proprietaryboolean">ProprietaryBoolean</h2>
+
+<p>An arbitrary boolean value.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1748,7 +1911,7 @@
       <td><code class="language-plaintext highlighter-rouge">value</code></td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td>only <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a></td>
+      <td>only <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">ISO 3166-1 alpha-2</a> country codes</td>
     </tr>
   </tbody>
 </table>
@@ -2030,7 +2193,7 @@
       <td><code class="language-plaintext highlighter-rouge">value</code></td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td style="text-align: center">✓</td>
-      <td>only <a href="https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes">ISO-639-1</a> language codes</td>
+      <td>only <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO-639-1</a> language codes</td>
     </tr>
   </tbody>
 </table>
@@ -2186,7 +2349,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-03T08:30:37+01:00">November 3, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-03T15:13:09+01:00">November 3, 2022</time></p>
 
       </footer>
 

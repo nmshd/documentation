@@ -102,7 +102,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Enmeshed Data Model",
-        "excerpt":"The Enmeshed data model can be devided into three parts: Transport types Local types Content types The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail. (note that you can click...","categories": [],
+        "excerpt":"The Enmeshed data model can be divided into three parts: Transport types Local types Content types The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail. (note that you can click...","categories": [],
         "tags": [],
         "url": "/explore/data-model",
         "teaser": null
@@ -126,7 +126,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Attribute Values",
-        "excerpt":"Identity Attributes The Attribute values in this chapter can only be used in an Identity Attribute. Affiliation Properties Name Type Required @type \"Affiliation\" ✓ role AffiliationRole ✓ organization AffiliationOrganization ✓ unit AffiliationUnit ✓ AffiliationOrganization Properties Name Type Required Validation @type \"AffiliationOrganization\" ✓   value string ✓ max. length: 100 Validation...","categories": [],
+        "excerpt":"Each Attribute contains an instance of an Attribute Value within its value property. There are different types of Attribute Values. The types define the value’s structural definition, rendering information and validators. For example, an email address with the value “address@company.corp” is stored with the Attribute Value type EMailAddress, which defines...","categories": [],
         "tags": [],
         "url": "/explore/attribute-values",
         "teaser": null
