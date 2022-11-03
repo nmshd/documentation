@@ -5,7 +5,7 @@ categories:
     - blog
 tags:
     - announcement
-    - V2
+    - v2
 ---
 
 We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.
@@ -20,7 +20,7 @@ For an overview of the changes regarding Attributes, please refer to the [corres
 
 Requests in Enmeshed always defined a way to exchange structured data. In Enmeshed V1 this was exclusively about attributes. Requests in V2 will also be able to exchange data without persisting them to the User's attributes, e.g. using a form.
 
-In Enmeshed V1 `RelationshipTemplates` and `RequestMails` each defined their own way for exchanging Attributes. Further only the App could process them. When integrating via the Connector you had to manually process all Requests. For V2 we pulled the Request handling [from the User-Experience Layer to the Consumption layer]({% link _docs_explore/01-introduction.md %}/#layers). This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.
+In Enmeshed V1 `RelationshipTemplates` and `RequestMails` each defined their own way for exchanging Attributes. Further only the App could process them. When integrating via the Connector you had to manually process all Requests. For V2 we pulled the Request handling [from the User-Experience Layer to the Consumption layer]({% link _docs_explore/01-introduction.md %}#layers). This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.
 
 For an overview of requests, please refer to the [corresponding blog post]({% post_url 2022-07-13-announcing-enmeshed-v2-requests %}).
 
@@ -34,7 +34,7 @@ If you need a compatibility of V1 and V2, please contact us [here](https://www.j
 
 ## Getting Prereleases
 
-During the development of Enmeshed V2 we will continue to publish new versions of the Connector and the app. You will find docs of version 2 [here](https://enmeshed.eu/versions/2.0.0) and we are also constantly updating it.
+During the development of Enmeshed V2 we will continue to publish new versions of the Connector and the app.
 
 If you are curious you can already check out one of the early [Connector versions](https://github.com/nmshd/cns-connector/pkgs/container/connector/versions) tagged as `alpha`. Keep in mind that these are highly experimental and shouldn't be used in production scenarios, because there can be API changes at any time.
 
