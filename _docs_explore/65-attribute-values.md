@@ -222,10 +222,10 @@ The CommunicationLanguage is an officially recognized language the person can co
 
 **Properties**
 
-| Name    | Type                      | Required | Validation                                                                               |
-| ------- | ------------------------- | :------: | ---------------------------------------------------------------------------------------- |
-| `@type` | `"CommunicationLanguage"` |    ✓     |                                                                                          |
-| `value` | `string`                  |    ✓     | only [ISO-639-1](https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes) language codes |
+| Name    | Type                      | Required | Validation                                                                             |
+| ------- | ------------------------- | :------: | -------------------------------------------------------------------------------------- |
+| `@type` | `"CommunicationLanguage"` |    ✓     |                                                                                        |
+| `value` | `string`                  |    ✓     | only [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes |
 
 ## Country
 
@@ -654,13 +654,13 @@ An arbitrary boolean value.
 
 **Properties**
 
-| Name                 | Type                                                                                 | Required | Validation                                                                               |
-| -------------------- | ------------------------------------------------------------------------------------ | :------: | ---------------------------------------------------------------------------------------- |
-| `@type`              | `"ProprietaryLanguage"`                                                              |    ✓     |                                                                                          |
-| `title`              | `string`                                                                             |    ✓     |                                                                                          |
-| `description`        | `string`                                                                             |    ✗     |                                                                                          |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                                                          |
-| `value`              | `string`                                                                             |    ✓     | only [ISO-639-1](https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes) language codes |
+| Name                 | Type                                                                                 | Required | Validation                                                                             |
+| -------------------- | ------------------------------------------------------------------------------------ | :------: | -------------------------------------------------------------------------------------- |
+| `@type`              | `"ProprietaryLanguage"`                                                              |    ✓     |                                                                                        |
+| `title`              | `string`                                                                             |    ✓     |                                                                                        |
+| `description`        | `string`                                                                             |    ✗     |                                                                                        |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                                                        |
+| `value`              | `string`                                                                             |    ✓     | only [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes |
 
 ## ProprietaryPhoneNumber
 
