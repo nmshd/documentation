@@ -18,11 +18,11 @@ For an overview of the changes regarding Attributes, please refer to the [corres
 
 ## Requests
 
-Requests in Enmeshed always defined a way to exchange structured data. In Enmeshed V1 this was exclusively about attributes. Requests in V2 will also be able to exchange data without persisting them to the User's attributes, e.g. using a form.
+Requests in Enmeshed always defined a way to exchange structured data. In Enmeshed V1 this was exclusively about Attributes. Requests in V2 will also be able to exchange data without persisting them to the User's Attributes, e.g. using a form.
 
 In Enmeshed V1 `RelationshipTemplates` and `RequestMails` each defined their own way for exchanging Attributes. Further only the App could process them. When integrating via the Connector you had to manually process all Requests. For V2 we pulled the Request handling [from the User-Experience Layer to the Consumption layer]({% link _docs_explore/01-introduction.md %}/#layers). This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.
 
-For an overview of requests, please refer to the [corresponding blog post]({% post_url 2022-07-13-announcing-enmeshed-v2-requests %}).
+For an overview of Requests, please refer to the [corresponding blog post]({% post_url 2022-07-13-announcing-enmeshed-v2-requests %}).
 
 ## Backwards compatibility
 
