@@ -426,6 +426,7 @@ There are cases in which you want to query some data from your peer that is not 
 | validFrom              | `string` \| `undefined`                                                     | The start date of the time frame the returned Attribute should be valid in.                            |
 | validTo                | `string` \| `undefined`                                                     | The end date of the time frame the returned Attribute should be valid in.                              |
 | key                    | `string`                                                                    | The key of the Relationship Attribute that should be queried.                                          |
+| owner                  | `string`                                                                    | The owner of the queried Relationship Attribute.                                                       |
 | attributeCreationHints | [`RelationshipAttributeCreationHints`](#relationshipattributecreationhints) | Contains information about the value that will be created, like the value type or its confidentiality. |
 
 #### RelationshipAttributeCreationHints
