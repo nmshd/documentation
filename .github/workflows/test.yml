@@ -16,7 +16,7 @@ jobs:
           ruby-version: "2.7"
           bundler-cache: true
       - name: Build
-        run: bundle exec jekyll build
+        run: bash .ci/build.sh
   run-checks:
     runs-on: ubuntu-latest
     steps:
