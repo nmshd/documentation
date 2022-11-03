@@ -174,10 +174,10 @@ It is not recommended to send a BirthState to another Identity by its own. Inste
 
 **Properties**
 
-| Name    | Type           | Required | Validation                                                                               |
-| ------- | -------------- | :------: | ---------------------------------------------------------------------------------------- |
-| `@type` | `"BirthState"` |    ✓     |                                                                                          |
-| `value` | `string`       |    ✓     | only [ISO-639-1](https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes) language codes |
+| Name    | Type           | Required | Validation       |
+| ------- | -------------- | :------: | ---------------- |
+| `@type` | `"BirthState"` |    ✓     |                  |
+| `value` | `string`       |    ✓     | max. length: 100 |
 
 ## BirthYear
 
