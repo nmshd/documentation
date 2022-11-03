@@ -582,13 +582,13 @@ An arbitrary boolean value.
 
 **Properties**
 
-| Name                 | Type                                                                                                           | Required | Validation                                                                  |
-| -------------------- | -------------------------------------------------------------------------------------------------------------- | :------: | --------------------------------------------------------------------------- |
-| `@type`              | `"ProprietaryCountry"`                                                                                         |    ✓     |                                                                             |
-| `title`              | `string`                                                                                                       |    ✓     |                                                                             |
-| `description`        | `string`                                                                                                       |    ✗     |                                                                             |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsovRelationshipAttributeQueryerride) |    ✗     |                                                                             |
-| `value`              | `string`                                                                                                       |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) |
+| Name                 | Type                                                                                 | Required | Validation                                                                  |
+| -------------------- | ------------------------------------------------------------------------------------ | :------: | --------------------------------------------------------------------------- |
+| `@type`              | `"ProprietaryCountry"`                                                               |    ✓     |                                                                             |
+| `title`              | `string`                                                                             |    ✓     |                                                                             |
+| `description`        | `string`                                                                             |    ✗     |                                                                             |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                                             |
+| `value`              | `string`                                                                             |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) |
 
 ## ProprietaryEMailAddress
 
