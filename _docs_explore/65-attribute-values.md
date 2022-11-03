@@ -98,10 +98,10 @@ It is not recommended to send a BirthCountry to another Identity by its own. Ins
 
 **Properties**
 
-| Name    | Type             | Required | Validation                                                                                |
-| ------- | ---------------- | :------: | ----------------------------------------------------------------------------------------- |
-| `@type` | `"BirthCountry"` |    ✓     |                                                                                           |
-| `value` | `string`         |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes |
+| Name    | Type             | Required | Validation                                                                                                                  |
+| ------- | ---------------- | :------: | --------------------------------------------------------------------------------------------------------------------------- |
+| `@type` | `"BirthCountry"` |    ✓     |                                                                                                                             |
+| `value` | `string`         |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
 
 ## BirthDate
 
@@ -197,10 +197,10 @@ The Citizenship defines which country currently recognizes you as a citizen. Thu
 
 **Properties**
 
-| Name    | Type            | Required | Validation                                                                                |
-| ------- | --------------- | :------: | ----------------------------------------------------------------------------------------- |
-| `@type` | `"Citizenship"` |    ✓     |                                                                                           |
-| `value` | `string`        |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes |
+| Name    | Type            | Required | Validation                                                                                                                  |
+| ------- | --------------- | :------: | --------------------------------------------------------------------------------------------------------------------------- |
+| `@type` | `"Citizenship"` |    ✓     |                                                                                                                             |
+| `value` | `string`        |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
 
 ## City
 
@@ -236,10 +236,10 @@ It is not recommended to send a Country to another Identity by its own. Instead,
 
 **Properties**
 
-| Name    | Type        | Required | Validation                                                                                |
-| ------- | ----------- | :------: | ----------------------------------------------------------------------------------------- |
-| `@type` | `"Country"` |    ✓     |                                                                                           |
-| `value` | `string`    |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes |
+| Name    | Type        | Required | Validation                                                                                                                  |
+| ------- | ----------- | :------: | --------------------------------------------------------------------------------------------------------------------------- |
+| `@type` | `"Country"` |    ✓     |                                                                                                                             |
+| `value` | `string`    |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
 
 ## DeliveryBoxAddress
 
@@ -390,10 +390,10 @@ The Nationality is the citizenship of a person at birth. One cannot change the N
 
 **Properties**
 
-| Name    | Type            | Required | Validation                                                                  |
-| ------- | --------------- | :------: | --------------------------------------------------------------------------- |
-| `@type` | `"Nationality"` |    ✓     |                                                                             |
-| `value` | `string`        |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) |
+| Name    | Type            | Required | Validation                                                                                                                  |
+| ------- | --------------- | :------: | --------------------------------------------------------------------------------------------------------------------------- |
+| `@type` | `"Nationality"` |    ✓     |                                                                                                                             |
+| `value` | `string`        |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
 
 ## PersonName
 
@@ -582,13 +582,13 @@ An arbitrary boolean value.
 
 **Properties**
 
-| Name                 | Type                                                                                 | Required | Validation                                                                  |
-| -------------------- | ------------------------------------------------------------------------------------ | :------: | --------------------------------------------------------------------------- |
-| `@type`              | `"ProprietaryCountry"`                                                               |    ✓     |                                                                             |
-| `title`              | `string`                                                                             |    ✓     |                                                                             |
-| `description`        | `string`                                                                             |    ✗     |                                                                             |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                                             |
-| `value`              | `string`                                                                             |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) |
+| Name                 | Type                                                                                 | Required | Validation                                                                                                                  |
+| -------------------- | ------------------------------------------------------------------------------------ | :------: | --------------------------------------------------------------------------------------------------------------------------- |
+| `@type`              | `"ProprietaryCountry"`                                                               |    ✓     |                                                                                                                             |
+| `title`              | `string`                                                                             |    ✓     |                                                                                                                             |
+| `description`        | `string`                                                                             |    ✗     |                                                                                                                             |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                                                                                             |
+| `value`              | `string`                                                                             |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
 
 ## ProprietaryEMailAddress
 
