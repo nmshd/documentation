@@ -22,7 +22,7 @@ The users and organizations we know of so far had no objections against this app
 
 ### So how can you get up to speed with Version2?
 
--   Have a look at the [Enmeshed V2 documentation](https://enmeshed.eu/versions/2.0.0/), especially the [Connector Tutorial](https://enmeshed.eu/versions/2.0.0/integrate/connector-tutorial).
+-   Have a look at the updated [Connector Tutorial]({% link _docs_integrate/01-connector-tutorial.md %}) and the [migration guide]({% link _docs_integrate/50-connector-migration-v2.md %}).
 -   There will be a public beta of the Enmeshed App (V2) in the Apple and Google app stores soon. Be aware that the public beta will not support existing V1 profiles and thus the Enmeshed App's data should be wiped when using V2.
 -   There is a beta tag of the Enmeshed Connector Docker image which you can set up by yourself.
 -   The current Backbone already supports V2, but keep in mind that you cannot communicate with V1 Identities and also loose the data on 27th November 2022.
