@@ -274,8 +274,6 @@ The Display Name is the textual representation of the natural or legal person. I
 
 The email address which can be used to reach the Identity over email systems.
 
-It does not matter if this email address is private or professional. To distinguish these kind of information, use tags instead.
-
 **Properties**
 
 | Name    | Type             | Required | Validation                                                                                |
@@ -415,8 +413,6 @@ The PersonName is a complex Attribute Value type consisting of the GivenName, Mi
 ## PhoneNumber
 
 The telephone number which can be used to reach the Identity via telephone.
-
-It does not matter if this telephone number is private or professional or is used with a mobile or landline phone. To distinguish these kind of information, use tags instead.
 
 **Properties**
 
