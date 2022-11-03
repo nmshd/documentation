@@ -5,8 +5,8 @@ categories:
     - blog
 tags:
     - announcement
-    - V2
-    - Attributes
+    - v2
+    - attributes
 toc: true
 ---
 

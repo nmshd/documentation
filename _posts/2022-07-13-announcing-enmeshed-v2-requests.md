@@ -6,7 +6,7 @@ categories:
 tags:
     - announcement
     - v2
-    - Requests
+    - requests
 toc: true
 ---
 
