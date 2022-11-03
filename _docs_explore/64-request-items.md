@@ -6,7 +6,7 @@ toc: true
 
 All the RequestItems listed below inherit from the [RequestItem]({% link _docs_explore/61-data-model.md %}#requestitem) and are therefore sharing its properties.
 
-## AuthenticationRequestItem {#authenticationrequestitem}
+## AuthenticationRequestItem
 
 With this item the sender can request the peer for an authentication in a business context for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived and limited in time.
 
@@ -34,7 +34,7 @@ With this item the sender can request the peer for an authentication in a busine
 -   To accept this RequestItem you can send `{ "accept": true }` as parameters.
 -   To reject this RequestItem you can send `{ "accept": false }` as parameters.
 
-## ConsentRequestItem {#consentrequestitem}
+## ConsentRequestItem
 
 With the ConsentRequestItem it is possible to request a consent of the peer to an arbitrary text and thus reach agreement on a certain non machine-processable context.
 
@@ -72,7 +72,7 @@ The ConsentRequestItem is also not meant for contractual agreements.
 -   To accept this RequestItem you can send `{ "accept": true }` as parameters.
 -   To reject this RequestItem you can send `{ "accept": false }` as parameters.
 
-## CreateAttributeRequestItem {#createattributerequestitem}
+## CreateAttributeRequestItem
 
 If you want to create Identity- or RelationshipAttributes for the peer, the CreateAttributeRequestItem can be used. Please have a look at the ProposeAttributeRequestItem if the peer should be able to overwrite the Attribute.
 
@@ -121,7 +121,7 @@ To create an Attribute with a fixed value defined by the sender, an Identity use
 | Relationship   | Recipient       | Y         | `USER_DECISION` | With this combination the **sender asks the recipient for the one-time permission** to write a Relationship Attribute once AND the **sender defined a value** which can either be accepted and stored, or rejected. Thus, the user cannot change the value by itself. |
 | Relationship   | `<empty>`       | Y         | `USER_DECISION` | An empty owner defaults to an Attribute with owner=`<recipient>`. This is needed for Requests inside of Relationship Templates, since you don’t know the Enmeshed Address of your peer before the Relationship is established.                                        |
 
-## ProposeAttributeRequestItem {#proposeattributerequestitem}
+## ProposeAttributeRequestItem
 
 The ProposeAttributeRequestItem is a combination of [ReadAttributeRequestItem](#readattributerequestitem) and [CreateAttributeRequestItem](#createattributerequestitem). The sender would like to receive a correct Attribute from the peer, thinks it has a possible value but the peer might overrule this value with an existing or new one.
 
@@ -188,7 +188,7 @@ To create an Attribute with a value proposed by the sender, an Identity uses the
 | Relationship   | Sender          | Y         | `USER_DECISION` | With this combination the **sender gives the recipient the one-time permission** to write a Relationship Attribute once AND the **sender proposes a value** which might make sense as a default.<br>Example: Electricity provider asks new customer for the electricity meter number and proposes a known number |
 | Relationship   | Recipient       | Y         | `USER_DECISION` | With this combination the **sender asks the recipient for the one-time permission** to write a Relationship Attribute once AND the **sender proposes a value** which might make sense as a default.<br>Example: Asking for a newsletter subscription                                                             |
 
-## ReadAttributeRequestItem {#readattributerequestitem}
+## ReadAttributeRequestItem
 
 If you want to query an Identity's Attributes this is done with the ReadAttributeRequestItem.
 
@@ -251,7 +251,7 @@ To query Attributes which are not known to the sender, an Identity uses the Read
 | Relationship   | Recipient       | Third Party | Y         | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **sender requests a Relationship Attribute from a Relationship between the recipient and a third party. The Attribute must be owned by the recipient**<br> Example: A Social Network asks for Facebook privacy settings of a user to get senseful defaults of its own privacy settings |
 | Relationship   | Third Party     | Third Party | Y         | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **sender requests a Relationship Attribute from a Relationship between the recipient and a third party which is owned by the third party**<br> Example: An online shop asks for the Payback Customer Id of a user to book the order on his account                                     |
 
-## RegisterAttributeListenerRequestItem {#registerattributelistenerrequestitem}
+## RegisterAttributeListenerRequestItem
 
 This item is used to register a [Listener]({% link _docs_explore/61-data-model.md %}#localattributelistener) for a specific Attribute. The Listener will create a Request in status `Draft` if an Attribute was created that matches the given query and the user is able to send the Request to the creator of the `RegisterAttributeListenerRequestItem`.
 
@@ -285,7 +285,7 @@ This item is used to register a [Listener]({% link _docs_explore/61-data-model.m
 -   To accept this RequestItem you can send `{ "accept": true }` as parameters.
 -   To reject this RequestItem you can send `{ "accept": false }` as parameters.
 
-## ShareAttributeRequestItem {#shareattributerequestitem}
+## ShareAttributeRequestItem
 
 If you want to share the own DisplayName and possibly other Attributes this is done with the ShareAttributeRequestItem.
 
