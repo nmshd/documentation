@@ -24,12 +24,12 @@ A complex Attribute Value type which defines the affiliation of a person to an o
 
 **Properties**
 
-| Name         | Type                                                  | Required |
-| ------------ | ----------------------------------------------------- | :------: |
-| `@type`      | `"Affiliation"`                                       |    ✓     |
-| role         | [`AffiliationRole`](#affiliationrole)                 |    ✗     |
-| organization | [`AffiliationOrganization`](#affiliationorganization) |    ✓     |
-| unit         | [`AffiliationUnit`](#affiliationunit)                 |    ✗     |
+| Name         | Type            | Required | Validation                                                |
+| ------------ | --------------- | :------: | --------------------------------------------------------- |
+| `@type`      | `"Affiliation"` |    ✓     |                                                           |
+| role         | `string`        |    ✗     | see [`AffiliationRole`](#affiliationrole)                 |
+| organization | `string`        |    ✓     | see [`AffiliationOrganization`](#affiliationorganization) |
+| unit         | `string`        |    ✗     | see [`AffiliationUnit`](#affiliationunit)                 |
 
 ## AffiliationOrganization
 
@@ -109,12 +109,12 @@ The birth date of a natural person.
 
 **Properties**
 
-| Name    | Type                        | Required |
-| ------- | --------------------------- | :------: |
-| `@type` | `"BirthDate"`               |    ✓     |
-| `day`   | [`BirthDay`](#birthday)     |    ✓     |
-| `month` | [`BirthMonth`](#birthmonth) |    ✓     |
-| `year`  | [`BirthYear`](#birthyear)   |    ✓     |
+| Name    | Type          | Required | Validation                      |
+| ------- | ------------- | :------: | ------------------------------- |
+| `@type` | `"BirthDate"` |    ✓     |                                 |
+| `day`   | `number`      |    ✓     | see [`BirthDay`](#birthday)     |
+| `month` | `number`      |    ✓     | see [`BirthMonth`](#birthmonth) |
+| `year`  | `number`      |    ✓     | see [`BirthYear`](#birthyear)   |
 
 ## BirthDay
 
@@ -158,12 +158,12 @@ The BirthPlace consists of the BirthCity and BirthCountry and can optionally inc
 
 **Properties**
 
-| Name      | Type                            | Required |
-| --------- | ------------------------------- | :------: |
-| `@type`   | `"BirthPlace"`                  |    ✓     |
-| `city`    | [`BirthCity`](#birthcity)       |    ✓     |
-| `country` | [`BirthCountry`](#birthcountry) |    ✓     |
-| `state`   | [`BirthState`](#birthstate)     |    ✗     |
+| Name      | Type           | Required | Validation                      |
+| --------- | -------------- | :------: | ------------------------------- |
+| `@type`   | `"BirthPlace"` |    ✓     |                                 |
+| `city`    | `string`       |  ✓ see   | [`BirthCity`](#birthcity)       |
+| `country` | `string`       |  ✓ see   | [`BirthCountry`](#birthcountry) |
+| `state`   | `string`       |  ✗ see   | [`BirthState`](#birthstate)     |
 
 ## BirthState
 
@@ -247,17 +247,17 @@ A complex Attribute Value defining the components of a delivery box address.
 
 **Properties**
 
-| Name            | Type                          | Required | Validation       |
-| --------------- | ----------------------------- | :------: | ---------------- |
-| `@type`         | `"DeliveryBoxAddress"`        |    ✓     |                  |
-| `recipient`     | `string`                      |    ✓     | max. length: 100 |
-| `deliveryBoxId` | `string`                      |    ✓     | max. length: 100 |
-| `userId`        | `string`                      |    ✓     | max. length: 100 |
-| `zipCode`       | [`ZipCode`](#zipcode)         |    ✓     |                  |
-| `city`          | [`City`](#city)               |    ✓     |                  |
-| `country`       | [`Country`](#country)         |    ✓     |                  |
-| `phoneNumber`   | [`PhoneNumber`](#phonenumber) |    ✗     |                  |
-| `state`         | [`State`](#state)             |    ✗     |                  |
+| Name            | Type                   | Required | Validation                        |
+| --------------- | ---------------------- | :------: | --------------------------------- |
+| `@type`         | `"DeliveryBoxAddress"` |    ✓     |                                   |
+| `recipient`     | `string`               |    ✓     | max. length: 100                  |
+| `deliveryBoxId` | `string`               |    ✓     | max. length: 100                  |
+| `userId`        | `string`               |    ✓     | max. length: 100                  |
+| `zipCode`       | `string`               |    ✓     | see [`ZipCode`](#zipcode)         |
+| `city`          | `string`               |    ✓     | see [`City`](#city)               |
+| `country`       | `string`               |    ✓     | see [`Country`](#country)         |
+| `phoneNumber`   | `string`               |    ✗     | see [`PhoneNumber`](#phonenumber) |
+| `state`         | `string`               |    ✗     | see [`State`](#state)             |
 
 ## DisplayName
 
@@ -401,14 +401,14 @@ The PersonName is a complex Attribute Value type consisting of the GivenName, Mi
 
 **Properties**
 
-| Name              | Type                                  | Required |
-| ----------------- | ------------------------------------- | :------: |
-| `@type`           | `"PersonName"`                        |    ✓     |
-| `givenName`       | [`GivenName`](#givenname)             |    ✓     |
-| `middleName`      | [`MiddleName`](#middlename)           |    ✗     |
-| `surname`         | [`Surname`](#surname)                 |    ✓     |
-| `honorificSuffix` | [`HonorificSuffix`](#honorificsuffix) |    ✗     |
-| `honorificPrefix` | [`HonorificPrefix`](#honorificprefix) |    ✗     |
+| Name              | Type           | Required | Validation                                |
+| ----------------- | -------------- | :------: | ----------------------------------------- |
+| `@type`           | `"PersonName"` |    ✓     |                                           |
+| `givenName`       | `string`       |    ✓     | see [`GivenName`](#givenname)             |
+| `middleName`      | `string`       |    ✗     | see [`MiddleName`](#middlename)           |
+| `surname`         | `string`       |    ✓     | see [`Surname`](#surname)                 |
+| `honorificSuffix` | `string`       |    ✗     | see [`HonorificSuffix`](#honorificsuffix) |
+| `honorificPrefix` | `string`       |    ✗     | see [`HonorificPrefix`](#honorificprefix) |
 
 ## PhoneNumber
 
@@ -427,15 +427,15 @@ A complex Attribute Value defining the components of a post office box address.
 
 **Properties**
 
-| Name        | Type                     | Required | Validation       |
-| ----------- | ------------------------ | :------: | ---------------- |
-| `@type`     | `"PostOfficeBoxAddress"` |    ✓     |                  |
-| `recipient` | `string`                 |    ✓     | max. length: 100 |
-| `boxId`     | `string`                 |    ✓     | max. length: 100 |
-| `zipCode`   | [`ZipCode`](#zipcode)    |    ✓     |                  |
-| `city`      | [`City`](#city)          |    ✓     |                  |
-| `country`   | [`Country`](#country)    |    ✓     |                  |
-| `state`     | [`State`](#state)        |    ✗     |                  |
+| Name        | Type                     | Required | Validation                |
+| ----------- | ------------------------ | :------: | ------------------------- |
+| `@type`     | `"PostOfficeBoxAddress"` |    ✓     |                           |
+| `recipient` | `string`                 |    ✓     | max. length: 100          |
+| `boxId`     | `string`                 |    ✓     | max. length: 100          |
+| `zipCode`   | `string`                 |    ✓     | see [`ZipCode`](#zipcode) |
+| `city`      | `string`                 |    ✓     | see [`City`](#city)       |
+| `country`   | `string`                 |    ✓     | see [`Country`](#country) |
+| `state`     | `string`                 |    ✗     | see [`State`](#state)     |
 
 ## Pseudonym
 
@@ -497,16 +497,16 @@ A complex Attribute Value defining the components of a "normal" address.
 
 **Properties**
 
-| Name          | Type                          | Required | Validation       |
-| ------------- | ----------------------------- | :------: | ---------------- |
-| `@type`       | `"StreetAddress"`             |    ✓     |                  |
-| `recipient`   | `string`                      |    ✓     | max. length: 100 |
-| `street`      | [`Street`](#street)           |    ✓     |                  |
-| `houseNumber` | [`HouseNumber`](#housenumber) |    ✓     |                  |
-| `zipCode`     | [`ZipCode`](#zipcode)         |    ✓     |                  |
-| `city`        | [`City`](#city)               |    ✓     |                  |
-| `country`     | [`Country`](#country)         |    ✓     |                  |
-| `state`       | [`State`](#state)             |    ✓     |                  |
+| Name          | Type              | Required | Validation                        |
+| ------------- | ----------------- | :------: | --------------------------------- |
+| `@type`       | `"StreetAddress"` |    ✓     |                                   |
+| `recipient`   | `string`          |    ✓     | max. length: 100                  |
+| `street`      | `string`          |    ✓     | see [`Street`](#street)           |
+| `houseNumber` | `string`          |    ✓     | see [`HouseNumber`](#housenumber) |
+| `zipCode`     | `string`          |    ✓     | see [`ZipCode`](#zipcode)         |
+| `city`        | `string`          |    ✓     | see [`City`](#city)               |
+| `country`     | `string`          |    ✓     | see [`Country`](#country)         |
+| `state`       | `string`          |    ✓     | see [`State`](#state)             |
 
 ## Surname
 
