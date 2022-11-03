@@ -222,10 +222,10 @@ The CommunicationLanguage is an officially recognized language the person can co
 
 **Properties**
 
-| Name    | Type                      | Required | Validation       |
-| ------- | ------------------------- | :------: | ---------------- |
-| `@type` | `"CommunicationLanguage"` |    ✓     |                  |
-| `value` | `string`                  |    ✓     | max. length: 100 |
+| Name    | Type                      | Required | Validation                                                                               |
+| ------- | ------------------------- | :------: | ---------------------------------------------------------------------------------------- |
+| `@type` | `"CommunicationLanguage"` |    ✓     |                                                                                          |
+| `value` | `string`                  |    ✓     | only [ISO-639-1](https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes) language codes |
 
 ## Country
 
