@@ -271,19 +271,19 @@ var store = [{
       },{
         "title": "Announcing Enmeshed V2",
         "excerpt":"We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it. Attributes Attributes in Enmeshed have been a huge pain point during the integration using the Enmeshed Connector but also while using...","categories": ["blog"],
-        "tags": ["announcement","V2"],
+        "tags": ["announcement","v2"],
         "url": "/blog/announcing-enmeshed-v2",
         "teaser": null
       },{
         "title": "Announcing Enmeshed V2 Attributes",
         "excerpt":"This is one of the blog posts regarding Enmeshed V2. For an overview of all V2 blog posts, please refer to the V2 announcement blog post. In this blog post we want to talk about pain points of the V1 Attributes and how we reworked the Attributes to tackle them....","categories": ["blog"],
-        "tags": ["announcement","V2","Attributes"],
+        "tags": ["announcement","v2","attributes"],
         "url": "/blog/announcing-enmeshed-v2-attributes",
         "teaser": null
       },{
         "title": "Announcing Enmeshed v2 Requests",
         "excerpt":"This is one of the blog posts regarding Enmeshed v2. For an overview of all Enmeshed v2 blog posts, please refer to the Enmeshed v2 announcement blog post. This blog post requires a superficial understanding of the new Attribute handling. Please refer to the corresponding blog post to learn more...","categories": ["blog"],
-        "tags": ["announcement","v2","Requests"],
+        "tags": ["announcement","v2","requests"],
         "url": "/blog/announcing-enmeshed-v2-requests",
         "teaser": null
       },{
