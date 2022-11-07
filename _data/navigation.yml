@@ -154,14 +154,8 @@ docs_integrate:
       #   url: /integrate/connector-flows-relationships
       - title: "Sending Messages"
         url: /integrate/connector-flows-messages
-      # - title: "Requesting Data"
-      #   url: /integrate/connector-flows-requests
-      # - title: "Integrating Authentication"
-      #   url: /integrate/connector-flows-authentication
-      # - title: "Requests, Parameters and Filters"
-      #   url: /integrate/connector-requests
-      # - title: "Responses and Errors"
-      #   url: /integrate/connector-responses
+      - title: "Requests over Templates"
+        url: /integrate/requests-over-templates
 
   - title: Programming
     children:
