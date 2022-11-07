@@ -237,52 +237,6 @@ It is not recommended to use this Module for production scenarios.
 
     The interval in seconds at which the sync Module will fetch changes from the Backbone.
 
-### webhooks <a href="{% link _docs_integrate/03-connector-modules.md %}#webhooks"><i class="fas fa-fw fa-info-circle"/></a> {#webhooks}
-
-This Module is deprecated in favor of the [webhooksV2](#webhooksv2) Module.
-{: .notice--warning}
-
-```json
-{
-    "enabled": false,
-    "url": "https://example.com/enmeshed/webhook",
-    "headers": {
-        "X-API-KEY": "some-super-safe-api-key"
-    },
-    "publishInterval": 60
-}
-```
-
--   **enabled** `default: false`
-
-    Enable or disable the webhooks Module.
-
--   **url** `required`
-
-    The URL to which the webhooks will be sent.
-
--   **headers** `default: {}`
-
-    The headers that will be sent with the webhooks.
-
--   **publishInterval** `default: 60`
-
-    The interval in seconds at which the webhooks will be sent.
-
-#### Payload
-
-The payload that is sent to the service under the configured `url` has the following format:
-
-```ts
-interface WebhooksModulePayload {
-    messages: Message[];
-    relationships: Relationship[];
-}
-```
-
-Click the links for a <a href="{% link _docs_explore/61-data-model.md %}#Message">Message Definition <i class="fas fa-fw fa-book"/></a> and
-<a href="{% link _docs_explore/61-data-model.md %}#Relationship">Relationship Definition <i class="fas fa-fw fa-book"/></a>
-
 ### webhooksV2 <a href="{% link _docs_integrate/03-connector-modules.md %}#webhooksv2"><i class="fas fa-fw fa-info-circle"/></a> {#webhooksv2}
 
 ```json

@@ -9,8 +9,8 @@ main:
     url: /contribute
   - title: "Blog"
     url: /blog
-  - title: "v2.0.0 Preview"
-    url: /versions/2.0.0
+  - title: "v1 Docs (deprecated)"
+    url: /versions/1.0.0
 
 docs_explore:
   - title: First things first
@@ -71,6 +71,10 @@ docs_explore:
         url: /explore/runtime
       - title: "Data Model"
         url: /explore/data-model
+      - title: "Request Items"
+        url: /explore/request-items
+      - title: "Attribute Values"
+        url: /explore/attribute-values
       - title: "Cryptography"
         url: /explore/cryptography
       - title: "Why no blockchain?"
@@ -135,6 +139,8 @@ docs_integrate:
         url: /integrate/connector-configuration
       - title: "Troubleshooting"
         url: /integrate/connector-setup-troubleshooting
+      - title: "Error Codes"
+        url: /integrate/error-codes
 
   - title: REST API
     children:
@@ -148,14 +154,8 @@ docs_integrate:
       #   url: /integrate/connector-flows-relationships
       - title: "Sending Messages"
         url: /integrate/connector-flows-messages
-      # - title: "Requesting Data"
-      #   url: /integrate/connector-flows-requests
-      # - title: "Integrating Authentication"
-      #   url: /integrate/connector-flows-authentication
-      # - title: "Requests, Parameters and Filters"
-      #   url: /integrate/connector-requests
-      # - title: "Responses and Errors"
-      #   url: /integrate/connector-responses
+      - title: "Requests over Templates"
+        url: /integrate/requests-over-templates
 
   - title: Programming
     children:
@@ -165,6 +165,8 @@ docs_integrate:
         url: /integrate/custom-connector-modules
       - title: "Connector Events"
         url: /integrate/connector-events
+      - title: "Migrate to v2"
+        url: /integrate/connector-migration-v2
 
   - title: Operations
     children:

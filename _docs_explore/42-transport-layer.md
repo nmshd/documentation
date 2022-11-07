@@ -245,7 +245,7 @@ Personalized templates are primary used for a much better onboarding experience 
 
 Personalized templates can only be used if the person is authenticated upfront or it is ensured that only the respective person can receive the template.
 
-It should also be clear that personalized templates should expire as soon as possible, depending on the context. The `maxNumberOfRelationships` property when creating the template should be set to 1, so that the template can only be used once. Careful, it could still be scanned in multiple times - including the access of the personalized data - as long as it is not expired.
+It should also be clear that personalized templates should expire as soon as possible, depending on the context. The `maxNumberOfAllocations` property when creating the template should be set to 1, so that the template can only be used once. Careful, it could still be scanned in multiple times - including the access of the personalized data - as long as it is not expired.
 
 **Example 1**
 Horst has an online account of his favorite webshop and is already logged in there. The webshop can create a personalized template for Horst which includes Horst's private address. If Horst scans this template, the app can automatically fill Horst's datawallet with the private address. The personalized relationship template might expire after 5 minutes.
@@ -256,7 +256,7 @@ A company has no customer system where customers can log in but would still like
 ### Relationship Template Structure
 
 -   id
--   maxNumberOfRelationships
+-   maxNumberOfAllocations
 -   isOwn
 -   createdBy
 -   createdByDevice

@@ -6,7 +6,7 @@ categories:
 tags:
     - announcement
     - v2
-    - Requests
+    - requests
 toc: true
 ---
 
@@ -26,7 +26,7 @@ Requests in Enmeshed always defined a way to exchange structured data. In Enmesh
 
 Requests in V2 extend the Request featureset by providing more structured Requests, as well as Requests for unstructured data. Additionally, they are not fixed to the Identitity's Attributes. One example is a form you can send to a User, which contains some questions in natural language, which does not affect the Attributes. Another example is a Multi-Factor-Authentication Request which might be available in the future.
 
-In Enmeshed V1 `RelationshipTemplates` and `RequestMails` each defined their own way for exchanging Attributes. Further only the App could process them. When integrating via the Connector you had to manually process all Requests. For V2 we pulled the Request handling [from the User-Experience Layer to the Consumption layer]({% link _docs_explore/01-introduction.md %}/#layers). This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.
+In Enmeshed V1 `RelationshipTemplates` and `RequestMails` each defined their own way for exchanging Attributes. Further only the App could process them. When integrating via the Connector you had to manually process all Requests. For V2 we pulled the Request handling [from the User-Experience Layer to the Consumption layer]({% link _docs_explore/01-introduction.md %}#layers). This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.
 
 ## Exchanging Requests
 
@@ -37,8 +37,8 @@ The simplest way to exchange Requests is using Messages. But for sending Message
 The flow for establishing a Relationship between the App and another App or Connector has changed significantly. The body of the RelationshipTemplate is now a strict type that can be processed by the App and the Connector. It looks as follows:
 
 ```ts
-interface RelationshipTemplateBody {
-    "@type": "RelationshipTemplateBody";
+interface RelationshipTemplateContent {
+    "@type": "RelationshipTemplateContent";
     title?: string;
     metadata?: object;
     onNewRelationship: Request;

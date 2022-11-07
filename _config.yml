@@ -49,6 +49,7 @@ include:
 
 # Plugins (previously gems:)
 plugins:
+  - jekyll-archives
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
@@ -154,9 +155,21 @@ defaults:
       layout: single
       author_profile: false
 
+# see https://mmistakes.github.io/minimal-mistakes/docs/configuration/#archive-settings for category/tags configuration
 category_archive:
-  type: liquid
+  type: jekyll-archives
   path: /categories/
 tag_archive:
-  type: liquid
+  type: jekyll-archives
   path: /tags/
+# see https://jekyll.github.io/jekyll-archives/configuration/ for archive plugin configuration
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive-taxonomy
+    tag: archive-taxonomy
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
