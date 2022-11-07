@@ -185,16 +185,10 @@ var store = [{
         "url": "/integrate/connector-flows-messages",
         "teaser": null
       },{
-        "title": "Requesting Data",
-        "excerpt":" ","categories": [],
+        "title": "Requests over Templates",
+        "excerpt":"This guide will explain the end to end flow of sharing and answering a Request over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don’t have a...","categories": [],
         "tags": [],
-        "url": "/integrate/connector-flows-requests",
-        "teaser": null
-      },{
-        "title": "Integrating Authentication",
-        "excerpt":" ","categories": [],
-        "tags": [],
-        "url": "/integrate/connector-flows-authentication",
+        "url": "/integrate/requests-over-templates",
         "teaser": null
       },{
         "title": "Connector Software Development Kits",
