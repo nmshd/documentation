@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-11-08T14:26:28+01:00">
+  <meta property="article:published_time" content="2022-11-08T15:58:47+01:00">
 
 
 
@@ -282,7 +282,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Installation">
     <meta itemprop="description" content="Prerequisites">
-    <meta itemprop="datePublished" content="2022-11-08T14:26:28+01:00">
+    <meta itemprop="datePublished" content="2022-11-08T15:58:47+01:00">
     
 
     <div class="page__inner-wrap">
@@ -303,7 +303,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#prerequisites">Prerequisites</a><ul><li><a href="#mongodb">MongoDB</a></li><li><a href="#docker-runtime">Docker Runtime</a></li><li><a href="#docker-compose">Docker Compose</a></li><li><a href="#hardware-requirements">Hardware Requirements</a></li><li><a href="#internet-connectivity">Internet Connectivity</a></li><li><a href="#list-docker-image-tags">List docker image tags</a></li></ul></li><li><a href="#installation">Installation</a><ul><li><a href="#option-1-docker-compose-with-mongodb">Option 1: docker compose with MongoDB</a></li><li><a href="#option-2-docker-compose-with-existing-mongodb">Option 2: docker compose with existing MongoDB</a></li></ul></li><li><a href="#validate-the-connector-installation">Validate the Connector installation</a></li><li><a href="#log-file-mounting">Log file mounting</a></li></ul>
+              <ul class="toc__menu"><li><a href="#prerequisites">Prerequisites</a><ul><li><a href="#mongodb">MongoDB</a></li><li><a href="#docker-runtime">Docker Runtime</a></li><li><a href="#docker-compose">Docker Compose</a></li><li><a href="#hardware-requirements">Hardware Requirements</a></li><li><a href="#internet-connectivity">Internet Connectivity</a></li><li><a href="#list-docker-image-tags">List docker image tags</a></li></ul></li><li><a href="#installation">Installation</a><ul><li><a href="#option-1-docker-compose-with-mongodb">Option 1: docker compose with MongoDB</a></li><li><a href="#option-2-docker-compose-with-existing-mongodb">Option 2: docker compose with existing MongoDB</a></li></ul></li><li><a href="#validate-the-connector-installation">Validate the Connector installation</a></li><li><a href="#log-file-mounting">Log file mounting</a></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
 
             </nav>
           </aside>
@@ -356,8 +356,11 @@ For more information, please see <a href="https://www.docker.com">https://www.do
 
 <ol>
   <li>place the file <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/docker-compose-with-mongodb.yml">examples/docker-compose-with-mongodb.yml</a> as <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> in a folder of your choice</li>
-  <li>create a config file that can be mounted inside the Connector. Fill the config file using the <a href="/integrate/connector-configuration">configuration docs</a> and the <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json">example config file</a>. The connection string is <code class="language-plaintext highlighter-rouge">mongodb://user:pass@mongodb:27017/?authSource=admin&amp;readPreference=primary&amp;ssl=false</code>.</li>
-  <li>replace the marked &lt;fields&gt; in the compose file with your values</li>
+  <li>create a config file that can be mounted inside the Connector. Fill the config file using the <a href="/integrate/connector-configuration">configuration docs</a> and the <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json">example config file</a>. If you used the yml-file from the first step, the connection string looks as follows:
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code> mongodb://&lt;db-username&gt;:&lt;db-password&gt;@mongodb:27017/?authSource=admin&amp;readPreference=primary&amp;ssl=false
+</code></pre></div>    </div>
+  </li>
+  <li>replace all <code class="language-plaintext highlighter-rouge">&lt;placeholders&gt;</code> in the compose file with the corresponding values</li>
   <li>(optional) follow the steps under <a href="#log-file-mounting">log file mounting</a> if you want to persist and access the log files on the host system</li>
   <li>execute <code class="language-plaintext highlighter-rouge">docker compose up -d</code> in the shell</li>
 </ol>
@@ -372,7 +375,7 @@ For more information, please see <a href="https://www.docker.com">https://www.do
   <li>make your existing MongoDB available for the connector</li>
   <li>place the file <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/docker-compose-with-existing-mongodb.yml">examples/docker-compose-with-existing-mongodb.yml</a> as <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> in a folder of your choice</li>
   <li>create a config file that can be mounted inside the Connector. Fill the config file using the <a href="/integrate/connector-configuration">configuration docs</a> and the <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json">example config file</a></li>
-  <li>replace the marked &lt;fields&gt; in the compose file with your values</li>
+  <li>replace all <code class="language-plaintext highlighter-rouge">&lt;placeholders&gt;</code> in the compose file with the corresponding values</li>
   <li>(optional) follow the steps under <a href="#log-file-mounting">log file mounting</a> if you want to persist and access the log files on the host system</li>
   <li>execute <code class="language-plaintext highlighter-rouge">docker compose up -d</code> in the shell</li>
 </ol>
@@ -391,6 +394,10 @@ For more information, please see <a href="https://www.docker.com">https://www.do
   <li>replace <code class="language-plaintext highlighter-rouge">&lt;/folder/of/your/choice&gt;</code> with the path to your created folder</li>
 </ol>
 
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>If you encounter any problems while setting up the Connector, head over to the <a href="/integrate/connector-setup-troubleshooting">Troubleshooting</a> site.</p>
+
         
       </section>
 
@@ -401,7 +408,7 @@ For more information, please see <a href="https://www.docker.com">https://www.do
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-08T14:26:28+01:00">November 8, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-08T15:58:47+01:00">November 8, 2022</time></p>
 
       </footer>
 
