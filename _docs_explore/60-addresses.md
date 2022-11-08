@@ -11,7 +11,7 @@ The Address is the primary identifier for an Enmeshed Identity. It is public and
 
 ## Realms/Environments
 
-An Address is fixed to a certain realm/environment. So far, there is only one realm supported which is `"id1"`, the main productive network.
+An Address is fixed to a certain realm/environment. So far, there is only one realm supported which is `id1`, the main productive network.
 
 The same Identity (Identity Signature Key Pair) may act within different realms, but will have different Addresses. Additionally, there are many open questions with regards to using multiple realms, e.g. which realm is in charge for the synchronization.
 
@@ -53,43 +53,43 @@ createAddress(PublicKey, RealmAsThreeCharUtf8) {
 Below there are a few examples for valid Enmeshed Addresses.
 
 ```text
-Realm:  id1
-PublicKey:  fj0o9eOiPRswTZL6j9lE9TRvpDDnPRMF0gJeahz/W2c=
-Address:  id1QF24Gk2DfqCywRS7NpeH5iu7D4xvu6qv1
+Realm: id1
+PublicKey: fj0o9eOiPRswTZL6j9lE9TRvpDDnPRMF0gJeahz/W2c=
+Address: id1QF24Gk2DfqCywRS7NpeH5iu7D4xvu6qv1
 
-Realm:  id1
-PublicKey:  jRxGfZtQ8a90TmKCGk+dhuX1CBjgoXuldhNPwrjpWsw=
-Address:  id1HwY1TuyVBp3CmY3h18yTt1CKyu5qwB9wj
+Realm: id1
+PublicKey: jRxGfZtQ8a90TmKCGk+dhuX1CBjgoXuldhNPwrjpWsw=
+Address: id1HwY1TuyVBp3CmY3h18yTt1CKyu5qwB9wj
 
-Realm:  id1
-PublicKey:  PEODpwvi7KxIVa4qeUXia9apMFvPMktdDHiDitlfbjE=
-Address:  id1LMp4k1XwxZ3WFXdAn9y12tv1ofe5so4kM
+Realm: id1
+PublicKey: PEODpwvi7KxIVa4qeUXia9apMFvPMktdDHiDitlfbjE=
+Address: id1LMp4k1XwxZ3WFXdAn9y12tv1ofe5so4kM
 
-Realm:  id1
-PublicKey:  mJGmNbxiVZAPToRuk9O3NvdfsWl6V+7wzIc+/57bU08=
-Address:  id1McegXycvRoiJppS2LG25phn3jNveckFUL
+Realm: id1
+PublicKey: mJGmNbxiVZAPToRuk9O3NvdfsWl6V+7wzIc+/57bU08=
+Address: id1McegXycvRoiJppS2LG25phn3jNveckFUL
 
-Realm:  id1
-PublicKey:  l68K/zdNp1VLoswcHAqN6QUFwCMU6Yvzf7XiW2m1hRY=
-Address:  id193k6K5cJr94WJEWYb6Kei8zp5CGPyrQLS
+Realm: id1
+PublicKey: l68K/zdNp1VLoswcHAqN6QUFwCMU6Yvzf7XiW2m1hRY=
+Address: id193k6K5cJr94WJEWYb6Kei8zp5CGPyrQLS
 
-Realm:  id1
-PublicKey:  Gl8XTo8qFuUM+ksXixwp4g/jf3H/hU1F8ETuYaHCM5I=
-Address:  id1BLrHAgDpimtLcGJGssMSm7bJHsvVe7CN
+Realm: id1
+PublicKey: Gl8XTo8qFuUM+ksXixwp4g/jf3H/hU1F8ETuYaHCM5I=
+Address: id1BLrHAgDpimtLcGJGssMSm7bJHsvVe7CN
 
-Realm:  id1
-PublicKey:  rIS4kAzHXT7GgCA6Qm1ANlwM3x12QMSkeprHb6tjPyc=
-Address:  id1NjGvLfWPrQ34PXWRBNiTfXv9DFiDQHExx
+Realm: id1
+PublicKey: rIS4kAzHXT7GgCA6Qm1ANlwM3x12QMSkeprHb6tjPyc=
+Address: id1NjGvLfWPrQ34PXWRBNiTfXv9DFiDQHExx
 
-Realm:  id1
-PublicKey:  hg/cbeBvfNrMiJ0dW1AtWC4IQwG4gkuhzG2+z6bAoRU=
-Address:  id1Gda4aTXiBX9Pyc8UnmLaG44cX46umjnea
+Realm: id1
+PublicKey: hg/cbeBvfNrMiJ0dW1AtWC4IQwG4gkuhzG2+z6bAoRU=
+Address: id1Gda4aTXiBX9Pyc8UnmLaG44cX46umjnea
 
-Realm:  id1
-PublicKey:  kId+qWen/lKeTdyxcIQhkzvvvTU8wIJECfWUWbmRQRY=
-Address:  id17RDEphijMPFGLbhqLWWgJfatBANMruC8f
+Realm: id1
+PublicKey: kId+qWen/lKeTdyxcIQhkzvvvTU8wIJECfWUWbmRQRY=
+Address: id17RDEphijMPFGLbhqLWWgJfatBANMruC8f
 
-Realm:  id1
-PublicKey:  NcqlzTEpSlKX9gmNBv41EjPRHpaNYwt0bxqh1bgyJzA=
-Address:  id19meHs4Di7JYNXoRPx9bFD6FUcpHFo3mBi
+Realm: id1
+PublicKey: NcqlzTEpSlKX9gmNBv41EjPRHpaNYwt0bxqh1bgyJzA=
+Address: id19meHs4Di7JYNXoRPx9bFD6FUcpHFo3mBi
 ```
