@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-11-07T10:48:12+01:00">
+  <meta property="article:published_time" content="2022-11-08T10:15:44+01:00">
 
 
 
@@ -280,7 +280,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Requests over Templates">
     <meta itemprop="description" content="This guide will explain the end to end flow of sharing and answering a Request over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don’t have a Relationship yet.">
-    <meta itemprop="datePublished" content="2022-11-07T10:48:12+01:00">
+    <meta itemprop="datePublished" content="2022-11-08T10:15:44+01:00">
     
 
     <div class="page__inner-wrap">
@@ -301,7 +301,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#check-your-requests-validity">Check your Requests validity</a></li><li><a href="#create-the-template">Create the Template</a></li><li><a href="#load-the-template-and-get-the-request">Load the Template and get the Request</a></li><li><a href="#answer-the-request">Answer the Request</a><ul><li><a href="#reject">Reject</a></li><li><a href="#accept">Accept</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#check-your-requests-validity">Check your Request’s validity</a></li><li><a href="#create-the-template">Create the Template</a></li><li><a href="#load-the-template-and-get-the-request">Load the Template and get the Request</a></li><li><a href="#answer-the-request">Answer the Request</a><ul><li><a href="#reject">Reject</a></li><li><a href="#accept">Accept</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -312,7 +312,7 @@
 
 <p>On the first Connector you will create a Template. This Connector will be called Templator in the in the following steps. The second Connector is called Requestor, because it will create the Relationship and therefore it creates the <code class="language-plaintext highlighter-rouge">RelationshipCreationChangeRequest</code>.</p>
 
-<h2 id="check-your-requests-validity">Check your Requests validity</h2>
+<h2 id="check-your-requests-validity">Check your Request’s validity</h2>
 
 <p>At first you should check if your Request is valid. You can do this by calling the <code class="language-plaintext highlighter-rouge">POST /api/v2/Requests/Outgoing/Validate</code> route on the Templator Connector with the following body.
 For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any <a href="/explore/request-items">RequestItems</a> you want.</p>
@@ -347,7 +347,15 @@ For simplicity the Request inside the Template only contains an AuthenticationRe
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>You will receive a response with the complete RelationshipTemplate. In this guide we will only use the Template’s truncated reference and its id. Thus make sure to save the <code class="language-plaintext highlighter-rouge">truncatedReference</code> and the <code class="language-plaintext highlighter-rouge">id</code> for the next steps.</p>
+<p>You will receive a response with the complete RelationshipTemplate.</p>
+
+<table style="border: none" class="notice--warning">
+    <tr>
+        <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">truncatedReference</code> and the <code class="language-plaintext highlighter-rouge">id</code> of the RelationshipTemplate. You will need them in the next steps.</p>
+</td>
+    </tr>
+</table>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RLT.."</span><span class="p">,</span><span class="w">
@@ -358,20 +366,26 @@ For simplicity the Request inside the Template only contains an AuthenticationRe
 
 <h2 id="load-the-template-and-get-the-request">Load the Template and get the Request</h2>
 
-<p>Now you have to load the Template on the Requestor Connector. You can do so by calling the <code class="language-plaintext highlighter-rouge">POST /api/v2/RelationshipTemplates/Peer</code> route with the following content. Use the truncated reference you copied before:</p>
+<p>Now you have to load the Template on the Requestor Connector. You can do so by calling the <code class="language-plaintext highlighter-rouge">POST /api/v2/RelationshipTemplates/Peer</code> route with the following content. Use the <code class="language-plaintext highlighter-rouge">truncatedReference</code> you copied before:</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UkxU..."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>If no Relationship exists this will trigger a process in the Enmeshed Runtime. It will create a new incoming Request on which we will work in the next step. You can observe this by long polling the incoming Requests or by waiting for the <code class="language-plaintext highlighter-rouge">consumption.incomingRequestReceived</code> event.</p>
+<p>If no Relationship exists, this will trigger a process in the Enmeshed Runtime. It will create a new incoming Request on which we will work in the next step. You can observe this by long polling the incoming Requests or by waiting for the <code class="language-plaintext highlighter-rouge">consumption.incomingRequestReceived</code> event.</p>
 
-<p>The long polling is done by calling the <code class="language-plaintext highlighter-rouge">GET /api/v2/Requests/Incoming</code> route. You can use the query params <code class="language-plaintext highlighter-rouge">source.reference=&lt;id-of-the-template&gt;</code> and <code class="language-plaintext highlighter-rouge">status=ManualDecisionRequired</code> to filter only for Requests that belong to the Template you are currently working on.</p>
+<p>The long polling is done by calling the <code class="language-plaintext highlighter-rouge">GET /api/v2/Requests/Incoming</code> route. You can use the query params <code class="language-plaintext highlighter-rouge">source.reference=&lt;id-of-the-template&gt;</code> and <code class="language-plaintext highlighter-rouge">status=ManualDecisionRequired</code> to filter for Requests that belong to the Template you are currently working on.</p>
 
 <p>For more information about the events you can head over to the <a href="/integrate/connector-modules">Connector Modules site</a> and read about the <a href="/integrate/connector-modules#amqppublisher">AMQP Publisher module</a> and the <a href="/integrate/connector-modules#webhooksv2">WebhooksV2 module</a> that are propagating events.</p>
 
-<p>If you got the Request save its <code class="language-plaintext highlighter-rouge">id</code> for the next step.</p>
+<table style="border: none" class="notice--warning">
+    <tr>
+        <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
+        <td style="border: none"><p>After you received the Request, save its <code class="language-plaintext highlighter-rouge">id</code> for the next step.</p>
+</td>
+    </tr>
+</table>
 
 <h2 id="answer-the-request">Answer the Request</h2>
 
@@ -452,7 +466,7 @@ For simplicity the Request inside the Template only contains an AuthenticationRe
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Especially pay attention to the <code class="language-plaintext highlighter-rouge">changes.0.request.content</code> property that contains the Response that was generated by the Enmeshed Runtime.</p>
+<p>Pay particular attention to the <code class="language-plaintext highlighter-rouge">changes.0.request.content</code> property that contains the Response that was generated by the Enmeshed Runtime.</p>
 
 <p>Now you can accept the Relationship on the Templator Connector by calling the <code class="language-plaintext highlighter-rouge">PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Accept</code> route.</p>
 
@@ -468,7 +482,7 @@ For simplicity the Request inside the Template only contains an AuthenticationRe
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-07T10:48:12+01:00">November 7, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-08T10:15:44+01:00">November 8, 2022</time></p>
 
       </footer>
 
