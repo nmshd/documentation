@@ -48,7 +48,7 @@ You can query the Connector's Address under the route `/api/v2/Account/IdentityI
 
 {% include rapidoc api_route_regex="^post /api/v2/Attributes$" %}
 
-{% include copy-notice description="Remember the `id` of the Attribute that you can find in the response. You will need it in the next step." %}
+{% include copy-notice description="Save the `id` of the Attribute that you can find in the response. You will need it in the next step." %}
 
 ## Connector: Test your Request's Validity
 
@@ -139,7 +139,7 @@ Start by creating a so called Relationship Template on the Connector. You can do
 
 {% include rapidoc api_route_regex="^post /api/v2/RelationshipTemplates/Own$" %}
 
-{% include copy-notice description="Remember the `id` of the Relationship Template that you can find in the response. You will need it in the next step." %}
+{% include copy-notice description="Save the `id` of the Relationship Template that you can find in the response. You will need it in the next step." %}
 
 ## Connector: Create a QRCode for the Relationship Template
 
@@ -206,7 +206,7 @@ Example:
 }
 ```
 
-{% include copy-notice description="Remember the `id` of the Relationship (`REL_________________`) as well as the `id` of the first Relationship Change (`RCH_________________`) in the `changes` array and use them as input to the `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept` route. You can leave that request body as it is." %}
+{% include copy-notice description="Save the `id` of the Relationship (`REL_________________`) as well as the `id` of the first Relationship Change (`RCH_________________`) in the `changes` array and use them as input to the `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept` route. You can leave that request body as it is." %}
 
 {% include rapidoc api_route_regex="^put /api/v2/Relationships/{id}/Changes/{changeId}/Accept$" %}
 
