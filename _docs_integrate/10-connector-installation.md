@@ -81,3 +81,7 @@ If the swagger documentation is enabled you can also access it under `<connector
 1. Uncomment the volume mapping in the created `docker-compose.yml` file
 2. Create a folder where the log files shall be placed. Make sure that the process in the container has write access to the folder e.g. by executing `chmod 777 <folder>` on your created folder.
 3. replace `</folder/of/your/choice>` with the path to your created folder
+
+## Troubleshooting
+
+If you encounter any problems while setting up the Connector, head over to the [Troubleshooting]({% link _docs_integrate/12-connector-setup-troubleshooting.md %}) site.
