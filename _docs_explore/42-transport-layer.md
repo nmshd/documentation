@@ -4,7 +4,7 @@ permalink: /explore/layers/transport
 toc: true
 ---
 
-The transport layer is located between the backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the [Connector]({% link _docs_explore/52-connector.md %}) or programmatically accessed by the [App]({% link _docs_explore/50-app.md %}). The [Runtime]({% link _docs_explore/60-runtime.md %}) is the primary technical building block, containing the transport library, the content library and the crypto library.
+The transport layer is located between the backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the [Connector]({% link _docs_explore/52-connector.md %}) or programmatically accessed by the [App]({% link _docs_explore/50-app.md %}). The [Runtime]({% link _docs_explore/61-runtime.md %}) is the primary technical building block, containing the transport library, the content library and the crypto library.
 
 **Components**
 

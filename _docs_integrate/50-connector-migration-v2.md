@@ -28,7 +28,7 @@ With v2 of Enmeshed, Attributes were completely revamped. We won't go into much 
 
 **Data Model**
 
-You can find a description of Attributes in the [data model]({% link _docs_explore/61-data-model.md %}#attributes).
+You can find a description of Attributes in the [data model]({% link _docs_explore/62-data-model.md %}#attributes).
 
 **Endpoints**
 
@@ -70,7 +70,7 @@ There are a few minor changes to the data model and the endpoints for managing M
 
 **Data Model**
 
-The [recipient]({% link _docs_explore/61-data-model.md %}#recipient) of a `Message` now has the property `relationshipId`, which contains the ID of the Relationship the Connector has to the recipient. This is useful for example if you want to query all Messages that belong to a specific Relationship.
+The [recipient]({% link _docs_explore/62-data-model.md %}#recipient) of a `Message` now has the property `relationshipId`, which contains the ID of the Relationship the Connector has to the recipient. This is useful for example if you want to query all Messages that belong to a specific Relationship.
 
 **Endpoints**
 
@@ -132,7 +132,7 @@ With v2 of Enmeshed, there is the new concept of "Requests", which are the new w
 
 **Data Model**
 
-You can find a description of Requests in the [data model]({% link _docs_explore/61-data-model.md %}#request). Further, there is a [dedicated page]({% link _docs_explore/64-request-items.md %}) where you can find all existing Request Items.
+You can find a description of Requests in the [data model]({% link _docs_explore/62-data-model.md %}#request). Further, there is a [dedicated page]({% link _docs_explore/63-request-items.md %}) where you can find all existing Request Items.
 
 **Endpoints**
 
