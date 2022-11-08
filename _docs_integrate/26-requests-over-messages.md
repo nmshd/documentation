@@ -12,7 +12,7 @@ In this guide, the first Connector will be called Sender and the second Connecto
 [
     // ...
     {
-        "id": "RL..",
+        "id": "REL..",
         "status": "Active",
         // ...
         "peer": "id1..."

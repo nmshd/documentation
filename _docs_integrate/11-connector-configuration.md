@@ -374,3 +374,7 @@ It is not recommended to use this Module for production scenarios.
 ```
 
 You can find type definitions of the event data in the [Connector Events]({% link _docs_integrate/32-connector-events.md %}) section.
+
+## Troubleshooting
+
+If you encounter any problems while configuring the Connector, head over to the [Troubleshooting]({% link _docs_integrate/12-connector-setup-troubleshooting.md %}) site.
