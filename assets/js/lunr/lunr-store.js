@@ -95,6 +95,12 @@ var store = [{
         "url": "/explore/connector",
         "teaser": null
       },{
+        "title": "Enmeshed Addresses",
+        "excerpt":"The Address is the primary identifier for an Enmeshed Identity. It is public and created out of the Identity’s Signature Public Key. Thus, the Identity’s root signature key and its corresponding Address are interlinked with each other and cannot be changed. Nobody is able to change the public key for...","categories": [],
+        "tags": [],
+        "url": "/explore/addresses",
+        "teaser": null
+      },{
         "title": "Enmeshed Runtime",
         "excerpt":"Enmeshed Runtime GitHub Repository The Runtime wraps all features of Enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser. Versions, local...","categories": [],
         "tags": [],
@@ -107,18 +113,6 @@ var store = [{
         "url": "/explore/data-model",
         "teaser": null
       },{
-        "title": "Cryptography",
-        "excerpt":"Backbone Layer Encryption The communication with the Backbone is encrypted on the http transport layer. This is done by using the transport-layer-security (TLS) standard which is common throughout the Internet. This prevents third parties to access any data communication to and from the Backbone. Data at rest is encrypted on...","categories": [],
-        "tags": [],
-        "url": "/explore/cryptography",
-        "teaser": null
-      },{
-        "title": "Why we do not use a blockchain",
-        "excerpt":"The new world of identities Self-Sovereignty and Self-Sovereign Identities Having full control over data, authorizations, or the hard- and software one can use for using the data is called self-sovereignty. A self-sovereign Identity is a digital identity which anybody can set up, without the power of somebody else to deny...","categories": [],
-        "tags": [],
-        "url": "/explore/blockchain",
-        "teaser": null
-      },{
         "title": "Request Items",
         "excerpt":"All the RequestItems listed below inherit from the RequestItem and are therefore sharing its properties. AuthenticationRequestItem With this item the sender can request the peer for an authentication in a business context for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived...","categories": [],
         "tags": [],
@@ -129,6 +123,18 @@ var store = [{
         "excerpt":"Each Attribute contains an instance of an Attribute Value within its value property. There are different types of Attribute Values. The types define the value’s structural definition, rendering information and validators. For example, an email address with the value “address@company.corp” is stored with the Attribute Value type EMailAddress, which defines...","categories": [],
         "tags": [],
         "url": "/explore/attribute-values",
+        "teaser": null
+      },{
+        "title": "Cryptography",
+        "excerpt":"Backbone Layer Encryption The communication with the Backbone is encrypted on the http transport layer. This is done by using the transport-layer-security (TLS) standard which is common throughout the Internet. This prevents third parties to access any data communication to and from the Backbone. Data at rest is encrypted on...","categories": [],
+        "tags": [],
+        "url": "/explore/cryptography",
+        "teaser": null
+      },{
+        "title": "Why we do not use a blockchain",
+        "excerpt":"The new world of identities Self-Sovereignty and Self-Sovereign Identities Having full control over data, authorizations, or the hard- and software one can use for using the data is called self-sovereignty. A self-sovereign Identity is a digital identity which anybody can set up, without the power of somebody else to deny...","categories": [],
+        "tags": [],
+        "url": "/explore/blockchain",
         "teaser": null
       },{
         "title": "Basics",
