@@ -52,7 +52,9 @@ To create the Request you have to call the `POST /api/v2/Requests/Outgoing` rout
 }
 ```
 
-Save the complete `content` of the response. You will need it in the next step. Note that the Request is currently in status `Draft`.
+Note that the Request is currently in status `Draft`.
+
+{% include copy-notice description="Save the complete `content` of the response. You will need it in the next step." %}
 
 ```jsonc
 {
@@ -98,7 +100,7 @@ The long polling is done by calling the `GET /api/v2/Requests/Incoming` route. Y
 
 For more information about the events you can head over to the [Connector Modules site]({% link _docs_integrate/03-connector-modules.md %}) and read about the [AMQP Publisher module]({% link _docs_integrate/03-connector-modules.md %}#amqppublisher) and the [WebhooksV2 module]({% link _docs_integrate/03-connector-modules.md %}#webhooksv2) that are propagating events.
 
-If you got the Request save its `id` for the next step.
+{% include copy-notice description="After you received the Request, save its `id` for the next step." %}
 
 ## Answer the Request
 
