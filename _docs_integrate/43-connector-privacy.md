@@ -9,6 +9,6 @@ Thus the access to the Connector and its database should be kept to a bare minim
 
 As the Connector is running on the customer's infrastructure in the complete authority of the customer, it is in the customer's liability to ensure a secure and legal operation.
 
-# Which data is processed by the Connector?
+## Which data is processed by the Connector?
 
-# Deleting Data
+## Deleting Data

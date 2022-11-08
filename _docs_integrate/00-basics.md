@@ -7,13 +7,13 @@ You want to seamlessly use Enmeshed with your processes, solutions and software 
 
 We've built the Enmeshed Connector exactly for this scenario: to integrate existing systems with the Enmeshed approach with as less effort as possible.
 
-# What is the Connector?
+## What is the Connector?
 
 It is a software component which runs in the network of any organization, hosting a set of APIs to easily consume Enmeshed features. It is usually run with the provided Docker image. The Connector requires a document database to store its data.
 
 Going a bit more technical, the Connector uses NodeJS with Express to host an HTTP server. It spans up REST APIs used as the primary integration mechanism. However, it is also possible to write custom TypeScript/JavaScript Modules which are run on the Connector itself. The Connector makes use of the Enmeshed Runtime to provide all features of the Enmeshed Transport Layer as a consumable API.
 
-# Why does my organization need a Connector?
+## Why does my organization need a Connector?
 
 Enmeshed consists of different layers, each of which providing a different set of functionality and abstractions. The very low levels introduce a common set of communication and encryption contracts, which are required for all the upper levels. Just like you do not want to implement your own network stack, you usually do not want to implement the contracts by yourself.
 
@@ -23,7 +23,7 @@ Additionally, the Connector should be run within the organizations network, as i
 
 If you ask yourself now "Why does Enmeshed itself host Connectors then?" - good catch! We do host Connectors but only for development, test or demo reasons.
 
-# So how does my organization get started?
+## So how does my organization get started?
 
 Unfortunately, there is no button with which you can switch on the digitalization. Processes need to be set up, old processes need to be digitalized, data might need to be mapped, and so on. However, one needs to start somehow and we can help you on your journey.
 
@@ -31,7 +31,7 @@ We propose to set up a first test Connector by your IT department or let us do t
 
 If you like to try on your own: There is a Connector Tutorial in the next chapter which is a good starting point to set up the Connector on a try out basis. More details are available in the "Setting up the Connector" and integration sections. If you like to dig deeper, there are operation tutorials which might answer some questions with regards to overall security and privacy.
 
-# Support
+## Support
 
 For assisted support with the Connector or the Backbone provided by the j&s-soft GmbH contact us via `support[at]enmeshed.eu`.
 
