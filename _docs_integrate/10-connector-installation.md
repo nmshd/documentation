@@ -1,27 +1,28 @@
 ---
 title: "Connector Installation"
 permalink: /integrate/connector-installation
+toc: true
 ---
 
-# Prerequisites
+## Prerequisites
 
-## MongoDB
+### MongoDB
 
 The Connector requires a MongoDB database as its data storage. MongoDB is a document-oriented database. For compatibility and security reasons, the most up-to-date version of MongoDB should be used.
 For more information, please see <https://www.mongodb.com>.
 
-## Docker Runtime
+### Docker Runtime
 
 The Connector requires a Docker Runtime: Docker is a virtualization technology which introduces highly portable software containers. The Connector is shipped and updated as such a Docker container - the Docker Runtime is the runtime environment which can execute the Docker containers. For compatibility and security reasons, the most up-to-date version of the Docker Runtime should be used.
 For more information, please see <https://www.docker.com>.
 
 Visit [the official docker docs](https://docs.docker.com/get-docker/) for installation guides.
 
-## Docker Compose
+### Docker Compose
 
 Make sure that you have installed docker-compose. Visit [the official installation guide](https://docs.docker.com/compose/install/) for more information.
 
-## Hardware Requirements
+### Hardware Requirements
 
 No special hardware requirements have been identified so far and as always, hardware requirements strongly correlate with the envisoned usage scenario.
 
@@ -33,17 +34,17 @@ A good starting point for hosting the Docker image of the Connector would be the
 
 Depending on the usage scenario, higher hardware requirements might be necessary.
 
-## Internet Connectivity
+### Internet Connectivity
 
 A reliable and fast internet connection is mandatory for running the Connector. However, the Connector is only communicating with the Backbone so the corresponding domain (e.g. `https://prod.enmeshed.eu`) can be whitelisted and the associated certificate can be additionally pinned.
 
-## List docker image tags
+### List docker image tags
 
 Read more about listing available docker image tags [here]({% link _docs_explore/52-connector.md %}#connector-docker-image).
 
-# Installation
+## Installation
 
-## Option 1: docker compose with MongoDB
+### Option 1: docker compose with MongoDB
 
 Go through the following steps to start the Connector:
 
@@ -53,7 +54,7 @@ Go through the following steps to start the Connector:
 4. (optional) follow the steps under [log file mounting](#log-file-mounting) if you want to persist and access the log files on the host system
 5. execute `docker compose up -d` in the shell
 
-## Option 2: docker compose with existing MongoDB
+### Option 2: docker compose with existing MongoDB
 
 Visit the official [MongoDB website](https://www.mongodb.com/) for installation without docker or cloud usage or the [docker hub page](https://hub.docker.com/_/mongo) for information about the installation with docker.
 
@@ -66,13 +67,13 @@ Go through the following steps to start the Connector:
 5. (optional) follow the steps under [log file mounting](#log-file-mounting) if you want to persist and access the log files on the host system
 6. execute `docker compose up -d` in the shell
 
-# Validate the Connector installation
+## Validate the Connector installation
 
 You can validate the Connector installation by checking its health route. Simply access `<connector-baseurl>/health` in your browser or using curl.
 
 If the swagger documentation is enabled you can also access it under `<connector-baseurl>/docs`
 
-# Log file mounting
+## Log file mounting
 
 1. Uncomment the volume mapping in the created `docker-compose.yml` file
 2. Create a folder where the log files shall be placed. Make sure that the process in the container has write access to the folder e.g. by executing `chmod 777 <folder>` on your created folder.
