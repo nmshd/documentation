@@ -25,7 +25,7 @@ In this guide, the first Connector will be called Sender and the second Connecto
 ## Check your Requests validity
 
 At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Sender Connector with the following body.
-For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_explore/64-request-items.md %}) you want.
+For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_explore/63-request-items.md %}) you want.
 
 Even though the `peer` property is optional, it is recommended to specify it whenever possible. This allows additional validation rules to execute. When you are sending a Request over Messages you always know your peer.
 

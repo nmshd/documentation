@@ -19,7 +19,7 @@ The Docker images are created, maintained and published by j&s-soft GmbH.
 
 ## Connector Runtime
 
-Just like the [App Runtime]({% link _docs_explore/50-app.md %}) extends the [Enmeshed Runtime]({% link _docs_explore/60-runtime.md %}) for user interfaces, the Connector Runtime is extending the [Enmeshed Runtime]({% link _docs_explore/60-runtime.md %}) for the use within services and programs. For example, it maps REST-API-calls to Enmeshed business-logic.
+Just like the [App Runtime]({% link _docs_explore/50-app.md %}) extends the [Enmeshed Runtime]({% link _docs_explore/61-runtime.md %}) for user interfaces, the Connector Runtime is extending the [Enmeshed Runtime]({% link _docs_explore/61-runtime.md %}) for the use within services and programs. For example, it maps REST-API-calls to Enmeshed business-logic.
 
 ## Connector Modules
 

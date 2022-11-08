@@ -58,6 +58,6 @@ So far, only one Request can be sent with one Message. This is intentional, as w
 
 ## Modules managing Requests
 
-The main component powering the Enmeshed App and the Enmeshed Connector is the Runtime. The Runtime is modular and we decided to use this to provide two Modules for managing Requests: the [Request Module]({% link _docs_explore/60-runtime.md %}#request-module) and the [Decider Module]({% link _docs_explore/60-runtime.md %}#decider-module).
+The main component powering the Enmeshed App and the Enmeshed Connector is the Runtime. The Runtime is modular and we decided to use this to provide two Modules for managing Requests: the [Request Module]({% link _docs_explore/61-runtime.md %}#request-module) and the [Decider Module]({% link _docs_explore/61-runtime.md %}#decider-module).
 
 The Decider Module is in its early stages and we will inform you about it in the future.
