@@ -49,7 +49,7 @@ Create the Relationship Template on the Templator's Connector. You can do so by 
 
 You will receive a response with the complete RelationshipTemplate.
 
-{% include copy-notice description="Save the `truncatedReference` and the `id` of the RelationshipTemplate. You will need them in the next step." %}
+{% include copy-notice description="Save the `truncatedReference` and the `id` of the RelationshipTemplate. You will need them in the next steps." %}
 
 ```jsonc
 {
