@@ -59,6 +59,8 @@ docs_explore:
 
   - title: Expert Corner
     children:
+      - title: "Enmeshed Addresses"
+        url: /explore/addresses
       - title: "Runtime"
         url: /explore/runtime
       - title: "Data Model"
