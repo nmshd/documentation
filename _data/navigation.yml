@@ -28,20 +28,12 @@ docs_explore:
 
   - title: How we think
     children:
-      # - title: "Usage Considerations"
-      #  url: /explore/usage
       - title: "Integration Considerations"
         url: /explore/integration
       - title: "Security Considerations"
         url: /explore/security
       - title: "Privacy Considerations"
         url: /explore/privacy
-      # - title: "Performance Considerations"
-      #   url: /explore/performance
-      #- title: "Data Considerations"
-      #  url: /explore/data
-      #- title: "Process Considerations"
-      #  url: /explore/process
 
   - title: Our Layers
     children:
@@ -126,8 +118,6 @@ docs_integrate:
         url: /integrate/basics
       - title: "Connector Tutorial"
         url: /integrate/connector-tutorial
-      # - title: "Create Relationships"
-      #   url: /integrate/create-relationships
       - title: "Connector Modules"
         url: /integrate/connector-modules
 
@@ -146,12 +136,6 @@ docs_integrate:
     children:
       - title: "API Documentation"
         url: /integrate/connector-api
-      # - title: "Using Templates"
-      #   url: /integrate/connector-flows-templates
-      # - title: "Synchronization"
-      #   url: /integrate/connector-flows-synchronization
-      # - title: "Handling Relationships"
-      #   url: /integrate/connector-flows-relationships
       - title: "Sending Messages"
         url: /integrate/connector-flows-messages
       - title: "Requests over Templates"
@@ -172,13 +156,9 @@ docs_integrate:
     children:
       - title: "Connector Operations"
         url: /integrate/connector-operations
-      # - title: "Connector Troubleshooting"
-      #   url: /integrate/connector-troubleshooting
       - title: "Security Considerations"
         url: /integrate/connector-security
       - title: "Privacy Considerations"
         url: /integrate/connector-privacy
       - title: "Performance Considerations"
         url: /integrate/connector-performance
-      # - title: "Data Considerations"
-      #   url: /integrate/connector-data
