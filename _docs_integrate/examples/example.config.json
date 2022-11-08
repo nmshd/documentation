@@ -4,7 +4,7 @@
         "platformClientSecret": "<clientSecret => https://enmeshed.eu/integrate/connector-configuration#transportlibrary>"
     },
     "database": {
-        "connectionString": "mongodb://user:pass@mongodb:27017/?authSource=admin&readPreference=primary&ssl=false",
+        "connectionString": "mongodb://<db-username>:<db-password>@mongodb:27017/?authSource=admin&readPreference=primary&ssl=false",
         "dbName": "demo"
     },
     "infrastructure": {
