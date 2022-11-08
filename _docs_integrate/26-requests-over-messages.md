@@ -6,23 +6,28 @@ toc: true
 
 This guide assumes that you already have an active Relationship between two Connectors. If you don't, you should follow the [Requests over Templates]({% link _docs_integrate/25-requests-over-templates.md %}) guide first.
 
-The first Connector will be called the Sender and the second Connector will be called the Peer. The Sender will send a Request to the Peer. For the next steps you will need the Enmeshed Address of the Peer. You can find it out by calling the `GET /api/v2/Relationships` route on the Sender Connector. The response will contain the Address of the Peer in the field `peer`.
+In this guide, the first Connector will be called Sender and the second Connector will be called Recipient. The Sender will send a Request to the Recipient. For the next steps you will need the Enmeshed Address of the Recipient. You can find it out by calling the `GET /api/v2/Relationships` route on the Sender Connector.
 
 ```jsonc
-{
-    "id": "RL..",
-    "status": "Active",
+[
     // ...
-    "peer": "id1..."
-}
+    {
+        "id": "RL..",
+        "status": "Active",
+        // ...
+        "peer": "id1..."
+    }
+]
 ```
+
+{% include copy-notice description="Look for the correct Relationship and then take its `peer` property. Save it for later." %}
 
 ## Check your Requests validity
 
 At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Sender Connector with the following body.
 For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_explore/64-request-items.md %}) you want.
 
-The `peer` property is optional, but you should provide it every time you know the peer. When you are sending a Request over Messages you always know your peer.
+Even though the `peer` property is optional, it is recommended to specify it whenever possible. This allows additional validation rules to execute. When you are sending a Request over Messages you always know your peer.
 
 ```json
 {
@@ -35,7 +40,7 @@ The `peer` property is optional, but you should provide it every time you know t
             }
         ]
     },
-    "peer": "<the address of the Peer Connector>"
+    "peer": "<the address of the Recipient Connector>"
 }
 ```
 
@@ -48,13 +53,15 @@ To create the Request you have to call the `POST /api/v2/Requests/Outgoing` rout
     "content": {
         // the content property of the payload in the step before
     },
-    "peer": "<the address of the Peer Connector>"
+    "peer": "<the address of the Recipient Connector>"
 }
 ```
 
 Note that the Request is currently in status `Draft`.
 
 {% include copy-notice description="Save the complete `content` of the response. You will need it in the next step." %}
+
+**Example response:**
 
 ```jsonc
 {
@@ -77,11 +84,11 @@ Note that the Request is currently in status `Draft`.
 
 ## Send the Request
 
-Now you have to send the Request to the Peer. You can do so by calling the `POST /api/v2/Messages` route on the Sender Connector. Use the following JSON in the Request body:
+Now you have to send the Request to the Recipient. You can do so by calling the `POST /api/v2/Messages` route on the Sender Connector. Use the following JSON in the Request body:
 
 ```jsonc
 {
-    "recipients": ["<the address of the Peer Connector>"],
+    "recipients": ["<the address of the Recipient Connector>"],
     "content": {
         // the content you copied in the step before
     }
@@ -92,11 +99,11 @@ This is where the automation of the Enmeshed Runtime steps in and moves the Requ
 
 ## Fetch the Request
 
-The Peer will receive the Request as a Message. Therefore you have to synchronize the Peer Connector (`GET /api/v2/Account/Sync`).
+In order to fetch the Message with the Request, you have to synchronize the Recipient Connector (`GET /api/v2/Account/Sync`).
 
 The Enmeshed Runtime will read the Message and create a new incoming Request. You can observe this by long polling the incoming Requests or by waiting for the `consumption.incomingRequestReceived` event.
 
-The long polling is done by calling the `GET /api/v2/Requests/Incoming` route. You can use the query params `source.reference=<id-of-the-message>` and `status=ManualDecisionRequired` to filter only for Requests that belong to the Message that contained the Request.
+The long polling is done by calling the `GET /api/v2/Requests/Incoming` route. You can use the query params `source.reference=<id-of-the-message>` and `status=ManualDecisionRequired` to filter for Requests that belong to the Message that contained the Request.
 
 For more information about the events you can head over to the [Connector Modules site]({% link _docs_integrate/03-connector-modules.md %}) and read about the [AMQP Publisher module]({% link _docs_integrate/03-connector-modules.md %}#amqppublisher) and the [WebhooksV2 module]({% link _docs_integrate/03-connector-modules.md %}#webhooksv2) that are propagating events.
 
@@ -134,10 +141,10 @@ If you want to reject the Request you can do so by calling the `POST /api/v2/Req
 
 ### Runtime automation
 
-In the response you can see the Request has moved to status `Decided`. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. The Enmeshed Runtime will move the Request to status `Completed` and send the Response to the Sender via a Message. This behavior can be observed by querying the Request again after a short waiting time (`GET /api/v2/Requests/Incoming/{id}`).
+No matter if you accepted or rejected the Request: the response is similar. You can see that the Request moved to status `Decided`. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. It will move the Request to status `Completed` and send the Response to the Sender via a Message. This behavior can be observed by querying the Request again after a few seconds (`GET /api/v2/Requests/Incoming/{id}`).
 
 ## Sync the Response
 
 The Sender will receive the Response as a Message. Therefore you have to synchronize the Sender Connector (`GET /api/v2/Account/Sync`).
 
-After that (and possibly a short waiting time) the Request has moved to status `Completed` and the Response is available in the `response` property of the Request. You can observe this by querying the Request via `GET /api/v2/Requests/Outgoing/{id}` on the Sender Connector.
+After a few seconds the Request has moved to status `Completed` and the Response is available in the `response` property of the Request. You can observe this by querying the Request via `GET /api/v2/Requests/Outgoing/{id}` on the Sender Connector.
