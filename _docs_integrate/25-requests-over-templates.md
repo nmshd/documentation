@@ -99,7 +99,7 @@ If you want to reject the Request you can do so by calling the `POST /api/v2/Req
 }
 ```
 
-In the response you can see the Request has moved to status `Decided`. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you rejected the Request, the Enmeshed Runtime will only move the Request to status completed. This behavior can be observed by querying the Request again after a short waiting time (`GET /api/v2/Requests/Incoming/{id}`).
+In the response you can see the Request has moved to status `Decided`. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you rejected the Request, the Enmeshed Runtime will only move the Request to status completed. This behavior can be observed by querying the Request again after a few seconds (`GET /api/v2/Requests/Incoming/{id}`).
 
 ### Accept
 
@@ -117,7 +117,7 @@ If you want to accept the Request you can do so by calling the `POST /api/v2/Req
 }
 ```
 
-In the response you can see the Request has moved to status `Decided`. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you accepted the Request, the Enmeshed Runtime will send your Response to the Templator by creating a Relationship. This behavior can be observed by querying the Request again after a short waiting time (`GET /api/v2/Requests/Incoming/{id}`). When the Request is in status `Completed` you can query the created Relationship (`GET /api/v2/Relationships`, query parameter `template.id=<id-of-the-template>`).
+In the response you can see the Request has moved to status `Decided`. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you accepted the Request, the Enmeshed Runtime will send your Response to the Templator by creating a Relationship. This behavior can be observed by querying the Request again after a few seconds (`GET /api/v2/Requests/Incoming/{id}`). When the Request is in status `Completed` you can query the created Relationship (`GET /api/v2/Relationships`, query parameter `template.id=<id-of-the-template>`).
 
 If you synchronize the Templator Connector (`POST /api/v2/Account/Sync`) you will see a new Relationship in the response. The Relationship looks as follows:
 
