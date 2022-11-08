@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-11-08T12:49:54+01:00">
+  <meta property="article:published_time" content="2022-11-08T14:01:53+01:00">
 
 
 
@@ -282,7 +282,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Configuration">
     <meta itemprop="description" content="Mounting a config file">
-    <meta itemprop="datePublished" content="2022-11-08T12:49:54+01:00">
+    <meta itemprop="datePublished" content="2022-11-08T14:01:53+01:00">
     
 
     <div class="page__inner-wrap">
@@ -303,7 +303,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#mounting-a-config-file">Mounting a config file</a></li><li><a href="#environment-variables">Environment variables</a><ul><li><a href="#parsing-rules">Parsing rules</a></li><li><a href="#example">Example</a></li></ul></li><li><a href="#transportlibrary">transportLibrary</a></li><li><a href="#database">database</a></li><li><a href="#infrastructure">infrastructure</a><ul><li><a href="#httpserver">httpServer</a><ul><li><a href="#configuration">Configuration</a></li></ul></li></ul></li><li><a href="#modules">modules</a><ul><li><a href="#amqppublisher">amqpPublisher </a></li><li><a href="#autoacceptrelationshipcreationchanges">autoAcceptRelationshipCreationChanges </a></li><li><a href="#corehttpapi">coreHttpApi </a></li><li><a href="#sync">sync </a></li><li><a href="#webhooksv2">webhooksV2 </a><ul><li><a href="#payload">Payload</a></li></ul></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#mounting-a-config-file">Mounting a config file</a></li><li><a href="#environment-variables">Environment variables</a><ul><li><a href="#parsing-rules">Parsing rules</a></li><li><a href="#example">Example</a></li></ul></li><li><a href="#configuration-options">Configuration options</a><ul><li><a href="#transportlibrary">transportLibrary</a></li><li><a href="#database">database</a></li><li><a href="#infrastructure">infrastructure</a><ul><li><a href="#httpserver">httpServer</a><ul><li><a href="#configuration">Configuration</a></li></ul></li></ul></li><li><a href="#modules">modules</a><ul><li><a href="#amqppublisher">amqpPublisher </a></li><li><a href="#autoacceptrelationshipcreationchanges">autoAcceptRelationshipCreationChanges </a></li><li><a href="#corehttpapi">coreHttpApi </a></li><li><a href="#sync">sync </a></li><li><a href="#webhooksv2">webhooksV2 </a><ul><li><a href="#payload">Payload</a></li></ul></li></ul></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -370,7 +370,7 @@
   <li>The third value can be configured using the variable <code class="language-plaintext highlighter-rouge">infrastructure:httpServer:apiKey="an-api-key"</code>.</li>
 </ul>
 
-<h1 id="configuration-options">Configuration options</h1>
+<h2 id="configuration-options">Configuration options</h2>
 
 <p>The Connector provides the following configuration parameters:</p>
 
@@ -390,7 +390,7 @@
 
 <p>You can validate the config using our <a href="https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json">schema file</a>. This is possible with <a href="https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings">VSCode</a> and online tools like <a href="https://www.jsonschemavalidator.net">jsonschemavalidator.net</a>.</p>
 
-<h2 id="transportlibrary">transportLibrary</h2>
+<h3 id="transportlibrary">transportLibrary</h3>
 
 <ul>
   <li>
@@ -405,7 +405,7 @@
   </li>
 </ul>
 
-<h2 id="database">database</h2>
+<h3 id="database">database</h3>
 
 <ul>
   <li>
@@ -422,15 +422,15 @@
   </li>
 </ul>
 
-<h2 id="infrastructure">infrastructure</h2>
+<h3 id="infrastructure">infrastructure</h3>
 
 <p>Each infrastructure can be enabled or disabled by passing true / false to <code class="language-plaintext highlighter-rouge">enabled</code>.</p>
 
-<h3 id="httpserver">httpServer</h3>
+<h4 id="httpserver">httpServer</h4>
 
 <p>The http server is the base for the <code class="language-plaintext highlighter-rouge">coreHttpApi</code> Module. It opens an express http server where Modules can register endpoints.</p>
 
-<h4 id="configuration">Configuration</h4>
+<h5 id="configuration">Configuration</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -465,11 +465,11 @@
   </li>
 </ul>
 
-<h2 id="modules">modules</h2>
+<h3 id="modules">modules</h3>
 
 <p>Every Module can be enabled or disabled by passing true / false to <code class="language-plaintext highlighter-rouge">enabled</code>. Read more about the Module by clicking on the <i class="fas fa-fw fa-info-circle"></i> icon in each title.</p>
 
-<h3 id="amqppublisher">amqpPublisher <a href="/integrate/connector-modules#amqppublisher"><i class="fas fa-fw fa-info-circle"></i></a></h3>
+<h4 id="amqppublisher">amqpPublisher <a href="/integrate/connector-modules#amqppublisher"><i class="fas fa-fw fa-info-circle"></i></a></h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -496,7 +496,7 @@
   </li>
 </ul>
 
-<h3 id="autoacceptrelationshipcreationchanges">autoAcceptRelationshipCreationChanges <a href="/integrate/connector-modules#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"></i></a></h3>
+<h4 id="autoacceptrelationshipcreationchanges">autoAcceptRelationshipCreationChanges <a href="/integrate/connector-modules#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"></i></a></h4>
 
 <p class="notice--danger">It is not recommended to use this Module for production scenarios.</p>
 
@@ -519,7 +519,7 @@
   </li>
 </ul>
 
-<h3 id="corehttpapi">coreHttpApi <a href="/integrate/connector-modules#corehttpapi"><i class="fas fa-fw fa-info-circle"></i></a></h3>
+<h4 id="corehttpapi">coreHttpApi <a href="/integrate/connector-modules#corehttpapi"><i class="fas fa-fw fa-info-circle"></i></a></h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -554,7 +554,7 @@
   </li>
 </ul>
 
-<h3 id="sync">sync <a href="/integrate/connector-modules#sync"><i class="fas fa-fw fa-info-circle"></i></a></h3>
+<h4 id="sync">sync <a href="/integrate/connector-modules#sync"><i class="fas fa-fw fa-info-circle"></i></a></h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -575,7 +575,7 @@
   </li>
 </ul>
 
-<h3 id="webhooksv2">webhooksV2 <a href="/integrate/connector-modules#webhooksv2"><i class="fas fa-fw fa-info-circle"></i></a></h3>
+<h4 id="webhooksv2">webhooksV2 <a href="/integrate/connector-modules#webhooksv2"><i class="fas fa-fw fa-info-circle"></i></a></h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -656,7 +656,7 @@
   </li>
 </ul>
 
-<h4 id="payload">Payload</h4>
+<h5 id="payload">Payload</h5>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="c1">// the event name (e.g. transport.messageReceived) that triggered the webhook</span><span class="w">
@@ -679,7 +679,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-08T12:49:54+01:00">November 8, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-08T14:01:53+01:00">November 8, 2022</time></p>
 
       </footer>
 

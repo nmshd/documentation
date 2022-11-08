@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-11-08T12:49:54+01:00">
+  <meta property="article:published_time" content="2022-11-08T14:01:53+01:00">
 
 
 
@@ -282,7 +282,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Sending Messages">
     <meta itemprop="description" content="Send Messages (with Attachments)">
-    <meta itemprop="datePublished" content="2022-11-08T12:49:54+01:00">
+    <meta itemprop="datePublished" content="2022-11-08T14:01:53+01:00">
     
 
     <div class="page__inner-wrap">
@@ -300,28 +300,28 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <h1 id="send-messages-with-attachments">Send Messages (with Attachments)</h1>
+        <h2 id="send-messages-with-attachments">Send Messages (with Attachments)</h2>
 
 <p>In order to send messages to recipients, a REST request can be sent with the given <code class="language-plaintext highlighter-rouge">recipients</code> and message <code class="language-plaintext highlighter-rouge">content</code>. Different message content structures are possible and defined in the chapter Data Structures. Additionally, an array of file ids can be added for property <code class="language-plaintext highlighter-rouge">attachments</code> in order to send attachments.</p>
 
 <p><img src="/assets/diagrams/integrate/Connector_SendMessage.png" alt="Send Message Sequence Diagram" title="Send Message" /></p>
 
-<h1 id="upload-files">Upload Files</h1>
+<h2 id="upload-files">Upload Files</h2>
 
 <p>In order to submit attachments/files via message, they have to be first uploaded to the Connector. The files are then encrypted and uploaded to the Platform, which results in a FileId for every file.
 These FileIds can then be used as attachments to send messages with attachments.</p>
 
-<h1 id="get-messages">Get Messages</h1>
+<h2 id="get-messages">Get Messages</h2>
 
 <p>Messages can be directly queried from the Connector.</p>
 
 <p><img src="/assets/diagrams/integrate/Connector_GetMessage.png" alt="Get Message Sequence Diagram" title="Get Message" /></p>
 
-<h1 id="download-attachments-of-messages">Download Attachments of Messages</h1>
+<h2 id="download-attachments-of-messages">Download Attachments of Messages</h2>
 
 <p>The metadata of attachments can be found within the message, the actual files/binaries must be downloaded separately.</p>
 
-<h1 id="receive-messages">Receive Messages</h1>
+<h2 id="receive-messages">Receive Messages</h2>
 
 <p>The Connector pulls occasionally for new messages from the Platform and temporarily stores them in the database. They can then be fetched by the corresponding business systems by the REST API (pull) or by the defined HTTP endpoint (push).</p>
 
@@ -335,7 +335,7 @@ These FileIds can then be used as attachments to send messages with attachments.
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-08T12:49:54+01:00">November 8, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-08T14:01:53+01:00">November 8, 2022</time></p>
 
       </footer>
 

@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-11-08T12:49:54+01:00">
+  <meta property="article:published_time" content="2022-11-08T14:01:53+01:00">
 
 
 
@@ -282,7 +282,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Installation">
     <meta itemprop="description" content="Prerequisites">
-    <meta itemprop="datePublished" content="2022-11-08T12:49:54+01:00">
+    <meta itemprop="datePublished" content="2022-11-08T14:01:53+01:00">
     
 
     <div class="page__inner-wrap">
@@ -300,25 +300,33 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <h1 id="prerequisites">Prerequisites</h1>
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#prerequisites">Prerequisites</a><ul><li><a href="#mongodb">MongoDB</a></li><li><a href="#docker-runtime">Docker Runtime</a></li><li><a href="#docker-compose">Docker Compose</a></li><li><a href="#hardware-requirements">Hardware Requirements</a></li><li><a href="#internet-connectivity">Internet Connectivity</a></li><li><a href="#list-docker-image-tags">List docker image tags</a></li></ul></li><li><a href="#installation">Installation</a><ul><li><a href="#option-1-docker-compose-with-mongodb">Option 1: docker compose with MongoDB</a></li><li><a href="#option-2-docker-compose-with-existing-mongodb">Option 2: docker compose with existing MongoDB</a></li></ul></li><li><a href="#validate-the-connector-installation">Validate the Connector installation</a></li><li><a href="#log-file-mounting">Log file mounting</a></li></ul>
 
-<h2 id="mongodb">MongoDB</h2>
+            </nav>
+          </aside>
+        
+        <h2 id="prerequisites">Prerequisites</h2>
+
+<h3 id="mongodb">MongoDB</h3>
 
 <p>The Connector requires a MongoDB database as its data storage. MongoDB is a document-oriented database. For compatibility and security reasons, the most up-to-date version of MongoDB should be used.
 For more information, please see <a href="https://www.mongodb.com">https://www.mongodb.com</a>.</p>
 
-<h2 id="docker-runtime">Docker Runtime</h2>
+<h3 id="docker-runtime">Docker Runtime</h3>
 
 <p>The Connector requires a Docker Runtime: Docker is a virtualization technology which introduces highly portable software containers. The Connector is shipped and updated as such a Docker container - the Docker Runtime is the runtime environment which can execute the Docker containers. For compatibility and security reasons, the most up-to-date version of the Docker Runtime should be used.
 For more information, please see <a href="https://www.docker.com">https://www.docker.com</a>.</p>
 
 <p>Visit <a href="https://docs.docker.com/get-docker/">the official docker docs</a> for installation guides.</p>
 
-<h2 id="docker-compose">Docker Compose</h2>
+<h3 id="docker-compose">Docker Compose</h3>
 
 <p>Make sure that you have installed docker-compose. Visit <a href="https://docs.docker.com/compose/install/">the official installation guide</a> for more information.</p>
 
-<h2 id="hardware-requirements">Hardware Requirements</h2>
+<h3 id="hardware-requirements">Hardware Requirements</h3>
 
 <p>No special hardware requirements have been identified so far and as always, hardware requirements strongly correlate with the envisoned usage scenario.</p>
 
@@ -332,17 +340,17 @@ For more information, please see <a href="https://www.docker.com">https://www.do
 
 <p>Depending on the usage scenario, higher hardware requirements might be necessary.</p>
 
-<h2 id="internet-connectivity">Internet Connectivity</h2>
+<h3 id="internet-connectivity">Internet Connectivity</h3>
 
 <p>A reliable and fast internet connection is mandatory for running the Connector. However, the Connector is only communicating with the Backbone so the corresponding domain (e.g. <code class="language-plaintext highlighter-rouge">https://prod.enmeshed.eu</code>) can be whitelisted and the associated certificate can be additionally pinned.</p>
 
-<h2 id="list-docker-image-tags">List docker image tags</h2>
+<h3 id="list-docker-image-tags">List docker image tags</h3>
 
 <p>Read more about listing available docker image tags <a href="/explore/connector#connector-docker-image">here</a>.</p>
 
-<h1 id="installation">Installation</h1>
+<h2 id="installation">Installation</h2>
 
-<h2 id="option-1-docker-compose-with-mongodb">Option 1: docker compose with MongoDB</h2>
+<h3 id="option-1-docker-compose-with-mongodb">Option 1: docker compose with MongoDB</h3>
 
 <p>Go through the following steps to start the Connector:</p>
 
@@ -354,7 +362,7 @@ For more information, please see <a href="https://www.docker.com">https://www.do
   <li>execute <code class="language-plaintext highlighter-rouge">docker compose up -d</code> in the shell</li>
 </ol>
 
-<h2 id="option-2-docker-compose-with-existing-mongodb">Option 2: docker compose with existing MongoDB</h2>
+<h3 id="option-2-docker-compose-with-existing-mongodb">Option 2: docker compose with existing MongoDB</h3>
 
 <p>Visit the official <a href="https://www.mongodb.com/">MongoDB website</a> for installation without docker or cloud usage or the <a href="https://hub.docker.com/_/mongo">docker hub page</a> for information about the installation with docker.</p>
 
@@ -369,13 +377,13 @@ For more information, please see <a href="https://www.docker.com">https://www.do
   <li>execute <code class="language-plaintext highlighter-rouge">docker compose up -d</code> in the shell</li>
 </ol>
 
-<h1 id="validate-the-connector-installation">Validate the Connector installation</h1>
+<h2 id="validate-the-connector-installation">Validate the Connector installation</h2>
 
 <p>You can validate the Connector installation by checking its health route. Simply access <code class="language-plaintext highlighter-rouge">&lt;connector-baseurl&gt;/health</code> in your browser or using curl.</p>
 
 <p>If the swagger documentation is enabled you can also access it under <code class="language-plaintext highlighter-rouge">&lt;connector-baseurl&gt;/docs</code></p>
 
-<h1 id="log-file-mounting">Log file mounting</h1>
+<h2 id="log-file-mounting">Log file mounting</h2>
 
 <ol>
   <li>Uncomment the volume mapping in the created <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> file</li>
@@ -393,7 +401,7 @@ For more information, please see <a href="https://www.docker.com">https://www.do
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-08T12:49:54+01:00">November 8, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-08T14:01:53+01:00">November 8, 2022</time></p>
 
       </footer>
 

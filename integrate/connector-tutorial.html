@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-11-08T12:49:54+01:00">
+  <meta property="article:published_time" content="2022-11-08T14:01:53+01:00">
 
 
 
@@ -282,7 +282,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Tutorial">
     <meta itemprop="description" content="In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization.">
-    <meta itemprop="datePublished" content="2022-11-08T12:49:54+01:00">
+    <meta itemprop="datePublished" content="2022-11-08T14:01:53+01:00">
     
 
     <div class="page__inner-wrap">
@@ -319,7 +319,7 @@
 
 <p>The payloads for the requests that are sent during this tutorial contain placeholders marked with <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code>. You need to replace them with values before you send the request.</p>
 
-<h1 id="prerequisites">Prerequisites</h1>
+<h2 id="prerequisites">Prerequisites</h2>
 
 <ul>
   <li>If you want to use your own Connector for executing the examples:
@@ -333,11 +333,11 @@
   <li>You need <strong>version 2</strong> of the <a href="/use">Enmeshed App</a> installed on your mobile device. <em>Since the Enmeshed v2 app is not officially released yet, you need to <a href="mailto://info@enmeshed.eu?subject=Access%20to%20the%20closed%20beta%20of%20Enmeshed%20v2">write us an email</a> with your Apple ID or the email address of your Google account you use on your phone, so we can add you to the closed beta.</em></li>
 </ul>
 
-<h1 id="establishing-relationships">Establishing Relationships</h1>
+<h2 id="establishing-relationships">Establishing Relationships</h2>
 
 <p>In order to communicate with another Identity, a Relationship to that Identity is required. In this first part of the tutorial you will learn how to establish a Relationship between your Connector and another Identity. In this case the other Identity will be the App, but it could be another Connector as well.</p>
 
-<h2 id="connector-create-an-attribute">Connector: Create an Attribute</h2>
+<h3 id="connector-create-an-attribute">Connector: Create an Attribute</h3>
 
 <p>In order to share an Attribute via a Relationship Template, we need to create one by executing <code class="language-plaintext highlighter-rouge">POST /api/v2/Attributes</code> with the following payload:</p>
 
@@ -368,7 +368,7 @@
     </tr>
 </table>
 
-<h2 id="connector-test-your-requests-validity">Connector: Test your Request’s Validity</h2>
+<h3 id="connector-test-your-requests-validity">Connector: Test your Request’s Validity</h3>
 
 <p>In order to make sure the Request and its items are valid you can validate it by calling the <code class="language-plaintext highlighter-rouge">POST /api/v2/Requests/Outgoing/Validate</code> route. You can define your own payload for this Request, or you can just use the one below, which contains two Request Item Groups:</p>
 
@@ -441,7 +441,7 @@
 <rapi-doc-mini server-url="https://doc-demo-v2.is.enmeshed.eu/" default-api-server="https://doc-demo-v2.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v2.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/Requests/Outgoing/Validate$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
-<h2 id="connector-create-a-relationship-template">Connector: Create a Relationship Template</h2>
+<h3 id="connector-create-a-relationship-template">Connector: Create a Relationship Template</h3>
 
 <p>Start by creating a so called Relationship Template on the Connector. You can do so by calling the <code class="language-plaintext highlighter-rouge">POST /api/v2/RelationshipTemplates/Own</code> route. Use the following JSON in the request body:</p>
 
@@ -471,7 +471,7 @@
     </tr>
 </table>
 
-<h2 id="connector-create-a-qrcode-for-the-relationship-template">Connector: Create a QRCode for the Relationship Template</h2>
+<h3 id="connector-create-a-qrcode-for-the-relationship-template">Connector: Create a QRCode for the Relationship Template</h3>
 
 <p>Since we will use the Enmeshed App to send a Relationship Request to the Connector, we further have to create a QR Code one can scan with the App to retrieve the Relationship Template and send a Relationship Request to the Connector.</p>
 
@@ -482,7 +482,7 @@
 <rapi-doc-mini server-url="https://doc-demo-v2.is.enmeshed.eu/" default-api-server="https://doc-demo-v2.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v2.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^get /api/v2/RelationshipTemplates/{id}$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
-<h2 id="app-send-a-relationship-request">App: Send a Relationship Request</h2>
+<h3 id="app-send-a-relationship-request">App: Send a Relationship Request</h3>
 
 <p>Open the created QR Code and start the Enmeshed App. Depending on what you already did with the App, choose one of the following paths:</p>
 
@@ -516,7 +516,7 @@
 
 <p>Finally, fill out the required fields and click on “Add contact” to send the Relationship Request. This will create a new Relationship between the App and the Connector. This Relationship has the status <code class="language-plaintext highlighter-rouge">Pending</code> for now.</p>
 
-<h2 id="connector-accept-the-relationship-request">Connector: Accept the Relationship Request</h2>
+<h3 id="connector-accept-the-relationship-request">Connector: Accept the Relationship Request</h3>
 
 <p>In order to move the Relationship into the <code class="language-plaintext highlighter-rouge">Active</code> state, you now need to accept the Relationship Request with the Connector. In order to do so, first execute the <code class="language-plaintext highlighter-rouge">POST /api/v2/Account/Sync</code> route, which will fetch all changes that occurred since the last time this endpoint was executed.</p>
 
@@ -567,11 +567,11 @@
 
 <p>Now the Relationship is in the <code class="language-plaintext highlighter-rouge">Active</code> state, so we can start to communicate with the opposite Identity, which we will do in the next part of this tutorial. In order to do so we will need the Address of that Identity. So in the response of the last request look for the <code class="language-plaintext highlighter-rouge">peer</code> property and write down its value. It should start with <code class="language-plaintext highlighter-rouge">id1</code>.</p>
 
-<h1 id="sending-and-receiving-messages">Sending and Receiving Messages</h1>
+<h2 id="sending-and-receiving-messages">Sending and Receiving Messages</h2>
 
 <p>After you have established a Relationship to an Identity, you can start to exchange Messages. Enmeshed defines different types of Messages. For this tutorial we will focus on Messages of type Mail, which you can compare to a classic email: you can specify one or more recipients, a subject and a body, as well as add some attachments.</p>
 
-<h2 id="sending-a-message-with-a-connector">Sending a Message with a Connector</h2>
+<h3 id="sending-a-message-with-a-connector">Sending a Message with a Connector</h3>
 
 <p>To send a Message, all you need to do is call the <code class="language-plaintext highlighter-rouge">POST /api/v2/Messages</code> endpoint. You can use the content below, while replacing the placeholders in <code class="language-plaintext highlighter-rouge">recipients</code> and <code class="language-plaintext highlighter-rouge">to</code> with the Address you copied previously. You can further modify the <code class="language-plaintext highlighter-rouge">subject</code> and <code class="language-plaintext highlighter-rouge">body</code> properties to add some custom content.</p>
 
@@ -593,7 +593,7 @@
 
 <p>After you have sent this request, you should receive a push notification on your phone. Open the Enmeshed App, navigate to “Contacts” and select your Relationship. You should see the Message in the list. You can show details by tapping on it.</p>
 
-<h2 id="receiving-a-message-with-a-connector">Receiving a Message with a Connector</h2>
+<h3 id="receiving-a-message-with-a-connector">Receiving a Message with a Connector</h3>
 
 <p>Next we are going to send a Message from the App to the Connector. Therefore, open the App, navigate to “Contacts” and select your Relationship. Next, tap on “New Message”. Enter subject and body an tap on “Send”.</p>
 
@@ -616,7 +616,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-08T12:49:54+01:00">November 8, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-08T14:01:53+01:00">November 8, 2022</time></p>
 
       </footer>
 
