@@ -1,0 +1,7 @@
+<table style="border: none">
+    <tr>
+        <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy"/></td>
+        <td style="border: none">{{ include.description | markdownify}}</td>
+    </tr>
+</table>
+{: .notice--warning}
