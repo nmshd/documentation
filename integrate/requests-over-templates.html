@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-11-08T10:15:44+01:00">
+  <meta property="article:published_time" content="2022-11-08T12:39:10+01:00">
 
 
 
@@ -223,6 +223,8 @@
           
             <li><a href="/integrate/requests-over-templates" class="active">Requests over Templates</a></li>
           
+            <li><a href="/integrate/requests-over-messages">Requests over Messages</a></li>
+          
         </ul>
         
       </li>
@@ -280,7 +282,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Requests over Templates">
     <meta itemprop="description" content="This guide will explain the end to end flow of sharing and answering a Request over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don’t have a Relationship yet.">
-    <meta itemprop="datePublished" content="2022-11-08T10:15:44+01:00">
+    <meta itemprop="datePublished" content="2022-11-08T12:39:10+01:00">
     
 
     <div class="page__inner-wrap">
@@ -408,7 +410,7 @@ For simplicity the Request inside the Template only contains an AuthenticationRe
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>In the response you can see the Request has moved to status <code class="language-plaintext highlighter-rouge">Decided</code>. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you rejected the Request, the Enmeshed Runtime will only move the Request to status completed. This behavior can be observed by querying the Request again after a short waiting time (<code class="language-plaintext highlighter-rouge">GET /api/v2/Requests/Incoming/{id}</code>).</p>
+<p>In the response you can see the Request has moved to status <code class="language-plaintext highlighter-rouge">Decided</code>. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you rejected the Request, the Enmeshed Runtime will only move the Request to status completed. This behavior can be observed by querying the Request again after a few seconds (<code class="language-plaintext highlighter-rouge">GET /api/v2/Requests/Incoming/{id}</code>).</p>
 
 <h3 id="accept">Accept</h3>
 
@@ -425,7 +427,7 @@ For simplicity the Request inside the Template only contains an AuthenticationRe
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>In the response you can see the Request has moved to status <code class="language-plaintext highlighter-rouge">Decided</code>. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you accepted the Request, the Enmeshed Runtime will send your Response to the Templator by creating a Relationship. This behavior can be observed by querying the Request again after a short waiting time (<code class="language-plaintext highlighter-rouge">GET /api/v2/Requests/Incoming/{id}</code>). When the Request is in status <code class="language-plaintext highlighter-rouge">Completed</code> you can query the created Relationship (<code class="language-plaintext highlighter-rouge">GET /api/v2/Relationships</code>, query parameter <code class="language-plaintext highlighter-rouge">template.id=&lt;id-of-the-template&gt;</code>).</p>
+<p>In the response you can see the Request has moved to status <code class="language-plaintext highlighter-rouge">Decided</code>. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you accepted the Request, the Enmeshed Runtime will send your Response to the Templator by creating a Relationship. This behavior can be observed by querying the Request again after a few seconds (<code class="language-plaintext highlighter-rouge">GET /api/v2/Requests/Incoming/{id}</code>). When the Request is in status <code class="language-plaintext highlighter-rouge">Completed</code> you can query the created Relationship (<code class="language-plaintext highlighter-rouge">GET /api/v2/Relationships</code>, query parameter <code class="language-plaintext highlighter-rouge">template.id=&lt;id-of-the-template&gt;</code>).</p>
 
 <p>If you synchronize the Templator Connector (<code class="language-plaintext highlighter-rouge">POST /api/v2/Account/Sync</code>) you will see a new Relationship in the response. The Relationship looks as follows:</p>
 
@@ -482,7 +484,7 @@ For simplicity the Request inside the Template only contains an AuthenticationRe
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-08T10:15:44+01:00">November 8, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-08T12:39:10+01:00">November 8, 2022</time></p>
 
       </footer>
 
@@ -495,7 +497,7 @@ For simplicity the Request inside the Template only contains an AuthenticationRe
 ">Previous</a>
     
     
-      <a href="/integrate/connector-sdks" class="pagination--pager" title="Connector Software Development Kits
+      <a href="/integrate/requests-over-messages" class="pagination--pager" title="Requests over Messages
 ">Next</a>
     
   </nav>

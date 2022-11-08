@@ -191,6 +191,12 @@ var store = [{
         "url": "/integrate/requests-over-templates",
         "teaser": null
       },{
+        "title": "Requests over Messages",
+        "excerpt":"This guide assumes that you already have an active Relationship between two Connectors. If you don’t, you should follow the Requests over Templates guide first. In this guide, the first Connector will be called Sender and the second Connector will be called Recipient. The Sender will send a Request to...","categories": [],
+        "tags": [],
+        "url": "/integrate/requests-over-messages",
+        "teaser": null
+      },{
         "title": "Connector Software Development Kits",
         "excerpt":"TypeScript SDK There is an SDK written in TypeScript you can use to communicate with your Connector from your TypeScript/JavaScript application. It is avaliable on npmjs. Installation npm i @nmshd/connector-sdk Usage Initialize the ConnectorClient const connectorClient = ConnectorClient.create({ baseUrl: \"https://&lt;INSERT_YOUR_CONNECTOR_DOMAIN_HERE&gt;\", apiKey: \"&lt;INSERT_YOUR_API_KEY_HERE&gt;\" }); Start using the client const FILE_PATH =...","categories": [],
         "tags": [],
