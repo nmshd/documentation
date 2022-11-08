@@ -9,7 +9,7 @@ toc: true
 1. Create a config file in JSON format in a folder of your choice.
 2. Fill the config file with your desired configuration (it's sufficient to add values you want to change; the Connector will merge your config file with the default configuration) Example:
 
-    ```json
+    ```jsonc
     {
         "infrastructure": {
             "httpServer": {
@@ -45,7 +45,7 @@ The configuration can also be done using environment variables. This feature is 
 
 You want to configure the following values:
 
-```json
+```jsonc
 {
     "infrastructure": {
         "httpServer": {
@@ -65,7 +65,7 @@ You want to configure the following values:
 
 The Connector provides the following configuration parameters:
 
-```json
+```jsonc
 {
     "transportLibrary": {
         "platformClientId": "CLIENT_ID",
@@ -80,7 +80,7 @@ The Connector provides the following configuration parameters:
 }
 ```
 
-You can validate the config using our [schema file](https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json). This is possible with [VSCode](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) and online tools like [jsonschemavalidator.net](https://www.jsonschemavalidator.net).
+You can validate the config using our [schema file](https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json). This is possible for example with [VSCode](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) or online tools like [jsonschemavalidator.net](https://www.jsonschemavalidator.net).
 
 ### transportLibrary
 
@@ -110,23 +110,29 @@ Each infrastructure can be enabled or disabled by passing true / false to `enabl
 
 #### httpServer
 
-The http server is the base for the `coreHttpApi` Module. It opens an express http server where Modules can register endpoints.
+The HTTP server is the base for the `coreHttpApi` Module. It opens an express HTTP server where Modules can register endpoints.
 
-##### Configuration
+**Sample Configuration:**
 
-```json
+```jsonc
 {
-    "enabled": true,
-    "cors": {
-        "origin": false
-    },
-    "apiKey": "an-api-key"
+    // ...
+
+    "infrastructure": {
+        "httpServer": {
+            "enabled": true,
+            "cors": {
+                "origin": false
+            },
+            "apiKey": "an-api-key"
+        }
+    }
 }
 ```
 
 -   **enabled** `default: true`
 
-    Enable or disable the http server.
+    Enable or disable the HTTP server.
 
 -   **cors** `default: { "origin": false }`
 
@@ -148,11 +154,19 @@ Every Module can be enabled or disabled by passing true / false to `enabled`. Re
 
 #### amqpPublisher <a href="{% link _docs_integrate/03-connector-modules.md %}#amqppublisher"><i class="fas fa-fw fa-info-circle"/></a> {#amqppublisher}
 
-```json
+**Sample Configuration:**
+
+```jsonc
 {
-    "enabled": false,
-    "url": "amqp://example.com:5672",
-    "exchange": "myExchange"
+    // ...
+
+    "modules": {
+        "amqpPublisher": {
+            "enabled": false,
+            "url": "amqp://example.com:5672",
+            "exchange": "myExchange"
+        }
+    }
 }
 ```
 
@@ -173,10 +187,18 @@ Every Module can be enabled or disabled by passing true / false to `enabled`. Re
 It is not recommended to use this Module for production scenarios.
 {: .notice--danger}
 
-```json
+**Sample Configuration:**
+
+```jsonc
 {
-    "enabled": false,
-    "responseContent": {}
+    // ...
+
+    "modules": {
+        "autoAcceptRelationshipCreationChanges": {
+            "enabled": false,
+            "responseContent": {}
+        }
+    }
 }
 ```
 
@@ -190,13 +212,21 @@ It is not recommended to use this Module for production scenarios.
 
 #### coreHttpApi <a href="{% link _docs_integrate/03-connector-modules.md %}#corehttpapi"><i class="fas fa-fw fa-info-circle"/></a> {#corehttpapi}
 
-```json
+**Sample Configuration:**
+
+```jsonc
 {
-    "enabled": true,
-    "docs": {
-        "enabled": true,
-        "rapidoc": {
-            "persistAuth": false
+    // ...
+
+    "modules": {
+        "coreHttpApi": {
+            "enabled": true,
+            "docs": {
+                "enabled": true,
+                "rapidoc": {
+                    "persistAuth": false
+                }
+            }
         }
     }
 }
@@ -222,10 +252,18 @@ It is not recommended to use this Module for production scenarios.
 
 #### sync <a href="{% link _docs_integrate/03-connector-modules.md %}#sync"><i class="fas fa-fw fa-info-circle"/></a> {#sync}
 
-```json
+**Sample Configuration:**
+
+```jsonc
 {
-    "enabled": false,
-    "interval": 60
+    // ...
+
+    "modules": {
+        "sync": {
+            "enabled": false,
+            "interval": 60
+        }
+    }
 }
 ```
 
@@ -239,11 +277,19 @@ It is not recommended to use this Module for production scenarios.
 
 #### webhooksV2 <a href="{% link _docs_integrate/03-connector-modules.md %}#webhooksv2"><i class="fas fa-fw fa-info-circle"/></a> {#webhooksv2}
 
-```json
+**Sample Configuration:**
+
+```jsonc
 {
-    "enabled": false,
-    "targets": {},
-    "webhooks": {}
+    // ...
+
+    "modules": {
+        "webhooksV2": {
+            "enabled": false,
+            "targets": {},
+            "webhooks": {}
+        }
+    }
 }
 ```
 
