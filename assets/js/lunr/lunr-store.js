@@ -221,12 +221,6 @@ var store = [{
         "url": "/integrate/connector-operations",
         "teaser": null
       },{
-        "title": "Connector Troubleshooting",
-        "excerpt":"Debugging   Access Error Log   Access Database   Common Errors   No Internet   No Database  ","categories": [],
-        "tags": [],
-        "url": "/integrate/connector-troubleshooting",
-        "teaser": null
-      },{
         "title": "Connector Security Considerations",
         "excerpt":"The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Connector and its data. And as the Connector is handling very sensitive data (please see...","categories": [],
         "tags": [],
@@ -249,12 +243,6 @@ var store = [{
         "excerpt":"When migrating from v1 to v2, there are a few breaking changes, as well as a bunch of new features. This guide lists both of them and will help you migrate your integration coding. Backwards incompatible data structure First and foremost, as we already announced in our blog, the underlying...","categories": [],
         "tags": [],
         "url": "/integrate/connector-migration-v2",
-        "teaser": null
-      },{
-        "title": "Connector Data Considerations",
-        "excerpt":" ","categories": [],
-        "tags": [],
-        "url": "/integrate/connector-data",
         "teaser": null
       },{
         "title": "Introducing Enmeshed",
