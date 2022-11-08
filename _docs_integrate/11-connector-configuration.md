@@ -61,7 +61,7 @@ You want to configure the following values:
 -   The second value can be configured using the variable `infrastructure:httpServer:port="8080"`. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its number representation.
 -   The third value can be configured using the variable `infrastructure:httpServer:apiKey="an-api-key"`.
 
-# Configuration options
+## Configuration options
 
 The Connector provides the following configuration parameters:
 
@@ -82,7 +82,7 @@ The Connector provides the following configuration parameters:
 
 You can validate the config using our [schema file](https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json). This is possible with [VSCode](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) and online tools like [jsonschemavalidator.net](https://www.jsonschemavalidator.net).
 
-## transportLibrary
+### transportLibrary
 
 -   **platformClientId** `required`
 
@@ -92,7 +92,7 @@ You can validate the config using our [schema file](https://raw.githubuserconten
 
     The client secret is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({% link _docs_integrate/00-basics.md %}#support).
 
-## database
+### database
 
 -   **connectionString** `required`
 
@@ -104,15 +104,15 @@ You can validate the config using our [schema file](https://raw.githubuserconten
 
     If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
 
-## infrastructure
+### infrastructure
 
 Each infrastructure can be enabled or disabled by passing true / false to `enabled`.
 
-### httpServer
+#### httpServer
 
 The http server is the base for the `coreHttpApi` Module. It opens an express http server where Modules can register endpoints.
 
-#### Configuration
+##### Configuration
 
 ```json
 {
@@ -142,11 +142,11 @@ The http server is the base for the `coreHttpApi` Module. It opens an express ht
 
     The API-Key protects your Connector from unauthorized access and should therefore be kept secret.
 
-## modules
+### modules
 
 Every Module can be enabled or disabled by passing true / false to `enabled`. Read more about the Module by clicking on the <i class="fas fa-fw fa-info-circle"/> icon in each title.
 
-### amqpPublisher <a href="{% link _docs_integrate/03-connector-modules.md %}#amqppublisher"><i class="fas fa-fw fa-info-circle"/></a> {#amqppublisher}
+#### amqpPublisher <a href="{% link _docs_integrate/03-connector-modules.md %}#amqppublisher"><i class="fas fa-fw fa-info-circle"/></a> {#amqppublisher}
 
 ```json
 {
@@ -168,7 +168,7 @@ Every Module can be enabled or disabled by passing true / false to `enabled`. Re
 
     The name of the AMQP exchange to publish to.
 
-### autoAcceptRelationshipCreationChanges <a href="{% link _docs_integrate/03-connector-modules.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationshipcreationchanges}
+#### autoAcceptRelationshipCreationChanges <a href="{% link _docs_integrate/03-connector-modules.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationshipcreationchanges}
 
 It is not recommended to use this Module for production scenarios.
 {: .notice--danger}
@@ -188,7 +188,7 @@ It is not recommended to use this Module for production scenarios.
 
     The content that is used to accept the incoming Relationship Request.
 
-### coreHttpApi <a href="{% link _docs_integrate/03-connector-modules.md %}#corehttpapi"><i class="fas fa-fw fa-info-circle"/></a> {#corehttpapi}
+#### coreHttpApi <a href="{% link _docs_integrate/03-connector-modules.md %}#corehttpapi"><i class="fas fa-fw fa-info-circle"/></a> {#corehttpapi}
 
 ```json
 {
@@ -220,7 +220,7 @@ It is not recommended to use this Module for production scenarios.
 
     If set to `true` rapidoc persists the API Key in the local storage of the browser.
 
-### sync <a href="{% link _docs_integrate/03-connector-modules.md %}#sync"><i class="fas fa-fw fa-info-circle"/></a> {#sync}
+#### sync <a href="{% link _docs_integrate/03-connector-modules.md %}#sync"><i class="fas fa-fw fa-info-circle"/></a> {#sync}
 
 ```json
 {
@@ -237,7 +237,7 @@ It is not recommended to use this Module for production scenarios.
 
     The interval in seconds at which the sync Module will fetch changes from the Backbone.
 
-### webhooksV2 <a href="{% link _docs_integrate/03-connector-modules.md %}#webhooksv2"><i class="fas fa-fw fa-info-circle"/></a> {#webhooksv2}
+#### webhooksV2 <a href="{% link _docs_integrate/03-connector-modules.md %}#webhooksv2"><i class="fas fa-fw fa-info-circle"/></a> {#webhooksv2}
 
 ```json
 {
@@ -315,7 +315,7 @@ It is not recommended to use this Module for production scenarios.
     ]
     ```
 
-#### Payload
+##### Payload
 
 ```jsonc
 {
