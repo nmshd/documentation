@@ -33,7 +33,7 @@ If you mount `/home/connector:/config.json:RO`, the created `/config.json` in th
 
 During the startup of the Connector, the following error is logged:
 
-```
+```text
 [ERROR] ConnectorRuntime - Could not connect to the configured database. Try to check the connection string and the database status. Root error:  MongoServerError: Authentication failed.
 ```
 
