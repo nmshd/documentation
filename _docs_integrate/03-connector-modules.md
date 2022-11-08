@@ -19,7 +19,7 @@ Compared to [webhooks](#webhooksv2), this gives you the full feature set of a me
 -   You need persistence for the triggered events.
 -   You want to integrate Enmeshed into an already existing message broker.
 
-### Auto Accept Relationship Creation Changes <a href="{% link _docs_integrate/11-connector-configuration.md %}#autoacceptrelationshipcreationchange"><i class="fas fa-fw fa-cog"/></a> {#autoacceptrelationshipcreationchange}
+### Auto Accept Relationship Creation Changes <a href="{% link _docs_integrate/11-connector-configuration.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-cog"/></a> {#autoacceptrelationshipcreationchanges}
 
 It is not recommended to use this Module for production scenarios.
 {: .notice--danger}
