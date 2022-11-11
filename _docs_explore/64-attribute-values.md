@@ -667,7 +667,7 @@ For validation purposes, the `value` property is stringified using `JSON.stringi
 
 **Examples**
 
-```json
+```jsonc
 {
     "@type": "ProprietaryJSON",
     "title": "My JSON",
@@ -681,7 +681,7 @@ For validation purposes, the `value` property is stringified using `JSON.stringi
 
 ```
 
-```json
+```jsonc
 {
     "@type": "ProprietaryJSON",
     "title": "My JSON",
@@ -690,7 +690,7 @@ For validation purposes, the `value` property is stringified using `JSON.stringi
 }
 ```
 
-```json
+```jsonc
 {
     "@type": "ProprietaryJSON",
     "title": "My JSON",
