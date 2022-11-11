@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-11-11T09:20:57+01:00">
+  <meta property="article:published_time" content="2022-11-11T14:01:12+01:00">
 
 
 
@@ -290,7 +290,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Attribute Values">
     <meta itemprop="description" content="Each Attribute contains an instance of an Attribute Value within its value property. There are different types of Attribute Values. The types define the value’s structural definition, rendering information and validators. For example, an email address with the value “address@company.corp” is stored with the Attribute Value type EMailAddress, which defines">
-    <meta itemprop="datePublished" content="2022-11-11T09:20:57+01:00">
+    <meta itemprop="datePublished" content="2022-11-11T14:01:12+01:00">
     
 
     <div class="page__inner-wrap">
@@ -1077,7 +1077,7 @@
 
 <h2 id="filereference">FileReference</h2>
 
-<p>A FileReference is a link to an Enmeshed <a href="/explore/data-model#files"><code class="language-plaintext highlighter-rouge">File</code></a> and can be used to add a File as an Attribute to an Identity. One example for a use case is some kind of certificate.</p>
+<p>A FileReference is a link to an Enmeshed <a href="/explore/data-model#files"><code class="language-plaintext highlighter-rouge">File</code></a> and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1873,6 +1873,8 @@ We embrace the person’s own definition of its/her/his sexual and gender orient
 
 <h2 id="proprietarycountry">ProprietaryCountry</h2>
 
+<p>A two-letter country code according to <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">ISO 3166-1 alpha-2</a>.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -1919,6 +1921,8 @@ We embrace the person’s own definition of its/her/his sexual and gender orient
 </table>
 
 <h2 id="proprietaryemailaddress">ProprietaryEMailAddress</h2>
+
+<p>An email address.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1967,6 +1971,8 @@ We embrace the person’s own definition of its/her/his sexual and gender orient
 
 <h2 id="proprietaryfilereference">ProprietaryFileReference</h2>
 
+<p>A FileReference is a link to an Enmeshed <a href="/explore/data-model#files"><code class="language-plaintext highlighter-rouge">File</code></a> and can be used to add a File as an Attribute of a Relationship.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -2013,6 +2019,8 @@ We embrace the person’s own definition of its/her/his sexual and gender orient
 </table>
 
 <h2 id="proprietaryfloat">ProprietaryFloat</h2>
+
+<p>An arbitrary floating-point number.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -2061,6 +2069,8 @@ We embrace the person’s own definition of its/her/his sexual and gender orient
 
 <h2 id="proprietaryhexcolor">ProprietaryHEXColor</h2>
 
+<p>A hexadecimal color code.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -2107,6 +2117,8 @@ We embrace the person’s own definition of its/her/his sexual and gender orient
 </table>
 
 <h2 id="proprietaryinteger">ProprietaryInteger</h2>
+
+<p>An arbitrary integer number.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -2210,7 +2222,10 @@ We embrace the person’s own definition of its/her/his sexual and gender orient
         </span><span class="nl">"qux"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="nl">"quux"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"corge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"grault"</span><span class="w">
-
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"garply"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"waldo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"fred"</span><span class="p">,</span><span class="w"> </span><span class="s2">"plugh"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -2230,6 +2245,8 @@ We embrace the person’s own definition of its/her/his sexual and gender orient
 </span></code></pre></div></div>
 
 <h2 id="proprietarylanguage">ProprietaryLanguage</h2>
+
+<p>A two-letter <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO-639-1</a> language code.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -2278,6 +2295,8 @@ We embrace the person’s own definition of its/her/his sexual and gender orient
 
 <h2 id="proprietaryphonenumber">ProprietaryPhoneNumber</h2>
 
+<p>A phone number.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -2325,6 +2344,8 @@ We embrace the person’s own definition of its/her/his sexual and gender orient
 
 <h2 id="proprietarystring">ProprietaryString</h2>
 
+<p>An arbitrary string.</p>
+
 <p><strong>Properties</strong></p>
 
 <table>
@@ -2371,6 +2392,8 @@ We embrace the person’s own definition of its/her/his sexual and gender orient
 </table>
 
 <h2 id="proprietaryurl">ProprietaryURL</h2>
+
+<p>A URL.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -2427,7 +2450,7 @@ We embrace the person’s own definition of its/her/his sexual and gender orient
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-11T09:20:57+01:00">November 11, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-11T14:01:12+01:00">November 11, 2022</time></p>
 
       </footer>
 
