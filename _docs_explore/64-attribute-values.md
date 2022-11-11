@@ -690,7 +690,10 @@ For validation purposes, the `value` property is stringified using `JSON.stringi
         "qux": true,
         "quux": {
             "corge": "grault"
-
+        },
+        "garply": ["waldo", "fred", "plugh"]
+    }
+}
 ```
 
 ```jsonc
