@@ -580,7 +580,7 @@ An arbitrary boolean value.
 
 ## ProprietaryCountry
 
-A country code according to the standard "ISO 3166-1 alpha-2".
+A two-letter country code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
 
 **Properties**
 
