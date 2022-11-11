@@ -251,7 +251,7 @@ To query Attributes which are not known to the sender, an Identity uses the Read
 | Relationship   | Recipient       | Third Party | Y         | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **sender requests a Relationship Attribute from a Relationship between the recipient and a third party. The Attribute must be owned by the recipient**<br> Example: A Social Network asks for Facebook privacy settings of a user to get senseful defaults of its own privacy settings |
 | Relationship   | Third Party     | Third Party | Y         | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **sender requests a Relationship Attribute from a Relationship between the recipient and a third party which is owned by the third party**<br> Example: An online shop asks for the Payback Customer Id of a user to book the order on his account                                     |
 
-## RegisterAttributeListenerRequestItem
+<!-- ## RegisterAttributeListenerRequestItem
 
 This item is used to register a [Listener]({% link _docs_explore/62-data-model.md %}#localattributelistener) for a specific Attribute. The Listener will create a Request in status `Draft` if an Attribute was created that matches the given query and the user is able to send the Request to the creator of the `RegisterAttributeListenerRequestItem`.
 
@@ -283,7 +283,7 @@ This item is used to register a [Listener]({% link _docs_explore/62-data-model.m
 #### Parameters {#registerattributelistenerrequestitem-response-parameters}
 
 -   To accept this RequestItem you can send `{ "accept": true }` as parameters.
--   To reject this RequestItem you can send `{ "accept": false }` as parameters.
+-   To reject this RequestItem you can send `{ "accept": false }` as parameters. -->
 
 ## ShareAttributeRequestItem
 
