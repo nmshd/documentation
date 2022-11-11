@@ -294,7 +294,7 @@ The telephone number which can be used to reach the Identity via fax systems.
 
 ## FileReference
 
-A FileReference is a link to an Enmeshed [`File`]({% link _docs_explore/62-data-model.md %}#files) and can be used to add a File as an Attribute to an Identity. One example for a use case is some kind of certificate.
+A FileReference is a link to an Enmeshed [`File`]({% link _docs_explore/62-data-model.md %}#files) and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.
 
 **Properties**
 
@@ -580,6 +580,8 @@ An arbitrary boolean value.
 
 ## ProprietaryCountry
 
+A country code according to the standard "ISO 3166-1 alpha-2".
+
 **Properties**
 
 | Name                 | Type                                                                                 | Required | Validation                                                                                                                  |
@@ -591,6 +593,8 @@ An arbitrary boolean value.
 | `value`              | `string`                                                                             |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
 
 ## ProprietaryEMailAddress
+
+An email address.
 
 **Properties**
 
@@ -604,6 +608,8 @@ An arbitrary boolean value.
 
 ## ProprietaryFileReference
 
+A FileReference is a link to an Enmeshed [`File`]({% link _docs_explore/62-data-model.md %}#files) and can be used to add a File as an Attribute of a Relationship.
+
 **Properties**
 
 | Name                 | Type                                                                                 | Required | Validation       |
@@ -615,6 +621,8 @@ An arbitrary boolean value.
 | `value`              | `string`                                                                             |    ✓     | max. length: 100 |
 
 ## ProprietaryFloat
+
+An arbitrary floating-point number.
 
 **Properties**
 
@@ -628,6 +636,8 @@ An arbitrary boolean value.
 
 ## ProprietaryHEXColor
 
+A hexadecimal color code.
+
 **Properties**
 
 | Name                 | Type                                                                                 | Required | Validation                                                               |
@@ -639,6 +649,8 @@ An arbitrary boolean value.
 | `value`              | `string`                                                                             |    ✓     | min.length: 4<br> must match `^#([0-9A-F]{3}){1,2}$`<br>max. length: 100 |
 
 ## ProprietaryInteger
+
+An arbitrary integer number.
 
 **Properties**
 
@@ -701,6 +713,8 @@ For validation purposes, the `value` property is stringified using `JSON.stringi
 
 ## ProprietaryLanguage
 
+A two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code.
+
 **Properties**
 
 | Name                 | Type                                                                                 | Required | Validation                                                                             |
@@ -712,6 +726,8 @@ For validation purposes, the `value` property is stringified using `JSON.stringi
 | `value`              | `string`                                                                             |    ✓     | only [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes |
 
 ## ProprietaryPhoneNumber
+
+A phone number.
 
 **Properties**
 
@@ -725,6 +741,8 @@ For validation purposes, the `value` property is stringified using `JSON.stringi
 
 ## ProprietaryString
 
+An arbitrary string.
+
 **Properties**
 
 | Name                 | Type                                                                                 | Required | Validation       |
@@ -736,6 +754,8 @@ For validation purposes, the `value` property is stringified using `JSON.stringi
 | `value`              | `string`                                                                             |    ✓     | max. length: 100 |
 
 ## ProprietaryURL
+
+A URL.
 
 **Properties**
 
