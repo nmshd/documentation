@@ -652,9 +652,9 @@ An arbitrary boolean value.
 
 ## ProprietaryJSON
 
-An arbitrary JSON value. The value field can contain any valid JSON structure (except `null`).
+An arbitrary JSON value. The `value` property can contain any valid JSON structure (except `null`).
 
-For validation purposes, the value field is stringified using `JSON.stringify`. That string must not exceed the maximum length of 4096 characters.
+For validation purposes, the `value` property is stringified using `JSON.stringify`. That string must not exceed the maximum length of 4096 characters.
 
 **Properties**
 
