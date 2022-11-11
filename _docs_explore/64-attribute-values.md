@@ -650,6 +650,55 @@ An arbitrary boolean value.
 | `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/62-data-model.md %}#valuehintsoverride) |    ✗     |                    |
 | `value`              | `number`                                                                             |    ✓     | must be an integer |
 
+## ProprietaryJSON
+
+An arbitrary JSON value. The `value` property can contain any valid JSON structure (except `null`).
+
+For validation purposes, the `value` property is stringified using `JSON.stringify`. That string must not exceed the maximum length of 4096 characters.
+
+**Properties**
+
+| Name          | Type                | Required | Validation        |
+| ------------- | ------------------- | :------: | ----------------- |
+| `@type`       | `"ProprietaryJSON"` |    ✓     |                   |
+| `title`       | `string`            |    ✓     |                   |
+| `description` | `string`            |    ✗     |                   |
+| `value`       | `unknown`           |    ✓     | max. length: 4096 |
+
+**Examples**
+
+```jsonc
+{
+    "@type": "ProprietaryJSON",
+    "title": "My JSON",
+    // length: 94
+    "value": {
+        "foo": "bar",
+        "baz": 123,
+        "qux": true,
+        "quux": {
+            "corge": "grault"
+
+```
+
+```jsonc
+{
+    "@type": "ProprietaryJSON",
+    "title": "My JSON",
+    // length: 8
+    "value": "a string"
+}
+```
+
+```jsonc
+{
+    "@type": "ProprietaryJSON",
+    "title": "My JSON",
+    // length: 28
+    "value": ["a string", 1, { "foo": "bar" }]
+}
+```
+
 ## ProprietaryLanguage
 
 **Properties**
