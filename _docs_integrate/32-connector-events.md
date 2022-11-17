@@ -22,7 +22,7 @@ permalink: /integrate/connector-events
 | transport.peerRelationshipTemplateLoaded                                             | [RelationshipTemplate]({% link _docs_explore/62-data-model.md %}#RelationshipTemplate) | ... a Relationship Template was loaded that belongs to another identity.                                                                                                                                                               |
 | transport.relationshipChanged                                                        | [Relationship]({% link _docs_explore/62-data-model.md %}#Relationship)                 | ... a Relationship has changed. This can be due to one of the following cases:<br> • you create a Relationship<br> • you accept, reject or revoke a Relationship Change<br> • a Relationship Change is received during synchronization |
 
-## RequestStatusChangedEventData
+## Event structure
 
 Every event is structured as follows (TData depends on the actual event, e.g. `LocalAttribute`):
 
@@ -46,7 +46,7 @@ export interface RequestStatusChangedEventData {
 }
 ```
 
-## MessageProcessedEventData
+### MessageProcessedEventData
 
 > [Message]({% link _docs_explore/62-data-model.md %}#Message)
 
@@ -57,7 +57,7 @@ export interface MessageProcessedEventData {
 }
 ```
 
-## RelationshipTemplateProcessedEventData
+### RelationshipTemplateProcessedEventData
 
 > [RelationshipTemplate]({% link _docs_explore/62-data-model.md %}#RelationshipTemplate)
 
