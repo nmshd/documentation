@@ -287,7 +287,7 @@ It is not recommended to use this Module for production scenarios.
         "webhooksV2": {
             "enabled": false,
             "targets": {},
-            "webhooks": {}
+            "webhooks": []
         }
     }
 }
