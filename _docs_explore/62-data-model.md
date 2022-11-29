@@ -45,7 +45,7 @@ A token has the following properties:
 
 ## RelationshipTemplate
 
-A Relationship Template serves to purposes:
+A Relationship Template serves two purposes:
 
 1. It represents the permission to establish a Relationship. When sending a Relationship request, the sender has to attach the ID of a valid Relationship Template created by the recipient. Otherwise the Backbone blocks the Relationship request. And since the IDs are randomly generated, you can only obtain such an ID from the recipient.
 2. It can contain data which is of interest for the one who uses the Relationship Template. The Enmeshed App for example expects a Relationship Template content which contains a `Request` which contains e.g. Attributes about the creator of the Template as well as queries for Attributes that the Template creator wants to receive together with the Relationship request.
@@ -54,16 +54,16 @@ A Relationship Template serves to purposes:
 | ---------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------- |
 | id                     | `string`                                                                   | {% include descr_id class="Relationship Template" prefix="RLT" %}                                                                                                                                                                                                                                                                                                  |                                               |
 | isOwn                  | `boolean`                                                                  | {% include descr_isOwn class="Relationship Template" %}                                                                                                                                                                                                                                                                                                            | saved only locally                            |
-| createdBy              | `string`                                                                   | {% include descr_createdBy class="Relationship Template" %}                                                                                                                                                                                                                                                                                                        | remark                                        |
-| createdByDevice        | `string`                                                                   | {% include descr_createdByDevice class="Relationship Template" %}                                                                                                                                                                                                                                                                                                  | remark                                        |
-| createdAt              | `string`                                                                   | {% include descr_createdAt class="Token" %}                                                                                                                                                                                                                                                                                                                        | remark                                        |
-| content                | [`RelationshipTemplateContent`](#relationshiptemplatecontent) \| `unknown` | The content of the Relationship Template. You can add whatever you want here. However, if it is intended for a User of the Enmeshed App, `RelationshipTemplateContent` has to be used. Otherwise feel free to insert whatever you want or need.                                                                                                                    | remark                                        |
+| createdBy              | `string`                                                                   | {% include descr_createdBy class="Relationship Template" %}                                                                                                                                                                                                                                                                                                        |                                         |
+| createdByDevice        | `string`                                                                   | {% include descr_createdByDevice class="Relationship Template" %}                                                                                                                                                                                                                                                                                                  |                                         |
+| createdAt              | `string`                                                                   | {% include descr_createdAt class="Token" %}                                                                                                                                                                                                                                                                                                                        |                                         |
+| content                | [`RelationshipTemplateContent`](#relationshiptemplatecontent) \| `unknown` | The content of the Relationship Template. You can add whatever you want here. However, if it is intended for a User of the Enmeshed App, `RelationshipTemplateContent` has to be used. Otherwise feel free to insert whatever you want or need.                                                                                                                    |                                         |
 | expiresAt              | `string`                                                                   | {% include descr_expiresAt class="Token" %}                                                                                                                                                                                                                                                                                                                        | will be encrypted before sent to the Backbone |
 | maxNumberOfAllocations | `number` \| `undefined`                                                    | Can be set to limit the number of allocations of this template. A Relationship Template is allocated by another Identity when it is first retrieved by it from the Backbone. After this value is reached, the Backbone rejects each request of any new Identity that wants to retrieve it. Identities that already allocated it will still be able to retrieve it. |                                               |
 
 ## Relationship
 
-A Relationships between two Identities is the prerequisite for them to exchange Messages. If there is no Relationship, the Backbone blocks all Messages that are tried to be sent. This ensures that you only receive Messages from Identities you know, so you are protected from any harmful Messages like spam or fishing mails.
+A Relationships between two Identities is the prerequisite for them to exchange Messages. If there is no Relationship, the Backbone blocks all Messages that are tried to be sent. This ensures that you only receive Messages from Identities you know, so you are protected from any harmful Messages like spam or phishing mails.
 
 | Name     | Type                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Remarks            |
 | -------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
@@ -188,7 +188,7 @@ A Local Request contains the local metadata for a [Request](#request).
 
 ### LocalRequestStatus
 
-Depending on whether it is an incoming or an outgoing Request, there can be different status. The following state diagram shows which status exist in both cases and when there are transitions from one state to another:
+Depending on whether it is an incoming or an outgoing Request, there can be different statuses. The following state diagram shows which status exists in both cases and when there are transitions from one state to another:
 
 ![State diagram for Local Request Status]( {{ '/assets/images/explore/RequestStatus%20-%20State%20Diagram.png' | relative_url }} )
 
@@ -245,7 +245,7 @@ With the information in this type you can clearly identify the Transport object 
 
 ## LocalAttribute
 
-A Local Attribute contains the local metadata for an [Attribute](#attributes). There are three situation a Local Attribute is created in the database:
+A Local Attribute contains the local metadata for an [Attribute](#attributes). There are three situations a Local Attribute is created in the database:
 
 -   The Identity maintains an Attribute about itself (e.g. sets its first name). We call such a Local Attribute "Repository Attribute".
 -   The Identity shares an Attribute of itself with another Identity (e.g. sends it in a Request). In that case, a _copy of the original Local Attribute_ is created, where the `shareInfo` property is set.
@@ -263,7 +263,7 @@ A Local Attribute contains the local metadata for an [Attribute](#attributes). T
 
 ### LocalAttributeShareInfo
 
-The Local Attribute Share Info help to keep track of how the Local Attribute was received/sent, from whom it was received/who sent it, as well as which Local Attribute it was copied from (in case of a shared Repository Attribute). For example, this enables us to track back who we shared a certain Repository Attribute with, so we are able to notify each of them when changing the Repository Attribute.
+The Local Attribute Share Info helps to keep track of how the Local Attribute was received/sent, from whom it was received/who sent it, as well as which Local Attribute it was copied from (in case of a shared Repository Attribute). For example, this enables us to track back who we shared a certain Repository Attribute with, so we are able to notify each of them when changing the Repository Attribute.
 
 | Name             | Type                    | Description                                                                                                                 |
 | ---------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -374,7 +374,7 @@ The `ErrorResponseItem` is only created by the Enmeshed Runtime, in case somethi
 
 ## Attributes
 
-An Attribute is some piece of information about an Identity itself(e.g. its name, address, birth date, etc.) or about an Identity in the context of a Relationship (e.g. the customer id the of the user the Relationship). Since the two scenarios differ quite a lot, there are two different types for them: IdentityAttribute and RelationshipAttribute.
+An Attribute is some piece of information about an Identity itself (e.g. its name, address, birth date, etc.) or about an Identity in the context of a Relationship (e.g. the customer id the of the user the Relationship). Since the two scenarios differ quite a lot, there are two different types for them: IdentityAttribute and RelationshipAttribute.
 
 ### IdentityAttribute
 
@@ -389,7 +389,7 @@ Identity Attributes describe an Identity itself. Their values are strongly norma
 
 ### RelationshipAttribute
 
-Identity Attributes describe an Identity in the context of a Relationship. While there are some types that can be used as a value for a RelationshipAttribute, these types are rather generic (e.g. `ProprietaryString`, `ProprietaryInteger`, ...).
+Relationship Attributes describe an Identity in the context of a Relationship. While there are some types that can be used as a value for a RelationshipAttribute, these types are rather generic (e.g. `ProprietaryString`, `ProprietaryInteger`, ...).
 
 | Name            | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Description                                                                                                                                                                                                               |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
