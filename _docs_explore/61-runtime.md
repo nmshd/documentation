@@ -37,7 +37,7 @@ Find a description of the available Modules in the following sections.
 **Note:** This Module is responsible for important logic in the Enmeshed ecosystem and is therefore enabled by default in every official Enmeshed Application.
 {: .notice--warning}
 
-This Module makes heavy use of Requests, LocalRequests and Response. Head over to the description of our [data model]({% link _docs_explore/62-data-model.md %}, where you can find a detailed description of them.
+This Module makes heavy use of Requests, LocalRequests and Response. Head over to the description of our [data model]({% link _docs_explore/62-data-model.md %}), where you can find a detailed description of them.
 
 The Module is responsible for:
 
