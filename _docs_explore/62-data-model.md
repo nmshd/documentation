@@ -466,13 +466,13 @@ Has the same properties as [`ValueHints`](#valuehints), except that all of them 
 
 If you want to query Attributes the user has in the context of a Relationship with a third party, you can use the `ThirdPartyRelationshipAttributeQuery`. An example would be the query for the number of a bonus card managed by another company (like Payback). A ThirdPartyRelationshipAttributeQuery has the following properties:
 
-| Name       | Type                    | Description                                                                       |
-| ---------- | ----------------------- | --------------------------------------------------------------------------------- |
-| validFrom  | `string` \| `undefined` | The start date of the time frame the returned Attribute should be valid in.       |
-| validTo    | `string` \| `undefined` | The end date of the time frame the returned Attribute should be valid in.         |
-| key        | `string`                | The key of the Relationship Attribute that should be queried.                     |
-| owner      | `string`                | The owner of the queried Relationship Attribute.                                  |
-| thirdParty | `string`                | The Address of the third party the Relationship Attribute should be queried from. |
+| Name       | Type                    | Description                                                                                                                                                                          |
+| ---------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| validFrom  | `string` \| `undefined` | The start date of the time frame the returned Attribute should be valid in.                                                                                                          |
+| validTo    | `string` \| `undefined` | The end date of the time frame the returned Attribute should be valid in.                                                                                                            |
+| key        | `string`                | The key of the Relationship Attribute that should be queried.                                                                                                                        |
+| owner      | `string`                | The owner of the queried Relationship Attribute. Can be an empty string (`""`), if the owner is unknown or you are querying from multiple thirdParties that could own the attribute. |
+| thirdParty | `string[]`              | The Address of the third parties the Relationship Attribute should be queried from.                                                                                                  |
 
 ## RelationshipTemplateContent
 
