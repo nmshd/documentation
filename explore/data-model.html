@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-11-30T07:17:45+01:00">
+  <meta property="article:published_time" content="2022-11-30T10:33:04+01:00">
 
 
 
@@ -290,7 +290,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Enmeshed Data Model">
     <meta itemprop="description" content="The Enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2022-11-30T07:17:45+01:00">
+    <meta itemprop="datePublished" content="2022-11-30T10:33:04+01:00">
     
 
     <div class="page__inner-wrap">
@@ -411,7 +411,7 @@
 
 <h2 id="relationshiptemplate">RelationshipTemplate</h2>
 
-<p>A Relationship Template serves to purposes:</p>
+<p>A Relationship Template serves two purposes:</p>
 
 <ol>
   <li>It represents the permission to establish a Relationship. When sending a Relationship request, the sender has to attach the ID of a valid Relationship Template created by the recipient. Otherwise the Backbone blocks the Relationship request. And since the IDs are randomly generated, you can only obtain such an ID from the recipient.</li>
@@ -444,25 +444,25 @@
       <td>createdBy</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>The Address of the Identity that created the Relationship Template.</td>
-      <td>remark</td>
+      <td> </td>
     </tr>
     <tr>
       <td>createdByDevice</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>The ID of the Device that created the Relationship Template. You can use this information to track back who exactly did what.</td>
-      <td>remark</td>
+      <td> </td>
     </tr>
     <tr>
       <td>createdAt</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>A timestamp that describes when the Token was created</td>
-      <td>remark</td>
+      <td> </td>
     </tr>
     <tr>
       <td>content</td>
       <td><a href="#relationshiptemplatecontent"><code class="language-plaintext highlighter-rouge">RelationshipTemplateContent</code></a> | <code class="language-plaintext highlighter-rouge">unknown</code></td>
       <td>The content of the Relationship Template. You can add whatever you want here. However, if it is intended for a User of the Enmeshed App, <code class="language-plaintext highlighter-rouge">RelationshipTemplateContent</code> has to be used. Otherwise feel free to insert whatever you want or need.</td>
-      <td>remark</td>
+      <td> </td>
     </tr>
     <tr>
       <td>expiresAt</td>
@@ -481,7 +481,7 @@
 
 <h2 id="relationship">Relationship</h2>
 
-<p>A Relationships between two Identities is the prerequisite for them to exchange Messages. If there is no Relationship, the Backbone blocks all Messages that are tried to be sent. This ensures that you only receive Messages from Identities you know, so you are protected from any harmful Messages like spam or fishing mails.</p>
+<p>A Relationships between two Identities is the prerequisite for them to exchange Messages. If there is no Relationship, the Backbone blocks all Messages that are tried to be sent. This ensures that you only receive Messages from Identities you know, so you are protected from any harmful Messages like spam or phishing mails.</p>
 
 <table>
   <thead>
@@ -931,7 +931,7 @@
 
 <h3 id="localrequeststatus">LocalRequestStatus</h3>
 
-<p>Depending on whether it is an incoming or an outgoing Request, there can be different status. The following state diagram shows which status exist in both cases and when there are transitions from one state to another:</p>
+<p>Depending on whether it is an incoming or an outgoing Request, there can be different statuses. The following state diagram shows which status exists in both cases and when there are transitions from one state to another:</p>
 
 <p><img src="/assets/images/explore/RequestStatus%20-%20State%20Diagram.png" alt="State diagram for Local Request Status" /></p>
 
@@ -1039,7 +1039,7 @@
 
 <h2 id="localattribute">LocalAttribute</h2>
 
-<p>A Local Attribute contains the local metadata for an <a href="#attributes">Attribute</a>. There are three situation a Local Attribute is created in the database:</p>
+<p>A Local Attribute contains the local metadata for an <a href="#attributes">Attribute</a>. There are three situations a Local Attribute is created in the database:</p>
 
 <ul>
   <li>The Identity maintains an Attribute about itself (e.g. sets its first name). We call such a Local Attribute “Repository Attribute”.</li>
@@ -1096,7 +1096,7 @@
 
 <h3 id="localattributeshareinfo">LocalAttributeShareInfo</h3>
 
-<p>The Local Attribute Share Info help to keep track of how the Local Attribute was received/sent, from whom it was received/who sent it, as well as which Local Attribute it was copied from (in case of a shared Repository Attribute). For example, this enables us to track back who we shared a certain Repository Attribute with, so we are able to notify each of them when changing the Repository Attribute.</p>
+<p>The Local Attribute Share Info helps to keep track of how the Local Attribute was received/sent, from whom it was received/who sent it, as well as which Local Attribute it was copied from (in case of a shared Repository Attribute). For example, this enables us to track back who we shared a certain Repository Attribute with, so we are able to notify each of them when changing the Repository Attribute.</p>
 
 <table>
   <thead>
@@ -1429,7 +1429,7 @@
 
 <h2 id="attributes">Attributes</h2>
 
-<p>An Attribute is some piece of information about an Identity itself(e.g. its name, address, birth date, etc.) or about an Identity in the context of a Relationship (e.g. the customer id the of the user the Relationship). Since the two scenarios differ quite a lot, there are two different types for them: IdentityAttribute and RelationshipAttribute.</p>
+<p>An Attribute is some piece of information about an Identity itself (e.g. its name, address, birth date, etc.) or about an Identity in the context of a Relationship (e.g. the customer id the of the user the Relationship). Since the two scenarios differ quite a lot, there are two different types for them: IdentityAttribute and RelationshipAttribute.</p>
 
 <h3 id="identityattribute">IdentityAttribute</h3>
 
@@ -1469,7 +1469,7 @@
 
 <h3 id="relationshipattribute">RelationshipAttribute</h3>
 
-<p>Identity Attributes describe an Identity in the context of a Relationship. While there are some types that can be used as a value for a RelationshipAttribute, these types are rather generic (e.g. <code class="language-plaintext highlighter-rouge">ProprietaryString</code>, <code class="language-plaintext highlighter-rouge">ProprietaryInteger</code>, …).</p>
+<p>Relationship Attributes describe an Identity in the context of a Relationship. While there are some types that can be used as a value for a RelationshipAttribute, these types are rather generic (e.g. <code class="language-plaintext highlighter-rouge">ProprietaryString</code>, <code class="language-plaintext highlighter-rouge">ProprietaryInteger</code>, …).</p>
 
 <table>
   <thead>
@@ -1857,7 +1857,7 @@ This is because in the context of Relationships, there are <a href="#relationshi
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-30T07:17:45+01:00">November 30, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-11-30T10:33:04+01:00">November 30, 2022</time></p>
 
       </footer>
 
