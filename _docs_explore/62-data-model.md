@@ -472,7 +472,7 @@ If you want to query Attributes the user has in the context of a Relationship wi
 | validTo    | `string` \| `undefined` | The end date of the time frame the returned Attribute should be valid in.                                                                                                            |
 | key        | `string`                | The key of the Relationship Attribute that should be queried.                                                                                                                        |
 | owner      | `string`                | The owner of the queried Relationship Attribute. Can be an empty string (`""`), if the owner is unknown or you are querying from multiple thirdParties that could own the attribute. |
-| thirdParty | `string[]`              | The Address of the third party the Relationship Attribute should be queried from.                                                                                                    |
+| thirdParty | `string[]`              | The Address of the third parties the Relationship Attribute should be queried from.                                                                                                  |
 
 ## RelationshipTemplateContent
 
