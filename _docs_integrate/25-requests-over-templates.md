@@ -29,7 +29,7 @@ For simplicity the Request inside the Template only contains an AuthenticationRe
 }
 ```
 
-Even though the Requests are validated during template creation you should not skip this step as it gives you additional information in case of validation errors.
+Even though the Requests are validated during Template creation you should not skip this step as it gives you additional information in case of validation errors.
 {: .notice--info}
 
 ## Create the Template
