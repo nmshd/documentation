@@ -29,6 +29,9 @@ For simplicity the Request inside the Template only contains an AuthenticationRe
 }
 ```
 
+Even though the Requests are validated during template creation you should not skip this step as it gives you additional information in case of validation errors.
+{: .notice--info}
+
 ## Create the Template
 
 Create the Relationship Template on the Templator's Connector. You can do so by calling the `POST /api/v2/RelationshipTemplates/Own` route. Use the following JSON in the Request body:
