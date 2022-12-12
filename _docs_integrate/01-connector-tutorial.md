@@ -119,7 +119,7 @@ In order to make sure the Request and its items are valid you can validate it by
 
 {% include rapidoc api_route_regex="^post /api/v2/Requests/Outgoing/Validate$" %}
 
-Even though the Requests are validated during Template creation you should not skip this step as it gives you additional information in case of validation errors.
+Even though the Requests are validated during the RelationshipTemplate creation you should not skip this step as it gives you additional information in case of validation errors.
 {: .notice--info}
 
 ### Connector: Create a Relationship Template
