@@ -11,16 +11,12 @@ toc: true
 The Connector requires a MongoDB database as its data storage. MongoDB is a document-oriented database. For compatibility and security reasons, the most up-to-date version of MongoDB should be used.
 For more information, please see <https://www.mongodb.com>.
 
-### Docker Runtime
+### Container Runtime
 
-The Connector requires a Docker Runtime: Docker is a virtualization technology which introduces highly portable software containers. The Connector is shipped and updated as such a Docker container - the Docker Runtime is the runtime environment which can execute the Docker containers. For compatibility and security reasons, the most up-to-date version of the Docker Runtime should be used.
+The Connector requires a Container Runtime like Docker or Kubernetes: Docker is a virtualization technology which introduces highly portable software containers. The Connector is shipped and updated as such a Docker container - the Docker Runtime is the runtime environment which can execute the Docker containers. For compatibility and security reasons, the most up-to-date version of the Docker Runtime should be used.
 For more information, please see <https://www.docker.com>.
 
 Visit [the official docker docs](https://docs.docker.com/get-docker/) for installation guides.
-
-### Docker Compose
-
-Make sure that you have installed docker-compose. Visit [the official installation guide](https://docs.docker.com/compose/install/) for more information.
 
 ### Hardware Requirements
 
@@ -42,7 +38,9 @@ A reliable and fast internet connection is mandatory for running the Connector. 
 
 Read more about listing available docker image tags [here]({% link _docs_explore/52-connector.md %}#connector-docker-image).
 
-## Installation
+## Installation with Docker
+
+Make sure that you have installed docker-compose. Visit [the official installation guide](https://docs.docker.com/compose/install/) for more information.
 
 ### Option 1: docker compose with MongoDB
 
@@ -69,6 +67,14 @@ Go through the following steps to start the Connector:
 4. replace all `<placeholders>` in the compose file with the corresponding values
 5. (optional) follow the steps under [log file mounting](#log-file-mounting) if you want to persist and access the log files on the host system
 6. execute `docker compose up -d` in the shell
+
+## Installation with Kubernetes and Helm
+
+Make sure that you have a running Kubernetes cluster and that you have installed [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) and [Helm](https://helm.sh/docs/intro/install/).
+
+You have to provide your own MongoDB instance. Visit the [MongoDB website](https://www.mongodb.com/) for installation without docker or cloud usage or the [docker hub page](https://hub.docker.com/_/mongo) for information about the installation with docker or install it [in kubernetes via Helm](https://artifacthub.io/packages/helm/bitnami/mongodb).
+
+For the installation and configuration head over to the dedicated [Connector Helm chart site]({% link _docs_integrate/14-connector-helm-chart.md %}).
 
 ## Validate the Connector installation
 
