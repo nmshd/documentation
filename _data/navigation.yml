@@ -133,6 +133,8 @@ docs_integrate:
         url: /integrate/connector-setup-troubleshooting
       - title: "Error Codes"
         url: /integrate/error-codes
+      - title: "Helm Chart"
+        url: /integrate/helm-chart
 
   - title: REST API
     children:
