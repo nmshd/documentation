@@ -7,7 +7,7 @@ permalink: /integrate/helm-chart
 
 The available Helm chart versions can be found [here](https://github.com/nmshd/cns-connector/pkgs/container/connector-helm-chart/versions).
 
-We provide a new Helm chart version for each new Connector release and each Helm chart will deploy the Connector in the charts version. (Helm chart version `3.2.1` deploys Connector version `3.2.1`)
+We provide a new Helm chart version for each new Connector release and each Helm chart will deploy the Connector in the chart's version. (Helm chart version `3.2.1` deploys Connector version `3.2.1`)
 You can override the Connector version by setting the `image.tag` value in the Helm chart.
 
 ## Configuration
@@ -18,8 +18,8 @@ You can also query the available options using the command line: `helm show valu
 
 | Parameter                      | Description                                                                                                                                                                   | Default                        |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| `image.pullPolicy`             | The images [PullPolicy](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy)                                                                             | `"IfNotPresent"`               |
-| `image.tag`                    | The images tag. [Available tags](https://github.com/nmshd/cns-connector/pkgs/container/connector/versions)                                                                    | The version of the Helm chart. |
+| `image.pullPolicy`             | The image's [PullPolicy](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy)                                                                            | `"IfNotPresent"`               |
+| `image.tag`                    | The image's tag. [Available tags](https://github.com/nmshd/cns-connector/pkgs/container/connector/versions)                                                                   | The version of the Helm chart. |
 | `config`                       | The configuration of the Connector in yaml or json format. [Configuration options](https://enmeshed.eu/integrate/connector-configuration)                                     | `{}`                           |
 | `pod.environment`              | A list of [environment variables](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#environment-variables). Can be used for configuring secrets. | `[]`                           |
 | `pod.annotations`              | [Annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/) for the pod.                                                                    | `{}`                           |
