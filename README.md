@@ -8,9 +8,9 @@ This documentation is meant as an overarching documentation for the whole Enmesh
 
 ## Documentation guidelines
 
--   So far, English only
--   Keep it simple
--   Think about the audience
+- So far, English only
+- Keep it simple
+- Think about the audience
 
 ## Contribute to the documentation
 
@@ -22,20 +22,20 @@ JavaScript
 
 Install:
 
--   [Visual Studio Code](https://code.visualstudio.com/)
--   [Remote Containers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
--   [Docker](https://code.visualstudio.com/docs/remote/containers)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Remote Containers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- [Docker](https://code.visualstudio.com/docs/remote/containers)
 
 Then in VS Code, clone the repository with the command _[Remote-Containers: Clone Repository in Container Volume...](https://code.visualstudio.com/docs/remote/containers-advanced#_use-clone-repository-in-container-volume)_
 
 This will
 
--   Clone the Repository in a Container Volume
--   Build the Docker Image
--   Start the Docker Container and map the required ports
--   Mount the created Container Volume
--   Install the required npm packages
--   Install the required ruby gems
+- Clone the Repository in a Container Volume
+- Build the Docker Image
+- Start the Docker Container and map the required ports
+- Mount the created Container Volume
+- Install the required npm packages
+- Install the required ruby gems
 
 Finally, open the `Terminal` in VS Code (it is attached to the running Development Container), and start the "instance":
 
@@ -45,8 +45,8 @@ bundle exec jekyll serve --livereload
 
 Alternatively, you can use the predefined VS Code Tasks
 
--   `Serve` &rarr; see above
--   `Build` &rarr; build the jekyll site
+- `Serve` &rarr; see above
+- `Build` &rarr; build the jekyll site
 
 ## update dependencies
 

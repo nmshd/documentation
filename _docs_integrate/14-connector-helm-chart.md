@@ -38,32 +38,32 @@ The following example shows how to configure the Helm chart.
 
 ```yaml
 config:
-    modules:
-        coreHttpApi:
-            docs:
-                enabled: true
+  modules:
+    coreHttpApi:
+      docs:
+        enabled: true
 
 pod:
-    environment:
-        - name: database__connectionString
-          valueFrom:
-              secretKeyRef:
-                  name: db-connection-string
-                  key: VALUE
+  environment:
+    - name: database__connectionString
+      valueFrom:
+        secretKeyRef:
+          name: db-connection-string
+          key: VALUE
 
-        - name: transportLibrary__platformClientId
-          value: test
-        - name: transportLibrary__platformClientSecret
-          valueFrom:
-              secretKeyRef:
-                  name: platform-client-secret
-                  key: VALUE
+    - name: transportLibrary__platformClientId
+      value: test
+    - name: transportLibrary__platformClientSecret
+      valueFrom:
+        secretKeyRef:
+          name: platform-client-secret
+          key: VALUE
 
-        - name: infrastructure__httpServer__apiKey
-          valueFrom:
-              secretKeyRef:
-                  name: api-key
-                  key: VALUE
+    - name: infrastructure__httpServer__apiKey
+      valueFrom:
+        secretKeyRef:
+          name: api-key
+          key: VALUE
 ```
 
 If you prefer json over yaml for the `config` section the following example is equivalent to the yaml example above.

@@ -12,8 +12,8 @@ With this item the sender can request the peer for an authentication in a busine
 
 ### Examples {#authenticationrequestitem-examples}
 
--   Authentication for a login to a website
--   Authentication for opening a door
+- Authentication for a login to a website
+- Authentication for opening a door
 
 ### Properties {#authenticationrequestitem-properties}
 
@@ -25,14 +25,14 @@ With this item the sender can request the peer for an authentication in a busine
 
 #### Item Properties {#authenticationrequestitem-response-itemproperties}
 
--   To accept this RequestItem an [AcceptResponseItem]({% link _docs_explore/62-data-model.md %}#acceptresponseitem) will be transferred.
--   To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
--   In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
+- To accept this RequestItem an [AcceptResponseItem]({% link _docs_explore/62-data-model.md %}#acceptresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
 
 #### Parameters {#authenticationrequestitem-response-parameters}
 
--   To accept this RequestItem you can send `{ "accept": true }` as parameters.
--   To reject this RequestItem you can send `{ "accept": false }` as parameters.
+- To accept this RequestItem you can send `{ "accept": true }` as parameters.
+- To reject this RequestItem you can send `{ "accept": false }` as parameters.
 
 ## ConsentRequestItem
 
@@ -46,10 +46,10 @@ The ConsentRequestItem is also not meant for contractual agreements.
 
 ### Examples {#consentrequestitem-examples}
 
--   "I hereby confirm that I have read the privacy terms of this cloud service and agree to them."
--   "The provided EULA has been read and agreed to."
--   "Yes, I have backed up all of my data of this PC and you can wipe it."
--   "I opt in to the newsletter."
+- "I hereby confirm that I have read the privacy terms of this cloud service and agree to them."
+- "The provided EULA has been read and agreed to."
+- "Yes, I have backed up all of my data of this PC and you can wipe it."
+- "I opt in to the newsletter."
 
 ### Properties {#consentrequestitem-properties}
 
@@ -63,14 +63,14 @@ The ConsentRequestItem is also not meant for contractual agreements.
 
 #### Item Properties {#consentrequestitem-response-itemproperties}
 
--   To accept this RequestItem an [AcceptResponseItem]({% link _docs_explore/62-data-model.md %}#acceptresponseitem) will be transferred.
--   To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
--   In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
+- To accept this RequestItem an [AcceptResponseItem]({% link _docs_explore/62-data-model.md %}#acceptresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
 
 #### Parameters {#consentrequestitem-response-parameters}
 
--   To accept this RequestItem you can send `{ "accept": true }` as parameters.
--   To reject this RequestItem you can send `{ "accept": false }` as parameters.
+- To accept this RequestItem you can send `{ "accept": true }` as parameters.
+- To reject this RequestItem you can send `{ "accept": false }` as parameters.
 
 ## CreateAttributeRequestItem
 
@@ -80,9 +80,9 @@ To create an Attribute with a fixed value defined by the sender, an Identity use
 
 ### Examples {#createattributerequestitem-examples}
 
--   Share the corporate E-Mail Address of the peer to the peer
--   Send a certificate of the peer to the peer, so that the peer is able to easily share it
--   Create a RelationshipAttribute for the peer
+- Share the corporate E-Mail Address of the peer to the peer
+- Send a certificate of the peer to the peer, so that the peer is able to easily share it
+- Create a RelationshipAttribute for the peer
 
 ### Properties {#createattributerequestitem-properties}
 
@@ -95,20 +95,20 @@ To create an Attribute with a fixed value defined by the sender, an Identity use
 
 #### Item Properties {#createattributerequestitem-response-itemproperties}
 
--   To accept this RequestItem a `CreateAttributeAcceptResponseItem` will be transferred.
+- To accept this RequestItem a `CreateAttributeAcceptResponseItem` will be transferred.
 
-    | Name          | Type                                  | Description                      |
-    | ------------- | ------------------------------------- | -------------------------------- |
-    | `@type`       | `"CreateAttributeAcceptResponseItem"` | The type of the ResponseItem.    |
-    | `attributeId` | `string`                              | The id of the created Attribute. |
+  | Name          | Type                                  | Description                      |
+  | ------------- | ------------------------------------- | -------------------------------- |
+  | `@type`       | `"CreateAttributeAcceptResponseItem"` | The type of the ResponseItem.    |
+  | `attributeId` | `string`                              | The id of the created Attribute. |
 
--   To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
--   In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
 
 #### Parameters {#createattributerequestitem-response-parameters}
 
--   To accept this RequestItem you can send `{ "accept": true }` as parameters.
--   To reject this RequestItem you can send `{ "accept": false }` as parameters.
+- To accept this RequestItem you can send `{ "accept": true }` as parameters.
+- To reject this RequestItem you can send `{ "accept": false }` as parameters.
 
 ### Combinations and usage scenarios {#createattributerequestitem-combinationsandusagescenarios}
 
@@ -129,8 +129,8 @@ To create an Attribute with a value proposed by the sender, an Identity uses the
 
 ### Examples {#proposeattributerequestitem-examples}
 
--   Onboard an existing customer to Enmeshed and propose the known private Attributes, like its name or address.
--   Ask the user if a newsletter would be of interest and propose the opt-in. This could be stored as a RelationshipAttribute with owner = recipient and could then be changed by the recipient at will.
+- Onboard an existing customer to Enmeshed and propose the known private Attributes, like its name or address.
+- Ask the user if a newsletter would be of interest and propose the opt-in. This could be stored as a RelationshipAttribute with owner = recipient and could then be changed by the recipient at will.
 
 ### Properties {#proposeattributerequestitem-properties}
 
@@ -144,40 +144,40 @@ To create an Attribute with a value proposed by the sender, an Identity uses the
 
 #### Item Properties {#proposeattributerequestitem-response-itemproperties}
 
--   To accept this RequestItem a `ProposeAttributeAcceptResponseItem` will be transferred.
+- To accept this RequestItem a `ProposeAttributeAcceptResponseItem` will be transferred.
 
-    | Name          | Type                                                                                                                                                                             | Description                                                                                                                                                                          |
-    | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-    | `@type`       | `"ProposeAttributeAcceptResponseItem"`                                                                                                                                           | The type of the ResponseItem.                                                                                                                                                        |
-    | `attributeId` | `string`                                                                                                                                                                         | The id of the created Attribute.                                                                                                                                                     |
-    | `attribute`   | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute.<br>The owner of the Attribute which is proposed can only be the recipient Identity. |
+  | Name          | Type                                                                                                                                                                             | Description                                                                                                                                                                          |
+  | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | `@type`       | `"ProposeAttributeAcceptResponseItem"`                                                                                                                                           | The type of the ResponseItem.                                                                                                                                                        |
+  | `attributeId` | `string`                                                                                                                                                                         | The id of the created Attribute.                                                                                                                                                     |
+  | `attribute`   | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute.<br>The owner of the Attribute which is proposed can only be the recipient Identity. |
 
--   To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
--   In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
 
 #### Parameters {#proposeattributerequestitem-response-parameters}
 
--   To accept this RequestItem you can send the following parameters.
+- To accept this RequestItem you can send the following parameters.
 
-    -   If you want to create a new Attribute.
+  - If you want to create a new Attribute.
 
-        | Name        | Type                                                                                                                                                                             | Description                                                           |
-        | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-        | `attribute` | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that shall be created. |
+    | Name        | Type                                                                                                                                                                             | Description                                                           |
+    | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+    | `attribute` | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that shall be created. |
 
-    -   If you want to use the proposed Attribute.
+  - If you want to use the proposed Attribute.
 
-        | Name        | Type                                                                                                                                                                             | Description                                                                          |
-        | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-        | `attribute` | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that was provided in the RequestItem. |
+    | Name        | Type                                                                                                                                                                             | Description                                                                          |
+    | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+    | `attribute` | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that was provided in the RequestItem. |
 
-    -   If you want to use an existing Attribute.
+  - If you want to use an existing Attribute.
 
-        | Name                  | Type     | Description                      |
-        | --------------------- | -------- | -------------------------------- |
-        | `existingAttributeId` | `string` | The id of the Attribute to send. |
+    | Name                  | Type     | Description                      |
+    | --------------------- | -------- | -------------------------------- |
+    | `existingAttributeId` | `string` | The id of the Attribute to send. |
 
--   To reject this RequestItem you can send `{ "accept": false }` as parameters.
+- To reject this RequestItem you can send `{ "accept": false }` as parameters.
 
 ### Combinations and usage scenarios {#proposeattributerequestitem-combinationsandusagescenarios}
 
@@ -196,9 +196,9 @@ To query Attributes which are not known to the sender, an Identity uses the Read
 
 ### Examples {#readattributerequestitem-examples}
 
--   Optional query of the BirthDate, to congratulate on birthdays
--   Required query of the Age, to check if alcohol may be bought
--   Required query of the StreetAddress, to send an invoice to the recipient
+- Optional query of the BirthDate, to congratulate on birthdays
+- Required query of the Age, to check if alcohol may be bought
+- Required query of the StreetAddress, to send an invoice to the recipient
 
 ### Properties {#readattributerequestitem-properties}
 
@@ -211,34 +211,34 @@ To query Attributes which are not known to the sender, an Identity uses the Read
 
 #### Item Properties {#readattributerequestitem-response-itemproperties}
 
--   To accept this RequestItem a `ReadAttributeAcceptResponseItem` will be transferred.
+- To accept this RequestItem a `ReadAttributeAcceptResponseItem` will be transferred.
 
-    | Name          | Type                                                                                                                                                                             | Description                                                                     |
-    | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-    | `@type`       | `"ReadAttributeAcceptResponseItem"`                                                                                                                                              | The type of the ResponseItem.                                                   |
-    | `attributeId` | `string`                                                                                                                                                                         | The id of the returned Attribute.                                               |
-    | `attribute`   | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that will be shared to the peer. |
+  | Name          | Type                                                                                                                                                                             | Description                                                                     |
+  | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+  | `@type`       | `"ReadAttributeAcceptResponseItem"`                                                                                                                                              | The type of the ResponseItem.                                                   |
+  | `attributeId` | `string`                                                                                                                                                                         | The id of the returned Attribute.                                               |
+  | `attribute`   | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that will be shared to the peer. |
 
--   To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
--   In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
 
 #### Parameters {#readattributerequestitem-response-parameters}
 
--   To accept this RequestItem you can send the following parameters.
+- To accept this RequestItem you can send the following parameters.
 
-    -   If you want to use an existing Attribute.
+  - If you want to use an existing Attribute.
 
-        | Name                  | Type     | Description                      |
-        | --------------------- | -------- | -------------------------------- |
-        | `existingAttributeId` | `string` | The id of the Attribute to send. |
+    | Name                  | Type     | Description                      |
+    | --------------------- | -------- | -------------------------------- |
+    | `existingAttributeId` | `string` | The id of the Attribute to send. |
 
-    -   If you want to create a new Attribute.
+  - If you want to create a new Attribute.
 
-        | Name        | Type                                                                                                                                                                             | Description                                                           |
-        | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-        | `attribute` | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that shall be created. |
+    | Name        | Type                                                                                                                                                                             | Description                                                           |
+    | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+    | `attribute` | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that shall be created. |
 
--   To reject this RequestItem you can send `{ "accept": false }` as parameters.
+- To reject this RequestItem you can send `{ "accept": false }` as parameters.
 
 ### Combinations and usage scenarios {#readattributerequestitem-combinationsandusagescenarios}
 
@@ -293,9 +293,9 @@ To share own IdentityAttributes (owner = self) an Identity uses the ShareAttribu
 
 ### Examples {#shareattributerequestitem-examples}
 
--   Share own DisplayName.
--   Share own Address.
--   Share customer number of company A with company B.
+- Share own DisplayName.
+- Share own Address.
+- Share customer number of company A with company B.
 
 ### Properties {#shareattributerequestitem-properties}
 
@@ -309,20 +309,20 @@ To share own IdentityAttributes (owner = self) an Identity uses the ShareAttribu
 
 #### Item Properties {#shareattributerequestitem-response-itemproperties}
 
--   To accept this RequestItem a `RegisterAttributeListenerAcceptResponseItem` will be transferred.
+- To accept this RequestItem a `RegisterAttributeListenerAcceptResponseItem` will be transferred.
 
-    | Name          | Type                                 | Description                      |
-    | ------------- | ------------------------------------ | -------------------------------- |
-    | `@type`       | `"ShareAttributeAcceptResponseItem"` | The type of the ResponseItem.    |
-    | `attributeId` | `string`                             | The id of the created Attribute. |
+  | Name          | Type                                 | Description                      |
+  | ------------- | ------------------------------------ | -------------------------------- |
+  | `@type`       | `"ShareAttributeAcceptResponseItem"` | The type of the ResponseItem.    |
+  | `attributeId` | `string`                             | The id of the created Attribute. |
 
--   To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
--   In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
 
 #### Parameters {#shareattributerequestitem-response-parameters}
 
--   To accept this RequestItem you can send `{ "accept": true }` as parameters.
--   To reject this RequestItem you can send `{ "accept": false }` as parameters.
+- To accept this RequestItem you can send `{ "accept": true }` as parameters.
+- To reject this RequestItem you can send `{ "accept": false }` as parameters.
 
 ### Combinations and usage scenarios {#shareattributerequestitem-combinationsandusagescenarios}
 

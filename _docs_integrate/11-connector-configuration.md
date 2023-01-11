@@ -9,16 +9,16 @@ toc: true
 1. Create a config file in JSON format in a folder of your choice.
 2. Fill the config file with your desired configuration (it's sufficient to add values you want to change; the Connector will merge your config file with the default configuration) Example:
 
-    ```jsonc
-    {
-        "infrastructure": {
-            "httpServer": {
-                "enabled": true,
-                "apiKey": "an-api-key"
-            }
-        }
-    }
-    ```
+   ```jsonc
+   {
+     "infrastructure": {
+       "httpServer": {
+         "enabled": true,
+         "apiKey": "an-api-key"
+       }
+     }
+   }
+   ```
 
 3. Mount the created config file into the Docker container (e.g. to `/config.json`). See the official [documentation](https://docs.docker.com/storage/bind-mounts/) for more information on how to mount files into a Docker container. This is also possible using [docker compose](https://docs.docker.com/compose/compose-file/compose-file-v3/#volumes).
 4. Set the environment variable `CUSTOM_CONFIG_LOCATION` to the path you mounted your config file to (e.g. `CUSTOM_CONFIG_LOCATION="/config.json"`).
@@ -47,19 +47,19 @@ You want to configure the following values:
 
 ```jsonc
 {
-    "infrastructure": {
-        "httpServer": {
-            "enabled": true,
-            "port": 8080,
-            "apiKey": "an-api-key"
-        }
+  "infrastructure": {
+    "httpServer": {
+      "enabled": true,
+      "port": 8080,
+      "apiKey": "an-api-key"
     }
+  }
 }
 ```
 
--   The first value can be configured using the variable `infrastructure:httpServer:enabled="true"`. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its boolean representation.
--   The second value can be configured using the variable `infrastructure:httpServer:port="8080"`. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its number representation.
--   The third value can be configured using the variable `infrastructure:httpServer:apiKey="an-api-key"`.
+- The first value can be configured using the variable `infrastructure:httpServer:enabled="true"`. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its boolean representation.
+- The second value can be configured using the variable `infrastructure:httpServer:port="8080"`. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its number representation.
+- The third value can be configured using the variable `infrastructure:httpServer:apiKey="an-api-key"`.
 
 ## Configuration options
 
@@ -84,25 +84,25 @@ You can validate the config using our [schema file](https://raw.githubuserconten
 
 ### transportLibrary
 
--   **platformClientId** `required`
+- **platformClientId** `required`
 
-    The client id is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({% link _docs_integrate/00-basics.md %}#support).
+  The client id is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({% link _docs_integrate/00-basics.md %}#support).
 
--   **platformClientSecret** `required`
+- **platformClientSecret** `required`
 
-    The client secret is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({% link _docs_integrate/00-basics.md %}#support).
+  The client secret is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({% link _docs_integrate/00-basics.md %}#support).
 
 ### database
 
--   **connectionString** `required`
+- **connectionString** `required`
 
-    At this point the connection to the database can be configured. The connection string must follow the MongoDB [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/).
+  At this point the connection to the database can be configured. The connection string must follow the MongoDB [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/).
 
--   **dbName** `default: "default"`
+- **dbName** `default: "default"`
 
-    The `dbName` string is used as the name of the MongoDB database. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new Enmeshed identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
+  The `dbName` string is used as the name of the MongoDB database. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new Enmeshed identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
 
-    If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
+  If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
 
 ### infrastructure
 
@@ -116,37 +116,37 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
 ```jsonc
 {
-    // ...
+  // ...
 
-    "infrastructure": {
-        "httpServer": {
-            "enabled": true,
-            "cors": {
-                "origin": false
-            },
-            "apiKey": "an-api-key"
-        }
+  "infrastructure": {
+    "httpServer": {
+      "enabled": true,
+      "cors": {
+        "origin": false
+      },
+      "apiKey": "an-api-key"
     }
+  }
 }
 ```
 
--   **enabled** `default: true`
+- **enabled** `default: true`
 
-    Enable or disable the HTTP server.
+  Enable or disable the HTTP server.
 
--   **cors** `default: { "origin": false }`
+- **cors** `default: { "origin": false }`
 
-    configure the CORS middleware. Valid options can be found [here](https://github.com/expressjs/cors#configuration-options).
+  configure the CORS middleware. Valid options can be found [here](https://github.com/expressjs/cors#configuration-options).
 
--   **apiKey** `required`
+- **apiKey** `required`
 
-    Define the API-Key the Connector should use to authenticate requests.
+  Define the API-Key the Connector should use to authenticate requests.
 
-    The API-Key can be chosen arbitrarily and has to be sent with every request in the `X-API-KEY` HTTP-Header.
+  The API-Key can be chosen arbitrarily and has to be sent with every request in the `X-API-KEY` HTTP-Header.
 
-    There are no limitations regarding the allowed characters. We recommend using an API-Key that is at least 20 characters long.
+  There are no limitations regarding the allowed characters. We recommend using an API-Key that is at least 20 characters long.
 
-    The API-Key protects your Connector from unauthorized access and should therefore be kept secret.
+  The API-Key protects your Connector from unauthorized access and should therefore be kept secret.
 
 ### modules
 
@@ -158,29 +158,29 @@ Every Module can be enabled or disabled by passing true / false to `enabled`. Re
 
 ```jsonc
 {
-    // ...
+  // ...
 
-    "modules": {
-        "amqpPublisher": {
-            "enabled": false,
-            "url": "amqp://example.com:5672",
-            "exchange": "myExchange"
-        }
+  "modules": {
+    "amqpPublisher": {
+      "enabled": false,
+      "url": "amqp://example.com:5672",
+      "exchange": "myExchange"
     }
+  }
 }
 ```
 
--   **enabled** `default: false`
+- **enabled** `default: false`
 
-    Enable or disable the AMQP Publisher Module.
+  Enable or disable the AMQP Publisher Module.
 
--   **url** `required`
+- **url** `required`
 
-    The URL of the AMQP server.
+  The URL of the AMQP server.
 
--   **exchange** `default: ""`
+- **exchange** `default: ""`
 
-    The name of the AMQP exchange to publish to.
+  The name of the AMQP exchange to publish to.
 
 #### autoAcceptRelationshipCreationChanges <a href="{% link _docs_integrate/03-connector-modules.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationshipcreationchanges}
 
@@ -191,24 +191,24 @@ It is not recommended to use this Module for production scenarios.
 
 ```jsonc
 {
-    // ...
+  // ...
 
-    "modules": {
-        "autoAcceptRelationshipCreationChanges": {
-            "enabled": false,
-            "responseContent": {}
-        }
+  "modules": {
+    "autoAcceptRelationshipCreationChanges": {
+      "enabled": false,
+      "responseContent": {}
     }
+  }
 }
 ```
 
--   **enabled** `default: false`
+- **enabled** `default: false`
 
-    Enable or disable the autoAcceptRelationshipCreationChanges Module.
+  Enable or disable the autoAcceptRelationshipCreationChanges Module.
 
--   **responseContent** `default: {}`
+- **responseContent** `default: {}`
 
-    The content that is used to accept the incoming Relationship Request.
+  The content that is used to accept the incoming Relationship Request.
 
 #### coreHttpApi <a href="{% link _docs_integrate/03-connector-modules.md %}#corehttpapi"><i class="fas fa-fw fa-info-circle"/></a> {#corehttpapi}
 
@@ -216,39 +216,39 @@ It is not recommended to use this Module for production scenarios.
 
 ```jsonc
 {
-    // ...
+  // ...
 
-    "modules": {
-        "coreHttpApi": {
-            "enabled": true,
-            "docs": {
-                "enabled": true,
-                "rapidoc": {
-                    "persistAuth": false
-                }
-            }
+  "modules": {
+    "coreHttpApi": {
+      "enabled": true,
+      "docs": {
+        "enabled": true,
+        "rapidoc": {
+          "persistAuth": false
         }
+      }
     }
+  }
 }
 ```
 
--   **enabled** `default: true`
+- **enabled** `default: true`
 
-    Enable or disable the coreHttpApi Module.
+  Enable or disable the coreHttpApi Module.
 
--   **docs:enabled** `default: true`
+- **docs:enabled** `default: true`
 
-    It is not recommended to enable the docs in production scenarios.
-    {: .notice--danger}
+  It is not recommended to enable the docs in production scenarios.
+  {: .notice--danger}
 
-    Enable / disable the `/docs/json` and `/docs/yaml` routes and the rendered swagger / rapidoc documentations.
+  Enable / disable the `/docs/json` and `/docs/yaml` routes and the rendered swagger / rapidoc documentations.
 
--   **docs:rapidoc:persistAuth** `default: false`
+- **docs:rapidoc:persistAuth** `default: false`
 
-    It is not recommended to enable the authentication persistence in production scenarios.
-    {: .notice--danger}
+  It is not recommended to enable the authentication persistence in production scenarios.
+  {: .notice--danger}
 
-    If set to `true` rapidoc persists the API Key in the local storage of the browser.
+  If set to `true` rapidoc persists the API Key in the local storage of the browser.
 
 #### sync <a href="{% link _docs_integrate/03-connector-modules.md %}#sync"><i class="fas fa-fw fa-info-circle"/></a> {#sync}
 
@@ -256,24 +256,24 @@ It is not recommended to use this Module for production scenarios.
 
 ```jsonc
 {
-    // ...
+  // ...
 
-    "modules": {
-        "sync": {
-            "enabled": false,
-            "interval": 60
-        }
+  "modules": {
+    "sync": {
+      "enabled": false,
+      "interval": 60
     }
+  }
 }
 ```
 
--   **enabled** `default: false`
+- **enabled** `default: false`
 
-    Enable or disable the sync Module.
+  Enable or disable the sync Module.
 
--   **interval** `default: 60`
+- **interval** `default: 60`
 
-    The interval in seconds at which the sync Module will fetch changes from the Backbone.
+  The interval in seconds at which the sync Module will fetch changes from the Backbone.
 
 #### webhooksV2 <a href="{% link _docs_integrate/03-connector-modules.md %}#webhooksv2"><i class="fas fa-fw fa-info-circle"/></a> {#webhooksv2}
 
@@ -281,95 +281,95 @@ It is not recommended to use this Module for production scenarios.
 
 ```jsonc
 {
-    // ...
+  // ...
 
-    "modules": {
-        "webhooksV2": {
-            "enabled": false,
-            "targets": {},
-            "webhooks": []
-        }
+  "modules": {
+    "webhooksV2": {
+      "enabled": false,
+      "targets": {},
+      "webhooks": []
     }
+  }
 }
 ```
 
--   **enabled** `default: false`
+- **enabled** `default: false`
 
-    Enable or disable the webhooksV2 Module.
+  Enable or disable the webhooksV2 Module.
 
--   **targets** `default: {}`
+- **targets** `default: {}`
 
-    Here you can predefine targets so you can reuse them for multiple webhooks.
+  Here you can predefine targets so you can reuse them for multiple webhooks.
 
-    A target consists of a URL as well as optional arbitrary headers, which the Connector should send as part of the request. Optionally, your URL can contain the placeholder {% raw %}`{{trigger}}`{% endraw %}, which at runtime will be replaced with the event name that triggered the webhook (e.g. transport.messageReceived). This way, you can reuse the same target for multiple webhooks and still have different URLs for different events. See the code below for an example.
+  A target consists of a URL as well as optional arbitrary headers, which the Connector should send as part of the request. Optionally, your URL can contain the placeholder {% raw %}`{{trigger}}`{% endraw %}, which at runtime will be replaced with the event name that triggered the webhook (e.g. transport.messageReceived). This way, you can reuse the same target for multiple webhooks and still have different URLs for different events. See the code below for an example.
 
-    The server under the URL must respond to the request with a status code between 200 and 299. Otherwise the Connector will log a warning.
+  The server under the URL must respond to the request with a status code between 200 and 299. Otherwise the Connector will log a warning.
 
-    <br>
+  <br>
 
-    **Example**
+  **Example**
 
-    ```jsonc
-    {
-        // a target with headers
-        "target1": {
-            "url": "https://example.com/enmeshed/webhook2",
+  ```jsonc
+  {
+    // a target with headers
+    "target1": {
+      "url": "https://example.com/enmeshed/webhook2",
 
-            // the following headers will be sent as part of the webhook
-            "headers": {
-                "a-header": "a-value",
-                "another-header": "another-value"
-            }
-        },
+      // the following headers will be sent as part of the webhook
+      "headers": {
+        "a-header": "a-value",
+        "another-header": "another-value"
+      }
+    },
 
-        // a target without headers
-        "target2": {
-            "url": "https://example.com/enmeshed/webhook"
-        },
+    // a target without headers
+    "target2": {
+      "url": "https://example.com/enmeshed/webhook"
+    },
 
-        // a target with the {% raw %}{{trigger}}{% endraw %} placeholder as part of the URL
-        "target3": {
-            "url": "https://example.com/enmeshed/webhook/{{trigger}}"
-        }
+    // a target with the {% raw %}{{trigger}}{% endraw %} placeholder as part of the URL
+    "target3": {
+      "url": "https://example.com/enmeshed/webhook/{{trigger}}"
     }
-    ```
+  }
+  ```
 
--   **webhooks** `default: []`
+- **webhooks** `default: []`
 
-    The webhooks that will be called. A webhook consists of one or more [Connector Events]({% link _docs_integrate/32-connector-events.md %}) on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the `targets` object.
+  The webhooks that will be called. A webhook consists of one or more [Connector Events]({% link _docs_integrate/32-connector-events.md %}) on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the `targets` object.
 
-    <br>
+  <br>
 
-    **Example**
+  **Example**
 
-    ```jsonc
-    [
-        {
-            "triggers": ["transport.messageReceived"],
+  ```jsonc
+  [
+    {
+      "triggers": ["transport.messageReceived"],
 
-            // inline declaration of a target
-            "target": {
-                // see the targets section for a description of how to configure a target
-            }
-        },
-        {
-            "triggers": ["transport.messageReceived"],
+      // inline declaration of a target
+      "target": {
+        // see the targets section for a description of how to configure a target
+      }
+    },
+    {
+      "triggers": ["transport.messageReceived"],
 
-            // a reference to a target defined in the 'targets' object
-            "target": "target1"
-        }
-    ]
-    ```
+      // a reference to a target defined in the 'targets' object
+      "target": "target1"
+    }
+  ]
+  ```
 
 ##### Payload
 
 ```jsonc
 {
-    // the event name (e.g. transport.messageReceived) that triggered the webhook
-    "trigger": "transport.messageReceived",
+  // the event name (e.g. transport.messageReceived) that triggered the webhook
+  "trigger": "transport.messageReceived",
 
-    // the data of the event
-    "data": {}
+  // the data of the event
+  "data": {}
 }
 ```
 

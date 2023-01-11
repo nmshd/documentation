@@ -46,9 +46,9 @@ There are a few minor changes to the data model and the endpoints for managing F
 
 The following properties were removed from the `File` entity:
 
--   `deletedAt`
--   `deletedBy`
--   `deletedByDevice`
+- `deletedAt`
+- `deletedBy`
+- `deletedByDevice`
 
 The reason for this is that these properties were added prematurely. At the moment it is not possible to delete files. This feature will be added in the future. But for now, we decided that the properties are misleading and removed them.
 
@@ -88,15 +88,15 @@ There are a few minor changes to the data model and the endpoints for managing R
 
 The following properties were removed from the `Relationship` entity:
 
--   `lastMessageReceivedAt`
--   `lastMessageSentAt`
+- `lastMessageReceivedAt`
+- `lastMessageSentAt`
 
 These properties were never filled by the Runtime and were therefore removed. If you want for example the Relationships you sent a Message to in the last 24 hours, you can instead query the Messages and filter for the `createdAt` property in conjunction with createdBy set to your own Address. This gives you all the Messages you sent to in the last 24 hours. Now you just need to summarize the distinct `relationshipIds` of all these Messages. You can do similar to replace `lastMessageReceivedAt`.
 
 Further, we removed two Relationship status:
 
--   `Terminated`: Since we currently do not support termination of Relationships, we removed this status in order to reduce confusion.
--   `Revoked`: With the introduction of Requests, we had to temporarily remove the possibility of revoking Relationship Creation Changes, because if the Response sent with the Relationship Creation Change was already created by the peer, this Response would have to be deleted as soon as the Relationship Creation Change was revoked - which is really hard to implement. In the future, revoking Relationship Creation Changes will probably be possible again, but at the moment this is not our top priority.
+- `Terminated`: Since we currently do not support termination of Relationships, we removed this status in order to reduce confusion.
+- `Revoked`: With the introduction of Requests, we had to temporarily remove the possibility of revoking Relationship Creation Changes, because if the Response sent with the Relationship Creation Change was already created by the peer, this Response would have to be deleted as soon as the Relationship Creation Change was revoked - which is really hard to implement. In the future, revoking Relationship Creation Changes will probably be possible again, but at the moment this is not our top priority.
 
 **Endpoints**
 

@@ -2,10 +2,10 @@
 title: "Announcing Enmeshed V2"
 date: 2022-06-27T12:00:00+02:00
 categories:
-    - blog
+  - blog
 tags:
-    - announcement
-    - v2
+  - announcement
+  - v2
 ---
 
 We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.

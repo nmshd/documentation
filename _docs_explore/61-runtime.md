@@ -18,15 +18,15 @@ The Runtime provides its own builtin Modules. These Modules are available by def
 
 ```jsonc
 {
-    // ...
-    "modules": {
-        "decider": {
-            "enabled": true,
-            "displayName": "Decider Module",
-            "name": "DeciderModule",
-            "location": "@nmshd/runtime:DeciderModule"
-        }
+  // ...
+  "modules": {
+    "decider": {
+      "enabled": true,
+      "displayName": "Decider Module",
+      "name": "DeciderModule",
+      "location": "@nmshd/runtime:DeciderModule"
     }
+  }
 }
 ```
 
@@ -41,14 +41,14 @@ This Module makes heavy use of Requests, LocalRequests and Response. Head over t
 
 The Module is responsible for:
 
--   creating an incoming LocalRequest when a peer RelationshipTemplate is loaded
--   scanning for Requests in received Messages to store it as incoming LocalRequests in the database
--   scanning for Responses in received Messages to close outgoing LocalRequests in the database
--   scanning for Requests in outgoing Messages to store it as outgoing LocalRequests in the database
--   taking action when the User decides (accepts or rejects) a Request
-    -   when the Request came from a Template the Module creates a Relationship with the contents of the User's Response if the User accepted the Request (rejection is currently not handled)
-    -   when the Request came from a Message the Module sends back a Message containing the User's Response (accept and reject)
--   listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent with the RelationshipCreationChange
+- creating an incoming LocalRequest when a peer RelationshipTemplate is loaded
+- scanning for Requests in received Messages to store it as incoming LocalRequests in the database
+- scanning for Responses in received Messages to close outgoing LocalRequests in the database
+- scanning for Requests in outgoing Messages to store it as outgoing LocalRequests in the database
+- taking action when the User decides (accepts or rejects) a Request
+  - when the Request came from a Template the Module creates a Relationship with the contents of the User's Response if the User accepted the Request (rejection is currently not handled)
+  - when the Request came from a Message the Module sends back a Message containing the User's Response (accept and reject)
+- listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent with the RelationshipCreationChange
 
 ### Decider Module
 
@@ -83,12 +83,12 @@ This approach allows us to implement features for cryptographic classes, for exa
 
 The implementation of the transport layer is the transport library. It combines the features of different third party libraries and the crypto library to support the following features:
 
--   Communication with the Backbone
--   Synchronization with the Backbone
--   Encrypting and decrypting communication with other identities
--   Managing identities and devices
--   Managing cryptographic artifacts
--   Cross-device synchronization of the datawallet
+- Communication with the Backbone
+- Synchronization with the Backbone
+- Encrypting and decrypting communication with other identities
+- Managing identities and devices
+- Managing cryptographic artifacts
+- Cross-device synchronization of the datawallet
 
 ### Content Library <a href="https://github.com/nmshd/cns-content"><i class="fab fa-fw fa-github"/></a> {#content-library}
 
@@ -96,10 +96,10 @@ To separate the actual payload of Messages from the Message structure and envelo
 
 Whereas the transport library implements the foundation of communication between identities and the actual secure tunnel between identities, the content library defines the payload on top of this tunnel. You can see it as the definition of a contract between all identities.
 
--   Attributes
--   Claims
--   Message formats like Mails, RequestMails, technical Messages
--   Transactional formats like Requests
+- Attributes
+- Claims
+- Message formats like Mails, RequestMails, technical Messages
+- Transactional formats like Requests
 
 ### Consumption Library <a href="https://github.com/nmshd/cns-consumption"><i class="fab fa-fw fa-github"/></a> {#consumption-library}
 

@@ -28,9 +28,9 @@ Every event is structured as follows (TData depends on the actual event, e.g. `L
 
 ```ts
 interface Event<TData> {
-    namespace: string;
-    eventTargetAddress: string;
-    data: TData;
+  namespace: string;
+  eventTargetAddress: string;
+  data: TData;
 }
 ```
 
@@ -40,9 +40,9 @@ interface Event<TData> {
 
 ```ts
 export interface RequestStatusChangedEventData {
-    request: LocalRequest;
-    oldStatus: LocalRequestStatus;
-    newStatus: LocalRequestStatus;
+  request: LocalRequest;
+  oldStatus: LocalRequestStatus;
+  newStatus: LocalRequestStatus;
 }
 ```
 
@@ -52,8 +52,8 @@ export interface RequestStatusChangedEventData {
 
 ```ts
 export interface MessageProcessedEventData {
-    message: MessageDTO;
-    result: "ManualRequestDecisionRequired" | "NoRequest" | "Error";
+  message: MessageDTO;
+  result: "ManualRequestDecisionRequired" | "NoRequest" | "Error";
 }
 ```
 
@@ -63,7 +63,7 @@ export interface MessageProcessedEventData {
 
 ```ts
 export interface RelationshipTemplateProcessedEventData {
-    template: RelationshipTemplateDTO;
-    result: "ManualRequestDecisionRequired" | "NonCompletedRequestExists" | "RelationshipExists" | "NoRequest" | "Error";
+  template: RelationshipTemplateDTO;
+  result: "ManualRequestDecisionRequired" | "NonCompletedRequestExists" | "RelationshipExists" | "NoRequest" | "Error";
 }
 ```

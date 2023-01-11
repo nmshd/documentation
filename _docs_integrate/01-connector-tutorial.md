@@ -15,12 +15,12 @@ The payloads for the requests that are sent during this tutorial contain placeho
 
 ## Prerequisites
 
--   If you want to use your own Connector for executing the examples:
-    -   [Install the Connector](https://enmeshed.eu/integrate/connector-installation)
-    -   Make sure the [Sync Module is disabled](https://enmeshed.eu/integrate/connector-configuration#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
-    -   Make sure the [docs are enabled](https://enmeshed.eu/integrate/connector-configuration#corehttpapi) for the documentation route to work
-    -   Get the API key that was configured during installation of the Connector (it needs to be sent in the `X-API-KEY` header of every HTTP request)
--   You need **version 2** of the [Enmeshed App]({% link _pages/use.md %}) installed on your mobile device. _Since the Enmeshed v2 app is not officially released yet, you need to [write us an email](mailto://info@enmeshed.eu?subject=Access%20to%20the%20closed%20beta%20of%20Enmeshed%20v2) with your Apple ID or the email address of your Google account you use on your phone, so we can add you to the closed beta._
+- If you want to use your own Connector for executing the examples:
+  - [Install the Connector](https://enmeshed.eu/integrate/connector-installation)
+  - Make sure the [Sync Module is disabled](https://enmeshed.eu/integrate/connector-configuration#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
+  - Make sure the [docs are enabled](https://enmeshed.eu/integrate/connector-configuration#corehttpapi) for the documentation route to work
+  - Get the API key that was configured during installation of the Connector (it needs to be sent in the `X-API-KEY` header of every HTTP request)
+- You need **version 2** of the [Enmeshed App]({% link _pages/use.md %}) installed on your mobile device. _Since the Enmeshed v2 app is not officially released yet, you need to [write us an email](mailto://info@enmeshed.eu?subject=Access%20to%20the%20closed%20beta%20of%20Enmeshed%20v2) with your Apple ID or the email address of your Google account you use on your phone, so we can add you to the closed beta._
 
 ## Establishing Relationships
 
@@ -32,14 +32,14 @@ In order to share an Attribute via a Relationship Template, we need to create on
 
 ```json
 {
-    "content": {
-        "@type": "IdentityAttribute",
-        "owner": "<your connector's Address>",
-        "value": {
-            "@type": "DisplayName",
-            "value": "Connector Tutorial"
-        }
+  "content": {
+    "@type": "IdentityAttribute",
+    "owner": "<your connector's Address>",
+    "value": {
+      "@type": "DisplayName",
+      "value": "Connector Tutorial"
     }
+  }
 }
 ```
 
@@ -54,66 +54,66 @@ You can query the Connector's Address under the route `/api/v2/Account/IdentityI
 
 In order to make sure the Request and its items are valid you can validate it by calling the `POST /api/v2/Requests/Outgoing/Validate` route. You can define your own payload for this Request, or you can just use the one below, which contains two Request Item Groups:
 
--   one with a Request Item that contains Attributes that will be shared with the peer
--   one with Request Items that query Attributes of the peer
+- one with a Request Item that contains Attributes that will be shared with the peer
+- one with Request Items that query Attributes of the peer
 
 ```json
 {
-    "content": {
+  "content": {
+    "items": [
+      {
+        "@type": "RequestItemGroup",
+        "mustBeAccepted": true,
+        "title": "Shared Attributes",
         "items": [
-            {
-                "@type": "RequestItemGroup",
-                "mustBeAccepted": true,
-                "title": "Shared Attributes",
-                "items": [
-                    {
-                        "@type": "ShareAttributeRequestItem",
-                        "mustBeAccepted": true,
-                        "attribute": {
-                            "@type": "IdentityAttribute",
-                            "owner": "",
-                            "value": {
-                                "@type": "DisplayName",
-                                "value": "ConnectorV2 Demo"
-                            }
-                        },
-                        "sourceAttributeId": "<the id of the attribute created above>"
-                    }
-                ]
+          {
+            "@type": "ShareAttributeRequestItem",
+            "mustBeAccepted": true,
+            "attribute": {
+              "@type": "IdentityAttribute",
+              "owner": "",
+              "value": {
+                "@type": "DisplayName",
+                "value": "ConnectorV2 Demo"
+              }
             },
-            {
-                "@type": "RequestItemGroup",
-                "mustBeAccepted": true,
-                "title": "Requested Attributes",
-                "items": [
-                    {
-                        "@type": "ReadAttributeRequestItem",
-                        "mustBeAccepted": true,
-                        "query": {
-                            "@type": "IdentityAttributeQuery",
-                            "valueType": "GivenName"
-                        }
-                    },
-                    {
-                        "@type": "ReadAttributeRequestItem",
-                        "mustBeAccepted": true,
-                        "query": {
-                            "@type": "IdentityAttributeQuery",
-                            "valueType": "Surname"
-                        }
-                    },
-                    {
-                        "@type": "ReadAttributeRequestItem",
-                        "mustBeAccepted": false,
-                        "query": {
-                            "@type": "IdentityAttributeQuery",
-                            "valueType": "EMailAddress"
-                        }
-                    }
-                ]
-            }
+            "sourceAttributeId": "<the id of the attribute created above>"
+          }
         ]
-    }
+      },
+      {
+        "@type": "RequestItemGroup",
+        "mustBeAccepted": true,
+        "title": "Requested Attributes",
+        "items": [
+          {
+            "@type": "ReadAttributeRequestItem",
+            "mustBeAccepted": true,
+            "query": {
+              "@type": "IdentityAttributeQuery",
+              "valueType": "GivenName"
+            }
+          },
+          {
+            "@type": "ReadAttributeRequestItem",
+            "mustBeAccepted": true,
+            "query": {
+              "@type": "IdentityAttributeQuery",
+              "valueType": "Surname"
+            }
+          },
+          {
+            "@type": "ReadAttributeRequestItem",
+            "mustBeAccepted": false,
+            "query": {
+              "@type": "IdentityAttributeQuery",
+              "valueType": "EMailAddress"
+            }
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
@@ -128,15 +128,15 @@ Start by creating a so called Relationship Template on the Connector. You can do
 
 ```jsonc
 {
-    "maxNumberOfAllocations": 1,
-    "expiresAt": "2023-06-01T00:00:00.000Z",
-    "content": {
-        "@type": "RelationshipTemplateContent",
-        "title": "Connector Demo Contact",
-        "onNewRelationship": {
-            // <the value of the 'content' property validated in the previous step>
-        }
+  "maxNumberOfAllocations": 1,
+  "expiresAt": "2023-06-01T00:00:00.000Z",
+  "content": {
+    "@type": "RelationshipTemplateContent",
+    "title": "Connector Demo Contact",
+    "onNewRelationship": {
+      // <the value of the 'content' property validated in the previous step>
     }
+  }
 }
 ```
 
@@ -156,18 +156,18 @@ For this, execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Hea
 
 Open the created QR Code and start the Enmeshed App. Depending on what you already did with the App, choose one of the following paths:
 
--   If this is the first time you use the App:
-    -   click on "Scan code"
-    -   hold the camera in front of the QR code
--   If you want to use a new profile:
-    -   click on the "+ New profile" button
-    -   click on "Scan code"
-    -   hold the camera in front of the QR code
--   If you want to use an existing profile:
-    -   select the existing profile
-    -   navigate to "Contacts"
-    -   click on "Add contact"
-    -   hold the camera in front of the QR code
+- If this is the first time you use the App:
+  - click on "Scan code"
+  - hold the camera in front of the QR code
+- If you want to use a new profile:
+  - click on the "+ New profile" button
+  - click on "Scan code"
+  - hold the camera in front of the QR code
+- If you want to use an existing profile:
+  - select the existing profile
+  - navigate to "Contacts"
+  - click on "Add contact"
+  - hold the camera in front of the QR code
 
 All three paths should result in a screen similar to the one below, where you can see the information that you added as content to the Relationship Template.
 
@@ -225,13 +225,13 @@ To send a Message, all you need to do is call the `POST /api/v2/Messages` endpoi
 
 ```json
 {
-    "recipients": ["id_________________________________"],
-    "content": {
-        "@type": "Mail",
-        "to": ["id_________________________________"],
-        "subject": "Welcome",
-        "body": "Hello. We are pleased to welcome you as our customer."
-    }
+  "recipients": ["id_________________________________"],
+  "content": {
+    "@type": "Mail",
+    "to": ["id_________________________________"],
+    "subject": "Welcome",
+    "body": "Hello. We are pleased to welcome you as our customer."
+  }
 }
 ```
 
