@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-01-11T08:56:39+01:00">
+  <meta property="article:published_time" content="2023-01-11T09:23:41+01:00">
 
 
 
@@ -284,7 +284,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Helm Chart">
     <meta itemprop="description" content="Versions">
-    <meta itemprop="datePublished" content="2023-01-11T08:56:39+01:00">
+    <meta itemprop="datePublished" content="2023-01-11T09:23:41+01:00">
     
 
     <div class="page__inner-wrap">
@@ -397,32 +397,32 @@ You can override the Connector version by setting the <code class="language-plai
 <p>The following example shows how to configure the Helm chart.</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">config</span><span class="pi">:</span>
-    <span class="na">modules</span><span class="pi">:</span>
-        <span class="na">coreHttpApi</span><span class="pi">:</span>
-            <span class="na">docs</span><span class="pi">:</span>
-                <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">modules</span><span class="pi">:</span>
+    <span class="na">coreHttpApi</span><span class="pi">:</span>
+      <span class="na">docs</span><span class="pi">:</span>
+        <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
 
 <span class="na">pod</span><span class="pi">:</span>
-    <span class="na">environment</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">database__connectionString</span>
-          <span class="na">valueFrom</span><span class="pi">:</span>
-              <span class="na">secretKeyRef</span><span class="pi">:</span>
-                  <span class="na">name</span><span class="pi">:</span> <span class="s">db-connection-string</span>
-                  <span class="na">key</span><span class="pi">:</span> <span class="s">VALUE</span>
+  <span class="na">environment</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">database__connectionString</span>
+      <span class="na">valueFrom</span><span class="pi">:</span>
+        <span class="na">secretKeyRef</span><span class="pi">:</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">db-connection-string</span>
+          <span class="na">key</span><span class="pi">:</span> <span class="s">VALUE</span>
 
-        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">transportLibrary__platformClientId</span>
-          <span class="na">value</span><span class="pi">:</span> <span class="s">test</span>
-        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">transportLibrary__platformClientSecret</span>
-          <span class="na">valueFrom</span><span class="pi">:</span>
-              <span class="na">secretKeyRef</span><span class="pi">:</span>
-                  <span class="na">name</span><span class="pi">:</span> <span class="s">platform-client-secret</span>
-                  <span class="na">key</span><span class="pi">:</span> <span class="s">VALUE</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">transportLibrary__platformClientId</span>
+      <span class="na">value</span><span class="pi">:</span> <span class="s">test</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">transportLibrary__platformClientSecret</span>
+      <span class="na">valueFrom</span><span class="pi">:</span>
+        <span class="na">secretKeyRef</span><span class="pi">:</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">platform-client-secret</span>
+          <span class="na">key</span><span class="pi">:</span> <span class="s">VALUE</span>
 
-        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">infrastructure__httpServer__apiKey</span>
-          <span class="na">valueFrom</span><span class="pi">:</span>
-              <span class="na">secretKeyRef</span><span class="pi">:</span>
-                  <span class="na">name</span><span class="pi">:</span> <span class="s">api-key</span>
-                  <span class="na">key</span><span class="pi">:</span> <span class="s">VALUE</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">infrastructure__httpServer__apiKey</span>
+      <span class="na">valueFrom</span><span class="pi">:</span>
+        <span class="na">secretKeyRef</span><span class="pi">:</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">api-key</span>
+          <span class="na">key</span><span class="pi">:</span> <span class="s">VALUE</span>
 </code></pre></div></div>
 
 <p>If you prefer json over yaml for the <code class="language-plaintext highlighter-rouge">config</code> section the following example is equivalent to the yaml example above.</p>
@@ -448,7 +448,7 @@ You can override the Connector version by setting the <code class="language-plai
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-01-11T08:56:39+01:00">January 11, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-01-11T09:23:41+01:00">January 11, 2023</time></p>
 
       </footer>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-01-11T08:56:39+01:00</updated><id>/feed.xml</id><title type="html">Enmeshed</title><subtitle>Enmeshed is a home of various open source components, making the digital life of users and organizations easier.</subtitle><author><name>Enmeshed Team</name></author><entry><title type="html">The (bumpy) road to Enmeshed V2</title><link href="/blog/road-to-enmeshed-v2" rel="alternate" type="text/html" title="The (bumpy) road to Enmeshed V2" /><published>2022-10-06T16:00:00+02:00</published><updated>2022-10-06T16:00:00+02:00</updated><id>/blog/road-to-enmeshed-v2</id><content type="html" xml:base="/blog/road-to-enmeshed-v2"><![CDATA[<p>Hey there,</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2023-01-11T09:23:41+01:00</updated><id>/feed.xml</id><title type="html">Enmeshed</title><subtitle>Enmeshed is a home of various open source components, making the digital life of users and organizations easier.</subtitle><author><name>Enmeshed Team</name></author><entry><title type="html">The (bumpy) road to Enmeshed V2</title><link href="/blog/road-to-enmeshed-v2" rel="alternate" type="text/html" title="The (bumpy) road to Enmeshed V2" /><published>2022-10-06T16:00:00+02:00</published><updated>2022-10-06T16:00:00+02:00</updated><id>/blog/road-to-enmeshed-v2</id><content type="html" xml:base="/blog/road-to-enmeshed-v2"><![CDATA[<p>Hey there,</p>
 
 <p>as we’ve already communicated in the previous blogs, we would like to release Enmeshed version 2 soon. As it is incompatible with version 1, the switch to version 2 is unfortunately not as straightforward as we’d hoped.</p>
 
@@ -46,11 +46,11 @@
 <p>The flow for establishing a Relationship between the App and another App or Connector has changed significantly. The body of the RelationshipTemplate is now a strict type that can be processed by the App and the Connector. It looks as follows:</p>
 
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">RelationshipTemplateContent</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">@type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RelationshipTemplateContent</span><span class="dl">"</span><span class="p">;</span>
-    <span class="nl">title</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">metadata</span><span class="p">?:</span> <span class="nx">object</span><span class="p">;</span>
-    <span class="nl">onNewRelationship</span><span class="p">:</span> <span class="nx">Request</span><span class="p">;</span>
-    <span class="nl">onExistingRelationship</span><span class="p">?:</span> <span class="nx">Request</span><span class="p">;</span>
+  <span class="dl">"</span><span class="s2">@type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RelationshipTemplateContent</span><span class="dl">"</span><span class="p">;</span>
+  <span class="nl">title</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">metadata</span><span class="p">?:</span> <span class="nx">object</span><span class="p">;</span>
+  <span class="nl">onNewRelationship</span><span class="p">:</span> <span class="nx">Request</span><span class="p">;</span>
+  <span class="nl">onExistingRelationship</span><span class="p">?:</span> <span class="nx">Request</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -77,9 +77,9 @@
 <p>So far, Attributes in Enmeshed have only been name/value pairs for Identities, e.g.:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attribute"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person.givenName"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="w">
+  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attribute"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person.givenName"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -106,12 +106,12 @@
 <p>To get started with the V2 Attributes here you can see the same Attribute as shown above in the V1 Attributes section transferred to a V2 Attribute:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;an-address&gt;"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GivenName"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;an-address&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GivenName"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 

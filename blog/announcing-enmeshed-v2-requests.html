@@ -341,11 +341,11 @@
 <p>The flow for establishing a Relationship between the App and another App or Connector has changed significantly. The body of the RelationshipTemplate is now a strict type that can be processed by the App and the Connector. It looks as follows:</p>
 
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">RelationshipTemplateContent</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">@type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RelationshipTemplateContent</span><span class="dl">"</span><span class="p">;</span>
-    <span class="nl">title</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">metadata</span><span class="p">?:</span> <span class="nx">object</span><span class="p">;</span>
-    <span class="nl">onNewRelationship</span><span class="p">:</span> <span class="nx">Request</span><span class="p">;</span>
-    <span class="nl">onExistingRelationship</span><span class="p">?:</span> <span class="nx">Request</span><span class="p">;</span>
+  <span class="dl">"</span><span class="s2">@type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RelationshipTemplateContent</span><span class="dl">"</span><span class="p">;</span>
+  <span class="nl">title</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">metadata</span><span class="p">?:</span> <span class="nx">object</span><span class="p">;</span>
+  <span class="nl">onNewRelationship</span><span class="p">:</span> <span class="nx">Request</span><span class="p">;</span>
+  <span class="nl">onExistingRelationship</span><span class="p">?:</span> <span class="nx">Request</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
