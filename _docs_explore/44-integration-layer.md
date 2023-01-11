@@ -8,7 +8,7 @@ The integration layer is only available within the Connector and sits on top of 
 
 **Components**
 
--   Connector
+- Connector
 
 # Tasks
 

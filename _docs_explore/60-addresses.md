@@ -5,9 +5,9 @@ permalink: /explore/addresses
 
 The Address is the primary identifier for an Enmeshed Identity. It is public and created out of the Identity’s Signature Public Key. Thus, the Identity’s root signature key and its corresponding Address are interlinked with each other and cannot be changed. Nobody is able to change the public key for a corresponding Address and everybody has the possibility to check, if a given public key matches a given Address without having to trust someone. Both are important security features.
 
--   As Addresses do not contain special characters, copy and pasting via double-click is supported.
--   As they also do not contain any characters which might be visually mixed up by humans (I (uppercase i), l (lowercase L), 0 (zero) and O (uppercase o)) reading them is easier than with other encodings - but still quite cumbersome, because of their length.
--   As they do have a checksum included, syntactically wrong Addresses can be checked by a computer program locally.
+- As Addresses do not contain special characters, copy and pasting via double-click is supported.
+- As they also do not contain any characters which might be visually mixed up by humans (I (uppercase i), l (lowercase L), 0 (zero) and O (uppercase o)) reading them is easier than with other encodings - but still quite cumbersome, because of their length.
+- As they do have a checksum included, syntactically wrong Addresses can be checked by a computer program locally.
 
 ## Realms/Environments
 
@@ -21,18 +21,18 @@ An Address consists of a three character alphanumeric realm prefix and seemingly
 
 ## Address Creation
 
--   Create Identity Signature Key Pair
--   Only use Identity Signature Public Key → PublicKey
--   SHA-512 hash the PublicKey
--   SHA-256 hash the SHA-512 Hash
--   Take the first 20 bytes of the SHA-256 Hash → HashedPublicKey
--   Prepend the given 3 character realm (as UTF-8 bytes) to the front of the created HashedPublicKey → ChecksumSource
--   SHA-512 Hash the ChecksumSource
--   SHA-256 Hash the SHA-512 Hash
--   Take the first 4 bytes of the SHA-256 Hash → Checksum
--   Concatenate HashedPublicKey and Checksum → Concatenation
--   Base58 the Concatenation → B58Concatenation
--   Concatenate 3 character realm (string) with B58Concatenation → Address
+- Create Identity Signature Key Pair
+- Only use Identity Signature Public Key → PublicKey
+- SHA-512 hash the PublicKey
+- SHA-256 hash the SHA-512 Hash
+- Take the first 20 bytes of the SHA-256 Hash → HashedPublicKey
+- Prepend the given 3 character realm (as UTF-8 bytes) to the front of the created HashedPublicKey → ChecksumSource
+- SHA-512 Hash the ChecksumSource
+- SHA-256 Hash the SHA-512 Hash
+- Take the first 4 bytes of the SHA-256 Hash → Checksum
+- Concatenate HashedPublicKey and Checksum → Concatenation
+- Base58 the Concatenation → B58Concatenation
+- Concatenate 3 character realm (string) with B58Concatenation → Address
 
 ## Pseudocode
 

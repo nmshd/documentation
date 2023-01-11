@@ -11,8 +11,8 @@ permalink: /integrate/connector-setup-troubleshooting
 
 One of the following errors are logged during the startup of the Connector:
 
--   `Error parsing your configuration file: [/config.json]: EISDIR: illegal operation on a directory, read`
--   `ERROR: for connector Cannot create container for service connector: invalid mode: RO`
+- `Error parsing your configuration file: [/config.json]: EISDIR: illegal operation on a directory, read`
+- `ERROR: for connector Cannot create container for service connector: invalid mode: RO`
 
 **How to fix?**
 

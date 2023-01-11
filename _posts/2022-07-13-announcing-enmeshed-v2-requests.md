@@ -2,11 +2,11 @@
 title: "Announcing Enmeshed v2 Requests"
 date: 2022-07-13T1:00:00+02:00
 categories:
-    - blog
+  - blog
 tags:
-    - announcement
-    - v2
-    - requests
+  - announcement
+  - v2
+  - requests
 toc: true
 ---
 
@@ -38,11 +38,11 @@ The flow for establishing a Relationship between the App and another App or Conn
 
 ```ts
 interface RelationshipTemplateContent {
-    "@type": "RelationshipTemplateContent";
-    title?: string;
-    metadata?: object;
-    onNewRelationship: Request;
-    onExistingRelationship?: Request;
+  "@type": "RelationshipTemplateContent";
+  title?: string;
+  metadata?: object;
+  onNewRelationship: Request;
+  onExistingRelationship?: Request;
 }
 ```
 

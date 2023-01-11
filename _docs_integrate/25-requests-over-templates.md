@@ -17,15 +17,15 @@ For simplicity the Request inside the Template only contains an AuthenticationRe
 
 ```json
 {
-    "content": {
-        "items": [
-            {
-                "@type": "AuthenticationRequestItem",
-                "mustBeAccepted": true,
-                "title": "The templator is asking for an authentication"
-            }
-        ]
-    }
+  "content": {
+    "items": [
+      {
+        "@type": "AuthenticationRequestItem",
+        "mustBeAccepted": true,
+        "title": "The templator is asking for an authentication"
+      }
+    ]
+  }
 }
 ```
 
@@ -38,15 +38,15 @@ Create the Relationship Template on the Templator's Connector. You can do so by 
 
 ```jsonc
 {
-    "maxNumberOfAllocations": 1,
-    "expiresAt": "2023-06-01T00:00:00.000Z",
-    "content": {
-        "@type": "RelationshipTemplateContent",
-        "title": "Connector Demo Contact",
-        "onNewRelationship": {
-            // the content property of the payload in the step before
-        }
+  "maxNumberOfAllocations": 1,
+  "expiresAt": "2023-06-01T00:00:00.000Z",
+  "content": {
+    "@type": "RelationshipTemplateContent",
+    "title": "Connector Demo Contact",
+    "onNewRelationship": {
+      // the content property of the payload in the step before
     }
+  }
 }
 ```
 
@@ -56,9 +56,9 @@ You will receive a response with the complete RelationshipTemplate.
 
 ```jsonc
 {
-    "id": "RLT..",
-    // ...
-    "truncatedReference": "UkxU..."
+  "id": "RLT..",
+  // ...
+  "truncatedReference": "UkxU..."
 }
 ```
 
@@ -68,7 +68,7 @@ Now you have to load the Template on the Requestor Connector. You can do so by c
 
 ```jsonc
 {
-    "reference": "UkxU..."
+  "reference": "UkxU..."
 }
 ```
 
@@ -94,11 +94,11 @@ If you want to reject the Request you can do so by calling the `POST /api/v2/Req
 
 ```jsonc
 {
-    "items": [
-        {
-            "accept": false
-        }
-    ]
+  "items": [
+    {
+      "accept": false
+    }
+  ]
 }
 ```
 
@@ -112,11 +112,11 @@ If you want to accept the Request you can do so by calling the `POST /api/v2/Req
 
 ```jsonc
 {
-    "items": [
-        {
-            "accept": true
-        }
-    ]
+  "items": [
+    {
+      "accept": true
+    }
+  ]
 }
 ```
 
@@ -126,39 +126,39 @@ If you synchronize the Templator Connector (`POST /api/v2/Account/Sync`) you wil
 
 ```jsonc
 {
-    "id": "REL...",
-    "template": {
-        // ...
-    },
-    "status": "Active",
-    "peer": "id1...",
+  "id": "REL...",
+  "template": {
     // ...
-    "changes": [
-        {
-            "id": "RCH...",
-            "request": {
-                "createdBy": "id1...",
-                "createdByDevice": "DVC...",
-                "createdAt": "2022-11-04T13:31:01.360Z",
-                "content": {
-                    "@type": "RelationshipCreationChangeRequestContent",
-                    "response": {
-                        "items": [
-                            {
-                                "@type": "AcceptResponseItem",
-                                "result": "Accepted"
-                            }
-                        ],
-                        "requestId": "REQ...",
-                        "result": "Accepted"
-                    }
-                }
-            },
-            "status": "Accepted",
-            "type": "Creation"
-            // ...
+  },
+  "status": "Active",
+  "peer": "id1...",
+  // ...
+  "changes": [
+    {
+      "id": "RCH...",
+      "request": {
+        "createdBy": "id1...",
+        "createdByDevice": "DVC...",
+        "createdAt": "2022-11-04T13:31:01.360Z",
+        "content": {
+          "@type": "RelationshipCreationChangeRequestContent",
+          "response": {
+            "items": [
+              {
+                "@type": "AcceptResponseItem",
+                "result": "Accepted"
+              }
+            ],
+            "requestId": "REQ...",
+            "result": "Accepted"
+          }
         }
-    ]
+      },
+      "status": "Accepted",
+      "type": "Creation"
+      // ...
+    }
+  ]
 }
 ```
 

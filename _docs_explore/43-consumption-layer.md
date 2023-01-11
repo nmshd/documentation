@@ -8,8 +8,8 @@ The consumption layer contains processes, logic and data structures either for p
 
 **Components**
 
--   App
--   Connector
+- App
+- Connector
 
 # Tasks
 

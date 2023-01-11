@@ -59,8 +59,8 @@ Once there is a single player in the game, and even if this single player is a "
 
 Looking at the history of decentral platforms, there also have been quite complex solutions to simple problems, like:
 
--   Network outages effectively tear the decentralized network in parts. A so-called "network split" happens, in which two separate networks forge separate blocks with the given transactions. After the outage is fixed, both chains must be merged into one. The former forged transactions within separated blocks need to be completely rewritten to new blocks (receiving new timestamps).
--   Parties do not agree on common terms, or network protocols, or default configurations with regards to the platform. The platform is split up, resulting in two completely separate running instances of one platform.
--   A bad party does not play nice. The platform either does something against the bad party (e.g. reverting bad transactions) or not depending on an unspecified rule-set - or who was affected in the end.
+- Network outages effectively tear the decentralized network in parts. A so-called "network split" happens, in which two separate networks forge separate blocks with the given transactions. After the outage is fixed, both chains must be merged into one. The former forged transactions within separated blocks need to be completely rewritten to new blocks (receiving new timestamps).
+- Parties do not agree on common terms, or network protocols, or default configurations with regards to the platform. The platform is split up, resulting in two completely separate running instances of one platform.
+- A bad party does not play nice. The platform either does something against the bad party (e.g. reverting bad transactions) or not depending on an unspecified rule-set - or who was affected in the end.
 
 {% endcomment %}

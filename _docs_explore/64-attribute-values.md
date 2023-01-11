@@ -6,9 +6,9 @@ toc: true
 
 Each [Attribute]({% link _docs_explore/62-data-model.md %}#attributes) contains an instance of an Attribute Value within its `value` property. There are different types of Attribute Values. The types define the value's structural definition, rendering information and validators. For example, an email address with the value "address@company.corp" is stored with the Attribute Value type [`EMailAddress`](#emailaddress), which defines
 
--   the data type of the actual value (a String)
--   how it is validated (the pattern of an email address and a maximum length)
--   information about how it can be rendered on the UI
+- the data type of the actual value (a String)
+- how it is validated (the pattern of an email address and a maximum length)
+- information about how it can be rendered on the UI
 
 Enmeshed defines a standard set of possible Attribute Value types for Identities within the Enmeshed ecosystem and its meaning for the Identities. And every Identity can understand/use/fill/query these Attribute Value types of other Identities.
 
@@ -681,36 +681,36 @@ For validation purposes, the `value` property is stringified using `JSON.stringi
 
 ```jsonc
 {
-    "@type": "ProprietaryJSON",
-    "title": "My JSON",
-    // length: 94
-    "value": {
-        "foo": "bar",
-        "baz": 123,
-        "qux": true,
-        "quux": {
-            "corge": "grault"
-        },
-        "garply": ["waldo", "fred", "plugh"]
-    }
+  "@type": "ProprietaryJSON",
+  "title": "My JSON",
+  // length: 94
+  "value": {
+    "foo": "bar",
+    "baz": 123,
+    "qux": true,
+    "quux": {
+      "corge": "grault"
+    },
+    "garply": ["waldo", "fred", "plugh"]
+  }
 }
 ```
 
 ```jsonc
 {
-    "@type": "ProprietaryJSON",
-    "title": "My JSON",
-    // length: 8
-    "value": "a string"
+  "@type": "ProprietaryJSON",
+  "title": "My JSON",
+  // length: 8
+  "value": "a string"
 }
 ```
 
 ```jsonc
 {
-    "@type": "ProprietaryJSON",
-    "title": "My JSON",
-    // length: 28
-    "value": ["a string", 1, { "foo": "bar" }]
+  "@type": "ProprietaryJSON",
+  "title": "My JSON",
+  // length: 28
+  "value": ["a string", 1, { "foo": "bar" }]
 }
 ```
 

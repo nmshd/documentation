@@ -24,9 +24,9 @@ No special hardware requirements have been identified so far and as always, hard
 
 A good starting point for hosting the Docker image of the Connector would be the following:
 
--   1 CPU
--   512MB RAM
--   1GB HDD
+- 1 CPU
+- 512MB RAM
+- 1GB HDD
 
 Depending on the usage scenario, higher hardware requirements might be necessary.
 
@@ -48,9 +48,9 @@ Go through the following steps to start the Connector:
 
 1. place the file [examples/docker-compose-with-mongodb.yml](https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/docker-compose-with-mongodb.yml) as `docker-compose.yml` in a folder of your choice
 2. create a config file that can be mounted inside the Connector. Fill the config file using the [configuration docs]({% link _docs_integrate/11-connector-configuration.md %}) and the [example config file](https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json). If you used the yml-file from the first step, the connection string looks as follows:
-    ```text
-    mongodb://<db-username>:<db-password>@mongodb:27017/?authSource=admin&readPreference=primary&ssl=false
-    ```
+   ```text
+   mongodb://<db-username>:<db-password>@mongodb:27017/?authSource=admin&readPreference=primary&ssl=false
+   ```
 3. replace all `<placeholders>` in the compose file with the corresponding values
 4. (optional) follow the steps under [log file mounting](#log-file-mounting) if you want to persist and access the log files on the host system
 5. execute `docker compose up -d` in the shell

@@ -6,9 +6,9 @@ toc: true
 
 The Enmeshed data model can be divided into three parts:
 
--   Transport types
--   Local types
--   Content types
+- Transport types
+- Local types
+- Content types
 
 The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail.
 
@@ -27,8 +27,8 @@ Note that the properties of the types are the ones that exist locally (aka on th
 
 Tokens can be used to save arbitrary structured data on the Backbone, which is encrypted with a random symmetric key. You can then pass the ID of the Token, together with the random key, to another Identity, which can then retrieve the token and decrypt it, e.g. inside of a QR Code, which you send to the recipient via letter. Tokens can be handy in a lot of scenarios, for example:
 
--   You want to share secret information with someone you don't have a Relationship with.
--   The Enmeshed App currently uses a Token to save a Backup of the Identity. ID and secret key are then encoded in a QR Code, which the user can print out and scan later in order to restore the Identity on a new device.
+- You want to share secret information with someone you don't have a Relationship with.
+- The Enmeshed App currently uses a Token to save a Backup of the Identity. ID and secret key are then encoded in a QR Code, which the user can print out and scan later in order to restore the Identity on a new device.
 
 A token has the following properties:
 
@@ -109,9 +109,9 @@ Note that RelationshipChangeRequest and RelationshipChangeResponse have nothing 
 
 A Message is a piece of data that can be sent to one or more recipients. The sender is completely free in what the content of the Message looks like. Though in order to enable a normalized communication, Enmeshed defines some content structures for Messages, and in the future there will be more of those. Consider that the Enmeshed App only supports those normalized Message contents. Currently there are:
 
--   [`Mail`](#mail)
--   [`Request`](#request)
--   [`Response`](#response)
+- [`Mail`](#mail)
+- [`Request`](#request)
+- [`Response`](#response)
 
 You can read more details about each of these in the corresponding sections of the "Content Types" chapter.
 
@@ -164,8 +164,8 @@ In addition to the types that are shared between Identities via the Backbone, th
 
 Currently there are two main Local types:
 
--   LocalRequest
--   LocalAttribute
+- LocalRequest
+- LocalAttribute
 
 Each of them further describes some sub types.
 
@@ -247,9 +247,9 @@ With the information in this type you can clearly identify the Transport object 
 
 A Local Attribute contains the local metadata for an [Attribute](#attributes). There are three situations a Local Attribute is created in the database:
 
--   The Identity maintains an Attribute about itself (e.g. sets its first name). We call such a Local Attribute "Repository Attribute".
--   The Identity shares an Attribute of itself with another Identity (e.g. sends it in a Request). In that case, a _copy of the original Local Attribute_ is created, where the `shareInfo` property is set.
--   The Identity receives an Attribute from another Identity (e.g. receives it in a Request). In that case a _new Local Attribute_ is created, where the `shareInfo` is set.
+- The Identity maintains an Attribute about itself (e.g. sets its first name). We call such a Local Attribute "Repository Attribute".
+- The Identity shares an Attribute of itself with another Identity (e.g. sends it in a Request). In that case, a _copy of the original Local Attribute_ is created, where the `shareInfo` property is set.
+- The Identity receives an Attribute from another Identity (e.g. receives it in a Request). In that case a _new Local Attribute_ is created, where the `shareInfo` is set.
 
 | Name        | Type                                                                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

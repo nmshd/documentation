@@ -9,9 +9,9 @@ The Backbone itself requires metadata to work, thus there is also unencrypted da
 
 **Components**
 
--   App
--   Backbone
--   Connector
+- App
+- Backbone
+- Connector
 
 # Tasks
 
@@ -35,65 +35,65 @@ Abbreviated: CHL
 
 Stored data on Backbone:
 
--   id
--   createdBy
--   createdByDevice
--   expiresAt
+- id
+- createdBy
+- createdByDevice
+- expiresAt
 
 Submitted data to Backbone:
 
--   id
+- id
 
 ## Datawallet Modifications
 
 Stored data on Backbone:
 
--   Datawallet Modifications
-    -   id: string
-    -   index: number
-    -   objectIdentifier: string
-    -   payloadCategory?: string
-    -   createdAt: string
-    -   createdByDevice: string
-    -   collection: string
-    -   type: string
-    -   encryptedPayload?: string
--   External Events
-    -   id: string
-    -   type: string
-    -   index: number
-    -   createdAt: string
-    -   syncErrorCount: number
-    -   payload: object
--   Backbone sync run
-    -   id: string
-    -   expiresAt: string
-    -   index: number
-    -   createdAt: string
-    -   createdBy: string
-    -   createdByDevice: string
-    -   eventCount: number
+- Datawallet Modifications
+  - id: string
+  - index: number
+  - objectIdentifier: string
+  - payloadCategory?: string
+  - createdAt: string
+  - createdByDevice: string
+  - collection: string
+  - type: string
+  - encryptedPayload?: string
+- External Events
+  - id: string
+  - type: string
+  - index: number
+  - createdAt: string
+  - syncErrorCount: number
+  - payload: object
+- Backbone sync run
+  - id: string
+  - expiresAt: string
+  - index: number
+  - createdAt: string
+  - createdBy: string
+  - createdByDevice: string
+  - eventCount: number
 
 Data submitted to Backbone:
 
--   Datawallet Modifications
-    -   localIndex
-    -   modifications[]
-        -   objectIdentifier: string
-        -   payloadCategory?: string
-        -   collection: string
-        -   type: string
-        -   encryptedPayload?: string
--   FinalizeSyncRun
-    -   externalEventResults[]
-        -   externalEventId: string
-        -   errorCode?: string
-    -   datawalletModifications[]
-        -   objectIdentifier?: string
-        -   payloadCategory?: string
-        -   collection: string
-        -   type: string
-        -   encryptedPayload?: string
+- Datawallet Modifications
+  - localIndex
+  - modifications[]
+    - objectIdentifier: string
+    - payloadCategory?: string
+    - collection: string
+    - type: string
+    - encryptedPayload?: string
+- FinalizeSyncRun
+  - externalEventResults[]
+    - externalEventId: string
+    - errorCode?: string
+  - datawalletModifications[]
+    - objectIdentifier?: string
+    - payloadCategory?: string
+    - collection: string
+    - type: string
+    - encryptedPayload?: string
 
 ## Devices
 
@@ -101,37 +101,37 @@ Abbreviated: DEV
 
 Stored data on Backbone:
 
--   id
--   createdAt
--   createdByDevice
--   devicePassword
--   username
--   platform
--   handle
--   installationId
+- id
+- createdAt
+- createdByDevice
+- devicePassword
+- username
+- platform
+- handle
+- installationId
 
 Submitted data to Backbone:
 
--   devicePassword
--   signedChallenge
--   platform
--   handle
--   installationId
+- devicePassword
+- signedChallenge
+- platform
+- handle
+- installationId
 
 ## Identities
 
 Stored data on Backbone:
 
--   address
--   createdAt
--   identityPublicKey
+- address
+- createdAt
+- identityPublicKey
 
 Submitted data to Backbone:
 
--   devicePassword
--   signedChallenge
--   clientId
--   clientSecret
+- devicePassword
+- signedChallenge
+- clientId
+- clientSecret
 
 ## Tokens
 
@@ -139,17 +139,17 @@ Abbreviated: TOK
 
 Stored data on Backbone:
 
--   id: string
--   content: string
--   createdAt: string
--   createdBy: string
--   createdByDevice: string
--   expiresAt: string
+- id: string
+- content: string
+- createdAt: string
+- createdBy: string
+- createdByDevice: string
+- expiresAt: string
 
 Submitted data to Backbone:
 
--   content
--   expiresAt
+- content
+- expiresAt
 
 ## Files
 
@@ -157,32 +157,32 @@ Abbreviated: FIL
 
 Stored data on Backbone:
 
--   id
--   createdAt
--   createdBy
--   createdByDevice
--   modifiedAt
--   modifiedBy
--   modifiedByDevice
--   deletedAt
--   deletedBy
--   deletedByDevice
--   owner
--   ownerSignature
--   cipherSize: number
--   cipherHash
--   expiresAt
--   encryptedProperties
--   file cipher
+- id
+- createdAt
+- createdBy
+- createdByDevice
+- modifiedAt
+- modifiedBy
+- modifiedByDevice
+- deletedAt
+- deletedBy
+- deletedByDevice
+- owner
+- ownerSignature
+- cipherSize: number
+- cipherHash
+- expiresAt
+- encryptedProperties
+- file cipher
 
 Submitted data to Backbone:
 
--   file cipher
--   cipherHash
--   owner
--   ownerSignature
--   expiresAt
--   encryptedProperties
+- file cipher
+- cipherHash
+- owner
+- ownerSignature
+- expiresAt
+- encryptedProperties
 
 ## Messages
 
@@ -190,27 +190,27 @@ Abbreviated: MSG
 
 Data stored on Backbone:
 
--   id
--   createdAt
--   createdBy
--   createdByDevice
--   body
--   attachments[]
-    -   file id
--   recipients[]
-    -   address
-    -   encryptedKey
-    -   receivedAt
-    -   receivedByDevice
+- id
+- createdAt
+- createdBy
+- createdByDevice
+- body
+- attachments[]
+  - file id
+- recipients[]
+  - address
+  - encryptedKey
+  - receivedAt
+  - receivedByDevice
 
 Data submitted to Backbone:
 
--   body
--   recipients[]
-    -   address
-    -   encryptedKey
--   attachments[]
-    -   file id
+- body
+- recipients[]
+  - address
+  - encryptedKey
+- attachments[]
+  - file id
 
 ## Relationships
 
@@ -218,34 +218,34 @@ Abbreviated: REL
 
 Data stored on Backbone:
 
--   id
--   relationshipTemplateId
--   from
--   to
--   changes[]
+- id
+- relationshipTemplateId
+- from
+- to
+- changes[]
 
-    -   id
-    -   relationshipId
-    -   request
-        -   createdBy
-        -   createdByDevice
-        -   createdAt
-        -   content?
-    -   response?: BackboneGetRelationshipsChangesSingleChangeResponse
-        -   createdBy
-        -   createdByDevice
-        -   createdAt
-        -   content?
-    -   status: RelationshipChangeStatus
-    -   type: RelationshipChangeType
+  - id
+  - relationshipId
+  - request
+    - createdBy
+    - createdByDevice
+    - createdAt
+    - content?
+  - response?: BackboneGetRelationshipsChangesSingleChangeResponse
+    - createdBy
+    - createdByDevice
+    - createdAt
+    - content?
+  - status: RelationshipChangeStatus
+  - type: RelationshipChangeType
 
--   createdAt
--   status
+- createdAt
+- status
 
 Data submitted to Backbone:
 
--   relationshipTemplateId
--   relationshipChangeContent
+- relationshipTemplateId
+- relationshipChangeContent
 
 ## Relationship Templates
 
@@ -253,17 +253,17 @@ Abbreviated: RLT
 
 Data stored on Backbone:
 
--   id: string
--   createdBy: string
--   createdByDevice: string
--   maxNumberOfAllocations?: number
--   expiresAt?: string
--   content: string
--   createdAt: string
--   deletedAt?: string
+- id: string
+- createdBy: string
+- createdByDevice: string
+- maxNumberOfAllocations?: number
+- expiresAt?: string
+- content: string
+- createdAt: string
+- deletedAt?: string
 
 Data submitted to Backbone:
 
--   expiresAt?: string
--   maxNumberOfAllocations?: number
--   content: string
+- expiresAt?: string
+- maxNumberOfAllocations?: number
+- content: string

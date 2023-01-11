@@ -10,13 +10,13 @@ In this guide, the first Connector will be called Sender and the second Connecto
 
 ```jsonc
 [
+  // ...
+  {
+    "id": "REL..",
+    "status": "Active",
     // ...
-    {
-        "id": "REL..",
-        "status": "Active",
-        // ...
-        "peer": "id1..."
-    }
+    "peer": "id1..."
+  }
 ]
 ```
 
@@ -31,16 +31,16 @@ Even though the `peer` property is optional, it is recommended to specify it whe
 
 ```json
 {
-    "content": {
-        "items": [
-            {
-                "@type": "AuthenticationRequestItem",
-                "mustBeAccepted": true,
-                "title": "The Sender is asking for an authentication"
-            }
-        ]
-    },
-    "peer": "<the address of the Recipient Connector>"
+  "content": {
+    "items": [
+      {
+        "@type": "AuthenticationRequestItem",
+        "mustBeAccepted": true,
+        "title": "The Sender is asking for an authentication"
+      }
+    ]
+  },
+  "peer": "<the address of the Recipient Connector>"
 }
 ```
 
@@ -50,10 +50,10 @@ To create the Request you have to call the `POST /api/v2/Requests/Outgoing` rout
 
 ```jsonc
 {
-    "content": {
-        // the content property of the payload in the step before
-    },
-    "peer": "<the address of the Recipient Connector>"
+  "content": {
+    // the content property of the payload in the step before
+  },
+  "peer": "<the address of the Recipient Connector>"
 }
 ```
 
@@ -65,20 +65,20 @@ Note that the Request is currently in status `Draft`.
 
 ```jsonc
 {
+  "id": "REQ...",
+  "status": "Draft",
+  // ...
+  "content": {
+    "@type": "Request",
     "id": "REQ...",
-    "status": "Draft",
-    // ...
-    "content": {
-        "@type": "Request",
-        "id": "REQ...",
-        "items": [
-            {
-                "@type": "AuthenticationRequestItem",
-                "mustBeAccepted": true,
-                "title": "The Sender is asking for an authentication"
-            }
-        ]
-    }
+    "items": [
+      {
+        "@type": "AuthenticationRequestItem",
+        "mustBeAccepted": true,
+        "title": "The Sender is asking for an authentication"
+      }
+    ]
+  }
 }
 ```
 
@@ -88,10 +88,10 @@ Now you have to send the Request to the Recipient. You can do so by calling the 
 
 ```jsonc
 {
-    "recipients": ["<the address of the Recipient Connector>"],
-    "content": {
-        // the content you copied in the step before
-    }
+  "recipients": ["<the address of the Recipient Connector>"],
+  "content": {
+    // the content you copied in the step before
+  }
 }
 ```
 
@@ -117,11 +117,11 @@ If you want to accept the Request you can do so by calling the `POST /api/v2/Req
 
 ```jsonc
 {
-    "items": [
-        {
-            "accept": true
-        }
-    ]
+  "items": [
+    {
+      "accept": true
+    }
+  ]
 }
 ```
 
@@ -131,11 +131,11 @@ If you want to reject the Request you can do so by calling the `POST /api/v2/Req
 
 ```jsonc
 {
-    "items": [
-        {
-            "accept": false
-        }
-    ]
+  "items": [
+    {
+      "accept": false
+    }
+  ]
 }
 ```
 

@@ -25,11 +25,11 @@ The term zero-knowledge applies to parties which do not have access to personal 
 
 Enmeshed is based on such a zero-knowledge principle:
 
--   The Enmeshed App stores the data in a local database on the device it is running on. Data can only be sent to or received from the Backbone, no other Internet access is possible.
--   The Enmeshed Connector stores the data in a local database within the organization network. Data can only be sent to or received from the Backbone, no other Internet access is possible.
--   Data received from or sent to the Backbone is either pseudonymous (e.g. addresses), non-personalized (e.g. ids, dates, states) or encrypted in a way, that the Backbone cannot process this data.
--   Keys to encrypted material on the Backbone are never transmitted in a way, that the Backbone could make use of it. For example, keys are shared on a side-channel (e.g. scan qr-code from website) or an end-to-end encrypted communication channel.
--   The Enmeshed App can synchronize data of the same identity to other Enmeshed Apps of this identity. This is done over a device-to-device encrypted communication channel (via the Backbone). The keys for this communication channel are transferred via a side-channel when onboarding a device for an identity.
+- The Enmeshed App stores the data in a local database on the device it is running on. Data can only be sent to or received from the Backbone, no other Internet access is possible.
+- The Enmeshed Connector stores the data in a local database within the organization network. Data can only be sent to or received from the Backbone, no other Internet access is possible.
+- Data received from or sent to the Backbone is either pseudonymous (e.g. addresses), non-personalized (e.g. ids, dates, states) or encrypted in a way, that the Backbone cannot process this data.
+- Keys to encrypted material on the Backbone are never transmitted in a way, that the Backbone could make use of it. For example, keys are shared on a side-channel (e.g. scan qr-code from website) or an end-to-end encrypted communication channel.
+- The Enmeshed App can synchronize data of the same identity to other Enmeshed Apps of this identity. This is done over a device-to-device encrypted communication channel (via the Backbone). The keys for this communication channel are transferred via a side-channel when onboarding a device for an identity.
 
 Thus, the centrally hosted Backbone has no access to any personal data. In our diagrams, we've sometimes added a "zero-knowledge border" between the components to emphasize the lack of personal data.
 
@@ -43,6 +43,6 @@ When comparing the Enmeshed privacy with decentral approaches discussed in the w
 
 However, there are some advantages to a central architecture:
 
--   With a central architecture, it is generally possible to restrict the access to data on a network level. Only the sender and recipients of a message have access to the encrypted payload of this message, for example. Even if the data is encrypted or pseunodymized, on a decentral architecture everybody would still have access to the encrypted payload.
--   With a central architecture, the analysis of metadata can only be done by the central player. On a decentral system, anybody could analyse the metadata.
--   With a central architecture, it is generally possible to effectively delete data (or let it expire). Although there are also some decentral technologies allowing the deletion of data, there is no guarantee, that data which was available in the decentral network prior to deletion, is really deleted from any node or node backup of the network.
+- With a central architecture, it is generally possible to restrict the access to data on a network level. Only the sender and recipients of a message have access to the encrypted payload of this message, for example. Even if the data is encrypted or pseunodymized, on a decentral architecture everybody would still have access to the encrypted payload.
+- With a central architecture, the analysis of metadata can only be done by the central player. On a decentral system, anybody could analyse the metadata.
+- With a central architecture, it is generally possible to effectively delete data (or let it expire). Although there are also some decentral technologies allowing the deletion of data, there is no guarantee, that data which was available in the decentral network prior to deletion, is really deleted from any node or node backup of the network.

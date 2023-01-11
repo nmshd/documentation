@@ -16,8 +16,8 @@ This Module proxies all events in the internal event bus of the Connector to an 
 
 Compared to [webhooks](#webhooksv2), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
 
--   You need persistence for the triggered events.
--   You want to integrate Enmeshed into an already existing message broker.
+- You need persistence for the triggered events.
+- You want to integrate Enmeshed into an already existing message broker.
 
 ### Auto Accept Relationship Creation Changes <a href="{% link _docs_integrate/11-connector-configuration.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-cog"/></a> {#autoacceptrelationshipcreationchanges}
 

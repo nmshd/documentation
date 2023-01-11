@@ -19,14 +19,14 @@ For us, security is not only to secure the access on the data, but to make the d
 
 When talking about the Backbone, one has to have trust in it in order to fulfill the requirements:
 
--   Only allow messages between sender and recipient(s) if they have a relationship with each other
--   Transmit any message to any recipient (if they have a relationship)
--   Do not delay any message
--   Use up-to-date timestamps
--   Generate unique ids for every new item
--   Do not use unique ids twice
--   Do not delete content if it isn't expired yet
--   Do check beforehand, if a file exists for any submitted message attachment
+- Only allow messages between sender and recipient(s) if they have a relationship with each other
+- Transmit any message to any recipient (if they have a relationship)
+- Do not delay any message
+- Use up-to-date timestamps
+- Generate unique ids for every new item
+- Do not use unique ids twice
+- Do not delete content if it isn't expired yet
+- Do check beforehand, if a file exists for any submitted message attachment
 
 # Web Stack
 

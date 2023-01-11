@@ -75,16 +75,16 @@ As with tokens, prior to the upload, a random secret key is generated and used t
 
 With each relationship, there are relationship keys automatically generated. These keys are used for signing and encrypting the communication with the relationship on a technical level.
 
--   Relationship own exchange keypair: A pair of relationship own exchange private key (PrivOwnX) and corresponding relationship own exchange public key (PubOwnX). The relationship own exchange private key is used to derive the masterRelationship secret keys (transmit and receive). The relationship own exchange public key is communicated within the relationship creation change request or the relationship creation change response.
--   Relationship own signature keypair: A pair of relationship signature private key (PrivOwn) and corresponding relationship signature public key (PubOwn). The signature own private key is used for signing the communication with this relationship. It is synchronized across all devices and signed by the device signature private key of the device which creates the relationship creation change request or the relationship template. The signature own public key is used for verifying the signatures of all communications with this relationship.
--   Relationship peer exchange public key: The peer's exchange public key (PubPeerX) which is used to derive the master relationship secret keys (transmit and receive).
--   Relationship peer signature public key: The peer's signature public key which is used to verify communication sent by the peer.
--   Relationship receive derived secret key (SecPeer'): A derived symmetric key of the master, which is actually used for decryption.
--   Relationship receive master secret key (SecPeer):
-    The symmetric master key for receiving communication of the relationship. The key is derived by the relationship peer exchange public key and the relationship own exchange private key while onboarding. This key equals to the relationship transmit master key of the peer.
--   Relationship transmit derived secret key (SecOwn'): A derived symmetric key of the master, which is actually used for encryption.
--   Relationship transmit master secret key (SecOwn):
-    The derived symmetric master key for transmitting communication to the relationship. The key is derived by the relationship peer exchange public key and the relationship own exchange private key. This key equals to the relationship receive master key of the peer.
+- Relationship own exchange keypair: A pair of relationship own exchange private key (PrivOwnX) and corresponding relationship own exchange public key (PubOwnX). The relationship own exchange private key is used to derive the masterRelationship secret keys (transmit and receive). The relationship own exchange public key is communicated within the relationship creation change request or the relationship creation change response.
+- Relationship own signature keypair: A pair of relationship signature private key (PrivOwn) and corresponding relationship signature public key (PubOwn). The signature own private key is used for signing the communication with this relationship. It is synchronized across all devices and signed by the device signature private key of the device which creates the relationship creation change request or the relationship template. The signature own public key is used for verifying the signatures of all communications with this relationship.
+- Relationship peer exchange public key: The peer's exchange public key (PubPeerX) which is used to derive the master relationship secret keys (transmit and receive).
+- Relationship peer signature public key: The peer's signature public key which is used to verify communication sent by the peer.
+- Relationship receive derived secret key (SecPeer'): A derived symmetric key of the master, which is actually used for decryption.
+- Relationship receive master secret key (SecPeer):
+  The symmetric master key for receiving communication of the relationship. The key is derived by the relationship peer exchange public key and the relationship own exchange private key while onboarding. This key equals to the relationship transmit master key of the peer.
+- Relationship transmit derived secret key (SecOwn'): A derived symmetric key of the master, which is actually used for encryption.
+- Relationship transmit master secret key (SecOwn):
+  The derived symmetric master key for transmitting communication to the relationship. The key is derived by the relationship peer exchange public key and the relationship own exchange private key. This key equals to the relationship receive master key of the peer.
 
 ## Relationship Template Encryption
 
