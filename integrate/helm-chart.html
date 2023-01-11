@@ -1,0 +1,556 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Helm Chart - Enmeshed</title>
+<meta name="description" content="Versions">
+
+
+  <meta name="author" content="Enmeshed Team">
+  
+  <meta property="article:author" content="Enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Enmeshed">
+<meta property="og:title" content="Helm Chart">
+<meta property="og:url" content="/integrate/helm-chart">
+
+
+  <meta property="og:description" content="Versions">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-01-11T08:56:39+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="/integrate/helm-chart">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog">Blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/versions/1.0.0">v1 Docs (deprecated)</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate Enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/basics">Basics</a></li>
+          
+            <li><a href="/integrate/connector-tutorial">Connector Tutorial</a></li>
+          
+            <li><a href="/integrate/connector-modules">Connector Modules</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Setting up the Connector</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/connector-installation">Installation</a></li>
+          
+            <li><a href="/integrate/connector-configuration">Configuration</a></li>
+          
+            <li><a href="/integrate/connector-setup-troubleshooting">Troubleshooting</a></li>
+          
+            <li><a href="/integrate/error-codes">Error Codes</a></li>
+          
+            <li><a href="/integrate/helm-chart" class="active">Helm Chart</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">REST API</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/connector-api">API Documentation</a></li>
+          
+            <li><a href="/integrate/connector-flows-messages">Sending Messages</a></li>
+          
+            <li><a href="/integrate/requests-over-templates">Requests over Templates</a></li>
+          
+            <li><a href="/integrate/requests-over-messages">Requests over Messages</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Programming</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/connector-sdks">Connector SDKs</a></li>
+          
+            <li><a href="/integrate/custom-connector-modules">Custom Connector Modules</a></li>
+          
+            <li><a href="/integrate/connector-events">Connector Events</a></li>
+          
+            <li><a href="/integrate/connector-migration-v2">Migrate to v2</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Operations</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/connector-operations">Connector Operations</a></li>
+          
+            <li><a href="/integrate/connector-security">Security Considerations</a></li>
+          
+            <li><a href="/integrate/connector-privacy">Privacy Considerations</a></li>
+          
+            <li><a href="/integrate/connector-performance">Performance Considerations</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Helm Chart">
+    <meta itemprop="description" content="Versions">
+    <meta itemprop="datePublished" content="2023-01-11T08:56:39+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/integrate/helm-chart" class="u-url" itemprop="url">Helm Chart
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="versions">Versions</h2>
+
+<p>The available Helm chart versions can be found <a href="https://github.com/nmshd/cns-connector/pkgs/container/connector-helm-chart/versions">here</a>.</p>
+
+<p>We provide a new Helm chart version for each new Connector release and each Helm chart will deploy the Connector in the chart’s version. (Helm chart version <code class="language-plaintext highlighter-rouge">3.2.1</code> deploys Connector version <code class="language-plaintext highlighter-rouge">3.2.1</code>)
+You can override the Connector version by setting the <code class="language-plaintext highlighter-rouge">image.tag</code> value in the Helm chart.</p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>The Helm chart can be configured using a <a href="https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing">yaml file or the command line</a>. The following table lists the configurable parameters of the Helm chart and their default values.</p>
+
+<p>You can also query the available options using the command line: <code class="language-plaintext highlighter-rouge">helm show values oci://ghcr.io/nmshd/connector-helm-chart --version &lt;version&gt;</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">image.pullPolicy</code></td>
+      <td>The image’s <a href="https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy">PullPolicy</a></td>
+      <td><code class="language-plaintext highlighter-rouge">"IfNotPresent"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">image.tag</code></td>
+      <td>The image’s tag. <a href="https://github.com/nmshd/cns-connector/pkgs/container/connector/versions">Available tags</a></td>
+      <td>The version of the Helm chart.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">config</code></td>
+      <td>The configuration of the Connector in yaml or json format. <a href="https://enmeshed.eu/integrate/connector-configuration">Configuration options</a></td>
+      <td><code class="language-plaintext highlighter-rouge">{}</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pod.environment</code></td>
+      <td>A list of <a href="https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#environment-variables">environment variables</a>. Can be used for configuring secrets.</td>
+      <td><code class="language-plaintext highlighter-rouge">[]</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pod.annotations</code></td>
+      <td><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/">Annotations</a> for the pod.</td>
+      <td><code class="language-plaintext highlighter-rouge">{}</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pod.securityContext</code></td>
+      <td><a href="https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context">SecurityContext</a> for the pod.</td>
+      <td><code class="language-plaintext highlighter-rouge">{}</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pod.containerSecurityContext</code></td>
+      <td><a href="https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context-1">SecurityContext</a> for the container in the pod.</td>
+      <td><code class="language-plaintext highlighter-rouge">{}</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pod.resources</code></td>
+      <td><a href="https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#resources">Resources</a> for the pod.</td>
+      <td><code class="language-plaintext highlighter-rouge">{}</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pod.nodeSelector</code></td>
+      <td><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector">NodeSelector</a> for the pod.</td>
+      <td><code class="language-plaintext highlighter-rouge">{}</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pod.tolerations</code></td>
+      <td><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">Tolerations</a> for the pod.</td>
+      <td><code class="language-plaintext highlighter-rouge">[]</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pod.affinity</code></td>
+      <td><a href="https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#NodeAffinity">Affinity</a> for the pod.</td>
+      <td><code class="language-plaintext highlighter-rouge">{}</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">service.type</code></td>
+      <td>The <a href="https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types">ServiceType</a> of the service.</td>
+      <td><code class="language-plaintext highlighter-rouge">"ClusterIP"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">service.port</code></td>
+      <td>The port of the service.</td>
+      <td><code class="language-plaintext highlighter-rouge">80</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-configuration">Example Configuration</h3>
+
+<p>The following example shows how to configure the Helm chart.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">config</span><span class="pi">:</span>
+    <span class="na">modules</span><span class="pi">:</span>
+        <span class="na">coreHttpApi</span><span class="pi">:</span>
+            <span class="na">docs</span><span class="pi">:</span>
+                <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+
+<span class="na">pod</span><span class="pi">:</span>
+    <span class="na">environment</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">database__connectionString</span>
+          <span class="na">valueFrom</span><span class="pi">:</span>
+              <span class="na">secretKeyRef</span><span class="pi">:</span>
+                  <span class="na">name</span><span class="pi">:</span> <span class="s">db-connection-string</span>
+                  <span class="na">key</span><span class="pi">:</span> <span class="s">VALUE</span>
+
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">transportLibrary__platformClientId</span>
+          <span class="na">value</span><span class="pi">:</span> <span class="s">test</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">transportLibrary__platformClientSecret</span>
+          <span class="na">valueFrom</span><span class="pi">:</span>
+              <span class="na">secretKeyRef</span><span class="pi">:</span>
+                  <span class="na">name</span><span class="pi">:</span> <span class="s">platform-client-secret</span>
+                  <span class="na">key</span><span class="pi">:</span> <span class="s">VALUE</span>
+
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">infrastructure__httpServer__apiKey</span>
+          <span class="na">valueFrom</span><span class="pi">:</span>
+              <span class="na">secretKeyRef</span><span class="pi">:</span>
+                  <span class="na">name</span><span class="pi">:</span> <span class="s">api-key</span>
+                  <span class="na">key</span><span class="pi">:</span> <span class="s">VALUE</span>
+</code></pre></div></div>
+
+<p>If you prefer json over yaml for the <code class="language-plaintext highlighter-rouge">config</code> section the following example is equivalent to the yaml example above.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">config</span><span class="pi">:</span> <span class="pi">{</span> <span class="s2">"</span><span class="s">modules"</span><span class="pi">:</span> <span class="pi">{</span> <span class="s2">"</span><span class="s">coreHttpApi"</span><span class="pi">:</span> <span class="pi">{</span> <span class="s2">"</span><span class="s">docs"</span><span class="pi">:</span> <span class="pi">{</span> <span class="s2">"</span><span class="s">enabled"</span><span class="pi">:</span> <span class="nv">false</span> <span class="pi">}</span> <span class="pi">}</span> <span class="pi">}</span> <span class="pi">}</span>
+<span class="c1"># ...</span>
+</code></pre></div></div>
+
+<h2 id="installation">Installation</h2>
+
+<p>Create a file named <code class="language-plaintext highlighter-rouge">values.yaml</code> with the desired configuration and run the following command to install the Helm chart.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>helm <span class="nb">install</span> &lt;installationName&gt; oci://ghcr.io/nmshd/connector-helm-chart <span class="nt">--version</span> &lt;version&gt; <span class="nt">-f</span> values.yaml
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-01-11T08:56:39+01:00">January 11, 2023</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/integrate/error-codes" class="pagination--pager" title="ErrorCodes
+">Previous</a>
+    
+    
+      <a href="/integrate/connector-api" class="pagination--pager" title="Connector API
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+           
+        <li>
+            <a href="/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2023
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

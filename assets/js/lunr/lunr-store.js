@@ -156,7 +156,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Connector Installation",
-        "excerpt":"Prerequisites MongoDB The Connector requires a MongoDB database as its data storage. MongoDB is a document-oriented database. For compatibility and security reasons, the most up-to-date version of MongoDB should be used. For more information, please see https://www.mongodb.com. Docker Runtime The Connector requires a Docker Runtime: Docker is a virtualization technology...","categories": [],
+        "excerpt":"Prerequisites MongoDB The Connector requires a MongoDB database as its data storage. MongoDB is a document-oriented database. For compatibility and security reasons, the most up-to-date version of MongoDB should be used. For more information, please see https://www.mongodb.com. Container Runtime The Connector requires a Container Runtime like Docker or Kubernetes: Docker...","categories": [],
         "tags": [],
         "url": "/integrate/connector-installation",
         "teaser": null
@@ -177,6 +177,12 @@ var store = [{
         "excerpt":"Please find a list of Enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using Enmeshed or cannot deduce the reason for your error, please report it in the Enmeshed Issue Tracker. ErrorCode Description error.connector.http.methodNotAllowed This method...","categories": [],
         "tags": [],
         "url": "/integrate/error-codes",
+        "teaser": null
+      },{
+        "title": "Helm Chart",
+        "excerpt":"Versions The available Helm chart versions can be found here. We provide a new Helm chart version for each new Connector release and each Helm chart will deploy the Connector in the chart’s version. (Helm chart version 3.2.1 deploys Connector version 3.2.1) You can override the Connector version by setting...","categories": [],
+        "tags": [],
+        "url": "/integrate/helm-chart",
         "teaser": null
       },{
         "title": "Connector API",
