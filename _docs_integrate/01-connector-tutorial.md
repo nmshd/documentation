@@ -248,3 +248,11 @@ In order to fetch the Message, we need to call the `POST /api/v2/Account/Sync` e
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
 The response should contain a Message with the content you entered in the App.
+
+## What's next?
+
+Now that you have successfully established a Relationship and exchanged Messages, you can further explore the Enmeshed API. You can for example:
+
+- explore the [Enmeshed data model]({% link _docs_explore/62-data-model.md %}) and learn more about the objects you used during this tutorial and the objects you will encounter in the future
+- learn how to send [Requests over Messages]({% link _docs_integrate/26-requests-over-messages.md %}) with your established Relationship
+- dive deeper into creating and sending [Requests over RelationshipTemplates]({% link _docs_integrate/25-requests-over-templates.md %})
