@@ -111,7 +111,7 @@ A Message is a piece of data that can be sent to one or more recipients. The sen
 
 - [`Mail`](#mail)
 - [`Request`](#request)
-- [`Response`](#response)
+- [`ResponseWrapper`](#responsewrapper)
 
 You can read more details about each of these in the corresponding sections of the "Content Types" chapter.
 
@@ -371,6 +371,17 @@ The `ErrorResponseItem` is only created by the Enmeshed Runtime, in case somethi
 | Name  | Type                                | Description                                                                                                                                                                                                                     |
 | ----- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | items | [`ResponseItem`](#responseitem)`[]` | The items inside of this Group. For each Request Item of the Request Item Group, there must be one Response Item in the Response Item Group. Note that the indices have to be the same for matching Request and Response Items. |
+
+## ResponseWrapper
+
+The ResponseWrapper is a wrapper around the Response that is sent by the recipient of the Request. It contains the Response itself, but also some additional information that is required for the Request to be processed correctly.
+
+| Name                   | Type                                    | Description                                                                                                        |
+| ---------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| requestId              | `string`                                | The `id` of the Request this Response belongs to.                                                                  |
+| requestSourceReference | `string`                                | The reference to the Message or RelationshipTemplate the Request was received with.                                |
+| requestSourceType      | `"Message"` \| `"RelationshipTemplate"` | Specifies if the Request was transferred via [Message](#message) or [RelationshipTemplate](#relationshiptemplate). |
+| response               | [`Response`](#response)                 | The Response that is sent by the recipient of the Request.                                                         |
 
 ## Attributes
 
