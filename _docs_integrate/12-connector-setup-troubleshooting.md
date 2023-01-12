@@ -4,7 +4,7 @@ permalink: /integrate/connector-setup-troubleshooting
 toc: true
 ---
 
-## Troubleshooting Help
+## Troubleshooting Guide
 
 For any issues with the Connector make sure you checked the logs and the `/Monitoring/*` routes. The `/Monitoring/Support` route provides a lot of information about the current state of the Connector and you can for example detect misconfigurations.
 
