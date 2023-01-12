@@ -162,3 +162,12 @@ docs_integrate:
         url: /integrate/connector-privacy
       - title: "Performance Considerations"
         url: /integrate/connector-performance
+
+  - title: Data Model
+    children:
+      - title: "Overview"
+        url: /integrate/data-model-overview
+      - title: "Request Items"
+        url: /integrate/data-model-request-items
+      - title: "Attribute Values"
+        url: /integrate/data-model-attribute-values

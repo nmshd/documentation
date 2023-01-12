@@ -4,7 +4,7 @@ permalink: /integrate/requests-over-templates
 toc: true
 ---
 
-This guide will explain the end to end flow of sharing and answering a [Request]({% link _docs_explore/62-data-model.md %}#request) over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don't have a Relationship yet.
+This guide will explain the end to end flow of sharing and answering a [Request]({% link _docs_integrate/61-data-model.md %}#request) over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don't have a Relationship yet.
 
 You can use the [Connector Installation Guide]({% link _docs_integrate/10-connector-installation.md %}) if you need help for the setup the Connectors.
 
@@ -13,7 +13,7 @@ On the first Connector you will create a Template. This Connector will be called
 ## Check your Request's validity
 
 At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Templator Connector with the following body.
-For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_explore/63-request-items.md %}) you want.
+For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_integrate/62-request-items.md %}) you want.
 
 ```json
 {
