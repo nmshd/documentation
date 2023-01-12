@@ -1,10 +1,10 @@
 ---
 title: "Attribute Values"
-permalink: /explore/attribute-values
+permalink: /integrate/data-model-attribute-values
 toc: true
 ---
 
-Each [Attribute]({% link _docs_explore/62-data-model.md %}#attributes) contains an instance of an Attribute Value within its `value` property. There are different types of Attribute Values. The types define the value's structural definition, rendering information and validators. For example, an email address with the value "address@company.corp" is stored with the Attribute Value type [`EMailAddress`](#emailaddress), which defines
+Each [Attribute]({% link _docs_integrate/61-data-model.md %}#attributes) contains an instance of an Attribute Value within its `value` property. There are different types of Attribute Values. The types define the value's structural definition, rendering information and validators. For example, an email address with the value "address@company.corp" is stored with the Attribute Value type [`EMailAddress`](#emailaddress), which defines
 
 - the data type of the actual value (a String)
 - how it is validated (the pattern of an email address and a maximum length)
@@ -16,7 +16,7 @@ Most Attribute Value types are atomic, which means that they have only one prope
 
 # Identity Attributes
 
-The Attribute Values in this chapter can only be used in an [Identity Attribute]({% link _docs_explore/62-data-model.md %}#identityattribute).
+The Attribute Values in this chapter can only be used in an [Identity Attribute]({% link _docs_integrate/61-data-model.md %}#identityattribute).
 
 ## Affiliation
 
@@ -294,7 +294,7 @@ The telephone number which can be used to reach the Identity via fax systems.
 
 ## FileReference
 
-A FileReference is a link to an Enmeshed [`File`]({% link _docs_explore/62-data-model.md %}#files) and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.
+A FileReference is a link to an Enmeshed [`File`]({% link _docs_integrate/61-data-model.md %}#files) and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.
 
 **Properties**
 
@@ -549,20 +549,20 @@ It is not recommended to send a ZipCode to another Identity by its own. Instead,
 
 # Relationship Attributes
 
-The Attribute Values in this chapter can only be used in a [Relationship Attribute]({% link _docs_explore/62-data-model.md %}#relationshipattribute). Most of them are generic. You can recognize those by the prefix `Proprietary` (e.g. `ProprietaryInteger`, `ProprietaryString`, ...). In order to add some validation, you have the option to add [`valueHints`]({% link _docs_explore/62-data-model.md %}#valuehints).
+The Attribute Values in this chapter can only be used in a [Relationship Attribute]({% link _docs_integrate/61-data-model.md %}#relationshipattribute). Most of them are generic. You can recognize those by the prefix `Proprietary` (e.g. `ProprietaryInteger`, `ProprietaryString`, ...). In order to add some validation, you have the option to add [`valueHints`]({% link _docs_integrate/61-data-model.md %}#valuehints).
 
 ## Consent
 
-Represents the consent of a person to a specific topic. If you want to obtain a consent, you can send a [`ReadAttributeRequestItem`]({% link _docs_explore/63-request-items.md %}#readattributerequestitem) with a Consent-[RelationshipAttribute]({% link _docs_explore/62-data-model.md %}#relationshipattribute) where the owner is the peer.
+Represents the consent of a person to a specific topic. If you want to obtain a consent, you can send a [`ReadAttributeRequestItem`]({% link _docs_integrate/62-request-items.md %}#readattributerequestitem) with a Consent-[RelationshipAttribute]({% link _docs_integrate/61-data-model.md %}#relationshipattribute) where the owner is the peer.
 
 **Properties**
 
-| Name                 | Type                                                                                 | Required | Validation                                                 |
-| -------------------- | ------------------------------------------------------------------------------------ | :------: | ---------------------------------------------------------- |
-| `@type`              | `"Consent"`                                                                          |    ✓     |                                                            |
-| `consent`            | `string`                                                                             |    ✓     | max. length: 2000                                          |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/62-data-model.md %}#valuehintsoverride) |    ✗     |                                                            |
-| `link`               | `string`                                                                             |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+| Name                 | Type                                                                                   | Required | Validation                                                 |
+| -------------------- | -------------------------------------------------------------------------------------- | :------: | ---------------------------------------------------------- |
+| `@type`              | `"Consent"`                                                                            |    ✓     |                                                            |
+| `consent`            | `string`                                                                               |    ✓     | max. length: 2000                                          |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                            |
+| `link`               | `string`                                                                               |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
 
 ## ProprietaryBoolean
 
@@ -570,13 +570,13 @@ An arbitrary boolean value.
 
 **Properties**
 
-| Name                 | Type                                                                                 | Required | Validation        |
-| -------------------- | ------------------------------------------------------------------------------------ | :------: | ----------------- |
-| `@type`              | `"ProprietaryBoolean"`                                                               |    ✓     |                   |
-| `title`              | `string`                                                                             |    ✓     | max. length: 100  |
-| `description`        | `string`                                                                             |    ✗     | max. length: 1000 |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/62-data-model.md %}#valuehintsoverride) |    ✗     |                   |
-| `value`              | `boolean`                                                                            |    ✓     |                   |
+| Name                 | Type                                                                                   | Required | Validation        |
+| -------------------- | -------------------------------------------------------------------------------------- | :------: | ----------------- |
+| `@type`              | `"ProprietaryBoolean"`                                                                 |    ✓     |                   |
+| `title`              | `string`                                                                               |    ✓     | max. length: 100  |
+| `description`        | `string`                                                                               |    ✗     | max. length: 1000 |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                   |
+| `value`              | `boolean`                                                                              |    ✓     |                   |
 
 ## ProprietaryCountry
 
@@ -584,13 +584,13 @@ A two-letter country code according to [ISO 3166-1 alpha-2](https://en.wikipedia
 
 **Properties**
 
-| Name                 | Type                                                                                 | Required | Validation                                                                                                                  |
-| -------------------- | ------------------------------------------------------------------------------------ | :------: | --------------------------------------------------------------------------------------------------------------------------- |
-| `@type`              | `"ProprietaryCountry"`                                                               |    ✓     |                                                                                                                             |
-| `title`              | `string`                                                                             |    ✓     | max. length: 100                                                                                                            |
-| `description`        | `string`                                                                             |    ✗     | max. length: 1000                                                                                                           |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/62-data-model.md %}#valuehintsoverride) |    ✗     |                                                                                                                             |
-| `value`              | `string`                                                                             |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
+| Name                 | Type                                                                                   | Required | Validation                                                                                                                  |
+| -------------------- | -------------------------------------------------------------------------------------- | :------: | --------------------------------------------------------------------------------------------------------------------------- |
+| `@type`              | `"ProprietaryCountry"`                                                                 |    ✓     |                                                                                                                             |
+| `title`              | `string`                                                                               |    ✓     | max. length: 100                                                                                                            |
+| `description`        | `string`                                                                               |    ✗     | max. length: 1000                                                                                                           |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                                                                                             |
+| `value`              | `string`                                                                               |    ✓     | only [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) country codes |
 
 ## ProprietaryEMailAddress
 
@@ -598,27 +598,27 @@ An email address.
 
 **Properties**
 
-| Name                 | Type                                                                                 | Required | Validation                                                                                |
-| -------------------- | ------------------------------------------------------------------------------------ | :------: | ----------------------------------------------------------------------------------------- |
-| `@type`              | `"ProprietaryEMailAddress"`                                                          |    ✓     |                                                                                           |
-| `title`              | `string`                                                                             |    ✓     | max. length: 100                                                                          |
-| `description`        | `string`                                                                             |    ✗     | max. length: 1000                                                                         |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/62-data-model.md %}#valuehintsoverride) |    ✗     |                                                                                           |
-| `value`              | `string`                                                                             |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
+| Name                 | Type                                                                                   | Required | Validation                                                                                |
+| -------------------- | -------------------------------------------------------------------------------------- | :------: | ----------------------------------------------------------------------------------------- |
+| `@type`              | `"ProprietaryEMailAddress"`                                                            |    ✓     |                                                                                           |
+| `title`              | `string`                                                                               |    ✓     | max. length: 100                                                                          |
+| `description`        | `string`                                                                               |    ✗     | max. length: 1000                                                                         |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                                                           |
+| `value`              | `string`                                                                               |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
 
 ## ProprietaryFileReference
 
-A FileReference is a link to an Enmeshed [`File`]({% link _docs_explore/62-data-model.md %}#files) and can be used to add a File as an Attribute of a Relationship.
+A FileReference is a link to an Enmeshed [`File`]({% link _docs_integrate/61-data-model.md %}#files) and can be used to add a File as an Attribute of a Relationship.
 
 **Properties**
 
-| Name                 | Type                                                                                 | Required | Validation        |
-| -------------------- | ------------------------------------------------------------------------------------ | :------: | ----------------- |
-| `@type`              | `"ProprietaryFileReference"`                                                         |    ✓     |                   |
-| `title`              | `string`                                                                             |    ✓     | max. length: 100  |
-| `description`        | `string`                                                                             |    ✗     | max. length: 1000 |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/62-data-model.md %}#valuehintsoverride) |    ✗     |                   |
-| `value`              | `string`                                                                             |    ✓     | max. length: 100  |
+| Name                 | Type                                                                                   | Required | Validation        |
+| -------------------- | -------------------------------------------------------------------------------------- | :------: | ----------------- |
+| `@type`              | `"ProprietaryFileReference"`                                                           |    ✓     |                   |
+| `title`              | `string`                                                                               |    ✓     | max. length: 100  |
+| `description`        | `string`                                                                               |    ✗     | max. length: 1000 |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                   |
+| `value`              | `string`                                                                               |    ✓     | max. length: 100  |
 
 ## ProprietaryFloat
 
@@ -626,13 +626,13 @@ An arbitrary floating-point number.
 
 **Properties**
 
-| Name                 | Type                                                                                 | Required | Validation        |
-| -------------------- | ------------------------------------------------------------------------------------ | :------: | ----------------- |
-| `@type`              | `"ProprietaryFloat"`                                                                 |    ✓     |                   |
-| `title`              | `string`                                                                             |    ✓     | max. length: 100  |
-| `description`        | `string`                                                                             |    ✗     | max. length: 1000 |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/62-data-model.md %}#valuehintsoverride) |    ✗     |                   |
-| `value`              | `number`                                                                             |    ✓     |                   |
+| Name                 | Type                                                                                   | Required | Validation        |
+| -------------------- | -------------------------------------------------------------------------------------- | :------: | ----------------- |
+| `@type`              | `"ProprietaryFloat"`                                                                   |    ✓     |                   |
+| `title`              | `string`                                                                               |    ✓     | max. length: 100  |
+| `description`        | `string`                                                                               |    ✗     | max. length: 1000 |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                   |
+| `value`              | `number`                                                                               |    ✓     |                   |
 
 ## ProprietaryHEXColor
 
@@ -640,13 +640,13 @@ A hexadecimal color code.
 
 **Properties**
 
-| Name                 | Type                                                                                 | Required | Validation                                                               |
-| -------------------- | ------------------------------------------------------------------------------------ | :------: | ------------------------------------------------------------------------ |
-| `@type`              | `"ProprietaryHEXColor"`                                                              |    ✓     |                                                                          |
-| `title`              | `string`                                                                             |    ✓     | max. length: 100                                                         |
-| `description`        | `string`                                                                             |    ✗     | max. length: 1000                                                        |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/62-data-model.md %}#valuehintsoverride) |    ✗     |                                                                          |
-| `value`              | `string`                                                                             |    ✓     | min.length: 4<br> must match `^#([0-9A-F]{3}){1,2}$`<br>max. length: 100 |
+| Name                 | Type                                                                                   | Required | Validation                                                               |
+| -------------------- | -------------------------------------------------------------------------------------- | :------: | ------------------------------------------------------------------------ |
+| `@type`              | `"ProprietaryHEXColor"`                                                                |    ✓     |                                                                          |
+| `title`              | `string`                                                                               |    ✓     | max. length: 100                                                         |
+| `description`        | `string`                                                                               |    ✗     | max. length: 1000                                                        |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                                          |
+| `value`              | `string`                                                                               |    ✓     | min.length: 4<br> must match `^#([0-9A-F]{3}){1,2}$`<br>max. length: 100 |
 
 ## ProprietaryInteger
 
@@ -654,13 +654,13 @@ An arbitrary integer number.
 
 **Properties**
 
-| Name                 | Type                                                                                 | Required | Validation         |
-| -------------------- | ------------------------------------------------------------------------------------ | :------: | ------------------ |
-| `@type`              | `"ProprietaryInteger"`                                                               |    ✓     |                    |
-| `title`              | `string`                                                                             |    ✓     | max. length: 100   |
-| `description`        | `string`                                                                             |    ✗     | max. length: 1000  |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/62-data-model.md %}#valuehintsoverride) |    ✗     |                    |
-| `value`              | `number`                                                                             |    ✓     | must be an integer |
+| Name                 | Type                                                                                   | Required | Validation         |
+| -------------------- | -------------------------------------------------------------------------------------- | :------: | ------------------ |
+| `@type`              | `"ProprietaryInteger"`                                                                 |    ✓     |                    |
+| `title`              | `string`                                                                               |    ✓     | max. length: 100   |
+| `description`        | `string`                                                                               |    ✗     | max. length: 1000  |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                    |
+| `value`              | `number`                                                                               |    ✓     | must be an integer |
 
 ## ProprietaryJSON
 
@@ -720,13 +720,13 @@ A two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 
 
 **Properties**
 
-| Name                 | Type                                                                                 | Required | Validation                                                                             |
-| -------------------- | ------------------------------------------------------------------------------------ | :------: | -------------------------------------------------------------------------------------- |
-| `@type`              | `"ProprietaryLanguage"`                                                              |    ✓     |                                                                                        |
-| `title`              | `string`                                                                             |    ✓     | max. length: 100                                                                       |
-| `description`        | `string`                                                                             |    ✗     | max. length: 1000                                                                      |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/62-data-model.md %}#valuehintsoverride) |    ✗     |                                                                                        |
-| `value`              | `string`                                                                             |    ✓     | only [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes |
+| Name                 | Type                                                                                   | Required | Validation                                                                             |
+| -------------------- | -------------------------------------------------------------------------------------- | :------: | -------------------------------------------------------------------------------------- |
+| `@type`              | `"ProprietaryLanguage"`                                                                |    ✓     |                                                                                        |
+| `title`              | `string`                                                                               |    ✓     | max. length: 100                                                                       |
+| `description`        | `string`                                                                               |    ✗     | max. length: 1000                                                                      |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                                                        |
+| `value`              | `string`                                                                               |    ✓     | only [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes |
 
 ## ProprietaryPhoneNumber
 
@@ -734,13 +734,13 @@ A phone number.
 
 **Properties**
 
-| Name                 | Type                                                                                 | Required | Validation                                                                    |
-| -------------------- | ------------------------------------------------------------------------------------ | :------: | ----------------------------------------------------------------------------- |
-| `@type`              | `"ProprietaryPhoneNumber"`                                                           |    ✓     |                                                                               |
-| `title`              | `string`                                                                             |    ✓     | max. length: 100                                                              |
-| `description`        | `string`                                                                             |    ✗     | max. length: 1000                                                             |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/62-data-model.md %}#valuehintsoverride) |    ✗     |                                                                               |
-| `value`              | `string`                                                                             |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[\d+\-x#*()/[\] ]{3,100}$` |
+| Name                 | Type                                                                                   | Required | Validation                                                                    |
+| -------------------- | -------------------------------------------------------------------------------------- | :------: | ----------------------------------------------------------------------------- |
+| `@type`              | `"ProprietaryPhoneNumber"`                                                             |    ✓     |                                                                               |
+| `title`              | `string`                                                                               |    ✓     | max. length: 100                                                              |
+| `description`        | `string`                                                                               |    ✗     | max. length: 1000                                                             |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                                               |
+| `value`              | `string`                                                                               |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[\d+\-x#*()/[\] ]{3,100}$` |
 
 ## ProprietaryString
 
@@ -748,13 +748,13 @@ An arbitrary string.
 
 **Properties**
 
-| Name                 | Type                                                                                 | Required | Validation        |
-| -------------------- | ------------------------------------------------------------------------------------ | :------: | ----------------- |
-| `@type`              | `"ProprietaryString"`                                                                |    ✓     |                   |
-| `title`              | `string`                                                                             |    ✓     | max. length: 100  |
-| `description`        | `string`                                                                             |    ✗     | max. length: 1000 |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/62-data-model.md %}#valuehintsoverride) |    ✗     |                   |
-| `value`              | `string`                                                                             |    ✓     | max. length: 100  |
+| Name                 | Type                                                                                   | Required | Validation        |
+| -------------------- | -------------------------------------------------------------------------------------- | :------: | ----------------- |
+| `@type`              | `"ProprietaryString"`                                                                  |    ✓     |                   |
+| `title`              | `string`                                                                               |    ✓     | max. length: 100  |
+| `description`        | `string`                                                                               |    ✗     | max. length: 1000 |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                   |
+| `value`              | `string`                                                                               |    ✓     | max. length: 100  |
 
 ## ProprietaryURL
 
@@ -762,10 +762,10 @@ A URL.
 
 **Properties**
 
-| Name                 | Type                                                                                 | Required | Validation                                                 |
-| -------------------- | ------------------------------------------------------------------------------------ | :------: | ---------------------------------------------------------- |
-| `@type`              | `"ProprietaryURL"`                                                                   |    ✓     |                                                            |
-| `title`              | `string`                                                                             |    ✓     | max. length: 100                                           |
-| `description`        | `string`                                                                             |    ✗     | max. length: 1000                                          |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_explore/62-data-model.md %}#valuehintsoverride) |    ✗     |                                                            |
-| `value`              | `string`                                                                             |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+| Name                 | Type                                                                                   | Required | Validation                                                 |
+| -------------------- | -------------------------------------------------------------------------------------- | :------: | ---------------------------------------------------------- |
+| `@type`              | `"ProprietaryURL"`                                                                     |    ✓     |                                                            |
+| `title`              | `string`                                                                               |    ✓     | max. length: 100                                           |
+| `description`        | `string`                                                                               |    ✗     | max. length: 1000                                          |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                            |
+| `value`              | `string`                                                                               |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |

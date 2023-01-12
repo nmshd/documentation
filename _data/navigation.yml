@@ -63,12 +63,6 @@ docs_explore:
         url: /explore/addresses
       - title: "Runtime"
         url: /explore/runtime
-      - title: "Data Model"
-        url: /explore/data-model
-      - title: "Request Items"
-        url: /explore/request-items
-      - title: "Attribute Values"
-        url: /explore/attribute-values
       - title: "Cryptography"
         url: /explore/cryptography
       - title: "Why no blockchain?"
@@ -168,3 +162,12 @@ docs_integrate:
         url: /integrate/connector-privacy
       - title: "Performance Considerations"
         url: /integrate/connector-performance
+
+  - title: Data Model
+    children:
+      - title: "Overview"
+        url: /integrate/data-model-overview
+      - title: "Request Items"
+        url: /integrate/data-model-request-items
+      - title: "Attribute Values"
+        url: /integrate/data-model-attribute-values

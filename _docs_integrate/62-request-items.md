@@ -1,10 +1,10 @@
 ---
 title: "Request Items"
-permalink: /explore/request-items
+permalink: /integrate/data-model-request-items
 toc: true
 ---
 
-All the RequestItems listed below inherit from the [RequestItem]({% link _docs_explore/62-data-model.md %}#requestitem) and are therefore sharing its properties.
+All the RequestItems listed below inherit from the [RequestItem]({% link _docs_integrate/61-data-model.md %}#requestitem) and are therefore sharing its properties.
 
 ## AuthenticationRequestItem
 
@@ -25,9 +25,9 @@ With this item the sender can request the peer for an authentication in a busine
 
 #### Item Properties {#authenticationrequestitem-response-itemproperties}
 
-- To accept this RequestItem an [AcceptResponseItem]({% link _docs_explore/62-data-model.md %}#acceptresponseitem) will be transferred.
-- To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
-- In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
+- To accept this RequestItem an [AcceptResponseItem]({% link _docs_integrate/61-data-model.md %}#acceptresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/61-data-model.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/61-data-model.md %}#errorresponseitem) will be transferred.
 
 #### Parameters {#authenticationrequestitem-response-parameters}
 
@@ -63,9 +63,9 @@ The ConsentRequestItem is also not meant for contractual agreements.
 
 #### Item Properties {#consentrequestitem-response-itemproperties}
 
-- To accept this RequestItem an [AcceptResponseItem]({% link _docs_explore/62-data-model.md %}#acceptresponseitem) will be transferred.
-- To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
-- In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
+- To accept this RequestItem an [AcceptResponseItem]({% link _docs_integrate/61-data-model.md %}#acceptresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/61-data-model.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/61-data-model.md %}#errorresponseitem) will be transferred.
 
 #### Parameters {#consentrequestitem-response-parameters}
 
@@ -86,10 +86,10 @@ To create an Attribute with a fixed value defined by the sender, an Identity use
 
 ### Properties {#createattributerequestitem-properties}
 
-| Name        | Type                                                                                                                                                                             | Description                                                                                            |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `@type`     | `"CreateAttributeRequestItem"`                                                                                                                                                   | Specifies the type of the RequestItem for internal processing.                                         |
-| `attribute` | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute to create for the peer within the Identity of the peer. |
+| Name        | Type                                                                                                                                                                                 | Description                                                                                            |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `@type`     | `"CreateAttributeRequestItem"`                                                                                                                                                       | Specifies the type of the RequestItem for internal processing.                                         |
+| `attribute` | [`IdentityAttribute`]({% link _docs_integrate/61-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_integrate/61-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute to create for the peer within the Identity of the peer. |
 
 ### Response {#createattributerequestitem-response}
 
@@ -102,8 +102,8 @@ To create an Attribute with a fixed value defined by the sender, an Identity use
   | `@type`       | `"CreateAttributeAcceptResponseItem"` | The type of the ResponseItem.    |
   | `attributeId` | `string`                              | The id of the created Attribute. |
 
-- To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
-- In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/61-data-model.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/61-data-model.md %}#errorresponseitem) will be transferred.
 
 #### Parameters {#createattributerequestitem-response-parameters}
 
@@ -134,11 +134,11 @@ To create an Attribute with a value proposed by the sender, an Identity uses the
 
 ### Properties {#proposeattributerequestitem-properties}
 
-| Name        | Type                                                                                                                                                                                                                                                                                                                             | Description                                                                                      |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| `@type`     | `"ProposeAttributeRequestItem"`                                                                                                                                                                                                                                                                                                  | Specifies the type of the RequestItem for internal processing.                                   |
-| `attribute` | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute)                                                                                                                                                 | The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute. |
-| `query`     | [`IdentityAttributeQuery`]({% link _docs_explore/62-data-model.md %}#identityattributequery) \| [`RelationshipAttributeQuery`]({% link _docs_explore/62-data-model.md %}#relationshipattributequery) \| [`ThirdPartyRelationshipAttributeQuery`]({% link _docs_explore/62-data-model.md %}#thirdpartyrelationshipattributequery) | The structured query of the Attribute the sender would like to receive.                          |
+| Name        | Type                                                                                                                                                                                                                                                                                                                                   | Description                                                                                      |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `@type`     | `"ProposeAttributeRequestItem"`                                                                                                                                                                                                                                                                                                        | Specifies the type of the RequestItem for internal processing.                                   |
+| `attribute` | [`IdentityAttribute`]({% link _docs_integrate/61-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_integrate/61-data-model.md %}#relationshipattribute)                                                                                                                                                   | The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute. |
+| `query`     | [`IdentityAttributeQuery`]({% link _docs_integrate/61-data-model.md %}#identityattributequery) \| [`RelationshipAttributeQuery`]({% link _docs_integrate/61-data-model.md %}#relationshipattributequery) \| [`ThirdPartyRelationshipAttributeQuery`]({% link _docs_integrate/61-data-model.md %}#thirdpartyrelationshipattributequery) | The structured query of the Attribute the sender would like to receive.                          |
 
 ### Response {#proposeattributerequestitem-response}
 
@@ -146,14 +146,14 @@ To create an Attribute with a value proposed by the sender, an Identity uses the
 
 - To accept this RequestItem a `ProposeAttributeAcceptResponseItem` will be transferred.
 
-  | Name          | Type                                                                                                                                                                             | Description                                                                                                                                                                          |
-  | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-  | `@type`       | `"ProposeAttributeAcceptResponseItem"`                                                                                                                                           | The type of the ResponseItem.                                                                                                                                                        |
-  | `attributeId` | `string`                                                                                                                                                                         | The id of the created Attribute.                                                                                                                                                     |
-  | `attribute`   | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute.<br>The owner of the Attribute which is proposed can only be the recipient Identity. |
+  | Name          | Type                                                                                                                                                                                 | Description                                                                                                                                                                          |
+  | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | `@type`       | `"ProposeAttributeAcceptResponseItem"`                                                                                                                                               | The type of the ResponseItem.                                                                                                                                                        |
+  | `attributeId` | `string`                                                                                                                                                                             | The id of the created Attribute.                                                                                                                                                     |
+  | `attribute`   | [`IdentityAttribute`]({% link _docs_integrate/61-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_integrate/61-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute.<br>The owner of the Attribute which is proposed can only be the recipient Identity. |
 
-- To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
-- In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/61-data-model.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/61-data-model.md %}#errorresponseitem) will be transferred.
 
 #### Parameters {#proposeattributerequestitem-response-parameters}
 
@@ -161,15 +161,15 @@ To create an Attribute with a value proposed by the sender, an Identity uses the
 
   - If you want to create a new Attribute.
 
-    | Name        | Type                                                                                                                                                                             | Description                                                           |
-    | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-    | `attribute` | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that shall be created. |
+    | Name        | Type                                                                                                                                                                                 | Description                                                           |
+    | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+    | `attribute` | [`IdentityAttribute`]({% link _docs_integrate/61-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_integrate/61-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that shall be created. |
 
   - If you want to use the proposed Attribute.
 
-    | Name        | Type                                                                                                                                                                             | Description                                                                          |
-    | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-    | `attribute` | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that was provided in the RequestItem. |
+    | Name        | Type                                                                                                                                                                                 | Description                                                                          |
+    | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+    | `attribute` | [`IdentityAttribute`]({% link _docs_integrate/61-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_integrate/61-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that was provided in the RequestItem. |
 
   - If you want to use an existing Attribute.
 
@@ -202,10 +202,10 @@ To query Attributes which are not known to the sender, an Identity uses the Read
 
 ### Properties {#readattributerequestitem-properties}
 
-| Name    | Type                                                                                                                                                                                                                                                                                                                             | Description                                                             |
-| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `@type` | `"ReadAttributeRequestItem"`                                                                                                                                                                                                                                                                                                     | Specifies the type of the RequestItem for internal processing.          |
-| `query` | [`IdentityAttributeQuery`]({% link _docs_explore/62-data-model.md %}#identityattributequery) \| [`RelationshipAttributeQuery`]({% link _docs_explore/62-data-model.md %}#relationshipattributequery) \| [`ThirdPartyRelationshipAttributeQuery`]({% link _docs_explore/62-data-model.md %}#thirdpartyrelationshipattributequery) | The structured query of the Attribute the sender would like to receive. |
+| Name    | Type                                                                                                                                                                                                                                                                                                                                   | Description                                                             |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `@type` | `"ReadAttributeRequestItem"`                                                                                                                                                                                                                                                                                                           | Specifies the type of the RequestItem for internal processing.          |
+| `query` | [`IdentityAttributeQuery`]({% link _docs_integrate/61-data-model.md %}#identityattributequery) \| [`RelationshipAttributeQuery`]({% link _docs_integrate/61-data-model.md %}#relationshipattributequery) \| [`ThirdPartyRelationshipAttributeQuery`]({% link _docs_integrate/61-data-model.md %}#thirdpartyrelationshipattributequery) | The structured query of the Attribute the sender would like to receive. |
 
 ### Response {#readattributerequestitem-response}
 
@@ -213,14 +213,14 @@ To query Attributes which are not known to the sender, an Identity uses the Read
 
 - To accept this RequestItem a `ReadAttributeAcceptResponseItem` will be transferred.
 
-  | Name          | Type                                                                                                                                                                             | Description                                                                     |
-  | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-  | `@type`       | `"ReadAttributeAcceptResponseItem"`                                                                                                                                              | The type of the ResponseItem.                                                   |
-  | `attributeId` | `string`                                                                                                                                                                         | The id of the returned Attribute.                                               |
-  | `attribute`   | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that will be shared to the peer. |
+  | Name          | Type                                                                                                                                                                                 | Description                                                                     |
+  | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+  | `@type`       | `"ReadAttributeAcceptResponseItem"`                                                                                                                                                  | The type of the ResponseItem.                                                   |
+  | `attributeId` | `string`                                                                                                                                                                             | The id of the returned Attribute.                                               |
+  | `attribute`   | [`IdentityAttribute`]({% link _docs_integrate/61-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_integrate/61-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that will be shared to the peer. |
 
-- To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
-- In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/61-data-model.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/61-data-model.md %}#errorresponseitem) will be transferred.
 
 #### Parameters {#readattributerequestitem-response-parameters}
 
@@ -234,9 +234,9 @@ To query Attributes which are not known to the sender, an Identity uses the Read
 
   - If you want to create a new Attribute.
 
-    | Name        | Type                                                                                                                                                                             | Description                                                           |
-    | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-    | `attribute` | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that shall be created. |
+    | Name        | Type                                                                                                                                                                                 | Description                                                           |
+    | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+    | `attribute` | [`IdentityAttribute`]({% link _docs_integrate/61-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_integrate/61-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that shall be created. |
 
 - To reject this RequestItem you can send `{ "accept": false }` as parameters.
 
@@ -253,7 +253,7 @@ To query Attributes which are not known to the sender, an Identity uses the Read
 
 <!-- ## RegisterAttributeListenerRequestItem
 
-This item is used to register a [Listener]({% link _docs_explore/62-data-model.md %}#localattributelistener) for a specific Attribute. The Listener will create a Request in status `Draft` if an Attribute was created that matches the given query and the user is able to send the Request to the creator of the `RegisterAttributeListenerRequestItem`.
+This item is used to register a [Listener]({% link _docs_integrate/61-data-model.md %}#localattributelistener) for a specific Attribute. The Listener will create a Request in status `Draft` if an Attribute was created that matches the given query and the user is able to send the Request to the creator of the `RegisterAttributeListenerRequestItem`.
 
 ### Examples {#registerattributelistenerrequestitem-examples}
 
@@ -264,7 +264,7 @@ This item is used to register a [Listener]({% link _docs_explore/62-data-model.m
 | Name    | Type                                                                                                                                                                                                                     | Description                                                           |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
 | `@type` | `"RegisterAttributeListenerRequestItem"`                                                                                                                                                                                 | Specifies the type of the RequestItem for internal processing.        |
-| `query` | [`IdentityAttributeQuery`]({% link _docs_explore/62-data-model.md %}#identityattributequery) \| [`ThirdPartyRelationshipAttributeQuery`]({% link _docs_explore/62-data-model.md %}#thirdpartyrelationshipattributequery) | The structured query of the Attribute the sender would like to query. |
+| `query` | [`IdentityAttributeQuery`]({% link _docs_integrate/61-data-model.md %}#identityattributequery) \| [`ThirdPartyRelationshipAttributeQuery`]({% link _docs_integrate/61-data-model.md %}#thirdpartyrelationshipattributequery) | The structured query of the Attribute the sender would like to query. |
 
 ### Response {#registerattributelistenerrequestitem-response}
 
@@ -277,8 +277,8 @@ This item is used to register a [Listener]({% link _docs_explore/62-data-model.m
     | `@type`      | `"RegisterAttributeListenerAcceptResponseItem"` | The type of the ResponseItem.            |
     | `listenerId` | `string`                                        | The id of the created AttributeListener. |
 
--   To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
--   In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
+-   To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/61-data-model.md %}#rejectresponseitem) will be transferred.
+-   In case of an error an [ErrorResponseItem]({% link _docs_integrate/61-data-model.md %}#errorresponseitem) will be transferred.
 
 #### Parameters {#registerattributelistenerrequestitem-response-parameters}
 
@@ -299,11 +299,11 @@ To share own IdentityAttributes (owner = self) an Identity uses the ShareAttribu
 
 ### Properties {#shareattributerequestitem-properties}
 
-| Name                | Type                                                                                                                                                                             | Description                                                                                                                                                                                                                     |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `@type`             | `"ShareAttributeRequestItem"`                                                                                                                                                    | Specifies the type of the RequestItem for internal processing.                                                                                                                                                                  |
-| `attribute`         | [`IdentityAttribute`]({% link _docs_explore/62-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_explore/62-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute to share. This is not the LocalAttribute but the content data structure of the Attribute. <br>The owner of the Attribute which should be shared can only be the sender Identity. |
-| `sourceAttributeId` | `string`                                                                                                                                                                         | The id of the LocalAttribute which is the source of the shared Attribute. This will be used later to reference the sourceAttribute from its shared copy.                                                                        |
+| Name                | Type                                                                                                                                                                                 | Description                                                                                                                                                                                                                     |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@type`             | `"ShareAttributeRequestItem"`                                                                                                                                                        | Specifies the type of the RequestItem for internal processing.                                                                                                                                                                  |
+| `attribute`         | [`IdentityAttribute`]({% link _docs_integrate/61-data-model.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_integrate/61-data-model.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute to share. This is not the LocalAttribute but the content data structure of the Attribute. <br>The owner of the Attribute which should be shared can only be the sender Identity. |
+| `sourceAttributeId` | `string`                                                                                                                                                                             | The id of the LocalAttribute which is the source of the shared Attribute. This will be used later to reference the sourceAttribute from its shared copy.                                                                        |
 
 ### Response {#shareattributerequestitem-response}
 
@@ -316,8 +316,8 @@ To share own IdentityAttributes (owner = self) an Identity uses the ShareAttribu
   | `@type`       | `"ShareAttributeAcceptResponseItem"` | The type of the ResponseItem.    |
   | `attributeId` | `string`                             | The id of the created Attribute. |
 
-- To reject this RequestItem a [RejectResponseItem]({% link _docs_explore/62-data-model.md %}#rejectresponseitem) will be transferred.
-- In case of an error an [ErrorResponseItem]({% link _docs_explore/62-data-model.md %}#errorresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/61-data-model.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/61-data-model.md %}#errorresponseitem) will be transferred.
 
 #### Parameters {#shareattributerequestitem-response-parameters}
 
