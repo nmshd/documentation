@@ -32,7 +32,7 @@ home/
     └── docker-compose.yml
 ```
 
-If you mount `/home/connector:/config.json:RO`, the created `/config.json` in the container will be a directory. To fix this the mount has to be `/home/connector/config.json:/config.json:RO` or `./config.json:/config.json:RO` (docker compose translates relative links to absolute links).
+If you mount `/home/connector:/config.json:ro`, the created `/config.json` in the container will be a directory. To fix this the mount has to be `/home/connector/config.json:/config.json:ro` or `./config.json:/config.json:ro` (docker compose translates relative links to absolute links).
 
 ### Database Authorization Error
 
