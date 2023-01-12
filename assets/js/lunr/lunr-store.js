@@ -168,7 +168,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Troubleshooting",
-        "excerpt":"Common Errors Config file mounting (EISDIR | invalid mode: RO) Symptoms One of the following errors are logged during the startup of the Connector: Error parsing your configuration file: [/config.json]: EISDIR: illegal operation on a directory, read ERROR: for connector Cannot create container for service connector: invalid mode: RO How...","categories": [],
+        "excerpt":"Troubleshooting Guide For any issues with the Connector make sure you checked the logs and the /Monitoring/* routes. The /Monitoring/Support route provides a lot of information about the current state of the Connector and you can for example detect misconfigurations. Common Errors Config file mounting (EISDIR | invalid mode: RO)...","categories": [],
         "tags": [],
         "url": "/integrate/connector-setup-troubleshooting",
         "teaser": null
@@ -204,7 +204,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Requests over Messages",
-        "excerpt":"This guide assumes that you already have an active Relationship between two Connectors. If you don’t, you should follow the Requests over Templates guide first. In this guide, the first Connector will be called Sender and the second Connector will be called Recipient. The Sender will send a Request to...","categories": [],
+        "excerpt":"This guide assumes that you already have an active Relationship between two Connectors. If you don’t, you should follow the Requests over Templates guide first. If you created a Relationship during the Connector Tutorial this will also work. In this guide, the first Connector will be called Sender and the...","categories": [],
         "tags": [],
         "url": "/integrate/requests-over-messages",
         "teaser": null
