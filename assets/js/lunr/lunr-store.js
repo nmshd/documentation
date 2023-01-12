@@ -107,24 +107,6 @@ var store = [{
         "url": "/explore/runtime",
         "teaser": null
       },{
-        "title": "Enmeshed Data Model",
-        "excerpt":"The Enmeshed data model can be divided into three parts: Transport types Local types Content types The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail. (note that you can click...","categories": [],
-        "tags": [],
-        "url": "/explore/data-model",
-        "teaser": null
-      },{
-        "title": "Request Items",
-        "excerpt":"All the RequestItems listed below inherit from the RequestItem and are therefore sharing its properties. AuthenticationRequestItem With this item the sender can request the peer for an authentication in a business context for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived...","categories": [],
-        "tags": [],
-        "url": "/explore/request-items",
-        "teaser": null
-      },{
-        "title": "Attribute Values",
-        "excerpt":"Each Attribute contains an instance of an Attribute Value within its value property. There are different types of Attribute Values. The types define the value’s structural definition, rendering information and validators. For example, an email address with the value “address@company.corp” is stored with the Attribute Value type EMailAddress, which defines...","categories": [],
-        "tags": [],
-        "url": "/explore/attribute-values",
-        "teaser": null
-      },{
         "title": "Cryptography",
         "excerpt":"Backbone Layer Encryption The communication with the Backbone is encrypted on the http transport layer. This is done by using the transport-layer-security (TLS) standard which is common throughout the Internet. This prevents third parties to access any data communication to and from the Backbone. Data at rest is encrypted on...","categories": [],
         "tags": [],
@@ -255,6 +237,24 @@ var store = [{
         "excerpt":"When migrating from v1 to v2, there are a few breaking changes, as well as a bunch of new features. This guide lists both of them and will help you migrate your integration coding. Backwards incompatible data structure First and foremost, as we already announced in our blog, the underlying...","categories": [],
         "tags": [],
         "url": "/integrate/connector-migration-v2",
+        "teaser": null
+      },{
+        "title": "Enmeshed Data Model",
+        "excerpt":"The Enmeshed data model can be divided into three parts: Transport types Local types Content types The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail. (note that you can click...","categories": [],
+        "tags": [],
+        "url": "/integrate/data-model-overview",
+        "teaser": null
+      },{
+        "title": "Request Items",
+        "excerpt":"All the RequestItems listed below inherit from the RequestItem and are therefore sharing its properties. AuthenticationRequestItem With this item the sender can request the peer for an authentication in a business context for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived...","categories": [],
+        "tags": [],
+        "url": "/integrate/data-model-request-items",
+        "teaser": null
+      },{
+        "title": "Attribute Values",
+        "excerpt":"Each Attribute contains an instance of an Attribute Value within its value property. There are different types of Attribute Values. The types define the value’s structural definition, rendering information and validators. For example, an email address with the value “address@company.corp” is stored with the Attribute Value type EMailAddress, which defines...","categories": [],
+        "tags": [],
+        "url": "/integrate/data-model-attribute-values",
         "teaser": null
       },{
         "title": "Introducing Enmeshed",

@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-01-12T13:16:02+01:00">
+  <meta property="article:published_time" content="2023-01-12T14:39:38+01:00">
 
 
 
@@ -271,6 +271,24 @@
         
       </li>
     
+      <li>
+        
+          <span class="nav__sub-title">Data Model</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/data-model-overview">Overview</a></li>
+          
+            <li><a href="/integrate/data-model-request-items">Request Items</a></li>
+          
+            <li><a href="/integrate/data-model-attribute-values">Attribute Values</a></li>
+          
+        </ul>
+        
+      </li>
+    
   </ul>
 </nav>
 
@@ -284,7 +302,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Tutorial">
     <meta itemprop="description" content="In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization.">
-    <meta itemprop="datePublished" content="2023-01-12T13:16:02+01:00">
+    <meta itemprop="datePublished" content="2023-01-12T14:39:38+01:00">
     
 
     <div class="page__inner-wrap">
@@ -372,11 +390,11 @@
 
 <h3 id="connector-test-your-requests-validity">Connector: Test your Request’s Validity</h3>
 
-<p>In order to make sure the Request and its items are valid you can validate it by calling the <code class="language-plaintext highlighter-rouge">POST /api/v2/Requests/Outgoing/Validate</code> route. You can define your own payload for this Request, or you can just use the one below, which contains two <a href="/explore/data-model#requestitemgroup">RequestItemGroups</a>:</p>
+<p>In order to make sure the Request and its items are valid you can validate it by calling the <code class="language-plaintext highlighter-rouge">POST /api/v2/Requests/Outgoing/Validate</code> route. You can define your own payload for this Request, or you can just use the one below, which contains two <a href="/integrate/data-model-overview#requestitemgroup">RequestItemGroups</a>:</p>
 
 <ul>
-  <li>one with a <a href="/explore/data-model#shareattributerequestitem">ShareAttributeRequestItem</a> that contains Attributes that will be shared with the peer</li>
-  <li>one with <a href="/explore/data-model#readattributerequestitem">ReadAttributeRequestItem</a>s that query Attributes of the peer</li>
+  <li>one with a <a href="/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a> that contains Attributes that will be shared with the peer</li>
+  <li>one with <a href="/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>s that query Attributes of the peer</li>
 </ul>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -573,7 +591,7 @@
 
 <h2 id="sending-and-receiving-messages">Sending and Receiving Messages</h2>
 
-<p>After you have established a Relationship to an Identity, you can start to exchange Messages. Enmeshed defines <a href="/explore/data-model#message">different types of Messages</a>. For this tutorial we will focus on Messages of type <a href="/explore/data-model#mail">Mail</a>, which you can compare to a classic email: you can specify one or more recipients, a subject and a body, as well as add some attachments.</p>
+<p>After you have established a Relationship to an Identity, you can start to exchange Messages. Enmeshed defines <a href="/integrate/data-model-overview#message">different types of Messages</a>. For this tutorial we will focus on Messages of type <a href="/integrate/data-model-overview#mail">Mail</a>, which you can compare to a classic email: you can specify one or more recipients, a subject and a body, as well as add some attachments.</p>
 
 <h3 id="sending-a-message-with-a-connector">Sending a Message with a Connector</h3>
 
@@ -615,7 +633,7 @@
 <p>Now that you have successfully established a Relationship and exchanged Messages, you can further explore the Enmeshed API. You can for example:</p>
 
 <ul>
-  <li>explore the <a href="/explore/data-model">Enmeshed data model</a> and learn more about the objects you used during this tutorial and the objects you will encounter in the future</li>
+  <li>explore the <a href="/integrate/data-model-overview">Enmeshed data model</a> and learn more about the objects you used during this tutorial and the objects you will encounter in the future</li>
   <li>learn how to send <a href="/integrate/requests-over-messages">Requests over Messages</a> with your established Relationship</li>
   <li>dive deeper into creating and sending <a href="/integrate/requests-over-templates">Requests over RelationshipTemplates</a></li>
 </ul>
@@ -630,7 +648,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-01-12T13:16:02+01:00">January 12, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-01-12T14:39:38+01:00">January 12, 2023</time></p>
 
       </footer>
 
