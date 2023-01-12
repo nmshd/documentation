@@ -1,6 +1,7 @@
 ---
 title: "Troubleshooting"
 permalink: /integrate/connector-setup-troubleshooting
+toc: true
 ---
 
 ## Common Errors
