@@ -52,10 +52,10 @@ You can query the Connector's Address under the route `/api/v2/Account/IdentityI
 
 ### Connector: Test your Request's Validity
 
-In order to make sure the Request and its items are valid you can validate it by calling the `POST /api/v2/Requests/Outgoing/Validate` route. You can define your own payload for this Request, or you can just use the one below, which contains two Request Item Groups:
+In order to make sure the Request and its items are valid you can validate it by calling the `POST /api/v2/Requests/Outgoing/Validate` route. You can define your own payload for this Request, or you can just use the one below, which contains two [RequestItemGroups]({% link _docs_explore/62-data-model.md %}#requestitemgroup):
 
-- one with a Request Item that contains Attributes that will be shared with the peer
-- one with Request Items that query Attributes of the peer
+- one with a [ShareAttributeRequestItem]({% link _docs_explore/62-data-model.md %}#shareattributerequestitem) that contains Attributes that will be shared with the peer
+- one with [ReadAttributeRequestItem]({% link _docs_explore/62-data-model.md %}#readattributerequestitem)s that query Attributes of the peer
 
 ```json
 {
@@ -217,7 +217,7 @@ Now the Relationship is in the `Active` state, so we can start to communicate wi
 
 ## Sending and Receiving Messages
 
-After you have established a Relationship to an Identity, you can start to exchange Messages. Enmeshed defines different types of Messages. For this tutorial we will focus on Messages of type Mail, which you can compare to a classic email: you can specify one or more recipients, a subject and a body, as well as add some attachments.
+After you have established a Relationship to an Identity, you can start to exchange Messages. Enmeshed defines [different types of Messages]({% link _docs_explore/62-data-model.md %}#message). For this tutorial we will focus on Messages of type [Mail]({% link _docs_explore/62-data-model.md %}#mail), which you can compare to a classic email: you can specify one or more recipients, a subject and a body, as well as add some attachments.
 
 ### Sending a Message with a Connector
 
@@ -248,3 +248,11 @@ In order to fetch the Message, we need to call the `POST /api/v2/Account/Sync` e
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
 The response should contain a Message with the content you entered in the App.
+
+## What's next?
+
+Now that you have successfully established a Relationship and exchanged Messages, you can further explore the Enmeshed API. You can for example:
+
+- explore the [Enmeshed data model]({% link _docs_explore/62-data-model.md %}) and learn more about the objects you used during this tutorial and the objects you will encounter in the future
+- learn how to send [Requests over Messages]({% link _docs_integrate/26-requests-over-messages.md %}) with your established Relationship
+- dive deeper into creating and sending [Requests over RelationshipTemplates]({% link _docs_integrate/25-requests-over-templates.md %})

@@ -4,7 +4,7 @@ permalink: /integrate/requests-over-messages
 toc: true
 ---
 
-This guide assumes that you already have an active Relationship between two Connectors. If you don't, you should follow the [Requests over Templates]({% link _docs_integrate/25-requests-over-templates.md %}) guide first.
+This guide assumes that you already have an active Relationship between two Connectors. If you don't, you should follow the [Requests over Templates]({% link _docs_integrate/25-requests-over-templates.md %}) guide first. If you created a Relationship during the [Connector Tutorial]({% link _docs_integrate/01-connector-tutorial.md %}) this will also work.
 
 In this guide, the first Connector will be called Sender and the second Connector will be called Recipient. The Sender will send a Request to the Recipient. For the next steps you will need the Enmeshed Address of the Recipient. You can find it out by calling the `GET /api/v2/Relationships` route on the Sender Connector.
 
