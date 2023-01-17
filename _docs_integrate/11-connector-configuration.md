@@ -68,6 +68,7 @@ The Connector provides the following configuration parameters:
 ```jsonc
 {
     "transportLibrary": {
+        "baseUrl": "https://prod.enmeshed.eu",
         "platformClientId": "CLIENT_ID",
         "platformClientSecret": "CLIENT_SECRET"
     },
@@ -83,6 +84,10 @@ The Connector provides the following configuration parameters:
 You can validate the config using our [schema file](https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json). This is possible for example with [VSCode](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) or online tools like [jsonschemavalidator.net](https://www.jsonschemavalidator.net).
 
 ### transportLibrary
+
+- **baseUrl** `default: "https://prod.enmeshed.eu"`
+
+  The base url is used to communicate with the Enmeshed platform. It can be changed to a custom url if you are using another Enmeshed than the Enmeshed prod Backbone.
 
 - **platformClientId** `required`
 
