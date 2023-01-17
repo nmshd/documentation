@@ -87,7 +87,7 @@ You can validate the config using our [schema file](https://raw.githubuserconten
 
 - **baseUrl** `default: "https://prod.enmeshed.eu"`
 
-  The base url is used to communicate with the Enmeshed platform. It can be changed to a custom url if you are using another Enmeshed than the Enmeshed prod Backbone.
+  The base url is used to communicate with the Enmeshed platform. It can be changed to use a custom Enmeshed Backbone.
 
 - **platformClientId** `required`
 
