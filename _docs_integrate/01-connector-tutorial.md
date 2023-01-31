@@ -6,10 +6,13 @@ toc: true
 
 In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization.
 
-The following steps include small interactive pieces of the Connector's API documentation that, when executed, fire requests on a Connector we provided for testing purposes. Example:
-{% include rapidoc api_route_regex="^get /health$" title="" %}
+<!-- The following steps include small interactive pieces of the Connector's API documentation that, when executed, fire requests on a Connector we provided for testing purposes. Example:
+{% include rapidoc api_route_regex="^get /health$" title="" %} -->
 
 So if you don't have an own Connector installed, feel free to use the samples directly by unfolding them and clicking on "Try". Otherwise you can use your own Connector either with a REST client (e.g. Insomnia or Postman) or by using the RapiDoc documentation (/docs/rapidoc) hosted on your Connector.
+
+The Enmeshed Demo Backbone is currently under maintenance and therefore cannot be used for this tutorial. If you are running on a different Backbone and a corresponding app, you can still continue.
+{: .notice--warning}
 
 The payloads for the requests that are sent during this tutorial contain placeholders marked with `<...>`. You need to replace them with values before you send the request.
 
