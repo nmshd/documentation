@@ -41,9 +41,45 @@ However a malware could still access the data within the Enmeshed Runtime, meani
 The Connector should be part of the organizations network, otherwise there would be privacy issues with unencrypted payload or third-parties being able to impersonate the organization. It acts a central integration point within the organization and thus can be easily kept up-to-date.
 In our opinion, this is a far better approach than to upgrade any business system with encryption and communication capabilities.
 
-# App Security
+# Security Recommendations for Apps and End-Users
 
-The App is only communicating with its corresponding Backbone.
+Security is a crucial aspect of any application, and as an end-user, there are various measures that you can take to ensure that your device and the app are safe from potential threats. In this chapter, we will highlight some of the most important security recommendations for both the app and end-users.
+
+## Enable PIN/Password Authentication of Device
+
+The first line of defense for your device is a strong password or PIN. It is essential to enable this feature on your device to prevent unauthorized access. A strong password or PIN should be at least six characters long, contain a mix of upper and lowercase letters, numbers, and symbols. Additionally, you should avoid using easily guessable passwords, such as birthdays or names.
+
+## Only One Person Should Use the Device
+
+It is recommended that only one person uses the device, and they should not share their password with anyone. Sharing passwords can lead to unauthorized access and compromise the security of the device.
+
+## Update the Operating System Regularly
+
+Operating system updates are crucial to maintaining the security of your device. These updates often include security patches that address vulnerabilities and bugs that could compromise your device's security. Therefore, it is important to keep your device's operating system up-to-date with the latest patches and updates.
+
+## Enable Hard-Disk Encryption
+
+Hard-disk encryption is a security feature that encrypts the data stored on your device's hard disk. This feature adds an extra layer of security to your device, making it difficult for anyone to access your data if the device is lost or stolen.
+
+## Enable a Virus Scanner
+
+Viruses and malware pose a significant threat to your device's security. It is important to enable a virus scanner on your device to protect it from potential threats. The virus scanner will scan your device for viruses and malware and alert you if it detects any threats.
+
+## Expert Corner
+
+### Rooted Devices
+
+Rooting a device involves gaining access to the device's root or administrative privileges. While rooting a device provides greater control over the device, it also exposes the device to potential security risks. Rooted devices are more vulnerable to malware and other security threats. Therefore, it is recommended to avoid rooting your device unless you have a good reason to do so.
+
+### Developer-enabled Phones
+
+Developer-enabled phones are designed for developers and come with additional features that allow them to customize the device's software. However, these features also make the device more vulnerable to potential security risks. Therefore, it is important to be cautious when using developer-enabled phones and avoid installing apps from untrusted sources.
+
+## Further Information
+
+For more information on app security, visit the [BSI website](https://www.bsi.bund.de/EN/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Basisschutz-fuer-Computer-Mobilgeraete/Schutz-fuer-Mobilgeraete/Sicherheit-bei-Apps/sicherheit-bei-apps_node.html) and check the platform of your operating system ([Android](https://www.android.com/intl/safety/), [IOS](https://support.apple.com/guide/security/welcome/web)).
+
+In conclusion, following these security recommendations can help protect your device and the app from potential threats. It is crucial to take a proactive approach to security and ensure that your device and the app are secure. Remember to always update your device's operating system regularly, enable a strong password or PIN, and avoid rooting or customizing your device unless you have a good reason to do so.
 
 # Communication Security
 
