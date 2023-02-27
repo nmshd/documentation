@@ -47,7 +47,7 @@ Security is a crucial aspect of any application, and as an end-user, there are v
 
 ## Enable PIN/Password Authentication of Device
 
-The first line of defense for your device is a strong password or PIN. It is essential to enable this feature on your device to prevent unauthorized access. A strong password or PIN should be at least six characters long, contain a mix of upper and lowercase letters, numbers, and symbols. Additionally, you should avoid using easily guessable passwords, such as birthdays or names.
+The first line of defense for your device is a strong password or PIN. It is essential to enable this feature on your device to prevent unauthorized access. A secure password should be at least between eight and twelve characters long and contain a mixture of upper and lower case letters, numbers and symbols. Additionally, you should avoid using easily guessable passwords, such as birthdays or names.
 
 ## Only One Person Should Use the Device
 
