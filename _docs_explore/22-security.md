@@ -43,7 +43,11 @@ In our opinion, this is a far better approach than to upgrade any business syste
 
 # Security Recommendations for Apps and End-Users
 
-Security is a crucial aspect of any application, and as an end-user, there are various measures that you can take to ensure that your device and the app are safe from potential threats. In this chapter, we will highlight some of the most important security recommendations for both the app and end-users.
+We've summarized some tips for end-user device usage on this site. A great resource for more in-depth information about those tips is the [website of the Federal Office for Information Security (BSI, Bundesamt für Sicherheit in der Informationstechnik).](https://www.bsi.bund.de/EN/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Basisschutz-fuer-Computer-Mobilgeraete/Schutz-fuer-Mobilgeraete/Sicherheit-bei-Apps/sicherheit-bei-apps_node.html)
+
+We do not know every security guideline and tip out there, so please also check security tips of your operating systems like ([Android](https://www.android.com/intl/safety/), or [iOS](https://support.apple.com/guide/security/welcome/web)).
+
+Please also understand, that we - as anybody else - cannot give you any security guaranty of your device or our system. With this page we are addressing the most common risks of end-user device usage. Even if you follow those guidances, it might happen that a security incident happens.
 
 ## Enable PIN/Password Authentication of Device
 
@@ -74,12 +78,6 @@ Rooting a device involves gaining access to the device's root or administrative 
 ### Developer-enabled Phones
 
 Developer-enabled phones are designed for developers and come with additional features that allow them to customize the device's software. However, these features also make the device more vulnerable to potential security risks. Therefore, it is important to be cautious when using developer-enabled phones and avoid installing apps from untrusted sources.
-
-## Further Information
-
-For more information on app security, visit the [BSI website](https://www.bsi.bund.de/EN/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Basisschutz-fuer-Computer-Mobilgeraete/Schutz-fuer-Mobilgeraete/Sicherheit-bei-Apps/sicherheit-bei-apps_node.html) and check the platform of your operating system ([Android](https://www.android.com/intl/safety/), [IOS](https://support.apple.com/guide/security/welcome/web)).
-
-In conclusion, following these security recommendations can help protect your device and the app from potential threats. It is crucial to take a proactive approach to security and ensure that your device and the app are secure. Remember to always update your device's operating system regularly, enable a strong password or PIN, and avoid rooting or customizing your device unless you have a good reason to do so.
 
 # Communication Security
 
