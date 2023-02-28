@@ -68,7 +68,7 @@ There is no authorization set up, thus every API-Key can call any API of the Con
 
 End user authentication, e.g. business users accessing the system, should be done on the respective business system. Usually, there is no need for end users to access the Connector and thus they should not have access to the Connector (from a network and authentication perspective).
 
-## Kernal Dumps
+## Kernel Dumps
 
 Kernel dumps can be a useful tool for diagnosing and troubleshooting system issues. However, they can also be a security risk if they contain sensitive information such as encryption keys. If an attacker gains access to a kernel dump file, they may be able to extract this information and use it to compromise the security of your system.
 
