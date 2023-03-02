@@ -123,9 +123,10 @@ The day of birth.
 It is not recommended to send a BirthDay to another Identity by its own. Instead, send a [`BirthDate`](#birthdate) with the `day` property set.
 {: .notice--warning}
 
-| Name    | Type     | Required | Validation                              |
-| ------- | -------- | :------: | --------------------------------------- |
-| `value` | `number` |    ✓     | min: 1<br>max: 31<br>must be an integer |
+| Name    | Type         | Required | Validation                              |
+| ------- | ------------ | :------: | --------------------------------------- |
+| `@type` | `"BirthDay"` |    ✓     |                                         |
+| `value` | `number`     |    ✓     | min: 1<br>max: 31<br>must be an integer |
 
 ## BirthMonth
 
@@ -134,10 +135,10 @@ The day of month.
 It is not recommended to send a BirthMonth to another Identity by its own. Instead, send a [`BirthDate`](#birthdate) with the `month` property set.
 {: .notice--warning}
 
-| Name    | Type         | Required | Validation                              |
-| ------- | ------------ | :------: | --------------------------------------- |
-| `@type` | `"BirthDay"` |    ✓     |                                         |
-| `value` | `number`     |    ✓     | min: 1<br>max: 12<br>must be an integer |
+| Name    | Type           | Required | Validation                              |
+| ------- | -------------- | :------: | --------------------------------------- |
+| `@type` | `"BirthMonth"` |    ✓     |                                         |
+| `value` | `number`       |    ✓     | min: 1<br>max: 12<br>must be an integer |
 
 ## BirthName
 
@@ -186,10 +187,10 @@ The year of birth in the Gregorian calendar.
 It is not recommended to send a BirthYear to another Identity by its own. Instead, send a [`BirthDate`](#birthdate) with the `year` property set.
 {: .notice--warning}
 
-| Name    | Type           | Required | Validation                                |
-| ------- | -------------- | :------: | ----------------------------------------- |
-| `@type` | `"BirthMonth"` |    ✓     |                                           |
-| `value` | `number`       |    ✓     | min: 1<br>max: 9999<br>must be an integer |
+| Name    | Type          | Required | Validation                                |
+| ------- | ------------- | :------: | ----------------------------------------- |
+| `@type` | `"BirthYear"` |    ✓     |                                           |
+| `value` | `number`      |    ✓     | min: 1<br>max: 9999<br>must be an integer |
 
 ## Citizenship
 
