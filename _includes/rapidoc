@@ -1,4 +1,5 @@
-<!-- {% if include.title == "" %} <br /> {% elsif include.title} %}
+{% if include.title == "" %} <br />
+{% elsif include.title} %}
 <h5>{{ include.title }}</h5>
 {% else %}
 <h6>Corresponding interactive API docs excerpt:</h6>
@@ -18,4 +19,4 @@
     match-paths="{{ include.api_route_regex }}"
     match-type="regex"
 ></rapi-doc-mini>
-<br /> -->
+<br />
