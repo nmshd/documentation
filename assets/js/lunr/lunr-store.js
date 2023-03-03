@@ -126,7 +126,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Connector Tutorial",
-        "excerpt":"In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization. So if you don’t have...","categories": [],
+        "excerpt":"In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization. The following steps include small...","categories": [],
         "tags": [],
         "url": "/integrate/connector-tutorial",
         "teaser": null
