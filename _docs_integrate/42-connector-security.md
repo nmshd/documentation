@@ -67,3 +67,13 @@ So far, the Connector supports API-Key authentication to securely authenticate t
 There is no authorization set up, thus every API-Key can call any API of the Connector API.
 
 End user authentication, e.g. business users accessing the system, should be done on the respective business system. Usually, there is no need for end users to access the Connector and thus they should not have access to the Connector (from a network and authentication perspective).
+
+## Kernel Dumps
+
+Kernel dumps can be a useful tool for diagnosing and troubleshooting system issues. However, they can also be a security risk if they contain sensitive information such as encryption keys. If an attacker gains access to a kernel dump file, they may be able to extract this information and use it to compromise the security of your system.
+
+As the Connector does not have access to the host system, it cannot directly control whether or not kernel dumps are enabled. Therefore, the administrator of the host system make a decision on whether or not to disable kernel dumps based on their own security policies and risk tolerance.
+
+The recommended course of action is to disable kernel dumps on the host system, outside a development environment, where the Connector is running. This is in line with the [recommendation of libsodium](https://libsodium.gitbook.io/doc/memory_management#locking-memory), the used encryption library.
+
+This can typically be done by modifying the kernel parameters or configuration settings.
