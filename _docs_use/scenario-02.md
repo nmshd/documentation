@@ -1,9 +1,10 @@
 ---
 title: "Basics"
-permalink: /use/basics
+permalink: /use/scenario-02
 published: true
 ---
 
+12312341234512345 234
 You can get the Enmeshed App over your favorite app stores. Please find the links below:
 
 - [Enmeshed App on Apple AppStore](https://apps.apple.com/us/app/enmeshed/id1576693742#?platform=ipad)

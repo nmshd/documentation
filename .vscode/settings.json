@@ -26,4 +26,9 @@
     "files.eol": "\n",
     "todo-tree.filtering.excludeGlobs": ["**/node_modules/**", "**/dist/**", "**/dist-test/**", "**/lib-web/**", "**/*.min.*", "**/*.map"],
     "todo-tree.general.tags": ["TODO:"]
+
+    
+    "emmet.excludeLanguages": [],
+    "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
+    "emmet.triggerExpansionOnTab": true,
 }

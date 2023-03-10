@@ -63,6 +63,15 @@ collections:
     output: true
     permalink: /:collection/:path
   docs_use:
+    id: true
+    category: true
+    customer: true
+    component: true
+    level: true
+    implementation: true
+    documentation: true
+    type: true
+    require: true
     output: true
     permalink: /:collection/:path
   docs_integrate:

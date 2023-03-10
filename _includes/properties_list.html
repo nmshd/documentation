@@ -1,0 +1,49 @@
+<div>
+
+    <table>
+        {% for property in page.properties%}
+        <tr>
+            {%- if {{property.first[1]}} -%}
+                <td>{{property.first[0]}}</td>
+                <td>{{property.first[1]}}</td>
+            {%- endif -%}
+
+
+        </tr>  
+        {% endfor %}
+        <tr>
+            {%- if page.requires -%}
+                <td colspan="2">
+                    <details>
+                        <summary>require</summary>
+                        {% for requires in page.requires%}
+                        {% assign useCases = site.docs_use | where: "id", requires %}
+                        <p>
+                            <a href="{{ requires}}">
+                                {{useCases.first.title}}
+                            </a>
+                        </p>
+                        {% endfor %}
+                    </details>
+                </td>
+            {%- endif -%}
+        </tr>
+        <tr>
+            {%- if page.required_by -%}
+            <td colspan="2">
+                <details>
+                    <summary>required by</summary>
+                    {% for requires in page.require%}
+                    {% assign useCases = site.docs_use | where: "id", requires %}
+                    <p>
+                        <a href="{{ requires}}">
+                            {{useCases.first.title}}
+                        </a>
+                    </p>
+                    {% endfor %}
+                </details>
+            </td>
+            {%- endif -%}
+        </tr>
+    </table>
+</div>
