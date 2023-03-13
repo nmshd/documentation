@@ -90,3 +90,19 @@ One important consideration when configuring the allowlist is the baseUrl of the
 However, it is also important to consider other URLs that may need to be included in the allowlist, such as update URLs for Docker Hub, images, GitHub, Linux update environments, and other sources. These URLs may be necessary for the proper functioning of the system and should be carefully evaluated and included in the allowlist if deemed necessary.
 
 To ensure the security and integrity of the system, it is recommended to regularly review and update the allowlist as necessary. This includes removing any URLs that are no longer needed and adding new URLs that may be required.
+
+# Database Security
+
+It is crucial to secure databases, and in the case of Mongo, it is essential to implement proper security measures to mitigate the risks associated with its default insecure configuration.
+
+We have summarized on this page some tips for the use of [MongoDB](https://www.mongodb.com/docs/manual/administration/security-checklist/) and [FerretDB](https://docs.ferretdb.io/security/). A good source for further information on these tips is the website of the respective database.
+
+With this page, we address what we consider to be the most important security tips. Even if you follow these tips, a security incident may occur.
+
+1. **Data encryption:** Data stored in the database should be encrypted to ensure that even if an attacker gains access to the storage device, they cannot read the data. MongoDB provides built-in [encryption at rest](https://www.mongodb.com/docs/manual/core/security-encryption-at-rest/) features, which can be enabled to secure data. For all databases it is possible to perform data encryption with storage encryption at the file system level or the block level. On Linux, file system encryption options include eCryptfs or EncFS and Block level options include dm-crypt + LUKS.
+
+2. **Network access restrictions:** MongoDB should only be accessible through the connector and should not be directly accessible over the public network. This can be achieved through proper network configuration, such as setting up firewalls to restrict access.
+
+3. **Strong passwords and connection strings:** All user credentials and connection strings should be strong and complex, to prevent unauthorized access to the database.
+
+4. **Regular updates and maintenance:** Regular updates should be performed to keep the database up-to-date and to fix any known security vulnerabilities.
