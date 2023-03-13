@@ -72,3 +72,21 @@ It is possible to temporarily or permanently block access or delete identities, 
 In addition, Enmeshed supports law enforcement up to a certain degree. As like any other central provider, it is possible to block access or delete content if the Backbone operator gets the official task to comply (although the Backbone operator wouldn't know who the user is or which content it deletes).
 
 Additionally, it is possible to point law enforcement organizations to other identities which have communicated with an unknown target identity in the past. If the actual real-world entity behind such an identity is known (e.g. a company) they might know who the target identity is and could further help law enforcement.
+
+# Setup Firewall
+
+A firewall is a security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules. By implementing a firewall, you can block unauthorized access to your network and prevent malicious traffic from entering your system.
+
+Allowing for potentially insecure protocols such as HTTP may expose sensitive information in transit to malicious parties, putting the system and its users at risk of data theft or other cyber attacks. Furthermore, the use of unsupported protocols may result in unintended side effects that could compromise system functionality or stability.
+
+To mitigate this risk, it is recommended that the connector restricts the supported protocols to HTTPS, which is a secure protocol that encrypts information in transit. This will help prevent sensitive information from being exposed to malicious parties. Additionally, any feature that allows developers to override the protocol check should be explicitly enabled and documented to ensure that it is used judiciously and with caution.
+
+Furthermore, an allowlist can be used to limit access to the system to only trusted sources, reducing the risk of unauthorized access and potential security vulnerabilities.
+
+When configuring the allowlist for the connector, it is important to include all necessary URLs while keeping the list as minimal as possible.
+
+One important consideration when configuring the allowlist is the baseUrl of the used Backbone. The baseUrl should be the minimum required for the allowlist to ensure that the connector is fully functional. Including unnecessary URLs in the allowlist can increase the attack surface and create potential security vulnerabilities.
+
+However, it is also important to consider other URLs that may need to be included in the allowlist, such as update URLs for Docker Hub, images, GitHub, Linux update environments, and other sources. These URLs may be necessary for the proper functioning of the system and should be carefully evaluated and included in the allowlist if deemed necessary.
+
+To ensure the security and integrity of the system, it is recommended to regularly review and update the allowlist as necessary. This includes removing any URLs that are no longer needed and adding new URLs that may be required.
