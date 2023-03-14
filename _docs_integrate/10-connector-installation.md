@@ -44,6 +44,8 @@ Make sure that you have installed docker-compose. Visit [the official installati
 
 ### Option 1: docker compose with MongoDB
 
+_It is important to note that the Docker file should not be used for the production environment._
+
 Go through the following steps to start the Connector:
 
 1. place the file [examples/docker-compose-with-mongodb.yml](https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/docker-compose-with-mongodb.yml) as `docker-compose.yml` in a folder of your choice

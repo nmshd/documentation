@@ -9,6 +9,10 @@ News are full of hacking, spamming, skimming, phishing, or you-name-it attempts.
 
 Enmeshed itself handles very private and sensitive information. We are aware that security must be one of our topmost priorities. And by using Enmeshed, we think that the world would be a lot more secure.
 
+# Docker Compose File Security Considerations
+
+When using Docker Compose files, it is important to understand that the default configurations may not be secure for production use. As such, it is important to take appropriate security measures to ensure that your system is secure.
+
 # Backbone Security
 
 Though having a central architecture, Enmeshed cannot access the keys or payload of data within the backbone. Even if there would be a data breach, nobody could really do something with this metadata and encrypted payload.
@@ -106,3 +110,5 @@ With this page, we address what we consider to be the most important security ti
 3. **Strong passwords and connection strings:** All user credentials and connection strings should be strong and complex, to prevent unauthorized access to the database.
 
 4. **Regular updates and maintenance:** Regular updates should be performed to keep the database up-to-date and to fix any known security vulnerabilities.
+
+#
