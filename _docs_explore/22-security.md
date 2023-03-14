@@ -114,5 +114,3 @@ With this page, we address what we consider to be the most important security ti
 3. **Strong passwords and connection strings:** All user credentials and connection strings should be strong and complex, to prevent unauthorized access to the database.
 
 4. **Regular updates and maintenance:** Regular updates should be performed to keep the database up-to-date and to fix any known security vulnerabilities.
-
-#
