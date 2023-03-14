@@ -13,6 +13,10 @@ Enmeshed itself handles very private and sensitive information. We are aware tha
 
 When using Docker Compose files, it is important to understand that the default configurations may not be secure for production use. As such, it is important to take appropriate security measures to ensure that your system is secure.
 
+# API key rotation
+
+It is important to ensure that API keys are secure and cannot be easily compromised. One of the key aspects of API key security is regular rotation and expiration. If an API key is not rotated or expired, it can potentially be used by an attacker who has obtained the key through unauthorized means.
+
 # Backbone Security
 
 Though having a central architecture, Enmeshed cannot access the keys or payload of data within the backbone. Even if there would be a data breach, nobody could really do something with this metadata and encrypted payload.
