@@ -1,4 +1,4 @@
-# do not use this compose file in production scenarios
+# ATTENTION: Do NOT use this file in public or production scenarios! It may contain insecure or unstable configuration.
 
 services:
   connector:
