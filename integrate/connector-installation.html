@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-03-06T08:40:53+01:00">
+  <meta property="article:published_time" content="2023-03-15T10:48:23+01:00">
 
 
 
@@ -302,7 +302,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Installation">
     <meta itemprop="description" content="Prerequisites">
-    <meta itemprop="datePublished" content="2023-03-06T08:40:53+01:00">
+    <meta itemprop="datePublished" content="2023-03-15T10:48:23+01:00">
     
 
     <div class="page__inner-wrap">
@@ -323,7 +323,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#prerequisites">Prerequisites</a><ul><li><a href="#mongodb">MongoDB</a></li><li><a href="#container-runtime">Container Runtime</a></li><li><a href="#hardware-requirements">Hardware Requirements</a></li><li><a href="#internet-connectivity">Internet Connectivity</a></li><li><a href="#list-docker-image-tags">List docker image tags</a></li></ul></li><li><a href="#installation-with-docker">Installation with Docker</a><ul><li><a href="#option-1-docker-compose-with-mongodb">Option 1: docker compose with MongoDB</a></li><li><a href="#option-2-docker-compose-with-existing-mongodb">Option 2: docker compose with existing MongoDB</a></li></ul></li><li><a href="#installation-with-kubernetes-and-helm">Installation with Kubernetes and Helm</a></li><li><a href="#validate-the-connector-installation">Validate the Connector installation</a></li><li><a href="#log-file-mounting">Log file mounting</a></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
+              <ul class="toc__menu"><li><a href="#prerequisites">Prerequisites</a><ul><li><a href="#mongodb">MongoDB</a></li><li><a href="#container-runtime">Container Runtime</a></li><li><a href="#hardware-requirements">Hardware Requirements</a></li><li><a href="#internet-connectivity">Internet Connectivity</a></li><li><a href="#list-docker-image-tags">List docker image tags</a></li><li><a href="#familiarize-with-our-policies">Familiarize with our policies</a></li></ul></li><li><a href="#installation-with-docker">Installation with Docker</a><ul><li><a href="#option-1-docker-compose-including-mongodb">Option 1: docker compose including MongoDB</a></li><li><a href="#option-2-docker-compose-with-existing-mongodb">Option 2: docker compose with existing MongoDB</a></li></ul></li><li><a href="#installation-with-kubernetes-and-helm">Installation with Kubernetes and Helm</a></li><li><a href="#validate-the-connector-installation">Validate the Connector installation</a></li><li><a href="#log-file-mounting">Log file mounting</a></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
 
             </nav>
           </aside>
@@ -364,11 +364,17 @@ For more information, please see <a href="https://www.docker.com">https://www.do
 
 <p>Read more about listing available docker image tags <a href="/explore/connector#connector-docker-image">here</a>.</p>
 
+<h3 id="familiarize-with-our-policies">Familiarize with our policies</h3>
+
+<p>Before setting up Enmeshed, you should familiarize yourself with our <a href="/integrate/connector-security">Security Considerations</a> and <a href="/integrate/connector-privacy">Privacy Considerations</a>.</p>
+
 <h2 id="installation-with-docker">Installation with Docker</h2>
 
 <p>Make sure that you have installed docker-compose. Visit <a href="https://docs.docker.com/compose/install/">the official installation guide</a> for more information.</p>
 
-<h3 id="option-1-docker-compose-with-mongodb">Option 1: docker compose with MongoDB</h3>
+<h3 id="option-1-docker-compose-including-mongodb">Option 1: docker compose including MongoDB</h3>
+
+<p class="notice--warning"><strong>ATTENTION:</strong> The Docker compose files we provide in this tutorial are not recommended to use in production scenarios. Please read <a href="https://docs.docker.com/compose/production/">Use Compose in production</a> for more information on how to write a production-grade compose file and our <a href="/integrate/connector-security#docker-compose-file-security-considerations">Security Considerations</a>.</p>
 
 <p>Go through the following steps to start the Connector:</p>
 
@@ -384,6 +390,8 @@ For more information, please see <a href="https://www.docker.com">https://www.do
 </ol>
 
 <h3 id="option-2-docker-compose-with-existing-mongodb">Option 2: docker compose with existing MongoDB</h3>
+
+<p class="notice--warning"><strong>ATTENTION:</strong> The Docker compose files we provide in this tutorial are not recommended to use in production scenarios. Please read <a href="https://docs.docker.com/compose/production/">Use Compose in production</a> for more information on how to write a production-grade compose file and our <a href="/integrate/connector-security#docker-compose-file-security-considerations">Security Considerations</a>.</p>
 
 <p>Visit the official <a href="https://www.mongodb.com/">MongoDB website</a> for installation without docker or cloud usage or the <a href="https://hub.docker.com/_/mongo">docker hub page</a> for information about the installation with docker.</p>
 
@@ -434,7 +442,7 @@ For more information, please see <a href="https://www.docker.com">https://www.do
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-03-06T08:40:53+01:00">March 6, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-03-15T10:48:23+01:00">March 15, 2023</time></p>
 
       </footer>
 

@@ -1,4 +1,4 @@
-version: "3.7"
+# ATTENTION: Do NOT use this file in public or production scenarios! It may contain insecure or unstable configuration.
 
 services:
   connector:
