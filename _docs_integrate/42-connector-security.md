@@ -80,4 +80,4 @@ This can typically be done by modifying the kernel parameters or configuration s
 
 ## Docker Compose File Security Considerations
 
-We provide Docker Compose files for development purposes. However, we advise against using these files in production environments as they are not secure by default. If you choose to use Docker Compose files in a production environment, it is important to educate yourself on how to create production-grade Docker Compose files to ensure the security of your system.
+Docker Compose is a tool to easily set up and host and complete landscape by running multiple Docker containers, configure them and link them together with a network. For development, testing and demonstration purposes, the enmeshed team provides Docker Compose files throughout this site or on GitHub. Please be aware, that those Docker Compose files should not be used in a public or productive environment, as they could contain insecure or otherwise unstable configurations, e.g. default passwords or the missing encryption at rest for MongoDB configuration.
