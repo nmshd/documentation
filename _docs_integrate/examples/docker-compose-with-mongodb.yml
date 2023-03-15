@@ -1,5 +1,4 @@
-version: "3.7"
-# It is important to note that the Docker file should not be used for the production environment.
+# do not use this compose file in production scenarios
 
 services:
   connector:

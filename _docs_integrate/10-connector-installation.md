@@ -44,7 +44,8 @@ Make sure that you have installed docker-compose. Visit [the official installati
 
 ### Option 1: docker compose with MongoDB
 
-_It is important to note that the Docker file should not be used for the production environment._
+**Note:** The Docker compose files we provide in this tutorial are not recommended to use in production scenarios. Please read <link zu security> for more information on how to write a production-grade compose file.
+{: .notice--warning}
 
 Go through the following steps to start the Connector:
 
@@ -58,6 +59,9 @@ Go through the following steps to start the Connector:
 5. execute `docker compose up -d` in the shell
 
 ### Option 2: docker compose with existing MongoDB
+
+**Note:** The Docker compose files we provide in this tutorial are not recommended to use in production scenarios. Please read <link zu security> for more information on how to write a production-grade compose file.
+{: .notice--warning}
 
 Visit the official [MongoDB website](https://www.mongodb.com/) for installation without docker or cloud usage or the [docker hub page](https://hub.docker.com/_/mongo) for information about the installation with docker.
 

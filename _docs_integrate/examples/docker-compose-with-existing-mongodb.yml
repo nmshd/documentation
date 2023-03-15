@@ -1,4 +1,4 @@
-version: "3.7"
+# do not use this compose file in production scenarios
 
 services:
   connector:

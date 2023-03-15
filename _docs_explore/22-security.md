@@ -101,9 +101,9 @@ To ensure the security and integrity of the system, it is recommended to regular
 
 # Database Security
 
-It is crucial to secure databases, and in the case of Mongo, it is essential to implement proper security measures to mitigate the risks associated with its default insecure configuration.
+It is crucial to secure databases, and in the case of MongoDB, it is essential to implement proper security measures to mitigate the risks associated with its default insecure configuration.
 
-We have summarized on this page some tips for the use of [MongoDB](https://www.mongodb.com/docs/manual/administration/security-checklist/) and [FerretDB](https://docs.ferretdb.io/security/). A good source for further information on these tips is the website of the respective database.
+On this page we have summarized some tips for the use of [MongoDB](https://www.mongodb.com/docs/manual/administration/security-checklist/) and [FerretDB](https://docs.ferretdb.io/security/). A good source for further information on these tips is the website of the respective database.
 
 With this page, we address what we consider to be the most important security tips. Even if you follow these tips, a security incident may occur.
 
