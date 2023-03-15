@@ -77,3 +77,7 @@ As the Connector does not have access to the host system, it cannot directly con
 The recommended course of action is to disable kernel dumps on the host system, outside a development environment, where the Connector is running. This is in line with the [recommendation of libsodium](https://libsodium.gitbook.io/doc/memory_management#locking-memory), the used encryption library.
 
 This can typically be done by modifying the kernel parameters or configuration settings.
+
+## Docker Compose File Security Considerations
+
+We provide Docker Compose files for development purposes. However, we advise against using these files in production environments as they are not secure by default. If you choose to use Docker Compose files in a production environment, it is important to educate yourself on how to create production-grade Docker Compose files to ensure the security of your system.

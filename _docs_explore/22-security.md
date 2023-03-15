@@ -9,10 +9,6 @@ News are full of hacking, spamming, skimming, phishing, or you-name-it attempts.
 
 Enmeshed itself handles very private and sensitive information. We are aware that security must be one of our topmost priorities. And by using Enmeshed, we think that the world would be a lot more secure.
 
-# Docker Compose File Security Considerations
-
-When using Docker Compose files, it is important to understand that the default configurations may not be secure for production use. As such, it is important to take appropriate security measures to ensure that your system is secure.
-
 # API key rotation
 
 It is important to ensure that API keys are secure and cannot be easily compromised. One of the key aspects of API key security is regular rotation and expiration. If an API key is not rotated or expired, it can potentially be used by an attacker who has obtained the key through unauthorized means.
