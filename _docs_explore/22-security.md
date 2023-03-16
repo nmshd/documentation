@@ -41,44 +41,6 @@ However a malware could still access the data within the Enmeshed Runtime, meani
 The Connector should be part of the organizations network, otherwise there would be privacy issues with unencrypted payload or third-parties being able to impersonate the organization. It acts a central integration point within the organization and thus can be easily kept up-to-date.
 In our opinion, this is a far better approach than to upgrade any business system with encryption and communication capabilities.
 
-# Security Recommendations for Apps and End-Users
-
-We've summarized some tips for end-user device usage on this site. A great resource for more in-depth information about those tips is the [website of the Federal Office for Information Security (BSI, Bundesamt für Sicherheit in der Informationstechnik).](https://www.bsi.bund.de/EN/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Basisschutz-fuer-Computer-Mobilgeraete/Schutz-fuer-Mobilgeraete/Sicherheit-bei-Apps/sicherheit-bei-apps_node.html)
-
-We do not know every security guideline and tip out there, so please also check security tips of your operating systems like ([Android](https://www.android.com/intl/safety/), or [iOS](https://support.apple.com/guide/security/welcome/web)).
-
-Please also understand, that we - as anybody else - cannot give you any security guaranty of your device or our system. With this page we are addressing the most common risks of end-user device usage. Even if you follow those guidances, it might happen that a security incident happens.
-
-## Enable PIN/Password Authentication of Device
-
-The first line of defense for your device is a strong password or PIN. It is essential to enable this feature on your device to prevent unauthorized access. A secure password should be at least between eight and twelve characters long and contain a mixture of upper and lower case letters, numbers and symbols. Additionally, you should avoid using easily guessable passwords, such as birthdays or names.
-
-## Only One Person Should Use the Device
-
-It is recommended that only one person uses the device, and they should not share their password with anyone. Sharing passwords can lead to unauthorized access and compromise the security of the device.
-
-## Update the Operating System Regularly
-
-Operating system updates are crucial to maintaining the security of your device. These updates often include security patches that address vulnerabilities and bugs that could compromise your device's security. Therefore, it is important to keep your device's operating system up-to-date with the latest patches and updates.
-
-## Enable Hard-Disk Encryption
-
-Hard-disk encryption is a security feature that encrypts the data stored on your device's hard disk. This feature adds an extra layer of security to your device, making it difficult for anyone to access your data if the device is lost or stolen.
-
-## Enable a Virus Scanner
-
-Viruses and malware pose a significant threat to your device's security. It is important to enable a virus scanner on your device to protect it from potential threats. The virus scanner will scan your device for viruses and malware and alert you if it detects any threats.
-
-## Expert Corner
-
-### Rooted Devices
-
-Rooting a device involves gaining access to the device's root or administrative privileges. While rooting a device provides greater control over the device, it also exposes the device to potential security risks. Rooted devices are more vulnerable to malware and other security threats. Therefore, it is recommended to avoid rooting your device unless you have a good reason to do so.
-
-### Developer-enabled Phones
-
-Developer-enabled phones are designed for developers and come with additional features that allow them to customize the device's software. However, these features also make the device more vulnerable to potential security risks. Therefore, it is important to be cautious when using developer-enabled phones and avoid installing apps from untrusted sources.
-
 # Communication Security
 
 Enmeshed uses the highest standards of encrypted communication. It is end-to-end encrypted by using public key cryptography between identities. Different keypairs for the identity, for each device and each contact are used to distinguish the different communication areas (technical, multi-factor or contractual). Where possible, random keys are used and shared securely. If a random key is not possible, derived keys from high-entropy master keys (not passwords) are used. Very first keys are exchanged over Key Exchange Protocols, so that as little key material as possible is shared. Please refer to the [Cryptography Section]({% link _docs_explore/62-cryptography.md %}) to get more information about the used algorithms, libraries and methodologies.

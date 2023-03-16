@@ -72,40 +72,9 @@ docs_use:
   - title: Getting Started
     children:
       - title: "Basics"
-        url: /use/basics
-      - title: "Create an identity"
-        url: /use/create-identity
-      - title: "The first contact"
-        url: /use/first-contact
-      - title: "Fill the wallet"
-        url: /use/fill-the-wallet
-      - title: "Second contact"
-        url: /use/second-contact
-      - title: "Communicate"
-        url: /use/communicate
-      - title: "Handling Requests"
-        url: /use/handling-requests
-      - title: "What's next?"
-        url: /use/whats-next
-
-  - title: Advanced Topics
-    children:
-      - title: "Configuration"
-        url: /use/configuration
-      - title: "Use multiple devices"
-        url: /use/multi-device
-      - title: "Share Data"
-        url: /use/share-data
-      - title: "Share Contact"
-        url: /use/share-contact
-      - title: "Use multiple identities"
-        url: /use/multiple-identities
-      - title: "Device Updates"
-        url: /use/device-updates
-      - title: "Use the log"
-        url: /use/the-log
-      - title: "Identity Backup"
-        url: /use/backup
+        url: /use
+      - title: "Security Recommendations for Apps and End-Users"
+        url: /use/security-recommendations
 
 docs_integrate:
   - title: Getting Started

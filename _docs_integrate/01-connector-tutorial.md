@@ -21,7 +21,7 @@ The payloads for the requests that are sent during this tutorial contain placeho
   - Make sure the [Sync Module is disabled](https://enmeshed.eu/integrate/connector-configuration#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
   - Make sure the [docs are enabled](https://enmeshed.eu/integrate/connector-configuration#corehttpapi) for the documentation route to work
   - Get the API key that was configured during installation of the Connector (it needs to be sent in the `X-API-KEY` header of every HTTP request)
-- You need **version 2** of the [Enmeshed App]({% link _pages/use.md %}) installed on your mobile device.
+- You need **version 2** of the [Enmeshed App]({% link _docs_use/01-basics.md %}) installed on your mobile device.
 
 ## Establishing Relationships
 
