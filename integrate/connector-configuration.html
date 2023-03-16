@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-03-16T07:22:42+01:00">
+  <meta property="article:published_time" content="2023-03-16T19:58:44+01:00">
 
 
 
@@ -302,7 +302,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Configuration">
     <meta itemprop="description" content="Mounting a config file">
-    <meta itemprop="datePublished" content="2023-03-16T07:22:42+01:00">
+    <meta itemprop="datePublished" content="2023-03-16T19:58:44+01:00">
     
 
     <div class="page__inner-wrap">
@@ -323,7 +323,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#mounting-a-config-file">Mounting a config file</a></li><li><a href="#environment-variables">Environment variables</a><ul><li><a href="#parsing-rules">Parsing rules</a></li><li><a href="#example">Example</a></li></ul></li><li><a href="#configuration-options">Configuration options</a><ul><li><a href="#transportlibrary">transportLibrary</a></li><li><a href="#database">database</a></li><li><a href="#infrastructure">infrastructure</a><ul><li><a href="#httpserver">httpServer</a></li></ul></li><li><a href="#modules">modules</a><ul><li><a href="#amqppublisher">amqpPublisher </a></li><li><a href="#autoacceptrelationshipcreationchanges">autoAcceptRelationshipCreationChanges </a></li><li><a href="#corehttpapi">coreHttpApi </a></li><li><a href="#sync">sync </a></li><li><a href="#webhooksv2">webhooksV2 </a><ul><li><a href="#payload">Payload</a></li></ul></li></ul></li></ul></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
+              <ul class="toc__menu"><li><a href="#mounting-a-config-file">Mounting a config file</a></li><li><a href="#environment-variables">Environment variables</a><ul><li><a href="#parsing-rules">Parsing rules</a></li><li><a href="#example">Example</a></li></ul></li><li><a href="#configuration-options">Configuration options</a><ul><li><a href="#debug">debug availbable since version 3.3.0</a></li><li><a href="#transportlibrary">transportLibrary</a></li><li><a href="#database">database</a></li><li><a href="#infrastructure">infrastructure</a><ul><li><a href="#httpserver">httpServer</a></li></ul></li><li><a href="#modules">modules</a><ul><li><a href="#amqppublisher">amqpPublisher </a></li><li><a href="#autoacceptrelationshipcreationchanges">autoAcceptRelationshipCreationChanges </a></li><li><a href="#corehttpapi">coreHttpApi </a></li><li><a href="#sync">sync </a></li><li><a href="#webhooksv2">webhooksV2 </a><ul><li><a href="#payload">Payload</a></li></ul></li></ul></li></ul></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
 
             </nav>
           </aside>
@@ -395,6 +395,7 @@
 <p>The Connector provides the following configuration parameters:</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"debug"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"transportLibrary"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"baseUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://prod.enmeshed.eu"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"platformClientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT_ID"</span><span class="p">,</span><span class="w">
@@ -410,6 +411,12 @@
 </span></code></pre></div></div>
 
 <p>You can validate the config using our <a href="https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json">schema file</a>. This is possible for example with <a href="https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings">VSCode</a> or online tools like <a href="https://www.jsonschemavalidator.net">jsonschemavalidator.net</a>.</p>
+
+<h3 id="debug">debug <code class="language-plaintext highlighter-rouge">availbable since version 3.3.0</code></h3>
+
+<p class="notice--danger">⚠️ Do not turn on debug mode in production environments.</p>
+
+<p>The debug flag configures if the Connector is set to <strong>production</strong> or <strong>debug</strong> mode. Defaults to <code class="language-plaintext highlighter-rouge">false</code>. Can also be configured using the environment variable <code class="language-plaintext highlighter-rouge">DEBUG</code>.</p>
 
 <h3 id="transportlibrary">transportLibrary</h3>
 
@@ -495,6 +502,27 @@
 
     <p>The API-Key protects your Connector from unauthorized access and should therefore be kept secret.</p>
   </li>
+  <li>
+    <p><strong>helmetOptions</strong> <code class="language-plaintext highlighter-rouge">default: depending on the connector mode</code></p>
+
+    <p>Configure the <a href="https://helmetjs.github.io/">helmet</a> middleware.</p>
+
+    <p>Defaults to <code class="language-plaintext highlighter-rouge">{}</code> in <code class="language-plaintext highlighter-rouge">production</code> mode. In <code class="language-plaintext highlighter-rouge">debug</code> mode the following options are used:</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"contentSecurityPolicy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"directives"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"defaultSrc"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nl">"scriptSrc"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"'self'"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"styleSrc"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"'self'"</span><span class="p">,</span><span class="w"> </span><span class="s2">"'unsafe-inline'"</span><span class="p">,</span><span class="w"> </span><span class="s2">"https://fonts.googleapis.com"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"imgSrc"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"'self'"</span><span class="p">,</span><span class="w"> </span><span class="s2">"https://enmeshed.eu"</span><span class="p">,</span><span class="w"> </span><span class="s2">"data:"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"connectSrc"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"'self'"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"upgradeInsecureRequests"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
 </ul>
 
 <h3 id="modules">modules</h3>
@@ -578,7 +606,7 @@
     </span><span class="nl">"coreHttpApi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nl">"docs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="nl">"rapidoc"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"persistAuth"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -595,16 +623,16 @@
     <p>Enable or disable the coreHttpApi Module.</p>
   </li>
   <li>
-    <p><strong>docs:enabled</strong> <code class="language-plaintext highlighter-rouge">default: true</code></p>
+    <p><strong>docs:enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
 
-    <p class="notice--danger">It is not recommended to enable the docs in production scenarios.</p>
+    <p class="notice--info">It is not possible to enable the docs in <a href="#mode">production mode</a>.</p>
 
     <p>Enable / disable the <code class="language-plaintext highlighter-rouge">/docs/json</code> and <code class="language-plaintext highlighter-rouge">/docs/yaml</code> routes and the rendered swagger / rapidoc documentations.</p>
   </li>
   <li>
     <p><strong>docs:rapidoc:persistAuth</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
 
-    <p class="notice--danger">It is not recommended to enable the authentication persistence in production scenarios.</p>
+    <p class="notice--danger">Authentication persistence can be a security risk. Use it with caution.</p>
 
     <p>If set to <code class="language-plaintext highlighter-rouge">true</code> rapidoc persists the API Key in the local storage of the browser.</p>
   </li>
@@ -755,7 +783,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-03-16T07:22:42+01:00">March 16, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-03-16T19:58:44+01:00">March 16, 2023</time></p>
 
       </footer>
 
