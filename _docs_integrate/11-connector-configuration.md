@@ -67,6 +67,7 @@ The Connector provides the following configuration parameters:
 
 ```jsonc
 {
+    "debug": false,
     "transportLibrary": {
         "baseUrl": "https://prod.enmeshed.eu",
         "platformClientId": "CLIENT_ID",
@@ -82,6 +83,13 @@ The Connector provides the following configuration parameters:
 ```
 
 You can validate the config using our [schema file](https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json). This is possible for example with [VSCode](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) or online tools like [jsonschemavalidator.net](https://www.jsonschemavalidator.net).
+
+### debug `availbable since version 3.3.0` {#debug}
+
+⚠️ Do not turn on debug mode in production environments.
+{: .notice--danger}
+
+The debug flag configures if the Connector is set to **production** or **debug** mode. Defaults to `false`. Can also be configured using the environment variable `DEBUG`.
 
 ### transportLibrary
 
@@ -152,6 +160,27 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
   There are no limitations regarding the allowed characters. We recommend using an API-Key that is at least 20 characters long.
 
   The API-Key protects your Connector from unauthorized access and should therefore be kept secret.
+
+- **helmetOptions** `default: depending on the connector mode`
+
+  Configure the [helmet](https://helmetjs.github.io/) middleware.
+
+  Defaults to `{}` in `production` mode. In `debug` mode the following options are used:
+
+  ```json
+  {
+    "contentSecurityPolicy": {
+      "directives": {
+        "defaultSrc": [],
+        "scriptSrc": ["'self'"],
+        "styleSrc": ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        "imgSrc": ["'self'", "https://enmeshed.eu", "data:"],
+        "connectSrc": ["'self'"],
+        "upgradeInsecureRequests": null
+      }
+    }
+  }
+  ```
 
 ### modules
 
@@ -227,7 +256,7 @@ It is not recommended to use this Module for production scenarios.
     "coreHttpApi": {
       "enabled": true,
       "docs": {
-        "enabled": true,
+        "enabled": false,
         "rapidoc": {
           "persistAuth": false
         }
@@ -241,16 +270,16 @@ It is not recommended to use this Module for production scenarios.
 
   Enable or disable the coreHttpApi Module.
 
-- **docs:enabled** `default: true`
+- **docs:enabled** `default: false`
 
-  It is not recommended to enable the docs in production scenarios.
-  {: .notice--danger}
+  It is not possible to enable the docs in [production mode](#mode).
+  {: .notice--info}
 
   Enable / disable the `/docs/json` and `/docs/yaml` routes and the rendered swagger / rapidoc documentations.
 
 - **docs:rapidoc:persistAuth** `default: false`
 
-  It is not recommended to enable the authentication persistence in production scenarios.
+  Authentication persistence can be a security risk. Use it with caution.
   {: .notice--danger}
 
   If set to `true` rapidoc persists the API Key in the local storage of the browser.
