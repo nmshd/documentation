@@ -45,6 +45,8 @@ In our opinion, this is a far better approach than to upgrade any business syste
 
 The App is only communicating with its corresponding Backbone.
 
+For more information on the security of the device, please read the [Security Recommendations for Apps and End-Users]({% link _docs_use/02-security-recommendations.md %}).
+
 # Communication Security
 
 Enmeshed uses the highest standards of encrypted communication. It is end-to-end encrypted by using public key cryptography between identities. Different keypairs for the identity, for each device and each contact are used to distinguish the different communication areas (technical, multi-factor or contractual). Where possible, random keys are used and shared securely. If a random key is not possible, derived keys from high-entropy master keys (not passwords) are used. Very first keys are exchanged over Key Exchange Protocols, so that as little key material as possible is shared. Please refer to the [Cryptography Section]({% link _docs_explore/62-cryptography.md %}) to get more information about the used algorithms, libraries and methodologies.
