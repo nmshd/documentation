@@ -257,6 +257,18 @@ var store = [{
         "url": "/integrate/data-model-attribute-values",
         "teaser": null
       },{
+        "title": "Basics",
+        "excerpt":"You can get the Enmeshed App over your favorite app stores. Please find the links below:      Enmeshed App on Apple AppStore   Enmeshed App on Google PlayStore   Please drop us some feedback if you would like to see the Enmeshed App on different stores as well.  ","categories": [],
+        "tags": [],
+        "url": "/use",
+        "teaser": null
+      },{
+        "title": "Security Recommendations for Apps and End-Users",
+        "excerpt":"We’ve summarized some tips for end-user device usage on this site. A great resource for more in-depth information about those tips is the website of the Federal Office for Information Security (BSI, Bundesamt für Sicherheit in der Informationstechnik). We do not know every security guideline and tip out there, so...","categories": [],
+        "tags": [],
+        "url": "/use/security-recommendations",
+        "teaser": null
+      },{
         "title": "Introducing Enmeshed",
         "excerpt":"Hello everyone! We are delighted to introduce a new open source project named Enmeshed. It is the home of software libraries, components, ideas, discussions, and many more in the area of digitalization. We think the world is ready for a whole new adventure of digital communication, easy and secure data...","categories": ["blog"],
         "tags": ["page","update"],
