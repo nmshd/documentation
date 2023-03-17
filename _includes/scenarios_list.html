@@ -1,0 +1,180 @@
+<style>
+    .container {
+        position: relative;
+        max-width: 320px;
+        width: 100%;
+    }
+    .select-btn {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .list-items {
+        position: relative;
+        padding: 16px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        display: none;
+        position: fixed;
+        background-color: #fff;
+        z-index: 1;
+    }
+    .select-btn.open ~ .list-items {
+        display: block;
+    }
+    .list-items .item {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    .item .item-text {
+        font-weight: 400;
+    }
+    .item .checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 16px;
+        width: 16px;
+        border-radius: 4px;
+        margin-right: 12px;
+        border: 1.5px solid #c0c0c0;
+        transition: all 0.3s ease-in-out;
+    }
+    .item.checked .checkbox {
+        background-color: #0092ca;
+        border-color: #0092ca;
+    }
+</style>
+<script>
+    function searchByName() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchByNameInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
+<input type="text" id="searchByNameInput" onkeyup="searchByName()" placeholder="Search for names.." />
+{% assign scenarios = site.docs_use | where: "type", "scenario" %}
+
+<table id="myTable">
+    <tr>
+        <th>Title</th>
+        <th>
+            <div class="container">
+                <div class="select-btn">Category ⌄</div>
+
+                <ul class="list-items">
+                    <li class="item">
+                        <span class="checkbox"> </span>
+                        <span class="item-text">HTML & CSS</span>
+                    </li>
+                    <li class="item">
+                        <span class="checkbox"> </span>
+                        <span class="item-text">Bootstrap</span>
+                    </li>
+                    <li class="item">
+                        <span class="checkbox"> </span>
+                        <span class="item-text">JavaScript</span>
+                    </li>
+                    <li class="item">
+                        <span class="checkbox"> </span>
+                        <span class="item-text">Node.Js</span>
+                    </li>
+                    <li class="item">
+                        <span class="checkbox"> </span>
+                        <span class="item-text">React JS</span>
+                    </li>
+                    <li class="item">
+                        <span class="checkbox"> </span>
+                        <span class="item-text">Mango DB</span>
+                    </li>
+                </ul>
+            </div>
+        </th>
+        <th>
+            <div class="container">
+                <div class="select-btn">Status ⌄</div>
+
+                <ul class="list-items">
+                    <li class="item">
+                        <span class="checkbox"> </span>
+                        <span class="item-text">Demo</span>
+                    </li>
+                    <li class="item">
+                        <span class="checkbox"> </span>
+                        <span class="item-text">DEMO2</span>
+                    </li>
+                </ul>
+            </div>
+        </th>
+        <th>
+            <div class="container">
+                <div class="select-btn">Component ⌄</div>
+
+                <ul class="list-items">
+                    <li class="item">
+                        <span class="checkbox"> </span>
+                        <span class="item-text">Demo</span>
+                    </li>
+                    <li class="item">
+                        <span class="checkbox"> </span>
+                        <span class="item-text">DEMO2</span>
+                    </li>
+                </ul>
+            </div>
+        </th>
+    </tr>
+    {% for scenario in scenarios%}
+    <tr>
+        <td>
+            <a href="{{ scenario.url }}"> {{ scenario.title }} </a>
+        </td>
+        <td>{{ scenario.properties | map:"category" }}</td>
+        <td>{{ scenario.properties | map:"implementation" }}</td>
+        <td>{{ scenario.properties | map:"component" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<script>
+    const selectBtns = document.querySelectorAll(".select-btn"),
+        items = document.querySelectorAll(".item");
+
+    selectBtns.forEach((selectBtn) => {
+        console.log(selectBtn);
+        selectBtn.addEventListener("click", () => {
+            selectBtn.classList.toggle("open");
+        });
+    });
+
+    items.forEach((item) => {
+        item.addEventListener("click", () => {
+            item.classList.toggle("checked");
+
+            let checked = document.querySelectorAll(".checked"),
+                btnText = document.querySelector(".btn-text");
+
+            if (checked && checked.length > 0) {
+                btnText.innerText = `${checked.length} Selected`;
+            } else {
+                btnText.innerText = "Select Language";
+            }
+        });
+    });
+</script>

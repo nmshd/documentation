@@ -5,7 +5,7 @@ permalink: /use/scenario-03
 published: true
 category: Use multiple Devices to access one Identity
 component: App
-level: Advanced
+level: EASY
 Implementation: IDEA
 Documentation: OPEN
 type: scenario
