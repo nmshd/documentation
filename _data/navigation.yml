@@ -75,6 +75,8 @@ docs_use:
     children:
       - title: "Basics"
         url: /use/basics
+      - title: "Security Recommendations for Apps and End-Users"
+        url: /use/security-recommendations
 
   - title: Scenarios
     children:

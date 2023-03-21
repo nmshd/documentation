@@ -38,11 +38,18 @@ A reliable and fast internet connection is mandatory for running the Connector. 
 
 Read more about listing available docker image tags [here]({% link _docs_explore/52-connector.md %}#connector-docker-image).
 
+### Familiarize with our policies
+
+Before setting up Enmeshed, you should familiarize yourself with our [Security Considerations]({% link _docs_integrate/42-connector-security.md %}) and [Privacy Considerations]({% link _docs_integrate/43-connector-privacy.md %}).
+
 ## Installation with Docker
 
 Make sure that you have installed docker-compose. Visit [the official installation guide](https://docs.docker.com/compose/install/) for more information.
 
-### Option 1: docker compose with MongoDB
+### Option 1: docker compose including MongoDB
+
+**ATTENTION:** The Docker compose files we provide in this tutorial are not recommended to use in production scenarios. Please read [Use Compose in production](https://docs.docker.com/compose/production/) for more information on how to write a production-grade compose file and our [Security Considerations]({% link _docs_integrate/42-connector-security.md %}#docker-compose-file-security-considerations).
+{: .notice--warning}
 
 Go through the following steps to start the Connector:
 
@@ -56,6 +63,9 @@ Go through the following steps to start the Connector:
 5. execute `docker compose up -d` in the shell
 
 ### Option 2: docker compose with existing MongoDB
+
+**ATTENTION:** The Docker compose files we provide in this tutorial are not recommended to use in production scenarios. Please read [Use Compose in production](https://docs.docker.com/compose/production/) for more information on how to write a production-grade compose file and our [Security Considerations]({% link _docs_integrate/42-connector-security.md %}#docker-compose-file-security-considerations).
+{: .notice--warning}
 
 Visit the official [MongoDB website](https://www.mongodb.com/) for installation without docker or cloud usage or the [docker hub page](https://hub.docker.com/_/mongo) for information about the installation with docker.
 

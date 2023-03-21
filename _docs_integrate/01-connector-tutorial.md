@@ -6,14 +6,11 @@ toc: true
 
 In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization.
 
-<!-- The following steps include small interactive pieces of the Connector's API documentation that, when executed, fire requests on a Connector we provided for testing purposes. Example:-->
+The following steps include small interactive pieces of the Connector's API documentation that, when executed, fire requests on a Connector we provided for testing purposes. Example:
 
 {% include rapidoc api_route_regex="^get /health$" title="" %}
 
 So if you don't have an own Connector installed, feel free to use the samples directly by unfolding them and clicking on "Try". Otherwise you can use your own Connector either with a REST client (e.g. Insomnia or Postman) or by using the RapiDoc documentation (/docs/rapidoc) hosted on your Connector.
-
-The Enmeshed Demo Backbone is currently under maintenance and therefore cannot be used for this tutorial. If you are running on a different Backbone and a corresponding app, you can still continue.
-{: .notice--warning}
 
 The payloads for the requests that are sent during this tutorial contain placeholders marked with `<...>`. You need to replace them with values before you send the request.
 
@@ -24,7 +21,7 @@ The payloads for the requests that are sent during this tutorial contain placeho
   - Make sure the [Sync Module is disabled](https://enmeshed.eu/integrate/connector-configuration#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
   - Make sure the [docs are enabled](https://enmeshed.eu/integrate/connector-configuration#corehttpapi) for the documentation route to work
   - Get the API key that was configured during installation of the Connector (it needs to be sent in the `X-API-KEY` header of every HTTP request)
-- You need **version 2** of the [Enmeshed App]({% link _pages/use.md %}) installed on your mobile device. _Since the Enmeshed v2 app is not officially released yet, you need to [write us an email](mailto://info@enmeshed.eu?subject=Access%20to%20the%20closed%20beta%20of%20Enmeshed%20v2) with your Apple ID or the email address of your Google account you use on your phone, so we can add you to the closed beta._
+- You need **version 2** of the [Enmeshed App]({% link _docs_use/01-basics.md %}) installed on your mobile device.
 
 ## Establishing Relationships
 

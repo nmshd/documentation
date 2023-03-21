@@ -2,6 +2,7 @@
 title: Use Enmeshed
 layout: collection
 permalink: /use
+published: false
 ---
 
 You can get the Enmeshed App over your favorite app stores. Please find the links below:
