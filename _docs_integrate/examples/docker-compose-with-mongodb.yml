@@ -13,7 +13,7 @@ services:
     #   - </folder/of/your/choice>:/var/log/enmeshed-connector # select an existing directory of your choice where your log files should be saved
     depends_on:
       - mongodb
-    restart: always
+    restart: on-failure
 
   mongodb:
     container_name: mongodb
@@ -23,7 +23,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: <db-password>
     volumes:
       - mongodb_data:/data/db
-    restart: always
+    restart: on-failure
 
 volumes:
   mongodb_data:
