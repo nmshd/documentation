@@ -44,7 +44,7 @@ Before setting up Enmeshed, you should familiarize yourself with our [Security C
 
 ## Installation with Docker
 
-Make sure that you have installed docker-compose. Visit [the official installation guide](https://docs.docker.com/compose/install/) for more information.
+Make sure that you have installed docker compose. Visit [the official installation guide](https://docs.docker.com/compose/install/) for more information.
 
 ### Option 1: docker compose including MongoDB
 
