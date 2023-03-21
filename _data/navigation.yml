@@ -23,6 +23,8 @@ docs_explore:
         url: /explore/features
       - title: "Use Cases"
         url: /explore/use-cases
+      - title: "Screens"
+        url: /explore/screens
       - title: "Frequently Asked Questions"
         url: /explore/faq
 
@@ -78,16 +80,6 @@ docs_use:
     children:
       - title: "List"
         url: /use/scenarios
-
-  - title: Screens
-    children:
-      - title: "Configuration"
-        url: /use/#
-
-  - title: Use Cases
-    children:
-      - title: "List"
-        url: /use/useCases
 
 docs_integrate:
   - title: Getting Started

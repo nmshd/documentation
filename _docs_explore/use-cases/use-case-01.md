@@ -1,5 +1,5 @@
 ---
-permalink: /use/use-case-01
+permalink: /explore/use-case-01
 published: true
 title: "Navigate to (screen): Screen"
 type: useCase
@@ -16,7 +16,6 @@ properties:
   - CREATED_AT:
   - CHANGED_AT:
 requires:
-  - /use/use-case-02
 ---
 
 The user navigates manually to the desired screen. If the screen has preconditions, these preconditions are considered to be fulfilled (e.g. a Profile has been selected and authenticated first).

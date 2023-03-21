@@ -1,6 +1,7 @@
 ---
 title: "Use Cases"
 permalink: /explore/use-cases
+published: false
 ---
 
 The list below is a non-complete list of use cases within Enmeshed:

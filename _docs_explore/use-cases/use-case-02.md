@@ -1,7 +1,7 @@
 ---
 id: 2
 title: "Refresh (screen) Screen"
-permalink: /use/use-case-02
+permalink: /explore/use-case-02
 published: true
 category:
 component:

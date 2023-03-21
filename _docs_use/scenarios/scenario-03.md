@@ -1,14 +1,17 @@
 ---
-id: 3
-title: "Remove an onboarded Device from the Identity"
 permalink: /use/scenario-03
 published: true
-category: Use multiple Devices to access one Identity
-component: App
-level: EASY
-Implementation: IDEA
-Documentation: OPEN
+title: "Remove an onboarded Device from the Identity"
 type: scenario
+properties:
+  - category: Use multiple Devices to access one Identity
+  - component: App
+  - level: Beginner
+  - implementation: IDEA
+  - documentation: OPEN
+requires:
+  - /use/use-case-01
+  - /use/use-case-02
 ---
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis voluptas deserunt alias accusantium rem? Quaerat, temporibus alias fuga rerum unde dolor blanditiis quia incidunt modi rem, sequi, esse aut accusamus.

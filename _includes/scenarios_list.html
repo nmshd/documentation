@@ -67,74 +67,78 @@
             }
         }
     }
+    function filter(input) {
+        // Declare variables
+        var table, tr, td, i, txtValue;
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            for (const [key, column] of Object.entries(input)) {
+                td = tr[i].getElementsByTagName("td")[key];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    // Loop through all columns
+
+                    if (column.includes(txtValue)) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                        break;
+                    }
+                }
+            }
+        }
+    }
 </script>
 
-<input type="text" id="searchByNameInput" onkeyup="searchByName()" placeholder="Search for names.." />
+<input type="text" id="searchByNameInput" onkeyup="searchByName()" placeholder="Search for title.." />
 {% assign scenarios = site.docs_use | where: "type", "scenario" %}
 
-<table id="myTable">
+<table id="myTable" style="width: 100%; display: table">
     <tr>
-        <th>Title</th>
-        <th>
+        <th style="width: 30%">Title</th>
+        <th style="width: 30%">
             <div class="container">
                 <div class="select-btn">Category ⌄</div>
 
-                <ul class="list-items">
-                    <li class="item">
+                <ul class="list-items" id="category">
+                    <li class="item checked">
                         <span class="checkbox"> </span>
-                        <span class="item-text">HTML & CSS</span>
+                        <span class="item-text">Use multiple Devices to access one Identity</span>
                     </li>
-                    <li class="item">
+                    <li class="item checked">
                         <span class="checkbox"> </span>
-                        <span class="item-text">Bootstrap</span>
-                    </li>
-                    <li class="item">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">JavaScript</span>
-                    </li>
-                    <li class="item">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">Node.Js</span>
-                    </li>
-                    <li class="item">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">React JS</span>
-                    </li>
-                    <li class="item">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">Mango DB</span>
+                        <span class="item-text">Identity Basics</span>
                     </li>
                 </ul>
             </div>
         </th>
-        <th>
+        <th style="width: 20%">
             <div class="container">
                 <div class="select-btn">Status ⌄</div>
 
-                <ul class="list-items">
-                    <li class="item">
+                <ul class="list-items" id="implementation">
+                    <li class="item checked">
                         <span class="checkbox"> </span>
-                        <span class="item-text">Demo</span>
+                        <span class="item-text">DONE</span>
                     </li>
-                    <li class="item">
+                    <li class="item checked">
                         <span class="checkbox"> </span>
-                        <span class="item-text">DEMO2</span>
+                        <span class="item-text">IDEA</span>
                     </li>
                 </ul>
             </div>
         </th>
-        <th>
+        <th style="width: 20%">
             <div class="container">
                 <div class="select-btn">Component ⌄</div>
 
-                <ul class="list-items">
-                    <li class="item">
+                <ul class="list-items" id="component">
+                    <li class="item checked">
                         <span class="checkbox"> </span>
-                        <span class="item-text">Demo</span>
-                    </li>
-                    <li class="item">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">DEMO2</span>
+                        <span class="item-text">App</span>
                     </li>
                 </ul>
             </div>
@@ -157,7 +161,6 @@
         items = document.querySelectorAll(".item");
 
     selectBtns.forEach((selectBtn) => {
-        console.log(selectBtn);
         selectBtn.addEventListener("click", () => {
             selectBtn.classList.toggle("open");
         });
@@ -167,14 +170,15 @@
         item.addEventListener("click", () => {
             item.classList.toggle("checked");
 
-            let checked = document.querySelectorAll(".checked"),
-                btnText = document.querySelector(".btn-text");
-
-            if (checked && checked.length > 0) {
-                btnText.innerText = `${checked.length} Selected`;
-            } else {
-                btnText.innerText = "Select Language";
-            }
+            let checked = document.querySelectorAll(".checked");
+            var elements = new Array();
+            elements[1] = new Array();
+            elements[2] = new Array();
+            elements[3] = new Array();
+            checked.forEach((element) => {
+                elements[element.parentElement.parentElement.parentElement.cellIndex].push(element.innerText.replace(/[\n\r]+|[\s]{2,}/g, ""));
+            });
+            filter(elements);
         });
     });
 </script>

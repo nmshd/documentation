@@ -1,10 +1,10 @@
 ---
-title: "Use Cases"
-permalink: /use/useCases
+title: "Screens"
+permalink: /explore/screens
 published: true
 ---
 
-{% assign useCases = site.docs_use | where: "type", "useCase" %}
+{% assign useCases = site.docs_explore | where: "type", "useCase" %}
 
 <table>
     <tr>
