@@ -12,18 +12,28 @@ services:
       - <path-to-config-file>/config.json:/config.json:ro
     #   - </folder/of/your/choice>:/var/log/enmeshed-connector # select an existing directory of your choice where your log files should be saved
     depends_on:
-      - mongodb
+      - ferretdb
     restart: on-failure
 
-  mongodb:
-    container_name: mongodb
-    image: mongo
+  postgres:
+    image: postgres
+    container_name: postgres
     environment:
-      MONGO_INITDB_ROOT_USERNAME: <db-username>
-      MONGO_INITDB_ROOT_PASSWORD: <db-password>
-    volumes:
-      - mongodb_data:/data/db
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=ferretdb
     restart: on-failure
+
+  ferretdb:
+    image: ghcr.io/ferretdb/ferretdb:latest
+    container_name: ferretdb
+    restart: on-failure
+    environment:
+      FERRETDB_POSTGRESQL_URL: postgres://user:password@postgres:5432/ferretdb
+      FERRETDB_TELEMETRY: disable
+      FERRETDB_LOG_LEVEL: error
+    depends_on:
+      - postgres
 
 volumes:
   mongodb_data:

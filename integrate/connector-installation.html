@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-03-21T11:15:39+01:00">
+  <meta property="article:published_time" content="2023-03-22T13:05:14+01:00">
 
 
 
@@ -302,7 +302,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Installation">
     <meta itemprop="description" content="Prerequisites">
-    <meta itemprop="datePublished" content="2023-03-21T11:15:39+01:00">
+    <meta itemprop="datePublished" content="2023-03-22T13:05:14+01:00">
     
 
     <div class="page__inner-wrap">
@@ -323,7 +323,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#prerequisites">Prerequisites</a><ul><li><a href="#mongodb">MongoDB</a></li><li><a href="#container-runtime">Container Runtime</a></li><li><a href="#hardware-requirements">Hardware Requirements</a></li><li><a href="#internet-connectivity">Internet Connectivity</a></li><li><a href="#list-docker-image-tags">List docker image tags</a></li><li><a href="#familiarize-with-our-policies">Familiarize with our policies</a></li></ul></li><li><a href="#installation-with-docker">Installation with Docker</a><ul><li><a href="#option-1-docker-compose-including-mongodb">Option 1: docker compose including MongoDB</a></li><li><a href="#option-2-docker-compose-with-existing-mongodb">Option 2: docker compose with existing MongoDB</a></li></ul></li><li><a href="#installation-with-kubernetes-and-helm">Installation with Kubernetes and Helm</a></li><li><a href="#validate-the-connector-installation">Validate the Connector installation</a></li><li><a href="#log-file-mounting">Log file mounting</a></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
+              <ul class="toc__menu"><li><a href="#prerequisites">Prerequisites</a><ul><li><a href="#mongodb">MongoDB</a></li><li><a href="#container-runtime">Container Runtime</a></li><li><a href="#hardware-requirements">Hardware Requirements</a></li><li><a href="#internet-connectivity">Internet Connectivity</a></li><li><a href="#list-docker-image-tags">List docker image tags</a></li><li><a href="#familiarize-with-our-policies">Familiarize with our policies</a></li></ul></li><li><a href="#installation-with-docker">Installation with Docker</a><ul><li><a href="#option-1-docker-compose-including-mongodb">Option 1: docker compose including MongoDB</a></li><li><a href="#option-2-docker-compose-with-existing-mongodb">Option 2: docker compose with existing MongoDB</a></li><li><a href="#option-3-docker-compose-with-ferretdb">Option 3: docker compose with FerretDB</a></li></ul></li><li><a href="#installation-with-kubernetes-and-helm">Installation with Kubernetes and Helm</a></li><li><a href="#validate-the-connector-installation">Validate the Connector installation</a></li><li><a href="#log-file-mounting">Log file mounting</a></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
 
             </nav>
           </aside>
@@ -370,18 +370,18 @@ For more information, please see <a href="https://www.docker.com">https://www.do
 
 <h2 id="installation-with-docker">Installation with Docker</h2>
 
-<p>Make sure that you have installed docker-compose. Visit <a href="https://docs.docker.com/compose/install/">the official installation guide</a> for more information.</p>
-
-<h3 id="option-1-docker-compose-including-mongodb">Option 1: docker compose including MongoDB</h3>
+<p>Make sure that you have installed docker compose. Visit <a href="https://docs.docker.com/compose/install/">the official installation guide</a> for more information.</p>
 
 <p class="notice--warning"><strong>ATTENTION:</strong> The Docker compose files we provide in this tutorial are not recommended to use in production scenarios. Please read <a href="https://docs.docker.com/compose/production/">Use Compose in production</a> for more information on how to write a production-grade compose file and our <a href="/integrate/connector-security#docker-compose-file-security-considerations">Security Considerations</a>.</p>
+
+<h3 id="option-1-docker-compose-including-mongodb">Option 1: docker compose including MongoDB</h3>
 
 <p>Go through the following steps to start the Connector:</p>
 
 <ol>
   <li>place the file <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/docker-compose-with-mongodb.yml">examples/docker-compose-with-mongodb.yml</a> as <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> in a folder of your choice</li>
   <li>create a config file that can be mounted inside the Connector. Fill the config file using the <a href="/integrate/connector-configuration">configuration docs</a> and the <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json">example config file</a>. If you used the yml-file from the first step, the connection string looks as follows:
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mongodb://&lt;db-username&gt;:&lt;db-password&gt;@mongodb:27017/?authSource=admin&amp;readPreference=primary&amp;ssl=false
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mongodb://&lt;db-username&gt;:&lt;db-password&gt;@mongodb:27017
 </code></pre></div>    </div>
   </li>
   <li>replace all <code class="language-plaintext highlighter-rouge">&lt;placeholders&gt;</code> in the compose file with the corresponding values</li>
@@ -391,8 +391,6 @@ For more information, please see <a href="https://www.docker.com">https://www.do
 
 <h3 id="option-2-docker-compose-with-existing-mongodb">Option 2: docker compose with existing MongoDB</h3>
 
-<p class="notice--warning"><strong>ATTENTION:</strong> The Docker compose files we provide in this tutorial are not recommended to use in production scenarios. Please read <a href="https://docs.docker.com/compose/production/">Use Compose in production</a> for more information on how to write a production-grade compose file and our <a href="/integrate/connector-security#docker-compose-file-security-considerations">Security Considerations</a>.</p>
-
 <p>Visit the official <a href="https://www.mongodb.com/">MongoDB website</a> for installation without docker or cloud usage or the <a href="https://hub.docker.com/_/mongo">docker hub page</a> for information about the installation with docker.</p>
 
 <p>Go through the following steps to start the Connector:</p>
@@ -401,6 +399,18 @@ For more information, please see <a href="https://www.docker.com">https://www.do
   <li>make your existing MongoDB available for the connector</li>
   <li>place the file <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/docker-compose-with-existing-mongodb.yml">examples/docker-compose-with-existing-mongodb.yml</a> as <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> in a folder of your choice</li>
   <li>create a config file that can be mounted inside the Connector. Fill the config file using the <a href="/integrate/connector-configuration">configuration docs</a> and the <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json">example config file</a></li>
+  <li>replace all <code class="language-plaintext highlighter-rouge">&lt;placeholders&gt;</code> in the compose file with the corresponding values</li>
+  <li>(optional) follow the steps under <a href="#log-file-mounting">log file mounting</a> if you want to persist and access the log files on the host system</li>
+  <li>execute <code class="language-plaintext highlighter-rouge">docker compose up -d</code> in the shell</li>
+</ol>
+
+<h3 id="option-3-docker-compose-with-ferretdb">Option 3: docker compose with FerretDB</h3>
+
+<p>Go through the following steps to start the Connector:</p>
+
+<ol>
+  <li>place the file <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/docker-compose-with-mongodb.yml">examples/docker-compose-with-ferretdb.yml</a> as <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> in a folder of your choice</li>
+  <li>create a config file that can be mounted inside the Connector. Fill the config file using the <a href="/integrate/connector-configuration">configuration docs</a> and the <a href="https://raw.githubusercontent.com/nmshd/nmshd.github.io/main/_docs_integrate/examples/example.config.json">example config file</a>. If you used the yml-file from the first step, the connection string looks as follows: <code class="language-plaintext highlighter-rouge">mongodb://ferretdb:27017</code></li>
   <li>replace all <code class="language-plaintext highlighter-rouge">&lt;placeholders&gt;</code> in the compose file with the corresponding values</li>
   <li>(optional) follow the steps under <a href="#log-file-mounting">log file mounting</a> if you want to persist and access the log files on the host system</li>
   <li>execute <code class="language-plaintext highlighter-rouge">docker compose up -d</code> in the shell</li>
@@ -442,7 +452,7 @@ For more information, please see <a href="https://www.docker.com">https://www.do
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-03-21T11:15:39+01:00">March 21, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-03-22T13:05:14+01:00">March 22, 2023</time></p>
 
       </footer>
 
