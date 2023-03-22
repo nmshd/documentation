@@ -27,7 +27,7 @@
             <td colspan="2">
                 <details>
                     <summary>required by</summary>
-                    {% for requires in page.require%} {% assign useCases = site.docs_use | where: "id", requires %}
+                    {% for requires in page.requires%} {% assign useCases = site.docs_explore | where: "id", requires %}
                     <p>
                         <a href="{{ requires}}"> {{useCases.first.title}} </a>
                     </p>
