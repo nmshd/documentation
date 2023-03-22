@@ -91,16 +91,3 @@ Create a file named `values.yaml` with the desired configuration and run the fol
 ```bash
 helm install <installationName> oci://ghcr.io/nmshd/connector-helm-chart --version <version> -f values.yaml
 ```
-
-## Using port 80 as non-root
-
-By default the Connector will run on port 80 but as a non-root user. This means that you need to give the container the NET_BIND_SERVICE capability. You can do this by adding the following to your config file if you are using the `Baseline` [Pod Security Standard](https://kubernetes.io/docs/concepts/security/pod-security-standards/):
-
-```yaml
-pod:
-  connector:
-    securityContext:
-      capabilities:
-        add:
-          - NET_BIND_SERVICE
-```
