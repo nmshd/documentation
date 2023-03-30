@@ -35,9 +35,6 @@ feature_row:
 feature_ssi:
   - title: "The digital home in your pocket"
     excerpt: "Take your digital identity wherever you go. Access, change and easily share the most important data of you without bothering about security, privacy or paperwork."
-feature_v2:
-  - title: "Enmeshed V2"
-    excerpt: "We are working on a new version of Enmeshed. Read more about it in the [V2 announcement blog post](/blog/announcing-enmeshed-v2)."
 ---
 
 {% include feature_row id="feature_v2" type="center" %}
