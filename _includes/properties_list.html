@@ -13,7 +13,7 @@
             <td colspan="2">
                 <details>
                     <summary>requires</summary>
-                    {% for requires in page.requires%} {% assign useCases = site.docs_explore | where: "id", requires %}
+                    {% for requires in page.requires%} {% assign useCases = site.docs_explore | where: "permalink", requires %}
                     <p>
                         <a href="{{ requires}}"> {{useCases.first.title}} </a>
                     </p>
