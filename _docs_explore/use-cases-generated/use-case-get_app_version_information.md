@@ -27,12 +27,13 @@ properties:
   - link auf demo:
   - require: RS4, RT1, RY1
 requires:
+  - /use/scenario-01
   - /explore/use-case-delete_setting
   - /explore/use-case-create_own_relationshiptemplate
   - /explore/use-case-load_token_by_truncated_reference_(without_having_an_account)
 required_by:
-  - /use/use-case-01
-  - /use/use-case-02
+  - /use/scenario-01
+  - /explore/use-case-delete_setting
 ---
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis voluptas deserunt alias accusantium rem? Quaerat, temporibus alias fuga rerum unde dolor blanditiis quia incidunt modi rem, sequi, esse aut accusamus.
