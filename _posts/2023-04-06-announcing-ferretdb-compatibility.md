@@ -32,6 +32,6 @@ We also updated the [Connector Installation Guide]({% link _docs_integrate/10-co
 
 ## Conclusion
 
-In conclusion, we believe that choosing the right database solution is critical to the success of any project.
+At Enmeshed, we are proud to have found a suitable open-source replacement for MongoDB and we are confident that it will meet our needs and provide a reliable solution for our users.
 
-Our journey to find an alternative to MongoDB led us to FerretDB, and we are confident that it will meet our needs and provide a reliable solution for our users.
+Thanks to FerretDB we are now able to offer the Enmeshed Connector with PostgreSQL, so developers can continue to use open-source software and enjoy the freedom it gives.
