@@ -16,7 +16,7 @@ MongoDB is licensed under the Server Side Public License (SSPL) and from the sta
 
 [FerretDB](https://www.ferretdb.io/) acts as a drop-in replacement for MongoDB. It does this by proxying the MongoDB wire protocol and translating it to SQL, using PostgreSQL as the database engine.
 
-More information about FerretDBs architecture can be found [here](https://docs.ferretdb.io/understanding-ferretdb/).
+More information about FerretDBs architecture can be found [in their docs](https://docs.ferretdb.io/understanding-ferretdb/).
 
 This means that the Enmeshed Connector can now also be used with the PostgreSQL database, [as requested some time ago](https://github.com/nmshd/feedback/issues/13).
 
