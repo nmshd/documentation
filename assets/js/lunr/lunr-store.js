@@ -304,4 +304,10 @@ var store = [{
         "tags": ["announcement","v2"],
         "url": "/blog/road-to-enmeshed-v2",
         "teaser": null
+      },{
+        "title": "FerretDB compatibility for the Enmeshed Connector",
+        "excerpt":"At Enmeshed, we believe in the importance of open-source software and the freedom it gives developers. MongoDB is licensed under the Server Side Public License (SSPL) and from the start of our project we knew that we needed to find an alternative database solution for the Enmeshed Connector. After researching...","categories": ["blog"],
+        "tags": ["announcement","connector"],
+        "url": "/blog/announcing-ferretdb-compatibility",
+        "teaser": null
       }]

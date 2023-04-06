@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Announcing Enmeshed V2 - Enmeshed</title>
-<meta name="description" content="We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.">
+<!-- begin _includes/seo.html --><title>FerretDB compatibility for the Enmeshed Connector - Enmeshed</title>
+<meta name="description" content="At Enmeshed, we believe in the importance of open-source software and the freedom it gives developers.">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -22,26 +22,26 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Enmeshed">
-<meta property="og:title" content="Announcing Enmeshed V2">
-<meta property="og:url" content="/blog/announcing-enmeshed-v2">
+<meta property="og:title" content="FerretDB compatibility for the Enmeshed Connector">
+<meta property="og:url" content="/blog/announcing-ferretdb-compatibility">
 
 
-  <meta property="og:description" content="We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2022-06-27T00:00:00+02:00">
+  <meta property="og:description" content="At Enmeshed, we believe in the importance of open-source software and the freedom it gives developers.">
 
 
 
 
 
 
-<link rel="canonical" href="/blog/announcing-enmeshed-v2">
+
+  <meta property="article:published_time" content="2023-04-06T00:00:00+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/blog/announcing-ferretdb-compatibility">
 
 
 
@@ -266,16 +266,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Announcing Enmeshed V2">
-    <meta itemprop="description" content="We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.">
-    <meta itemprop="datePublished" content="2022-06-27T00:00:00+02:00">
+    <meta itemprop="headline" content="FerretDB compatibility for the Enmeshed Connector">
+    <meta itemprop="description" content="At Enmeshed, we believe in the importance of open-source software and the freedom it gives developers.">
+    <meta itemprop="datePublished" content="2023-04-06T00:00:00+02:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="/blog/announcing-enmeshed-v2" class="u-url" itemprop="url">Announcing Enmeshed V2
+            <a href="/blog/announcing-ferretdb-compatibility" class="u-url" itemprop="url">FerretDB compatibility for the Enmeshed Connector
 </a>
           </h1>
           
@@ -292,7 +292,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          2 minute read
+          1 minute read
         
       </span>
     
@@ -304,39 +304,33 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <p>We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.</p>
+        <p>At Enmeshed, we believe in the importance of open-source software and the freedom it gives developers.</p>
 
-<h2 id="attributes">Attributes</h2>
+<p>MongoDB is licensed under the Server Side Public License (SSPL) and from the start of our project we knew that we needed to find an alternative database solution for the Enmeshed Connector. After researching and testing several options, we found <a href="https://www.ferretdb.io/">FerretDB</a> to be a suitable truly open source replacement for MongoDB.</p>
 
-<p>Attributes in Enmeshed have been a huge pain point during the integration using the Enmeshed Connector but also while using the Enmeshed App as an end User. For Enmeshed V2 we are working on a new way to handle, store and transfer Attributes.</p>
+<h2 id="what-is-ferretdb">What is FerretDB?</h2>
 
-<p>For an overview of the changes regarding Attributes, please refer to the <a href="/blog/announcing-enmeshed-v2-attributes">corresponding blog post</a>.</p>
+<p><a href="https://www.ferretdb.io/">FerretDB</a> acts as a drop-in replacement for MongoDB. It does this by proxying the MongoDB wire protocol and translating it to SQL, using PostgreSQL as the database engine.</p>
 
-<h2 id="requests">Requests</h2>
+<p>More information about FerretDBs architecture can be found <a href="https://docs.ferretdb.io/understanding-ferretdb/">in their docs</a>.</p>
 
-<p>Requests in Enmeshed always defined a way to exchange structured data. In Enmeshed V1 this was exclusively about Attributes. Requests in V2 will also be able to exchange data without persisting them to the User’s Attributes, e.g. using a form.</p>
+<p>This means that the Enmeshed Connector can now also be used with the PostgreSQL database, <a href="https://github.com/nmshd/feedback/issues/13">as requested some time ago</a>.</p>
 
-<p>In Enmeshed V1 <code class="language-plaintext highlighter-rouge">RelationshipTemplates</code> and <code class="language-plaintext highlighter-rouge">RequestMails</code> each defined their own way for exchanging Attributes. Further only the App could process them. When integrating via the Connector you had to manually process all Requests. For V2 we pulled the Request handling <a href="/explore#layers">from the User-Experience Layer to the Consumption layer</a>. This enabled us to provide you with an API in the Connector to work with Requests. It also helped us making Request handling more flexible and easier to use.</p>
+<h2 id="how-did-we-make-sure-that-ferretdb-is-compatible-with-the-enmeshed-connector">How did we make sure that FerretDB is compatible with the Enmeshed Connector?</h2>
 
-<p>For an overview of Requests, please refer to the <a href="/blog/announcing-enmeshed-v2-requests">corresponding blog post</a>.</p>
+<p>Our team has worked hard to integrate FerretDB into our product. We tested extensively, made the necessary adjustments and provided feedback to the FerretDB team to ensure compatibility. As a result all libraries that were previously tested against MongoDB are now also tested against FerretDB during development and for each release in our CI/CD pipeline.</p>
 
-<h2 id="backwards-compatibility">Backwards compatibility</h2>
+<h2 id="how-to-use-ferretdb-with-the-enmeshed-connector">How to use FerretDB with the Enmeshed Connector?</h2>
 
-<p>All these new features required a huge amount of changes behind the scenes. If we wanted to be backwards compatible, we would have had to spend a lot of extra work, which would have delayed the release by several weeks. Therefore we decided to pay the price that comes with this backwards incompatibility in favor of the earlier release date.</p>
+<p>The simplest way to deploy the Connector with a FerretDB instance is the <a href="/integrate/helm-chart">Connector Helm Chart</a>. We updated the Chart to include FerretDB as an optional sidecar container, which can be enabled by setting <code class="language-plaintext highlighter-rouge">pod.ferretdb.enabled</code> to <code class="language-plaintext highlighter-rouge">true</code>.</p>
 
-<p>Backwards incompatiblity in this case means that all the data stored by the App and Connector V1 will be invalid and cannot be used anymore.</p>
+<p>We also updated the <a href="/integrate/connector-installation">Connector Installation Guide</a> with an option to deploy the Connector and FerretDB using Docker Compose.</p>
 
-<p>If you need a compatibility of V1 and V2, please contact us <a href="https://www.js-soft.com/enmeshed/">here</a> and we will try to sort out a solution.</p>
+<h2 id="conclusion">Conclusion</h2>
 
-<h2 id="getting-prereleases">Getting Prereleases</h2>
+<p>At Enmeshed, we are proud to have found a suitable open-source replacement for MongoDB and we are confident that it will meet our needs and provide a reliable solution for our users.</p>
 
-<p>During the development of Enmeshed V2 we will continue to publish new versions of the Connector and the app.</p>
-
-<p>If you are curious you can already check out one of the early <a href="https://github.com/nmshd/cns-connector/pkgs/container/connector/versions">Connector versions</a> tagged as <code class="language-plaintext highlighter-rouge">alpha</code>. Keep in mind that these are highly experimental and shouldn’t be used in production scenarios, because there can be API changes at any time.</p>
-
-<h2 id="feedback">Feedback</h2>
-
-<p>As always we are happy to hear from you through the usual channels! Feel free to share your thoughts and feedback and discuss the changes in the <a href="https://github.com/nmshd/feedback/discussions/17">V2 GitHub Discussion</a>.</p>
+<p>Thanks to FerretDB we are now able to offer the Enmeshed Connector with PostgreSQL, so developers can continue to use open-source software and enjoy the freedom it gives.</p>
 
         
       </section>
@@ -355,7 +349,7 @@
     
       <a href="/tags/announcement" class="page__taxonomy-item p-category" rel="tag">announcement</a><span class="sep">, </span>
     
-      <a href="/tags/v2" class="page__taxonomy-item p-category" rel="tag">v2</a>
+      <a href="/tags/connector" class="page__taxonomy-item p-category" rel="tag">connector</a>
     
     </span>
   </p>
@@ -380,30 +374,29 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-06-27T00:00:00+02:00">June 27, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-04-06T00:00:00+02:00">April 6, 2023</time></p>
 
       </footer>
 
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=Announcing+Enmeshed+V2%20%2Fblog%2Fannouncing-enmeshed-v2" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=FerretDB+compatibility+for+the+Enmeshed+Connector%20%2Fblog%2Fannouncing-ferretdb-compatibility" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=%2Fblog%2Fannouncing-enmeshed-v2" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=%2Fblog%2Fannouncing-ferretdb-compatibility" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2Fblog%2Fannouncing-enmeshed-v2" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2Fblog%2Fannouncing-ferretdb-compatibility" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/blog/webhooks-v2-connector-module" class="pagination--pager" title="The new webhooks Connector Module
+      <a href="/blog/road-to-enmeshed-v2" class="pagination--pager" title="The (bumpy) road to Enmeshed V2
 ">Previous</a>
     
     
-      <a href="/blog/announcing-enmeshed-v2-attributes" class="pagination--pager" title="Announcing Enmeshed V2 Attributes
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -417,46 +410,6 @@
     <div class="page__related">
       <h2 class="page__related-title">You May Also Enjoy</h2>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/blog/announcing-ferretdb-compatibility" rel="permalink">FerretDB compatibility for the Enmeshed Connector
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">At Enmeshed, we believe in the importance of open-source software and the freedom it gives developers.
-</p>
-  </article>
-</div>
-
         
           
 
@@ -573,6 +526,46 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">This is one of the blog posts regarding Enmeshed V2. For an overview of all V2 blog posts, please refer to the V2 announcement blog post.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/announcing-enmeshed-v2" rel="permalink">Announcing Enmeshed V2
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">We are currently working on Enmeshed version 2. We got a lot of feedback from the community and so we are improving Enmeshed in different areas to tackle it.
 </p>
   </article>
 </div>
