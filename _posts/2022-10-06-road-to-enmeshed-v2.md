@@ -1,6 +1,6 @@
 ---
 title: "The (bumpy) road to Enmeshed V2"
-date: 2022-10-06T16:00:00+02:00
+date: 2022-10-06
 categories:
   - blog
 tags:
