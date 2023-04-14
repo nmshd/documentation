@@ -75,7 +75,7 @@ In order to make sure the Request and its items are valid you can validate it by
               "owner": "",
               "value": {
                 "@type": "DisplayName",
-                "value": "ConnectorV2 Demo"
+                "value": "Connector Tutorial"
               }
             },
             "sourceAttributeId": "<the id of the attribute created above>"
