@@ -44,7 +44,7 @@ In order to share an Attribute via a Relationship Template, we need to create on
 }
 ```
 
-You can query the Connector's Address under the route `/api/v2/Account/IdentityInfo`. If you are using the Demo Connector of this Tutorial, the Address is `id1DpGUgSDKxiYerQ1bNbiqH8aWahTByvc6q`.
+You can query the Connector's Address under the route `/api/v2/Account/IdentityInfo`. If you are using the Demo Connector of this Tutorial, the Address is `id134nJmN7E4Carb6KyRJyePVnXxVHEYQgWD`.
 {: .notice--info}
 
 {% include rapidoc api_route_regex="^post /api/v2/Attributes$" %}
