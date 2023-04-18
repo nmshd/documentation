@@ -6,14 +6,14 @@ type: scenario
 properties:
   - id: SC57
   - category: Manage attributes of others
-  - description: 
+  - description:
   - customer: All
-  - component: 
-  - level: 
-  - implementation status: 
-  - documentation status: 
-  - published: 
-  - link to lucid: 
+  - component:
+  - level:
+  - implementation status:
+  - documentation status:
+  - published:
+  - link to lucid:
 require:
 required_by:
 ---

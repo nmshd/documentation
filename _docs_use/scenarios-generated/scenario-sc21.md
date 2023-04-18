@@ -6,14 +6,14 @@ type: scenario
 properties:
   - id: SC21
   - category: Organizing contacts
-  - description: 
+  - description:
   - customer: All
   - component: App
   - level: Advanced
   - implementation status: IDEA
   - documentation status: OPEN
-  - published: 
-  - link to lucid: 
+  - published:
+  - link to lucid:
 require:
 required_by:
 ---

@@ -6,14 +6,14 @@ type: scenario
 properties:
   - id: SC12
   - category: Handling your personal data
-  - description: 
+  - description:
   - customer: All
   - component: App
   - level: Beginner
   - implementation status: DONE
   - documentation status: OPEN
-  - published: 
-  - link to lucid: 
+  - published:
+  - link to lucid:
 require:
 required_by:
 ---

@@ -6,14 +6,14 @@ type: scenario
 properties:
   - id: SC10
   - category: Use multiple Devices to access one Identity
-  - description: 
+  - description:
   - customer: All
   - component: App
   - level: Advanced
   - implementation status: IDEA
   - documentation status: OPEN
-  - published: 
-  - link to lucid: 
+  - published:
+  - link to lucid:
 require:
 required_by:
 ---

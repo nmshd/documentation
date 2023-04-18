@@ -6,14 +6,14 @@ type: scenario
 properties:
   - id: SC34
   - category: Requesting authentication
-  - description: 
+  - description:
   - customer: All
   - component: Connector
   - level: Advanced
   - implementation status: DONE
   - documentation status: OPEN
-  - published: 
-  - link to lucid: 
+  - published:
+  - link to lucid:
 require:
 required_by:
 ---

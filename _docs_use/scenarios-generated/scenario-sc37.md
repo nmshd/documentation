@@ -6,14 +6,14 @@ type: scenario
 properties:
   - id: SC37
   - category: Working with requests
-  - description: 
+  - description:
   - customer: All
   - component: Connector
   - level: Advanced
   - implementation status: DOCS ONLY
   - documentation status: OPEN
-  - published: 
-  - link to lucid: 
+  - published:
+  - link to lucid:
 require:
 required_by:
 ---

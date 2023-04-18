@@ -6,14 +6,14 @@ type: scenario
 properties:
   - id: SC5
   - category: Identity Basics
-  - description: 
+  - description:
   - customer: All
   - component: App
   - level: Beginner
   - implementation status: OPEN
   - documentation status: OPEN
-  - published: 
-  - link to lucid: 
+  - published:
+  - link to lucid:
 require:
 required_by:
 ---

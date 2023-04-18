@@ -6,14 +6,14 @@ type: scenario
 properties:
   - id: SC52
   - category: Manage attributes of others
-  - description: 
+  - description:
   - customer: All
   - component: Connector
   - level: Beginner
   - implementation status: DONE
   - documentation status: OPEN
-  - published: 
-  - link to lucid: 
+  - published:
+  - link to lucid:
 require:
 required_by:
 ---

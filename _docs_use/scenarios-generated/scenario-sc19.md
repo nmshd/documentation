@@ -6,14 +6,14 @@ type: scenario
 properties:
   - id: SC19
   - category: Get in touch with other Identities
-  - description: 
+  - description:
   - customer: All
   - component: App
   - level: Advanced
   - implementation status: DOCS ONLY
   - documentation status: OPEN
-  - published: 
-  - link to lucid: 
+  - published:
+  - link to lucid:
 require:
 required_by:
 ---

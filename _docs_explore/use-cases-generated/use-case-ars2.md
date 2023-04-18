@@ -16,7 +16,7 @@ properties:
   - actor: AppRuntime
   - component: AppRuntime
   - trigger: A wrong pin / password in the Profile Login has been entered multiple times
-  - precondition: A pin / password has been set up for this Profile 
+  - precondition: A pin / password has been set up for this Profile
   - result:
   - priority: LOW
   - complexity: MEDIUM

@@ -6,14 +6,14 @@ type: scenario
 properties:
   - id: SC8
   - category: Working with multiple Identities
-  - description: 
+  - description:
   - customer: All
   - component: App
   - level: Advanced
   - implementation status: OPEN
   - documentation status: OPEN
-  - published: 
-  - link to lucid: 
+  - published:
+  - link to lucid:
 require:
 required_by:
 ---

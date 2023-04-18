@@ -6,14 +6,14 @@ type: scenario
 properties:
   - id: SC43
   - category: Handling events
-  - description: 
+  - description:
   - customer: All
   - component: Connector
   - level: Advanced
   - implementation status: DOCS ONLY
   - documentation status: OPEN
-  - published: 
-  - link to lucid: 
+  - published:
+  - link to lucid:
 require:
 required_by:
 ---
