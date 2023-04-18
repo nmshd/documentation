@@ -4,16 +4,16 @@ published: false
 title: "Upgrade existing online accounts to enmeshed"
 type: scenario
 properties:
- - id: SC14
- - category: Get in touch with other Identities
- - description: 
- - customer: All
- - component: App
- - level: Beginner
- - implementation status: DONE
- - documentation status: OPEN
- - published: 
- - link to lucid: 
+  - id: SC14
+  - category: Get in touch with other Identities
+  - description: 
+  - customer: All
+  - component: App
+  - level: Beginner
+  - implementation status: DONE
+  - documentation status: OPEN
+  - published: 
+  - link to lucid: 
 require:
 required_by:
 ---
