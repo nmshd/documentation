@@ -94,13 +94,14 @@
 </script>
 
 <input type="text" id="searchByNameInput" onkeyup="searchByName()" placeholder="Search for title.." />
-{% assign use-cases = site.docs_explore | where: "type", "use-case" %}
+{% assign scenarios = site.docs_use | where: "type", "scenario" %}
+
 <table id="myTable" style="width: 100%; display: table">
     <tr>
-        <th style="width: 20%">Title</th>
-        <th style="width: 20%">
+        <th style="width: 30%">Title</th>
+        <th style="width: 30%">
             <div class="container">
-                <div class="select-btn">Layer ⌄</div>
+                <div class="select-btn">Category ⌄</div>
 
                 <ul class="list-items" id="category">
                     <li class="item checked">
@@ -114,9 +115,9 @@
                 </ul>
             </div>
         </th>
-        <th style="width: 15%">
+        <th style="width: 20%">
             <div class="container">
-                <div class="select-btn">Actor ⌄</div>
+                <div class="select-btn">customer ⌄</div>
 
                 <ul class="list-items" id="implementation">
                     <li class="item checked">
@@ -130,19 +131,7 @@
                 </ul>
             </div>
         </th>
-        <th style="width: 15%">
-            <div class="container">
-                <div class="select-btn">Category ⌄</div>
-
-                <ul class="list-items" id="component">
-                    <li class="item checked">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">App</span>
-                    </li>
-                </ul>
-            </div>
-        </th>
-        <th style="width: 15%">
+        <th style="width: 20%">
             <div class="container">
                 <div class="select-btn">Component ⌄</div>
 
@@ -154,31 +143,17 @@
                 </ul>
             </div>
         </th>
-        <th style="width: 10%">
-            <div class="container">
-                <div class="select-btn">Status ⌄</div>
-
-                <ul class="list-items" id="component">
-                    <li class="item checked">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">App</span>
-                    </li>
-                </ul>
-            </div>
-        </th>
     </tr>
-    {% for use-case in use-cases%}
+    {% for scenario in scenarios %} {% assign status = scenario.properties | map:"documentation status" %}{% if status contains "DONE" %} {%- else -%}
     <tr>
         <td>
-            <a href="{{ use-case.url }}"> {{ use-case.title }} </a>
+            <a href="{{ scenario.url }}"> {{ scenario.title }} </a>
         </td>
-        <td>{{ use-case.properties | map:"layer" }}</td>
-        <td>{{ use-case.properties | map:"actor" }}</td>
-        <td>{{ use-case.properties | map:"tech category" }}, {{ use-case.properties | map:"feature category" }}</td>
-        <td>{{ use-case.properties | map:"component" }}</td>
-        <td>{{ use-case.properties | map:"status" }}</td>
+        <td>{{ scenario.properties | map:"category" }}</td>
+        <td>{{ scenario.properties | map:"customer" }}</td>
+        <td>{{ scenario.properties | map:"component" }}</td>
     </tr>
-    {% endfor %}
+    {%- endif -%} {% endfor %}
 </table>
 
 <script>
