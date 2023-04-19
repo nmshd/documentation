@@ -275,7 +275,7 @@ It is not recommended to use this Module for production scenarios.
 
 - **docs:enabled** `default: false`
 
-  It is not possible to enable the docs in [production mode](#mode).
+  It is not possible to enable the docs in [production mode](#debug).
   {: .notice--info}
 
   Enable / disable the `/docs/json` and `/docs/yaml` routes and the rendered swagger / rapidoc documentations.
