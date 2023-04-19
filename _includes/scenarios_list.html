@@ -102,45 +102,19 @@
         <th style="width: 30%">
             <div class="container">
                 <div class="select-btn">Category ⌄</div>
-
-                <ul class="list-items" id="category">
-                    <li class="item checked">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">Use multiple Devices to access one Identity</span>
-                    </li>
-                    <li class="item checked">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">Identity Basics</span>
-                    </li>
-                </ul>
+                <ul class="list-items" id="category"></ul>
             </div>
         </th>
         <th style="width: 20%">
             <div class="container">
                 <div class="select-btn">customer ⌄</div>
-
-                <ul class="list-items" id="implementation">
-                    <li class="item checked">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">DONE</span>
-                    </li>
-                    <li class="item checked">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">IDEA</span>
-                    </li>
-                </ul>
+                <ul class="list-items" id="customer"></ul>
             </div>
         </th>
         <th style="width: 20%">
             <div class="container">
                 <div class="select-btn">Component ⌄</div>
-
-                <ul class="list-items" id="component">
-                    <li class="item checked">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">App</span>
-                    </li>
-                </ul>
+                <ul class="list-items" id="component"></ul>
             </div>
         </th>
     </tr>
@@ -149,13 +123,36 @@
         <td>
             <a href="{{ scenario.url }}"> {{ scenario.title }} </a>
         </td>
-        <td>{{ scenario.properties | map:"category" }}</td>
-        <td>{{ scenario.properties | map:"customer" }}</td>
-        <td>{{ scenario.properties | map:"component" }}</td>
+        <td class="category-list">{{ scenario.properties | map:"category" }}</td>
+        <td class="customer-list">{{ scenario.properties | map:"customer" }}</td>
+        <td class="component-list">{{ scenario.properties | map:"component" }}</td>
     </tr>
     {%- endif -%} {% endfor %}
 </table>
-
+<script>
+    const columns = ["category", "customer", "component"];
+    columns.forEach((element_id) => {
+        const used_elements = [];
+        var ul = document.getElementById(element_id);
+        var category_list = document.getElementsByClassName(element_id + "-list");
+        for (let i = 0; i < category_list.length; i++) {
+            if (!used_elements.includes(category_list[i].innerHTML)) {
+                used_elements.push(category_list[i].innerHTML);
+                var li = document.createElement("li");
+                li.classList.add("item");
+                li.classList.add("checked");
+                var checkbox = document.createElement("SPAN");
+                checkbox.classList.add("checkbox");
+                var text = document.createElement("SPAN");
+                text.classList.add("item-text");
+                text.textContent = category_list[i].innerHTML;
+                li.appendChild(checkbox);
+                li.appendChild(text);
+                ul.appendChild(li);
+            }
+        }
+    });
+</script>
 <script>
     const selectBtns = document.querySelectorAll(".select-btn"),
         items = document.querySelectorAll(".item");

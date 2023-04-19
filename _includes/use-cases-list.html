@@ -102,31 +102,15 @@
             <div class="container">
                 <div class="select-btn">Layer ⌄</div>
 
-                <ul class="list-items" id="category">
-                    <li class="item checked">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">Use multiple Devices to access one Identity</span>
-                    </li>
-                    <li class="item checked">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">Identity Basics</span>
-                    </li>
-                </ul>
+                <ul class="list-items" id="layer"></ul>
             </div>
         </th>
         <th style="width: 15%">
             <div class="container">
                 <div class="select-btn">Actor ⌄</div>
 
-                <ul class="list-items" id="implementation">
-                    <li class="item checked">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">DONE</span>
-                    </li>
-                    <li class="item checked">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">IDEA</span>
-                    </li>
+                <ul class="list-items" id="actor">
+                    <li class="item checked"></li>
                 </ul>
             </div>
         </th>
@@ -134,36 +118,21 @@
             <div class="container">
                 <div class="select-btn">Category ⌄</div>
 
-                <ul class="list-items" id="component">
-                    <li class="item checked">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">App</span>
-                    </li>
-                </ul>
+                <ul class="list-items" id="category"></ul>
             </div>
         </th>
         <th style="width: 15%">
             <div class="container">
                 <div class="select-btn">Component ⌄</div>
 
-                <ul class="list-items" id="component">
-                    <li class="item checked">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">App</span>
-                    </li>
-                </ul>
+                <ul class="list-items" id="component"></ul>
             </div>
         </th>
         <th style="width: 10%">
             <div class="container">
                 <div class="select-btn">Status ⌄</div>
 
-                <ul class="list-items" id="component">
-                    <li class="item checked">
-                        <span class="checkbox"> </span>
-                        <span class="item-text">App</span>
-                    </li>
-                </ul>
+                <ul class="list-items" id="status"></ul>
             </div>
         </th>
     </tr>
@@ -172,15 +141,38 @@
         <td>
             <a href="{{ use-case.url }}"> {{ use-case.title }} </a>
         </td>
-        <td>{{ use-case.properties | map:"layer" }}</td>
-        <td>{{ use-case.properties | map:"actor" }}</td>
-        <td>{{ use-case.properties | map:"tech category" }}, {{ use-case.properties | map:"feature category" }}</td>
-        <td>{{ use-case.properties | map:"component" }}</td>
-        <td>{{ use-case.properties | map:"status" }}</td>
+        <td class="layer-list">{{ use-case.properties | map:"layer" }}</td>
+        <td class="actor-list">{{ use-case.properties | map:"actor" }}</td>
+        <td class="category-list">{{ use-case.properties | map:"tech category" }}, {{ use-case.properties | map:"feature category" }}</td>
+        <td class="component-list">{{ use-case.properties | map:"component" }}</td>
+        <td class="status-list">{{ use-case.properties | map:"status" }}</td>
     </tr>
     {% endfor %}
 </table>
-
+<script>
+    const columns = ["layer", "actor", "category", "component", "status"];
+    columns.forEach((element_id) => {
+        const used_elements = [];
+        var ul = document.getElementById(element_id);
+        var category_list = document.getElementsByClassName(element_id + "-list");
+        for (let i = 0; i < category_list.length; i++) {
+            if (!used_elements.includes(category_list[i].innerHTML)) {
+                used_elements.push(category_list[i].innerHTML);
+                var li = document.createElement("li");
+                li.classList.add("item");
+                li.classList.add("checked");
+                var checkbox = document.createElement("SPAN");
+                checkbox.classList.add("checkbox");
+                var text = document.createElement("SPAN");
+                text.classList.add("item-text");
+                text.textContent = category_list[i].innerHTML;
+                li.appendChild(checkbox);
+                li.appendChild(text);
+                ul.appendChild(li);
+            }
+        }
+    });
+</script>
 <script>
     const selectBtns = document.querySelectorAll(".select-btn"),
         items = document.querySelectorAll(".item");
@@ -200,6 +192,8 @@
             elements[1] = new Array();
             elements[2] = new Array();
             elements[3] = new Array();
+            elements[4] = new Array();
+            elements[5] = new Array();
             checked.forEach((element) => {
                 elements[element.parentElement.parentElement.parentElement.cellIndex].push(element.innerText.replace(/[\n\r]+|[\s]{2,}/g, ""));
             });
