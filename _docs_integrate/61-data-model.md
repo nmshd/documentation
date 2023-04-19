@@ -30,7 +30,7 @@ Tokens can be used to save arbitrary structured data on the Backbone, which is e
 - You want to share secret information with someone you don't have a Relationship with.
 - The Enmeshed App currently uses a Token to save a Backup of the Identity. ID and secret key are then encoded in a QR Code, which the user can print out and scan later in order to restore the Identity on a new device.
 
-A token has the following properties:
+A Token has the following properties:
 
 | Name               | Type      | Description                                                                                                                                                               | Remarks                                       |
 | ------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
@@ -42,7 +42,7 @@ A token has the following properties:
 | expiresAt          | `string`  | {% include descr_expiresAt class="Token" %}                                                                                                                               |                                               |
 | secretKey          | `string`  | {% include descr_secretKey class="Token" %}                                                                                                                               | saved only locally                            |
 | truncatedReference | `string`  | {% include descr_truncatedReference class="Token" %}                                                                                                                      | saved only locally                            |
-| isEphemeral        | `boolean` | If set to `true` the token will not be cached in the database and only displayed once. You will not be able to fetch this Token unless you remember its id and secretKey. |
+| isEphemeral        | `boolean` | If set to `true` the Token will not be cached in the database and only displayed once. You will not be able to fetch this Token unless you remember its id and secretKey. |
 
 ## RelationshipTemplate
 
