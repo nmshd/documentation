@@ -92,3 +92,42 @@ Create a file named `values.yaml` with the desired configuration and run the fol
 ```bash
 helm install <installationName> oci://ghcr.io/nmshd/connector-helm-chart --version <version> -f values.yaml
 ```
+
+### Installation with FerretDB `all-in-one`
+
+The Helm chart can be configured to deploy a FerretDB `all-in-one` instance as a sidecar. This is useful for testing purposes.
+
+```yaml
+config:
+  debug: true
+  modules:
+    coreHttpApi:
+      docs:
+        enabled: true
+  database:
+    connectionString: "mongodb://localhost:27017"
+
+pod:
+  connector:
+    environment:
+      - name: transportLibrary__platformClientId
+        alueFrom:
+          secretKeyRef:
+            name: platform-client-id
+            key: VALUE
+      - name: transportLibrary__platformClientSecret
+        valueFrom:
+          secretKeyRef:
+            name: platform-client-secret
+            key: VALUE
+
+      - name: infrastructure__httpServer__apiKey
+        valueFrom:
+          secretKeyRef:
+            name: api-key
+            key: VALUE
+
+  ferretdb:
+    enabled: true
+    image: all-in-one
+```
