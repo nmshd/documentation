@@ -33,6 +33,7 @@ You can also query the available options using the command line: `helm show valu
 | `pod.connector.containerPort`   | The port the Connector is listening on. Must be the same as `infrastructure.httpServer.port` in the `config`.                                                                                             | `80`                           |
 |                                 |                                                                                                                                                                                                           |                                |
 | `pod.ferretdb.enabled`          | Enables / disables the FerretDB sidecar.                                                                                                                                                                  | false                          |
+| `pod.ferretdb.image`            | The image used to deploy the FerretDB sidecar. Can be `ferretdb` `ferretdb-dev` or `all-in-one`                                                                                                           | `"ferretdb"`                   |
 | `pod.ferretdb.tag`              | The tag used to deploy the FerretDB sidecar.                                                                                                                                                              | `"latest"`                     |
 | `pod.ferretdb.environment`      | A list of [environment variables](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#environment-variables) for the FerretDB container. Can be used for configuring secrets.  | `[]`                           |
 | `pod.ferretdb.securityContext`  | [SecurityContext](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context-1) for the FerretDB container.                                                          | `{}`                           |
@@ -90,4 +91,43 @@ Create a file named `values.yaml` with the desired configuration and run the fol
 
 ```bash
 helm install <installationName> oci://ghcr.io/nmshd/connector-helm-chart --version <version> -f values.yaml
+```
+
+### Installation with FerretDB `all-in-one`
+
+The Helm chart can be configured to deploy a FerretDB `all-in-one` instance as a sidecar. This image does not provide persistence, therefore this is useful e.g. for testing purposes or for a quick start.
+
+```yaml
+config:
+  debug: true
+  modules:
+    coreHttpApi:
+      docs:
+        enabled: true
+  database:
+    connectionString: "mongodb://localhost:27017"
+
+pod:
+  connector:
+    environment:
+      - name: transportLibrary__platformClientId
+        alueFrom:
+          secretKeyRef:
+            name: platform-client-id
+            key: VALUE
+      - name: transportLibrary__platformClientSecret
+        valueFrom:
+          secretKeyRef:
+            name: platform-client-secret
+            key: VALUE
+
+      - name: infrastructure__httpServer__apiKey
+        valueFrom:
+          secretKeyRef:
+            name: api-key
+            key: VALUE
+
+  ferretdb:
+    enabled: true
+    image: all-in-one
 ```
