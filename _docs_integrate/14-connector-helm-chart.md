@@ -95,7 +95,7 @@ helm install <installationName> oci://ghcr.io/nmshd/connector-helm-chart --versi
 
 ### Installation with FerretDB `all-in-one`
 
-The Helm chart can be configured to deploy a FerretDB `all-in-one` instance as a sidecar. This is useful for testing purposes.
+The Helm chart can be configured to deploy a FerretDB `all-in-one` instance as a sidecar. This image does not provide persistence, therefore this is useful e.g. for testing purposes or for a quick start.
 
 ```yaml
 config:
