@@ -21,8 +21,8 @@ docs_explore:
         url: /explore/features
       - title: "Use Cases"
         url: /explore/use-cases
-      - title: "Screens"
-        url: /explore/screens
+      # - title: "Screens"
+      #   url: /explore/screens
       - title: "Frequently Asked Questions"
         url: /explore/faq
 
