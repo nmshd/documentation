@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Enmeshed is a home of various open source components, making the digital life
   of users and organizations easier.
 github_username: nmshd
-repository: "nmshd/nmshd.github.io"
+repository: "nmshd/documentation"
 minimal_mistakes_skin: air
 search: true
 

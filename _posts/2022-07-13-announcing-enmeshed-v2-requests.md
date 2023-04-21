@@ -1,6 +1,6 @@
 ---
 title: "Announcing Enmeshed v2 Requests"
-date: 2022-07-13T1:00:00+02:00
+date: 2022-07-13
 categories:
   - blog
 tags:

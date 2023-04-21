@@ -1,4 +1,4 @@
-# nmshd.github.io
+# documentation
 
 This is the source code of the Enmeshed Documentation hosted at [enmeshed.eu](https://enmeshed.eu).
 

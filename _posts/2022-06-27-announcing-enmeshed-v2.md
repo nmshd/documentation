@@ -1,6 +1,6 @@
 ---
 title: "Announcing Enmeshed V2"
-date: 2022-06-27T12:00:00+02:00
+date: 2022-06-27
 categories:
   - blog
 tags:
