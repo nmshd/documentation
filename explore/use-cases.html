@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Use Cases - Enmeshed</title>
-<meta name="description" content="The list below is a non-complete list of use cases within Enmeshed:">
+<meta name="description" content="">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="/explore/use-cases">
 
 
-  <meta property="og:description" content="The list below is a non-complete list of use cases within Enmeshed:">
+  <meta property="og:description" content="">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-04-21T09:07:25+02:00">
+  <meta property="article:published_time" content="2023-04-21T11:03:15+02:00">
 
 
 
@@ -118,7 +118,7 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/use">Use</a>
+              <a href="/use/basics">Use</a>
             </li><li class="masthead__menu-item">
               <a href="/explore">Explore</a>
             </li><li class="masthead__menu-item">
@@ -281,8 +281,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Use Cases">
-    <meta itemprop="description" content="The list below is a non-complete list of use cases within Enmeshed:">
-    <meta itemprop="datePublished" content="2023-04-21T09:07:25+02:00">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2023-04-21T11:03:15+02:00">
     
 
     <div class="page__inner-wrap">
@@ -300,152 +300,1922 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <p>The list below is a non-complete list of use cases within Enmeshed:</p>
+        <!-- markdownlint-disable MD011 -->
+<style>
+    .container {
+        position: relative;
+        max-width: 320px;
+        width: 100%;
+    }
+    .select-btn {
+        display: flex;
+        cursor: pointer;
+    }
 
-<ul>
-  <li>
-    <p>Runtime</p>
+    .list-items {
+        position: relative;
+        padding: 16px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        display: none;
+        position: fixed;
+        background-color: #fff;
+        z-index: 1;
+    }
+    .select-btn.open ~ .list-items {
+        display: block;
+    }
+    .list-items .item {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    .item .item-text {
+        font-weight: 400;
+    }
+    .item .checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 16px;
+        width: 16px;
+        border-radius: 4px;
+        margin-right: 12px;
+        border: 1.5px solid #c0c0c0;
+        transition: all 0.3s ease-in-out;
+    }
+    .item.checked .checkbox {
+        background-color: #0092ca;
+        border-color: #0092ca;
+    }
+</style>
 
-    <ul>
-      <li>Anonymous
-        <ul>
-          <li>Load peer token anonymous by id and key</li>
-          <li>Load peer token anonymous by truncated reference</li>
-          <li>Get version information</li>
-          <li>Login to identity</li>
-        </ul>
-      </li>
-      <li>
-        <p>Transport</p>
+<script>
+    function searchByName() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchByNameInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
 
-        <ul>
-          <li>Account
-            <ul>
-              <li>Disable auto sync</li>
-              <li>Enable auto sync</li>
-              <li>Get device info</li>
-              <li>Get identity info</li>
-              <li>Get sync info</li>
-              <li>Sync datawallet</li>
-              <li>Sync everything</li>
-            </ul>
-          </li>
-          <li>Devices
-            <ul>
-              <li>Create device</li>
-              <li>Delete device</li>
-              <li>Get device</li>
-              <li>Get device onboarding info</li>
-              <li>Get devices</li>
-              <li>Update device</li>
-            </ul>
-          </li>
-          <li>Files
-            <ul>
-              <li>Download file</li>
-              <li>Get file</li>
-              <li>Get files</li>
-              <li>Get token for file</li>
-              <li>Get token qr-code for file</li>
-              <li>Load peer file</li>
-              <li>Upload own file</li>
-            </ul>
-          </li>
-          <li>Messages
-            <ul>
-              <li>Download attachment</li>
-              <li>Get attachment metadata</li>
-              <li>Get message</li>
-              <li>Get messages</li>
-              <li>Send message</li>
-            </ul>
-          </li>
-          <li>Relationships
-            <ul>
-              <li>Accept relationship change</li>
-              <li>Create relationship</li>
-              <li>Create relationship change</li>
-              <li>Get relationship</li>
-              <li>Get relationships</li>
-              <li>Reject relationship change</li>
-              <li>Revoke relationship change</li>
-            </ul>
-          </li>
-          <li>Relationship templates
-            <ul>
-              <li>Create own relationship template</li>
-              <li>Get relationship template</li>
-              <li>Get relationship templates</li>
-              <li>Get token for own template</li>
-              <li>Get token qr-code for own template</li>
-              <li>Load peer relationship template</li>
-            </ul>
-          </li>
-          <li>
-            <p>Tokens</p>
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+    function filter(input) {
+        // Declare variables
+        var table, tr, td, i, txtValue;
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
 
-            <ul>
-              <li>Create own token</li>
-              <li>Get qr-code for token</li>
-              <li>Get token</li>
-              <li>Get tokens</li>
-              <li>Load peer token</li>
-            </ul>
-          </li>
-          <li>
-            <p>Consumption</p>
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            for (const [key, column] of Object.entries(input)) {
+                td = tr[i].getElementsByTagName("td")[key];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    // Loop through all columns
 
-            <ul>
-              <li>
-                <p>Attributes</p>
+                    if (column.includes(txtValue)) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                        break;
+                    }
+                }
+            }
+        }
+    }
+</script>
 
-                <ul>
-                  <li>Create attribute</li>
-                  <li>Delete attribute</li>
-                  <li>Delete attribute by name</li>
-                  <li>Get all valid</li>
-                  <li>Get attribute</li>
-                  <li>Get attribute by name</li>
-                  <li>Get attributes</li>
-                  <li>Get attributes by name</li>
-                  <li>Get history by name</li>
-                  <li>Suceed attribute</li>
-                  <li>Update attribute</li>
+<p><input type="text" id="searchByNameInput" onkeyup="searchByName()" placeholder="Search for title.." /></p>
+
+<table id="myTable" style="width: 100%; display: table">
+    <tr>
+        <th style="width: 20%">Title</th>
+        <th style="width: 20%">
+            <div class="container">
+                <div class="select-btn">Layer ⌄</div>
+                <ul class="list-items" id="layer"></ul>
+            </div>
+        </th>
+        <th style="width: 15%">
+            <div class="container">
+                <div class="select-btn">Actor ⌄</div>
+                <ul class="list-items" id="actor">
+                    <li class="item checked"></li>
                 </ul>
-              </li>
-              <li>
-                <p>Settings</p>
+            </div>
+        </th>
+        <th style="width: 15%">
+            <div class="container">
+                <div class="select-btn">Category ⌄</div>
+                <ul class="list-items" id="category"></ul>
+            </div>
+        </th>
+        <th style="width: 15%">
+            <div class="container">
+                <div class="select-btn">Component ⌄</div>
+                <ul class="list-items" id="component"></ul>
+            </div>
+        </th>
+        <th style="width: 10%">
+            <div class="container">
+                <div class="select-btn">Status ⌄</div>
+                <ul class="list-items" id="status"></ul>
+            </div>
+        </th>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-a01"> Get app version information </a>
+        </td>
+        <td class="layer-list">User Interface</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">App, </td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-a02"> Start app without parameters </a>
+        </td>
+        <td class="layer-list">User Interface</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">App, </td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-a03"> Start app with parameters by using link </a>
+        </td>
+        <td class="layer-list">User Interface</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">App, </td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-a04"> Show (screen) Screen </a>
+        </td>
+        <td class="layer-list">User Interface</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">App, </td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-a10"> Refresh (screen) Screen </a>
+        </td>
+        <td class="layer-list">User Interface</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">App, </td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-a11"> Navigate to (screen) Screen </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action, </td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-a12"> Select Item (on screen) </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action, </td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-a13"> Enter Data (on screen) </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action, </td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-a14"> Scan QR-Code (on different device) </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action, </td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-a15"> Device External UseCase </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action, </td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-a16"> Positive Action </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action, </td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-a17"> Negative Action </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action, </td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-a18"> Cancel Action </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action, </td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ar1"> Get AppRuntime health status </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">App</td>
+        <td class="category-list">AppRuntime, </td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">CHANGES REQUIRED</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ar2"> Get AppRuntime version information </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">App</td>
+        <td class="category-list">AppRuntime, </td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-arp1"> Create Profile with new Identity </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">Profiles, Multi-profile</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-arp2"> Get Profiles </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">App</td>
+        <td class="category-list">Profiles, Multi-profile</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-arp3"> Get Profile </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">App</td>
+        <td class="category-list">Profiles, Multi-profile</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-arp4"> Get Profile by Enmeshed Address </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">App</td>
+        <td class="category-list">Profiles, Multi-profile</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-arp5"> Clear all profiles </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">Profiles, Multi-profile</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">CHANGES REQUIRED</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-arp6"> Onboard Device by Device Onboarding Token </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">Profiles, Multi-device</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-arp7"> Restore Identity by revovery data </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">Profiles, Identity Hardening</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">OPEN</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ars1"> Select Profile / Profile Login / Create Profile Session </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">Profiles, Multi-profile</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">CHANGES REQUIRED</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ars2"> Notify Backbone of unauthorized Profile access </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">AppRuntime</td>
+        <td class="category-list">Profiles, Identity Hardening</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ars3"> Set-up or change password of Profile </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">Profile, Identity Hardening</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ars4"> Remove Profile from Device </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">Profile, Multi-profile</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">OPEN</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ars5"> Delete Identity from Backbone </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">Profile, </td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">OPEN</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ars6"> Create Identity recovery data </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">Profile, Identity Hardening</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">OPEN</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ars7"> Set-up or change auto logout of Profile </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">Profile, Identity Hardening</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-c01"> Get the Connector version information </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Monitoring, </td>
+        <td class="component-list">Connector</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-c02"> Get the number of requests and the status codes that were returned by the Connector. </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Monitoring, </td>
+        <td class="component-list">Connector</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-c03"> Configure Config Property </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Configuration, </td>
+        <td class="component-list">Connector</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-c04"> POST REST Endpoint </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Integration, </td>
+        <td class="component-list">Connector</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-c05"> GET REST Endpoint </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Integration, </td>
+        <td class="component-list">Connector</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-c06"> PUT REST Endpoint </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Integration, </td>
+        <td class="component-list">Connector</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-c07"> DELETE REST Endpoint </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Integration, </td>
+        <td class="component-list">Connector</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-cr1"> Create Profile with new Identity </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Device</td>
+        <td class="category-list">Bootstrap, </td>
+        <td class="component-list">ConnectorRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-cr2"> Get the Connector health status </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Bootstrap, </td>
+        <td class="component-list">ConnectorRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-cr3"> Get support Information </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Monitoring, </td>
+        <td class="component-list">ConnectorRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-cr4"> Set up global exception handling </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Device</td>
+        <td class="category-list">Bootstrap, </td>
+        <td class="component-list">ConnectorRuntime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-iar1"> Create Automation Rule </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Automation Rules, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-iar2"> Query Automation Rules </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Automation Rules, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-iar3"> Get Automation Rule </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Automation Rules, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-iar4"> Update Automation Rule </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Automation Rules, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-iar5"> Delete Automation Rule </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Automation Rules, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ra1"> Create an Attribute </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes, Normalized attributes</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ra10"> Execute a ThirdPartyAttributeQuery </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes, Cross-identity attribute sharing</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ra11"> Succeed Attribute </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes, Cross-identity attribute sharing</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ra12"> Update Attribute </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes, Normalized attributes</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ra13"> Share Attribute </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes, Cross-identity attribute sharing</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ra14"> Delete shared Attribute </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">OPEN</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ra15"> Create requestItem to delete shared Attribute </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ra2"> Query Attributes </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes, Normalized attributes</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ra3"> Get Attributes of peer </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes, Normalized attributes</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ra4"> Get Attributes shared to peer </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes, Cross-identity attribute sharing</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ra5"> Get Attribute </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes, Normalized attributes</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ra6"> Create a shared Attribute copy </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes, Cross-identity attribute sharing</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ra7"> Delete Attribute </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes, Normalized attributes</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ra8"> Execute an IdentityAttributeQuery </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes, Cross-identity attribute sharing</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ra9"> Execute a RelationshipAttributeQuery </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes, Cross-identity attribute sharing</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ral1"> Query AttributeListeners </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">AttributeListeners, Attribute automation</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ral2"> Get AttributeListener </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">AttributeListeners, Attribute automation</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ral3"> Delete AttributeListener </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">AttributeListeners, Attribute automation</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">OPEN</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rb1"> Create a Blueprint of a Relationship Template </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Blueprint, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rb2"> Query Blueprints </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Blueprint, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rb3"> Get Blueprint </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Blueprint, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rb4"> Update Blueprint </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Blueprint, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rb5"> Delete Blueprint </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Blueprint, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rb6"> Create Relationship Template out of Blueprint </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Blueprint, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rc1"> Create Challenge </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Challenges, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rc2"> Validate Challenge </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Challenges, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rd1"> Create Device </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Devices, Multi-device</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rd2"> Query Devices </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Devices, Multi-device</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rd3"> Get Device </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Devices, Multi-device</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rd4"> Get Device Onboarding Info </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Devices, Multi-device</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rd5"> Get Device Onboarding Token </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Devices, Multi-device</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rd6"> Update Device </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Devices, Multi-device</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rd7"> Delete Device which is not onboarded yet </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Devices, Multi-device</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rd8"> Trigger Device deletion of onboarded Device </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Devices, Multi-device</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rdr1"> Create Draft </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Drafts, Cross-device draft handling</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rdr2"> Query Drafts </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Drafts, Cross-device draft handling</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rdr3"> Get Draft </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Drafts, Cross-device draft handling</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rdr4"> Update Draft </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Drafts, Cross-device draft handling</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rdr5"> Delete Draft </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Drafts, Cross-device draft handling</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rf1"> Upload own File </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Files, Arbitrary large data support</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rf2"> Query Files </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Files, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rf3"> Get own File </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Files, Arbitrary large data support</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rf4"> Get or load File </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Files, Arbitrary large data support</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rf5"> Download File </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Files, Arbitrary large data support</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rf6"> Create Token for File </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Files, Arbitrary large data support</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rf7"> Create QRCode for File </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Files, Arbitrary large data support</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rf8"> Create Token QRCode for File </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Files, Arbitrary large data support</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ri1"> Check Identity by Address </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Identities, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rir1"> Query incoming Requests </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Normalized requests/responses to and from users</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rir10"> Reject incoming Request </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Normalized requests/responses to and from users</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rir2"> Get incoming Request </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Normalized requests/responses to and from users</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rir3"> Set status of incoming Request to received </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Request automation</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rir4"> Set status of incoming Request to check prerequisites </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Request automation</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rir5"> Set status of incoming Request to require manual decision </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Request automation</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rir6"> Set status of incoming Request to complete </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Request automation</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rir7"> Check if incoming Request can be accepted </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Normalized requests/responses to and from users</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rir8"> Accept incoming Request </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Normalized requests/responses to and from users</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rir9"> Check if incoming Request can be rejected </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Normalized requests/responses to and from users</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rk1"> Create own Token </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Tokens, Normalized requests/responses to and from users</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rk2"> Load Token created by others </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Tokens, Share structured information over side-channel</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rk3"> Get Token by TokenID </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Tokens, Share structured information over side-channel</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rk4"> Query Tokens by parameters </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Tokens, Share structured information over side-channel</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rk5"> Get QRCode for single Token </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Tokens, Share structured information over side-channel</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rm1"> Send message to recipient(s) </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Messages, Bidirectional (un-)structured communication</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rm2"> Query Messages </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Messages, Bidirectional (un-)structured communication</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rm3"> Get Message by MessageId </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Messages, Bidirectional (un-)structured communication</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rm4"> Get File Metadata of Attachment </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Messages, Bidirectional (un-)structured communication</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rm5"> Download File of Attachment </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Messages, Bidirectional (un-)structured communication</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ror1"> Check if outgoing Request can be created </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Normalized requests/responses to and from users</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ror2"> Create outgoing Request </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Normalized requests/responses to and from users</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ror3"> Query outgoing Requests </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Normalized requests/responses to and from users</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ror4"> Get outgoing Request </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Normalized requests/responses to and from users</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ror5"> Create and complete outgoing Request from Relationship Template Response </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Normalized requests/responses to and from users</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ror6"> Set status of outgoing Request to sent </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Request automation</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ror7"> Set status of outgoing Request to complete </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Request automation</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ror8"> Discards outgoing Request </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests, Normalized requests/responses to and from users</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rr1"> Create Relationship with RelationshipTemplate </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Relationships, Mutual peer-to-peer relationships</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rr10"> Pin/mark as favorite relationship </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">Relationships, </td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rr2"> Query Relationships </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Relationships, Mutual peer-to-peer relationships</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rr3"> Get Relationship by RelationshipId </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Relationships, Mutual peer-to-peer relationships</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rr4"> Get Relationship by Address </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Relationships, Mutual peer-to-peer relationships</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rr5"> Get Attributes for Relationship </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Relationships, Mutual peer-to-peer relationships</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rr6"> Accept Relationship Change </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Relationships, Mutual peer-to-peer relationships</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rr7"> Reject Relationship Change </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Relationships, Mutual peer-to-peer relationships</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rr8"> Revoke Relationship Change </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Relationships, Mutual peer-to-peer relationships</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rr9"> Set categorization of relationship </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">Relationships, </td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rri1"> Create requestItem to delete Relationship </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">RequestItems, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rri2"> Create requestItem to inform about forced Relationship deletion </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">RequestItems, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rri3"> Create requestItem to inform about forced Attribute deletion </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">RequestItems, </td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">IDEA</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rs1"> Create Setting </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Settings, Cross-device configuration</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rs2"> Query Settings </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Settings, Cross-device configuration</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rs3"> Get Setting </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Settings, Cross-device configuration</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rs4"> Delete Setting </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Settings, Cross-device configuration</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rs5"> Update Setting </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Settings, Cross-device configuration</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rt1"> Create own RelationshipTemplate </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">RelationshipTemplates, Consent required before any data is shared</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rt2"> Load Relationship Template created by others </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">RelationshipTemplates, Consent required before any data is shared</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rt3"> Query Relationship Templates </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">RelationshipTemplates, Consent required before any data is shared</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rt4"> Get Relationship Template </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">RelationshipTemplates, Consent required before any data is shared</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rt5"> Create QRCode for own Relationship Template </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">RelationshipTemplates, Consent required before any data is shared</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rt6"> Create Token QRCode for own Relationship Template </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">RelationshipTemplates, Consent required before any data is shared</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-rt7"> Create Token for own Relationship Template </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">RelationshipTemplates, Consent required before any data is shared</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ru1"> Get currently used Identity </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Account, Multi-profile</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ru2"> Get currently used Device </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Account, Multi-device</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ru3"> Register PushNotificationToken at Backbone </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Account, Multi-device</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ru4"> Synchronize updates of Backbone </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Account, Synchronization</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ru5"> Synchronize Datawallet updates to Backbone </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Account, Multi-device synchronization</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ru6"> Get synchronization status with Backbone </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Account, Multi-device synchronization</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ru7"> Enable automated Datawallet synchronization with Backbone </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Account, Multi-device synchronization</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ru8"> Disable automated Datawallet synchronization with Backbone </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Account, Multi-device synchronization</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ru9"> Load item from truncated reference </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Account, Share information over side-channel</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">QUESTIONS</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ry1"> Load Token by truncated reference (without having an account) </a>
+        </td>
+        <td class="layer-list">Anonymous</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">AnonymousTokens, Share information over side-channel</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/explore/use-case-ry2"> Load Token by id and key (without having an account) </a>
+        </td>
+        <td class="layer-list">Anonymous</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">AnonymousTokens, Share information over side-channel</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
 
-                <ul>
-                  <li>Create setting</li>
-                  <li>Delete setting</li>
-                  <li>Get setting</li>
-                  <li>Get settings</li>
-                  <li>Update setting</li>
-                </ul>
-              </li>
-              <li>
-                <p>Shared items</p>
+</table>
+<script>
+    const columns = ["layer", "actor", "category", "component", "status"];
+    columns.forEach((element_id) => {
+        const used_elements = [];
+        var ul = document.getElementById(element_id);
+        var category_list = document.getElementsByClassName(element_id + "-list");
+        for (let i = 0; i < category_list.length; i++) {
+            if (!used_elements.includes(category_list[i].innerHTML)) {
+                used_elements.push(category_list[i].innerHTML);
+                var li = document.createElement("li");
+                li.classList.add("item");
+                li.classList.add("checked");
+                var checkbox = document.createElement("SPAN");
+                checkbox.classList.add("checkbox");
+                var text = document.createElement("SPAN");
+                text.classList.add("item-text");
+                text.textContent = category_list[i].innerHTML;
+                li.appendChild(checkbox);
+                li.appendChild(text);
+                ul.appendChild(li);
+            }
+        }
+    });
+</script>
 
-                <ul>
-                  <li>Create shared item</li>
-                  <li>Delete shared item</li>
-                  <li>Get shared item</li>
-                  <li>Get shared items</li>
-                  <li>Get shared items by address</li>
-                  <li>Get shared items by reference</li>
-                  <li>Get shared items shared by address</li>
-                  <li>Get shared items shared with address</li>
-                  <li>Update shared item</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+<script>
+    const selectBtns = document.querySelectorAll(".select-btn"),
+        items = document.querySelectorAll(".item");
+    selectBtns.forEach((selectBtn) => {
+        selectBtn.addEventListener("click", () => {
+            selectBtn.classList.toggle("open");
+        });
+    });
+    items.forEach((item) => {
+        item.addEventListener("click", () => {
+            item.classList.toggle("checked");
+            let checked = document.querySelectorAll(".checked");
+            var elements = new Array();
+            elements[1] = new Array();
+            elements[2] = new Array();
+            elements[3] = new Array();
+            elements[4] = new Array();
+            elements[5] = new Array();
+            checked.forEach((element) => {
+                elements[element.parentElement.parentElement.parentElement.cellIndex].push(element.innerText.replace(/[\n\r]+|[\s]{2,}/g, ""));
+            });
+            filter(elements);
+        });
+    });
+</script>
+
 
         
       </section>
@@ -457,7 +2227,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-04-21T09:07:25+02:00">April 21, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-04-21T11:03:15+02:00">April 21, 2023</time></p>
 
       </footer>
 
@@ -466,11 +2236,11 @@
       
   <nav class="pagination">
     
-      <a href="/explore/features" class="pagination--pager" title="Features
+      <a href="/explore" class="pagination--pager" title="Introduction
 ">Previous</a>
     
     
-      <a href="/explore/faq" class="pagination--pager" title="Frequently Asked Questions
+      <a href="/explore/example-scenarios" class="pagination--pager" title="Example Scenarios
 ">Next</a>
     
   </nav>
