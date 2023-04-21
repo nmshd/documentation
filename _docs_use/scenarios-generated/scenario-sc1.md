@@ -15,6 +15,5 @@ properties:
   - published:
   - link to lucid:
 require:
-  - /explore/use-case-rt1
 required_by:
 ---

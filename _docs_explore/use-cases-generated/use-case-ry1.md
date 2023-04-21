@@ -28,7 +28,6 @@ properties:
   - link auf demo:
 require:
 required_by:
-  - /explore/use-case-a01
 ---
 
 {% include properties_list.html %}

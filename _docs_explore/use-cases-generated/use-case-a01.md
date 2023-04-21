@@ -27,9 +27,6 @@ properties:
   - published: default
   - link auf demo:
 require:
-  - /explore/use-case-rs4
-  - /explore/use-case-rt1
-  - /explore/use-case-ry1
 required_by:
 ---
 

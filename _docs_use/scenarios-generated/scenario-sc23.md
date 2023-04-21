@@ -1,6 +1,6 @@
 ---
 permalink: /use/scenario-sc23
-published: true
+published: false
 title: "Archive stale Contacts"
 type: scenario
 properties:
@@ -12,10 +12,8 @@ properties:
   - level: Beginner
   - implementation status: IDEA
   - documentation status: OPEN
-  - published: default
+  - published:
   - link to lucid:
 require:
 required_by:
 ---
-
-{% include properties_list.html %}

@@ -8,10 +8,10 @@ properties:
   - category: Manage attributes of others
   - description:
   - customer: All
-  - component:
-  - level:
-  - implementation status:
-  - documentation status:
+  - component: Connector
+  - level: Advanced
+  - implementation status: OPEN
+  - documentation status: OPEN
   - published:
   - link to lucid:
 require:

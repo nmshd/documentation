@@ -28,9 +28,6 @@ properties:
   - link auf demo:
 require:
 required_by:
-  - /explore/use-case-a01
-  - /explore/use-case-a02
-  - /use/scenatio-sc1
 ---
 
 {% include properties_list.html %}
