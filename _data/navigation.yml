@@ -9,8 +9,6 @@ main:
     url: /contribute
   - title: "Blog"
     url: /blog
-  - title: "v1 Docs (deprecated)"
-    url: /versions/1.0.0
 
 docs_explore:
   - title: First things first

@@ -11,4 +11,4 @@ services:
     volumes:
       - <path-to-config-file>/config.json:/config.json:ro
     #   - </folder/of/your/choice>:/var/log/enmeshed-connector # select an existing directory of your choice where your log files should be saved
-    restart: always
+    restart: on-failure

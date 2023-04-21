@@ -15,7 +15,7 @@
     "modules": {
         "coreHttpApi": {
             "docs": {
-                "enabled": true
+                "enabled": false
             }
         }
     }
