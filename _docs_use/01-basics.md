@@ -1,6 +1,6 @@
 ---
 title: "Basics"
-permalink: /use
+permalink: /use/basics
 published: true
 ---
 
