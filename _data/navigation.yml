@@ -78,12 +78,12 @@ docs_use:
       - title: "Security Recommendations for Apps and End-Users"
         url: /use/security-recommendations
 
-  - title: Scenarios
-    children:
-      - title: "implemented"
-        url: /use/implemented-scenarios
-      - title: "planned"
-        url: /use/planned-scenarios
+  # - title: Scenarios
+  #   children:
+  #     - title: "implemented"
+  #       url: /use/implemented-scenarios
+  #     - title: "planned"
+  #       url: /use/planned-scenarios
 
 docs_integrate:
   - title: Getting Started

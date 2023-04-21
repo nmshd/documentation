@@ -1,7 +1,7 @@
 ---
 title: "Scenarios"
 permalink: /use/implemented-scenarios
-published: true
+published: false
 ---
 
 {% include scenarios_list.html %}
