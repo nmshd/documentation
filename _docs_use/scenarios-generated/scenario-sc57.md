@@ -1,7 +1,7 @@
 ---
 permalink: /use/scenario-sc57
 published: false
-title: ""
+title: "x"
 type: scenario
 properties:
   - id: SC57
@@ -17,3 +17,5 @@ properties:
 require:
 required_by:
 ---
+
+{% include scenarios/scenario-sc57.md %}

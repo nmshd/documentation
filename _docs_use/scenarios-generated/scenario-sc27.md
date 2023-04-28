@@ -1,7 +1,7 @@
 ---
 permalink: /use/scenario-sc27
 published: false
-title: "Requesting persistent consents by Relationship Templates"
+title: "Requesting persistent consents "
 type: scenario
 properties:
   - id: SC27
@@ -15,5 +15,9 @@ properties:
   - published:
   - link to lucid:
 require:
+  - /use/scenatio-sc59
+  - /use/scenatio-sc60
 required_by:
 ---
+
+{% include scenarios/scenario-sc27.md %}

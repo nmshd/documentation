@@ -30,4 +30,4 @@ require:
 required_by:
 ---
 
-{% include properties_list.html %}
+{% include use-cases/use-case-rdr4.md %}

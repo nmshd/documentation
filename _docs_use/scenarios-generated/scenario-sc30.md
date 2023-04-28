@@ -10,10 +10,12 @@ properties:
   - customer: All
   - component: Connector
   - level: Advanced
-  - implementation status: DONE
+  - implementation status: OPEN
   - documentation status: OPEN
   - published:
   - link to lucid:
 require:
 required_by:
 ---
+
+{% include scenarios/scenario-sc30.md %}

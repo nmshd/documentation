@@ -17,3 +17,5 @@ properties:
 require:
 required_by:
 ---
+
+{% include scenarios/scenario-sc49.md %}

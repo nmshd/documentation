@@ -1,7 +1,7 @@
 ---
 permalink: /use/scenario-sc25
 published: false
-title: "Requesting one-time consents by Relationship Templates"
+title: "Requesting one-time consents "
 type: scenario
 properties:
   - id: SC25
@@ -15,5 +15,9 @@ properties:
   - published:
   - link to lucid:
 require:
+  - /use/scenatio-sc59
+  - /use/scenatio-sc60
 required_by:
 ---
+
+{% include scenarios/scenario-sc25.md %}
