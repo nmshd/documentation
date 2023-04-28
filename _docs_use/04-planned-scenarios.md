@@ -1,7 +1,7 @@
 ---
 title: "Scenarios"
 permalink: /use/planned-scenarios
-published: false
+published: true
 ---
 
 <!-- markdownlint-disable MD011 -->
