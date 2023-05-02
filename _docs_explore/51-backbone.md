@@ -6,7 +6,7 @@ toc: true
 
 # Backbone Building Blocks
 
-The Enmeshed Backbone embraces all central services required by the Enmeshed platform to work. It consists of the underlying infrastructure, its hosted services, and the libraries used within the services. There could be many Enmeshed Backbones hosted along the same number of Enmeshed Apps. But careful, so far it is not possible for users to communicate across different Backbones.
+The Enmeshed Backbone embraces all central services required by the Enmeshed platform to work. It consists of the underlying infrastructure, its hosted services, and the libraries used within the services. There could be many Enmeshed Backbones hosted along the same number of Enmeshed Apps. But keep in mind that so far it is not possible for users to communicate across different Backbones.
 
 One Enmeshed Backbone is currently hosted and maintained by j&amp;s-soft GmbH.
 

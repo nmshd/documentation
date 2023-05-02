@@ -41,7 +41,7 @@ First an foremost, a central architecture, hosted by a single third party is qui
 
 A centrally hosted service can be scaled up and down in a very fast and effective way. Thus saving costs, energy and manpower. In addition, the overall throughput is very high.
 
-Speaking of energy: We love our planet. We envisioned a technology / architecture where it is not needed to spend hell-a-lot of energy to solve stupid puzzles only to decide who next is allowed to forge a new block on a blockchain. Those technologies might make sense for certain kinds of scenarios and usecases. But they cannot act as a main pillar for digitalizing whole economies and countries.
+Speaking of energy: We love our planet. We envisioned a technology / architecture where it is not needed to spend a hell of a lot of energy to solve stupid puzzles only to decide who next is allowed to forge a new block on a blockchain. Those technologies might make sense for certain kinds of scenarios and usecases. But they cannot act as a main pillar for digitalizing whole economies and countries.
 
 We acknowledge, that there are decentralized technologies out there, which do not run on proof-of-work principles, primarily those which are based on a round-robin or proof-of-stake principles. Those are however usually linked with another central asset, a management/government layer which needs to be set up on top of the consortium.
 

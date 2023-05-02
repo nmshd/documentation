@@ -5,7 +5,7 @@ permalink: /explore/security
 
 Security is one of the main pillars of digitalization approaches. It might be the most important one.
 
-News are full of hacking, spamming, skimming, phishing, or you-name-it attempts. Even lives are at stake if hospitals are out-of-order because of malware. Users are usually unaware of the security impacts of old device or outdated software. The same applies for organizations just on a much higher scale. In addition, the modern cloud world enables misconfiguration and misunderstanding to be one of the topmost reason of data breaches.
+News are full of hacking, spamming, skimming, phishing, or you-name-it attempts. Even lives are at stake if hospitals are out-of-order because of malware. Users are usually unaware of the security impacts of old devices or outdated software. The same applies for organizations just on a much higher scale. In addition, the modern cloud world enables misconfiguration and misunderstanding to be one of the topmost reason of data breaches.
 
 Enmeshed itself handles very private and sensitive information. We are aware that security must be one of our topmost priorities. And by using Enmeshed, we think that the world would be a lot more secure.
 
@@ -13,7 +13,7 @@ Enmeshed itself handles very private and sensitive information. We are aware tha
 
 Though having a central architecture, Enmeshed cannot access the keys or payload of data within the backbone. Even if there would be a data breach, nobody could really do something with this metadata and encrypted payload.
 
-For us, security is not only to secure the access on the data, but to make the data secure. This applies to the whole communication, be it that the data is completely end-to-end encrypted and digitally signed (so that nobody could change the data in between) or that the encrypted data is additionally persisted on the backbone for a specific set of time. This means, that the encrypted data on the backbone can be accessed by authorized parties (e.g. sender and recipients of messages) as long as it is persisted. The Backbone thus acts as a kind of personal archive.
+For us, security is not only about securing access to data, but making the data itself secure. This applies to the whole communication, be it that the data is completely end-to-end encrypted and digitally signed (so that no one could change the data in between) or that the encrypted data is additionally persisted on the backbone for a specific set of time. This means, that the encrypted data on the backbone can be accessed by authorized parties (e.g. sender and recipients of messages) as long as it is persisted. The Backbone thus acts as a kind of personal archive.
 
 # Backbone Trust
 
@@ -24,15 +24,14 @@ When talking about the Backbone, one has to have trust in it in order to fulfill
 - Do not delay any message
 - Use up-to-date timestamps
 - Generate unique ids for every new item
-- Do not use unique ids twice
 - Do not delete content if it isn't expired yet
-- Do check beforehand, if a file exists for any submitted message attachment
+- Check beforehand, if a file exists for any submitted message attachment
 
 # Web Stack
 
-We do run on a complete web stack, meaning that all Runtime coding so far is developed for a sandboxed web environment. While this sounds scary at first - there are still voices that believe browsers and website to be highly insecure - it introduces a very interesting security measure: It is sandboxed.
+We run on a complete web stack, meaning that all Runtime coding so far is developed for a sandboxed web environment. While this sounds scary at first - there are still people that believe browsers and website to be highly insecure - it introduces a very interesting security measure: It is sandboxed.
 
-Even if malware would be executed within the Enmeshed Runtime, it would need to break out of the sandbox to do evil stuff with the actual device. This applies primarily to the Enmeshed App.
+Even if malware would be executed within the Enmeshed Runtime, it would need to break out of the sandbox to perform malicious activities with the actual device. This applies primarily to the Enmeshed App.
 
 However a malware could still access the data within the Enmeshed Runtime, meaning Enmeshed keys and communication payloads which is highly sensitive data.
 
@@ -49,7 +48,7 @@ For more information on the security of the device, please read the [Security Re
 
 # Communication Security
 
-Enmeshed uses the highest standards of encrypted communication. It is end-to-end encrypted by using public key cryptography between identities. Different keypairs for the identity, for each device and each contact are used to distinguish the different communication areas (technical, multi-factor or contractual). Where possible, random keys are used and shared securely. If a random key is not possible, derived keys from high-entropy master keys (not passwords) are used. Very first keys are exchanged over Key Exchange Protocols, so that as little key material as possible is shared. Please refer to the [Cryptography Section]({% link _docs_explore/62-cryptography.md %}) to get more information about the used algorithms, libraries and methodologies.
+Enmeshed uses the highest standards of encrypted communication. It is end-to-end encrypted by using public key cryptography between identities. Different keypairs for the identity, for each device and each contact are used to distinguish the different communication areas (technical, multi-factor or contractual). Where possible, random keys are used and shared securely. If a random key is not possible, derived keys from high-entropy master keys (not passwords) are used. The very first keys are exchanged over Key Exchange Protocols, so that as little key material as possible is shared. Please refer to the [Cryptography Section]({% link _docs_explore/62-cryptography.md %}) to get more information about the used algorithms, libraries and methodologies.
 
 For technical communication with contacts, the contact-specific signature keypair is used. Thus, every message of Enmeshed contains multiple digital signatures of the same message, one signature per recipient (as the sender communicates with a different private key per contact). The digital signature enforces that only the sender can sign the payload and that nobody in between could tamper with the message itself, e.g. change the message payload.
 
