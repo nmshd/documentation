@@ -1,6 +1,6 @@
 <!-- A general description of the requirement can be given here. -->
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis voluptas deserunt alias accusantium rem? Quaerat, temporibus alias fuga rerum unde dolor blanditiis quia incidunt modi rem, sequi, esse aut accusamus.
+This guide explains how to send and receive a Request over Enmeshed Messages using two Connectors, the first of which sends a Request to the second, and the second accepts or rejects the Request. It provides step-by-step instructions for validating the Request, creating and sending the Request, and accepting or rejecting the Request.
 
 <!-- This include inserts the table with the metadata  -->
 
