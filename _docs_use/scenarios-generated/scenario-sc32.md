@@ -1,7 +1,7 @@
 ---
 permalink: /use/scenario-sc32
 published: false
-title: "Requesting authentication by Relationship Templates"
+title: "Requesting authentication "
 type: scenario
 properties:
   - id: SC32
@@ -15,5 +15,9 @@ properties:
   - published:
   - link to lucid:
 require:
+  - /use/scenatio-sc59
+  - /use/scenatio-sc60
 required_by:
 ---
+
+{% include scenarios/scenario-sc32.md %}
