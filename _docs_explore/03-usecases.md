@@ -145,7 +145,7 @@ published: true
         </td>
         <td class="layer-list">{{ use-case.properties | map:"layer" }}</td>
         <td class="actor-list">{{ use-case.properties | map:"actor" }}</td>
-        <td class="category-list">{{ use-case.properties | map:"tech category" }}, {{ use-case.properties | map:"feature category" }}</td>
+        <td class="category-list">{{ use-case.properties | map:"tech category" }}</td>
         <td class="component-list">{{ use-case.properties | map:"component" }}</td>
         <td class="status-list">{{ use-case.properties | map:"status" }}</td>
     </tr>
