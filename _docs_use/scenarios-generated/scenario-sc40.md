@@ -3,6 +3,7 @@ permalink: /use/scenario-sc40
 published: false
 title: "Process responses to outgoing requests"
 type: scenario
+toc: true
 properties:
   - id: SC40
   - category: Working with requests

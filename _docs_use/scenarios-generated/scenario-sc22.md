@@ -3,6 +3,7 @@ permalink: /use/scenario-sc22
 published: false
 title: "Pin Contacts to have the most prominent Contacts at hand"
 type: scenario
+toc: true
 properties:
   - id: SC22
   - category: Organizing contacts

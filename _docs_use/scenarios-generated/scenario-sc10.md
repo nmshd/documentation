@@ -3,6 +3,7 @@ permalink: /use/scenario-sc10
 published: false
 title: "Remove an onboarded Device from the Identity"
 type: scenario
+toc: true
 properties:
   - id: SC10
   - category: Use multiple Devices to access one Identity

@@ -3,6 +3,7 @@ permalink: /use/scenario-sc13
 published: false
 title: "Share data to contacts"
 type: scenario
+toc: true
 properties:
   - id: SC13
   - category: Handling your personal data

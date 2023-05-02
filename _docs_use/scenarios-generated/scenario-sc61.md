@@ -3,6 +3,7 @@ permalink: /use/scenario-sc61
 published: false
 title: ""
 type: scenario
+toc: true
 properties:
   - id: SC61
   - category:

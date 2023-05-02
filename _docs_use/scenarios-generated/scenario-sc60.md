@@ -3,6 +3,7 @@ permalink: /use/scenario-sc60
 published: true
 title: "Requests over Messages"
 type: scenario
+toc: true
 properties:
   - id: SC60
   - category: Requests
@@ -15,6 +16,7 @@ properties:
   - published: true
   - link to lucid:
 require:
+  - /use/scenatio-sc59
 required_by:
   - /use/scenatio-sc25
   - /use/scenatio-sc27

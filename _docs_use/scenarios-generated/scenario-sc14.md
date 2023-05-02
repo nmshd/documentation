@@ -3,6 +3,7 @@ permalink: /use/scenario-sc14
 published: false
 title: "Upgrade existing online accounts to enmeshed"
 type: scenario
+toc: true
 properties:
   - id: SC14
   - category: Get in touch with other Identities

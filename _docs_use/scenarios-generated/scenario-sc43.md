@@ -3,6 +3,7 @@ permalink: /use/scenario-sc43
 published: false
 title: "Connector event introduction"
 type: scenario
+toc: true
 properties:
   - id: SC43
   - category: Handling events

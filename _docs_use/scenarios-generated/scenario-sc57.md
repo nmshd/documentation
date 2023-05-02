@@ -3,6 +3,7 @@ permalink: /use/scenario-sc57
 published: false
 title: "x"
 type: scenario
+toc: true
 properties:
   - id: SC57
   - category: Manage attributes of others

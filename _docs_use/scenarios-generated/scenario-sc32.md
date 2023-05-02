@@ -3,6 +3,7 @@ permalink: /use/scenario-sc32
 published: false
 title: "Requesting authentication "
 type: scenario
+toc: true
 properties:
   - id: SC32
   - category: Requesting authentication

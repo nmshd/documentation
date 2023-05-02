@@ -3,6 +3,7 @@ permalink: /use/scenario-sc35
 published: false
 title: "Automated authentication management with external system"
 type: scenario
+toc: true
 properties:
   - id: SC35
   - category: Requesting authentication

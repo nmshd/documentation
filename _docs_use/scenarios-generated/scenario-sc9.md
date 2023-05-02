@@ -3,6 +3,7 @@ permalink: /use/scenario-sc9
 published: false
 title: "Set-up an additional Device for the Identity"
 type: scenario
+toc: true
 properties:
   - id: SC9
   - category: Use multiple Devices to access one Identity

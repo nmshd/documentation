@@ -3,6 +3,7 @@ permalink: /use/scenario-sc12
 published: false
 title: "Overview of your shared data"
 type: scenario
+toc: true
 properties:
   - id: SC12
   - category: Handling your personal data

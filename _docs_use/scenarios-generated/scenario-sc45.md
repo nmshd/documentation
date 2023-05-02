@@ -3,6 +3,7 @@ permalink: /use/scenario-sc45
 published: false
 title: "Handling events by AMQP"
 type: scenario
+toc: true
 properties:
   - id: SC45
   - category: Handling events

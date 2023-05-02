@@ -3,6 +3,7 @@ permalink: /use/scenario-sc1
 published: false
 title: "Create an Identity"
 type: scenario
+toc: true
 properties:
   - id: SC1
   - category: Identity Basics

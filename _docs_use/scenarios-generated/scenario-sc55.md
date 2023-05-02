@@ -3,6 +3,7 @@ permalink: /use/scenario-sc55
 published: false
 title: "Process incoming IdentityAttribute deletion requests"
 type: scenario
+toc: true
 properties:
   - id: SC55
   - category: Handling data deletion

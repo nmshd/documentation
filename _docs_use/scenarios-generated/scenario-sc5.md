@@ -3,6 +3,7 @@ permalink: /use/scenario-sc5
 published: false
 title: "Delete Identity from Enmeshed"
 type: scenario
+toc: true
 properties:
   - id: SC5
   - category: Identity Basics

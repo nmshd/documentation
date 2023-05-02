@@ -3,6 +3,7 @@ permalink: /use/scenario-sc16
 published: false
 title: "Scan QR Codes to set up digital communication by printouts"
 type: scenario
+toc: true
 properties:
   - id: SC16
   - category: Get in touch with other Identities

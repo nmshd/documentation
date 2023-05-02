@@ -3,6 +3,7 @@ permalink: /use/scenario-sc59
 published: true
 title: "Requests over Templates"
 type: scenario
+toc: true
 properties:
   - id: SC59
   - category: Requests
@@ -19,6 +20,7 @@ required_by:
   - /use/scenatio-sc25
   - /use/scenatio-sc27
   - /use/scenatio-sc32
+  - /use/scenatio-sc60
 ---
 
 {% include scenarios/scenario-sc59.md %}

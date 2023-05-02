@@ -3,6 +3,7 @@ permalink: /use/scenario-sc6
 published: false
 title: "Recover an existing Identity"
 type: scenario
+toc: true
 properties:
   - id: SC6
   - category: Identity Basics

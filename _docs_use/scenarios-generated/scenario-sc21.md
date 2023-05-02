@@ -3,6 +3,7 @@ permalink: /use/scenario-sc21
 published: false
 title: "Cluster Contacts into your phase of live or categories"
 type: scenario
+toc: true
 properties:
   - id: SC21
   - category: Organizing contacts

@@ -3,6 +3,7 @@ permalink: /use/scenario-sc46
 published: false
 title: "Writing your own Connector module"
 type: scenario
+toc: true
 properties:
   - id: SC46
   - category: Handling events

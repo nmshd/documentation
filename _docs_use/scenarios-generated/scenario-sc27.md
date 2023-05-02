@@ -3,6 +3,7 @@ permalink: /use/scenario-sc27
 published: false
 title: "Requesting persistent consents "
 type: scenario
+toc: true
 properties:
   - id: SC27
   - category: Requesting consent of users

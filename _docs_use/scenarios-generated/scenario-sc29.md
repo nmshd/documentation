@@ -3,6 +3,7 @@ permalink: /use/scenario-sc29
 published: false
 title: "Get users who did not consent to latest version"
 type: scenario
+toc: true
 properties:
   - id: SC29
   - category: Requesting consent of users

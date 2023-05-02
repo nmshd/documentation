@@ -3,6 +3,7 @@ permalink: /use/scenario-sc58
 published: true
 title: "Sending Messages"
 type: scenario
+toc: true
 properties:
   - id: SC58
   - category: Messages

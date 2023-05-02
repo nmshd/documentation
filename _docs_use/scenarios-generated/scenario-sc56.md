@@ -3,6 +3,7 @@ permalink: /use/scenario-sc56
 published: false
 title: "Process incoming Relationship deletion requests"
 type: scenario
+toc: true
 properties:
   - id: SC56
   - category: Handling data deletion

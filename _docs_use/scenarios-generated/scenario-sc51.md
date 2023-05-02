@@ -3,6 +3,7 @@ permalink: /use/scenario-sc51
 published: false
 title: "Request and process attributes by code/link of existing contacts"
 type: scenario
+toc: true
 properties:
   - id: SC51
   - category: Manage attributes of others

@@ -3,6 +3,7 @@ permalink: /use/scenario-sc3
 published: false
 title: "Check Device configuration"
 type: scenario
+toc: true
 properties:
   - id: SC3
   - category: Secure Setup

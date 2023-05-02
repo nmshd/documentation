@@ -3,6 +3,7 @@ permalink: /use/scenario-sc2
 published: false
 title: "Set-up and use Profile authentication"
 type: scenario
+toc: true
 properties:
   - id: SC2
   - category: Secure Setup

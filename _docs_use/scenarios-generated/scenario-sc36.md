@@ -3,6 +3,7 @@ permalink: /use/scenario-sc36
 published: false
 title: "Request and response introduction"
 type: scenario
+toc: true
 properties:
   - id: SC36
   - category: Working with requests

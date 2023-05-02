@@ -3,6 +3,7 @@ permalink: /use/scenario-sc23
 published: false
 title: "Archive stale Contacts"
 type: scenario
+toc: true
 properties:
   - id: SC23
   - category: Organizing contacts

@@ -6,16 +6,25 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis voluptas de
 
 {% include properties_list.html %}
 
-<!-- here is the description in detail  -->
+In order to send messages to recipients, a REST request can be sent with the given `recipients` and message `content`. Different message content structures are possible and defined in the chapter Data Structures. Additionally, an array of file ids can be added for property `attachments` in order to send attachments.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nihil sequi ipsam blanditiis optio nulla quidem tempore sapiente nam, molestiae et voluptas ab harum quo incidunt reiciendis dolorum sed eligendi quos in itaque vel facilis. Rerum quia asperiores porro, odit laborum error voluptates repellat repellendus doloribus minima voluptate debitis libero nemo sit, dolorem consequatur expedita architecto! Molestiae, quae maxime ut iste ratione veniam velit asperiores. Earum corrupti architecto molestiae necessitatibus ullam modi beatae optio distinctio et labore, consectetur, repudiandae alias recusandae quas delectus placeat error laudantium quos, autem non nemo cum. Obcaecati iure maiores quas temporibus assumenda, qui veritatis necessitatibus.
+![Send Message Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_SendMessage.png' | relative_url }} "Send Message")
 
-<!-- detailed information about integration and development can be found in this chapter  -->
+## Upload Files
 
-# Developer Corner
+In order to submit attachments/files via message, they have to be first uploaded to the Connector. The files are then encrypted and uploaded to the Platform, which results in a FileId for every file.
+These FileIds can then be used as attachments to send messages with attachments.
 
-<!-- How to import a graphic stored in the include folder -->
-<details >
-  <summary>Flowchart</summary>
-  <div>{% include diagrams/Enmeshed_Scenarios.svg %}</div>
-</details>
+## Get Messages
+
+Messages can be directly queried from the Connector.
+
+![Get Message Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_GetMessage.png' | relative_url }} "Get Message")
+
+## Download Attachments of Messages
+
+The metadata of attachments can be found within the message, the actual files/binaries must be downloaded separately.
+
+## Receive Messages
+
+The Connector pulls occasionally for new messages from the Platform and temporarily stores them in the database. They can then be fetched by the corresponding business systems by the REST API (pull) or by the defined HTTP endpoint (push).

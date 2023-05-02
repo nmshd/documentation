@@ -3,6 +3,7 @@ permalink: /use/scenario-sc24
 published: false
 title: "Overview of consent possibilities"
 type: scenario
+toc: true
 properties:
   - id: SC24
   - category: Requesting consent of users

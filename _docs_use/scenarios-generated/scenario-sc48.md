@@ -3,6 +3,7 @@ permalink: /use/scenario-sc48
 published: false
 title: "Overview of Attribute Values"
 type: scenario
+toc: true
 properties:
   - id: SC48
   - category: Manage attributes of yourself

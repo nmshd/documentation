@@ -3,6 +3,7 @@ permalink: /use/scenario-sc49
 published: false
 title: "Create own IdentityAttributes"
 type: scenario
+toc: true
 properties:
   - id: SC49
   - category: Manage attributes of yourself

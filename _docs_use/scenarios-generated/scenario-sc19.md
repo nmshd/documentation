@@ -3,6 +3,7 @@ permalink: /use/scenario-sc19
 published: false
 title: "Distinguish personalized and non-personalized codes"
 type: scenario
+toc: true
 properties:
   - id: SC19
   - category: Get in touch with other Identities

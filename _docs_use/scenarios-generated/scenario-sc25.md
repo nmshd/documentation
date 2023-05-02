@@ -3,6 +3,7 @@ permalink: /use/scenario-sc25
 published: false
 title: "Requesting one-time consents "
 type: scenario
+toc: true
 properties:
   - id: SC25
   - category: Requesting consent of users

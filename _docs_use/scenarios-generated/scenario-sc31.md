@@ -3,6 +3,7 @@ permalink: /use/scenario-sc31
 published: false
 title: "Automated consent management with external system"
 type: scenario
+toc: true
 properties:
   - id: SC31
   - category: Requesting consent of users

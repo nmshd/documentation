@@ -3,6 +3,7 @@ permalink: /use/scenario-sc30
 published: false
 title: "Updating consents"
 type: scenario
+toc: true
 properties:
   - id: SC30
   - category: Requesting consent of users

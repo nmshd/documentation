@@ -3,6 +3,7 @@ permalink: /use/scenario-sc4
 published: false
 title: "Create Recovery Data for the Identity"
 type: scenario
+toc: true
 properties:
   - id: SC4
   - category: Identity Basics

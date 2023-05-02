@@ -3,6 +3,7 @@ permalink: /use/scenario-sc42
 published: false
 title: "Automate request handling"
 type: scenario
+toc: true
 properties:
   - id: SC42
   - category: Working with requests

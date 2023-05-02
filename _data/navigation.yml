@@ -110,12 +110,6 @@ docs_integrate:
     children:
       - title: "API Documentation"
         url: /integrate/connector-api
-      - title: "Sending Messages"
-        url: /integrate/connector-flows-messages
-      - title: "Requests over Templates"
-        url: /integrate/requests-over-templates
-      - title: "Requests over Messages"
-        url: /integrate/requests-over-messages
 
   - title: Programming
     children:

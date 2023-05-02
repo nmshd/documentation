@@ -3,6 +3,7 @@ permalink: /use/scenario-sc18
 published: false
 title: "Create own enmeshed codes to share with your peers"
 type: scenario
+toc: true
 properties:
   - id: SC18
   - category: Get in touch with other Identities

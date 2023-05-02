@@ -3,6 +3,7 @@ permalink: /use/scenario-sc17
 published: false
 title: "Use nmshd// links to trigger enmeshed on the same device"
 type: scenario
+toc: true
 properties:
   - id: SC17
   - category: Get in touch with other Identities

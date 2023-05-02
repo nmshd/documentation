@@ -3,6 +3,7 @@ permalink: /use/scenario-sc38
 published: false
 title: "Overview of request items"
 type: scenario
+toc: true
 properties:
   - id: SC38
   - category: Working with requests

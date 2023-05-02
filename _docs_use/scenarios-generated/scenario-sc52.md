@@ -3,6 +3,7 @@ permalink: /use/scenario-sc52
 published: false
 title: "Request and process attributes by messages"
 type: scenario
+toc: true
 properties:
   - id: SC52
   - category: Manage attributes of others

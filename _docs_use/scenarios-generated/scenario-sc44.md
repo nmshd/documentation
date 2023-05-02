@@ -3,6 +3,7 @@ permalink: /use/scenario-sc44
 published: false
 title: "Handling events by webhooks"
 type: scenario
+toc: true
 properties:
   - id: SC44
   - category: Handling events

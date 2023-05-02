@@ -3,6 +3,7 @@ permalink: /use/scenario-sc20
 published: false
 title: "Rename Contacts to your needs"
 type: scenario
+toc: true
 properties:
   - id: SC20
   - category: Organizing contacts

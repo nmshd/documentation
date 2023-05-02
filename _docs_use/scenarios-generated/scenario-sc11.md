@@ -3,6 +3,7 @@ permalink: /use/scenario-sc11
 published: false
 title: "Fill Attributes of your Identity"
 type: scenario
+toc: true
 properties:
   - id: SC11
   - category: Handling your personal data

@@ -3,6 +3,7 @@ permalink: /use/scenario-sc8
 published: false
 title: "Delete Profile from the App"
 type: scenario
+toc: true
 properties:
   - id: SC8
   - category: Working with multiple Identities

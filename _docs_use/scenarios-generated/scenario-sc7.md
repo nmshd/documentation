@@ -3,6 +3,7 @@ permalink: /use/scenario-sc7
 published: false
 title: "Rename Profile to distinguish multiple Profiles"
 type: scenario
+toc: true
 properties:
   - id: SC7
   - category: Working with multiple Identities
