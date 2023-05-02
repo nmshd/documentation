@@ -9,12 +9,12 @@
         </tr>
         {% endfor %}
         <tr>
-            {%- if page.requires -%}
+            {%- if page.require -%}
             <td colspan="2">
                 <details>
                     <summary>requires</summary>
-                    {% for requires in page.requires%} {% assign useCases = site.docs_explore | where: "permalink", requires %} {% assign scenarios = site.docs_use | where:
-                    "permalink", requires %}
+                    {% for require in page.require%} {% assign useCases = site.docs_explore | where: "permalink", require %} {% assign scenarios = site.docs_use | where:
+                    "permalink", require %}
                     <p><a href="{{ requires}}"> {{useCases.first.title}} {{scenarios.first.title}} </a></p>
                     {% endfor %}
                 </details>

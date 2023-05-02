@@ -16,11 +16,11 @@ properties:
   - published: true
   - link to lucid:
 require:
-  - /use/scenatio-sc59
+  - /use/scenario-sc59
 required_by:
-  - /use/scenatio-sc25
-  - /use/scenatio-sc27
-  - /use/scenatio-sc32
+  - /use/scenario-sc25
+  - /use/scenario-sc27
+  - /use/scenario-sc32
 ---
 
 {% include scenarios/scenario-sc60.md %}

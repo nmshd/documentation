@@ -17,10 +17,10 @@ properties:
   - link to lucid:
 require:
 required_by:
-  - /use/scenatio-sc25
-  - /use/scenatio-sc27
-  - /use/scenatio-sc32
-  - /use/scenatio-sc60
+  - /use/scenario-sc25
+  - /use/scenario-sc27
+  - /use/scenario-sc32
+  - /use/scenario-sc60
 ---
 
 {% include scenarios/scenario-sc59.md %}

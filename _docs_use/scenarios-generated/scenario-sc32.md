@@ -16,8 +16,8 @@ properties:
   - published:
   - link to lucid:
 require:
-  - /use/scenatio-sc59
-  - /use/scenatio-sc60
+  - /use/scenario-sc59
+  - /use/scenario-sc60
 required_by:
 ---
 
