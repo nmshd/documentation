@@ -84,7 +84,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Enmeshed Backbone",
-        "excerpt":"Backbone Building Blocks The Enmeshed Backbone embraces all central services required by the Enmeshed platform to work. It consists of the underlying infrastructure, its hosted services, and the libraries used within the services. There could be many Enmeshed Backbones hosted along the same number of Enmeshed Apps. But careful, so...","categories": [],
+        "excerpt":"Backbone Building Blocks The Enmeshed Backbone embraces all central services required by the Enmeshed platform to work. It consists of the underlying infrastructure, its hosted services, and the libraries used within the services. There could be many Enmeshed Backbones hosted along the same number of Enmeshed Apps. But keep in...","categories": [],
         "tags": [],
         "url": "/explore/backbone",
         "teaser": null
@@ -1062,13 +1062,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Basics",
-        "excerpt":"You want to seamlessly use Enmeshed with your processes, solutions and software components? No worries, you are good to go! We’ve built the Enmeshed Connector exactly for this scenario: to integrate existing systems with the Enmeshed approach with as less effort as possible. What is the Connector? It is a...","categories": [],
+        "excerpt":"You want to seamlessly use Enmeshed with your processes, solutions and software components? No worries, you are good to go! We’ve built the Enmeshed Connector exactly for this scenario: to integrate existing systems with the Enmeshed approach with as little effort as possible. What is the Connector? It is a...","categories": [],
         "tags": [],
         "url": "/integrate/basics",
         "teaser": null
       },{
         "title": "Connector Tutorial",
-        "excerpt":"In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization. The following steps include small...","categories": [],
+        "excerpt":"In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you on automating them for your organization. The following steps include...","categories": [],
         "tags": [],
         "url": "/integrate/connector-tutorial",
         "teaser": null
