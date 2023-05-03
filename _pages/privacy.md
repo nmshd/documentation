@@ -3,7 +3,7 @@ permalink: /privacy
 title: "Privacy Statement"
 ---
 
-This website is hosted by a German company, thus the legally required texts are available in German only. If you have questions regarding the liability or privacy of this website, please write a mail to info@js-soft.com.
+This website is hosted by a German company, thus the legally required texts are available in German only. If you have questions regarding the liability or privacy of this website, please write a mail to `info@js-soft.com`.
 {: .notice--warning}
 
 Im Folgenden möchten wir Sie aufklären, wie Ihre Daten von uns verarbeitet werden.
@@ -18,7 +18,7 @@ Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail oder 
 j&amp;s-soft GmbH\\
 Datenschutz\\
 Max-Jarecki-Str. 21\\
-datenschutz@js-soft.com\\
+`datenschutz@js-soft.com`\\
 
 Sollten Sie per E-Mail mit uns Kontakt aufnehmen, werden die mitgeteilten Daten von uns gespeichert, um Ihr Anliegen zu bearbeiten.
 

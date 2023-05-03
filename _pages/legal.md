@@ -3,7 +3,7 @@ permalink: /legal
 title: "Legal Disclosure"
 ---
 
-This website is hosted by a German company, thus the legally required texts are available in German only. If you have questions regarding the liability or privacy of this website, please write a mail to info@js-soft.com.
+This website is hosted by a German company, thus the legally required texts are available in German only. If you have questions regarding the liability or privacy of this website, please write a mail to `info@js-soft.com`.
 {: .notice--warning}
 
 # Verantwortliche Organisation
@@ -19,7 +19,7 @@ Geschäftsführer Dirk Jennerjahn
 
 **Kontakt**\\
 Telefon: +49 (0) 6221 431210\\
-E-Mail: info@js-soft.com
+E-Mail: `info@js-soft.com`
 
 **Registereintrag**\\
 Sitz der Gesellschaft: Heidelberg\\
