@@ -6,7 +6,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Use Cases",
-        "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Status ⌄ Get app version information User Interface User App, App DONE Start app without parameters User Interface User App, App DONE Start app with parameters by using link User Interface User App, App DONE Show (screen) Screen User Interface User...","categories": [],
+        "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Status ⌄ Get app version information User Interface User App App DONE Start app without parameters User Interface User App App DONE Start app with parameters by using link User Interface User App App DONE Show (screen) Screen User Interface User...","categories": [],
         "tags": [],
         "url": "/explore/use-cases",
         "teaser": null
@@ -1194,7 +1194,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Attribute Values",
-        "excerpt":"Each Attribute contains an instance of an Attribute Value within its value property. There are different types of Attribute Values. The types define the value’s structural definition, rendering information and validators. For example, an email address with the value “address@company.corp” is stored with the Attribute Value type EMailAddress, which defines...","categories": [],
+        "excerpt":"Each Attribute contains an instance of an Attribute Value within its value property. There are different types of Attribute Values. The types define the value’s structural definition, rendering information and validators. For example, an email address with the value address@company.corp is stored with the Attribute Value type EMailAddress, which defines...","categories": [],
         "tags": [],
         "url": "/integrate/data-model-attribute-values",
         "teaser": null
@@ -1209,6 +1209,24 @@ var store = [{
         "excerpt":"We’ve summarized some tips for end-user device usage on this site. A great resource for more in-depth information about those tips is the website of the Federal Office for Information Security (BSI, Bundesamt für Sicherheit in der Informationstechnik). We do not know every security guideline and tip out there, so...","categories": [],
         "tags": [],
         "url": "/use/security-recommendations",
+        "teaser": null
+      },{
+        "title": "Sending Messages",
+        "excerpt":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis voluptas deserunt alias accusantium rem? Quaerat, temporibus alias fuga rerum unde dolor blanditiis quia incidunt modi rem, sequi, esse aut accusamus. id SC58 category Messages customer All component Connector level Beginner implementation status DONE documentation status DONE published true Lorem ipsum...","categories": [],
+        "tags": [],
+        "url": "/use/scenario-sc58",
+        "teaser": null
+      },{
+        "title": "Requests over Templates",
+        "excerpt":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis voluptas deserunt alias accusantium rem? Quaerat, temporibus alias fuga rerum unde dolor blanditiis quia incidunt modi rem, sequi, esse aut accusamus. id SC59 category Requests customer All component Connector level Beginner implementation status DONE documentation status DONE published true required by...","categories": [],
+        "tags": [],
+        "url": "/use/scenario-sc59",
+        "teaser": null
+      },{
+        "title": "Requests over Messages",
+        "excerpt":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis voluptas deserunt alias accusantium rem? Quaerat, temporibus alias fuga rerum unde dolor blanditiis quia incidunt modi rem, sequi, esse aut accusamus. id SC60 category Requests customer All component Connector level Beginner implementation status DONE documentation status DONE published true required by...","categories": [],
+        "tags": [],
+        "url": "/use/scenario-sc60",
         "teaser": null
       },{
         "title": "Introducing Enmeshed",
