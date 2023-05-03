@@ -4,13 +4,13 @@ permalink: /integrate/connector-tutorial
 toc: true
 ---
 
-In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization.
+In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you on automating them for your organization.
 
 The following steps include small interactive pieces of the Connector's API documentation that, when executed, fire requests on a Connector we provided for testing purposes. Example:
 
 {% include rapidoc api_route_regex="^get /health$" title="" %}
 
-So if you don't have an own Connector installed, feel free to use the samples directly by unfolding them and clicking on "Try". Otherwise you can use your own Connector either with a REST client (e.g. Insomnia or Postman) or by using the RapiDoc documentation (/docs/rapidoc) hosted on your Connector.
+So if you don't have your own Connector installed, feel free to use the samples directly by unfolding them and clicking on "Try". Otherwise you can use your own Connector either with a REST client (e.g. Insomnia or Postman) or by using the RapiDoc documentation (/docs/rapidoc) hosted on your Connector.
 
 The payloads for the requests that are sent during this tutorial contain placeholders marked with `<...>`. You need to replace them with values before you send the request.
 
@@ -147,7 +147,7 @@ Start by creating a so called Relationship Template on the Connector. You can do
 
 ### Connector: Create a QRCode for the Relationship Template
 
-Since we will use the Enmeshed App to send a Relationship Request to the Connector, we further have to create a QR Code one can scan with the App to retrieve the Relationship Template and send a Relationship Request to the Connector.
+Since we will use the Enmeshed App to send a Relationship Request to the Connector, we now have to create a QR Code one can scan with the App to retrieve the Relationship Template and send a Relationship Request to the Connector.
 
 For this, execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Header: `image/png`) to create a QRCode. Use the ID of the Relationship Template from the previous step as the value for `id`.
 

@@ -35,11 +35,11 @@ The synchronization between the devices is completely encrypted and works a bit 
 
 Changes on one device are directly synchronized with the backbone and thus communicated to and reflected on other devices. The synchronization service (we also call it datawallet service) only adds information to the identity's history. Therefore, Enmeshed would even be able to roll back local changes on user errors, as we have a kind of local data versioning across devices with this approach.
 
-We have a blocking mechanism in place that only one device can update the identity's history on a single point in time.
+We have a blocking mechanism in place that allows only one device to update the identity's history on a single point in time.
 
 ## Cross-Device Versioning
 
-The transport layer is also responsible to keep track of the versions used on the actual devices and the possible upgrade of the respective data structures locally and for the device synchronization.
+The transport layer is also responsible for keeping track of the versions used on the actual devices and the possible upgrade of the respective data structures locally and for the device synchronization.
 
 # Entities
 
@@ -63,13 +63,13 @@ A device is a technical part of the identity. One identity can use multiple devi
 
 Thus devices are usually handled within the identity, just like one person uses multiple devices for reading mails or browsing the web.
 
-A very interesting part of Enmeshed is, that devices are usually kept in synchronization with each other over a synchronization service. This is a big difference to other communication providers where there is usually a "main" device which is remotely controlled by other devices.
+A very interesting part of Enmeshed is, that devices are usually kept in synchronization with each other over a synchronization service. This is a big difference from other communication providers where there is usually a "main" device which is remotely controlled by other devices.
 
-Thus, every device has the complete access on the identity and its data without relying on another device. This is a great backup and recovery mechanism, as having two devices for an identity means an automatic backup device if one device is broken.
+Thus, every device has the complete access on the identity and its data without relying on another device. This is a great backup and recovery mechanism, as having two devices for an identity means an automatic backup device if one device is broken or replaced.
 
 ### Device Structure
 
-Devices in the Transport Layer have a different set of attributes as devices in the Backbone Layer. The devices of one identity know each other and this is the information which is shared accross the devices.
+Devices in the Transport Layer have a different set of attributes from devices in the Backbone Layer. The devices of one identity know each other and this is the information which is shared accross the devices.
 
 - id
 - publicKey (optional)
@@ -85,7 +85,7 @@ Devices in the Transport Layer have a different set of attributes as devices in 
 
 ### Device Onboarding Info
 
-If a new device is onboarded, the device onboarding info is shared via a side channel. Within this information, all key material is exchanged to access the identity. So this should be kept very secure.
+If a new device is onboarded, the device onboarding info is shared via a side channel. With this information, all necessary data is exchanged to access the identity. So this should be kept very secure.
 
 - id
 - createdAt
@@ -183,7 +183,7 @@ Relationships are usually used as the technical term, whereas contact is used as
 
 Relationships are agreements between two identities. Thus, to change a relationship both parties have to accept on the new "terms". This is done by requesting a change which the other party can accept or reject. The requestor could also revoke a requested change, as long as the other party did not react to the change yet.
 
-The very first agreement between both parties is to actually create the relationship, the "relationship request". Technically, the term "relationship creation change request" would be more correct but is seldomly used in the documentation because of readability.
+The very first agreement between both parties is to actually create the relationship, the "relationship request". Technically, the term "relationship creation change request" would be more correct but is seldom used in the documentation because of readability.
 
 ### Relationship Creation Change Requests
 
@@ -227,13 +227,13 @@ Relationship templates can be both: identity-specific (template is personalized 
 
 ### Generic Templates
 
-Generic templates are used if the counterpart is not known at all. They include the own data which one like to share (e.g. the name of the company) and also data required for the business process.
+Generic templates are used if the counterpart is not known at all. They include their own data which they would like to share (e.g. the name of the company) and also data required for the business process.
 
 It does not matter however, who is using the template, as there is no sensitive data stored in the template. Anyone could scan the template and create a relationship with it.
 
 It is possible to use a generic template multiple times, e.g. for anonymous web sites or printed flyers.
 
-It is also possible to create a generic template for every user accesing an anonymous website including a unique id of the web session. This is handy if the website should for example redirect the user to the profile page once the user scanned in the QR-code and the relationship was accepted.
+It is also possible to create a generic template for every user accessing an anonymous website including a unique id of the web session. This could be handy if the website should for example redirect the user to the profile page once the user scanned the QR-code and the relationship was accepted.
 
 ### Personalized Templates
 
@@ -245,7 +245,7 @@ Personalized templates are primary used for a much better onboarding experience 
 
 Personalized templates can only be used if the person is authenticated upfront or it is ensured that only the respective person can receive the template.
 
-It should also be clear that personalized templates should expire as soon as possible, depending on the context. The `maxNumberOfAllocations` property when creating the template should be set to 1, so that the template can only be used once. Careful, it could still be scanned in multiple times - including the access of the personalized data - as long as it is not expired.
+It should also be clear that personalized templates should expire as soon as possible, depending on the context. The `maxNumberOfAllocations` property when creating the template should be set to 1, so that the template can only be used once. Keep in mind that it could still be scanned multiple times - including the access of the personalized data - as long as it is not expired.
 
 **Example 1**
 Horst has an online account of his favorite webshop and is already logged in there. The webshop can create a personalized template for Horst which includes Horst's private address. If Horst scans this template, the app can automatically fill Horst's datawallet with the private address. The personalized relationship template might expire after 5 minutes.
@@ -266,7 +266,7 @@ A company has no customer system where customers can log in but would still like
 
 ## Tokens
 
-Commonly used data-sharing possibilities like links (URIs) or QR codes are limited in size. Thus, even compressed representations of - e.g. relationship templates - are too big to be stored in a QR code. In addition, the data which is shared usually should expire after a certain period in time. For example, a personalized relationship template containing sensitive data should be deleted after 5 minutes.
+Commonly used data-sharing possibilities like links (URIs) or QR codes are limited in size. Thus, even compressed representations of - e.g. relationship templates - are too big to be stored in a QR code. In addition, the data which is shared usually should expire after a certain period of time. For example, a personalized relationship template containing sensitive data should be deleted after 5 minutes.
 
 To overcome these technical limitations, an indirection with a shared token is introduced. The token acts as a small data-reference object: The actual to-be-shared data is encrypted with a random key and the corresponding cipher is stored on the central platform with additional information like an expiry date.
 
