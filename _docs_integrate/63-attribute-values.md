@@ -4,7 +4,7 @@ permalink: /integrate/data-model-attribute-values
 toc: true
 ---
 
-Each [Attribute]({% link _docs_integrate/61-data-model.md %}#attributes) contains an instance of an Attribute Value within its `value` property. There are different types of Attribute Values. The types define the value's structural definition, rendering information and validators. For example, an email address with the value "address@company.corp" is stored with the Attribute Value type [`EMailAddress`](#emailaddress), which defines
+Each [Attribute]({% link _docs_integrate/61-data-model.md %}#attributes) contains an instance of an Attribute Value within its `value` property. There are different types of Attribute Values. The types define the value's structural definition, rendering information and validators. For example, an email address with the value `address@company.corp` is stored with the Attribute Value type [`EMailAddress`](#emailaddress), which defines
 
 - the data type of the actual value (a String)
 - how it is validated (the pattern of an email address and a maximum length)
