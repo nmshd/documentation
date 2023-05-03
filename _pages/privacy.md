@@ -18,7 +18,7 @@ Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail oder 
 j&amp;s-soft GmbH\\
 Datenschutz\\
 Max-Jarecki-Str. 21\\
-datenschutz@js-soft.com\\
+`datenschutz@js-soft.com`\\
 
 Sollten Sie per E-Mail mit uns Kontakt aufnehmen, werden die mitgeteilten Daten von uns gespeichert, um Ihr Anliegen zu bearbeiten.
 
