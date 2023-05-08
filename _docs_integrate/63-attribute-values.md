@@ -498,16 +498,16 @@ A complex Attribute Value defining the components of a "normal" address.
 
 **Properties**
 
-| Name          | Type              | Required | Validation                        |
-| ------------- | ----------------- | :------: | --------------------------------- |
-| `@type`       | `"StreetAddress"` |    ✓     |                                   |
-| `recipient`   | `string`          |    ✓     | max. length: 100                  |
-| `street`      | `string`          |    ✓     | see [`Street`](#street)           |
-| `houseNumber` | `string`          |    ✓     | see [`HouseNumber`](#housenumber) |
-| `zipCode`     | `string`          |    ✓     | see [`ZipCode`](#zipcode)         |
-| `city`        | `string`          |    ✓     | see [`City`](#city)               |
-| `country`     | `string`          |    ✓     | see [`Country`](#country)         |
-| `state`       | `string`          |    ✓     | see [`State`](#state)             |
+| Name        | Type                    | Required | Validation                        |
+| ----------- | ----------------------- | :------: | --------------------------------- |
+| `@type`     | `"StreetAddress"`       |    ✓     |                                   |
+| `recipient` | `string`                |    ✓     | max. length: 100                  |
+| `street`    | `string`                |    ✓     | see [`Street`](#street)           |
+| `houseNo`   | `string`                |    ✓     | see [`HouseNumber`](#housenumber) |
+| `zipCode`   | `string`                |    ✓     | see [`ZipCode`](#zipcode)         |
+| `city`      | `string`                |    ✓     | see [`City`](#city)               |
+| `country`   | `string`                |    ✓     | see [`Country`](#country)         |
+| `state`     | `string` \| `undefined` |    ✓     | see [`State`](#state)             |
 
 ## Surname
 
