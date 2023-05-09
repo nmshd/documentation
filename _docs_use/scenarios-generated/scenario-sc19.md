@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc19
+redirect_from: 
 published: false
 title: "Distinguish personalized and non-personalized codes"
 type: scenario

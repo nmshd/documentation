@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc52
+redirect_from: 
 published: false
 title: "Request and process attributes by messages"
 type: scenario

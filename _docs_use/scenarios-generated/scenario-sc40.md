@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc40
+redirect_from: 
 published: false
 title: "Process responses to outgoing requests"
 type: scenario

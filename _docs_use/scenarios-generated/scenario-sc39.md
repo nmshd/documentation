@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc39
+redirect_from: 
 published: false
 title: "Creating complex requests"
 type: scenario

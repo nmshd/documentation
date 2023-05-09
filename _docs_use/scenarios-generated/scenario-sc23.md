@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc23
+redirect_from: 
 published: false
 title: "Archive stale Contacts"
 type: scenario

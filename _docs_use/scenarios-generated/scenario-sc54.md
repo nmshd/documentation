@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc54
+redirect_from: 
 published: false
 title: "Respond to incoming IdentityAttribute update requests"
 type: scenario

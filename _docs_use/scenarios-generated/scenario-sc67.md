@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc67
+redirect_from: 
 published: false
 title: ""
 type: scenario

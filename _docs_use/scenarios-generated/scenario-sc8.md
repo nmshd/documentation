@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc8
+redirect_from: 
 published: false
 title: "Delete Profile from the App"
 type: scenario

@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc60
+redirect_from: /integrate/requests-over-messages
 published: true
 title: "Requests over Messages"
 type: scenario

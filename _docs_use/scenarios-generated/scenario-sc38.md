@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc38
+redirect_from: 
 published: false
 title: "Overview of request items"
 type: scenario

@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc48
+redirect_from: 
 published: false
 title: "Overview of Attribute Values"
 type: scenario

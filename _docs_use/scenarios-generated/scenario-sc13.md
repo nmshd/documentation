@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc13
+redirect_from: 
 published: false
 title: "Share data to contacts"
 type: scenario

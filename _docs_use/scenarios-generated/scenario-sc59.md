@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc59
+redirect_from: /integrate/requests-over-templates
 published: true
 title: "Requests over Templates"
 type: scenario

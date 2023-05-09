@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc1
+redirect_from: 
 published: false
 title: "Create an Identity"
 type: scenario

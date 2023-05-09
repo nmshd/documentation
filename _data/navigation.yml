@@ -80,8 +80,8 @@ docs_use:
     children:
       - title: "implemented"
         url: /use/implemented-scenarios
-      - title: "planned"
-        url: /use/planned-scenarios
+      # - title: "planned"
+      #   url: /use/planned-scenarios
 
 docs_integrate:
   - title: Getting Started

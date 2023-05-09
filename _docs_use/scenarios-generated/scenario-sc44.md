@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc44
+redirect_from: 
 published: false
 title: "Handling events by webhooks"
 type: scenario

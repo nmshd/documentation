@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc37
+redirect_from: 
 published: false
 title: "Request statuses"
 type: scenario

@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc34
+redirect_from: 
 published: false
 title: "Requesting authentication by multiple parties"
 type: scenario

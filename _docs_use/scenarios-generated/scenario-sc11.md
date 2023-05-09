@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc11
+redirect_from: 
 published: false
 title: "Fill Attributes of your Identity"
 type: scenario

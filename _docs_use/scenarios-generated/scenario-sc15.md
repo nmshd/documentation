@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc15
+redirect_from: 
 published: false
 title: "Register new online accounts with enmeshed"
 type: scenario

@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc17
+redirect_from: 
 published: false
 title: "Use nmshd// links to trigger enmeshed on the same device"
 type: scenario

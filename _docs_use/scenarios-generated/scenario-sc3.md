@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc3
+redirect_from: 
 published: false
 title: "Check Device configuration"
 type: scenario

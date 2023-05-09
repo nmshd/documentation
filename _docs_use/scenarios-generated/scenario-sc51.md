@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc51
+redirect_from: 
 published: false
 title: "Request and process attributes by code/link of existing contacts"
 type: scenario

@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc6
+redirect_from: 
 published: false
 title: "Recover an existing Identity"
 type: scenario

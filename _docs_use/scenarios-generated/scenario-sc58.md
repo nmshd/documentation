@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc58
+redirect_from: /integrate/connector-flows-messages
 published: true
 title: "Sending Messages"
 type: scenario

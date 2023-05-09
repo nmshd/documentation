@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc49
+redirect_from: 
 published: false
 title: "Create own IdentityAttributes"
 type: scenario

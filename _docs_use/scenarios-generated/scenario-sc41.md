@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc41
+redirect_from: 
 published: false
 title: "Respond to incoming requests"
 type: scenario

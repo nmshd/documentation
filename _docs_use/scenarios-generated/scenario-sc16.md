@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc16
+redirect_from: 
 published: false
 title: "Scan QR Codes to set up digital communication by printouts"
 type: scenario

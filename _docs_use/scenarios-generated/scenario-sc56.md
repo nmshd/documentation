@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc56
+redirect_from: 
 published: false
 title: "Process incoming Relationship deletion requests"
 type: scenario

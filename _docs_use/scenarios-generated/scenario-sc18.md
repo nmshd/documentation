@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc18
+redirect_from: 
 published: false
 title: "Create own enmeshed codes to share with your peers"
 type: scenario

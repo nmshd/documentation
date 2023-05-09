@@ -1,5 +1,6 @@
 ---
 permalink: /use/scenario-sc10
+redirect_from: 
 published: false
 title: "Remove an onboarded Device from the Identity"
 type: scenario
