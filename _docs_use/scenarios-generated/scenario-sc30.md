@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc30
-redirect_from: 
 published: false
 title: "Updating consents"
 type: scenario

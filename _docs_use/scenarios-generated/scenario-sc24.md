@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc24
-redirect_from: 
 published: false
 title: "Overview of consent possibilities"
 type: scenario

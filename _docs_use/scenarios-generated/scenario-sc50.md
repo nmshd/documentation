@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc50
-redirect_from: 
 published: false
 title: "Request and process attributes by code/link of new contacts"
 type: scenario

@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc29
-redirect_from: 
 published: false
 title: "Get users who did not consent to latest version"
 type: scenario

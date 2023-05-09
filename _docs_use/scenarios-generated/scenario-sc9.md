@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc9
-redirect_from: 
 published: false
 title: "Set-up an additional Device for the Identity"
 type: scenario

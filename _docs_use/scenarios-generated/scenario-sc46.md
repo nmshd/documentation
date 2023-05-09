@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc46
-redirect_from: 
 published: false
 title: "Writing your own Connector module"
 type: scenario

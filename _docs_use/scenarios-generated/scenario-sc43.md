@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc43
-redirect_from: 
 published: false
 title: "Connector event introduction"
 type: scenario

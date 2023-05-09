@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc36
-redirect_from: 
 published: false
 title: "Request and response introduction"
 type: scenario

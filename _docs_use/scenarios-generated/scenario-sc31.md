@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc31
-redirect_from: 
 published: false
 title: "Automated consent management with external system"
 type: scenario

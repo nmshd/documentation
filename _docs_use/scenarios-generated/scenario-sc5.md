@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc5
-redirect_from: 
 published: false
 title: "Delete Identity from Enmeshed"
 type: scenario

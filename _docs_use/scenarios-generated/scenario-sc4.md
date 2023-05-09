@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc4
-redirect_from: 
 published: false
 title: "Create Recovery Data for the Identity"
 type: scenario

@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc42
-redirect_from: 
 published: false
 title: "Automate request handling"
 type: scenario

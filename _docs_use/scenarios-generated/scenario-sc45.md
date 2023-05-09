@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc45
-redirect_from: 
 published: false
 title: "Handling events by AMQP"
 type: scenario

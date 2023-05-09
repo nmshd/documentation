@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc32
-redirect_from: 
 published: false
 title: "Requesting authentication "
 type: scenario

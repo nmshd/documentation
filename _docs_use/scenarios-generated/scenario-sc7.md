@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc7
-redirect_from: 
 published: false
 title: "Rename Profile to distinguish multiple Profiles"
 type: scenario

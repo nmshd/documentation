@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc55
-redirect_from: 
 published: false
 title: "Process incoming IdentityAttribute deletion requests"
 type: scenario

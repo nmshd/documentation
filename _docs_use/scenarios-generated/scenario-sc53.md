@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc53
-redirect_from: 
 published: false
 title: "Updating IdentityAttributes of yourself"
 type: scenario

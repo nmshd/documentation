@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc47
-redirect_from: 
 published: false
 title: "IdentityAttribute introduction"
 type: scenario

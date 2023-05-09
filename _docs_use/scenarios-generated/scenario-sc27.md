@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc27
-redirect_from: 
 published: false
 title: "Requesting persistent consents "
 type: scenario

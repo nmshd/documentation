@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc2
-redirect_from: 
 published: false
 title: "Set-up and use Profile authentication"
 type: scenario

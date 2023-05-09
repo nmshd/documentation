@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc14
-redirect_from: 
 published: false
 title: "Upgrade existing online accounts to enmeshed"
 type: scenario

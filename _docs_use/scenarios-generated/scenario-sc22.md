@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc22
-redirect_from: 
 published: false
 title: "Pin Contacts to have the most prominent Contacts at hand"
 type: scenario

@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc21
-redirect_from: 
 published: false
 title: "Cluster Contacts into your phase of live or categories"
 type: scenario

@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc25
-redirect_from: 
 published: false
 title: "Requesting one-time consents "
 type: scenario

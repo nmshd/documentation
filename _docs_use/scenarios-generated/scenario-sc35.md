@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc35
-redirect_from: 
 published: false
 title: "Automated authentication management with external system"
 type: scenario

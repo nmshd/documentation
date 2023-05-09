@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc12
-redirect_from: 
 published: false
 title: "Overview of your shared data"
 type: scenario

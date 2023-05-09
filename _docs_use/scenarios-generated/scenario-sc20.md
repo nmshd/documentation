@@ -1,6 +1,5 @@
 ---
 permalink: /use/scenario-sc20
-redirect_from: 
 published: false
 title: "Rename Contacts to your needs"
 type: scenario
