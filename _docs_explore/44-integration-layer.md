@@ -14,11 +14,11 @@ The integration layer is only available within the Connector and sits on top of 
 
 ## Webserver with Authentication
 
-The integration layer provides an integrated web server with authentication mechanism in order to restrict access to keys and personal data from within the organizations network.
+The integration layer provides an integrated web server with authentication mechanism in order to restrict access to keys and personal data from within the organization's network.
 
 ## API
 
-An application programming interface, more specifically a REST API, is provided to access the transport layer's functionality over http(s) within the organizations network.
+An application programming interface, more specifically a REST API, is provided to access the transport layer's functionality over http(s) within the organization's network.
 
 Although the integration layer sits on top of the consumption layer, the API so far does not expose consumption functionality. There are plans to extend the API with the consumption layer feature set, e.g. being able to use a REST API to access the data log of a contact.
 

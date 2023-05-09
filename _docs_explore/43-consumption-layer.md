@@ -19,7 +19,7 @@ The consumption layer handles the central attribute store of an identity. With i
 
 ## Request Handling
 
-Request received by other identities are processed within the consumption layer. The consumption layer keeps track which requests have been received, are still unprocessed, or have been processed with which outcome. For this, it also contains the logic how requests are processed.
+Request received by other identities are processed within the consumption layer. The consumption layer keeps track of which requests have been received, are still unprocessed, or have been processed with which outcome. For this, it also contains the logic of how requests are processed.
 
 It is planned to have automation rules for processing requests, so that users of the App could flag which requests can be automatically accepted and for which requests the user should give the consent to.
 
