@@ -6,7 +6,7 @@ This guide explains how to send and receive a Request over Enmeshed Messages usi
 
 {% include properties_list.html %}
 
-This guide assumes that you already have an active Relationship between two Connectors. If you don't, you should follow the [Requests over Templates]({% link _docs_use/scenarios-generated/scenario-sc59.md %}) guide first. If you created a Relationship during the [Connector Tutorial]({% link _docs_integrate/01-connector-tutorial.md %}) this will also work.
+This guide assumes that you already have an active Relationship between two Connectors. If you don't, you should follow the [Requests over Templates]({% link _pages/scenarios/scenario-sc59.md %}) guide first. If you created a Relationship during the [Connector Tutorial]({% link _docs_integrate/01-connector-tutorial.md %}) this will also work.
 
 In this guide, the first Connector will be called Sender and the second Connector will be called Recipient. The Sender will send a Request to the Recipient. For the next steps you will need the Enmeshed Address of the Recipient. You can find it out by calling the `GET /api/v2/Relationships` route on the Sender Connector.
 

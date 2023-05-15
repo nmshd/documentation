@@ -101,7 +101,7 @@ published: true
 </script>
 
 <input type="text" id="searchByNameInput" onkeyup="searchByName()" placeholder="Search for title.." />
-{% assign scenarios = site.docs_use | where: "type", "scenario" %}
+{% assign scenarios = site.pages | where: "type", "scenario" %}
 
 <table id="myTable" style="width: 100%; display: table">
     <tr>
