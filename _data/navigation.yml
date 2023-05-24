@@ -78,10 +78,8 @@ docs_use:
 
   - title: Scenarios
     children:
-      - title: "implemented"
-        url: /use/implemented-scenarios
-      # - title: "planned"
-      #   url: /use/planned-scenarios
+      - title: "App-Scenarios"
+        url: /use/app-scenarios
 
 docs_integrate:
   - title: Getting Started
@@ -110,6 +108,11 @@ docs_integrate:
     children:
       - title: "API Documentation"
         url: /integrate/connector-api
+
+  - title: Scenarios
+    children:
+      - title: "Connector-Scenarios"
+        url: /use/connector-scenarios
 
   - title: Programming
     children:

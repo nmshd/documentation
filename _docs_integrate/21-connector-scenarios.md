@@ -1,6 +1,6 @@
 ---
-title: "Scenarios"
-permalink: /use/implemented-scenarios
+title: "Connector-Scenarios"
+permalink: /use/connector-scenarios
 published: true
 ---
 
@@ -125,8 +125,7 @@ published: true
             </div>
         </th>
     </tr>
-    {% for scenario in scenarios %} {% assign status = scenario.properties | map:"documentation status" %}{% if status contains "DONE" %}
-    <tr>
+    {% for scenario in scenarios %} {% assign status = scenario.properties | map:"documentation status" %}{% if status contains "DONE" %}{% assign component = scenario.properties | map:"component" %}{% if component contains "Connector" %}    <tr>
         <td>
             <a href="{{ scenario.url }}"> {{ scenario.title }} </a>
         </td>
@@ -134,7 +133,7 @@ published: true
         <td class="customer-list">{{ scenario.properties | map:"customer" }}</td>
         <td class="component-list">{{ scenario.properties | map:"component" }}</td>
     </tr>
-    {%- endif -%} {% endfor %}
+    {%- endif -%} {%- endif -%} {% endfor %}
 </table>
 <script>
     const columns = ["category", "customer", "component"];
