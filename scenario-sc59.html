@@ -1,0 +1,548 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Requests over Templates - Enmeshed</title>
+<meta name="description" content="This guide will explain the end to end flow of sharing and answering a Request over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don’t have a Relationship yet.  You can use the Connector Installation Guide if you need help for the setup the Connectors.                           id             SC59                  category             Requests                                    customer             All                  component             Connector                  level             Beginner                  implementation status             DONE                  documentation status             DONE                  published             true                                                                                   required by                                                                                                                                                                                           Requests over Messages                                                            On the first Connector you will create a Template. This Connector will be called Templator in the in the following steps. The second Connector is called Requestor, because it will create the Relationship and therefore it creates the RelationshipCreationChangeRequest.  Check your Request’s validity  At first you should check if your Request is valid. You can do this by calling the POST /api/v2/Requests/Outgoing/Validate route on the Templator Connector with the following body. For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any RequestItems you want.  {   &quot;content&quot;: {     &quot;items&quot;: [       {         &quot;@type&quot;: &quot;AuthenticationRequestItem&quot;,         &quot;mustBeAccepted&quot;: true,         &quot;title&quot;: &quot;The templator is asking for an authentication&quot;       }     ]   } }   Even though the Requests are validated during the RelationshipTemplate creation you should not skip this step as it gives you additional information in case of validation errors.  Create the Template  Create the Relationship Template on the Templator’s Connector. You can do so by calling the POST /api/v2/RelationshipTemplates/Own route. Use the following JSON in the Request body:  {   &quot;maxNumberOfAllocations&quot;: 1,   &quot;expiresAt&quot;: &quot;2023-06-01T00:00:00.000Z&quot;,   &quot;content&quot;: {     &quot;@type&quot;: &quot;RelationshipTemplateContent&quot;,     &quot;title&quot;: &quot;Connector Demo Contact&quot;,     &quot;onNewRelationship&quot;: {       // the content property of the payload in the step before     }   } }   You will receive a response with the complete RelationshipTemplate.                         Save the truncatedReference and the id of the RelationshipTemplate. You will need them in the next steps.         {   &quot;id&quot;: &quot;RLT..&quot;,   // ...   &quot;truncatedReference&quot;: &quot;UkxU...&quot; }   Load the Template and get the Request  Now you have to load the Template on the Requestor Connector. You can do so by calling the POST /api/v2/RelationshipTemplates/Peer route with the following content. Use the truncatedReference you copied before:  {   &quot;reference&quot;: &quot;UkxU...&quot; }   If no Relationship exists, this will trigger a process in the Enmeshed Runtime. It will create a new incoming Request on which we will work in the next step. You can observe this by long polling the incoming Requests or by waiting for the consumption.incomingRequestReceived event.  The long polling is done by calling the GET /api/v2/Requests/Incoming route. You can use the query params source.reference=&lt;id-of-the-template&gt; and status=ManualDecisionRequired to filter for Requests that belong to the Template you are currently working on.  For more information about the events you can head over to the Connector Modules site and read about the AMQP Publisher module and the WebhooksV2 module that are propagating events.                         After you received the Request, save its id for the next step.         Answer the Request  The rejection is explained before the acceptance because you can re-do it as often if you want. If you accept the Request a RelationshipRequest will be sent and no new Request will be created until the RelationshipRequest is answered. If the RelationshipRequest is accepted the Enmeshed Runtime will recognize the existing Relationship and will also not create a new Request.  So if you want to test the full flow, you should first reject the Request. After that you can create a new one, which you can accept.  If there is no open RelationshipRequest or existing Relationship, you can trigger the creation of a new Request by loading the Template again with the same truncated reference.  Reject  If you want to reject the Request you can do so by calling the POST /api/v2/Requests/Incoming/{id}/Reject route. You can use the id you saved in the previous step. In the payload you have to reject all RequestItems. In case of the example Request the payload is the following:  {   &quot;items&quot;: [     {       &quot;accept&quot;: false     }   ] }   In the response you can see the Request has moved to status Decided. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you rejected the Request, the Enmeshed Runtime will only move the Request to status completed. This behavior can be observed by querying the Request again after a few seconds (GET /api/v2/Requests/Incoming/{id}).  Accept  If you tried out the Rejection before this step make sure to create a Request by loading the Template again with the same truncated reference.  If you want to accept the Request you can do so by calling the POST /api/v2/Requests/Incoming/{id}/Accept route. You can use the id you saved in the template loading step. In the payload you have to accept at least all RequestItems where the mustBeAccepted property is set to true. In case of the example Request the payload is the following:  {   &quot;items&quot;: [     {       &quot;accept&quot;: true     }   ] }   In the response you can see the Request has moved to status Decided. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you accepted the Request, the Enmeshed Runtime will send your Response to the Templator by creating a Relationship. This behavior can be observed by querying the Request again after a few seconds (GET /api/v2/Requests/Incoming/{id}). When the Request is in status Completed you can query the created Relationship (GET /api/v2/Relationships, query parameter template.id=&lt;id-of-the-template&gt;).  If you synchronize the Templator Connector (POST /api/v2/Account/Sync) you will see a new Relationship in the response. The Relationship looks as follows:  {   &quot;id&quot;: &quot;REL...&quot;,   &quot;template&quot;: {     // ...   },   &quot;status&quot;: &quot;Active&quot;,   &quot;peer&quot;: &quot;id1...&quot;,   // ...   &quot;changes&quot;: [     {       &quot;id&quot;: &quot;RCH...&quot;,       &quot;request&quot;: {         &quot;createdBy&quot;: &quot;id1...&quot;,         &quot;createdByDevice&quot;: &quot;DVC...&quot;,         &quot;createdAt&quot;: &quot;2022-11-04T13:31:01.360Z&quot;,         &quot;content&quot;: {           &quot;@type&quot;: &quot;RelationshipCreationChangeRequestContent&quot;,           &quot;response&quot;: {             &quot;items&quot;: [               {                 &quot;@type&quot;: &quot;AcceptResponseItem&quot;,                 &quot;result&quot;: &quot;Accepted&quot;               }             ],             &quot;requestId&quot;: &quot;REQ...&quot;,             &quot;result&quot;: &quot;Accepted&quot;           }         }       },       &quot;status&quot;: &quot;Accepted&quot;,       &quot;type&quot;: &quot;Creation&quot;       // ...     }   ] }   Pay particular attention to the changes.0.request.content property that contains the Response that was generated by the Enmeshed Runtime.  Now you can accept the Relationship on the Templator Connector by calling the PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Accept route.  When you synchronize the Requestor Connector (POST /api/v2/Account/Sync) you can see that the Relationship is now in status Active on both Connectors.">
+
+
+  <meta name="author" content="Enmeshed Team">
+  
+  <meta property="article:author" content="Enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Enmeshed">
+<meta property="og:title" content="Requests over Templates">
+<meta property="og:url" content="/scenario-sc59">
+
+
+  <meta property="og:description" content="This guide will explain the end to end flow of sharing and answering a Request over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don’t have a Relationship yet.  You can use the Connector Installation Guide if you need help for the setup the Connectors.                           id             SC59                  category             Requests                                    customer             All                  component             Connector                  level             Beginner                  implementation status             DONE                  documentation status             DONE                  published             true                                                                                   required by                                                                                                                                                                                           Requests over Messages                                                            On the first Connector you will create a Template. This Connector will be called Templator in the in the following steps. The second Connector is called Requestor, because it will create the Relationship and therefore it creates the RelationshipCreationChangeRequest.  Check your Request’s validity  At first you should check if your Request is valid. You can do this by calling the POST /api/v2/Requests/Outgoing/Validate route on the Templator Connector with the following body. For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any RequestItems you want.  {   &quot;content&quot;: {     &quot;items&quot;: [       {         &quot;@type&quot;: &quot;AuthenticationRequestItem&quot;,         &quot;mustBeAccepted&quot;: true,         &quot;title&quot;: &quot;The templator is asking for an authentication&quot;       }     ]   } }   Even though the Requests are validated during the RelationshipTemplate creation you should not skip this step as it gives you additional information in case of validation errors.  Create the Template  Create the Relationship Template on the Templator’s Connector. You can do so by calling the POST /api/v2/RelationshipTemplates/Own route. Use the following JSON in the Request body:  {   &quot;maxNumberOfAllocations&quot;: 1,   &quot;expiresAt&quot;: &quot;2023-06-01T00:00:00.000Z&quot;,   &quot;content&quot;: {     &quot;@type&quot;: &quot;RelationshipTemplateContent&quot;,     &quot;title&quot;: &quot;Connector Demo Contact&quot;,     &quot;onNewRelationship&quot;: {       // the content property of the payload in the step before     }   } }   You will receive a response with the complete RelationshipTemplate.                         Save the truncatedReference and the id of the RelationshipTemplate. You will need them in the next steps.         {   &quot;id&quot;: &quot;RLT..&quot;,   // ...   &quot;truncatedReference&quot;: &quot;UkxU...&quot; }   Load the Template and get the Request  Now you have to load the Template on the Requestor Connector. You can do so by calling the POST /api/v2/RelationshipTemplates/Peer route with the following content. Use the truncatedReference you copied before:  {   &quot;reference&quot;: &quot;UkxU...&quot; }   If no Relationship exists, this will trigger a process in the Enmeshed Runtime. It will create a new incoming Request on which we will work in the next step. You can observe this by long polling the incoming Requests or by waiting for the consumption.incomingRequestReceived event.  The long polling is done by calling the GET /api/v2/Requests/Incoming route. You can use the query params source.reference=&lt;id-of-the-template&gt; and status=ManualDecisionRequired to filter for Requests that belong to the Template you are currently working on.  For more information about the events you can head over to the Connector Modules site and read about the AMQP Publisher module and the WebhooksV2 module that are propagating events.                         After you received the Request, save its id for the next step.         Answer the Request  The rejection is explained before the acceptance because you can re-do it as often if you want. If you accept the Request a RelationshipRequest will be sent and no new Request will be created until the RelationshipRequest is answered. If the RelationshipRequest is accepted the Enmeshed Runtime will recognize the existing Relationship and will also not create a new Request.  So if you want to test the full flow, you should first reject the Request. After that you can create a new one, which you can accept.  If there is no open RelationshipRequest or existing Relationship, you can trigger the creation of a new Request by loading the Template again with the same truncated reference.  Reject  If you want to reject the Request you can do so by calling the POST /api/v2/Requests/Incoming/{id}/Reject route. You can use the id you saved in the previous step. In the payload you have to reject all RequestItems. In case of the example Request the payload is the following:  {   &quot;items&quot;: [     {       &quot;accept&quot;: false     }   ] }   In the response you can see the Request has moved to status Decided. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you rejected the Request, the Enmeshed Runtime will only move the Request to status completed. This behavior can be observed by querying the Request again after a few seconds (GET /api/v2/Requests/Incoming/{id}).  Accept  If you tried out the Rejection before this step make sure to create a Request by loading the Template again with the same truncated reference.  If you want to accept the Request you can do so by calling the POST /api/v2/Requests/Incoming/{id}/Accept route. You can use the id you saved in the template loading step. In the payload you have to accept at least all RequestItems where the mustBeAccepted property is set to true. In case of the example Request the payload is the following:  {   &quot;items&quot;: [     {       &quot;accept&quot;: true     }   ] }   In the response you can see the Request has moved to status Decided. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you accepted the Request, the Enmeshed Runtime will send your Response to the Templator by creating a Relationship. This behavior can be observed by querying the Request again after a few seconds (GET /api/v2/Requests/Incoming/{id}). When the Request is in status Completed you can query the created Relationship (GET /api/v2/Relationships, query parameter template.id=&lt;id-of-the-template&gt;).  If you synchronize the Templator Connector (POST /api/v2/Account/Sync) you will see a new Relationship in the response. The Relationship looks as follows:  {   &quot;id&quot;: &quot;REL...&quot;,   &quot;template&quot;: {     // ...   },   &quot;status&quot;: &quot;Active&quot;,   &quot;peer&quot;: &quot;id1...&quot;,   // ...   &quot;changes&quot;: [     {       &quot;id&quot;: &quot;RCH...&quot;,       &quot;request&quot;: {         &quot;createdBy&quot;: &quot;id1...&quot;,         &quot;createdByDevice&quot;: &quot;DVC...&quot;,         &quot;createdAt&quot;: &quot;2022-11-04T13:31:01.360Z&quot;,         &quot;content&quot;: {           &quot;@type&quot;: &quot;RelationshipCreationChangeRequestContent&quot;,           &quot;response&quot;: {             &quot;items&quot;: [               {                 &quot;@type&quot;: &quot;AcceptResponseItem&quot;,                 &quot;result&quot;: &quot;Accepted&quot;               }             ],             &quot;requestId&quot;: &quot;REQ...&quot;,             &quot;result&quot;: &quot;Accepted&quot;           }         }       },       &quot;status&quot;: &quot;Accepted&quot;,       &quot;type&quot;: &quot;Creation&quot;       // ...     }   ] }   Pay particular attention to the changes.0.request.content property that contains the Response that was generated by the Enmeshed Runtime.  Now you can accept the Relationship on the Templator Connector by calling the PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Accept route.  When you synchronize the Requestor Connector (POST /api/v2/Account/Sync) you can see that the Relationship is now in status Active on both Connectors.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-05-30T15:20:22+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/scenario-sc59">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/use/basics">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog">Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Scenarios Enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Requests over Templates">
+    <meta itemprop="description" content="This guide will explain the end to end flow of sharing and answering a Request over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don’t have a Relationship yet.You can use the Connector Installation Guide if you need help for the setup the Connectors.                    id            SC59                category            Requests                                customer            All                component            Connector                level            Beginner                implementation status            DONE                documentation status            DONE                published            true                                                                            required by                                                                                                                                                                                   Requests over Messages                                                     On the first Connector you will create a Template. This Connector will be called Templator in the in the following steps. The second Connector is called Requestor, because it will create the Relationship and therefore it creates the RelationshipCreationChangeRequest.Check your Request’s validityAt first you should check if your Request is valid. You can do this by calling the POST /api/v2/Requests/Outgoing/Validate route on the Templator Connector with the following body.For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any RequestItems you want.{  &quot;content&quot;: {    &quot;items&quot;: [      {        &quot;@type&quot;: &quot;AuthenticationRequestItem&quot;,        &quot;mustBeAccepted&quot;: true,        &quot;title&quot;: &quot;The templator is asking for an authentication&quot;      }    ]  }}Even though the Requests are validated during the RelationshipTemplate creation you should not skip this step as it gives you additional information in case of validation errors.Create the TemplateCreate the Relationship Template on the Templator’s Connector. You can do so by calling the POST /api/v2/RelationshipTemplates/Own route. Use the following JSON in the Request body:{  &quot;maxNumberOfAllocations&quot;: 1,  &quot;expiresAt&quot;: &quot;2023-06-01T00:00:00.000Z&quot;,  &quot;content&quot;: {    &quot;@type&quot;: &quot;RelationshipTemplateContent&quot;,    &quot;title&quot;: &quot;Connector Demo Contact&quot;,    &quot;onNewRelationship&quot;: {      // the content property of the payload in the step before    }  }}You will receive a response with the complete RelationshipTemplate.                    Save the truncatedReference and the id of the RelationshipTemplate. You will need them in the next steps.    {  &quot;id&quot;: &quot;RLT..&quot;,  // ...  &quot;truncatedReference&quot;: &quot;UkxU...&quot;}Load the Template and get the RequestNow you have to load the Template on the Requestor Connector. You can do so by calling the POST /api/v2/RelationshipTemplates/Peer route with the following content. Use the truncatedReference you copied before:{  &quot;reference&quot;: &quot;UkxU...&quot;}If no Relationship exists, this will trigger a process in the Enmeshed Runtime. It will create a new incoming Request on which we will work in the next step. You can observe this by long polling the incoming Requests or by waiting for the consumption.incomingRequestReceived event.The long polling is done by calling the GET /api/v2/Requests/Incoming route. You can use the query params source.reference=&lt;id-of-the-template&gt; and status=ManualDecisionRequired to filter for Requests that belong to the Template you are currently working on.For more information about the events you can head over to the Connector Modules site and read about the AMQP Publisher module and the WebhooksV2 module that are propagating events.                    After you received the Request, save its id for the next step.    Answer the RequestThe rejection is explained before the acceptance because you can re-do it as often if you want. If you accept the Request a RelationshipRequest will be sent and no new Request will be created until the RelationshipRequest is answered. If the RelationshipRequest is accepted the Enmeshed Runtime will recognize the existing Relationship and will also not create a new Request.So if you want to test the full flow, you should first reject the Request. After that you can create a new one, which you can accept.If there is no open RelationshipRequest or existing Relationship, you can trigger the creation of a new Request by loading the Template again with the same truncated reference.RejectIf you want to reject the Request you can do so by calling the POST /api/v2/Requests/Incoming/{id}/Reject route. You can use the id you saved in the previous step. In the payload you have to reject all RequestItems. In case of the example Request the payload is the following:{  &quot;items&quot;: [    {      &quot;accept&quot;: false    }  ]}In the response you can see the Request has moved to status Decided. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you rejected the Request, the Enmeshed Runtime will only move the Request to status completed. This behavior can be observed by querying the Request again after a few seconds (GET /api/v2/Requests/Incoming/{id}).AcceptIf you tried out the Rejection before this step make sure to create a Request by loading the Template again with the same truncated reference.If you want to accept the Request you can do so by calling the POST /api/v2/Requests/Incoming/{id}/Accept route. You can use the id you saved in the template loading step. In the payload you have to accept at least all RequestItems where the mustBeAccepted property is set to true. In case of the example Request the payload is the following:{  &quot;items&quot;: [    {      &quot;accept&quot;: true    }  ]}In the response you can see the Request has moved to status Decided. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you accepted the Request, the Enmeshed Runtime will send your Response to the Templator by creating a Relationship. This behavior can be observed by querying the Request again after a few seconds (GET /api/v2/Requests/Incoming/{id}). When the Request is in status Completed you can query the created Relationship (GET /api/v2/Relationships, query parameter template.id=&lt;id-of-the-template&gt;).If you synchronize the Templator Connector (POST /api/v2/Account/Sync) you will see a new Relationship in the response. The Relationship looks as follows:{  &quot;id&quot;: &quot;REL...&quot;,  &quot;template&quot;: {    // ...  },  &quot;status&quot;: &quot;Active&quot;,  &quot;peer&quot;: &quot;id1...&quot;,  // ...  &quot;changes&quot;: [    {      &quot;id&quot;: &quot;RCH...&quot;,      &quot;request&quot;: {        &quot;createdBy&quot;: &quot;id1...&quot;,        &quot;createdByDevice&quot;: &quot;DVC...&quot;,        &quot;createdAt&quot;: &quot;2022-11-04T13:31:01.360Z&quot;,        &quot;content&quot;: {          &quot;@type&quot;: &quot;RelationshipCreationChangeRequestContent&quot;,          &quot;response&quot;: {            &quot;items&quot;: [              {                &quot;@type&quot;: &quot;AcceptResponseItem&quot;,                &quot;result&quot;: &quot;Accepted&quot;              }            ],            &quot;requestId&quot;: &quot;REQ...&quot;,            &quot;result&quot;: &quot;Accepted&quot;          }        }      },      &quot;status&quot;: &quot;Accepted&quot;,      &quot;type&quot;: &quot;Creation&quot;      // ...    }  ]}Pay particular attention to the changes.0.request.content property that contains the Response that was generated by the Enmeshed Runtime.Now you can accept the Relationship on the Templator Connector by calling the PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Accept route.When you synchronize the Requestor Connector (POST /api/v2/Account/Sync) you can see that the Relationship is now in status Active on both Connectors.">
+    <meta itemprop="datePublished" content="2023-05-30T15:20:22+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/scenario-sc59" class="u-url" itemprop="url">Requests over Templates
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#check-your-requests-validity">Check your Request’s validity</a></li><li><a href="#create-the-template">Create the Template</a></li><li><a href="#load-the-template-and-get-the-request">Load the Template and get the Request</a></li><li><a href="#answer-the-request">Answer the Request</a><ul><li><a href="#reject">Reject</a></li><li><a href="#accept">Accept</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <!-- A general description of the requirement can be given here. -->
+
+<p>This guide will explain the end to end flow of sharing and answering a <a href="/integrate/data-model-overview#request">Request</a> over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don’t have a Relationship yet.</p>
+
+<p>You can use the <a href="/integrate/connector-installation">Connector Installation Guide</a> if you need help for the setup the Connectors.</p>
+
+<!-- This include inserts the table with the metadata  -->
+
+<div>
+    <table>
+        
+        <tr><td>id</td>
+            <td>SC59</td></tr>
+        
+        <tr><td>category</td>
+            <td>Requests</td></tr>
+        
+        <tr></tr>
+        
+        <tr><td>customer</td>
+            <td>All</td></tr>
+        
+        <tr><td>component</td>
+            <td>Connector</td></tr>
+        
+        <tr><td>level</td>
+            <td>Beginner</td></tr>
+        
+        <tr><td>implementation status</td>
+            <td>DONE</td></tr>
+        
+        <tr><td>documentation status</td>
+            <td>DONE</td></tr>
+        
+        <tr><td>published</td>
+            <td>true</td></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        <tr><td colspan="2">
+                <details>
+                    <summary>required by</summary>
+                      
+                    <p><a href="/scenario-sc25">   </a></p>
+                      
+                    <p><a href="/scenario-sc27">   </a></p>
+                      
+                    <p><a href="/scenario-sc32">   </a></p>
+                      
+                    <p><a href="/scenario-sc60">  Requests over Messages </a></p>
+                    
+                </details>
+            </td></tr>
+    </table>
+</div>
+
+<p>On the first Connector you will create a Template. This Connector will be called Templator in the in the following steps. The second Connector is called Requestor, because it will create the Relationship and therefore it creates the <code class="language-plaintext highlighter-rouge">RelationshipCreationChangeRequest</code>.</p>
+
+<h2 id="check-your-requests-validity">Check your Request’s validity</h2>
+
+<p>At first you should check if your Request is valid. You can do this by calling the <code class="language-plaintext highlighter-rouge">POST /api/v2/Requests/Outgoing/Validate</code> route on the Templator Connector with the following body.
+For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any <a href="/integrate/data-model-request-items">RequestItems</a> you want.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AuthenticationRequestItem"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The templator is asking for an authentication"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p class="notice--info">Even though the Requests are validated during the RelationshipTemplate creation you should not skip this step as it gives you additional information in case of validation errors.</p>
+
+<h2 id="create-the-template">Create the Template</h2>
+
+<p>Create the Relationship Template on the Templator’s Connector. You can do so by calling the <code class="language-plaintext highlighter-rouge">POST /api/v2/RelationshipTemplates/Own</code> route. Use the following JSON in the Request body:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"maxNumberOfAllocations"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expiresAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-01T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RelationshipTemplateContent"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Connector Demo Contact"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"onNewRelationship"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="c1">// the content property of the payload in the step before</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>You will receive a response with the complete RelationshipTemplate.</p>
+
+<table style="border: none" class="notice--warning">
+    <tr>
+        <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">truncatedReference</code> and the <code class="language-plaintext highlighter-rouge">id</code> of the RelationshipTemplate. You will need them in the next steps.</p>
+</td>
+    </tr>
+</table>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RLT.."</span><span class="p">,</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+  </span><span class="nl">"truncatedReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UkxU..."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="load-the-template-and-get-the-request">Load the Template and get the Request</h2>
+
+<p>Now you have to load the Template on the Requestor Connector. You can do so by calling the <code class="language-plaintext highlighter-rouge">POST /api/v2/RelationshipTemplates/Peer</code> route with the following content. Use the <code class="language-plaintext highlighter-rouge">truncatedReference</code> you copied before:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UkxU..."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>If no Relationship exists, this will trigger a process in the Enmeshed Runtime. It will create a new incoming Request on which we will work in the next step. You can observe this by long polling the incoming Requests or by waiting for the <code class="language-plaintext highlighter-rouge">consumption.incomingRequestReceived</code> event.</p>
+
+<p>The long polling is done by calling the <code class="language-plaintext highlighter-rouge">GET /api/v2/Requests/Incoming</code> route. You can use the query params <code class="language-plaintext highlighter-rouge">source.reference=&lt;id-of-the-template&gt;</code> and <code class="language-plaintext highlighter-rouge">status=ManualDecisionRequired</code> to filter for Requests that belong to the Template you are currently working on.</p>
+
+<p>For more information about the events you can head over to the <a href="/integrate/connector-modules">Connector Modules site</a> and read about the <a href="/integrate/connector-modules#amqppublisher">AMQP Publisher module</a> and the <a href="/integrate/connector-modules#webhooksv2">WebhooksV2 module</a> that are propagating events.</p>
+
+<table style="border: none" class="notice--warning">
+    <tr>
+        <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
+        <td style="border: none"><p>After you received the Request, save its <code class="language-plaintext highlighter-rouge">id</code> for the next step.</p>
+</td>
+    </tr>
+</table>
+
+<h2 id="answer-the-request">Answer the Request</h2>
+
+<p>The rejection is explained before the acceptance because you can re-do it as often if you want. If you accept the Request a RelationshipRequest will be sent and no new Request will be created until the RelationshipRequest is answered. If the RelationshipRequest is accepted the Enmeshed Runtime will recognize the existing Relationship and will also not create a new Request.</p>
+
+<p>So if you want to test the full flow, you should first reject the Request. After that you can create a new one, which you can accept.</p>
+
+<p>If there is no open RelationshipRequest or existing Relationship, you can trigger the creation of a new Request by <a href="#load-the-template-and-get-the-request">loading the Template again</a> with the same truncated reference.</p>
+
+<h3 id="reject">Reject</h3>
+
+<p>If you want to reject the Request you can do so by calling the <code class="language-plaintext highlighter-rouge">POST /api/v2/Requests/Incoming/{id}/Reject</code> route. You can use the <code class="language-plaintext highlighter-rouge">id</code> you saved in the previous step. In the payload you have to reject all RequestItems. In case of the example Request the payload is the following:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In the response you can see the Request has moved to status <code class="language-plaintext highlighter-rouge">Decided</code>. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you rejected the Request, the Enmeshed Runtime will only move the Request to status completed. This behavior can be observed by querying the Request again after a few seconds (<code class="language-plaintext highlighter-rouge">GET /api/v2/Requests/Incoming/{id}</code>).</p>
+
+<h3 id="accept">Accept</h3>
+
+<p>If you tried out the Rejection before this step make sure to create a Request by <a href="#load-the-template-and-get-the-request">loading the Template again</a> with the same truncated reference.</p>
+
+<p>If you want to accept the Request you can do so by calling the <code class="language-plaintext highlighter-rouge">POST /api/v2/Requests/Incoming/{id}/Accept</code> route. You can use the <code class="language-plaintext highlighter-rouge">id</code> you saved in the <a href="#load-the-template-and-get-the-request">template loading</a> step. In the payload you have to accept at least all RequestItems where the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code>. In case of the example Request the payload is the following:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In the response you can see the Request has moved to status <code class="language-plaintext highlighter-rouge">Decided</code>. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. Because you accepted the Request, the Enmeshed Runtime will send your Response to the Templator by creating a Relationship. This behavior can be observed by querying the Request again after a few seconds (<code class="language-plaintext highlighter-rouge">GET /api/v2/Requests/Incoming/{id}</code>). When the Request is in status <code class="language-plaintext highlighter-rouge">Completed</code> you can query the created Relationship (<code class="language-plaintext highlighter-rouge">GET /api/v2/Relationships</code>, query parameter <code class="language-plaintext highlighter-rouge">template.id=&lt;id-of-the-template&gt;</code>).</p>
+
+<p>If you synchronize the Templator Connector (<code class="language-plaintext highlighter-rouge">POST /api/v2/Account/Sync</code>) you will see a new Relationship in the response. The Relationship looks as follows:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REL..."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"template"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="c1">// ...</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1..."</span><span class="p">,</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+  </span><span class="nl">"changes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RCH..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"createdBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1..."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdByDevice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DVC..."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-11-04T13:31:01.360Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RelationshipCreationChangeRequestContent"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptResponseItem"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"requestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ..."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creation"</span><span class="w">
+      </span><span class="c1">// ...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Pay particular attention to the <code class="language-plaintext highlighter-rouge">changes.0.request.content</code> property that contains the Response that was generated by the Enmeshed Runtime.</p>
+
+<p>Now you can accept the Relationship on the Templator Connector by calling the <code class="language-plaintext highlighter-rouge">PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Accept</code> route.</p>
+
+<p>When you synchronize the Requestor Connector (<code class="language-plaintext highlighter-rouge">POST /api/v2/Account/Sync</code>) you can see that the Relationship is now in status <code class="language-plaintext highlighter-rouge">Active</code> on both Connectors.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-05-30T15:20:22+02:00">May 30, 2023</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/scenario-sc58" class="pagination--pager" title="Sending Messages
+">Previous</a>
+    
+    
+      <a href="/scenario-sc60" class="pagination--pager" title="Requests over Messages
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+           
+        <li>
+            <a href="/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2023
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
