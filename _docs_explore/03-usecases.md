@@ -101,7 +101,7 @@ published: true
 </script>
 
 <input type="text" id="searchByNameInput" onkeyup="searchByName()" placeholder="Search for title.." />
-{% assign use-cases = site.docs_explore | where: "type", "use-case" %}
+{% assign use-cases = site.docs_use-cases | where: "type", "use-case" %}
 <table id="myTable" style="width: 100%; display: table">
     <tr>
         <th style="width: 20%">Title</th>

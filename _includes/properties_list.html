@@ -13,9 +13,9 @@
             <td colspan="2">
                 <details>
                     <summary>requires</summary>
-                    {% for require in page.require%} {% assign useCases = site.docs_explore | where: "permalink", require %} {% assign scenarios = site.docs_use | where:
+                    {% for require in page.require%} {% assign useCases = site.docs_use-cases | where: "permalink", require %} {% assign scenarios = site.docs_scenarios | where:
                     "permalink", require %}
-                    <p><a href="{{ requires}}"> {{useCases.first.title}} {{scenarios.first.title}} </a></p>
+                    <p><a href="{{ require}}"> {{useCases.first.title}} {{scenarios.first.title}} </a></p>
                     {% endfor %}
                 </details>
             </td>
@@ -26,8 +26,8 @@
             <td colspan="2">
                 <details>
                     <summary>required by</summary>
-                    {% for required_by in page.required_by%} {% assign useCases = site.docs_explore | where: "permalink", required_by %} {% assign scenarios = site.docs_use |
-                    where: "permalink", required_by %}
+                    {% for required_by in page.required_by%} {% assign useCases = site.docs_use-cases | where: "permalink", required_by %} {% assign scenarios = site.docs_scenarios
+                    | where: "permalink", required_by %}
                     <p><a href="{{ required_by}}"> {{useCases.first.title}} {{scenarios.first.title}} </a></p>
                     {% endfor %}
                 </details>

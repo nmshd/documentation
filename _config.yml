@@ -77,6 +77,12 @@ collections:
   docs_integrate:
     output: true
     permalink: /:collection/:path
+  docs_scenarios:
+    output: true
+    permalink: /:collection/:path
+  docs_use-cases:
+    output: true
+    permalink: /:collection/:path
 
 author:
   name: "Enmeshed Team"
@@ -160,6 +166,28 @@ defaults:
     values:
       layout: single
       author_profile: false
+
+  # scenarios
+  - scope:
+      path: ""
+      type: docs_scenarios
+    values:
+      layout: single
+      author_profile: false
+      sidebar:
+        - title: "Scenarios Enmeshed"
+          nav: "docs_scenarios"
+
+  # use-cases
+  - scope:
+      path: ""
+      type: docs_use-cases
+    values:
+      layout: single
+      author_profile: false
+      sidebar:
+        - title: "Use-Cases Enmeshed"
+          nav: "docs_use-cases"
 
 # see https://mmistakes.github.io/minimal-mistakes/docs/configuration/#archive-settings for category/tags configuration
 category_archive:
