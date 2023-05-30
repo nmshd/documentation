@@ -6,7 +6,7 @@ type: scenario
 toc: true
 properties:
   - id: SC61
-  - category: File handling 
+  - category: File handling
   - description:
   - customer: All
   - component: Connector
