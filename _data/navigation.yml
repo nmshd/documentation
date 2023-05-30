@@ -76,12 +76,10 @@ docs_use:
       - title: "Security Recommendations for Apps and End-Users"
         url: /use/security-recommendations
 
-  # - title: Scenarios
-  #   children:
-  #     - title: "implemented"
-  #       url: /use/implemented-scenarios
-  #     - title: "planned"
-  #       url: /use/planned-scenarios
+  - title: Scenarios
+    children:
+      - title: "App-Scenarios"
+        url: /use/app-scenarios
 
 docs_integrate:
   - title: Getting Started
@@ -110,12 +108,11 @@ docs_integrate:
     children:
       - title: "API Documentation"
         url: /integrate/connector-api
-      - title: "Sending Messages"
-        url: /integrate/connector-flows-messages
-      - title: "Requests over Templates"
-        url: /integrate/requests-over-templates
-      - title: "Requests over Messages"
-        url: /integrate/requests-over-messages
+
+  - title: Scenarios
+    children:
+      - title: "Connector-Scenarios"
+        url: /use/connector-scenarios
 
   - title: Programming
     children:
@@ -147,3 +144,7 @@ docs_integrate:
         url: /integrate/data-model-request-items
       - title: "Attribute Values"
         url: /integrate/data-model-attribute-values
+
+docs_scenarios:
+
+docs_use-cases:
