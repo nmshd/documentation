@@ -112,7 +112,7 @@ docs_integrate:
   - title: Scenarios
     children:
       - title: "Connector-Scenarios"
-        url: /use/connector-scenarios
+        url: /integrate/connector-scenarios
 
   - title: Programming
     children:
