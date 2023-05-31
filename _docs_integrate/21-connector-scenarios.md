@@ -1,6 +1,6 @@
 ---
 title: "Connector-Scenarios"
-permalink: /use/connector-scenarios
+permalink: /integrate/connector-scenarios
 published: true
 ---
 
