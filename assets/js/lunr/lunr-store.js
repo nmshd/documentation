@@ -176,7 +176,7 @@ var store = [{
         "title": "Connector-Scenarios",
         "excerpt":"                      Title                                       Category ⌄                                                                              customer ⌄                                                                              Component ⌄                                                                             Sending Messages                   Messages         All         Connector                                 Requests over Templates                   Requests         All         Connector                                 Requests over Messages                   Requests         All         Connector           ","categories": [],
         "tags": [],
-        "url": "/use/connector-scenarios",
+        "url": "/integrate/connector-scenarios",
         "teaser": null
       },{
         "title": "Connector Software Development Kits",

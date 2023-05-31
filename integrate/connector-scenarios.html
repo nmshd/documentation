@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Connector Software Development Kits - Enmeshed</title>
-<meta name="description" content="TypeScript SDK">
+<!-- begin _includes/seo.html --><title>Connector-Scenarios - Enmeshed</title>
+<meta name="description" content="">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Enmeshed">
-<meta property="og:title" content="Connector Software Development Kits">
-<meta property="og:url" content="/integrate/connector-sdks">
+<meta property="og:title" content="Connector-Scenarios">
+<meta property="og:url" content="/integrate/connector-scenarios">
 
 
-  <meta property="og:description" content="TypeScript SDK">
+  <meta property="og:description" content="">
 
 
 
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="/integrate/connector-sdks">
+<link rel="canonical" href="/integrate/connector-scenarios">
 
 
 
@@ -231,7 +231,7 @@
         
         <ul>
           
-            <li><a href="/integrate/connector-scenarios">Connector-Scenarios</a></li>
+            <li><a href="/integrate/connector-scenarios" class="active">Connector-Scenarios</a></li>
           
         </ul>
         
@@ -245,7 +245,7 @@
         
         <ul>
           
-            <li><a href="/integrate/connector-sdks" class="active">Connector SDKs</a></li>
+            <li><a href="/integrate/connector-sdks">Connector SDKs</a></li>
           
             <li><a href="/integrate/custom-connector-modules">Custom Connector Modules</a></li>
           
@@ -306,8 +306,8 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Connector Software Development Kits">
-    <meta itemprop="description" content="TypeScript SDK">
+    <meta itemprop="headline" content="Connector-Scenarios">
+    <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2023-05-31T15:38:47+02:00">
     
 
@@ -315,7 +315,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="/integrate/connector-sdks" class="u-url" itemprop="url">Connector Software Development Kits
+            <a href="/integrate/connector-scenarios" class="u-url" itemprop="url">Connector-Scenarios
 </a>
           </h1>
           
@@ -326,47 +326,199 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <h2 id="typescript-sdk">TypeScript SDK</h2>
+        <!-- markdownlint-disable MD011 -->
+<style>
+    .container {
+        position: relative;
+        max-width: 320px;
+        width: 100%;
+    }
+    .select-btn {
+        display: flex;
+        cursor: pointer;
+    }
 
-<p>There is an SDK written in TypeScript you can use to communicate with your Connector from your TypeScript/JavaScript application. It is avaliable on <a href="https://www.npmjs.com/package/@nmshd/connector-sdk">npmjs</a>.</p>
+    .list-items {
+        position: relative;
+        padding: 16px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        display: none;
+        position: fixed;
+        background-color: #fff;
+        z-index: 1;
+    }
+    .select-btn.open ~ .list-items {
+        display: block;
+    }
+    .list-items .item {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    .item .item-text {
+        font-weight: 400;
+    }
+    .item .checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 16px;
+        width: 16px;
+        border-radius: 4px;
+        margin-right: 12px;
+        border: 1.5px solid #c0c0c0;
+        transition: all 0.3s ease-in-out;
+    }
+    .item.checked .checkbox {
+        background-color: #0092ca;
+        border-color: #0092ca;
+    }
+</style>
 
-<h3 id="installation">Installation</h3>
+<script>
+    function searchByName() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchByNameInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i @nmshd/connector-sdk
-</code></pre></div></div>
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+    function filter(input) {
+        // Declare variables
+        var table, tr, td, i, txtValue;
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
 
-<h3 id="usage">Usage</h3>
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            for (const [key, column] of Object.entries(input)) {
+                td = tr[i].getElementsByTagName("td")[key];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    // Loop through all columns
 
-<ol>
-  <li>
-    <p>Initialize the <code class="language-plaintext highlighter-rouge">ConnectorClient</code></p>
+                    if (column.includes(txtValue)) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                        break;
+                    }
+                }
+            }
+        }
+    }
+</script>
 
-    <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">connectorClient</span> <span class="o">=</span> <span class="nx">ConnectorClient</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
-  <span class="na">baseUrl</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://&lt;INSERT_YOUR_CONNECTOR_DOMAIN_HERE&gt;</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">apiKey</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;INSERT_YOUR_API_KEY_HERE&gt;</span><span class="dl">"</span>
-<span class="p">});</span>
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>Start using the client</p>
+<p><input type="text" id="searchByNameInput" onkeyup="searchByName()" placeholder="Search for title.." /></p>
 
-    <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">FILE_PATH</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">path-to-file</span><span class="dl">"</span><span class="p">;</span>
-<span class="kd">const</span> <span class="nx">uploadOwnFileResponse</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">uploadOwnFile</span><span class="p">({</span>
-  <span class="na">title</span><span class="p">:</span> <span class="dl">"</span><span class="s2">My awesome file</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">description</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Test file</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">expiresAt</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-01-01T00:00:00Z</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">file</span><span class="p">:</span> <span class="k">await</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">promises</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="nx">FILE_PATH</span><span class="p">),</span>
-  <span class="na">filename</span><span class="p">:</span> <span class="dl">"</span><span class="s2">my-awesome-file.txt</span><span class="dl">"</span>
-<span class="p">});</span>
+<table id="myTable" style="width: 100%; display: table">
+    <tr>
+        <th style="width: 30%">Title</th>
+        <th style="width: 30%">
+            <div class="container">
+                <div class="select-btn">Category ⌄</div>
+                <ul class="list-items" id="category"></ul>
+            </div>
+        </th>
+        <th style="width: 20%">
+            <div class="container">
+                <div class="select-btn">customer ⌄</div>
+                <ul class="list-items" id="customer"></ul>
+            </div>
+        </th>
+        <th style="width: 20%">
+            <div class="container">
+                <div class="select-btn">Component ⌄</div>
+                <ul class="list-items" id="component"></ul>
+            </div>
+        </th>
+    </tr>
+         <tr>
+        <td>
+            <a href="/scenario-sc58"> Sending Messages </a>
+        </td>
+        <td class="category-list">Messages</td>
+        <td class="customer-list">All</td>
+        <td class="component-list">Connector</td>
+    </tr>     <tr>
+        <td>
+            <a href="/scenario-sc59"> Requests over Templates </a>
+        </td>
+        <td class="category-list">Requests</td>
+        <td class="customer-list">All</td>
+        <td class="component-list">Connector</td>
+    </tr>     <tr>
+        <td>
+            <a href="/scenario-sc60"> Requests over Messages </a>
+        </td>
+        <td class="category-list">Requests</td>
+        <td class="customer-list">All</td>
+        <td class="component-list">Connector</td>
+    </tr>
+</table>
+<script>
+    const columns = ["category", "customer", "component"];
+    columns.forEach((element_id) => {
+        const used_elements = [];
+        var ul = document.getElementById(element_id);
+        var category_list = document.getElementsByClassName(element_id + "-list");
+        for (let i = 0; i < category_list.length; i++) {
+            if (!used_elements.includes(category_list[i].innerHTML)) {
+                used_elements.push(category_list[i].innerHTML);
+                var li = document.createElement("li");
+                li.classList.add("item");
+                li.classList.add("checked");
+                var checkbox = document.createElement("SPAN");
+                checkbox.classList.add("checkbox");
+                var text = document.createElement("SPAN");
+                text.classList.add("item-text");
+                text.textContent = category_list[i].innerHTML;
+                li.appendChild(checkbox);
+                li.appendChild(text);
+                ul.appendChild(li);
+            }
+        }
+    });
+</script>
 
-<span class="k">if</span> <span class="p">(</span><span class="nx">uploadOwnFileResponse</span><span class="p">.</span><span class="nx">isSuccess</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">uploadOwnFileResponse</span><span class="p">.</span><span class="nx">result</span><span class="p">);</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">uploadOwnFileResponse</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>    </div>
-  </li>
-</ol>
+<script>
+    const selectBtns = document.querySelectorAll(".select-btn"),
+        items = document.querySelectorAll(".item");
+    selectBtns.forEach((selectBtn) => {
+        selectBtn.addEventListener("click", () => {
+            selectBtn.classList.toggle("open");
+        });
+    });
+    items.forEach((item) => {
+        item.addEventListener("click", () => {
+            item.classList.toggle("checked");
+            let checked = document.querySelectorAll(".checked");
+            var elements = new Array();
+            elements[1] = new Array();
+            elements[2] = new Array();
+            elements[3] = new Array();
+            checked.forEach((element) => {
+                elements[element.parentElement.parentElement.parentElement.cellIndex].push(element.innerText.replace(/[\n\r]+|[\s]{2,}/g, ""));
+            });
+            filter(elements);
+        });
+    });
+</script>
+
 
         
       </section>
@@ -387,11 +539,11 @@
       
   <nav class="pagination">
     
-      <a href="/integrate/connector-scenarios" class="pagination--pager" title="Connector-Scenarios
+      <a href="/integrate/connector-api" class="pagination--pager" title="Connector API
 ">Previous</a>
     
     
-      <a href="/integrate/custom-connector-modules" class="pagination--pager" title="Custom Connector Modules
+      <a href="/integrate/connector-sdks" class="pagination--pager" title="Connector Software Development Kits
 ">Next</a>
     
   </nav>
