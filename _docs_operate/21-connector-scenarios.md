@@ -1,10 +1,8 @@
 ---
-title: "Scenarios"
-permalink: /use/app-scenarios
+title: "Connector-Scenarios"
+permalink: /operate/connector-scenarios
 published: true
 ---
-
-<!-- component = app -->
 
 <!-- markdownlint-disable MD011 -->
 <style>
@@ -103,7 +101,7 @@ published: true
 </script>
 
 <input type="text" id="searchByNameInput" onkeyup="searchByName()" placeholder="Search for title.." />
-{% assign scenarios = site.pages | where: "type", "scenario" %}
+{% assign scenarios = site.docs_scenarios | where: "type", "scenario" %}
 
 <table id="myTable" style="width: 100%; display: table">
     <tr>
@@ -127,8 +125,7 @@ published: true
             </div>
         </th>
     </tr>
-    {% for scenario in scenarios %} {% assign status = scenario.properties | map:"documentation status" %}{% if status contains "DONE" %}{% assign component = scenario.properties | map:"component" %}{% if component contains "App" %}
-    <tr>
+    {% for scenario in scenarios %} {% assign status = scenario.properties | map:"documentation status" %}{% if status contains "DONE" %}{% assign component = scenario.properties | map:"component" %}{% if component contains "Connector" %}    <tr>
         <td>
             <a href="{{ scenario.url }}"> {{ scenario.title }} </a>
         </td>

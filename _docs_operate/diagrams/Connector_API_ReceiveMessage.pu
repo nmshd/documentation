@@ -1,0 +1,65 @@
+@startuml Connector_ReceiveMessage
+!include ../../assets/plantuml/styles.iuml
+
+title Connector: Receive Message
+caption Copyright 2021, j&s-soft GmbH
+
+box "Organizations's Infrastructure"
+participant "Business\nSystem" as backend
+participant "Enmeshed\nConnector" as connector
+end box
+participant "Enmeshed\nBackbone" as backbone
+actor "Sender" as user
+
+activate connector
+== Prerequisites ==
+backbone <-> connector: Verified Enmeshed Organization Identity
+connector <-> user: Existing Enmeshed Relationship
+
+
+
+== Receive Message ==
+
+
+connector -> backbone ++: Regularly check for updates
+backbone --> connector --: no updates
+
+...
+
+backbone <- user ++: Message to connector
+backbone --> user --: Random <messageId>
+
+...
+
+connector -> backbone ++: Regularly check for updates
+backbone --> connector: New message <messageId>
+connector -> backbone: Fetch <messageId>
+backbone --> user: <messageId> received\nby Recipient
+backbone --> connector --: message
+
+
+connector -> connector: Decrypt message
+
+connector -> connector: Validate message
+
+alt
+    connector <--> backend: Webhook enabled
+    connector -> backend ++: Forward message via webhook
+    backend -> backend: Process message
+    deactivate backend
+    |||
+end
+
+alt
+    connector <--> backend: Long-polling enabled
+    activate backend
+    loop
+        backend -> connector: POST /Synchronize
+        connector --> backend: Received changes
+        backend -> backend: Process changes
+        deactivate backend
+        |||
+    end
+end
+
+@enduml

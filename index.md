@@ -32,6 +32,12 @@ feature_row:
     url: "/integrate"
     btn_label: "Integrate"
     btn_class: "btn--primary"
+  - image_path: /assets/images/operate.jpg
+    title: "operate"
+    excerpt: "Discover how organizations can operate to the Enmeshed ecosystem."
+    url: "/operate"
+    btn_label: "operate"
+    btn_class: "btn--primary"
 feature_ssi:
   - title: "The digital home in your pocket"
     excerpt: "Take your digital identity wherever you go. Access, change and easily share the most important data of you without bothering about security, privacy or paperwork."

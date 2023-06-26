@@ -5,6 +5,8 @@ main:
     url: /explore
   - title: "Integrate"
     url: /integrate
+  - title: "Operate"
+    url: /operate/basics
   - title: "Contribute"
     url: /contribute
   - title: "Blog"
@@ -88,53 +90,14 @@ docs_integrate:
         url: /integrate/basics
       - title: "Connector Tutorial"
         url: /integrate/connector-tutorial
-      - title: "Connector Modules"
-        url: /integrate/connector-modules
-
-  - title: Setting up the Connector
+  - title: use-cases
     children:
-      - title: "Installation"
-        url: /integrate/connector-installation
-      - title: "Configuration"
-        url: /integrate/connector-configuration
-      - title: "Troubleshooting"
-        url: /integrate/connector-setup-troubleshooting
-      - title: "Error Codes"
-        url: /integrate/error-codes
-      - title: "Helm Chart"
-        url: /integrate/helm-chart
+      - title: xyz
 
-  - title: REST API
+  - title: Handling events
     children:
-      - title: "API Documentation"
-        url: /integrate/connector-api
-
-  - title: Scenarios
-    children:
-      - title: "Connector-Scenarios"
-        url: /integrate/connector-scenarios
-
-  - title: Programming
-    children:
-      - title: "Connector SDKs"
-        url: /integrate/connector-sdks
-      - title: "Custom Connector Modules"
-        url: /integrate/custom-connector-modules
       - title: "Connector Events"
         url: /integrate/connector-events
-      - title: "Migrate to v2"
-        url: /integrate/connector-migration-v2
-
-  - title: Operations
-    children:
-      - title: "Connector Operations"
-        url: /integrate/connector-operations
-      - title: "Security Considerations"
-        url: /integrate/connector-security
-      - title: "Privacy Considerations"
-        url: /integrate/connector-privacy
-      - title: "Performance Considerations"
-        url: /integrate/connector-performance
 
   - title: Data Model
     children:
@@ -144,6 +107,61 @@ docs_integrate:
         url: /integrate/data-model-request-items
       - title: "Attribute Values"
         url: /integrate/data-model-attribute-values
+
+docs_operate:
+  - title: Getting Started
+    children:
+      - title: "Basics"
+        url: /operate/basics
+      - title: "Connector Tutorial"
+        url: /operate/connector-tutorial
+      - title: "Connector Modules"
+        url: /operate/connector-modules
+
+  - title: Setting up the Connector
+    children:
+      - title: "Installation"
+        url: /operate/connector-installation
+      - title: "Configuration"
+        url: /operate/connector-configuration
+      - title: "Troubleshooting"
+        url: /operate/connector-setup-troubleshooting
+      - title: "Error Codes"
+        url: /operate/error-codes
+      - title: "Helm Chart"
+        url: /operate/helm-chart
+
+  - title: REST API
+    children:
+      - title: "API Documentation"
+        url: /operate/connector-api
+
+  - title: Scenarios
+    children:
+      - title: "Connector-Scenarios"
+        url: /operate/connector-scenarios
+
+  - title: Programming
+    children:
+      - title: "Connector SDKs"
+        url: /operate/connector-sdks
+      - title: "Custom Connector Modules"
+        url: /operate/custom-connector-modules
+      - title: "Connector Events"
+        url: /operate/connector-events
+      - title: "Migrate to v2"
+        url: /operate/connector-migration-v2
+
+  - title: Operations
+    children:
+      - title: "Connector Operations"
+        url: /operate/connector-operations
+      - title: "Security Considerations"
+        url: /operate/connector-security
+      - title: "Privacy Considerations"
+        url: /operate/connector-privacy
+      - title: "Performance Considerations"
+        url: /operate/connector-performance
 
 docs_scenarios:
 
