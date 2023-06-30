@@ -1,12 +1,12 @@
 main:
   - title: "Use"
-    url: /use/basics
+    url: /use/app-scenarios
   - title: "Explore"
     url: /explore
   - title: "Integrate"
-    url: /integrate
+    url: /integrate/connector-scenarios
   - title: "Operate"
-    url: /operate/basics
+    url: /operate/connector-scenarios
   - title: "Contribute"
     url: /contribute
   - title: "Blog"
