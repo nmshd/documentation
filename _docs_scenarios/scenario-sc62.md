@@ -1,17 +1,20 @@
 ---
 permalink: /scenario-sc62
 published: false
-title: "Download File"
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
+title: "Succeed attribute of peer"
 type: scenario
 toc: true
 properties:
   - id: SC62
-  - category: File handling
+  - category: Manage attributes of others
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Beginner
-  - implementation status: DONE
+  - implementation status: OPEN
   - documentation status: OPEN
   - published:
   - link to lucid:

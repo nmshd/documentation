@@ -1,17 +1,20 @@
 ---
 permalink: /scenario-sc61
 published: false
-title: "Uplaod File"
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
+title: "Delete Identity from Enmeshed"
 type: scenario
 toc: true
 properties:
   - id: SC61
-  - category: File handling
+  - category: Identity Basics
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Beginner
-  - implementation status: DONE
+  - implementation status: OPEN
   - documentation status: OPEN
   - published:
   - link to lucid:

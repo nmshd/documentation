@@ -1,7 +1,10 @@
 ---
 permalink: /scenario-sc12
 published: false
-title: "Overview of your shared data"
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
+title: "Get overview of your data"
 type: scenario
 toc: true
 properties:

@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc16
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Scan QR Codes to set up digital communication by printouts"
 type: scenario
 toc: true
@@ -11,7 +14,7 @@ properties:
   - customer: All
   - component: App
   - level: Beginner
-  - implementation status: DONE
+  - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
   - link to lucid:

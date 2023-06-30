@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc20
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Rename Contacts to your needs"
 type: scenario
 toc: true

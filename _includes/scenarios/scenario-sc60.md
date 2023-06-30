@@ -6,7 +6,7 @@ This guide explains how to send and receive a Request over Enmeshed Messages usi
 
 {% include properties_list.html %}
 
-This guide assumes that you already have an active Relationship between two Connectors. If you don't, you should follow the [Requests over Templates]({% link _docs_scenarios/scenario-sc59.md %}) guide first. If you created a Relationship during the [Connector Tutorial]({% link _docs_integrate/01-connector-tutorial.md %}) this will also work.
+This guide assumes that you already have an active Relationship between two Connectors. If you don't, you should follow the [Requests over Templates]({% link _docs_scenarios/scenario-sc59.md %}) guide first. If you created a Relationship during the [Connector Tutorial]({% link _docs_scenarios/scenario-sc95.md %}) this will also work.
 
 In this guide, the first Connector will be called Sender and the second Connector will be called Recipient. The Sender will send a Request to the Recipient. For the next steps you will need the Enmeshed Address of the Recipient. You can find it out by calling the `GET /api/v2/Relationships` route on the Sender Connector.
 
@@ -27,7 +27,7 @@ In this guide, the first Connector will be called Sender and the second Connecto
 ## Check your Requests validity
 
 At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Sender Connector with the following body.
-For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_integrate/62-request-items.md %}) you want.
+For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_scenarios/scenario-sc91.md %}) you want.
 
 Even though the `peer` property is optional, it is recommended to specify it whenever possible. This allows additional validation rules to execute. When you are sending a Request over Messages you always know your peer.
 
@@ -107,7 +107,7 @@ The Enmeshed Runtime will read the Message and create a new incoming Request. Yo
 
 The long polling is done by calling the `GET /api/v2/Requests/Incoming` route. You can use the query params `source.reference=<id-of-the-message>` and `status=ManualDecisionRequired` to filter for Requests that belong to the Message that contained the Request.
 
-For more information about the events you can head over to the [Connector Modules site]({% link _docs_integrate/03-connector-modules.md %}) and read about the [AMQP Publisher module]({% link _docs_integrate/03-connector-modules.md %}#amqppublisher) and the [WebhooksV2 module]({% link _docs_integrate/03-connector-modules.md %}#webhooksv2) that are propagating events.
+For more information about the events you can head over to the [Connector Modules site]({% link _docs_scenarios/scenario-sc80.md %}) and read about the [AMQP Publisher module]({% link _docs_scenarios/scenario-sc80.md %}#amqppublisher) and the [WebhooksV2 module]({% link _docs_scenarios/scenario-sc80.md %}#webhooksv2) that are propagating events.
 
 {% include copy-notice description="After you received the Request, save its `id` for the next step." %}
 

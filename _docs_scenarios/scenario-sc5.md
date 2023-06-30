@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc5
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Delete Identity from Enmeshed"
 type: scenario
 toc: true

@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc24
 published: false
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 title: "Overview of consent possibilities"
 type: scenario
 toc: true
@@ -9,7 +12,7 @@ properties:
   - category: Requesting consent of users
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Beginner
   - implementation status: DOCS ONLY
   - documentation status: OPEN

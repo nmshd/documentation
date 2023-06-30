@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc46
 published: false
+sidebar:
+  - title: "Operate Enmeshed"
+    nav: "docs_operate"
 title: "Writing your own Connector module"
 type: scenario
 toc: true

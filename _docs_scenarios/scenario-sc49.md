@@ -1,7 +1,10 @@
 ---
 permalink: /scenario-sc49
 published: false
-title: "Create own IdentityAttributes"
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
+title: "Create own IdentityAttribute"
 type: scenario
 toc: true
 properties:
@@ -9,7 +12,7 @@ properties:
   - category: Manage attributes of yourself
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Beginner
   - implementation status: DONE
   - documentation status: OPEN

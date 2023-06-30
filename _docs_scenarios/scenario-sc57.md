@@ -1,7 +1,10 @@
 ---
 permalink: /scenario-sc57
 published: false
-title: "x"
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
+title: "Working with unstructed data / files"
 type: scenario
 toc: true
 properties:
@@ -9,9 +12,9 @@ properties:
   - category: Manage attributes of others
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Advanced
-  - implementation status: OPEN
+  - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
   - link to lucid:

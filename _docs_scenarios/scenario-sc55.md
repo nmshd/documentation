@@ -1,7 +1,10 @@
 ---
 permalink: /scenario-sc55
 published: false
-title: "Process incoming IdentityAttribute deletion requests"
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
+title: "Process incoming Attribute deletion requests"
 type: scenario
 toc: true
 properties:
@@ -9,7 +12,7 @@ properties:
   - category: Handling data deletion
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Advanced
   - implementation status: OPEN
   - documentation status: OPEN

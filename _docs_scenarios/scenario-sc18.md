@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc18
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Create own enmeshed codes to share with your peers"
 type: scenario
 toc: true

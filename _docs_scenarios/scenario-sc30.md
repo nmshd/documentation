@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc30
 published: false
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 title: "Updating consents"
 type: scenario
 toc: true
@@ -9,7 +12,7 @@ properties:
   - category: Requesting consent of users
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Advanced
   - implementation status: OPEN
   - documentation status: OPEN

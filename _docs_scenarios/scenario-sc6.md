@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc6
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Recover an existing Identity"
 type: scenario
 toc: true

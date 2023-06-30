@@ -1,23 +1,25 @@
 ---
 permalink: /scenario-sc68
 published: false
-title: ""
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
+title: "Share own attribute to peer"
 type: scenario
 toc: true
 properties:
   - id: SC68
-  - category:
+  - category: Manage attributes of yourself
   - description:
-  - customer:
-  - component:
-  - level:
-  - implementation status:
-  - documentation status:
+  - customer: All
+  - component: Runtime
+  - level: Beginner
+  - implementation status: DONE
+  - documentation status: OPEN
   - published:
   - link to lucid:
 require:
 required_by:
-  - /scenario-sc58
 ---
 
 {% include scenarios/scenario-sc68.md %}

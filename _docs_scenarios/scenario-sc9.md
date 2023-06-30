@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc9
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Set-up an additional Device for the Identity"
 type: scenario
 toc: true

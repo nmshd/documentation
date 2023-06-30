@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc34
 published: false
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 title: "Requesting authentication by multiple parties"
 type: scenario
 toc: true
@@ -9,7 +12,7 @@ properties:
   - category: Requesting authentication
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Advanced
   - implementation status: DONE
   - documentation status: OPEN

@@ -1,7 +1,10 @@
 ---
 permalink: /scenario-sc11
 published: false
-title: "Fill Attributes of your Identity"
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
+title: "Manually fill Attributes of your Identity"
 type: scenario
 toc: true
 properties:

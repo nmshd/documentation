@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc54
 published: false
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 title: "Respond to incoming IdentityAttribute update requests"
 type: scenario
 toc: true
@@ -9,7 +12,7 @@ properties:
   - category: Manage attributes of others
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Beginner
   - implementation status: OPEN
   - documentation status: OPEN

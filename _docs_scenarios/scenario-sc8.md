@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc8
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Delete Profile from the App"
 type: scenario
 toc: true

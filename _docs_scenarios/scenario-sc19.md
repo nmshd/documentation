@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc19
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Distinguish personalized and non-personalized codes"
 type: scenario
 toc: true

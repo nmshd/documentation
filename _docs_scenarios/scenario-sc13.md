@@ -1,7 +1,10 @@
 ---
 permalink: /scenario-sc13
 published: false
-title: "Share data to contacts"
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
+title: "Manually share data to contact"
 type: scenario
 toc: true
 properties:

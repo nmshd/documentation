@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc1
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Create an Identity"
 type: scenario
 toc: true

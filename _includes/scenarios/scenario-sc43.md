@@ -1,21 +1,64 @@
-<!-- A general description of the requirement can be given here. -->
+| Event                                                                                | Data                                                                                     | Description (This event is triggered when ...)                                                                                                                                                                                         |
+| ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| consumption.attributeCreated                                                         | [LocalAttribute]({% link _docs_scenarios/scenario-sc90.md %}#LocalAttribute)             | ... an Attribute was created manually or through a Request.                                                                                                                                                                            |
+| consumption.attributeDeleted                                                         | [LocalAttribute]({% link _docs_scenarios/scenario-sc90.md %}#LocalAttribute)             | ... an Attribute was deleted manually or through a Request.                                                                                                                                                                            |
+| consumption.attributeSucceded                                                        | [LocalAttribute]({% link _docs_scenarios/scenario-sc90.md %}#LocalAttribute)             | ... an Attribute was succeeded manually or through a Request.                                                                                                                                                                          |
+| consumption.attributeUpdated                                                         | [LocalAttribute]({% link _docs_scenarios/scenario-sc90.md %}#LocalAttribute)             | ... an Attribute was updated manually or through a Request.                                                                                                                                                                            |
+| consumption.incomingRequestReceived                                                  | [LocalRequest]({% link _docs_scenarios/scenario-sc90.md %}#LocalRequest)                 | ... an incoming Request was received either by loading a Relationship Template or by receiving a Message                                                                                                                               |
+| consumption.incomingRequestStatusChanged                                             | [RequestStatusChangedEventData](#requeststatuschangedeventdata)                          | ... the status of an incoming Request has changed.                                                                                                                                                                                     |
+| consumption.messageProcessed                                                         | [MessageProcessedEventData](#messageprocessedeventdata)                                  | ... a Message was processed by Modules like the `RequestModule` or `DeciderModule`.                                                                                                                                                    |
+| consumption.outgoingRequestCreated                                                   | [LocalRequest]({% link _docs_scenarios/scenario-sc90.md %}#LocalRequest)                 | ... an outgoing Request was created.                                                                                                                                                                                                   |
+| consumption.<br>outgoingRequestFromRelationshipCreationChange<br>CreatedAndCompleted | [LocalRequest]({% link _docs_scenarios/scenario-sc90.md %}#LocalRequest)                 | ... an outgoing Request was created and directly completed.<br>This happens if the Response came in with a new Relationship.                                                                                                           |
+| consumption.outgoingRequestStatusChanged                                             | [RequestStatusChangedEventData](#requeststatuschangedeventdata)                          | ... the status of an outgoing Request has changed.                                                                                                                                                                                     |
+| consumption.relationshipTemplateProcessed                                            | [RelationshipTemplateProcessedEventData](#relationshiptemplateprocessedeventdata)        | ... a RelationshipTemplate was processed by Modules like the `RequestModule` or `DeciderModule`.                                                                                                                                       |
+| consumption.sharedAttributeCopyCreated                                               | [LocalAttribute]({% link _docs_scenarios/scenario-sc90.md %}#LocalAttribute)             | ... an Attribute is copied for sharing with another identity.                                                                                                                                                                          |
+| transport.messageReceived                                                            | [Message]({% link _docs_scenarios/scenario-sc90.md %}#Message)                           | ... a Message is received during synchronization.                                                                                                                                                                                      |
+| transport.messageSent                                                                | [Message]({% link _docs_scenarios/scenario-sc90.md %}#Message)                           | ... a Message was sent.                                                                                                                                                                                                                |
+| transport.peerRelationshipTemplateLoaded                                             | [RelationshipTemplate]({% link _docs_scenarios/scenario-sc90.md %}#RelationshipTemplate) | ... a Relationship Template was loaded that belongs to another identity.                                                                                                                                                               |
+| transport.relationshipChanged                                                        | [Relationship]({% link _docs_scenarios/scenario-sc90.md %}#Relationship)                 | ... a Relationship has changed. This can be due to one of the following cases:<br> • you create a Relationship<br> • you accept, reject or revoke a Relationship Change<br> • a Relationship Change is received during synchronization |
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis voluptas deserunt alias accusantium rem? Quaerat, temporibus alias fuga rerum unde dolor blanditiis quia incidunt modi rem, sequi, esse aut accusamus.
+## Event structure
 
-<!-- This include inserts the table with the metadata  -->
+Every event is structured as follows (TData depends on the actual event, e.g. `LocalAttribute`):
 
-{% include properties_list.html %}
+```ts
+interface Event<TData> {
+  namespace: string;
+  eventTargetAddress: string;
+  data: TData;
+}
+```
 
-<!-- here is the description in detail  -->
+### RequestStatusChangedEventData
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nihil sequi ipsam blanditiis optio nulla quidem tempore sapiente nam, molestiae et voluptas ab harum quo incidunt reiciendis dolorum sed eligendi quos in itaque vel facilis. Rerum quia asperiores porro, odit laborum error voluptates repellat repellendus doloribus minima voluptate debitis libero nemo sit, dolorem consequatur expedita architecto! Molestiae, quae maxime ut iste ratione veniam velit asperiores. Earum corrupti architecto molestiae necessitatibus ullam modi beatae optio distinctio et labore, consectetur, repudiandae alias recusandae quas delectus placeat error laudantium quos, autem non nemo cum. Obcaecati iure maiores quas temporibus assumenda, qui veritatis necessitatibus.
+> [LocalRequest]({% link _docs_scenarios/scenario-sc90.md %}#LocalRequest)
 
-<!-- detailed information about integration and development can be found in this chapter  -->
+```ts
+export interface RequestStatusChangedEventData {
+  request: LocalRequest;
+  oldStatus: LocalRequestStatus;
+  newStatus: LocalRequestStatus;
+}
+```
 
-# Developer Corner
+### MessageProcessedEventData
 
-<!-- How to import a graphic stored in the include folder -->
-<details >
-  <summary>Flowchart</summary>
-  <div>{% include diagrams/Enmeshed_Scenarios.svg %}</div>
-</details>
+> [Message]({% link _docs_scenarios/scenario-sc90.md %}#Message)
+
+```ts
+export interface MessageProcessedEventData {
+  message: MessageDTO;
+  result: "ManualRequestDecisionRequired" | "NoRequest" | "Error";
+}
+```
+
+### RelationshipTemplateProcessedEventData
+
+> [RelationshipTemplate]({% link _docs_scenarios/scenario-sc90.md %}#RelationshipTemplate)
+
+```ts
+export interface RelationshipTemplateProcessedEventData {
+  template: RelationshipTemplateDTO;
+  result: "ManualRequestDecisionRequired" | "NonCompletedRequestExists" | "RelationshipExists" | "NoRequest" | "Error";
+}
+```

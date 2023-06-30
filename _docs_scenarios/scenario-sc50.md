@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc50
 published: false
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 title: "Request and process attributes by code/link of new contacts"
 type: scenario
 toc: true
@@ -9,9 +12,9 @@ properties:
   - category: Manage attributes of others
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Beginner
-  - implementation status: DONE
+  - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
   - link to lucid:

@@ -1,7 +1,10 @@
 ---
 permalink: /scenario-sc44
 published: false
-title: "Handling events by webhooks"
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
+title: "Notify service of enmeshed event"
 type: scenario
 toc: true
 properties:
@@ -9,7 +12,7 @@ properties:
   - category: Handling events
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Advanced
   - implementation status: DONE
   - documentation status: OPEN

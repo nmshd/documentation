@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc17
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Use nmshd// links to trigger enmeshed on the same device"
 type: scenario
 toc: true
@@ -11,7 +14,7 @@ properties:
   - customer: All
   - component: App
   - level: Beginner
-  - implementation status: DONE
+  - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
   - link to lucid:

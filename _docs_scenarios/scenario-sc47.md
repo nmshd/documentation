@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc47
 published: false
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 title: "IdentityAttribute introduction"
 type: scenario
 toc: true
@@ -9,7 +12,7 @@ properties:
   - category: Manage attributes of yourself
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Beginner
   - implementation status: DOCS ONLY
   - documentation status: OPEN

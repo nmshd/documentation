@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc23
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Archive stale Contacts"
 type: scenario
 toc: true

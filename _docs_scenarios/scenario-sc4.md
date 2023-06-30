@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc4
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Create Recovery Data for the Identity"
 type: scenario
 toc: true

@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc22
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Pin Contacts to have the most prominent Contacts at hand"
 type: scenario
 toc: true

@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc56
 published: false
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 title: "Process incoming Relationship deletion requests"
 type: scenario
 toc: true
@@ -9,7 +12,7 @@ properties:
   - category: Handling data deletion
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Advanced
   - implementation status: OPEN
   - documentation status: OPEN

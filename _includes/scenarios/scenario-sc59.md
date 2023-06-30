@@ -1,8 +1,8 @@
 <!-- A general description of the requirement can be given here. -->
 
-This guide will explain the end to end flow of sharing and answering a [Request]({% link _docs_integrate/61-data-model.md %}#request) over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don't have a Relationship yet.
+This guide will explain the end to end flow of sharing and answering a [Request]({% link _docs_scenarios/scenario-sc90.md %}#request) over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don't have a Relationship yet.
 
-You can use the [Connector Installation Guide]({% link _docs_integrate/10-connector-installation.md %}) if you need help for the setup the Connectors.
+You can use the [Connector Installation Guide]({% link _docs_scenarios/scenario-sc77.md %}) if you need help for the setup the Connectors.
 
 <!-- This include inserts the table with the metadata  -->
 
@@ -13,7 +13,7 @@ On the first Connector you will create a Template. This Connector will be called
 ## Check your Request's validity
 
 At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Templator Connector with the following body.
-For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_integrate/62-request-items.md %}) you want.
+For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_scenarios/scenario-sc91.md %}) you want.
 
 ```json
 {
@@ -76,7 +76,7 @@ If no Relationship exists, this will trigger a process in the Enmeshed Runtime. 
 
 The long polling is done by calling the `GET /api/v2/Requests/Incoming` route. You can use the query params `source.reference=<id-of-the-template>` and `status=ManualDecisionRequired` to filter for Requests that belong to the Template you are currently working on.
 
-For more information about the events you can head over to the [Connector Modules site]({% link _docs_integrate/03-connector-modules.md %}) and read about the [AMQP Publisher module]({% link _docs_integrate/03-connector-modules.md %}#amqppublisher) and the [WebhooksV2 module]({% link _docs_integrate/03-connector-modules.md %}#webhooksv2) that are propagating events.
+For more information about the events you can head over to the [Connector Modules site]({% link _docs_scenarios/scenario-sc80.md %}) and read about the [AMQP Publisher module]({% link _docs_scenarios/scenario-sc80.md %}#amqppublisher) and the [WebhooksV2 module]({% link _docs_scenarios/scenario-sc80.md %}#webhooksv2) that are propagating events.
 
 {% include copy-notice description="After you received the Request, save its `id` for the next step." %}
 

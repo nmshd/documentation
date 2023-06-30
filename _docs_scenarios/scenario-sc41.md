@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc41
 published: false
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 title: "Respond to incoming requests"
 type: scenario
 toc: true
@@ -9,7 +12,7 @@ properties:
   - category: Working with requests
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Advanced
   - implementation status: DONE
   - documentation status: OPEN

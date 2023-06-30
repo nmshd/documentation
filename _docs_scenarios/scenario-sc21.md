@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc21
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Cluster Contacts into your phase of live or categories"
 type: scenario
 toc: true

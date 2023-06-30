@@ -1,15 +1,18 @@
 ---
 permalink: /scenario-sc27
 published: false
-title: "Requesting persistent consents "
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
+title: "Request persistent consent of peer"
 type: scenario
 toc: true
 properties:
   - id: SC27
-  - category: Requesting consent of users
+  - category: Manage attributes of others
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Beginner
   - implementation status: DONE
   - documentation status: OPEN

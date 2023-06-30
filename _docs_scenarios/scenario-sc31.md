@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc31
 published: false
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 title: "Automated consent management with external system"
 type: scenario
 toc: true
@@ -9,7 +12,7 @@ properties:
   - category: Requesting consent of users
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Expert
   - implementation status: DONE
   - documentation status: OPEN

@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc45
 published: false
+sidebar:
+  - title: "Operate Enmeshed"
+    nav: "docs_operate"
 title: "Handling events by AMQP"
 type: scenario
 toc: true

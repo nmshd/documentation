@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc3
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Check Device configuration"
 type: scenario
 toc: true

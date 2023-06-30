@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc32
 published: false
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 title: "Requesting authentication "
 type: scenario
 toc: true
@@ -9,7 +12,7 @@ properties:
   - category: Requesting authentication
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Beginner
   - implementation status: DONE
   - documentation status: OPEN

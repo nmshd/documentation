@@ -1,6 +1,10 @@
 ---
 permalink: /scenario-sc25
-published: false
+redirect_from: 
+published: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 title: "Requesting one-time consents "
 type: scenario
 toc: true
@@ -9,11 +13,11 @@ properties:
   - category: Requesting consent of users
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Beginner
   - implementation status: DONE
   - documentation status: DONE
-  - published:
+  - published: true
   - link to lucid:
 require:
   - /scenario-sc59

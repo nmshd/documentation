@@ -1,23 +1,25 @@
 ---
 permalink: /scenario-sc64
 published: false
-title: ""
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
+title: "Process received enmeshed onboarding package and create relationship"
 type: scenario
 toc: true
 properties:
   - id: SC64
-  - category:
+  - category: Get in touch with other Identities
   - description:
-  - customer:
-  - component:
-  - level:
-  - implementation status:
-  - documentation status:
+  - customer: All
+  - component: Runtime
+  - level: Advanced
+  - implementation status: DONE
+  - documentation status: OPEN
   - published:
   - link to lucid:
 require:
 required_by:
-  - /scenario-sc58
 ---
 
 {% include scenarios/scenario-sc64.md %}

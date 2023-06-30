@@ -1,13 +1,16 @@
 ---
 permalink: /scenario-sc63
 published: false
-title: "share File"
+sidebar:
+  - title: "Operate Enmeshed"
+    nav: "docs_operate"
+title: "Set-up Connector for productive use"
 type: scenario
 toc: true
 properties:
   - id: SC63
-  - category: File handling
-  - description:
+  - category: Operations
+  - description: #1 https//enmeshed.eu/integrate/connector-installation
   - customer: All
   - component: Connector
   - level: Beginner

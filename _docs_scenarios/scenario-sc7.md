@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc7
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Rename Profile to distinguish multiple Profiles"
 type: scenario
 toc: true

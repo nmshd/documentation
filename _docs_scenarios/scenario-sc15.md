@@ -1,7 +1,10 @@
 ---
 permalink: /scenario-sc15
 published: false
-title: "Register new online accounts with enmeshed"
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
+title: "Register new online account with enmeshed"
 type: scenario
 toc: true
 properties:
@@ -11,7 +14,7 @@ properties:
   - customer: All
   - component: App
   - level: Beginner
-  - implementation status: DONE
+  - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
   - link to lucid:

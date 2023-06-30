@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc37
 published: false
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 title: "Request statuses"
 type: scenario
 toc: true
@@ -9,7 +12,7 @@ properties:
   - category: Working with requests
   - description:
   - customer: All
-  - component: Connector
+  - component: Runtime
   - level: Advanced
   - implementation status: DOCS ONLY
   - documentation status: OPEN

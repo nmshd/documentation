@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc2
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Set-up and use Profile authentication"
 type: scenario
 toc: true

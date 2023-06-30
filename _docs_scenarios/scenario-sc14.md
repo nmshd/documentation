@@ -1,7 +1,10 @@
 ---
 permalink: /scenario-sc14
 published: false
-title: "Upgrade existing online accounts to enmeshed"
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
+title: "Upgrade existing online account to enmeshed"
 type: scenario
 toc: true
 properties:
@@ -11,7 +14,7 @@ properties:
   - customer: All
   - component: App
   - level: Beginner
-  - implementation status: DONE
+  - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
   - link to lucid:

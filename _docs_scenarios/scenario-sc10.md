@@ -1,6 +1,9 @@
 ---
 permalink: /scenario-sc10
 published: false
+sidebar:
+  - title: "Use Enmeshed"
+    nav: "docs_use"
 title: "Remove an onboarded Device from the Identity"
 type: scenario
 toc: true
