@@ -103,7 +103,7 @@ published: true
 </script>
 
 <input type="text" id="searchByNameInput" onkeyup="searchByName()" placeholder="Search for title.." />
-{% assign scenarios = site.pages | where: "type", "scenario" %}
+{% assign scenarios = site.docs_scenarios | where: "type", "scenario" %}
 
 <table id="myTable" style="width: 100%; display: table">
     <tr>
@@ -127,8 +127,8 @@ published: true
             </div>
         </th>
     </tr>
-    {% for scenario in scenarios %} {% assign status = scenario.properties | map:"documentation status" %}{% if status contains "DONE" %}{% assign component = scenario.properties | map:"component" %}{% if component contains "App" %}
-    <tr>
+    {% for scenario in scenarios %} 
+     {% assign status = scenario.properties | map:"documentation status" %}{% assign component = scenario.properties | map:"component" %}{% if component contains "App" %}    <tr>
         <td>
             <a href="{{ scenario.url }}"> {{ scenario.title }} </a>
         </td>
@@ -136,7 +136,7 @@ published: true
         <td class="customer-list">{{ scenario.properties | map:"customer" }}</td>
         <td class="component-list">{{ scenario.properties | map:"component" }}</td>
     </tr>
-    {%- endif -%} {%- endif -%} {% endfor %}
+    {%- endif -%} {% endfor %}
 </table>
 <script>
     const columns = ["category", "customer", "component"];
