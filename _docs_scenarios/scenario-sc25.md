@@ -1,6 +1,6 @@
 ---
 permalink: /scenario-sc25
-redirect_from: 
+redirect_from:
 published: true
 sidebar:
   - title: "Integrate Enmeshed"
