@@ -782,3 +782,18 @@ A URL.
 | `description`        | `string`                                                                               |    ✗     | max. length: 1000                                          |
 | `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                            |
 | `value`              | `string`                                                                               |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+
+## ProprietaryXML
+
+A XML.
+
+**Properties**
+
+| Name                 | Type                                                                                   | Required | Validation                                                 |
+| -------------------- | -------------------------------------------------------------------------------------- | :------: | ---------------------------------------------------------- |
+| `@type`              | `"ProprietaryXML"`                                                                     |    ✓     |                                                            |
+| `title`              | `string`                                                                               |    ✓     | max. length: 100                                           |
+| `description`        | `string`                                                                               |    ✗     | max. length: 1000                                          |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                            |
+| `value`              | `string`                                                                               |    ✓     | max. length: 50000 <br>must be a valid XML                 |
+| `schemaURL`          | `string`                                                                               |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
