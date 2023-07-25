@@ -458,7 +458,7 @@ SchematizedXML can be used to exchange files in XML format. The exchange of XML 
 | Name        | Type               | Required | Validation                                                 |
 | ----------- | ------------------ | :------: | ---------------------------------------------------------- |
 | `@type`     | `"SchematizedXML"` |    ✓     |                                                            |
-| `value`     | `string`           |    ✓     | max. length: 50000 <br>must be a valid XML                 |
+| `value`     | `string`           |    ✓     | max. length: 50000 <br>must be a valid XML encoded string  |
 | `schemaURL` | `string`           |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
 
 ## Sex
@@ -795,5 +795,5 @@ A XML.
 | `title`              | `string`                                                                               |    ✓     | max. length: 100                                           |
 | `description`        | `string`                                                                               |    ✗     | max. length: 1000                                          |
 | `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                            |
-| `value`              | `string`                                                                               |    ✓     | max. length: 50000 <br>must be a valid XML                 |
+| `value`              | `string`                                                                               |    ✓     | max. length: 50000 <br>must be a valid XML encoded string  |
 | `schemaURL`          | `string`                                                                               |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
