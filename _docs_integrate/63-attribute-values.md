@@ -449,6 +449,18 @@ The officially registered pseudonym of a person.
 | `@type` | `"Pseudonym"` |    ✓     |                  |
 | `value` | `string`      |    ✓     | max. length: 100 |
 
+## SchematizedXML
+
+SchematizedXML can be used to exchange files in XML format. The exchange of XML files is also possible via [`FileReference`](#filereference), but SchematizedXML has the advantage that it is possible to validate the XML and display the attributes in the wallet.
+
+**Properties**
+
+| Name        | Type               | Required | Validation                                                 |
+| ----------- | ------------------ | :------: | ---------------------------------------------------------- |
+| `@type`     | `"SchematizedXML"` |    ✓     |                                                            |
+| `value`     | `string`           |    ✓     | max. length: 50000 <br>must be a valid XML                 |
+| `schemaURL` | `string`           |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+
 ## Sex
 
 The Sex is the biological, medical, or public gender of a natural person.
