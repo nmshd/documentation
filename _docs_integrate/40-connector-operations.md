@@ -16,7 +16,7 @@ Be advised that before starting the Connector after a downtime, you should ensur
 
 ## Backup & Recovery
 
-All of the Connector data is stored in a MongoDB compatible databse. Therefore we suggest you to use [MongoDB replicas](https://www.mongodb.com/basics/replication) in a productive setup, to avoid having data loss.
+All of the Connector data is stored in a MongoDB compatible database. Therefore we suggest you to use [MongoDB replicas](https://www.mongodb.com/basics/replication) in a productive setup, to avoid having data loss.
 
 Additionally, offline backups of the replicas might make sense. For backup and recovery methods visit the official [MongoDB docs](https://docs.mongodb.com/manual/core/backups/). These backups might come in handy if the data within the database was compromised.
 
