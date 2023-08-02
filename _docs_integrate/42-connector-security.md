@@ -120,4 +120,4 @@ With this page, we address what we consider to be the most important security ti
 
 4. **Regular updates and maintenance:** Regular updates should be performed to keep the database up-to-date and to fix any known security vulnerabilities.
 
-When you are using FerretDB as you database read more about security in the [FerretDB documentation](https://docs.ferretdb.io/category/security/).
+When you are using FerretDB as your database read more about security in the [FerretDB documentation](https://docs.ferretdb.io/category/security/).
