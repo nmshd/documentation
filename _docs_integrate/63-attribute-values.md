@@ -299,10 +299,10 @@ A IdentityFileReference is a link to an Enmeshed [`File`]({% link _docs_integrat
 
 **Properties**
 
-| Name    | Type              | Required | Validation       |
-| ------- | ----------------- | :------: | ---------------- |
+| Name    | Type                      | Required | Validation       |
+| ------- | ------------------------- | :------: | ---------------- |
 | `@type` | `"IdentityFileReference"` |    ✓     |                  |
-| `value` | `string`          |    ✓     | max. length: 100 |
+| `value` | `string`                  |    ✓     | max. length: 100 |
 
 ## GivenName
 
