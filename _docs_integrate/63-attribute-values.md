@@ -293,15 +293,15 @@ The telephone number which can be used to reach the Identity via fax systems.
 | `@type` | `"FaxNumber"` |    ✓     |                                                                               |
 | `value` | `string`      |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[\d+\-x#*()/[\] ]{3,100}$` |
 
-## FileReference
+## IdentityFileReference
 
-A FileReference is a link to an Enmeshed [`File`]({% link _docs_integrate/61-data-model.md %}#files) and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.
+A IdentityFileReference is a link to an Enmeshed [`File`]({% link _docs_integrate/61-data-model.md %}#files) and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.
 
 **Properties**
 
 | Name    | Type              | Required | Validation       |
 | ------- | ----------------- | :------: | ---------------- |
-| `@type` | `"FileReference"` |    ✓     |                  |
+| `@type` | `"IdentityFileReference"` |    ✓     |                  |
 | `value` | `string`          |    ✓     | max. length: 100 |
 
 ## GivenName
@@ -451,7 +451,7 @@ The officially registered pseudonym of a person.
 
 ## SchematizedXML
 
-SchematizedXML can be used to exchange files in XML format. The exchange of XML files is also possible via [`FileReference`](#filereference), but SchematizedXML has the advantage that it is possible to validate the XML and display the attributes in the wallet.
+SchematizedXML can be used to exchange files in XML format. The exchange of XML files is also possible via [`IdentityFileReference`](#filereference), but SchematizedXML has the advantage that it is possible to validate the XML and display the attributes in the wallet.
 
 **Properties**
 
