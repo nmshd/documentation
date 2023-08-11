@@ -490,6 +490,126 @@ It is not recommended to send a State to another Identity by its own. Instead, s
 | `@type` | `"State"` |    ✓     |                  |
 | `value` | `string`  |    ✓     | max. length: 100 |
 
+## Statement
+
+The statement allows a very generic digital mapping of facts
+
+**Properties**
+
+| Name               | Type          | Required | Validation                                                              |
+| ------------------ | ------------- | :------: | ----------------------------------------------------------------------- |
+| `@type`            | `"Statement"` |    ✓     |                                                                         |
+| `value`            | `string`      |    ✓     | see [`StatementSubject`](#statementsubject)                             |
+| `predicate`        | `string`      |    ✓     | see [`StatementPredicate`](#statementpredicate)                         |
+| `object`           | `string`      |    ✓     | see [`StatementObject`](#statementobject)                               |
+| `issuer`           | `string`      |    ✓     | see [`DigitalIdentityDescriptor`](#statement-digitalidentitydescriptor) |
+| `issuerConditions` | `string`      |    ✓     | see [`StatementIssuerConditions`](#statementissuerconditions)           |
+
+## Statement DigitalIdentitydescriptor
+
+The issuer of a [`statement`](#statement).
+
+It is not recommended to send a DigitalIdentityDescriptor to another Identity by its own. Instead, send a [`statement`](#statement)
+{: .notice--warning}
+
+**Properties**
+
+| Name         | Type                          | Required | Validation                                           |
+| ------------ | ----------------------------- | :------: | ---------------------------------------------------- |
+| `@type`      | `"DigitalIdentityDescriptor"` |    ✓     |                                                      |
+| `address`    | `string`                      |    ✓     | The address of the identity that owns the statement. |
+| `attributes` | `string []`                   |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
+
+## StatementAuthorityType
+
+The authority type in [`StatementIssuerConditions`](#statementissuerconditions)
+
+It is not recommended to send a StatementAuthorityType to another Identity by its own. Instead, send a [`statement`](#statement)
+{: .notice--warning}
+
+**Properties**
+
+| Name    | Type          | Required | Validation                                                                                                                                           |
+| ------- | ------------- | :------: | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@type` | `"Statement"` |    ✓     |                                                                                                                                                      |
+| `value` | `string`      |    ✓     | one of: `"ownAuthority"`, `"trustedAuthority"`, `"publicAuthority"`,`"relayedOwnAuthority"`, `"relayedTrustedAuthority"`, `"relayedPublicAuthority"` |
+
+## StatementEvidence
+
+The evidence in [`StatementIssuerConditions`](#statementissuerconditions)
+
+It is not recommended to send a StatementEvidence to another Identity by its own. Instead, send a [`statement`](#statement)
+{: .notice--warning}
+
+**Properties**
+
+| Name    | Type                  | Required | Validation                                                                                                                                                                                                                                                  |
+| ------- | --------------------- | :------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@type` | `"StatementEvidence"` |    ✓     |                                                                                                                                                                                                                                                             |
+| `value` | `string`              |    ✓     | one of: `"ownFact"`, `"digitalPublicIDCard"`, `"digitalPublicDocument"`,`"digitalDocument"`, `"sightCheckOfPublicIDCard"`, `"sightCheckOfPublicDocument"`,`"sightCheckOfDocument"`, `"mediaOfPublicIDCard"`, `"mediaOfPublicDocument"`, `"mediaOfDocument"` |
+
+## StatementIssuerConditions
+
+The issuer conditions in a [`Statement`](#statement)
+
+It is not recommended to send a StatementIssuerConditions to another Identity by its own. Instead, send a [`statement`](#statement)
+{: .notice--warning}
+
+**Properties**
+
+| Name            | Type                          | Required | Validation                                                              |
+| --------------- | ----------------------------- | :------: | ----------------------------------------------------------------------- |
+| `@type`         | `"StatementIssuerConditions"` |    ✓     |                                                                         |
+| `validFrom`     | `string`                      |    ✓     | The date from which on the Attribute is valid.                          |
+| `validTo`       | `string`                      |    ✓     | The date until this Attribute is valid                                  |
+| `evidence`      | `string`                      |    ✓     | see [`StatementEvidence`](#statementevidence)                           |
+| `authorityType` | `string`                      |    ✓     | see [`StatementAuthorityType`](#statementauthoritytype)                 |
+| `relayedParty`  | `string`                      |    ✗     | see [`DigitalIdentityDescriptor`](#statement-digitalidentitydescriptor) |
+
+## StatementObject
+
+The object of a [`statement`](#statement).
+
+It is not recommended to send a object to another Identity by its own. Instead, send a [`statement`](#statement)
+{: .notice--warning}
+
+**Properties**
+
+| Name         | Type                | Required | Validation                                           |
+| ------------ | ------------------- | :------: | ---------------------------------------------------- |
+| `@type`      | `"StatementObject"` |    ✓     |                                                      |
+| `address`    | `string`            |    ✓     | The address of the identity that owns the statement. |
+| `attributes` | `string []`         |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
+
+## StatementPredicate
+
+The predicate of a [`statement`](#statement).
+
+It is not recommended to send a predicate to another Identity by its own. Instead, send a [`statement`](#statement)
+{: .notice--warning}
+
+**Properties**
+
+| Name    | Type                   | Required | Validation                                                                                |
+| ------- | ---------------------- | :------: | ----------------------------------------------------------------------------------------- |
+| `@type` | `"StatementPredicate"` |    ✓     |                                                                                           |
+| `value` | `string`               |    ✓     | one of: `"hasAttribute"`, `"relatesTo"`, `"isRelatedTo"` or any string starting with "z-" |
+
+## StatementSubject
+
+The subject of a [`statement`](#statement).
+
+It is not recommended to send a subject to another Identity by its own. Instead, send a [`statement`](#statement)
+{: .notice--warning}
+
+**Properties**
+
+| Name         | Type                 | Required | Validation                                           |
+| ------------ | -------------------- | :------: | ---------------------------------------------------- |
+| `@type`      | `"StatementSubject"` |    ✓     |                                                      |
+| `address`    | `string`             |    ✓     | The address of the identity that owns the statement. |
+| `attributes` | `string []`          |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
+
 ## Street
 
 A street name. This is usually used as part of a [`StreetAddress`](#streetaddress).
