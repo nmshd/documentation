@@ -116,10 +116,10 @@ To create an Attribute with a fixed value defined by the sender, an Identity use
 | -------------- | --------------- | --------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Identity       | Sender          | N         | `N/A`           | Use [ShareAttributeRequestItem](#shareattributerequestitem) instead.                                                                                                                                                                                                  |
 | Identity       | Recipient       | Y         | `USER_DECISION` | University sends student his certificate (Propose would be inappropriate in this case, because the student should not be able to return his own value)                                                                                                                |
-| Identity       | `<empty>`       | Y         | `USER_DECISION` | An empty owner defaults to an Attribute with owner=`<recipient>`. This is needed for Requests inside of Relationship Templates, since you don’t know the Enmeshed Address of your peer before the Relationship is established.                                        |
+| Identity       | `<empty>`       | Y         | `USER_DECISION` | An empty owner defaults to an Attribute with owner=`<recipient>`. This is needed for Requests inside of Relationship Templates, since you don’t know the enmeshed Address of your peer before the Relationship is established.                                        |
 | Relationship   | Sender          | Y         | `AUTO_ACCEPT`   | Company sends new customer his customer number.                                                                                                                                                                                                                       |
 | Relationship   | Recipient       | Y         | `USER_DECISION` | With this combination the **sender asks the recipient for the one-time permission** to write a Relationship Attribute once AND the **sender defined a value** which can either be accepted and stored, or rejected. Thus, the user cannot change the value by itself. |
-| Relationship   | `<empty>`       | Y         | `USER_DECISION` | An empty owner defaults to an Attribute with owner=`<recipient>`. This is needed for Requests inside of Relationship Templates, since you don’t know the Enmeshed Address of your peer before the Relationship is established.                                        |
+| Relationship   | `<empty>`       | Y         | `USER_DECISION` | An empty owner defaults to an Attribute with owner=`<recipient>`. This is needed for Requests inside of Relationship Templates, since you don’t know the enmeshed Address of your peer before the Relationship is established.                                        |
 
 ## FreeTextRequestItem
 
@@ -167,7 +167,7 @@ To create an Attribute with a value proposed by the sender, an Identity uses the
 
 ### Examples {#proposeattributerequestitem-examples}
 
-- Onboard an existing customer to Enmeshed and propose the known private Attributes, like its name or address.
+- Onboard an existing customer to enmeshed and propose the known private Attributes, like its name or address.
 - Ask the user if a newsletter would be of interest and propose the opt-in. This could be stored as a RelationshipAttribute with owner = recipient and could then be changed by the recipient at will.
 
 ### Properties {#proposeattributerequestitem-properties}

@@ -1,5 +1,5 @@
 ---
-title: "Enmeshed"
+title: "enmeshed"
 layout: splash
 header:
   overlay_color: "#000"
@@ -14,7 +14,7 @@ feature_row:
   - image_path: /assets/images/use.jpg
     alt: "placeholder image 1"
     title: "Use"
-    excerpt: "Get up and running with Enmeshed and your own digital identity."
+    excerpt: "Get up and running with enmeshed and your own digital identity."
     url: "/use"
     btn_label: "Use"
     btn_class: "btn--primary"
@@ -22,13 +22,13 @@ feature_row:
     image_caption: "Image courtesy of [Unsplash](https://unsplash.com/)"
     alt: "placeholder image 2"
     title: "Explore"
-    excerpt: "Find use cases, background information and introductions in the Explore Enmeshed section."
+    excerpt: "Find use cases, background information and introductions in the Explore enmeshed section."
     url: "/explore"
     btn_label: "Explore"
     btn_class: "btn--primary"
   - image_path: /assets/images/integrate.jpg
     title: "Integrate"
-    excerpt: "Discover how organizations can integrate to the Enmeshed ecosystem."
+    excerpt: "Discover how organizations can integrate to the enmeshed ecosystem."
     url: "/integrate"
     btn_label: "Integrate"
     btn_class: "btn--primary"

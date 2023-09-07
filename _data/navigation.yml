@@ -59,7 +59,7 @@ docs_explore:
 
   - title: Expert Corner
     children:
-      - title: "Enmeshed Addresses"
+      - title: "enmeshed Addresses"
         url: /explore/addresses
       - title: "Runtime"
         url: /explore/runtime

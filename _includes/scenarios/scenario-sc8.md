@@ -17,5 +17,5 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nihil sequi ipsam 
 <!-- How to import a graphic stored in the include folder -->
 <details >
   <summary>Flowchart</summary>
-  <div>{% include diagrams/Enmeshed_Scenarios.svg %}</div>
+  <div>{% include diagrams/enmeshed_Scenarios.svg %}</div>
 </details>

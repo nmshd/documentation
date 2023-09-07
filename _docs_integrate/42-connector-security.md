@@ -10,7 +10,7 @@ And as the Connector is handling very sensitive data (please see chapter Privacy
 
 ## Updates
 
-As with every software, it is important that you update the Connector regularly from the official Docker repositories. We do our best to keep the whole Enmeshed project (of course including the Connector) as up-to-date as possible, having multiple checks with regards to security and the open-source-software lifecycle.
+As with every software, it is important that you update the Connector regularly from the official Docker repositories. We do our best to keep the whole enmeshed project (of course including the Connector) as up-to-date as possible, having multiple checks with regards to security and the open-source-software lifecycle.
 
 Additionally, any software component the Connector or its data touches should be updated regularly.
 
@@ -26,7 +26,7 @@ Examples are:
 
 ## Trust
 
-Although Enmeshed introduces a secure way of knowing who is sending messages to the Connector, and the corresponding Backbone is blocking messages from unknown parties, you shouldn't trust others to not send you invalid, incorrect, illegal, or outright harmful data over the secure connection.
+Although enmeshed introduces a secure way of knowing who is sending messages to the Connector, and the corresponding Backbone is blocking messages from unknown parties, you shouldn't trust others to not send you invalid, incorrect, illegal, or outright harmful data over the secure connection.
 
 Especially the encrypted data coming from the Backbone - which hasn't been decrypted yet - might be harmful. We cannot check if the data is correctly encrypted. Only the Connector in your landscape does this automatically (in terms of decrypting the data and verifying its digital signature).
 
@@ -34,7 +34,7 @@ This brings us to the next point: Virus Scans.
 
 ## Virus Scans
 
-You should do Virus Scans regularly whenever sending or receiving data. However, the Connector has no integration capability for Virus Scanners (yet). This means, we cannot call for a virus scan while we are encrypting or decrypting Enmeshed payload.
+You should do Virus Scans regularly whenever sending or receiving data. However, the Connector has no integration capability for Virus Scanners (yet). This means, we cannot call for a virus scan while we are encrypting or decrypting enmeshed payload.
 
 Thus please consider scanning the host systems and the database for viruses regularly. Additionally, even encrypted data sent to and received from the Backbone should be scanned for viruses.
 
@@ -44,7 +44,7 @@ It is best practice to block unnecessary access from and to software components 
 
 ### Outbound External Connection: Internet
 
-The Connector uses an TLS-secured Internet connection to the Enmeshed Backbone which runs on the domain `https://prod.enmeshed.eu`. Your firewall must not block access to this domain, otherwise the Connector won't work.
+The Connector uses an TLS-secured Internet connection to the enmeshed Backbone which runs on the domain `https://prod.enmeshed.eu`. Your firewall must not block access to this domain, otherwise the Connector won't work.
 
 To access the latest updates, other routes might need to be opened within the firewall settings.
 

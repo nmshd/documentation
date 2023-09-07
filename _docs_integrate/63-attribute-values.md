@@ -10,7 +10,7 @@ Each [Attribute]({% link _docs_integrate/61-data-model.md %}#attributes) contain
 - how it is validated (the pattern of an email address and a maximum length)
 - information about how it can be rendered on the UI
 
-Enmeshed defines a standard set of possible Attribute Value types for Identities within the Enmeshed ecosystem and its meaning for the Identities. And every Identity can understand/use/fill/query these Attribute Value types of other Identities.
+enmeshed defines a standard set of possible Attribute Value types for Identities within the enmeshed ecosystem and its meaning for the Identities. And every Identity can understand/use/fill/query these Attribute Value types of other Identities.
 
 Most Attribute Value types are atomic, which means that they have only one property called `value` (e.g. [`EMailAddress`](#emailaddress), [`DisplayName`](#displayname), [`PhoneNumber`](#phonenumber)). But there are also more complex Attribute Value types which consist of multiple properties with a strong correlation (e.g. [`StreetAddress`](#streetaddress), [`PersonName`](#personname)). These properties can (but don't have to) contain other Attribute Values.
 
@@ -295,7 +295,7 @@ The telephone number which can be used to reach the Identity via fax systems.
 
 ## IdentityFileReference
 
-A IdentityFileReference is a link to an Enmeshed [`File`]({% link _docs_integrate/61-data-model.md %}#files) and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.
+A IdentityFileReference is a link to an enmeshed [`File`]({% link _docs_integrate/61-data-model.md %}#files) and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.
 
 **Properties**
 
@@ -741,7 +741,7 @@ An email address.
 
 ## ProprietaryFileReference
 
-A FileReference is a link to an Enmeshed [`File`]({% link _docs_integrate/61-data-model.md %}#files) and can be used to add a File as an Attribute of a Relationship.
+A FileReference is a link to an enmeshed [`File`]({% link _docs_integrate/61-data-model.md %}#files) and can be used to add a File as an Attribute of a Relationship.
 
 **Properties**
 

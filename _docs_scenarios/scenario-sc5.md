@@ -1,7 +1,7 @@
 ---
 permalink: /scenario-sc5
 published: false
-title: "Delete Identity from Enmeshed"
+title: "Delete Identity from enmeshed"
 type: scenario
 toc: true
 properties:

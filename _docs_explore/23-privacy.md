@@ -23,13 +23,13 @@ However, the metadata of identities stored on the Backbone could be analyzed. Fo
 
 The term zero-knowledge applies to parties which do not have access to personal data.
 
-Enmeshed is based on such a zero-knowledge principle:
+enmeshed is based on such a zero-knowledge principle:
 
-- The Enmeshed App stores the data in a local database on the device it is running on. Data can only be sent to or received from the Backbone, no other Internet access is possible.
-- The Enmeshed Connector stores the data in a local database within the organization network. Data can only be sent to or received from the Backbone, no other Internet access is possible.
+- The enmeshed App stores the data in a local database on the device it is running on. Data can only be sent to or received from the Backbone, no other Internet access is possible.
+- The enmeshed Connector stores the data in a local database within the organization network. Data can only be sent to or received from the Backbone, no other Internet access is possible.
 - Data received from or sent to the Backbone is either pseudonymous (e.g. addresses), non-personalized (e.g. ids, dates, states) or encrypted in a way, that the Backbone cannot process this data.
 - Keys to encrypted material on the Backbone are never transmitted in a way, that the Backbone could make use of it. For example, keys are shared on a side-channel (e.g. scan qr-code from website) or an end-to-end encrypted communication channel.
-- The Enmeshed App can synchronize data of the same identity to other Enmeshed Apps of this identity. This is done over a device-to-device encrypted communication channel (via the Backbone). The keys for this communication channel are transferred via a side-channel when onboarding a device for an identity.
+- The enmeshed App can synchronize data of the same identity to other enmeshed Apps of this identity. This is done over a device-to-device encrypted communication channel (via the Backbone). The keys for this communication channel are transferred via a side-channel when onboarding a device for an identity.
 
 Thus, the centrally hosted Backbone has no access to any personal data. In our diagrams, we've sometimes added a "zero-knowledge border" between the components to emphasize the lack of personal data.
 
@@ -39,7 +39,7 @@ The threat of metadata analytics should not be underestimated and can also not b
 
 # Comparison to decentral technologies
 
-When comparing the Enmeshed privacy with decentral approaches discussed in the world wide web, we do not see any disadvantages with a central architecture. The data stored or shared is effectively the same, resulting in the same possible metadata analysis.
+When comparing the enmeshed privacy with decentral approaches discussed in the world wide web, we do not see any disadvantages with a central architecture. The data stored or shared is effectively the same, resulting in the same possible metadata analysis.
 
 However, there are some advantages to a central architecture:
 

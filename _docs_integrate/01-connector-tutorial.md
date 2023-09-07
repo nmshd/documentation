@@ -21,7 +21,7 @@ The payloads for the requests that are sent during this tutorial contain placeho
   - Make sure the [Sync Module is disabled](https://enmeshed.eu/integrate/connector-configuration#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
   - Make sure the [docs are enabled](https://enmeshed.eu/integrate/connector-configuration#corehttpapi) for the documentation route to work
   - Get the API key that was configured during installation of the Connector (it needs to be sent in the `X-API-KEY` header of every HTTP request)
-- You need **version 2** of the [Enmeshed App]({% link _docs_use/01-basics.md %}) installed on your mobile device.
+- You need **version 2** of the [enmeshed App]({% link _docs_use/01-basics.md %}) installed on your mobile device.
 
 ## Establishing Relationships
 
@@ -147,7 +147,7 @@ Start by creating a so called Relationship Template on the Connector. You can do
 
 ### Connector: Create a QRCode for the Relationship Template
 
-Since we will use the Enmeshed App to send a Relationship Request to the Connector, we now have to create a QR Code one can scan with the App to retrieve the Relationship Template and send a Relationship Request to the Connector.
+Since we will use the enmeshed App to send a Relationship Request to the Connector, we now have to create a QR Code one can scan with the App to retrieve the Relationship Template and send a Relationship Request to the Connector.
 
 For this, execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Header: `image/png`) to create a QRCode. Use the ID of the Relationship Template from the previous step as the value for `id`.
 
@@ -155,7 +155,7 @@ For this, execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Hea
 
 ### App: Send a Relationship Request
 
-Open the created QR Code and start the Enmeshed App. Depending on what you already did with the App, choose one of the following paths:
+Open the created QR Code and start the enmeshed App. Depending on what you already did with the App, choose one of the following paths:
 
 - If this is the first time you use the App:
   - click on "Scan code"
@@ -218,7 +218,7 @@ Now the Relationship is in the `Active` state, so we can start to communicate wi
 
 ## Sending and Receiving Messages
 
-After you have established a Relationship to an Identity, you can start to exchange Messages. Enmeshed defines [different types of Messages]({% link _docs_integrate/61-data-model.md %}#message). For this tutorial we will focus on Messages of type [Mail]({% link _docs_integrate/61-data-model.md %}#mail), which you can compare to a classic email: you can specify one or more recipients, a subject and a body, as well as add some attachments.
+After you have established a Relationship to an Identity, you can start to exchange Messages. enmeshed defines [different types of Messages]({% link _docs_integrate/61-data-model.md %}#message). For this tutorial we will focus on Messages of type [Mail]({% link _docs_integrate/61-data-model.md %}#mail), which you can compare to a classic email: you can specify one or more recipients, a subject and a body, as well as add some attachments.
 
 ### Sending a Message with a Connector
 
@@ -238,7 +238,7 @@ To send a Message, all you need to do is call the `POST /api/v2/Messages` endpoi
 
 {% include rapidoc api_route_regex="^post /api/v2/Messages$" %}
 
-After you have sent this request, you should receive a push notification on your phone. Open the Enmeshed App, navigate to "Contacts" and select your Relationship. You should see the Message in the list. You can show details by tapping on it.
+After you have sent this request, you should receive a push notification on your phone. Open the enmeshed App, navigate to "Contacts" and select your Relationship. You should see the Message in the list. You can show details by tapping on it.
 
 ### Receiving a Message with a Connector
 
@@ -252,8 +252,8 @@ The response should contain a Message with the content you entered in the App.
 
 ## What's next?
 
-Now that you have successfully established a Relationship and exchanged Messages, you can further explore the Enmeshed API. You can for example:
+Now that you have successfully established a Relationship and exchanged Messages, you can further explore the enmeshed API. You can for example:
 
-- explore the [Enmeshed data model]({% link _docs_integrate/61-data-model.md %}) and learn more about the objects you used during this tutorial and the objects you will encounter in the future
+- explore the [enmeshed data model]({% link _docs_integrate/61-data-model.md %}) and learn more about the objects you used during this tutorial and the objects you will encounter in the future
 - learn how to send [Requests over Messages]({% link _docs_scenarios/scenario-sc58.md %}) with your established Relationship
 - dive deeper into creating and sending [Requests over RelationshipTemplates]({% link _docs_scenarios/scenario-sc59.md %})

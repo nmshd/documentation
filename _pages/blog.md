@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: "Enmeshed Blog"
+title: "enmeshed Blog"
 permalink: /blog
 author_profile: false
 ---

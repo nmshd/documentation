@@ -42,7 +42,7 @@ Read more about listing available docker image tags [here]({% link _docs_explore
 
 ### Familiarize with our policies
 
-Before setting up Enmeshed, you should familiarize yourself with our [Security Considerations]({% link _docs_integrate/42-connector-security.md %}) and [Privacy Considerations]({% link _docs_integrate/43-connector-privacy.md %}).
+Before setting up enmeshed, you should familiarize yourself with our [Security Considerations]({% link _docs_integrate/42-connector-security.md %}) and [Privacy Considerations]({% link _docs_integrate/43-connector-privacy.md %}).
 
 ## Installation with Docker
 

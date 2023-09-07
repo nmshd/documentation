@@ -6,15 +6,15 @@ toc: true
 
 # What is enmeshed?
 
-Enmeshed is an open source project combining various assets into an overarching digitalization approach for users and organizations. Its overall goal is to introduce a secure but easy-to-use way to share and request data and digital signatures between contacts.
+enmeshed is an open source project combining various assets into an overarching digitalization approach for users and organizations. Its overall goal is to introduce a secure but easy-to-use way to share and request data and digital signatures between contacts.
 
 A focus is the digitalization of the end user: enmeshed is bringing back control to the end user in an easy-to-use way and thus empowering its users to use the modern IT world which was usually an area only experts were able to cope with. With enmeshed the user actively takes part of the business processes, allowing a whole new digital experience.
 
-On the other hand, many organizations are still having trouble to digitize their business processes. Enmeshed introduces a different mindset - as well as components and tools - on how to securely communicate with other organizations and users. All this is done while keeping an easy-to-integrate approach in mind.
+On the other hand, many organizations are still having trouble to digitize their business processes. enmeshed introduces a different mindset - as well as components and tools - on how to securely communicate with other organizations and users. All this is done while keeping an easy-to-integrate approach in mind.
 
 The adjective "enmeshed" (\in'meshd\ or \en'meshd\ or /ɪnˈmeʃt/ ) means "to be entangled in s.th." or "parts which are patched together". Though sometimes used with a negative touch, nowadays we are all enmeshed in digital processes somehow, with more or less user satisfactory and effectiveness.
 
-We think by not only connecting identities of users and organizations to those digital processes, but tightly interweaving them within the actual processes, the overall user experience and process efficiency will rise. Enmeshed identities have a secure, digital and modern link between each other, which is not only used for overall communication but for professional processes.
+We think by not only connecting identities of users and organizations to those digital processes, but tightly interweaving them within the actual processes, the overall user experience and process efficiency will rise. enmeshed identities have a secure, digital and modern link between each other, which is not only used for overall communication but for professional processes.
 
 For us, being enmeshed is a very good thing: you know what is going on and the data which is used. You can take part in completely digital processes, without the hazzle of repeating yourself again and again. Even automated actions are available for end users.
 
@@ -36,11 +36,11 @@ You know what we mean? Have a look at the next chapter for a quick introduction 
 
 # How does enmeshed work?
 
-Enmeshed introduces an overarching solution, securely connecting users and organizations without the use of decentralized technologies like blockchains. However, it makes use of the decentralized mindset, like decentralized identities.
+enmeshed introduces an overarching solution, securely connecting users and organizations without the use of decentralized technologies like blockchains. However, it makes use of the decentralized mindset, like decentralized identities.
 
 Mature technologies and architectures are used as a base for enmeshed. In combination with state-of-the-art encryption technologies, a complete web stack is used for all features, making enmeshed a very powerful yet portable and modular stack for solving many challenges within various scenarios and industries.
 
-Enmeshed consists of three main components using different layers to communicate between:
+enmeshed consists of three main components using different layers to communicate between:
 
 ## Components
 
@@ -62,7 +62,7 @@ The following high-level picture shows the whole ensemble of enmeshed components
 
 The "Zero Knowledge Border" marks the area where data is encrypted or pseudonymized to a point that the Backbone operator has no chance of accessing personal data. The secure communication between identities happens within the [Transport Layer]({% link _docs_explore/42-transport-layer.md %}) based on a normalized enmeshed schema.
 
-## Enmeshed App
+## enmeshed App
 
 End-users are able to install the [enmeshed App]({% link _docs_explore/50-app.md %}) from their favorite app stores for free. It will also available for various desktop operating systems.
 
@@ -70,7 +70,7 @@ The App provides the user experience for the user's digital identity. With it, t
 
 It is possible to use multiple identities with the same App. It is also possible to use multiple Apps and devices with one identity.
 
-## Enmeshed Backbone
+## enmeshed Backbone
 
 The [enmeshed Backbone]({% link _docs_explore/51-backbone.md %}) provides the foundation to communicate between the components on the backbone layer. It hosts the central services which are required for a seamless experience across identities and the devices of one identity.
 
@@ -80,11 +80,11 @@ Due to the fact that devices of end-users are not always online, a "technical re
 
 The Backbone is based on a monolithic architecture and is highly virtualized with Docker containers. It is thus quite capable to scale vertically and horizontally.
 
-## Enmeshed Connector
+## enmeshed Connector
 
 The client for organizations is the [enmeshed Connector]({% link _docs_explore/52-connector.md %}). It acts with a separate digital identity of the organization within the network of the organization. Thus, it is in the hands of the corresponding IT department and can be set up next to the organization's business systems using the majority of the features.
 
-The Connector is hosted by a single Docker container and provides a REST API for all features of the transport layer. It can thus be perfectly used for integration purposes. The Connector transparently encrypts or decrypts the respective payload, synchronizes with the Backbone and keeps track of the Enmeshed data.
+The Connector is hosted by a single Docker container and provides a REST API for all features of the transport layer. It can thus be perfectly used for integration purposes. The Connector transparently encrypts or decrypts the respective payload, synchronizes with the Backbone and keeps track of the enmeshed data.
 
 # Who is behind enmeshed?
 

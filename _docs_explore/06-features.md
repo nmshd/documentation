@@ -3,7 +3,7 @@ title: "Features"
 permalink: /explore/features
 ---
 
-Features included with Enmeshed:
+Features included with enmeshed:
 
 - Self-sovereign identity
 - Datawallet capabilitites, i.e. repository of structured data like attributes and files
@@ -18,7 +18,7 @@ Features included with Enmeshed:
 - Zero-knowledge secure central data archive
 - Central timestamp capabilities to proof submission date of messages
 
-Features possible with Enmeshed:
+Features possible with enmeshed:
 
 - Digital signatures on files
 - Digital certificates, e.g. X509 certificates, verifiable claims

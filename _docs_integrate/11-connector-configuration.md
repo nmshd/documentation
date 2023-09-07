@@ -95,15 +95,15 @@ The debug flag configures if the Connector is set to **production** or **debug**
 
 - **baseUrl** `default: "https://prod.enmeshed.eu"`
 
-  The base url is used to communicate with the Enmeshed platform. It can be changed to use a custom Enmeshed Backbone.
+  The base url is used to communicate with the enmeshed platform. It can be changed to use a custom enmeshed Backbone.
 
 - **platformClientId** `required`
 
-  The client id is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({% link _docs_integrate/00-basics.md %}#support).
+  The client id is required to communicate with the enmeshed platform. It can be acquired from the [enmeshed Support]({% link _docs_integrate/00-basics.md %}#support).
 
 - **platformClientSecret** `required`
 
-  The client secret is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({% link _docs_integrate/00-basics.md %}#support).
+  The client secret is required to communicate with the enmeshed platform. It can be acquired from the [enmeshed Support]({% link _docs_integrate/00-basics.md %}#support).
 
 ### database
 
@@ -113,7 +113,7 @@ The debug flag configures if the Connector is set to **production** or **debug**
 
 - **dbName** `default: "default"`
 
-  The `dbName` string is used as the name of the MongoDB database, prefixed with `acc-`. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new Enmeshed identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
+  The `dbName` string is used as the name of the MongoDB database, prefixed with `acc-`. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new enmeshed identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
 
   If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
 

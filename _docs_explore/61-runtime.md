@@ -1,12 +1,12 @@
 ---
-title: "Enmeshed Runtime"
+title: "enmeshed Runtime"
 permalink: /explore/runtime
 toc: true
 ---
 
-[Enmeshed Runtime GitHub Repository](https://github.com/nmshd/cns-runtime)
+[enmeshed Runtime GitHub Repository](https://github.com/nmshd/cns-runtime)
 
-The Runtime wraps all features of Enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser.
+The Runtime wraps all features of enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser.
 
 Versions, local and remote data, synchronization, communication, and many more items are tracked by the Runtime in order to provide an easy-to-use interface.
 
@@ -34,7 +34,7 @@ Find a description of the available Modules in the following sections.
 
 ### Request Module
 
-**Note:** This Module is responsible for important logic in the Enmeshed ecosystem and is therefore enabled by default in every official Enmeshed Application.
+**Note:** This Module is responsible for important logic in the enmeshed ecosystem and is therefore enabled by default in every official enmeshed Application.
 {: .notice--warning}
 
 This Module makes heavy use of Requests, LocalRequests and Response. Head over to the description of our [data model]({% link _docs_integrate/61-data-model.md %}), where you can find a detailed description of them.
@@ -52,10 +52,10 @@ The Module is responsible for:
 
 ### Decider Module
 
-**Note:** This Module is responsible for important logic in the Enmeshed ecosystem and is therefore enabled by default in every official Enmeshed Application.
+**Note:** This Module is responsible for important logic in the enmeshed ecosystem and is therefore enabled by default in every official enmeshed Application.
 {: .notice--warning}
 
-Currently this Module is only responsible for moving a Request from the status `DecisionRequired` to the status `ManualDecisionRequired` in which e.g. the Enmeshed App can prompt the User to manually review the Request.
+Currently this Module is only responsible for moving a Request from the status `DecisionRequired` to the status `ManualDecisionRequired` in which e.g. the enmeshed App can prompt the User to manually review the Request.
 
 In the future, it will be possible to configure the Decider Module so it automatically accepts certain Requests without any User interaction.
 

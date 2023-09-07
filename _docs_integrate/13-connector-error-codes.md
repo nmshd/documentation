@@ -3,7 +3,7 @@ title: ErrorCodes
 permalink: /integrate/error-codes
 ---
 
-Please find a list of Enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using Enmeshed or cannot deduce the reason for your error, please report it in the [Enmeshed Issue Tracker](https://github.com/nmshd/feedback/issues).
+Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the [enmeshed Issue Tracker](https://github.com/nmshd/feedback/issues).
 
 | ErrorCode                                                                                                   | Description                                                                                                                                                                                                                                                               |
 | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

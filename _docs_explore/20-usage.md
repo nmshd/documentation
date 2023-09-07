@@ -22,7 +22,7 @@ Let us categorize the
 - Manage attributes of an identity
 - Automate attribute management and sharing, e.g. automatically submit an address change to contacts who had the old address
 
-Enmeshed tries to tackle all of these problems with a single solution.
+enmeshed tries to tackle all of these problems with a single solution.
 
 - Existing digital accounts for customers or employees can be integrated (supporting multiple identity providers)
 - Existing data can be shared with the identity to speed up the onboarding
