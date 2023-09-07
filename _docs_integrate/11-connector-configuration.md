@@ -366,7 +366,7 @@ It is not recommended to use this Module for production scenarios.
 
     // a target with the {% raw %}{{trigger}}{% endraw %} placeholder as part of the URL
     "target3": {
-      "url": "https://example.com/enmeshed/webhook/{{trigger}}"
+      "url": "https://example.com/enmeshed/webhook/{% raw %}{{trigger}}{% endraw %}"
     }
   }
   ```
