@@ -12,7 +12,7 @@ Examples are:
 
 - the Docker host system (operating system, virtual machine, ...)
 - the Docker Runtime
-- the database (e.g. MongoDB)
+- the database (e.g. MongoDB or FerretDB)
 - the firewall
 - the virus scanner
 - the firmwares of any (network) component
@@ -113,3 +113,5 @@ With this page, we address what we consider to be the most important security ti
 3. **Strong passwords and connection strings:** All user credentials and connection strings should be strong and complex, to prevent unauthorized access to the database.
 
 4. **Regular updates and maintenance:** Regular updates should be performed to keep the database up-to-date and to fix any known security vulnerabilities.
+
+When you are using FerretDB as your database read more about security in the [FerretDB documentation](https://docs.ferretdb.io/category/security/).

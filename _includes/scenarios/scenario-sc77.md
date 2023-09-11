@@ -2,8 +2,10 @@
 
 ### MongoDB
 
-The Connector requires a MongoDB database as its data storage. MongoDB is a document-oriented database. For compatibility and security reasons, the most up-to-date version of MongoDB should be used.
+The Connector requires a MongoDB compatible database as its data storage. MongoDB is a document-oriented database. For compatibility and security reasons, the most up-to-date version of MongoDB should be used.
 For more information, please see <https://www.mongodb.com>.
+
+If you want to use an open-source database you can use [FerretDB](https://www.ferretdb.io) instead.
 
 ### Container Runtime
 

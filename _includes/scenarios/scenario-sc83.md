@@ -10,13 +10,15 @@ Be advised that before starting the Connector after a downtime, you should ensur
 
 ## Backup & Recovery
 
-All of the Connector data is stored in the MongoDB. Therefore we suggest you to use [MongoDB replicas](https://www.mongodb.com/basics/replication) in a productive setup, to avoid having data loss.
+All of the Connector data is stored in a MongoDB compatible database. Therefore we suggest you to use [MongoDB replicas](https://www.mongodb.com/basics/replication) in a productive setup, to avoid having data loss.
 
 Additionally, offline backups of the replicas might make sense. For backup and recovery methods visit the official [MongoDB docs](https://docs.mongodb.com/manual/core/backups/). These backups might come in handy if the data within the database was compromised.
 
 In general, there is no need to backup the Connector itself. However, it makes sense to backup configuration and log files. Additionally, it might speed up the recovery process if a complete system image of the Connector is available.
 
 For a recovery, you should be able to just start the Connector again with the recovered database. For recovering the database itself, please also refer the MongoDB documentation.
+
+If you use FerretDB as your database engine make sure to backup the data of the underlying PostgreSQL database. Read more about this in the [PostgreSQL documentation](https://www.postgresql.org/docs/8.1/backup.html).
 
 ## Proposed System Tasks
 

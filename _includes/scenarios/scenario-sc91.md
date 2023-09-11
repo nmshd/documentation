@@ -115,6 +115,44 @@ To create an Attribute with a fixed value defined by the sender, an Identity use
 | Relationship   | Recipient       | Y         | `USER_DECISION` | With this combination the **sender asks the recipient for the one-time permission** to write a Relationship Attribute once AND the **sender defined a value** which can either be accepted and stored, or rejected. Thus, the user cannot change the value by itself. |
 | Relationship   | `<empty>`       | Y         | `USER_DECISION` | An empty owner defaults to an Attribute with owner=`<recipient>`. This is needed for Requests inside of Relationship Templates, since you don’t know the Enmeshed Address of your peer before the Relationship is established.                                        |
 
+## FreeTextRequestItem
+
+With the FreeTextRequestItem it is possible to send a free text to the peer. The peer itself can accept this with a free text as well.
+
+<!-- ### Examples {#freetextrequestitem-examples} -->
+
+### Properties {#freetextrequestitem-properties}
+
+| Name       | Type                    | Description                                                    |
+| ---------- | ----------------------- | -------------------------------------------------------------- |
+| `@type`    | `"FreeTextRequestItem"` | Specifies the type of the RequestItem for internal processing. |
+| `freeText` | `string`                | The free text you want to send to the peer.                    |
+
+### Response Parameters {#freetextrequestitem-response}
+
+#### Item Properties {#freetextrequestitem-response-itemproperties}
+
+- To accept this RequestItem a `FreeTextAcceptResponseItem` will be transferred.
+
+  | Name       | Type                           | Description                                           |
+  | ---------- | ------------------------------ | ----------------------------------------------------- |
+  | `@type`    | `"FreeTextAcceptResponseItem"` | The type of the ResponseItem.                         |
+  | `freeText` | `string`                       | The free text that is used to answer the RequestItem. |
+
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/61-data-model.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/61-data-model.md %}#errorresponseitem) will be transferred.
+
+#### Parameters {#freetextrequestitem-response-parameters}
+
+- To accept this RequestItem you can send the following parameters.
+
+  | Name       | Type     | Description                                 |
+  | ---------- | -------- | ------------------------------------------- |
+  | `accept`   | `true`   |                                             |
+  | `freeText` | `string` | The free text you want to send to the peer. |
+
+- To reject this RequestItem you can send `{ "accept": false }` as parameters.
+
 ## ProposeAttributeRequestItem
 
 The ProposeAttributeRequestItem is a combination of [ReadAttributeRequestItem](#readattributerequestitem) and [CreateAttributeRequestItem](#createattributerequestitem). The sender would like to receive a correct Attribute from the peer, thinks it has a possible value but the peer might overrule this value with an existing or new one.

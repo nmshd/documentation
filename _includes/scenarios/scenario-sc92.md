@@ -287,16 +287,16 @@ The telephone number which can be used to reach the Identity via fax systems.
 | `@type` | `"FaxNumber"` |    ✓     |                                                                               |
 | `value` | `string`      |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[\d+\-x#*()/[\] ]{3,100}$` |
 
-## FileReference
+## IdentityFileReference
 
-A FileReference is a link to an Enmeshed [`File`]({% link _docs_scenarios/scenario-sc90.md %}#files) and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.
+A IdentityFileReference is a link to an Enmeshed [`File`]({% link _docs_integrate/61-data-model.md %}#files) and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.
 
 **Properties**
 
-| Name    | Type              | Required | Validation       |
-| ------- | ----------------- | :------: | ---------------- |
-| `@type` | `"FileReference"` |    ✓     |                  |
-| `value` | `string`          |    ✓     | max. length: 100 |
+| Name    | Type                      | Required | Validation       |
+| ------- | ------------------------- | :------: | ---------------- |
+| `@type` | `"IdentityFileReference"` |    ✓     |                  |
+| `value` | `string`                  |    ✓     | max. length: 100 |
 
 ## GivenName
 
@@ -443,6 +443,18 @@ The officially registered pseudonym of a person.
 | `@type` | `"Pseudonym"` |    ✓     |                  |
 | `value` | `string`      |    ✓     | max. length: 100 |
 
+## SchematizedXML
+
+SchematizedXML can be used to exchange files in XML format. The exchange of XML files is also possible via [`IdentityFileReference`](#identityfilereference), but SchematizedXML has the advantage that it is possible to validate the XML and display the attributes in the wallet.
+
+**Properties**
+
+| Name        | Type               | Required | Validation                                                 |
+| ----------- | ------------------ | :------: | ---------------------------------------------------------- |
+| `@type`     | `"SchematizedXML"` |    ✓     |                                                            |
+| `value`     | `string`           |    ✓     | max. length: 50000 <br>must be a valid XML encoded string  |
+| `schemaURL` | `string`           |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+
 ## Sex
 
 The Sex is the biological, medical, or public gender of a natural person.
@@ -471,6 +483,126 @@ It is not recommended to send a State to another Identity by its own. Instead, s
 | ------- | --------- | :------: | ---------------- |
 | `@type` | `"State"` |    ✓     |                  |
 | `value` | `string`  |    ✓     | max. length: 100 |
+
+## Statement
+
+The statement allows a very generic digital mapping of facts
+
+**Properties**
+
+| Name               | Type          | Required | Validation                                                              |
+| ------------------ | ------------- | :------: | ----------------------------------------------------------------------- |
+| `@type`            | `"Statement"` |    ✓     |                                                                         |
+| `value`            | `string`      |    ✓     | see [`StatementSubject`](#statementsubject)                             |
+| `predicate`        | `string`      |    ✓     | see [`StatementPredicate`](#statementpredicate)                         |
+| `object`           | `string`      |    ✓     | see [`StatementObject`](#statementobject)                               |
+| `issuer`           | `string`      |    ✓     | see [`DigitalIdentityDescriptor`](#statement-digitalidentitydescriptor) |
+| `issuerConditions` | `string`      |    ✓     | see [`StatementIssuerConditions`](#statementissuerconditions)           |
+
+## Statement DigitalIdentitydescriptor
+
+The issuer of a [`statement`](#statement).
+
+It is not recommended to send a DigitalIdentityDescriptor to another Identity by its own. Instead, send a [`statement`](#statement)
+{: .notice--warning}
+
+**Properties**
+
+| Name         | Type                          | Required | Validation                                           |
+| ------------ | ----------------------------- | :------: | ---------------------------------------------------- |
+| `@type`      | `"DigitalIdentityDescriptor"` |    ✓     |                                                      |
+| `address`    | `string`                      |    ✓     | The address of the identity that owns the statement. |
+| `attributes` | `string []`                   |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
+
+## StatementAuthorityType
+
+The authority type in [`StatementIssuerConditions`](#statementissuerconditions)
+
+It is not recommended to send a StatementAuthorityType to another Identity by its own. Instead, send a [`statement`](#statement)
+{: .notice--warning}
+
+**Properties**
+
+| Name    | Type          | Required | Validation                                                                                                                                           |
+| ------- | ------------- | :------: | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@type` | `"Statement"` |    ✓     |                                                                                                                                                      |
+| `value` | `string`      |    ✓     | one of: `"ownAuthority"`, `"trustedAuthority"`, `"publicAuthority"`,`"relayedOwnAuthority"`, `"relayedTrustedAuthority"`, `"relayedPublicAuthority"` |
+
+## StatementEvidence
+
+The evidence in [`StatementIssuerConditions`](#statementissuerconditions)
+
+It is not recommended to send a StatementEvidence to another Identity by its own. Instead, send a [`statement`](#statement)
+{: .notice--warning}
+
+**Properties**
+
+| Name    | Type                  | Required | Validation                                                                                                                                                                                                                                                  |
+| ------- | --------------------- | :------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@type` | `"StatementEvidence"` |    ✓     |                                                                                                                                                                                                                                                             |
+| `value` | `string`              |    ✓     | one of: `"ownFact"`, `"digitalPublicIDCard"`, `"digitalPublicDocument"`,`"digitalDocument"`, `"sightCheckOfPublicIDCard"`, `"sightCheckOfPublicDocument"`,`"sightCheckOfDocument"`, `"mediaOfPublicIDCard"`, `"mediaOfPublicDocument"`, `"mediaOfDocument"` |
+
+## StatementIssuerConditions
+
+The issuer conditions in a [`Statement`](#statement)
+
+It is not recommended to send a StatementIssuerConditions to another Identity by its own. Instead, send a [`statement`](#statement)
+{: .notice--warning}
+
+**Properties**
+
+| Name            | Type                          | Required | Validation                                                              |
+| --------------- | ----------------------------- | :------: | ----------------------------------------------------------------------- |
+| `@type`         | `"StatementIssuerConditions"` |    ✓     |                                                                         |
+| `validFrom`     | `string`                      |    ✓     | The date from which on the Attribute is valid.                          |
+| `validTo`       | `string`                      |    ✓     | The date until this Attribute is valid                                  |
+| `evidence`      | `string`                      |    ✓     | see [`StatementEvidence`](#statementevidence)                           |
+| `authorityType` | `string`                      |    ✓     | see [`StatementAuthorityType`](#statementauthoritytype)                 |
+| `relayedParty`  | `string`                      |    ✗     | see [`DigitalIdentityDescriptor`](#statement-digitalidentitydescriptor) |
+
+## StatementObject
+
+The object of a [`statement`](#statement).
+
+It is not recommended to send a object to another Identity by its own. Instead, send a [`statement`](#statement)
+{: .notice--warning}
+
+**Properties**
+
+| Name         | Type                | Required | Validation                                           |
+| ------------ | ------------------- | :------: | ---------------------------------------------------- |
+| `@type`      | `"StatementObject"` |    ✓     |                                                      |
+| `address`    | `string`            |    ✓     | The address of the identity that owns the statement. |
+| `attributes` | `string []`         |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
+
+## StatementPredicate
+
+The predicate of a [`statement`](#statement).
+
+It is not recommended to send a predicate to another Identity by its own. Instead, send a [`statement`](#statement)
+{: .notice--warning}
+
+**Properties**
+
+| Name    | Type                   | Required | Validation                                                                                |
+| ------- | ---------------------- | :------: | ----------------------------------------------------------------------------------------- |
+| `@type` | `"StatementPredicate"` |    ✓     |                                                                                           |
+| `value` | `string`               |    ✓     | one of: `"hasAttribute"`, `"relatesTo"`, `"isRelatedTo"` or any string starting with "z-" |
+
+## StatementSubject
+
+The subject of a [`statement`](#statement).
+
+It is not recommended to send a subject to another Identity by its own. Instead, send a [`statement`](#statement)
+{: .notice--warning}
+
+**Properties**
+
+| Name         | Type                 | Required | Validation                                           |
+| ------------ | -------------------- | :------: | ---------------------------------------------------- |
+| `@type`      | `"StatementSubject"` |    ✓     |                                                      |
+| `address`    | `string`             |    ✓     | The address of the identity that owns the statement. |
+| `attributes` | `string []`          |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
 
 ## Street
 
@@ -764,3 +896,18 @@ A URL.
 | `description`        | `string`                                                                               |    ✗     | max. length: 1000                                          |
 | `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_scenarios/scenario-sc90.md %}#valuehintsoverride) |    ✗     |                                                            |
 | `value`              | `string`                                                                               |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+
+## ProprietaryXML
+
+A XML.
+
+**Properties**
+
+| Name                 | Type                                                                                   | Required | Validation                                                 |
+| -------------------- | -------------------------------------------------------------------------------------- | :------: | ---------------------------------------------------------- |
+| `@type`              | `"ProprietaryXML"`                                                                     |    ✓     |                                                            |
+| `title`              | `string`                                                                               |    ✓     | max. length: 100                                           |
+| `description`        | `string`                                                                               |    ✗     | max. length: 1000                                          |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/61-data-model.md %}#valuehintsoverride) |    ✗     |                                                            |
+| `value`              | `string`                                                                               |    ✓     | max. length: 50000 <br>must be a valid XML encoded string  |
+| `schemaURL`          | `string`                                                                               |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
