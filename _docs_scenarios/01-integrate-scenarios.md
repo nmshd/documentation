@@ -1,7 +1,10 @@
 ---
-title: "Connector-Scenarios"
-permalink: /operate/connector-scenarios
+title: "Runtime-Scenarios"
+permalink: /integrate
 published: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 ---
 
 <!-- markdownlint-disable MD011 -->
@@ -126,7 +129,7 @@ published: true
         </th>
     </tr>
     {% for scenario in scenarios %} 
-     {% assign status = scenario.properties | map:"documentation status" %}{% assign component = scenario.properties | map:"component" %}{% if component contains "Connector" %}    <tr>
+     {% assign status = scenario.properties | map:"documentation status" %}{% assign component = scenario.properties | map:"component" %}{% if component contains "Runtime" %}    <tr>
         <td>
             <a href="{{ scenario.url }}"> {{ scenario.title }} </a>
         </td>

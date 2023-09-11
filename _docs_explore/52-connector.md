@@ -4,7 +4,7 @@ permalink: /explore/connector
 toc: true
 ---
 
-You can find many Connector-specific information in the [integrate]({% link _pages/integrate.md %}) part of these docs.
+You can find many Connector-specific information in the [integrate]({% link _docs_scenarios/01-integrate-scenarios.md %}) part of these docs.
 
 # Connector Building Blocks
 
