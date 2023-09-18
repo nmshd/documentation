@@ -37,7 +37,7 @@ Find a description of the available Modules in the following sections.
 **Note:** This Module is responsible for important logic in the Enmeshed ecosystem and is therefore enabled by default in every official Enmeshed Application.
 {: .notice--warning}
 
-This Module makes heavy use of Requests, LocalRequests and Response. Head over to the description of our [data model]({% link _docs_scenarios/scenario-sc90.md %}), where you can find a detailed description of them.
+This Module makes heavy use of Requests, LocalRequests and Response. Head over to the description of our [data model]({% link _docs_integrate/introducing-the-enmeshed-data-model.md %}), where you can find a detailed description of them.
 
 The Module is responsible for:
 
@@ -61,13 +61,13 @@ In the future, it will be possible to configure the Decider Module so it automat
 
 ### Message Module
 
-For an overview about the mentioned events in this section please refer to the [Events]({% link _docs_scenarios/scenario-sc43.md %}) docs.
+For an overview about the mentioned events in this section please refer to the [Events]({% link _docs_integrate/event-introduction.md %}) docs.
 
 The Message Module is responsible for processing `transport.MessageReceived` events and re-publish them as events that are able to handle and consume in different situations.
 
 In every case the MessageModule will publish a `consumption.relationshipEvent.<relationshipID-between-the-sender-and-you>` for e.g. reloading the Relationship including its newest Messages in an UI.
 
-When the Message is a [Mail]({% link _docs_scenarios/scenario-sc90.md %}#Mail) a `consumption.mailReceived` event will be published. This is useful if you only want to refresh your UI that is rendering structured Mails.
+When the Message is a [Mail]({% link _docs_integrate/introducing-the-enmeshed-data-model.md %}#Mail) a `consumption.mailReceived` event will be published. This is useful if you only want to refresh your UI that is rendering structured Mails.
 
 If you are interested in these events you need to enable this module, because it is not enabled by default.
 

@@ -1,0 +1,22 @@
+---
+permalink: integrate/request-statuses
+published: false
+title: "Request statuses"
+type: scenario
+toc: true
+properties:
+  - id: SC37
+  - category: Working with requests
+  - description:
+  - customer: All
+  - component: integrate
+  - level: Advanced
+  - implementation status: DOCS ONLY
+  - documentation status: OPEN
+  - published:
+  - link: integrate/request-statuses
+require:
+required_by:
+---
+
+{% include scenarios/integrate/request-statuses.md %}

@@ -1,0 +1,22 @@
+---
+permalink: integrate/request-and-process-attributes-by-code-or-link-of-existing-contacts
+published: false
+title: "Request and process attributes by code or link of existing contacts"
+type: scenario
+toc: true
+properties:
+  - id: SC51
+  - category: Manage attributes of others
+  - description:
+  - customer: All
+  - component: integrate
+  - level: Beginner
+  - implementation status: DONE
+  - documentation status: OPEN
+  - published:
+  - link: integrate/request-and-process-attributes-by-code-or-link-of-existing-contacts
+require:
+required_by:
+---
+
+{% include scenarios/integrate/request-and-process-attributes-by-code-or-link-of-existing-contacts.md %}

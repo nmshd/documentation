@@ -1,0 +1,22 @@
+---
+permalink: use/recover-an-existing-identity
+published: false
+title: "Recover an existing Identity"
+type: scenario
+toc: true
+properties:
+  - id: SC6
+  - category: Identity Basics
+  - description:
+  - customer: All
+  - component: use
+  - level: Beginner
+  - implementation status: OPEN
+  - documentation status: OPEN
+  - published:
+  - link: use/recover-an-existing-identity
+require:
+required_by:
+---
+
+{% include scenarios/use/recover-an-existing-identity.md %}

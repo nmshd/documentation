@@ -1,0 +1,23 @@
+---
+permalink: operate/performance-considerations
+redirect_from: /integrate/connector-performance
+published: true
+title: "Performance Considerations"
+type: scenario
+toc: true
+properties:
+  - id: SC86
+  - category: Operations
+  - description: https//enmeshed.eu/integrate/connector-performance
+  - customer:
+  - component: operate
+  - level:
+  - implementation status: DOCS ONLY
+  - documentation status:
+  - published: true
+  - link: operate/performance-considerations
+require:
+required_by:
+---
+
+{% include scenarios/operate/performance-considerations.md %}

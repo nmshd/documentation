@@ -1,0 +1,22 @@
+---
+permalink: use/delete-profile-from-the-app
+published: false
+title: "Delete Profile from the App"
+type: scenario
+toc: true
+properties:
+  - id: SC8
+  - category: Working with multiple Identities
+  - description:
+  - customer: All
+  - component: use
+  - level: Advanced
+  - implementation status: OPEN
+  - documentation status: OPEN
+  - published:
+  - link: use/delete-profile-from-the-app
+require:
+required_by:
+---
+
+{% include scenarios/use/delete-profile-from-the-app.md %}

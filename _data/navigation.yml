@@ -1,12 +1,12 @@
 main:
   - title: "Use"
-    url: /use
+    url: /use/install-the-app
   - title: "Explore"
     url: /explore
   - title: "Integrate"
-    url: /integrate
+    url: /integrate/connector-tutorial
   - title: "Operate"
-    url: /operate
+    url: operate/get-in-touch-with-enmeshed-data-concepts
   - title: "Contribute"
     url: /contribute
   - title: "Blog"
@@ -74,74 +74,74 @@ docs_use:
   - title: Getting Started
     children:
       - title: "Install the App"
-        url: /scenario-sc93
+        url: use/install-the-app
       - title: "Securely use the app"
-        url: /scenario-sc94
+        url: use/securely-use-the-app
 
 docs_integrate:
   - title: Data Model
     children:
       - title: "Error Codes"
-        url: /scenario-sc89
+        url: integrate/error-codes
       - title: "Introducing the enmeshed Data Model"
-        url: /scenario-sc90
+        url: integrate/introducing-the-enmeshed-data-model
       - title: "Overview of Requests and RequestItems"
-        url: /scenario-sc91
+        url: integrate/overview-of-requests-and-requestitems
       - title: "Overview of Attribute Values"
-        url: /scenario-sc92
+        url: integrate/overview-of-attribute-values
   - title: Getting Started
     children:
-      - title: "Tutorial???"
-        url: /scenario-sc95
+      - title: "Connector Tutorial"
+        url: integrate/connector-tutorial
   - title: Handling events
     children:
       - title: "Event introduction"
-        url: /scenario-sc43
+        url: integrate/event-introduction
   - title: Manage Requests
     children:
       - title: "Requests over Templates"
-        url: /scenario-sc59
+        url: integrate/requests-over-templates
       - title: "Requests over Messages"
-        url: /scenario-sc60
+        url: integrate/requests-over-messages
   - title: Messages
     children:
       - title: "Sending Messages"
-        url: /scenario-sc58
+        url: integrate/sending-messages
   - title: Requesting consent of users
     children:
       - title: "Requesting one-time consents "
-        url: /scenario-sc25
+        url: integrate/requesting-one-time-consents-
 
 docs_operate:
   - title: Getting Started
     children:
       - title: "Get in touch with Connector REST API"
-        url: /scenario-sc75
+        url: operate/get-in-touch-with-connector-rest-api
       - title: "Get an overview of Connector"
-        url: /scenario-sc76
+        url: operate/get-an-overview-of-connector
       - title: "Set-up Connector for development use (with Docker compose)"
-        url: /scenario-sc77
+        url: operate/set-up-connector-for-development-use-with-docker-compose
       - title: "Get in touch with enmeshed data concepts"
-        url: /scenario-sc78
+        url: operate/get-in-touch-with-enmeshed-data-concepts
   - title: Operations
     children:
       - title: "Customizing Connector by config"
-        url: /scenario-sc79
+        url: operate/customizing-connector-by-config
       - title: "Extending Connector with Connector modules"
-        url: /scenario-sc80
+        url: operate/extending-connector-with-connector-modules
       - title: "Troubleshooting the Connector"
-        url: /scenario-sc81
+        url: operate/troubleshooting-the-connector
       - title: "Setting up the Connector with Helm Charts"
-        url: /scenario-sc82
+        url: operate/setting-up-the-connector-with-helm-charts
       - title: "Overview of Connector operations"
-        url: /scenario-sc83
+        url: operate/overview-of-connector-operations
       - title: "Security Considerations"
-        url: /scenario-sc84
+        url: operate/security-considerations
       - title: "Privacy Considerations"
-        url: /scenario-sc85
+        url: operate/privacy-considerations
       - title: "Performance Considerations"
-        url: /scenario-sc86
+        url: operate/performance-considerations
   - title: Programming
     children:
       - title: "Working with the Connector SDKs"
-        url: /scenario-sc87
+        url: operate/working-with-the-connector-sdks

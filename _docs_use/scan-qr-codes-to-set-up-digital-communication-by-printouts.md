@@ -1,0 +1,22 @@
+---
+permalink: use/scan-qr-codes-to-set-up-digital-communication-by-printouts
+published: false
+title: "Scan QR Codes to set up digital communication by printouts"
+type: scenario
+toc: true
+properties:
+  - id: SC16
+  - category: Get in touch with other Identities
+  - description:
+  - customer: All
+  - component: use
+  - level: Beginner
+  - implementation status: DOCS ONLY
+  - documentation status: OPEN
+  - published:
+  - link: use/scan-qr-codes-to-set-up-digital-communication-by-printouts
+require:
+required_by:
+---
+
+{% include scenarios/use/scan-qr-codes-to-set-up-digital-communication-by-printouts.md %}

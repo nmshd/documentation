@@ -1,0 +1,22 @@
+---
+permalink: use/cluster-contacts-into-your-phase-of-live-or-categories
+published: false
+title: "Cluster Contacts into your phase of live or categories"
+type: scenario
+toc: true
+properties:
+  - id: SC21
+  - category: Organizing contacts
+  - description:
+  - customer: All
+  - component: use
+  - level: Advanced
+  - implementation status: IDEA
+  - documentation status: OPEN
+  - published:
+  - link: use/cluster-contacts-into-your-phase-of-live-or-categories
+require:
+required_by:
+---
+
+{% include scenarios/use/cluster-contacts-into-your-phase-of-live-or-categories.md %}

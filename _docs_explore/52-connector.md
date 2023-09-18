@@ -4,7 +4,7 @@ permalink: /explore/connector
 toc: true
 ---
 
-You can find many Connector-specific information in the [integrate]({% link _docs_scenarios/01-integrate-scenarios.md %}) part of these docs.
+You can find many Connector-specific information in the [integrate]({% link _docs_integrate/01-integrate-scenarios.md %}) part of these docs.
 
 # Connector Building Blocks
 
@@ -23,12 +23,12 @@ Just like the [App Runtime]({% link _docs_explore/50-app.md %}) extends the [Enm
 
 ## Connector Modules
 
-The Connector is built modular and provides some built-in Modules. A list of the available Modules and how to configure them can be found in [the Connector Modules guide]({% link _docs_scenarios/scenario-sc80.md %}).
+The Connector is built modular and provides some built-in Modules. A list of the available Modules and how to configure them can be found in [the Connector Modules guide]({% link _docs_operate/extending-connector-with-connector-modules.md %}).
 
 ## Connector Database
 
-The Connector uses a MongoDB database to store its data. You can read more about its configuration in the [database section of the Connector configuration guide]({% link _docs_scenarios/scenario-sc79.md %}#database).
+The Connector uses a MongoDB database to store its data. You can read more about its configuration in the [database section of the Connector configuration guide]({% link _docs_operate/customizing-connector-by-config.md %}#database).
 
 ## Connector SDK
 
-Read more about the [Connector SDKs]({% link _docs_scenarios/scenario-sc87.md %}).
+Read more about the [Connector SDKs]({% link _docs_operate/working-with-the-connector-sdks.md %}).

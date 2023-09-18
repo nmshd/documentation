@@ -1,0 +1,22 @@
+---
+permalink: use/rename-profile-to-distinguish-multiple-profiles
+published: false
+title: "Rename Profile to distinguish multiple Profiles"
+type: scenario
+toc: true
+properties:
+  - id: SC7
+  - category: Working with multiple Identities
+  - description:
+  - customer: All
+  - component: use
+  - level: Advanced
+  - implementation status: DONE
+  - documentation status: OPEN
+  - published:
+  - link: use/rename-profile-to-distinguish-multiple-profiles
+require:
+required_by:
+---
+
+{% include scenarios/use/rename-profile-to-distinguish-multiple-profiles.md %}

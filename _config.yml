@@ -152,6 +152,16 @@ defaults:
       sidebar:
         - title: "Integrate Enmeshed"
           nav: "docs_integrate"
+  # operate
+  - scope:
+      path: ""
+      type: docs_operate
+    values:
+      layout: single
+      author_profile: false
+      sidebar:
+        - title: "Operate Enmeshed"
+          nav: "docs_operate"
   # _pages
   - scope:
       path: "_pages"
@@ -160,16 +170,16 @@ defaults:
       layout: single
       author_profile: false
 
-  # scenarios
+  # use
   - scope:
       path: ""
-      type: docs_scenarios
+      type: docs_use
     values:
       layout: single
       author_profile: false
       sidebar:
-        - title: "Scenarios Enmeshed"
-          nav: "docs_scenarios"
+        - title: "Use Enmeshed"
+          nav: "docs_use"
 
   # use-cases
   - scope:

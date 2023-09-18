@@ -1,0 +1,22 @@
+---
+permalink: use/delete-identity-from-enmeshed
+published: false
+title: "Delete Identity from Enmeshed"
+type: scenario
+toc: true
+properties:
+  - id: SC5
+  - category: Identity Basics
+  - description:
+  - customer: All
+  - component: use
+  - level: Beginner
+  - implementation status: OPEN
+  - documentation status: OPEN
+  - published:
+  - link: use/delete-identity-from-enmeshed
+require:
+required_by:
+---
+
+{% include scenarios/use/delete-identity-from-enmeshed.md %}

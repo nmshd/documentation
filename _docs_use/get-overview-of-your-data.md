@@ -1,0 +1,22 @@
+---
+permalink: use/get-overview-of-your-data
+published: false
+title: "Get overview of your data"
+type: scenario
+toc: true
+properties:
+  - id: SC12
+  - category: Handling your personal data
+  - description:
+  - customer: All
+  - component: use
+  - level: Beginner
+  - implementation status: DONE
+  - documentation status: OPEN
+  - published:
+  - link: use/get-overview-of-your-data
+require:
+required_by:
+---
+
+{% include scenarios/use/get-overview-of-your-data.md %}

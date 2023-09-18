@@ -1,0 +1,22 @@
+---
+permalink: use/create-own-enmeshed-codes-to-share-with-your-peers
+published: false
+title: "Create own enmeshed codes to share with your peers"
+type: scenario
+toc: true
+properties:
+  - id: SC18
+  - category: Get in touch with other Identities
+  - description:
+  - customer: All
+  - component: use
+  - level: Advanced
+  - implementation status: DISABLED
+  - documentation status: OPEN
+  - published:
+  - link: use/create-own-enmeshed-codes-to-share-with-your-peers
+require:
+required_by:
+---
+
+{% include scenarios/use/create-own-enmeshed-codes-to-share-with-your-peers.md %}
