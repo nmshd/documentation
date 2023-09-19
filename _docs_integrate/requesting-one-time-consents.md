@@ -1,6 +1,5 @@
 ---
 permalink: integrate/requesting-one-time-consents
-redirect_from: 
 published: true
 title: "Requesting one-time consents"
 type: scenario
