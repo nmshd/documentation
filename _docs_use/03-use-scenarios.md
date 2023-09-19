@@ -1,7 +1,7 @@
 ---
 title: "Scenarios"
 permalink: /use
-published: true
+published: false
 sidebar:
   - title: "Use Enmeshed"
     nav: "docs_use"

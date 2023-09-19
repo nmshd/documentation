@@ -1,7 +1,7 @@
 ---
 title: "Connector-Scenarios"
 permalink: /operate
-published: true
+published: false
 sidebar:
   - title: "Operate Enmeshed"
     nav: "docs_operate"

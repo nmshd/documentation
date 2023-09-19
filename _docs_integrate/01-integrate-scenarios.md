@@ -1,7 +1,7 @@
 ---
 title: "Runtime-Scenarios"
 permalink: /integrate
-published: true
+published: false
 sidebar:
   - title: "Integrate Enmeshed"
     nav: "docs_integrate"
