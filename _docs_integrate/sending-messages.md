@@ -17,7 +17,7 @@ properties:
   - published: true
   - link: integrate/sending-messages
 require:
-  - /scenario-sc61
+  - integrate/delete-identity-from-enmeshed
 required_by:
 ---
 

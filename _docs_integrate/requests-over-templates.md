@@ -18,10 +18,10 @@ properties:
   - link: integrate/requests-over-templates
 require:
 required_by:
-  - /scenario-sc25
-  - /scenario-sc27
-  - /scenario-sc32
-  - /scenario-sc60
+  - integrate/requesting-one-time-consents
+  - integrate/request-persistent-consent-of-peer
+  - integrate/requesting-authentication
+  - integrate/requests-over-messages
 ---
 
 {% include scenarios/integrate/requests-over-templates.md %}

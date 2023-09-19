@@ -1,6 +1,6 @@
 ---
 permalink: integrate/requesting-one-time-consents
-redirect_from:
+redirect_from: 
 published: true
 title: "Requesting one-time consents"
 type: scenario
@@ -17,8 +17,8 @@ properties:
   - published: true
   - link: integrate/requesting-one-time-consents
 require:
-  - /scenario-sc59
-  - /scenario-sc60
+  - integrate/requests-over-templates
+  - integrate/requests-over-messages
 required_by:
 ---
 

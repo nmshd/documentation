@@ -1,5 +1,6 @@
 ---
 permalink: integrate/request-persistent-consent-of-peer
+redirect_from: 
 published: true
 title: "Request persistent consent of peer"
 type: scenario
@@ -13,11 +14,11 @@ properties:
   - level: Beginner
   - implementation status: DONE
   - documentation status: OPEN
-  - published:
+  - published: true
   - link: integrate/request-persistent-consent-of-peer
 require:
-  - /scenario-sc59
-  - /scenario-sc60
+  - integrate/requests-over-templates
+  - integrate/requests-over-messages
 required_by:
 ---
 

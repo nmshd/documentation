@@ -17,11 +17,11 @@ properties:
   - published: true
   - link: integrate/requests-over-messages
 require:
-  - /scenario-sc59
+  - integrate/requests-over-templates
 required_by:
-  - /scenario-sc25
-  - /scenario-sc27
-  - /scenario-sc32
+  - integrate/requesting-one-time-consents
+  - integrate/request-persistent-consent-of-peer
+  - integrate/requesting-authentication
 ---
 
 {% include scenarios/integrate/requests-over-messages.md %}
