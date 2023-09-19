@@ -1,8 +1,8 @@
 ---
-permalink: integrate/requesting-one-time-consents-
+permalink: integrate/requesting-one-time-consents
 redirect_from:
 published: true
-title: "Requesting one-time consents "
+title: "Requesting one-time consents"
 type: scenario
 toc: true
 properties:
@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: DONE
   - published: true
-  - link: integrate/requesting-one-time-consents-
+  - link: integrate/requesting-one-time-consents
 require:
   - /scenario-sc59
   - /scenario-sc60

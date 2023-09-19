@@ -110,7 +110,11 @@ docs_integrate:
   - title: Requesting consent of users
     children:
       - title: "Requesting one-time consents "
-        url: integrate/requesting-one-time-consents-
+        url: integrate/requesting-one-time-consents
+  - title: Manage attributes of others
+    children:
+      - title: "Request persistent consent of peer"
+        url: integrate/request-persistent-consent-of-peer
 
 docs_operate:
   - title: Getting Started

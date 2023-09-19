@@ -1,6 +1,6 @@
 ---
 permalink: integrate/request-persistent-consent-of-peer
-published: false
+published: true
 title: "Request persistent consent of peer"
 type: scenario
 toc: true
