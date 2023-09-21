@@ -74,9 +74,9 @@ docs_use:
   - title: Getting Started
     children:
       - title: "Install the App"
-        url: use/install-the-app
+        url: /use/install-the-app
       - title: "Securely use the app"
-        url: use/securely-use-the-app
+        url: /use/securely-use-the-app
 
 docs_integrate:
   - title: Data Model
@@ -102,19 +102,19 @@ docs_integrate:
       - title: "Requests over Templates"
         url: /integrate/requests-over-templates
       - title: "Requests over Messages"
-        url: //integrate/requests-over-messages
+        url: /integrate/requests-over-messages
+  - title: Manage attributes of others
+    children:
+      - title: "Request persistent consent of peer"
+        url: /integrate/request-persistent-consent-of-peer
   - title: Messages
     children:
       - title: "Sending Messages"
         url: /integrate/sending-messages
   - title: Requesting consent of users
     children:
-      - title: "Requesting one-time consents "
+      - title: "Requesting one-time consents"
         url: /integrate/requesting-one-time-consents
-  - title: Manage attributes of others
-    children:
-      - title: "Request persistent consent of peer"
-        url: /integrate/request-persistent-consent-of-peer
 
 docs_operate:
   - title: Getting Started
