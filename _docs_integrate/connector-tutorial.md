@@ -2,7 +2,7 @@
 permalink: integrate/connector-tutorial
 redirect_from: /integrate/connector-tutorial
 published: true
-title: "Connector Tutorial"
+title: "Connector Integration Tutorial"
 type: scenario
 toc: true
 properties:
