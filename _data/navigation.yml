@@ -79,6 +79,10 @@ docs_use:
         url: /use/securely-use-the-app
 
 docs_integrate:
+  - title: Getting Started
+    children:
+      - title: "Connector Integration Tutorial"
+        url: /integrate/connector-tutorial
   - title: Data Model
     children:
       - title: "Error Codes"
@@ -89,10 +93,6 @@ docs_integrate:
         url: /integrate/overview-of-requests-and-requestitems
       - title: "Overview of Attribute Values"
         url: /integrate/overview-of-attribute-values
-  - title: Getting Started
-    children:
-      - title: "Connector Tutorial"
-        url: /integrate/connector-tutorial
   - title: Handling events
     children:
       - title: "Event introduction"
