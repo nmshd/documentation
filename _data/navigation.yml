@@ -4,7 +4,7 @@ main:
   - title: "Explore"
     url: /explore
   - title: "Integrate"
-    url: //integrate/connector-tutorial
+    url: /integrate/connector-tutorial
   - title: "Operate"
     url: /operate/get-in-touch-with-enmeshed-data-concepts
   - title: "Contribute"
