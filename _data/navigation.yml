@@ -4,9 +4,9 @@ main:
   - title: "Explore"
     url: /explore
   - title: "Integrate"
-    url: /integrate/connector-tutorial
+    url: //integrate/connector-tutorial
   - title: "Operate"
-    url: operate/get-in-touch-with-enmeshed-data-concepts
+    url: /operate/get-in-touch-with-enmeshed-data-concepts
   - title: "Contribute"
     url: /contribute
   - title: "Blog"
@@ -82,70 +82,70 @@ docs_integrate:
   - title: Data Model
     children:
       - title: "Error Codes"
-        url: integrate/error-codes
+        url: /integrate/error-codes
       - title: "Introducing the enmeshed Data Model"
-        url: integrate/introducing-the-enmeshed-data-model
+        url: /integrate/introducing-the-enmeshed-data-model
       - title: "Overview of Requests and RequestItems"
-        url: integrate/overview-of-requests-and-requestitems
+        url: /integrate/overview-of-requests-and-requestitems
       - title: "Overview of Attribute Values"
-        url: integrate/overview-of-attribute-values
+        url: /integrate/overview-of-attribute-values
   - title: Getting Started
     children:
       - title: "Connector Tutorial"
-        url: integrate/connector-tutorial
+        url: /integrate/connector-tutorial
   - title: Handling events
     children:
       - title: "Event introduction"
-        url: integrate/event-introduction
+        url: /integrate/event-introduction
   - title: Manage Requests
     children:
       - title: "Requests over Templates"
-        url: integrate/requests-over-templates
+        url: /integrate/requests-over-templates
       - title: "Requests over Messages"
-        url: integrate/requests-over-messages
+        url: //integrate/requests-over-messages
   - title: Messages
     children:
       - title: "Sending Messages"
-        url: integrate/sending-messages
+        url: /integrate/sending-messages
   - title: Requesting consent of users
     children:
       - title: "Requesting one-time consents "
-        url: integrate/requesting-one-time-consents
+        url: /integrate/requesting-one-time-consents
   - title: Manage attributes of others
     children:
       - title: "Request persistent consent of peer"
-        url: integrate/request-persistent-consent-of-peer
+        url: /integrate/request-persistent-consent-of-peer
 
 docs_operate:
   - title: Getting Started
     children:
       - title: "Get in touch with Connector REST API"
-        url: operate/get-in-touch-with-connector-rest-api
+        url: /operate/get-in-touch-with-connector-rest-api
       - title: "Get an overview of Connector"
-        url: operate/get-an-overview-of-connector
+        url: /operate/get-an-overview-of-connector
       - title: "Set-up Connector for development use (with Docker compose)"
-        url: operate/set-up-connector-for-development-use-with-docker-compose
+        url: /operate/set-up-connector-for-development-use-with-docker-compose
       - title: "Get in touch with enmeshed data concepts"
-        url: operate/get-in-touch-with-enmeshed-data-concepts
+        url: /operate/get-in-touch-with-enmeshed-data-concepts
   - title: Operations
     children:
       - title: "Customizing Connector by config"
-        url: operate/customizing-connector-by-config
+        url: /operate/customizing-connector-by-config
       - title: "Extending Connector with Connector modules"
-        url: operate/extending-connector-with-connector-modules
+        url: /operate/extending-connector-with-connector-modules
       - title: "Troubleshooting the Connector"
-        url: operate/troubleshooting-the-connector
+        url: /operate/troubleshooting-the-connector
       - title: "Setting up the Connector with Helm Charts"
-        url: operate/setting-up-the-connector-with-helm-charts
+        url: /operate/setting-up-the-connector-with-helm-charts
       - title: "Overview of Connector operations"
-        url: operate/overview-of-connector-operations
+        url: /operate/overview-of-connector-operations
       - title: "Security Considerations"
-        url: operate/security-considerations
+        url: /operate/security-considerations
       - title: "Privacy Considerations"
-        url: operate/privacy-considerations
+        url: /operate/privacy-considerations
       - title: "Performance Considerations"
-        url: operate/performance-considerations
+        url: /operate/performance-considerations
   - title: Programming
     children:
       - title: "Working with the Connector SDKs"
-        url: operate/working-with-the-connector-sdks
+        url: /operate/working-with-the-connector-sdks
