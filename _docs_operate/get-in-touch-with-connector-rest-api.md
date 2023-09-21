@@ -1,6 +1,7 @@
 ---
 permalink: operate/get-in-touch-with-connector-rest-api
-redirect_from: /integrate/connector-tutorial
+redirect_from:
+  - /integrate/connector-api
 published: true
 title: "Get in touch with Connector REST API"
 type: scenario
