@@ -12,7 +12,7 @@ Represents the consent of a person to a specific topic. If you want to obtain a 
 
 <!-- here is the description in detail  -->
 
-### Examples {#consentrequestitem-examples}
+## Examples {#consentrequestitem-examples}
 
 - "I hereby confirm that I have read the privacy terms of this cloud service and agree to them."
 - "The provided EULA has been read and agreed to."
