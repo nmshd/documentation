@@ -15,14 +15,10 @@ main:
 docs_explore:
   - title: First things first
     children:
-      - title: "Introduction"
-        url: /explore
+      - title: "How does Enmeshed work?"
+        url: /explore/how_does_enmeshed_work
       - title: "Example Scenarios"
         url: /explore/example-scenarios
-      - title: "Features"
-        url: /explore/features
-      - title: "Use Cases"
-        url: /explore/use-cases
       # - title: "Screens"
       #   url: /explore/screens
       - title: "Frequently Asked Questions"
