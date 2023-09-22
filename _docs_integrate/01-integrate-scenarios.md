@@ -1,14 +1,48 @@
 ---
-title: "Runtime-Scenarios"
+title: "Integrate"
 permalink: /integrate
-published: false
+published: true
 sidebar:
   - title: "Integrate Enmeshed"
     nav: "docs_integrate"
 ---
 
+Welcome to "Integrate Enmeshed"! Here you'll find everything you need to seamlessly dive into the world of Enmeshed and integrate it into your applications and systems. Whether you're just starting out or already familiar with Enmeshed, our comprehensive guide and resources are at your disposal.
+
+## Getting Started
+
+Begin your integration journey by familiarizing yourself with the Connector REST API and exploring the fundamental steps for integration.
+
+## Data Model
+
+Understand Enmeshed's data model and how it fits into your integration, including error codes and attribute values.
+
+## Handling Events
+
+Discover how events work and how you can leverage them in your application.
+
+## Manage Requests
+
+Learn how to create and manage requests.
+
+## Manage Attributes of Others
+
+Explore how to store and query attributes in the Wallet for other users.
+
+## Messages
+
+Explore how to send messages through Enmeshed for simple and secure communication.
+
+## Programming
+
+Gain insights into effectively utilizing the Connector SDKs to streamline and optimize your integration.
+
+## Requesting Consent of Users
+
+Discover how to request one-time consents from users.
+
 <!-- markdownlint-disable MD011 -->
-<style>
+<!-- <style>
     .container {
         position: relative;
         max-width: 320px;
@@ -128,7 +162,7 @@ sidebar:
             </div>
         </th>
     </tr>
-    {% for scenario in scenarios %} 
+    {% for scenario in scenarios %}
      {% assign status = scenario.properties | map:"documentation status" %}{% assign component = scenario.properties | map:"component" %}{% if component contains "Runtime" %}    <tr>
         <td>
             <a href="{{ scenario.url }}"> {{ scenario.title }} </a>
@@ -185,4 +219,4 @@ sidebar:
             filter(elements);
         });
     });
-</script>
+</script> -->

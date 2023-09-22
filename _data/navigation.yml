@@ -4,7 +4,7 @@ main:
   - title: "Explore"
     url: /explore
   - title: "Integrate"
-    url: /integrate/connector-integration-tutorial
+    url: /integrate
   - title: "Operate"
     url: /operate/get-an-overview-of-connector
   - title: "Contribute"
