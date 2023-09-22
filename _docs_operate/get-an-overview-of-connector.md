@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC76
-  - category: Getting Started
+  - category: 1Getting Started
   - description: https//enmeshed.eu/integrate/basics
   - customer:
   - component: operate

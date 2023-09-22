@@ -4,9 +4,9 @@ main:
   - title: "Explore"
     url: /explore
   - title: "Integrate"
-    url: /integrate/connector-tutorial
+    url: /integrate/connector-integration-tutorial
   - title: "Operate"
-    url: /operate/get-in-touch-with-enmeshed-data-concepts
+    url: /operate/get-an-overview-of-connector
   - title: "Contribute"
     url: /contribute
   - title: "Blog"
@@ -81,8 +81,12 @@ docs_use:
 docs_integrate:
   - title: Getting Started
     children:
+      - title: "Get in touch with Connector REST API"
+        url: /integrate/get-in-touch-with-connector-rest-api
       - title: "Connector Integration Tutorial"
-        url: /integrate/connector-tutorial
+        url: /integrate/connector-integration-tutorial
+      - title: "Use Cases"
+        url: /integrate/use-cases
   - title: Data Model
     children:
       - title: "Error Codes"
@@ -111,6 +115,10 @@ docs_integrate:
     children:
       - title: "Sending Messages"
         url: /integrate/sending-messages
+  - title: Programming
+    children:
+      - title: "Working with the Connector SDKs"
+        url: /integrate/working-with-the-connector-sdks
   - title: Requesting consent of users
     children:
       - title: "Requesting one-time consents"
@@ -119,14 +127,10 @@ docs_integrate:
 docs_operate:
   - title: Getting Started
     children:
-      - title: "Get in touch with Connector REST API"
-        url: /operate/get-in-touch-with-connector-rest-api
       - title: "Get an overview of Connector"
         url: /operate/get-an-overview-of-connector
       - title: "Set-up Connector for development use (with Docker compose)"
         url: /operate/set-up-connector-for-development-use-with-docker-compose
-      - title: "Get in touch with enmeshed data concepts"
-        url: /operate/get-in-touch-with-enmeshed-data-concepts
   - title: Operations
     children:
       - title: "Customizing Connector by config"
@@ -145,7 +149,3 @@ docs_operate:
         url: /operate/privacy-considerations
       - title: "Performance Considerations"
         url: /operate/performance-considerations
-  - title: Programming
-    children:
-      - title: "Working with the Connector SDKs"
-        url: /operate/working-with-the-connector-sdks

@@ -1,5 +1,5 @@
 ---
-permalink: operate/working-with-the-connector-sdks
+permalink: integrate/working-with-the-connector-sdks
 redirect_from: /integrate/connector-sdks
 published: true
 title: "Working with the Connector SDKs"
@@ -10,14 +10,14 @@ properties:
   - category: Programming
   - description: https//enmeshed.eu/integrate/connector-sdks
   - customer:
-  - component: operate
+  - component: integrate
   - level:
   - implementation status: DOCS ONLY
   - documentation status:
   - published: true
-  - link: operate/working-with-the-connector-sdks
+  - link: integrate/working-with-the-connector-sdks
 require:
 required_by:
 ---
 
-{% include scenarios/operate/working-with-the-connector-sdks.md %}
+{% include scenarios/integrate/working-with-the-connector-sdks.md %}

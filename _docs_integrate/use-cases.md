@@ -1,0 +1,23 @@
+---
+permalink: integrate/use-cases
+redirect_from: /explore/use-cases
+published: true
+title: "Use Cases"
+type: scenario
+toc: true
+properties:
+  - id: SC78
+  - category: 1Getting Started
+  - description:
+  - customer:
+  - component: integrate
+  - level:
+  - implementation status: DONE
+  - documentation status: DONE
+  - published: true
+  - link: integrate/use-cases
+require:
+required_by:
+---
+
+{% include scenarios/integrate/use-cases.md %}

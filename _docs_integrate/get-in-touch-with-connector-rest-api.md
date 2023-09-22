@@ -1,24 +1,23 @@
 ---
-permalink: operate/get-in-touch-with-connector-rest-api
-redirect_from:
-  - /integrate/connector-api
+permalink: integrate/get-in-touch-with-connector-rest-api
+redirect_from: /integrate/connector-api
 published: true
 title: "Get in touch with Connector REST API"
 type: scenario
 toc: true
 properties:
   - id: SC75
-  - category: Getting Started
+  - category: 1Getting Started
   - description: https//enmeshed.eu/integrate/connector-api
   - customer:
-  - component: operate
+  - component: integrate
   - level:
   - implementation status: DOCS ONLY
   - documentation status:
   - published: true
-  - link: operate/get-in-touch-with-connector-rest-api
+  - link: integrate/get-in-touch-with-connector-rest-api
 require:
 required_by:
 ---
 
-{% include scenarios/operate/get-in-touch-with-connector-rest-api.md %}
+{% include scenarios/integrate/get-in-touch-with-connector-rest-api.md %}

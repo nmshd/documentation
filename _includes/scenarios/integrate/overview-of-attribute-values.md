@@ -289,7 +289,7 @@ The telephone number which can be used to reach the Identity via fax systems.
 
 ## IdentityFileReference
 
-A IdentityFileReference is a link to an Enmeshed [`File`]({% link _docs_operate/get-in-touch-with-enmeshed-data-concepts.md %}#files) and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.
+A IdentityFileReference is a link to an Enmeshed [`File`]({% link _docs_integrate/introducing-the-enmeshed-data-model.md %}#files) and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.
 
 **Properties**
 
@@ -903,11 +903,11 @@ A XML.
 
 **Properties**
 
-| Name                 | Type                                                                                                            | Required | Validation                                                 |
-| -------------------- | --------------------------------------------------------------------------------------------------------------- | :------: | ---------------------------------------------------------- |
-| `@type`              | `"ProprietaryXML"`                                                                                              |    ✓     |                                                            |
-| `title`              | `string`                                                                                                        |    ✓     | max. length: 100                                           |
-| `description`        | `string`                                                                                                        |    ✗     | max. length: 1000                                          |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_operate/get-in-touch-with-enmeshed-data-concepts.md %}#valuehintsoverride) |    ✗     |                                                            |
-| `value`              | `string`                                                                                                        |    ✓     | max. length: 50000 <br>must be a valid XML encoded string  |
-| `schemaURL`          | `string`                                                                                                        |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+| Name                 | Type                                                                                                         | Required | Validation                                                 |
+| -------------------- | ------------------------------------------------------------------------------------------------------------ | :------: | ---------------------------------------------------------- |
+| `@type`              | `"ProprietaryXML"`                                                                                           |    ✓     |                                                            |
+| `title`              | `string`                                                                                                     |    ✓     | max. length: 100                                           |
+| `description`        | `string`                                                                                                     |    ✗     | max. length: 1000                                          |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/introducing-the-enmeshed-data-model.md %}#valuehintsoverride) |    ✗     |                                                            |
+| `value`              | `string`                                                                                                     |    ✓     | max. length: 50000 <br>must be a valid XML encoded string  |
+| `schemaURL`          | `string`                                                                                                     |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |

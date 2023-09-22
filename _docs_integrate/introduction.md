@@ -6,7 +6,7 @@ type: scenario
 toc: true
 properties:
   - id: SC96
-  - category: Getting Started
+  - category: 1Getting Started
   - description:
   - customer:
   - component: integrate

@@ -31,4 +31,4 @@ The Connector uses a MongoDB database to store its data. You can read more about
 
 ## Connector SDK
 
-Read more about the [Connector SDKs]({% link _docs_operate/working-with-the-connector-sdks.md %}).
+Read more about the [Connector SDKs]({% link _docs_integrate/working-with-the-connector-sdks.md %}).

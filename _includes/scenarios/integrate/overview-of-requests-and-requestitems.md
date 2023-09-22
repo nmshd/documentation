@@ -139,8 +139,8 @@ With the FreeTextRequestItem it is possible to send a free text to the peer. The
   | `@type`    | `"FreeTextAcceptResponseItem"` | The type of the ResponseItem.                         |
   | `freeText` | `string`                       | The free text that is used to answer the RequestItem. |
 
-- To reject this RequestItem a [RejectResponseItem]({% link _docs_operate/get-in-touch-with-enmeshed-data-concepts.md %}#rejectresponseitem) will be transferred.
-- In case of an error an [ErrorResponseItem]({% link _docs_operate/get-in-touch-with-enmeshed-data-concepts.md %}#errorresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/introducing-the-enmeshed-data-model.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/introducing-the-enmeshed-data-model.md %}#errorresponseitem) will be transferred.
 
 #### Parameters {#freetextrequestitem-response-parameters}
 

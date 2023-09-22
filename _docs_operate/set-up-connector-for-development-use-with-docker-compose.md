@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC77
-  - category: Getting Started
+  - category: 1Getting Started
   - description: #2 https//enmeshed.eu/integrate/connector-installation
   - customer:
   - component: operate
