@@ -7,9 +7,9 @@ sidebar:
     nav: "docs_operate"
 ---
 
-You want to seamlessly use Enmeshed with your processes, solutions and software components? No worries, you are good to go!
+Looking to set up and maintain a connector in your own infrastructure? No worries, we've got you covered!
 
-We've built the Enmeshed Connector exactly for this scenario: to integrate existing systems with the Enmeshed approach with as little effort as possible.
+We'll guide you on how to configure and maintain your systems optimally, ensuring smooth operations.
 
 <!-- markdownlint-disable MD011 -->
 <!-- <style>

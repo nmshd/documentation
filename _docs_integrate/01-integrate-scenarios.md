@@ -7,7 +7,11 @@ sidebar:
     nav: "docs_integrate"
 ---
 
-Welcome to "Integrate Enmeshed"! Here you'll find everything you need to seamlessly dive into the world of Enmeshed and integrate it into your applications and systems. Whether you're just starting out or already familiar with Enmeshed, our comprehensive guide and resources are at your disposal.
+You want to seamlessly use Enmeshed with your processes, solutions and software components? No worries, you are good to go!
+
+We've built the Enmeshed Connector exactly for this scenario: to integrate existing systems with the Enmeshed approach with as little effort as possible.
+
+Here you'll find everything you need to seamlessly dive into the world of Enmeshed and integrate it into your applications and systems. Whether you're just starting out or already familiar with Enmeshed, our comprehensive guide and resources are at your disposal.
 
 ## Getting Started
 
