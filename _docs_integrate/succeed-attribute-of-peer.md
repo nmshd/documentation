@@ -5,7 +5,7 @@ title: "Succeed attribute of peer"
 type: scenario
 toc: true
 properties:
-  - id: SC62
+  - id: SC062
   - category: Manage attributes of others
   - description:
   - customer: All

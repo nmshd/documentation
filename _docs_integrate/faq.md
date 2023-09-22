@@ -1,0 +1,22 @@
+---
+permalink: integrate/faq
+published: true
+title: "FAQ"
+type: scenario
+toc: true
+properties:
+  - id: SC097
+  - category: Troubleshooting
+  - description:
+  - customer:
+  - component: integrate
+  - level:
+  - implementation status:
+  - documentation status:
+  - published: true
+  - link: integrate/faq
+require:
+required_by:
+---
+
+{% include scenarios/integrate/faq.md %}

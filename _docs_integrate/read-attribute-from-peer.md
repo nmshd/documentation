@@ -5,7 +5,7 @@ title: "Read attribute from peer"
 type: scenario
 toc: true
 properties:
-  - id: SC65
+  - id: SC065
   - category: Manage attributes of others
   - description:
   - customer: All

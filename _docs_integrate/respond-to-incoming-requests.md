@@ -5,7 +5,7 @@ title: "Respond to incoming requests"
 type: scenario
 toc: true
 properties:
-  - id: SC41
+  - id: SC041
   - category: Working with requests
   - description:
   - customer: All

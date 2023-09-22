@@ -5,7 +5,7 @@ title: "Request and process attributes by messages"
 type: scenario
 toc: true
 properties:
-  - id: SC52
+  - id: SC052
   - category: Manage attributes of others
   - description:
   - customer: All

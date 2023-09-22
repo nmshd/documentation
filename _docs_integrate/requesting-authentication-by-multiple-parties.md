@@ -5,7 +5,7 @@ title: "Requesting authentication by multiple parties"
 type: scenario
 toc: true
 properties:
-  - id: SC34
+  - id: SC034
   - category: Requesting authentication
   - description:
   - customer: All

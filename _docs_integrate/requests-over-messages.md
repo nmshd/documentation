@@ -6,7 +6,7 @@ title: "Requests over Messages"
 type: scenario
 toc: true
 properties:
-  - id: SC60
+  - id: SC060
   - category: Manage Requests
   - description:
   - customer: All

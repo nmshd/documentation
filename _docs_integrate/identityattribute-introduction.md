@@ -5,7 +5,7 @@ title: "IdentityAttribute introduction"
 type: scenario
 toc: true
 properties:
-  - id: SC47
+  - id: SC047
   - category: Manage attributes of yourself
   - description:
   - customer: All

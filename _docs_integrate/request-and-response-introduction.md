@@ -5,7 +5,7 @@ title: "Request and response introduction"
 type: scenario
 toc: true
 properties:
-  - id: SC36
+  - id: SC036
   - category: Working with requests
   - description:
   - customer: All

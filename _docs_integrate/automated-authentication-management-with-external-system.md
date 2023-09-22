@@ -5,7 +5,7 @@ title: "Automated authentication management with external system"
 type: scenario
 toc: true
 properties:
-  - id: SC35
+  - id: SC035
   - category: Requesting authentication
   - description:
   - customer: All

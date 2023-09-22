@@ -6,7 +6,7 @@ title: "Customizing Connector by config"
 type: scenario
 toc: true
 properties:
-  - id: SC79
+  - id: SC079
   - category: Operations
   - description: https//enmeshed.eu/integrate/connector-configuration
   - customer:

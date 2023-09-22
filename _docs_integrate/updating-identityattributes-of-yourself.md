@@ -5,7 +5,7 @@ title: "Updating IdentityAttributes of yourself"
 type: scenario
 toc: true
 properties:
-  - id: SC53
+  - id: SC053
   - category: Manage attributes of yourself
   - description:
   - customer: All

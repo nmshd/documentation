@@ -5,7 +5,7 @@ title: "Writing your own Connector module"
 type: scenario
 toc: true
 properties:
-  - id: SC46
+  - id: SC046
   - category: Handling events
   - description:
   - customer: All

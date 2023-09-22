@@ -5,7 +5,7 @@ title: "Create attribute for peer"
 type: scenario
 toc: true
 properties:
-  - id: SC67
+  - id: SC067
   - category: Manage attributes of others
   - description:
   - customer: All

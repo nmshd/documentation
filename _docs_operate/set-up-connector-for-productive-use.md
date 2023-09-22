@@ -5,7 +5,7 @@ title: "Set-up Connector for productive use"
 type: scenario
 toc: true
 properties:
-  - id: SC63
+  - id: SC063
   - category: Operations
   - description: #1 https//enmeshed.eu/integrate/connector-installation
   - customer: All

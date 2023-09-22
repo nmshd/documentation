@@ -5,7 +5,7 @@ title: "Overview of request items"
 type: scenario
 toc: true
 properties:
-  - id: SC38
+  - id: SC038
   - category: Working with requests
   - description:
   - customer: All

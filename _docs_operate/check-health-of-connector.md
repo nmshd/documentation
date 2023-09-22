@@ -5,7 +5,7 @@ title: "Check health of Connector"
 type: scenario
 toc: true
 properties:
-  - id: SC69
+  - id: SC069
   - category: Identity Basics
   - description:
   - customer: All

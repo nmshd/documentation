@@ -5,7 +5,7 @@ title: "Request and process attributes by code or link of existing contacts"
 type: scenario
 toc: true
 properties:
-  - id: SC51
+  - id: SC051
   - category: Manage attributes of others
   - description:
   - customer: All

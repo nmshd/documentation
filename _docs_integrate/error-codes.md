@@ -6,8 +6,8 @@ title: "Error Codes"
 type: scenario
 toc: true
 properties:
-  - id: SC89
-  - category: Data Model
+  - id: SC089
+  - category: Troubleshooting
   - description: https//enmeshed.eu/integrate/error-codes
   - customer:
   - component: integrate

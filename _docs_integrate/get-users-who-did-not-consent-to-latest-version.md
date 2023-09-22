@@ -5,7 +5,7 @@ title: "Get users who did not consent to latest version"
 type: scenario
 toc: true
 properties:
-  - id: SC29
+  - id: SC029
   - category: Requesting consent of users
   - description:
   - customer: All

@@ -6,7 +6,7 @@ title: "Requests over Templates"
 type: scenario
 toc: true
 properties:
-  - id: SC59
+  - id: SC059
   - category: Manage Requests
   - description:
   - customer: All

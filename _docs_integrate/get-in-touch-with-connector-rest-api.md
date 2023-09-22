@@ -6,7 +6,7 @@ title: "Get in touch with Connector REST API"
 type: scenario
 toc: true
 properties:
-  - id: SC75
+  - id: SC075
   - category: 1Getting Started
   - description: https//enmeshed.eu/integrate/connector-api
   - customer:

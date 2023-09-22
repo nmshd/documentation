@@ -5,7 +5,7 @@ title: "Requesting one-time consents"
 type: scenario
 toc: true
 properties:
-  - id: SC25
+  - id: SC025
   - category: Requesting consent of users
   - description:
   - customer: All

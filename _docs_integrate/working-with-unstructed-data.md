@@ -5,7 +5,7 @@ title: "Working with unstructed data"
 type: scenario
 toc: true
 properties:
-  - id: SC57
+  - id: SC057
   - category: Manage attributes of others
   - description:
   - customer: All

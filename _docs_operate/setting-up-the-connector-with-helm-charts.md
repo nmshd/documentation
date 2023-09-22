@@ -6,7 +6,7 @@ title: "Setting up the Connector with Helm Charts"
 type: scenario
 toc: true
 properties:
-  - id: SC82
+  - id: SC082
   - category: Operations
   - description: https//enmeshed.eu/integrate/helm-chart
   - customer:

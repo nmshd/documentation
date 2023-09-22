@@ -1,0 +1,22 @@
+---
+permalink: integrate/support
+published: true
+title: "Support"
+type: scenario
+toc: true
+properties:
+  - id: SC098
+  - category: Troubleshooting
+  - description:
+  - customer:
+  - component: integrate
+  - level:
+  - implementation status:
+  - documentation status:
+  - published: true
+  - link: integrate/support
+require:
+required_by:
+---
+
+{% include scenarios/integrate/support.md %}

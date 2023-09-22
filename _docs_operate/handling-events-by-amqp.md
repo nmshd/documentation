@@ -5,7 +5,7 @@ title: "Handling events by AMQP"
 type: scenario
 toc: true
 properties:
-  - id: SC45
+  - id: SC045
   - category: Handling events
   - description:
   - customer: All

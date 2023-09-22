@@ -5,7 +5,7 @@ title: "Propose attribute to peer"
 type: scenario
 toc: true
 properties:
-  - id: SC66
+  - id: SC066
   - category: Manage attributes of others
   - description:
   - customer: All

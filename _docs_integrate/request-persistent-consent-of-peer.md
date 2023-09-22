@@ -5,7 +5,7 @@ title: "Request persistent consent of peer"
 type: scenario
 toc: true
 properties:
-  - id: SC27
+  - id: SC027
   - category: Manage attributes of others
   - description:
   - customer: All

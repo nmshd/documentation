@@ -6,7 +6,7 @@ title: "Working with the Connector SDKs"
 type: scenario
 toc: true
 properties:
-  - id: SC87
+  - id: SC087
   - category: Programming
   - description: https//enmeshed.eu/integrate/connector-sdks
   - customer:

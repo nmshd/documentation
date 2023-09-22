@@ -6,7 +6,7 @@ title: "Sending Messages"
 type: scenario
 toc: true
 properties:
-  - id: SC58
+  - id: SC058
   - category: Messages
   - description:
   - customer: All

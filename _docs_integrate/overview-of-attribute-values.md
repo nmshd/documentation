@@ -6,7 +6,7 @@ title: "Overview of Attribute Values"
 type: scenario
 toc: true
 properties:
-  - id: SC92
+  - id: SC092
   - category: Data Model
   - description: https//enmeshed.eu/integrate/data-model-attribute-values
   - customer:

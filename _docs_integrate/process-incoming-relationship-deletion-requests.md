@@ -5,7 +5,7 @@ title: "Process incoming Relationship deletion requests"
 type: scenario
 toc: true
 properties:
-  - id: SC56
+  - id: SC056
   - category: Handling data deletion
   - description:
   - customer: All

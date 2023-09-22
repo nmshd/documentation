@@ -1,16 +1,22 @@
 ---
 title: "Scenarios"
 permalink: /use
-published: false
+published: true
 sidebar:
   - title: "Use Enmeshed"
     nav: "docs_use"
 ---
 
+This page is intended for app users.
+
+## Getting Started
+
+Install the app in a secure environment.
+
 <!-- component = app -->
 
 <!-- markdownlint-disable MD011 -->
-<style>
+<!-- <style>
     .container {
         position: relative;
         max-width: 320px;
@@ -130,7 +136,7 @@ sidebar:
             </div>
         </th>
     </tr>
-    {% for scenario in scenarios %} 
+    {% for scenario in scenarios %}
      {% assign status = scenario.properties | map:"documentation status" %}{% assign component = scenario.properties | map:"component" %}{% if component contains "App" %}    <tr>
         <td>
             <a href="{{ scenario.url }}"> {{ scenario.title }} </a>
@@ -187,4 +193,4 @@ sidebar:
             filter(elements);
         });
     });
-</script>
+</script> -->

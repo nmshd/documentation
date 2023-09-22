@@ -5,7 +5,7 @@ title: "Process received enmeshed onboarding package and create relationship"
 type: scenario
 toc: true
 properties:
-  - id: SC64
+  - id: SC064
   - category: Get in touch with other Identities
   - description:
   - customer: All

@@ -6,7 +6,7 @@ title: "Privacy Considerations"
 type: scenario
 toc: true
 properties:
-  - id: SC85
+  - id: SC085
   - category: Operations
   - description: https//enmeshed.eu/integrate/connector-privacy
   - customer:

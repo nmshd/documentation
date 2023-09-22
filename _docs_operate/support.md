@@ -1,0 +1,22 @@
+---
+permalink: operate/support
+published: true
+title: "Support"
+type: scenario
+toc: true
+properties:
+  - id: SC100
+  - category: Troubleshooting
+  - description:
+  - customer:
+  - component: operate
+  - level:
+  - implementation status:
+  - documentation status:
+  - published: true
+  - link: operate/support
+require:
+required_by:
+---
+
+{% include scenarios/operate/support.md %}

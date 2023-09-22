@@ -1,0 +1,22 @@
+---
+permalink: operate/faq
+published: true
+title: "FAQ"
+type: scenario
+toc: true
+properties:
+  - id: SC099
+  - category: Troubleshooting
+  - description:
+  - customer:
+  - component: operate
+  - level:
+  - implementation status:
+  - documentation status:
+  - published: true
+  - link: operate/faq
+require:
+required_by:
+---
+
+{% include scenarios/operate/faq.md %}

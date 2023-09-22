@@ -5,7 +5,7 @@ title: "Share own attribute to peer"
 type: scenario
 toc: true
 properties:
-  - id: SC68
+  - id: SC068
   - category: Manage attributes of yourself
   - description:
   - customer: All

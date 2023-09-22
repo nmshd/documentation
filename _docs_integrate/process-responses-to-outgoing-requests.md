@@ -5,7 +5,7 @@ title: "Process responses to outgoing requests"
 type: scenario
 toc: true
 properties:
-  - id: SC40
+  - id: SC040
   - category: Working with requests
   - description:
   - customer: All

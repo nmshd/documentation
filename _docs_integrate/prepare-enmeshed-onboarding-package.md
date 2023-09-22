@@ -5,7 +5,7 @@ title: "Prepare enmeshed onboarding package"
 type: scenario
 toc: true
 properties:
-  - id: SC74
+  - id: SC074
   - category: Get in touch with other Identities
   - description:
   - customer: All

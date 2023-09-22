@@ -6,7 +6,7 @@ title: "Troubleshooting the Connector"
 type: scenario
 toc: true
 properties:
-  - id: SC81
+  - id: SC081
   - category: Operations
   - description: https//enmeshed.eu/integrate/connector-setup-troubleshooting
   - customer:

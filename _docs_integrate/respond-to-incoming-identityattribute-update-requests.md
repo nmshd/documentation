@@ -5,7 +5,7 @@ title: "Respond to incoming IdentityAttribute update requests"
 type: scenario
 toc: true
 properties:
-  - id: SC54
+  - id: SC054
   - category: Manage attributes of others
   - description:
   - customer: All

@@ -5,7 +5,7 @@ title: "Working with the Connector Runtime"
 type: scenario
 toc: true
 properties:
-  - id: SC88
+  - id: SC088
   - category: Programming
   - description:
   - customer:

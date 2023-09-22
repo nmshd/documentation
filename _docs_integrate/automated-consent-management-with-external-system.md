@@ -5,7 +5,7 @@ title: "Automated consent management with external system"
 type: scenario
 toc: true
 properties:
-  - id: SC31
+  - id: SC031
   - category: Requesting consent of users
   - description:
   - customer: All

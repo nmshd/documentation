@@ -6,8 +6,8 @@ title: "Set-up Connector for development use (with Docker compose)"
 type: scenario
 toc: true
 properties:
-  - id: SC77
-  - category: 1Getting Started
+  - id: SC077
+  - category: 1Setting up
   - description: #2 https//enmeshed.eu/integrate/connector-installation
   - customer:
   - component: operate

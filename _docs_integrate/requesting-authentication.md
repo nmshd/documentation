@@ -1,11 +1,11 @@
 ---
-permalink: integrate/requesting-authentication-
+permalink: integrate/requesting-authentication
 published: false
-title: "Requesting authentication "
+title: "Requesting authentication"
 type: scenario
 toc: true
 properties:
-  - id: SC32
+  - id: SC032
   - category: Requesting authentication
   - description:
   - customer: All
@@ -14,11 +14,11 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: integrate/requesting-authentication-
+  - link: integrate/requesting-authentication
 require:
   - integrate/requests-over-templates
   - integrate/requests-over-messages
 required_by:
 ---
 
-{% include scenarios/integrate/requesting-authentication-.md %}
+{% include scenarios/integrate/requesting-authentication.md %}

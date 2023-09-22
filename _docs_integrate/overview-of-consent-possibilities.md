@@ -5,7 +5,7 @@ title: "Overview of consent possibilities"
 type: scenario
 toc: true
 properties:
-  - id: SC24
+  - id: SC024
   - category: Requesting consent of users
   - description:
   - customer: All

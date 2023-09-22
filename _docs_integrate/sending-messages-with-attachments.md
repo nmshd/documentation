@@ -5,7 +5,7 @@ title: "Sending Messages with attachments"
 type: scenario
 toc: true
 properties:
-  - id: SC63
+  - id: SC063
   - category: Messages
   - description:
   - customer: All

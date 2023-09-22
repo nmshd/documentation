@@ -5,7 +5,7 @@ title: "Process incoming Attribute deletion requests"
 type: scenario
 toc: true
 properties:
-  - id: SC55
+  - id: SC055
   - category: Handling data deletion
   - description:
   - customer: All

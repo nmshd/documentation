@@ -5,7 +5,7 @@ title: "Request statuses"
 type: scenario
 toc: true
 properties:
-  - id: SC37
+  - id: SC037
   - category: Working with requests
   - description:
   - customer: All

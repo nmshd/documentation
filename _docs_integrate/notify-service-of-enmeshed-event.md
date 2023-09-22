@@ -5,7 +5,7 @@ title: "Notify service of enmeshed event"
 type: scenario
 toc: true
 properties:
-  - id: SC44
+  - id: SC044
   - category: Handling events
   - description:
   - customer: All

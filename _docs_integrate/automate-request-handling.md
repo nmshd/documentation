@@ -5,7 +5,7 @@ title: "Automate request handling"
 type: scenario
 toc: true
 properties:
-  - id: SC42
+  - id: SC042
   - category: Working with requests
   - description:
   - customer: All

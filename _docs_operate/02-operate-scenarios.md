@@ -1,14 +1,18 @@
 ---
-title: "Connector-Scenarios"
+title: "Operate"
 permalink: /operate
-published: false
+published: true
 sidebar:
   - title: "Operate Enmeshed"
     nav: "docs_operate"
 ---
 
+You want to seamlessly use Enmeshed with your processes, solutions and software components? No worries, you are good to go!
+
+We've built the Enmeshed Connector exactly for this scenario: to integrate existing systems with the Enmeshed approach with as little effort as possible.
+
 <!-- markdownlint-disable MD011 -->
-<style>
+<!-- <style>
     .container {
         position: relative;
         max-width: 320px;
@@ -128,7 +132,7 @@ sidebar:
             </div>
         </th>
     </tr>
-    {% for scenario in scenarios %} 
+    {% for scenario in scenarios %}
      {% assign status = scenario.properties | map:"documentation status" %}{% assign component = scenario.properties | map:"component" %}{% if component contains "Connector" %}    <tr>
         <td>
             <a href="{{ scenario.url }}"> {{ scenario.title }} </a>
@@ -185,4 +189,4 @@ sidebar:
             filter(elements);
         });
     });
-</script>
+</script> -->

@@ -5,7 +5,7 @@ title: "Creating complex requests"
 type: scenario
 toc: true
 properties:
-  - id: SC39
+  - id: SC039
   - category: Working with requests
   - description:
   - customer: All

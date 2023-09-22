@@ -5,7 +5,7 @@ title: "Updating consents"
 type: scenario
 toc: true
 properties:
-  - id: SC30
+  - id: SC030
   - category: Requesting consent of users
   - description:
   - customer: All

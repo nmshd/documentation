@@ -6,7 +6,7 @@ title: "Event introduction"
 type: scenario
 toc: true
 properties:
-  - id: SC43
+  - id: SC043
   - category: Handling events
   - description: https//enmeshed.eu/integrate/connector-events
   - customer: All

@@ -5,7 +5,7 @@ title: "Create own IdentityAttribute"
 type: scenario
 toc: true
 properties:
-  - id: SC49
+  - id: SC049
   - category: Manage attributes of yourself
   - description:
   - customer: All

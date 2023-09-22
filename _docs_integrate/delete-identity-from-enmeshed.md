@@ -5,7 +5,7 @@ title: "Delete Identity from Enmeshed"
 type: scenario
 toc: true
 properties:
-  - id: SC61
+  - id: SC061
   - category: Identity Basics
   - description:
   - customer: All
