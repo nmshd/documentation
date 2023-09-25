@@ -1,8 +1,8 @@
 ---
-permalink: integrate/get-in-touch-with-connector-rest-api
+permalink: integrate/access-the-connector
 redirect_from: /integrate/connector-api
 published: true
-title: "Get in touch with Connector REST API"
+title: "Access the Connector"
 type: scenario
 toc: true
 properties:
@@ -15,9 +15,9 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status:
   - published: true
-  - link: integrate/get-in-touch-with-connector-rest-api
+  - link: integrate/access-the-connector
 require:
 required_by:
 ---
 
-{% include scenarios/integrate/get-in-touch-with-connector-rest-api.md %}
+{% include scenarios/integrate/access-the-connector.md %}

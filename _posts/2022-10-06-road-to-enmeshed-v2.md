@@ -18,7 +18,7 @@ The users and organizations we know of so far had no objections against this app
 
 ### So how can you get up to speed with Version2?
 
-- Have a look at the updated [Connector Tutorial]({% link _docs_integrate/connector-integration-tutorial.md %}).
+- Have a look at the updated [Connector Tutorial]({% link _docs_integrate/integration-example.md %}).
 - There will be a public beta of the Enmeshed App (V2) in the Apple and Google app stores soon. Be aware that the public beta will not support existing V1 profiles and thus the Enmeshed App's data should be wiped when using V2.
 - There is a beta tag of the Enmeshed Connector Docker image which you can set up by yourself.
 

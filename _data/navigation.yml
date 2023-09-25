@@ -77,24 +77,24 @@ docs_use:
 docs_integrate:
   - title: Getting Started
     children:
-      - title: "Get in touch with Connector REST API"
-        url: /integrate/get-in-touch-with-connector-rest-api
+      - title: "Access the Connector"
+        url: /integrate/access-the-connector
       - title: "Use Cases"
         url: /integrate/use-cases
-      - title: "Connector Integration Tutorial"
-        url: /integrate/connector-integration-tutorial
+      - title: "Integration example"
+        url: /integrate/integration-example
+      - title: "Event introduction"
+        url: /integrate/event-introduction
   - title: Data Model
     children:
+      - title: "Overview of Events"
+        url: /integrate/overview-of-events
       - title: "Introducing the enmeshed Data Model"
         url: /integrate/introducing-the-enmeshed-data-model
       - title: "Overview of Requests and RequestItems"
         url: /integrate/overview-of-requests-and-requestitems
       - title: "Overview of Attribute Values"
         url: /integrate/overview-of-attribute-values
-  - title: Handling events
-    children:
-      - title: "Event introduction"
-        url: /integrate/event-introduction
   - title: Manage Requests
     children:
       - title: "Requests over Templates"
@@ -109,10 +109,6 @@ docs_integrate:
     children:
       - title: "Sending Messages"
         url: /integrate/sending-messages
-  - title: Programming
-    children:
-      - title: "Working with the Connector SDKs"
-        url: /integrate/working-with-the-connector-sdks
   - title: Requesting consent of users
     children:
       - title: "Requesting one-time consents"
@@ -127,20 +123,18 @@ docs_integrate:
         url: /integrate/support
 
 docs_operate:
-  - title: Setting up
+  - title: Connector Set-up
     children:
-      - title: "Set-up Connector for development use (with Docker compose)"
-        url: /operate/set-up-connector-for-development-use-with-docker-compose
-  - title: Operations
+      - title: "Set-up with Docker compose"
+        url: /operate/set-up-with-docker-compose
+      - title: "Configuration"
+        url: /operate/configuration
+      - title: "Modules"
+        url: /operate/modules
+      - title: "Set-up with Helm Charts"
+        url: /operate/set-up-with-helm-charts
+  - title: Connector Operations
     children:
-      - title: "Customizing Connector by config"
-        url: /operate/customizing-connector-by-config
-      - title: "Extending Connector with Connector modules"
-        url: /operate/extending-connector-with-connector-modules
-      - title: "Troubleshooting the Connector"
-        url: /operate/troubleshooting-the-connector
-      - title: "Setting up the Connector with Helm Charts"
-        url: /operate/setting-up-the-connector-with-helm-charts
       - title: "Overview of Connector operations"
         url: /operate/overview-of-connector-operations
       - title: "Security Considerations"
@@ -151,6 +145,8 @@ docs_operate:
         url: /operate/performance-considerations
   - title: Troubleshooting
     children:
+      - title: "Troubleshooting Guide"
+        url: /operate/troubleshooting-guide
       - title: "FAQ"
         url: /operate/faq
       - title: "Support"

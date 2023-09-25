@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC083
-  - category: Operations
+  - category: Connector Operations
   - description: https//enmeshed.eu/integrate/connector-operations
   - customer:
   - component: operate

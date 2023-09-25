@@ -50,7 +50,7 @@ Make sure that you have installed docker compose. Visit [the official installati
 Go through the following steps to start the Connector:
 
 1. place the file [examples/docker-compose-with-mongodb.yml](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/docker-compose-with-mongodb.yml) as `docker-compose.yml` in a folder of your choice
-2. create a config file that can be mounted inside the Connector. Fill the config file using the [configuration docs]({% link _docs_operate/customizing-connector-by-config.md %}) and the [example config file](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/example.config.json). If you used the yml-file from the first step, the connection string looks as follows:
+2. create a config file that can be mounted inside the Connector. Fill the config file using the [configuration docs]({% link _docs_operate/configuration.md %}) and the [example config file](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/example.config.json). If you used the yml-file from the first step, the connection string looks as follows:
    ```text
    mongodb://<db-username>:<db-password>@mongodb:27017
    ```
@@ -66,7 +66,7 @@ Go through the following steps to start the Connector:
 
 1. make your existing MongoDB available for the connector
 2. place the file [examples/docker-compose-with-existing-mongodb.yml](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/docker-compose-with-existing-mongodb.yml) as `docker-compose.yml` in a folder of your choice
-3. create a config file that can be mounted inside the Connector. Fill the config file using the [configuration docs]({% link _docs_operate/customizing-connector-by-config.md %}) and the [example config file](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/example.config.json)
+3. create a config file that can be mounted inside the Connector. Fill the config file using the [configuration docs]({% link _docs_operate/configuration.md %}) and the [example config file](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/example.config.json)
 4. replace all `<placeholders>` in the compose file with the corresponding values
 5. (optional) follow the steps under [log file mounting](#log-file-mounting) if you want to persist and access the log files on the host system
 6. execute `docker compose up -d` in the shell
@@ -76,7 +76,7 @@ Go through the following steps to start the Connector:
 Go through the following steps to start the Connector:
 
 1. place the file [examples/docker-compose-with-ferretdb.yml](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/docker-compose-with-ferretdb.yml) as `docker-compose.yml` in a folder of your choice
-2. create a config file that can be mounted inside the Connector. Fill the config file using the [configuration docs]({% link _docs_operate/customizing-connector-by-config.md %}) and the [example config file](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/example.config.json). If you used the yml-file from the first step, the connection string looks as follows: `mongodb://ferretdb:27017`
+2. create a config file that can be mounted inside the Connector. Fill the config file using the [configuration docs]({% link _docs_operate/configuration.md %}) and the [example config file](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/example.config.json). If you used the yml-file from the first step, the connection string looks as follows: `mongodb://ferretdb:27017`
 3. replace all `<placeholders>` in the compose file with the corresponding values
 4. (optional) follow the steps under [log file mounting](#log-file-mounting) if you want to persist and access the log files on the host system
 5. execute `docker compose up -d` in the shell
@@ -87,7 +87,7 @@ Make sure that you have a running Kubernetes cluster and that you have installed
 
 You have to provide your own MongoDB instance. Visit the [MongoDB website](https://www.mongodb.com/) for installation without docker or cloud usage or the [docker hub page](https://hub.docker.com/_/mongo) for information about the installation with docker or install it [in kubernetes via Helm](https://artifacthub.io/packages/helm/bitnami/mongodb).
 
-For the installation and configuration head over to the dedicated [Connector Helm chart site]({% link _docs_operate/setting-up-the-connector-with-helm-charts.md %}).
+For the installation and configuration head over to the dedicated [Connector Helm chart site]({% link _docs_operate/set-up-with-helm-charts.md %}).
 
 ## Validate the Connector installation
 
@@ -103,4 +103,4 @@ If the swagger documentation is enabled you can also access it under `<connector
 
 ## Troubleshooting
 
-If you encounter any problems while setting up the Connector, head over to the [Troubleshooting]({% link _docs_operate/troubleshooting-the-connector.md %}) site.
+If you encounter any problems while setting up the Connector, head over to the [Troubleshooting]({% link _docs_operate/troubleshooting-guide.md %}) site.

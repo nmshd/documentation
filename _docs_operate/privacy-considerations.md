@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC085
-  - category: Operations
+  - category: Connector Operations
   - description: https//enmeshed.eu/integrate/connector-privacy
   - customer:
   - component: operate

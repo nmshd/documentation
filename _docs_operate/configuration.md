@@ -1,13 +1,13 @@
 ---
-permalink: operate/customizing-connector-by-config
+permalink: operate/configuration
 redirect_from: /integrate/connector-configuration
 published: true
-title: "Customizing Connector by config"
+title: "Configuration"
 type: scenario
 toc: true
 properties:
   - id: SC079
-  - category: Operations
+  - category: 1Connector Set-up
   - description: https//enmeshed.eu/integrate/connector-configuration
   - customer:
   - component: operate
@@ -15,9 +15,9 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status:
   - published: true
-  - link: operate/customizing-connector-by-config
+  - link: operate/configuration
 require:
 required_by:
 ---
 
-{% include scenarios/operate/customizing-connector-by-config.md %}
+{% include scenarios/operate/configuration.md %}

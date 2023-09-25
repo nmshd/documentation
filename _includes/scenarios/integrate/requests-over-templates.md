@@ -2,7 +2,7 @@
 
 This guide will explain the end to end flow of sharing and answering a [Request]({% link _docs_integrate/introducing-the-enmeshed-data-model.md %}#request) over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don't have a Relationship yet.
 
-You can use the [Connector Installation Guide]({% link _docs_operate/set-up-connector-for-development-use-with-docker-compose.md %}) if you need help for the setup the Connectors.
+You can use the [Connector Installation Guide]({% link _docs_operate/set-up-with-docker-compose.md %}) if you need help for the setup the Connectors.
 
 <!-- This include inserts the table with the metadata  -->
 
@@ -76,7 +76,7 @@ If no Relationship exists, this will trigger a process in the Enmeshed Runtime. 
 
 The long polling is done by calling the `GET /api/v2/Requests/Incoming` route. You can use the query params `source.reference=<id-of-the-template>` and `status=ManualDecisionRequired` to filter for Requests that belong to the Template you are currently working on.
 
-For more information about the events you can head over to the [Connector Modules site]({% link _docs_operate/extending-connector-with-connector-modules.md %}) and read about the [AMQP Publisher module]({% link _docs_operate/extending-connector-with-connector-modules.md %}#amqppublisher) and the [WebhooksV2 module]({% link _docs_operate/extending-connector-with-connector-modules.md %}#webhooksv2) that are propagating events.
+For more information about the events you can head over to the [Connector Modules site]({% link _docs_operate/modules.md %}) and read about the [AMQP Publisher module]({% link _docs_operate/modules.md %}#amqppublisher) and the [WebhooksV2 module]({% link _docs_operate/modules.md %}#webhooksv2) that are propagating events.
 
 {% include copy-notice description="After you received the Request, save its `id` for the next step." %}
 

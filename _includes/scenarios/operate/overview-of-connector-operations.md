@@ -51,7 +51,7 @@ We recommend to keep your operating system and Docker as up to date as possible.
 
 ### Check Error Logs
 
-You can check the log using `docker logs <your-container-name>` or by checking the [mounted log files]({% link _docs_operate/set-up-connector-for-development-use-with-docker-compose.md %}#log-file-mounting)
+You can check the log using `docker logs <your-container-name>` or by checking the [mounted log files]({% link _docs_operate/set-up-with-docker-compose.md %}#log-file-mounting)
 
 ## Proposed Connector Tasks
 

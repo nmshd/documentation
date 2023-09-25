@@ -1,13 +1,13 @@
 ---
-permalink: operate/set-up-connector-for-development-use-with-docker-compose
+permalink: operate/set-up-with-docker-compose
 redirect_from: /integrate/connector-installation
 published: true
-title: "Set-up Connector for development use (with Docker compose)"
+title: "Set-up with Docker compose"
 type: scenario
 toc: true
 properties:
   - id: SC077
-  - category: 1Setting up
+  - category: 1Connector Set-up
   - description: #2 https//enmeshed.eu/integrate/connector-installation
   - customer:
   - component: operate
@@ -15,9 +15,9 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status:
   - published: true
-  - link: operate/set-up-connector-for-development-use-with-docker-compose
+  - link: operate/set-up-with-docker-compose
 require:
 required_by:
 ---
 
-{% include scenarios/operate/set-up-connector-for-development-use-with-docker-compose.md %}
+{% include scenarios/operate/set-up-with-docker-compose.md %}

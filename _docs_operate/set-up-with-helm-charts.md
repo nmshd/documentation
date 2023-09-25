@@ -1,13 +1,13 @@
 ---
-permalink: operate/setting-up-the-connector-with-helm-charts
+permalink: operate/set-up-with-helm-charts
 redirect_from: /integrate/helm-chart
 published: true
-title: "Setting up the Connector with Helm Charts"
+title: "Set-up with Helm Charts"
 type: scenario
 toc: true
 properties:
-  - id: SC082
-  - category: Operations
+  - id: SC078
+  - category: 1Connector Set-up
   - description: https//enmeshed.eu/integrate/helm-chart
   - customer:
   - component: operate
@@ -15,9 +15,9 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status:
   - published: true
-  - link: operate/setting-up-the-connector-with-helm-charts
+  - link: operate/set-up-with-helm-charts
 require:
 required_by:
 ---
 
-{% include scenarios/operate/setting-up-the-connector-with-helm-charts.md %}
+{% include scenarios/operate/set-up-with-helm-charts.md %}

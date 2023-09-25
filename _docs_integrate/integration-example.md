@@ -1,8 +1,8 @@
 ---
-permalink: integrate/connector-integration-tutorial
+permalink: integrate/integration-example
 redirect_from: /integrate/connector-tutorial
 published: true
-title: "Connector Integration Tutorial"
+title: "Integration example"
 type: scenario
 toc: true
 properties:
@@ -15,9 +15,9 @@ properties:
   - implementation status:
   - documentation status:
   - published: true
-  - link: integrate/connector-integration-tutorial
+  - link: integrate/integration-example
 require:
 required_by:
 ---
 
-{% include scenarios/integrate/connector-integration-tutorial.md %}
+{% include scenarios/integrate/integration-example.md %}

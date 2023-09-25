@@ -93,11 +93,11 @@ The debug flag configures if the Connector is set to **production** or **debug**
 
 - **platformClientId** `required`
 
-  The client id is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({% link _docs_operate/set-up-connector-for-development-use-with-docker-compose.md %}#support).
+  The client id is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({% link _docs_operate/set-up-with-docker-compose.md %}#support).
 
 - **platformClientSecret** `required`
 
-  The client secret is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({% link _docs_operate/set-up-connector-for-development-use-with-docker-compose.md %}#support).
+  The client secret is required to communicate with the Enmeshed platform. It can be acquired from the [Enmeshed Support]({% link _docs_operate/set-up-with-docker-compose.md %}#support).
 
 ### database
 
@@ -183,7 +183,7 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
 Every Module can be enabled or disabled by passing true / false to `enabled`. Read more about the Module by clicking on the <i class="fas fa-fw fa-info-circle"/> icon in each title.
 
-#### amqpPublisher <a href="{% link _docs_operate/extending-connector-with-connector-modules.md %}#amqppublisher"><i class="fas fa-fw fa-info-circle"/></a> {#amqppublisher}
+#### amqpPublisher <a href="{% link _docs_operate/modules.md %}#amqppublisher"><i class="fas fa-fw fa-info-circle"/></a> {#amqppublisher}
 
 **Sample Configuration:**
 
@@ -213,7 +213,7 @@ Every Module can be enabled or disabled by passing true / false to `enabled`. Re
 
   The name of the AMQP exchange to publish to.
 
-#### autoAcceptRelationshipCreationChanges <a href="{% link _docs_operate/extending-connector-with-connector-modules.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationshipcreationchanges}
+#### autoAcceptRelationshipCreationChanges <a href="{% link _docs_operate/modules.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationshipcreationchanges}
 
 It is not recommended to use this Module for production scenarios.
 {: .notice--danger}
@@ -241,7 +241,7 @@ It is not recommended to use this Module for production scenarios.
 
   The content that is used to accept the incoming Relationship Request.
 
-#### coreHttpApi <a href="{% link _docs_operate/extending-connector-with-connector-modules.md %}#corehttpapi"><i class="fas fa-fw fa-info-circle"/></a> {#corehttpapi}
+#### coreHttpApi <a href="{% link _docs_operate/modules.md %}#corehttpapi"><i class="fas fa-fw fa-info-circle"/></a> {#corehttpapi}
 
 **Sample Configuration:**
 
@@ -281,7 +281,7 @@ It is not recommended to use this Module for production scenarios.
 
   If set to `true` rapidoc persists the API Key in the local storage of the browser.
 
-#### sync <a href="{% link _docs_operate/extending-connector-with-connector-modules.md %}#sync"><i class="fas fa-fw fa-info-circle"/></a> {#sync}
+#### sync <a href="{% link _docs_operate/modules.md %}#sync"><i class="fas fa-fw fa-info-circle"/></a> {#sync}
 
 **Sample Configuration:**
 
@@ -306,7 +306,7 @@ It is not recommended to use this Module for production scenarios.
 
   The interval in seconds at which the sync Module will fetch changes from the Backbone.
 
-#### webhooksV2 <a href="{% link _docs_operate/extending-connector-with-connector-modules.md %}#webhooksv2"><i class="fas fa-fw fa-info-circle"/></a> {#webhooksv2}
+#### webhooksV2 <a href="{% link _docs_operate/modules.md %}#webhooksv2"><i class="fas fa-fw fa-info-circle"/></a> {#webhooksv2}
 
 **Sample Configuration:**
 
@@ -408,4 +408,4 @@ You can find type definitions of the event data in the [Connector Events]({% lin
 
 ## Troubleshooting
 
-If you encounter any problems while configuring the Connector, head over to the [Troubleshooting]({% link _docs_operate/troubleshooting-the-connector.md %}) site.
+If you encounter any problems while configuring the Connector, head over to the [Troubleshooting]({% link _docs_operate/troubleshooting-guide.md %}) site.

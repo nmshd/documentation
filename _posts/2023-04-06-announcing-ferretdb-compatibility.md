@@ -26,9 +26,9 @@ Our team has worked hard to integrate FerretDB into our product. We tested exten
 
 ## How to use FerretDB with the Enmeshed Connector?
 
-The simplest way to deploy the Connector with a FerretDB instance is the [Connector Helm Chart]({% link _docs_operate/setting-up-the-connector-with-helm-charts.md %}). We updated the Chart to include FerretDB as an optional sidecar container, which can be enabled by setting `pod.ferretdb.enabled` to `true`.
+The simplest way to deploy the Connector with a FerretDB instance is the [Connector Helm Chart]({% link _docs_operate/set-up-with-helm-charts.md %}). We updated the Chart to include FerretDB as an optional sidecar container, which can be enabled by setting `pod.ferretdb.enabled` to `true`.
 
-We also updated the [Connector Installation Guide]({% link _docs_operate/set-up-connector-for-development-use-with-docker-compose.md %}) with an option to deploy the Connector and FerretDB using Docker Compose.
+We also updated the [Connector Installation Guide]({% link _docs_operate/set-up-with-docker-compose.md %}) with an option to deploy the Connector and FerretDB using Docker Compose.
 
 ## Conclusion
 

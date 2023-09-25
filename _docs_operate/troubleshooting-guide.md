@@ -1,13 +1,13 @@
 ---
-permalink: operate/troubleshooting-the-connector
+permalink: operate/troubleshooting-guide
 redirect_from: /integrate/connector-setup-troubleshooting
 published: true
-title: "Troubleshooting the Connector"
+title: "Troubleshooting Guide"
 type: scenario
 toc: true
 properties:
   - id: SC081
-  - category: Operations
+  - category: Troubleshooting
   - description: https//enmeshed.eu/integrate/connector-setup-troubleshooting
   - customer:
   - component: operate
@@ -15,9 +15,9 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status:
   - published: true
-  - link: operate/troubleshooting-the-connector
+  - link: operate/troubleshooting-guide
 require:
 required_by:
 ---
 
-{% include scenarios/operate/troubleshooting-the-connector.md %}
+{% include scenarios/operate/troubleshooting-guide.md %}

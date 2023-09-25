@@ -1,13 +1,13 @@
 ---
-permalink: operate/extending-connector-with-connector-modules
+permalink: operate/modules
 redirect_from: /integrate/connector-modules
 published: true
-title: "Extending Connector with Connector modules"
+title: "Modules"
 type: scenario
 toc: true
 properties:
   - id: SC080
-  - category: Operations
+  - category: 1Connector Set-up
   - description: https//enmeshed.eu/integrate/connector-modules
   - customer:
   - component: operate
@@ -15,9 +15,9 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status:
   - published: true
-  - link: operate/extending-connector-with-connector-modules
+  - link: operate/modules
 require:
 required_by:
 ---
 
-{% include scenarios/operate/extending-connector-with-connector-modules.md %}
+{% include scenarios/operate/modules.md %}

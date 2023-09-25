@@ -6,7 +6,7 @@ title: "Use Cases"
 type: scenario
 toc: true
 properties:
-  - id: SC078
+  - id: SC082
   - category: 1Getting Started
   - description:
   - customer:

@@ -1,19 +1,18 @@
 ---
 permalink: integrate/event-introduction
-redirect_from: /integrate/connector-events
 published: true
 title: "Event introduction"
 type: scenario
 toc: true
 properties:
-  - id: SC043
-  - category: Handling events
-  - description: https//enmeshed.eu/integrate/connector-events
-  - customer: All
+  - id: SC096
+  - category: 1Getting Started
+  - description:
+  - customer:
   - component: integrate
-  - level: Advanced
-  - implementation status: DOCS ONLY
-  - documentation status: OPEN
+  - level:
+  - implementation status:
+  - documentation status:
   - published: true
   - link: integrate/event-introduction
 require:

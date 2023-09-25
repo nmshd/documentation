@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC086
-  - category: Operations
+  - category: Connector Operations
   - description: https//enmeshed.eu/integrate/connector-performance
   - customer:
   - component: operate
