@@ -83,8 +83,6 @@ docs_integrate:
         url: /integrate/use-cases
       - title: "Connector Integration Tutorial"
         url: /integrate/connector-integration-tutorial
-      - title: "Introduction"
-        url: /integrate/introduction
   - title: Data Model
     children:
       - title: "Introducing the enmeshed Data Model"
