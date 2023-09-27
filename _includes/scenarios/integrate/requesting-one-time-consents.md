@@ -13,7 +13,7 @@ To request an accept/reject decision from a peer to a free text, the ConsentRequ
 ## Check your Requests validity
 
 At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Sender Connector with the following body.
-For the one-time consent request we use the [ConsentRequestItem]({% link _docs_integrate/overview-of-requests-and-requestitems.md %}#consentrequestitem).
+For the one-time consent request we use the [ConsentRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#consentrequestitem).
 Even though the `peer` property is optional, it is recommended to specify it whenever possible. This allows additional validation rules to execute. When you are sending a Request over Messages you always know your peer.
 
 ```json

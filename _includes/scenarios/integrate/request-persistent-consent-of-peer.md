@@ -4,7 +4,7 @@ Here is an explanation of how to obtain a person's persistent consent on a parti
 
 To request an accept/reject decision from a peer to a free text, the ConsentRequestItem is used.
 
-Represents the consent of a person to a specific topic. If you want to obtain a consent, you can send a [`ProposeAttributeRequestItem`]({% link _docs_integrate/overview-of-requests-and-requestitems.md %}#proposeattributerequestitem) [RelationshipAttribute]({% link _docs_integrate/introducing-the-enmeshed-data-model.md %}#relationshipattribute) with a [Consent]({% link _docs_integrate/overview-of-attribute-values.md %}#consent) value where the owner is the peer.
+Represents the consent of a person to a specific topic. If you want to obtain a consent, you can send a [`ProposeAttributeRequestItem`]({% link _docs_integrate/requests-and-requestitems.md %}#proposeattributerequestitem) [RelationshipAttribute]({% link _docs_integrate/introducing-the-enmeshed-data-model.md %}#relationshipattribute) with a [Consent]({% link _docs_integrate/attribute-values.md %}#consent) value where the owner is the peer.
 
 <!-- This include inserts the table with the metadata  -->
 
@@ -26,7 +26,7 @@ The Consent is also not meant for contractual agreements.
 ## Check your Requests validity
 
 At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Sender Connector with the following body.
-For the persistent consent request we use the [ProposeAttributeRequestItem]({% link _docs_integrate/overview-of-requests-and-requestitems.md %}#proposeattributerequestitem).
+For the persistent consent request we use the [ProposeAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#proposeattributerequestitem).
 
 ```json
 {

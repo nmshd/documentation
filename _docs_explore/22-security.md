@@ -44,7 +44,7 @@ In our opinion, this is a far better approach than to upgrade any business syste
 
 The App is only communicating with its corresponding Backbone.
 
-For more information on the security of the device, please read the [Security Recommendations for Apps and End-Users]({% link _docs_use/secure-device-set-up.md %}).
+For more information on the security of the device, please read the [Security Recommendations for Apps and End-Users]({% link _docs_use/secure-device-setup.md %}).
 
 # Communication Security
 
