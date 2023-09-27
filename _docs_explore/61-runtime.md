@@ -61,7 +61,7 @@ In the future, it will be possible to configure the Decider Module so it automat
 
 ### Message Module
 
-For an overview about the mentioned events in this section please refer to the [Events]({% link _docs_integrate/event-introduction.md %}) docs.
+For an overview about the mentioned events in this section please refer to the [Events]({% link _docs_integrate/connector-events.md %}) docs.
 
 The Message Module is responsible for processing `transport.MessageReceived` events and re-publish them as events that are able to handle and consume in different situations.
 

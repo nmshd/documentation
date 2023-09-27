@@ -1,5 +1,5 @@
 ---
-title: "Explore"
+title: "Explore enmeshed"
 permalink: /explore
 ---
 

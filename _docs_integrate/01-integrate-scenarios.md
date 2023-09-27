@@ -1,5 +1,5 @@
 ---
-title: "Integrate"
+title: "Integrate enmeshed"
 permalink: /integrate
 published: true
 sidebar:

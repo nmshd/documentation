@@ -1,5 +1,5 @@
 ---
-title: "Operate"
+title: "Operate enmeshed"
 permalink: /operate
 published: true
 sidebar:
