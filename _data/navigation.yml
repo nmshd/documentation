@@ -107,7 +107,7 @@ docs_integrate:
   - title: Data Model
     children:
       - title: "Data Model Overview"
-        url: /integrate/introducing-the-enmeshed-data-model
+        url: /integrate/data-model-overview
       - title: "Connector Events"
         url: /integrate/connector-events
       - title: "Requests and RequestItems"
