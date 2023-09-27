@@ -34,6 +34,6 @@ The `sync` Module regularly fetches changes from the Backbone (e.g. new Messages
 
 With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
 
-For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Event]({% link _docs_integrate/event-introduction.md %}) is triggered (e.g. a new Message has been received => `transport.messageReceived`).
+For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Event]({% link _docs_integrate/connector-events.md %}) is triggered (e.g. a new Message has been received => `transport.messageReceived`).
 
 Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The `sync` Module automates this, but you can also do this manually by calling the `/api/v2/Account/Sync` route.

@@ -367,7 +367,7 @@ It is not recommended to use this Module for production scenarios.
 
 - **webhooks** `default: []`
 
-  The webhooks that will be called. A webhook consists of one or more [Connector Events]({% link _docs_integrate/event-introduction.md %}) on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the `targets` object.
+  The webhooks that will be called. A webhook consists of one or more [Connector Events]({% link _docs_integrate/connector-events.md %}) on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the `targets` object.
 
   <br>
 
@@ -404,7 +404,7 @@ It is not recommended to use this Module for production scenarios.
 }
 ```
 
-You can find type definitions of the event data in the [Connector Events]({% link _docs_integrate/event-introduction.md %}) section.
+You can find type definitions of the event data in the [Connector Events]({% link _docs_integrate/connector-events.md %}) section.
 
 ## Troubleshooting
 
