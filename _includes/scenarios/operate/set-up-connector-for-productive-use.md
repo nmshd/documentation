@@ -85,7 +85,7 @@ Make sure that you have a running Kubernetes cluster and that you have installed
 
 You have to provide your own MongoDB instance. Visit the [MongoDB website](https://www.mongodb.com/) for installation without docker or cloud usage or the [docker hub page](https://hub.docker.com/_/mongo) for information about the installation with docker or install it [in kubernetes via Helm](https://artifacthub.io/packages/helm/bitnami/mongodb).
 
-For the installation and configuration head over to the dedicated [Connector Helm chart site]({% link _docs_operate/set-up-with-helm-charts.md %}).
+For the installation and configuration head over to the dedicated [Connector Helm chart site]({% link _docs_operate/setup-with-helm-charts.md %}).
 
 ## Validate the Connector installation
 
