@@ -8,7 +8,7 @@ type: scenario
 toc: true
 properties:
   - id: SC058
-  - category: Messages
+  - category: Basic communication
   - description:
   - customer: All
   - component: integrate
