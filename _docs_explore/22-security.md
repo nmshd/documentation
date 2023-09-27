@@ -7,11 +7,11 @@ Security is one of the main pillars of digitalization approaches. It might be th
 
 News are full of hacking, spamming, skimming, phishing, or you-name-it attempts. Even lives are at stake if hospitals are out-of-order because of malware. Users are usually unaware of the security impacts of old devices or outdated software. The same applies for organizations just on a much higher scale. In addition, the modern cloud world enables misconfiguration and misunderstanding to be one of the topmost reason of data breaches.
 
-Enmeshed itself handles very private and sensitive information. We are aware that security must be one of our topmost priorities. And by using Enmeshed, we think that the world would be a lot more secure.
+Enmeshed itself handles very private and sensitive information. We are aware that security must be one of our topmost priorities. And by using enmeshed, we think that the world would be a lot more secure.
 
 # Backbone Security
 
-Though having a central architecture, Enmeshed cannot access the keys or payload of data within the backbone. Even if there would be a data breach, nobody could really do something with this metadata and encrypted payload.
+Though having a central architecture, enmeshed cannot access the keys or payload of data within the backbone. Even if there would be a data breach, nobody could really do something with this metadata and encrypted payload.
 
 For us, security is not only about securing access to data, but making the data itself secure. This applies to the whole communication, be it that the data is completely end-to-end encrypted and digitally signed (so that no one could change the data in between) or that the encrypted data is additionally persisted on the backbone for a specific set of time. This means, that the encrypted data on the backbone can be accessed by authorized parties (e.g. sender and recipients of messages) as long as it is persisted. The Backbone thus acts as a kind of personal archive.
 
@@ -31,9 +31,9 @@ When talking about the Backbone, one has to have trust in it in order to fulfill
 
 We run on a complete web stack, meaning that all Runtime coding so far is developed for a sandboxed web environment. While this sounds scary at first - there are still people that believe browsers and website to be highly insecure - it introduces a very interesting security measure: It is sandboxed.
 
-Even if malware would be executed within the Enmeshed Runtime, it would need to break out of the sandbox to perform malicious activities with the actual device. This applies primarily to the Enmeshed App.
+Even if malware would be executed within the enmeshed Runtime, it would need to break out of the sandbox to perform malicious activities with the actual device. This applies primarily to the enmeshed App.
 
-However a malware could still access the data within the Enmeshed Runtime, meaning Enmeshed keys and communication payloads which is highly sensitive data.
+However a malware could still access the data within the enmeshed Runtime, meaning enmeshed keys and communication payloads which is highly sensitive data.
 
 # Connector Security
 
@@ -44,13 +44,13 @@ In our opinion, this is a far better approach than to upgrade any business syste
 
 The App is only communicating with its corresponding Backbone.
 
-For more information on the security of the device, please read the [Security Recommendations for Apps and End-Users]({% link _docs_use/securely-use-the-app.md %}).
+For more information on the security of the device, please read the [Security Recommendations for Apps and End-Users]({% link _docs_use/secure-device-set-up.md %}).
 
 # Communication Security
 
 Enmeshed uses the highest standards of encrypted communication. It is end-to-end encrypted by using public key cryptography between identities. Different keypairs for the identity, for each device and each contact are used to distinguish the different communication areas (technical, multi-factor or contractual). Where possible, random keys are used and shared securely. If a random key is not possible, derived keys from high-entropy master keys (not passwords) are used. The very first keys are exchanged over Key Exchange Protocols, so that as little key material as possible is shared. Please refer to the [Cryptography Section]({% link _docs_explore/62-cryptography.md %}) to get more information about the used algorithms, libraries and methodologies.
 
-For technical communication with contacts, the contact-specific signature keypair is used. Thus, every message of Enmeshed contains multiple digital signatures of the same message, one signature per recipient (as the sender communicates with a different private key per contact). The digital signature enforces that only the sender can sign the payload and that nobody in between could tamper with the message itself, e.g. change the message payload.
+For technical communication with contacts, the contact-specific signature keypair is used. Thus, every message of enmeshed contains multiple digital signatures of the same message, one signature per recipient (as the sender communicates with a different private key per contact). The digital signature enforces that only the sender can sign the payload and that nobody in between could tamper with the message itself, e.g. change the message payload.
 
 A timestamp from the sender's device is included within the signed content. This reduces the risk of replay attacks (an encrypted message is sent again to the recipient without knowing the content) on the client side and might be used for legal purposes (sender's signing date). In addition to that, a unique message id for every message is generated by the Backbone and thus replay attacks are not possible without the control of the Backbone.
 
@@ -70,6 +70,6 @@ Once a device of a recipient receives the notification, it fetches the message f
 
 It is possible to temporarily or permanently block access or delete identities, if illegal activities are brought to the attention of the Backbone's operator. For this the Backbone operator requires the help of at least one of the parties which received illegal content from a sender.
 
-In addition, Enmeshed supports law enforcement up to a certain degree. As like any other central provider, it is possible to block access or delete content if the Backbone operator gets the official task to comply (although the Backbone operator wouldn't know who the user is or which content it deletes).
+In addition, enmeshed supports law enforcement up to a certain degree. As like any other central provider, it is possible to block access or delete content if the Backbone operator gets the official task to comply (although the Backbone operator wouldn't know who the user is or which content it deletes).
 
 Additionally, it is possible to point law enforcement organizations to other identities which have communicated with an unknown target identity in the past. If the actual real-world entity behind such an identity is known (e.g. a company) they might know who the target identity is and could further help law enforcement.

@@ -3,15 +3,15 @@ title: "Integrate"
 permalink: /integrate
 published: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 ---
 
-You want to seamlessly use Enmeshed with your processes, solutions and software components? No worries, you are good to go!
+You want to seamlessly use enmeshed with your processes, solutions and software components? No worries, you are good to go!
 
-We've built the Enmeshed Connector exactly for this scenario: to integrate existing systems with the Enmeshed approach with as little effort as possible.
+We've built the enmeshed Connector exactly for this scenario: to integrate existing systems with the enmeshed approach with as little effort as possible.
 
-Here you'll find everything you need to seamlessly dive into the world of Enmeshed and integrate it into your applications and systems. Whether you're just starting out or already familiar with Enmeshed, our comprehensive guide and resources are at your disposal.
+Here you'll find everything you need to seamlessly dive into the world of enmeshed and integrate it into your applications and systems. Whether you're just starting out or already familiar with enmeshed, our comprehensive guide and resources are at your disposal.
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ Begin your integration journey by familiarizing yourself with the Connector REST
 
 ## Data Model
 
-Understand Enmeshed's data model and how it fits into your integration, including error codes and attribute values.
+Understand enmeshed's data model and how it fits into your integration, including error codes and attribute values.
 
 ## Handling Events
 
@@ -35,7 +35,7 @@ Explore how to store and query attributes in the Wallet for other users.
 
 ## Messages
 
-Explore how to send messages through Enmeshed for simple and secure communication.
+Explore how to send messages through enmeshed for simple and secure communication.
 
 ## Programming
 

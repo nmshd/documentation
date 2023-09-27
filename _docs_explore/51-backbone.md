@@ -6,16 +6,16 @@ toc: true
 
 # Backbone Building Blocks
 
-The Enmeshed Backbone embraces all central services required by the Enmeshed platform to work. It consists of the underlying infrastructure, its hosted services, and the libraries used within the services. There could be many Enmeshed Backbones hosted along the same number of Enmeshed Apps. But keep in mind that so far it is not possible for users to communicate across different Backbones.
+The enmeshed Backbone embraces all central services required by the enmeshed platform to work. It consists of the underlying infrastructure, its hosted services, and the libraries used within the services. There could be many enmeshed Backbones hosted along the same number of enmeshed Apps. But keep in mind that so far it is not possible for users to communicate across different Backbones.
 
-One Enmeshed Backbone is currently hosted and maintained by j&amp;s-soft GmbH.
+One enmeshed Backbone is currently hosted and maintained by j&amp;s-soft GmbH.
 
 ## Backbone Landscapes (Runtime)
 
 Usually there are three Backbone Landscapes hosted in parallel: dev, stage and prod.
 
-- Dev Landscape: Is used for Backbone development purposes only and shouldn't be used for Enmeshed clients
-- Stage Landscape: Is used for Enmeshed tests on the current Backbone version or might be used for tests on a future Backbone version
+- Dev Landscape: Is used for Backbone development purposes only and shouldn't be used for enmeshed clients
+- Stage Landscape: Is used for enmeshed tests on the current Backbone version or might be used for tests on a future Backbone version
 - Prod Landscape: All productive environments should access the prod landscape only. Only the prod landscape has a productive configuration like scalability, replication or operations in place.
 
 It is possible to bring up additional landscapes on a temporary basis. These could be used for security or performance tests.
@@ -24,11 +24,11 @@ A landscape can be trimmed by different scalability options, depending on the wo
 
 ## Backbone Infrastructure (Runtime)
 
-All required infrastructure and infrastructure services, like a database, a load balancer or a file storage are combined within the infrastructure building block. The infrastructure itself is not Enmeshed-specific, the composition of services and the overall configuration however is.
+All required infrastructure and infrastructure services, like a database, a load balancer or a file storage are combined within the infrastructure building block. The infrastructure itself is not enmeshed-specific, the composition of services and the overall configuration however is.
 
 There are different possible cloud providers to host the backbone, the big hyperscalers or smaller ones. Even regional cloud providers would make sense for specific use-cases.
 
-The current cloud provider for the centrally hosted Enmeshed Backbone is Microsoft Azure and as thus, the landscape details (and terminology) are primarily focused on the Azure setup. Although there are Azure-specific components and configurations, most of the components used are cloud-provider agnostic, i.e. they will exist in other cloud providers in an equivalent form.
+The current cloud provider for the centrally hosted enmeshed Backbone is Microsoft Azure and as thus, the landscape details (and terminology) are primarily focused on the Azure setup. Although there are Azure-specific components and configurations, most of the components used are cloud-provider agnostic, i.e. they will exist in other cloud providers in an equivalent form.
 
 ### Gateway
 
@@ -72,7 +72,7 @@ Each request is handled by a service, running on a Kubernetes node within a whol
 
 ## Backbone Services (Runtime)
 
-(Micro-)Services of the Backbone are deployed on a Kubernetes cluster within the Backbone Infrastructure. These services implement the Enmeshed business logic on top of the infrastructure services provided by the Backbone Infrastructure.
+(Micro-)Services of the Backbone are deployed on a Kubernetes cluster within the Backbone Infrastructure. These services implement the enmeshed business logic on top of the infrastructure services provided by the Backbone Infrastructure.
 
 The following services are available on the runtime:
 
@@ -85,4 +85,4 @@ The following services are available on the runtime:
 
 ## Backbone Services and Libraries (Designtime)
 
-The implementation of the Enmeshed logic is done via the respective services, libraries are used for common source code. The open sourcing of the Backbone is still in progress.
+The implementation of the enmeshed logic is done via the respective services, libraries are used for common source code. The open sourcing of the Backbone is still in progress.

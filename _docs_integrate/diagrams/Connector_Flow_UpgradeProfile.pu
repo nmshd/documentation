@@ -14,15 +14,15 @@ participant "Enmeshed\nApp" as app
 actor "User" as user
 
 == Rahmenbedinungen ==
-backbone <-> connector: Enmeshed Connector hat eine\ndigitale Identität der Organisation.\nEnmeshed Plattform kennt diese.
-connector <-> backend: Bestehende Systeme sind\nüber Integrationsmodule\nmit Enmeshed Connector verbunden
+backbone <-> connector: enmeshed Connector hat eine\ndigitale Identität der Organisation.\nenmeshed Plattform kennt diese.
+connector <-> backend: Bestehende Systeme sind\nüber Integrationsmodule\nmit enmeshed Connector verbunden
 
 
 == Enmeshed Onboarding ==
 
-user -> website: Möchte Enmeshed Verknüpfung
+user -> website: Möchte enmeshed Verknüpfung
 activate website
-website -> backend: Enmeshed Verknüpfung eingehen
+website -> backend: enmeshed Verknüpfung eingehen
 activate backend
 backend -> connector: Generiere Template für Nutzer\n(mit Nutzerdaten & Random Token)
 backend -> backend: Verknüpft Random Token\nund SessionID
@@ -39,7 +39,7 @@ deactivate backend
 website --> user: QR-Code und Link
 
 
-user -> app: Installiert & startet Enmeshed App
+user -> app: Installiert & startet enmeshed App
 activate app
 app -> app: Erstellt Identität\n(falls keine vorhanden)
 app -> backbone: Registriert Identität
@@ -56,7 +56,7 @@ deactivate backbone
 app -> app: Entschlüsselung\nTemplate
 app --> user: Anzeige Template
 user -> app: Annahme Template
-app -> app: Daten aufbereiten\nEnmeshed Adresse\nevtl. Daten des Nutzers
+app -> app: Daten aufbereiten\nenmeshed Adresse\nevtl. Daten des Nutzers
 app -> app: Beziehung vorbereiten
 app -> app: Anfrage verschlüsseln
 app -> backbone: Anfrage senden
@@ -71,9 +71,9 @@ connector -> connector: Anfrage entschlüsseln
 connector -> connector: Anfrage prüfen
 connector -> backend: Anfrage weitergeben
 activate backend
-backend -> backend: Mapping Enmeshed Adresse\nmit RandomToken\nmit UserID
-backend -> website: Enmeshed Anfrage angekommen
-website -> user: Enmeshed Anfrage angekommen
+backend -> backend: Mapping enmeshed Adresse\nmit RandomToken\nmit UserID
+backend -> website: enmeshed Anfrage angekommen
+website -> user: enmeshed Anfrage angekommen
 backend --> connector: OK
 deactivate backend
 connector -> connector: Beziehung vorbereiten

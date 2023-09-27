@@ -13,8 +13,8 @@ participant "Enmeshed\nApp" as app
 actor "User" as user
 
 == Prerequisites ==
-backbone <--> connector: Verified Enmeshed Corporate Identity
-connector <--> user: Existing Enmeshed Relationship
+backbone <--> connector: Verified enmeshed Corporate Identity
+connector <--> user: Existing enmeshed Relationship
 
 
 == Template ==

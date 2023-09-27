@@ -11,7 +11,7 @@ end box
 participant "Enmeshed\nBackbone" as backbone
 
 == Prerequisites ==
-backbone <-> connector: Verified Enmeshed Organization Identity
+backbone <-> connector: Verified enmeshed Organization Identity
 
 
 == Create Relationship Request ==

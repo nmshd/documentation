@@ -3,7 +3,7 @@ title: "Enmeshed Addresses"
 permalink: /explore/addresses
 ---
 
-The Address is the primary identifier for an Enmeshed Identity. It is public and created out of the Identity’s Signature Public Key. Thus, the Identity’s root signature key and its corresponding Address are interlinked with each other and cannot be changed. Nobody is able to change the public key for a corresponding Address and everybody has the possibility to check, if a given public key matches a given Address without having to trust someone. Both are important security features.
+The Address is the primary identifier for an enmeshed Identity. It is public and created out of the Identity’s Signature Public Key. Thus, the Identity’s root signature key and its corresponding Address are interlinked with each other and cannot be changed. Nobody is able to change the public key for a corresponding Address and everybody has the possibility to check, if a given public key matches a given Address without having to trust someone. Both are important security features.
 
 - As Addresses do not contain special characters, copy and pasting via double-click is supported.
 - As they also do not contain any characters which might be visually mixed up by humans (I (uppercase i), l (lowercase L), 0 (zero) and O (uppercase o)) reading them is easier than with other encodings - but still quite cumbersome, because of their length.
@@ -50,7 +50,7 @@ createAddress(PublicKey, RealmAsThreeCharUtf8) {
 
 ## Examples
 
-Below there are a few examples for valid Enmeshed Addresses.
+Below there are a few examples for valid enmeshed Addresses.
 
 ```text
 Realm: id1

@@ -4,7 +4,7 @@ permalink: /explore/use-cases
 published: false
 ---
 
-The list below is a non-complete list of use cases within Enmeshed:
+The list below is a non-complete list of use cases within enmeshed:
 
 - Runtime
 

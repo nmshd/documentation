@@ -14,8 +14,8 @@ end box
 
 == Prerequisites ==
 
-app <--> connector: Enmeshed Relationship
-website <--> connector: Enmeshed Integration
+app <--> connector: enmeshed Relationship
+website <--> connector: enmeshed Integration
 
 autonumber
 
@@ -29,7 +29,7 @@ the provided signature
 of the consumer was not
 created in the past.
 
-Thus, the trusted Enmeshed
+Thus, the trusted enmeshed
 platform creates the
 timestamps.
 end note
@@ -42,8 +42,8 @@ website -> connector++: Check login token
 connector -> connector: Verify token\nsignature
 connector -> platform++: Check random id
 platform --> connector --: OK
-connector -> website --: Login OK\nEnmeshed Address xyz
-browser <--> website: Login Session for Enmeshed Address xyz
+connector -> website --: Login OK\nenmeshed Address xyz
+browser <--> website: Login Session for enmeshed Address xyz
 
 
 

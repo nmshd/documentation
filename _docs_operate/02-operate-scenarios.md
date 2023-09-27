@@ -3,7 +3,7 @@ title: "Operate"
 permalink: /operate
 published: true
 sidebar:
-  - title: "Operate Enmeshed"
+  - title: "Operate enmeshed"
     nav: "docs_operate"
 ---
 

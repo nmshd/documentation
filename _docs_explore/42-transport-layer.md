@@ -33,7 +33,7 @@ As the transport layer encapsulates all encryption-relevant topics, keys are gen
 
 The synchronization between the devices is completely encrypted and works a bit like the communication with other identities. When an identity is created, a random synchronization key is generated and used to encrypt and synchronize all local data to the backbone. This synchronization key is then shared when onboarding a new device, allowing the new device to have access to the complete (encrypted) history of the identity on the backbone which can then be downloaded and applied.
 
-Changes on one device are directly synchronized with the backbone and thus communicated to and reflected on other devices. The synchronization service (we also call it datawallet service) only adds information to the identity's history. Therefore, Enmeshed would even be able to roll back local changes on user errors, as we have a kind of local data versioning across devices with this approach.
+Changes on one device are directly synchronized with the backbone and thus communicated to and reflected on other devices. The synchronization service (we also call it datawallet service) only adds information to the identity's history. Therefore, enmeshed would even be able to roll back local changes on user errors, as we have a kind of local data versioning across devices with this approach.
 
 We have a blocking mechanism in place that allows only one device to update the identity's history on a single point in time.
 
@@ -49,9 +49,9 @@ The identity semantically is the "digital twin" of the actual real-world person 
 
 Technically, the identity primarily consists of one keypair. By signing with the identity's private key, one is able to prove the ownership of the identity and thus manage the identity completely. Based on the identity's public key, the primary identification property, the address is created.
 
-One has to keep in mind that Enmeshed doesn't enforce the validation of the real-world entities. Thus one real-world entity could create fake identities.
+One has to keep in mind that enmeshed doesn't enforce the validation of the real-world entities. Thus one real-world entity could create fake identities.
 
-Additionally, Enmeshed cannot enforce a uniqueness of real-world entities, i.e. one real-world entity could create multiple Enmeshed identities for itself.
+Additionally, enmeshed cannot enforce a uniqueness of real-world entities, i.e. one real-world entity could create multiple enmeshed identities for itself.
 
 ### Address
 
@@ -63,7 +63,7 @@ A device is a technical part of the identity. One identity can use multiple devi
 
 Thus devices are usually handled within the identity, just like one person uses multiple devices for reading mails or browsing the web.
 
-A very interesting part of Enmeshed is, that devices are usually kept in synchronization with each other over a synchronization service. This is a big difference from other communication providers where there is usually a "main" device which is remotely controlled by other devices.
+A very interesting part of enmeshed is, that devices are usually kept in synchronization with each other over a synchronization service. This is a big difference from other communication providers where there is usually a "main" device which is remotely controlled by other devices.
 
 Thus, every device has the complete access on the identity and its data without relying on another device. This is a great backup and recovery mechanism, as having two devices for an identity means an automatic backup device if one device is broken or replaced.
 
@@ -104,7 +104,7 @@ If a new device is onboarded, the device onboarding info is shared via a side ch
 
 Abbreviated: FIL
 
-A file is an Enmeshed representation of any binary-large object (BLOB). Handling files is similar to handling tokens, the big difference is, that tokens provide a means to share structured content whereas files are uploaded to and downloaded from the backbone by the help of binary transfer methods.
+A file is an enmeshed representation of any binary-large object (BLOB). Handling files is similar to handling tokens, the big difference is, that tokens provide a means to share structured content whereas files are uploaded to and downloaded from the backbone by the help of binary transfer methods.
 
 The actual file is then shared by a file reference to a recipient. Files can be short-lived or long-lived, depending on the business case - use the expiresAt property to define the expiry of a file.
 
@@ -202,7 +202,7 @@ The relationship request - next to the required technical information - usually 
 
 A relationship template is a structured representation of data which is required for a relationship to be established. Thus, it is usually also addressing the required information for a business process to start.
 
-Templates solve the problem of linking Enmeshed identities to a currently existing real world context, e.g. an existing customer account or an anonymous web session.
+Templates solve the problem of linking enmeshed identities to a currently existing real world context, e.g. an existing customer account or an anonymous web session.
 
 In addition to technical information like public keys, certificates or signatures, it usually contains:
 
@@ -241,7 +241,7 @@ Personalized templates are short-lived relationship templates including sensitiv
 
 This is usually combined with an upfront digital authentication of the person, e.g. existing web sessions of the user. Only this specific user would then have access to the personalized template within the secured website (e.g. over an QR-code).
 
-Personalized templates are primary used for a much better onboarding experience of net-new Enmeshed users: they won't need to enter their data again, even if the data is already stored somehow.
+Personalized templates are primary used for a much better onboarding experience of net-new enmeshed users: they won't need to enter their data again, even if the data is already stored somehow.
 
 Personalized templates can only be used if the person is authenticated upfront or it is ensured that only the respective person can receive the template.
 
