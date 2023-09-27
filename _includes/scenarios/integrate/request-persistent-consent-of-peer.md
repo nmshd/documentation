@@ -4,7 +4,7 @@ Here is an explanation of how to obtain a person's persistent consent on a parti
 
 To request an accept/reject decision from a peer to a free text, the ConsentRequestItem is used.
 
-Represents the consent of a person to a specific topic. If you want to obtain a consent, you can send a [`ProposeAttributeRequestItem`]({% link _docs_integrate/requests-and-requestitems.md %}#proposeattributerequestitem) [RelationshipAttribute]({% link _docs_integrate/introducing-the-enmeshed-data-model.md %}#relationshipattribute) with a [Consent]({% link _docs_integrate/attribute-values.md %}#consent) value where the owner is the peer.
+Represents the consent of a person to a specific topic. If you want to obtain a consent, you can send a [`ProposeAttributeRequestItem`]({% link _docs_integrate/requests-and-requestitems.md %}#proposeattributerequestitem) [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with a [Consent]({% link _docs_integrate/attribute-values.md %}#consent) value where the owner is the peer.
 
 <!-- This include inserts the table with the metadata  -->
 

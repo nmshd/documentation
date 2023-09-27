@@ -14,7 +14,7 @@ properties:
   - level:
   - implementation status:
   - documentation status:
-  - published: true
+  - published:
   - link: integrate/support
 require:
 required_by:

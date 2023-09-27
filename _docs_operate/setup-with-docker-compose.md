@@ -3,7 +3,7 @@
 permalink: operate/setup-with-docker-compose
 redirect_from: /integrate/connector-installation
 published: true
-title: "Setup with Docker compose"
+title: "Setup with Docker Compose"
 type: scenario
 toc: true
 properties:

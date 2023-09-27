@@ -1,6 +1,6 @@
 <!-- A general description of the requirement can be given here. -->
 
-This guide will explain the end to end flow of sharing and answering a [Request]({% link _docs_integrate/introducing-the-enmeshed-data-model.md %}#request) over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don't have a Relationship yet.
+This guide will explain the end to end flow of sharing and answering a [Request]({% link _docs_integrate/data-model-overview.md %}#request) over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don't have a Relationship yet.
 
 You can use the [Connector Installation Guide]({% link _docs_operate/setup-with-docker-compose.md %}) if you need help for the setup the Connectors.
 
