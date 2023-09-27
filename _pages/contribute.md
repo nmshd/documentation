@@ -1,11 +1,11 @@
 ---
 permalink: /contribute
-title: Contribute to Enmeshed
+title: Contribute to enmeshed
 ---
 
-No matter your expertise - we love to hear your feedback and your opinion about Enmeshed!
+No matter your expertise - we love to hear your feedback and your opinion about enmeshed!
 
-Additionally, there are multiple ways how you can contribute to Enmeshed:
+Additionally, there are multiple ways how you can contribute to enmeshed:
 
 - Inform us, by providing feedback to our solutions.
 - Enlighten us, by [filing bug reports](https://github.com/nmshd/feedback/issues/new/choose) of bugs you encountered

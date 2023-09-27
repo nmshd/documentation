@@ -1,5 +1,5 @@
 ---
-title: "Announcing Enmeshed V2 Attributes"
+title: "Announcing enmeshed V2 Attributes"
 date: 2022-06-30
 categories:
   - blog
@@ -10,13 +10,13 @@ tags:
 toc: true
 ---
 
-This is one of the blog posts regarding Enmeshed V2. For an overview of all V2 blog posts, please refer to the [V2 announcement blog post]({% post_url 2022-06-27-announcing-enmeshed-v2 %}).
+This is one of the blog posts regarding enmeshed V2. For an overview of all V2 blog posts, please refer to the [V2 announcement blog post]({% post_url 2022-06-27-announcing-enmeshed-v2 %}).
 
 In this blog post we want to talk about pain points of the V1 Attributes and how we reworked the Attributes to tackle them.
 
 ## V1 Attributes
 
-So far, Attributes in Enmeshed have only been name/value pairs for Identities, e.g.:
+So far, Attributes in enmeshed have only been name/value pairs for Identities, e.g.:
 
 ```json
 {
@@ -84,4 +84,4 @@ Below you can find the major changes of the new Attribute handling:
 
 ## Conclusion
 
-All in all, many changes which will make the Attribute management of and between Identities much more mature. Together with a [new way of handling Requests (and Responses)]({% post_url 2022-07-13-announcing-enmeshed-v2-requests %}), we think Enmeshed has a much more holistic feature set.
+All in all, many changes which will make the Attribute management of and between Identities much more mature. Together with a [new way of handling Requests (and Responses)]({% post_url 2022-07-13-announcing-enmeshed-v2-requests %}), we think enmeshed has a much more holistic feature set.

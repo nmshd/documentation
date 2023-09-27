@@ -1,6 +1,6 @@
 <!-- A general description of the requirement can be given here. -->
 
-This guide explains how to send and receive a Request over Enmeshed Messages using two Connectors, the first of which sends a Request to the second, and the second accepts or rejects the Request. It provides step-by-step instructions for validating the Request, creating and sending the Request, and accepting or rejecting the Request.
+This guide explains how to send and receive a Request over enmeshed Messages using two Connectors, the first of which sends a Request to the second, and the second accepts or rejects the Request. It provides step-by-step instructions for validating the Request, creating and sending the Request, and accepting or rejecting the Request.
 
 <!-- This include inserts the table with the metadata  -->
 
@@ -8,7 +8,7 @@ This guide explains how to send and receive a Request over Enmeshed Messages usi
 
 This guide assumes that you already have an active Relationship between two Connectors. If you don't, you should follow the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide first. If you created a Relationship during the [Connector Tutorial]({% link _docs_integrate/integration-example.md %}) this will also work.
 
-In this guide, the first Connector will be called Sender and the second Connector will be called Recipient. The Sender will send a Request to the Recipient. For the next steps you will need the Enmeshed Address of the Recipient. You can find it out by calling the `GET /api/v2/Relationships` route on the Sender Connector.
+In this guide, the first Connector will be called Sender and the second Connector will be called Recipient. The Sender will send a Request to the Recipient. For the next steps you will need the enmeshed Address of the Recipient. You can find it out by calling the `GET /api/v2/Relationships` route on the Sender Connector.
 
 ```jsonc
 [
@@ -97,13 +97,13 @@ Now you have to send the Request to the Recipient. You can do so by calling the 
 }
 ```
 
-This is where the automation of the Enmeshed Runtime steps in and moves the Request from status `Draft` to status `Open`. You can observe this behaviour by querying the Request via `GET /api/v2/Requests/Outgoing/{id}` on the Sender Connector.
+This is where the automation of the enmeshed Runtime steps in and moves the Request from status `Draft` to status `Open`. You can observe this behaviour by querying the Request via `GET /api/v2/Requests/Outgoing/{id}` on the Sender Connector.
 
 ## Fetch the Request
 
 In order to fetch the Message with the Request, you have to synchronize the Recipient Connector (`GET /api/v2/Account/Sync`).
 
-The Enmeshed Runtime will read the Message and create a new incoming Request. You can observe this by long polling the incoming Requests or by waiting for the `consumption.incomingRequestReceived` event.
+The enmeshed Runtime will read the Message and create a new incoming Request. You can observe this by long polling the incoming Requests or by waiting for the `consumption.incomingRequestReceived` event.
 
 The long polling is done by calling the `GET /api/v2/Requests/Incoming` route. You can use the query params `source.reference=<id-of-the-message>` and `status=ManualDecisionRequired` to filter for Requests that belong to the Message that contained the Request.
 
@@ -143,7 +143,7 @@ If you want to reject the Request you can do so by calling the `POST /api/v2/Req
 
 ### Runtime automation
 
-No matter if you accepted or rejected the Request: the response is similar. You can see that the Request moved to status `Decided`. This is where the Enmeshed Runtime steps in and handles the Request based on you decision. It will move the Request to status `Completed` and send the Response to the Sender via a Message. This behavior can be observed by querying the Request again after a few seconds (`GET /api/v2/Requests/Incoming/{id}`).
+No matter if you accepted or rejected the Request: the response is similar. You can see that the Request moved to status `Decided`. This is where the enmeshed Runtime steps in and handles the Request based on you decision. It will move the Request to status `Completed` and send the Response to the Sender via a Message. This behavior can be observed by querying the Request again after a few seconds (`GET /api/v2/Requests/Incoming/{id}`).
 
 ## Sync the Response
 

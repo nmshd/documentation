@@ -11,7 +11,7 @@ This Module proxies all events in the internal event bus of the Connector to an 
 Compared to [webhooks](#webhooksv2), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
 
 - You need persistence for the triggered events.
-- You want to integrate Enmeshed into an already existing message broker.
+- You want to integrate enmeshed into an already existing message broker.
 
 ### Auto Accept Relationship Creation Changes <a href="{% link _docs_operate/configuration.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-cog"/></a> {#autoacceptrelationshipcreationchanges}
 
@@ -24,7 +24,7 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
 
 ### Core HTTP API <a href="{% link _docs_operate/configuration.md %}#corehttpapi"><i class="fas fa-fw fa-cog"/></a> {#corehttpapi}
 
-This Module contains the HTTP API with all Enmeshed base functionalities.
+This Module contains the HTTP API with all enmeshed base functionalities.
 
 ### Sync <a href="{% link _docs_operate/configuration.md %}#sync"><i class="fas fa-fw fa-cog"/></a> {#sync}
 
@@ -32,7 +32,7 @@ The `sync` Module regularly fetches changes from the Backbone (e.g. new Messages
 
 ### WebhooksV2 <a href="{% link _docs_operate/configuration.md %}#webhooksv2"><i class="fas fa-fw fa-cog"/></a> {#webhooksv2}
 
-With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within Enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
+With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
 
 For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Event]({% link _docs_integrate/event-introduction.md %}) is triggered (e.g. a new Message has been received => `transport.messageReceived`).
 
