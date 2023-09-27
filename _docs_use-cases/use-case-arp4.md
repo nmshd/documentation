@@ -1,7 +1,7 @@
 ---
 permalink: /use-case-arp4
 published: true
-title: "Get Profile by Enmeshed Address"
+title: "Get Profile by enmeshed Address"
 type: use-case
 toc: true
 properties:

@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Enmeshed
+title: enmeshed
 email: info@enmeshed.eu
 description: >- # this means to ignore newlines until "baseurl:"
   Enmeshed is a home of various open source components, making the digital life
@@ -90,7 +90,7 @@ collections:
 author:
   name: "Enmeshed Team"
   avatar: "/assets/images/Logo.svg"
-  bio: "The official Enmeshed Team"
+  bio: "The official enmeshed Team"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
@@ -140,7 +140,7 @@ defaults:
       layout: single
       author_profile: false
       sidebar:
-        - title: "Explore Enmeshed"
+        - title: "Explore enmeshed"
           nav: "docs_explore"
   # integrate
   - scope:
@@ -150,7 +150,7 @@ defaults:
       layout: single
       author_profile: false
       sidebar:
-        - title: "Integrate Enmeshed"
+        - title: "Integrate enmeshed"
           nav: "docs_integrate"
   # operate
   - scope:
@@ -160,7 +160,7 @@ defaults:
       layout: single
       author_profile: false
       sidebar:
-        - title: "Operate Enmeshed"
+        - title: "Operate enmeshed"
           nav: "docs_operate"
   # _pages
   - scope:
@@ -178,7 +178,7 @@ defaults:
       layout: single
       author_profile: false
       sidebar:
-        - title: "Use Enmeshed"
+        - title: "Use enmeshed"
           nav: "docs_use"
 
   # use-cases
@@ -189,7 +189,7 @@ defaults:
       layout: single
       author_profile: false
       sidebar:
-        - title: "Use-Cases Enmeshed"
+        - title: "Use-Cases enmeshed"
           nav: "docs_use-cases"
 
 # see https://mmistakes.github.io/minimal-mistakes/docs/configuration/#archive-settings for category/tags configuration
