@@ -1,0 +1,37 @@
+---
+permalink: /use-case-transport-get-own-file
+published: true
+title: "Get own File"
+type: use-case
+toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
+properties:
+  - id: RF3
+  - layer: Transport
+  - facade: FilesFacade
+  - function: getFile
+  - description:
+  - feature category: Arbitrary large data support
+  - tech category: Files
+  - status: DONE
+  - comments:
+  - actor: Identity
+  - component: Runtime
+  - trigger:
+  - precondition:
+  - result:
+  - priority: n/a
+  - complexity: n/a
+  - size: n/a
+  - created_at:
+  - changed_at:
+  - link auf testcode:
+  - published: default
+  - link: transport/get-own-file
+require:
+required_by:
+---
+
+{% include use-cases/use-case-transport-get-own-file.md %}

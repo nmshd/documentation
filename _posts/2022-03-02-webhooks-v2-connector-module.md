@@ -22,12 +22,12 @@ We still recommend to switch to the new Module as soon as possible as the old Mo
 
 ## The new Module
 
-The new Module gives you the possibility to define so called `triggers`, which represent the names of the events we already send Connector-internally (e.g. `transport.messageReceived`). The Module then listens to the configured events and simply sends the event data to the configured URL. For a detailed documentation of how to configure the new webhooks Module, see [the Connector configuration docs]({% link _docs_integrate/11-connector-configuration.md %}#webhooksv2).
+The new Module gives you the possibility to define so called `triggers`, which represent the names of the events we already send Connector-internally (e.g. `transport.messageReceived`). The Module then listens to the configured events and simply sends the event data to the configured URL. For a detailed documentation of how to configure the new webhooks Module, see [the Connector configuration docs]({% link _docs_operate/configuration.md %}#webhooksv2).
 
 While in the old Module you could configure an interval in which the new information is published, the new Module calls the webhook immediately after the configured event was triggered.
 _Do you miss the possibility to configure a publish interval? Raise a feature request in our [feedback repository](https://github.com/nmshd/feedback/issues/new/choose), and we will see what we can do about it._
 
-Since you can use arbitrary events as triggers now, the new Module gives you much more points at which you can integrate. We provide a [list of these events]({% link _docs_integrate/32-connector-events.md %}). Note that the list will grow in the next weeks, so check the docs from time to time. If you wish for a specific event, you can also [raise a feature request](https://github.com/nmshd/feedback/issues/new/choose).
+Since you can use arbitrary events as triggers now, the new Module gives you much more points at which you can integrate. We provide a [list of these events]({% link _docs_integrate/connector-events.md %}). Note that the list will grow in the next weeks, so check the docs from time to time. If you wish for a specific event, you can also [raise a feature request](https://github.com/nmshd/feedback/issues/new/choose).
 
 ## Migration
 
@@ -62,4 +62,4 @@ The data sent to the given URL has changed though:
 }
 ```
 
-In the POST body you will receive the `trigger` of the webhook (which is the name of the event), as well as the `data` of the event. Both are documented in the [Connector Events]({% link _docs_integrate/32-connector-events.md %}) section.
+In the POST body you will receive the `trigger` of the webhook (which is the name of the event), as well as the `data` of the event. Both are documented in the [Connector Events]({% link _docs_integrate/connector-events.md %}) section.

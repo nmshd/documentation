@@ -29,9 +29,9 @@ Speaking about decentralization, one term may not be left out: Blockchain. A blo
 
 # ... and why we think differently
 
-Yes, within Enmeshed we think differently about decentralization. And we do not want to throw decades of computer science research away just because some technologies or solutions are hyped. On the other hand, there are many good aspects within all these solutions – and enough obstacles in the old world. In the end, what we do is bring both worlds together.
+Yes, within enmeshed we think differently about decentralization. And we do not want to throw decades of computer science research away just because some technologies or solutions are hyped. On the other hand, there are many good aspects within all these solutions – and enough obstacles in the old world. In the end, what we do is bring both worlds together.
 
-# The Enmeshed Approach
+# The enmeshed Approach
 
 ## Be central!
 

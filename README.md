@@ -1,10 +1,10 @@
 # documentation
 
-This is the source code of the Enmeshed Documentation hosted at [enmeshed.eu](https://enmeshed.eu).
+This is the source code of the enmeshed documentation hosted at [enmeshed.eu](https://enmeshed.eu).
 
 ## Purpose of this documentation
 
-This documentation is meant as an overarching documentation for the whole Enmeshed open source project. It describes overarching concepts whereas the individual repositories provide technical documentation for the respective source code or functionality.
+This documentation is meant as an overarching documentation for the whole enmeshed open source project. It describes overarching concepts whereas the individual repositories provide technical documentation for the respective source code or functionality.
 
 ## Documentation guidelines
 

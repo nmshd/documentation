@@ -23,7 +23,6 @@ group :jekyll_plugins do
   gem "jemoji"
   gem "jekyll-include-cache"
   gem "jekyll-algolia"
-  gem "jekyll-redirect-from"
   gem "jekyll-remote-theme"
   gem 'jekyll-redirect-from'
 end

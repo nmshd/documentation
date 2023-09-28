@@ -1,10 +1,12 @@
 main:
   - title: "Use"
-    url: /use/basics
+    url: /use
   - title: "Explore"
     url: /explore
   - title: "Integrate"
     url: /integrate
+  - title: "Operate"
+    url: /operate
   - title: "Contribute"
     url: /contribute
   - title: "Blog"
@@ -13,14 +15,10 @@ main:
 docs_explore:
   - title: First things first
     children:
-      - title: "Introduction"
-        url: /explore
+      - title: "How does enmeshed work?"
+        url: /explore/how_does_enmeshed_work
       - title: "Example Scenarios"
         url: /explore/example-scenarios
-      - title: "Features"
-        url: /explore/features
-      - title: "Use Cases"
-        url: /explore/use-cases
       # - title: "Screens"
       #   url: /explore/screens
       - title: "Frequently Asked Questions"
@@ -59,7 +57,7 @@ docs_explore:
 
   - title: Expert Corner
     children:
-      - title: "Enmeshed Addresses"
+      - title: "Addresses"
         url: /explore/addresses
       - title: "Runtime"
         url: /explore/runtime
@@ -71,80 +69,87 @@ docs_explore:
 docs_use:
   - title: Getting Started
     children:
-      - title: "Basics"
-        url: /use/basics
-      - title: "Security Recommendations for Apps and End-Users"
-        url: /use/security-recommendations
-
-  - title: Scenarios
-    children:
-      - title: "App-Scenarios"
-        url: /use/app-scenarios
+      - title: "Install the App"
+        url: /use/install-the-app
+      - title: "Secure device setup"
+        url: /use/secure-device-setup
 
 docs_integrate:
   - title: Getting Started
     children:
-      - title: "Basics"
-        url: /integrate/basics
-      - title: "Connector Tutorial"
-        url: /integrate/connector-tutorial
-      - title: "Connector Modules"
-        url: /integrate/connector-modules
+      - title: "Access the Connector"
+        url: /integrate/access-the-connector
+      - title: "Integration example"
+        url: /integrate/integration-example
+      #- title: "Event introduction"
+      #  url: /integrate/event-introduction
+      - title: "Use Cases"
+        url: /integrate/use-cases
 
-  - title: Setting up the Connector
+  - title: Manage Requests
     children:
-      - title: "Installation"
-        url: /integrate/connector-installation
-      - title: "Configuration"
-        url: /integrate/connector-configuration
-      - title: "Troubleshooting"
-        url: /integrate/connector-setup-troubleshooting
-      - title: "Error Codes"
-        url: /integrate/error-codes
-      - title: "Helm Chart"
-        url: /integrate/helm-chart
-
-  - title: REST API
+      - title: "Requests over Templates"
+        url: /integrate/requests-over-templates
+      - title: "Requests over Messages"
+        url: /integrate/requests-over-messages
+  - title: Manage attributes of others
     children:
-      - title: "API Documentation"
-        url: /integrate/connector-api
-
-  - title: Scenarios
+      - title: "Request persistent consent of peer"
+        url: /integrate/request-persistent-consent-of-peer
+  - title: Basic communication
     children:
-      - title: "Connector-Scenarios"
-        url: /integrate/connector-scenarios
-
-  - title: Programming
+      - title: "Sending Messages"
+        url: /integrate/sending-messages
+  - title: Requesting consent of users
     children:
-      - title: "Connector SDKs"
-        url: /integrate/connector-sdks
-      - title: "Custom Connector Modules"
-        url: /integrate/custom-connector-modules
-      - title: "Connector Events"
-        url: /integrate/connector-events
-      - title: "Migrate to v2"
-        url: /integrate/connector-migration-v2
-
-  - title: Operations
-    children:
-      - title: "Connector Operations"
-        url: /integrate/connector-operations
-      - title: "Security Considerations"
-        url: /integrate/connector-security
-      - title: "Privacy Considerations"
-        url: /integrate/connector-privacy
-      - title: "Performance Considerations"
-        url: /integrate/connector-performance
-
+      - title: "Requesting one-time consents"
+        url: /integrate/requesting-one-time-consents
   - title: Data Model
     children:
-      - title: "Overview"
+      - title: "Data Model Overview"
         url: /integrate/data-model-overview
-      - title: "Request Items"
-        url: /integrate/data-model-request-items
+      - title: "Connector Events"
+        url: /integrate/connector-events
+      - title: "Requests and RequestItems"
+        url: /integrate/requests-and-requestitems
       - title: "Attribute Values"
-        url: /integrate/data-model-attribute-values
+        url: /integrate/attribute-values
+  - title: Troubleshooting
+    children:
+      - title: "Error Codes"
+        url: /integrate/error-codes
+      #- title: "FAQ"
+      #  url: /integrate/faq
+      #- title: "Support"
+      #  url: /integrate/support
 
-docs_scenarios:
+docs_operate:
+  - title: Connector Setup
+    children:
+      - title: "Setup with Docker Compose"
+        url: /operate/setup-with-docker-compose
+      - title: "Setup with Helm Charts"
+        url: /operate/setup-with-helm-charts
+      - title: "Configuration"
+        url: /operate/configuration
+      - title: "Modules"
+        url: /operate/modules
 
-docs_use-cases:
+  - title: Connector Operations
+    children:
+      - title: "Overview of Connector operations"
+        url: /operate/overview-of-connector-operations
+      - title: "Security Considerations"
+        url: /operate/security-considerations
+      - title: "Privacy Considerations"
+        url: /operate/privacy-considerations
+      - title: "Performance Considerations"
+        url: /operate/performance-considerations
+  - title: Troubleshooting
+    children:
+      - title: "Troubleshooting Guide"
+        url: /operate/troubleshooting-guide
+      #- title: "FAQ"
+      #  url: /operate/faq
+      - title: "Support"
+        url: /operate/support

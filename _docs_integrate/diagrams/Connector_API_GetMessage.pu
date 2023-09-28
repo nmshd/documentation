@@ -12,8 +12,8 @@ participant "Enmeshed\nBackbone" as backbone
 actor "Sender" as user
 
 == Prerequisites ==
-backbone <-> connector: Verified Enmeshed Organization Identity
-connector <-> user: Existing Enmeshed Relationship
+backbone <-> connector: Verified enmeshed Organization Identity
+connector <-> user: Existing enmeshed Relationship
 
 == Send Message ==
 
