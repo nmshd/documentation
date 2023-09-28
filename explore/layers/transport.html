@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Transport Layer - Enmeshed</title>
+<!-- begin _includes/seo.html --><title>Transport Layer - enmeshed</title>
 <meta name="description" content="The transport layer is located between the backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is the primary technical building block, containing the transport library, the content library and the crypto library.">
 
 
@@ -21,7 +21,7 @@
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="Enmeshed">
+<meta property="og:site_name" content="enmeshed">
 <meta property="og:title" content="Transport Layer">
 <meta property="og:url" content="/explore/layers/transport">
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-09-20T12:28:39+02:00">
+  <meta property="article:published_time" content="2023-09-28T12:08:44+02:00">
 
 
 
@@ -67,7 +67,7 @@
 
 
 
-  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Enmeshed Feed">
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
 
 
 <!-- https://t.co/dKP3o1e -->
@@ -114,15 +114,17 @@
       <nav id="site-nav" class="greedy-nav">
         
         <a class="site-title" href="/">
-          Enmeshed
+          enmeshed
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/use/basics">Use</a>
+              <a href="/use">Use</a>
             </li><li class="masthead__menu-item">
               <a href="/explore">Explore</a>
             </li><li class="masthead__menu-item">
               <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/operate">Operate</a>
             </li><li class="masthead__menu-item">
               <a href="/contribute">Contribute</a>
             </li><li class="masthead__menu-item">
@@ -159,7 +161,7 @@
   
     
       
-      <h3>Explore Enmeshed</h3>
+      <h3>Explore enmeshed</h3>
       
       
 
@@ -177,13 +179,9 @@
         
         <ul>
           
-            <li><a href="/explore">Introduction</a></li>
+            <li><a href="/explore/how_does_enmeshed_work">How does enmeshed work?</a></li>
           
             <li><a href="/explore/example-scenarios">Example Scenarios</a></li>
-          
-            <li><a href="/explore/features">Features</a></li>
-          
-            <li><a href="/explore/use-cases">Use Cases</a></li>
           
             <li><a href="/explore/faq">Frequently Asked Questions</a></li>
           
@@ -257,7 +255,7 @@
         
         <ul>
           
-            <li><a href="/explore/addresses">Enmeshed Addresses</a></li>
+            <li><a href="/explore/addresses">Addresses</a></li>
           
             <li><a href="/explore/runtime">Runtime</a></li>
           
@@ -282,7 +280,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Transport Layer">
     <meta itemprop="description" content="The transport layer is located between the backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is the primary technical building block, containing the transport library, the content library and the crypto library.">
-    <meta itemprop="datePublished" content="2023-09-20T12:28:39+02:00">
+    <meta itemprop="datePublished" content="2023-09-28T12:08:44+02:00">
     
 
     <div class="page__inner-wrap">
@@ -339,7 +337,7 @@
 
 <p>The synchronization between the devices is completely encrypted and works a bit like the communication with other identities. When an identity is created, a random synchronization key is generated and used to encrypt and synchronize all local data to the backbone. This synchronization key is then shared when onboarding a new device, allowing the new device to have access to the complete (encrypted) history of the identity on the backbone which can then be downloaded and applied.</p>
 
-<p>Changes on one device are directly synchronized with the backbone and thus communicated to and reflected on other devices. The synchronization service (we also call it datawallet service) only adds information to the identity’s history. Therefore, Enmeshed would even be able to roll back local changes on user errors, as we have a kind of local data versioning across devices with this approach.</p>
+<p>Changes on one device are directly synchronized with the backbone and thus communicated to and reflected on other devices. The synchronization service (we also call it datawallet service) only adds information to the identity’s history. Therefore, enmeshed would even be able to roll back local changes on user errors, as we have a kind of local data versioning across devices with this approach.</p>
 
 <p>We have a blocking mechanism in place that allows only one device to update the identity’s history on a single point in time.</p>
 
@@ -355,9 +353,9 @@
 
 <p>Technically, the identity primarily consists of one keypair. By signing with the identity’s private key, one is able to prove the ownership of the identity and thus manage the identity completely. Based on the identity’s public key, the primary identification property, the address is created.</p>
 
-<p>One has to keep in mind that Enmeshed doesn’t enforce the validation of the real-world entities. Thus one real-world entity could create fake identities.</p>
+<p>One has to keep in mind that enmeshed doesn’t enforce the validation of the real-world entities. Thus one real-world entity could create fake identities.</p>
 
-<p>Additionally, Enmeshed cannot enforce a uniqueness of real-world entities, i.e. one real-world entity could create multiple Enmeshed identities for itself.</p>
+<p>Additionally, enmeshed cannot enforce a uniqueness of real-world entities, i.e. one real-world entity could create multiple enmeshed identities for itself.</p>
 
 <h3 id="address">Address</h3>
 
@@ -369,7 +367,7 @@
 
 <p>Thus devices are usually handled within the identity, just like one person uses multiple devices for reading mails or browsing the web.</p>
 
-<p>A very interesting part of Enmeshed is, that devices are usually kept in synchronization with each other over a synchronization service. This is a big difference from other communication providers where there is usually a “main” device which is remotely controlled by other devices.</p>
+<p>A very interesting part of enmeshed is, that devices are usually kept in synchronization with each other over a synchronization service. This is a big difference from other communication providers where there is usually a “main” device which is remotely controlled by other devices.</p>
 
 <p>Thus, every device has the complete access on the identity and its data without relying on another device. This is a great backup and recovery mechanism, as having two devices for an identity means an automatic backup device if one device is broken or replaced.</p>
 
@@ -414,7 +412,7 @@
 
 <p>Abbreviated: FIL</p>
 
-<p>A file is an Enmeshed representation of any binary-large object (BLOB). Handling files is similar to handling tokens, the big difference is, that tokens provide a means to share structured content whereas files are uploaded to and downloaded from the backbone by the help of binary transfer methods.</p>
+<p>A file is an enmeshed representation of any binary-large object (BLOB). Handling files is similar to handling tokens, the big difference is, that tokens provide a means to share structured content whereas files are uploaded to and downloaded from the backbone by the help of binary transfer methods.</p>
 
 <p>The actual file is then shared by a file reference to a recipient. Files can be short-lived or long-lived, depending on the business case - use the expiresAt property to define the expiry of a file.</p>
 
@@ -535,7 +533,7 @@ Depending on the content of the message, a message could act as a technical mess
 
 <p>A relationship template is a structured representation of data which is required for a relationship to be established. Thus, it is usually also addressing the required information for a business process to start.</p>
 
-<p>Templates solve the problem of linking Enmeshed identities to a currently existing real world context, e.g. an existing customer account or an anonymous web session.</p>
+<p>Templates solve the problem of linking enmeshed identities to a currently existing real world context, e.g. an existing customer account or an anonymous web session.</p>
 
 <p>In addition to technical information like public keys, certificates or signatures, it usually contains:</p>
 
@@ -588,7 +586,7 @@ Depending on the content of the message, a message could act as a technical mess
 
 <p>This is usually combined with an upfront digital authentication of the person, e.g. existing web sessions of the user. Only this specific user would then have access to the personalized template within the secured website (e.g. over an QR-code).</p>
 
-<p>Personalized templates are primary used for a much better onboarding experience of net-new Enmeshed users: they won’t need to enter their data again, even if the data is already stored somehow.</p>
+<p>Personalized templates are primary used for a much better onboarding experience of net-new enmeshed users: they won’t need to enter their data again, even if the data is already stored somehow.</p>
 
 <p>Personalized templates can only be used if the person is authenticated upfront or it is ensured that only the respective person can receive the template.</p>
 
@@ -648,24 +646,13 @@ A company has no customer system where customers can log in but would still like
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-09-20T12:28:39+02:00">September 20, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-09-28T12:08:44+02:00">September 28, 2023</time></p>
 
       </footer>
 
       
 
       
-  <nav class="pagination">
-    
-      <a href="/explore/layers/backbone" class="pagination--pager" title="Backbone Layer
-">Previous</a>
-    
-    
-      <a href="/explore/layers/consumption" class="pagination--pager" title="Consumption Layer
-">Next</a>
-    
-  </nav>
-
     </div>
 
     

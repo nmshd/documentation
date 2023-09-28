@@ -13,8 +13,8 @@ actor "Sender" as user
 
 activate connector
 == Prerequisites ==
-backbone <-> connector: Verified Enmeshed Organization Identity
-connector <-> user: Existing Enmeshed Relationship
+backbone <-> connector: Verified enmeshed Organization Identity
+connector <-> user: Existing enmeshed Relationship
 
 
 

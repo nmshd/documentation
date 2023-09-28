@@ -1,0 +1,467 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>How does enmeshed work? - enmeshed</title>
+<meta name="description" content="Enmeshed introduces an overarching solution, securely connecting users and organizations without the use of decentralized technologies like blockchains. However, it makes use of the decentralized mindset, like decentralized identities.">
+
+
+  <meta name="author" content="Enmeshed Team">
+  
+  <meta property="article:author" content="Enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="How does enmeshed work?">
+<meta property="og:url" content="/explore/how_does_enmeshed_work">
+
+
+  <meta property="og:description" content="Enmeshed introduces an overarching solution, securely connecting users and organizations without the use of decentralized technologies like blockchains. However, it makes use of the decentralized mindset, like decentralized identities.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-09-28T12:08:44+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/explore/how_does_enmeshed_work">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/operate">Operate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog">Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Explore enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">First things first</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/how_does_enmeshed_work" class="active">How does enmeshed work?</a></li>
+          
+            <li><a href="/explore/example-scenarios">Example Scenarios</a></li>
+          
+            <li><a href="/explore/faq">Frequently Asked Questions</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How we think</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/integration">Integration Considerations</a></li>
+          
+            <li><a href="/explore/security">Security Considerations</a></li>
+          
+            <li><a href="/explore/privacy">Privacy Considerations</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Our Layers</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/layers/backbone">Backbone Layer</a></li>
+          
+            <li><a href="/explore/layers/transport">Transport Layer</a></li>
+          
+            <li><a href="/explore/layers/consumption">Consumption Layer</a></li>
+          
+            <li><a href="/explore/layers/integration">Integration Layer</a></li>
+          
+            <li><a href="/explore/layers/user-experience">User-Experience Layer</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Components in-detail</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/app">App</a></li>
+          
+            <li><a href="/explore/backbone">Backbone</a></li>
+          
+            <li><a href="/explore/connector">Connector</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Expert Corner</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/explore/addresses">Addresses</a></li>
+          
+            <li><a href="/explore/runtime">Runtime</a></li>
+          
+            <li><a href="/explore/cryptography">Cryptography</a></li>
+          
+            <li><a href="/explore/blockchain">Why no blockchain?</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="How does enmeshed work?">
+    <meta itemprop="description" content="Enmeshed introduces an overarching solution, securely connecting users and organizations without the use of decentralized technologies like blockchains. However, it makes use of the decentralized mindset, like decentralized identities.">
+    <meta itemprop="datePublished" content="2023-09-28T12:08:44+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/explore/how_does_enmeshed_work" class="u-url" itemprop="url">How does enmeshed work?
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#components">Components</a></li><li><a href="#layers">Layers</a></li><li><a href="#enmeshed-app">Enmeshed App</a></li><li><a href="#enmeshed-backbone">Enmeshed Backbone</a></li><li><a href="#enmeshed-connector">Enmeshed Connector</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>Enmeshed introduces an overarching solution, securely connecting users and organizations without the use of decentralized technologies like blockchains. However, it makes use of the decentralized mindset, like decentralized identities.</p>
+
+<p>Mature technologies and architectures are used as a base for enmeshed. In combination with state-of-the-art encryption technologies, a complete web stack is used for all features, making enmeshed a very powerful yet portable and modular stack for solving many challenges within various scenarios and industries.</p>
+
+<p>Enmeshed consists of three main components using different layers to communicate between:</p>
+
+<h2 id="components">Components</h2>
+
+<ul>
+  <li><a href="/explore/app">App</a>: Mobile and desktop software client for end users or small companies</li>
+  <li><a href="/explore/backbone">Backbone</a>: A central communication component routing messages between identities without having access to the payload</li>
+  <li><a href="/explore/connector">Connector</a>: Client for organizations which is hosted on-site with integration capabilities for business systems</li>
+</ul>
+
+<h2 id="layers">Layers</h2>
+
+<ul>
+  <li><a href="/explore/layers/backbone">Backbone Layer</a>: Secured, zero-knowledge synchronization layer between App-to-Backbone or Connector-to-Backbone with cross-device capabilities and postal services</li>
+  <li><a href="/explore/layers/transport">Transport Layer</a>: Cross-identity secure communication tunnel App-to-App, App-to-Connector or Connector-to-Connector</li>
+  <li><a href="/explore/layers/consumption">Consumption Layer</a>: Cross-identity payload definitions and normalized data structures (schemas), as well as single-identity business logic implementation and data structures, either for persons or organizational identities.</li>
+  <li><a href="/explore/layers/integration">Integration Layer</a>: Single-identity integration logic to integrate existing business systems primarily for organizational identities.</li>
+  <li><a href="/explore/layers/user-experience">User-Experience Layer</a>: The user experience for enmeshed related features primarily for end users.</li>
+</ul>
+
+<p>The following high-level picture shows the whole ensemble of enmeshed components and layers:</p>
+
+<p><img src="/assets/images/explore/layers.png" alt="High level architecture diagram of enmeshed components and layers" class="align-center" /></p>
+
+<p>The “Zero Knowledge Border” marks the area where data is encrypted or pseudonymized to a point that the Backbone operator has no chance of accessing personal data. The secure communication between identities happens within the <a href="/explore/layers/transport">Transport Layer</a> based on a normalized enmeshed schema.</p>
+
+<h2 id="enmeshed-app">Enmeshed App</h2>
+
+<p>End-users are able to install the <a href="/explore/app">enmeshed App</a> from their favorite app stores for free. It is also available to download for various desktop operating systems.</p>
+
+<p>The App provides the user experience for the user’s digital identity. With it, the user can access the features of the transport, content and consumption layers.</p>
+
+<p>It is possible to use multiple identities with the same App. It is also possible to use multiple Apps with one identity.</p>
+
+<h2 id="enmeshed-backbone">Enmeshed Backbone</h2>
+
+<p>The <a href="/explore/backbone">enmeshed Backbone</a> provides the foundation to communicate between the components on the backbone layer. It hosts the central services which are required for a seamless experience across identities and the devices of one identity.</p>
+
+<p>It is an encrypted storage layer for all kind of information. Although the messages, files, tokens, etc. have a certain expiry date, the data is stored on the backbone until this expiry date. Thus, the backbone acts as a data-access, backup and synchronization helper for the identities.</p>
+
+<p>Due to the fact that devices of end-users are not always online, a “technical recipient” needs to be introduced which receives the (encrypted) messages from senders and stores them. The recipients are notified automatically by push channels.</p>
+
+<p>The Backbone is based on a microservice architecture and is highly virtualized with Docker containers. It is thus quite capable to scale vertically and horizontally.</p>
+
+<h2 id="enmeshed-connector">Enmeshed Connector</h2>
+
+<p>The client for organizations is the <a href="/explore/connector">enmeshed Connector</a>. It acts with a separate digital identity of the organization within the network of the organization. Thus, it is in the hands of the corresponding IT department and can be set up next to the organization’s business systems using the majority of the features.</p>
+
+<p>The Connector is hosted by a single Docker container and provides a REST API for all features of the transport layer. It can thus be perfectly used for integration purposes. The Connector transparently encrypts or decrypts the respective payload, synchronizes with the Backbone and keeps track of the enmeshed data.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-09-28T12:08:44+02:00">September 28, 2023</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+           
+        <li>
+            <a href="/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2023
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

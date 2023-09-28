@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Connector Events - Enmeshed</title>
-<meta name="description" content="Event       Data       Description (This event is triggered when …)                       consumption.attributeCreated       LocalAttribute       … an Attribute was created manually or through a Request.                 consumption.attributeDeleted       LocalAttribute       … an Attribute was deleted manually or through a Request.                 consumption.attributeSucceded       LocalAttribute       … an Attribute was succeeded manually or through a Request.                 consumption.attributeUpdated       LocalAttribute       … an Attribute was updated manually or through a Request.                 consumption.incomingRequestReceived       LocalRequest       … an incoming Request was received either by loading a Relationship Template or by receiving a Message                 consumption.incomingRequestStatusChanged       RequestStatusChangedEventData       … the status of an incoming Request has changed.                 consumption.messageProcessed       MessageProcessedEventData       … a Message was processed by Modules like the RequestModule or DeciderModule.                 consumption.outgoingRequestCreated       LocalRequest       … an outgoing Request was created.                 consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted       LocalRequest       … an outgoing Request was created and directly completed.This happens if the Response came in with a new Relationship.                 consumption.outgoingRequestStatusChanged       RequestStatusChangedEventData       … the status of an outgoing Request has changed.                 consumption.relationshipTemplateProcessed       RelationshipTemplateProcessedEventData       … a RelationshipTemplate was processed by Modules like the RequestModule or DeciderModule.                 consumption.sharedAttributeCopyCreated       LocalAttribute       … an Attribute is copied for sharing with another identity.                 transport.messageReceived       Message       … a Message is received during synchronization.                 transport.messageSent       Message       … a Message was sent.                 transport.peerRelationshipTemplateLoaded       RelationshipTemplate       … a Relationship Template was loaded that belongs to another identity.                 transport.relationshipChanged       Relationship       … a Relationship has changed. This can be due to one of the following cases: • you create a Relationship • you accept, reject or revoke a Relationship Change • a Relationship Change is received during synchronization">
+<!-- begin _includes/seo.html --><title>Connector Events - enmeshed</title>
+<meta name="description" content="Event       Data       Description (This event is triggered when …)                       consumption.attributeCreated       LocalAttribute       … an Attribute was created manually or through a Request.                 consumption.attributeDeleted       LocalAttribute       … an Attribute was deleted manually or through a Request.                 consumption.attributeSucceded       LocalAttribute       … an Attribute was succeeded manually or through a Request.                 consumption.attributeUpdated       LocalAttribute       … an Attribute was updated manually or through a Request.                 consumption.incomingRequestReceived       LocalRequest       … an incoming Request was received either by loading a Relationship Template or by receiving a Message                 consumption.incomingRequestStatusChanged       RequestStatusChangedEventData       … the status of an incoming Request has changed.                 consumption.messageProcessed       MessageProcessedEventData       … a Message was processed by Modules like the RequestModule or DeciderModule.                 consumption.outgoingRequestCreated       LocalRequest       … an outgoing Request was created.                 consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted       LocalRequest       … an outgoing Request was created and directly completed.This happens if the Response came in with a new Relationship.                 consumption.outgoingRequestStatusChanged       RequestStatusChangedEventData       … the status of an outgoing Request has changed.                 consumption.relationshipTemplateProcessed       RelationshipTemplateProcessedEventData       … a RelationshipTemplate was processed by Modules like the RequestModule or DeciderModule.                 consumption.sharedAttributeCopyCreated       LocalAttribute       … an Attribute is copied for sharing with another identity.                 transport.messageReceived       Message       … a Message is received during synchronization.                 transport.messageSent       Message       … a Message was sent.                 transport.peerRelationshipTemplateLoaded       RelationshipTemplate       … a Relationship Template was loaded that belongs to another identity.                 transport.relationshipChanged       Relationship       … a Relationship has changed. This can be due to one of the following cases: • you create a Relationship • you accept, reject or revoke a Relationship Change • a Relationship Change is received during synchronization           Event structure  Every event is structured as follows (TData depends on the actual event, e.g. LocalAttribute):  interface Event&lt;TData&gt; {   namespace: string;   eventTargetAddress: string;   data: TData; }   RequestStatusChangedEventData     LocalRequest   export interface RequestStatusChangedEventData {   request: LocalRequest;   oldStatus: LocalRequestStatus;   newStatus: LocalRequestStatus; }   MessageProcessedEventData     Message   export interface MessageProcessedEventData {   message: MessageDTO;   result: &quot;ManualRequestDecisionRequired&quot; | &quot;NoRequest&quot; | &quot;Error&quot;; }   RelationshipTemplateProcessedEventData     RelationshipTemplate   export interface RelationshipTemplateProcessedEventData {   template: RelationshipTemplateDTO;   result: &quot;ManualRequestDecisionRequired&quot; | &quot;NonCompletedRequestExists&quot; | &quot;RelationshipExists&quot; | &quot;NoRequest&quot; | &quot;Error&quot;; }">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -21,12 +21,12 @@
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="Enmeshed">
+<meta property="og:site_name" content="enmeshed">
 <meta property="og:title" content="Connector Events">
 <meta property="og:url" content="/integrate/connector-events">
 
 
-  <meta property="og:description" content="Event       Data       Description (This event is triggered when …)                       consumption.attributeCreated       LocalAttribute       … an Attribute was created manually or through a Request.                 consumption.attributeDeleted       LocalAttribute       … an Attribute was deleted manually or through a Request.                 consumption.attributeSucceded       LocalAttribute       … an Attribute was succeeded manually or through a Request.                 consumption.attributeUpdated       LocalAttribute       … an Attribute was updated manually or through a Request.                 consumption.incomingRequestReceived       LocalRequest       … an incoming Request was received either by loading a Relationship Template or by receiving a Message                 consumption.incomingRequestStatusChanged       RequestStatusChangedEventData       … the status of an incoming Request has changed.                 consumption.messageProcessed       MessageProcessedEventData       … a Message was processed by Modules like the RequestModule or DeciderModule.                 consumption.outgoingRequestCreated       LocalRequest       … an outgoing Request was created.                 consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted       LocalRequest       … an outgoing Request was created and directly completed.This happens if the Response came in with a new Relationship.                 consumption.outgoingRequestStatusChanged       RequestStatusChangedEventData       … the status of an outgoing Request has changed.                 consumption.relationshipTemplateProcessed       RelationshipTemplateProcessedEventData       … a RelationshipTemplate was processed by Modules like the RequestModule or DeciderModule.                 consumption.sharedAttributeCopyCreated       LocalAttribute       … an Attribute is copied for sharing with another identity.                 transport.messageReceived       Message       … a Message is received during synchronization.                 transport.messageSent       Message       … a Message was sent.                 transport.peerRelationshipTemplateLoaded       RelationshipTemplate       … a Relationship Template was loaded that belongs to another identity.                 transport.relationshipChanged       Relationship       … a Relationship has changed. This can be due to one of the following cases: • you create a Relationship • you accept, reject or revoke a Relationship Change • a Relationship Change is received during synchronization">
+  <meta property="og:description" content="Event       Data       Description (This event is triggered when …)                       consumption.attributeCreated       LocalAttribute       … an Attribute was created manually or through a Request.                 consumption.attributeDeleted       LocalAttribute       … an Attribute was deleted manually or through a Request.                 consumption.attributeSucceded       LocalAttribute       … an Attribute was succeeded manually or through a Request.                 consumption.attributeUpdated       LocalAttribute       … an Attribute was updated manually or through a Request.                 consumption.incomingRequestReceived       LocalRequest       … an incoming Request was received either by loading a Relationship Template or by receiving a Message                 consumption.incomingRequestStatusChanged       RequestStatusChangedEventData       … the status of an incoming Request has changed.                 consumption.messageProcessed       MessageProcessedEventData       … a Message was processed by Modules like the RequestModule or DeciderModule.                 consumption.outgoingRequestCreated       LocalRequest       … an outgoing Request was created.                 consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted       LocalRequest       … an outgoing Request was created and directly completed.This happens if the Response came in with a new Relationship.                 consumption.outgoingRequestStatusChanged       RequestStatusChangedEventData       … the status of an outgoing Request has changed.                 consumption.relationshipTemplateProcessed       RelationshipTemplateProcessedEventData       … a RelationshipTemplate was processed by Modules like the RequestModule or DeciderModule.                 consumption.sharedAttributeCopyCreated       LocalAttribute       … an Attribute is copied for sharing with another identity.                 transport.messageReceived       Message       … a Message is received during synchronization.                 transport.messageSent       Message       … a Message was sent.                 transport.peerRelationshipTemplateLoaded       RelationshipTemplate       … a Relationship Template was loaded that belongs to another identity.                 transport.relationshipChanged       Relationship       … a Relationship has changed. This can be due to one of the following cases: • you create a Relationship • you accept, reject or revoke a Relationship Change • a Relationship Change is received during synchronization           Event structure  Every event is structured as follows (TData depends on the actual event, e.g. LocalAttribute):  interface Event&lt;TData&gt; {   namespace: string;   eventTargetAddress: string;   data: TData; }   RequestStatusChangedEventData     LocalRequest   export interface RequestStatusChangedEventData {   request: LocalRequest;   oldStatus: LocalRequestStatus;   newStatus: LocalRequestStatus; }   MessageProcessedEventData     Message   export interface MessageProcessedEventData {   message: MessageDTO;   result: &quot;ManualRequestDecisionRequired&quot; | &quot;NoRequest&quot; | &quot;Error&quot;; }   RelationshipTemplateProcessedEventData     RelationshipTemplate   export interface RelationshipTemplateProcessedEventData {   template: RelationshipTemplateDTO;   result: &quot;ManualRequestDecisionRequired&quot; | &quot;NonCompletedRequestExists&quot; | &quot;RelationshipExists&quot; | &quot;NoRequest&quot; | &quot;Error&quot;; }">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-09-20T12:28:39+02:00">
+  <meta property="article:published_time" content="2023-09-28T12:08:44+02:00">
 
 
 
@@ -67,7 +67,7 @@
 
 
 
-  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Enmeshed Feed">
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
 
 
 <!-- https://t.co/dKP3o1e -->
@@ -114,15 +114,17 @@
       <nav id="site-nav" class="greedy-nav">
         
         <a class="site-title" href="/">
-          Enmeshed
+          enmeshed
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/use/basics">Use</a>
+              <a href="/use">Use</a>
             </li><li class="masthead__menu-item">
               <a href="/explore">Explore</a>
             </li><li class="masthead__menu-item">
               <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/operate">Operate</a>
             </li><li class="masthead__menu-item">
               <a href="/contribute">Contribute</a>
             </li><li class="masthead__menu-item">
@@ -159,7 +161,7 @@
   
     
       
-      <h3>Integrate Enmeshed</h3>
+      <h3>Integrate enmeshed</h3>
       
       
 
@@ -177,33 +179,11 @@
         
         <ul>
           
-            <li><a href="/integrate/basics">Basics</a></li>
+            <li><a href="/integrate/access-the-connector">Access the Connector</a></li>
           
-            <li><a href="/integrate/connector-tutorial">Connector Tutorial</a></li>
+            <li><a href="/integrate/integration-example">Integration example</a></li>
           
-            <li><a href="/integrate/connector-modules">Connector Modules</a></li>
-          
-        </ul>
-        
-      </li>
-    
-      <li>
-        
-          <span class="nav__sub-title">Setting up the Connector</span>
-        
-
-        
-        <ul>
-          
-            <li><a href="/integrate/connector-installation">Installation</a></li>
-          
-            <li><a href="/integrate/connector-configuration">Configuration</a></li>
-          
-            <li><a href="/integrate/connector-setup-troubleshooting">Troubleshooting</a></li>
-          
-            <li><a href="/integrate/error-codes">Error Codes</a></li>
-          
-            <li><a href="/integrate/helm-chart">Helm Chart</a></li>
+            <li><a href="/integrate/use-cases">Use Cases</a></li>
           
         </ul>
         
@@ -211,13 +191,15 @@
     
       <li>
         
-          <span class="nav__sub-title">REST API</span>
+          <span class="nav__sub-title">Manage Requests</span>
         
 
         
         <ul>
           
-            <li><a href="/integrate/connector-api">API Documentation</a></li>
+            <li><a href="/integrate/requests-over-templates">Requests over Templates</a></li>
+          
+            <li><a href="/integrate/requests-over-messages">Requests over Messages</a></li>
           
         </ul>
         
@@ -225,13 +207,13 @@
     
       <li>
         
-          <span class="nav__sub-title">Scenarios</span>
+          <span class="nav__sub-title">Manage attributes of others</span>
         
 
         
         <ul>
           
-            <li><a href="/integrate/connector-scenarios">Connector-Scenarios</a></li>
+            <li><a href="/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
           
         </ul>
         
@@ -239,19 +221,13 @@
     
       <li>
         
-          <span class="nav__sub-title">Programming</span>
+          <span class="nav__sub-title">Basic communication</span>
         
 
         
         <ul>
           
-            <li><a href="/integrate/connector-sdks">Connector SDKs</a></li>
-          
-            <li><a href="/integrate/custom-connector-modules">Custom Connector Modules</a></li>
-          
-            <li><a href="/integrate/connector-events" class="active">Connector Events</a></li>
-          
-            <li><a href="/integrate/connector-migration-v2">Migrate to v2</a></li>
+            <li><a href="/integrate/sending-messages">Sending Messages</a></li>
           
         </ul>
         
@@ -259,19 +235,13 @@
     
       <li>
         
-          <span class="nav__sub-title">Operations</span>
+          <span class="nav__sub-title">Requesting consent of users</span>
         
 
         
         <ul>
           
-            <li><a href="/integrate/connector-operations">Connector Operations</a></li>
-          
-            <li><a href="/integrate/connector-security">Security Considerations</a></li>
-          
-            <li><a href="/integrate/connector-privacy">Privacy Considerations</a></li>
-          
-            <li><a href="/integrate/connector-performance">Performance Considerations</a></li>
+            <li><a href="/integrate/requesting-one-time-consents">Requesting one-time consents</a></li>
           
         </ul>
         
@@ -285,11 +255,27 @@
         
         <ul>
           
-            <li><a href="/integrate/data-model-overview">Overview</a></li>
+            <li><a href="/integrate/data-model-overview">Data Model Overview</a></li>
           
-            <li><a href="/integrate/data-model-request-items">Request Items</a></li>
+            <li><a href="/integrate/connector-events" class="active">Connector Events</a></li>
           
-            <li><a href="/integrate/data-model-attribute-values">Attribute Values</a></li>
+            <li><a href="/integrate/requests-and-requestitems">Requests and RequestItems</a></li>
+          
+            <li><a href="/integrate/attribute-values">Attribute Values</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Troubleshooting</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/error-codes">Error Codes</a></li>
           
         </ul>
         
@@ -307,8 +293,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Events">
-    <meta itemprop="description" content="            Event      Data      Description (This event is triggered when …)                  consumption.attributeCreated      LocalAttribute      … an Attribute was created manually or through a Request.              consumption.attributeDeleted      LocalAttribute      … an Attribute was deleted manually or through a Request.              consumption.attributeSucceded      LocalAttribute      … an Attribute was succeeded manually or through a Request.              consumption.attributeUpdated      LocalAttribute      … an Attribute was updated manually or through a Request.              consumption.incomingRequestReceived      LocalRequest      … an incoming Request was received either by loading a Relationship Template or by receiving a Message              consumption.incomingRequestStatusChanged      RequestStatusChangedEventData      … the status of an incoming Request has changed.              consumption.messageProcessed      MessageProcessedEventData      … a Message was processed by Modules like the RequestModule or DeciderModule.              consumption.outgoingRequestCreated      LocalRequest      … an outgoing Request was created.              consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted      LocalRequest      … an outgoing Request was created and directly completed.This happens if the Response came in with a new Relationship.              consumption.outgoingRequestStatusChanged      RequestStatusChangedEventData      … the status of an outgoing Request has changed.              consumption.relationshipTemplateProcessed      RelationshipTemplateProcessedEventData      … a RelationshipTemplate was processed by Modules like the RequestModule or DeciderModule.              consumption.sharedAttributeCopyCreated      LocalAttribute      … an Attribute is copied for sharing with another identity.              transport.messageReceived      Message      … a Message is received during synchronization.              transport.messageSent      Message      … a Message was sent.              transport.peerRelationshipTemplateLoaded      RelationshipTemplate      … a Relationship Template was loaded that belongs to another identity.              transport.relationshipChanged      Relationship      … a Relationship has changed. This can be due to one of the following cases: • you create a Relationship • you accept, reject or revoke a Relationship Change • a Relationship Change is received during synchronization      ">
-    <meta itemprop="datePublished" content="2023-09-20T12:28:39+02:00">
+    <meta itemprop="description" content="            Event      Data      Description (This event is triggered when …)                  consumption.attributeCreated      LocalAttribute      … an Attribute was created manually or through a Request.              consumption.attributeDeleted      LocalAttribute      … an Attribute was deleted manually or through a Request.              consumption.attributeSucceded      LocalAttribute      … an Attribute was succeeded manually or through a Request.              consumption.attributeUpdated      LocalAttribute      … an Attribute was updated manually or through a Request.              consumption.incomingRequestReceived      LocalRequest      … an incoming Request was received either by loading a Relationship Template or by receiving a Message              consumption.incomingRequestStatusChanged      RequestStatusChangedEventData      … the status of an incoming Request has changed.              consumption.messageProcessed      MessageProcessedEventData      … a Message was processed by Modules like the RequestModule or DeciderModule.              consumption.outgoingRequestCreated      LocalRequest      … an outgoing Request was created.              consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted      LocalRequest      … an outgoing Request was created and directly completed.This happens if the Response came in with a new Relationship.              consumption.outgoingRequestStatusChanged      RequestStatusChangedEventData      … the status of an outgoing Request has changed.              consumption.relationshipTemplateProcessed      RelationshipTemplateProcessedEventData      … a RelationshipTemplate was processed by Modules like the RequestModule or DeciderModule.              consumption.sharedAttributeCopyCreated      LocalAttribute      … an Attribute is copied for sharing with another identity.              transport.messageReceived      Message      … a Message is received during synchronization.              transport.messageSent      Message      … a Message was sent.              transport.peerRelationshipTemplateLoaded      RelationshipTemplate      … a Relationship Template was loaded that belongs to another identity.              transport.relationshipChanged      Relationship      … a Relationship has changed. This can be due to one of the following cases: • you create a Relationship • you accept, reject or revoke a Relationship Change • a Relationship Change is received during synchronization      Event structureEvery event is structured as follows (TData depends on the actual event, e.g. LocalAttribute):interface Event&lt;TData&gt; {  namespace: string;  eventTargetAddress: string;  data: TData;}RequestStatusChangedEventData  LocalRequestexport interface RequestStatusChangedEventData {  request: LocalRequest;  oldStatus: LocalRequestStatus;  newStatus: LocalRequestStatus;}MessageProcessedEventData  Messageexport interface MessageProcessedEventData {  message: MessageDTO;  result: &quot;ManualRequestDecisionRequired&quot; | &quot;NoRequest&quot; | &quot;Error&quot;;}RelationshipTemplateProcessedEventData  RelationshipTemplateexport interface RelationshipTemplateProcessedEventData {  template: RelationshipTemplateDTO;  result: &quot;ManualRequestDecisionRequired&quot; | &quot;NonCompletedRequestExists&quot; | &quot;RelationshipExists&quot; | &quot;NoRequest&quot; | &quot;Error&quot;;}">
+    <meta itemprop="datePublished" content="2023-09-28T12:08:44+02:00">
     
 
     <div class="page__inner-wrap">
@@ -325,6 +311,14 @@
       
 
       <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#event-structure">Event structure</a><ul><li><a href="#requeststatuschangedeventdata">RequestStatusChangedEventData</a></li><li><a href="#messageprocessedeventdata">MessageProcessedEventData</a></li><li><a href="#relationshiptemplateprocessedeventdata">RelationshipTemplateProcessedEventData</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
         
         <table>
   <thead>
@@ -466,6 +460,7 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
+
         
       </section>
 
@@ -476,24 +471,13 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-09-20T12:28:39+02:00">September 20, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-09-28T12:08:44+02:00">September 28, 2023</time></p>
 
       </footer>
 
       
 
       
-  <nav class="pagination">
-    
-      <a href="/integrate/custom-connector-modules" class="pagination--pager" title="Custom Connector Modules
-">Previous</a>
-    
-    
-      <a href="/integrate/connector-operations" class="pagination--pager" title="Connector Operations
-">Next</a>
-    
-  </nav>
-
     </div>
 
     

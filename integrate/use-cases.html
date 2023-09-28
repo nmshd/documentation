@@ -1,0 +1,1816 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Use Cases - enmeshed</title>
+<meta name="description" content="Title                                       Layer ⌄                                                                              Actor ⌄                                                                                                                    Category ⌄                                                                              Component ⌄                                                                              Status ⌄                                                                             Load Token by id and key (without having an account)                   Anonymous         Identity         AnonymousTokens         Runtime         DONE                                      Load Token by truncated reference (without having an account)                   Anonymous         Identity         AnonymousTokens         Runtime         DONE                                      Accept incoming Request                   Consumption         Identity         Requests         Runtime         DONE                                      Check if incoming Request can be accepted                   Consumption         Identity         Requests         Runtime         DONE                                      Check if incoming Request can be rejected                   Consumption         Identity         Requests         Runtime         DONE                                      Check if outgoing Request can be created                   Consumption         Identity         Requests         Runtime         DONE                                      Create a shared Attribute copy                   Consumption         Identity         Attributes         Runtime         DONE                                      Create an Attribute                   Consumption         Identity         Attributes         Runtime         DONE                                      Create and complete outgoing Request from Relationship Template Response                   Consumption         Identity         Requests         Runtime         DONE                                      Create Draft                   Consumption         Identity         Drafts         Runtime         DONE                                      Create outgoing Request                   Consumption         Identity         Requests         Runtime         DONE                                      Create Setting                   Consumption         Identity         Settings         Runtime         DONE                                      Delete Draft                   Consumption         Identity         Drafts         Runtime         DONE                                      Delete Setting                   Consumption         Identity         Settings         Runtime         DONE                                      Discards outgoing Request                   Consumption         Identity         Requests         Runtime         DONE                                      Execute a RelationshipAttributeQuery                   Consumption         Identity         Attributes         Runtime         DONE                                      Execute a ThirdPartyAttributeQuery                   Consumption         Identity         Attributes         Runtime         DONE                                      Execute an IdentityAttributeQuery                   Consumption         Identity         Attributes         Runtime         DONE                                      Get Attribute                   Consumption         Identity         Attributes         Runtime         DONE                                      Get AttributeListener                   Consumption         Identity         AttributeListeners         Runtime         DONE                                      Get Attributes of peer                   Consumption         Identity         Attributes         Runtime         DONE                                      Get Attributes shared to peer                   Consumption         Identity         Attributes         Runtime         DONE                                      Get Draft                   Consumption         Identity         Drafts         Runtime         DONE                                      Get incoming Request                   Consumption         Identity         Requests         Runtime         DONE                                      Get outgoing Request                   Consumption         Identity         Requests         Runtime         DONE                                      Get Setting                   Consumption         Identity         Settings         Runtime         DONE                                      Query AttributeListeners                   Consumption         Identity         AttributeListeners         Runtime         DONE                                      Query Attributes                   Consumption         Identity         Attributes         Runtime         DONE                                      Query Drafts                   Consumption         Identity         Drafts         Runtime         DONE                                      Query incoming Requests                   Consumption         Identity         Requests         Runtime         DONE                                      Query outgoing Requests                   Consumption         Identity         Requests         Runtime         DONE                                      Query Settings                   Consumption         Identity         Settings         Runtime         DONE                                      Reject incoming Request                   Consumption         Identity         Requests         Runtime         DONE                                      Set status of incoming Request to check prerequisites                   Consumption         Identity         Requests         Runtime         DONE                                      Set status of incoming Request to complete                   Consumption         Identity         Requests         Runtime         DONE                                      Set status of incoming Request to received                   Consumption         Identity         Requests         Runtime         DONE                                      Set status of incoming Request to require manual decision                   Consumption         Identity         Requests         Runtime         DONE                                      Set status of outgoing Request to complete                   Consumption         Identity         Requests         Runtime         DONE                                      Set status of outgoing Request to sent                   Consumption         Identity         Requests         Runtime         DONE                                      Update Draft                   Consumption         Identity         Drafts         Runtime         DONE                                      Update Setting                   Consumption         Identity         Settings         Runtime         DONE                                      Configure Config Property                   Device         Integrator         Configuration         Connector         DONE                                      Create Profile with new Identity                   Device         Device         Bootstrap         ConnectorRuntime         DONE                                      DELETE REST Endpoint                   Device         Integrator         Integration         Connector         DONE                                      Get AppRuntime version information                   Device         App         AppRuntime         AppRuntime         DONE                                      Get Profile by Enmeshed Address                   Device         App         Profiles         AppRuntime         DONE                                      Get Profile                   Device         App         Profiles         AppRuntime         DONE                                      Get Profiles                   Device         App         Profiles         AppRuntime         DONE                                      Get support Information                   Device         Integrator         Monitoring         ConnectorRuntime         DONE                                      Get the Connector health status                   Device         Integrator         Bootstrap         ConnectorRuntime         DONE                                      Get the Connector version information                   Device         Integrator         Monitoring         Connector         DONE                                      Get the number of requests and the status codes that were returned by the Connector.                   Device         Integrator         Monitoring         Connector         DONE                                      GET REST Endpoint                   Device         Integrator         Integration         Connector         DONE                                      POST REST Endpoint                   Device         Integrator         Integration         Connector         DONE                                      PUT REST Endpoint                   Device         Integrator         Integration         Connector         DONE                                      Rename Profile                   Device         User         Profile         AppRuntime         DONE                                      Cancel Action                   Human         User         User Action         App         DONE                                      Device External UseCase                   Human         User         User Action         App         DONE                                      Enter Data (on screen)                   Human         User         User Action         App         DONE                                      Navigate to (screen) Screen                   Human         User         User Action         App         DONE                                      Negative Action                   Human         User         User Action         App         DONE                                      Positive Action                   Human         User         User Action         App         DONE                                      Scan QR-Code (on different device)                   Human         User         User Action         App         DONE                                      Select Item (on screen)                   Human         User         User Action         App         DONE                                      Accept Relationship Change                   Transport         Identity         Relationships         Runtime         DONE                                      Check Identity by Address                   Transport         Identity         Identities         Runtime         DONE                                      Create Challenge                   Transport         Identity         Challenges         Runtime         DONE                                      Create Device                   Transport         Identity         Devices         Runtime         DONE                                      Create own RelationshipTemplate                   Transport         Identity         RelationshipTemplates         Runtime         DONE                                      Create own Token                   Transport         Identity         Tokens         Runtime         DONE                                      Create Relationship with RelationshipTemplate                   Transport         Identity         Relationships         Runtime         DONE                                      Create Token for File                   Transport         Identity         Files         Runtime         DONE                                      Create Token for own Relationship Template                   Transport         Identity         RelationshipTemplates         Runtime         DONE                                      Download File of Attachment                   Transport         Identity         Messages         Runtime         DONE                                      Download File                   Transport         Identity         Files         Runtime         DONE                                      Get Attributes for Relationship                   Transport         Identity         Relationships         Runtime         DONE                                      Get currently used Device                   Transport         Identity         Account         Runtime         DONE                                      Get currently used Identity                   Transport         Identity         Account         Runtime         DONE                                      Get Device Onboarding Info                   Transport         Identity         Devices         Runtime         DONE                                      Get Device Onboarding Token                   Transport         Identity         Devices         Runtime         DONE                                      Get Device                   Transport         Identity         Devices         Runtime         DONE                                      Get File Metadata of Attachment                   Transport         Identity         Messages         Runtime         DONE                                      Get Message by MessageId                   Transport         Identity         Messages         Runtime         DONE                                      Get or load File                   Transport         Identity         Files         Runtime         DONE                                      Get own File                   Transport         Identity         Files         Runtime         DONE                                      Get Relationship by Address                   Transport         Identity         Relationships         Runtime         DONE                                      Get Relationship by RelationshipId                   Transport         Identity         Relationships         Runtime         DONE                                      Get Relationship Template                   Transport         Identity         RelationshipTemplates         Runtime         DONE                                      Get synchronization status with Backbone                   Transport         Identity         Account         Runtime         DONE                                      Get Token by TokenID                   Transport         Identity         Tokens         Runtime         DONE                                      Load Relationship Template created by others                   Transport         Identity         RelationshipTemplates         Runtime         DONE                                      Load Token created by others                   Transport         Identity         Tokens         Runtime         DONE                                      Query Devices                   Transport         Identity         Devices         Runtime         DONE                                      Query Files                   Transport         Identity         Files         Runtime         DONE                                      Query Messages                   Transport         Identity         Messages         Runtime         DONE                                      Query Relationship Templates                   Transport         Identity         RelationshipTemplates         Runtime         DONE                                      Query Relationships                   Transport         Identity         Relationships         Runtime         DONE                                      Query Tokens by parameters                   Transport         Identity         Tokens         Runtime         DONE                                      Reject Relationship Change                   Transport         Identity         Relationships         Runtime         DONE                                      Send message to recipient(s)                   Transport         Identity         Messages         Runtime         DONE                                      Synchronize updates of Backbone                   Transport         Identity         Account         Runtime         DONE                                      Update Device                   Transport         Identity         Devices         Runtime         DONE                                      Upload own File                   Transport         Identity         Files         Runtime         DONE                                      Validate Challenge                   Transport         Identity         Challenges         Runtime         DONE                                      Get app version information                   User Interface         User         App         App         DONE                                      Refresh (screen) Screen                   User Interface         User         App         App         DONE                                      Show (screen) Screen                   User Interface         User         App         App         DONE                                      Start app with parameters by using link                   User Interface         User         App         App         DONE                                      Start app without parameters                   User Interface         User         App         App         DONE">
+
+
+  <meta name="author" content="Enmeshed Team">
+  
+  <meta property="article:author" content="Enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Use Cases">
+<meta property="og:url" content="/integrate/use-cases">
+
+
+  <meta property="og:description" content="Title                                       Layer ⌄                                                                              Actor ⌄                                                                                                                    Category ⌄                                                                              Component ⌄                                                                              Status ⌄                                                                             Load Token by id and key (without having an account)                   Anonymous         Identity         AnonymousTokens         Runtime         DONE                                      Load Token by truncated reference (without having an account)                   Anonymous         Identity         AnonymousTokens         Runtime         DONE                                      Accept incoming Request                   Consumption         Identity         Requests         Runtime         DONE                                      Check if incoming Request can be accepted                   Consumption         Identity         Requests         Runtime         DONE                                      Check if incoming Request can be rejected                   Consumption         Identity         Requests         Runtime         DONE                                      Check if outgoing Request can be created                   Consumption         Identity         Requests         Runtime         DONE                                      Create a shared Attribute copy                   Consumption         Identity         Attributes         Runtime         DONE                                      Create an Attribute                   Consumption         Identity         Attributes         Runtime         DONE                                      Create and complete outgoing Request from Relationship Template Response                   Consumption         Identity         Requests         Runtime         DONE                                      Create Draft                   Consumption         Identity         Drafts         Runtime         DONE                                      Create outgoing Request                   Consumption         Identity         Requests         Runtime         DONE                                      Create Setting                   Consumption         Identity         Settings         Runtime         DONE                                      Delete Draft                   Consumption         Identity         Drafts         Runtime         DONE                                      Delete Setting                   Consumption         Identity         Settings         Runtime         DONE                                      Discards outgoing Request                   Consumption         Identity         Requests         Runtime         DONE                                      Execute a RelationshipAttributeQuery                   Consumption         Identity         Attributes         Runtime         DONE                                      Execute a ThirdPartyAttributeQuery                   Consumption         Identity         Attributes         Runtime         DONE                                      Execute an IdentityAttributeQuery                   Consumption         Identity         Attributes         Runtime         DONE                                      Get Attribute                   Consumption         Identity         Attributes         Runtime         DONE                                      Get AttributeListener                   Consumption         Identity         AttributeListeners         Runtime         DONE                                      Get Attributes of peer                   Consumption         Identity         Attributes         Runtime         DONE                                      Get Attributes shared to peer                   Consumption         Identity         Attributes         Runtime         DONE                                      Get Draft                   Consumption         Identity         Drafts         Runtime         DONE                                      Get incoming Request                   Consumption         Identity         Requests         Runtime         DONE                                      Get outgoing Request                   Consumption         Identity         Requests         Runtime         DONE                                      Get Setting                   Consumption         Identity         Settings         Runtime         DONE                                      Query AttributeListeners                   Consumption         Identity         AttributeListeners         Runtime         DONE                                      Query Attributes                   Consumption         Identity         Attributes         Runtime         DONE                                      Query Drafts                   Consumption         Identity         Drafts         Runtime         DONE                                      Query incoming Requests                   Consumption         Identity         Requests         Runtime         DONE                                      Query outgoing Requests                   Consumption         Identity         Requests         Runtime         DONE                                      Query Settings                   Consumption         Identity         Settings         Runtime         DONE                                      Reject incoming Request                   Consumption         Identity         Requests         Runtime         DONE                                      Set status of incoming Request to check prerequisites                   Consumption         Identity         Requests         Runtime         DONE                                      Set status of incoming Request to complete                   Consumption         Identity         Requests         Runtime         DONE                                      Set status of incoming Request to received                   Consumption         Identity         Requests         Runtime         DONE                                      Set status of incoming Request to require manual decision                   Consumption         Identity         Requests         Runtime         DONE                                      Set status of outgoing Request to complete                   Consumption         Identity         Requests         Runtime         DONE                                      Set status of outgoing Request to sent                   Consumption         Identity         Requests         Runtime         DONE                                      Update Draft                   Consumption         Identity         Drafts         Runtime         DONE                                      Update Setting                   Consumption         Identity         Settings         Runtime         DONE                                      Configure Config Property                   Device         Integrator         Configuration         Connector         DONE                                      Create Profile with new Identity                   Device         Device         Bootstrap         ConnectorRuntime         DONE                                      DELETE REST Endpoint                   Device         Integrator         Integration         Connector         DONE                                      Get AppRuntime version information                   Device         App         AppRuntime         AppRuntime         DONE                                      Get Profile by Enmeshed Address                   Device         App         Profiles         AppRuntime         DONE                                      Get Profile                   Device         App         Profiles         AppRuntime         DONE                                      Get Profiles                   Device         App         Profiles         AppRuntime         DONE                                      Get support Information                   Device         Integrator         Monitoring         ConnectorRuntime         DONE                                      Get the Connector health status                   Device         Integrator         Bootstrap         ConnectorRuntime         DONE                                      Get the Connector version information                   Device         Integrator         Monitoring         Connector         DONE                                      Get the number of requests and the status codes that were returned by the Connector.                   Device         Integrator         Monitoring         Connector         DONE                                      GET REST Endpoint                   Device         Integrator         Integration         Connector         DONE                                      POST REST Endpoint                   Device         Integrator         Integration         Connector         DONE                                      PUT REST Endpoint                   Device         Integrator         Integration         Connector         DONE                                      Rename Profile                   Device         User         Profile         AppRuntime         DONE                                      Cancel Action                   Human         User         User Action         App         DONE                                      Device External UseCase                   Human         User         User Action         App         DONE                                      Enter Data (on screen)                   Human         User         User Action         App         DONE                                      Navigate to (screen) Screen                   Human         User         User Action         App         DONE                                      Negative Action                   Human         User         User Action         App         DONE                                      Positive Action                   Human         User         User Action         App         DONE                                      Scan QR-Code (on different device)                   Human         User         User Action         App         DONE                                      Select Item (on screen)                   Human         User         User Action         App         DONE                                      Accept Relationship Change                   Transport         Identity         Relationships         Runtime         DONE                                      Check Identity by Address                   Transport         Identity         Identities         Runtime         DONE                                      Create Challenge                   Transport         Identity         Challenges         Runtime         DONE                                      Create Device                   Transport         Identity         Devices         Runtime         DONE                                      Create own RelationshipTemplate                   Transport         Identity         RelationshipTemplates         Runtime         DONE                                      Create own Token                   Transport         Identity         Tokens         Runtime         DONE                                      Create Relationship with RelationshipTemplate                   Transport         Identity         Relationships         Runtime         DONE                                      Create Token for File                   Transport         Identity         Files         Runtime         DONE                                      Create Token for own Relationship Template                   Transport         Identity         RelationshipTemplates         Runtime         DONE                                      Download File of Attachment                   Transport         Identity         Messages         Runtime         DONE                                      Download File                   Transport         Identity         Files         Runtime         DONE                                      Get Attributes for Relationship                   Transport         Identity         Relationships         Runtime         DONE                                      Get currently used Device                   Transport         Identity         Account         Runtime         DONE                                      Get currently used Identity                   Transport         Identity         Account         Runtime         DONE                                      Get Device Onboarding Info                   Transport         Identity         Devices         Runtime         DONE                                      Get Device Onboarding Token                   Transport         Identity         Devices         Runtime         DONE                                      Get Device                   Transport         Identity         Devices         Runtime         DONE                                      Get File Metadata of Attachment                   Transport         Identity         Messages         Runtime         DONE                                      Get Message by MessageId                   Transport         Identity         Messages         Runtime         DONE                                      Get or load File                   Transport         Identity         Files         Runtime         DONE                                      Get own File                   Transport         Identity         Files         Runtime         DONE                                      Get Relationship by Address                   Transport         Identity         Relationships         Runtime         DONE                                      Get Relationship by RelationshipId                   Transport         Identity         Relationships         Runtime         DONE                                      Get Relationship Template                   Transport         Identity         RelationshipTemplates         Runtime         DONE                                      Get synchronization status with Backbone                   Transport         Identity         Account         Runtime         DONE                                      Get Token by TokenID                   Transport         Identity         Tokens         Runtime         DONE                                      Load Relationship Template created by others                   Transport         Identity         RelationshipTemplates         Runtime         DONE                                      Load Token created by others                   Transport         Identity         Tokens         Runtime         DONE                                      Query Devices                   Transport         Identity         Devices         Runtime         DONE                                      Query Files                   Transport         Identity         Files         Runtime         DONE                                      Query Messages                   Transport         Identity         Messages         Runtime         DONE                                      Query Relationship Templates                   Transport         Identity         RelationshipTemplates         Runtime         DONE                                      Query Relationships                   Transport         Identity         Relationships         Runtime         DONE                                      Query Tokens by parameters                   Transport         Identity         Tokens         Runtime         DONE                                      Reject Relationship Change                   Transport         Identity         Relationships         Runtime         DONE                                      Send message to recipient(s)                   Transport         Identity         Messages         Runtime         DONE                                      Synchronize updates of Backbone                   Transport         Identity         Account         Runtime         DONE                                      Update Device                   Transport         Identity         Devices         Runtime         DONE                                      Upload own File                   Transport         Identity         Files         Runtime         DONE                                      Validate Challenge                   Transport         Identity         Challenges         Runtime         DONE                                      Get app version information                   User Interface         User         App         App         DONE                                      Refresh (screen) Screen                   User Interface         User         App         App         DONE                                      Show (screen) Screen                   User Interface         User         App         App         DONE                                      Start app with parameters by using link                   User Interface         User         App         App         DONE                                      Start app without parameters                   User Interface         User         App         App         DONE">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-09-28T12:08:44+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/integrate/use-cases">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/operate">Operate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog">Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/access-the-connector">Access the Connector</a></li>
+          
+            <li><a href="/integrate/integration-example">Integration example</a></li>
+          
+            <li><a href="/integrate/use-cases" class="active">Use Cases</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Manage Requests</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/requests-over-templates">Requests over Templates</a></li>
+          
+            <li><a href="/integrate/requests-over-messages">Requests over Messages</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Manage attributes of others</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Basic communication</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/sending-messages">Sending Messages</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Requesting consent of users</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/requesting-one-time-consents">Requesting one-time consents</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Data Model</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/data-model-overview">Data Model Overview</a></li>
+          
+            <li><a href="/integrate/connector-events">Connector Events</a></li>
+          
+            <li><a href="/integrate/requests-and-requestitems">Requests and RequestItems</a></li>
+          
+            <li><a href="/integrate/attribute-values">Attribute Values</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Troubleshooting</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/error-codes">Error Codes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Use Cases">
+    <meta itemprop="description" content="            Title                                    Layer ⌄                                                                        Actor ⌄                                                                                                            Category ⌄                                                                        Component ⌄                                                                        Status ⌄                                                                     Load Token by id and key (without having an account)                 Anonymous        Identity        AnonymousTokens        Runtime        DONE                                 Load Token by truncated reference (without having an account)                 Anonymous        Identity        AnonymousTokens        Runtime        DONE                                 Accept incoming Request                 Consumption        Identity        Requests        Runtime        DONE                                 Check if incoming Request can be accepted                 Consumption        Identity        Requests        Runtime        DONE                                 Check if incoming Request can be rejected                 Consumption        Identity        Requests        Runtime        DONE                                 Check if outgoing Request can be created                 Consumption        Identity        Requests        Runtime        DONE                                 Create a shared Attribute copy                 Consumption        Identity        Attributes        Runtime        DONE                                 Create an Attribute                 Consumption        Identity        Attributes        Runtime        DONE                                 Create and complete outgoing Request from Relationship Template Response                 Consumption        Identity        Requests        Runtime        DONE                                 Create Draft                 Consumption        Identity        Drafts        Runtime        DONE                                 Create outgoing Request                 Consumption        Identity        Requests        Runtime        DONE                                 Create Setting                 Consumption        Identity        Settings        Runtime        DONE                                 Delete Draft                 Consumption        Identity        Drafts        Runtime        DONE                                 Delete Setting                 Consumption        Identity        Settings        Runtime        DONE                                 Discards outgoing Request                 Consumption        Identity        Requests        Runtime        DONE                                 Execute a RelationshipAttributeQuery                 Consumption        Identity        Attributes        Runtime        DONE                                 Execute a ThirdPartyAttributeQuery                 Consumption        Identity        Attributes        Runtime        DONE                                 Execute an IdentityAttributeQuery                 Consumption        Identity        Attributes        Runtime        DONE                                 Get Attribute                 Consumption        Identity        Attributes        Runtime        DONE                                 Get AttributeListener                 Consumption        Identity        AttributeListeners        Runtime        DONE                                 Get Attributes of peer                 Consumption        Identity        Attributes        Runtime        DONE                                 Get Attributes shared to peer                 Consumption        Identity        Attributes        Runtime        DONE                                 Get Draft                 Consumption        Identity        Drafts        Runtime        DONE                                 Get incoming Request                 Consumption        Identity        Requests        Runtime        DONE                                 Get outgoing Request                 Consumption        Identity        Requests        Runtime        DONE                                 Get Setting                 Consumption        Identity        Settings        Runtime        DONE                                 Query AttributeListeners                 Consumption        Identity        AttributeListeners        Runtime        DONE                                 Query Attributes                 Consumption        Identity        Attributes        Runtime        DONE                                 Query Drafts                 Consumption        Identity        Drafts        Runtime        DONE                                 Query incoming Requests                 Consumption        Identity        Requests        Runtime        DONE                                 Query outgoing Requests                 Consumption        Identity        Requests        Runtime        DONE                                 Query Settings                 Consumption        Identity        Settings        Runtime        DONE                                 Reject incoming Request                 Consumption        Identity        Requests        Runtime        DONE                                 Set status of incoming Request to check prerequisites                 Consumption        Identity        Requests        Runtime        DONE                                 Set status of incoming Request to complete                 Consumption        Identity        Requests        Runtime        DONE                                 Set status of incoming Request to received                 Consumption        Identity        Requests        Runtime        DONE                                 Set status of incoming Request to require manual decision                 Consumption        Identity        Requests        Runtime        DONE                                 Set status of outgoing Request to complete                 Consumption        Identity        Requests        Runtime        DONE                                 Set status of outgoing Request to sent                 Consumption        Identity        Requests        Runtime        DONE                                 Update Draft                 Consumption        Identity        Drafts        Runtime        DONE                                 Update Setting                 Consumption        Identity        Settings        Runtime        DONE                                 Configure Config Property                 Device        Integrator        Configuration        Connector        DONE                                 Create Profile with new Identity                 Device        Device        Bootstrap        ConnectorRuntime        DONE                                 DELETE REST Endpoint                 Device        Integrator        Integration        Connector        DONE                                 Get AppRuntime version information                 Device        App        AppRuntime        AppRuntime        DONE                                 Get Profile by Enmeshed Address                 Device        App        Profiles        AppRuntime        DONE                                 Get Profile                 Device        App        Profiles        AppRuntime        DONE                                 Get Profiles                 Device        App        Profiles        AppRuntime        DONE                                 Get support Information                 Device        Integrator        Monitoring        ConnectorRuntime        DONE                                 Get the Connector health status                 Device        Integrator        Bootstrap        ConnectorRuntime        DONE                                 Get the Connector version information                 Device        Integrator        Monitoring        Connector        DONE                                 Get the number of requests and the status codes that were returned by the Connector.                 Device        Integrator        Monitoring        Connector        DONE                                 GET REST Endpoint                 Device        Integrator        Integration        Connector        DONE                                 POST REST Endpoint                 Device        Integrator        Integration        Connector        DONE                                 PUT REST Endpoint                 Device        Integrator        Integration        Connector        DONE                                 Rename Profile                 Device        User        Profile        AppRuntime        DONE                                 Cancel Action                 Human        User        User Action        App        DONE                                 Device External UseCase                 Human        User        User Action        App        DONE                                 Enter Data (on screen)                 Human        User        User Action        App        DONE                                 Navigate to (screen) Screen                 Human        User        User Action        App        DONE                                 Negative Action                 Human        User        User Action        App        DONE                                 Positive Action                 Human        User        User Action        App        DONE                                 Scan QR-Code (on different device)                 Human        User        User Action        App        DONE                                 Select Item (on screen)                 Human        User        User Action        App        DONE                                 Accept Relationship Change                 Transport        Identity        Relationships        Runtime        DONE                                 Check Identity by Address                 Transport        Identity        Identities        Runtime        DONE                                 Create Challenge                 Transport        Identity        Challenges        Runtime        DONE                                 Create Device                 Transport        Identity        Devices        Runtime        DONE                                 Create own RelationshipTemplate                 Transport        Identity        RelationshipTemplates        Runtime        DONE                                 Create own Token                 Transport        Identity        Tokens        Runtime        DONE                                 Create Relationship with RelationshipTemplate                 Transport        Identity        Relationships        Runtime        DONE                                 Create Token for File                 Transport        Identity        Files        Runtime        DONE                                 Create Token for own Relationship Template                 Transport        Identity        RelationshipTemplates        Runtime        DONE                                 Download File of Attachment                 Transport        Identity        Messages        Runtime        DONE                                 Download File                 Transport        Identity        Files        Runtime        DONE                                 Get Attributes for Relationship                 Transport        Identity        Relationships        Runtime        DONE                                 Get currently used Device                 Transport        Identity        Account        Runtime        DONE                                 Get currently used Identity                 Transport        Identity        Account        Runtime        DONE                                 Get Device Onboarding Info                 Transport        Identity        Devices        Runtime        DONE                                 Get Device Onboarding Token                 Transport        Identity        Devices        Runtime        DONE                                 Get Device                 Transport        Identity        Devices        Runtime        DONE                                 Get File Metadata of Attachment                 Transport        Identity        Messages        Runtime        DONE                                 Get Message by MessageId                 Transport        Identity        Messages        Runtime        DONE                                 Get or load File                 Transport        Identity        Files        Runtime        DONE                                 Get own File                 Transport        Identity        Files        Runtime        DONE                                 Get Relationship by Address                 Transport        Identity        Relationships        Runtime        DONE                                 Get Relationship by RelationshipId                 Transport        Identity        Relationships        Runtime        DONE                                 Get Relationship Template                 Transport        Identity        RelationshipTemplates        Runtime        DONE                                 Get synchronization status with Backbone                 Transport        Identity        Account        Runtime        DONE                                 Get Token by TokenID                 Transport        Identity        Tokens        Runtime        DONE                                 Load Relationship Template created by others                 Transport        Identity        RelationshipTemplates        Runtime        DONE                                 Load Token created by others                 Transport        Identity        Tokens        Runtime        DONE                                 Query Devices                 Transport        Identity        Devices        Runtime        DONE                                 Query Files                 Transport        Identity        Files        Runtime        DONE                                 Query Messages                 Transport        Identity        Messages        Runtime        DONE                                 Query Relationship Templates                 Transport        Identity        RelationshipTemplates        Runtime        DONE                                 Query Relationships                 Transport        Identity        Relationships        Runtime        DONE                                 Query Tokens by parameters                 Transport        Identity        Tokens        Runtime        DONE                                 Reject Relationship Change                 Transport        Identity        Relationships        Runtime        DONE                                 Send message to recipient(s)                 Transport        Identity        Messages        Runtime        DONE                                 Synchronize updates of Backbone                 Transport        Identity        Account        Runtime        DONE                                 Update Device                 Transport        Identity        Devices        Runtime        DONE                                 Upload own File                 Transport        Identity        Files        Runtime        DONE                                 Validate Challenge                 Transport        Identity        Challenges        Runtime        DONE                                 Get app version information                 User Interface        User        App        App        DONE                                 Refresh (screen) Screen                 User Interface        User        App        App        DONE                                 Show (screen) Screen                 User Interface        User        App        App        DONE                                 Start app with parameters by using link                 User Interface        User        App        App        DONE                                 Start app without parameters                 User Interface        User        App        App        DONE        ">
+    <meta itemprop="datePublished" content="2023-09-28T12:08:44+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/integrate/use-cases" class="u-url" itemprop="url">Use Cases
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              
+
+            </nav>
+          </aside>
+        
+        <!-- markdownlint-disable MD011 -->
+<style>
+    .container {
+        position: relative;
+        max-width: 320px;
+        width: 100%;
+    }
+    .select-btn {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .list-items {
+        position: relative;
+        padding: 16px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        display: none;
+        position: fixed;
+        background-color: #fff;
+        z-index: 1;
+    }
+    .select-btn.open ~ .list-items {
+        display: block;
+    }
+    .list-items .item {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    .item .item-text {
+        font-weight: 400;
+    }
+    .item .checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 16px;
+        width: 16px;
+        border-radius: 4px;
+        margin-right: 12px;
+        border: 1.5px solid #c0c0c0;
+        transition: all 0.3s ease-in-out;
+    }
+    .item.checked .checkbox {
+        background-color: #0092ca;
+        border-color: #0092ca;
+    }
+</style>
+
+<script>
+    function searchByName() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchByNameInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+    function filter(input) {
+        // Declare variables
+        var table, tr, td, i, txtValue;
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            for (const [key, column] of Object.entries(input)) {
+                td = tr[i].getElementsByTagName("td")[key];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    // Loop through all columns
+
+                    if (column.includes(txtValue)) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                        break;
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+<p><input type="text" id="searchByNameInput" onkeyup="searchByName()" placeholder="Search for title.." /></p>
+
+<table id="myTable" style="width: 100%; display: table">
+    <tr>
+        <th style="width: 20%">Title</th>
+        <th style="width: 20%">
+            <div class="container">
+                <div class="select-btn">Layer ⌄</div>
+                <ul class="list-items" id="layer"></ul>
+            </div>
+        </th>
+        <th style="width: 15%">
+            <div class="container">
+                <div class="select-btn">Actor ⌄</div>
+                <ul class="list-items" id="actor">
+                    <li class="item checked"></li>
+                </ul>
+            </div>
+        </th>
+        <th style="width: 15%">
+            <div class="container">
+                <div class="select-btn">Category ⌄</div>
+                <ul class="list-items" id="category"></ul>
+            </div>
+        </th>
+        <th style="width: 15%">
+            <div class="container">
+                <div class="select-btn">Component ⌄</div>
+                <ul class="list-items" id="component"></ul>
+            </div>
+        </th>
+        <th style="width: 10%">
+            <div class="container">
+                <div class="select-btn">Status ⌄</div>
+                <ul class="list-items" id="status"></ul>
+            </div>
+        </th>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-anonymous-load-token-by-id-and-key-without-having-an-account"> Load Token by id and key (without having an account) </a>
+        </td>
+        <td class="layer-list">Anonymous</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">AnonymousTokens</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-anonymous-load-token-by-truncated-reference-without-having-an-account"> Load Token by truncated reference (without having an account) </a>
+        </td>
+        <td class="layer-list">Anonymous</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">AnonymousTokens</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-accept-incoming-request"> Accept incoming Request </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-check-if-incoming-request-can-be-accepted"> Check if incoming Request can be accepted </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-check-if-incoming-request-can-be-rejected"> Check if incoming Request can be rejected </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-check-if-outgoing-request-can-be-created"> Check if outgoing Request can be created </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-create-a-shared-attribute-copy"> Create a shared Attribute copy </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-create-an-attribute"> Create an Attribute </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-create-and-complete-outgoing-request-from-relationship-template-response"> Create and complete outgoing Request from Relationship Template Response </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-create-draft"> Create Draft </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Drafts</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-create-outgoing-request"> Create outgoing Request </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-create-setting"> Create Setting </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Settings</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-delete-draft"> Delete Draft </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Drafts</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-delete-setting"> Delete Setting </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Settings</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-discards-outgoing-request"> Discards outgoing Request </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-execute-a-relationshipattributequery"> Execute a RelationshipAttributeQuery </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-execute-a-thirdpartyattributequery"> Execute a ThirdPartyAttributeQuery </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-execute-an-identityattributequery"> Execute an IdentityAttributeQuery </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-get-attribute"> Get Attribute </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-get-attributelistener"> Get AttributeListener </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">AttributeListeners</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-get-attributes-of-peer"> Get Attributes of peer </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-get-attributes-shared-to-peer"> Get Attributes shared to peer </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-get-draft"> Get Draft </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Drafts</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-get-incoming-request"> Get incoming Request </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-get-outgoing-request"> Get outgoing Request </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-get-setting"> Get Setting </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Settings</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-query-attributelisteners"> Query AttributeListeners </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">AttributeListeners</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-query-attributes"> Query Attributes </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Attributes</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-query-drafts"> Query Drafts </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Drafts</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-query-incoming-requests"> Query incoming Requests </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-query-outgoing-requests"> Query outgoing Requests </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-query-settings"> Query Settings </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Settings</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-reject-incoming-request"> Reject incoming Request </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-set-status-of-incoming-request-to-check-prerequisites"> Set status of incoming Request to check prerequisites </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-set-status-of-incoming-request-to-complete"> Set status of incoming Request to complete </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-set-status-of-incoming-request-to-received"> Set status of incoming Request to received </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-set-status-of-incoming-request-to-require-manual-decision"> Set status of incoming Request to require manual decision </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-set-status-of-outgoing-request-to-complete"> Set status of outgoing Request to complete </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-set-status-of-outgoing-request-to-sent"> Set status of outgoing Request to sent </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Requests</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-update-draft"> Update Draft </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Drafts</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-consumption-update-setting"> Update Setting </a>
+        </td>
+        <td class="layer-list">Consumption</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Settings</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-device-configure_-config-property"> Configure Config Property </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Configuration</td>
+        <td class="component-list">Connector</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-device-create-profile-with-new-identity"> Create Profile with new Identity </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Device</td>
+        <td class="category-list">Bootstrap</td>
+        <td class="component-list">ConnectorRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-device-delete_-rest-endpoint"> DELETE REST Endpoint </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Integration</td>
+        <td class="component-list">Connector</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-device-get-appruntime-version-information"> Get AppRuntime version information </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">App</td>
+        <td class="category-list">AppRuntime</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-device-get-profile-by-enmeshed-address"> Get Profile by Enmeshed Address </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">App</td>
+        <td class="category-list">Profiles</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-device-get-profile"> Get Profile </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">App</td>
+        <td class="category-list">Profiles</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-device-get-profiles"> Get Profiles </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">App</td>
+        <td class="category-list">Profiles</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-device-get-support-information"> Get support Information </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Monitoring</td>
+        <td class="component-list">ConnectorRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-device-get-the-connector-health-status"> Get the Connector health status </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Bootstrap</td>
+        <td class="component-list">ConnectorRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-device-get-the-connector-version-information"> Get the Connector version information </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Monitoring</td>
+        <td class="component-list">Connector</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-device-get-the-number-of-requests-and-the-status-codes-that-were-returned-by-the-connector"> Get the number of requests and the status codes that were returned by the Connector. </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Monitoring</td>
+        <td class="component-list">Connector</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-device-get_-rest-endpoint"> GET REST Endpoint </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Integration</td>
+        <td class="component-list">Connector</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-device-post_-rest-endpoint"> POST REST Endpoint </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Integration</td>
+        <td class="component-list">Connector</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-device-put_-rest-endpoint"> PUT REST Endpoint </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">Integrator</td>
+        <td class="category-list">Integration</td>
+        <td class="component-list">Connector</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-device-rename-profile"> Rename Profile </a>
+        </td>
+        <td class="layer-list">Device</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">Profile</td>
+        <td class="component-list">AppRuntime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-human-cancel_-action"> Cancel Action </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action</td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-human-device_-external-usecase"> Device External UseCase </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action</td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-human-enter_-data-on-screen"> Enter Data (on screen) </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action</td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-human-navigate-to-screen_-screen"> Navigate to (screen) Screen </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action</td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-human-negative_-action"> Negative Action </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action</td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-human-positive_-action"> Positive Action </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action</td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-human-scan_-qr-code-on-different-device"> Scan QR-Code (on different device) </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action</td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-human-select_-item-on-screen"> Select Item (on screen) </a>
+        </td>
+        <td class="layer-list">Human</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">User Action</td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-accept-relationship-change"> Accept Relationship Change </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Relationships</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-check-identity-by-address"> Check Identity by Address </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Identities</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-create-challenge"> Create Challenge </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Challenges</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-create-device"> Create Device </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Devices</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-create-own-relationshiptemplate"> Create own RelationshipTemplate </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">RelationshipTemplates</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-create-own-token"> Create own Token </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Tokens</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-create-relationship-with-relationshiptemplate"> Create Relationship with RelationshipTemplate </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Relationships</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-create-token-for-file"> Create Token for File </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Files</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-create-token-for-own-relationship-template"> Create Token for own Relationship Template </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">RelationshipTemplates</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-download-file-of-attachment"> Download File of Attachment </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Messages</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-download-file"> Download File </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Files</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-get-attributes-for-relationship"> Get Attributes for Relationship </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Relationships</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-get-currently-used-device"> Get currently used Device </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Account</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-get-currently-used-identity"> Get currently used Identity </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Account</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-get-device-onboarding-info"> Get Device Onboarding Info </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Devices</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-get-device-onboarding-token"> Get Device Onboarding Token </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Devices</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-get-device"> Get Device </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Devices</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-get-file-metadata-of-attachment"> Get File Metadata of Attachment </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Messages</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-get-message-by-messageid"> Get Message by MessageId </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Messages</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-get-or-load-file"> Get or load File </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Files</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-get-own-file"> Get own File </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Files</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-get-relationship-by-address"> Get Relationship by Address </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Relationships</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-get-relationship-by-relationshipid"> Get Relationship by RelationshipId </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Relationships</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-get-relationship-template"> Get Relationship Template </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">RelationshipTemplates</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-get-synchronization-status-with-backbone"> Get synchronization status with Backbone </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Account</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-get-token-by-tokenid"> Get Token by TokenID </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Tokens</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-load-relationship-template-created-by-others"> Load Relationship Template created by others </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">RelationshipTemplates</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-load-token-created-by-others"> Load Token created by others </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Tokens</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-query-devices"> Query Devices </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Devices</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-query-files"> Query Files </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Files</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-query-messages"> Query Messages </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Messages</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-query-relationship-templates"> Query Relationship Templates </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">RelationshipTemplates</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-query-relationships"> Query Relationships </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Relationships</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-query-tokens-by-parameters"> Query Tokens by parameters </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Tokens</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-reject-relationship-change"> Reject Relationship Change </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Relationships</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-send-message-to-recipients"> Send message to recipient(s) </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Messages</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-synchronize-updates-of-backbone"> Synchronize updates of Backbone </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Account</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-update-device"> Update Device </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Devices</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-upload-own-file"> Upload own File </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Files</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-transport-validate-challenge"> Validate Challenge </a>
+        </td>
+        <td class="layer-list">Transport</td>
+        <td class="actor-list">Identity</td>
+        <td class="category-list">Challenges</td>
+        <td class="component-list">Runtime</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-user_interface-get-app-version-information"> Get app version information </a>
+        </td>
+        <td class="layer-list">User Interface</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">App</td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-user_interface-refresh-screen-screen"> Refresh (screen) Screen </a>
+        </td>
+        <td class="layer-list">User Interface</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">App</td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-user_interface-show-screen-screen"> Show (screen) Screen </a>
+        </td>
+        <td class="layer-list">User Interface</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">App</td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-user_interface-start-app-with-parameters-by-using-link"> Start app with parameters by using link </a>
+        </td>
+        <td class="layer-list">User Interface</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">App</td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+    <tr>
+        <td>
+            <a href="/use-case-user_interface-start-app-without-parameters"> Start app without parameters </a>
+        </td>
+        <td class="layer-list">User Interface</td>
+        <td class="actor-list">User</td>
+        <td class="category-list">App</td>
+        <td class="component-list">App</td>
+        <td class="status-list">DONE</td>
+    </tr>
+    
+
+</table>
+<script>
+    const columns = ["layer", "actor", "category", "component", "status"];
+    columns.forEach((element_id) => {
+        const used_elements = [];
+        var ul = document.getElementById(element_id);
+        var category_list = document.getElementsByClassName(element_id + "-list");
+        for (let i = 0; i < category_list.length; i++) {
+            if (!used_elements.includes(category_list[i].innerHTML)) {
+                used_elements.push(category_list[i].innerHTML);
+                var li = document.createElement("li");
+                li.classList.add("item");
+                li.classList.add("checked");
+                var checkbox = document.createElement("SPAN");
+                checkbox.classList.add("checkbox");
+                var text = document.createElement("SPAN");
+                text.classList.add("item-text");
+                text.textContent = category_list[i].innerHTML;
+                li.appendChild(checkbox);
+                li.appendChild(text);
+                ul.appendChild(li);
+            }
+        }
+    });
+</script>
+
+<script>
+    const selectBtns = document.querySelectorAll(".select-btn"),
+        items = document.querySelectorAll(".item");
+    selectBtns.forEach((selectBtn) => {
+        selectBtn.addEventListener("click", () => {
+            selectBtn.classList.toggle("open");
+        });
+    });
+    items.forEach((item) => {
+        item.addEventListener("click", () => {
+            item.classList.toggle("checked");
+            let checked = document.querySelectorAll(".checked");
+            var elements = new Array();
+            elements[1] = new Array();
+            elements[2] = new Array();
+            elements[3] = new Array();
+            elements[4] = new Array();
+            elements[5] = new Array();
+            checked.forEach((element) => {
+                elements[element.parentElement.parentElement.parentElement.cellIndex].push(element.innerText.replace(/[\n\r]+|[\s]{2,}/g, ""));
+            });
+            filter(elements);
+        });
+    });
+</script>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-09-28T12:08:44+02:00">September 28, 2023</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+           
+        <li>
+            <a href="/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2023
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

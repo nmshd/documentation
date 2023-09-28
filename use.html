@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Basics - Enmeshed</title>
-<meta name="description" content="You can get the Enmeshed App over your favorite app stores. Please find the links below:">
+<!-- begin _includes/seo.html --><title>Use enmeshed - enmeshed</title>
+<meta name="description" content="This page is intended for app users.">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -21,12 +21,12 @@
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="Enmeshed">
-<meta property="og:title" content="Basics">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Use enmeshed">
 <meta property="og:url" content="/use">
 
 
-  <meta property="og:description" content="You can get the Enmeshed App over your favorite app stores. Please find the links below:">
+  <meta property="og:description" content="This page is intended for app users.">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-04-21T09:07:25+02:00">
+  <meta property="article:published_time" content="2023-09-28T12:08:44+02:00">
 
 
 
@@ -67,7 +67,7 @@
 
 
 
-  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Enmeshed Feed">
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
 
 
 <!-- https://t.co/dKP3o1e -->
@@ -114,7 +114,7 @@
       <nav id="site-nav" class="greedy-nav">
         
         <a class="site-title" href="/">
-          Enmeshed
+          enmeshed
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
@@ -123,6 +123,8 @@
               <a href="/explore">Explore</a>
             </li><li class="masthead__menu-item">
               <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/operate">Operate</a>
             </li><li class="masthead__menu-item">
               <a href="/contribute">Contribute</a>
             </li><li class="masthead__menu-item">
@@ -159,7 +161,7 @@
   
     
       
-      <h3>Use Enmeshed</h3>
+      <h3>Use enmeshed</h3>
       
       
 
@@ -177,9 +179,9 @@
         
         <ul>
           
-            <li><a href="/use" class="active">Basics</a></li>
+            <li><a href="/use/install-the-app">Install the App</a></li>
           
-            <li><a href="/use/security-recommendations">Security Recommendations for Apps and End-Users</a></li>
+            <li><a href="/use/secure-device-setup">Secure device setup</a></li>
           
         </ul>
         
@@ -196,16 +198,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Basics">
-    <meta itemprop="description" content="You can get the Enmeshed App over your favorite app stores. Please find the links below:">
-    <meta itemprop="datePublished" content="2023-04-21T09:07:25+02:00">
+    <meta itemprop="headline" content="Use enmeshed">
+    <meta itemprop="description" content="This page is intended for app users.">
+    <meta itemprop="datePublished" content="2023-09-28T12:08:44+02:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="/use" class="u-url" itemprop="url">Basics
+            <a href="/use" class="u-url" itemprop="url">Use enmeshed
 </a>
           </h1>
           
@@ -216,14 +218,184 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <p>You can get the Enmeshed App over your favorite app stores. Please find the links below:</p>
+        <p>This page is intended for app users.</p>
 
-<ul>
-  <li><a href="https://apps.apple.com/us/app/enmeshed/id1576693742#?platform=ipad">Enmeshed App on Apple AppStore</a></li>
-  <li><a href="https://play.google.com/store/apps/details?id=eu.enmeshed.app&amp;hl=de&amp;gl=US">Enmeshed App on Google PlayStore</a></li>
-</ul>
+<h2 id="getting-started">Getting Started</h2>
 
-<p>Please drop us some feedback if you would like to see the Enmeshed App on different stores as well.</p>
+<p>Install the app in a secure environment.</p>
+
+<!-- component = app -->
+
+<!-- markdownlint-disable MD011 -->
+<!-- <style>
+    .container {
+        position: relative;
+        max-width: 320px;
+        width: 100%;
+    }
+    .select-btn {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .list-items {
+        position: relative;
+        padding: 16px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        display: none;
+        position: fixed;
+        background-color: #fff;
+        z-index: 1;
+    }
+    .select-btn.open ~ .list-items {
+        display: block;
+    }
+    .list-items .item {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    .item .item-text {
+        font-weight: 400;
+    }
+    .item .checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 16px;
+        width: 16px;
+        border-radius: 4px;
+        margin-right: 12px;
+        border: 1.5px solid #c0c0c0;
+        transition: all 0.3s ease-in-out;
+    }
+    .item.checked .checkbox {
+        background-color: #0092ca;
+        border-color: #0092ca;
+    }
+</style>
+<script>
+    function searchByName() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchByNameInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+    function filter(input) {
+        // Declare variables
+        var table, tr, td, i, txtValue;
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            for (const [key, column] of Object.entries(input)) {
+                td = tr[i].getElementsByTagName("td")[key];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    // Loop through all columns
+
+                    if (column.includes(txtValue)) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                        break;
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+<input type="text" id="searchByNameInput" onkeyup="searchByName()" placeholder="Search for title.." />
+
+
+<table id="myTable" style="width: 100%; display: table">
+    <tr>
+        <th style="width: 30%">Title</th>
+        <th style="width: 30%">
+            <div class="container">
+                <div class="select-btn">Category ⌄</div>
+                <ul class="list-items" id="category"></ul>
+            </div>
+        </th>
+        <th style="width: 20%">
+            <div class="container">
+                <div class="select-btn">customer ⌄</div>
+                <ul class="list-items" id="customer"></ul>
+            </div>
+        </th>
+        <th style="width: 20%">
+            <div class="container">
+                <div class="select-btn">Component ⌄</div>
+                <ul class="list-items" id="component"></ul>
+            </div>
+        </th>
+    </tr>
+    
+</table>
+<script>
+    const columns = ["category", "customer", "component"];
+    columns.forEach((element_id) => {
+        const used_elements = [];
+        var ul = document.getElementById(element_id);
+        var category_list = document.getElementsByClassName(element_id + "-list");
+        for (let i = 0; i < category_list.length; i++) {
+            if (!used_elements.includes(category_list[i].innerHTML)) {
+                used_elements.push(category_list[i].innerHTML);
+                var li = document.createElement("li");
+                li.classList.add("item");
+                li.classList.add("checked");
+                var checkbox = document.createElement("SPAN");
+                checkbox.classList.add("checkbox");
+                var text = document.createElement("SPAN");
+                text.classList.add("item-text");
+                text.textContent = category_list[i].innerHTML;
+                li.appendChild(checkbox);
+                li.appendChild(text);
+                ul.appendChild(li);
+            }
+        }
+    });
+</script>
+<script>
+    const selectBtns = document.querySelectorAll(".select-btn"),
+        items = document.querySelectorAll(".item");
+    selectBtns.forEach((selectBtn) => {
+        selectBtn.addEventListener("click", () => {
+            selectBtn.classList.toggle("open");
+        });
+    });
+    items.forEach((item) => {
+        item.addEventListener("click", () => {
+            item.classList.toggle("checked");
+            let checked = document.querySelectorAll(".checked");
+            var elements = new Array();
+            elements[1] = new Array();
+            elements[2] = new Array();
+            elements[3] = new Array();
+            checked.forEach((element) => {
+                elements[element.parentElement.parentElement.parentElement.cellIndex].push(element.innerText.replace(/[\n\r]+|[\s]{2,}/g, ""));
+            });
+            filter(elements);
+        });
+    });
+</script> -->
 
         
       </section>
@@ -235,23 +407,13 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-04-21T09:07:25+02:00">April 21, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-09-28T12:08:44+02:00">September 28, 2023</time></p>
 
       </footer>
 
       
 
       
-  <nav class="pagination">
-    
-      <a href="#" class="pagination--pager disabled">Previous</a>
-    
-    
-      <a href="/use/security-recommendations" class="pagination--pager" title="Security Recommendations for Apps and End-Users
-">Next</a>
-    
-  </nav>
-
     </div>
 
     

@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Enmeshed Connector - Enmeshed</title>
-<meta name="description" content="You can find many Connector-specific information in the integrate part of these docs.">
+<!-- begin _includes/seo.html --><title>Enmeshed Connector - enmeshed</title>
+<meta name="description" content="Connector Building Blocks">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -21,12 +21,12 @@
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="Enmeshed">
+<meta property="og:site_name" content="enmeshed">
 <meta property="og:title" content="Enmeshed Connector">
 <meta property="og:url" content="/explore/connector">
 
 
-  <meta property="og:description" content="You can find many Connector-specific information in the integrate part of these docs.">
+  <meta property="og:description" content="Connector Building Blocks">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-09-20T12:28:39+02:00">
+  <meta property="article:published_time" content="2023-09-28T12:08:44+02:00">
 
 
 
@@ -67,7 +67,7 @@
 
 
 
-  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Enmeshed Feed">
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
 
 
 <!-- https://t.co/dKP3o1e -->
@@ -114,15 +114,17 @@
       <nav id="site-nav" class="greedy-nav">
         
         <a class="site-title" href="/">
-          Enmeshed
+          enmeshed
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/use/basics">Use</a>
+              <a href="/use">Use</a>
             </li><li class="masthead__menu-item">
               <a href="/explore">Explore</a>
             </li><li class="masthead__menu-item">
               <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/operate">Operate</a>
             </li><li class="masthead__menu-item">
               <a href="/contribute">Contribute</a>
             </li><li class="masthead__menu-item">
@@ -159,7 +161,7 @@
   
     
       
-      <h3>Explore Enmeshed</h3>
+      <h3>Explore enmeshed</h3>
       
       
 
@@ -177,13 +179,9 @@
         
         <ul>
           
-            <li><a href="/explore">Introduction</a></li>
+            <li><a href="/explore/how_does_enmeshed_work">How does enmeshed work?</a></li>
           
             <li><a href="/explore/example-scenarios">Example Scenarios</a></li>
-          
-            <li><a href="/explore/features">Features</a></li>
-          
-            <li><a href="/explore/use-cases">Use Cases</a></li>
           
             <li><a href="/explore/faq">Frequently Asked Questions</a></li>
           
@@ -257,7 +255,7 @@
         
         <ul>
           
-            <li><a href="/explore/addresses">Enmeshed Addresses</a></li>
+            <li><a href="/explore/addresses">Addresses</a></li>
           
             <li><a href="/explore/runtime">Runtime</a></li>
           
@@ -281,8 +279,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Enmeshed Connector">
-    <meta itemprop="description" content="You can find many Connector-specific information in the integrate part of these docs.">
-    <meta itemprop="datePublished" content="2023-09-20T12:28:39+02:00">
+    <meta itemprop="description" content="Connector Building Blocks">
+    <meta itemprop="datePublished" content="2023-09-28T12:08:44+02:00">
     
 
     <div class="page__inner-wrap">
@@ -303,14 +301,12 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#connector-building-blocks">Connector Building Blocks</a><ul><li><a href="#connector-docker-image">Connector Docker Image</a></li><li><a href="#connector-runtime">Connector Runtime</a></li><li><a href="#connector-modules">Connector Modules</a></li><li><a href="#connector-database">Connector Database</a></li><li><a href="#connector-sdk">Connector SDK</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#connector-building-blocks">Connector Building Blocks</a><ul><li><a href="#connector-docker-image">Connector Docker Image</a></li><li><a href="#connector-runtime">Connector Runtime</a></li><li><a href="#connector-modules">Connector Modules</a></li><li><a href="#connector-database">Connector Database</a></li><li><a href="#connector-sdk">Connector SDK</a></li><li><a href="#what-is-the-connector">What is the Connector?</a></li><li><a href="#why-does-my-organization-need-a-connector">Why does my organization need a Connector?</a></li><li><a href="#so-how-does-my-organization-get-started">So how does my organization get started?</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        <p>You can find many Connector-specific information in the <a href="/integrate">integrate</a> part of these docs.</p>
-
-<h1 id="connector-building-blocks">Connector Building Blocks</h1>
+        <h1 id="connector-building-blocks">Connector Building Blocks</h1>
 
 <h2 id="connector-docker-image">Connector Docker Image</h2>
 
@@ -322,19 +318,43 @@
 
 <h2 id="connector-runtime">Connector Runtime</h2>
 
-<p>Just like the <a href="/explore/app">App Runtime</a> extends the <a href="/explore/runtime">Enmeshed Runtime</a> for user interfaces, the Connector Runtime is extending the <a href="/explore/runtime">Enmeshed Runtime</a> for the use within services and programs. For example, it maps REST-API-calls to Enmeshed business-logic.</p>
+<p>Just like the <a href="/explore/app">App Runtime</a> extends the <a href="/explore/runtime">enmeshed Runtime</a> for user interfaces, the Connector Runtime is extending the <a href="/explore/runtime">enmeshed Runtime</a> for the use within services and programs. For example, it maps REST-API-calls to enmeshed business-logic.</p>
 
 <h2 id="connector-modules">Connector Modules</h2>
 
-<p>The Connector is built modular and provides some built-in Modules. A list of the available Modules and how to configure them can be found in <a href="/integrate/connector-modules">the Connector Modules guide</a>.</p>
+<p>The Connector is built modular and provides some built-in Modules. A list of the available Modules and how to configure them can be found in <a href="/operate/modules">the Connector Modules guide</a>.</p>
 
 <h2 id="connector-database">Connector Database</h2>
 
-<p>The Connector uses a MongoDB database to store its data. You can read more about its configuration in the <a href="/integrate/connector-configuration#database">database section of the Connector configuration guide</a>.</p>
+<p>The Connector uses a MongoDB database to store its data. You can read more about its configuration in the <a href="/operate/configuration#database">database section of the Connector configuration guide</a>.</p>
 
 <h2 id="connector-sdk">Connector SDK</h2>
 
-<p>Read more about the <a href="/integrate/connector-sdks">Connector SDKs</a>.</p>
+<p>Read more about the <a href="/integrate/access-the-connector">Connector SDKs</a>.</p>
+
+<h2 id="what-is-the-connector">What is the Connector?</h2>
+
+<p>It is a software component which runs in the network of any organization, hosting a set of APIs to easily consume enmeshed features. It is usually run with the provided Docker image. The Connector requires a document database to store its data.</p>
+
+<p>Going a bit more technical, the Connector uses NodeJS with Express to host an HTTP server. It spans up REST APIs used as the primary integration mechanism. However, it is also possible to write custom TypeScript/JavaScript Modules which are run on the Connector itself. The Connector makes use of the enmeshed Runtime to provide all features of the enmeshed Transport Layer as a consumable API.</p>
+
+<h2 id="why-does-my-organization-need-a-connector">Why does my organization need a Connector?</h2>
+
+<p>Enmeshed consists of different layers, each of which provide a different set of functionality and abstractions. The very low levels introduce a common set of communication and encryption contracts, which are required for all the upper levels. Just like you do not want to implement your own network stack, you usually do not want to implement the contracts by yourself.</p>
+
+<p>The Connector stores required enmeshed metadata on a central point within the organization network, making it possible for existing system to access all the features of the Connector. With this approach, it is not necessary to implement the whole stack of enmeshed in each and every system, like user key management and encryption capabilities.</p>
+
+<p>Additionally, the Connector should be run within the organizations network, as it acts as the digital identity of the organization itself, as well as a secure gateway to enmeshed. Although it could be hosted by a third-party as a software-as-a-service, we discourage this approach for production environments. The hosting provider would be able to impersonate the actual organization within the enmeshed ecosystem and would be able to access the plaintext data of users, messages, files, an so on.</p>
+
+<p>If you ask yourself now “Why does enmeshed itself host Connectors then?” - good catch! We do host Connectors but only for development, test or demo reasons.</p>
+
+<h2 id="so-how-does-my-organization-get-started">So how does my organization get started?</h2>
+
+<p>Unfortunately, there is no button with which you can switch on the digitalization. Processes need to be set up, old processes need to be digitalized, data might need to be mapped, and so on. However, one needs to start somehow and we can help you on your journey.</p>
+
+<p>We propose to set up a first test Connector by your IT department or let us do the hosting. Then you can decide how far enmeshed and its supported features and processes work for you.</p>
+
+<p>If you like to try on your own: There is a Connector Tutorial in the next chapter which is a good starting point to set up the Connector on a try out basis. More details are available in the “Setting up the Connector” and integration sections. If you like to dig deeper, there are operation tutorials which might answer some questions with regards to overall security and privacy.</p>
 
         
       </section>
@@ -346,24 +366,13 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-09-20T12:28:39+02:00">September 20, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-09-28T12:08:44+02:00">September 28, 2023</time></p>
 
       </footer>
 
       
 
       
-  <nav class="pagination">
-    
-      <a href="/explore/backbone" class="pagination--pager" title="Enmeshed Backbone
-">Previous</a>
-    
-    
-      <a href="/explore/addresses" class="pagination--pager" title="Enmeshed Addresses
-">Next</a>
-    
-  </nav>
-
     </div>
 
     

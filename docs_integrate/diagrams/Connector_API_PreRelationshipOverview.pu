@@ -21,7 +21,7 @@ participant "Enmeshed\nBackbone" as backbone
 
 
 == Prerequisites ==
-backbone <-> connector: Verified Enmeshed Organization Identity
+backbone <-> connector: Verified enmeshed Organization Identity
 
 
 == Pre-Relationship ==
@@ -78,7 +78,7 @@ backbone --
 app --
 
 == Outcome ==
-browser <--> backend: Knowledge of\nEnmeshed Relationship
-app <--> connector: Trusted, bi-directional Enmeshed relationship
+browser <--> backend: Knowledge of\nenmeshed Relationship
+app <--> connector: Trusted, bi-directional enmeshed relationship
 
 @enduml
