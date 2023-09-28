@@ -1,0 +1,34 @@
+---
+permalink: /use-case-consumption-get-attribute
+published: true
+title: "Get Attribute"
+type: use-case
+toc: true
+properties:
+  - id: RA5
+  - layer: Consumption
+  - facade: AttributesFacade
+  - function: getAttribute
+  - description: Fetches the attribute with the given 'id'.
+  - feature category: Normalized attributes
+  - tech category: Attributes
+  - status: DONE
+  - comments:
+  - actor: Identity
+  - component: Runtime
+  - trigger:
+  - precondition:
+  - result:
+  - priority: n/a
+  - complexity: n/a
+  - size: n/a
+  - created_at:
+  - changed_at:
+  - link auf testcode:
+  - published: default
+  - link: consumption/get-attribute
+require:
+required_by:
+---
+
+{% include use-cases/use-case-consumption-get-attribute.md %}
