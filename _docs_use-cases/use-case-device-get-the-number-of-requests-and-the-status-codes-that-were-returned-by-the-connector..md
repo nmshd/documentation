@@ -1,7 +1,7 @@
 ---
-permalink: /use-case-device-get-the-number-of-requests-and-the-status-codes-that-were-returned-by-the-connector.
+permalink: /use-case-device-get-the-number-of-requests-and-the-status-codes-that-were-returned-by-the-connector
 published: true
-title: "Get the number of requests and the status codes that were returned by the Connector."
+title: "Get the number of requests and the status codes that were returned by the Connector"
 type: use-case
 toc: true
 properties:
@@ -26,9 +26,9 @@ properties:
   - changed_at:
   - link auf testcode:
   - published: default
-  - link: device/get-the-number-of-requests-and-the-status-codes-that-were-returned-by-the-connector.
+  - link: device/get-the-number-of-requests-and-the-status-codes-that-were-returned-by-the-connector
 require:
 required_by:
 ---
 
-{% include use-cases/use-case-device-get-the-number-of-requests-and-the-status-codes-that-were-returned-by-the-connector..md %}
+{% include use-cases/use-case-device-get-the-number-of-requests-and-the-status-codes-that-were-returned-by-the-connector.md %}
