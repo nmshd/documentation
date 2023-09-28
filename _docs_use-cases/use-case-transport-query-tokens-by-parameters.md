@@ -4,6 +4,9 @@ published: true
 title: "Query Tokens by parameters"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RK4
   - layer: Transport

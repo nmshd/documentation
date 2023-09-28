@@ -4,6 +4,9 @@ published: true
 title: "Query Devices"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RD2
   - layer: Transport

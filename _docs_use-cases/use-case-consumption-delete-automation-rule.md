@@ -4,6 +4,9 @@ published: true
 title: "Delete Automation Rule"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: IAR5
   - layer: Consumption

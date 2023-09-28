@@ -4,6 +4,9 @@ published: true
 title: "Get Device"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RD3
   - layer: Transport

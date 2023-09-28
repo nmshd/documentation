@@ -4,6 +4,9 @@ published: true
 title: "Get Message by MessageId"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RM3
   - layer: Transport

@@ -4,6 +4,9 @@ published: true
 title: "Delete shared Attribute"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RA14
   - layer: Consumption

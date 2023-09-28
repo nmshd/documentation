@@ -4,6 +4,9 @@ published: true
 title: "Query Messages"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RM2
   - layer: Transport

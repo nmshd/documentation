@@ -4,6 +4,9 @@ published: true
 title: "Validate Challenge"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RC2
   - layer: Transport

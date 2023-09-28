@@ -4,6 +4,9 @@ published: true
 title: "Get Relationship by Address"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RR4
   - layer: Transport

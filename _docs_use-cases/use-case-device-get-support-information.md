@@ -4,6 +4,9 @@ published: true
 title: "Get support Information"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: CR3
   - layer: Device

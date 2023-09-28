@@ -4,6 +4,9 @@ published: true
 title: "Create a shared Attribute copy"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RA6
   - layer: Consumption

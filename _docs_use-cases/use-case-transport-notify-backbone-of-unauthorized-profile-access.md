@@ -4,6 +4,9 @@ published: true
 title: "Notify Backbone of unauthorized Profile access"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ARS2
   - layer: Transport

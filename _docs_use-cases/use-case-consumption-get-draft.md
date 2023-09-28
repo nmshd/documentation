@@ -4,6 +4,9 @@ published: true
 title: "Get Draft"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RDR3
   - layer: Consumption

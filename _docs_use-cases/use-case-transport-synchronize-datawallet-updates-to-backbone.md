@@ -4,6 +4,9 @@ published: true
 title: "Synchronize Datawallet updates to Backbone"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RU5
   - layer: Transport

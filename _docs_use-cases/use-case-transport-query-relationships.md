@@ -4,6 +4,9 @@ published: true
 title: "Query Relationships"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RR2
   - layer: Transport

@@ -4,6 +4,9 @@ published: true
 title: "Get currently used Identity"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RU1
   - layer: Transport

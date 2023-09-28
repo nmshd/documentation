@@ -4,6 +4,9 @@ published: true
 title: "Create requestItem to delete shared Attribute"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RA15
   - layer: Consumption

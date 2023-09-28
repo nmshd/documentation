@@ -4,6 +4,9 @@ published: true
 title: "Delete Setting"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RS4
   - layer: Consumption

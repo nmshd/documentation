@@ -4,6 +4,9 @@ published: true
 title: "Query incoming Requests"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RIR1
   - layer: Consumption

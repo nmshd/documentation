@@ -4,6 +4,9 @@ published: true
 title: "Create own Token"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RK1
   - layer: Transport

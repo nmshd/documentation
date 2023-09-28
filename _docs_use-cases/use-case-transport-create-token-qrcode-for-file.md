@@ -4,6 +4,9 @@ published: true
 title: "Create Token QRCode for File"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RF8
   - layer: Transport

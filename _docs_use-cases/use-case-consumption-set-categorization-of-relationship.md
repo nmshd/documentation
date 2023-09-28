@@ -4,6 +4,9 @@ published: true
 title: "Set categorization of relationship"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RR9
   - layer: Consumption

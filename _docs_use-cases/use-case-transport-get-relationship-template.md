@@ -4,6 +4,9 @@ published: true
 title: "Get Relationship Template"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RT4
   - layer: Transport

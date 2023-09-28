@@ -4,6 +4,9 @@ published: true
 title: "Rename Profile"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ARS7
   - layer: Device

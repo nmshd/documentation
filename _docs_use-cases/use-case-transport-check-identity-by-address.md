@@ -4,6 +4,9 @@ published: true
 title: "Check Identity by Address"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RI1
   - layer: Transport

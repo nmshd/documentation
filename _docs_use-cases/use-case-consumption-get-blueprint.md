@@ -4,6 +4,9 @@ published: true
 title: "Get Blueprint"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RB3
   - layer: Consumption

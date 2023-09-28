@@ -4,6 +4,9 @@ published: true
 title: "Query Automation Rules"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: IAR2
   - layer: Consumption

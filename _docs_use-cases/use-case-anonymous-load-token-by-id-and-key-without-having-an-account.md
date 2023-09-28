@@ -4,6 +4,9 @@ published: true
 title: "Load Token by id and key (without having an account)"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RY2
   - layer: Anonymous

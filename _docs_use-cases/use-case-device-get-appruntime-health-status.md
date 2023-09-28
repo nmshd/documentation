@@ -4,6 +4,9 @@ published: true
 title: "Get AppRuntime health status"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: AR1
   - layer: Device

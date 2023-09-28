@@ -4,6 +4,9 @@ published: true
 title: "Set up global exception handling"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: CR4
   - layer: Device

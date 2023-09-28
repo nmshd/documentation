@@ -4,6 +4,9 @@ published: true
 title: "Trigger Device deletion of onboarded Device"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RD8
   - layer: Transport

@@ -4,6 +4,9 @@ published: true
 title: "Get the Connector health status"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: CR2
   - layer: Device

@@ -4,6 +4,9 @@ published: true
 title: "Device External UseCase"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: A15
   - layer: Human

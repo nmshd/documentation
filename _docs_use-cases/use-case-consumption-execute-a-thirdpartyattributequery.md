@@ -4,6 +4,9 @@ published: true
 title: "Execute a ThirdPartyAttributeQuery"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RA10
   - layer: Consumption

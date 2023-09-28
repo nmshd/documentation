@@ -4,6 +4,9 @@ published: true
 title: "Restore Identity by revovery data"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ARP7
   - layer: Device

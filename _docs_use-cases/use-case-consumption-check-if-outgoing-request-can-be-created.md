@@ -4,6 +4,9 @@ published: true
 title: "Check if outgoing Request can be created"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ROR1
   - layer: Consumption

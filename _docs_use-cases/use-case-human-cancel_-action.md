@@ -4,6 +4,9 @@ published: true
 title: "Cancel Action"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: A18
   - layer: Human

@@ -4,6 +4,9 @@ published: true
 title: "Delete Draft"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RDR5
   - layer: Consumption

@@ -4,6 +4,9 @@ published: true
 title: "Update Setting"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RS5
   - layer: Consumption

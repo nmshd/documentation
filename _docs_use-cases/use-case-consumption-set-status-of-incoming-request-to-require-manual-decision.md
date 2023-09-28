@@ -4,6 +4,9 @@ published: true
 title: "Set status of incoming Request to require manual decision"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RIR5
   - layer: Consumption

@@ -4,6 +4,9 @@ published: true
 title: "Download File"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RF5
   - layer: Transport

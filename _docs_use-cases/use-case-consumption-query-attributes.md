@@ -4,6 +4,9 @@ published: true
 title: "Query Attributes"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RA2
   - layer: Consumption

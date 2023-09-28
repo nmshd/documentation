@@ -4,6 +4,9 @@ published: true
 title: "Create a Blueprint of a Relationship Template"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RB1
   - layer: Consumption

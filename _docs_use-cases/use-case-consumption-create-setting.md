@@ -4,6 +4,9 @@ published: true
 title: "Create Setting"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RS1
   - layer: Consumption

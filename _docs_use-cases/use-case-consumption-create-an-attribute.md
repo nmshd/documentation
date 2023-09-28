@@ -4,6 +4,9 @@ published: true
 title: "Create an Attribute"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RA1
   - layer: Consumption

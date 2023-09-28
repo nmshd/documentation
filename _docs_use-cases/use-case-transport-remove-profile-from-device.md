@@ -4,6 +4,9 @@ published: true
 title: "Remove Profile from Device"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ARS4
   - layer: Transport

@@ -4,6 +4,9 @@ published: true
 title: "Execute a RelationshipAttributeQuery"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RA9
   - layer: Consumption

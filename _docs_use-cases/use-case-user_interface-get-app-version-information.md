@@ -4,6 +4,9 @@ published: true
 title: "Get app version information"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: A01
   - layer: User Interface

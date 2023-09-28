@@ -4,6 +4,9 @@ published: true
 title: "Get Attributes for Relationship"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RR5
   - layer: Transport

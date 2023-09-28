@@ -4,6 +4,9 @@ published: true
 title: "Set status of incoming Request to check prerequisites"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RIR4
   - layer: Consumption

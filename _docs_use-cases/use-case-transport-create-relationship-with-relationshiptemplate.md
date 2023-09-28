@@ -4,6 +4,9 @@ published: true
 title: "Create Relationship with RelationshipTemplate"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RR1
   - layer: Transport

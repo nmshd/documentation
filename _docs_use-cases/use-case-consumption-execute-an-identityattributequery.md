@@ -4,6 +4,9 @@ published: true
 title: "Execute an IdentityAttributeQuery"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RA8
   - layer: Consumption

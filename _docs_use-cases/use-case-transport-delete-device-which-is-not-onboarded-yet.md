@@ -4,6 +4,9 @@ published: true
 title: "Delete Device which is not onboarded yet"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RD7
   - layer: Transport

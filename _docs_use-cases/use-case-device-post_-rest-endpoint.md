@@ -4,6 +4,9 @@ published: true
 title: "POST REST Endpoint"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: C04
   - layer: Device

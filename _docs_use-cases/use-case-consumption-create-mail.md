@@ -4,6 +4,9 @@ published: true
 title: "Create Mail"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RM1
   - layer: Consumption

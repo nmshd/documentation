@@ -4,6 +4,9 @@ published: true
 title: "Synchronize updates of Backbone"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RU4
   - layer: Transport

@@ -4,6 +4,9 @@ published: true
 title: "DELETE REST Endpoint"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: C07
   - layer: Device

@@ -4,6 +4,9 @@ published: true
 title: "Get synchronization status with Backbone"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RU6
   - layer: Transport

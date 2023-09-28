@@ -4,6 +4,9 @@ published: true
 title: "Start app without parameters"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: A02
   - layer: User Interface

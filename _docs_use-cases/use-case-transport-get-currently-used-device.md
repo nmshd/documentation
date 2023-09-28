@@ -4,6 +4,9 @@ published: true
 title: "Get currently used Device"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RU2
   - layer: Transport

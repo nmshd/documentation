@@ -4,6 +4,9 @@ published: true
 title: "Discards outgoing Request"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ROR8
   - layer: Consumption

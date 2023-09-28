@@ -4,6 +4,9 @@ published: true
 title: "Get Attribute"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RA5
   - layer: Consumption

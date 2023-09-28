@@ -4,6 +4,9 @@ published: true
 title: "Check if incoming Request can be accepted"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RIR7
   - layer: Consumption

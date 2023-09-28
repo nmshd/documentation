@@ -4,6 +4,9 @@ published: true
 title: "PUT REST Endpoint"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: C06
   - layer: Device

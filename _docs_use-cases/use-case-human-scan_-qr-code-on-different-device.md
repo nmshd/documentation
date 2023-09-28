@@ -4,6 +4,9 @@ published: true
 title: "Scan QR-Code (on different device)"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: A14
   - layer: Human

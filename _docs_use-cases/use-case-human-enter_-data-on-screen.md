@@ -4,6 +4,9 @@ published: true
 title: "Enter Data (on screen)"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: A13
   - layer: Human

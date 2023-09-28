@@ -4,6 +4,9 @@ published: true
 title: "Onboard Device by Device Onboarding Token"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ARP6
   - layer: Device

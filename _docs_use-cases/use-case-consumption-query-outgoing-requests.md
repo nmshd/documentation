@@ -4,6 +4,9 @@ published: true
 title: "Query outgoing Requests"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ROR3
   - layer: Consumption

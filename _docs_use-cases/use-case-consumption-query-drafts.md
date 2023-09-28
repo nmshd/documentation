@@ -4,6 +4,9 @@ published: true
 title: "Query Drafts"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RDR2
   - layer: Consumption

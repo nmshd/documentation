@@ -4,6 +4,9 @@ published: true
 title: "Query Files"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RF2
   - layer: Transport

@@ -4,6 +4,9 @@ published: true
 title: "Configure Config Property"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: C03
   - layer: Device

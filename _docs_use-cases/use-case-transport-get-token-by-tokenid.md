@@ -4,6 +4,9 @@ published: true
 title: "Get Token by TokenID"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RK3
   - layer: Transport

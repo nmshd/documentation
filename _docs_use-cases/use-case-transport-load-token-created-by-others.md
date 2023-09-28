@@ -4,6 +4,9 @@ published: true
 title: "Load Token created by others"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RK2
   - layer: Transport

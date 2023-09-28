@@ -4,6 +4,9 @@ published: true
 title: "Get Mail"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RM3
   - layer: Consumption

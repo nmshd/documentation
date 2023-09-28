@@ -4,6 +4,9 @@ published: true
 title: "Get QRCode for single Token"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RK5
   - layer: Transport

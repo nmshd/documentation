@@ -4,6 +4,9 @@ published: true
 title: "Set status of incoming Request to complete"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RIR6
   - layer: Consumption

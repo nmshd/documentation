@@ -4,6 +4,9 @@ published: true
 title: "Create Token for File"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RF6
   - layer: Transport

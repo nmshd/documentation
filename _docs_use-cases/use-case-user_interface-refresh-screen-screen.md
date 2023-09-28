@@ -4,6 +4,9 @@ published: true
 title: "Refresh (screen) Screen"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: A10
   - layer: User Interface

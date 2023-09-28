@@ -4,6 +4,9 @@ published: true
 title: "Get File Metadata of Attachment"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RM4
   - layer: Transport

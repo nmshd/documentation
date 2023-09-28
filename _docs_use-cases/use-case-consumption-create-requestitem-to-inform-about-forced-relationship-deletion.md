@@ -4,6 +4,9 @@ published: true
 title: "Create requestItem to inform about forced Relationship deletion"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RRI2
   - layer: Consumption

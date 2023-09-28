@@ -4,6 +4,9 @@ published: true
 title: "Reject Relationship Change"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RR7
   - layer: Transport

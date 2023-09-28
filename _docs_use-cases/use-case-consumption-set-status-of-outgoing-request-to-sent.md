@@ -4,6 +4,9 @@ published: true
 title: "Set status of outgoing Request to sent"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ROR6
   - layer: Consumption

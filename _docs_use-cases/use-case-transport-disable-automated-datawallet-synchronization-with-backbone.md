@@ -4,6 +4,9 @@ published: true
 title: "Disable automated Datawallet synchronization with Backbone"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RU8
   - layer: Transport

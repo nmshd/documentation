@@ -4,6 +4,9 @@ published: true
 title: "Load Token by truncated reference (without having an account)"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RY1
   - layer: Anonymous

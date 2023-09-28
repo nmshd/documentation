@@ -4,6 +4,9 @@ published: true
 title: "Get Setting"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RS3
   - layer: Consumption

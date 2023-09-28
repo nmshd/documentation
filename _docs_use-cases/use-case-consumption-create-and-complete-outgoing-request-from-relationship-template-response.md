@@ -4,6 +4,9 @@ published: true
 title: "Create and complete outgoing Request from Relationship Template Response"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ROR5
   - layer: Consumption

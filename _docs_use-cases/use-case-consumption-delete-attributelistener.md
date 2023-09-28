@@ -4,6 +4,9 @@ published: true
 title: "Delete AttributeListener"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RAL3
   - layer: Consumption

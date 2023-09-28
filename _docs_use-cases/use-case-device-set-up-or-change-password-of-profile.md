@@ -4,6 +4,9 @@ published: true
 title: "Set-up or change password of Profile"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ARS3
   - layer: Device

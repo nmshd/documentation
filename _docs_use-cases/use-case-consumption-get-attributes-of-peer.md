@@ -4,6 +4,9 @@ published: true
 title: "Get Attributes of peer"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RA3
   - layer: Consumption

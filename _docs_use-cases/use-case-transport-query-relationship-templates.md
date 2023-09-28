@@ -4,6 +4,9 @@ published: true
 title: "Query Relationship Templates"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RT3
   - layer: Transport

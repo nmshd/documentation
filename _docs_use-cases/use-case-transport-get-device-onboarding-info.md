@@ -4,6 +4,9 @@ published: true
 title: "Get Device Onboarding Info"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RD4
   - layer: Transport

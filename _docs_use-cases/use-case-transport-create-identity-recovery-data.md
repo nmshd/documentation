@@ -4,6 +4,9 @@ published: true
 title: "Create Identity recovery data"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ARS6
   - layer: Transport

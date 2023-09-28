@@ -4,6 +4,9 @@ published: true
 title: "Load item from truncated reference"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RU9
   - layer: Transport

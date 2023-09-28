@@ -4,6 +4,9 @@ published: true
 title: "Create Token QRCode for own Relationship Template"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RT6
   - layer: Transport

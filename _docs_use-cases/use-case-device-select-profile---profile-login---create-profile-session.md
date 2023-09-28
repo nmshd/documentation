@@ -4,6 +4,9 @@ published: true
 title: "Select Profile / Profile Login / Create Profile Session"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ARS1
   - layer: Device

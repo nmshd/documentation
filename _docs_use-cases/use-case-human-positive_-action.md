@@ -4,6 +4,9 @@ published: true
 title: "Positive Action"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: A16
   - layer: Human

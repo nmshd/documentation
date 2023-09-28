@@ -4,6 +4,9 @@ published: true
 title: "Query AttributeListeners"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RAL1
   - layer: Consumption

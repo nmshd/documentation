@@ -4,6 +4,9 @@ published: true
 title: "Update Automation Rule"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: IAR4
   - layer: Consumption

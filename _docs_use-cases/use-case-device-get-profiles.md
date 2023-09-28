@@ -4,6 +4,9 @@ published: true
 title: "Get Profiles"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ARP2
   - layer: Device

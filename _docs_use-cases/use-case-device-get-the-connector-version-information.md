@@ -4,6 +4,9 @@ published: true
 title: "Get the Connector version information"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: C01
   - layer: Device

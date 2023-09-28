@@ -4,6 +4,9 @@ published: true
 title: "Clear all profiles"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ARP5
   - layer: Device

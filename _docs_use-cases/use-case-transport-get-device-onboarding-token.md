@@ -4,6 +4,9 @@ published: true
 title: "Get Device Onboarding Token"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: RD5
   - layer: Transport

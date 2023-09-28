@@ -4,6 +4,9 @@ published: true
 title: "Navigate to (screen) Screen"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: A11
   - layer: Human

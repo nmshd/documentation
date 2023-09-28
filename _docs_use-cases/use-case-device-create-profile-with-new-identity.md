@@ -4,6 +4,9 @@ published: true
 title: "Create Profile with new Identity"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: CR1
   - layer: Device

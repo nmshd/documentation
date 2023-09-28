@@ -4,6 +4,9 @@ published: true
 title: "Get AppRuntime version information"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: AR2
   - layer: Device

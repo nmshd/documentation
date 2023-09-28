@@ -4,6 +4,9 @@ published: true
 title: "Create outgoing Request"
 type: use-case
 toc: true
+sidebar:
+  - title: "Integrate Enmeshed"
+    nav: "docs_integrate"
 properties:
   - id: ROR2
   - layer: Consumption
