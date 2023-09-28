@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-create-requestitem-to-delete-relationship
-published: true
+published: false
 title: "Create requestItem to delete Relationship"
 type: use-case
 toc: true

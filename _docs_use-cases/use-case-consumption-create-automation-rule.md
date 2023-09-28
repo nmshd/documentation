@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-create-automation-rule
-published: true
+published: false
 title: "Create Automation Rule"
 type: use-case
 toc: true

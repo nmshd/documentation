@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-set-categorization-of-relationship
-published: true
+published: false
 title: "Set categorization of relationship"
 type: use-case
 toc: true

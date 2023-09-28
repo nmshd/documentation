@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-device-clear-all-profiles
-published: true
+published: false
 title: "Clear all profiles"
 type: use-case
 toc: true

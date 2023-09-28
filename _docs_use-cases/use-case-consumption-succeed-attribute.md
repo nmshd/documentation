@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-succeed-attribute
-published: true
+published: false
 title: "Succeed Attribute"
 type: use-case
 toc: true

@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-query-mails
-published: true
+published: false
 title: "Query Mails"
 type: use-case
 toc: true

@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-delete-device-which-is-not-onboarded-yet
-published: true
+published: false
 title: "Delete Device which is not onboarded yet"
 type: use-case
 toc: true

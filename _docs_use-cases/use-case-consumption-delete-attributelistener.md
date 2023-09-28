@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-delete-attributelistener
-published: true
+published: false
 title: "Delete AttributeListener"
 type: use-case
 toc: true

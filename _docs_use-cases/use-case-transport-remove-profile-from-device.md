@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-remove-profile-from-device
-published: true
+published: false
 title: "Remove Profile from Device"
 type: use-case
 toc: true

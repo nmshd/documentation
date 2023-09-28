@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-create-qrcode-for-own-relationship-template
-published: true
+published: false
 title: "Create QRCode for own Relationship Template"
 type: use-case
 toc: true

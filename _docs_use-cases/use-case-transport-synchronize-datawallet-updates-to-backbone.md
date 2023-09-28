@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-synchronize-datawallet-updates-to-backbone
-published: true
+published: false
 title: "Synchronize Datawallet updates to Backbone"
 type: use-case
 toc: true

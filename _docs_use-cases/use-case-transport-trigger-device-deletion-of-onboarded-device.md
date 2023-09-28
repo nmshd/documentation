@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-trigger-device-deletion-of-onboarded-device
-published: true
+published: false
 title: "Trigger Device deletion of onboarded Device"
 type: use-case
 toc: true

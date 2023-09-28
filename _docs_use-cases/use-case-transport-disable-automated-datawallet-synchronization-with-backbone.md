@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-disable-automated-datawallet-synchronization-with-backbone
-published: true
+published: false
 title: "Disable automated Datawallet synchronization with Backbone"
 type: use-case
 toc: true

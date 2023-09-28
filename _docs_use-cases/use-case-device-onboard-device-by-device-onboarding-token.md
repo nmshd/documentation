@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-device-onboard-device-by-device-onboarding-token
-published: true
+published: false
 title: "Onboard Device by Device Onboarding Token"
 type: use-case
 toc: true

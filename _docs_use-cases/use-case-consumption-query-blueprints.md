@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-query-blueprints
-published: true
+published: false
 title: "Query Blueprints"
 type: use-case
 toc: true

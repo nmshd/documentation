@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-create-mail
-published: true
+published: false
 title: "Create Mail"
 type: use-case
 toc: true

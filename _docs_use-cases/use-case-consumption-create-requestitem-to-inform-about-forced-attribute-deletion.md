@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-create-requestitem-to-inform-about-forced-attribute-deletion
-published: true
+published: false
 title: "Create requestItem to inform about forced Attribute deletion"
 type: use-case
 toc: true

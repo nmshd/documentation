@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-load-item-from-truncated-reference
-published: true
+published: false
 title: "Load item from truncated reference"
 type: use-case
 toc: true

@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-create-requestitem-to-inform-about-forced-relationship-deletion
-published: true
+published: false
 title: "Create requestItem to inform about forced Relationship deletion"
 type: use-case
 toc: true

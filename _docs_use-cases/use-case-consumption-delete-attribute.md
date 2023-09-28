@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-delete-attribute
-published: true
+published: false
 title: "Delete Attribute"
 type: use-case
 toc: true

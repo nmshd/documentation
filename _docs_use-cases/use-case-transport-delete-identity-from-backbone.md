@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-delete-identity-from-backbone
-published: true
+published: false
 title: "Delete Identity from Backbone"
 type: use-case
 toc: true

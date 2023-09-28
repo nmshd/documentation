@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-update-attribute
-published: true
+published: false
 title: "Update Attribute"
 type: use-case
 toc: true

@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-device-get-appruntime-health-status
-published: true
+published: false
 title: "Get AppRuntime health status"
 type: use-case
 toc: true

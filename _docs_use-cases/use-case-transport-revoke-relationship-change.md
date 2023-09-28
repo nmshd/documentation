@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-revoke-relationship-change
-published: true
+published: false
 title: "Revoke Relationship Change"
 type: use-case
 toc: true

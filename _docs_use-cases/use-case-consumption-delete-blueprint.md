@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-delete-blueprint
-published: true
+published: false
 title: "Delete Blueprint"
 type: use-case
 toc: true

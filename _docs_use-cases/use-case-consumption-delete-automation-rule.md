@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-delete-automation-rule
-published: true
+published: false
 title: "Delete Automation Rule"
 type: use-case
 toc: true

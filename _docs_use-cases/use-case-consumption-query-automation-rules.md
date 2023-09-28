@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-query-automation-rules
-published: true
+published: false
 title: "Query Automation Rules"
 type: use-case
 toc: true

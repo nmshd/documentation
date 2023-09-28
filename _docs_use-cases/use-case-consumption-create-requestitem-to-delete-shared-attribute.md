@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-create-requestitem-to-delete-shared-attribute
-published: true
+published: false
 title: "Create requestItem to delete shared Attribute"
 type: use-case
 toc: true

@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-update-automation-rule
-published: true
+published: false
 title: "Update Automation Rule"
 type: use-case
 toc: true

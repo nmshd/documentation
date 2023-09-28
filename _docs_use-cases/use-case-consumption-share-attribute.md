@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-share-attribute
-published: true
+published: false
 title: "Share Attribute"
 type: use-case
 toc: true

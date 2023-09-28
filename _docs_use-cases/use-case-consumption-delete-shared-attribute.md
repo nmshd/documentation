@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-delete-shared-attribute
-published: true
+published: false
 title: "Delete shared Attribute"
 type: use-case
 toc: true

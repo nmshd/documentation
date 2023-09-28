@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-get-qrcode-for-single-token
-published: true
+published: false
 title: "Get QRCode for single Token"
 type: use-case
 toc: true

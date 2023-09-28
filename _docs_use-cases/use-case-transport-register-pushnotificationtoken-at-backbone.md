@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-register-pushnotificationtoken-at-backbone
-published: true
+published: false
 title: "Register PushNotificationToken at Backbone"
 type: use-case
 toc: true

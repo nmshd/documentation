@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-device-restore-identity-by-revovery-data
-published: true
+published: false
 title: "Restore Identity by revovery data"
 type: use-case
 toc: true

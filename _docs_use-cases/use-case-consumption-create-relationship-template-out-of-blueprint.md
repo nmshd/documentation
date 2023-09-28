@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-create-relationship-template-out-of-blueprint
-published: true
+published: false
 title: "Create Relationship Template out of Blueprint"
 type: use-case
 toc: true

@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-create-identity-recovery-data
-published: true
+published: false
 title: "Create Identity recovery data"
 type: use-case
 toc: true

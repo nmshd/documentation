@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-enable-automated-datawallet-synchronization-with-backbone
-published: true
+published: false
 title: "Enable automated Datawallet synchronization with Backbone"
 type: use-case
 toc: true

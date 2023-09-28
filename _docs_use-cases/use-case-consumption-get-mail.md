@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-get-mail
-published: true
+published: false
 title: "Get Mail"
 type: use-case
 toc: true

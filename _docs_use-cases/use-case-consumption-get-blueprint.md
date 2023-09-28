@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-get-blueprint
-published: true
+published: false
 title: "Get Blueprint"
 type: use-case
 toc: true

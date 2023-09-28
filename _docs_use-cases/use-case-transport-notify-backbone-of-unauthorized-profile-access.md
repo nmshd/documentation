@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-notify-backbone-of-unauthorized-profile-access
-published: true
+published: false
 title: "Notify Backbone of unauthorized Profile access"
 type: use-case
 toc: true

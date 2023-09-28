@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-device-set-up-global-exception-handling
-published: true
+published: false
 title: "Set up global exception handling"
 type: use-case
 toc: true

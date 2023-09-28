@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-device-set-up-or-change-password-of-profile
-published: true
+published: false
 title: "Set-up or change password of Profile"
 type: use-case
 toc: true

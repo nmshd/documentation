@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-pin-mark-as-favorite-relationship
-published: true
+published: false
 title: "Pin/mark as favorite relationship"
 type: use-case
 toc: true

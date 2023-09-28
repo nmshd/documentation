@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-update-blueprint
-published: true
+published: false
 title: "Update Blueprint"
 type: use-case
 toc: true
