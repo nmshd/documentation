@@ -8,7 +8,7 @@ type: scenario
 toc: true
 properties:
   - id: SC095
-  - category: 1Getting Started
+  - category: Getting Started
   - description: https//enmeshed.eu/integrate/connector-tutorial
   - customer:
   - component: integrate

@@ -8,7 +8,7 @@ type: scenario
 toc: true
 properties:
   - id: SC094
-  - category: 1Getting Started
+  - category: Getting Started
   - description: https//enmeshed.eu/use/security-recommendations
   - customer:
   - component: use

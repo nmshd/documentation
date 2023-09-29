@@ -8,7 +8,7 @@ type: scenario
 toc: true
 properties:
   - id: SC026
-  - category: 1Getting Started
+  - category: Getting Started
   - description: https//enmeshed.eu/use/basics
   - customer:
   - component: use

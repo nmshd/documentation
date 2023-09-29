@@ -8,7 +8,7 @@ type: scenario
 toc: true
 properties:
   - id: SC080
-  - category: 1Connector Setup
+  - category: Connector Setup
   - description: https//enmeshed.eu/integrate/connector-modules
   - customer:
   - component: operate

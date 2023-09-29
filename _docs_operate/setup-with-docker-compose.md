@@ -8,7 +8,7 @@ type: scenario
 toc: true
 properties:
   - id: SC077
-  - category: 1Connector Setup
+  - category: Connector Setup
   - description: #2 https//enmeshed.eu/integrate/connector-installation
   - customer:
   - component: operate

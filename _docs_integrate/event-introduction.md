@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC096
-  - category: 1Getting Started
+  - category: Getting Started
   - description:
   - customer:
   - component: integrate

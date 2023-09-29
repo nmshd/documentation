@@ -8,7 +8,7 @@ type: scenario
 toc: true
 properties:
   - id: SC075
-  - category: 1Getting Started
+  - category: Getting Started
   - description: https//enmeshed.eu/integrate/connector-api
   - customer:
   - component: integrate
