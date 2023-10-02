@@ -120,8 +120,8 @@ docs_integrate:
         url: /integrate/error-codes
       #- title: "FAQ"
       #  url: /integrate/faq
-      #- title: "Support"
-      #  url: /integrate/support
+      - title: "Support"
+        url: /integrate/support
 
 docs_operate:
   - title: Connector Setup
