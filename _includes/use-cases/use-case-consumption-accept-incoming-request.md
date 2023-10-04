@@ -2,55 +2,35 @@ Attempts to accept an incomming request by it's Id.
 
 The items array indicate the decision made for each individual request item in the request.
 
-## Parameters
+## Example Body
 
-```js
+```json
 {
-    requestId: string,
-    items: (DecideRequestItemParametersJSON | DecideRequestItemGroupParametersJSON)[]
+    "items": [
+        { "accept": true },
+        { "accept": false }
+    ]
 }
 ```
 
-## Return Value
+{% include rapidoc api_route_regex="^put /api/v2/Requests/Incoming/{id}/Accept$" %}
 
-```ts
-{
-    id: string,
-    isOwn: boolean,
-    peer: string,
-    createdAt: string,
-    status: [LocalRequestStatus](http://www.google.com),
-    content: RequestJSON;
-    source?: LocalRequestSourceDTO;
-    response?: LocalResponseDTO;
-}
+## Example
 
-enum LocalRequestStatus {
-    Draft = "Draft",
-    Open = "Open",
-    DecisionRequired = "DecisionRequired",
-    ManualDecisionRequired = "ManualDecisionRequired",
-    Decided = "Decided",
-    Completed = "Completed",
-    Expired = "Expired"
-}
-```
-<pre>
- <code>
-  <a href="https://github.com/gmarciani">gmarciani</a>
- </code>
-</pre>
-## Example 
-
-
-```js
-const acceptResponse = await runtime.consumptionServices.incommingRequests.accept(
+```shell
+curl --location --request PUT 'http://{connector_url}/api/v2/Requests/Incoming/{id}/Accept' \
+--header 'X-API-KEY: xxx' \
+--header 'Content-Type: application/json' \
+--data '{
+  "items": [
     {
-        requestId: "REQ_ID",
-        items: [{ accept: true }]
+      "accept": true
+    },
+    {
+      "accept": false,
+      "code": "an.error.code",
+      "message": "Error Message"
     }
-);
-if (acceptResponse.isError) {
-    throw new Error(acceptResponse.error);
-}
+  ]
+}'
 ```
