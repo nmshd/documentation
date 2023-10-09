@@ -29,7 +29,7 @@ Key Exchange: ECDH X25519 (Elliptic Curve Diffie Hellman with Curve25519), 256bi
 
 ## Used Randomness
 
-To reach enough entropy for safe private and secret keys, key generation is based on randomness, which is very important for modern cryptography. Applications rely on cryptographic libraries for randomness which in turn use software-based randomness (like timestamps, calculation durations and seeds) and hardware-supported randomness (like sensor input, hardware ids or even dedicated ranomness modules).
+To reach enough entropy for safe private and secret keys, key generation is based on randomness, which is very important for modern cryptography. Applications rely on cryptographic libraries for randomness which in turn use software-based randomness (like timestamps, calculation durations and seeds) and hardware-supported randomness (like sensor input, hardware ids or even dedicated randomness modules).
 
 Our randomness is based on the mentioned library [libsodium.js](https://github.com/jedisct1/libsodium.js) which is using the standard [WebCrypto APIs](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues). With the WebCrypto API, the browser's randomness generator is used. The browser uses either an own implementation of a secure Pseudo-Random-Generator, or - in modern browsers - the operating system's random generator, which is usually taking hardware into consideration. Our solution is thus using the same mechanisms the browser use for securing Transport Layer Security (TLS) communication over the world wide web.
 
