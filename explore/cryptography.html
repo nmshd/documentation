@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-10-09T12:52:18+02:00">
+  <meta property="article:published_time" content="2023-10-09T13:40:27+02:00">
 
 
 
@@ -280,7 +280,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Cryptography">
     <meta itemprop="description" content="Backbone Layer Encryption">
-    <meta itemprop="datePublished" content="2023-10-09T12:52:18+02:00">
+    <meta itemprop="datePublished" content="2023-10-09T13:40:27+02:00">
     
 
     <div class="page__inner-wrap">
@@ -324,7 +324,7 @@
 
 <h2 id="used-randomness">Used Randomness</h2>
 
-<p>To reach enough entropy for safe private and secret keys, key generation is based on randomness, which is very important for modern cryptography. Applications rely on cryptographic libraries for randomness which in turn use software-based randomness (like timestamps, calculation durations and seeds) and hardware-supported randomness (like sensor input, hardware ids or even dedicated ranomness modules).</p>
+<p>To reach enough entropy for safe private and secret keys, key generation is based on randomness, which is very important for modern cryptography. Applications rely on cryptographic libraries for randomness which in turn use software-based randomness (like timestamps, calculation durations and seeds) and hardware-supported randomness (like sensor input, hardware ids or even dedicated randomness modules).</p>
 
 <p>Our randomness is based on the mentioned library <a href="https://github.com/jedisct1/libsodium.js">libsodium.js</a> which is using the standard <a href="https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues">WebCrypto APIs</a>. With the WebCrypto API, the browser’s randomness generator is used. The browser uses either an own implementation of a secure Pseudo-Random-Generator, or - in modern browsers - the operating system’s random generator, which is usually taking hardware into consideration. Our solution is thus using the same mechanisms the browser use for securing Transport Layer Security (TLS) communication over the world wide web.</p>
 
@@ -409,7 +409,7 @@ The derived symmetric master key for transmitting communication to the relations
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-10-09T12:52:18+02:00">October 9, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-10-09T13:40:27+02:00">October 9, 2023</time></p>
 
       </footer>
 
