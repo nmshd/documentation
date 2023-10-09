@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-10-09T11:59:19+02:00">
+  <meta property="article:published_time" content="2023-10-09T12:52:18+02:00">
 
 
 
@@ -280,7 +280,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Cryptography">
     <meta itemprop="description" content="Backbone Layer Encryption">
-    <meta itemprop="datePublished" content="2023-10-09T11:59:19+02:00">
+    <meta itemprop="datePublished" content="2023-10-09T12:52:18+02:00">
     
 
     <div class="page__inner-wrap">
@@ -300,19 +300,17 @@
         
         <h1 id="backbone-layer-encryption">Backbone Layer Encryption</h1>
 
-<p>The communication with the Backbone is encrypted on the http transport layer. This is done by using the transport-layer-security (TLS) standard which is common throughout the Internet. This prevents third parties to access any data communication to and from the Backbone.</p>
+<p>The communication with the Backbone is encrypted on the http transport layer. This is done by using the transport-layer-security (TLS) standard which is common throughout the Internet. This prevents third parties to access any data communication to and from the Backbone, like authentication tokens of devices, recipient addresses, timestamps.</p>
 
-<p>Data at rest is encrypted on the respective systems. This is relevant for the underlying infrastructure services of the Backbone. The infrastructure provider, e.g. Microsoft Azure, is not able to access the data from the hard drives, as it is encrypted.</p>
+<p>Stored data - so called “data at rest” - is encrypted on the respective systems, like databases. This is relevant for the underlying infrastructure services of the Backbone. The cloud infrastructure provider, is not able to access the data from the hard drives, as it is encrypted.</p>
 
 <h1 id="transport-layer-encryption">Transport Layer Encryption</h1>
 
-<p>The communication between identities via the Backbone is end-to-end encrypted. This is done by using our own cryptography library based on standard implementations of elliptic curve cryptograhic algorithms.</p>
-
-<p>This prevents even the operator of the Backbone to access the payload which is sent between identities. It is also reducing the threats of data leaks to a minimum, as only the metadata could be leaked.</p>
+<p>The communication between identities via the Backbone is end-to-end encrypted. This means, that nobody between the digital identities (i.e. their devices) is able to access the data. This prevents even the operator of the Backbone to access the payload which is sent between identities. It is also reducing the threats of data leaks to a minimum, as only the metadata could be leaked. Such a metadata leak would be the same level of information leak as a public blockchain is doing all along its public network.</p>
 
 <p>We use modern cryptographic algorithms to our best knowledge. The cryptographic library we use is <a href="https://doc.libsodium.org/">libsodium</a> and its JavaScript wrapper <a href="https://github.com/jedisct1/libsodium.js">libsodium.js</a>. Libsodium is a fork of NaCl which is primarily stripping out unnecessary or dangerours interfaces or algorithms.</p>
 
-<p>Based on libsodium, we use elliptic curve cryptography with the Edwards Curve (Ed25519 or Curve25519) which is one of the most secure curves available - see <a href="https://safecurves.cr.yp.to">safecurves.cr.yp.to/</a>.</p>
+<p>Based on libsodium, we use elliptic curve cryptography with the Edwards Curve (Ed25519 or Curve25519) which is one of the most secure elliptic curves available. It is used by the <a href="https://csrc.nist.gov/publications/detail/fips/186/5/final">Digital Signature Standard (DSS)</a> and one of a few elliptic curves passing the tests on <a href="https://safecurves.cr.yp.to">safecurves.cr.yp.to/</a>. Additional references supporting the Edwards Curve are <a href="https://eprint.iacr.org/2020/823.pdf">The Provable Security of Ed25519: Theory and Practice</a> and <a href="https://soatok.blog/2022/05/19/guidance-for-choosing-an-elliptic-curve-signature-algorithm-in-2022/">Guidance for Choosing an Elliptic Curve Signature Algorithm in 2022</a>.</p>
 
 <p>Key derivations are used as often as possible, in addition to strong and unique initialization vectors.</p>
 
@@ -320,11 +318,19 @@
 
 <p>Symmetric Encryption: <a href="https://doc.libsodium.org/secret-key_cryptography/aead/chacha20-poly1305/xchacha20-poly1305_construction">XChaCha-Poly1305 (256 bit)</a></p>
 
-<p>Digital Signatures: ECDSA Ed25519 (Elliptic Curve Digital Signature Algorithm with Curve25519)</p>
+<p>Digital Signatures: ECDSA Ed25519 (Elliptic Curve Digital Signature Algorithm with Curve25519), 256bit</p>
 
-<p>Key Exchange: ECDH X25519 (Elliptic Curve Diffie Hellman with Curve25519)</p>
+<p>Key Exchange: ECDH X25519 (Elliptic Curve Diffie Hellman with Curve25519), 256bit</p>
+
+<h2 id="used-randomness">Used Randomness</h2>
+
+<p>To reach enough entropy for safe private and secret keys, key generation is based on randomness, which is very important for modern cryptography. Applications rely on cryptographic libraries for randomness which in turn use software-based randomness (like timestamps, calculation durations and seeds) and hardware-supported randomness (like sensor input, hardware ids or even dedicated ranomness modules).</p>
+
+<p>Our randomness is based on the mentioned library <a href="https://github.com/jedisct1/libsodium.js">libsodium.js</a> which is using the standard <a href="https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues">WebCrypto APIs</a>. With the WebCrypto API, the browser’s randomness generator is used. The browser uses either an own implementation of a secure Pseudo-Random-Generator, or - in modern browsers - the operating system’s random generator, which is usually taking hardware into consideration. Our solution is thus using the same mechanisms the browser use for securing Transport Layer Security (TLS) communication over the world wide web.</p>
 
 <h2 id="identity-keys">Identity Keys</h2>
+
+<p>Every Identity needs a set of keys used by the Identity in order to digitally sign information (Identity Signature Key) and enable cross-device synchronization (Synchronization Base Key).</p>
 
 <h3 id="identity-signature-private-key">Identity Signature Private Key</h3>
 
@@ -342,15 +348,13 @@
 
 <p>Usually, you receive another identity’s signature public key while making the first contact (e.g. from the relationship template or the relationship request followed upon it).</p>
 
-<h3 id="synchronization-derived-secret-key">Synchronization Derived Secret Key</h3>
+<h3 id="synchronization-base-secret-key">Synchronization Base Secret Key</h3>
 
-<p>The symmetric keys which are derived from the synchronization master key and are used to actually encrypt/decrypt the synchronization events.</p>
-
-<h3 id="synchronization-master-secret-key">Synchronization Master Secret Key</h3>
-
-<p>The symmetric master key which is used to derive the synchronization derived secret keys. The synchronization master secret key is randomly generated on creation for every identity.</p>
+<p>The secret key which is used to derive the synchronization derived secret keys. The synchronization base secret key is randomly generated on creation for every identity. The symmetric keys which are derived from the synchronization base key and are used to actually encrypt/decrypt the synchronization events.</p>
 
 <h2 id="device-keys">Device Keys</h2>
+
+<p>One identity has one to many devices using the identity. In order to authenticate the devices between each other, a device creates an own signing key, which will never leave the device.</p>
 
 <h2 id="device-signature-private-key">Device Signature Private Key</h2>
 
@@ -362,9 +366,21 @@
 
 <p>The device’s public key which is stored in the Datawallet of an identity and thus is know to any other device of the identity. The public key can be used to verify data coming from other devices of an identity.</p>
 
-<h2 id="file-encryption">File Encryption</h2>
+<h2 id="symmetric-encryption">Symmetric Encryption</h2>
 
-<p>As with tokens, prior to the upload, a random secret key is generated and used to encrypt the file payload. In addition to the file payload, metadata (like filename or mimetype) to the file is stored next to it. For this, another random secret key is generated for encrypting the metadata. To omit unnecessary payload while sharing files, the generated secret key for actual file payload is encrypted with its metadata, so that only the generated secret key for the metadata must be shared (in addition to the file id).</p>
+<p>Symmetric encryption is used throughout this solution in order to securely encrypt sensitive data. Prior to a communication to a different device or identity, a random secret key is generated and used to encrypt the payload. This secret key is then shared via a secure side-channel / out-of-band communication. This could be a message communicated over enmeshed, a QR-Code shown in a browser session or any other secure communication channel. The secret key is never transmitted unencrypted over the Backbone, as this would break up the end-to-end encryption.</p>
+
+<p>Examples where symmetric encryption is used:</p>
+
+<ul>
+  <li>Device-to-Device Synchronization</li>
+  <li>Sharing Files</li>
+  <li>Messages</li>
+  <li>Relationship Templates</li>
+  <li>Tokens</li>
+</ul>
+
+<p>For files only: In addition to the payload, metadata (like filename or mimetype) of the file needs to be separately encrypted. For this, another random secret key is generated for encrypting the metadata of the file. To omit unnecessary payload while sharing files, the generated secret key for actual file payload is stored within this metadata. Thus, only the generated secret key for the metadata must be shared (in addition to the file id).</p>
 
 <h2 id="relationship-keys">Relationship Keys</h2>
 
@@ -383,10 +399,6 @@ The symmetric master key for receiving communication of the relationship. The ke
 The derived symmetric master key for transmitting communication to the relationship. The key is derived by the relationship peer exchange public key and the relationship own exchange private key. This key equals to the relationship receive master key of the peer.</li>
 </ul>
 
-<h2 id="relationship-template-encryption">Relationship Template Encryption</h2>
-
-<h2 id="token-encryption">Token Encryption</h2>
-
         
       </section>
 
@@ -397,7 +409,7 @@ The derived symmetric master key for transmitting communication to the relations
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-10-09T11:59:19+02:00">October 9, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-10-09T12:52:18+02:00">October 9, 2023</time></p>
 
       </footer>
 

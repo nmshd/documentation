@@ -108,7 +108,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Cryptography",
-        "excerpt":"Backbone Layer Encryption The communication with the Backbone is encrypted on the http transport layer. This is done by using the transport-layer-security (TLS) standard which is common throughout the Internet. This prevents third parties to access any data communication to and from the Backbone. Data at rest is encrypted on...","categories": [],
+        "excerpt":"Backbone Layer Encryption The communication with the Backbone is encrypted on the http transport layer. This is done by using the transport-layer-security (TLS) standard which is common throughout the Internet. This prevents third parties to access any data communication to and from the Backbone, like authentication tokens of devices, recipient...","categories": [],
         "tags": [],
         "url": "/explore/cryptography",
         "teaser": null
