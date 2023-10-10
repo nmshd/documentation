@@ -1,7 +1,9 @@
-
 Query all attributes.
 
-## Example Body
+Since this api uses a GET request the query has to be properly formated in the query-string,
+see the example below for reference.
+
+## Example Query
 
 ```json
 {
@@ -14,10 +16,7 @@ Query all attributes.
 ## Example 
 
 ```shell
-curl --location --request GET 'http://{connector_url}/api/v2/Attributes' \
+curl --location --request GET 'http://{connector_url}/api/v2/Attributes?content.value.%40type=DisplayName' \
 --header 'X-API-KEY: xxx' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "content.value.@type": "DisplayName"
-}'
+--header 'Content-Type: application/json' 
 ```
