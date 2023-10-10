@@ -1,24 +1,12 @@
-Query incoming requests.
+Query incoming requests by id.
 
-## Example Body
 
-```json
-{
-    "peer": "addressOfPeerThatSentTheRequest",
-    "content.items.@type": "ShareAttributeRequestItem"
-}
-```
-
-{% include rapidoc api_route_regex="^get /api/v2/Requests/Incoming$" %}
+{% include rapidoc api_route_regex="^get /api/v2/Requests/Incoming/{id}$" %}
 
 ## Example
 
 ```shell
-curl --location --request GET 'http://{connector_url}/api/v2/Requests/Incoming' \
+curl --location --request GET 'http://{connector_url}/api/v2/Requests/Incoming/{id}' \
 --header 'X-API-KEY: xxx' \
 --header 'Content-Type: application/json' \
---data-raw '{
-    "peer": "addressOfPeerThatSentTheRequest",
-    "content.items.@type": "ShareAttributeRequestItem"
-}'
 ```

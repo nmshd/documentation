@@ -1,6 +1,9 @@
 
 Query outgoing requests.
 
+Since this api uses a GET request the query has to be properly formated in the query-string,
+see the example below for reference.
+
 ## Example Body
 
 ```json
@@ -16,12 +19,10 @@ Query outgoing requests.
 ## Example
 
 ```shell
-curl --location --request GET 'http://{connector_url}/api/v2/Requests/Outgoing' \
---header 'X-API-KEY: xxx' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "peer": "addressOfPeerThatSentTheRequest",
-    "content.items.@type": "ShareAttributeRequestItem",
-    "content.items.items.@type": "DisplayName"
-}'
+curl -X 'GET' \
+  'https://blubi.codes/api/v2/Requests/Outgoing?peer=addressOfPeerThatTheRequestWasSentTo
+  &content.items.%40type=ShareAttributeRequestItem
+  &content.items.items.%40type=DisplayName' \
+  -H 'accept: application/json' \
+  -H 'X-API-KEY: xxx'
 ```

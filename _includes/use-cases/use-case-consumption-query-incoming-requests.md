@@ -1,6 +1,9 @@
 
 Query incoming requests.
 
+Since this api uses a GET request the query has to be properly formated in the query-string,
+see the example below for reference.
+
 ## Example Body
 
 ```json
@@ -15,11 +18,9 @@ Query incoming requests.
 ## Example
 
 ```shell
-curl --location --request GET 'http://{connector_url}/api/v2/Requests/Incoming' \
---header 'X-API-KEY: xxx' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "peer": "addressOfPeerThatSentTheRequest",
-    "content.items.@type": "ShareAttributeRequestItem"
-}'
+curl -X 'GET' \
+'https://blubi.codes/api/v2/Requests/Incoming?peer=addressOfPeerThatSentTheRequest
+ &content.items.%40type=ShareAttributeRequestItem' \
+-H 'accept: application/json' \
+-H 'X-API-KEY: xxx'
 ```
