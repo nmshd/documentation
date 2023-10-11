@@ -1,4 +1,4 @@
-Checks if an incomming request can be successfully accepted.
+Checks if an incoming request can be successfully accepted.
 
 The items array indicate the decision made for each individual request item in the request.
 

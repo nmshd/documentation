@@ -1,4 +1,4 @@
-Attempts to accept an incomming request by it's Id.
+Attempts to accept an incoming request by it's Id.
 
 The items array indicate the decision made for each individual request item in the request.
 
