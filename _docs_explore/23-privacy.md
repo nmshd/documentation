@@ -34,7 +34,7 @@ Enmeshed is based on such a least-knowledge principle:
 
 ## Analyzing metadata
 
-The threat of metadata analytics should not be underestimated and can also not be eradicated by us unfortunately. Thus, a Backbone operator might still be able to analyze metadata stored within the Backbone although it is "zero knowledge".
+The threat of metadata analytics should not be underestimated and can also not be eradicated by us unfortunately. Thus, a Backbone operator might still be able to analyze metadata stored within the Backbone although it is "least knowledge".
 
 # Comparison to decentral technologies
 
