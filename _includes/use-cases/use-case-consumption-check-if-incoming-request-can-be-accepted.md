@@ -6,10 +6,7 @@ The items array indicate the decision made for each individual request item in t
 
 ```json
 {
-    "items": [
-        { "accept": true },
-        { "accept": false }
-    ]
+  "items": [{ "accept": true }, { "accept": false }]
 }
 ```
 

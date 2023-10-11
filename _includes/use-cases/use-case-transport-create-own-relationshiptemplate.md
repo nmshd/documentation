@@ -21,7 +21,7 @@ Read [more](/integrate/data-model-overview#relationshiptemplate).
 
 {% include rapidoc api_route_regex="^post /api/v2/RelationshipTemplates/Own$" %}
 
-## Example 
+## Example
 
 ```shell
 curl --location --request POST 'http://{connector_url}/api/v2/RelationshipTemplates/Own' \
@@ -39,4 +39,3 @@ curl --location --request POST 'http://{connector_url}/api/v2/RelationshipTempla
   }
 }'
 ```
-

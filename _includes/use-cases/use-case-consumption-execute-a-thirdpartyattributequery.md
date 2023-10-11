@@ -1,22 +1,20 @@
 Execute third party attribute query.
 
-Searches an relationship attribute by key in third parties given in the 
+Searches an relationship attribute by key in third parties given in the
 thirdParty array.
 
-## Example Body 
+## Example Body
 
 ```json
 {
-    "query": {
-        "key": "KeyOfAttribute",
-        "owner": "enmeshedAddressOfOwner",
-        "thirdParty": [
-            "address_a",
-            "address_b"
-        ]
-    }
+  "query": {
+    "key": "KeyOfAttribute",
+    "owner": "enmeshedAddressOfOwner",
+    "thirdParty": ["address_a", "address_b"]
+  }
 }
 ```
+
 {% include rapidoc api_route_regex="^post /api/v2/attributes/ExecuteThirdPartyRelationshipAttributeQuery$" %}
 
 ## Example

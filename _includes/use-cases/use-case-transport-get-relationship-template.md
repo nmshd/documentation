@@ -3,7 +3,7 @@ The format depends on the accept header.
 
 {% include rapidoc api_route_regex="^get /api/v2/RelationshipTemplates/{id}$" %}
 
-## Example 
+## Example
 
 ```shell
 curl --location 'http://{connector_url}/api/v2/RelationshipTemplates/{id}' \

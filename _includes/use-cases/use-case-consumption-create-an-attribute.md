@@ -7,14 +7,14 @@ The content is the to be created attribute, either an 'IdentityAttribute' or an
 
 ```json
 {
-    "content": {
-        "@type": "IdentityAttribute",
-        "owner": "<your address>",
-        "value": {
-            "@type": "DisplayName",
-            "value": "Example"
-        }
+  "content": {
+    "@type": "IdentityAttribute",
+    "owner": "<your address>",
+    "value": {
+      "@type": "DisplayName",
+      "value": "Example"
     }
+  }
 }
 ```
 

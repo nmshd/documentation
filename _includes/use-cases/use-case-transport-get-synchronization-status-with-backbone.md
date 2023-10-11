@@ -3,7 +3,7 @@ Returns all relationships and messages with a new status.
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
-## Example 
+## Example
 
 ```shell
 curl --location --request POST 'http://{connector_url}/api/v2/Account/Sync' \

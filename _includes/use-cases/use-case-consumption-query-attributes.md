@@ -7,16 +7,16 @@ see the example below for reference.
 
 ```json
 {
-    "content.value.@type": "DisplayName"
+  "content.value.@type": "DisplayName"
 }
 ```
 
 {% include rapidoc api_route_regex="^get /api/v2/Attributes$" %}
 
-## Example 
+## Example
 
 ```shell
 curl --location --request GET 'http://{connector_url}/api/v2/Attributes?content.value.%40type=DisplayName' \
 --header 'X-API-KEY: xxx' \
---header 'Content-Type: application/json' 
+--header 'Content-Type: application/json'
 ```

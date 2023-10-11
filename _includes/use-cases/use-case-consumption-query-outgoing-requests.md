@@ -1,4 +1,3 @@
-
 Query outgoing requests.
 
 Since this api uses a GET request the query has to be properly formated in the query-string,
@@ -8,9 +7,9 @@ see the example below for reference.
 
 ```json
 {
-    "peer": "addressOfPeerThatTheRequestWasSentTo",
-    "content.items.@type": "ShareAttributeRequestItem",
-    "content.items.items.@type": "DisplayName"
+  "peer": "addressOfPeerThatTheRequestWasSentTo",
+  "content.items.@type": "ShareAttributeRequestItem",
+  "content.items.items.@type": "DisplayName"
 }
 ```
 
