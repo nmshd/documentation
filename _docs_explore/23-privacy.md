@@ -5,9 +5,51 @@ permalink: /explore/privacy
 
 Privacy is one of the main pillars of digitalization approaches. It might be the most important one.
 
-There are many laws, regulations, user and organizational notions to take into consideration.
+There are many laws, regulations, user and organizational notions to take into consideration. We follow the European General Data Protection Regulation (GDPR) or in German Datenschutz-Grundverordnung (DSGVO).
 
-We came up with an approach which is highly scalable and maintainable, without having personal or sensitive data in access. Additionally, the actual processes between persons and organizations were considered and the personal data shared between them is reduced to a minimum.
+We came up with an approach which is highly scalable and maintainable, without having the actual user data in access. Additionally, the real-world processes between persons and organizations were considered and the personal data shared between them is triggered and maintained by the user (i.e. the data owner) for allmost all scenarios.
+
+## What is Personal Data / Personally Identifiable Information?
+
+> Personal data is any information that relates to an identified or identifiable living individual. Different pieces of information, which collected together can lead to the identification of a particular person, also constitute personal data.
+> Personal data that has been de-identified, encrypted or pseudonymised but can be used to re-identify a person remains personal data and falls within the scope of the GDPR."
+
+Source: <https://commission.europa.eu/law/law-topic/data-protection/reform/what-personal-data_en>
+
+This quote nicely summarizes the intention of the GDPR, but not the vastness of implications which arise with it. Without going into details (yet), many datasets are considered personal data and thus fall into the scope of the GDPR.
+
+There is also the term Personally Identifiable Information (PII) which legally means the same thing as "personal data" if you read it like the quote above. However, many persons do not consider technical ids, public keys or IP addresses as "personal data", as they associate names, birth dates or credit card numbers with it.
+
+Possible Examples of Personal Data / PII:
+
+- Names
+- Addresses
+- Phone numbers
+- E-Mail addresses
+- Birth dates
+- Payment details
+- IP addresses
+- Encryption / signing keys
+- Pseudonyms
+- Identification numbers
+
+## Absolute vs. relative data privacy
+
+There are two mindsets out in the open:
+
+- The **absolute data privacy** is a defensive and theoretical mindset. All data which could in theory be used to identify a person is considered PII and thus also needs to be deleted after the data processing. This has huge implications, as even ciphertexts (which one does not have the key to) and one-way hashes of PII need to be considered PII, as theoretically it is possible to get the PII out of this information. The absolute mindset is usually required by public entities and governments.
+- The **relative data privacy** is an aggressive and practical mindset. Data which is practically impossible to
+
+## What is Personal Data for Enmeshed?
+
+The notion "Personal data that has been de-identified, encrypted or **pseudonymised** but can be used to re-identify a person remains personal data." does have many implications for Enmeshed - as to any other solution.
+
+We are no lawyers or respected data privacy experts within the community, thus our interpretation of the data privacy regulations is a very narrow one:
+
+1. Pseudonyms or technical identifiers like Enmeshed Addresses, Enmeshed Public Keys, Device Ids, etc. are personal data, if the system has the possibility of mapping these pseudonyms to real world persons
+2. One-way functions (hashes/digests) of personal data are considered as personal data, if the system has the possibility of mapping these hashes to real world persons or could potentially map the hashes to real world persons (hashes without salts, public rainbow tables, etc...)
+3. Encrypted personal data is still considered personal data, if the system has the possibility of decrypting the personal data (e.g. if it still has the keys) or could potentially decrypt the personal data without having the keys (weak or old encryption)
+4. Metadata like Timestamps or Relationships are personal data, if the system has the possibility of mapping these metadata to real-world persons (e.g. if the Backbone could deduct the person by knowing that a real world person triggered a Backbone action at the same time or by analyzing the relationships of an Identity)
 
 # Backbone Privacy
 
@@ -45,25 +87,6 @@ However, there are some advantages to a central architecture:
 - With a central architecture, it is generally possible to restrict the access to data on a network level. Only the sender and recipients of a message have access to the encrypted payload of this message, for example. Even if the data is encrypted or pseunodymized, on a decentral architecture everybody would still have access to the encrypted payload.
 - With a central architecture, the analysis of metadata can only be done by the central player. On a decentral system, anybody could analyse the metadata.
 - With a central architecture, it is generally possible to effectively delete data (or let it expire). Although there are also some decentral technologies allowing the deletion of data, there is no guarantee, that data which was available in the decentral network prior to deletion, is really deleted from any node or node backup of the network.
-
-## **What is Personal Data?**
-
-"Personal data is any information that relates to an **identified or identifiable living individual**. Different pieces of information, which collected together can lead to the identification of a particular person, also constitute personal data.
-
-Personal data that has been de-identified, encrypted or **pseudonymised** but can be used to re-identify a person remains personal data and falls within the scope of the GDPR."
-
-Source: <https://commission.europa.eu/law/law-topic/data-protection/reform/what-personal-data_en>
-
-## **What is Personal Data for Enmeshed?**
-
-The notion "Personal data that has been de-identified, encrypted or **pseudonymised** but can be used to re-identify a person remains personal data." does have many implications for Enmeshed - as to any other solution.
-
-We are no lawyers or respected data privacy experts within the community, thus our interpretation of the data privacy regulations is a very narrow one:
-
-1. Pseudonyms or technical identifiers like Enmeshed Addresses, Enmeshed Public Keys, Device Ids, etc. are personal data, if the system has the possibility of mapping these pseudonyms to real world persons
-2. One-way functions (hashes/digests) of personal data are considered as personal data, if the system has the possibility of mapping these hashes to real world persons or could potentially map the hashes to real world persons (hashes without salts, public rainbow tables, etc...)
-3. Encrypted personal data is still considered personal data, if the system has the possibility of decrypting the personal data (e.g. if it still has the keys) or could potentially decrypt the personal data without having the keys (weak or old encryption)
-4. Metadata like Timestamps or Relationships are personal data, if the system has the possibility of mapping these metadata to real-world persons (e.g. if the Backbone could deduct the person by knowing that a real world person triggered a Backbone action at the same time or by analyzing the relationships of an Identity)
 
 <!-- <div style="overflow-x:auto"> -->
 
