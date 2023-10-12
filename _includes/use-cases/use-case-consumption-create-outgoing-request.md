@@ -46,7 +46,7 @@ The content is the to be created request defined in the [data model](/integrate/
 }
 ```
 
-{% include rapidoc api_route_regex="^post /api/v2/Requests/Outgoing$" %}
+{% include rapidoc%}
 
 ## Example
 

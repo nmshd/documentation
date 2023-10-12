@@ -16,7 +16,18 @@
     paths-expanded="false"
     theme="light"
     bg-color="#f9f9fb"
+    {%
+    if
+    page.api_route_regex=""
+    %}
+    match-paths="{{ page.api_route_regex }}"
+    {%
+    else
+    %}
     match-paths="{{ include.api_route_regex }}"
+    {%
+    endif
+    %}
     match-type="regex"
 ></rapi-doc-mini>
 <br />

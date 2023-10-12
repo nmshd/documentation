@@ -35,6 +35,7 @@ require:
 required_by:
   - integrate/integration-example
   - integrate/requests-over-messages
+api_route_regex: ^post /api/v2/Requests/Outgoing$
 ---
 
 {% include use-cases/use-case-consumption-create-outgoing-request.md %}
