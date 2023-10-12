@@ -19,7 +19,7 @@ properties:
   - comments:
   - actor: Identity
   - component: Runtime
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
   - priority: n/a

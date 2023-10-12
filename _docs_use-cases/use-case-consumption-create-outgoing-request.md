@@ -31,6 +31,7 @@ properties:
   - published: default
   - link: consumption/create-outgoing-request
 require:
+  - /use-case-ror1
 required_by:
 ---
 
