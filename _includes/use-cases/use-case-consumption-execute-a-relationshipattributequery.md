@@ -1,45 +1,28 @@
 Execute relationship attribute query.
 
-Relationship attributes are all attributes that are shared within a
-relationship of the identity.
+[Relationship attributes](/integrate/data-model-overview#relationshipattribute) are all attributes that are shared within a
+relationship of the identity. This endpoint is used to query the realationship attributes of a peer.
+
+The structure of the query is defined in the [data model](/integrate/data-model-overview#attributequeries).
 
 ## Example Body
 
 ```json
 {
   "query": {
-    "key": "KeyOfRelAttribute",
+    "key": "ElectricMeterNumber",
     "owner": "enmeshedAddressOfOwner",
     "attributeCreationHints": {
       "confidentiality": "public",
-      "title": "My display name",
+      "title": "electric meter number",
+      "valueType": "ProprietaryString",
       "valueHints": {
-        "@type": "ProprietaryBoolean"
+        "@type": "Proprietary"
       }
     }
   }
 }
 ```
 
-{% include rapidoc api_route_regex="^post /api/v2/attributes/ExecuteRelationshipAttributeQuery$" %}
+{% include rapidoc api_route_regex="^post /api/v2/attributes/ExecuteRelationshipAttributeQuery$" title="API docs" %}
 
-## Example
-
-```shell
-curl --location --request POST 'http://{connector_url}/api/v2/Attributes/ExecuteRelationshipAttributeQuery' \
---header 'X-API-KEY: xxx' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "query": {
-        "key": "KeyOfRelAttribute",
-        "owner": "enmeshedAddressOfOwner",
-        "attributeCreationHints": {
-            "confidentiality": "public",
-            "title": "My display name",
-            "valueHints": {
-                "@type": "ProprietaryBoolean"
-            }
-        }
-    }
-}
-```

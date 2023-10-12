@@ -3,6 +3,8 @@ Execute third party attribute query.
 Searches an relationship attribute by key in third parties given in the
 thirdParty array.
 
+The structure of the query is defined in the [data model](/integrate/data-model-overview#thirdpartyrelationshipattributequery).
+
 ## Example Body
 
 ```json
@@ -15,22 +17,5 @@ thirdParty array.
 }
 ```
 
-{% include rapidoc api_route_regex="^post /api/v2/attributes/ExecuteThirdPartyRelationshipAttributeQuery$" %}
+{% include rapidoc api_route_regex="^post /api/v2/attributes/ExecuteThirdPartyRelationshipAttributeQuery$" title="API docs" %}
 
-## Example
-
-```shell
-curl --location --request POST 'http://{connector_url}/api/v2/Attributes/ExecuteRelationshipAttributeQuery' \
---header 'X-API-KEY: xxx' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "query": {
-        "key": "KeyOfAttribute",
-        "owner": "enmeshedAddressOfOwner",
-        "thirdParty": [
-            "address_a",
-            "address_b"
-        ]
-    }
-}
-```

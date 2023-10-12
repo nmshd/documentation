@@ -1,7 +1,7 @@
 Query all attributes.
 
 Since this api uses a GET request the query has to be properly formated in the query-string,
-see the example below for reference.
+refer to the interactive API docs bellow for reference.
 
 ## Example Query
 
@@ -11,12 +11,5 @@ see the example below for reference.
 }
 ```
 
-{% include rapidoc api_route_regex="^get /api/v2/Attributes$" %}
+{% include rapidoc api_route_regex="^get /api/v2/Attributes$" title="API docs" %}
 
-## Example
-
-```shell
-curl --location --request GET 'http://{connector_url}/api/v2/Attributes?content.value.%40type=DisplayName' \
---header 'X-API-KEY: xxx' \
---header 'Content-Type: application/json'
-```
