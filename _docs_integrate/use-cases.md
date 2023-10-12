@@ -15,7 +15,7 @@ properties:
   - component: integrate
   - level:
   - implementation status: DONE
-  - documentation status: DONE
+  - documentation status: OLD
   - published: true
   - link: integrate/use-cases
 require:

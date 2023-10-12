@@ -15,7 +15,7 @@ properties:
   - component: integrate
   - level: Advanced
   - implementation status: DOCS ONLY
-  - documentation status: OPEN
+  - documentation status: OLD
   - published: true
   - link: integrate/connector-events
 require:

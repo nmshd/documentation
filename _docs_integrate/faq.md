@@ -12,8 +12,8 @@ properties:
   - customer:
   - component: integrate
   - level:
-  - implementation status:
-  - documentation status:
+  - implementation status: DOCS ONLY
+  - documentation status: OPEN
   - published:
   - link: integrate/faq
 require:
