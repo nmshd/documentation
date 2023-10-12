@@ -1,7 +1,7 @@
 ---
 permalink: /use-case-device-get-the-number-of-requests-and-the-status-codes-that-were-returned-by-the-connector
 published: true
-title: "Get the number of requests and the status codes that were returned by the Connector."
+title: "Get the number of requests and the status codes that were returned by the Connector"
 type: use-case
 toc: true
 sidebar:

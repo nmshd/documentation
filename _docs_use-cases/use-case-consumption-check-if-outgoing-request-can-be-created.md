@@ -32,6 +32,7 @@ properties:
   - link: consumption/check-if-outgoing-request-can-be-created
 require:
 required_by:
+  - /use-case-consumption-create-outgoing-request
 ---
 
 {% include use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}

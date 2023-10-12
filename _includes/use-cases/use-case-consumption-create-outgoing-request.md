@@ -1,6 +1,24 @@
 Create outgoing request.
 
+{% include properties_list.html %}
+
 The content is the to be created request defined in the [data model](/integrate/data-model-overview#request).
+
+## Goals
+
+## Actors
+
+- User
+- Integrator
+
+## Dependencies
+
+| previous                                                                                                                              | successor                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **[Check if outgoing Request can be created:](/use-case-consumption-check-if-outgoing-request-can-be-created)** <br> Das ist ein Text | **[Integration example:](/integrate/integration-example)** <br> Das ist ein Text |
+|                                                                                                                                       | Das ist auch ein Text                                                            |
+
+**[Integration example:](/integrate/integration-example)** <br> Das ist ein Text
 
 ## Example Body
 

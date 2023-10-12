@@ -31,7 +31,10 @@ properties:
   - published: default
   - link: consumption/create-outgoing-request
 require:
+  - /use-case-consumption-check-if-outgoing-request-can-be-created
 required_by:
+  - integrate/integration-example
+  - integrate/requests-over-messages
 ---
 
 {% include use-cases/use-case-consumption-create-outgoing-request.md %}

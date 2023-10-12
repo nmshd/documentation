@@ -1,5 +1,7 @@
 Validates an outgoing request without creating it.
 
+{% include properties_list.html %}
+
 The content is the to be created request defined in the [data model](/integrate/data-model-overview#request).
 
 ## Example Body

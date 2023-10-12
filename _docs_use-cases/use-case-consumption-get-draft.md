@@ -19,7 +19,7 @@ properties:
   - comments:
   - actor: Identity
   - component: Runtime
-  - trigger:
+  - trigger: Runtime
   - precondition:
   - result:
   - priority: n/a
