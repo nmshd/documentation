@@ -20,4 +20,4 @@ This use-case is intended to create one request for a single peer. One should [c
 
 {% include usecase_connector_intro %}
 
-{% include rapidoc api_route_regex="^post /api/v2/Requests/Outgoing$" %}
+{% include rapidoc %}
