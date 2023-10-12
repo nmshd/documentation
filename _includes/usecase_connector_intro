@@ -1,0 +1,4 @@
+## How to execute this use-case with the Connector?
+
+The Connector is our first-class citizen, thus we provide you with a detailed API description for every use-case.
+This use-case can be executed with the REST API of the Connector which you can [Access the Connector](/integrate/access-the-connector).

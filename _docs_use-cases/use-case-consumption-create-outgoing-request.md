@@ -30,6 +30,7 @@ properties:
   - link auf testcode:
   - published: default
   - link: consumption/create-outgoing-request
+  - connector_route: "^post /api/v2/Requests/Outgoing$"
 require:
   - /use-case-consumption-check-if-outgoing-request-can-be-created
 required_by:

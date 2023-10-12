@@ -1,78 +1,23 @@
-Create outgoing request.
+{{properties.description}}
 
 {% include properties_list.html %}
 
-The content is the to be created request defined in the [data model](/integrate/data-model-overview#request).
+This use-case is intended to create one request for a single peer. One should [check if outgoing request can be created](use-case-consumption-check-if-outgoing-request-can-be-created) before creating the request with this use-case.
 
-## Goals
+## Parameters
 
-## Actors
+- The content for the to be created request is described in the [data model](/integrate/data-model-overview#request).
+- The peer is the address of the recipient of this request. There can only be one peer per request.
 
-- User
-- Integrator
+## On Success
 
-## Dependencies
+- The [LocalRequest](http://localhost:4000/integrate/data-model-overview#localrequest) is created but so far not sent to the peer. It needs to be manually submitted to the peer, e.g. [by sending a message](http://localhost:4000/integrate/requests-over-messages).
 
-| previous                                                                                                                              | successor                                                                        |
-| ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| **[Check if outgoing Request can be created:](/use-case-consumption-check-if-outgoing-request-can-be-created)** <br> Das ist ein Text | **[Integration example:](/integrate/integration-example)** <br> Das ist ein Text |
-|                                                                                                                                       | Das ist auch ein Text                                                            |
+## On Failure
 
-**[Integration example:](/integrate/integration-example)** <br> Das ist ein Text
+- The request cannot be created if the peer is unknown.
+- The request cannot be created if the request content is malformed. Please [check if the outgoing request can be created](use-case-consumption-check-if-outgoing-request-can-be-created) for more details.
 
-## Example Body
-
-```json
-{
-  "content": {
-    "expiresAt": "2024-01-01T00:00:00.000Z",
-    "items": [
-      {
-        "@type": "ShareAttributeRequestItem",
-        "mustBeAccepted": true,
-        "attribute": {
-          "@type": "IdentityAttribute",
-          "owner": "",
-          "value": {
-            "@type": "DisplayName",
-            "value": "Example"
-          }
-        },
-        "sourceAttributeId": "<id of attribute above, generated on creation>"
-      }
-    ]
-  },
-  "peer": "peerId"
-}
-```
+{% include usecase_connector_intro %}
 
 {% include rapidoc api_route_regex="^post /api/v2/Requests/Outgoing$" %}
-
-## Example
-
-```shell
-curl --location --request POST 'http://{connector_url}/api/v2/Requests/Outgoing' \
---header 'X-API-KEY: xxx' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "content": {
-        "expiresAt": "2024-01-01T00:00:00.000Z",
-        "items": [
-        {
-            "@type": "ShareAttributeRequestItem",
-            "mustBeAccepted": true,
-            "attribute": {
-                "@type": "IdentityAttribute",
-                "owner": "",
-                "value": {
-                    "@type": "DisplayName",
-                    "value": "Example"
-                }
-            },
-            "sourceAttributeId": "<id of attribute above, generated on creation>"
-        }
-        ]
-    },
-    "peer": "peerId"
-}'
-```
