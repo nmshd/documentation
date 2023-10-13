@@ -145,10 +145,10 @@ docs_operate:
         url: /operate/privacy-considerations
       - title: "Performance Considerations"
         url: /operate/performance-considerations
-      - title: Backbone Operations
-        children:
-          - title: "Log Event IDs"
-            url: /operate/backbone-log-event-ids
+  - title: Backbone Operations
+    children:
+      - title: "Log Event IDs"
+        url: /operate/backbone-log-event-ids
   - title: Troubleshooting
     children:
       - title: "Troubleshooting Guide"
