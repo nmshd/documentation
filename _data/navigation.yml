@@ -148,7 +148,7 @@ docs_operate:
   - title: Backbone Operations
     children:
       - title: "Log Event IDs"
-        url: /operate/backbone-log-event-ids
+        url: /operate/log-event-ids
   - title: Troubleshooting
     children:
       - title: "Troubleshooting Guide"
