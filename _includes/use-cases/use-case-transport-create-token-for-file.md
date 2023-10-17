@@ -1,11 +1,11 @@
 Creates a [token](/integrate/data-model-overview#token) for a given file that
 corresponds to the given id.
 
-## Example Body 
+## Example Body
 
 ```json
 {
-    "expiresAt": "2024-01-01T00:00:00.000Z"
+  "expiresAt": "2024-01-01T00:00:00.000Z"
 }
 ```
 

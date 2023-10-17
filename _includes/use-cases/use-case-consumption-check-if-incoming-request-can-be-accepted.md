@@ -9,9 +9,9 @@ can be accepted with the given parameters without actually accepting it.
 
 - The `id` of the incomming request.
 - The decision for each individual [RequestItem](/integrate/data-model-overview#request)
-expressed as the appropriate [Parameters defined in the Data Model](/integrate/requests-and-requestitems).
+  expressed as the appropriate [Parameters defined in the Data Model](/integrate/requests-and-requestitems).
 
-## On Success 
+## On Success
 
 - The request can be accepted with the given parameters.
 

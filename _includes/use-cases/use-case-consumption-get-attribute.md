@@ -5,11 +5,11 @@
 This use-case is intended to retrieve a [attribute](/integrate/data-model-overview#attributes)
 by it's id.
 
-## Parameters 
+## Parameters
 
 - The `id` of the attribute.
 
-## On Success 
+## On Success
 
 - The attribute corresponding to the id.
 

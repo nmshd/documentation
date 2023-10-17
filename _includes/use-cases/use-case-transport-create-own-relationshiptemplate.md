@@ -20,4 +20,3 @@ Read [more](/integrate/data-model-overview#relationshiptemplate).
 ```
 
 {% include rapidoc api_route_regex="^post /api/v2/RelationshipTemplates/Own$" title="API docs" %}
-

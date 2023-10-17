@@ -11,7 +11,9 @@ based on a given `request` (as a [Request](integrate/data-model-overview#localre
 - The `peer` is the address of the recipient of this request. There can only be one peer per request.
 
 ## On Success
- Please [check if the outgoing request can be created](use-case-consumption-check-if-outgoing-request-can-be-created) for more details.
+
+Please [check if the outgoing request can be created](use-case-consumption-check-if-outgoing-request-can-be-created) for more details.
+
 - A [LocalRequest](integrate/data-model-overview#localrequest) for the given parameters can be created.
 
 ## On Failure

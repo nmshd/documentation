@@ -12,4 +12,3 @@ refer to the interactive API docs bellow for reference.
 ```
 
 {% include rapidoc api_route_regex="^get /api/v2/Attributes$" title="API docs" %}
-

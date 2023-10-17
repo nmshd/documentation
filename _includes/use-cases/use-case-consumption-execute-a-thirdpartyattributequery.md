@@ -5,11 +5,11 @@
 This use-case is intended to search for a peer's relationship attribute that was created
 in a relationship with a third party.
 
-## Parameters 
+## Parameters
 
 - The `query` for the to be searched attribute is described in the [data model](/integrate/data-model-overview#thirdpartyrelationshipattributequery).
 
-## On Success 
+## On Success
 
 - A list of attributes that conform to the query is returned.
 
