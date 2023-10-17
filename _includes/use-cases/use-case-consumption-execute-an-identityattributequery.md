@@ -1,19 +1,19 @@
-Query identity attributes.
+{{properties.description}}
 
-[Identity attributes](/integrate/data-model-overview#identityattribute) are attributes that describe an identity.
-This use case is used to query a specific identity attribute described by the query.
+{% include properties_list.html %}
 
-The query structure is defined in the [data model](/integrate/data-model-overview#identityattributequery).
+This use-case is intended to query the [identity attributes](/integrate/data-model-overview#identityattribute)
+of the identity.
 
-## Example Body
+## Parameters
 
-```json
-{
-  "query": {
-    "valueType": "DisplayName"
-  }
-}
-```
+- The `query` for the searched identity attribute is described in the [data model](/integrate/data-model-overview#identityattributequery).
 
-{% include rapidoc api_route_regex="^post /api/v2/Attributes/ExecuteIdentityAttributeQuery$" %}
+## On Success
 
+- Returns all identity attributes that conform to the query.
+
+## On Failure
+
+- No corresponding attributes could be found.
+- The query was malformed. Please make sure it complies to the [data model](/integrate/data-model-overview#relationshipattributequery).

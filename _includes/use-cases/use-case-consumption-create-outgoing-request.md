@@ -2,7 +2,8 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to create an actionable [LocalRequest](integrate/data-model-overview#localrequest) based on a given `request` (as a [Request](integrate/data-model-overview#localrequest) datastructure) for a given `peer`. One can (and should) [check if the outgoing request can be created](use-case-consumption-check-if-outgoing-request-can-be-created) before creating the request with this use-case.
+This use-case is intended to create an actionable [LocalRequest](integrate/data-model-overview#localrequest) based on a given `request` (as a [Request](integrate/data-model-overview#localrequest) datastructure) for a given `peer`.
+One can (and should) [check if the outgoing request can be created](use-case-consumption-check-if-outgoing-request-can-be-created) before creating the request with this use-case.
 
 ## Parameters
 

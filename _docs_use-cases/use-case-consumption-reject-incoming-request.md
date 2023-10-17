@@ -32,6 +32,7 @@ properties:
   - link: consumption/reject-incoming-request
 require:
 required_by:
+api_route_regex: ^get /api/v2/Requests/Outgoing/{id}/Reject$
 ---
 
 {% include use-cases/use-case-consumption-reject-incoming-request.md %}

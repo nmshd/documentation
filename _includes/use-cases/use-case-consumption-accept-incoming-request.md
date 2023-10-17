@@ -1,18 +1,23 @@
-Attempts to accept an incoming request by it's Id.
+{{properties.description}}
 
-A [request](/integrate/data-model-overview#request) consists of [RequestItems](/integrate/data-model-overview#requestitem)
-and/or [RequestItemGroups](/integrate/data-model-overview#requestitemgroup). To accept the request
-the body has to contain a items array that indicates the decisions made for each request item.
-The decision are expressed through [ResponseItems](/integrate/data-model-overview#responseitem) whose
-structure is dependent on the corresponding RequestItem.
+{% include properties_list.html %}
 
-## Example Body
+This use-case attempts to accept an incomming [Request](/integrate/data-model-overview#request). 
+It is advised to [check if incoming request can be accepted](/use-case-consumption-check-if-incoming-request-can-be-accepted)
+in advance.
 
-```json
-{
-  "items": [{ "accept": true }, { "accept": false }]
-}
-```
+## Parameters
 
-{% include rapidoc api_route_regex="^put /api/v2/Requests/Incoming/{id}/Accept$" title="API docs" %}
+- The `id` of the incomming request.
+- The decision for each individual [RequestItem](/integrate/data-model-overview#request)
+expressed as the appropriate [Parameters defined in the Data Model](/integrate/requests-and-requestitems).
 
+## On Success
+
+- The request is processed according to the decisions made. 
+- The sending peer is informed about your decisions. 
+
+## On Failure
+
+- The decisions do not match the request items.
+- An item that has the mustBeAccepted field set was declined.

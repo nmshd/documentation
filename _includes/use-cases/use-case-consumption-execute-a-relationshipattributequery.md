@@ -1,28 +1,18 @@
-Execute relationship attribute query.
+{{properties.description}}
 
-[Relationship attributes](/integrate/data-model-overview#relationshipattribute) are all attributes that are shared within a
-relationship of the identity. This endpoint is used to query the realationship attributes of a peer.
+{% include properties_list.html %}
 
-The structure of the query is defined in the [data model](/integrate/data-model-overview#attributequeries).
+This use-case is intended to query a peer's [relationship attributes](/integrate/data-model-overview#relationshipattribute).
 
-## Example Body
+## Parameters
 
-```json
-{
-  "query": {
-    "key": "ElectricMeterNumber",
-    "owner": "enmeshedAddressOfOwner",
-    "attributeCreationHints": {
-      "confidentiality": "public",
-      "title": "electric meter number",
-      "valueType": "ProprietaryString",
-      "valueHints": {
-        "@type": "Proprietary"
-      }
-    }
-  }
-}
-```
+- The `query` for the searched relationship attribute is described in the [data model](/integrate/data-model-overview#relationshipattributequery).
 
-{% include rapidoc api_route_regex="^post /api/v2/attributes/ExecuteRelationshipAttributeQuery$" title="API docs" %}
+## On Success
 
+- Returns the relationship attribute that matches the query.
+
+## On Failure
+
+- No corresponding attributes could be found.
+- The query was malformed. Please make sure it complies to the [data model](/integrate/data-model-overview#relationshipattributequery).

@@ -1,21 +1,20 @@
-Execute third party attribute query.
+{{properties.description}}
 
-Searches an relationship attribute by key in third parties given in the
-thirdParty array.
+{% include properties_list.html %}
 
-The structure of the query is defined in the [data model](/integrate/data-model-overview#thirdpartyrelationshipattributequery).
+This use-case is intended to search for a peer's relationship attribute that was created
+in a relationship with a third party.
 
-## Example Body
+## Parameters 
 
-```json
-{
-  "query": {
-    "key": "KeyOfAttribute",
-    "owner": "enmeshedAddressOfOwner",
-    "thirdParty": ["address_a", "address_b"]
-  }
-}
-```
+- The `query` for the to be searched attribute is described in the [data model](/integrate/data-model-overview#thirdpartyrelationshipattributequery).
 
-{% include rapidoc api_route_regex="^post /api/v2/attributes/ExecuteThirdPartyRelationshipAttributeQuery$" title="API docs" %}
+## On Success 
 
+- A list of attributes that conform to the query is returned.
+
+## On Failure
+
+- There are no attributes that match the query.
+- You are not allowed to query a given third party.
+- The query is malformed.

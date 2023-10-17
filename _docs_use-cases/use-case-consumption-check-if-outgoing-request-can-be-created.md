@@ -33,6 +33,7 @@ properties:
 require:
 required_by:
   - /use-case-consumption-create-outgoing-request
+api_route_regex: ^post /api/v2/Requests/Outgoing/Validate$
 ---
 
 {% include use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}

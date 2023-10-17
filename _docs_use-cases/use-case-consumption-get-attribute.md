@@ -32,6 +32,7 @@ properties:
   - link: consumption/get-attribute
 require:
 required_by:
+api_route_regex: ^get /api/v2/Attributes/{id}$
 ---
 
 {% include use-cases/use-case-consumption-get-attribute.md %}

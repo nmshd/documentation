@@ -32,6 +32,7 @@ properties:
   - link: consumption/check-if-incoming-request-can-be-rejected
 require:
 required_by:
+api_route_regex: ^put /api/v2/Requests/Incoming/{id}/canReject$
 ---
 
 {% include use-cases/use-case-consumption-check-if-incoming-request-can-be-rejected.md %}

@@ -32,6 +32,7 @@ properties:
   - link: consumption/query-outgoing-requests
 require:
 required_by:
+api_route_regex: ^get /api/v2/Requests/Outgoing$
 ---
 
 {% include use-cases/use-case-consumption-query-outgoing-requests.md %}

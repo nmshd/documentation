@@ -1,34 +1,21 @@
-Validates an outgoing request without creating it.
+{{properties.description}}
 
 {% include properties_list.html %}
 
-The content is the to be created request defined in the [data model](/integrate/data-model-overview#request).
+This use-case is intended to check if a [LocalRequest](integrate/data-model-overview#localrequest) can be created
+based on a given `request` (as a [Request](integrate/data-model-overview#localrequest) datastructure) for a given `peer`.
 
-## Example Body
+## Parameters
 
-```json
-{
-  "content": {
-    "expiresAt": "2024-01-01T00:00:00.000Z",
-    "items": [
-      {
-        "@type": "ShareAttributeRequestItem",
-        "mustBeAccepted": true,
-        "attribute": {
-          "@type": "IdentityAttribute",
-          "owner": "",
-          "value": {
-            "@type": "DisplayName",
-            "value": "Example"
-          }
-        },
-        "sourceAttributeId": "<id of attribute above, generated on creation>"
-      }
-    ]
-  },
-  "peer": "peerId"
-}
-```
+- The `content` for the to be created request is described in the [data model](integrate/data-model-overview#request).
+- The `peer` is the address of the recipient of this request. There can only be one peer per request.
 
-{% include rapidoc api_route_regex="^post /api/v2/Requests/Outgoing/Validate$" title="API docs" %}
+## On Success
+ Please [check if the outgoing request can be created](use-case-consumption-check-if-outgoing-request-can-be-created) for more details.
+- A [LocalRequest](integrate/data-model-overview#localrequest) for the given parameters can be created.
 
+## On Failure
+
+- The request cannot be created if the peer is unknown.
+- The request cannot be created if the request content is malformed.
+- The response contains a detailed error message.

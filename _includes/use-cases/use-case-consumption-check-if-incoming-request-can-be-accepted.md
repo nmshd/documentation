@@ -1,18 +1,21 @@
-Checks if an incoming request can be successfully accepted.
+{{properties.description}}
 
-A [request](/integrate/data-model-overview#request) consists of [RequestItems](/integrate/data-model-overview#requestitem)
-and/or [RequestItemGroups](/integrate/data-model-overview#requestitemgroup). To accept the request
-the body has to contain a items array that indicates the decisions made for each request item.
-The decision are expressed through [ResponseItems](/integrate/data-model-overview#responseitem) whose
-structure is dependent on the corresponding RequestItem.
+{% include properties_list.html %}
 
-## Example Body
+This use-case tests if an incomming [Request](/integrate/data-model-overview#request)
+can be accepted with the given parameters without actually accepting it.
 
-```json
-{
-  "items": [{ "accept": true }, { "accept": false }]
-}
-```
+## Parameters
 
-{% include rapidoc api_route_regex="^put /api/v2/Requests/Incoming/{id}/CanAccept$" title="API docs" %}
+- The `id` of the incomming request.
+- The decision for each individual [RequestItem](/integrate/data-model-overview#request)
+expressed as the appropriate [Parameters defined in the Data Model](/integrate/requests-and-requestitems).
 
+## On Success 
+
+- The request can be accepted with the given parameters.
+
+## On Failure
+
+- The request can not be accepted.
+- A detailed error describes the problem.

@@ -32,6 +32,7 @@ properties:
   - link: consumption/execute-a-thirdpartyattributequery
 require:
 required_by:
+api_route_regex: ^post /api/v2/Attributes/executeThirdpartyAttributeQuery$
 ---
 
 {% include use-cases/use-case-consumption-execute-a-thirdpartyattributequery.md %}
