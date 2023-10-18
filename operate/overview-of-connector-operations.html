@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-10-09T13:40:27+02:00">
+  <meta property="article:published_time" content="2023-10-18T10:10:22+02:00">
 
 
 
@@ -240,7 +240,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Overview of Connector operations">
     <meta itemprop="description" content="Basic TasksStopping the ConnectorStarting the Connector after a DowntimeBe advised that before starting the Connector after a downtime, you should ensure that the data within the database is on the most up-to-date time. Once the Connector starts its internal synchronization mechanism, it will update the database with the new information from the Backbone and if there are any automatismns set up (e.g. automatically accept relationships) the Connector updates the database with this new information. Thus, if the database is not on the very last point in time, there would be two inconsistent versions split across two databases.UpdateBackup &amp; RecoveryAll of the Connector data is stored in a MongoDB compatible database. Therefore we suggest you to use MongoDB replicas in a productive setup, to avoid having data loss.Additionally, offline backups of the replicas might make sense. For backup and recovery methods visit the official MongoDB docs. These backups might come in handy if the data within the database was compromised.In general, there is no need to backup the Connector itself. However, it makes sense to backup configuration and log files. Additionally, it might speed up the recovery process if a complete system image of the Connector is available.For a recovery, you should be able to just start the Connector again with the recovered database. For recovering the database itself, please also refer the MongoDB documentation.If you use FerretDB as your database engine make sure to backup the data of the underlying PostgreSQL database. Read more about this in the PostgreSQL documentation.Proposed System TasksCheck HealthThe Business Connector exposes a health route. You can check the health with a http request to &lt;connector-url&gt;/health.Check Available ResourcesCheck CPU WorkloadThe CPU workload can be checked using tools like htop or ctop on the host system.Check Memory ConsumptionThe Memory Consumption can be checked using tools like htop or ctop on the host system.Check Harddisk QuotaThe Harddisk Quota can be checked using linux tools like df. Please ensure, that sufficient free space is available.Check for Connector UpdatesNew Connector versions are regularly published to the given Docker registry. Depending on your installation method, the Docker image can be automatically updated by the provided Docker registry.Check for System and Docker UpdatesPlease consult the documentation of your operating system about system updates. Additionally, the Docker runtime should be regularly updated as well.We recommend to keep your operating system and Docker as up to date as possible.Check Error LogsYou can check the log using docker logs &lt;your-container-name&gt; or by checking the mounted log filesProposed Connector TasksAs some of the operative tasks should be done on a regular basis, please find a proposal for these tasks below.Check Access to Key MaterialCheck old MaterialCheck Connector Systems  Every Connector instance and host system should be regularly checked for available resources (CPU, RAM, HDD) and system updates.Check Third-Party Systems  Every third-party system (e.g. database, event buses, network components) and host system should be regularly checked for available resources (CPU, RAM, HDD) and system updates.">
-    <meta itemprop="datePublished" content="2023-10-09T13:40:27+02:00">
+    <meta itemprop="datePublished" content="2023-10-18T10:10:22+02:00">
     
 
     <div class="page__inner-wrap">
@@ -352,7 +352,7 @@ We recommend to keep your operating system and Docker as up to date as possible.
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-10-09T13:40:27+02:00">October 9, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-10-18T10:10:22+02:00">October 18, 2023</time></p>
 
       </footer>
 
