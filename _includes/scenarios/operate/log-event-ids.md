@@ -162,64 +162,58 @@
 | -------- | ----------------------------------------------------- |
 | `582359` | Quotas.TierDeletedIntegrationEventHandler.TierDeleted |
 
-### 2.15 Quotas.Application.IntegrationEvents.Incoming.TierQuotaDefinitionDeleted.TierQuotaDefinitionDeletedIntegrationEventHandler
-
-| Code     | Event Name                                                                          |
-| -------- | ----------------------------------------------------------------------------------- |
-| `942996` | Quotas.TierQuotaDefinitionDeletedIntegrationEventHandler.DeletedQuotasForIdentities |
-
-### 2.16 Quotas.Application.Tiers.Commands.CreateQuotaForIdentity.Handler
+### 2.15 Quotas.Application.Tiers.Commands.CreateQuotaForIdentity.Handler
 
 | Code     | Event Name                        |
 | -------- | --------------------------------- |
 | `868289` | Quotas.CreatedQuotasForIdentities |
 
-### 2.17 Quotas.Application.Tiers.Commands.CreateQuotaForTier.Handler
+### 2.16 Quotas.Application.Tiers.Commands.CreateQuotaForTier.Handler
 
 | Code     | Event Name                |
 | -------- | ------------------------- |
 | `346835` | Quotas.CreatedQuotaToTier |
 
-### 2.18 Quotas.Application.Tiers.Commands.DeleteQuotaForIdentity.Handler
+### 2.17 Quotas.Application.Tiers.Commands.DeleteQuotaForIdentity.Handler
 
 | Code     | Event Name          |
 | -------- | ------------------- |
 | `247156` | Quotas.DeletedQuota |
 
-### 2.19 Quotas.Application.Tiers.Commands.DeleteTierQuotaDefinition.Handler
+### 2.18 Quotas.Application.Tiers.Commands.DeleteTierQuotaDefinition.Handler
 
 | Code     | Event Name              |
 | -------- | ----------------------- |
 | `519284` | Quotas.DeletedTierQuota |
 
-### 2.20 Relationships.Infrastructure.Persistence.Database.Repository.RelationshipsRepository
+### 2.19 Relationships.Infrastructure.Persistence.Database.Repository.RelationshipsRepository
 
 | Code     | Event Name                                                                |
 | -------- | ------------------------------------------------------------------------- |
 | `664861` | Relationships.RelationshipsRepository.ErrorTryingToSaveRelationshipChange |
 
-### 2.21 Relationships.Jobs.SanityCheck.RelationshipChange.Infrastructure.Reporter.LogReporter
+### 2.20 Relationships.Jobs.SanityCheck.RelationshipChange.Infrastructure.Reporter.LogReporter
 
 | Code     | Event Name                                              |
 | -------- | ------------------------------------------------------- |
 | `349287` | Relationships.LogReporter.NoBlobForRelationshipChangeId |
 | `429922` | Relationships.LogReporter.NoDatabaseEntryForBlobId      |
 
-### 2.22 Relationships.Jobs.SanityCheck.RelationshipTemplate.Infrastructure.Reporter.LogReporter
+### 2.21 Relationships.Jobs.SanityCheck.RelationshipTemplate.Infrastructure.Reporter.LogReporter
 
 | Code     | Event Name                                                |
 | -------- | --------------------------------------------------------- |
 | `231727` | Relationships.LogReporter.NoBlobForRelationshipTemplateId |
 | `232800` | Relationships.LogReporter.NoDatabaseEntryForBlobId        |
 
-### 2.23 Synchronization.Jobs.SanityCheck.Infrastructure.Reporter.LogReporter
+### 2.22 Synchronization.Jobs.SanityCheck.Infrastructure.Reporter.LogReporter
 
 | Code     | Event Name                                                    |
 | -------- | ------------------------------------------------------------- |
 | `525684` | Synchronization.LogReporter.NoBlobForDatawalletModificationId |
 | `560290` | Synchronization.LogReporter.NoDatabaseEntryForBlobId          |
 
-### 2.24 Tokens.Jobs.SanityCheck.Infrastructure.Reporter.LogReporter
+### 2.23 Tokens.Jobs.SanityCheck.Infrastructure.Reporter.LogReporter
 
 | Code     | Event Name                                  |
 | -------- | ------------------------------------------- |
