@@ -252,7 +252,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Setup with Helm Charts",
-        "excerpt":"Versions The available Helm chart versions can be found here. We provide a new Helm chart version for each new Connector release and each Helm chart will deploy the Connector in the chart’s version. (Helm chart version 3.2.1 deploys Connector version 3.2.1) You can override the Connector version by setting...","categories": [],
+        "excerpt":"Versions The available Helm chart versions can be found on ArtifactHUB or in the GitHub Container Registry. We provide a new Helm chart version for each new Connector release and each Helm chart will deploy the Connector in the chart’s version. (Helm chart version 3.2.1 deploys Connector version 3.2.1) You...","categories": [],
         "tags": [],
         "url": "/operate/setup-with-helm-charts",
         "teaser": null
