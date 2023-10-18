@@ -173,7 +173,7 @@ A Local Request contains the local metadata for a [Request](#request).
 
 | Name      | Type                                                       | Description                                                                                                                                  |
 | --------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| id        | `string`                                                   | {% include descr_id class="LocalRequest" prefix="FIL" %}                                                                                     |
+| id        | `string`                                                   | {% include descr_id class="LocalRequest" prefix="REQ" %}                                                                                     |
 | isOwn     | `boolean`                                                  | `true` if you sent the Request, `false` if you received it.                                                                                  |
 | peer      | `string`                                                   | The Identity that sent you the corresponding Request/that you sent the Request to.                                                           |
 | createdAt | `string`                                                   | {% include descr_createdAt class="LocalRequest" %}                                                                                           |
