@@ -12,8 +12,8 @@ The payloads for the requests that are sent during this tutorial contain placeho
 
 - If you want to use your own Connector for executing the examples:
   - [Install the Connector](https://enmeshed.eu/integrate/connector-installation)
-  - Make sure the [Sync Module is disabled](https://enmeshed.eu/integrate/connector-configuration#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
-  - Make sure the [docs are enabled](https://enmeshed.eu/integrate/connector-configuration#corehttpapi) for the documentation route to work
+  - Make sure the [Sync Module is disabled](https://enmeshed.eu/operate/configuration#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
+  - Make sure the [docs are enabled](https://enmeshed.eu/operate/configuration#corehttpapi) for the documentation route to work
   - Get the API key that was configured during installation of the Connector (it needs to be sent in the `X-API-KEY` header of every HTTP request)
 - You need **version 2** of the [enmeshed App]({% link _docs_use/install-the-app.md %}) installed on your mobile device.
 
@@ -49,8 +49,8 @@ You can query the Connector's Address under the route `/api/v2/Account/IdentityI
 
 In order to make sure the Request and its items are valid you can validate it by calling the `POST /api/v2/Requests/Outgoing/Validate` route. You can define your own payload for this Request, or you can just use the one below, which contains two [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup):
 
-- one with a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) that contains Attributes that will be shared with the peer
-- one with [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem)s that query Attributes of the peer
+- one with a [ShareAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem) that contains Attributes that will be shared with the peer
+- one with [ReadAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem)s that query Attributes of the peer
 
 ```json
 {
