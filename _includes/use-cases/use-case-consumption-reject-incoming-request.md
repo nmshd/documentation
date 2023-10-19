@@ -3,7 +3,7 @@
 {% include properties_list.html %}
 
 This use-case attempts to reject an incoming [Request](/integrate/data-model-overview#request).
-It is advised to [check if incoming request can be accepted](/use-case-consumption-check-if-incoming-request-can-be-rejected)
+It is advised to [check if incoming request can be rejected](/use-case-consumption-check-if-incoming-request-can-be-rejected)
 in advance.
 
 ## Parameters
