@@ -19,7 +19,15 @@ The payloads for the requests that are sent during this tutorial contain placeho
 
 ## Establishing Relationships
 
-In order to communicate with another Identity, a Relationship to that Identity is required. In this first part of the tutorial you will learn how to establish a Relationship between your Connector and another Identity. In this case the other Identity will be the App, but it could be another Connector as well.
+In order to communicate with another Identity, a Relationship to that Identity is required.
+Thus, in this first part of the tutorial you will learn how to establish a Relationship between your Connector and another Identity.
+In our example the other Identity will be the App.
+However, it could be another Connector, as well, e.g. TODO
+
+The way we are going to establish the Relationship is via a Relationship Template.
+This is created by the Connector and contains its name, as well as the data it would like to have from the other Identity.
+Then, the App fills out all required information of the template and sends the Relationship Request to the Connector.
+It in turn accepts the Request, which results in the creation of a new Relationship.
 
 ### Connector: Create an Attribute
 
@@ -47,105 +55,59 @@ You can query the Connector's Address under the route `/api/v2/Account/IdentityI
 
 ### Connector: Test your Request's Validity
 
-In order to make sure the Request and its items are valid you can validate it by calling the `POST /api/v2/Requests/Outgoing/Validate` route. You can define your own payload for this Request, or you can just use the one below, which contains two [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup):
+Next, we want to create a Relationship Template, that can be used by the App to send a Relationship Request to our Connector.
+The content of the template can be widely configured, but for simplicity we are gonna use just two [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in our example.
+On the one hand, we want to share data with the App, namely the display name of our Connector we created in the previous step.
+For this, we use a [ShareAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem).
+On the other hand, we use [ReadAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem)s to query information of the App.
+Let's assume the Connector needs to know the given name and surname of its contact to create a Relationship and, additionally, offers the option to specify an e-mail address for communication.
 
-- one with a [ShareAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem) that contains Attributes that will be shared with the peer
-- one with [ReadAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem)s that query Attributes of the peer
+| RequestItemGroups |                               |                               |
+| ----------------- | ----------------------------- | ----------------------------- |
+| `title`           | `"Shared Attributes"`         | `"Requested Attributes"`      |
+| `items`           | `<ShareAttributeRequestItem>` | `<ReadAttributeRequestItems>` |
+| `mustBeAccepted`  | `true`                        | `true`                        |
 
-```json
-{
-  "content": {
-    "items": [
-      {
-        "@type": "RequestItemGroup",
-        "mustBeAccepted": true,
-        "title": "Shared Attributes",
-        "items": [
-          {
-            "@type": "ShareAttributeRequestItem",
-            "mustBeAccepted": true,
-            "attribute": {
-              "@type": "IdentityAttribute",
-              "owner": "",
-              "value": {
-                "@type": "DisplayName",
-                "value": "Connector Tutorial"
-              }
-            },
-            "sourceAttributeId": "<the id of the attribute created above>"
-          }
-        ]
-      },
-      {
-        "@type": "RequestItemGroup",
-        "mustBeAccepted": true,
-        "title": "Requested Attributes",
-        "items": [
-          {
-            "@type": "ReadAttributeRequestItem",
-            "mustBeAccepted": true,
-            "query": {
-              "@type": "IdentityAttributeQuery",
-              "valueType": "GivenName"
-            }
-          },
-          {
-            "@type": "ReadAttributeRequestItem",
-            "mustBeAccepted": true,
-            "query": {
-              "@type": "IdentityAttributeQuery",
-              "valueType": "Surname"
-            }
-          },
-          {
-            "@type": "ReadAttributeRequestItem",
-            "mustBeAccepted": false,
-            "query": {
-              "@type": "IdentityAttributeQuery",
-              "valueType": "EMailAddress"
-            }
-          }
-        ]
-      }
-    ]
-  }
-}
-```
+| ShareAttributeRequestItem |                                                        |
+| ------------------------- | ------------------------------------------------------ |
+| `attribute`               | `<IdentityAttribute created in the previous step>`     |
+| `sourceAttributeId`       | `"<id of the attribute created in the previous step>"` |
+| `mustBeAccepted`          | `true`                                                 |
 
-{% include rapidoc api_route_regex="^post /api/v2/Requests/Outgoing/Validate$" %}
+| ReadAttributeRequestItems |                            |
+| ------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| `query type`              | `"IdentityAttributeQuery"` | `"IdentityAttributeQuery"` | `"IdentityAttributeQuery"` |
+| `query valueType`         | `"GivenName"`              | `"Surname"`                | `"EMailAddress"`           |
+| `mustBeAccepted`          | `true`                     | `true`                     | `false`                    |
 
-Even though the Requests are validated during the RelationshipTemplate creation you should not skip this step as it gives you additional information in case of validation errors.
+Before we actually create the template, we want to ensure the validity of the Request and its items.
+TODO: Link to scenario
+
+Even though the Requests are validated during the RelationshipTemplate creation, you should not skip this step, as it gives you additional information in case of validation errors.
 {: .notice--info}
 
 ### Connector: Create a Relationship Template
 
-Start by creating a so called Relationship Template on the Connector. You can do so by calling the `POST /api/v2/RelationshipTemplates/Own` route. Use the following JSON in the request body:
+If the response is successful, we can create the Relationship Template.
+To do so, we use the content we just validated.
+Furthermore, we specify an expiration date, which is located in the future, and restrict the access to a single allocation.
+TODO: Link to scenario
 
-```jsonc
-{
-  "maxNumberOfAllocations": 1,
-  "expiresAt": "2023-06-01T00:00:00.000Z",
-  "content": {
-    "@type": "RelationshipTemplateContent",
-    "title": "Connector Demo Contact",
-    "onNewRelationship": {
-      // <the value of the 'content' property validated in the previous step>
-    }
-  }
-}
-```
-
-{% include rapidoc api_route_regex="^post /api/v2/RelationshipTemplates/Own$" %}
+| RelationshipTemplate        |                                                            |
+| --------------------------- | ---------------------------------------------------------- |
+| `content type`              | `RelationshipTemplateContent`                              |
+| `content title`             | `"Connector Demo Contact"`                                 |
+| `content onNewRelationship` | `<RelationshipTemplateContent validated in previous step>` |
+| `expiresAt`                 | `"<date in future>"`                                       |
+| `maxNumberOfAllocations`    | `1`                                                        |
 
 {% include copy-notice description="Save the `id` of the Relationship Template that you can find in the response. You will need it in the next step." %}
 
-### Connector: Create a QRCode for the Relationship Template
+### Connector: Create a QR Code for the Relationship Template
 
-Since we will use the enmeshed App to send a Relationship Request to the Connector, we now have to create a QR Code one can scan with the App to retrieve the Relationship Template and send a Relationship Request to the Connector.
-
-For this, execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Header: `image/png`) to create a QRCode. Use the ID of the Relationship Template from the previous step as the value for `id`.
-
-{% include rapidoc api_route_regex="^get /api/v2/RelationshipTemplates/{id}$" %}
+Now, to allow the App to retrieve the Relationship Template, we create a QR Code, that can be scanned by the App.
+For this, we use the ID of our Relationship Template.
+TODO: Link to scenario
 
 ### App: Send a Relationship Request
 
