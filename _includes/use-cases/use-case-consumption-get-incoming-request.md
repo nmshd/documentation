@@ -1,11 +1,18 @@
-Query incoming requests by id.
+{{properties.description}}
 
-{% include rapidoc api_route_regex="^get /api/v2/Requests/Incoming/{id}$" %}
+{% include properties_list.html %}
 
-## Example
+This use-case is intended to retrieve an [incomming request](/integrate/data-model-overview#request)
+by it's id. The differences of an outgoing and an incomming request are defined [here](/integrate/data-model-overview#localrequeststatus).
 
-```shell
-curl --location --request GET 'http://{connector_url}/api/v2/Requests/Incoming/{id}' \
---header 'X-API-KEY: xxx' \
---header 'Content-Type: application/json' \
-```
+## Parameters
+
+- The `id` of the incomming request.
+
+## On Success 
+
+- The [LocalRequest](/integrate/data-model-overview#localrequest) corresponding to the id.
+
+## On Failure 
+
+- There is no such incoming request.

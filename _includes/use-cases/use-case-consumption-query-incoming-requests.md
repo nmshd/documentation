@@ -1,25 +1,23 @@
-Query incoming requests.
+{{properties.description}}
 
-Since this api uses a GET request the query has to be properly formated in the query-string,
-see the example below for reference.
+{% include properties_list.html %}
 
-## Example Body
+This use-case is intended to query all incomming [requests](/integrate/data-model-overview#request).
 
-```json
-{
-  "peer": "addressOfPeerThatSentTheRequest",
-  "content.items.@type": "ShareAttributeRequestItem"
-}
-```
+## Parameters 
 
-{% include rapidoc api_route_regex="^get /api/v2/Requests/Incoming$" %}
+- The `id` of the request.
+- The `peer` is the address of the identity that sent the request.
+- `createdAt` indicates the date of request creation.
+- The `status` of the request.
+- The `content` describes the structure of the searched request.
+- The `response` that might have been given to the request.
 
-## Example
+## On Success
 
-```shell
-curl -X 'GET' \
-'https://blubi.codes/api/v2/Requests/Incoming?peer=addressOfPeerThatSentTheRequest
- &content.items.%40type=ShareAttributeRequestItem' \
--H 'accept: application/json' \
--H 'X-API-KEY: xxx'
-```
+- A list of incomming [LocalRequests](/integrate/data-model-overview#localrequest) that match the query.
+
+## On Failure
+
+--
+
