@@ -2,7 +2,7 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to query all incomming [requests](/integrate/data-model-overview#request).
+This use-case is intended to query all incoming [requests](/integrate/data-model-overview#request).
 
 ## Parameters
 
@@ -15,7 +15,7 @@ This use-case is intended to query all incomming [requests](/integrate/data-mode
 
 ## On Success
 
-- A list of incomming [LocalRequests](/integrate/data-model-overview#localrequest) that match the query.
+- A list of incoming [LocalRequests](/integrate/data-model-overview#localrequest) that match the query.
 
 ## On Failure
 
