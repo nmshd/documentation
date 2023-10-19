@@ -9,10 +9,10 @@ by it's id. The differences of an outgoing and an incomming request are defined 
 
 - The `id` of the incomming request.
 
-## On Success 
+## On Success
 
 - The [LocalRequest](/integrate/data-model-overview#localrequest) corresponding to the id.
 
-## On Failure 
+## On Failure
 
 - There is no such incoming request.

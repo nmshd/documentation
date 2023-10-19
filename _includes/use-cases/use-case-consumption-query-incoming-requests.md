@@ -4,7 +4,7 @@
 
 This use-case is intended to query all incomming [requests](/integrate/data-model-overview#request).
 
-## Parameters 
+## Parameters
 
 - The `id` of the request.
 - The `peer` is the address of the identity that sent the request.
@@ -20,4 +20,3 @@ This use-case is intended to query all incomming [requests](/integrate/data-mode
 ## On Failure
 
 --
-

@@ -4,7 +4,7 @@
 
 This use-case is intended to query all outgoing [requests](/integrate/data-model-overview#request).
 
-## Parameters 
+## Parameters
 
 - The `id` of the request.
 - The `peer` is the address of the identity that the request was sent to.
