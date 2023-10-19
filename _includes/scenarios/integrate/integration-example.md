@@ -1,12 +1,12 @@
-In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you on automating them for your organization.
+In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship.
+This will create a better understanding of these processes, which will help you on automating them for your organization.
 
-The following steps include small interactive pieces of the Connector's API documentation that, when executed, fire requests on a Connector we provided for testing purposes. Example:
+It is not mandatory to have an own Connector installed.
+The individual steps link to pages, which include small interactive pieces of the Connector's API documentation that, when executed, fire requests on a Connector we provided for testing purposes.
+However, you are welcome to use your own Connector, either with a REST client (e.g. Insomnia or Postman) or by using the RapiDoc documentation (/docs/rapidoc) hosted on your Connector.
 
-{% include rapidoc api_route_regex="^get /health$" title="" %}
-
-So if you don't have your own Connector installed, feel free to use the samples directly by unfolding them and clicking on "Try". Otherwise you can use your own Connector either with a REST client (e.g. Insomnia or Postman) or by using the RapiDoc documentation (/docs/rapidoc) hosted on your Connector.
-
-The payloads for the requests that are sent during this tutorial contain placeholders marked with `<...>`. You need to replace them with values before you send the request.
+The payloads for the requests that are sent during this tutorial contain placeholders marked with `<...>`.
+You need to replace them with values before you send the requests.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ The payloads for the requests that are sent during this tutorial contain placeho
 In order to communicate with another Identity, a Relationship to that Identity is required.
 Thus, in this first part of the tutorial you will learn how to establish a Relationship between your Connector and another Identity.
 In our example the other Identity will be the App.
-However, it could be another Connector, as well, e.g. TODO
+However, it could be another Connector, as well, e.g. <span style="color:red">(TODO: give example)</span>.
 
 The way we are going to establish the Relationship is via a Relationship Template.
 This is created by the Connector and contains its name, as well as the data it would like to have from the other Identity.
@@ -81,7 +81,7 @@ Let's assume the Connector needs to know the given name and surname of its conta
 | `mustBeAccepted`          | `true`                     | `true`                     | `false`                    |
 
 Before we actually create the template, we want to ensure the validity of the Request and its items.
-TODO: Link to scenario
+<span style="color:red">(TODO: Link scenario)</span>
 
 Even though the Requests are validated during the RelationshipTemplate creation, you should not skip this step, as it gives you additional information in case of validation errors.
 {: .notice--info}
@@ -91,7 +91,7 @@ Even though the Requests are validated during the RelationshipTemplate creation,
 If the response is successful, we can create the Relationship Template.
 To do so, we use the content we just validated.
 Furthermore, we specify an expiration date, which is located in the future, and restrict the access to a single allocation.
-TODO: Link to scenario
+<span style="color:red">(TODO: Link scenario)</span>
 
 | RelationshipTemplate        |                                                            |
 | --------------------------- | ---------------------------------------------------------- |
@@ -107,7 +107,7 @@ TODO: Link to scenario
 
 Now, to allow the App to retrieve the Relationship Template, we create a QR Code, that can be scanned by the App.
 For this, we use the ID of our Relationship Template.
-TODO: Link to scenario
+<span style="color:red">(TODO: Link scenario)</span>
 
 ### App: Send a Relationship Request
 
@@ -134,76 +134,51 @@ Finally, fill out the required fields and click on "Add contact" to send the Rel
 
 ### Connector: Accept the Relationship Request
 
-In order to move the Relationship into the `Active` state, you now need to accept the Relationship Request with the Connector. In order to do so, first execute the `POST /api/v2/Account/Sync` route, which will fetch all changes that occurred since the last time this endpoint was executed.
+In order to move the Relationship into the `Active` state, we now need to accept the Relationship Request with the Connector.
+To do so, we synchronize the account <span style="color:red">(TODO: Link scenario)</span>, which will fetch all changes that occurred since the last time this endpoint was executed.
+In the response we will receive the created Relationship, which contains the corresponding Relationship Creation Change.
+To accept the Relationship Request, save the ID of the Relationship, as well as the ID of the Relationship Change.
+<span style="color:red">(TODO: Link scenario, the request body is not of concern)</span>
 
-{% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
+Now the Relationship is in the `Active` state, so we can start to communicate with the opposite Identity, which we will do in the next part of this tutorial.
+To do so, we will need the Address of that Identity.
+This can be found in the response, when accepting the Relationship.
 
-In the response you will receive the created Relationship, which contains corresponding Relationship Creation Change.
-
-Example:
-
-```json
-{
-  "result": {
-    "messages": [],
-    "relationships": [
-      {
-        "id": "RELmJj25x2bZW0VXzAiQ",
-        ...
-        "status": "Pending",
-        "peer": "id19Sy75wjCWhQSxsbMiGLn6iSBfWvQmot5b",
-        "changes": [
-          {
-            "id": "RCHUwBw7BWlROPlEjb51",
-            ...
-            "status": "Pending",
-            "type": "Creation"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-{% include copy-notice description="Save the `id` of the Relationship (`REL_________________`) as well as the `id` of the first Relationship Change (`RCH_________________`) in the `changes` array and use them as input to the `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept` route. You can leave that request body as it is." %}
-
-{% include rapidoc api_route_regex="^put /api/v2/Relationships/{id}/Changes/{changeId}/Accept$" %}
-
-Now the Relationship is in the `Active` state, so we can start to communicate with the opposite Identity, which we will do in the next part of this tutorial. In order to do so we will need the Address of that Identity. So in the response of the last request look for the `peer` property and write down its value. It should start with `id1`.
+{% include copy-notice description="Save the `peer` property of the response. You will need it in the next step." %}
 
 ## Sending and Receiving Messages
 
-After you have established a Relationship to an Identity, you can start to exchange Messages. Enmeshed defines [different types of Messages]({% link _docs_integrate/data-model-overview.md %}#message). For this tutorial we will focus on Messages of type [Mail]({% link _docs_integrate/data-model-overview.md %}#mail), which you can compare to a classic email: you can specify one or more recipients, a subject and a body, as well as add some attachments.
+After we have established a Relationship to an Identity, we can start to exchange Messages.
+Enmeshed defines [different types of Messages]({% link _docs_integrate/data-model-overview.md %}#message).
+In this tutorial we will focus on Messages of type [Mail]({% link _docs_integrate/data-model-overview.md %}#mail), which can be compared to a classic email: it is possible to specify one or more recipients, a subject and a body, as well as add attachments.
 
 ### Sending a Message with a Connector
 
-To send a Message, all you need to do is call the `POST /api/v2/Messages` endpoint. You can use the content below, while replacing the placeholders in `recipients` and `to` with the Address you copied previously. You can further modify the `subject` and `body` properties to add some custom content.
+Firstly, we will send a Message from the Connector to the App.
+<span style="color:red">(TODO: Link scenario)</span>
+For this, we need the Address of our peer and must specify a Message subject and body.
 
-```json
-{
-  "recipients": ["id_________________________________"],
-  "content": {
-    "@type": "Mail",
-    "to": ["id_________________________________"],
-    "subject": "Welcome",
-    "body": "Hello. We are pleased to welcome you as our customer."
-  }
-}
-```
+| Message           |                                                           |
+| ----------------- | --------------------------------------------------------- |
+| `recipients`      | `<peer address>`                                          |
+| `content type`    | `"Mail"`                                                  |
+| `content to`      | `<peer address>`                                          |
+| `content subject` | `"Welcome"`                                               |
+| `content body`    | `"Hello. We are pleased to welcome you as our customer."` |
 
-{% include rapidoc api_route_regex="^post /api/v2/Messages$" %}
-
-After you have sent this request, you should receive a push notification on your phone. Open the enmeshed App, navigate to "Contacts" and select your Relationship. You should see the Message in the list. You can show details by tapping on it.
+After having sent the Message, you should receive a push notification on your phone.
+Open the enmeshed App, navigate to "Contacts" and select the Relationship.
+You should see the Message in the list.
+Tapping on it reveals more details.
 
 ### Receiving a Message with a Connector
 
-Next we are going to send a Message from the App to the Connector. Therefore, open the App, navigate to "Contacts" and select your Relationship. Next, tap on "New Message". Enter subject and body an tap on "Send".
+Next, we are going to send a Message from the App to the Connector.
+So, open the enmeshed App, navigate to "Contacts" and select your Relationship.
+Then, tap on "New Message", enter a subject and body and tap on "Send".
 
-In order to fetch the Message, we need to call the `POST /api/v2/Account/Sync` endpoint again.
-
-{% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
-
+In order to fetch the Message, we need synchronize the Connector again.
+<span style="color:red">(TODO: Link scenario)</span>
 The response should contain a Message with the content you entered in the App.
 
 ## What's next?
