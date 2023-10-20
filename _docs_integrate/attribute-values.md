@@ -3,7 +3,6 @@
 permalink: integrate/attribute-values
 redirect_from:
   - /integrate/data-model-attribute-values
-  - /integrate/demo
 published: true
 title: "Attribute Values"
 type: scenario
@@ -15,8 +14,8 @@ properties:
   - customer:
   - component: integrate
   - level:
-  - implementation status:
-  - documentation status:
+  - implementation status: DOCS ONLY
+  - documentation status: OLD
   - published: true
   - link: integrate/attribute-values
 require:

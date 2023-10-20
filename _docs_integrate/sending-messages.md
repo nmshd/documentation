@@ -15,7 +15,7 @@ properties:
   - component: integrate
   - level: Beginner
   - implementation status: DONE
-  - documentation status: DONE
+  - documentation status: OLD
   - published: true
   - link: integrate/sending-messages
 require:
