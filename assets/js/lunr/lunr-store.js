@@ -197,6 +197,12 @@ var store = [{
         "url": "/integrate/sending-messages",
         "teaser": null
       },{
+        "title": "Support",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/integrate/support",
+        "teaser": null
+      },{
         "title": "Use Cases",
         "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Status ⌄ Load Token by id and key (without having an account) Anonymous Identity AnonymousTokens Runtime DONE Load Token by truncated reference (without having an account) Anonymous Identity AnonymousTokens Runtime DONE Accept incoming Request Consumption Identity Requests Runtime DONE Check if...","categories": [],
         "tags": [],
@@ -213,6 +219,12 @@ var store = [{
         "excerpt":"Mounting a config file Create a config file in JSON format in a folder of your choice. Fill the config file with your desired configuration (it’s sufficient to add values you want to change; the Connector will merge your config file with the default configuration) Example: { \"infrastructure\": { \"httpServer\":...","categories": [],
         "tags": [],
         "url": "/operate/configuration",
+        "teaser": null
+      },{
+        "title": "Log Event IDs",
+        "excerpt":"EventId.Id EventId.Name 645028 AzureStorageAccount.ErrorDeletingBlob 516591 AzureStorageAccount.ErrorListingAllBlobs 599235 Challenges.DeleteExpiredChallenges.CancellationRequested 916630 Challenges.DeleteExpiredChallenges.DeletionSuccessful 715507 DefaultRabbitMqPersistentConnection.ConnectionError 454129 DefaultRabbitMqPersistentConnection.ConnectionIsBlocked 119836 DefaultRabbitMqPersistentConnection.ConnectionIsShutdown 143946 DefaultRabbitMqPersistentConnection.ConnectionThrewAnException 277894 Devices.ChangePassword.ChangedPasswordForDevice 436321 Devices.CreateIdentity.CreatedIdentity 383136 Devices.CreateTier.CreatedTier 950845 Devices.DirectPushService.DeletingDeviceRegistration 624412 Devices.DirectPushService.ErrorWhileTryingToSendNotification 628738 Devices.DirectPushService.UnregisteredDevice 776010 Devices.MarkDeviceAsDeleted.MarkedDeviceAsDeleted 219823 Devices.RegisterDevice.RegisteredDevice 949322 EventBusAzureServiceBus.ErrorHandlingMessage 726744 EventBusAzureServiceBus.ErrorWhileExecutingEventHandlerCausingRetry 146670 EventBusAzureServiceBus.ErrorWhileProcessingIntegrationEvent 630568 EventBusAzureServiceBus.EventWasNotProcessed 341537 EventBusAzureServiceBus.NoSubscriptionForEvent 302940 EventBusAzureServiceBus.SendingIntegrationEvent 712382 EventBusGoogleCloudPubSub.ErrorHandlingMessage 304842 EventBusGoogleCloudPubSub.ErrorWhileExecutingEventHandlerType...","categories": [],
+        "tags": [],
+        "url": "/operate/log-event-ids",
         "teaser": null
       },{
         "title": "Modules",
