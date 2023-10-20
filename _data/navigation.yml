@@ -94,6 +94,8 @@ docs_integrate:
         url: /integrate/requests-over-messages
   - title: Manage attributes of yourself
     children:
+      - title: "IdentityAttribute introduction"
+        url: integrate/identityattribute-introduction
       - title: "Create own IdentityAttribute"
         url: /integrate/create-own-identityattribute
   - title: Manage attributes of others
