@@ -3,7 +3,10 @@ This will create a better understanding of these processes, which will help you 
 
 It is not mandatory to have an own Connector installed.
 The individual steps link to pages, which include small interactive pieces of the Connector's API documentation that, when executed, fire requests on a Connector we provided for testing purposes.
+If you would like to use it, start by [checking the health of the Connector]<span style="color:red">(TODO: insert link)</span>.
 However, you are welcome to use your own Connector, either with a REST client (e.g. Insomnia or Postman) or by using the RapiDoc documentation (/docs/rapidoc) hosted on your Connector.
+
+[//]: # "{link _docs_operate/check-health-of-connector.md}"
 
 The payloads for the requests that are sent during this tutorial contain placeholders marked with `<...>`.
 You need to replace them with values before you send the requests.
@@ -22,7 +25,7 @@ You need to replace them with values before you send the requests.
 In order to communicate with another Identity, a Relationship to that Identity is required.
 Thus, in this first part of the tutorial you will learn how to establish a Relationship between your Connector and another Identity.
 In our example the other Identity will be the App.
-However, it could be another Connector, as well, e.g. <span style="color:red">(TODO: give example)</span>.
+However, it could be another Connector, as well, e.g. if two companies want to exchange data securily without opening a port or network.
 
 The way we are going to establish the Relationship is via a Relationship Template.
 This is created by the Connector and contains its name, as well as the data it would like to have from the other Identity.
@@ -80,18 +83,21 @@ Let's assume the Connector needs to know the given name and surname of its conta
 | `query valueType`         | `"GivenName"`              | `"Surname"`                | `"EMailAddress"`           |
 | `mustBeAccepted`          | `true`                     | `true`                     | `false`                    |
 
-Before we actually create the template, we want to ensure the validity of the Request and its items.
-<span style="color:red">(TODO: Link scenario)</span>
+Before we actually create the template, we want to ensure the [validity of the Request] and its items.
+<span style="color:red">(TODO: insert link)</span>
+
+[//]: # "{ link _docs_integrate/test-your-request's-validity.md }"
 
 Even though the Requests are validated during the RelationshipTemplate creation, you should not skip this step, as it gives you additional information in case of validation errors.
 {: .notice--info}
 
 ### Connector: Create a Relationship Template
 
-If the response is successful, we can create the Relationship Template.
+If the response is successful, we can [create the Relationship Template]<span style="color:red">(TODO: insert link)</span>.
 To do so, we use the content we just validated.
 Furthermore, we specify an expiration date, which is located in the future, and restrict the access to a single allocation.
-<span style="color:red">(TODO: Link scenario)</span>
+
+[//]: # "{ link _docs_integrate/request-and-process-attributes-by-code-or-link-of-new-contacts.md }"
 
 | RelationshipTemplate        |                                                            |
 | --------------------------- | ---------------------------------------------------------- |
@@ -105,9 +111,10 @@ Furthermore, we specify an expiration date, which is located in the future, and 
 
 ### Connector: Create a QR Code for the Relationship Template
 
-Now, to allow the App to retrieve the Relationship Template, we create a QR Code, that can be scanned by the App.
+Now, to allow the App to retrieve the Relationship Template, we [create a QR Code]<span style="color:red">(TODO: insert link)</span>, that can be scanned by the App.
 For this, we use the ID of our Relationship Template.
-<span style="color:red">(TODO: Link scenario)</span>
+
+[//]: # "{ link _docs_use/create-own-enmeshed-codes-to-share-with-your-peers.md }"
 
 ### App: Send a Relationship Request
 
@@ -134,11 +141,13 @@ Finally, fill out the required fields and click on "Add contact" to send the Rel
 
 ### Connector: Accept the Relationship Request
 
-In order to move the Relationship into the `Active` state, we now need to accept the Relationship Request with the Connector.
+In order to move the Relationship into the `Active` state, we now need to [accept the Relationship Request]<span style="color:red">(TODO: insert link)</span> with the Connector.
 To do so, we synchronize the account <span style="color:red">(TODO: Link scenario)</span>, which will fetch all changes that occurred since the last time this endpoint was executed.
 In the response we will receive the created Relationship, which contains the corresponding Relationship Creation Change.
 To accept the Relationship Request, save the ID of the Relationship, as well as the ID of the Relationship Change.
 <span style="color:red">(TODO: Link scenario, the request body is not of concern)</span>
+
+[//]: # "{ link _docs_integrate/respond-to-incoming-requests.md }"
 
 Now the Relationship is in the `Active` state, so we can start to communicate with the opposite Identity, which we will do in the next part of this tutorial.
 To do so, we will need the Address of that Identity.
@@ -154,8 +163,7 @@ In this tutorial we will focus on Messages of type [Mail]({% link _docs_integrat
 
 ### Sending a Message with a Connector
 
-Firstly, we will send a Message from the Connector to the App.
-<span style="color:red">(TODO: Link scenario)</span>
+Firstly, we will [send a Message]({% link _docs_integrate/sending-messages.md %}) from the Connector to the App.
 For this, we need the Address of our peer and must specify a Message subject and body.
 
 | Message           |                                                           |
