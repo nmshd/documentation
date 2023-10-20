@@ -34,25 +34,14 @@ It in turn accepts the Request, which results in the creation of a new Relations
 
 ### Connector: Create an Attribute
 
-In order to share an Attribute via a Relationship Template, we need to create one by executing `POST /api/v2/Attributes` with the following payload:
+As an example, we want to create a display name for our Connector. While communicating with the other Identity in the subsequent steps, we will choose to share this display name with the other Identity. Technically, we therefore need to create an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an Identity Attribute Value of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname) for our Connector. To do this, proceed as described in the [Create own IdentityAttribute]({% link _docs_integrate/create-own-identityattribute.md %}) guide and use the table values
 
-```json
-{
-  "content": {
-    "@type": "IdentityAttribute",
-    "owner": "<your connector's Address>",
-    "value": {
-      "@type": "DisplayName",
-      "value": "Connector Tutorial"
-    }
-  }
-}
-```
+| Property of Identity Attribute Value | Input value                         |
+| ------------------------------------ | ----------------------------------- |
+| `@type`                              | `"DisplayName"`                     |
+| `value`                              | `"<your Connector's display name>"` |
 
-You can query the Connector's Address under the route `/api/v2/Account/IdentityInfo`. If you are using the Demo Connector of this Tutorial, the Address is `id134nJmN7E4Carb6KyRJyePVnXxVHEYQgWD`.
-{: .notice--info}
-
-{% include rapidoc api_route_regex="^post /api/v2/Attributes$" %}
+in the appropriate place.
 
 {% include copy-notice description="Save the `id` of the Attribute that you can find in the response. You will need it in the next step." %}
 
