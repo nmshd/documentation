@@ -12,7 +12,7 @@ This documentation is meant as an overarching documentation for the whole enmesh
 - Keep it simple
 - Think about the audience
 - Links to other pages of the documentation are rendered using jekyll's liquid:
-`{% link {path_to_file} %}#{fragment_identifier}`
+  `{% link {path_to_file} %}#{fragment_identifier}`
 
 ## Contribute to the documentation
 
