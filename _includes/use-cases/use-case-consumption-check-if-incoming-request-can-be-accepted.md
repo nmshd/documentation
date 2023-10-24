@@ -2,14 +2,14 @@
 
 {% include properties_list.html %}
 
-This use-case tests if an incomming [Request](/integrate/data-model-overview#request)
+This use-case tests if an incomming [Request]({% link _docs_integrate/data-model-overview %}#request)
 can be accepted with the given parameters without actually accepting it.
 
 ## Parameters
 
 - The `id` of the incomming request.
-- The decision for each individual [RequestItem](/integrate/data-model-overview#request)
-  expressed as the appropriate [Parameters defined in the Data Model](/integrate/requests-and-requestitems).
+- The decision for each individual [RequestItem]({% link _docs_integrate/data-model-overview %}#request)
+  expressed as the appropriate [Parameters defined in the Data Model]({% link _docs_integrate/requests-and-requestitems).
 
 ## On Success
 

@@ -2,8 +2,8 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to retrieve an [incomming request](/integrate/data-model-overview#request)
-by it's id. The differences of an outgoing and an incomming request are defined [here](/integrate/data-model-overview#localrequeststatus).
+This use-case is intended to retrieve an [incomming request]({% link _docs_integrate/data-model-overview %}#request)
+by it's id. The differences of an outgoing and an incomming request are defined [here]({% link _docs_integrate/data-model-overview %}#localrequeststatus).
 
 ## Parameters
 
@@ -11,7 +11,7 @@ by it's id. The differences of an outgoing and an incomming request are defined 
 
 ## On Success
 
-- The [LocalRequest](/integrate/data-model-overview#localrequest) corresponding to the id.
+- The [LocalRequest]({% link _docs_integrate/data-model-overview %}#localrequest) corresponding to the id.
 
 ## On Failure
 

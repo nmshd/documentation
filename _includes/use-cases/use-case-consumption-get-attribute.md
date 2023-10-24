@@ -2,7 +2,7 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to retrieve a [attribute](/integrate/data-model-overview#attributes)
+This use-case is intended to retrieve a [attribute]({% link _docs_integrate/data-model-overview %}#attributes)
 by it's id.
 
 ## Parameters

@@ -1,7 +1,7 @@
 Create a relationship template.
 
 A relationship template can be used by a third party to initiate a relationship with you.
-Read [more](/integrate/data-model-overview#relationshiptemplate).
+Read [more]({% link _docs_integrate/data-model-overview %}#relationshiptemplate).
 
 ## Example Body
 

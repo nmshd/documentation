@@ -1,4 +1,4 @@
-Creates a [token](/integrate/data-model-overview#token) for a given file that
+Creates a [token]({% link _docs_integrate/data-model-overview %}#token) for a given file that
 corresponds to the given id.
 
 ## Example Body
