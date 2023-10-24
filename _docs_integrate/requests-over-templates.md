@@ -15,7 +15,7 @@ properties:
   - component: integrate
   - level: Beginner
   - implementation status: DONE
-  - documentation status: DOCS ONLY
+  - documentation status: OLD
   - published: true
   - link: integrate/requests-over-templates
 require:

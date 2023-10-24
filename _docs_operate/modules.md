@@ -15,7 +15,7 @@ properties:
   - component: operate
   - level:
   - implementation status: DOCS ONLY
-  - documentation status:
+  - documentation status: OLD
   - published: true
   - link: operate/modules
 require:

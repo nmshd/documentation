@@ -17,6 +17,7 @@ properties:
   - published:
   - link: integrate/create-own-identityattribute
 require:
+  - integrate/identityattribute-introduction
 required_by:
 ---
 

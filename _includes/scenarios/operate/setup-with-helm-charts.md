@@ -1,6 +1,6 @@
 ## Versions
 
-The available Helm chart versions can be found [here](https://github.com/nmshd/cns-connector/pkgs/container/connector-helm-chart/versions).
+The available Helm chart versions can be found [on ArtifactHUB](https://artifacthub.io/packages/helm/enmeshed-connector/connector-helm-chart) or [in the GitHub Container Registry](https://github.com/nmshd/cns-connector/pkgs/container/connector-helm-chart/versions).
 
 We provide a new Helm chart version for each new Connector release and each Helm chart will deploy the Connector in the chart's version. (Helm chart version `3.2.1` deploys Connector version `3.2.1`)
 You can override the Connector version by setting the `image.tag` value in the Helm chart.
