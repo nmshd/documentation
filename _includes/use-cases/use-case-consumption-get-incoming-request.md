@@ -7,7 +7,7 @@ by it's id. The differences of an outgoing and an incomming request are defined 
 
 ## Parameters
 
-- The `id` of the incomming request.
+- The `id` of the incoming request.
 
 ## On Success
 
