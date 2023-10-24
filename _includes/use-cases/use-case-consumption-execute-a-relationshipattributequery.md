@@ -2,11 +2,11 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to query a peer's [relationship attributes]({% link _docs_integrate/data-model-overview %}#relationshipattribute).
+This use-case is intended to query a peer's [relationship attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
 
 ## Parameters
 
-- The `query` for the searched relationship attribute is described in the [data model]({% link _docs_integrate/data-model-overview %}#relationshipattributequery).
+- The `query` for the searched relationship attribute is described in the [data model]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery).
 
 ## On Success
 
@@ -15,4 +15,4 @@ This use-case is intended to query a peer's [relationship attributes]({% link _d
 ## On Failure
 
 - No corresponding attributes could be found.
-- The query was malformed. Please make sure it complies to the [data model]({% link _docs_integrate/data-model-overview %}#relationshipattributequery).
+- The query was malformed. Please make sure it complies to the [data model]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery).

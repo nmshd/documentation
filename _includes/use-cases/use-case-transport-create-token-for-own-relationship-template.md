@@ -1,4 +1,4 @@
-Creates a [token]({% link _docs_integrate/data-model-overview %}#token) for a given [relationship template]({% link _docs_integrate/data-model-overview %}#relationshiptemplate)
+Creates a [token]({% link _docs_integrate/data-model-overview.md %}#token) for a given [relationship template]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate)
 that coresponds to the given id.
 
 ## Example Body

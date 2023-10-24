@@ -1,6 +1,6 @@
 Send a message to the given gecipient(s).
 
-For the exact structure of a message refer to the [data model]({% link _docs_integrate/data-model-overview %}#message).
+For the exact structure of a message refer to the [data model]({% link _docs_integrate/data-model-overview.md %}#message).
 
 ## Example Body
 

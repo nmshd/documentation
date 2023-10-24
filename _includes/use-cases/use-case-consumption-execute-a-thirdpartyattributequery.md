@@ -7,7 +7,7 @@ in a relationship with a third party.
 
 ## Parameters
 
-- The `query` for the to be searched attribute is described in the [data model]({% link _docs_integrate/data-model-overview %}#thirdpartyrelationshipattributequery).
+- The `query` for the to be searched attribute is described in the [data model]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery).
 
 ## On Success
 
