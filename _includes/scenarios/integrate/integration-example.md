@@ -34,16 +34,16 @@ It in turn accepts the Request, which results in the creation of a new Relations
 
 ### Connector: Create an Attribute
 
-As an example, we want to create a display name for our Connector. While communicating with the other Identity in the subsequent steps, we will choose to share this display name with the other Identity. Technically, we therefore need to create an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an Identity Attribute Value of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname) for our Connector. To do this, proceed as described in the [Create own IdentityAttribute]({% link _docs_integrate/create-own-identityattribute.md %}) guide and use the table values
+As an example, we want to create a display name for our Connector. While communicating with the other Identity in the subsequent steps, we will choose to share this display name with the other Identity. Technically, we therefore need to create an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an IdentityAttribute Value of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname) for our Connector. To do this, proceed as described in the [Create own IdentityAttribute]({% link _docs_integrate/create-own-identityattribute.md %}) guide and use the table values
 
-| Property of Identity Attribute Value | Input value                         |
-| ------------------------------------ | ----------------------------------- |
-| `@type`                              | `"DisplayName"`                     |
-| `value`                              | `"<your Connector's display name>"` |
+| Property of IdentityAttribute Value | Input value                         |
+| ----------------------------------- | ----------------------------------- |
+| `@type`                             | `"DisplayName"`                     |
+| `value`                             | `"<your Connector's display name>"` |
 
 in the appropriate place.
 
-{% include copy-notice description="Save the `id` of the Attribute that you can find in the response. You will need it in the next step." %}
+{% include copy-notice description="When you have successfully created the IdentityAttribute, you will receive a response from which you can get the ID of it. It is necessary to save this ID to be able to share the created IdentityAttribute with the other Identity later." %}
 
 ### Connector: Test your Request's Validity
 
