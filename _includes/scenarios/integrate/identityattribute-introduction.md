@@ -6,10 +6,10 @@ Identity attributes are critical for managing and sharing information within the
 
 For example, an email address is associated with the attribute value type "EMailAddress", which defines the following:
 
-    | Name    | Type             | Required | Validation                                                                                |
-    | ------- | ---------------- | :------: | ----------------------------------------------------------------------------------------- |
-    | `@type` | `"EMailAddress"` |    ✓     |                                                                                           |
-    | `value` | `string`         |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
+| Name    | Type             | Required | Validation                                                                                |
+| ------- | ---------------- | :------: | ----------------------------------------------------------------------------------------- |
+| `@type` | `"EMailAddress"` |    ✓     |                                                                                           |
+| `value` | `string`         |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
 
 - The type of the attribute
 - The data type of the actual value (a string).
