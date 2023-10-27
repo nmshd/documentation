@@ -85,7 +85,10 @@ docs_integrate:
       #  url: /integrate/event-introduction
       - title: "Use Cases"
         url: /integrate/use-cases
-
+  - title: Get in touch with other Identities
+    children:
+      - title: "Process received enmeshed onboarding package and create relationship"
+        url: integrate/process-received-enmeshed-onboarding-package-and-create-relationship
   - title: Manage Requests
     children:
       - title: "Requests over Templates"
