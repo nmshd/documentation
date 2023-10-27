@@ -89,6 +89,8 @@ docs_integrate:
     children:
       - title: "Prepare enmeshed onboarding package"
         url: integrate/prepare-enmeshed-onboarding-package
+      - title: "Process received enmeshed onboarding package and create relationship"
+        url: integrate/process-received-enmeshed-onboarding-package-and-create-relationship
   - title: Manage Requests
     children:
       - title: "Requests over Templates"
