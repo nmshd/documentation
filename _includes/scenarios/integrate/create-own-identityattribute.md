@@ -23,12 +23,12 @@ To create an IdentityAttribute as a user for your own Connector, you need to sen
 }
 ```
 
-You need to replace the placeholders marked with <...> appropriately. In particular, it is necessary that you feed one of the available [IdentityAttribute Values]({% link _docs_integrate/attribute-values.md %}#identity-attributes) into the payload. Note that the `"validFrom"`, `"validTo"` and `"tags"` properties are optional, so you can omit them.
+You need to replace the placeholders marked with <...> appropriately. In particular, it is necessary that you feed one of the available [IdentityAttribute Values]({% link _docs_integrate/attribute-values.md %}#identity-attributes) into the payload. Note that the properties `validFrom`, `validTo` and `tags` are optional, so you can omit them.
 
-In general, you can query your Connector's Address by sending a Request using `GET /api/v2/Account/IdentityInfo`. If you use the Demo Connector provided by us for testing purposes in the interactive excerpt of the Connector's API documentation below, the Connector's Address is `id134nJmN7E4Carb6KyRJyePVnXxVHEYQgWD`.
+In general, you can query your Connector's Address by sending a Request using `GET /api/v2/Account/IdentityInfo`. If you use the Demo Connector provided by us for testing purposes in the [interactive excerpt of the Connector's API documentation]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}), the Connector's Address is `id134nJmN7E4Carb6KyRJyePVnXxVHEYQgWD`.
 {: .notice--info}
 
-{% include rapidoc api_route_regex="^post /api/v2/Attributes$" %}
+<!---{% include rapidoc api_route_regex="^post /api/v2/Attributes$" %}--->
 
 ## Process
 
@@ -81,7 +81,7 @@ An example of a complex IdentityAttribute is an IdentityAttribute with IdentityA
 }
 ```
 
-Assuming that the input values ​​for the properties `"day"`, `"month"` and `"year"` meet the validation criteria, which means, for example, that the input value for `"month"` is an integer between 1 and 12, the IdentityAttribute is saved as a LocalAttribute. The components `"day"`, `"month"` and `"year"` can each be understood as an additional IdentityAttribute with IdentityAttribute Value type [BirthDay]({% link _docs_integrate/attribute-values.md %}#birthday), [BirthMonth]({% link _docs_integrate/attribute-values.md %}#birthmonth) and [BirthYear]({% link _docs_integrate/attribute-values.md %}#birthyear), respectively. For this reason, another LocalAttribute is created internally for each of these components before a success response is sent.
+Assuming that the input values ​​for the properties `day`, `month` and `year` meet the validation criteria, which means, for example, that the input value for `month` is an integer between 1 and 12, the IdentityAttribute is saved as a LocalAttribute. The components `day`, `month` and `year` can each be understood as an additional IdentityAttribute with IdentityAttribute Value type [BirthDay]({% link _docs_integrate/attribute-values.md %}#birthday), [BirthMonth]({% link _docs_integrate/attribute-values.md %}#birthmonth) and [BirthYear]({% link _docs_integrate/attribute-values.md %}#birthyear), respectively. For this reason, another LocalAttribute is created internally for each of these components before a success response is sent.
 
 ## Success Response
 
@@ -108,4 +108,4 @@ When you have successfully created an IdentityAttribute for your Connector, you 
 }
 ```
 
-From this response, you can get the ID of the created IdentityAttribute from the `"id"` property. You will need this ID, for example, if you want to share the IdentityAttribute with other Identities later, as in the [Integration Example]({% link _docs_integrate/integration-example.md %}).
+From this response, you can get the ID of the created IdentityAttribute from the `id` property. You will need this ID, for example, if you want to share the IdentityAttribute with other Identities later, as in the [Integration Example]({% link _docs_integrate/integration-example.md %}).
