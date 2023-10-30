@@ -16,7 +16,7 @@ You need to replace them with values before you send the requests.
   - Make sure the [Sync Module is disabled](https://enmeshed.eu/operate/configuration#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
   - Make sure the [docs are enabled](https://enmeshed.eu/operate/configuration#corehttpapi) for the documentation route to work
   - Get the API key that was configured during installation of the Connector (it needs to be sent in the `X-API-KEY` header of every HTTP request)
-- You need **version 2** of the [enmeshed App]({% link _docs_use/install-the-app.md %}) installed on your mobile device.
+- You need the [enmeshed App]({% link _docs_use/install-the-app.md %}) installed on your mobile device.
 
 ## Establishing Relationships
 
@@ -39,7 +39,7 @@ To do so, proceed as described in the [Create own IdentityAttribute]({% link _do
 
 | Property of IdentityAttribute Value | Input value                         |
 | ----------------------------------- | ----------------------------------- |
-| `type`                              | `"DisplayName"`                     |
+| `@type`                             | `"DisplayName"`                     |
 | `value`                             | `"<your Connector's display name>"` |
 
 {% include copy-notice description="When you have successfully created the IdentityAttribute, you will receive a response containing its ID. It is necessary to save this ID, in order to be able to share the created IdentityAttribute with the other Identity later." %}
@@ -67,7 +67,7 @@ Let's assume the Connector needs to know the given name and surname of its conta
 
 | ReadAttributeRequestItems |                            |
 | ------------------------- | -------------------------- | -------------------------- | -------------------------- |
-| `query type`              | `"IdentityAttributeQuery"` | `"IdentityAttributeQuery"` | `"IdentityAttributeQuery"` |
+| `query @type`             | `"IdentityAttributeQuery"` | `"IdentityAttributeQuery"` | `"IdentityAttributeQuery"` |
 | `query valueType`         | `"GivenName"`              | `"Surname"`                | `"EMailAddress"`           |
 | `mustBeAccepted`          | `true`                     | `true`                     | `false`                    |
 
@@ -88,7 +88,7 @@ Furthermore, we specify an expiration date, which is located in the future, and 
 
 | RelationshipTemplate        |                                                            |
 | --------------------------- | ---------------------------------------------------------- |
-| `content type`              | `RelationshipTemplateContent`                              |
+| `content @type`             | `RelationshipTemplateContent`                              |
 | `content title`             | `"Connector Demo Contact"`                                 |
 | `content onNewRelationship` | `<RelationshipTemplateContent validated in previous step>` |
 | `expiresAt`                 | `"<date in future>"`                                       |
@@ -155,7 +155,7 @@ For this, we need the Address of our peer and must specify a Message subject and
 | Message           |                                                           |
 | ----------------- | --------------------------------------------------------- |
 | `recipients`      | `<peer address>`                                          |
-| `content type`    | `"Mail"`                                                  |
+| `content @type`   | `"Mail"`                                                  |
 | `content to`      | `<peer address>`                                          |
 | `content subject` | `"Welcome"`                                               |
 | `content body`    | `"Hello. We are pleased to welcome you as our customer."` |
