@@ -85,7 +85,10 @@ docs_integrate:
       #  url: /integrate/event-introduction
       - title: "Use Cases"
         url: /integrate/use-cases
-
+  - title: Working with requests
+    children:
+      - title: "Request and Response introduction"
+        url: /integrate/request-and-response-introduction
   - title: Manage Requests
     children:
       - title: "Requests over Templates"
