@@ -37,10 +37,12 @@ While communicating with the other Identity in the subsequent steps, we will cho
 Technically, for this we need to create an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an IdentityAttribute Value of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname) for our Connector.
 To do so, proceed as described in the [Create own IdentityAttribute]({% link _docs_integrate/create-own-identityattribute.md %}) guide with the following table values.
 
-| Property of IdentityAttribute Value | Input value                         |
-| ----------------------------------- | ----------------------------------- |
-| `@type`                             | `"DisplayName"`                     |
-| `value`                             | `"<your Connector's display name>"` |
+| IdentityAttribute |                                     |
+| ----------------- | ----------------------------------- |
+| `@type`           | `"IdentityAttribute"`               |
+| `owner`           | `"<your connector's Address>"`      |
+| `value.@type`     | `"DisplayName"`                     |
+| `value.value`     | `"<your Connector's display name>"` |
 
 {% include copy-notice description="When you have successfully created the IdentityAttribute, you will receive a response containing its ID. It is necessary to save this ID, in order to be able to share the created IdentityAttribute with the other Identity later." %}
 
@@ -55,21 +57,24 @@ Let's assume the Connector needs to know the given name and surname of its conta
 
 | RequestItemGroups |                               |                               |
 | ----------------- | ----------------------------- | ----------------------------- |
+| `@type`           | `"RequestItemGroup"`          | `"RequestItemGroup"`          |
 | `title`           | `"Shared Attributes"`         | `"Requested Attributes"`      |
 | `items`           | `<ShareAttributeRequestItem>` | `<ReadAttributeRequestItems>` |
 | `mustBeAccepted`  | `true`                        | `true`                        |
 
 | ShareAttributeRequestItem |                                                        |
 | ------------------------- | ------------------------------------------------------ |
+| `@type`                   | `"ShareAttributeRequestItem"`                          |
 | `attribute`               | `<IdentityAttribute created in the previous step>`     |
 | `sourceAttributeId`       | `"<id of the attribute created in the previous step>"` |
 | `mustBeAccepted`          | `true`                                                 |
 
-| ReadAttributeRequestItems |                            |
-| ------------------------- | -------------------------- | -------------------------- | -------------------------- |
-| `query @type`             | `"IdentityAttributeQuery"` | `"IdentityAttributeQuery"` | `"IdentityAttributeQuery"` |
-| `query valueType`         | `"GivenName"`              | `"Surname"`                | `"EMailAddress"`           |
-| `mustBeAccepted`          | `true`                     | `true`                     | `false`                    |
+| ReadAttributeRequestItems |                              |
+| ------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
+| `@type`                   | `"ReadAttributeRequestItem"` | `"ReadAttributeRequestItem"` | `"ReadAttributeRequestItem"` |
+| `query.@type`             | `"IdentityAttributeQuery"`   | `"IdentityAttributeQuery"`   | `"IdentityAttributeQuery"`   |
+| `query.valueType`         | `"GivenName"`                | `"Surname"`                  | `"EMailAddress"`             |
+| `mustBeAccepted`          | `true`                       | `true`                       | `false`                      |
 
 Before we actually create the template, we want to ensure the validity of the Request and its items.
 
@@ -88,9 +93,9 @@ Furthermore, we specify an expiration date, which is located in the future, and 
 
 | RelationshipTemplate        |                                                            |
 | --------------------------- | ---------------------------------------------------------- |
-| `content @type`             | `RelationshipTemplateContent`                              |
-| `content title`             | `"Connector Demo Contact"`                                 |
-| `content onNewRelationship` | `<RelationshipTemplateContent validated in previous step>` |
+| `content.@type`             | `RelationshipTemplateContent`                              |
+| `content.title`             | `"Connector Demo Contact"`                                 |
+| `content.onNewRelationship` | `<RelationshipTemplateContent validated in previous step>` |
 | `expiresAt`                 | `"<date in future>"`                                       |
 | `maxNumberOfAllocations`    | `1`                                                        |
 
@@ -152,13 +157,13 @@ In this tutorial we will focus on Messages of type [Mail]({% link _docs_integrat
 Firstly, we will [send a Message]({% link _docs_integrate/sending-messages.md %}) from the Connector to the App.
 For this, we need the Address of our peer and must specify a Message subject and body.
 
-| Message           |                                                           |
-| ----------------- | --------------------------------------------------------- |
-| `recipients`      | `<peer address>`                                          |
-| `content @type`   | `"Mail"`                                                  |
-| `content to`      | `<peer address>`                                          |
-| `content subject` | `"Welcome"`                                               |
-| `content body`    | `"Hello. We are pleased to welcome you as our customer."` |
+| Message           |                    |
+| ----------------- | ------------------ |
+| `recipients`      | `<peer address>`   |
+| `content.@type`   | `"Mail"`           |
+| `content.to`      | `<peer address>`   |
+| `content.subject` | `"<your subject>"` |
+| `content.body`    | `"<your message>"` |
 
 After having sent the Message, you should receive a push notification on your phone.
 Open the enmeshed App, navigate to "Contacts" and select the Relationship.
