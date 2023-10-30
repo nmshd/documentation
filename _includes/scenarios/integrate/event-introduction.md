@@ -17,6 +17,11 @@ In order to receive Events, the Connector needs to be synchronized with the Back
 This is taken care of by the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 Thereafter, the Events can be processed.
 Currently, there are two modules available to do so: the [AMQP Publisher Module]({% link _docs_operate/modules.md %}#amqppublisher) and the [WebhooksV2 Module]({% link _docs_operate/modules.md %}#webhooksv2).
+We recommend working with the AMQP Publisher Module, since it functions with a message broker, ensuring the conservation of events even in case of a downtime of the recipient.
+Furthermore, configuring exchanges allows to optimize the event processing for one's system.
+An example of an open source message broker is [RabbitMQ](https://www.rabbitmq.com/).
+In contrast, Webhooks will send HTTP POST requests to the corresponding handler, if an event occurs.
+However, in case of a downtime of the recipient, these events will get lost.
 In case you need a further module for your application, please raise an [issue](https://github.com/nmshd/feedback/issues/new/choose).
 
 ## Example
