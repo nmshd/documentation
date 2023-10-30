@@ -32,12 +32,14 @@ In general, you can query your Connector's Address by sending a Request using `G
 
 As you can see from the diagram below, after you send a Request to create an IdentityAttribute for your own Connector, several checks are performed to verify the correctness of your Request.
 
-Note that both an IdentityAttribute JSON and a RelationshipAttribute JSON are accepted as payload when requesting via `POST /api/v2/Attributes`, but only an IdentityAttribute JSON is suitable for creating an IdentityAttribute. Therefore, in this guide we assume that an IdentityAttribute JSON is passed. As the name suggests, you can use a RelationshipAttribute JSON to create a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
+Note that both an [IdentityAttribute JSON]({% link _docs_integrate/create-own-identityattribute.md %}#send-request) and a RelationshipAttribute JSON are accepted as payload when requesting via `POST /api/v2/Attributes`, but only an IdentityAttribute JSON is suitable for creating an IdentityAttribute. Therefore, in this guide we assume that an IdentityAttribute JSON is passed. As the name suggests, you can use a RelationshipAttribute JSON to create a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
 {: .notice--info}
 
 If the Request is not made correctly, an [error message]({% link _docs_integrate/error-codes.md %}) is sent in response. Otherwise, the [Create an Attribute]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}) use case occurs. In this case it is checked whether the input values for the properties of the specified IdentityAttribute Value meet the validation criteria documented on the [IdentityAttribute Values]({% link _docs_integrate/attribute-values.md %}#identity-attributes) page. Assuming a successful validation, the IdentityAttribute to be created is saved as a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute). If it is a simple IdentityAttribute, a success response is sent directly. In the case of a complex IdentityAttribute, on the other hand, another LocalAttribute is created beforehand for each of its appropriate components.
 
-![High level architecture diagram of enmeshed components and layers]({{ '/assets/images/integrate/Create own IdentityAttribute V2.svg' | relative_url }}){: .align-center}
+[![High level architecture diagram of enmeshed components and layers]({{ '/assets/images/integrate/Create own IdentityAttribute V2.svg' | relative_url }}){: .align-center}]({{ '/assets/images/integrate/Create own IdentityAttribute V2.svg' | relative_url }})
+
+<!--- Not magnifiable version: ![High level architecture diagram of enmeshed components and layers]({{ '/assets/images/integrate/Create own IdentityAttribute V2.svg' | relative_url }}){: .align-center} --->
 
 ### Example 1: Create an own simple IdentityAttribute
 
