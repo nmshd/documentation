@@ -37,9 +37,9 @@ Note that both an [IdentityAttribute JSON]({% link _docs_integrate/create-own-id
 
 If the Request is not made correctly, an [error message]({% link _docs_integrate/error-codes.md %}) is sent in response. Otherwise, the [Create an Attribute]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}) use case occurs. In this case it is checked whether the input values for the properties of the specified IdentityAttribute Value meet the validation criteria documented on the [IdentityAttribute Values]({% link _docs_integrate/attribute-values.md %}#identity-attributes) page. Assuming a successful validation, the IdentityAttribute to be created is saved as a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute). If it is a simple IdentityAttribute, a success response is sent directly. In the case of a complex IdentityAttribute, on the other hand, another LocalAttribute is created beforehand for each of its appropriate components.
 
-[![High level architecture diagram of enmeshed components and layers]({{ '/assets/images/integrate/Create own IdentityAttribute V2.svg' | relative_url }}){: .align-center}]({{ '/assets/images/integrate/Create own IdentityAttribute V2.svg' | relative_url }})
+[![High level architecture diagram of enmeshed components and layers]({{ '/assets/images/integrate/Create own IdentityAttribute.svg' | relative_url }}){: .align-center}]({{ '/assets/images/integrate/Create own IdentityAttribute.svg' | relative_url }})
 
-<!--- Not magnifiable version: ![High level architecture diagram of enmeshed components and layers]({{ '/assets/images/integrate/Create own IdentityAttribute V2.svg' | relative_url }}){: .align-center} --->
+<!--- Not magnifiable version: ![High level architecture diagram of enmeshed components and layers]({{ '/assets/images/integrate/Create own IdentityAttribute.svg' | relative_url }}){: .align-center} --->
 
 ### Example 1: Create an own simple IdentityAttribute
 
