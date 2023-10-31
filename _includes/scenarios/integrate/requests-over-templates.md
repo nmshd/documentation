@@ -90,7 +90,7 @@ If there is no open RelationshipRequest or existing Relationship, you can trigge
 
 ### Reject
 
-If you want to reject the Request you can do so by calling the `POST /api/v2/Requests/Incoming/{id}/Reject` route. You can use the `id` you saved in the previous step. In the payload you have to reject all RequestItems. In case of the example Request the payload is the following:
+If you want to reject the Request you can do so by calling the `PUT /api/v2/Requests/Incoming/{id}/Reject` route. You can use the `id` you saved in the previous step. In the payload you have to reject all RequestItems. In case of the example Request the payload is the following:
 
 ```jsonc
 {
@@ -108,7 +108,7 @@ In the response you can see the Request has moved to status `Decided`. This is w
 
 If you tried out the Rejection before this step make sure to create a Request by [loading the Template again](#load-the-template-and-get-the-request) with the same truncated reference.
 
-If you want to accept the Request you can do so by calling the `POST /api/v2/Requests/Incoming/{id}/Accept` route. You can use the `id` you saved in the [template loading](#load-the-template-and-get-the-request) step. In the payload you have to accept at least all RequestItems where the `mustBeAccepted` property is set to `true`. In case of the example Request the payload is the following:
+If you want to accept the Request you can do so by calling the `PUT /api/v2/Requests/Incoming/{id}/Accept` route. You can use the `id` you saved in the [template loading](#load-the-template-and-get-the-request) step. In the payload you have to accept at least all RequestItems where the `mustBeAccepted` property is set to `true`. In case of the example Request the payload is the following:
 
 ```jsonc
 {
