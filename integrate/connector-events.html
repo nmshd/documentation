@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-10-20T16:40:45+02:00">
+  <meta property="article:published_time" content="2023-10-31T16:26:47+01:00">
 
 
 
@@ -294,7 +294,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Events">
     <meta itemprop="description" content="            Event      Data      Description (This event is triggered when …)                  consumption.attributeCreated      LocalAttribute      … an Attribute was created manually or through a Request.              consumption.attributeDeleted      LocalAttribute      … an Attribute was deleted manually or through a Request.              consumption.attributeSucceded      LocalAttribute      … an Attribute was succeeded manually or through a Request.              consumption.attributeUpdated      LocalAttribute      … an Attribute was updated manually or through a Request.              consumption.incomingRequestReceived      LocalRequest      … an incoming Request was received either by loading a Relationship Template or by receiving a Message              consumption.incomingRequestStatusChanged      RequestStatusChangedEventData      … the status of an incoming Request has changed.              consumption.messageProcessed      MessageProcessedEventData      … a Message was processed by Modules like the RequestModule or DeciderModule.              consumption.outgoingRequestCreated      LocalRequest      … an outgoing Request was created.              consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted      LocalRequest      … an outgoing Request was created and directly completed.This happens if the Response came in with a new Relationship.              consumption.outgoingRequestStatusChanged      RequestStatusChangedEventData      … the status of an outgoing Request has changed.              consumption.relationshipTemplateProcessed      RelationshipTemplateProcessedEventData      … a RelationshipTemplate was processed by Modules like the RequestModule or DeciderModule.              consumption.sharedAttributeCopyCreated      LocalAttribute      … an Attribute is copied for sharing with another identity.              transport.messageReceived      Message      … a Message is received during synchronization.              transport.messageSent      Message      … a Message was sent.              transport.peerRelationshipTemplateLoaded      RelationshipTemplate      … a Relationship Template was loaded that belongs to another identity.              transport.relationshipChanged      Relationship      … a Relationship has changed. This can be due to one of the following cases: • you create a Relationship • you accept, reject or revoke a Relationship Change • a Relationship Change is received during synchronization      Event structureEvery event is structured as follows (TData depends on the actual event, e.g. LocalAttribute):interface Event&lt;TData&gt; {  namespace: string;  eventTargetAddress: string;  data: TData;}RequestStatusChangedEventData  LocalRequestexport interface RequestStatusChangedEventData {  request: LocalRequest;  oldStatus: LocalRequestStatus;  newStatus: LocalRequestStatus;}MessageProcessedEventData  Messageexport interface MessageProcessedEventData {  message: MessageDTO;  result: &quot;ManualRequestDecisionRequired&quot; | &quot;NoRequest&quot; | &quot;Error&quot;;}RelationshipTemplateProcessedEventData  RelationshipTemplateexport interface RelationshipTemplateProcessedEventData {  template: RelationshipTemplateDTO;  result: &quot;ManualRequestDecisionRequired&quot; | &quot;NonCompletedRequestExists&quot; | &quot;RelationshipExists&quot; | &quot;NoRequest&quot; | &quot;Error&quot;;}">
-    <meta itemprop="datePublished" content="2023-10-20T16:40:45+02:00">
+    <meta itemprop="datePublished" content="2023-10-31T16:26:47+01:00">
     
 
     <div class="page__inner-wrap">
@@ -471,7 +471,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-10-20T16:40:45+02:00">October 20, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-10-31T16:26:47+01:00">October 31, 2023</time></p>
 
       </footer>
 
