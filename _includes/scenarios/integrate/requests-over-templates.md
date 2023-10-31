@@ -8,7 +8,7 @@ You can use the [Connector Installation Guide]({% link _docs_operate/setup-with-
 
 {% include properties_list.html %}
 
-On the first Connector you will create a Template. This Connector will be called Templator in the in the following steps. The second Connector is called Requestor, because it will create the Relationship and therefore it creates the `RelationshipCreationChangeRequest`.
+On the first Connector you will create a Template. This Connector will be called Templator in the following steps. The second Connector is called Requestor, because it will create the Relationship and therefore it creates the `RelationshipCreationChangeRequest`.
 
 ## Check your Request's validity
 
