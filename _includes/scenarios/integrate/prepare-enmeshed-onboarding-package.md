@@ -69,7 +69,7 @@ If you have successfully created the RelationshipTemplate on your Connector on a
       ...
     },
     "truncatedReference": "<your RelationshipTemplate's truncated reference>",
-    "maxNumberOfAllocations": "<maximum number of allocations>",
+    "maxNumberOfAllocations": <maximum number of allocations>,
     "secretKey": "<your RelationshipTemplate's secret key>"
   }
 }
@@ -84,13 +84,13 @@ Before an Identity can establish a Relationship with your Connector, it must sen
 - Onboarding of an App user: Scan the QR Code of the RelationshipTemplate.
 - Onboarding of another Connector: Load the RelationshipTemplate onto it.
 
-[![High level architecture diagram of enmeshed components and layers]({{ '/assets/images/integrate/Prepare enmeshed onboarding package.svg' | relative_url }}){: .align-center}]({{ '/assets/images/integrate/Prepare enmeshed onboarding package.svg' | relative_url }})
+[![High level architecture diagram of enmeshed components and layers]({{ '/assets/images/integrate/Prepare onboarding package.svg' | relative_url }}){: .align-center}]({{ '/assets/images/integrate/Prepare onboarding package.svg' | relative_url }})
 
 <!--- Not magnifiable version: ![High level architecture diagram of enmeshed components and layers]({{ '/assets/images/integrate/Prepare enmeshed onboarding package.svg' | relative_url }}){: .align-center} --->
 
 ### Onboarding of an App user
 
-If an App user wants to send a Relationship Request to your Connector, the App user must first scan a QR Code that contains the reference to a RelationshipTemplate owned by your Connector. By sending the Request `GET /api/v2/RelationshipTemplates/{id}`, specifying the value `image/png` in the `Accept` header field, you can create this QR Code on your Connector. You must replace the placeholder `{id}` in the URL with the ID of the RelationshipTemplate obtained from the [success response]({% link _docs_integrate/prepare-enmeshed-onboarding-package.md %}#success-response) above.
+If an App user wants to send a Relationship Request to your Connector, the App user must first scan a QR Code that contains the reference to a RelationshipTemplate owned by your Connector. By sending the Request `GET /api/v2/RelationshipTemplates/<id>`, specifying the value `image/png` in the `Accept` header field, you can create this QR Code on your Connector. You must replace the placeholder `<id>` in the URL with the ID of the RelationshipTemplate obtained from the [success response]({% link _docs_integrate/prepare-enmeshed-onboarding-package.md %}#success-response) above.
 
 For more details on how to send a Request to create a QR Code containing the reference to a RelationshipTemplate, see the description of the [Get RelationshipTemplate]({% link _docs_use-cases/use-case-transport-get-relationship-template.md %}) usecase.
 {: .notice--info}
@@ -121,7 +121,7 @@ In doing so, it is necessary to insert the value of the `truncatedReference` pro
 For more details on how to send a Request to load a RelationshipTemplate created by a Connector onto another Connector, see the description of the [Load RelationshipTemplate created by others]({% link _docs_use-cases/use-case-transport-load-relationship-template-created-by-others.md %}) usecase.
 {: .notice--info}
 
-When the RelationshipTemplate of your Connector is successfully loaded onto the other Connector, a success response is sent. Assuming that there is no Relationship between the two Connectors yet, the other Connector will additionally receive an internally created new incoming Request. The user of the other Connector can accept it if it is wanted to send a Relationship Request to your Connector.
+When the RelationshipTemplate of your Connector is successfully loaded onto the other Connector, a success response is sent. This looks like the above [success response]({% link _docs_integrate/prepare-enmeshed-onboarding-package.md %}#success-response) except that the value of the property `isOwn` is now `false` instead of `true`. Assuming that there is no Relationship between the two Connectors yet, the other Connector will additionally receive an internally created new incoming Request. The user of the other Connector can accept it if it is wanted to send a Relationship Request to your Connector.
 
 ## What's next?
 
