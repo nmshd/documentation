@@ -450,15 +450,15 @@ There are cases in which you want to query some data from your peer that is not 
 
 #### ValueHints
 
-| Name          | Type                                          | Description                                                                                                                                               |
-| ------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| editHelp      | `string`                                      | A help text you can use to describe the purpose of the Attribute.                                                                                         |
-| min           | `number`                                      | In case of a string: the minimum length of the string. In case of an integer: the minimum value.                                                          |
-| max           | `number`                                      | In case of a string: the maximum length of the string. In case of an integer: the maximum value.                                                          |
-| pattern       | `string`                                      | A [regular expression](https://en.wikipedia.org/wiki/Regular_expression) that is used to validate the value. Only applicable if the value is a string.    |
-| values        | [`ValueHintsValue`](#valuehintsvalue)`[]`     | An array of allowed values.                                                                                                                               |
-| defaultValue  | `string` \| `number` \| `boolean`             | The default value that is used if no value is provided.                                                                                                   |
-| propertyHints | `Record<string,` [`ValueHints>`](#valuehints) | A set of Value Hints of all properties. The key is the name of the property and the value a `ValueHints` object. Only applicable if the value is complex. |
+| Name          | Type                                                         | Description                                                                                                                                               |
+| ------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| editHelp      | `string` \| `undefined`                                      | A help text you can use to describe the purpose of the Attribute.                                                                                         |
+| min           | `number` \| `undefined`                                      | In case of a string: the minimum length of the string. In case of an integer: the minimum value.                                                          |
+| max           | `number` \| `undefined`                                      | In case of a string: the maximum length of the string. In case of an integer: the maximum value.                                                          |
+| pattern       | `string` \| `undefined`                                      | A [regular expression](https://en.wikipedia.org/wiki/Regular_expression) that is used to validate the value. Only applicable if the value is a string.    |
+| values        | [`ValueHintsValue`](#valuehintsvalue)`[]` \| `undefined`     | An array of allowed values.                                                                                                                               |
+| defaultValue  | `string` \| `number` \| `boolean` \| `undefined`             | The default value that is used if no value is provided.                                                                                                   |
+| propertyHints | `Record<string,` [`ValueHints>`](#valuehints) \| `undefined` | A set of Value Hints of all properties. The key is the name of the property and the value a `ValueHints` object. Only applicable if the value is complex. |
 
 #### ValueHintsOverride
 
