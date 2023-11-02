@@ -35,7 +35,9 @@ It in turn accepts the Request, which results in the creation of a new Relations
 Firstly, we want to create a display name for our Connector.
 While communicating with the other Identity in the subsequent steps, we will choose to share this display name.
 Technically, for this we need to create an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an IdentityAttribute Value of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname) for our Connector.
-To do so, proceed as described in the [Create own IdentityAttribute]({% link _docs_integrate/create-own-identityattribute.md %}) guide with the following table values.
+To do so, proceed as described in the Create own IdentityAttribute guide with the following table values.
+
+[//]: # "<span style="color:red">(TODO: insert link)</span> To do so, proceed as described in the [Create own IdentityAttribute]({ link \_docs_integrate/create-own-identityattribute.md })"
 
 | IdentityAttribute |                                     |
 | ----------------- | ----------------------------------- |
