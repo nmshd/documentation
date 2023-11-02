@@ -1,4 +1,6 @@
-This guide explains the end to end flow of creating an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) for your own Connector. Before you start, you should check out our [IdentityAttribute introduction]({% link _docs_integrate/identityattribute-introduction.md %}) first.
+This guide explains the end to end flow of creating an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) for your own Connector. Before you start, you should check out our IdentityAttribute introduction first.
+
+<!--- [IdentityAttribute introduction]({_docs_integrate/identityattribute-introduction.md }) --->
 
 ## Send Request
 
