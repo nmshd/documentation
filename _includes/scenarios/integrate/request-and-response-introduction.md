@@ -2,7 +2,7 @@ You want to share Attributes with a contact or receive Attributes from them?
 You need an authentication or a consent from a peer?
 You wish to make edits to a Relationship or ensure the correctness of data?
 All of these endeavors and more can be achieved by the means of Requests.
-They are the main instrument when it comes to interacting with other Identities going beyond the simple exchange of messages.
+They are the main instrument when it comes to interacting with other Identities going beyond the simple exchange of `Messages`.
 
 Requests are always associated with a specific Relationship, i.e. they are sent to exactly one other Identity.
 Also, Responses are unique.
@@ -24,16 +24,15 @@ Here, we just want to give a brief overview:
 - [ReadAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem)s can be used to ask a peer for Attributes, e.g. asking for an address
 - [ShareAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem)s can be used to share own IdentityAttributes with a contact, e.g. sharing the own DisplayName when requesting a new Relationship
 
-In case multiple RequestItems should be answered jointly, you can combine them to a [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup).
+In case multiple RequestItems should be answered jointly, e.g. to enhance the structure for the user, you can combine them to a [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup).
 RequestItems or RequestItemGroups are then embedded in a Request, which can be sent to the other Identity.
-This happens either via a Message (see [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %})) or via a Template (see [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %})).
+This happens either via a Template (see [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %})) or via a Message (see [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %})).
 
 Once the other Identity receives a Request, they can decide whether they want to accept or reject the corresponding RequestItems or RequestItemGroups.
 Consequently, the associated [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem)s are created.
-They can either be a [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) or a special variant of it, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) or an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) in case the enmeshed Runtime detects a problem.
-If additional information is necessary to accept a Request, e.g. an Attribute is queried with a ReadAttributeRequestItem, it is attached to the AcceptResponseItem.
-In the given example, it will be a part of the returned ReadAttributeAcceptResponseItem.
-For every RequestItem or RequestItemGroup, exactly one ResponseItem or [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) will be created, respectively.
+They can either be [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem)s, [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem)s or [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem)s, in case the enmeshed Runtime detects a problem.
+Additionally, there are specific AcceptResponseItems extending the actual AcceptResponseItem to answer to RequestItems demanding additional information, like the ReadAttributeRequestItem.
+For every RequestItem or RequestItemGroup, there will be exactly one ResponseItem or [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) created, respectively.
 The [Response]({% link _docs_integrate/data-model-overview.md %}#response), then, is wrapped in a [ResponseWrapper]({% link _docs_integrate/data-model-overview.md %}#responsewrapper), which holds additional information about the corresponding Request, so that it can be processed correctly once it is returned.
 
 ## Example: Request-Response-Process for a CreateAttributeRequestItem
@@ -47,4 +46,4 @@ Thereafter, a Response is returned to the sender, containing the status `accepte
 Then, the sender will save them as a LocalRequest and, like the recipient, create a LocalAttribute with the content of the CreateAttributeRequestItem to store, as well.
 The whole process is, also, depicted below.
 
-[![Request-Response-Process for CreateAttributeRequestItem]( {{ '/assets/images/integrate/Requests - Handling of CreateConsumptionAttributeRequestItem .svg' | relative_url }} )]( {{ '/assets/images/integrate/Requests - Handling of CreateConsumptionAttributeRequestItem .svg' | relative_url }} )
+[![Request-Response-Process for CreateAttributeRequestItem]( {{ '/assets/images/integrate/request-and-response_process-for-CreateAttributeRequestItem.svg' | relative_url }} )]( {{ '/assets/images/integrate/request-and-response_process-for-CreateAttributeRequestItem.svg' | relative_url }} )
