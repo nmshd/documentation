@@ -1,64 +1,124 @@
-Ziel dieses Guides...
+Two Connectors are given, one called the Templator Connector and the other called the Requestor Connector, which aim to establish a Relationship with each other. We assume that the Templator Connector, as described in the Prepare enmeshed onboarding package guide, has already created an onboarding package and made it available to the Requestor Connector. In this guide we will see how the Requestor Connector can use this onboarding package to send a Relationship Request to the Templator Connector and how the Templator Connector has to answer this Relationship Request to finally establish a Relationship between the two Connectors.
 
-Inspired by:
+<!--- TODO: Link "Prepare enmeshed onboarding package" einfügen --->
 
-- Old Integration Example
-- Requests over Templates
+---------------- TODOS: ----------------
 
-## Ausgangssituation: Received enmeshed onboarding package
+- Comparison with: Old Integration Example
+- Comparison with: Requests over Templates
+- Insert links to UseCases
+- Insert links to other pages
+- Create and insert Diagrams
 
-- Zwei Connectoren möchten eine Beziehung eingehen.
-- Prepare enmeshed onboarding package.
-- Der eine Connector hat ein RelationshipTemplate erstellt. -> Templator Connector
-- Der andere Connector hat dieses mit POST /api/v2/RelationshipTemplates/Peer auf sich geladen. Im Erfolgsfall die folgende Antwort erhalten: ...
-- Intern wird außerdem Request erstellt, die an den Connector gesendet wird und auf die der Connector jetzt reagieren kann -> Je nachdem wird eine Relationship Request gesendet oder nicht.
+## Received enmeshed onboarding package
 
-### Begutachtung der Request
+We first describe the initial situation that exists when following the Prepare enmeshed onboarding package guide. We assume that the Templator Connector has created a RelationshipTemplate and that the Requestor Connector then successfully loaded this onto itself by sending an appropriate `POST /api/v2/RelationshipTemplates/Peer` Request. In this case, the Requestor Connector received the following success response:
 
-- Abfragen der zugehörigen Request GET /api/v2/Requests/Incoming (source.reference=<id-of-the-template> and status=ManualDecisionRequired)
+<!--- TODO: Link "Prepare enmeshed onboarding package" einfügen --->
 
-- Alternative: Über Events
+```jsonc
+{
+  "result": {
+    "id": "<ID of RelationshipTemplate>",
+    "isOwn": false,
+    "createdBy": "<ID of Templator Connector>",
+    "createdByDevice": "<ID of Device>",
+    "createdAt": "<creation date>",
+    "expiresAt": "<expiration date>",
+    "content": {
+      //Content of the RelationshipTemplate
+      ...
+    },
+    "truncatedReference": "<truncated reference of RelationshipTemplate>",
+    "maxNumberOfAllocations": <maximum number of allocations>,
+    "secretKey": "<secret key of RelationshipTemplate>"
+  }
+}
+```
 
-- Welche ID muss gespeichert werden?
+{% include copy-notice description="Save the `id` of the RelationshipTemplate so that you can refer to it in the next step." %}
 
-## Handlungsoptionen für Requestor Connector -> Process/Answer the Request
+Assuming that there is no Relationship between the two Connectors yet, the Requestor Connector has additionally received an internally created new incoming Request. The response of the Requestor Connector to this Request determines whether it sends a Relationship Request to the Templator Connector or not.
 
-Connector kann sich jetzt entscheiden:
+### Get Request
 
-- 1-Ablehnung der Request -> Keine Relationship Request wird gesendet
-- 2-Annahme der Request -> Relationship Request wird gesendet
+You can get the just mentioned incoming Request by sending the Request `GET /api/v2/Requests/Incoming` specifying the query parameters `source.reference=<ID of RelationshipTemplate>` on the Requestor Connector. If successful, you will receive the following response:
 
-- Diagramm?
+```jsonc
+{
+  "result": [
+    {
+      "id": "<ID of Request>",
+      "isOwn": false,
+      "peer": "<ID of Templator Connector>",
+      "createdAt": "<creation date of Request>",
+      "status": "ManualDecisionRequired",
+      "content": {
+      //Content of RelationshipTemplate
+      //OR: Contained Request in RelationshipTemplateContent of RelationshipTemplate
+      ...
+      },
+      "source": {
+        "type": "RelationshipTemplate",
+        "reference": "<ID of RelationshipTemplate>"
+      }
+    }
+  ]
+}
+```
 
-- Sync?
+{% include copy-notice description="Save the `id` of the Request so that you can refer to it in the subsequent steps." %}
 
-### Ablehnung der Request: No sending of Relationship Request
+## Response to Request
+
+Now it is time for the Requestor Connector to respond to the Request it has just get. It has two response options with different consequences:
+
+- Rejection: No sending of Relationship Request to Templator Connector.
+- Acceptance: Sending of Relationship Request to Templator Connector.
+
+If the Requestor Connector want to establish a Relationship with the Templator Connector, it must send a Relationship Request and therefore accept the Request.
+
+---------------- TODO: Diagramm ----------------
+
+### Rejection
 
 PUT /api/v2/Requests/Incoming/{id}/Reject
 
 GET /api/v2/Requests/Incoming/{id}
+{: .notice--info}
 
-### Annahme der Request: Sending of Relationship Request
+### Acceptance
 
 PUT /api/v2/Requests/Incoming/{id}/Accept
 
 GET /api/v2/Requests/Incoming/{id}
+{: .notice--info}
 
 GET /api/v2/Relationships
 
-## Handlungsoptionen für Templator Connector -> Process/Answer the Relationship Request
+#### Sending of Relationship Request
+
+## Response to Relationship Request
+
+Templator Connector sollte die Relationship Request beantworten.
+
+- Sync Templator Connector -> POST /api/v2/Account/Sync
 
 Im Falle, dass die Request angenommen wurde, wird an den Connector eine Relationship Request gesendet. Je nachdem, ob diese angenommen oder abgelehnt wird, kommt jetzt eine Beziehung zustande oder nicht.
 
-- Diagramm?
+---------------- TODO: Diagramm ----------------
 
-### Ablehnung der Relationship Request: Kein Zustandekommen der Relationship
+### Rejection
 
-### Annahme der Relationship Request: Creation of the Relationship
+- PUT ...
+- Sync Requestor Connector -> POST /api/v2/Account/Sync
 
-- Sync -> POST /api/v2/Account/Sync Templator Connector
+### Acceptance
+
 - PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Accept
-- Sync -> POST /api/v2/Account/Sync Requestor Connector
+- Sync Requestor Connector -> POST /api/v2/Account/Sync
+
+#### Creation of Relationship
 
 ## What's next?
 
