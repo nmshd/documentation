@@ -125,6 +125,8 @@ When the RelationshipTemplate of your Connector is successfully loaded onto the 
 
 ## What's next?
 
-You have learned in this guide how to create an onboarding package on your Connector and make it available to other Identities. How another Connector can use it to send a Relationship Request and finally establish a Relationship to your Connector is explained in the [Process received enmeshed onboarding package and create relationship]({% link _docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md %}) guide.
+You have learned in this guide how to create an onboarding package on your Connector and make it available to other Identities. How another Connector can use it to send a Relationship Request and finally establish a Relationship to your Connector is explained in the Process received enmeshed onboarding package and create relationship guide.
+
+<!--- TODO: insert: [Process received enmeshed onboarding package and create relationship]({_docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md}) --->
 
 <!--- There is a similar article for an App user that receives an onboarding package --->
