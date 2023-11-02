@@ -93,11 +93,11 @@ The debug flag configures if the Connector is set to **production** or **debug**
 
 - **platformClientId** `required`
 
-  The client id is required to communicate with the enmeshed platform. It can be acquired from the [enmeshed Support]({% link _docs_operate/setup-with-docker-compose.md %}#support).
+  The client id is required to communicate with the enmeshed platform. It can be acquired from the [enmeshed Support]({% link _docs_operate/support.md %}).
 
 - **platformClientSecret** `required`
 
-  The client secret is required to communicate with the enmeshed platform. It can be acquired from the [enmeshed Support]({% link _docs_operate/setup-with-docker-compose.md %}#support).
+  The client secret is required to communicate with the enmeshed platform. It can be acquired from the [enmeshed Support]({% link _docs_operate/support.md %}).
 
 ### database
 
