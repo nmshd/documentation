@@ -4,7 +4,7 @@
 
 This use-case retrieves the `accoung information` by it's `id`.
 
-## Parameters 
+## Parameters
 
 - The `id` of the account.
 

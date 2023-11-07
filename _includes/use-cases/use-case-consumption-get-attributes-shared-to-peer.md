@@ -12,10 +12,10 @@ The attribute can be specified using a query.
 - `query` describes the searched attribute in detail if present.
 - `hideTechnical` if set technical attributes are not considered.
 
-### On Success 
+### On Success
 
-- A list of [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest) 
-shared to the peer that match the query.
+- A list of [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest)
+  shared to the peer that match the query.
 
 ### On Failure
 

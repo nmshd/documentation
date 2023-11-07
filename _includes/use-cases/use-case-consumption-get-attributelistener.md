@@ -10,10 +10,9 @@ This use-case is intended to retrieve a [attribute listener]({% link _docs_integ
 
 ### On Success
 
-- The [LocalAttributeListener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) 
-that corresponds to the `ìd`.
+- The [LocalAttributeListener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener)
+  that corresponds to the `ìd`.
 
-### On Failure 
+### On Failure
 
 - There is no such attribute listener.
-

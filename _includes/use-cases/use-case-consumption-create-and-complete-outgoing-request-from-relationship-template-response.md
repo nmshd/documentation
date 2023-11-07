@@ -5,11 +5,11 @@
 This use-case is intended to create and instantly complete an outgoing request
 received from a relationship template response.
 
-### Parameters 
+### Parameters
 
 - `templateId` identifies the relationship template the response originates from.
-- `responseSourceId` references the response either a [message]({% link _docs_integrate/data-model-overview.md %}#Message) 
-or a [relationship change]({% link _docs_integrate/data-model-overview.md %}#relationshipchange). 
+- `responseSourceId` references the response either a [message]({% link _docs_integrate/data-model-overview.md %}#Message)
+  or a [relationship change]({% link _docs_integrate/data-model-overview.md %}#relationshipchange).
 - `response` is the content of the response.
 
 ### On Success

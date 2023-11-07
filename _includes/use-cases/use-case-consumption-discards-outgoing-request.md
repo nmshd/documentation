@@ -2,7 +2,7 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to discard a outgoing request that has not been sent yet and 
+This use-case is intended to discard a outgoing request that has not been sent yet and
 is thus in `draft`.
 
 ### Parameters
