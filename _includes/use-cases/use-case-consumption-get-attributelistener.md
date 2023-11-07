@@ -10,7 +10,7 @@ This use-case is intended to retrieve a [attribute listener]({% link _docs_integ
 
 ### On Success
 
-- The [LocalAttributeListenerPermalink]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) 
+- The [LocalAttributeListener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) 
 that corresponds to the `ìd`.
 
 ### On Failure 

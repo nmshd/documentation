@@ -1,3 +1,3 @@
-Retrieve support information.
+{{properties.description}}
 
-{% include rapidoc api_route_regex="^get /monitoring/support$" title="API documentation" %}
+{% include properties_list.html %}

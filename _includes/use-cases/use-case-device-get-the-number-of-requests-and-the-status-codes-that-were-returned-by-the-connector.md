@@ -1,3 +1,4 @@
-Retrieve number of requests and the status codes returned by the connector.
+{{properties.description}}
 
-{% include rapidoc api_route_regex="^get /monitoring/requests$" %}
+{% include properties_list.html %}
+

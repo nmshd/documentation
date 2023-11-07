@@ -1,3 +1,3 @@
-Retrieve service version information.
+{{properties.description}}
 
-{% include rapidoc api_route_regex="^get /monitoring/version$" %}
+{% include properties_list.html %}
