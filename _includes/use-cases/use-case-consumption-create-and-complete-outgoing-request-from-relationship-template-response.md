@@ -1,3 +1,7 @@
+{{properties.description}}
+
+{% include properties_list.html %}
+
 This use-case is intended to create and instantly complete an outgoing request
 received from a relationship template response.
 

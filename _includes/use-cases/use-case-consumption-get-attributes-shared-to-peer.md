@@ -1,3 +1,7 @@
+{{properties.description}}
+
+{% include properties_list.html %}
+
 This use-case is intended to retrieve attributes that have been shared to a specific peer.
 The attribute can be specified using a query.
 

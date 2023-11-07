@@ -1,3 +1,7 @@
+{{properties.description}}
+
+{% include properties_list.html %}
+
 This use-case is intended to retrieve a [attribute listener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) by its id.
 
 ### Parameter
