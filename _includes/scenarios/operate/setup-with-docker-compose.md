@@ -101,6 +101,45 @@ If the swagger documentation is enabled you can also access it under `<connector
 2. Create a folder where the log files shall be placed. Make sure that the process in the container has write access to the folder e.g. by executing `chmod 777 <folder>` on your created folder.
 3. replace `</folder/of/your/choice>` with the path to your created folder
 
+## Hosted API tooling by the (development) Connector
+
+To use the api platform hosted on the connector you need to make the following config changes:
+
+1. the http server must be enabled in the configuration of the connector.
+
+   ```jsonc
+   {
+     "infrastructure": {
+       "httpServer": {
+         "enabled": true,
+         "apiKey": "an-api-key"
+       }
+     }
+   }
+   ```
+
+2. furthermore the API must be activated
+
+   ```jsonc
+   {
+     "modules": {
+       "coreHttpApi": {
+         "docs": {
+           "enabled": true
+         }
+       }
+     }
+   }
+   ```
+
+3. the API must not be used in production systems, therefore the tag "debug" must be activated
+
+   ```jsonc
+   {
+     "debug": true
+   }
+   ```
+
 ## Troubleshooting
 
 If you encounter any problems while setting up the Connector, head over to the [Troubleshooting]({% link _docs_operate/troubleshooting-guide.md %}) site.
