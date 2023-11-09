@@ -32,6 +32,7 @@ properties:
   - link: transport/create-token-for-own-relationship-template
 require:
 required_by:
+api_route_regex: ^POST /api/v2/RelationshipTemplates/Own/{id}/Token$
 ---
 
 {% include use-cases/use-case-transport-create-token-for-own-relationship-template.md %}

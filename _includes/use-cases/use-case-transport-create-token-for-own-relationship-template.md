@@ -1,12 +1,19 @@
+{{properties.description}}
+
+{% include properties_list.html %}
+
 Creates a [token]({% link _docs_integrate/data-model-overview.md %}#token) for a given [relationship template]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate)
-that coresponds to the given id.
 
-## Example Body
+## Parameters
 
-```json
-{
-  "expiresAt": "2024-01-01T00:00:00.000Z"
-}
-```
+- `templateId` is the id of the `relationship template` the token should be created for.
+- `expiresAt` is the ISODateTime the token expires at.
+- `epheremal` indicates if the token should be cached.
 
-{% include rapidoc api_route_regex="^post /api/v2/RelationshipTemplates/Own/{id}/Token$" title="API docs" %}
+## On Success
+
+- Returns the created `token`.
+
+## On Failure
+
+- `templateId` does not resolve to a `relationship template`.

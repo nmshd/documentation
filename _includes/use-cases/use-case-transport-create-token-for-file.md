@@ -1,12 +1,20 @@
-Creates a [token]({% link _docs_integrate/data-model-overview.md %}#token) for a given file that
+{{properties.description}}
+
+{% include properties_list.html %}
+
+Creates a [token]({% link _docs_integrate/data-model-overview.md %}#token) for a given owned file that
 corresponds to the given id.
 
-## Example Body
+## Parameters
 
-```json
-{
-  "expiresAt": "2024-01-01T00:00:00.000Z"
-}
-```
+- `fileId` is the id of the file the token should be created for.
+- `expiresAt` is the ISODateTime the token expires at.
+- `epheremal` indicates if the token should be cached.
 
-{% include rapidoc api_route_regex="^post /api/v2/Files/{id}/Token$" title="API docs" %}
+## On Success
+
+- Returns the created `token`.
+
+## On Failure
+
+- `fileID` does not resolve to a file.

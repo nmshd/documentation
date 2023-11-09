@@ -32,6 +32,7 @@ properties:
   - link: transport/create-relationship-with-relationshiptemplate
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Relationships$
 ---
 
 {% include use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}

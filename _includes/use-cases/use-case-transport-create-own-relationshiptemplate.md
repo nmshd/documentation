@@ -1,22 +1,22 @@
+{{properties.description}}
+
+{% include properties_list.html %}
+
 Create a relationship template.
 
 A relationship template can be used by a third party to initiate a relationship with you.
 Read [more]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
 
-## Example Body
+## Parameters
 
-```json
-{
-  "maxNumberOfAllocations": 1,
-  "expiresAt": "2024-06-01T00:00:00.000Z",
-  "content": {
-    "@type": "RelationshipTemplateContent",
-    "title": "Connector Demo Contact",
-    "onNewRelationship": {
-      // <A valid request, please refer to the data model for more details>
-    }
-  }
-}
-```
+- `expiresAt` is the ISODateTime the template expires at.
+- `content` describes the structure of the template for [example]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent).
+- `maxNumberOfAllocations` is the number of times the QR-Code can be used to initiate a relationship.
 
-{% include rapidoc api_route_regex="^post /api/v2/RelationshipTemplates/Own$" title="API docs" %}
+## On Success
+
+- Returns the created [relationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
+
+## On Failure
+
+- The `content` is malformed.

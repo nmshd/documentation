@@ -32,6 +32,7 @@ properties:
   - link: transport/create-own-token
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Tokens/Own$
 ---
 
 {% include use-cases/use-case-transport-create-own-token.md %}
