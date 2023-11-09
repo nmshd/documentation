@@ -1,35 +1,50 @@
-In a productive environment your Connector will probably have many Relationships.
-Consequently, a lot of actions can occur that need to be processed, like Messages, Requests, or changes of Attributes or Relationships.
-Working with Events allows you to stay updated about these occurences.
-Furthermore, they can trigger processes, that take care of an automated handling.
+Connecting an external system with the [enmeshed Connector]({% link _docs_explore/01-how_does_enmeshed_work.md %}#enmeshed-connector), the main communication is performed by addressing the Connector's REST API.
+This way, processes can be initiated by the organization's backend service or data can be requested from the Connector.
+In addition, events offer the possibility for the Connector to actively give feedback to the external system.
+Thus, a bidirectional communication is established.
 
-## What is an Event?
+[![Diagram motivating the usage of events]( {{ '/assets/images/integrate/events_motivation1.svg' | relative_url }} )]( {{ '/assets/images/integrate/events_motivation1.svg' | relative_url }} )
 
-Events are defined actions or occurences, that are exposed on a software level.
-They allow to determine routines, that are executed whenever a specific Event arises, called handlers.
-This way of actively triggering a process at the respective Event is not only more efficient compared to contiuously asking if a specific action occured.
-Also, it is saver, since it keeps you updated about any changes of interest.
-An overview of the [Connector Events]({% link _docs_integrate/connector-events.md %}) that may occur is given in the corresponding section.
+## What is an event?
 
-## Modules to handle Events
+Events are predefined datastructures used within enmeshed to communicate a significant change of an entity's state.
+They are heavily used internally by the enmeshed Runtime, but can also be propagated by the Connector to external systems.
+Thus, these systems don't have to perform long pulling, in order to receive changes, but are actively informed once they occur.
+This is not only more efficient, also, its is saver, since it keeps you updated about all changes of interest.
+Working with events allows to determine routines, that are executed whenever a specific event arises, called handlers.
+An overview of the [Connector events]({% link _docs_integrate/connector-events.md %}) that may occur is given in the corresponding section.
 
-In order to receive Events, the Connector needs to be synchronized with the Backbone.
-This is taken care of by the [Sync Module]({% link _docs_operate/modules.md %}#sync).
-Thereafter, the Events can be processed.
-Currently, there are two modules available to do so: the [AMQP Publisher Module]({% link _docs_operate/modules.md %}#amqppublisher) and the [WebhooksV2 Module]({% link _docs_operate/modules.md %}#webhooksv2).
-We recommend working with the AMQP Publisher Module, since it functions with a message broker, ensuring the conservation of events even in case of a downtime of the recipient.
+## Example: Sending and receiving messages
+
+As an exemplary process of how working with events can benefit your mode of operation, we look an the procedure of exchanging `Messages`.
+
+### Without using events
+
+Firstly, we consider the case without using events.
+To sent a `Message`, the external system posts the corresponding request to the REST API of the Connector.
+Then, it regularly fetches its state, until a response is received.
+This might take many cycles, depending on the refresh rate, and implies a delay between the time the response is received by the Connector and the external system.
+
+[![Example sending and receiving messages without events]( {{ '/assets/images/integrate/events_example_no_events.svg' | relative_url }} )]( {{ '/assets/images/integrate/events_example_no_events.svg' | relative_url }} )
+
+### Using events
+
+In contrast, if you work with events, as soon as the Connector successfully sent your `Message`, a `transport.messageSent` event will be transmitted to your system as a confirmation.
+Awaiting the response, no long pulling is necessary, since the Connector actively sends a `transport.messageReceived` event, containing the answer, once it is received.
+
+[![Example sending and receiving messages with events]( {{ '/assets/images/integrate/events_example.svg' | relative_url }} )]( {{ '/assets/images/integrate/events_example.svg' | relative_url }} )
+
+## Modules to receive events
+
+In order to receive events, the Connector needs to be synchronized with the Backbone.
+This can be automated using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
+Fetching changes from the Backbone regularly, it automatically triggers the events used by other [Modules]({% link _docs_operate/modules.md %}).
+Currently, there are two options available: Events can either be received via [AMQP]({% link _docs_operate/modules.md %}#amqppublisher) or via [Webhooks]({% link _docs_operate/modules.md %}#webhooksv2).
+Working with AMQP has the advantage that it functions with a message broker, thus, ensuring the conservation of events, even in case of a downtime of the recipient.
 Furthermore, configuring exchanges allows to optimize the event processing for one's system.
 An example of an open source message broker is [RabbitMQ](https://www.rabbitmq.com/).
-In contrast, Webhooks will send HTTP POST requests to the corresponding handler, if an event occurs.
+In contrast, the WebhooksV2 Module will send `HTTP POST` requests to the corresponding handler, if an event occurs.
 However, in case of a downtime of the recipient, these events will get lost.
-In case you need a further module for your application, please raise an [issue](https://github.com/nmshd/feedback/issues/new/choose).
+Thus, we recommend to work with AMQP.
 
-## Example
-
-An example how Events can come in handy is given by a changed privacy policy.
-Let's say we require an updated agreement from our contact, in order to process their data.
-For this, we need to create a Request with a [ConsentRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#consentrequestitem).
-If this outgoing Request is accepted, a `consumtion.outgoingRequestStatusChanged` event is created, indicating that its status has changed.
-The data of the Event contains the information of the new status, in this example `accepted`.
-The associated handler of the Event is triggered and checks the updated status of the Request.
-Since it was accepted, the data of the contact can be processed.
+[![Diagram of event handling with different modules]( {{ '/assets/images/integrate/events_modules.svg' | relative_url }} )]( {{ '/assets/images/integrate/events_modules.svg' | relative_url }} )
