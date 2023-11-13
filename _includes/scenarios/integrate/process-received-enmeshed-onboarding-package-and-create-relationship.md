@@ -45,7 +45,13 @@ Assuming that there is no Relationship between the two Connectors yet, the Reque
 There are some cases, especially when the Templator Connector didn't use a data object of type RelationshipTemplateContent to fill the property `content` of the RelationshipTemplate, when this incoming Request isn't sent. In this case, you can use the loaded RelationshipTemplate to send a Relationship Request to the Templator Connector manually via `POST /api/v2/Relationships`. For more Details see the description of the [Create Relationship with RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) usecase.
 {: .notice--info}
 
-### Get Request
+## Create Relationship
+
+### Send Relationship Request
+
+#### RelationshipTemplate with RelationshipTemplateContent
+
+Get incoming Request
 
 You can get the just mentioned incoming Request by sending the Request `GET /api/v2/Requests/Incoming` specifying the query parameter `source.reference=<ID of RelationshipTemplate>` on the Requestor Connector. If successful, you will receive the following response:
 
@@ -83,7 +89,7 @@ You can get the just mentioned incoming Request by sending the Request `GET /api
 For more information on how to query the incoming Requests to a Connector, see the documentation of the [Query incoming Requests]({% link _docs_use-cases/use-case-consumption-query-incoming-requests.md %}) use case.
 {: .notice--info}
 
-## Response to Request
+Accept incoming Request
 
 Now it is time for the Requestor Connector to respond to the Request it has just get. It has two response options with different consequences:
 
@@ -94,14 +100,14 @@ If the Requestor Connector want to establish a Relationship with the Templator C
 
 ---------------- TODO: Diagramm ----------------
 
-### Rejection
+Reject
 
 If the Requestor Connector does not wish to establish a Relationship with the Templator Connector under the conditions summarized in the Request, it can reject this Request by sending `PUT /api/v2/Requests/Incoming/<ID of Request>/Reject` with a suitable Request body as documented in the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 
 The status of the Request then changes from `Decided` to `Completed`. You can check this by sending the Request `GET /api/v2/Requests/Incoming/<ID of Request>` described in more detail in the use case [Get incoming Request]({% link _docs_use-cases/use-case-consumption-get-incoming-request.md %}).
 {: .notice--info}
 
-### Acceptance
+Accept
 
 If the Requestor Connector agrees to the conditions summarized in the Request for establishing a Relationship with the Templator Connector, it can accept this Request by executing `PUT /api/v2/Requests/Incoming/<ID of Request>/Accept` with a suitable Request body as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case. In the response of the `PUT` Request you can see that the status of the Request has changed from `Pending/ManualDecisionRequired?` to `Decided`:
 
@@ -112,29 +118,29 @@ If the Requestor Connector agrees to the conditions summarized in the Request fo
 The status of the Request then changes from `Decided` to `Completed`. You can check this by sending the Request `GET /api/v2/Requests/Incoming/<ID of Request>` described in more detail in the use case [Get incoming Request]({% link _docs_use-cases/use-case-consumption-get-incoming-request.md %}).
 {: .notice--info}
 
-#### Sending of Relationship Request
+#### RelationshipTemplate without RelationshipTemplateContent
 
 This will create internally a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship).
 
 You can query this with `GET /api/v2/Relationships`, query parameter `template.id=<id-of-the-template>`.
 
-## Response to Relationship Request
+### Accept Relationship Request
 
 If the Requestor Connector has accepted the Request and has therefore sent a Relationship Request to the Templator Connector, it is now the Templator Connector's turn to reject or accept this Relationship Request. Depending on this, a Relationship between the two Connectors may or may not be established. In order for the Templator Connector to receive the Relationship Request at all, it must first [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) via `POST /api/v2/Account/Sync`.
 
 ---------------- TODO: Diagramm ----------------
 
-### Rejection
+Reject
 
 - Perform `PUT /api/v2/Relationships/:id/Changes/:changeId/Reject` from use case [Reject Relationship Change]({% link _docs_use-cases/use-case-transport-reject-relationship-change.md %}).
-- Syncronize the Requestor Connector via `POST /api/v2/Account/Sync`.
 
-### Acceptance
+Accept
 
 - Perform `PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Accept` from use case [Accept Relationship Change]({% link _docs_use-cases/use-case-transport-accept-relationship-change.md %}).
-- Syncronize the Requestor Connector via `POST /api/v2/Account/Sync`.
 
-#### Creation of Relationship
+### Synchronization
+
+- Synchronize the Requestor Connector via `POST /api/v2/Account/Sync`.
 
 ## What's next?
 
