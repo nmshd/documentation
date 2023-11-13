@@ -10,27 +10,28 @@ Please note that there are some data structures used in the context of enmeshed,
 
 ## Requests
 
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/03ed5248-af12-4a50-bac1-73831f2c3cf9" id="ceYMAtD21aWY"></iframe></div>
+
 ### Structure of Requests
 
 A [Request]({% link _docs_integrate/data-model-overview.md %}#request) can be created by an Identity and sent to a peer to exchange information with them.
-The prerequisite for this is an already existing Relationship to prevent mischievous usage.
 Specifying the exact demands to the peer, [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitem)s are the core of the Request.
 In case multiple RequestItems should be answered jointly, e.g. to enhance the structure for the user, they can be combined to a [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup).
 After creating the Request, it can be transmitted either via a Template (see [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %})) or via a Message (see [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %})).
 
 ### Types of RequestItems
 
-To extinguish different scenarios, how you would like to use Requests, there are different types of RequestItems tailored to them.
+To extinguish different scenarios how to use Requests, there are various types of RequestItems tailored to them.
 They are all described in detail on the [Requests and RequestItems]({% link _docs_integrate/requests-and-requestitems.md %}) page.
 Here, we just want to give a brief overview:
 
 - [AuthenticationRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#authenticationrequestitem)s can be used to request an authentication, e.g. for a login to a website
-- [ConsentRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#consentrequestitem)s can be used to request a consent to a freely configurable text, e.g. to receive a newsletter
+- [ConsentRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#consentrequestitem)s can be used to request consent to a freely configurable text, e.g. to receive a newsletter
 - [CreateAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem)s can be used to create an Identity- or RelationshipAttribute with a fixed value for a peer, e.g. a certificate
 - [FreeTextRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#freetextrequestitem)s can be used to send a free text to a contact, that in turn can accept it with a free text as well
 - [ProposeAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#proposeattributerequestitem)s can be used to ask the peer for Attributes, already suggesting answers, e.g. asking for an address and setting the country of the organization as default
 - [ReadAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem)s can be used to ask a peer for Attributes, e.g. asking for an address
-- [ShareAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem)s can be used to share own Attributes with a contact, e.g. the DisplayName when requesting a new Relationship
+- [ShareAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem)s can be used to share own Attributes with a contact, e.g. the DisplayName
 
 ### Properties associated with Requests
 
@@ -49,6 +50,8 @@ Depending on the kind of RequestItem, additional properties may be available.
 
 ## Responses
 
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/b42bc3d1-bb48-4bd5-a645-016dce559b30" id="3eYMVEEmOusO"></iframe></div>
+
 ### Structure of Responses
 
 Once the other Identity receives a Request, it can decide whether or not to accept it.
@@ -64,16 +67,41 @@ For example, a ReadAttributeRequestItem is accepted using a [ReadAttributeAccept
 If a RequestItem is rejected, however, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) is created.
 Lastly, in case the enmeshed Runtime detects a problem, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) is generated.
 
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/1d3f3866-4d85-46b5-8523-ecc581052f4b" id="0fYMlmRg4CHl"></iframe></div>
+
 ### Properties associated with Responses
 
 Since each Response is associated with a specific Request, the corresponding `requestId` is indicated in the Response.
 Its `result` property declares whether the Request was accepted or rejected.
-Also, each ResponseItem has a `result` property, which value depends on the kind of ResponseItem and can either be `Accepted`, `Rejected` or `Error`.
+Also, each ResponseItem has a `result` property itself, whose value depends on the kind of ResponseItem and can either be `Accepted`, `Rejected` or `Error`.
 In addition, RejectResponseItems and ErrorResponseItems may have a `code` and a `message` specified, providing more details about the rejection or error.
-The ResponseWrapper holds additional information about the Request, namely its ID, the `requestSourceType`, i.e. if the Request was transmitted via a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) or a [Message]({% link _docs_integrate/data-model-overview.md %}#message), and the `requestSourceReference`, containing its ID.
+The ResponseWrapper holds additional information about the Request, namely its ID, the `requestSourceType`, i.e. if the Request was transmitted via a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) or a [Message]({% link _docs_integrate/data-model-overview.md %}#message), and the `requestSourceReference`, containing the respective ID.
 
-## Some Examples
+## Examples
+
+### Required and optional RequestItems
+
+An organization has a Relationship with a customer and needs their consent to the privacy terms.
+Additionally, the organization would like to know, if the customer is interested in optionally receiving a newsletter.
+Thus, they send a Request, containing two ConsentRequestItems.
+On the one hand, the RequestItem regarding consent to the Privacy Terms has the `mustBeAccepted` flag enabled, indicating that the Request can't be accepted without accepting this item.
+On the other hand, the RequestItem regarding the Newsletter has the `mustBeAccepted` flag disabled.
+Hence, the customer can freely choose whether or not they would like to give their consent to it.
+Let's consider the case the Request and therefore the privacy terms are accepted, but the consent to the newsletter is denied.
+The resulting Request-Response flow is depicted in the following graphic.
+For simplicity some properties are omitted.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/8989a397-d7e8-4c3c-b447-0d9043da8ceb" id="hXLLJn2hUyg7"></iframe></div>
+
+### Working with RequestItemGroups
+
+At a job fair a company wants to offer a convenient way to get in touch with interested jobseekers.
+For this, they provide a QR-code, linking to a RelationshipTemplate.
+In its `content.onNewRelationship` property it holds a Request with two RequestItemGroups.
+One of them contains Attributes the company shares with the peer, e.g. the company name.
+The other contains Attributes it would like to query from the peer.
+In this example they are the given and surname and optionally an e-mail address, following the [Integration example]({% link _docs_integrate/integration-example.md %}).
+Now, an interested person can scan the QR-code, provide their information and send their Response inside a RelationshipCreationChangeRequest (note that this is not the kind of Request discussed on this page).
+Once the company accepts the new Relationship, they can exchange messages or other data using enmeshed.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/4ac53380-b21a-4e33-982a-aa9167c471f3" id="nxLL6~4OyYam"></iframe></div>
