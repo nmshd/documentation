@@ -1,4 +1,4 @@
-Creates a [token]({% link _docs_integrate/data-model-overview.md %}#token) that represents arbitrary encrypted data
+Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) that represents arbitrary encrypted data
 saved on the backbone.
 
 ## Parameters

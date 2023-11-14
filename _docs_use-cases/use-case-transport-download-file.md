@@ -32,6 +32,7 @@ properties:
   - link: transport/download-file
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Files/{id}/Download$
 ---
 
 {% include use-cases/use-case-transport-download-file.md %}

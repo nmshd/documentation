@@ -1,3 +1,17 @@
+{{properties.description}}
+
+{% include properties_list.html %}
+
 Download file that corresponds to the given id.
 
-{% include rapidoc api_route_regex="^get /api/v2/Files/{id}/Download$" title="API docs" %}
+## Parameters
+
+- `id` of the file.
+
+## On Success
+
+- Downloads the file that corresponds to the `id`.
+
+## On Failure
+
+- There is no file with the given `id`.
