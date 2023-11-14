@@ -121,7 +121,7 @@ In doing so, it is necessary to insert the value of the `truncatedReference` pro
 For more details on how to send a Request to load a RelationshipTemplate created by a Connector onto another Connector, see the description of the [Load RelationshipTemplate created by others]({% link _docs_use-cases/use-case-transport-load-relationship-template-created-by-others.md %}) usecase.
 {: .notice--info}
 
-When the RelationshipTemplate of your Connector is successfully loaded onto the other Connector, a success response is sent. This looks like the above [success response]({% link _docs_integrate/prepare-enmeshed-onboarding-package.md %}#success-response) except that the value of the property `isOwn` is now `false` instead of `true`. Assuming that there is no Relationship between the two Connectors yet, the other Connector will additionally receive an internally created new incoming Request. The user of the other Connector can accept it if it is wanted to send a Relationship Request to your Connector.
+When the RelationshipTemplate of your Connector is successfully loaded onto the other Connector, a success response is sent. This looks like the above [success response]({% link _docs_integrate/prepare-enmeshed-onboarding-package.md %}#success-response) except that the value of the property `isOwn` is now `false` instead of `true`. Assuming that there is no Relationship between the two Connectors yet and that the RelationshipTemplate contains a data object of type RelationshipTemplateContent in its `content` property, the other Connector will additionally receive a new incoming Request created internally. This can be accepted it if it is wanted to send a Relationship Request to your Connector.
 
 ## What's next?
 
