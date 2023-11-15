@@ -22,12 +22,12 @@ You need to replace them with values before you send the requests.
 
 In order to communicate with another Identity, a Relationship to that Identity is required.
 Thus, in this first part of the tutorial you will learn how to establish a Relationship between your Connector and another Identity.
-In our example the other Identity will be the App.
+In our example the other Identity will be an App.
 However, it could be another Connector, as well, e.g. if two companies want to exchange data securily without opening a port or network.
 
 The way we will establish the Relationship is via a Relationship Template.
-This is created by the Connector and contains its display name, as well as the data it would like to have from the other Identity.
-Then, the App fills out all required information of the template and sends the Relationship Request to the Connector.
+This is created by the Connector and contains its display name, as well as the data it would like to receive from the other Identity.
+Then, the App user fills out all required information of the template and sends the Relationship Request to the Connector.
 It in turn accepts the Request, which results in the creation of a new Relationship.
 
 ### Connector: Create an Attribute
@@ -42,7 +42,7 @@ To do so, proceed as described in the Create own IdentityAttribute guide with th
 | IdentityAttribute |                                     |
 | ----------------- | ----------------------------------- |
 | `@type`           | `"IdentityAttribute"`               |
-| `owner`           | `"<your connector's Address>"`      |
+| `owner`           | `"<your connector's address>"`      |
 | `value.@type`     | `"DisplayName"`                     |
 | `value.value`     | `"<your Connector's display name>"` |
 
@@ -143,21 +143,21 @@ In the response we will receive the created Relationship, which contains the cor
 To accept the Relationship Request, save the ID of the Relationship, as well as the ID of the Relationship Change.
 
 Now the Relationship is in the `Active` state, so we can start to communicate with the opposite Identity, which we will do in the next part of this tutorial.
-For this, we will need the Address of that Identity.
+For this, we will need the address of that Identity.
 It can be found in the response, when accepting the Relationship.
 
 {% include copy-notice description="Save the `peer` property of the response. You will need it in the next step." %}
 
 ## Sending and Receiving Messages
 
-After having established a Relationship to an Identity, we can start to exchange Messages.
-Enmeshed defines [different types of Messages]({% link _docs_integrate/data-model-overview.md %}#message).
+After having established a Relationship to an Identity, we can start to exchange [Messages]({% link _docs_integrate/data-model-overview.md %}#message).
+Enmeshed defines different types of Messages.
 In this tutorial we will focus on Messages of type [Mail]({% link _docs_integrate/data-model-overview.md %}#mail), which can be compared to a classic email: it is possible to specify one or more recipients, a subject and a body, as well as add attachments.
 
 ### Sending a Message with a Connector
 
 Firstly, we will [send a Message]({% link _docs_integrate/sending-messages.md %}) from the Connector to the App.
-For this, we need the Address of our peer and must specify a Message subject and body.
+For this, we need the address of our peer and must specify a Message subject and body.
 
 | Message           |                    |
 | ----------------- | ------------------ |
@@ -178,7 +178,7 @@ Next, we are going to send a Message from the App to the Connector.
 So, open the enmeshed App, navigate to "Contacts" and select your Relationship.
 Then, tap on "New Message", enter a subject and body and tap on "Send".
 
-In order to fetch the Message, we need [synchronize to the Connector with the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) again.
+In order to fetch the Message, we need to [synchronize the Connector with the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) again.
 The response should contain a Message with the content you entered in the App.
 
 ## What's next?
