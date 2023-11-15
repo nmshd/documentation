@@ -8,3 +8,5 @@ If an event is triggered by the connector, this must be transmitted to the conne
 The subsystem has the option of using the sync function to load updates from the connector at regular intervals via pull. However, it would be better if the connector informs the subsystem via push that there are new requests or messages.
 
 There are 2 modules available for this. With the webhook module an http request is sent to a defined web route in the subsystem or with the AMQP the event is broadcasted.
+
+<!-- TODO descript the transfered messages. -->
