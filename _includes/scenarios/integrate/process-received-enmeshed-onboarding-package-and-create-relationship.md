@@ -14,11 +14,11 @@ We first describe the initial situation that exists when following the Prepare e
     "id": "<ID of RelationshipTemplate>",
     "isOwn": false,
     "createdBy": "<ID of Templator Connector>",
-    "createdByDevice": "<ID of Device>",
-    "createdAt": "<creation date>",
-    "expiresAt": "<expiration date>",
+    "createdByDevice": "<ID of Device used for creating RelationshipTemplate>",
+    "createdAt": "<creation date of RelationshipTemplate>",
+    "expiresAt": "<expiration date of RelationshipTemplate>",
     "content": {
-      //Content of RelationshipTemplate
+      //Content of the RelationshipTemplate
       ...
     },
     "truncatedReference": "<truncated reference of RelationshipTemplate>",
@@ -72,7 +72,7 @@ We assume that there is no Relationship between the two Connectors yet and that 
 For more information on how to query the incoming Requests to a Connector, see the documentation of the [Query incoming Requests]({% link _docs_use-cases/use-case-consumption-query-incoming-requests.md %}) use case.
 {: .notice--info}
 
-{% include copy-notice description="Save the `id` of the incoming Request so that you can accept it." %}
+{% include copy-notice description="Save the `id` of the incoming Request so that you can accept or reject it." %}
 
 The Request occuring in the `content` property defines the conditions for establishing a Relationship between the two Connectors. If the Requestor Connector agrees to them, it can send a Relationship Request to the Templator Connector by accepting the incoming Request. This is done by sending `PUT /api/v2/Requests/Incoming/<ID of Request>/Accept` with a suitable Request body as described in more detail in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case. In case of success, you obtain the following response:
 
@@ -140,16 +140,20 @@ The Request occuring in the `content` property defines the conditions for establ
 }
 ```
 
-{% include copy-notice description="Save the `id` of the Relationship and the `id` of the RelationshipChange for the next step." %}
-
 <!--- As you can see the status of the incoming Request has changed from `ManualDecisionRequired` to `Decided`. After a short time, the status of it changes from `Decided` to `Completed`. You can observe this by querying the incoming Request again following the [Get incoming Request]({% link _docs_use-cases/use-case-consumption-get-incoming-request.md %}) use case instructions.
 {: .notice--info} --->
 
 <!--- `GET /api/v2/Requests/Incoming/<ID of Request>` --->
 
-By accepting the incoming Request, a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with an associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) is created, which can be observed in the `...` property of the response and which you can query afterwards with the help of the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case description too.
+By accepting the incoming Request, a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with an associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) is created additionally. You can query this Relationship with the help of the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case description.
 
 <!--- `GET /api/v2/Relationships` with query parameter `template.id=<ID of RelationshipTemplate>` --->
+
+```jsonc
+... RelationshipCreationChangeRequestContent
+```
+
+{% include copy-notice description="Save the `id` of the Relationship and the `id` of the RelationshipChange for the next step." %}
 
 Note that it is of course also possible to reject the incoming Request, if the Requestor Connector does not wish to establish a Relationship with the Templator Connector under the given conditions. In order to do this, make use of the documentation of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case. More detailed information about how to [reject]({% link _docs_integrate/requests-over-templates.md %}#reject) as well as how to [accept]({% link _docs_integrate/requests-over-templates.md %}#accept) an incoming Request can also be found in the [Request over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide.
 {: .notice--info}
@@ -169,41 +173,80 @@ Let us now assume that the underlying RelationshipTemplate of the onboarding pac
 
 Note that the `content` property is optional and can therefore be omitted. In case of success, you will receive a response (similar to that obtained in the case of a [RelationshipTemplate with RelationshipTemplateContent]({% link _docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md %}#case-1-relationshiptemplate-with-relationshiptemplatecontent) above) in the following form:
 
+<!---
 ```jsonc
 {
   "result": [
     {
-      "id": "REL_________________",
+      "id": "<ID of Relationship>",
       "template": {
-        "id": "RLT_________________",
-        "maxNumberOfAllocations": 0,
-        "isOwn": true,
-        "createdBy": "id_________________________________",
-        "createdByDevice": "DVC_________________",
-        "createdAt": "2023-11-14T14:39:29.596Z",
-        "expiresAt": "2023-11-14T14:39:29.596Z",
-        "content": {},
-        "secretKey": "string",
-        "truncatedReference": "string"
+        // Underlying RelationshipTemplate as described above
+        "id": "<ID of RelationshipTemplate>",
+        "maxNumberOfAllocations": <maximum number of allocations>,
+        "isOwn": false,
+        "createdBy": "<ID of Templator Connector>",
+        "createdByDevice": "<ID of Device used for creating RelationshipTemplate>",
+        "createdAt": "<creation date of RelationshipTemplate>",
+        "expiresAt": "<expiration date of RelationshipTemplate>",
+        "content": {
+        // Content of the RelationshipTemplate
+        ...
+        },
+        "secretKey": "<secret key of RelationshipTemplate>",
+        "truncatedReference": "<truncated reference of RelationshipTemplate>"
       },
       "status": "Pending",
-      "peer": "id_________________________________",
+      "peer": "<ID of Templator Connector>",
+      "peerIdentity": {
+            "address": "<ID of Templator Connector>",
+            "publicKey": "<public key>",
+            "realm": "<realm>"
+      },
       "changes": [
         {
-          "id": "RCH_________________",
+          "id": "<ID of RelationshipChange>",
           "type": "Creation",
           "status": "Pending",
           "request": {
-            "createdBy": "id_________________________________",
-            "createdByDevice": "DVC_________________",
-            "createdAt": "2023-11-14T14:39:29.596Z",
-            "content": {}
-          },
-          "response": {
-            "createdBy": "id_________________________________",
-            "createdByDevice": "DVC_________________",
-            "createdAt": "2023-11-14T14:39:29.596Z",
-            "content": {}
+            "createdBy": "<ID of Requestor Connector>",
+            "createdByDevice": "<<ID of Device used for creating Relationship>",
+            "createdAt": "<creation date of Relationship>",
+            "content": { "<property 1>": <value 1>, ..., "<property n>": <value n> }
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+--->
+
+```jsonc
+{
+  "result": [
+    {
+      "id": "<ID of Relationship>",
+      "template": {
+        //Underlying RelationshipTemplate as described above
+        ...
+      },
+      "status": "Pending",
+      "peer": "<ID of Templator Connector>",
+      "peerIdentity": {
+            "address": "<ID of Templator Connector>",
+            "publicKey": "<public key>",
+            "realm": "<realm>"
+      },
+      "changes": [
+        {
+          "id": "<ID of RelationshipChange>",
+          "type": "Creation",
+          "status": "Pending",
+          "request": {
+            "createdBy": "<ID of Requestor Connector>",
+            "createdByDevice": "<ID of Device used for creating Relationship>",
+            "createdAt": "<creation date of Relationship>",
+            "content": { "<property 1>": <value 1>, ..., "<property n>": <value n> }
           }
         }
       ]
@@ -217,13 +260,19 @@ For more Details on how to create a Relationship with a RelationshipTemplate, se
 
 {% include copy-notice description="Save the `id` of the Relationship and the `id` of the RelationshipChange for the next step." %}
 
-In particular, this will create a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with an associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange), and send a Relationship Request to the Templator Connector. You can query the created Relationship as described in the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case.
+In particular, a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with an associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) is created.
+
+<!--- You can query the created Relationship as described in the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case. --->
 
 <!--- `GET /api/v2/Relationships` with query parameter `template.id=<ID of RelationshipTemplate>` --->
 
+### Synchronization of Templator Connector
+
+After the Requestor Connector has sent the Relationship Request, the Templator Connector must first [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) by executing `POST /api/v2/Account/Sync` in order to receive it. The response after synchronization contains the Relationship previously created by the Requestor Connector. In particular, the ID of the Relationship and the ID of the associated RelationshipChange can be read from it.
+
 ### Accept Relationship Request
 
-After the Requestor Connector has sent the Relationship Request, the Templator Connector must first [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) by executing `POST /api/v2/Account/Sync` in order to receive it. If the Templator Connector then accepts the Relationship Request, a Relationship between the two Connectors will be established. To do this, perform `PUT /api/v2/Relationships/<ID of Relationship>/Changes/<ID of RelationshipChange>/Accept` with a suitable Request body as described in the use case [Accept Relationship Change]({% link _docs_use-cases/use-case-transport-accept-relationship-change.md %}). In case of success you will get a response in the following form:
+If the Templator Connector then accepts the Relationship Request, a Relationship between the two Connectors will be established. To do this, perform `PUT /api/v2/Relationships/<ID of Relationship>/Changes/<ID of RelationshipChange>/Accept` with a suitable Request body as described in the use case [Accept Relationship Change]({% link _docs_use-cases/use-case-transport-accept-relationship-change.md %}). In case of success you will get a response in the following form:
 
 ```jsonc
 ...
@@ -234,13 +283,13 @@ For rejecting the Relationship Request and therefore not establishing a Relation
 
 <!--- `PUT /api/v2/Relationships/:id/Changes/:changeId/Reject` --->
 
-### Synchronization
+### Synchronization of Requestor Connector
 
-As a final step, the Requestor Connector must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) via `POST /api/v2/Account/Sync`.
+As a final step, the Requestor Connector must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) via `POST /api/v2/Account/Sync`. Now the Requestor Connector is informed that the Templator Connector has accepted the Relationship Request and that a Relationship has been established between the two Connectors.
 
 ## What's next?
 
-After a Relationship between the two Connectors is established, they are able to share more information with each other. For example, they can exchange Messages. How a Connector can send a Message to another Identity that it has a Relationship established with, is described in the [Integration Example]({% link _docs_integrate/integration-example.md %}).
+After a Relationship between the two Connectors is established, they are able to share information with each other. For example, they can exchange Messages. How a Connector can send a Message to another Identity that it has a Relationship established with, is described in the [Integration Example]({% link _docs_integrate/integration-example.md %}).
 
 <!--- Refer to other guides here. --->
 
