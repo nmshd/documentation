@@ -45,7 +45,7 @@ The underlying [RelationshipTemplate]({% link _docs_integrate/data-model-overvie
 
 #### Case 1: RelationshipTemplate with RelationshipTemplateContent
 
-We assume that there is no Relationship between the two Connectors yet and that a data object of type RelationshipTemplateContent is used within the RelationshipTemplate. In this case, the Requestor Connector receives an internally created new incoming Request after loading the associated [onboarding package]({% link _docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md %}#received-enmeshed-onboarding-package). This incoming Request can be fetched by executing `GET /api/v2/Requests/Incoming` with the query parameter `source.reference=<ID of RelationshipTemplate>` on the Requestor Connector:
+We assume that there is no Relationship between the two Connectors yet and that a data object of type RelationshipTemplateContent is used within the RelationshipTemplate. In this case, the Requestor Connector receives an internally created new incoming [Request]({% link _docs_integrate/data-model-overview.md %}#request) after loading the associated [onboarding package]({% link _docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md %}#received-enmeshed-onboarding-package). This incoming Request can be fetched by executing `GET /api/v2/Requests/Incoming` with the query parameter `source.reference=<ID of RelationshipTemplate>` on the Requestor Connector:
 
 ```jsonc
 {
@@ -74,65 +74,28 @@ For more information on how to query the incoming Requests to a Connector, see t
 
 {% include copy-notice description="Save the `id` of the incoming Request so that you can accept or reject it." %}
 
-The Request occuring in the `content` property defines the conditions for establishing a Relationship between the two Connectors. If the Requestor Connector agrees to them, it can send a Relationship Request to the Templator Connector by accepting the incoming Request. This is done by sending `PUT /api/v2/Requests/Incoming/<ID of Request>/Accept` with a suitable Request body as described in more detail in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case. In case of success, you obtain the following response:
+The Request occuring in the `content` property defines the conditions for establishing a Relationship between the two Connectors. If the Requestor Connector agrees to them, it can send a Relationship Request to the Templator Connector by accepting the incoming Request. This is done by sending `PUT /api/v2/Requests/Incoming/<ID of Request>/Accept` with a suitable Request body as described in more detail in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case and which is used to build the [Response]({% link _docs_integrate/data-model-overview.md %}#response) of the incoming Request. In case of success, you obtain the following HTTP-response:
 
 ```jsonc
 {
   "result": {
-    "id": "REQE8Y7sXycI6pCL67KU",
+    "id": "<ID of Request>",
     "isOwn": false,
-    "peer": "id1QEYrY8M5p8PsZo85FX6Hsda42YJB3Sf3E",
-    "createdAt": "2023-11-14T14:56:52.970Z",
+    "peer": "<ID of Templator Connector>",
+    "createdAt": "<creation date of Request>",
     "content": {
-      "@type": "Request",
-      "items": [
-        {
-          "@type": "RequestItemGroup",
-          "items": [
-            {
-              "@type": "ReadAttributeRequestItem",
-              "mustBeAccepted": true,
-              "query": {
-                "@type": "IdentityAttributeQuery",
-                "valueType": "GivenName"
-              }
-            }
-          ],
-          "mustBeAccepted": true,
-          "title": "Requested Attributes"
-        }
-      ]
+      //Specified Request in "onNewRelationship" property of RelationshipTemplateContent
+      ...
     },
     "source": {
       "type": "RelationshipTemplate",
-      "reference": "RLTkshSwL6FI6wl5SiTJ"
+      "reference": "<ID of RelationshipTemplate>"
     },
     "response": {
-      "createdAt": "2023-11-14T15:02:12.947Z",
+      "createdAt": "<creation date of Response>",
       "content": {
-        "@type": "Response",
-        "items": [
-          {
-            "@type": "ResponseItemGroup",
-            "items": [
-              {
-                "@type": "ReadAttributeAcceptResponseItem",
-                "attribute": {
-                  "@type": "IdentityAttribute",
-                  "owner": "id1HBoX3YdmcC3WFH1HKLmZiTKQtc5pAW1MJ",
-                  "value": {
-                    "@type": "GivenName",
-                    "value": "Test given name"
-                  }
-                },
-                "attributeId": "ATTEz9Z5X39lMUTsoVB0",
-                "result": "Accepted"
-              }
-            ]
-          }
-        ],
-        "requestId": "REQE8Y7sXycI6pCL67KU",
-        "result": "Accepted"
+        //Response to the Request
+        ...
       }
     },
     "status": "Decided"
@@ -145,12 +108,51 @@ The Request occuring in the `content` property defines the conditions for establ
 
 <!--- `GET /api/v2/Requests/Incoming/<ID of Request>` --->
 
-By accepting the incoming Request, a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with an associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) is created additionally. You can query this Relationship with the help of the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case description.
+By accepting the incoming Request, a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with an associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) is created additionally. You can query it with the help of the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case description. Use `GET /api/v2/Relationships` with query parameter `template.id=<ID of RelationshipTemplate>`.
 
 <!--- `GET /api/v2/Relationships` with query parameter `template.id=<ID of RelationshipTemplate>` --->
 
 ```jsonc
-... RelationshipCreationChangeRequestContent
+{
+  "result": [
+    {
+      //Relationship
+      "id": "<ID of Relationship>",
+      "template": {
+        //Underlying RelationshipTemplate as described above
+        ...
+      },
+      "status": "Pending",
+      "peer": "<ID of Templator Connector>",
+      "peerIdentity": {
+        "address": "<ID of Templator Connector>",
+        "publicKey": "<public key>",
+        "realm": "<realm>"
+      },
+      "changes": [
+        {
+          //RelationshipChange
+          "id": "<ID of RelationshipChange>",
+          "type": "Creation",
+          "status": "Pending",
+          "request": {
+            "createdBy": "<ID of Requestor Connector>",
+            "createdByDevice": "<ID of Device used for creating Relationship>",
+            "createdAt": "<creation date of Relationship>",
+            "content": {
+              //RelationshipCreationChangeRequestContent
+              "@type": "RelationshipCreationChangeRequestContent",
+              "response": {
+                //Response to the Request
+                ...
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
 ```
 
 {% include copy-notice description="Save the `id` of the Relationship and the `id` of the RelationshipChange for the next step." %}
@@ -225,6 +227,7 @@ Note that the `content` property is optional and can therefore be omitted. In ca
 {
   "result": [
     {
+      //Relationship
       "id": "<ID of Relationship>",
       "template": {
         //Underlying RelationshipTemplate as described above
@@ -239,10 +242,12 @@ Note that the `content` property is optional and can therefore be omitted. In ca
       },
       "changes": [
         {
+          //RelationshipChange
           "id": "<ID of RelationshipChange>",
           "type": "Creation",
           "status": "Pending",
           "request": {
+            //RelationshipChangeRequest
             "createdBy": "<ID of Requestor Connector>",
             "createdByDevice": "<ID of Device used for creating Relationship>",
             "createdAt": "<creation date of Relationship>",
@@ -255,7 +260,7 @@ Note that the `content` property is optional and can therefore be omitted. In ca
 }
 ```
 
-For more Details on how to create a Relationship with a RelationshipTemplate, see the description of the [Create Relationship with RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) use case.
+For more Details on how to create a data object of type Relationship with a RelationshipTemplate, see the description of the [Create Relationship with RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) use case.
 {: .notice--info}
 
 {% include copy-notice description="Save the `id` of the Relationship and the `id` of the RelationshipChange for the next step." %}
@@ -268,7 +273,7 @@ In particular, a data object of type [Relationship]({% link _docs_integrate/data
 
 ### Synchronization of Templator Connector
 
-After the Requestor Connector has sent the Relationship Request, the Templator Connector must first [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) by executing `POST /api/v2/Account/Sync` in order to receive it. The response after synchronization contains the Relationship previously created by the Requestor Connector. In particular, the ID of the Relationship and the ID of the associated RelationshipChange can be read from it.
+After the Requestor Connector has sent the Relationship Request, the Templator Connector must first [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) by executing `POST /api/v2/Account/Sync` in order to receive it. The response after synchronization contains the data object of type Relationship previously created by the Requestor Connector. In particular, the ID of the Relationship and the ID of the associated RelationshipChange can be read from it.
 
 ### Accept Relationship Request
 
