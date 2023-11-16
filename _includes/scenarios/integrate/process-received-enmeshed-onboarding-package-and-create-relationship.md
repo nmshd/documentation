@@ -33,7 +33,7 @@ As usual, the notation `<...>` is used as a placeholder for the actual data.
 
 {% include copy-notice description="Save the `id` of the RelationshipTemplate so that you can refer to it in the next step." %}
 
-## Create Relationship
+## Establish Relationship
 
 The two Connectors would like to establish a Relationship with each other. To do this, the Requestor Connector must first send a Relationship Request to the Templator Connector using the [onboarding package]({% link _docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md %}#received-enmeshed-onboarding-package) received, which must then be accepted by the Templator Connector.
 
@@ -108,7 +108,7 @@ The Request occuring in the `content` property defines the conditions for establ
 
 <!--- `GET /api/v2/Requests/Incoming/<ID of Request>` --->
 
-By accepting the incoming Request, a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with an associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) is created additionally. You can query it with the help of the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case description. Use `GET /api/v2/Relationships` with query parameter `template.id=<ID of RelationshipTemplate>`.
+By accepting the incoming Request, a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with an associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) and Status "Pending" is created additionally. You can query it with the help of the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case description. Use `GET /api/v2/Relationships` with query parameter `template.id=<ID of RelationshipTemplate>`.
 
 <!--- `GET /api/v2/Relationships` with query parameter `template.id=<ID of RelationshipTemplate>` --->
 
