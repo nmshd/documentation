@@ -1,11 +1,12 @@
-Two Connectors are given, one called the Templator Connector and the other called the Requestor Connector, which aim to establish a Relationship with each other. We assume that the Templator Connector, as described in the Prepare enmeshed onboarding package guide, has already created an onboarding package and made it available to the Requestor Connector. In this guide we will see how the Requestor Connector can use this onboarding package to send a Relationship Request to the Templator Connector and how the Templator Connector has to answer this Relationship Request to finally establish a Relationship between the two Connectors.
+In this guide we will explain how two Connectors can establish a Relationship with each other if one of them, the so-called Templator Connector, has prepared an onboarding package and made it available to the other Connector already. The other Connector, the so-called Requestor Connector, must use the [onboarding package]({% link _docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md %}#received-enmeshed-onboarding-package) to [send a Relationship Request]({% link _docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md %}#send-relationship-request) to the Templator Connector. This Relationship Request can then be accepted by the Templator Connector in order to [establish a Relationship]({% link _docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md %}#establish-relationship) between the two Connectors.
 
 <!--- TODO: Link "Prepare enmeshed onboarding package" einfügen --->
 
 ## Received enmeshed onboarding package
 
-We first describe the initial situation that exists when following the Prepare enmeshed onboarding package guide. We assume that the Templator Connector has created a RelationshipTemplate and that the Requestor Connector then successfully [loaded this onto itself]({% link _docs_use-cases/use-case-transport-load-relationship-template-created-by-others.md %}) by sending an appropriate `POST /api/v2/RelationshipTemplates/Peer` Request. In this case, the Requestor Connector received the following success response:
+As described in detail in the Prepare enmeshed onboarding package guide, our starting situation is that the Templator Connector has created a RelationshipTemplate and the Requestor Connector has successfully loaded it onto itself by sending an appropriate HTTP request as documented in the [Load RelationshipTemplate created by others]({% link _docs_use-cases/use-case-transport-load-relationship-template-created-by-others.md %}) use case. In particular, the Requestor Connector has received the following response, whereby the notation `<...>` is used as usual as a placeholder for the actual data:
 
+<!--- `POST /api/v2/RelationshipTemplates/Peer` --->
 <!--- TODO: Link "Prepare enmeshed onboarding package" einfügen --->
 
 ```jsonc
@@ -28,24 +29,21 @@ We first describe the initial situation that exists when following the Prepare e
 }
 ```
 
-As usual, the notation `<...>` is used as a placeholder for the actual data.
-{: .notice--info}
-
 {% include copy-notice description="Save the `id` of the RelationshipTemplate so that you can refer to it in the next step." %}
 
-## Establish Relationship
+## Send Relationship Request
 
-The two Connectors would like to establish a Relationship with each other. To do this, the Requestor Connector must first send a Relationship Request to the Templator Connector using the [onboarding package]({% link _docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md %}#received-enmeshed-onboarding-package) received, which must then be accepted by the Templator Connector.
+The underlying [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) of the [onboarding package]({% link _docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md %}#received-enmeshed-onboarding-package) may or may not contain a data object of type [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) in its `content` property. We now describe separately in both cases how the Requestor Connector can use the onboarding package to send a Relationship Request to the Templator Connector. An overview of this procedure is given in the following diagram.
 
----------------- TODO: Diagramm ----------------
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/5be09492-9e2c-42b1-bbb1-acd854118e2c" id="Ez1OCKfT1U40"></iframe></div>
 
-### Send Relationship Request
+<!--- Query parameters in diagramm too? --->
+<!--- Rejection in diagramm too? --->
+<!--- Option to query the Relationship too? --->
 
-The underlying [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) of the onboarding package may or may not contain a data object of type [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) in its `content` property. We now describe separately in both cases how the Requestor Connector can use the onboarding package to send a Relationship Request to the Templator Connector.
+### Case 1: RelationshipTemplate with RelationshipTemplateContent
 
-#### Case 1: RelationshipTemplate with RelationshipTemplateContent
-
-We assume that there is no Relationship between the two Connectors yet and that a data object of type RelationshipTemplateContent is used within the RelationshipTemplate. In this case, the Requestor Connector receives an internally created new incoming [Request]({% link _docs_integrate/data-model-overview.md %}#request) after loading the associated [onboarding package]({% link _docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md %}#received-enmeshed-onboarding-package). This incoming Request can be fetched by executing `GET /api/v2/Requests/Incoming` with the query parameter `source.reference=<ID of RelationshipTemplate>` on the Requestor Connector:
+We assume that there is no [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between the two Connectors yet and that a data object of type [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) is used within the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate). In this case, the Requestor Connector receives an internally created new incoming [Request]({% link _docs_integrate/data-model-overview.md %}#request) after loading the associated [onboarding package]({% link _docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md %}#received-enmeshed-onboarding-package). This incoming Request can be fetched by executing `GET /api/v2/Requests/Incoming` with the query parameter `source.reference=<ID of RelationshipTemplate>` on the Requestor Connector as described in the [Query incoming Requests]({% link _docs_use-cases/use-case-consumption-query-incoming-requests.md %}) use case documentation. The response is of the following form:
 
 ```jsonc
 {
@@ -69,12 +67,11 @@ We assume that there is no Relationship between the two Connectors yet and that 
 }
 ```
 
-For more information on how to query the incoming Requests to a Connector, see the documentation of the [Query incoming Requests]({% link _docs_use-cases/use-case-consumption-query-incoming-requests.md %}) use case.
-{: .notice--info}
-
 {% include copy-notice description="Save the `id` of the incoming Request so that you can accept or reject it." %}
 
-The Request occuring in the `content` property defines the conditions for establishing a Relationship between the two Connectors. If the Requestor Connector agrees to them, it can send a Relationship Request to the Templator Connector by accepting the incoming Request. This is done by sending `PUT /api/v2/Requests/Incoming/<ID of Request>/Accept` with a suitable Request body as described in more detail in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case and which is used to build the [Response]({% link _docs_integrate/data-model-overview.md %}#response) of the incoming Request. In case of success, you obtain the following HTTP-response:
+The Request occuring in the `content` property defines the conditions for establishing a Relationship between the two Connectors. If the Requestor Connector agrees to them, it can send a Relationship Request to the Templator Connector by accepting the incoming Request. This is done by sending `PUT /api/v2/Requests/Incoming/<ID of Request>/Accept` with a suitable Request body as described in more detail in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case. In case of success, you will receive the following JSON payload as output, which contains the [Response]({% link _docs_integrate/data-model-overview.md %}#response) of the Requestor Connector to the incoming Request:
+
+<!--- Response with "Accepted" as value in "result" property --->
 
 ```jsonc
 {
@@ -108,9 +105,7 @@ The Request occuring in the `content` property defines the conditions for establ
 
 <!--- `GET /api/v2/Requests/Incoming/<ID of Request>` --->
 
-By accepting the incoming Request, a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with an associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) and Status "Pending" is created additionally. You can query it with the help of the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case description. Use `GET /api/v2/Relationships` with query parameter `template.id=<ID of RelationshipTemplate>`.
-
-<!--- `GET /api/v2/Relationships` with query parameter `template.id=<ID of RelationshipTemplate>` --->
+By accepting the incoming Request, a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with an associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) and `"Pending"` as `status` is created additionally. It is not necessary, but you can query this [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) by executing `GET /api/v2/Relationships` with query parameter `template.id=<ID of RelationshipTemplate>` as instructed in the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case description. If you decide to do this, you will receive the following response:
 
 ```jsonc
 {
@@ -136,6 +131,7 @@ By accepting the incoming Request, a data object of type [Relationship]({% link 
           "type": "Creation",
           "status": "Pending",
           "request": {
+            //RelationshipChangeRequest
             "createdBy": "<ID of Requestor Connector>",
             "createdByDevice": "<ID of Device used for creating Relationship>",
             "createdAt": "<creation date of Relationship>",
@@ -155,16 +151,16 @@ By accepting the incoming Request, a data object of type [Relationship]({% link 
 }
 ```
 
-{% include copy-notice description="Save the `id` of the Relationship and the `id` of the RelationshipChange for the next step." %}
+{% include copy-notice description="Save the `id` of the Relationship and the `id` of the RelationshipChange." %}
 
 Note that it is of course also possible to reject the incoming Request, if the Requestor Connector does not wish to establish a Relationship with the Templator Connector under the given conditions. In order to do this, make use of the documentation of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case. More detailed information about how to [reject]({% link _docs_integrate/requests-over-templates.md %}#reject) as well as how to [accept]({% link _docs_integrate/requests-over-templates.md %}#accept) an incoming Request can also be found in the [Request over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide.
 {: .notice--info}
 
 <!--- `PUT /api/v2/Requests/Incoming/<ID of Request>/Reject` --->
 
-#### Case 2: RelationshipTemplate without RelationshipTemplateContent
+### Case 2: RelationshipTemplate without RelationshipTemplateContent
 
-Let us now assume that the underlying RelationshipTemplate of the onboarding package loaded onto the Requestor Connector does not contain a data object of type RelationshipTemplateContent in its `content` property. In this case, the Requestor Connector can send a Relationship Request to the Templator Connector by sending a `POST /api/v2/Relationships` Request with the following JSON payload:
+We now consider the situation in which the underlying RelationshipTemplate of the [onboarding package]({% link _docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md %}#received-enmeshed-onboarding-package) loaded onto the Requestor Connector does not contain a data object of type RelationshipTemplateContent in its `content` property. In this case, the Requestor Connector does not receive an incoming Request, but it can send a Relationship Request to the Templator Connector by explicitly creating a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` based on the RelationshipTemplate. To do this, a `POST /api/v2/Relationships` HTTP request as explained in the [Create Relationship with RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) use case with the following JSON payload must be sent:
 
 ```jsonc
 {
@@ -173,7 +169,9 @@ Let us now assume that the underlying RelationshipTemplate of the onboarding pac
 }
 ```
 
-Note that the `content` property is optional and can therefore be omitted. In case of success, you will receive a response (similar to that obtained in the case of a [RelationshipTemplate with RelationshipTemplateContent]({% link _docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md %}#case-1-relationshiptemplate-with-relationshiptemplatecontent) above) in the following form:
+Note that the `content` property is optional and can therefore be omitted. In case of success, you will receive a response in the following form, which in particular contains the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship):
+
+<!--- Response is similar to that obtained in the case of a [RelationshipTemplate with RelationshipTemplateContent]({% link _docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md %}#case-1-relationshiptemplate-with-relationshiptemplatecontent) above --->
 
 <!---
 ```jsonc
@@ -260,37 +258,37 @@ Note that the `content` property is optional and can therefore be omitted. In ca
 }
 ```
 
-For more Details on how to create a data object of type Relationship with a RelationshipTemplate, see the description of the [Create Relationship with RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) use case.
-{: .notice--info}
+{% include copy-notice description="Save the `id` of the Relationship and the `id` of the RelationshipChange." %}
 
-{% include copy-notice description="Save the `id` of the Relationship and the `id` of the RelationshipChange for the next step." %}
+## Establish Relationship
 
-In particular, a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with an associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) is created.
+After the Requestor Connector has sent the Relationship Request, the Integrator of the Templator Connector can accept it if they want to establish a Relationship with the Requestor Connector. We now explain all required steps for establishing a Relationship, including the necessary synchronization of both Connectors at certain points in time. The diagram below provides a summary of the process.
 
-<!--- You can query the created Relationship as described in the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case. --->
+<!--- Synchronization in the intermediate steps so that both Connectors are always informed about each other's decisions in the process of establishing a Relationship with each other. --->
 
-<!--- `GET /api/v2/Relationships` with query parameter `template.id=<ID of RelationshipTemplate>` --->
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/de35cc09-894e-431f-819a-33bc7363ea30" id="6y2O3PCGpyGD"></iframe></div>
+
+<!--- Query parameters in diagramm too? --->
+<!--- Rejection in diagramm too? --->
 
 ### Synchronization of Templator Connector
 
-After the Requestor Connector has sent the Relationship Request, the Templator Connector must first [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) by executing `POST /api/v2/Account/Sync` in order to receive it. The response after synchronization contains the data object of type Relationship previously created by the Requestor Connector. In particular, the ID of the Relationship and the ID of the associated RelationshipChange can be read from it.
+The Templator Connector must first [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) by executing `POST /api/v2/Account/Sync` in order to receive the Relationship Request. The response after synchronization contains the data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) previously created by the Requestor Connector. In particular, the ID of the Relationship and the ID of the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) can be read from it.
+
+{% include copy-notice description="Save the `id` of the Relationship and the `id` of the RelationshipChange for the next step." %}
 
 ### Accept Relationship Request
 
-If the Templator Connector then accepts the Relationship Request, a Relationship between the two Connectors will be established. To do this, perform `PUT /api/v2/Relationships/<ID of Relationship>/Changes/<ID of RelationshipChange>/Accept` with a suitable Request body as described in the use case [Accept Relationship Change]({% link _docs_use-cases/use-case-transport-accept-relationship-change.md %}). In case of success you will get a response in the following form:
+If the Templator Connector accepts the Relationship Request, the `status` of the data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) will change from `"Pending"` to `"Active"` and therefore a Relationship between the two Connectors will be established. To do this, perform `PUT /api/v2/Relationships/<ID of Relationship>/Changes/<ID of RelationshipChange>/Accept` with a suitable Request body as documented in the [Accept Relationship Change]({% link _docs_use-cases/use-case-transport-accept-relationship-change.md %}) use case.
 
-```jsonc
-...
-```
-
-For rejecting the Relationship Request and therefore not establishing a Relationship between the two Connectors, take a look at use case [Reject Relationship Change]({% link _docs_use-cases/use-case-transport-reject-relationship-change.md %}).
+For rejecting the Relationship Request and therefore not establishing a Relationship between the two Connectors, take a look at the description of the [Reject Relationship Change]({% link _docs_use-cases/use-case-transport-reject-relationship-change.md %}) use case.
 {: .notice--info}
 
 <!--- `PUT /api/v2/Relationships/:id/Changes/:changeId/Reject` --->
 
 ### Synchronization of Requestor Connector
 
-As a final step, the Requestor Connector must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) via `POST /api/v2/Account/Sync`. Now the Requestor Connector is informed that the Templator Connector has accepted the Relationship Request and that a Relationship has been established between the two Connectors.
+After the Templator Connector has accepted the Relationship Request, the Requestor Connector must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) via `POST /api/v2/Account/Sync`. Now the Requestor Connector is informed that the Templator Connector has accepted the Relationship Request and that a Relationship has been established between the two Connectors.
 
 ## What's next?
 
