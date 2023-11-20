@@ -1,10 +1,5 @@
-**Attention: Site Under Construction**
-Please note that this page is currently under construction, and we are actively working on updates to enhance your experience.
-During this period, you encounter incomplete sections or temporary disruptions. If you have any urgent inquiries or need specific information, please feel free to contact us directly. We apologize for any inconvenience and look forward to unveiling the updated site soon.
-{: .notice--warning}
+{% include warnings/documentation-is-prerelease %}
 
-The scenario describes the process when an onboarding package has been received from another identity. This is done by scanning a QR-Code or by entering the truncatedReference.
+This scenario describes the process when an onboarding package has been received from another Identity. This is done by scanning an enmeshed QR-Code, clicking an enmeshed link or by entering a longer string which in fact represents the content within the QR-Code.
 
-The connector then has the option of accepting or rejecting the realationship.
-
-To accept the relationship, the request contained in the relationship template must be processed.
+If the onboarding package is still available, the information out of the package is displayed to the user. It consists out of a single Request the user needs to decide on: Is it ok to share all the requested personal data in order to establish the contact?
