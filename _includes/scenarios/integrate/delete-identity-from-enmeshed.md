@@ -1,6 +1,13 @@
-**Attention: Site Under Construction**
-Please note that this page is currently under construction, and we are actively working on updates to enhance your experience.
-During this period, you encounter incomplete sections or temporary disruptions. If you have any urgent inquiries or need specific information, please feel free to contact us directly. We apologize for any inconvenience and look forward to unveiling the updated site soon.
-{: .notice--warning}
+{% include warnings/feature-work-in-progress %}
 
-The user has the option of deleting his identity. All linked accounts must also be informed of this deletion. Whether deletion is possible directly or must take place with a deadline depends on the operater of the ecosystem.
+# Flow
+
+Every Identity has the option of deleting its Identity from the Backbone. There are three options to delete the Identity:
+
+- Actively trigger the deletion process by use of the App or the Connector. There is no further approval of the Identity required with this option.
+- Actively trigger the deletion process by use of support tickets/e-mails to the Backbone operator (as required by GDPR). An active approval of the Identity is required with this option, as the Backbone must ensure, that the support ticket creator is the owner of the Identity. As there is the need of a push notification channel for this, the Connector does not have the ability to trigger the Identity deletion over the Backbone.
+- Be inactive for a long period of time: Depending on the Backbone environment, deleting inactive Identities is possible.
+
+All peers of the to-be-deleted Identity are informed about this deletion, otherwise they will end up getting Backbone errors that the Identity is no longer available.
+
+Usually Identity deletion takes place with a grace period in which the owner of the Identity can revoke the decision to be deleted. The identity deletion can be triggered by the runtime.

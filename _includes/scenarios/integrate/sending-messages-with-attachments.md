@@ -1,15 +1,11 @@
-**Attention: Site Under Construction**
-Please note that this page is currently under construction, and we are actively working on updates to enhance your experience.
-During this period, you encounter incomplete sections or temporary disruptions. If you have any urgent inquiries or need specific information, please feel free to contact us directly. We apologize for any inconvenience and look forward to unveiling the updated site soon.
-{: .notice--warning}
+{% include warnings/documentation-is-prerelease %}
 
-The Connector can send and receive messages with attachments using REST requests and file IDs, which are first uploaded and encrypted on the Platform. Messages can be queried and downloaded, and the Connector pulls for new messages periodically.
+The Connector can send and receive Messages with attachments using enmeshed Files, which are first uploaded and encrypted on the Platform. Files send and received with this approach are primarily meant for single-purpose uses, as they cannot be easily shared by the sending/receiving Identity without further ado.
 
 ## Upload Files
 
-In order to submit attachments/files via message, they have to be first uploaded to the Connector. The files are then encrypted and uploaded to the Platform, which results in a FileId for every file.
-These FileIds can then be used as attachments to send messages with attachments.
+In order to submit Files via Message, they have to be first uploaded to the Connector. The Files are then encrypted and uploaded to the Platform, which results in a unique FileId for every File. These FileIds can then be used as attachments to send Messages with attachments.
 
 ## Download Attachments of Messages
 
-The metadata of attachments can be found within the message, the actual files/binaries must be downloaded separately.
+The metadata of attachments can be found within the respective Message, the actual content if the File must be downloaded separately.

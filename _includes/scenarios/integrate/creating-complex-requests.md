@@ -1,10 +1,14 @@
-**Attention: Site Under Construction**
-Please note that this page is currently under construction, and we are actively working on updates to enhance your experience.
-During this period, you encounter incomplete sections or temporary disruptions. If you have any urgent inquiries or need specific information, please feel free to contact us directly. We apologize for any inconvenience and look forward to unveiling the updated site soon.
-{: .notice--warning}
+{% include warnings/documentation-is-prerelease %}
 
-A request can combine several requests into one.
+# Flow
 
-Several requests can be included in the array as items for this purpose. Another option is to include a RequestItemGroup in this item list, which contains an item array in which various requests can be listed.
+One enmeshed Request can contain several semantically different RequestItems. Each RequestItem is atomic in how the RequestItem is processed by enmeshed. The Request itself is then the transactional boundary: Either the whole Request is accepted as a complete construct or it is rejected (same as expiry). This also means that all required fields from all RequestItems inside the Request must be filled.
 
-The entire request is displayed in the wallet at once and accepted as a complete construct. This means that all necessary fields from all requests must be filled in the complex request.
+Optional RequestItems can be flagged with the help of the `mustBeAccepted` property for every RequestItem: If a RequestItem must be accepted, it means it is a required item which needs to be filled out. If `mustBeAccepted` is false, the RequestItem is counted as optional and thus can be omitted. A Request must contain at least one `mustBeAccepted` RequestItem, otherwise the Request wouldn't make sense.
+
+There is also the option to use RequestItemGroups to semantically cluster a big Request into several parts. For example, one could split up a Request into semantic groups like "things I'd like to share", "things I need to know", "things I'd like to know" and "things we must agree on".
+
+# Examples
+
+- The very first Request between two Identities is a very important one, as Attributes should be shared between each other and at least some privacy consent should be given. Only if the user agrees to this Request, the actual Relationship is created.
+- Upgrading a contract or moving a user to a different role, might require personal information and consents to be shared as a whole. Only if the Identity agrees to this Request, the actual contract or role can be switched.

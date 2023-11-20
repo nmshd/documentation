@@ -1,6 +1,14 @@
-**Attention: Site Under Construction**
-Please note that this page is currently under construction, and we are actively working on updates to enhance your experience.
-During this period, you encounter incomplete sections or temporary disruptions. If you have any urgent inquiries or need specific information, please feel free to contact us directly. We apologize for any inconvenience and look forward to unveiling the updated site soon.
-{: .notice--warning}
+{% include warnings/documentation-is-prerelease %}
 
-if a request has been answered, this response must be processed by the connector. The outgoing request is closed and the attributes are updated. Connected subsystems are informed of this update via webhook or broadcast and must then process the updates.
+# Flow
+
+If one sents out structured Requests, one usually wants to process the respective Responses to those Requests.
+
+Responses to Requests are received by standard enmeshed Messages that are automatically processed internally: The Response within the Message is extracted, converted to a LocalResponse and stored to the already existing LocalRequest. The LocalRequest is then set to status `Completed`. While processing the Response, external systems can listen to certain technical and semantic events propagated by the Connector.
+
+Depending on the semantic of the Request and its containing RequestItems, some changes are automatically processed by enmeshed. If IdentityA requests an Attribute of IdentityB, and IdentityB accepts the Request by responding with the respective Attribute, IdentityA automatically processes the Response and thus stores the additional Attribute for IdentityB. On the other hand, external systems usually needs to listen to the respective changes based on the sent out enmeshed events.
+
+# Examples
+
+- Organization receives a single user consent to an updated privacy consent
+- Organization receives the birthdate of a single user because it has been missing

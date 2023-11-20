@@ -1,12 +1,20 @@
-**Attention: Site Under Construction**
-Please note that this page is currently under construction, and we are actively working on updates to enhance your experience.
-During this period, you encounter incomplete sections or temporary disruptions. If you have any urgent inquiries or need specific information, please feel free to contact us directly. We apologize for any inconvenience and look forward to unveiling the updated site soon.
-{: .notice--warning}
+{% include warnings/documentation-is-prerelease %}
 
-If an event is triggered by the connector, this must be transmitted to the connected service system.
+# Flow
 
-The subsystem has the option of using the sync function to load updates from the connector at regular intervals via pull. However, it would be better if the connector informs the subsystem via push that there are new requests or messages.
+For services using the Connector, it is best practice to await events fired by the Connector, instead of long-polling the Connector if changes occured.
 
-There are 2 modules available for this. With the webhook module an http request is sent to a defined web route in the subsystem or with the AMQP the event is broadcasted.
+First, an operator needs to set up the Connector accordingly. There are 2 modules available for this:
 
-<!-- TODO descript the transfered messages. -->
+- With the webhook module an http request is sent to a defined web route of the service.
+- With the AMQP module an event is submitted to a given AMQP event broker, to which the service can subscribe to.
+
+The configuration of both modules also needs to include which enmeshed events needs to be fired to the respective system.
+
+Second, the enmeshed event needs to be handled in the respective system.
+
+# Examples
+
+- Connector calls a service when a Relationship Request came in to automatically handle it
+- Connector triggers a service to synchronize stored Attributes when the Connector received changes to the shared personal data of the user
+- Connector routes incoming enmeshed Messages/Requests to the corresponding inboxes/decision systems

@@ -1,6 +1,11 @@
-**Attention: Site Under Construction**
-Please note that this page is currently under construction, and we are actively working on updates to enhance your experience.
-During this period, you encounter incomplete sections or temporary disruptions. If you have any urgent inquiries or need specific information, please feel free to contact us directly. We apologize for any inconvenience and look forward to unveiling the updated site soon.
-{: .notice--warning}
+{% include warnings/documentation-is-prerelease %}
 
-There is a predefined reqeust for authentication procedures. This can be used in the same way as a consent request and has its own name for convenience.
+# Flow
+
+Enmeshed supports specific authentication requests for users, e.g. for multi-factor based logins. This is done by sending out Requests with AuthenticationRequestItems.
+
+# Examples
+
+- Single-factor based logins, e.g. scanning in an enmeshed QR-Code from an unknown browser window
+- Multi-factor based logins, e.g. requesting the user's authentication over enmeshed after a password-based login
+- Multi-factor based business processes, e.g. requesting the user's authentication if the user want to read or change certain kind of administrative information

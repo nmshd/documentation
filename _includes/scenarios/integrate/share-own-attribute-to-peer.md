@@ -1,6 +1,11 @@
-**Attention: Site Under Construction**
-Please note that this page is currently under construction, and we are actively working on updates to enhance your experience.
-During this period, you encounter incomplete sections or temporary disruptions. If you have any urgent inquiries or need specific information, please feel free to contact us directly. We apologize for any inconvenience and look forward to unveiling the updated site soon.
-{: .notice--warning}
+{% include warnings/documentation-is-prerelease %}
 
-A created request with an attribute can be sent along with a message or in a relationship template to another identity
+# Flow
+
+It is possible for an Identity to share an own Attribute to another Identity. To achieve this, first a LocalAttribute with the respective IdentityAttribute must be created. Then a Request must be sent to the peer Identity a respective RequestItem. This Request can be submitted either by a Message or by a RelationshipTemplate. The peer identity must manually accept the Request.
+
+A ShareAttributeRequestItem must be used for sharing an already existing own LocalAttribute to a peer. The peer is not able to change/overrule this Attribute value, however it is able to reject the Attribute if it doesn't want it.
+
+# Examples
+
+- An organization wants to share a new support channel (e.g. a Chatbot) to the user
