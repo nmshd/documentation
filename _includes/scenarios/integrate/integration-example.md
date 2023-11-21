@@ -35,7 +35,7 @@ It in turn accepts the Request, which results in the creation of a new Relations
 Firstly, we want to create a display name for our Connector.
 While communicating with the other Identity in the subsequent steps, we will choose to share this display name.
 Technically, for this we need to create an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an IdentityAttribute Value of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname) for our Connector.
-To do so, proceed as described in the Create own IdentityAttribute guide with the following table values.
+To do so, proceed as described in the Create own IdentityAttribute guide with the following content.
 
 [//]: # "<span style="color:red">(TODO: insert link)</span> To do so, proceed as described in the [Create own IdentityAttribute]({ link \_docs_integrate/create-own-identityattribute.md })"
 
@@ -98,7 +98,7 @@ Furthermore, we specify an expiration date, which is located in the future, and 
 | `content.@type`             | `RelationshipTemplateContent`                              |
 | `content.title`             | `"Connector Demo Contact"`                                 |
 | `content.onNewRelationship` | `<RelationshipTemplateContent validated in previous step>` |
-| `expiresAt`                 | `"<date in future>"`                                       |
+| `expiresAt`                 | `"<date in the future>"`                                   |
 | `maxNumberOfAllocations`    | `1`                                                        |
 
 {% include copy-notice description="Save the `id` of the Relationship Template that you can find in the response. You will need it in the next step." %}
