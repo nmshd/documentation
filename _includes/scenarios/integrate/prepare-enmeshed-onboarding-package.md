@@ -96,7 +96,7 @@ If you have successfully created the RelationshipTemplate on the Templator Conne
 | ------------------------ | ------------------------------------------------- |
 | `id`                     | `"<ID of RelationshipTemplate>"`                  |
 | `isOwn`                  | `true`                                            |
-| `createdBy`              | `"<Address of your Connector>"`                   |
+| `createdBy`              | `"<Address of Templator Connector>"`              |
 | `createdByDevice`        | `"<ID of Device>"`                                |
 | `createdAt`              | `"<creation date of RelationshipTemplate>"`       |
 | `expiresAt`              | `"<expiration date of RelationshipTemplate>"`     |
@@ -122,7 +122,7 @@ Before an Identity can establish a Relationship with the Templator Connector, it
 
 ### Onboarding of an App user
 
-If an App user wants to send a Relationship Request to your Connector, the App user must first scan a QR Code that contains the reference to a RelationshipTemplate owned by your Connector. To create this QR Code on your Connector, proceed as described in the [Get RelationshipTemplate]({% link _docs_use-cases/use-case-transport-get-relationship-template.md %}) use case documentation and specify the value `image/png` in the `Accept` header field. After scanning the QR Code, the App user receives the conditions for establishing a Relationship with your Connector as specified in the RelationshipTemplate. If these are accepted, the App user can now send a Relationship Request to your Connector.
+If an App user wants to send a Relationship Request to the Templator Connector, the App user must first scan a QR Code that contains the reference to a RelationshipTemplate owned by the Templator Connector. To create this QR Code on the Templator Connector, proceed as described in the [Get RelationshipTemplate]({% link _docs_use-cases/use-case-transport-get-relationship-template.md %}) use case documentation and specify the value `image/png` in the `Accept` header field. After scanning the QR Code, the App user receives the conditions for establishing a Relationship with the Templator Connector as specified in the RelationshipTemplate. If these are accepted, the App user can now send a Relationship Request to the Templator Connector.
 
 <!--- `GET /api/v2/RelationshipTemplates/<ID of RelationshipTemplate>`, specifying the value `image/png` in the `Accept` header field. --->
 
@@ -172,7 +172,7 @@ When the RelationshipTemplate of the Templator Connector is successfully loaded 
 
 ## What's next?
 
-You have learned in this guide how to create an onboarding package on a Connector and make it available to other Identities. How another Connector can use it to send a Relationship Request and finally establish a Relationship to the Connector is explained in the Process received enmeshed onboarding package and create relationship guide.
+You have learned in this guide how to create an onboarding package on a Templator Connector and make it available to other Identities. How a Requestor Connector can use it to send a Relationship Request and finally establish a Relationship with the Templator Connector is explained in the Process received enmeshed onboarding package and create relationship guide.
 
 <!--- TODO: insert: [Process received enmeshed onboarding package and create relationship]({_docs_integrate/process-received-enmeshed-onboarding-package-and-create-relationship.md}) --->
 
