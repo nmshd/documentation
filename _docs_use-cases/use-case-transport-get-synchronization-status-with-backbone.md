@@ -32,6 +32,7 @@ properties:
   - link: transport/get-synchronization-status-with-backbone
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Account/Sync$
 ---
 
 {% include use-cases/use-case-transport-get-synchronization-status-with-backbone.md %}

@@ -14,7 +14,3 @@ Repository Attribute [cf]({% link _docs_integrate/data-model-overview.md %}#loca
 ### On Success
 
 - The copy is created and returned as a [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest).
-
-### On Error
-
----

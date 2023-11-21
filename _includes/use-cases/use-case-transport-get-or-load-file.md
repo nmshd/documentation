@@ -2,11 +2,11 @@
 
 {% include properties_list.html %}
 
-This use-case retrieves the metadata of a [File]({% link _docs_integrate/data-model-overview.md %}#file) that matches the `id`.
+This use-case retrieves the metadata of a [File]({% link _docs_integrate/data-model-overview.md %}#file) that matches the `id` or the `reference`.
 
-## Paramers 
+## Paramers
 
-- `id` of the file.
+- `id` or `reference` that identify the file.
 
 ## On Success
 
@@ -14,4 +14,4 @@ This use-case retrieves the metadata of a [File]({% link _docs_integrate/data-mo
 
 ## On Failure
 
-- The `id` does not resolve to a file.
+- The `id` / `reference` does not resolve to a file.

@@ -2,7 +2,7 @@
 
 {% include properties_list.html %}
 
-Creates a [token]({% link _docs_integrate/data-model-overview.md %}#token) for a given owned file that
+Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for a given owned file that
 corresponds to the given id.
 
 ## Parameters

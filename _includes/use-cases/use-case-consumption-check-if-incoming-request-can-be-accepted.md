@@ -13,9 +13,8 @@ can be accepted with the given parameters without actually accepting it.
 
 ## On Success
 
-- The request can be accepted with the given parameters.
+- A `RequestValidationResult` that indicates if the request is valid.
 
 ## On Failure
 
-- The request can not be accepted.
 - A detailed error describes the problem.

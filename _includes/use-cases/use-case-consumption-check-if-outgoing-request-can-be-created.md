@@ -12,7 +12,7 @@ based on a given `request` (as a [Request]({% link _docs_integrate/data-model-ov
 
 ## On Success
 
-- A [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) for the given parameters can be created.
+- A `RequestValidationResult` that indicates if the request is valid.
 
 ## On Failure
 

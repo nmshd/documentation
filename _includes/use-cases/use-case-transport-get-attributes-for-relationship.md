@@ -8,12 +8,12 @@ Retrieve all attributes that are related to the given relationship id.
 
 - `id` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship).
 - `hideTechnical` indicates if [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes)
-marked as `technical` should be hidden.
+  marked as `technical` should be hidden.
 
 ## On Success
 
 - All [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattributes) that are related to
-the relationship.
+  the relationship.
 
 ## On Failure
 

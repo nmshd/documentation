@@ -32,7 +32,7 @@ properties:
   - link: transport/get-or-load-file
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Messages/{id}$
+api_route_regex: ^GET /api/v2/Files/{idOrReference}$
 ---
 
 {% include use-cases/use-case-transport-get-or-load-file.md %}

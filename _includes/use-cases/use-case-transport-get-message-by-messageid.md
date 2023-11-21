@@ -9,7 +9,7 @@ by it's `id`.
 
 - `id` of the message.
 
-## On Success 
+## On Success
 
 - Returns the message that corresponds to the `id`.
 

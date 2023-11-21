@@ -13,9 +13,8 @@ can be rejected with the given parameters without actually rejecting it.
 
 ## On Success
 
-- The request can be requected with the given parameters.
+- A `RequestValidationResult` that indicates if the request is valid.
 
 ## On Failure
 
-- The request can not be rejected with the given parameters.
 - A detailed error describes the problem.

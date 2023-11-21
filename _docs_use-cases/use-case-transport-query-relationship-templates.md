@@ -32,6 +32,7 @@ properties:
   - link: transport/query-relationship-templates
 require:
 required_by:
+api_route_regex: ^GET /api/v2/RelationshipTemplates$
 ---
 
 {% include use-cases/use-case-transport-query-relationship-templates.md %}

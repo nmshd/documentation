@@ -1,12 +1,18 @@
-Retrieves the relationship template or the corresponding QR-code by ID.
-The format depends on the accept header.
+{{properties.description}}
 
-{% include rapidoc api_route_regex="^get /api/v2/RelationshipTemplates/{id}$" %}
+{% include properties_list.html %}
 
-## Example
+This use-case retrieves a [relationship template]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate)
+by it's `id`.
 
-```shell
-curl --location 'http://{connector_url}/api/v2/RelationshipTemplates/{id}' \
---header 'X-API-KEY: xxx' \
---header 'Content-Type: image/png'
-```
+## Parameters
+
+- `id`of the relationship template.
+
+## On Success
+
+- The `relationship template` that corresponds to the `id`.
+
+## On Failure
+
+- The `id` doesn't resolve to a `relationship template`.

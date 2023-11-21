@@ -32,6 +32,7 @@ properties:
   - link: transport/query-messages
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Messages$
 ---
 
 {% include use-cases/use-case-transport-query-messages.md %}

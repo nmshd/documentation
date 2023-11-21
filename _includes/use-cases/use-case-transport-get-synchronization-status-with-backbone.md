@@ -1,12 +1,11 @@
-Syncs relationships and messages with the backbone.
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case syncs relationships and messages with the backbone.
 Returns all relationships and messages with a new status.
 
-{% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
+## On Succes
 
-## Example
-
-```shell
-curl --location --request POST 'http://{connector_url}/api/v2/Account/Sync' \
---header 'X-API-KEY: xxx' \
---header 'Content-Type: application/json' \
-```
+- A list of `relationships` that have a new status.
+- A list of `messages` that have a new status.

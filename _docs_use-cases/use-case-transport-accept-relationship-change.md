@@ -32,6 +32,7 @@ properties:
   - link: transport/accept-relationship-change
 require:
 required_by:
+api_route_regex: ^PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept$
 ---
 
 {% include use-cases/use-case-transport-accept-relationship-change.md %}
