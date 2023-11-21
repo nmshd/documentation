@@ -4,7 +4,7 @@ This guide explains the end to end flow of creating an [IdentityAttribute]({% li
 
 ## Input for creating an IdentityAttribute
 
-To create an IdentityAttribute as an Integrator for your own Connector, you need to proceed as described in the [Create an Attribute]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}) use case documentation using the following table values as input:
+To create an IdentityAttribute as an Integrator for your own Connector, you need to proceed as described in the [Create an Attribute]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}) use case documentation using the following content:
 
 <!--- executing `POST /api/v2/Attributes` with an IdentityAttribute JSON payload --->
 
@@ -27,16 +27,16 @@ To create an IdentityAttribute as an Integrator for your own Connector, you need
 ```
 --->
 
-| Property            | Value                                                               |
-| ------------------- | ------------------------------------------------------------------- |
-| `content.@type`     | `"IdentityAttribute"`                                               |
-| `content.owner`     | `"<your Connector's Address>"`                                      |
-| `content.validFrom` | `"<start of Attribute validity>"`                                   |
-| `content.validTo`   | `"<end of Attribute validity>"`                                     |
-| `content.value`     | `<IdentityAttribute Value>`                                         |
-| `content.tags`      | `["<additional information 1>", ..., "<additional information m>"]` |
+| Property    | Value                                                               |
+| ----------- | ------------------------------------------------------------------- |
+| `@type`     | `"IdentityAttribute"`                                               |
+| `owner`     | `"<your Connector's Address>"`                                      |
+| `validFrom` | `"<start of Attribute validity>"`                                   |
+| `validTo`   | `"<end of Attribute validity>"`                                     |
+| `value`     | `<IdentityAttribute Value>`                                         |
+| `tags`      | `["<additional information 1>", ..., "<additional information m>"]` |
 
-You need to replace the placeholders marked with `<...>` appropriately. In particular, it is necessary that you insert one of the available [IdentityAttribute Values]({% link _docs_integrate/attribute-values.md %}#identity-attributes) into the `content.value` property. You are not allowed to specify the Address of a Connector other than your own as the value for the `content.owner` property, as the [Create an Attribute]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}) use case relates to the creation of Attributes for yourself and not for others. Note that you can omit the properties `content.validFrom`, `content.validTo` and `content.tags`, because they are optional.
+You need to replace the placeholders marked with `<...>` appropriately. In particular, it is necessary that you insert one of the available [IdentityAttribute Values]({% link _docs_integrate/attribute-values.md %}#identity-attributes) into the `value` property. You are not allowed to specify the Address of a Connector other than your own as the value for the `owner` property, as the [Create an Attribute]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}) use case relates to the creation of Attributes for yourself and not for others. Note that the properties `validFrom`, `validTo` and `tags` are optional, so you can omit them.
 
 In general, you can query your Connector's Address by proceeding as documented in the [Get currently used Identity]({% link _docs_use-cases/use-case-transport-get-currently-used-identity.md %}) use case. If you use the Demo Connector provided by us for testing purposes in the [interactive excerpt of the Connector's API documentation]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}), the Connector's Address is `id134nJmN7E4Carb6KyRJyePVnXxVHEYQgWD`.
 {: .notice--info}
@@ -67,14 +67,14 @@ If the input is not entered correctly, an [error message]({% link _docs_integrat
 
 ### Example 1: Create an own simple IdentityAttribute
 
-An example of a simple IdentityAttribute is one of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname). If you want to create it without specifying optional parameters, you must use the following input:
+An example of a simple IdentityAttribute is one of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname). If you want to create it without specifying optional parameters, you must use the following content:
 
-| Property              | Value                               |
-| --------------------- | ----------------------------------- |
-| `content.@type`       | `"IdentityAttribute"`               |
-| `content.owner`       | `"<your Connector's Address>"`      |
-| `content.value.@type` | `"DisplayName"`                     |
-| `content.value.value` | `"<your Connector's display name>"` |
+| Property      | Value                               |
+| ------------- | ----------------------------------- |
+| `@type`       | `"IdentityAttribute"`               |
+| `owner`       | `"<your Connector's Address>"`      |
+| `value.@type` | `"DisplayName"`                     |
+| `value.value` | `"<your Connector's display name>"` |
 
 <!--- ```json
 {
@@ -89,20 +89,20 @@ An example of a simple IdentityAttribute is one of type [DisplayName]({% link _d
 }
 ``` --->
 
-Assuming that the input value for the Connector's display name specified in the `content.value.value` property meets the [validation criterion]({% link _docs_integrate/attribute-values.md %}#displayname), which means that the entered name is not more than 100 characters long, the IdentityAttribute is saved as a LocalAttribute and a success response is sent.
+Assuming that the input value for the Connector's display name specified in the `value.value` property meets the [validation criterion]({% link _docs_integrate/attribute-values.md %}#displayname), which means that the entered name is not more than 100 characters long, the IdentityAttribute is saved as a LocalAttribute and a success response is sent.
 
 ### Example 2: Create an own complex IdentityAttribute
 
-An example of a complex IdentityAttribute is one of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate). If you want to create it without specifying optional parameters, you must use the following input:
+An example of a complex IdentityAttribute is one of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate). If you want to create it without specifying optional parameters, you must use the following content:
 
-| Property              | Value                          |
-| --------------------- | ------------------------------ |
-| `content.@type`       | `"IdentityAttribute"`          |
-| `content.owner`       | `"<your Connector's Address>"` |
-| `content.value.@type` | `"BirthDate"`                  |
-| `content.value.day`   | `<day of birth>`               |
-| `content.value.month` | `<month of birth>`             |
-| `content.value.year`  | `<year of birth>`              |
+| Property      | Value                          |
+| ------------- | ------------------------------ |
+| `@type`       | `"IdentityAttribute"`          |
+| `owner`       | `"<your Connector's Address>"` |
+| `value.@type` | `"BirthDate"`                  |
+| `value.day`   | `<day of birth>`               |
+| `value.month` | `<month of birth>`             |
+| `value.year`  | `<year of birth>`              |
 
 <!--- ```json
 {
@@ -119,16 +119,16 @@ An example of a complex IdentityAttribute is one of type [BirthDate]({% link _do
 }
 ``` --->
 
-Assuming that the input values ​​for the properties `content.value.day`, `content.value.month` and `content.value.year` meet the [validation criteria]({% link _docs_integrate/attribute-values.md %}#birthdate), which means, for example, that the input value for `content.value.month` is an integer between 1 and 12, the IdentityAttribute is saved as a LocalAttribute. The components `content.value.day`, `content.value.month` and `content.value.year` can each be understood as an additional simple IdentityAttribute of type [BirthDay]({% link _docs_integrate/attribute-values.md %}#birthday), [BirthMonth]({% link _docs_integrate/attribute-values.md %}#birthmonth) and [BirthYear]({% link _docs_integrate/attribute-values.md %}#birthyear), respectively. For this reason, another LocalAttribute is created internally for each of these components before a success response is sent.
+Assuming that the input values ​​for the properties `value.day`, `value.month` and `value.year` meet the [validation criteria]({% link _docs_integrate/attribute-values.md %}#birthdate), which means, for example, that the input value for `value.month` is an integer between 1 and 12, the IdentityAttribute is saved as a LocalAttribute. The components `value.day`, `value.month` and `value.year` can each be understood as an additional simple IdentityAttribute of type [BirthDay]({% link _docs_integrate/attribute-values.md %}#birthday), [BirthMonth]({% link _docs_integrate/attribute-values.md %}#birthmonth) and [BirthYear]({% link _docs_integrate/attribute-values.md %}#birthyear), respectively. For this reason, another LocalAttribute is created internally for each of these components before a success response is sent.
 
 ## Success response
 
-When you have successfully created an IdentityAttribute for your Connector, you will receive a success response. From this response, you can read the following output values:
+When you have successfully created an IdentityAttribute for your Connector, you will receive a success response. From the result, you can read the following values:
 
-| Property           | Value                                    |
-| ------------------ | ---------------------------------------- |
-| `result.id`        | `"<ID of IdentityAttribute>`             |
-| `result.createdAt` | `"<creation date of IdentityAttribute>"` |
+| Property    | Value                                    |
+| ----------- | ---------------------------------------- |
+| `id`        | `"<ID of IdentityAttribute>`             |
+| `createdAt` | `"<creation date of IdentityAttribute>"` |
 
 <!--- ```jsonc
 {
@@ -151,4 +151,4 @@ When you have successfully created an IdentityAttribute for your Connector, you 
 }
 ``` --->
 
-In particular, you can get the ID of the created IdentityAttribute from the `result.id` property of the response. You will need this ID, for example, if you want to share the IdentityAttribute with other Identities later, as in the [Integration Example]({% link _docs_integrate/integration-example.md %}).
+In particular, you can get the ID of the created IdentityAttribute from the `id` property of the result. You will need this ID, for example, if you want to share the IdentityAttribute with other Identities later, as in the [Integration Example]({% link _docs_integrate/integration-example.md %}).
