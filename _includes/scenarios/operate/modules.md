@@ -6,7 +6,7 @@ Read more about the Module configuration on the <i class="fas fa-fw fa-cog"/> ic
 
 ### AMQP Publisher <a href="{% link _docs_operate/configuration.md %}#amqppublisher"><i class="fas fa-fw fa-cog"/></a> {#amqppublisher}
 
-This Module proxies all events in the internal event bus of the Connector to an exchange in a configurable AMQP server.
+This Module proxies all events of the internal event bus of the Connector to an exchange in a configurable AMQP server.
 
 Compared to [webhooks](#webhooksv2), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
 
@@ -32,7 +32,7 @@ The `sync` Module regularly fetches changes from the Backbone (e.g. new Messages
 
 ### PubSub Publisher <a href="{% link _docs_operate/configuration.md %}#pubsubpublisher"><i class="fas fa-fw fa-cog"/></a> {#pubsubpublisher}
 
-This Module proxies all events in the internal event bus of the Connector to a configurable PubSub instance.
+This Module proxies all events of the internal event bus of the Connector to a configurable PubSub instance.
 
 Compared to [webhooks](#webhooksv2), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
 
