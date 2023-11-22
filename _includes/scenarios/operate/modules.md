@@ -30,6 +30,15 @@ This Module contains the HTTP API with all enmeshed base functionalities.
 
 The `sync` Module regularly fetches changes from the Backbone (e.g. new Messages / new incoming Relationship Requests). This process automatically triggers the events used by other Modules like the `webhooks` Module.
 
+### PubSub Publisher <a href="{% link _docs_operate/configuration.md %}#pubsubpublisher"><i class="fas fa-fw fa-cog"/></a> {#pubsubpublisher}
+
+This Module proxies all events in the internal event bus of the Connector to a configurable PubSub instance.
+
+Compared to [webhooks](#webhooksv2), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
+
+- You need persistence for the triggered events.
+- You want to integrate enmeshed into an already existing message broker.
+
 ### WebhooksV2 <a href="{% link _docs_operate/configuration.md %}#webhooksv2"><i class="fas fa-fw fa-cog"/></a> {#webhooksv2}
 
 With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
