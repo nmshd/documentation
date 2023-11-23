@@ -16,7 +16,3 @@ related to the identity.
 ## On Success
 
 - A list of [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) is returned that matched the description.
-
-## On Failure
-
---
