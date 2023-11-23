@@ -2,7 +2,7 @@
 
 {% include properties_list.html %}
 
-Retrieve all attributes that are related to the given relationship id.
+Retrieve all [localattributes]({% link _docs_integrate/data-model-overview.md %}#localattributes) that are related to the given relationship id.
 
 ## Parameters
 

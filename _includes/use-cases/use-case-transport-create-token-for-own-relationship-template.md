@@ -2,7 +2,7 @@
 
 {% include properties_list.html %}
 
-Creates a [token]({% link _docs_integrate/data-model-overview.md %}#token) for a given [relationship template]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate)
+Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for a given [relationship template]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate)
 
 ## Parameters
 
@@ -12,7 +12,7 @@ Creates a [token]({% link _docs_integrate/data-model-overview.md %}#token) for a
 
 ## On Success
 
-- Returns the created `token`.
+- Returns the created `Token`.
 
 ## On Failure
 
