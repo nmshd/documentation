@@ -2,7 +2,7 @@
 
 {% include properties_list.html %}
 
-Download file that corresponds to the given id.
+Download the File's binary content that corresponds to the `fileId`.
 
 ## Parameters
 
@@ -10,7 +10,7 @@ Download file that corresponds to the given id.
 
 ## On Success
 
-- Downloads the file that corresponds to the `id`.
+- Downloads the binary content of the File that corresponds to the `id`.
 
 ## On Failure
 
