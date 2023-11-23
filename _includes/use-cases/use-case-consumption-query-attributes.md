@@ -2,7 +2,7 @@
 
 {% include properties_list.html %}
 
-This use-case is intenden to query all [attributes]({% link _docs_integrate/data-model-overview.md %}#attributes)
+This use-case is intended to query all [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute)
 related to the identity.
 
 ## Parameters
