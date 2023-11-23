@@ -19,7 +19,7 @@ properties:
   - comments:
   - actor: Integrator
   - component: Connector
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
   - priority: n/a

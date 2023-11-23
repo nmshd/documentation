@@ -2,7 +2,7 @@
 
 {% include properties_list.html %}
 
-This use-case tests if an incoming [Request]({% link _docs_integrate/data-model-overview.md %}#request)
+This use-case tests if an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest)
 can be accepted with the given parameters without actually accepting it.
 
 ## Parameters

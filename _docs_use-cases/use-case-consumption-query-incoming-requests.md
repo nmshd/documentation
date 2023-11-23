@@ -32,7 +32,7 @@ properties:
   - link: consumption/query-incoming-requests
 require:
 required_by:
-api_route_regex: ^get /api/v2/Requests/incoming$
+api_route_regex: ^get /api/v2/Requests/Incoming$
 ---
 
 {% include use-cases/use-case-consumption-query-incoming-requests.md %}

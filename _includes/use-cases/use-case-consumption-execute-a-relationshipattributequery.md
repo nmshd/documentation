@@ -2,7 +2,8 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to query a peer's [relationship attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
+This use-case is intended to query a peer's [relationship attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) 
+as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#LocalAttributes).
 
 ## Parameters
 
@@ -10,7 +11,7 @@ This use-case is intended to query a peer's [relationship attributes]({% link _d
 
 ## On Success
 
-- Returns the relationship attribute that matches the query.
+- Returns the `RelationshipAttribute` that matches the query.
 
 ## On Failure
 

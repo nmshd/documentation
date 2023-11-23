@@ -1,3 +1,7 @@
+{{properties.description}}
+
+{% include properties_list.html %}
+
 Queries the metadata of a owned file.
 
 The `query` describes the files that should be returned.

@@ -32,6 +32,7 @@ properties:
   - link: transport/upload-own-file
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Files/Own$
 ---
 
 {% include use-cases/use-case-transport-upload-own-file.md %}

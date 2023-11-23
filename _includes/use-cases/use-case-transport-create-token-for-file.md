@@ -17,4 +17,4 @@ corresponds to the given id.
 
 ## On Failure
 
-- `fileID` does not resolve to a file.
+- `fileId` does not resolve to a file.

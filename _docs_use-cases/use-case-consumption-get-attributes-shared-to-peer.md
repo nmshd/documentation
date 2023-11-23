@@ -32,6 +32,7 @@ properties:
   - link: consumption/get-attributes-shared-to-peer
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Attributes$
 ---
 
 {% include use-cases/use-case-consumption-get-attributes-shared-to-peer.md %}

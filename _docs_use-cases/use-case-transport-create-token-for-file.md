@@ -32,6 +32,7 @@ properties:
   - link: transport/create-token-for-file
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Files/{id}/Token$
 ---
 
 {% include use-cases/use-case-transport-create-token-for-file.md %}

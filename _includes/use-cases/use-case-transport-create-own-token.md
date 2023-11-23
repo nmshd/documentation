@@ -1,3 +1,7 @@
+{{properties.description}}
+
+{% include properties_list.html %}
+
 Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) that represents arbitrary encrypted data
 saved on the backbone.
 

@@ -2,7 +2,7 @@
 
 {% include properties_list.html %}
 
-This use-case attempts to accept an incoming [Request]({% link _docs_integrate/data-model-overview.md %}#request).
+This use-case attempts to accept an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest).
 It is advised to [check if incoming request can be accepted](/use-case-consumption-check-if-incoming-request-can-be-accepted)
 in advance.
 
