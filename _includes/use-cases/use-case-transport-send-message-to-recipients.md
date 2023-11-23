@@ -1,40 +1,22 @@
-Send a message to the given gecipient(s).
+{{properties.description}}
 
-For the exact structure of a message refer to the [data model]({% link _docs_integrate/data-model-overview.md %}#message).
+{% include properties_list.html %}
 
-## Example Body
+This use-case sends a [Message]({% link _docs_integrate/data-model-overview.md %}#message) to the given gecipient(s).
 
-```json
-{
-  "recipients": ["addressOfRecipient"],
-  "content": {
-    "@type": "Mail",
-    "to": ["addressOfRecipient"],
-    "subject": "Example",
-    "body": "Hello. This is an example message."
-  }
-}
-```
+## Parameters 
 
-{% include rapidoc api_route_regex="^post /api/v2/Messages$" %}
+- `recipients` are the enmeshed addresses of the recipients.
+- `content` of the message. For the exact structure of a message refer
+to the [data model]({% link _docs_integrate/data-model-overview.md %}#message).
+- `attachments` are file ids to attach.
 
-## Example
+## On Success
 
-```shell
-curl --location --request POST 'http://{connector_url}/api/v2/Messages' \
---header 'X-API-KEY: xxx' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "recipients": [
-        "addressOfRecipient"
-    ],
-    "content": {
-        "@type": "Mail",
-        "to": [
-            "addressOfRecipient"
-        ],
-        "subject": "Example",
-        "body": "Hello. This is an example message."
-    }
-}'
-```
+- Sends and returns the [Message]({% link _docs_integrate/data-model-overview.md %}#message)
+to all receipients and they are notified on thei're next sync.
+
+## On Failure
+
+- The `attachments` are not valid file id's.
+- The `content` is malformed.
