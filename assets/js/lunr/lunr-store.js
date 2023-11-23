@@ -155,6 +155,12 @@ var store = [{
         "url": "/integrate/error-codes",
         "teaser": null
       },{
+        "title": "FAQ",
+        "excerpt":"Welcome to our FAQ page! Here, you’ll find answers to the most common questions about enmeshed. If you’re looking for quick and straightforward information, you’ve come to the right place. Common questions What is enmeshed? A description of enmeshed can be found on the main page Technical Questions When I...","categories": [],
+        "tags": [],
+        "url": "/integrate/faq",
+        "teaser": null
+      },{
         "title": "Integration example",
         "excerpt":"In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you on automating them for your organization. The following steps include...","categories": [],
         "tags": [],
@@ -198,7 +204,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Support",
-        "excerpt":" ","categories": [],
+        "excerpt":"For assisted support with the Connector or the Backbone provided by the j&amp;s-soft GmbH contact us via support[at]enmeshed.eu. Community support is a great way to get help and even contribute to the projects. Open bug reports and feature requests in the enmeshed issue tracker or share your feedback with the...","categories": [],
         "tags": [],
         "url": "/integrate/support",
         "teaser": null
