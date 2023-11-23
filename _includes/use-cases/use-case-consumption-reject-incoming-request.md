@@ -2,8 +2,8 @@
 
 {% include properties_list.html %}
 
-This use-case attempts to reject an incoming [Request]({% link _docs_integrate/data-model-overview.md %}#request).
-It is advised to [check if incoming request can be accepted](/use-case-consumption-check-if-incoming-request-can-be-rejectedmd)
+This use-case attempts to reject an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#LocalRequest).
+It is advised to [check if incoming request can be accepted](/use-case-consumption-check-if-incoming-request-can-be-rejected)
 in advance.
 
 ## Parameters

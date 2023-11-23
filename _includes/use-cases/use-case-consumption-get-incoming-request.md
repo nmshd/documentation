@@ -2,7 +2,7 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to retrieve an [incoming request]({% link _docs_integrate/data-model-overview.md %}#request)
+This use-case is intended to retrieve an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest)
 by it's id. The differences of an outgoing and an incoming request are defined [here]({% link _docs_integrate/data-model-overview.md %}#localrequeststatus).
 
 ## Parameters

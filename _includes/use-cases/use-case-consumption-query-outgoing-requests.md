@@ -2,7 +2,7 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to query all outgoing [requests]({% link _docs_integrate/data-model-overview.md %}#request).
+This use-case is intended to query all outgoing [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest).
 
 ## Parameters
 
