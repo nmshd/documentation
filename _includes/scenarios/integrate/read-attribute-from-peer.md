@@ -23,6 +23,11 @@ The Sender wants to read an Attribute from the Recipient. To do this, the Sender
 | `metadata`                                                                       | `<custom metadata sent together with Request>`                                                                                                                                                                                                                               |
 | `items`                                                                          | Array of [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitem) and [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) that are part of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) |
 
+To ensure that you have created a syntactically correct Request, you should always test your Request's Validity beforehand.
+{: .notice--info}
+
+<!--- TODO: Insert Link to guide "test your Request's Validity" --->
+
 ### Description of ReadAttributeRequestItem
 
 For reading a single Attribute, you need to insert a single [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitem) of type [ReadAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem) into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request). This looks as follows:
@@ -37,7 +42,7 @@ For reading a single Attribute, you need to insert a single [RequestItem]({% lin
 | `metadata`                                                                               | `<custom metadata sent together with RequestItem>`                                                                                                                                                                                                                                                                                               |
 | `query`                                                                                  | [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery), [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) or [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery) |
 
-The input you have to provide in the `query` property depends on what kind of Attribute you want to get. If you want to read an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute), you must use an [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery). If, on the other hand, you are interested in a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) of the Recipient, you must insert a [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) or a [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery) at this point, depending on whether you want to read an [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) that the Recipient has in the context of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the Sender or with a third party.
+The input you have to provide in the `query` property depends on what kind of Attribute you want to get. If you want to read an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute), you must use an [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery). If, on the other hand, you are interested in a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) of the Recipient, you must insert a [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) or a [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery) at this point, depending on whether you want to read a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) that the Recipient has in the context of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the Sender or with a third party.
 
 Please note that not all of the properties listed here have to be specified when creating a [Request]({% link _docs_integrate/data-model-overview.md %}#request) with an associated [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitem) of type [ReadAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem) for reading an Attribute. Some of the properties are optional and can therefore be omitted. Only values for the properties `items`, `...` and `...` of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) itself and for the properties `@type`, `...` and `...` of the [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitem) are required to be specified.
 {: .notice--info}
@@ -72,47 +77,53 @@ It is not necessary to request only a single Attribute. Instead, it is also poss
 
 So if you want to use a [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in order to ask for read access to multiple Attributes of the Recipient at the same time, you must insert corresponding [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitem) of type [ReadAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem) as described [above]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) into the `items` property of it.
 
-## Send the Request
+## Send and receive the Request
 
-If an Identity wants to read an Attribute of another Identity, a distinction must be made between two cases that can occur with regard to the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between them:
+If an Identity wants to read an Attribute of another Identity, a distinction must be made between two cases that can occur with regard to the existence of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between them:
 
-- Case 1: There is currently no Relationship between them.
-- Case 2: There is already an active Relationship between them.
+- [Case 1:]({% link _docs_integrate/read-attribute-from-peer.md %}#case-1-no-relationship-established-yet) There is currently no Relationship between them.
+- [Case 2:]({% link _docs_integrate/read-attribute-from-peer.md %}#case-2-relationship-already-established) There is already an active Relationship between them.
 
 <!---The first one is, that there is already an active Relationship established between these two Identities. In the other case, there isn't an active Relationship between these two Identities existing yet. --->
 
-Depending on what is the case for the Sender and the Recipient, a different procedure is necessary in order to be able to send the [Request for reading an Attribute]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-an-attribute) created by the Sender to the Recipient. In the following, we briefly describe the procedure in both cases.
+Depending on what is the case, a different procedure is necessary in order to be able to send the [Request for reading an Attribute]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-an-attribute) created by the Sender to the Recipient. In the following, we briefly describe the procedure separately in both cases.
 
 ### Case 1: No Relationship established yet
 
-Essential here: [Requests over Templates] guide. Summary:
+First we consider the situation in which there is no [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between the Sender and the Recipient. In order for the Sender to be able to read an Attribute of the Recipient, a Relationship must first be established between the two. To initiate the establishment of a Relationship between them and at the same time send a Request to read an Attribute of the Recipient, the Sender can create an appropriate [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate). In particular, it is necessary for this purpose that a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) is used in the `content` property of the RelationshipTemplate and that the RelationshipTemplateContent contains the above formulated [Request for reading an Attribute]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-an-attribute) in its `onNewRelationship` property. After the Sender has created such a RelationshipTemplate, the Recipient can load this onto itself. This causes, that the Recipient receives the underlying [Request for reading an Attribute]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-an-attribute) of the RelationshipTemplate as a new incoming Request. The Recipient can fetch this Request and read its `id` from the result of the response:
 
-- Use case: Create RelationshipTemplate
-- Insert Request into RelationshipTemplate
-- Use case: Load RelationshipTemplate onto Recipient
+| Property | Value               |
+| -------- | ------------------- |
+| `id`     | `"<ID of Request>"` |
 
-More general information about how to create a Relationship: Compare with [Prepare enmeshed onboarding package] guide and [Process received enmeshed onboarding package and create relationship] guide.
+{% include copy-notice description="Save the `id` of the Request so that you can refer to it in the next step." %}
+
+All details on how to send a Request via a RelationshipTemplate and how to receive it in general can be found in the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide.
+
+<!--- Summary: Use case "Create RelationshipTemplate", insert Request into RelationshipTemplate, use case "Load RelationshipTemplate onto Recipient" --->
+
+For more information about establishing a Relationship between two Connectors, see the guide Prepare enmeshed onboarding package and subsequently take a look at the guide Process received enmeshed onboarding package and create relationship.
 {: .notice--info}
+
+<!--- TODO: Insert links to guide "Prepare enmeshed onboarding package" and guide "Process received enmeshed onboarding package and create relationship" --->
 
 ### Case 2: Relationship already established
 
-Essential here: [Requests over Messages] guide. Summary:
+We will now look at the case in which a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) already exists between the Sender and the Recipient. In this case, the Sender must first create an outgoing Request locally based on the [Request for reading an Attribute]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-an-attribute) as described above. Because there is an active Relationship between the Sender and the Recipient, the Sender can now send a [Message]({% link _docs_integrate/data-model-overview.md %}#message) to the Recipient which contains the created outgoing Request in its `content` property. After the Message was sent, the Recipient needs to synchronize the updates of the Backbone in order to receive the Message. This causes, that the Recipient receives also the underlying [Request for reading an Attribute]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-an-attribute) of the Message as a new incoming Request. The Recipient can fetch this Request and read its `id` from the result of the response:
 
-- Use case: Create outgoing Request
+<!--- Summary: Use case "Create outgoing Request" (use Request described above for that), you will get a response from which you can read the `id` of the created Request, so that you can refer to it later, use case "Send outgoing Request through Message", use case "Synchronization of Recipient", use case "Get incoming Request" --->
 
-You will get a response from which you can read the `id` of the created [Request]({% link _docs_integrate/data-model-overview.md %}#request), so that you can refer to it later:
+| Property | Value               |
+| -------- | ------------------- |
+| `id`     | `"<ID of Request>"` |
 
-| Property of [Request]({% link _docs_integrate/data-model-overview.md %}#request) | Value               |
-| -------------------------------------------------------------------------------- | ------------------- |
-| `id`                                                                             | `"<ID of Request>"` |
+{% include copy-notice description="Save the `id` of the Request so that you can refer to it in the next step." %}
 
-- Use Request described above for that
-- Use case: Send outgoing Request through Message
-- Use case: Synchronization of Recipient
+All details on how to send a Request via a Message and how to receive it in general can be found in the [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) guide.
 
 ## Answer the Request
 
-After the Sender has sent the Request for reading an Attribute to the Recipient, the Recipient can accept this Request to give the Sender read access to the requested Attribute.
+After the Sender has sent the [Request for reading an Attribute]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-an-attribute) to the Recipient and the Recipient has received this Request, the Recipient can accept it to give the Sender read access to the requested Attribute.
 
 - Use case: Get incoming Request
 
@@ -125,7 +136,10 @@ After the Sender has sent the Request for reading an Attribute to the Recipient,
 ### Accept a ReadAttributeRequestItem
 
 - Use case: Accept incoming Request
-- [ReadAttributeAcceptResponseItem]
+
+- Use existing attribute/create new attribute
+
+- A [ReadAttributeAcceptResponseItem] will be transfered
 
 ### Reject a ReadAttributeRequestItem
 
@@ -136,7 +150,12 @@ It is possible to reject to, if you don't want the Sender to read your attribute
 
 ## Get the Attribute
 
+We now assume, that the Recipient has accepted the [Request for reading an Attribute]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-an-attribute) of the Sender.
+
 - Use case: Synchronization of Sender
+- Receive Message sent back from Recipient or Relationship
+- Link to other guides on how to identitfy the right Message/Relationship in the sync response
+- get the attribute from the [AcceptResponseItem] of type [ReadAttributeAcceptResponseItem]
 
 ## What's next?
 
