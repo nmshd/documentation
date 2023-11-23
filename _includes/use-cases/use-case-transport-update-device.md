@@ -6,8 +6,8 @@ This use-case attempts to update the `name` or `description` of a `device` that 
 
 ## Parameters
 
-- `id` 
-- `name` 
+- `id`
+- `name`
 - `description`
 
 ## On Success
