@@ -11,9 +11,8 @@ of the identity.
 
 ## On Success
 
-- Returns all identity attributes that conform to the query.
+- Returns all identity [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that conform to the query.
 
 ## On Failure
 
-- No corresponding attributes could be found.
 - The query was malformed. Please make sure it complies to the [data model]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery).

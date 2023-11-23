@@ -15,6 +15,5 @@ in a relationship with a third party.
 
 ## On Failure
 
-- There are no attributes that match the query.
 - You are not allowed to query a given third party.
 - The query is malformed.

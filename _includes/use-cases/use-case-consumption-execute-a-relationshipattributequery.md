@@ -14,5 +14,4 @@ This use-case is intended to query a peer's [relationship attributes]({% link _d
 
 ## On Failure
 
-- No corresponding attributes could be found.
 - The query was malformed. Please make sure it complies to the [data model]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery).
