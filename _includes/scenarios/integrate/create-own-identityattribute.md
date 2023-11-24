@@ -27,14 +27,14 @@ To create an IdentityAttribute as an Integrator for your own Connector, you need
 ```
 --->
 
-| Property    | Value                                                               |
-| ----------- | ------------------------------------------------------------------- |
-| `@type`     | `"IdentityAttribute"`                                               |
-| `owner`     | `"<your Connector's Address>"`                                      |
-| `validFrom` | `"<start of Attribute validity>"`                                   |
-| `validTo`   | `"<end of Attribute validity>"`                                     |
-| `value`     | `<IdentityAttribute Value>`                                         |
-| `tags`      | `["<additional information 1>", ..., "<additional information m>"]` |
+| Property    | Value                                                                                                    |
+| ----------- | -------------------------------------------------------------------------------------------------------- |
+| `@type`     | `"IdentityAttribute"`                                                                                    |
+| `owner`     | `"<your Connector's Address>"`                                                                           |
+| `validFrom` | `"<start of Attribute validity>"`                                                                        |
+| `validTo`   | `"<end of Attribute validity>"`                                                                          |
+| `value`     | Specify an [IdentityAttribute Value]({% link _docs_integrate/attribute-values.md %}#identity-attributes) |
+| `tags`      | `["<additional information 1>", ..., "<additional information m>"]`                                      |
 
 You need to replace the placeholders marked with `<...>` appropriately. In particular, it is necessary that you insert one of the available [IdentityAttribute Values]({% link _docs_integrate/attribute-values.md %}#identity-attributes) into the `value` property. You are not allowed to specify the Address of a Connector other than your own as the value for the `owner` property, as the [Create an Attribute]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}) use case relates to the creation of Attributes for yourself and not for others. Note that the properties `validFrom`, `validTo` and `tags` are optional, so you can omit them.
 
