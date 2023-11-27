@@ -91,8 +91,8 @@ So if you want to use a [RequestItemGroup]({% link _docs_integrate/data-model-ov
 
 The Sender that wants to read an Attribute from the Recipient may or may not already have a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the Recipient. Depending on which is the case, a different procedure is more suitable for sending the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) created by the Sender to the Recipient:
 
-- [Request over Template:]({% link _docs_integrate/read-attribute-from-peer.md %}#request-over-template) If there is currently no Relationship between the Sender and the Recipient, you must use this approach.
-- [Request over Message:]({% link _docs_integrate/read-attribute-from-peer.md %}#request-over-message) This procedure is only allowed if there is already an active Relationship between the Sender and the Recipient.
+- [Request over Template]({% link _docs_integrate/read-attribute-from-peer.md %}#request-over-template): If there is currently no Relationship between the Sender and the Recipient, you must use this approach.
+- [Request over Message]({% link _docs_integrate/read-attribute-from-peer.md %}#request-over-message): This procedure is only allowed if there is already an active Relationship between the Sender and the Recipient.
 
 In the following, we briefly describe the procedure of sending the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) created by the Sender to the Recipient separately in both cases.
 
@@ -155,7 +155,7 @@ If the Recipient accepts a [ReadAttributeRequestItem]({% link _docs_integrate/re
   | accept       | `true`                                                                                                                                                                                                                                      |
   | newAttribute | Specify an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) that should be created and shared |
 
-A [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ReadAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-response-itemproperties) will be transferred.
+A corresponding [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ReadAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-response-itemproperties) will be contained within the `items` property of the [Response] to the [Request for reading Attributes] transferred to the Sender.
 
 ### Reject a ReadAttributeRequestItem
 
@@ -165,13 +165,50 @@ Even though you want to accept the [Request for reading Attributes]({% link _doc
 | -------- | ------- |
 | accept   | `false` |
 
-A [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+A corresponding [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be contained within the `items` property of the [Response] to the [Request for reading Attributes] transferred to the Sender.
 
 ### Example: Accept a RequestItemGroup
 
 Let's look at an example where the Sender is interested in the Recipient's [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) and contact information in the form of an [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) or a [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber). To ask the Recipient for this data, the Sender creates a [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes), which contains in its `items` property a [ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) belonging to the [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) and a [RequestItemGroup]({% link _docs_integrate/read-attribute-from-peer.md %}#read-multiple-attributes-with-a-requestitemgroup) belonging to the contact information. The RequestItemGroup itself contains two ReadAttributeRequestItems in its `items` property, namely one for the [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) and one for the [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber).
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/ad95a301-b853-4d97-9ca4-bd8f13568d89" id="PB9Qbh0ucKut"></iframe></div>
+
+In our example, the Sender only requires the Recipient to share its [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress), which is why the values of the `mustBeAccepted` property of the single [ReadAttributeRequestItems]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) and the [RequestItemGroup]({% link _docs_integrate/read-attribute-from-peer.md %}#read-multiple-attributes-with-a-requestitemgroup) within the Request are specified accordingly. We assume that the Recipient wants to accept the Request and actually only wants to share its [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress), which is already stored locally as an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
+
+If the Recipient wants to accept the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes), it must accept all [ReadAttributeRequestItems]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted, for example, for the Recipient to refuse to share its [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) and instead share its [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber).
+{: .notice--info}
+
+Because the Recipient refuses to share its date of birth and accepts at least one [ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) of the [RequestItemGroup]({% link _docs_integrate/read-attribute-from-peer.md %}#read-multiple-attributes-with-a-requestitemgroup), it provides the following [parameters]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-response-parameters) in order to respond to the two components within the `items` property of the Request:
+
+- Reject sharing of [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate):
+
+  | Property | Value   |
+  | -------- | ------- |
+  | accept   | `false` |
+
+- Accept [RequestItemGroup]({% link _docs_integrate/read-attribute-from-peer.md %}#read-multiple-attributes-with-a-requestitemgroup):
+
+  | Property | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+  | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | accept   | `true`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+  | items    | Responses of the Recipient to the two [ReadAttributeRequestItems]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) belonging to the [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) and the [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber) contained in the [RequestItemGroup]({% link _docs_integrate/read-attribute-from-peer.md %}#read-multiple-attributes-with-a-requestitemgroup) |
+
+Because the Recipient accepts the sharing of its [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) and rejects the sharing of its [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber), it responds to the two [ReadAttributeRequestItems]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) contained in the `items` property of the already accepted [RequestItemGroup]({% link _docs_integrate/read-attribute-from-peer.md %}#read-multiple-attributes-with-a-requestitemgroup) as follows:
+
+- Accept sharing of existing [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress):
+
+  | Property            | Value                                      |
+  | ------------------- | ------------------------------------------ |
+  | accept              | `true`                                     |
+  | existingAttributeId | `"<ID of Attribute of type EMailAddress>"` |
+
+- Reject sharing of [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber):
+
+  | Property | Value   |
+  | -------- | ------- |
+  | accept   | `false` |
+
+Note that it is important to respond to [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitem) and [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in the same order as they have been received.
 
 ## Get the Attributes
 
