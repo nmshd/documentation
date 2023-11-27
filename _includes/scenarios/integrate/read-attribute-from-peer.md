@@ -155,17 +155,20 @@ If the Recipient accepts a [ReadAttributeRequestItem]({% link _docs_integrate/re
   | accept       | `true`                                                                                                                                                                                                                                      |
   | newAttribute | Specify an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) that should be created and shared |
 
-A corresponding [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ReadAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-response-itemproperties) will be contained within the `items` property of the [Response] to the [Request for reading Attributes] transferred to the Sender.
+A corresponding [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ReadAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-response-itemproperties) will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) transferred to the Sender.
 
 ### Reject a ReadAttributeRequestItem
 
-Even though you want to accept the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) as a whole, it could be possible that you want to reject some [ReadAttributeRequestItems]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) containted in it. This is no problem for [ReadAttributeRequestItems]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) that have the value `false` specified in their `mustBeAccepted` property. You must specify the following [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-response-parameters) if you want to reject a [ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem):
+Even though you want to accept the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) as a whole, it could be possible that you want to reject some [ReadAttributeRequestItems]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) containted in it. This is allowed, if the ReadAttributeRequestItem has the value `false` specified in its `mustBeAccepted` property. To reject a ReadAttributeRequestItem, you must specify the following [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-response-parameters):
 
 | Property | Value   |
 | -------- | ------- |
 | accept   | `false` |
 
-A corresponding [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be contained within the `items` property of the [Response] to the [Request for reading Attributes] transferred to the Sender.
+A corresponding [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) transferred to the Sender.
+
+In addition to [AcceptResponseItems]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) and [RejectResponseItems]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem), [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) are one of the three forms of [ResponseItems]({% link _docs_integrate/data-model-overview.md %}#responseitem). These are never created manually, but can occur due to an error.
+{: .notice--info}
 
 ### Example: Accept a RequestItemGroup
 
@@ -214,23 +217,19 @@ Note that it is important to respond to [RequestItems]({% link _docs_integrate/d
 
 We now assume, that the Recipient has accepted the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) of the Sender and provided an appropriate response to it. In order for the Sender to receive the response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). To view the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request, proceed as described in the [Get outgoing Request]({% link _docs_use-cases/use-case-consumption-get-outgoing-request.md %}) use case documentation and specify `source.reference=<ID of RelationshipTemplate>`, if the [Request was sent over a Template]({% link _docs_integrate/read-attribute-from-peer.md %}#request-over-template), or `id=<ID of Request>`, if the [Request was sent over a Message]({% link _docs_integrate/read-attribute-from-peer.md %}#request-over-message), as a query parameter. The Sender can now get the requested and accepted Attributes each as a [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ReadAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-response-itemproperties) from the `response.content.items` property of the result of the response:
 
-| Property | Value |
-| -------- | ----- |
-| ...      | ...   |
+| Property      | Value                                                                                                                                                                                               |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@type`       | `"ReadAttributeAcceptResponseItem"`                                                                                                                                                                 |
+| `result`      | `"Accepted"`                                                                                                                                                                                        |
+| `attributeId` | `"<ID of shared Attribute>"`                                                                                                                                                                        |
+| `attribute`   | Shared [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) |
 
-In contrast, the requested and rejected Attributes are wrapped as a [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). They can be read from the `response.content.items` property of the result of the response too:
-
-| Property | Value |
-| -------- | ----- |
-| ...      | ...   |
-
-The [Responsewrapper]({% link _docs_integrate/data-model-overview.md %}#responsewrapper) is a wrapper around the [Response]({% link _docs_integrate/data-model-overview.md %}#response) that is sent by the Recipient of the Request.
-{: .notice--info}
+In contrast, the requested and rejected Attributes are wrapped as a [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). They can be read from the `response.content.items` property of the result of the response too.
 
 If the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) contains a [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in its `items` property, the response to this Request will contain a corresponding [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) in its `response.content.items` property.
 {: .notice--info}
 
-In addition to [AcceptResponseItems]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) and [RejectResponseItems]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem), [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) are one of the three types of [ResponseItems]({% link _docs_integrate/data-model-overview.md %}#responseitem). These are never created manually, but can occur due to an error.
+The [Responsewrapper]({% link _docs_integrate/data-model-overview.md %}#responsewrapper) is a wrapper around the [Response]({% link _docs_integrate/data-model-overview.md %}#response) that is sent by the Recipient of the Request.
 {: .notice--info}
 
 <!--- Either in the `relationships` property or in the `messages` property of the synchronization result, the Sender can find the response of the Recipient. This depends on whether there is an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between the Sender and the Recipient already. To identify the Request and corresponding response of interest in the synchronization result, the Sender needs to search for the corresponding RelationshipTemplates' ID or the corresponding Request's ID, respectively. But to view the response at any later point again, it is also possible to proceed as described in the [Get outgoing Request]({% link _docs_use-cases/use-case-consumption-get-outgoing-request.md %}) use case documentation. For identifying the Request and corresponding response of interest, use the ID of the RelationshipTemplate, if the Request was sent over a Template, or of the Request itself, if the Request was sent over a Message, as a query parameter. --->
