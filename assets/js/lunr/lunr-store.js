@@ -126,7 +126,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Access the Connector",
-        "excerpt":"The primary integration capability of the Connector is the REST API. In order to use it, you should have received an API-Key for the respective Connector. An API-Key so far has all authorizations for accessing the API. Interactive Documentation You can find the REST API documentation hosted on your Connector...","categories": [],
+        "excerpt":"The primary integration capability of the Connector is the REST API. In order to use it, you should have received an API-Key for the respective Connector. An API-Key so far has all authorizations for accessing the API. Hosted API tooling by the (development) Connector In order to use the hosted...","categories": [],
         "tags": [],
         "url": "/integrate/access-the-connector",
         "teaser": null
