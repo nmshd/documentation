@@ -1,20 +1,14 @@
-An [Identity Attribute]({% link _docs_integrate/attribute-values.md %}#identity-attributes) is a specific piece of information associated with an identity (person or entity) in the context of the networked ecosystem. Attribute values can take on different types that define the format, validation rules, and presentation information for the stored data.
+Identity attributes play a pivotal role in the management and exchange of information within the networked ecosystem.
 
-Identity attributes are critical for managing and sharing information within the networked ecosystem and can include both simple, atomic attribute value types (e.g., email address, display name, phone number) and more complex types (e.g., street address, personal name). These attributes may also contain other attribute values, depending on their specific requirements.
+An [IdentityAttribute]({% link _docs_integrate/attribute-values.md %}#identity-attributes) is specific information associated with an identity (person or entity) in the context of the networked ecosystem.
 
-## Example
+The type of attribute defines its semantic meaning. [We have defined these types and the associated purpose for some attributes]({% link _docs_integrate/attribute-values.md %}) . If this general description of an attribute is not sufficient, it is possible to use the tags to specify the semantics even more precisely. [Relationship Attributes]({% link _docs_integrate/attribute-values.md %}#relationship-attributes) should be used for attributes that are specific to a Relationship. This ensures that each attribute has its unique key for identification.
 
-For example, an email address is associated with the attribute value type [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress), which defines the following:
+Attribute values can be of different types that define the format, validation rules and presentation information for the stored data.
+These attributes can also contain multiple attribute values, depending on their specific requirements.
 
-| Name    | Type             | Required | Validation                                                                                |
-| ------- | ---------------- | :------: | ----------------------------------------------------------------------------------------- |
-| `@type` | `"EMailAddress"` |    ✓     |                                                                                           |
-| `value` | `string`         |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
-
-- The type of the attribute
-- The data type of the actual value (a string).
-- How it is validated (according to the pattern of an email address and a maximum length).
-- The requirement or optionality of attributes
+These attributes comprise both simple<!-- TODO link: (% _docs_integrate/create-own-identityattribute.md %#Example 1: Create an own simple IdentityAttribute) -->and complex types<!-- TODO link: (% _docs_integrate/create-own-identityattribute.md %#Example 2: Create an own complex IdentityAttribute) -->, such as email address, display name, phone number, and street address, respectively.
+The storage of multiple attributes of the same type is possible. The user can then choose which attribute is to be used in the response. This becomes beneficial, for instance, when storing multiple residential addresses in the wallet. A specification with a tag here is crucial.
 
 ## Related links
 
