@@ -2,7 +2,7 @@ The primary integration capability of the Connector is the REST API. In order to
 
 # Hosted API tooling by the (development) Connector
 
-In order to use the hosted api tooling, it must be activated in the [connector configuration]({% link _docs_operate/setup-with-docker-compose.md %}#hosted-api-tooling-by-the-development-connector).
+In order to use the hosted api tooling, it must be activated in the [Connector configuration]({% link _docs_operate/setup-with-docker-compose.md %}#hosted-api-tooling-by-the-development-connector).
 {: .notice--warning}
 
 You can access the REST API documentation through the Connector's designated HTTP endpoints. Swagger and Rapidoc serve as interactive platforms hosted on the Connector, enabling you to explore and experiment with the various APIs interactively.
@@ -12,14 +12,14 @@ You can access the REST API documentation through the Connector's designated HTT
 - /docs/swagger : The Swagger UI of the Connector's OpenAPI specification
 
 **Note:** For Swagger the authorization is on the top right (Authorize button with a lock symbol).
-{: .notice--warning}
+{: .notice--info}
 
 ## Rapidoc
 
 - /docs/rapidoc : The Rapidoc UI of the Connector's OpenAPI specification
 
 **Note:** For Rapidoc the authorization is usually the third heading called "Authentication" and can also be found on the left navigation.
-{: .notice--warning}
+{: .notice--info}
 
 ## Accessing the Connector with external API tools (e.g. Postman or Insomnia)
 
@@ -39,4 +39,4 @@ We work on keeping this list as updated as possible. Please let us know, if some
 
 ## TypeScript SDK
 
-We also offer an SDK developed in TypeScript that facilitates communication with your Connector from your TypeScript or JavaScript application. You can find it readily available on [npmjs](https://www.npmjs.com/package/@nmshd/connector-sdk).
+We offer an SDK developed in TypeScript that facilitates communication with your Connector from your TypeScript or JavaScript application. You can find it readily available on [npmjs](https://www.npmjs.com/package/@nmshd/connector-sdk).
