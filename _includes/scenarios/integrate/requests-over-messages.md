@@ -115,7 +115,7 @@ For more information about the events you can head over to the [Connector Module
 
 ### Accept
 
-If you want to accept the Request you can do so by calling the `POST /api/v2/Requests/Incoming/{id}/Accept` route. You can use the `id` you saved in the previous step. In the payload you have to accept at least all RequestItems where the `mustBeAccepted` property is set to `true`. In case of the example Request the payload is the following:
+If you want to accept the Request you can do so by calling the `PUT /api/v2/Requests/Incoming/{id}/Accept` route. You can use the `id` you saved in the previous step. In the payload you have to accept at least all RequestItems where the `mustBeAccepted` property is set to `true`. In case of the example Request the payload is the following:
 
 ```jsonc
 {
@@ -129,7 +129,7 @@ If you want to accept the Request you can do so by calling the `POST /api/v2/Req
 
 ### Reject
 
-If you want to reject the Request you can do so by calling the `POST /api/v2/Requests/Incoming/{id}/Reject` route. You can use the `id` you saved in the previous step. In the payload you have to reject all RequestItems. In case of the example Request the payload is the following:
+If you want to reject the Request you can do so by calling the `PUT /api/v2/Requests/Incoming/{id}/Reject` route. You can use the `id` you saved in the previous step. In the payload you have to reject all RequestItems. In case of the example Request the payload is the following:
 
 ```jsonc
 {
