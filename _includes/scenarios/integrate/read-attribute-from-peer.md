@@ -137,6 +137,10 @@ After the Sender has sent the [Request for reading Attributes]({% link _docs_int
 If the Recipient does not want the Sender to read any Attributes of it and therefore does not want to accept the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) of the Sender, it can reject it as a whole too. For this, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
 
+In the next subsections, we will describe the process of accepting a [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes). The following diagram provides an overview for this process.
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/164e1c68-0997-4a16-832c-c1e53bb55571" id="NypRt8MoA-HR"></iframe></div>
+
 ### Accept a ReadAttributeRequestItem
 
 If the Recipient agrees to share a requested Attribute with the Sender, it can accept the associated [ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) contained in the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes). In particular, it must then provide the requested Attribute for its response to the Request. Depending on whether the Recipient wants to share an Attribute that already exists or that has to be created first, different [parameters]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-response-parameters) for this must be used:
