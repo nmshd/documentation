@@ -10,7 +10,7 @@ Please note that there are some data structures used in the context of enmeshed,
 
 ## Requests
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/03ed5248-af12-4a50-bac1-73831f2c3cf9" id="2BvNPGpGvQFu"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/03ed5248-af12-4a50-bac1-73831f2c3cf9" id="d~qRE5C7Dqig"></iframe></div>
 
 ### Structure of Requests
 
@@ -50,7 +50,7 @@ Depending on the kind of RequestItem, additional properties may be available.
 
 ## Responses
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/b42bc3d1-bb48-4bd5-a645-016dce559b30" id="kCvNDB.IYTUd"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/b42bc3d1-bb48-4bd5-a645-016dce559b30" id="Y.qRU24GDTrY"></iframe></div>
 
 ### Structure of Responses
 
@@ -96,48 +96,40 @@ If the peer accepts the Request and reponds to it, at their side a LocalRequest 
 Also, a LocalResponse will be created and stored directly within the LocalRequest.
 Then, a Message will transfer the Response wrapped in a ResponseWrapper back to you, where it can be mapped to your initially created LocalRequest.
 
-TODO: insert picture
-
 ### Process of sending Requests via RelationshipTemplates
 
 Alternatively, you can transfer Requests via RelationshipTemplates.
 To do so, you locally create the RelationshipTemplate and in the process the Request, however, no LocalRequest, yet.
 Hence, the Request your peer receives also doesn't have an ID, yet.
 Now, there are two possibilities: either you already have a Relationship with the peer or you wish to establish one, given the condition the peer accepts your Request.
-For this, you formulate the Request in the `onExistingRelationship` or the `onNewRelationship` property of the RelationshipTemplate, respectively.
-Note, however, that the `onNewRelationship` property is required and, therefore, must always be set, in order to avoid unstable behavior, e.g. if someone you don't have a Relationship with yet opens your RelationshipTemplate.
+For this, you formulate the Request in the `content.onExistingRelationship` or the `content.onNewRelationship` property of the RelationshipTemplate, respectively.
+Note, however, that the `content.onNewRelationship` property is required and, therefore, must always be set, in order to avoid unstable behavior, e.g. if someone you don't have a Relationship with yet opens your RelationshipTemplate.
 
 Firstly, let's consider the case where you already have a Relationship with the peer.
-Receiving your RelationshipTemplate, thus, at their side the `onExistingRelationship` property will be processed, containing your Request.
+Receiving your RelationshipTemplate, thus, at their side the `content.onExistingRelationship` property will be processed, containing your Request.
 If the peer decides to accept and to respond to the Request, a LocalRequest will be created, comprising the LocalResponse.
 Its content, i.e. the Response, is wrapped in a ResponseWrapper and sent via Message back to you.
 Only now, a LocalRequest at your side will be created, having the same ID like its counterpart at your peer's side, since it was transmitted within the Response.
 Also, the LocalResponse is stored directly within the LocalRequest, so that the LocalRequest you just created already has the status `accepted`.
 
-TODO: insert picture
-
-In the case where you don't have a Relationship with the peer yet, the `onNewRelationship` property of the RelationshipTemplate will be processed.
+In the case where you don't have a Relationship with the peer yet, the `content.onNewRelationship` property of the RelationshipTemplate will be processed.
 If the peer decides to accept and to respond to your Request, again a LocalRequest and LocalResponse will be created at their side.
 However, the returned data differ.
 Instead of a ResponseWrapper inside a Message, a Relationship is returned which is in the status `pending` for now.
 It contains the RelationshipTemplate, as well as the changes the peer made to it, i.e. the created Request and Response.
-Only after you accept the RelationshipCreationChangeRequest (not the kind of Request discussed on this page), the LocalRequest with LocalResponse is created at your side and the peer will receive the information about the status change via a `consumption.incomingRequestStatusChenged` [event]({% link _docs_integrate/connector-events.md %}).
-
-TODO: insert picture
+Only after you accept the RelationshipCreationChangeRequest (not the kind of Request discussed on this page), the LocalRequest with LocalResponse is created at your side and the peer will receive the information about the status change via a `consumption.incomingRequestStatusChanged` [event]({% link _docs_integrate/connector-events.md %}).
 
 ## Examples
-
-TODO: Rework examples to include Message/RelationshipTemplate and LocalRequests/LocalResponses
 
 ### Required and optional RequestItems
 
 An organization has a Relationship with a customer and needs their consent to the privacy terms.
 Additionally, the organization would like to know, if the customer is interested in optionally receiving a newsletter.
-Thus, they send a Request, containing two ConsentRequestItems.
+Thus, they send a Request via Message, containing two ConsentRequestItems.
 On the one hand, the RequestItem regarding consent to the Privacy Terms has the `mustBeAccepted` flag enabled, indicating that the Request can't be accepted without accepting this item.
 On the other hand, the RequestItem regarding the Newsletter has the `mustBeAccepted` flag disabled.
 Hence, the customer can freely choose whether or not they would like to give their consent to it.
-Let's consider the case the Request and therefore the privacy terms are accepted, but the consent to the newsletter is denied.
+Let's consider the case the Request and, therefore, the privacy terms are accepted, but the consent to the newsletter is denied.
 The resulting Request-Response flow is depicted in the following graphic.
 For simplicity some properties are omitted.
 
@@ -151,7 +143,7 @@ In its `content.onNewRelationship` property it holds a Request with two RequestI
 One of them contains Attributes the company shares with the peer, e.g. the company name.
 The other contains Attributes it would like to query from the peer.
 In this example they are the given and surname and optionally an e-mail address, following the [Integration example]({% link _docs_integrate/integration-example.md %}).
-Now, an interested person can scan the QR-code, provide their information and send their Response inside a RelationshipCreationChangeRequest (note that this itself is not the kind of Request discussed on this page, however internally a LocalRequest is created and responded to right away).
+Now, an interested person can scan the QR-code, provide their information and send their Response inside a RelationshipCreationChangeRequest.
 Once the company accepts the new Relationship, they can exchange messages or other data using enmeshed.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/4ac53380-b21a-4e33-982a-aa9167c471f3" id="iDvN-GT-yvbN"></iframe></div>
