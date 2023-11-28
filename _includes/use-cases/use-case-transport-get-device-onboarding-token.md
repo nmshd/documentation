@@ -13,7 +13,3 @@ of the `onboarding device` that corresponds to the given device `id`.
 ## On Success
 
 - Returns the `token` of the `onboarding device information`.
-
-## On Failure
-
---

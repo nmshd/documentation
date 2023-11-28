@@ -16,7 +16,3 @@ This use-case is intended to query all outgoing [LocalRequests]({% link _docs_in
 ## On Success
 
 - A list of outgoing [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest) that match the query.
-
-## On Failure
-
---
