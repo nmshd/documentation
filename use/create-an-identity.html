@@ -1,0 +1,402 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Create an Identity - enmeshed</title>
+<meta name="description" content="This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon as possible, in order to understand, use and integrate enmeshed. Additionally, we would love to hear your feedback to this part of the documentation, e.g. by filing an issue in our feedback repository.  Identity  A new digital Identity can be created in the App by the user. The Identity is the user’s primary entity and digital twin. All data and metadata in enmeshed is stored for Identities. Every Identity represents a certain natural or legal person. One can create separate Identities for personal and professional purposes.  Devices  The Device which created an Identity automatically is onboarded to the Identity. But a user can add more Devices, to have multiple devices accessing the very same digital Identity. An Identity which is used by a mobile phone, a tablet and a laptop has onboarded three Devices.  Profiles  The user can manage multiple Identities with one single App. Each Identity-to-App combination is called a Profile. Thus, each Profile within the App represents a separate digital Identity for which the App can be used.  Example  Consider a user who has three Devices (phone, tablet and business laptop) and three Identities (personal, work, child). A senseful combination would be the following:  Multi-Device: Structured by Identities and their Devices:     Identity Personal            Device: Phone       Device: Tablet           Identity Child            Device: Phone       Device: Child           Identity Work            Device: Phone       Device: Business Laptop           Multi-Profile: Structured by Devices and their Profiles:     Device: Phone            Profile: Personal       Profile: Work       Profile: Child           Device: Tablet            Profile: Personal       Profile: Child           Device: Business Laptop            Profile: Work">
+
+
+  <meta name="author" content="Enmeshed Team">
+  
+  <meta property="article:author" content="Enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Create an Identity">
+<meta property="og:url" content="/use/create-an-identity">
+
+
+  <meta property="og:description" content="This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon as possible, in order to understand, use and integrate enmeshed. Additionally, we would love to hear your feedback to this part of the documentation, e.g. by filing an issue in our feedback repository.  Identity  A new digital Identity can be created in the App by the user. The Identity is the user’s primary entity and digital twin. All data and metadata in enmeshed is stored for Identities. Every Identity represents a certain natural or legal person. One can create separate Identities for personal and professional purposes.  Devices  The Device which created an Identity automatically is onboarded to the Identity. But a user can add more Devices, to have multiple devices accessing the very same digital Identity. An Identity which is used by a mobile phone, a tablet and a laptop has onboarded three Devices.  Profiles  The user can manage multiple Identities with one single App. Each Identity-to-App combination is called a Profile. Thus, each Profile within the App represents a separate digital Identity for which the App can be used.  Example  Consider a user who has three Devices (phone, tablet and business laptop) and three Identities (personal, work, child). A senseful combination would be the following:  Multi-Device: Structured by Identities and their Devices:     Identity Personal            Device: Phone       Device: Tablet           Identity Child            Device: Phone       Device: Child           Identity Work            Device: Phone       Device: Business Laptop           Multi-Profile: Structured by Devices and their Profiles:     Device: Phone            Profile: Personal       Profile: Work       Profile: Child           Device: Tablet            Profile: Personal       Profile: Child           Device: Business Laptop            Profile: Work">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-11-29T11:49:16+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="/use/create-an-identity">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/operate">Operate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog">Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Use enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/use/install-the-app">Install the App</a></li>
+          
+            <li><a href="/use/secure-device-setup">Secure device setup</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Create an Identity">
+    <meta itemprop="description" content="This section is a pre-releasePlease note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience.Thus you could encounter typos, mistakes, or bugs in below information.However, we would like you to receive the most up-to-date information as soon as possible, in order to understand, use and integrate enmeshed.Additionally, we would love to hear your feedback to this part of the documentation, e.g. by filing an issue in our feedback repository.IdentityA new digital Identity can be created in the App by the user. The Identity is the user’s primary entity and digital twin. All data and metadata in enmeshed is stored for Identities. Every Identity represents a certain natural or legal person. One can create separate Identities for personal and professional purposes.DevicesThe Device which created an Identity automatically is onboarded to the Identity. But a user can add more Devices, to have multiple devices accessing the very same digital Identity. An Identity which is used by a mobile phone, a tablet and a laptop has onboarded three Devices.ProfilesThe user can manage multiple Identities with one single App. Each Identity-to-App combination is called a Profile. Thus, each Profile within the App represents a separate digital Identity for which the App can be used.ExampleConsider a user who has three Devices (phone, tablet and business laptop) and three Identities (personal, work, child). A senseful combination would be the following:Multi-Device: Structured by Identities and their Devices:  Identity Personal          Device: Phone      Device: Tablet        Identity Child          Device: Phone      Device: Child        Identity Work          Device: Phone      Device: Business Laptop      Multi-Profile: Structured by Devices and their Profiles:  Device: Phone          Profile: Personal      Profile: Work      Profile: Child        Device: Tablet          Profile: Personal      Profile: Child        Device: Business Laptop          Profile: Work      ">
+    <meta itemprop="datePublished" content="2023-11-29T11:49:16+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/use/create-an-identity" class="u-url" itemprop="url">Create an Identity
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#identity">Identity</a></li><li><a href="#devices">Devices</a></li><li><a href="#profiles">Profiles</a></li><li><a href="#example">Example</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p class="notice--warning"><b>This section is a pre-release</b><br />
+Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience.
+Thus you could encounter typos, mistakes, or bugs in below information.<br /><br />
+However, we would like you to receive the most up-to-date information as soon as possible, in order to understand, use and integrate enmeshed.<br /><br />
+Additionally, we would love to hear your feedback to this part of the documentation, e.g. by <a href="https://github.com/nmshd/feedback/issues">filing an issue in our feedback repository</a>.</p>
+
+<h1 id="identity">Identity</h1>
+
+<p>A new digital Identity can be created in the App by the user. The Identity is the user’s primary entity and digital twin. All data and metadata in enmeshed is stored for Identities. Every Identity represents a certain natural or legal person. One can create separate Identities for personal and professional purposes.</p>
+
+<h1 id="devices">Devices</h1>
+
+<p>The Device which created an Identity automatically is onboarded to the Identity. But a user can add more Devices, to have multiple devices accessing the very same digital Identity. An Identity which is used by a mobile phone, a tablet and a laptop has onboarded three Devices.</p>
+
+<h1 id="profiles">Profiles</h1>
+
+<p>The user can manage multiple Identities with one single App. Each Identity-to-App combination is called a Profile. Thus, each Profile within the App represents a separate digital Identity for which the App can be used.</p>
+
+<h1 id="example">Example</h1>
+
+<p>Consider a user who has three Devices (phone, tablet and business laptop) and three Identities (personal, work, child). A senseful combination would be the following:</p>
+
+<p>Multi-Device: Structured by Identities and their Devices:</p>
+
+<ul>
+  <li>Identity Personal
+    <ul>
+      <li>Device: Phone</li>
+      <li>Device: Tablet</li>
+    </ul>
+  </li>
+  <li>Identity Child
+    <ul>
+      <li>Device: Phone</li>
+      <li>Device: Child</li>
+    </ul>
+  </li>
+  <li>Identity Work
+    <ul>
+      <li>Device: Phone</li>
+      <li>Device: Business Laptop</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Multi-Profile: Structured by Devices and their Profiles:</p>
+
+<ul>
+  <li>Device: Phone
+    <ul>
+      <li>Profile: Personal</li>
+      <li>Profile: Work</li>
+      <li>Profile: Child</li>
+    </ul>
+  </li>
+  <li>Device: Tablet
+    <ul>
+      <li>Profile: Personal</li>
+      <li>Profile: Child</li>
+    </ul>
+  </li>
+  <li>Device: Business Laptop
+    <ul>
+      <li>Profile: Work</li>
+    </ul>
+  </li>
+</ul>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-11-29T11:49:16+01:00">November 29, 2023</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+           
+        <li>
+            <a href="/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2023
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

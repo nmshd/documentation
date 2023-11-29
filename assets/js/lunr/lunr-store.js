@@ -143,10 +143,28 @@ var store = [{
         "url": "/integrate/connector-events",
         "teaser": null
       },{
+        "title": "Create attribute for peer",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/integrate/create-attribute-for-peer",
+        "teaser": null
+      },{
+        "title": "Creating complex requests",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/integrate/creating-complex-requests",
+        "teaser": null
+      },{
         "title": "Data Model Overview",
         "excerpt":"The enmeshed data model can be divided into three parts: Transport types Local types Content types The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail. (note that you can click...","categories": [],
         "tags": [],
         "url": "/integrate/data-model-overview",
+        "teaser": null
+      },{
+        "title": "Delete Identity from enmeshed",
+        "excerpt":"This feature (or parts of it) and its documentation are still in development Please note that this section describes features which are currently in development, and we are actively working on enhancing your experience. Thus you could encounter unfinished APIs, incompatible changes, mistakes or bugs in below information. However, we...","categories": [],
+        "tags": [],
+        "url": "/integrate/delete-identity-from-enmeshed",
         "teaser": null
       },{
         "title": "Error Codes",
@@ -167,10 +185,46 @@ var store = [{
         "url": "/integrate/integration-example",
         "teaser": null
       },{
+        "title": "Process received enmeshed onboarding package and create relationship",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/integrate/process-received-enmeshed-onboarding-package-and-create-relationship",
+        "teaser": null
+      },{
+        "title": "Process responses to outgoing requests",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/integrate/process-responses-to-outgoing-requests",
+        "teaser": null
+      },{
+        "title": "Propose attribute to peer",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/integrate/propose-attribute-to-peer",
+        "teaser": null
+      },{
+        "title": "Read attribute from peer",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/integrate/read-attribute-from-peer",
+        "teaser": null
+      },{
+        "title": "Request and process attributes by messages",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/integrate/request-and-process-attributes-by-messages",
+        "teaser": null
+      },{
         "title": "Request persistent consent of peer",
         "excerpt":"Here is an explanation of how to obtain a person’s persistent consent on a particular topic To request an accept/reject decision from a peer to a free text, the ConsentRequestItem is used. Represents the consent of a person to a specific topic. If you want to obtain a consent, you...","categories": [],
         "tags": [],
         "url": "/integrate/request-persistent-consent-of-peer",
+        "teaser": null
+      },{
+        "title": "Requesting authentication",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/integrate/requesting-authentication",
         "teaser": null
       },{
         "title": "Requesting one-time consents",
@@ -197,16 +251,46 @@ var store = [{
         "url": "/integrate/requests-over-templates",
         "teaser": null
       },{
+        "title": "Respond to incoming requests",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/integrate/respond-to-incoming-requests",
+        "teaser": null
+      },{
+        "title": "Sending Messages with attachments",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/integrate/sending-messages-with-attachments",
+        "teaser": null
+      },{
         "title": "Sending Messages",
         "excerpt":"The Connector can send and receive messages with attachments using REST requests and file IDs, which are first uploaded and encrypted on the Platform. Messages can be queried and downloaded, and the Connector pulls for new messages periodically. In order to send messages to recipients, a REST request can be...","categories": [],
         "tags": [],
         "url": "/integrate/sending-messages",
         "teaser": null
       },{
+        "title": "Share own attribute to peer",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/integrate/share-own-attribute-to-peer",
+        "teaser": null
+      },{
+        "title": "Succeed attribute of peer",
+        "excerpt":"This feature (or parts of it) and its documentation are still in development Please note that this section describes features which are currently in development, and we are actively working on enhancing your experience. Thus you could encounter unfinished APIs, incompatible changes, mistakes or bugs in below information. However, we...","categories": [],
+        "tags": [],
+        "url": "/integrate/succeed-attribute-of-peer",
+        "teaser": null
+      },{
         "title": "Support",
         "excerpt":"For assisted support with the Connector or the Backbone provided by the j&amp;s-soft GmbH contact us via support[at]enmeshed.eu. Community support is a great way to get help and even contribute to the projects. Open bug reports and feature requests in the enmeshed issue tracker or share your feedback with the...","categories": [],
         "tags": [],
         "url": "/integrate/support",
+        "teaser": null
+      },{
+        "title": "Updating IdentityAttributes of yourself",
+        "excerpt":"This feature (or parts of it) and its documentation are still in development Please note that this section describes features which are currently in development, and we are actively working on enhancing your experience. Thus you could encounter unfinished APIs, incompatible changes, mistakes or bugs in below information. However, we...","categories": [],
+        "tags": [],
+        "url": "/integrate/updating-identityattributes-of-yourself",
         "teaser": null
       },{
         "title": "Use Cases",
@@ -293,16 +377,70 @@ var store = [{
         "url": "/use",
         "teaser": null
       },{
+        "title": "Create an Identity",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/use/create-an-identity",
+        "teaser": null
+      },{
+        "title": "Delete Identity from enmeshed",
+        "excerpt":"This feature (or parts of it) and its documentation are still in development Please note that this section describes features which are currently in development, and we are actively working on enhancing your experience. Thus you could encounter unfinished APIs, incompatible changes, mistakes or bugs in below information. However, we...","categories": [],
+        "tags": [],
+        "url": "/use/delete-identity-from-enmeshed",
+        "teaser": null
+      },{
+        "title": "Delete Profile from the App",
+        "excerpt":"This feature (or parts of it) and its documentation are still in development Please note that this section describes features which are currently in development, and we are actively working on enhancing your experience. Thus you could encounter unfinished APIs, incompatible changes, mistakes or bugs in below information. However, we...","categories": [],
+        "tags": [],
+        "url": "/use/delete-profile-from-the-app",
+        "teaser": null
+      },{
+        "title": "Get overview of your data",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/use/get-overview-of-your-data",
+        "teaser": null
+      },{
         "title": "Install the App",
-        "excerpt":"You can get the enmeshed App over your favorite app stores. Please find the links below:      Enmeshed App on Apple AppStore   Enmeshed App on Google PlayStore   Please drop us some feedback if you would like to see the enmeshed App on different stores as well.   ","categories": [],
+        "excerpt":"Caution: As enmeshed is open-source and the App is a white-label component, there are several flavors of the enmeshed App in the corresponding app stores. Enmeshed App You can get the enmeshed App over your favorite app stores. Please find the links below: Enmeshed App on Apple AppStore Enmeshed App...","categories": [],
         "tags": [],
         "url": "/use/install-the-app",
+        "teaser": null
+      },{
+        "title": "Manually fill Attributes of your Identity",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/use/manually-fill-attributes-of-your-identity",
+        "teaser": null
+      },{
+        "title": "Process received enmeshed onboarding package and create relationship",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/use/process-received-enmeshed-onboarding-package-and-create-relationship",
+        "teaser": null
+      },{
+        "title": "Process requests of contact",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/use/process-requests-of-contact",
+        "teaser": null
+      },{
+        "title": "Rename Profile to distinguish multiple Profiles",
+        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "tags": [],
+        "url": "/use/rename-profile-to-distinguish-multiple-profiles",
         "teaser": null
       },{
         "title": "Secure device setup",
         "excerpt":"We’ve summarized some tips for end-user device usage on this site. A great resource for more in-depth information about those tips is the website of the Federal Office for Information Security (BSI, Bundesamt für Sicherheit in der Informationstechnik). We do not know every security guideline and tip out there, so...","categories": [],
         "tags": [],
         "url": "/use/secure-device-setup",
+        "teaser": null
+      },{
+        "title": "Send prefabricated request to contact",
+        "excerpt":"This feature (or parts of it) and its documentation are still in development Please note that this section describes features which are currently in development, and we are actively working on enhancing your experience. Thus you could encounter unfinished APIs, incompatible changes, mistakes or bugs in below information. However, we...","categories": [],
+        "tags": [],
+        "url": "/use/send-prefabricated-request-to-contact",
         "teaser": null
       },{
         "title": "Load Token by id and key (without having an account)",
