@@ -30,7 +30,7 @@ To create an IdentityAttribute as an Integrator for your own Connector, you need
 | Property    | Value                                                                                                    |
 | ----------- | -------------------------------------------------------------------------------------------------------- |
 | `@type`     | `"IdentityAttribute"`                                                                                    |
-| `owner`     | `"<your Connector's Address>"`                                                                           |
+| `owner`     | `"<Address of your Connector>"`                                                                          |
 | `validFrom` | `"<start of Attribute validity>"`                                                                        |
 | `validTo`   | `"<end of Attribute validity>"`                                                                          |
 | `value`     | Specify an [IdentityAttribute Value]({% link _docs_integrate/attribute-values.md %}#identity-attributes) |
@@ -67,12 +67,12 @@ As you can see from the diagram below, after you have entered the input values t
 
 An example of a simple IdentityAttribute is one of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname). If you want to create it without specifying optional parameters, you must use the following content:
 
-| Property      | Value                               |
-| ------------- | ----------------------------------- |
-| `@type`       | `"IdentityAttribute"`               |
-| `owner`       | `"<your Connector's Address>"`      |
-| `value.@type` | `"DisplayName"`                     |
-| `value.value` | `"<your Connector's display name>"` |
+| Property      | Value                                |
+| ------------- | ------------------------------------ |
+| `@type`       | `"IdentityAttribute"`                |
+| `owner`       | `"<Address of your Connector>"`      |
+| `value.@type` | `"DisplayName"`                      |
+| `value.value` | `"<display name of your Connector>"` |
 
 <!--- ```json
 {
@@ -93,14 +93,14 @@ Assuming that the input value for the Connector's display name specified in the 
 
 An example of a complex IdentityAttribute is one of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate). If you want to create it without specifying optional parameters, you must use the following content:
 
-| Property      | Value                          |
-| ------------- | ------------------------------ |
-| `@type`       | `"IdentityAttribute"`          |
-| `owner`       | `"<your Connector's Address>"` |
-| `value.@type` | `"BirthDate"`                  |
-| `value.day`   | `<day of birth>`               |
-| `value.month` | `<month of birth>`             |
-| `value.year`  | `<year of birth>`              |
+| Property      | Value                           |
+| ------------- | ------------------------------- |
+| `@type`       | `"IdentityAttribute"`           |
+| `owner`       | `"<Address of your Connector>"` |
+| `value.@type` | `"BirthDate"`                   |
+| `value.day`   | `<day of birth>`                |
+| `value.month` | `<month of birth>`              |
+| `value.year`  | `<year of birth>`               |
 
 <!--- ```json
 {
