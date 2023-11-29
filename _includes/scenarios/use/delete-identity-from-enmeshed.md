@@ -2,7 +2,7 @@
 
 # Flow
 
-Every Identity has the option of deleting its Identity from the Backbone. There are three options to delete the Identity:
+Every Identity has the option of deleting itself from the Backbone. There are three options to delete the Identity:
 
 - Actively trigger the deletion process by use of the App. There is no further approval of the Identity required with this option.
 - Actively trigger the deletion process by use of support tickets/e-mails to the Backbone operator (as required by GDPR). An active approval of the Identity is required with this option, as the Backbone must ensure, that the support ticket creator is the owner of the Identity. As there is the need of a push notification channel for this, the Connector does not have the ability to trigger the Identity deletion over the Backbone.
