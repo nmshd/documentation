@@ -43,7 +43,7 @@ The input you have to provide in the `query` property depends on what kind of At
 Please note that not all of the properties listed here have to be specified when creating a Request for reading Attributes. Some of the properties are optional and can therefore be omitted. Only values for the `items` property of the [Request]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) itself and for the properties `@type`, `mustBeAccepted` and `query` of the RequestItem of type [ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) are required to be specified.
 {: .notice--info}
 
-### Example 1: Read an IdentityAttribute
+### Read an IdentityAttribute
 
 We assume that the Sender wants to read an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an [IdentityAttribute Value]({% link _docs_integrate/attribute-values.md %}#identity-attributes) of a specific type of the Recipient. Then the associated [ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem), which the Sender inserts into the `items` property of the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes), must contain an [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery) in its `query` property:
 
@@ -57,7 +57,7 @@ We assume that the Sender wants to read an [IdentityAttribute]({% link _docs_int
 
 The properties `validFrom`, `validTo` and `tags` are optional, so you can omit them.
 
-### Example 2: Read a RelationshipAttribute
+### Read a RelationshipAttribute
 
 We now consider the case that the Sender has an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) established with the Recipient and that the Sender wants to read a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) of this Relationship. Then the associated [ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) contained in the `items` property of the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) created by the Sender, must contain an appropriate [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) in its `query` property:
 
@@ -70,7 +70,7 @@ We now consider the case that the Sender has an active [Relationship]({% link _d
 | `owner`                  | `"<Address of Recipient or Sender>"`                                                                                               |
 | `attributeCreationHints` | Specify [RelationshipAttributeCreationHints]({% link _docs_integrate/data-model-overview.md %}#relationshipattributecreationhints) |
 
-Only the properties `@type`, `key`, `owner` and `attributeCreationHints` are required to use. Further details on the purposes for which you can use a [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) and how to do this can be found in the description of [Combinations and usage scenarios]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-combinationsandusagescenarios) of the [ReadAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem).
+Only the properties `@type`, `key`, `owner` and `attributeCreationHints` are required to use. Further details on the purposes for which you can use a [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) and how to utilize it can be found in the description of [Combinations and usage scenarios]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-combinationsandusagescenarios) of the [ReadAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem).
 
 ### Read multiple Attributes with a RequestItemGroup
 
@@ -174,7 +174,7 @@ The rejection of a ReadAttributeRequestItem leads to the creation of a correspon
 Alongside [AcceptResponseItems]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) and [RejectResponseItems]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem), [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) are one of the three forms of [ResponseItems]({% link _docs_integrate/data-model-overview.md %}#responseitem). These are never created manually, but can occur due to an error.
 {: .notice--info}
 
-### Example: Accept a RequestItemGroup
+### Example of accepting a RequestItemGroup
 
 Let's look at an example where the Sender is interested in the Recipient's [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) and contact information in the form of an [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) or a [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber). To ask the Recipient for this data, the Sender creates a [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes), which contains in its `items` property a [ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) belonging to the BirthDate and a [RequestItemGroup]({% link _docs_integrate/read-attribute-from-peer.md %}#read-multiple-attributes-with-a-requestitemgroup) belonging to the contact information. The RequestItemGroup itself contains two ReadAttributeRequestItems in its `items` property, namely one for the EMailAddress and one for the PhoneNumber.
 
@@ -219,7 +219,7 @@ Note that it is important to respond to [RequestItems]({% link _docs_integrate/d
 
 ## Get the Attributes
 
-We now assume, that the Recipient has accepted the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) of the Sender. In order for the Sender to receive the response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). To view the response to the Request, proceed as described in the [Get outgoing Request]({% link _docs_use-cases/use-case-consumption-get-outgoing-request.md %}) use case documentation and use the following query parameter:
+We now assume, that the Recipient has accepted the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) of the Sender. In order for the Sender to receive the response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). To view the response to the Request, search for it in the synchronization result or proceed as described in the [Get outgoing Request]({% link _docs_use-cases/use-case-consumption-get-outgoing-request.md %}) use case documentation and use the following query parameter:
 
 - If the [Request was sent over a Template]({% link _docs_integrate/read-attribute-from-peer.md %}#request-over-template): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
 - If the [Request was sent over a Message]({% link _docs_integrate/read-attribute-from-peer.md %}#request-over-message): Specify `<ID of Request>` as the value for the `id` query parameter.
@@ -235,7 +235,11 @@ The Integrator of the Sender can now get the [Response]({% link _docs_integrate/
 | `attributeId` | `"<ID of shared Attribute>"`                                                                                                                                                                        |
 | `attribute`   | Shared [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) |
 
-Internally, the shared Attribute that can be read from the `attribute` property is used to create an appropriate [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) of the Sender. On the other hand, there is a corresponding [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) in the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) for each rejected ReadAttributeRequestItem.
+Internally, the shared Attribute that can be read from the `attribute` property is used to create an appropriate [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) of the Sender.
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/c8e5575e-ed55-48c2-897e-68e99d5df932" id="jbZRol4VVGZQ"></iframe></div>
+
+On the other hand, there is a corresponding [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) in the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) for each rejected ReadAttributeRequestItem.
 
 If the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) contains a [RequestItemGroup]({% link _docs_integrate/read-attribute-from-peer.md %}#read-multiple-attributes-with-a-requestitemgroup) in its `items` property, the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to this Request will contain a corresponding [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) in its `items` property.
 {: .notice--info}
