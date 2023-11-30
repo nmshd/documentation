@@ -5,7 +5,7 @@ There are many situations in which an Identity is interested in an [IdentityAttr
 
 In this guide, we will explain how a Connector, hereinafter referred to as the Sender, can read an Attribute of another Connector, the so-called Recipient. Since understanding this reading process requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and how to use them in general, you should check out our Request and Response introduction before you continue reading this guide.
 
-<!--- TODO: Insert Link to [Request and Response introduction] guide --->
+<!--- TODO: Insert Link to "Request and Response introduction" guide --->
 
 ## Request for reading Attributes
 
@@ -226,8 +226,6 @@ We now assume, that the Recipient has accepted the [Request for reading Attribut
 
 The Integrator of the Sender can now get the [Response]({% link _docs_integrate/data-model-overview.md %}#response) of the Recipient from the `response.content` property of the result. In particular, each requested and shared Attribute that belongs to an accepted ReadAttributeRequestItem can be read from a corresponding [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ReadAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-response-itemproperties) within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response):
 
-<!--- response.content has the structure of an object of type Response. --->
-
 | Property      | Value                                                                                                                                                                                               |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `@type`       | `"ReadAttributeAcceptResponseItem"`                                                                                                                                                                 |
@@ -243,11 +241,6 @@ On the other hand, there is a corresponding [ResponseItem]({% link _docs_integra
 
 If the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) contains a [RequestItemGroup]({% link _docs_integrate/read-attribute-from-peer.md %}#read-multiple-attributes-with-a-requestitemgroup) in its `items` property, the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to this Request will contain a corresponding [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) in its `items` property.
 {: .notice--info}
-
-<!--- The [Responsewrapper]({% link _docs_integrate/data-model-overview.md %}#responsewrapper) is a wrapper around the [Response]({% link _docs_integrate/data-model-overview.md %}#response) that is sent by the Recipient of the Request.
-{: .notice--info} --->
-
-<!--- Either in the `relationships` property or in the `messages` property of the synchronization result, the Sender can find the response of the Recipient. This depends on whether there is an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between the Sender and the Recipient already. To identify the Request and corresponding response of interest in the synchronization result, the Sender needs to search for the corresponding RelationshipTemplates' ID or the corresponding Request's ID, respectively. But to view the response at any later point again, it is also possible to proceed as described in the [Get outgoing Request]({% link _docs_use-cases/use-case-consumption-get-outgoing-request.md %}) use case documentation. For identifying the Request and corresponding response of interest, use the ID of the RelationshipTemplate, if the Request was sent over a Template, or of the Request itself, if the Request was sent over a Message, as a query parameter. --->
 
 ## What's next?
 
