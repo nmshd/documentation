@@ -2,7 +2,7 @@
 
 {% include properties_list.html %}
 
-This use-case retrieves the `accoung information` by it's `id`.
+This use-case retrieves the `accoung information` by its `id`.
 
 ## Parameters
 

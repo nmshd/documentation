@@ -3,7 +3,7 @@
 {% include properties_list.html %}
 
 This use-case is intended to retrieve a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute)
-by it's id.
+by its id.
 
 ## Parameters
 

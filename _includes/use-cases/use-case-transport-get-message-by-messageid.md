@@ -3,7 +3,7 @@
 {% include properties_list.html %}
 
 This use-case retrieves a [Message]({% link _docs_integrate/data-model-overview.md %}#message)
-by it's `id`.
+by its `id`.
 
 ## Parameters
 

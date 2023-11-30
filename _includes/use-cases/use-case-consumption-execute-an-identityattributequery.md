@@ -2,8 +2,8 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to query the [identity attributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute)
-of the identity.
+This use-case is intended to execute an incoming IdentityAttributeQuery (e.g. of a ReadAttributeRequestItem)
+which returns a list of matching [Identity Attributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
 
 ## Parameters
 

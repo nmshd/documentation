@@ -3,7 +3,7 @@
 {% include properties_list.html %}
 
 This use-case retieves a [Token]({% link _docs_integrate/data-model-overview.md %}#token)
-by it's `id`.
+by its `id`.
 
 ## Parameters
 

@@ -2,8 +2,10 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to search for a peer's relationship attribute that was created
-in a relationship with a third party.
+This use-case is intended to execute an incoming ThirdPartyRelationshipAttributeQuery 
+(e.g. of a ReadAttributeRequestItem) which returns a list of matching 
+[Relationship Attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute)
+of another contact.
 
 ## Parameters
 
@@ -15,5 +17,4 @@ in a relationship with a third party.
 
 ## On Failure
 
-- You are not allowed to query a given third party.
 - The query is malformed.
