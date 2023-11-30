@@ -2,8 +2,8 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to execute an incoming ThirdPartyRelationshipAttributeQuery 
-(e.g. of a ReadAttributeRequestItem) which returns a list of matching 
+This use-case is intended to execute an incoming ThirdPartyRelationshipAttributeQuery
+(e.g. of a ReadAttributeRequestItem) which returns a list of matching
 [Relationship Attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute)
 of another contact.
 
