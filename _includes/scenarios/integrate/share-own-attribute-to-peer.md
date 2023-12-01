@@ -57,9 +57,9 @@ We assume that the Integrator of the Sender has created an own [IdentityAttribut
 | `@type`       | `"IdentityAttribute"`   |
 | `owner`       | `"<Address of Sender>"` |
 | `value.@type` | `"BirthDate"`           |
-| `value.day`   | `<day of birth>`        |
-| `value.month` | `<month of birth>`      |
-| `value.year`  | `<year of birth>`       |
+| `value.day`   | `<day of birth date>`   |
+| `value.month` | `<month of birth date>` |
+| `value.year`  | `<year of birth date>`  |
 
 This IdentityAttribute is stored locally within the `content` property of a corresponding LocalAttribute of the Sender:
 
@@ -155,7 +155,7 @@ If the Recipient agrees to get one of the Sender's shared Attributes, it can acc
 | -------- | ------ |
 | accept   | `true` |
 
-The acception of a ShareAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. Also, an appropriate [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ShareAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem-response-itemproperties) will be generated:
+The acception of a ShareAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. The `content` of the LocalAttribute is the underlying `attribute` of the ShareAttributeRequestItem. Also, an appropriate [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ShareAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem-response-itemproperties) will be generated:
 
 | Property      | Value                                |
 | ------------- | ------------------------------------ |
@@ -181,6 +181,8 @@ Alongside [AcceptResponseItems]({% link _docs_integrate/data-model-overview.md %
 ### Example of accepting a RequestItemGroup
 
 Let's look at an example where the Sender wants to share its [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname) and contact information in the form of an [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) or a [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber) with the Recipient. To do this, the Sender creates a [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes), which contains in its `items` property a [ShareAttributeRequestItem]({% link _docs_integrate/share-own-attribute-to-peer.md %}#description-of-shareattributerequestitem) belonging to the DisplayName and a [RequestItemGroup]({% link _docs_integrate/share-own-attribute-to-peer.md %}#read-multiple-attributes-with-a-requestitemgroup) belonging to the contact information. The RequestItemGroup itself contains two ShareAttributeRequestItems in its `items` property, namely one for the EMailAddress and one for the PhoneNumber.
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/ab4b085b-b498-4182-bb2a-2b18f6825006" id="YChSfL-aFISG"></iframe></div>
 
 In our example, the Sender only requires the Recipient to accept the DisplayName and the EMailAddress, which is why the individual [ShareAttributeRequestItems]({% link _docs_integrate/share-own-attribute-to-peer.md %}#description-of-shareattributerequestitem) and the [RequestItemGroup]({% link _docs_integrate/share-own-attribute-to-peer.md %}#read-multiple-attributes-with-a-requestitemgroup) within the Request have corresponding values specified in their `mustBeAccepted` property. We assume that the Recipient wants to accept the Request and all its ShareAttributeRequestItems except for the PhoneNumber.
 
