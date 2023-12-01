@@ -177,3 +177,43 @@ The rejection of a ShareAttributeRequestItem leads to the creation of a correspo
 
 Alongside [AcceptResponseItems]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) and [RejectResponseItems]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem), [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) are one of the three forms of [ResponseItems]({% link _docs_integrate/data-model-overview.md %}#responseitem). These are never created manually, but can occur due to an error.
 {: .notice--info}
+
+### Example of accepting a RequestItemGroup
+
+Let's look at an example where the Sender wants to share its [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname) and contact information in the form of an [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) or a [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber) with the Recipient. To do this, the Sender creates a [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes), which contains in its `items` property a [ShareAttributeRequestItem]({% link _docs_integrate/share-own-attribute-to-peer.md %}#description-of-shareattributerequestitem) belonging to the DisplayName and a [RequestItemGroup]({% link _docs_integrate/share-own-attribute-to-peer.md %}#read-multiple-attributes-with-a-requestitemgroup) belonging to the contact information. The RequestItemGroup itself contains two ShareAttributeRequestItems in its `items` property, namely one for the EMailAddress and one for the PhoneNumber.
+
+In our example, the Sender only requires the Recipient to accept the DisplayName and the EMailAddress, which is why the individual [ShareAttributeRequestItems]({% link _docs_integrate/share-own-attribute-to-peer.md %}#description-of-shareattributerequestitem) and the [RequestItemGroup]({% link _docs_integrate/share-own-attribute-to-peer.md %}#read-multiple-attributes-with-a-requestitemgroup) within the Request have corresponding values specified in their `mustBeAccepted` property. We assume that the Recipient wants to accept the Request and all its ShareAttributeRequestItems except for the PhoneNumber.
+
+If the Recipient wants to accept the [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes), it must accept all [ShareAttributeRequestItems]({% link _docs_integrate/share-own-attribute-to-peer.md %}#description-of-shareattributerequestitem) for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted for the Recipient to refuse to accept the DisplayName or the EMailAddress shared by the Sender.
+{: .notice--info}
+
+Because the Recipient accepts the DisplayName of the Sender and also accepts at least one [ShareAttributeRequestItem]({% link _docs_integrate/share-own-attribute-to-peer.md %}#description-of-shareattributerequestitem) of the [RequestItemGroup]({% link _docs_integrate/share-own-attribute-to-peer.md %}#read-multiple-attributes-with-a-requestitemgroup), it provides the following values for responding to the two components within the `items` property of the [Request]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes):
+
+- Accept [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname):
+
+  | Property | Value  |
+  | -------- | ------ |
+  | accept   | `true` |
+
+- Accept [RequestItemGroup]({% link _docs_integrate/share-own-attribute-to-peer.md %}#read-multiple-attributes-with-a-requestitemgroup):
+
+  | Property | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+  | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | accept   | `true`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+  | items    | Responses of the Recipient to the two [ShareAttributeRequestItems]({% link _docs_integrate/share-own-attribute-to-peer.md %}#description-of-shareattributerequestitem) belonging to the [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) and the [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber) contained in the [RequestItemGroup]({% link _docs_integrate/share-own-attribute-to-peer.md %}#read-multiple-attributes-with-a-requestitemgroup) |
+
+Because the Recipient accepts the EMailAddress and rejects the PhoneNumber of the Sender, it responds to the two [ShareAttributeRequestItems]({% link _docs_integrate/share-own-attribute-to-peer.md %}#description-of-shareattributerequestitem) contained in the `items` property of the already accepted [RequestItemGroup]({% link _docs_integrate/share-own-attribute-to-peer.md %}#read-multiple-attributes-with-a-requestitemgroup) as follows:
+
+- Accept [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress):
+
+  | Property | Value  |
+  | -------- | ------ |
+  | accept   | `true` |
+
+- Accept [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber):
+
+  | Property | Value   |
+  | -------- | ------- |
+  | accept   | `false` |
+
+Note that it is important to respond to [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitem) and [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in the same order in which they were received.
