@@ -136,7 +136,7 @@ We will now look at the case in which a [Relationship]({% link _docs_integrate/d
 
 All details on how to send a Request via a Message and how to receive it in general can be found in the [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) guide.
 
-## Accept the Request
+## Accept the Request and get the Attributes
 
 After the Sender has sent the [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes) to the Recipient and the Recipient has received this Request, the Recipient can accept it to get all or some of the Sender's shared Attributes. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the ID of the received Request. Also, you need to decide and specify for every [ShareAttributeRequestItem]({% link _docs_integrate/share-own-attribute-to-peer.md %}#description-of-shareattributerequestitem) contained in the [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes), whether you want to accept or reject it.
 
@@ -146,3 +146,34 @@ If the Recipient does not want to get any of the Sender's shared Attributes and 
 In the next subsections, we will describe the process of accepting a [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes). The following diagram provides an overview for this process.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/b79abea1-1062-4f0d-8929-85dd4d728a59" id="7SfSSvpj.eT3"></iframe></div>
+
+### Accept a ShareAttributeRequestItem
+
+If the Recipient agrees to get one of the Sender's shared Attributes, it can accept the associated [ShareAttributeRequestItem]({% link _docs_integrate/share-own-attribute-to-peer.md %}#description-of-shareattributerequestitem) contained in the [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes). To do this, the following [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem-response-parameters) must be used:
+
+| Property | Value  |
+| -------- | ------ |
+| accept   | `true` |
+
+The acception of a ShareAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. Also, an appropriate [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ShareAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem-response-itemproperties) will be generated:
+
+| Property      | Value                                |
+| ------------- | ------------------------------------ |
+| `@type`       | `"ShareAttributeAcceptResponseItem"` |
+| `result`      | `"Accepted"`                         |
+| `attributeId` | `"<ID of created LocalAttribute>"`   |
+
+This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes), which will be transferred to the Sender.
+
+### Reject a ShareAttributeRequestItem
+
+Even though the Recipient accepts the [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes) as a whole, it may decide not to accept all of the Sender's shared Attributes. To be more precise, the Recipient has the option of rejecting [ShareAttributeRequestItems]({% link _docs_integrate/share-own-attribute-to-peer.md %}#description-of-shareattributerequestitem) that have the value `false` specified in their `mustBeAccepted` property. To reject a ShareAttributeRequestItem, use the [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem-response-parameters):
+
+| Property | Value   |
+| -------- | ------- |
+| accept   | `false` |
+
+The rejection of a ShareAttributeRequestItem leads to the creation of a corresponding [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes).
+
+Alongside [AcceptResponseItems]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) and [RejectResponseItems]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem), [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) are one of the three forms of [ResponseItems]({% link _docs_integrate/data-model-overview.md %}#responseitem). These are never created manually, but can occur due to an error.
+{: .notice--info}
