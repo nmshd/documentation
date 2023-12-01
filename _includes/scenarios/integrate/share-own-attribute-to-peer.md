@@ -219,3 +219,23 @@ Because the Recipient accepts the EMailAddress and rejects the PhoneNumber of th
   | accept   | `false` |
 
 Note that it is important to respond to [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitem) and [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in the same order in which they were received.
+
+## Receive the Response to the Request
+
+We now assume, that the Recipient has accepted the [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes) of the Sender. In order for the Sender to receive the response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
+
+--- TODO: Diagram ---
+
+To view the response to the Request, search for it in the synchronization result or proceed as described in the [Get outgoing Request]({% link _docs_use-cases/use-case-consumption-get-outgoing-request.md %}) use case documentation and use the following query parameter:
+
+- If the [Request was sent over a Template]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-over-template): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
+- If the [Request was sent over a Message]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-over-message): Specify `<ID of Request>` as the value for the `id` query parameter.
+
+The Integrator of the Sender can now get the [Response]({% link _docs_integrate/data-model-overview.md %}#response) of the Recipient from the `response.content` property of the result. In the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) is a [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ShareAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem-response-itemproperties) for each accepted ShareAttributeRequestItem and a [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) for each rejected ShareAttributeRequestItem contained. Note that each accepted ShareAttributeRequestItem leads to the creation of an appropriate [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) of the Sender. The `content` of the LocalAttribute is the underlying `attribute` of the ShareAttributeRequestItem.
+
+If the [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes) contains a [RequestItemGroup]({% link _docs_integrate/share-own-attribute-to-peer.md %}#read-multiple-attributes-with-a-requestitemgroup) in its `items` property, the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to this Request will contain a corresponding [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) in its `items` property.
+{: .notice--info}
+
+## What's next?
+
+Take a look at our [Integration example]({% link _docs_integrate/integration-example.md %}) if you want to see how an Identity shares an Attribute with a peer in the context of a larger process.
