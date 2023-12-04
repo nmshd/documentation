@@ -13,7 +13,7 @@ properties:
   - component: integrate
   - level: Beginner
   - implementation status: DONE
-  - documentation status: OPEN
+  - documentation status: DONE
   - published: true
   - link: integrate/request-persistent-consent-of-peer
 require:

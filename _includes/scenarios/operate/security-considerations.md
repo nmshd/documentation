@@ -34,7 +34,7 @@ Thus please consider scanning the host systems and the database for viruses regu
 
 ## Networking
 
-It is best practice to block unnecessary access from and to software components between networks. In this chapter it is described which access the Connector actually required and which requests could be blocked.
+It is best practice to block unnecessary access from and to software components between networks. In this chapter it is described which access the Connector actually requires and which requests could be blocked.
 
 ### Outbound External Connection: Internet
 
@@ -66,7 +66,7 @@ End user authentication, e.g. business users accessing the system, should be don
 
 Kernel dumps can be a useful tool for diagnosing and troubleshooting system issues. However, they can also be a security risk if they contain sensitive information such as encryption keys. If an attacker gains access to a kernel dump file, they may be able to extract this information and use it to compromise the security of your system.
 
-As the Connector does not have access to the host system, it cannot directly control whether or not kernel dumps are enabled. Therefore, the administrator of the host system make a decision on whether or not to disable kernel dumps based on their own security policies and risk tolerance.
+As the Connector does not have access to the host system, it cannot directly control whether or not kernel dumps are enabled. Therefore, the administrator of the host system makes a decision on whether or not to disable kernel dumps based on their own security policies and risk tolerance.
 
 The recommended course of action is to disable kernel dumps on the host system, outside a development environment, where the Connector is running. This is in line with the [recommendation of libsodium](https://libsodium.gitbook.io/doc/memory_management#locking-memory), the used encryption library.
 
@@ -78,7 +78,7 @@ It is important to ensure that API keys are secure and cannot be easily compromi
 
 ## Docker Compose File Security Considerations
 
-Docker Compose is a tool to easily set up and host and complete landscape by running multiple Docker containers, configure them and link them together with a network. For development, testing and demonstration purposes, the enmeshed team provides Docker Compose files throughout this site or on GitHub. Please be aware, that those Docker Compose files should not be used in a public or productive environment, as they could contain insecure or otherwise unstable configurations, e.g. default passwords or the missing encryption at rest for MongoDB configuration. If you choose to use Docker Compose files in a public or production environment, it is important to educate yourself on how to create production-grade Docker Compose files to ensure the security of your system.
+Docker Compose is a tool to easily set up and host a complete landscape by running multiple Docker containers, configuring them and linking them together with a network. For development, testing and demonstration purposes, the enmeshed team provides Docker Compose files throughout this site or on GitHub. Please be aware, that those Docker Compose files should not be used in a public or productive environment, as they could contain insecure or otherwise unstable configurations, e.g. default passwords or the missing encryption at rest for MongoDB configuration. If you choose to use Docker Compose files in a public or production environment, it is important to educate yourself on how to create production-grade Docker Compose files to ensure the security of your system.
 
 ## Setup Firewall
 

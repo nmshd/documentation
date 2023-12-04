@@ -173,7 +173,7 @@ A Local Request contains the local metadata for a [Request](#request).
 
 | Name      | Type                                                       | Description                                                                                                                                  |
 | --------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| id        | `string`                                                   | {% include descr_id class="LocalRequest" prefix="FIL" %}                                                                                     |
+| id        | `string`                                                   | {% include descr_id class="LocalRequest" prefix="REQ" %}                                                                                     |
 | isOwn     | `boolean`                                                  | `true` if you sent the Request, `false` if you received it.                                                                                  |
 | peer      | `string`                                                   | The Identity that sent you the corresponding Request/that you sent the Request to.                                                           |
 | createdAt | `string`                                                   | {% include descr_createdAt class="LocalRequest" %}                                                                                           |
@@ -346,11 +346,11 @@ The properties of the `AcceptResponseItem` are:
 
 The properties of the `RejectResponseItem` are:
 
-| Name     | Type                    | Description                                                   |
-| -------- | ----------------------- | ------------------------------------------------------------- |
-| result   | `"Rejected"`            | The only possible value here is the string `"Rejected"`.      |
-| code?    | `string` \| `undefined` | A code telling the sender about the reason for the rejection. |
-| message? | `string` \| `undefined` | A human readable message with details about the rejection.    |
+| Name    | Type                    | Description                                                   |
+| ------- | ----------------------- | ------------------------------------------------------------- |
+| result  | `"Rejected"`            | The only possible value here is the string `"Rejected"`.      |
+| code    | `string` \| `undefined` | A code telling the sender about the reason for the rejection. |
+| message | `string` \| `undefined` | A human readable message with details about the rejection.    |
 
 #### ErrorResponseItem
 
@@ -450,15 +450,15 @@ There are cases in which you want to query some data from your peer that is not 
 
 #### ValueHints
 
-| Name           | Type                                          | Description                                                                                                                                               |
-| -------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| editHelp?      | `string`                                      | A help text you can use to describe the purpose of the Attribute.                                                                                         |
-| min?           | `number`                                      | In case of a string: the minimum length of the string. In case of an integer: the minimum value.                                                          |
-| max?           | `number`                                      | In case of a string: the maximum length of the string. In case of an integer: the maximum value.                                                          |
-| pattern?       | `string`                                      | A [regular expression](https://en.wikipedia.org/wiki/Regular_expression) that is used to validate the value. Only applicable if the value is a string.    |
-| values?        | [`ValueHintsValue`](#valuehintsvalue)`[]`     | An array of allowed values.                                                                                                                               |
-| defaultValue?  | `string` \| `number` \| `boolean`             | The default value that is used if no value is provided.                                                                                                   |
-| propertyHints? | `Record<string,` [`ValueHints>`](#valuehints) | A set of Value Hints of all properties. The key is the name of the property and the value a `ValueHints` object. Only applicable if the value is complex. |
+| Name          | Type                                                         | Description                                                                                                                                               |
+| ------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| editHelp      | `string` \| `undefined`                                      | A help text you can use to describe the purpose of the Attribute.                                                                                         |
+| min           | `number` \| `undefined`                                      | In case of a string: the minimum length of the string. In case of an integer: the minimum value.                                                          |
+| max           | `number` \| `undefined`                                      | In case of a string: the maximum length of the string. In case of an integer: the maximum value.                                                          |
+| pattern       | `string` \| `undefined`                                      | A [regular expression](https://en.wikipedia.org/wiki/Regular_expression) that is used to validate the value. Only applicable if the value is a string.    |
+| values        | [`ValueHintsValue`](#valuehintsvalue)`[]` \| `undefined`     | An array of allowed values.                                                                                                                               |
+| defaultValue  | `string` \| `number` \| `boolean` \| `undefined`             | The default value that is used if no value is provided.                                                                                                   |
+| propertyHints | `Record<string,` [`ValueHints>`](#valuehints) \| `undefined` | A set of Value Hints of all properties. The key is the name of the property and the value a `ValueHints` object. Only applicable if the value is complex. |
 
 #### ValueHintsOverride
 
