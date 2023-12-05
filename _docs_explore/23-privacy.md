@@ -51,7 +51,7 @@ Apart from the multiplicity of definitions for personal data, there are two dist
 
 We devised a highly scalable and maintainable approach that does not centralize actual user data, limiting it to pseudonyms or technical data only.
 
-Additionally, the real-world processes between persons and organizations were considered and the personal data shared between them is always triggered and maintained by the user (i.e. the data owner) for allmost all scenarios.
+Additionally, the real-world processes between persons and organizations were considered and the personal data shared between them is always triggered and maintained by the user (i.e. the data owner) for almost all scenarios.
 
 Consequently, users gain a comprehensive overview of their personal data.
 
