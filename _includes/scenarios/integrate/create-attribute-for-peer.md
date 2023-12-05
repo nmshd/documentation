@@ -1,4 +1,5 @@
-{% include warnings/documentation-is-prerelease %}
+<!--- Prerelease:
+ {% include warnings/documentation-is-prerelease %}
 
 # Flow
 
@@ -13,3 +14,4 @@ To avoid misunderstandings and conflicts, usually it is better to use ProposeAtt
 
 - An organization onboards an already known account to enmeshed, i.e. it knows the peer and thus could create/propose attribute to the enmeshed Identity
 - An organization would like to submit something to the peer, which is reuseable, e.g. a certificate which the peer can share to others
+--->
