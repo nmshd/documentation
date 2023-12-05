@@ -7,10 +7,27 @@ In this guide, we explain how a Connector, hereinafter referred to as the Sender
 
 <!--- TODO: Insert Link to "Request and Response introduction" guide --->
 
-There are several ways in which an Identity can create an Attribute for a peer. This guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Identity itself and cannot be modified by the peer. If the peer should be able to adjust the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) proposed for creation, the Propose attribute to peer guide must be consulted instead.
+There are several ways in which an Identity can create an Attribute for a peer. This guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Identity itself and cannot be modified by the peer when accepting the [Request]({% link _docs_integrate/data-model-overview.md %}#request). If the peer should be able to adjust the Attribute proposed for creation, the Propose attribute to peer guide must be consulted instead.
 {: .notice--info}
 
 <!--- TODO: Insert Link to "Propose attribute to peer" guide --->
+
+## Request for creating Attributes
+
+The Sender wants to create an Attribute for the Recipient. To do this, the Sender must first create a suitable [Request]({% link _docs_integrate/data-model-overview.md %}#request), which it can then send to the Recipient. We will now describe the general appearance of such a Request, using the `<...>` notation as a placeholder for the actual data as usual:
+
+| Property      | Value                                                                                                                                                                                                                                                                        |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`       | `"<title of Request>"`                                                                                                                                                                                                                                                       |
+| `description` | `"<description of Request>"`                                                                                                                                                                                                                                                 |
+| `expiresAt`   | `"<expiration date of Request>"`                                                                                                                                                                                                                                             |
+| `metadata`    | `<custom metadata sent together with Request>`                                                                                                                                                                                                                               |
+| `items`       | Array of [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitem) and [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) that are part of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) |
+
+To ensure that you have created an appropriate Request, you should always test your Request's Validity beforehand.
+{: .notice--info}
+
+<!--- TODO: Insert Link to guide "test your Request's Validity" --->
 
 <!--- Prerelease:
  {% include warnings/documentation-is-prerelease %}
