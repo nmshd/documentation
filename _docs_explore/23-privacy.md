@@ -17,7 +17,7 @@ There are multiple laws, regulations, user and organizational viewpoints to cons
 ## What is Personal Data / Personally Identifiable Information?
 
 > "Personal data is any information that relates to an identified or identifiable living individual. Different pieces of information, which collected together can lead to the identification of a particular person, also constitute personal data.
-> Personal data that has been de-identified, encrypted or pseudonymised but can be used to re-identify a person remains personal data and falls within the scope of the GDPR."
+> Personal data that has been de-identified, encrypted or pseudonymized but can be used to re-identify a person remains personal data and falls within the scope of the GDPR."
 
 Source: <https://commission.europa.eu/law/law-topic/data-protection/reform/what-personal-data_en>
 
@@ -47,7 +47,7 @@ Apart from the multiplicity of definitions for personal data, there are two dist
 - The **absolute data privacy**, a defensive and theoretical approach, defines PII as any data that could potentially identify an individual and thus also needs to be deleted after the data processing. This classification applies across all historical, present, and future possibilities. This has huge implications, as even ciphertexts (which one does not have the key to) and one-way hashes of PII need to be considered PII, as theoretically it is possible to get the PII out of this information. Public entities and governments often require this absolute approach, which also takes into account future uncertainties.
 - The **relative data privacy** is a more aggressive and practical mindset. Data that is practically impossible for the data processor - or for which the data processor would need external information in access - to reference an individual is considered non-personal data. The notions of external information and practical impossibility are quite fluffy, thus data owners could think differently and argue about the processing of their data. Ultimately, it rests on the technical-organizational measures (TOM) the data processor can proof that the implemented measures were sufficient for secure personal data handling.
 
-# Overaching privacy of enmeshed
+# Overarching privacy of enmeshed
 
 We devised a highly scalable and maintainable approach that does not centralize actual user data, limiting it to pseudonyms or technical data only.
 
@@ -57,7 +57,7 @@ Consequently, users gain a comprehensive overview of their personal data.
 
 ## What is PII for enmeshed?
 
-Due to the broad scope of scenarios encompassed within the public sector, an absolute data privacy **absolute data privacy**. However, a solution like enmeshed depends on the jurisdiction of the operating person(s) or organisation(s) especially for the enmeshed Backbone and thus it needs to be decided case by case and for each backbone operating entity, which data within the Backbone is considered PII.
+Due to the broad scope of scenarios encompassed within the public sector, an absolute data privacy **absolute data privacy**. However, a solution like enmeshed depends on the jurisdiction of the operating person(s) or organization(s) especially for the enmeshed Backbone and thus it needs to be decided case by case and for each backbone operating entity, which data within the Backbone is considered PII.
 
 The developers at enmeshed interpret the data privacy regulations narrowly, which has earned the appreciation of lawyers and data privacy experts for the design of the solution. Notably, the ability to delete all of the following data categories within our solution is pivotal for **absolute data privacy**:
 
@@ -88,13 +88,13 @@ Enmeshed thinks privacy from a user perspective: Only the data owner can share t
 
 Additionally, data can be requested in a normalized manner between known enmeshed participants, thus enabling a much richer process integration for end users.
 
-Enmeshed additionally follows the once-only principle for such data, thus enabling the user to quickly share structured and unstructured data via such data requests without having to enter the data everytime.
+Enmeshed additionally follows the once-only principle for such data, thus enabling the user to quickly share structured and unstructured data via such data requests without having to enter the data every time.
 
 # Backbone Privacy
 
 The Backbone is the most significant component in terms of privacy. As a centrally hosted component by a third-party, it is understandable that privacy-related questions usually focus this component."
 
-The Backbone only stores technical information of identities or devices. It never has access to cleartext data such as content of messages, names, e-mail adresses, and so on, as all this information is end-to-end encrypted. Furthermore, even encrypted data of the Backbone is not publicly available - only the identities which have reason to access the data get access.
+The Backbone only stores technical information of identities or devices. It never has access to cleartext data such as content of messages, names, e-mail addresses, and so on, as all this information is end-to-end encrypted. Furthermore, even encrypted data of the Backbone is not publicly available - only the identities which have reason to access the data get access.
 
 Without the actual keys from the respective identities (which the Backbone hosting entity does not receive) the actual data cannot practically be decrypted or analyzed. The **relative data privacy** mindset should thus be reasonably fulfilled by using the enmeshed mechanisms.
 
@@ -104,15 +104,15 @@ Keep in mind: The threat of metadata analytics should not be underestimated and 
 
 However, this is far less information than any other current central identity provider knows of the users.
 
-# Comparison to decentral technologies
+# Comparison to decentralized technologies
 
-When comparing privacy between enmeshed and decentral approaches discussed in the world wide web, we do see many advantages with a central architecture. The technical data stored or shared in a blockchain vs. our Backbone is quite similar, resulting in the same attack vectors on the stored data. Due to end-to-end encryption, the major part of the personal data cannot be used by both solutions.
+When comparing privacy between enmeshed and decentralized approaches discussed in the world wide web, we do see many advantages with a central architecture. The technical data stored or shared in a blockchain vs. our Backbone is quite similar, resulting in the same attack vectors on the stored data. Due to end-to-end encryption, the major part of the personal data cannot be used by both solutions.
 
 However, there are some advantages to a central architecture:
 
-- With a central architecture, it is generally possible to restrict the access to data on a network level. Only the sender and recipients of a message have access to the encrypted payload of this message, for example. Even if the data is encrypted or pseunodymized, on a decentral architecture everybody would still have access to the encrypted payload.
-- With a central architecture, the analysis of metadata can only be done by the central player. On a decentral system, anybody could analyze the metadata.
-- With a central architecture, it is generally possible to effectively delete data (or let it expire). Although there are also some decentral technologies allowing the deletion of data, there is no guarantee, that data which was available in the decentral network prior to deletion, is really deleted from any node or node backup of the network.
+- With a central architecture, it is generally possible to restrict the access to data on a network level. Only the sender and recipients of a message have access to the encrypted payload of this message, for example. Even if the data is encrypted or pseudonymized, on a decentralized architecture everybody would still have access to the encrypted payload.
+- With a central architecture, the analysis of metadata can only be done by the central player. On a decentralized system, anybody could analyze the metadata.
+- With a central architecture, it is generally possible to effectively delete data (or let it expire). Although there are also some decentralized technologies allowing the deletion of data, there is no guarantee, that data which was available in the decentralized network prior to deletion, is really deleted from any node or node backup of the network.
 - The adoption of a fully functional deletion process for data is crucial in the adherence to an **absolute data privacy** mindset can be followed, particularly for public organizations.. To our knowledge, this cannot be done by any current public blockchain technology, as the underlying peer-to-peer network is open, and the data can be read by everyone.
 - Within a protected blockchain environment, the potential remains for Personally Identifiable Information (PII) to not be completely deleted from every node of all participants, thereby jeopardizing **absolute data privacy**. Furthermore, it must be remembered that every participant hosting a blockchain node, is a data processor in its own right. The consortium itself needs to manage and track all deletion processes between all organizations, which usually is an organizational nightmare.
 
