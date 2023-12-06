@@ -155,6 +155,24 @@ In the next subsections, we will describe the process of accepting a [Request fo
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/c2e1db15-8377-43bc-9ada-42623e5e938f" id="RROTOBMS1a-2"></iframe></div>
 
+### Accept a CreateAttributeRequestItem
+
+If the Recipient agrees to create one of the Sender's proposed Attributes, it can accept the associated [CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) contained in the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes). The following [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-response-parameters) must be used for this:
+
+| Property | Value  |
+| -------- | ------ |
+| accept   | `true` |
+
+The acception of a CreateAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. The `content` of the LocalAttribute is the underlying `attribute` of the CreateAttributeRequestItem. Based on this, an appropriate [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [CreateAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-response-itemproperties) is generated:
+
+| Property      | Value                                                           |
+| ------------- | --------------------------------------------------------------- |
+| `@type`       | `"CreateAttributeAcceptResponseItem"`                           |
+| `result`      | `"Accepted"`                                                    |
+| `attributeId` | `"<ID of created LocalAttribute with LocalAttributeShareInfo>"` |
+
+This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) that will be transferred to the Sender. If a new [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is to be created, a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) without a LocalAttributeShareInfo is additionally created for the Recipient beforehand.
+
 ## What's next?
 
 As already mentioned, this guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Identity itself and cannot be modified by the peer when accepting the [Request]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes). In many cases, it makes more sense if the peer can adjust the Attribute that was proposed for creation. For this, take a look at the Propose attribute to peer guide.
