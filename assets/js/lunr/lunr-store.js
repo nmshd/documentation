@@ -42,7 +42,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Privacy Considerations",
-        "excerpt":"Privacy is one of the main pillars of digitalization approaches. It might be the most important one. There are many laws, regulations, user and organizational notions to take into consideration. We came up with an approach which is highly scalable and maintainable, without having personal or sensitive data in access....","categories": [],
+        "excerpt":"Privacy stands as one of the main pillars of the digital strategies adopted by institutions. It holds a significant and paramount position. This section introduces privacy and data protection of personal data in general, before introducing enmeshed privacy concepts. Please be advised, that enmeshed is an open-source solution which brings...","categories": [],
         "tags": [],
         "url": "/explore/privacy",
         "teaser": null
