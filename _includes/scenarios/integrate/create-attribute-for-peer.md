@@ -48,6 +48,12 @@ It is possible to request the creation of an [IdentityAttribute]({% link _docs_i
 Please note that not all of the properties listed here have to be specified when creating a Request for creating Attributes. Some of the properties are optional and can therefore be omitted. Only values for the `items` property of the [Request]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) itself and for the properties `@type`, `mustBeAccepted` and `attribute` of the [CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) must be specified.
 {: .notice--info}
 
+## What's next?
+
+As already mentioned, this guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Identity itself and cannot be modified by the peer when accepting the [Request]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes). In many cases, it makes more sense if the peer can adjust the Attribute that was proposed for creation. For this, take a look at the Propose attribute to peer guide.
+
+<!--- TODO: Insert link to scenario description "Propose attribute to peer" --->
+
 <!--- Prerelease:
  {% include warnings/documentation-is-prerelease %}
 
