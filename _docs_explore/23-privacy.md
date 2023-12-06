@@ -72,15 +72,15 @@ When considering a **relative data privacy** , one might contend that only data 
 
 ## Least Knowledge
 
-'Least Knowledge' is the fundamental principle upon which Enmeshed is built. As a result, the solution aims to minimize Personally Identifiable Information (PII) usage, thereby providing an optimal user experience and comprehensive features. In fact, the "usual personal data", like e-mail addresses, telephone numbers or names never reach the Backbone (and its operator) in cleartext.
+'Least Knowledge' is the fundamental principle upon which enmeshed is built. As a result, the solution aims to minimize Personally Identifiable Information (PII) usage, thereby providing an optimal user experience and comprehensive features. In fact, the "usual personal data", like e-mail addresses, telephone numbers or names never reach the Backbone (and its operator) in cleartext.
 
 - The enmeshed App stores the data in a local database on the device it is operating on. Data usually can only be sent to or received from the Backbone, generic Internet access from the App is blocked.
 - The enmeshed Connector stores the data in a local database within an organization's network. Data can only be sent to or received from the Backbone, no other Internet access should be made possible.
 - Data received from or sent to the Backbone is either pseudonymous (e.g. addresses), non-personalized (e.g. ids, dates, states) or encrypted in a way, that the Backbone cannot process this data.
 - Keys to encrypted material on the Backbone are never transmitted in a way, that the Backbone could make use of it. For example, keys are shared on a side-channel (e.g. scan qr-code from website) or an end-to-end encrypted communication channel.
 - The enmeshed App allows users to customize access for individuals and systems so that only necessary resources are shared.
-- Data synchronization of the same identity across Enmeshed Apps is possible. This is done over a device-to-device encrypted communication channel (via the Backbone). The keys for this communication channel are transferred via a side-channel when onboarding a device for an identity.
-- Data exchange between users takes place after explicit consent is provided. No data is shared until this consent is final, at which point technical and personal data is shared between the user and another Enmeshed identity.
+- Data synchronization of the same identity across enmeshed Apps is possible. This is done over a device-to-device encrypted communication channel (via the Backbone). The keys for this communication channel are transferred via a side-channel when onboarding a device for an identity.
+- Data exchange between users takes place after explicit consent is provided. No data is shared until this consent is final, at which point technical and personal data is shared between the user and another enmeshed identity.
 
 ## Data is shared by the user
 
