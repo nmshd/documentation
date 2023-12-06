@@ -186,6 +186,48 @@ The rejection of a CreateAttributeRequestItem leads to the creation of a corresp
 In addition to [AcceptResponseItems]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) and [RejectResponseItems]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem), [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) are one of the three forms of [ResponseItems]({% link _docs_integrate/data-model-overview.md %}#responseitem). These are never created manually, but can occur due to an error.
 {: .notice--info}
 
+### Example of accepting a RequestItemGroup
+
+Let's look at an example where the Sender wants to create an [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress), a [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) and a [BirthPlace]({% link _docs_integrate/attribute-values.md %}#birthplace) for the Recipient. For this purpose, the Sender creates a [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes), which contains a [CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) belonging to the EMailAddress and a [RequestItemGroup]({% link _docs_integrate/create-attribute-for-peer.md %}#create-multiple-attributes-with-a-requestitemgroup) belonging to the birth information in its `items` property. The RequestItemGroup itself includes two CreateAttributeRequestItems in its `items` property, namely one for the BirthDate and one for the BirthPlace.
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/cf9fca09-e5ef-4505-acd4-c31f1fa0e488" id="oPQTV0-AaDyp"></iframe></div>
+
+In our example, the Sender only requires the Recipient to accept the EMailAddress and the BirthDate, which is why the individual [CreateAttributeRequestItems]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) and the [RequestItemGroup]({% link _docs_integrate/create-attribute-for-peer.md %}#create-multiple-attributes-with-a-requestitemgroup) within the Request have specified corresponding values in their `mustBeAccepted` property. We assume that the Recipient wants to accept the Request and all its CreateAttributeRequestItems with the exception of the BirthPlace.
+
+If the Recipient wants to accept the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes), it must accept all [CreateAttributeRequestItems]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted for the Recipient to refuse to accept the EMailAddress or the BirthDate proposed by the Sender.
+{: .notice--info}
+
+Because the Recipient accepts the EMailAddress of the Sender and also accepts at least one [CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) of the [RequestItemGroup]({% link _docs_integrate/create-attribute-for-peer.md %}#create-multiple-attributes-with-a-requestitemgroup), it provides the following values for responding to the two components within the `items` property of the [Request]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes):
+
+- Accept [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress):
+
+  | Property | Value  |
+  | -------- | ------ |
+  | accept   | `true` |
+
+- Accept [RequestItemGroup]({% link _docs_integrate/create-attribute-for-peer.md %}#create-multiple-attributes-with-a-requestitemgroup):
+
+  | Property | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+  | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | accept   | `true`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+  | items    | Responses of the Recipient to the two [CreateAttributeRequestItems]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) belonging to the [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) and the [BirthPlace]({% link _docs_integrate/attribute-values.md %}#birthplace) contained in the [RequestItemGroup]({% link _docs_integrate/create-attribute-for-peer.md %}#create-multiple-attributes-with-a-requestitemgroup) |
+
+Since the Recipient accepts the BirthDate and rejects the BirthPlace of the Sender, it responds to the two [CreateAttributeRequestItems]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) included in the `items` property of the already accepted [RequestItemGroup]({% link _docs_integrate/create-attribute-for-peer.md %}#create-multiple-attributes-with-a-requestitemgroup) as follows:
+
+- Accept [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate):
+
+  | Property | Value  |
+  | -------- | ------ |
+  | accept   | `true` |
+
+- Accept [BirthPlace]({% link _docs_integrate/attribute-values.md %}#birthplace):
+
+  | Property | Value   |
+  | -------- | ------- |
+  | accept   | `false` |
+
+Note that it is important to respond to [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitem) and [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in the same order in which they were received.
+
 ## Receive the Response to the Request
 
 We now assume that the Recipient has accepted the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) of the Sender. In order for the Sender to receive the response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
