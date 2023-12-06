@@ -86,6 +86,21 @@ The Sender can request the creation of this RelationshipAttribute by inserting i
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/e1b8cefc-6968-479b-9a1b-7d35088d753a" id="keMT2BRBKzrb"></iframe></div>
 
+### Create multiple Attributes with a RequestItemGroup
+
+It is not necessary to create just a single Attribute for a peer. Instead, it is also possible to request the creation of multiple Attributes at the same time. For this purpose, several [CreateAttributeRequestItems]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes). The general structure of a [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) is as follows:
+
+| Property         | Value                                                                                                                                                                 |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@type`          | `"RequestItemGroup"`                                                                                                                                                  |
+| `title`          | `"<title of RequestItemGroup>"`                                                                                                                                       |
+| `description`    | `"<description of RequestItemGroup>"`                                                                                                                                 |
+| `mustBeAccepted` | `true` or `false`, depending on whether this [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) must be accepted by the Recipient |
+| `metadata`       | `<custom metadata sent together with RequestItemGroup>`                                                                                                               |
+| `items`          | Array of [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitem)                                                                                |
+
+So if you want to use a [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in order to create multiple Attributes for the Recipient at the same time, you must insert corresponding [CreateAttributeRequestItems]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) into the `items` property of it. Note that the properties `title`, `description` and `metadata` are optional, so you can omit them.
+
 ## What's next?
 
 As already mentioned, this guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Identity itself and cannot be modified by the peer when accepting the [Request]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes). In many cases, it makes more sense if the peer can adjust the Attribute that was proposed for creation. For this, take a look at the Propose attribute to peer guide.
