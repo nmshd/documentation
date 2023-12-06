@@ -155,13 +155,13 @@ If the Recipient agrees to get one of the Sender's shared Attributes, it can acc
 | -------- | ------ |
 | accept   | `true` |
 
-The acception of a ShareAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. The `content` of the LocalAttribute is the underlying `attribute` of the ShareAttributeRequestItem. An appropriate [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ShareAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem-response-itemproperties) is also generated:
+The acception of a ShareAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. The `content` of the LocalAttribute is the underlying `attribute` of the ShareAttributeRequestItem. Based on this, an appropriate [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ShareAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem-response-itemproperties) is generated:
 
-| Property      | Value                                |
-| ------------- | ------------------------------------ |
-| `@type`       | `"ShareAttributeAcceptResponseItem"` |
-| `result`      | `"Accepted"`                         |
-| `attributeId` | `"<ID of created LocalAttribute>"`   |
+| Property      | Value                                                           |
+| ------------- | --------------------------------------------------------------- |
+| `@type`       | `"ShareAttributeAcceptResponseItem"`                            |
+| `result`      | `"Accepted"`                                                    |
+| `attributeId` | `"<ID of created LocalAttribute with LocalAttributeShareInfo>"` |
 
 This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes) that will be transferred to the Sender.
 
