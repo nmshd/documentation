@@ -173,6 +173,19 @@ The acception of a CreateAttributeRequestItem leads to the creation of a corresp
 
 This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) that will be transferred to the Sender. If a new [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is to be created, a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) without a LocalAttributeShareInfo is additionally created for the Recipient beforehand.
 
+### Reject a CreateAttributeRequestItem
+
+Even if the Recipient accepts the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) as a whole, it may decide not to accept all of the Sender's proposed Attributes. To be more precise, the Recipient has the option of rejecting [CreateAttributeRequestItems]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) that have the value `false` specified in their `mustBeAccepted` property. To reject a CreateAttributeRequestItem, use the [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-response-parameters):
+
+| Property | Value   |
+| -------- | ------- |
+| accept   | `false` |
+
+The rejection of a CreateAttributeRequestItem leads to the creation of a corresponding [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes).
+
+In addition to [AcceptResponseItems]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) and [RejectResponseItems]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem), [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) are one of the three forms of [ResponseItems]({% link _docs_integrate/data-model-overview.md %}#responseitem). These are never created manually, but can occur due to an error.
+{: .notice--info}
+
 ## What's next?
 
 As already mentioned, this guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Identity itself and cannot be modified by the peer when accepting the [Request]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes). In many cases, it makes more sense if the peer can adjust the Attribute that was proposed for creation. For this, take a look at the Propose attribute to peer guide.
