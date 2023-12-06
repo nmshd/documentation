@@ -101,6 +101,49 @@ It is not necessary to create just a single Attribute for a peer. Instead, it is
 
 So if you want to use a [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in order to create multiple Attributes for the Recipient at the same time, you must insert corresponding [CreateAttributeRequestItems]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) into the `items` property of it. Note that the properties `title`, `description` and `metadata` are optional, so you can omit them.
 
+## Send and receive the Request
+
+The Sender that wants to create an Attribute for the Recipient may or may not already have a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the Recipient. Depending on which is the case, a different method is more suitable for sending the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes):
+
+- [Request over Template]({% link _docs_integrate/create-attribute-for-peer.md %}#request-over-template): If there is currently no Relationship between the Sender and the Recipient, you must use this approach.
+- [Request over Message]({% link _docs_integrate/create-attribute-for-peer.md %}#request-over-message): This procedure is only permitted if there is already an active Relationship between the Sender and the Recipient.
+
+In the following, we briefly describe the procedure of sending the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) created by the Sender to the Recipient separately in both cases.
+
+### Request over Template
+
+We first consider the situation in which there is no [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between the Sender and the Recipient yet. In order for the Sender to be able to create an Attribute for the Recipient, a Relationship must first be created between them.
+
+For general information about establishing a Relationship between two Connectors, see the guides Prepare enmeshed onboarding package and Process received enmeshed onboarding package and create relationship.
+{: .notice--info}
+
+<!--- TODO: Insert links to guide "Prepare enmeshed onboarding package" and guide "Process received enmeshed onboarding package and create relationship" --->
+
+To initiate the establishment of a Relationship between the Sender and the Recipient and at the same time send a Request for creating Attributes for the Recipient, the Sender can create an appropriate [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate). In particular, it is necessary for this purpose that a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) is used in the `content` property of the RelationshipTemplate and that the RelationshipTemplateContent contains the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) formulated above in its `onNewRelationship` property. Once the Sender has created such a RelationshipTemplate, the Recipient can load it onto itself. This causes the Recipient to receive the underlying [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) of the RelationshipTemplate as a new incoming Request. The Recipient can retrieve this Request and read its `id` from the result of the response:
+
+| Property | Value               |
+| -------- | ------------------- |
+| `id`     | `"<ID of Request>"` |
+
+{% include copy-notice description="Save the `id` of the Request so that you can refer to it in the next step." %}
+
+All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide.
+
+It is also possible for the Sender to use a RelationshipTemplate to send a Request to the Recipient if there is already an active Relationship between them. To do this, proceed as just described, but insert the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) into the `onExistingRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent), which is contained in the `content` property of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
+{: .notice--info}
+
+### Request over Message
+
+We will now look at the case in which a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) already exists between the Sender and the Recipient. In this case, the Sender has the option of sending a Request to the Recipient over a [Message]({% link _docs_integrate/data-model-overview.md %}#message). To do this, the Sender must first create an outgoing Request locally that is based on the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) described above. The Sender must then send a [Message]({% link _docs_integrate/data-model-overview.md %}#message) to the Recipient that contains the created outgoing Request in its `content` property. After the Message is sent, the Recipient needs to synchronize the updates of the Backbone in order to receive the Message. This causes the Recipient to also receive the underlying [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) of the Message as a new incoming Request. The Recipient can retrieve this Request and read its `id` from the result of the response:
+
+| Property | Value               |
+| -------- | ------------------- |
+| `id`     | `"<ID of Request>"` |
+
+{% include copy-notice description="Save the `id` of the Request so that you can refer to it in the next step." %}
+
+All details on how to send and receive a Request via a Message in general can be found in the [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) guide.
+
 ## What's next?
 
 As already mentioned, this guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Identity itself and cannot be modified by the peer when accepting the [Request]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes). In many cases, it makes more sense if the peer can adjust the Attribute that was proposed for creation. For this, take a look at the Propose attribute to peer guide.
