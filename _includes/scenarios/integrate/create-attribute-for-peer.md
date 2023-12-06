@@ -7,7 +7,7 @@ In this guide, we explain how a Connector, hereinafter referred to as the Sender
 
 <!--- TODO: Insert Link to "Request and Response introduction" guide --->
 
-There are several ways in which an Identity can create an Attribute for a peer. This guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Identity itself and cannot be modified by the peer when accepting the [Request]({% link _docs_integrate/data-model-overview.md %}#request). If the peer should be able to adjust the Attribute proposed for creation, the Propose attribute to peer guide must be consulted instead.
+There are several ways in which an Identity can create an Attribute for a peer. This guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Identity itself and cannot be modified by the peer when accepting the [Request]({% link _docs_integrate/data-model-overview.md %}#request). If the peer should be able to adjust the Attribute offered for creation, the Propose attribute to peer guide must be consulted instead.
 {: .notice--info}
 
 <!--- TODO: Insert Link to "Propose attribute to peer" guide --->
@@ -146,9 +146,9 @@ All details on how to send and receive a Request via a Message in general can be
 
 ## Accept the Request and create the Attributes
 
-After the Sender has sent the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) to the Recipient and the Recipient has received this Request, the Recipient can accept it to create all or some of the Attributes that were proposed by the Sender for creation. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the ID of the received Request. Also, you need to decide and specify for each [CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) contained in the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) whether you want to accept or reject it.
+After the Sender has sent the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) to the Recipient and the Recipient has received this Request, the Recipient can accept it to create all or some of the Attributes that were offered for creation by the Sender. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the ID of the received Request. Also, you need to decide and specify for each [CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) contained in the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) whether you want to accept or reject it.
 
-If the Recipient does not want to create any of the Sender's proposed Attributes and therefore does not want to accept the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) of the Sender, it can reject it as a whole too. For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
+If the Recipient does not want to create any of the Attributes offered by the Sender and therefore does not want to accept the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) of the Sender, it can reject it as a whole too. For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
 
 In the next subsections, we will describe the process of accepting a [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes). The following diagram provides an overview of this process.
@@ -157,7 +157,7 @@ In the next subsections, we will describe the process of accepting a [Request fo
 
 ### Accept a CreateAttributeRequestItem
 
-If the Recipient agrees to create one of the Sender's proposed Attributes, it can accept the associated [CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) contained in the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes). The following [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-response-parameters) must be used for this:
+If the Recipient agrees to create one of the Attributes offered by the Sender, it can accept the associated [CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) contained in the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes). The following [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-response-parameters) must be used for this:
 
 | Property | Value  |
 | -------- | ------ |
@@ -175,7 +175,7 @@ This will be contained within the `items` property of the [Response]({% link _do
 
 ### Reject a CreateAttributeRequestItem
 
-Even if the Recipient accepts the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) as a whole, it may decide not to accept all of the Sender's proposed Attributes. To be more precise, the Recipient has the option of rejecting [CreateAttributeRequestItems]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) that have the value `false` specified in their `mustBeAccepted` property. To reject a CreateAttributeRequestItem, use the [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-response-parameters):
+Even if the Recipient accepts the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) as a whole, it may decide not to accept all of the Attributes offered by the Sender. To be more precise, the Recipient has the option of rejecting [CreateAttributeRequestItems]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) that have the value `false` specified in their `mustBeAccepted` property. To reject a CreateAttributeRequestItem, use the [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-response-parameters):
 
 | Property | Value   |
 | -------- | ------- |
@@ -194,7 +194,7 @@ Let's look at an example where the Sender wants to create an [EMailAddress]({% l
 
 In our example, the Sender only requires the Recipient to accept the EMailAddress and the BirthDate, which is why the individual [CreateAttributeRequestItems]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) and the [RequestItemGroup]({% link _docs_integrate/create-attribute-for-peer.md %}#create-multiple-attributes-with-a-requestitemgroup) within the Request have specified corresponding values in their `mustBeAccepted` property. We assume that the Recipient wants to accept the Request and all its CreateAttributeRequestItems with the exception of the BirthPlace.
 
-If the Recipient wants to accept the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes), it must accept all [CreateAttributeRequestItems]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted for the Recipient to refuse to accept the EMailAddress or the BirthDate proposed by the Sender.
+If the Recipient wants to accept the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes), it must accept all [CreateAttributeRequestItems]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted for the Recipient to refuse to accept the EMailAddress or the BirthDate offered by the Sender.
 {: .notice--info}
 
 Because the Recipient accepts the EMailAddress of the Sender and also accepts at least one [CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) of the [RequestItemGroup]({% link _docs_integrate/create-attribute-for-peer.md %}#create-multiple-attributes-with-a-requestitemgroup), it provides the following values for responding to the two components within the `items` property of the [Request]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes):
@@ -246,7 +246,7 @@ If the [Request for creating Attributes]({% link _docs_integrate/create-attribut
 
 ## What's next?
 
-As already mentioned, this guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Identity itself and cannot be modified by the peer when accepting the [Request]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes). In many cases, it makes more sense if the peer can adjust the Attribute that was proposed for creation. For this, take a look at the Propose attribute to peer guide.
+As already mentioned, this guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Identity itself and cannot be modified by the peer when accepting the [Request]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes). In many cases, it makes more sense if the peer can adjust the Attribute that was offered for creation. For this, take a look at the Propose attribute to peer guide.
 
 <!--- TODO: Insert link to scenario description "Propose attribute to peer" --->
 
