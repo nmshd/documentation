@@ -65,6 +65,27 @@ To request the creation of this IdentityAttribute for the Recipient, the Sender 
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/db914817-6b8b-4119-8f5f-f15d48a7854c" id="XmLTn.emFtK~"></iframe></div>
 
+### Example for creating a RelationshipAttribute
+
+We now consider the case in which the Sender has an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the Recipient and wants to create a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) of type [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring) for this Relationship, which is owned by the Recipient:
+
+| Property          | Value                                                                                                                                                                                |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `@type`           | `"RelationshipAttribute"`                                                                                                                                                            |
+| `owner`           | `"<Address of Recipient>"`                                                                                                                                                           |
+| `key`             | `"<key of RelationshipAttribute>"`                                                                                                                                                   |
+| `confidentiality` | Level of confidentiality the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) should have (`"public"`, `"protected"` or `"private"`) |
+| `value.@type`     | `"ProprietaryString"`                                                                                                                                                                |
+| `value.title`     | `"<title of RelationshipAttribute>"`                                                                                                                                                 |
+| `value.value`     | `"<actual value of RelationshipAttribute>"`                                                                                                                                          |
+
+It would also be possible to specify the Address of the Sender as the value for the `owner` property if you want that the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) is owned by the Sender instead of the Recipient.
+{: .notice--info}
+
+The Sender can request the creation of this RelationshipAttribute by inserting it into the `attribute` property of the [CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) included in the `items` property of the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes).
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/e1b8cefc-6968-479b-9a1b-7d35088d753a" id="keMT2BRBKzrb"></iframe></div>
+
 ## What's next?
 
 As already mentioned, this guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Identity itself and cannot be modified by the peer when accepting the [Request]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes). In many cases, it makes more sense if the peer can adjust the Attribute that was proposed for creation. For this, take a look at the Propose attribute to peer guide.
