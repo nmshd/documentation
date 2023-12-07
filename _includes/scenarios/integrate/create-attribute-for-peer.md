@@ -43,7 +43,7 @@ For requesting the creation of a single Attribute for the Recipient, a single [R
 | `metadata`              | `<custom metadata sent together with RequestItem>`                                                                                                                                                                                             |
 | `attribute`             | [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) that the Sender wants to create for the Recipient |
 
-It is possible to request the creation of an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), which must be inserted into the `attribute` property of the [CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem). Depending on whether an IdentityAttribute or a RelationshipAttribute is to be created for the Recipient, the Sender has a different number of input options when defining the prospective `owner` of the Attribute. More details on the various input options when creating a [Request for creating an Attribute]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) and the corresponding application scenarios can be found in the description of the [Combinations and usage scenarios]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-combinationsandusagescenarios) of the CreateAttributeRequestItem.
+It is possible to request the creation of an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), which must be inserted into the `attribute` property of the [CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem). Depending on whether an IdentityAttribute or a RelationshipAttribute is to be created for the Recipient, the Sender has a different number of input options when defining the prospective `owner` of the Attribute. More details on the various input options when creating a [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) and the corresponding application scenarios can be found in the description of the [Combinations and usage scenarios]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-combinationsandusagescenarios) of the CreateAttributeRequestItem.
 
 Please note that not all of the properties listed here have to be specified when creating a Request for creating Attributes. Some of the properties are optional and can therefore be omitted. Only values for the `items` property of the [Request]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) itself and for the properties `@type`, `mustBeAccepted` and `attribute` of the [CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) must be specified.
 {: .notice--info}
@@ -51,8 +51,6 @@ Please note that not all of the properties listed here have to be specified when
 ### Example for creating an IdentityAttribute
 
 We assume that the Integrator of the Sender wants to create an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of type [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) for the Recipient:
-
-<!--- TODO: Insert link to "Create own IdentityAttribute" guide --->
 
 | Property      | Value                                                                 |
 | ------------- | --------------------------------------------------------------------- |
@@ -69,17 +67,17 @@ To request the creation of this IdentityAttribute for the Recipient, the Sender 
 
 We now consider the case in which the Sender has an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the Recipient and wants to create a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) of type [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring) for this Relationship, which is owned by the Recipient:
 
-| Property          | Value                                                                                                                                                                                |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `@type`           | `"RelationshipAttribute"`                                                                                                                                                            |
-| `owner`           | `"<Address of Recipient>"`                                                                                                                                                           |
-| `key`             | `"<key of RelationshipAttribute>"`                                                                                                                                                   |
-| `confidentiality` | Level of confidentiality the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) should have (`"public"`, `"protected"` or `"private"`) |
-| `value.@type`     | `"ProprietaryString"`                                                                                                                                                                |
-| `value.title`     | `"<title of RelationshipAttribute>"`                                                                                                                                                 |
-| `value.value`     | `"<actual value of RelationshipAttribute>"`                                                                                                                                          |
+| Property          | Value                                                                                                                                                                                               |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@type`           | `"RelationshipAttribute"`                                                                                                                                                                           |
+| `owner`           | `"<Address of Recipient>"`                                                                                                                                                                          |
+| `key`             | `"<key of RelationshipAttribute>"`                                                                                                                                                                  |
+| `confidentiality` | `"public"`, `"protected"` or `"private"`, depending on which confidentiality level the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) should have |
+| `value.@type`     | `"ProprietaryString"`                                                                                                                                                                               |
+| `value.title`     | `"<title of RelationshipAttribute>"`                                                                                                                                                                |
+| `value.value`     | `"<actual value of RelationshipAttribute>"`                                                                                                                                                         |
 
-It would also be possible to specify the Address of the Sender as the value for the `owner` property if you want that the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) is owned by the Sender instead of the Recipient.
+It would also be possible to specify the Address of the Sender as the value for the `owner` property if you want the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) to be owned by the Sender instead of the Recipient.
 {: .notice--info}
 
 The Sender can request the creation of this RelationshipAttribute by inserting it into the `attribute` property of the [CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#description-of-createattributerequestitem) included in the `items` property of the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes).
@@ -108,7 +106,7 @@ The Sender that wants to create an Attribute for the Recipient may or may not al
 - [Request over Template]({% link _docs_integrate/create-attribute-for-peer.md %}#request-over-template): If there is currently no Relationship between the Sender and the Recipient, you must use this approach.
 - [Request over Message]({% link _docs_integrate/create-attribute-for-peer.md %}#request-over-message): This procedure is only permitted if there is already an active Relationship between the Sender and the Recipient.
 
-In the following, we briefly describe the procedure of sending the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) created by the Sender to the Recipient separately in both cases.
+In the following, we briefly describe the procedure for sending the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) created by the Sender to the Recipient separately in both cases.
 
 ### Request over Template
 
