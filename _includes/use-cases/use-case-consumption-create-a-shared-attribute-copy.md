@@ -2,15 +2,21 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to create a copy of an attribute with the intent to share it. The copy references the original
-Repository Attribute [cf]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
+Be advised that this is a Runtime-internal use-case which is automatically used by the module system. You should not call this use-case without having good reason.
+{: .notice--warning}
 
-### Parameters
+This use-case is intended to create a copy of a LocalAttribute with the intent to share it. The copy references the original [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
+
+## Parameters
 
 - `attributeId` is the id of the attribute that the copy is made of.
 - `peer` is the address of the peer the copy will be sent to.
 - `requestReference` is a reference to the request the copy will be sent with.
 
-### On Success
+## On Success
 
-- The copy is created and returned as a [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest).
+- The copy is created and returned as a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
+
+## On Failure
+
+- The parameters are malformed.

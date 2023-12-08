@@ -2,5 +2,7 @@
 
 {% include properties_list.html %}
 
-This use-case describes the app starting without any special parameters such as debuggers.
-A user clicking on the enmeshed app on his device will trigger this use-case.
+Be advised that this is an App-specific use-case which is triggered without a user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios.
+{: .notice--info}
+
+This use-case triggers the opening of the App without any parameters, like a user presses the App's icon on the home screen.

@@ -2,15 +2,18 @@
 
 {% include properties_list.html %}
 
-This use-case queries [Relationships]({% link _docs_integrate/data-model-overview.md %}#relationship)
-related to the identity.
+This use-case queries [Relationships]({% link _docs_integrate/data-model-overview.md %}#relationship) of the Identity.
 
 ## Parameters
 
-- `peer` is the enmeshed address of the peer.
-- `status` is the status of the relationship.
-- `template.id` is the template id that was used to initiate the relationship.
+- `peer` is the enmeshed Address of the peer.
+- `status` is the status of the Relationship.
+- `template.id` is the id of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) that was used to initiate the Relationship.
 
 ## On Success
 
-- Returns all [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) that match the `query`.
+- Returns all [Relationships]({% link _docs_integrate/data-model-overview.md %}#relationship) that match the `query`.
+
+## On Failure
+
+- The parameters are malformed.

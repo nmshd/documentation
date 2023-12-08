@@ -5,6 +5,8 @@
 This use-case tests if an incoming [Request]({% link _docs_integrate/data-model-overview.md %}#request)
 can be rejected with the given parameters without actually rejecting it.
 
+It is advised to call canReject before actually rejecting a Request, however canReject will usually be successful, as there are only rare cases which block a rejection.
+
 ## Parameters
 
 - The `id` of the incoming request.
@@ -13,8 +15,8 @@ can be rejected with the given parameters without actually rejecting it.
 
 ## On Success
 
-- A `RequestValidationResult` that indicates if the request is valid.
+- Returns a `RequestValidationResult` that indicates if Request can be rejected with the given parameters.
 
 ## On Failure
 
-- A detailed error describes the problem.
+- The decisions do not match the RequestItems.

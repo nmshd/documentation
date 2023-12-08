@@ -1,6 +1,8 @@
-This use-case describes a user action in which he navigates from one screen to another.
-A screen change can be described as a context change of the currently displayed information.
-The use-case is typically triggered by pressing a button that is linked to some other page.
+{{properties.description}}
 
-An example is the user selecting a enmeshed identity which would lead to a context change
-from `list of all available identities` to the `identity home screen`.
+{% include properties_list.html %}
+
+Be advised that this is an App-specific use-case which is triggered by a manual user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios.
+{: .notice--info}
+
+This use-case describes the manual navigation of the App to a specific screen by the user. It includes all the actions the user needs to do in order to reach the specific screen.

@@ -2,17 +2,16 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to retrieve a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute)
-by its id.
+This use-case is intended to retrieve a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute) by its id.
 
 ## Parameters
 
-- The `id` of the attribute.
+- The `id` of the LocalAttribute.
 
 ## On Success
 
-- The [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute) corresponding to the `id`.
+- Returns the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute) corresponding to the `id`.
 
 ## On Failure
 
-- The attribute does not exist.
+- The LocalAttribute does not exist.

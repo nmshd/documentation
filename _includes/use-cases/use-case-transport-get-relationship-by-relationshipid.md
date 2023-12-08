@@ -7,12 +7,12 @@ by its `id`.
 
 ## Parameters
 
-- `id` of the `relationship`.
+- `id` of the Relationship.
 
 ## On Success
 
-- The `relationship` that corresponds to the `id`.
+- The Relationship that corresponds to the `id`.
 
 ## On Failure
 
-- The `id` does not resolve to a `relationship`.
+- The `id` does not resolve to a Relationship.

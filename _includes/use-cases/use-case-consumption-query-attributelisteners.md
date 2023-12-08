@@ -2,15 +2,17 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to query all [attribute listeners]({% link _docs_integrate/data-model-overview.md %}#localattributelistener)
+This use-case is intended to query all [Attribute Listeners]({% link _docs_integrate/data-model-overview.md %}#localattributelistener)
 based on a query.
 
-### Parameter
+## Parameter
 
-- The `query` optionally describes the searched attribute listeners, if no
-  query is given all attribute listeners are returned.
+- The `query` optionally describes the searched Attribute Listeners. If no query is given all Attribute Listeners are returned.
 
-### On Success
+## On Success
 
-- The [LocalAttributeListeners]({% link _docs_integrate/data-model-overview.md %}#localattributelistener)
-  that match the query.
+- Returns a list of [LocalAttributeListeners]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) that match the query.
+
+## On Failure
+
+- The parameters are malformed.

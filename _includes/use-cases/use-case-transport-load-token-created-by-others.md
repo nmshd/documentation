@@ -2,30 +2,26 @@
 
 {% include properties_list.html %}
 
-This use-case intends to retrieve a [Token]({% link _docs_integrate/data-model-overview.md %}#token)
-that was created by a `peer`.
-
-There are two possible parameters to load a `peer` token.
+This use-case intends to load a peer's [Token]({% link _docs_integrate/data-model-overview.md %}#token) from the Backbone by a given reference to the Token.
 
 ## Parameters
 
-either:
+There are two possible options to load the Token:
 
-- `reference` that identifies the token.
-- `ephemeral` to indicate if the searched token should be cached.
-
----
-
-or:
-
-- `id` of the token.
-- `secretKey` that was used to encrypt the token.
-- `ephemeral` to indicate if the searched token should be cached.
+- by knowing the `reference` of the peer's Token
+  - `reference` that identifies the Token.
+  - `ephemeral` to indicate that the Token should be stored locally.
+- by knowing the `id` and the `secretKey` of the peer's Token
+  - `id` of the Token.
+  - `secretKey` that was used to encrypt the Token.
+  - `ephemeral` to indicate if the Token should be stored locally.
 
 ## On Success
 
-- The corresponding [Token]({% link _docs_integrate/data-model-overview.md %}#token).
+- Returns the corresponding [Token]({% link _docs_integrate/data-model-overview.md %}#token).
 
 ## On Failure
 
-- The request is malformed.
+- The parameters are malformed.
+- The Token does not exist.
+- The Token is expired.

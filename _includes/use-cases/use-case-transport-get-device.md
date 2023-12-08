@@ -2,16 +2,16 @@
 
 {% include properties_list.html %}
 
-This use-case retrieves the `device` with the given `id`.
+This use-case retrieves the Device with the given `id`.
 
 ## Parameters
 
-- `id` of the device.
+- `id` of the Device.
 
 ## On Success
 
-- The `device` that corresponds to the `id`.
+- The Device that corresponds to the `id`.
 
 ## On Failure
 
-- No `device` corresponds to the `id`.
+- No Device corresponds to the `id`.

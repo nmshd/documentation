@@ -7,12 +7,12 @@ by its `id`.
 
 ## Parameters
 
-- `id` of the token.
+- `id` of the Token.
 
 ## On Success
 
-- The `token` that corresponds to the `id`.
+- The Token that corresponds to the `id`.
 
 ## On Failure
 
-- The `id` doesn't resolve to a `token`.
+- The `id` doesn't resolve to a Token.

@@ -2,17 +2,16 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to execute an incoming RelationshipAttributeQuery (e.g. of a ReadAttributeRequestItem)
-which returns a list of matching [Relationship Attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
+This use-case is intended to execute an incoming [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) (e.g. received by a ReadAttributeRequestItem) which returns a list of matching [Relationship Attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
 
 ## Parameters
 
-- The `query` for the searched relationship attribute is described in the [data model]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery).
+- The `query` for the RelationshipAttributes as described in the [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery).
 
 ## On Success
 
-- Returns the `RelationshipAttribute` that matches the query.
+- Returns the `RelationshipAttributes` as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that match the given query.
 
 ## On Failure
 
-- The query was malformed. Please make sure it complies to the [data model]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery).
+- The query was malformed.

@@ -2,17 +2,16 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to retrieve a [attribute listener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) by its id.
+This use-case is intended to retrieve an [Attribute Listener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) by its id.
 
-### Parameter
+## Parameter
 
-- The unique `id` identifying the listener.
+- The unique `id` identifying the Attribute Listener.
 
-### On Success
+## On Success
 
-- The [LocalAttributeListener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener)
-  that corresponds to the `ìd`.
+- Returns the [LocalAttributeListener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) that corresponds to the `id`.
 
-### On Failure
+## On Failure
 
-- There is no such attribute listener.
+- There is no such Attribute Listener.

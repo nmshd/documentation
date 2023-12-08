@@ -2,16 +2,16 @@
 
 {% include properties_list.html %}
 
-This use-case retrieves `account information` by the corresponding enmeshed address.
+This use-case retrieves the LocalAccount with the corresponding enmeshed Address.
 
 ## Parameters
 
-- The `address` is the enemeshed address of the account.
+- The `address` of the corresponding Identity of the LocalAccount.
 
 ## On Success
 
-- The `LocalAccount` corresponding to the address.
+- Returns the LocalAccount of the Identity.
 
 ## On Failure
 
-- There is no such account.
+- There is no such LocalAccount.

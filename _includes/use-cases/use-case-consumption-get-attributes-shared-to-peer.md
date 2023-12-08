@@ -2,21 +2,19 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to retrieve attributes that have been shared to a specific peer.
-The attribute can be specified using a query.
+This use-case is intended to retrieve Attributes that the current Idenity shared to a peer as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute). The LocalAttributes can be specified using a complex query.
 
-### Parameters
+## Parameters
 
-- `peer` is the address of the identity that the attribute was shared to.
-- `onlyValid` filters the searched attributes to only consider valid attributes if set.
-- `query` describes the searched attribute in detail if present.
-- `hideTechnical` if set technical attributes are not considered.
+- `peer` is the Address of the Identity that shared the LocalAttributes.
+- `onlyValid` filters the requested LocalAttributes to only consider currently valid LocalAttributes if set.
+- `query` describes the requested LocalAttributes in detail.
+- `hideTechnical` filters out technical LocalAttributes if set.
 
-### On Success
+## On Success
 
-- A list of [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest)
-  shared to the peer that match the query.
+- Returns a list of [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute) shared to the peer that match the query.
 
-### On Failure
+## On Failure
 
 - The parameters are malformed.

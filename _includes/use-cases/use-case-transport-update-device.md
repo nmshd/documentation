@@ -2,18 +2,18 @@
 
 {% include properties_list.html %}
 
-This use-case attempts to update the `name` or `description` of a `device` that matches an `id`.
+This use-case updates the `name` or `description` of a Device using its `id`.
 
 ## Parameters
 
-- `id`
-- `name`
-- `description`
+- The `id` of the Device.
+- The new `name` of the Device
+- The new `description` of the Device
 
 ## On Success
 
-- The corresponding `device` now has the given `name` and `description`.
+- The corresponding Device is updated to the given `name` and `description`.
 
 ## On Failure
 
-- The `id` does not resolve to a `device`.
+- There is no such Device.

@@ -2,11 +2,11 @@
 
 {% include properties_list.html %}
 
-Download the File's binary content that corresponds to the `fileId`.
+Download the File's binary content that corresponds to the `fileId`. As the File is not stored/cached within the Connector, the encrypted File is downloaded from the Backbone, decrypted and returned every time this use-case is called.
 
 ## Parameters
 
-- `id` of the file.
+- `id` of the File.
 
 ## On Success
 
@@ -14,4 +14,5 @@ Download the File's binary content that corresponds to the `fileId`.
 
 ## On Failure
 
-- There is no file with the given `id`.
+- There is no File with the given `id`.
+- The File is expired on the Backbone.

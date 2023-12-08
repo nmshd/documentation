@@ -2,18 +2,18 @@
 
 {% include properties_list.html %}
 
-This use-case is intended to execute an incoming ThirdPartyRelationshipAttributeQuery
-(e.g. of a ReadAttributeRequestItem) which returns a list of matching
+This use-case is intended to execute an incoming [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery)
+(e.g. received by a ReadAttributeRequestItem) which returns a list of matching
 [Relationship Attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute)
-of another contact.
+of another peer.
 
 ## Parameters
 
-- The `query` for the to be searched attribute is described in the [data model]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery).
+- The `query` for the RelationshipAttributes as described in the [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery).
 
 ## On Success
 
-- A list of attributes that conform to the query is returned.
+- Returns the `RelationshipAttributes` as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that match the given query.
 
 ## On Failure
 

@@ -7,13 +7,12 @@ by its `id`.
 
 ## Parameters
 
-- `id` of the message.
+- `id` of the Message.
 
 ## On Success
 
-- Returns the message that corresponds to the `id`.
+- Returns the Message that corresponds to the `id`.
 
 ## On Failure
 
-- `id` does not resolve to a message.
-- The cache of the message is empty.
+- `id` does not resolve to a Message.

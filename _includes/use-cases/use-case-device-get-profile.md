@@ -2,15 +2,15 @@
 
 {% include properties_list.html %}
 
-This use-case retrieves the `accoung information` by its `id`.
+This use-case retrieves one LocalAccount by its `id`.
 
 ## Parameters
 
-- The `id` of the account.
+- The `id` of the LocalAccount.
 
 ## On Success
 
-- The `LocalAccount` corresponding to the id.
+- The LocalAccount corresponding to the `id`.
 
 ## On Failure
 
