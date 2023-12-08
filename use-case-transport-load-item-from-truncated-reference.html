@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Explore enmeshed - enmeshed</title>
-<meta name="description" content="Welcome to the “Explore enmeshed” section of our website, your gateway to understanding the intricate world of enmeshed. Here, we embark on a journey through the various facets of enmeshed, from its fundamental workings to advanced technical insights.">
+<!-- begin _includes/seo.html --><title>Load item from truncated reference - enmeshed</title>
+<meta name="description" content="This use-case intends to load an entity by its reference received by peer. It is internally using the specific use-cases of each entity:     If the reference references a Token, fetches the Token just like Load Token created by others.   If the reference references a RelationshipTemplate, fetches the RelationshipTemplate just like Load Relationship Template created by others.   If the reference references a File, fetches the File just like Get or load File.   If the reference references a DeviceOnboardingInformation, fetches the DeviceOnboardingInformation just like Get Device Onboarding Token.">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Explore enmeshed">
-<meta property="og:url" content="/explore">
+<meta property="og:title" content="Load item from truncated reference">
+<meta property="og:url" content="/use-case-transport-load-item-from-truncated-reference">
 
 
-  <meta property="og:description" content="Welcome to the “Explore enmeshed” section of our website, your gateway to understanding the intricate world of enmeshed. Here, we embark on a journey through the various facets of enmeshed, from its fundamental workings to advanced technical insights.">
+  <meta property="og:description" content="This use-case intends to load an entity by its reference received by peer. It is internally using the specific use-cases of each entity:     If the reference references a Token, fetches the Token just like Load Token created by others.   If the reference references a RelationshipTemplate, fetches the RelationshipTemplate just like Load Relationship Template created by others.   If the reference references a File, fetches the File just like Get or load File.   If the reference references a DeviceOnboardingInformation, fetches the DeviceOnboardingInformation just like Get Device Onboarding Token.">
 
 
 
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="/explore">
+<link rel="canonical" href="/use-case-transport-load-item-from-truncated-reference">
 
 
 
@@ -97,7 +97,7 @@
 
   </head>
 
-  <body class="layout--single">
+  <body class="layout--usecase">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -161,7 +161,7 @@
   
     
       
-      <h3>Explore enmeshed</h3>
+      <h3>Integrate Enmeshed</h3>
       
       
 
@@ -173,17 +173,15 @@
     
       <li>
         
-          <span class="nav__sub-title">First things first</span>
+          <span class="nav__sub-title">Getting Started</span>
         
 
         
         <ul>
           
-            <li><a href="/explore/how_does_enmeshed_work">How does enmeshed work?</a></li>
+            <li><a href="/integrate/access-the-connector">Access the Connector</a></li>
           
-            <li><a href="/explore/example-scenarios">Example Scenarios</a></li>
-          
-            <li><a href="/explore/faq">Frequently Asked Questions</a></li>
+            <li><a href="/integrate/integration-example">Integration example</a></li>
           
         </ul>
         
@@ -191,17 +189,15 @@
     
       <li>
         
-          <span class="nav__sub-title">How we think</span>
+          <span class="nav__sub-title">Manage Requests</span>
         
 
         
         <ul>
           
-            <li><a href="/explore/integration">Integration Considerations</a></li>
+            <li><a href="/integrate/requests-over-templates">Requests over Templates</a></li>
           
-            <li><a href="/explore/security">Security Considerations</a></li>
-          
-            <li><a href="/explore/privacy">Privacy Considerations</a></li>
+            <li><a href="/integrate/requests-over-messages">Requests over Messages</a></li>
           
         </ul>
         
@@ -209,21 +205,13 @@
     
       <li>
         
-          <span class="nav__sub-title">Our Layers</span>
+          <span class="nav__sub-title">Manage attributes of others</span>
         
 
         
         <ul>
           
-            <li><a href="/explore/layers/backbone">Backbone Layer</a></li>
-          
-            <li><a href="/explore/layers/transport">Transport Layer</a></li>
-          
-            <li><a href="/explore/layers/consumption">Consumption Layer</a></li>
-          
-            <li><a href="/explore/layers/integration">Integration Layer</a></li>
-          
-            <li><a href="/explore/layers/user-experience">User-Experience Layer</a></li>
+            <li><a href="/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
           
         </ul>
         
@@ -231,17 +219,13 @@
     
       <li>
         
-          <span class="nav__sub-title">Components in-detail</span>
+          <span class="nav__sub-title">Basic communication</span>
         
 
         
         <ul>
           
-            <li><a href="/explore/app">App</a></li>
-          
-            <li><a href="/explore/backbone">Backbone</a></li>
-          
-            <li><a href="/explore/connector">Connector</a></li>
+            <li><a href="/integrate/sending-messages">Sending Messages</a></li>
           
         </ul>
         
@@ -249,19 +233,53 @@
     
       <li>
         
-          <span class="nav__sub-title">Expert Corner</span>
+          <span class="nav__sub-title">Requesting consent of users</span>
         
 
         
         <ul>
           
-            <li><a href="/explore/addresses">Addresses</a></li>
+            <li><a href="/integrate/requesting-one-time-consents">Requesting one-time consents</a></li>
           
-            <li><a href="/explore/runtime">Runtime</a></li>
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Data Model</span>
+        
+
+        
+        <ul>
           
-            <li><a href="/explore/cryptography">Cryptography</a></li>
+            <li><a href="/integrate/use-cases">Use Cases</a></li>
           
-            <li><a href="/explore/blockchain">Why no blockchain?</a></li>
+            <li><a href="/integrate/data-model-overview">Data Model Overview</a></li>
+          
+            <li><a href="/integrate/connector-events">Connector Events</a></li>
+          
+            <li><a href="/integrate/requests-and-requestitems">Requests and RequestItems</a></li>
+          
+            <li><a href="/integrate/attribute-values">Attribute Values</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Troubleshooting</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/error-codes">Error Codes</a></li>
+          
+            <li><a href="/integrate/faq">FAQ</a></li>
+          
+            <li><a href="/integrate/support">Support</a></li>
           
         </ul>
         
@@ -278,8 +296,8 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Explore enmeshed">
-    <meta itemprop="description" content="Welcome to the “Explore enmeshed” section of our website, your gateway to understanding the intricate world of enmeshed. Here, we embark on a journey through the various facets of enmeshed, from its fundamental workings to advanced technical insights.">
+    <meta itemprop="headline" content="Load item from truncated reference">
+    <meta itemprop="description" content="This use-case intends to load an entity by its reference received by peer. It is internally using the specific use-cases of each entity:  If the reference references a Token, fetches the Token just like Load Token created by others.  If the reference references a RelationshipTemplate, fetches the RelationshipTemplate just like Load Relationship Template created by others.  If the reference references a File, fetches the File just like Get or load File.  If the reference references a DeviceOnboardingInformation, fetches the DeviceOnboardingInformation just like Get Device Onboarding Token.">
     <meta itemprop="datePublished" content="2023-12-08T13:12:28+01:00">
     
 
@@ -287,7 +305,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="/explore" class="u-url" itemprop="url">Explore enmeshed
+            <a href="/use-case-transport-load-item-from-truncated-reference" class="u-url" itemprop="url">Load item from truncated reference
 </a>
           </h1>
           
@@ -298,27 +316,96 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <p>Welcome to the “Explore enmeshed” section of our website, your gateway to understanding the intricate world of enmeshed. Here, we embark on a journey through the various facets of enmeshed, from its fundamental workings to advanced technical insights.</p>
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              
 
-<h2 id="first-things-first">First things first</h2>
+            </nav>
+          </aside>
+        
+        
+<!--<div>
+    <table>
+        
+        <tr><td>id</td>
+            <td>RU9</td></tr>
+        
+        <tr><td>component</td>
+            <td>Runtime</td></tr>
+        
+        <tr><td>layer</td>
+            <td>Transport</td></tr>
+        
+        <tr><td>facade</td>
+            <td>AccountFacade</td></tr>
+        
+        <tr><td>function</td>
+            <td>loadItemFromTruncatedReference</td></tr>
+        
+        <tr></tr>
+        
+        <tr><td>feature category</td>
+            <td>Share information over side-channel</td></tr>
+        
+        <tr><td>tech category</td>
+            <td>Account</td></tr>
+        
+        <tr><td>status</td>
+            <td>QUESTIONS</td></tr>
+        
+        <tr><td>documentation status</td>
+            <td>DONE</td></tr>
+        
+        <tr><td>comments</td>
+            <td>rather somewhere else?</td></tr>
+        
+        <tr><td>actor</td>
+            <td>Identity</td></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr><td>priority</td>
+            <td>n/a</td></tr>
+        
+        <tr><td>complexity</td>
+            <td>n/a</td></tr>
+        
+        <tr><td>size</td>
+            <td>n/a</td></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr><td>published</td>
+            <td>default</td></tr>
+        
+        <tr><td>link</td>
+            <td>transport/load-item-from-truncated-reference</td></tr>
+        
+        <tr></tr>
+        <tr></tr>
+    </table>
+</div>
+-->
 
-<p>In this section, we lay the foundation by addressing the fundamental aspects of enmeshed. We start by explaining how enmeshed works, explore example scenarios, highlight its features and provide answers to commonly asked questions.</p>
+<p>This use-case intends to load an entity by its <code class="language-plaintext highlighter-rouge">reference</code> received by peer. It is internally using the specific use-cases of each entity:</p>
 
-<h2 id="how-we-think">How we think</h2>
+<ul>
+  <li>If the <code class="language-plaintext highlighter-rouge">reference</code> references a Token, fetches the Token just like <a href="use-case-transport-load-token-created-by-others.md">Load Token created by others</a>.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">reference</code> references a RelationshipTemplate, fetches the RelationshipTemplate just like <a href="use-case-transport-load-relationship-template-created-by-others.md">Load Relationship Template created by others</a>.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">reference</code> references a File, fetches the File just like <a href="use-case-transport-get-or-load-file.md">Get or load File</a>.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">reference</code> references a DeviceOnboardingInformation, fetches the DeviceOnboardingInformation just like <a href="use-case-transport-get-device-onboarding-token.md">Get Device Onboarding Token</a>.</li>
+</ul>
 
-<p>Discover our perspective on enmeshed as we delve into the mindset behind its development. We discuss integration considerations, security aspects and privacy considerations that shape our approach to creating a secure and privacy-conscious platform.</p>
-
-<h2 id="our-layers">Our Layers</h2>
-
-<p>Unveil the layers that make enmeshed a robust and versatile solution. We’ll guide you through each layer of the enmeshed architecture, including the Backbone Layer, Transport Layer, Consumption Layer, Integration Layer and User-Experience Layer.</p>
-
-<h2 id="components-in-detail">Components in-detail</h2>
-
-<p>Get an in-depth look at the key components that power enmeshed. Learn about the App, Backbone, and Connector and gain insights into how these elements contribute to the enmeshed ecosystem.</p>
-
-<h2 id="expert-corner">Expert Corner</h2>
-
-<p>For those seeking advanced knowledge, our Expert Corner is the place to be. Explore topics such as enmeshed Addresses, Runtime behavior, Cryptography and the rationale behind our decision not to use blockchain technology.</p>
+ 
 
         
       </section>

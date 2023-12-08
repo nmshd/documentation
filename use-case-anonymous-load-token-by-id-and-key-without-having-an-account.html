@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Load Token by id and key (without having an account) - enmeshed</title>
-<meta name="description" content="">
+<meta name="description" content="This use-case attempts to retrieve a Token by its id and secretKey without having an account on the Backbone, thus without an authentication.  This can be used to fetch Tokens for Device Onboarding or Recovery.  Parameters     The id of the Token.   The secretKey the Token was encrypted with, Base64URL encoded.   On Success     Returns the corresponding Token.   On Failure     There is no Token that matches the id.   The secretKey is not correct.">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="/use-case-anonymous-load-token-by-id-and-key-without-having-an-account">
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="This use-case attempts to retrieve a Token by its id and secretKey without having an account on the Backbone, thus without an authentication.  This can be used to fetch Tokens for Device Onboarding or Recovery.  Parameters     The id of the Token.   The secretKey the Token was encrypted with, Base64URL encoded.   On Success     Returns the corresponding Token.   On Failure     There is no Token that matches the id.   The secretKey is not correct.">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-12-06T08:53:37+01:00">
+  <meta property="article:published_time" content="2023-12-08T13:12:28+01:00">
 
 
 
@@ -97,7 +97,7 @@
 
   </head>
 
-  <body class="layout--single">
+  <body class="layout--usecase">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -183,8 +183,6 @@
           
             <li><a href="/integrate/integration-example">Integration example</a></li>
           
-            <li><a href="/integrate/use-cases">Use Cases</a></li>
-          
         </ul>
         
       </li>
@@ -255,6 +253,8 @@
         
         <ul>
           
+            <li><a href="/integrate/use-cases">Use Cases</a></li>
+          
             <li><a href="/integrate/data-model-overview">Data Model Overview</a></li>
           
             <li><a href="/integrate/connector-events">Connector Events</a></li>
@@ -297,8 +297,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Load Token by id and key (without having an account)">
-    <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2023-12-06T08:53:37+01:00">
+    <meta itemprop="description" content="This use-case attempts to retrieve a Tokenby its id and secretKey without having an account on the Backbone, thus without an authentication.This can be used to fetch Tokens for Device Onboarding or Recovery.Parameters  The id of the Token.  The secretKey the Token was encrypted with, Base64URL encoded.On Success  Returns the corresponding Token.On Failure  There is no Token that matches the id.  The secretKey is not correct.">
+    <meta itemprop="datePublished" content="2023-12-08T13:12:28+01:00">
     
 
     <div class="page__inner-wrap">
@@ -319,12 +319,108 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#parameters">Parameters</a></li><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
 
             </nav>
           </aside>
         
         
+<!--<div>
+    <table>
+        
+        <tr><td>id</td>
+            <td>RY2</td></tr>
+        
+        <tr><td>component</td>
+            <td>Runtime</td></tr>
+        
+        <tr><td>layer</td>
+            <td>Anonymous</td></tr>
+        
+        <tr><td>facade</td>
+            <td>AnonymousFacade</td></tr>
+        
+        <tr><td>function</td>
+            <td>loadPeerTokenByIdAndKey</td></tr>
+        
+        <tr></tr>
+        
+        <tr><td>feature category</td>
+            <td>Share information over side-channel</td></tr>
+        
+        <tr><td>tech category</td>
+            <td>AnonymousTokens</td></tr>
+        
+        <tr><td>status</td>
+            <td>DONE</td></tr>
+        
+        <tr><td>documentation status</td>
+            <td>DONE</td></tr>
+        
+        <tr></tr>
+        
+        <tr><td>actor</td>
+            <td>Identity</td></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr><td>priority</td>
+            <td>n/a</td></tr>
+        
+        <tr><td>complexity</td>
+            <td>n/a</td></tr>
+        
+        <tr><td>size</td>
+            <td>n/a</td></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr><td>published</td>
+            <td>default</td></tr>
+        
+        <tr><td>link</td>
+            <td>anonymous/load-token-by-id-and-key-without-having-an-account</td></tr>
+        
+        <tr></tr>
+        <tr></tr>
+    </table>
+</div>
+-->
+
+<p>This use-case attempts to retrieve a <a href="/integrate/data-model-overview#token">Token</a>
+by its <code class="language-plaintext highlighter-rouge">id</code> and <code class="language-plaintext highlighter-rouge">secretKey</code> without having an account on the Backbone, thus without an authentication.</p>
+
+<p>This can be used to fetch <code class="language-plaintext highlighter-rouge">Tokens</code> for Device Onboarding or Recovery.</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">id</code> of the Token.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">secretKey</code> the Token was encrypted with, Base64URL encoded.</li>
+</ul>
+
+<h2 id="on-success">On Success</h2>
+
+<ul>
+  <li>Returns the corresponding <a href="/integrate/data-model-overview#token">Token</a>.</li>
+</ul>
+
+<h2 id="on-failure">On Failure</h2>
+
+<ul>
+  <li>There is no <code class="language-plaintext highlighter-rouge">Token</code> that matches the <code class="language-plaintext highlighter-rouge">id</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">secretKey</code> is not correct.</li>
+</ul>
+
+ 
 
         
       </section>
@@ -336,7 +432,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-12-06T08:53:37+01:00">December 6, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-12-08T13:12:28+01:00">December 8, 2023</time></p>
 
       </footer>
 

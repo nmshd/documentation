@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Query Tokens by parameters - enmeshed</title>
-<meta name="description" content="">
+<meta name="description" content="This use-case queries Tokens of the Identity.  Parameters     createdAt is the ISODateTime the Token was created at.   createdBy is the enmeshed Address of the Identity that created the Token.   createdByDevice is the id of the Device that created the Token.   expiresAt is the ISODateTime the Token expires.   On Success     Returns all Tokens that match the query.   On Failure     The parameters are malformed.">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="/use-case-transport-query-tokens-by-parameters">
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="This use-case queries Tokens of the Identity.  Parameters     createdAt is the ISODateTime the Token was created at.   createdBy is the enmeshed Address of the Identity that created the Token.   createdByDevice is the id of the Device that created the Token.   expiresAt is the ISODateTime the Token expires.   On Success     Returns all Tokens that match the query.   On Failure     The parameters are malformed.">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-12-06T08:53:37+01:00">
+  <meta property="article:published_time" content="2023-12-08T13:12:28+01:00">
 
 
 
@@ -97,7 +97,7 @@
 
   </head>
 
-  <body class="layout--single">
+  <body class="layout--usecase">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -183,8 +183,6 @@
           
             <li><a href="/integrate/integration-example">Integration example</a></li>
           
-            <li><a href="/integrate/use-cases">Use Cases</a></li>
-          
         </ul>
         
       </li>
@@ -255,6 +253,8 @@
         
         <ul>
           
+            <li><a href="/integrate/use-cases">Use Cases</a></li>
+          
             <li><a href="/integrate/data-model-overview">Data Model Overview</a></li>
           
             <li><a href="/integrate/connector-events">Connector Events</a></li>
@@ -297,8 +297,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Query Tokens by parameters">
-    <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2023-12-06T08:53:37+01:00">
+    <meta itemprop="description" content="This use-case queries Tokens of the Identity.Parameters  createdAt is the ISODateTime the Token was created at.  createdBy is the enmeshed Address of the Identity that created the Token.  createdByDevice is the id of the Device that created the Token.  expiresAt is the ISODateTime the Token expires.On Success  Returns all Tokens that match the query.On Failure  The parameters are malformed.">
+    <meta itemprop="datePublished" content="2023-12-08T13:12:28+01:00">
     
 
     <div class="page__inner-wrap">
@@ -319,12 +319,106 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#parameters">Parameters</a></li><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
 
             </nav>
           </aside>
         
         
+<!--<div>
+    <table>
+        
+        <tr><td>id</td>
+            <td>RK4</td></tr>
+        
+        <tr><td>component</td>
+            <td>Runtime</td></tr>
+        
+        <tr><td>layer</td>
+            <td>Transport</td></tr>
+        
+        <tr><td>facade</td>
+            <td>TokensFacade</td></tr>
+        
+        <tr><td>function</td>
+            <td>getTokens</td></tr>
+        
+        <tr></tr>
+        
+        <tr><td>feature category</td>
+            <td>Share structured information over side-channel</td></tr>
+        
+        <tr><td>tech category</td>
+            <td>Tokens</td></tr>
+        
+        <tr><td>status</td>
+            <td>DONE</td></tr>
+        
+        <tr><td>documentation status</td>
+            <td>DONE</td></tr>
+        
+        <tr></tr>
+        
+        <tr><td>actor</td>
+            <td>Identity</td></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr><td>priority</td>
+            <td>n/a</td></tr>
+        
+        <tr><td>complexity</td>
+            <td>n/a</td></tr>
+        
+        <tr><td>size</td>
+            <td>n/a</td></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr><td>published</td>
+            <td>default</td></tr>
+        
+        <tr><td>link</td>
+            <td>transport/query-tokens-by-parameters</td></tr>
+        
+        <tr></tr>
+        <tr></tr>
+    </table>
+</div>
+-->
+
+<p>This use-case queries <a href="/integrate/data-model-overview#token">Tokens</a> of the Identity.</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">createdAt</code> is the ISODateTime the Token was created at.</li>
+  <li><code class="language-plaintext highlighter-rouge">createdBy</code> is the enmeshed Address of the Identity that created the Token.</li>
+  <li><code class="language-plaintext highlighter-rouge">createdByDevice</code> is the <code class="language-plaintext highlighter-rouge">id</code> of the Device that created the Token.</li>
+  <li><code class="language-plaintext highlighter-rouge">expiresAt</code> is the ISODateTime the Token expires.</li>
+</ul>
+
+<h2 id="on-success">On Success</h2>
+
+<ul>
+  <li>Returns all <a href="/integrate/data-model-overview#token">Tokens</a> that match the <code class="language-plaintext highlighter-rouge">query</code>.</li>
+</ul>
+
+<h2 id="on-failure">On Failure</h2>
+
+<ul>
+  <li>The parameters are malformed.</li>
+</ul>
+
+ 
 
         
       </section>
@@ -336,7 +430,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-12-06T08:53:37+01:00">December 6, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-12-08T13:12:28+01:00">December 8, 2023</time></p>
 
       </footer>
 

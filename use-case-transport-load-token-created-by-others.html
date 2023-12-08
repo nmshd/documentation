@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Load Token created by others - enmeshed</title>
-<meta name="description" content="">
+<meta name="description" content="This use-case intends to load a peer&#8217;s Token from the Backbone by a given reference to the Token.  Parameters  There are two possible options to load the Token:     by knowing the reference of the peer&#8217;s Token            reference that identifies the Token.       ephemeral to indicate that the Token should be stored locally.           by knowing the id and the secretKey of the peer&#8217;s Token            id of the Token.       secretKey that was used to encrypt the Token.       ephemeral to indicate if the Token should be stored locally.           On Success     Returns the corresponding Token.   On Failure     The parameters are malformed.   The Token does not exist.   The Token is expired.">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="/use-case-transport-load-token-created-by-others">
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="This use-case intends to load a peer&#8217;s Token from the Backbone by a given reference to the Token.  Parameters  There are two possible options to load the Token:     by knowing the reference of the peer&#8217;s Token            reference that identifies the Token.       ephemeral to indicate that the Token should be stored locally.           by knowing the id and the secretKey of the peer&#8217;s Token            id of the Token.       secretKey that was used to encrypt the Token.       ephemeral to indicate if the Token should be stored locally.           On Success     Returns the corresponding Token.   On Failure     The parameters are malformed.   The Token does not exist.   The Token is expired.">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-12-06T08:53:37+01:00">
+  <meta property="article:published_time" content="2023-12-08T13:12:28+01:00">
 
 
 
@@ -97,7 +97,7 @@
 
   </head>
 
-  <body class="layout--single">
+  <body class="layout--usecase">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -183,8 +183,6 @@
           
             <li><a href="/integrate/integration-example">Integration example</a></li>
           
-            <li><a href="/integrate/use-cases">Use Cases</a></li>
-          
         </ul>
         
       </li>
@@ -255,6 +253,8 @@
         
         <ul>
           
+            <li><a href="/integrate/use-cases">Use Cases</a></li>
+          
             <li><a href="/integrate/data-model-overview">Data Model Overview</a></li>
           
             <li><a href="/integrate/connector-events">Connector Events</a></li>
@@ -297,8 +297,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Load Token created by others">
-    <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2023-12-06T08:53:37+01:00">
+    <meta itemprop="description" content="This use-case intends to load a peer&#8217;s Token from the Backbone by a given reference to the Token.ParametersThere are two possible options to load the Token:  by knowing the reference of the peer&#8217;s Token          reference that identifies the Token.      ephemeral to indicate that the Token should be stored locally.        by knowing the id and the secretKey of the peer&#8217;s Token          id of the Token.      secretKey that was used to encrypt the Token.      ephemeral to indicate if the Token should be stored locally.      On Success  Returns the corresponding Token.On Failure  The parameters are malformed.  The Token does not exist.  The Token is expired.">
+    <meta itemprop="datePublished" content="2023-12-08T13:12:28+01:00">
     
 
     <div class="page__inner-wrap">
@@ -319,12 +319,146 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#parameters">Parameters</a></li><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
 
             </nav>
           </aside>
         
         
+<!--<div>
+    <table>
+        
+        <tr><td>id</td>
+            <td>RK2</td></tr>
+        
+        <tr><td>component</td>
+            <td>Runtime</td></tr>
+        
+        <tr><td>layer</td>
+            <td>Transport</td></tr>
+        
+        <tr><td>facade</td>
+            <td>TokensFacade</td></tr>
+        
+        <tr><td>function</td>
+            <td>loadPeerToken</td></tr>
+        
+        <tr></tr>
+        
+        <tr><td>feature category</td>
+            <td>Share structured information over side-channel</td></tr>
+        
+        <tr><td>tech category</td>
+            <td>Tokens</td></tr>
+        
+        <tr><td>status</td>
+            <td>DONE</td></tr>
+        
+        <tr><td>documentation status</td>
+            <td>DONE</td></tr>
+        
+        <tr></tr>
+        
+        <tr><td>actor</td>
+            <td>Identity</td></tr>
+        
+        <tr><td>trigger</td>
+            <td>REST API</td></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr><td>priority</td>
+            <td>n/a</td></tr>
+        
+        <tr><td>complexity</td>
+            <td>n/a</td></tr>
+        
+        <tr><td>size</td>
+            <td>n/a</td></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr><td>api_route_regex</td>
+            <td>POST /api/v2/Tokens/Peer</td></tr>
+        
+        <tr><td>published</td>
+            <td>default</td></tr>
+        
+        <tr><td>link</td>
+            <td>transport/load-token-created-by-others</td></tr>
+        
+        <tr></tr>
+        <tr></tr>
+    </table>
+</div>
+-->
+
+<p>This use-case intends to load a peer&#8217;s <a href="/integrate/data-model-overview#token">Token</a> from the Backbone by a given reference to the Token.</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<p>There are two possible options to load the Token:</p>
+
+<ul>
+  <li>by knowing the <code class="language-plaintext highlighter-rouge">reference</code> of the peer&#8217;s Token
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">reference</code> that identifies the Token.</li>
+      <li><code class="language-plaintext highlighter-rouge">ephemeral</code> to indicate that the Token should be stored locally.</li>
+    </ul>
+  </li>
+  <li>by knowing the <code class="language-plaintext highlighter-rouge">id</code> and the <code class="language-plaintext highlighter-rouge">secretKey</code> of the peer&#8217;s Token
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">id</code> of the Token.</li>
+      <li><code class="language-plaintext highlighter-rouge">secretKey</code> that was used to encrypt the Token.</li>
+      <li><code class="language-plaintext highlighter-rouge">ephemeral</code> to indicate if the Token should be stored locally.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="on-success">On Success</h2>
+
+<ul>
+  <li>Returns the corresponding <a href="/integrate/data-model-overview#token">Token</a>.</li>
+</ul>
+
+<h2 id="on-failure">On Failure</h2>
+
+<ul>
+  <li>The parameters are malformed.</li>
+  <li>The Token does not exist.</li>
+  <li>The Token is expired.</li>
+</ul>
+
+  <h2>How to execute this use-case with the Connector?</h2>
+
+The Connector is our first-class citizen, thus we provide you with a detailed API description for every use-case.
+This use-case can be executed with the REST API of the Connector which you can <a href="/integrate/access-the-connector">Access the Connector</a>.
+ 
+<h6>Corresponding interactive API docs excerpt:</h6>
+
+<rapi-doc-mini
+    server-url="https://doc-demo.is.enmeshed.eu/"
+    default-api-server="https://doc-demo.is.enmeshed.eu/"
+    api-key-name="x-api-key"
+    api-key-location="header"
+    api-key-value="apikey"
+    layout="column"
+    default-schema-tab="example"
+    spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
+    paths-expanded="false"
+    theme="light"
+    bg-color="#f9f9fb"
+    
+    match-paths="^POST /api/v2/Tokens/Peer$"
+    
+    match-type="regex"
+></rapi-doc-mini>
+<br />
+ 
 
         
       </section>
@@ -336,7 +470,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-12-06T08:53:37+01:00">December 6, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-12-08T13:12:28+01:00">December 8, 2023</time></p>
 
       </footer>
 
