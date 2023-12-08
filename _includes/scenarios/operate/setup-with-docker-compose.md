@@ -64,7 +64,7 @@ Visit the official [MongoDB website](https://www.mongodb.com/) for installation 
 
 Go through the following steps to start the Connector:
 
-1. make your existing MongoDB available for the connector
+1. make your existing MongoDB available for the Connector
 2. place the file [examples/docker-compose-with-existing-mongodb.yml](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/docker-compose-with-existing-mongodb.yml) as `docker-compose.yml` in a folder of your choice
 3. create a config file that can be mounted inside the Connector. Fill the config file using the [configuration docs]({% link _docs_operate/configuration.md %}) and the [example config file](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/example.config.json)
 4. replace all `<placeholders>` in the compose file with the corresponding values
@@ -100,6 +100,45 @@ If the swagger documentation is enabled you can also access it under `<connector
 1. Uncomment the volume mapping in the created `docker-compose.yml` file
 2. Create a folder where the log files shall be placed. Make sure that the process in the container has write access to the folder e.g. by executing `chmod 777 <folder>` on your created folder.
 3. replace `</folder/of/your/choice>` with the path to your created folder
+
+## API platform hosted on the (development) Connector
+
+To use the api platform hosted on the Connector you need to make the following config changes:
+
+1. the http server must be enabled in the configuration of the Connector.
+
+   ```jsonc
+   {
+     "infrastructure": {
+       "httpServer": {
+         "enabled": true,
+         "apiKey": "an-api-key"
+       }
+     }
+   }
+   ```
+
+2. furthermore the API must be activated
+
+   ```jsonc
+   {
+     "modules": {
+       "coreHttpApi": {
+         "docs": {
+           "enabled": true
+         }
+       }
+     }
+   }
+   ```
+
+3. the API must not be used in production systems, therefore the tag "debug" must be activated
+
+   ```jsonc
+   {
+     "debug": true
+   }
+   ```
 
 ## Troubleshooting
 
