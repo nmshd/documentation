@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RF6
+  - component: Runtime
   - layer: Transport
   - facade: FilesFacade
   - function: createTokenForFile
@@ -16,9 +17,9 @@ properties:
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger: REST API
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: POST /api/v2/Files/{id}/Token
   - published: default
   - link: transport/create-token-for-file
 require:

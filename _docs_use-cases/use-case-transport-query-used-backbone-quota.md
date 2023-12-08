@@ -1,38 +1,38 @@
 ---
-permalink: /use-case-consumption-query-blueprints
+permalink: /use-case-transport-query-used-backbone-quota
 published: false
-title: "Query Blueprints"
+title: "Query used Backbone quota"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate Enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RB2
+  - id: TBD
   - component: Runtime
-  - layer: Consumption
+  - layer: Transport
   - facade:
   - function:
-  - description:
+  - description: Query the currently used Backbone quota of the Identity.
   - feature category:
-  - tech category: Blueprint
+  - tech category:
   - status: IDEA
   - documentation status:
   - comments:
-  - actor: Identity
+  - actor:
   - trigger:
   - precondition:
   - result:
-  - priority: LOW
-  - complexity: LOW
-  - size: S
+  - priority:
+  - complexity:
+  - size:
   - created_at:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/query-blueprints
+  - link: transport/query-used-backbone-quota
 require:
 required_by:
 ---
 
-{% include use-cases/use-case-consumption-query-blueprints.md %}
+{% include use-cases/use-case-transport-query-used-backbone-quota.md %}

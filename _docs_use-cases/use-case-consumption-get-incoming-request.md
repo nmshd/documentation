@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RIR2
+  - component: Runtime
   - layer: Consumption
   - facade: IncomingRequestsFacade
   - function: getRequest
@@ -16,9 +17,9 @@ properties:
   - feature category: Normalized requests/responses to and from users
   - tech category: Requests
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger: REST API
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: get /api/v2/Requests/Incoming/{id}
   - published: default
   - link: consumption/get-incoming-request
 require:

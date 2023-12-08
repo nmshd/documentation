@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RF4
+  - component: Runtime
   - layer: Transport
   - facade: FilesFacade
   - function: getOrLoadFile
@@ -16,9 +17,9 @@ properties:
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger: REST API
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: GET /api/v2/Files/{idOrReference}
   - published: default
   - link: transport/get-or-load-file
 require:

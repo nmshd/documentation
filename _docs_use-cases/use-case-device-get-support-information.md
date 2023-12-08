@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: CR3
+  - component: ConnectorRuntime
   - layer: Device
   - facade: ConnectorRuntime
   - function: getSupportInformation
@@ -16,9 +17,9 @@ properties:
   - feature category:
   - tech category: Monitoring
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Integrator
-  - component: ConnectorRuntime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: GET /Monitoring/Support
   - published: default
   - link: device/get-support-information
 require:

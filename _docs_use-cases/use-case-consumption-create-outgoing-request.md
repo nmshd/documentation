@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ROR2
+  - component: Runtime
   - layer: Consumption
   - facade: OutgoingRequestsFacade
   - function: create
@@ -16,9 +17,9 @@ properties:
   - feature category: Normalized requests/responses to and from users
   - tech category: Requests
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,14 +28,11 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: post /api/v2/Requests/Outgoing
   - published: default
   - link: consumption/create-outgoing-request
 require:
-  - /use-case-consumption-check-if-outgoing-request-can-be-created
 required_by:
-  - integrate/integration-example
-  - integrate/requests-over-messages
 api_route_regex: ^post /api/v2/Requests/Outgoing$
 ---
 

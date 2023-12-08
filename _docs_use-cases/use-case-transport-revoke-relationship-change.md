@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RR8
+  - component: Runtime
   - layer: Transport
   - facade: RelationshipsFacade
   - function: revokeRelationshipChange
@@ -16,9 +17,9 @@ properties:
   - feature category: Mutual peer-to-peer relationships
   - tech category: Relationships
   - status: QUESTIONS
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: transport/revoke-relationship-change
 require:

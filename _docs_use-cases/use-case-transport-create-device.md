@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-create-device
-published: true
+published: false
 title: "Create Device"
 type: use-case
 toc: true
@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RD1
+  - component: Runtime
   - layer: Transport
   - facade: DevicesFacade
   - function: createDevice
@@ -16,9 +17,9 @@ properties:
   - feature category: Multi-device
   - tech category: Devices
   - status: DONE
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger: Runtime
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: transport/create-device
 require:

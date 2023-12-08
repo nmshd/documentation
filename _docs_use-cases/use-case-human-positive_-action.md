@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: A16
+  - component: App
   - layer: Human
   - facade: Screen
   - function:
@@ -16,9 +17,9 @@ properties:
   - feature category:
   - tech category: User Action
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: User
-  - component: App
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: human/positive-action
 require:

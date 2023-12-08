@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RA3
+  - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
   - function: getPeerAttributes
@@ -16,9 +17,9 @@ properties:
   - feature category: Normalized attributes
   - tech category: Attributes
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger: REST API
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: GET /api/v2/Attributes
   - published: default
   - link: consumption/get-attributes-of-peer
 require:

@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: IAR1
+  - component: Runtime
   - layer: Consumption
   - facade: AutomationRuleFacade
   - function:
@@ -16,9 +17,9 @@ properties:
   - feature category:
   - tech category: Automation Rules
   - status: IDEA
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,8 +28,8 @@ properties:
   - size: L
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
+  - api_route_regex:
+  - published:
   - link: consumption/create-automation-rule
 require:
 required_by:

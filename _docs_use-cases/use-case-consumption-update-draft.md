@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-update-draft
-published: true
+published: false
 title: "Update Draft"
 type: use-case
 toc: true
@@ -9,16 +9,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RDR4
+  - component: Runtime
   - layer: Consumption
   - facade: DraftFacade
   - function: updateDraft
   - description:
   - feature category: Cross-device draft handling
   - tech category: Drafts
-  - status: DONE
-  - comments:
+  - status: PRERELEASE
+  - documentation status:
+  - comments: Internal
   - actor: Identity
-  - component: Runtime
   - trigger: Runtime
   - precondition:
   - result:
@@ -27,8 +28,8 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
+  - api_route_regex:
+  - published:
   - link: consumption/update-draft
 require:
 required_by:

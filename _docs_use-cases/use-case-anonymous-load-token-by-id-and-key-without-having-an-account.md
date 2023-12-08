@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RY2
+  - component: Runtime
   - layer: Anonymous
   - facade: AnonymousFacade
   - function: loadPeerTokenByIdAndKey
@@ -16,9 +17,9 @@ properties:
   - feature category: Share information over side-channel
   - tech category: AnonymousTokens
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: anonymous/load-token-by-id-and-key-without-having-an-account
 require:

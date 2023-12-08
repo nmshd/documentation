@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RA11
+  - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
   - function: succeedAttribute
@@ -16,9 +17,9 @@ properties:
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
   - status: QUESTIONS
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: M
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: consumption/succeed-attribute
 require:

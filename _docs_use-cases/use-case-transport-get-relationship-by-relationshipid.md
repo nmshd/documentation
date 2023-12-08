@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RR3
+  - component: Runtime
   - layer: Transport
   - facade: RelationshipsFacade
   - function: getRelationship
@@ -16,9 +17,9 @@ properties:
   - feature category: Mutual peer-to-peer relationships
   - tech category: Relationships
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: GET /api/v2/Relationships/{id}
   - published: default
   - link: transport/get-relationship-by-relationshipid
 require:

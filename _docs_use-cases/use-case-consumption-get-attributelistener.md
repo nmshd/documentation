@@ -9,16 +9,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RAL2
+  - component: Runtime
   - layer: Consumption
   - facade: AttributeListenersFacade
   - function: getAttributeListener
   - description:
   - feature category: Attribute automation
   - tech category: AttributeListeners
-  - status: DONE
+  - status: PRERELEASE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger: Runtime
   - precondition:
   - result:
@@ -27,8 +28,8 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
+  - api_route_regex:
+  - published:
   - link: consumption/get-attributelistener
 require:
 required_by:

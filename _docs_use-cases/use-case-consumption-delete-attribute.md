@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RA7
+  - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
   - function: deleteAttribute
@@ -16,9 +17,9 @@ properties:
   - feature category: Normalized attributes
   - tech category: Attributes
   - status: QUESTIONS
+  - documentation status:
   - comments: What exactly is implemented here?
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: M
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: consumption/delete-attribute
 require:
