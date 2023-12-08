@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RA8
+  - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
   - function: executeIdentityAttributeQuery
@@ -16,10 +17,10 @@ properties:
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
   - priority: n/a
@@ -27,11 +28,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: post /api/v2/Attributes/ExecuteIdentityAttributeQuery
   - published: default
   - link: consumption/execute-an-identityattributequery
 require:
 required_by:
+api_route_regex: ^post /api/v2/Attributes/ExecuteIdentityAttributeQuery$
 ---
 
 {% include use-cases/use-case-consumption-execute-an-identityattributequery.md %}

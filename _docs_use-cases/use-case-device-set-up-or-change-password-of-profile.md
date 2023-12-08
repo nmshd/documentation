@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ARS3
+  - component: AppRuntime
   - layer: Device
   - facade:
   - function:
@@ -16,9 +17,9 @@ properties:
   - feature category: Identity Hardening
   - tech category: Profile
   - status: IDEA
+  - documentation status:
   - comments:
   - actor: User
-  - component: AppRuntime
   - trigger:
   - precondition: Profile has been selected (and has been logged into)
   - result: A (new) password for this Profile is stored
@@ -27,8 +28,8 @@ properties:
   - size: L
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
+  - api_route_regex:
+  - published:
   - link: device/set-up-or-change-password-of-profile
 require:
 required_by:

@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ARP3
+  - component: AppRuntime
   - layer: Device
   - facade: AccountServices
   - function: getProfile
@@ -16,9 +17,9 @@ properties:
   - feature category: Multi-profile
   - tech category: Profiles
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: App
-  - component: AppRuntime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: device/get-profile
 require:

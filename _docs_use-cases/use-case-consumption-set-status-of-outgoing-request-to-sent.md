@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-set-status-of-outgoing-request-to-sent
-published: true
+published: false
 title: "Set status of outgoing Request to sent"
 type: use-case
 toc: true
@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ROR6
+  - component: Runtime
   - layer: Consumption
   - facade: OutgoingRequestsFacade
   - function: sent
@@ -16,9 +17,9 @@ properties:
   - feature category: Request automation
   - tech category: Requests
   - status: DONE
-  - comments:
+  - documentation status:
+  - comments: Internal
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: consumption/set-status-of-outgoing-request-to-sent
 require:

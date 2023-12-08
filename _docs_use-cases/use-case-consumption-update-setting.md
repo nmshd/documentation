@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-update-setting
-published: true
+published: false
 title: "Update Setting"
 type: use-case
 toc: true
@@ -9,16 +9,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RS5
+  - component: Runtime
   - layer: Consumption
   - facade: SettingFacade
   - function: updateSetting
   - description:
   - feature category: Cross-device configuration
   - tech category: Settings
-  - status: DONE
-  - comments:
+  - status: PRERELEASE
+  - documentation status:
+  - comments: Internal
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,8 +28,8 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
+  - api_route_regex:
+  - published:
   - link: consumption/update-setting
 require:
 required_by:

@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-device-get-appruntime-version-information
-published: true
+published: false
 title: "Get AppRuntime version information"
 type: use-case
 toc: true
@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: AR2
+  - component: AppRuntime
   - layer: Device
   - facade: AppRuntime
   - function:
@@ -16,9 +17,9 @@ properties:
   - feature category:
   - tech category: AppRuntime
   - status: DONE
+  - documentation status:
   - comments:
   - actor: App
-  - component: AppRuntime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: device/get-appruntime-version-information
 require:
