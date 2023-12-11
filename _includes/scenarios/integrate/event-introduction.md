@@ -9,8 +9,8 @@ Thus, a bidirectional communication is established.
 
 Events are predefined datastructures used within enmeshed to communicate a significant change of an entity's state.
 They are heavily used internally by the enmeshed Runtime, but can also be propagated by the Connector to external systems.
-Thus, these systems don't have to perform long pulling, in order to receive changes, but are actively informed once they occur.
-This is not only more efficient, also, its is saver, since it keeps you updated about all changes of interest.
+Thus, these systems don't have to perform long polling, in order to receive changes, but are actively informed once they occur.
+This is not only more efficient, also, its is safer, since it keeps you updated about all changes of interest.
 Working with events allows to determine routines, that are executed whenever a specific event arises, called handlers.
 An overview of the [Connector events]({% link _docs_integrate/connector-events.md %}) that may occur is given in the corresponding section.
 
@@ -30,7 +30,7 @@ This might take many cycles, depending on the refresh rate, and implies a delay 
 ### Using events
 
 In contrast, if you work with events, as soon as the Connector successfully sent your `Message`, a `transport.messageSent` event will be transmitted to your system as a confirmation.
-Awaiting the response, no long pulling is necessary, since the Connector actively sends a `transport.messageReceived` event, containing the answer, once it is received.
+Awaiting the response, no long polling is necessary, since the Connector actively sends a `transport.messageReceived` event, containing the answer, once it is received.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/c1e9f677-1e81-4787-9718-4f94f6a16727" id="3wvNo3dv6Zqo"></iframe></div>
 
@@ -39,8 +39,8 @@ Awaiting the response, no long pulling is necessary, since the Connector activel
 In order to receive events, the Connector needs to be synchronized with the Backbone.
 This can be automated using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 Fetching changes from the Backbone regularly, it automatically triggers the events used by other [Modules]({% link _docs_operate/modules.md %}).
-Currently, there are two options available: Events can either be received via [AMQP]({% link _docs_operate/modules.md %}#amqppublisher) or via [Webhooks]({% link _docs_operate/modules.md %}#webhooksv2).
-Working with AMQP has the advantage that it functions with a message broker, thus, ensuring the conservation of events, even in case of a downtime of the recipient.
+Currently, there are three options available: events can be received via [AMQP]({% link _docs_operate/modules.md %}#amqppublisher), via [PubSub]({% link _docs_operate/modules.md %}#pubsubpublisher) or via [Webhooks]({% link _docs_operate/modules.md %}#webhooksv2).
+Working with message brokers has the advantage that events are conserved, even in case of a downtime of the recipient.
 Furthermore, configuring exchanges allows to optimize the event processing for one's system.
 An example of an open source message broker is [RabbitMQ](https://www.rabbitmq.com/).
 In contrast, the WebhooksV2 Module will send `HTTP POST` requests to the corresponding handler, if an event occurs.

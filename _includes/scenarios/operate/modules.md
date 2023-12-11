@@ -49,4 +49,4 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
 
 ### Requesting Modules
 
-In case you need a further Module for your application, please raise an [issue](https://github.com/nmshd/feedback/issues/new/choose).
+In case you need a further Module for your application, please state a [feature request](https://github.com/nmshd/feedback/issues/new?assignees=&labels=enhancement&projects=&template=feature_request.md&title=%5BFEATURE%5D+).
