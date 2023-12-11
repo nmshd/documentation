@@ -30,34 +30,24 @@ For reading a single Attribute, you need to insert a single [RequestItem]({% lin
 
 The input you have to provide for the `query` property depends on what kind of Attribute you want to get. If you want to read an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute), you must use an [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery). If, on the other hand, you are interested in a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) of the Recipient, you must insert a [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) or a [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery) at this point. This depends on whether you want to read a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) that the Recipient has in the context of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the Sender or with a third party.
 
-### Read an IdentityAttribute
+### Example of reading an IdentityAttribute
 
-We assume that the Sender wants to read an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an [IdentityAttribute Value]({% link _docs_integrate/attribute-values.md %}#identity-attributes) of a specific type of the Recipient. Then the associated [ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem), which the Sender inserts into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes, must contain an [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery) in its `query` property:
+We assume that the Sender wants to read an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of type [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) of the Recipient:
 
-| Property    | Value                                                               | Required |
-| ----------- | ------------------------------------------------------------------- | :------: |
-| `@type`     | `"IdentityAttributeQuery"`                                          |    ✓     |
-| `validFrom` | `"<start of Attribute validity>"`                                   |    ✗     |
-| `validTo`   | `"<end of Attribute validity>"`                                     |    ✗     |
-| `valueType` | `"<type of IdentityAttribute Value>"`                               |    ✓     |
-| `tags`      | `["<additional information 1>", ..., "<additional information m>"]` |    ✗     |
+| Property    | Value                      |
+| ----------- | -------------------------- |
+| `@type`     | `"IdentityAttributeQuery"` |
+| `valueType` | `"EMailAddress"`           |
+
+The corresponding [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery) must then be inserted into the `query` property of the [ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem), which is contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes.
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/b287c0e8-9f7b-47b1-9f3a-a749b2ab4857" id="W5jVHiTYvN.P"></iframe></div>
 
 ### Read a RelationshipAttribute
 
-We now consider the case that the Sender has an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) established with the Recipient and that the Sender wants to read a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) of this Relationship. Then the associated [ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem), which is contained in the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes created by the Sender, must contain an appropriate [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) in its `query` property:
+We now consider the case that the Sender has an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) established with the Recipient and that the Sender wants to read a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) of this Relationship. Then the associated [ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem), which is contained in the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes created by the Sender, must contain an appropriate [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) in its `query` property. Further details on the purposes for which you can use a [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) and how you can use it can be found in the description of the [Combinations and usage scenarios]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-combinationsandusagescenarios) of the [ReadAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem). For information on using the [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery), you should also refer to this description.
 
-| Property                 | Value                                                                                                                              | Required |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | :------: |
-| `@type`                  | `"RelationshipAttributeQuery"`                                                                                                     |    ✓     |
-| `validFrom`              | `"<start of Attribute validity>"`                                                                                                  |    ✗     |
-| `validTo`                | `"<end of Attribute validity>"`                                                                                                    |    ✗     |
-| `key`                    | `"<key of RelationshipAttribute>"`                                                                                                 |    ✓     |
-| `owner`                  | `"<Address of Recipient or Sender>"`                                                                                               |    ✓     |
-| `attributeCreationHints` | Specify [RelationshipAttributeCreationHints]({% link _docs_integrate/data-model-overview.md %}#relationshipattributecreationhints) |    ✓     |
-
-Further details on the purposes for which you can use a [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) and how you can use it can be found in the description of the [Combinations and usage scenarios]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-combinationsandusagescenarios) of the [ReadAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem).
-
-### Read multiple Attributes with a RequestItemGroup
+### Read multiple Attributes
 
 It is not necessary to request just a single Attribute. Instead, it is also possible to request read access to multiple Attributes at the same time. For this purpose, several RequestItems of type [ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes. If you want to use a [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in order to request read access to multiple Attributes of the Recipient at the same time, you must insert corresponding RequestItems of type [ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#description-of-readattributerequestitem) into the `items` property of it.
 
