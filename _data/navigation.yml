@@ -83,8 +83,6 @@ docs_integrate:
         url: /integrate/integration-example
       #- title: "Event introduction"
       #  url: /integrate/event-introduction
-      - title: "Use Cases"
-        url: /integrate/use-cases
 
   - title: Manage Requests
     children:
@@ -108,6 +106,8 @@ docs_integrate:
         url: /integrate/requesting-one-time-consents
   - title: Data Model
     children:
+      - title: "Use Cases"
+        url: /integrate/use-cases
       - title: "Data Model Overview"
         url: /integrate/data-model-overview
       - title: "Connector Events"

@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RRI1
+  - component: Runtime
   - layer: Consumption
   - facade: RequestItemFacade
   - function:
@@ -16,9 +17,9 @@ properties:
   - feature category:
   - tech category: RequestItems
   - status: IDEA
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,8 +28,8 @@ properties:
   - size: S
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
+  - api_route_regex:
+  - published:
   - link: consumption/create-requestitem-to-delete-relationship
 require:
 required_by:

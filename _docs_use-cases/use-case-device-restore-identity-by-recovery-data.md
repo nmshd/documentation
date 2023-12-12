@@ -1,7 +1,7 @@
 ---
-permalink: /use-case-device-restore-identity-by-revovery-data
+permalink: /use-case-device-restore-identity-by-recovery-data
 published: false
-title: "Restore Identity by revovery data"
+title: "Restore Identity by recovery data"
 type: use-case
 toc: true
 sidebar:
@@ -9,16 +9,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ARP7
+  - component: AppRuntime
   - layer: Device
   - facade:
   - function:
   - description:
   - feature category: Identity Hardening
   - tech category: Profiles
-  - status: OPEN
+  - status: IDEA
+  - documentation status:
   - comments:
   - actor: User
-  - component: AppRuntime
   - trigger:
   - precondition: A backup has been created for this Profile
   - result: The Profile has been restored by the backup
@@ -27,11 +28,11 @@ properties:
   - size: M
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
-  - link: device/restore-identity-by-revovery-data
+  - api_route_regex:
+  - published:
+  - link: device/restore-identity-by-recovery-data
 require:
 required_by:
 ---
 
-{% include use-cases/use-case-device-restore-identity-by-revovery-data.md %}
+{% include use-cases/use-case-device-restore-identity-by-recovery-data.md %}

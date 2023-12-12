@@ -9,16 +9,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RA12
+  - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
   - function: updateAttribute
   - description:
   - feature category: Normalized attributes
   - tech category: Attributes
-  - status: QUESTIONS
-  - comments:
+  - status: CHANGES REQUIRED
+  - documentation status:
+  - comments: Will be removed
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: M
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: consumption/update-attribute
 require:

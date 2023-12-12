@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RM4
+  - component: Runtime
   - layer: Transport
   - facade: MessagesFacade
   - function: getAttachmentMetadata
@@ -16,9 +17,9 @@ properties:
   - feature category: Bidirectional (un-)structured communication
   - tech category: Messages
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: transport/get-file-metadata-of-attachment
 require:

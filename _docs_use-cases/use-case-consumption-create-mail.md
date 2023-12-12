@@ -8,7 +8,8 @@ sidebar:
   - title: "Integrate Enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RM1
+  - id: RML1
+  - component: Runtime
   - layer: Consumption
   - facade:
   - function:
@@ -16,9 +17,9 @@ properties:
   - feature category: Bidirectional unstructured communication
   - tech category: Mail
   - status: IDEA
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,8 +28,8 @@ properties:
   - size: S
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
+  - api_route_regex:
+  - published:
   - link: consumption/create-mail
 require:
 required_by:

@@ -9,16 +9,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ARP2
+  - component: AppRuntime
   - layer: Device
   - facade: AccountServices
   - function: getAccounts
   - description: The User needs to get all Profiles on the Device and their metadata.
   - feature category: Multi-profile
   - tech category: Profiles
-  - status: DONE
+  - status: QUESTIONS
+  - documentation status: DONE
   - comments: No Queries?
   - actor: App
-  - component: AppRuntime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: device/get-profiles
 require:
