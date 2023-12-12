@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-device-create-profile-with-new-identity
-published: true
+published: false
 title: "Create Profile with new Identity"
 type: use-case
 toc: true
@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: CR1
+  - component: ConnectorRuntime
   - layer: Device
   - facade: ConnectorRuntime
   - function: create
@@ -16,9 +17,9 @@ properties:
   - feature category:
   - tech category: Bootstrap
   - status: DONE
-  - comments:
+  - documentation status:
+  - comments: Internal
   - actor: Device
-  - component: ConnectorRuntime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: device/create-profile-with-new-identity
 require:

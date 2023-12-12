@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ROR5
+  - component: Runtime
   - layer: Consumption
   - facade: OutgoingRequestsFacade
   - function: createAndCompleteFromRelationshipTemplateResponse
@@ -16,9 +17,9 @@ properties:
   - feature category: Normalized requests/responses to and from users
   - tech category: Requests
   - status: DONE
-  - comments:
+  - documentation status: DONE
+  - comments: Internal
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: consumption/create-and-complete-outgoing-request-from-relationship-template-response
 require:

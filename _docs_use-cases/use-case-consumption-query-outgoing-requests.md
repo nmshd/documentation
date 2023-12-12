@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ROR3
+  - component: Runtime
   - layer: Consumption
   - facade: OutgoingRequestsFacade
   - function: getRequests
@@ -16,9 +17,9 @@ properties:
   - feature category: Normalized requests/responses to and from users
   - tech category: Requests
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +28,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: get /api/v2/Requests/Outgoing
   - published: default
   - link: consumption/query-outgoing-requests
 require:
 required_by:
+api_route_regex: ^get /api/v2/Requests/Outgoing$
 ---
 
 {% include use-cases/use-case-consumption-query-outgoing-requests.md %}

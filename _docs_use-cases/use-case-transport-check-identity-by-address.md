@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-check-identity-by-address
-published: true
+published: false
 title: "Check Identity by Address"
 type: use-case
 toc: true
@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RI1
+  - component: Runtime
   - layer: Transport
   - facade: IdentityFacade
   - function: checkIdentity
@@ -16,9 +17,9 @@ properties:
   - feature category:
   - tech category: Identities
   - status: DONE
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: transport/check-identity-by-address
 require:

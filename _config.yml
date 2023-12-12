@@ -186,7 +186,7 @@ defaults:
       path: ""
       type: docs_use-cases
     values:
-      layout: single
+      layout: usecase
       author_profile: false
       sidebar:
         - title: "Use-Cases enmeshed"

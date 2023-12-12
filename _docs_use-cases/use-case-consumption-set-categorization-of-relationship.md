@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RR9
+  - component: AppRuntime
   - layer: Consumption
   - facade:
   - function:
@@ -16,9 +17,9 @@ properties:
   - feature category:
   - tech category: Relationships
   - status: IDEA
+  - documentation status:
   - comments:
   - actor: User
-  - component: AppRuntime
   - trigger:
   - precondition:
   - result:
@@ -27,8 +28,8 @@ properties:
   - size: M
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
+  - api_route_regex:
+  - published:
   - link: consumption/set-categorization-of-relationship
 require:
 required_by:
