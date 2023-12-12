@@ -8,5 +8,9 @@
     "author": "j&s-soft GmbH",
     "scripts": {
         "start": "bundle exec jekyll serve"
+    },
+    "dependencies": {
+        "@types/node": "^20.10.4",
+        "typescript": "^5.3.3"
     }
 }
