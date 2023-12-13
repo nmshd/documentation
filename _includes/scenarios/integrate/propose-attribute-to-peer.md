@@ -10,6 +10,12 @@ We will now explain how a Connector, hereinafter referred to as the Sender, can 
 Please note that the general procedure is the same if the Connector wants to propose an Attribute to an App user instead of another Connector. For reasons of clarity, this guide focuses on the proposing process with two Connectors.
 {: .notice--info}
 
+## What's next?
+
+An Identity has several options for requesting an Attribute creation. This guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is proposed by the Identity, but can be overridden by the peer when accepting the Request. In some cases, it makes more sense if the peer cannot change the proposed Attribute Value. For that, take a look at the Create Attribute for peer guide.
+
+<!--- TODO: Insert Link to "Create Attribute for peer" guide --->
+
 <!--- {% include warnings/documentation-is-prerelease %}
 
 The connector would like to save an attribute for another identity and has 2 options for this.
