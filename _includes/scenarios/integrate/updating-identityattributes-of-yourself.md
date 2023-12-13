@@ -69,12 +69,12 @@ Then, a Notification is sent to the peer, which handles the replication of the s
 
 {% include properties_list.html %}
 
-If you wish to share one of your private [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute), called RepositoryAttributes, with a peer, the ShareIdentityAttribute use case can be used to do so.
+If you wish to share one of your private [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute), not having a `shareInfo`, with a peer, the ShareIdentityAttribute use case can be used to do so.
 Internally, a [Request]({% link _docs_integrate/data-model-overview.md %}#request) with a [ShareAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem) will be created and will be sent via [Message]({% link _docs_integrate/data-model-overview.md %}#message) to the peer.
 Assuming your peer accepts the Request, at their side a peer shared IdentityAttribute will be created.
-Moreover, a Notification is sent to you, informing you about their acceptance and creating an own shared IdentityAttribute copy of the RepositoryAttribute you shared.
-This copy, however, contains in addition to the content of the RepositoryAttribute a property called `shareInfo`.
-It stores information about the `peer` you shared the attribute with, the `sourceReference` to the RepositoryAttribute, whose content you copied, and a reference to the Request used to share the Attribute.
+Moreover, a Notification is sent to you, informing you about their acceptance and creating a copy of the private IdentityAttribute without `shareInfo` you shared.
+This own shared IdentityAttribute copy, however, contains in addition a `shareInfo` field.
+It stores information about the `peer` you shared the attribute with, the `sourceReference` to the private IdentityAttribute, whose content you copied, and a reference to the Request used to share the Attribute.
 Note that the own shared IdentityAttribute at your side and the peer shared IdentityAttribute at your peer's side are identitcal, except for the value in the `shareInfo.peer` field: on your side it will have the peer's address and on the peer's side it will have your address.
 Please note further, that this use case is meant to be used to share a version of an IdentityAttribute for the first time.
 If you already shared a succeeded version of your attribute with the peer and you want to let them know about change, use the NotifyPeerAboutIdentityAttributeSuccession use case.
@@ -83,18 +83,19 @@ If you already shared a succeeded version of your attribute with the peer and yo
 
 ### Parameters
 
-- The `attributeId` of your RepositoryAttribute
+- The `attributeId` of your private IdentityAttribute without `shareInfo`
 - The address of the `peer`
 - Optionally `requestMetadata` as described in the [data model]({% link _docs_integrate/data-model-overview.md %}#request), except for the `id` and `items`, which are handled automatically.
 
 ### On Success
 
-- A Request is sent via Message to the peer, containing a ShareAttributeRequestItem with the IdentityAttribute you want to share with the peer.
+- The Request is returned, which is sent via Message to the peer, containing a ShareAttributeRequestItem with the IdentityAttribute you want to share with the peer.
 
 ### On Failure
 
 - The Request cannot be created, if the `peer` is unknown.
-- The Request cannot be created, if the `attributeId` doesn't belong to a valid RepositoryAttribute.
+- The Request cannot be created, if the `attributeId` belongs to a RelationshipAttribute.
+- The Request cannot be created, if the `attributeId` belongs to an IdentityAttribute with a `shareInfo`.
 - The Request cannot be created, if the Attribute has already been shared with the peer.
 - The Request cannot be created, if another version of the Attribute regarding succession has already been shared with the peer.
 - The Request cannot be created, if the parameters are malformed.
@@ -105,28 +106,29 @@ If you already shared a succeeded version of your attribute with the peer and yo
 
 {% include properties_list.html %}
 
-If the value of a private [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute), called RepositoryAttribute, changes, this can be replicated in enmeshed with the SucceedIdentityAttribute use case.
+If the value of a private [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) without `shareInfo`, changes, this can be replicated in enmeshed with the SucceedIdentityAttribute use case.
 It allows you to update the content and keeps a coherent history of all versions by establishing a double-linked list, using the Attribute parameters `succeeds` and `succeededBy`.
 Hence, every Attribute may have exactly one predecessor and one successor.
-In case you shared the predecessing version of an Attribute, own shared IdentityAttribute copies of the RepositoryAttribute will only be succeeded, too, if you decide to notify the peer of the respective shared IdentityAttribute about the succession.
+In case you shared the predecessing version of the IdentityAttribute, own shared IdentityAttribute copies will only be succeeded, too, if you decide to notify the peer of the respective shared IdentityAttribute about the succession.
 
 <!-- TODO: link to attribute succession scenario (succeeding identityattributes) -->
 <!-- TODO: insert link to NotifyPeerAboutIdentityAttributeSuccession use case -->
 
 ### Parameters
 
-- `predecessorId`: the ID of the RepositoryAttribute you want to succeed
+- `predecessorId`: the ID of the privat IdentityAttribute without `shareInfo` you want to succeed
 - The `successorContent` according to the parameters of an IdentityAttribute as described in the [data model]({% link _docs_integrate/data-model-overview.md %}#identityattribute), except for the `owner`, which is automatically set to your address
 
 ### On Success
 
 - The response returns a `predecessor` and a `successor` Attribute.
-- The `predecessor` is an updated version of the RepositoryAttribute belonging to `predecessorId`, having the `succeededBy` field set to the `successor`'s ID.
-- The `successor` is a new RepositoryAttribute version with the updated `successorContent`. Its `succeeds` property links to the `predecessor`.
+- The `predecessor` is an updated version of the IdentityAttribute without `shareInfo` belonging to `predecessorId`, having the `succeededBy` field set to the `successor`'s ID.
+- The `successor` is a new IdentityAttribute without `shareInfo` with the updated `successorContent`. Its `succeeds` property links to the `predecessor`.
 
 ### On Failure
 
-- The response cannot be created, if the `predecessorId` doesn't belong to a valid RepositoryAttribute.
+- The response cannot be created, if the `predecessorId` belongs to a RelationshipAttribute.
+- The response cannot be created, if the `predecessorId` belongs to an IdentityAttribute with a `shareInfo`.
 - The response cannot be created, if the Attribute already has a successor.
 - The response cannot be created, if the successorContent contains invalid changes, e.g. of the value type.
 - The response cannot be created, if the parameters are malformed.
@@ -137,7 +139,7 @@ In case you shared the predecessing version of an Attribute, own shared Identity
 
 {% include properties_list.html %}
 
-If you succeeded a private [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute), called RepositoryAttribute, whose previous version you shared with a peer, you can decide to let the peer know about the succession.
+If you succeeded a private [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute), not having a `shareInfo`, whose previous version you shared with a peer, you can decide to let the peer know about the succession.
 In case you shared the Attribute with multiple peers, you can select individually which of them you would like to inform.
 Those chosen will receive a Notification via [Message]({% link _docs_integrate/data-model-overview.md %}#message), which handles the succession of their peer shared IdentityAttributes.
 Also, the associated own shared IdentityAttributes at your side will be succeeded, i.e. a new version of the successor will be created and the predecessor will be updated to link to the successor in its `succeededBy` property.
@@ -147,19 +149,20 @@ Moreover, it is also possible to notify a peer about the succession of an Identi
 
 ### Parameters
 
-- `attributeId` of the succeeded RepositoryAttribute
+- `attributeId` of the succeeded private IdentityAttribute without `shareInfo`
 - The address of the `peer`
 
 ### On Success
 
 - The response returns a `predecessor` and a `successor` Attribute.
 - The `predecessor` is an updated version of the own shared IdentityAttribute that was shared with the peer most recently. It has the `succeededBy` field set to the `successor`'s ID.
-- The `successor` is a new own shared IdentityAttribute version with the content of the succeeded RepositoryAttribute. Its `succeeds` property links to the `predecessor`.
+- The `successor` is a new own shared IdentityAttribute version with the content of the succeeded private IdentityAttribute. Its `succeeds` property links to the `predecessor`.
 
 ### On Failure
 
 - The response cannot be created, if the `peer` is unknown.
-- The response cannot be created, if the `attributeId` doesn't belong to a valid RepositoryAttribute.
+- The response cannot be created, if the `attributeId` belongs to a RelationshipAttribute.
+- The response cannot be created, if the `attributeId` belongs to an IdentityAttribute with a `shareInfo`.
 - The response cannot be created, if you already notified the peer about the succession of the Attribute.
 - The response cannot be created, if you haven't shared a version of the Attribute with the peer before. To initially share an Attribute, use the ShareIdentityAttribute use case.
 - The response cannot be created, if the parameters are malformed.
@@ -241,7 +244,7 @@ This use case allows you to retrieve a list of all those versions of the success
 
 ### On Success
 
-- If the `attributeId` belongs to a private [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) (RepositoryAttribute), a list of all versions of this RepositoryAttribute will be returned.
+- If the `attributeId` belongs to a private [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) without `shareInfo`, a list of all versions of this private IdentityAttribute will be returned.
 - If the `attributeId` belongs to an own shared IdentityAttribute, a list of all versions of that Attribute shared with the same peer will be returned.
 - If the `attributeId` belongs to a peer shared IdentityAttribute, a list of all versions of that Attribute received from the peer will be returned.
 - If the `attributeId` belongs to a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), a list of all versions of that RelationshipAttribute will be returned.
@@ -272,7 +275,6 @@ This use case allows you to retrieve a list of shared [IdentityAttributes]({% li
 
 ### On Failure
 
-- No Attributes can be returned, if the `attributeId` doesn't belong to a valid Attribute.
 - No Attributes can be returned, if the `attributeId` belongs to a RelationshipAttribute.
 - No Attributes can be returned, if the `attributeId` belongs to an IdentityAttribute with a `shareInfo`.
 - No Attributes can be returned, if the `peers` are unknown.
