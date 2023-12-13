@@ -92,6 +92,8 @@ docs_integrate:
         url: /integrate/requests-over-messages
   - title: Manage attributes of others
     children:
+      - title: "Propose Attribute to peer"
+        url: /integrate/propose-attribute-to-peer
       - title: "Request persistent consent of peer"
         url: /integrate/request-persistent-consent-of-peer
   - title: Basic communication
