@@ -231,7 +231,7 @@ Once the succession at your side is completed, a Notification is sent to your pe
 {% include properties_list.html %}
 
 Succeeding an Attributes allows you to update its value, while keeping all versions for a coherent history.
-This use case allows you to retrieve a list of all those versions for a specified Attribute.
+This use case allows you to retrieve a list of all those versions of the succession chain for a specified Attribute.
 
 <!-- TODO: link to attribute succession scenario -->
 
@@ -256,21 +256,24 @@ This use case allows you to retrieve a list of all those versions for a specifie
 
 {% include properties_list.html %}
 
-Succeeding an Attributes allows you to update its value, while keeping all versions for a coherent history.
-This use case allows you to retrieve a list of all shared [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of every version for a specified IdentityAttribute.
-
-<!-- TODO: link to attribute succession scenario -->
+This use case allows you to retrieve a list of shared [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) for a specified private IdentityAttribute without `shareInfo`.
 
 ### Parameters
 
-- The `attributeId` belonging to an IdentityAttribute you would like to know all shared versions of
+- The `attributeId` belonging to an IdentityAttribute without `shareInfo` you would like to know all shared versions of
+- Optionally the returned IdentityAttributes can be limited to those shared with specific `peers`
+- `onlyLatestVersionPerPeer` omits succeeded versions; by default this is set to be `true`
 
 ### On Success
 
-- If the `attributeId` belongs to a private IdentityAttribute (RepositoryAttribute), a list of all own shared IdentityAttributes shared with any peer of all versions of this RepositoryAttribute will be returned.
-- If the `attributeId` belongs to an own shared IdentityAttribute, a list of all versions of that Attribute shared with the same peer will be returned.
-- If the `attributeId` belongs to a peer shared IdentityAttribute, a list of all versions of that Attribute received from the peer will be returned.
+- A list of the latest version per peer of the IdentityAttribute given as input for all peers will be returned. The returned IdentityAttributes have the `shareInfo` field set.
+- If `peers` were speficied, the list is limited to the entries shared with those peers.
+- If `onlyLatestVersionPerPeer` is disabled, all versions will be returned, even if they already have successors.
 
 ### On Failure
 
-- No Attributes can be returned, if the `attributeId` doesn't belong to a valid IdentityAttribute.
+- No Attributes can be returned, if the `attributeId` doesn't belong to a valid Attribute.
+- No Attributes can be returned, if the `attributeId` belongs to a RelationshipAttribute.
+- No Attributes can be returned, if the `attributeId` belongs to an IdentityAttribute with a `shareInfo`.
+- No Attributes can be returned, if the `peers` are unknown.
+- No Attributes can be returned, if the parameters are malformed.
