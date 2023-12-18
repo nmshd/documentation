@@ -21,7 +21,7 @@ You need to replace the placeholders marked with `<...>` appropriately. The `max
 | -------------------------------- | ------------------------------------ |
 | `maxNumberOfAllocations`         | `<maximum number of allocations>`    |
 | `expiresAt`                      | `"<expiration date>"`                |
-| `content.@type`                  | `"RelationshipTemplate"`             |
+| `content.@type`                  | `"RelationshipTemplateContent"`      |
 | `content.title`                  | `"<title of RelationshipTemplate>"`  |
 | `content.metadata`               | `<custom metadata>`                  |
 | `content.onNewRelationship`      | `<Specification of a Request>`       |
