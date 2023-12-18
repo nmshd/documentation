@@ -31,6 +31,7 @@ properties:
   - api_route_regex: POST /api/v2/Challenges
   - published:
   - link: transport/create-challenge
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^POST /api/v2/Challenges$

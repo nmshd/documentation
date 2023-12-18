@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: transport/get-currently-used-identity
+  - redirect_from:
 require:
 required_by:
 ---

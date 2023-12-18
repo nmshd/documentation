@@ -12,7 +12,7 @@ properties:
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: createAttribute
+  - function: createIdentityAttribute
   - description:
   - feature category: Normalized attributes
   - tech category: Attributes
@@ -31,6 +31,7 @@ properties:
   - api_route_regex: post /api/v2/Attributes
   - published: default
   - link: consumption/create-an-attribute
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^post /api/v2/Attributes$

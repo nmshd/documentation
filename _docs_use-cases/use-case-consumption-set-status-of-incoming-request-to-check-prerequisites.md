@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: consumption/set-status-of-incoming-request-to-check-prerequisites
+  - redirect_from:
 require:
 required_by:
 ---

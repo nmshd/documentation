@@ -1,39 +1,39 @@
 ---
-permalink: /use-case-consumption-delete-attribute
+permalink: /use-case-consumption-notify-peer-about-identityattribute-succession
 published: false
-title: "Delete Attribute"
+title: "Notify peer about IdentityAttribute succession"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate Enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA7
+  - id: RA18
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: deleteAttribute
+  - function: notifyPeerAboutIdentityAttributeSuccession
   - description:
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
-  - status: QUESTIONS
+  - status:
   - documentation status:
-  - comments: What exactly is implemented here?
+  - comments:
   - actor: Identity
   - trigger:
   - precondition:
   - result:
-  - priority: HIGH
-  - complexity: MEDIUM
-  - size: M
+  - priority:
+  - complexity:
+  - size:
   - created_at:
   - changed_at:
   - api_route_regex:
-  - published: default
-  - link: consumption/delete-attribute
+  - published:
+  - link: consumption/notify-peer-about-identityattribute-succession
   - redirect_from:
 require:
 required_by:
 ---
 
-{% include use-cases/use-case-consumption-delete-attribute.md %}
+{% include use-cases/use-case-consumption-notify-peer-about-identityattribute-succession.md %}

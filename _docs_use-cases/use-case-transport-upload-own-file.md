@@ -31,6 +31,7 @@ properties:
   - api_route_regex: POST /api/v2/Files/Own
   - published: default
   - link: transport/upload-own-file
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^POST /api/v2/Files/Own$

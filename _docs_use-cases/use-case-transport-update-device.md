@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: transport/update-device
+  - redirect_from:
 require:
 required_by:
 ---

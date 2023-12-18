@@ -31,6 +31,7 @@ properties:
   - api_route_regex: put /api/v2/Requests/Incoming/{id}/Reject
   - published: default
   - link: consumption/reject-incoming-request
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^put /api/v2/Requests/Incoming/{id}/Reject$

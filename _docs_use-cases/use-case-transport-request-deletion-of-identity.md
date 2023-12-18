@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published:
   - link: transport/request-deletion-of-identity
+  - redirect_from:
 require:
 required_by:
 ---

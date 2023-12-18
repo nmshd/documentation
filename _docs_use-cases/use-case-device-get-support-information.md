@@ -31,6 +31,7 @@ properties:
   - api_route_regex: GET /Monitoring/Support
   - published: default
   - link: device/get-support-information
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^GET /Monitoring/Support$

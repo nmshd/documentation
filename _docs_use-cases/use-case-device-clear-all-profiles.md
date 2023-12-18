@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: device/clear-all-profiles
+  - redirect_from:
 require:
 required_by:
 ---

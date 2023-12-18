@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published:
   - link: transport/create-identity-recovery-data
+  - redirect_from:
 require:
 required_by:
 ---

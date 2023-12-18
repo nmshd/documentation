@@ -1,39 +1,39 @@
 ---
-permalink: /use-case-consumption-query-blueprints
+permalink: /use-case-consumption-get-versions-of-an-attribute
 published: false
-title: "Query Blueprints"
+title: "Get versions of an attribute"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate Enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RB2
+  - id: RA19
   - component: Runtime
   - layer: Consumption
-  - facade:
-  - function:
+  - facade: AttributesFacade
+  - function: getVersionsOfAttribute
   - description:
   - feature category:
-  - tech category: Blueprint
-  - status: IDEA
+  - tech category:
+  - status:
   - documentation status:
   - comments:
-  - actor: Identity
+  - actor:
   - trigger:
   - precondition:
   - result:
-  - priority: LOW
-  - complexity: LOW
-  - size: S
+  - priority:
+  - complexity:
+  - size:
   - created_at:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/query-blueprints
+  - link: consumption/get-versions-of-an-attribute
   - redirect_from:
 require:
 required_by:
 ---
 
-{% include use-cases/use-case-consumption-query-blueprints.md %}
+{% include use-cases/use-case-consumption-get-versions-of-an-attribute.md %}

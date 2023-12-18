@@ -31,6 +31,7 @@ properties:
   - api_route_regex: put /api/v2/Requests/Incoming/{id}/canReject
   - published: default
   - link: consumption/check-if-incoming-request-can-be-rejected
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^put /api/v2/Requests/Incoming/{id}/canReject$

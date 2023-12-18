@@ -1,7 +1,7 @@
 ---
-permalink: /use-case-consumption-share-attribute
+permalink: /use-case-consumption-share-identityattribute
 published: false
-title: "Share Attribute"
+title: "Share IdentityAttribute"
 type: use-case
 toc: true
 sidebar:
@@ -12,11 +12,11 @@ properties:
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: shareAttribute
+  - function: shareIdentityAttribute
   - description:
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
-  - status: CHANGES REQUIRED
+  - status:
   - documentation status:
   - comments:
   - actor: Identity
@@ -30,9 +30,10 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: consumption/share-attribute
+  - link: consumption/share-identityattribute
+  - redirect_from:
 require:
 required_by:
 ---
 
-{% include use-cases/use-case-consumption-share-attribute.md %}
+{% include use-cases/use-case-consumption-share-identityattribute.md %}
