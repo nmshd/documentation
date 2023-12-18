@@ -13,7 +13,7 @@ properties:
   - component: operate
   - level:
   - implementation status:
-  - documentation status:
+  - documentation status: DONE
   - published: true
   - link: operate/log-event-ids
 require:

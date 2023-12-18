@@ -19,7 +19,7 @@ properties:
 require:
   - integrate/identityattribute-introduction
 required_by:
-  - integrate/test-your-request's-validity
+  - integrate/test-your-requests-validity
 ---
 
 {% include scenarios/integrate/create-own-identityattribute.md %}
