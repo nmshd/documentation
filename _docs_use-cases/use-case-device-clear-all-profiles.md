@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ARP5
+  - component: AppRuntime
   - layer: Device
   - facade: AccountServices
   - function: clearAccounts
@@ -16,9 +17,9 @@ properties:
   - feature category: Multi-profile
   - tech category: Profiles
   - status: CHANGES REQUIRED
-  - comments:
+  - documentation status:
+  - comments: We should remove this
   - actor: User
-  - component: AppRuntime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: device/clear-all-profiles
 require:

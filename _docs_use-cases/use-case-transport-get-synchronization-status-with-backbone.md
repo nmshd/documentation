@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RU6
+  - component: Runtime
   - layer: Transport
   - facade: AccountFacade
   - function: getSyncInfo
@@ -16,9 +17,9 @@ properties:
   - feature category: Multi-device synchronization
   - tech category: Account
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +28,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: GET /api/v2/Account/getSyncInfo
   - published: default
   - link: transport/get-synchronization-status-with-backbone
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Account/getSyncInfo$
 ---
 
 {% include use-cases/use-case-transport-get-synchronization-status-with-backbone.md %}

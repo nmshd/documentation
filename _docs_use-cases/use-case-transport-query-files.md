@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RF2
+  - component: Runtime
   - layer: Transport
   - facade: FilesFacade
   - function: getFiles
@@ -16,10 +17,10 @@ properties:
   - feature category:
   - tech category: Files
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
   - priority: n/a
@@ -27,11 +28,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: GET /api/v2/Files
   - published: default
   - link: transport/query-files
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Files$
 ---
 
 {% include use-cases/use-case-transport-query-files.md %}
