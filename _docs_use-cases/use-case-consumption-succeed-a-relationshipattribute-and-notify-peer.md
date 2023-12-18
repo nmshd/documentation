@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-succeed-a-relationshipattribute-and-notify-peer
-published: false
+published: true
 title: "Succeed a RelationshipAttribute and notify peer"
 type: use-case
 toc: true

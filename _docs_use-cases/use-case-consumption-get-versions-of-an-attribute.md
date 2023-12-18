@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-get-versions-of-an-attribute
-published: false
+published: true
 title: "Get versions of an attribute"
 type: use-case
 toc: true
@@ -15,11 +15,11 @@ properties:
   - function: getVersionsOfAttribute
   - description:
   - feature category:
-  - tech category:
+  - tech category: Attributes
   - status:
   - documentation status:
   - comments:
-  - actor:
+  - actor: Identity
   - trigger:
   - precondition:
   - result:

@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-create-and-share-a-relationshipattribute
-published: false
+published: true
 title: "Create and share a RelationshipAttribute"
 type: use-case
 toc: true
@@ -14,12 +14,12 @@ properties:
   - facade: AttributesFacade
   - function: createAndShareRelationshipAttribute
   - description:
-  - feature category:
-  - tech category:
+  - feature category: Cross-identity attribute sharing
+  - tech category: Attributes
   - status:
   - documentation status:
   - comments:
-  - actor:
+  - actor: Identity
   - trigger:
   - precondition:
   - result:

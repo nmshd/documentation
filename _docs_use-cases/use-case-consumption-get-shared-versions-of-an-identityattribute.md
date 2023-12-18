@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-get-shared-versions-of-an-identityattribute
-published: false
+published: true
 title: "Get shared versions of an IdentityAttribute"
 type: use-case
 toc: true
@@ -15,11 +15,11 @@ properties:
   - function: getSharedVersionsOfIdentityAttribute
   - description:
   - feature category: Cross-identity attribute sharing
-  - tech category:
+  - tech category: Attributes
   - status:
   - documentation status:
   - comments:
-  - actor:
+  - actor: Identity
   - trigger:
   - precondition:
   - result:

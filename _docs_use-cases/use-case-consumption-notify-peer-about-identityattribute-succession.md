@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-consumption-notify-peer-about-identityattribute-succession
-published: false
+published: true
 title: "Notify peer about IdentityAttribute succession"
 type: use-case
 toc: true
