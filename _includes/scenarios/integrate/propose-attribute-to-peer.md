@@ -1,7 +1,7 @@
 An Identity may have received information about a peer in the past that it needs to process a transaction at a later time. To ensure the accuracy of the available information, the Identity can propose [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) to the peer for creation. Depending on whether the peer confirms the validity of a proposed Attribute, it can agree to its creation or correct the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) beforehand. Proposing Attributes to a peer can be useful in many situations, such as:
 
 - A company wants to make sure that the currently stored street address of a customer is valid before using it to ship an item to the customer.
-- ...
+- An organization supports an Identity in setting up an enmeshed account by proposing Attributes to it that are derived from the organization's knowledge about the Identity.
 
 We will now explain how a Connector, hereinafter referred to as the Sender, can propose an Attribute to another Connector, the so-called Recipient. Since understanding this proposing process requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and how to use them in general, you should take a look at our Request and Response introduction before continuing reading this guide.
 
@@ -30,6 +30,10 @@ To propose a single Attribute to the Recipient, a single [RequestItem]({% link _
 | `query`                 | An appropriate [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery), [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) or [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery) that matches the proposed Attribute |    ✓     |
 
 It is possible to propose an IdentityAttribute or a RelationshipAttribute for creation, which must be inserted into the `attribute` property of the ProposeAttributeRequestItem. As it only makes sense for the Sender to propose an Attribute to the Recipient which is owned by the Recipient, the Sender must specify an empty string as the value for the `owner` property of the [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes). The Recipient automatically becomes the owner of the Attribute later on. As the Recipient may wants to change the Attribute Value of the proposed Attribute, the Sender must formulate a `query` matching the `attribute`. If the Sender specifies an `attribute` and a `query` that are incompatible, an [error]({% link _docs_integrate/error-codes.md %}) with the code `error.runtime.requestDeserialization` is to be expected.
+
+### Propose an IdentityAttribute
+
+In the case in which the Sender wants to propose an IdentityAttribute to the Recipient, it must use a [ProposeAttributeRequestItem]({% link _docs_integrate/propose-attribute-to-peer.md %}#description-of-proposeattributerequestitem) which contains the IdentityAttribute in its `attribute` property and a matching IdentityAttributeQuery in its `query` property. This means that the specified value for the `valueType` property of the [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery) must correspond to the Attribute Value type of the IdentityAttribute. The ProposeAttributeRequestItem must then be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for proposing Attributes.
 
 ### Propose a RelationshipAttribute
 
