@@ -1,4 +1,4 @@
-An Identity may have received information about a peer in the past that it needs to process a transaction at a later time. To ensure the accuracy of the available information, the Identity can propose [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) to the peer for creation. Depending on whether the peer confirms the validity of a proposed Attribute, it can agree to its creation or correct the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) beforehand. Proposing Attributes to a peer can be useful in many situations, such as:
+An Identity may have received information about a peer in the past that it needs to process a transaction at a later time. To ensure the accuracy of the available information, the Identity can propose [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) to the peer for creation. Depending on whether the peer confirms the validness of a proposed Attribute, it can agree to its creation or correct the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) beforehand. Proposing Attributes to a peer can be useful in many situations, such as:
 
 - A company wants to make sure that the currently stored street address of a customer is valid before using it to ship an item to the customer.
 - An organization supports an Identity in setting up an enmeshed account by proposing Attributes to it that was derived from the organization's knowledge about the Identity.
@@ -63,6 +63,33 @@ If the Recipient does not want to deal with any of the Attributes proposed by th
 {: .notice--info}
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/25159913-8e8c-4f65-98eb-f2522b8248a6" id="zk3XNeKG5NpM"></iframe></div>
+
+### Accept a ProposeAttributeRequestItem
+
+If the Recipient wants to give the Sender feedback on the validness of one of the Attributes proposed by the Sender, it can accept the associated ProposeAttributeRequestItem contained in the Request for proposing Attributes. Depending on whether the Recipient confirms the validness of the proposed Attribute, it can agree to its creation and send it back to the Sender unchanged or correct the Attribute Value beforehand:
+
+- Create the proposed Attribute:
+
+  | Property    | Value                                             |
+  | ----------- | ------------------------------------------------- |
+  | `accept`    | `true`                                            |
+  | `attribute` | Attribute proposed by the Sender to the Recipient |
+
+- Create a corrected version of the proposed Attribute:
+
+  | Property    | Value                                                                          |
+  | ----------- | ------------------------------------------------------------------------------ |
+  | `accept`    | `true`                                                                         |
+  | `attribute` | Attribute that differs from the proposed Attribute only by the Attribute Value |
+
+If the Recipient does not want to create a new Attribute, it can also send an existing Attribute back to the Sender. The existing Attribute may only differ from the proposed Attribute by the Attribute Value. The following [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#proposeattributerequestitem-response-parameters) must be used for that:
+
+| Property      | Value                                                                                  |
+| ------------- | -------------------------------------------------------------------------------------- |
+| `accept`      | `true`                                                                                 |
+| `attributeId` | `"<ID of the existing Attribute that the Recipient wants to send back to the Sender>"` |
+
+The acception of a ProposeAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. The `content` of the LocalAttribute is the Attribute that the Recipient wants to send back to the Sender. Depending on whether the Recipient confirms the validness of the proposed Attribute, it is therefore the proposed Attribute itself or a corrected version of it. Based on this, an appropriate [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ProposeAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#proposeattributerequestitem-response-itemproperties) is generated:
 
 ## What's next?
 
