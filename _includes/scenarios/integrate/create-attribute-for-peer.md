@@ -91,7 +91,7 @@ The Sender only has the option of sending a Request to the Recipient via a [Mess
 
 ## Accept the Request and create the Attributes
 
-After the Sender has sent the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) to the Recipient and the Recipient has received this Request, the Recipient can accept it to create all or some of the Attributes that were offered for creation by the Sender. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the ID of the received Request. Also, you need to decide and specify for each CreateAttributeRequestItem contained in the Request for creating Attributes whether you want to accept or reject it.
+After the Sender has sent the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) to the Recipient and the Recipient has received this Request, the Recipient can accept it to create all or some of the Attributes that were offered for creation by the Sender. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). Also, you need to decide and specify for each CreateAttributeRequestItem contained in the Request for creating Attributes whether you want to accept or reject it.
 
 If the Recipient does not want to create any of the Attributes offered by the Sender and therefore does not want to accept the Request for creating Attributes of the Sender, it can reject it as a whole as well. For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
@@ -174,7 +174,7 @@ We now assume that the Recipient has accepted the [Request for creating Attribut
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/49329630-b44c-4aa7-9e27-69f4d1d01aaa" id=".VPTa-Da-0ir"></iframe></div>
 
-To view the Response to the Request, search for it in the synchronization result or proceed as described in the [Get outgoing Request]({% link _docs_use-cases/use-case-consumption-get-outgoing-request.md %}) use case documentation and use the following query parameter:
+To view the Response to the Request, search for it in the synchronization result or proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
 - If the [Request was sent via a Template]({% link _docs_integrate/create-attribute-for-peer.md %}#request-over-template): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
 - If the [Request was sent via a Message]({% link _docs_integrate/create-attribute-for-peer.md %}#request-over-message): Specify `<ID of Request>` as the value for the `id` query parameter.
