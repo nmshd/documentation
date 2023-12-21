@@ -104,7 +104,7 @@ If the Recipient agrees to the creation of one of the Attributes offered by the 
 
 | Property | Value  |
 | -------- | ------ |
-| accept   | `true` |
+| `accept` | `true` |
 
 The acception of a CreateAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. The `content` of the LocalAttribute is the underlying `attribute` of the CreateAttributeRequestItem. Based on this, an appropriate [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [CreateAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-response-itemproperties) is generated:
 
@@ -122,7 +122,7 @@ Even if the Recipient accepts the Request for creating Attributes as a whole, it
 
 | Property | Value   |
 | -------- | ------- |
-| accept   | `false` |
+| `accept` | `false` |
 
 The rejection of a CreateAttributeRequestItem leads to the creation of a corresponding [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for creating Attributes.
 
@@ -143,14 +143,14 @@ Because the Recipient accepts the EMailAddress of the Sender and also accepts at
 
   | Property | Value  |
   | -------- | ------ |
-  | accept   | `true` |
+  | `accept` | `true` |
 
 - Accept RequestItemGroup:
 
   | Property | Value                                                                                                                                             |
   | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | accept   | `true`                                                                                                                                            |
-  | items    | Responses of the Recipient to the two CreateAttributeRequestItems belonging to the BirthDate and the BirthPlace contained in the RequestItemGroup |
+  | `accept` | `true`                                                                                                                                            |
+  | `items`  | Responses of the Recipient to the two CreateAttributeRequestItems belonging to the BirthDate and the BirthPlace contained in the RequestItemGroup |
 
 Since the Recipient accepts the BirthDate and rejects the BirthPlace of the Sender, it responds to the two CreateAttributeRequestItems included in the `items` property of the already accepted [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) as follows:
 
@@ -158,13 +158,13 @@ Since the Recipient accepts the BirthDate and rejects the BirthPlace of the Send
 
   | Property | Value  |
   | -------- | ------ |
-  | accept   | `true` |
+  | `accept` | `true` |
 
 - Accept BirthPlace:
 
   | Property | Value   |
   | -------- | ------- |
-  | accept   | `false` |
+  | `accept` | `false` |
 
 Note that it is important to respond to RequestItems and RequestItemGroups in the same order in which they were received.
 
