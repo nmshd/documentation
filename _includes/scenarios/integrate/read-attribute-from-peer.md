@@ -78,17 +78,17 @@ If the Recipient agrees to share a requested Attribute with the Sender, it can a
 
 - Share an existing Attribute:
 
-  | Property            | Value                      |
-  | ------------------- | -------------------------- |
-  | accept              | `true`                     |
-  | existingAttributeId | `"<ID of LocalAttribute>"` |
+  | Property              | Value                      |
+  | --------------------- | -------------------------- |
+  | `accept`              | `true`                     |
+  | `existingAttributeId` | `"<ID of LocalAttribute>"` |
 
 - Create and share a new Attribute:
 
-  | Property     | Value                                                                                     |
-  | ------------ | ----------------------------------------------------------------------------------------- |
-  | accept       | `true`                                                                                    |
-  | newAttribute | Specify an IdentityAttribute or a RelationshipAttribute that should be created and shared |
+  | Property       | Value                                                                                     |
+  | -------------- | ----------------------------------------------------------------------------------------- |
+  | `accept`       | `true`                                                                                    |
+  | `newAttribute` | Specify an IdentityAttribute or a RelationshipAttribute that should be created and shared |
 
 The acception of a ReadAttributeRequestItem leads to the creation of a corresponding LocalAttribute with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. Based on this, an appropriate [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ReadAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-response-itemproperties) is also generated:
 
@@ -107,7 +107,7 @@ Even if the Recipient accepts the Request for reading Attributes as a whole, it 
 
 | Property | Value   |
 | -------- | ------- |
-| accept   | `false` |
+| `accept` | `false` |
 
 The rejection of a ReadAttributeRequestItem leads to the creation of a corresponding [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for reading Attributes.
 
@@ -128,29 +128,29 @@ Because the Recipient refuses to share its BirthDate with the Sender, but also a
 
   | Property | Value   |
   | -------- | ------- |
-  | accept   | `false` |
+  | `accept` | `false` |
 
 - Accept RequestItemGroup:
 
   | Property | Value                                                                                                                                               |
   | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | accept   | `true`                                                                                                                                              |
-  | items    | Responses of the Recipient to the two ReadAttributeRequestItems belonging to the EMailAddress and the PhoneNumber contained in the RequestItemGroup |
+  | `accept` | `true`                                                                                                                                              |
+  | `items`  | Responses of the Recipient to the two ReadAttributeRequestItems belonging to the EMailAddress and the PhoneNumber contained in the RequestItemGroup |
 
 Since the Recipient accepts the sharing of its EMailAddress and rejects the sharing of its PhoneNumber, it responds to the two ReadAttributeRequestItems included in the `items` property of the already accepted [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) as follows:
 
 - Accept sharing of existing EMailAddress:
 
-  | Property            | Value                                      |
-  | ------------------- | ------------------------------------------ |
-  | accept              | `true`                                     |
-  | existingAttributeId | `"<ID of LocalAttribute of EMailAddress>"` |
+  | Property              | Value                                      |
+  | --------------------- | ------------------------------------------ |
+  | `accept`              | `true`                                     |
+  | `existingAttributeId` | `"<ID of LocalAttribute of EMailAddress>"` |
 
 - Reject sharing of PhoneNumber:
 
   | Property | Value   |
   | -------- | ------- |
-  | accept   | `false` |
+  | `accept` | `false` |
 
 Note that it is important to respond to RequestItems and RequestItemGroups in the same order in which they were received.
 
