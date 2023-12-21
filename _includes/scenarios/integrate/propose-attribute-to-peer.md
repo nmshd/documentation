@@ -105,6 +105,16 @@ It is noticeable that accepting a ProposeAttributeRequestItem essentially works 
 
 <!--- TODO: Insert Links to "Read Attribute from peer" and "Create Attribute for peer" guide --->
 
+### Reject a ProposeAttributeRequestItem
+
+Even if the Recipient accepts the Request for proposing Attributes as a whole, it may decide not to deal with all of the Attributes proposed by the Sender. To be more precise, the Recipient has the option of rejecting [ProposeAttributeRequestItems]({% link _docs_integrate/propose-attribute-to-peer.md %}#description-of-proposeattributerequestitem) that have the value `false` specified in their `mustBeAccepted` property. To reject a ProposeAttributeRequestItem, use the [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#proposeattributerequestitem-response-parameters):
+
+| Property | Value   |
+| -------- | ------- |
+| `accept` | `false` |
+
+The rejection of a ProposeAttributeRequestItem leads to the creation of a corresponding [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for proposing Attributes.
+
 ## What's next?
 
 An Identity has several options for requesting an Attribute creation. This guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is proposed by the Identity, but can be modified by the peer when accepting the Request. In some cases, it makes more sense if the peer cannot change the proposed Attribute Value. For that, take a look at the Create Attribute for peer guide.
