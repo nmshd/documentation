@@ -115,6 +115,22 @@ Even if the Recipient accepts the Request for proposing Attributes as a whole, i
 
 The rejection of a ProposeAttributeRequestItem leads to the creation of a corresponding [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for proposing Attributes.
 
+## Receive the Response to the Request
+
+We now assume that the Recipient has accepted the [Request for proposing Attributes]({% link _docs_integrate/propose-attribute-to-peer.md %}#request-for-proposing-attributes) of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/f3818539-0050-42a4-a343-fb410d4134fc" id="bzlYC7NrKA9y"></iframe></div>
+
+To view the Response to the Request, search for it in the synchronization result or proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
+
+- If the [Request was sent via a Template]({% link _docs_integrate/propose-attribute-to-peer.md %}#request-over-template): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
+- If the [Request was sent via a Message]({% link _docs_integrate/propose-attribute-to-peer.md %}#request-over-message): Specify `<ID of Request>` as the value for the `id` query parameter.
+
+The Integrator of the Sender can now get the Response of the Recipient from the `response.content` property of the result. In the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) is a [ProposeAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#proposeattributerequestitem-response-itemproperties) for each accepted ProposeAttributeRequestItem and a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) for each rejected ProposeAttributeRequestItem included. Note that each accepted ProposeAttributeRequestItem leads to the creation of an appropriate LocalAttribute with a LocalAttributeShareInfo of the Sender. The `content` of the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) is the Attribute that the Recipient has sent back to the Sender. Depending on whether the Recipient has confirmed the validness of the Attribute proposed by the Sender, it is therefore the proposed Attribute itself or a corrected version of it.
+
+In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) can also be included in the Response. If the Request for proposing Attributes contains a RequestItemGroup in its `items` property, the Response to this Request contains a corresponding [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) in its `items` property.
+{: .notice--info}
+
 ## What's next?
 
 An Identity has several options for requesting an Attribute creation. This guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is proposed by the Identity, but can be modified by the peer when accepting the Request. In some cases, it makes more sense if the peer cannot change the proposed Attribute Value. For that, take a look at the Create Attribute for peer guide.
