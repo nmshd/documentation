@@ -97,7 +97,7 @@ If the Recipient agrees to get one of the Sender's shared Attributes, it can acc
 
 | Property | Value  |
 | -------- | ------ |
-| accept   | `true` |
+| `accept` | `true` |
 
 The acception of a ShareAttributeRequestItem leads to the creation of a corresponding LocalAttribute with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. The `content` of the LocalAttribute is the underlying `attribute` of the ShareAttributeRequestItem. Based on this, an appropriate [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ShareAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem-response-itemproperties) is generated:
 
@@ -115,7 +115,7 @@ Even if the Recipient accepts the Request for sharing Attributes as a whole, it 
 
 | Property | Value   |
 | -------- | ------- |
-| accept   | `false` |
+| `accept` | `false` |
 
 The rejection of a ShareAttributeRequestItem leads to the creation of a corresponding [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for sharing Attributes.
 
@@ -136,14 +136,14 @@ Because the Recipient accepts the DisplayName of the Sender and also accepts at 
 
   | Property | Value  |
   | -------- | ------ |
-  | accept   | `true` |
+  | `accept` | `true` |
 
 - Accept RequestItemGroup:
 
   | Property | Value                                                                                                                                                |
   | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | accept   | `true`                                                                                                                                               |
-  | items    | Responses of the Recipient to the two ShareAttributeRequestItems belonging to the EMailAddress and the PhoneNumber contained in the RequestItemGroup |
+  | `accept` | `true`                                                                                                                                               |
+  | `items`  | Responses of the Recipient to the two ShareAttributeRequestItems belonging to the EMailAddress and the PhoneNumber contained in the RequestItemGroup |
 
 Since the Recipient accepts the EMailAddress and rejects the PhoneNumber of the Sender, it responds to the two ShareAttributeRequestItems included in the `items` property of the already accepted [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) as follows:
 
@@ -151,13 +151,13 @@ Since the Recipient accepts the EMailAddress and rejects the PhoneNumber of the 
 
   | Property | Value  |
   | -------- | ------ |
-  | accept   | `true` |
+  | `accept` | `true` |
 
 - Accept PhoneNumber:
 
   | Property | Value   |
   | -------- | ------- |
-  | accept   | `false` |
+  | `accept` | `false` |
 
 Note that it is important to respond to RequestItems and RequestItemGroups in the same order in which they were received.
 
