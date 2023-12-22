@@ -160,7 +160,7 @@ Since the Recipient accepts the BirthDate and rejects the BirthPlace of the Send
   | -------- | ------ |
   | `accept` | `true` |
 
-- Accept BirthPlace:
+- Reject BirthPlace:
 
   | Property | Value   |
   | -------- | ------- |
