@@ -180,9 +180,3 @@ In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-ove
 An Identity has several options for requesting an Attribute creation. This guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is proposed by the Identity, but can be modified by the peer when accepting the Request. In some cases, it makes more sense if the peer cannot change the proposed Attribute Value. For that, take a look at the Create Attribute for peer guide.
 
 <!--- TODO: Insert Link to "Create Attribute for peer" guide --->
-
-<!--- {% include warnings/documentation-is-prerelease %}
-
-The connector would like to save an attribute for another identity and has 2 options for this.
-
-The Create Attribute creates a request that the peer can accept and thus an attribute is created. To avoid errors, it is better to use the "Propose attribute" request for some attributes, so that the user has the option of customizing the attribute to be saved. --->
