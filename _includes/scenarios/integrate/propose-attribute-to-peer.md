@@ -130,10 +130,10 @@ In our example, the Recipient confirms the validness of the PersonName proposed 
 
 - Accept the creation of the proposed PersonName:
 
-  | Property    | Value                                              |
-  | ----------- | -------------------------------------------------- |
-  | `accept`    | `true`                                             |
-  | `attribute` | PersonName proposed by the Sender to the Recipient |
+  | Property    | Value                                                             |
+  | ----------- | ----------------------------------------------------------------- |
+  | `accept`    | `true`                                                            |
+  | `attribute` | Proposed IdentityAttribute of the Attribute Value type PersonName |
 
 - Accept RequestItemGroup:
 
@@ -146,10 +146,10 @@ We assume that the Sender has proposed an outdated EMailAddress to the Recipient
 
 - Create a corrected version of the proposed EMailAddress:
 
-  | Property    | Value                                          |
-  | ----------- | ---------------------------------------------- |
-  | `accept`    | `true`                                         |
-  | `attribute` | Corrected version of the proposed EMailAddress |
+  | Property    | Value                                                                                        |
+  | ----------- | -------------------------------------------------------------------------------------------- |
+  | `accept`    | `true`                                                                                       |
+  | `attribute` | Corrected version of the proposed IdentityAttribute of the Attribute Value type EMailAddress |
 
 - Reject PhoneNumber:
 
