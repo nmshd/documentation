@@ -153,7 +153,7 @@ Since the Recipient accepts the EMailAddress and rejects the PhoneNumber of the 
   | -------- | ------ |
   | `accept` | `true` |
 
-- Accept PhoneNumber:
+- Reject PhoneNumber:
 
   | Property | Value   |
   | -------- | ------- |
