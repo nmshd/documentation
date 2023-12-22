@@ -115,6 +115,50 @@ Even if the Recipient accepts the Request for proposing Attributes as a whole, i
 
 The rejection of a ProposeAttributeRequestItem leads to the creation of a corresponding [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for proposing Attributes.
 
+### Example of accepting a RequestItemGroup
+
+Let's look at an example where the Sender proposes the Recipient's [PersonName]({% link _docs_integrate/attribute-values.md %}#personname) and contact information in the form of an [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) and a [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber) to the Recipient during its onboarding process. For this purpose, the Sender creates a [Request]({% link _docs_integrate/data-model-overview.md %}#request) for proposing Attributes, which contains a ProposeAttributeRequestItem belonging to the PersonName and a RequestItemGroup belonging to the contact information in its `items` property. The [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) itself includes two ProposeAttributeRequestItems in its `items` property, namely one for the EMailAddress and one for the PhoneNumber.
+
+--- TODO: Insert diagram ---
+
+In our example, the Sender only requires the Recipient to accept the ProposeAttributeRequestItems belonging to the PersonName and the EMailAddress, which is why the individual [ProposeAttributeRequestItems]({% link _docs_integrate/propose-attribute-to-peer.md %}#description-of-proposeattributerequestitem) and the [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) within the Request have specified corresponding values in their `mustBeAccepted` property. We assume that the Recipient wants to accept the Request and all its ProposeAttributeRequestItems with the exception of the PhoneNumber.
+
+If the Recipient wants to accept the Request for proposing Attributes, it must accept all [ProposeAttributeRequestItems]({% link _docs_integrate/propose-attribute-to-peer.md %}#description-of-proposeattributerequestitem) for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted for the Recipient to refuse to accept the ProposeAttributeRequestItem belonging to the PersonName or the EMailAddress.
+{: .notice--info}
+
+In our example, the Recipient confirms the validness of the PersonName proposed by the Sender. As it also accepts at least one ProposeAttributeRequestItem of the RequestItemGroup, it provides the following values for responding to the two components within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request):
+
+- Accept the creation of the proposed PersonName:
+
+  | Property    | Value                                              |
+  | ----------- | -------------------------------------------------- |
+  | `accept`    | `true`                                             |
+  | `attribute` | PersonName proposed by the Sender to the Recipient |
+
+- Accept RequestItemGroup:
+
+  | Property | Value                                                                                                                                                  |
+  | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | `accept` | `true`                                                                                                                                                 |
+  | `items`  | Responses of the Recipient to the two ProposeAttributeRequestItems belonging to the EMailAddress and the PhoneNumber contained in the RequestItemGroup |
+
+We assume that the Sender has proposed an outdated EMailAddress to the Recipient for creation. The Recipient therefore wants to create a corrected version of the EMailAddress and send it back to the Sender. Since the Recipient accepts the ProposeAttributeRequestItem belonging to the EMailAddress and rejects the PhoneNumber, it responds to the two ProposeAttributeRequestItems included in the `items` property of the already accepted [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) as follows:
+
+- Create a corrected version of the proposed EMailAddress:
+
+  | Property    | Value                                          |
+  | ----------- | ---------------------------------------------- |
+  | `accept`    | `true`                                         |
+  | `attribute` | Corrected version of the proposed EMailAddress |
+
+- Reject PhoneNumber:
+
+  | Property | Value   |
+  | -------- | ------- |
+  | `accept` | `false` |
+
+Note that it is important to respond to RequestItems and RequestItemGroups in the same order in which they were received.
+
 ## Receive the Response to the Request
 
 We now assume that the Recipient has accepted the [Request for proposing Attributes]({% link _docs_integrate/propose-attribute-to-peer.md %}#request-for-proposing-attributes) of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
