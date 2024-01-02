@@ -11,10 +11,15 @@ interface DynamicUseCase {
 }
 // Asynchrone Funktion zum Lesen der Datei
 function dateiLesenUndAusgeben(object: DynamicUseCase): void {
+    if (object.ID == null) {
+        return;
+    }
+    console.log(object.ID + " - ", object.Link);
+
     fs.readFile("_docs_" + object.Link + ".md", "utf8", (err, daten) => {
         if (err) {
             console.error("Fehler beim Lesen der Datei:", err);
-            return;
+            //return;
         }
 
         // Dateiinhalt in der Konsole ausgeben
@@ -65,10 +70,15 @@ function dateiLesenUndAusgeben(object: DynamicUseCase): void {
         text += "require:\n";
         text += "required_by:\n";
         text += "---";
-
         const regex = /---[\s\S]*?---/g; // Regular expression to match text between "---" across multiple lines
-        var strippedText = daten.replace(regex, text); // Replace matched text with an empty string
-        fs.writeFileSync("_docs_" + object.Link + ".md", strippedText, "utf-8");
+        var strippedText = "";
+        try {
+            strippedText = daten.replace(regex, text); // Replace matched text with an empty string
+        } catch (error) {
+            console.log("das ist ein error");
+            strippedText = text;
+        }
+        fs.promises.writeFile("_docs_" + object.Link + ".md", strippedText, "utf-8");
     });
 }
 
@@ -128,29 +138,6 @@ function replaceEach(str: string, replacements: string[]): string {
     }
     return result;
 }
-
-// Funktion aufrufen
-// dateiLesenUndAusgeben(normalisedPath);
-// Call the function and handle the returned promise
-// const dynamicUseCases: DynamicUseCase[] = readExcelFile(filePath, scenarioWorksheetName).then((result) => {
-//     if (result !== null) {
-//         console.log("Dynamic Use Cases List:", result);
-//         return result;
-//     } else {
-//         console.log("Error reading Excel file. Result is null.");
-//     }
-// });
-
-// readExcelFile(filePath, useCasesWorksheetName).then((result) => {
-//     if (result !== null) {
-//         console.log("Dynamic Use Cases List:", result);
-//     } else {
-//         console.log("Error reading Excel file. Result is null.");
-//     }
-// });
-// console.log(scenarios);
-
-// dateiLesenUndAusgeben(dynamicUseCases[1].link);
 async function main() {
     try {
         const dynamicUseCases = await readExcelFile(filePath, scenarioWorksheetName);
