@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC085
   - category: Connector Operations
-  - description: https//enmeshed.eu/integrate/connector-privacy
+  - description:
   - customer:
   - component: operate
   - level:

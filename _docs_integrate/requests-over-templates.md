@@ -20,10 +20,6 @@ properties:
   - link: integrate/requests-over-templates
 require:
 required_by:
-  - integrate/requesting-one-time-consents
-  - integrate/request-persistent-consent-of-peer
-  - integrate/requesting-authentication
-  - integrate/requests-over-messages
 ---
 
 {% include scenarios/integrate/requests-over-templates.md %}

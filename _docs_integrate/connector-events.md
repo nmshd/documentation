@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC043
   - category: Data Model
-  - description: https//enmeshed.eu/integrate/connector-events
+  - description:
   - customer: All
   - component: integrate
   - level: Advanced

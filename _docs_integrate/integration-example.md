@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC095
   - category: Getting Started
-  - description: https//enmeshed.eu/integrate/connector-tutorial
+  - description:
   - customer:
   - component: integrate
   - level:

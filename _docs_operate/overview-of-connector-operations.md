@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC083
   - category: Connector Operations
-  - description: https//enmeshed.eu/integrate/connector-operations
+  - description:
   - customer:
   - component: operate
   - level:

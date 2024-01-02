@@ -17,8 +17,6 @@ properties:
   - published: true
   - link: integrate/request-persistent-consent-of-peer
 require:
-  - integrate/requests-over-templates
-  - integrate/requests-over-messages
 required_by:
 ---
 

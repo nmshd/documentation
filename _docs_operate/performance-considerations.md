@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC086
   - category: Connector Operations
-  - description: https//enmeshed.eu/integrate/connector-performance
+  - description:
   - customer:
   - component: operate
   - level:

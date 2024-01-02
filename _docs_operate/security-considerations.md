@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC084
   - category: Connector Operations
-  - description: https//enmeshed.eu/integrate/connector-security
+  - description:
   - customer:
   - component: operate
   - level:

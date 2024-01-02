@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC080
   - category: Connector Setup
-  - description: https//enmeshed.eu/integrate/connector-modules
+  - description:
   - customer:
   - component: operate
   - level:

@@ -19,7 +19,6 @@ properties:
   - published: true
   - link: integrate/sending-messages
 require:
-  - integrate/delete-identity-from-enmeshed
 required_by:
 ---
 

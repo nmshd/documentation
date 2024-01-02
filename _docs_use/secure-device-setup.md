@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC094
   - category: Getting Started
-  - description: https//enmeshed.eu/use/security-recommendations
+  - description:
   - customer:
   - component: use
   - level: Beginner

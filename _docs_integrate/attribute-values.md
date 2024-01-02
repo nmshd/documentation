@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC092
   - category: Data Model
-  - description: https//enmeshed.eu/integrate/data-model-attribute-values
+  - description:
   - customer:
   - component: integrate
   - level:

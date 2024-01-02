@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC078
   - category: Connector Setup
-  - description: https//enmeshed.eu/integrate/helm-chart
+  - description:
   - customer:
   - component: operate
   - level:

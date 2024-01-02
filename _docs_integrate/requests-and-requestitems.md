@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC091
   - category: Data Model
-  - description: https//enmeshed.eu/integrate/data-model-request-items
+  - description:
   - customer:
   - component: integrate
   - level:

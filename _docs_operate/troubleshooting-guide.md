@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC081
   - category: Troubleshooting
-  - description: https//enmeshed.eu/integrate/connector-setup-troubleshooting
+  - description:
   - customer:
   - component: operate
   - level:

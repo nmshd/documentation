@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC079
   - category: Connector Setup
-  - description: https//enmeshed.eu/integrate/connector-configuration
+  - description:
   - customer:
   - component: operate
   - level:
