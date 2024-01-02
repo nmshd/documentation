@@ -17,11 +17,6 @@ function dateiLesenUndAusgeben(object: DynamicUseCase): void {
     console.log(object.ID + " - ", object.Link);
 
     fs.readFile("_docs_" + object.Link + ".md", "utf8", (err, daten) => {
-        if (err) {
-            console.error("Fehler beim Lesen der Datei:", err);
-            //return;
-        }
-
         // Dateiinhalt in der Konsole ausgeben
 
         var text = "---\n";
@@ -72,11 +67,10 @@ function dateiLesenUndAusgeben(object: DynamicUseCase): void {
         text += "---";
         const regex = /---[\s\S]*?---/g; // Regular expression to match text between "---" across multiple lines
         var strippedText = "";
-        try {
-            strippedText = daten.replace(regex, text); // Replace matched text with an empty string
-        } catch (error) {
-            console.log("das ist ein error");
+        if (err) {
             strippedText = text;
+        } else {
+            strippedText = daten.replace(regex, text); // Replace matched text with an empty string
         }
         fs.promises.writeFile("_docs_" + object.Link + ".md", strippedText, "utf-8");
     });
