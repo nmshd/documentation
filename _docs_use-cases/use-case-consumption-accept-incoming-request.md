@@ -34,6 +34,7 @@ properties:
   - link: use-case-consumption-accept-incoming-request
 require:
 required_by:
+api_route_regex: ^PUT /api/v2/Requests/Incoming/{id}/Accept$
 ---
 
 {% include use-cases/use-case-consumption-accept-incoming-request.md %}

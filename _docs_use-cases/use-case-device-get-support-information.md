@@ -34,6 +34,7 @@ properties:
   - link: use-case-device-get-support-information
 require:
 required_by:
+api_route_regex: ^GET /Monitoring/Support$
 ---
 
 {% include use-cases/use-case-device-get-support-information.md %}

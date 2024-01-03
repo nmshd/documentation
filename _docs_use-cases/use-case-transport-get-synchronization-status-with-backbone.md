@@ -34,6 +34,7 @@ properties:
   - link: use-case-transport-get-synchronization-status-with-backbone
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Account/getSyncInfo$
 ---
 
 {% include use-cases/use-case-transport-get-synchronization-status-with-backbone.md %}

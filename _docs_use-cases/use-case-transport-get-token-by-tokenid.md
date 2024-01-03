@@ -34,6 +34,7 @@ properties:
   - link: use-case-transport-get-token-by-tokenid
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Tokens/{id}$
 ---
 
 {% include use-cases/use-case-transport-get-token-by-tokenid.md %}

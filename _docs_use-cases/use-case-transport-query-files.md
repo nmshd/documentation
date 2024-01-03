@@ -34,6 +34,7 @@ properties:
   - link: use-case-transport-query-files
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Files$
 ---
 
 {% include use-cases/use-case-transport-query-files.md %}

@@ -34,6 +34,7 @@ properties:
   - link: use-case-consumption-execute-an-identityattributequery
 require:
 required_by:
+api_route_regex: ^post /api/v2/Attributes/ExecuteIdentityAttributeQuery$
 ---
 
 {% include use-cases/use-case-consumption-execute-an-identityattributequery.md %}

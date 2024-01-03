@@ -34,6 +34,7 @@ properties:
   - link: use-case-consumption-query-attributes
 require:
 required_by:
+api_route_regex: ^get /api/v2/Attributes$
 ---
 
 {% include use-cases/use-case-consumption-query-attributes.md %}

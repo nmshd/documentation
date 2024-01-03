@@ -34,6 +34,7 @@ properties:
   - link: use-case-device-get-the-connector-version-information
 require:
 required_by:
+api_route_regex: ^GET /Monitoring/Version$
 ---
 
 {% include use-cases/use-case-device-get-the-connector-version-information.md %}

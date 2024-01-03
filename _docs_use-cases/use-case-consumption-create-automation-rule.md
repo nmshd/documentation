@@ -11,6 +11,7 @@ sidebar:
 properties:
   - id: IAR1
   - component: Runtime
+  - component: Runtime
   - layer: Consumption
   - facade: AutomationRuleFacade
   - function:

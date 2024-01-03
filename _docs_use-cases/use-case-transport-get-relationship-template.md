@@ -34,6 +34,7 @@ properties:
   - link: use-case-transport-get-relationship-template
 require:
 required_by:
+api_route_regex: ^GET /api/v2/RelationshipTemplates/{id}$
 ---
 
 {% include use-cases/use-case-transport-get-relationship-template.md %}

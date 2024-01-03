@@ -34,6 +34,7 @@ properties:
   - link: use-case-device-get-the-connector-health-status
 require:
 required_by:
+api_route_regex: ^GET /health$
 ---
 
 {% include use-cases/use-case-device-get-the-connector-health-status.md %}

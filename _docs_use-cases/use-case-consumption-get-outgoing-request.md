@@ -34,6 +34,7 @@ properties:
   - link: use-case-consumption-get-outgoing-request
 require:
 required_by:
+api_route_regex: ^get /api/v2/Requests/Outgoing/{id}$
 ---
 
 {% include use-cases/use-case-consumption-get-outgoing-request.md %}

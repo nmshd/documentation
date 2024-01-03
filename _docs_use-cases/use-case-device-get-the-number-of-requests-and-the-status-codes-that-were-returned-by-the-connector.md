@@ -34,6 +34,7 @@ properties:
   - link: use-case-device-get-the-number-of-requests-and-the-status-codes-that-were-returned-by-the-connector
 require:
 required_by:
+api_route_regex: ^GET /Monitoring/Requests$
 ---
 
 {% include use-cases/use-case-device-get-the-number-of-requests-and-the-status-codes-that-were-returned-by-the-connector.md %}

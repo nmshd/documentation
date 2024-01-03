@@ -34,6 +34,7 @@ properties:
   - link: use-case-transport-send-message-to-recipients
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Messages$
 ---
 
 {% include use-cases/use-case-transport-send-message-to-recipients.md %}

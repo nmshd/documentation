@@ -34,6 +34,7 @@ properties:
   - link: use-case-transport-get-attributes-for-relationship
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Relationships/{id}/Attributes$
 ---
 
 {% include use-cases/use-case-transport-get-attributes-for-relationship.md %}

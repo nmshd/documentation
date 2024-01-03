@@ -34,6 +34,7 @@ properties:
   - link: use-case-transport-get-message-by-messageid
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Messages/{id}$
 ---
 
 {% include use-cases/use-case-transport-get-message-by-messageid.md %}

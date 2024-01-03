@@ -35,3 +35,5 @@ properties:
 require:
 required_by:
 ---
+
+{% include use-cases/use-case-transport-request-deletion-of-identity.md %}

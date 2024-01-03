@@ -34,6 +34,7 @@ properties:
   - link: use-case-transport-get-own-file
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Files/Own$
 ---
 
 {% include use-cases/use-case-transport-get-own-file.md %}

@@ -34,6 +34,7 @@ properties:
   - link: use-case-consumption-create-an-attribute
 require:
 required_by:
+api_route_regex: ^post /api/v2/Attributes$
 ---
 
 {% include use-cases/use-case-consumption-create-an-attribute.md %}

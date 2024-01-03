@@ -34,6 +34,7 @@ properties:
   - link: use-case-transport-get-relationship-by-relationshipid
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Relationships/{id}$
 ---
 
 {% include use-cases/use-case-transport-get-relationship-by-relationshipid.md %}

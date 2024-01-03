@@ -34,6 +34,7 @@ properties:
   - link: use-case-transport-load-token-created-by-others
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Tokens/Peer$
 ---
 
 {% include use-cases/use-case-transport-load-token-created-by-others.md %}

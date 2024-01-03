@@ -34,6 +34,7 @@ properties:
   - link: use-case-transport-create-challenge
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Challenges$
 ---
 
 {% include use-cases/use-case-transport-create-challenge.md %}

@@ -34,6 +34,7 @@ properties:
   - link: use-case-transport-load-relationship-template-created-by-others
 require:
 required_by:
+api_route_regex: ^POST /api/v2/RelationshipTemplates/Peer$
 ---
 
 {% include use-cases/use-case-transport-load-relationship-template-created-by-others.md %}

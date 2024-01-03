@@ -34,6 +34,7 @@ properties:
   - link: use-case-consumption-execute-a-relationshipattributequery
 require:
 required_by:
+api_route_regex: ^post /api/v2/Attributes/ExecuteRelationshipAttributeQuery$
 ---
 
 {% include use-cases/use-case-consumption-execute-a-relationshipattributequery.md %}
