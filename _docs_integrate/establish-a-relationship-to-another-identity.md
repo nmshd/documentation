@@ -8,14 +8,7 @@ toc: true
 properties:
   - id: SC107
   - category: Get in touch with other Identities
-  - description: Create Relationship Template (with respective content)
-Communicate Template to peer (over side channel)
-Scan Template / Press Link
-Check and accept Request
-Send Relationship Request (including Response to Template's Request)
-Receive Relationship Request
-Check Relationship Request
-Accept Relationship Request
+  - description: Create Relationship Template (with respective content) Communicate Template to peer (over side channel) Scan Template / Press Link Check and accept Request Send Relationship Request (including Response to Template's Request) Receive Relationship Request Check Relationship Request Accept Relationship Request
   - customer:
   - component: integrate
   - level:

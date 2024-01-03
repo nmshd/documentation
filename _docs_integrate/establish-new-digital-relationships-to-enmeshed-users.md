@@ -8,13 +8,7 @@ toc: true
 properties:
   - id: SC111
   - category: Get in touch with other Identities
-  - description: Verein/Versicherung ohne Identity Provider bekommt einen neuen Kunden über enmeshed, Mitgliedsantrag, etc…
-Nicht-personalisierter QR-Code wird erzeugt
-QRCode wird gedruckt / auf Website angezeigt
-Nutzer scannt QR-Code ein
-Kontaktanfrage wird überprüft
-CRM System speichert neue Kontaktanfrage
-Organisation kann Nutzer Nachrichten schicken
+  - description: Verein/Versicherung ohne Identity Provider bekommt einen neuen Kunden über enmeshed, Mitgliedsantrag, etc… Nicht-personalisierter QR-Code wird erzeugt QRCode wird gedruckt / auf Website angezeigt Nutzer scannt QR-Code ein Kontaktanfrage wird überprüft CRM System speichert neue Kontaktanfrage Organisation kann Nutzer Nachrichten schicken
   - customer:
   - component: integrate
   - level:

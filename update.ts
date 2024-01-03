@@ -65,11 +65,10 @@ function createScenarioText(scenarioObject: DynamicUseCase): string {
         )
             if (Object.prototype.hasOwnProperty.call(scenarioObject, key)) {
                 const value = scenarioObject[key];
-                // for formulas use the value
                 if (value == null) {
                     text += "  - " + `${key.toLowerCase()}:\n`;
                 } else {
-                    text += "  - " + `${key.toLowerCase()}: ${value}\n`;
+                    text += "  - " + `${key.toLowerCase()}: ${value.replaceAll("\n", " ")}\n`;
                 }
             }
     }

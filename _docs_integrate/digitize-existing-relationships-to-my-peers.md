@@ -8,14 +8,7 @@ toc: true
 properties:
   - id: SC110
   - category: Get in touch with other Identities
-  - description: Verein/Versicherung ohne Identity Provider hat schon einen bestehenden Kunden
-Personalisierter QRCode wird aus Nutzerdaten erzeugt
-Per Brief / App verschickt
-Nutzer scannt QR-Code ein
-Nutzer stellt Kontaktanfrage
-Kontaktanfrage wird überprüft
-CRM System speichert enmeshed Adresse im System
-Organisation kann Nutzer Nachrichten schicken
+  - description: Verein/Versicherung ohne Identity Provider hat schon einen bestehenden Kunden Personalisierter QRCode wird aus Nutzerdaten erzeugt Per Brief / App verschickt Nutzer scannt QR-Code ein Nutzer stellt Kontaktanfrage Kontaktanfrage wird überprüft CRM System speichert enmeshed Adresse im System Organisation kann Nutzer Nachrichten schicken
   - customer:
   - component: integrate
   - level:
