@@ -7,10 +7,17 @@ const useCasesWorksheetName = "UseCases";
 
 // Define the interface dynamically based on the headers
 interface DynamicUseCase {
-    [key: string]: any;
+    [key: string]: string;
 }
 function writeTextToFile(object: DynamicUseCase, text: string): void {
-    fs.readFile("_docs_" + object.Link + ".md", "utf8", (missingFile, data) => {
+    var fileName = "";
+    if (object["ID"].startsWith("SC")) {
+        fileName = "_docs_" + object.Link + ".md";
+    } else {
+        fileName = "_docs_use-cases/" + object.Link + ".md";
+    }
+
+    fs.readFile(fileName, "utf8", (missingFile, data) => {
         const regex = /---[\s\S]*?---/g; // Regular expression to match text between "---" across multiple lines
         var newText = "";
         if (missingFile) {
@@ -20,7 +27,7 @@ function writeTextToFile(object: DynamicUseCase, text: string): void {
             console.info("\x1b[93m%s\x1b[0m", "Update: " + object.ID + " - ", object.Link);
             newText = data.replace(regex, text);
         }
-        fs.promises.writeFile("_docs_" + object.Link + ".md", newText, "utf-8");
+        fs.promises.writeFile(fileName, newText, "utf-8");
     });
 }
 
@@ -89,7 +96,7 @@ function createUseCaseText(useCaseObject: DynamicUseCase): string {
         text += "published: false\n";
     }
     text += 'title: "' + replaceEach(useCaseObject.Title, ["<", "", ">", "", ":", "", "’", "'"]) + '"\n';
-    text += "type: scenario\n";
+    text += "type: use-case\n";
     text += "toc: true\n";
     text += "properties:\n";
 
@@ -184,22 +191,21 @@ async function main() {
     } catch (error) {
         console.error("Error updating Scenarios:", error);
     }
-    try {
-        const useCasesObject = await readExcelFile(filePath, useCasesWorksheetName);
-        if (useCasesObject && useCasesObject.length > 0) {
-            useCasesObject.forEach((useCaseObject) => {
-                if (useCaseObject.ID != null) {
-                    var useCaseText = createUseCaseText(useCaseObject);
-                    console.log(useCaseText);
-                    // writeTextToFile(useCaseObject, useCaseText);
-                }
-            });
-        } else {
-            console.log("The array is empty or undefined.");
-        }
-    } catch (error) {
-        console.error("Error updating UseCases:", error);
-    }
+    // try {
+    //     const useCasesObject = await readExcelFile(filePath, useCasesWorksheetName);
+    //     if (useCasesObject && useCasesObject.length > 0) {
+    //         useCasesObject.forEach((useCaseObject) => {
+    //             if (useCaseObject.ID != null) {
+    //                 var useCaseText = createUseCaseText(useCaseObject);
+    //                 writeTextToFile(useCaseObject, useCaseText);
+    //             }
+    //         });
+    //     } else {
+    //         console.log("The array is empty or undefined.");
+    //     }
+    // } catch (error) {
+    //     console.error("Error updating UseCases:", error);
+    // }
 }
 
 main();
