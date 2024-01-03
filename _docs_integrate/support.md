@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published: true
-  - link: integrate/support
+  - link: support
 require:
 required_by:
 ---

@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: operate/handling-events-with-google-cloud-pubsub
+  - link: handling-events-with-google-cloud-pubsub
 require:
 required_by:
 ---

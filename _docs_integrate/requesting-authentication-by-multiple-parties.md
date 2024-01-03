@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: integrate/requesting-authentication-by-multiple-parties
+  - link: requesting-authentication-by-multiple-parties
 require:
 required_by:
 ---

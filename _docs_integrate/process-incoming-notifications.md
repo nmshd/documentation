@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: integrate/process-incoming-notifications
+  - link: process-incoming-notifications
 require:
 required_by:
 ---

@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: use/enable-profile-authentication
+  - link: enable-profile-authentication
 require:
 required_by:
 ---

@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: operate/faq
+  - link: faq
 require:
 required_by:
 ---

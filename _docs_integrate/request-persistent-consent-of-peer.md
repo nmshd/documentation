@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: DONE
   - published: true
-  - link: integrate/request-persistent-consent-of-peer
+  - link: request-persistent-consent-of-peer
 require:
 required_by:
 ---

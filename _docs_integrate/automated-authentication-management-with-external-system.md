@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: integrate/automated-authentication-management-with-external-system
+  - link: automated-authentication-management-with-external-system
 require:
 required_by:
 ---

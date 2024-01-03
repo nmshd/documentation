@@ -15,7 +15,7 @@ properties:
   - implementation status:
   - documentation status:
   - published:
-  - link: integrate/upgrade-existing-online-accounts-of-my-users
+  - link: upgrade-existing-online-accounts-of-my-users
 require:
 required_by:
 ---

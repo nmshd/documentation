@@ -17,7 +17,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OLD
   - published: true
-  - link: operate/overview-of-connector-operations
+  - link: overview-of-connector-operations
 require:
 required_by:
 ---

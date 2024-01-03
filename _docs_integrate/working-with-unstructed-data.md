@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: integrate/working-with-unstructed-data
+  - link: working-with-unstructed-data
 require:
 required_by:
 ---

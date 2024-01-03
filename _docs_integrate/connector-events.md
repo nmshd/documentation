@@ -17,7 +17,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OLD
   - published: true
-  - link: integrate/connector-events
+  - link: connector-events
 require:
 required_by:
 ---

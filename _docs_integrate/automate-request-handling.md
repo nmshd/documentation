@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: integrate/automate-request-handling
+  - link: automate-request-handling
 require:
 required_by:
 ---

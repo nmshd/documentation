@@ -15,7 +15,7 @@ properties:
   - implementation status: DISABLED
   - documentation status: OPEN
   - published:
-  - link: use/establish-a-new-digital-relationship-to-another-user
+  - link: establish-a-new-digital-relationship-to-another-user
 require:
 required_by:
 ---

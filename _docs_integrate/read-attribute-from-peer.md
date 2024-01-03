@@ -15,7 +15,7 @@ properties:
   - implementation status: CHANGES REQUIRED
   - documentation status: OPEN
   - published:
-  - link: integrate/read-attribute-from-peer
+  - link: read-attribute-from-peer
 require:
 required_by:
 ---

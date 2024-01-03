@@ -15,7 +15,7 @@ properties:
   - implementation status: IDEA
   - documentation status: OPEN
   - published:
-  - link: use/cluster-contacts-into-your-phase-of-live-or-categories
+  - link: cluster-contacts-into-your-phase-of-live-or-categories
 require:
 required_by:
 ---

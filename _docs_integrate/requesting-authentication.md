@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: integrate/requesting-authentication
+  - link: requesting-authentication
 require:
 required_by:
 ---

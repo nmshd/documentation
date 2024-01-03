@@ -17,7 +17,7 @@ properties:
   - implementation status: DONE
   - documentation status: OLD
   - published: true
-  - link: integrate/requests-over-messages
+  - link: requests-over-messages
 require:
 required_by:
 ---

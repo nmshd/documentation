@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: integrate/share-own-attribute-to-peer
+  - link: share-own-attribute-to-peer
 require:
 required_by:
 ---

@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: operate/handling-events-with-webhooks
+  - link: handling-events-with-webhooks
 require:
 required_by:
 ---

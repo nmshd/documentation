@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: integrate/respond-to-incoming-requests
+  - link: respond-to-incoming-requests
 require:
 required_by:
 ---

@@ -17,7 +17,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OLD
   - published: true
-  - link: operate/modules
+  - link: modules
 require:
 required_by:
 ---

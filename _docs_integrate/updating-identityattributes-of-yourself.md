@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: integrate/updating-identityattributes-of-yourself
+  - link: updating-identityattributes-of-yourself
 require:
 required_by:
 ---

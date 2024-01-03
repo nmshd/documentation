@@ -15,7 +15,7 @@ properties:
   - implementation status: CHANGES REQUIRED
   - documentation status: OPEN
   - published:
-  - link: integrate/create-attribute-for-peer
+  - link: create-attribute-for-peer
 require:
 required_by:
 ---

@@ -17,7 +17,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OLD
   - published: true
-  - link: operate/setup-with-docker-compose
+  - link: setup-with-docker-compose
 require:
 required_by:
 ---

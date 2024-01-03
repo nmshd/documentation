@@ -17,7 +17,7 @@ properties:
   - implementation status: DONE
   - documentation status: OLD
   - published: true
-  - link: integrate/use-cases
+  - link: use-cases
 require:
 required_by:
 ---

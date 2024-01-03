@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: use/create-an-identity
+  - link: create-an-identity
 require:
 required_by:
 ---

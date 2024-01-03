@@ -17,7 +17,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OLD
   - published: true
-  - link: integrate/error-codes
+  - link: error-codes
 require:
 required_by:
 ---

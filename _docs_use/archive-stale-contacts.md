@@ -15,7 +15,7 @@ properties:
   - implementation status: IDEA
   - documentation status: OPEN
   - published:
-  - link: use/archive-stale-contacts
+  - link: archive-stale-contacts
 require:
 required_by:
 ---

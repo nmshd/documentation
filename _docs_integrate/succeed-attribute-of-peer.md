@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: integrate/succeed-attribute-of-peer
+  - link: succeed-attribute-of-peer
 require:
 required_by:
 ---

@@ -17,7 +17,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OLD
   - published: true
-  - link: operate/troubleshooting-guide
+  - link: troubleshooting-guide
 require:
 required_by:
 ---

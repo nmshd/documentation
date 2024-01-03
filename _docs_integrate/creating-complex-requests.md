@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: integrate/creating-complex-requests
+  - link: creating-complex-requests
 require:
 required_by:
 ---

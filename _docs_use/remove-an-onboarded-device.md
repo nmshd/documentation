@@ -15,7 +15,7 @@ properties:
   - implementation status: IDEA
   - documentation status: OPEN
   - published:
-  - link: use/remove-an-onboarded-device
+  - link: remove-an-onboarded-device
 require:
 required_by:
 ---

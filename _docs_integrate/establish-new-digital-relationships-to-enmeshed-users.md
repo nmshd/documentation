@@ -15,7 +15,7 @@ properties:
   - implementation status:
   - documentation status:
   - published:
-  - link: integrate/establish-new-digital-relationships-to-enmeshed-users
+  - link: establish-new-digital-relationships-to-enmeshed-users
 require:
 required_by:
 ---

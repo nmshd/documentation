@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: integrate/request-and-response-introduction
+  - link: request-and-response-introduction
 require:
 required_by:
 ---

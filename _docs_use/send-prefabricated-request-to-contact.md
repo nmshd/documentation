@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: use/send-prefabricated-request-to-contact
+  - link: send-prefabricated-request-to-contact
 require:
 required_by:
 ---

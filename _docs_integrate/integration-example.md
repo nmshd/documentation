@@ -17,7 +17,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OLD
   - published: true
-  - link: integrate/integration-example
+  - link: integration-example
 require:
 required_by:
 ---

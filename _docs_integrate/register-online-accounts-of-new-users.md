@@ -15,7 +15,7 @@ properties:
   - implementation status:
   - documentation status:
   - published:
-  - link: integrate/register-online-accounts-of-new-users
+  - link: register-online-accounts-of-new-users
 require:
 required_by:
 ---

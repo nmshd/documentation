@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: operate/setup-connector-for-productive-use
+  - link: setup-connector-for-productive-use
 require:
 required_by:
 ---

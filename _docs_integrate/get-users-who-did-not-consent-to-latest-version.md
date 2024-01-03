@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: integrate/get-users-who-did-not-consent-to-latest-version
+  - link: get-users-who-did-not-consent-to-latest-version
 require:
 required_by:
 ---

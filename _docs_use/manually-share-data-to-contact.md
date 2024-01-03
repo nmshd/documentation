@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: use/manually-share-data-to-contact
+  - link: manually-share-data-to-contact
 require:
 required_by:
 ---

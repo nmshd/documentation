@@ -17,7 +17,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OLD
   - published: true
-  - link: operate/performance-considerations
+  - link: performance-considerations
 require:
 required_by:
 ---

@@ -17,7 +17,7 @@ properties:
   - implementation status: DONE
   - documentation status: OLD
   - published: true
-  - link: integrate/requests-over-templates
+  - link: requests-over-templates
 require:
 required_by:
 ---

@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: use/establish-a-new-digital-relationship-to-an-organization
+  - link: establish-a-new-digital-relationship-to-an-organization
 require:
 required_by:
 ---

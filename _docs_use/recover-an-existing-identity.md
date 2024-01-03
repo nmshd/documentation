@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: use/recover-an-existing-identity
+  - link: recover-an-existing-identity
 require:
 required_by:
 ---

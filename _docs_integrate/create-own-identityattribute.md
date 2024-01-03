@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: integrate/create-own-identityattribute
+  - link: create-own-identityattribute
 require:
 required_by:
 ---

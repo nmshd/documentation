@@ -17,7 +17,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OLD
   - published: true
-  - link: use/secure-device-setup
+  - link: secure-device-setup
 require:
 required_by:
 ---

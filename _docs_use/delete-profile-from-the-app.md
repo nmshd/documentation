@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: use/delete-profile-from-the-app
+  - link: delete-profile-from-the-app
 require:
 required_by:
 ---

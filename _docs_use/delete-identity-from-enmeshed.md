@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: use/delete-identity-from-enmeshed
+  - link: delete-identity-from-enmeshed
 require:
 required_by:
 ---

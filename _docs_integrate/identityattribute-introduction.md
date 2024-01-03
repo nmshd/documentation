@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: integrate/identityattribute-introduction
+  - link: identityattribute-introduction
 require:
 required_by:
 ---

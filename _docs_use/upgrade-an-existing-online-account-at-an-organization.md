@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: use/upgrade-an-existing-online-account-at-an-organization
+  - link: upgrade-an-existing-online-account-at-an-organization
 require:
 required_by:
 ---

@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: integrate/request-and-process-attributes-by-code-or-link-of-new-contacts
+  - link: request-and-process-attributes-by-code-or-link-of-new-contacts
 require:
 required_by:
 ---

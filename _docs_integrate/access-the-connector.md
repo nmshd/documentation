@@ -17,7 +17,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OLD
   - published: true
-  - link: integrate/access-the-connector
+  - link: access-the-connector
 require:
 required_by:
 ---

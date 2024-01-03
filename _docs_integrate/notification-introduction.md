@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: integrate/notification-introduction
+  - link: notification-introduction
 require:
 required_by:
 ---

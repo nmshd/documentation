@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: operate/check-health-of-connector
+  - link: check-health-of-connector
 require:
 required_by:
 ---

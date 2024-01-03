@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: DONE
   - published: true
-  - link: integrate/requesting-one-time-consents
+  - link: requesting-one-time-consents
 require:
 required_by:
 ---

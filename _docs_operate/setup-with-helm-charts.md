@@ -17,7 +17,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OLD
   - published: true
-  - link: operate/setup-with-helm-charts
+  - link: setup-with-helm-charts
 require:
 required_by:
 ---

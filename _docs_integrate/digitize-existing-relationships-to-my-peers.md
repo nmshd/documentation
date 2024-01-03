@@ -15,7 +15,7 @@ properties:
   - implementation status:
   - documentation status:
   - published:
-  - link: integrate/digitize-existing-relationships-to-my-peers
+  - link: digitize-existing-relationships-to-my-peers
 require:
 required_by:
 ---

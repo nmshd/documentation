@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: operate/writing-your-own-connector-module
+  - link: writing-your-own-connector-module
 require:
 required_by:
 ---

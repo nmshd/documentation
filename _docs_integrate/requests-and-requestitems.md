@@ -17,7 +17,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OLD
   - published: true
-  - link: integrate/requests-and-requestitems
+  - link: requests-and-requestitems
 require:
 required_by:
 ---

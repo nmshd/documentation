@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: integrate/overview-of-consent-possibilities
+  - link: overview-of-consent-possibilities
 require:
 required_by:
 ---

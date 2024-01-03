@@ -15,7 +15,7 @@ properties:
   - implementation status:
   - documentation status:
   - published:
-  - link: integrate/establish-a-relationship-to-another-identity
+  - link: establish-a-relationship-to-another-identity
 require:
 required_by:
 ---

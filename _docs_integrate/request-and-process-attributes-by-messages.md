@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: integrate/request-and-process-attributes-by-messages
+  - link: request-and-process-attributes-by-messages
 require:
 required_by:
 ---

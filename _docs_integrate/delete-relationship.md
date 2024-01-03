@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: integrate/delete-relationship
+  - link: delete-relationship
 require:
 required_by:
 ---

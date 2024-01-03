@@ -17,7 +17,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OLD
   - published: true
-  - link: operate/privacy-considerations
+  - link: privacy-considerations
 require:
 required_by:
 ---

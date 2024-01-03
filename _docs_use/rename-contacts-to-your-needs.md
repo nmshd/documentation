@@ -15,7 +15,7 @@ properties:
   - implementation status: IDEA
   - documentation status: OPEN
   - published:
-  - link: use/rename-contacts-to-your-needs
+  - link: rename-contacts-to-your-needs
 require:
 required_by:
 ---

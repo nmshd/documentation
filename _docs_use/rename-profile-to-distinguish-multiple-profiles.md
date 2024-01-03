@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: use/rename-profile-to-distinguish-multiple-profiles
+  - link: rename-profile-to-distinguish-multiple-profiles
 require:
 required_by:
 ---

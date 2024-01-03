@@ -15,7 +15,7 @@ properties:
   - implementation status: IDEA
   - documentation status: OPEN
   - published:
-  - link: use/pin-contacts-to-have-the-most-prominent-contacts-at-hand
+  - link: pin-contacts-to-have-the-most-prominent-contacts-at-hand
 require:
 required_by:
 ---

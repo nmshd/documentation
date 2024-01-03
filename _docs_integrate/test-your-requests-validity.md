@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status:
   - published:
-  - link: integrate/test-your-requests-validity
+  - link: test-your-requests-validity
 require:
 required_by:
 ---

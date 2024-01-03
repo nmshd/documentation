@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: integrate/updating-consents
+  - link: updating-consents
 require:
 required_by:
 ---

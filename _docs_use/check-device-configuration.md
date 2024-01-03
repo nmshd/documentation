@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: use/check-device-configuration
+  - link: check-device-configuration
 require:
 required_by:
 ---

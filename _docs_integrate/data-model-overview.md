@@ -17,7 +17,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OLD
   - published: true
-  - link: integrate/data-model-overview
+  - link: data-model-overview
 require:
 required_by:
 ---

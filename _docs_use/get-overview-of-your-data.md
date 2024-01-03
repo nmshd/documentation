@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: use/get-overview-of-your-data
+  - link: get-overview-of-your-data
 require:
 required_by:
 ---

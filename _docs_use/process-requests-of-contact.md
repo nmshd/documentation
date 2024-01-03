@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: use/process-requests-of-contact
+  - link: process-requests-of-contact
 require:
 required_by:
 ---

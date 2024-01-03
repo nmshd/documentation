@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: integrate/respond-to-incoming-identityattribute-update-requests
+  - link: respond-to-incoming-identityattribute-update-requests
 require:
 required_by:
 ---

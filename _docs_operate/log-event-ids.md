@@ -15,7 +15,7 @@ properties:
   - implementation status:
   - documentation status:
   - published: true
-  - link: operate/log-event-ids
+  - link: log-event-ids
 require:
 required_by:
 ---

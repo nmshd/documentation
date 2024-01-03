@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: integrate/overview-of-request-items
+  - link: overview-of-request-items
 require:
 required_by:
 ---

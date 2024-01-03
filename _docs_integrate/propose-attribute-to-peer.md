@@ -15,7 +15,7 @@ properties:
   - implementation status: CHANGES REQUIRED
   - documentation status: OPEN
   - published:
-  - link: integrate/propose-attribute-to-peer
+  - link: propose-attribute-to-peer
 require:
 required_by:
 ---

@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: operate/handling-events-with-amqp
+  - link: handling-events-with-amqp
 require:
 required_by:
 ---

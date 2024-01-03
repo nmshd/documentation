@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: integrate/automated-consent-management-with-external-system
+  - link: automated-consent-management-with-external-system
 require:
 required_by:
 ---

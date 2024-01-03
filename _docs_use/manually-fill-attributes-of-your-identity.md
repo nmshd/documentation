@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: use/manually-fill-attributes-of-your-identity
+  - link: manually-fill-attributes-of-your-identity
 require:
 required_by:
 ---

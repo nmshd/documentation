@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: integrate/delete-attribute
+  - link: delete-attribute
 require:
 required_by:
 ---

@@ -17,7 +17,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OLD
   - published: true
-  - link: integrate/attribute-values
+  - link: attribute-values
 require:
 required_by:
 ---

@@ -15,7 +15,7 @@ properties:
   - implementation status:
   - documentation status:
   - published:
-  - link: integrate/establish-a-new-digital-relationship-to-another-organization
+  - link: establish-a-new-digital-relationship-to-another-organization
 require:
 required_by:
 ---

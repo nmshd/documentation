@@ -17,7 +17,7 @@ properties:
   - implementation status:
   - documentation status: OLD
   - published: true
-  - link: use/install-the-app
+  - link: install-the-app
 require:
 required_by:
 ---

@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: use/digitize-an-existing-relationship-to-an-organization
+  - link: digitize-an-existing-relationship-to-an-organization
 require:
 required_by:
 ---

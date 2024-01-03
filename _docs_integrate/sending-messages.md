@@ -17,7 +17,7 @@ properties:
   - implementation status: DONE
   - documentation status: OLD
   - published: true
-  - link: integrate/sending-messages
+  - link: sending-messages
 require:
 required_by:
 ---

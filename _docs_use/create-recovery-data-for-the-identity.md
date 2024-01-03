@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: use/create-recovery-data-for-the-identity
+  - link: create-recovery-data-for-the-identity
 require:
 required_by:
 ---

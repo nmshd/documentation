@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: use/onboard-an-additional-device
+  - link: onboard-an-additional-device
 require:
 required_by:
 ---

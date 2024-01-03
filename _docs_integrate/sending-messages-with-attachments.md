@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: integrate/sending-messages-with-attachments
+  - link: sending-messages-with-attachments
 require:
 required_by:
 ---

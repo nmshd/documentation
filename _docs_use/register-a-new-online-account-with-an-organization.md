@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: use/register-a-new-online-account-with-an-organization
+  - link: register-a-new-online-account-with-an-organization
 require:
 required_by:
 ---
