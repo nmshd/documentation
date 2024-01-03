@@ -97,6 +97,7 @@ function createUseCaseText(useCaseObject: DynamicUseCase): string {
     text += 'title: "' + replaceEach(useCaseObject.Title, ["<", "", ">", "", ":", "", "’", "'"]) + '"\n';
     text += "type: use-case\n";
     text += "toc: true\n";
+    text += 'sidebar:\n  - title: "Integrate Enmeshed"\n    nav: "docs_integrate"\n';
     text += "properties:\n";
 
     for (const key in useCaseObject) {
@@ -190,21 +191,21 @@ async function main() {
     } catch (error) {
         console.error("Error updating Scenarios:", error);
     }
-    // try {
-    //     const useCasesObject = await readExcelFile(filePath, useCasesWorksheetName);
-    //     if (useCasesObject && useCasesObject.length > 0) {
-    //         useCasesObject.forEach((useCaseObject) => {
-    //             if (useCaseObject.ID != null) {
-    //                 var useCaseText = createUseCaseText(useCaseObject);
-    //                 writeTextToFile(useCaseObject, useCaseText);
-    //             }
-    //         });
-    //     } else {
-    //         console.log("The array is empty or undefined.");
-    //     }
-    // } catch (error) {
-    //     console.error("Error updating UseCases:", error);
-    // }
+    try {
+        const useCasesObject = await readExcelFile(filePath, useCasesWorksheetName);
+        if (useCasesObject && useCasesObject.length > 0) {
+            useCasesObject.forEach((useCaseObject) => {
+                if (useCaseObject.ID != null) {
+                    var useCaseText = createUseCaseText(useCaseObject);
+                    writeTextToFile(useCaseObject, useCaseText);
+                }
+            });
+        } else {
+            console.log("The array is empty or undefined.");
+        }
+    } catch (error) {
+        console.error("Error updating UseCases:", error);
+    }
 }
 
 main();
