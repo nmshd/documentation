@@ -104,17 +104,19 @@ function createUseCaseText(useCaseObject: DynamicUseCase): string {
         if (key != "Title" && key != "Require" && key != "redirect_from")
             if (Object.prototype.hasOwnProperty.call(useCaseObject, key)) {
                 const value = useCaseObject[key];
-                // for formulas use the value
                 if (value == null) {
                     text += "  - " + `${key.toLowerCase()}:\n`;
                 } else {
-                    text += "  - " + `${key.toLowerCase()}: ${value}\n`;
+                    text += "  - " + `${key.toLowerCase()}: ${value.replaceAll("\n", " ")}\n`;
                 }
             }
     }
 
     text += "require:\n";
     text += "required_by:\n";
+    if (useCaseObject["api_route_regex"]) {
+        text += "api_route_regex: ^" + useCaseObject["api_route_regex"] + "$\n";
+    }
     text += "---";
     return text;
 }
@@ -195,6 +197,8 @@ async function main() {
         const useCasesObject = await readExcelFile(filePath, useCasesWorksheetName);
         if (useCasesObject && useCasesObject.length > 0) {
             useCasesObject.forEach((useCaseObject) => {
+                if (useCaseObject.ID == "CR1") console.log(useCaseObject);
+
                 if (useCaseObject.ID != null) {
                     var useCaseText = createUseCaseText(useCaseObject);
                     writeTextToFile(useCaseObject, useCaseText);

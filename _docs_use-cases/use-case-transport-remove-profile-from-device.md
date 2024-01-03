@@ -14,8 +14,7 @@ properties:
   - layer: Transport
   - facade:
   - function:
-  - description: An Identity can be removed from the current Device (but will be kept for other Devices, e.g. to offboard one Device). Additionally, a Profile can be removed from another onboarded Device (e.g. for wiping another Device).
-If no other Device has been set up for the Profile, removing the Profile would trigger the Delete Identity from Backbone use case.
+  - description: An Identity can be removed from the current Device (but will be kept for other Devices, e.g. to offboard one Device). Additionally, a Profile can be removed from another onboarded Device (e.g. for wiping another Device). If no other Device has been set up for the Profile, removing the Profile would trigger the Delete Identity from Backbone use case.
   - feature category: Multi-profile
   - tech category: Profile
   - status: IDEA
@@ -23,8 +22,7 @@ If no other Device has been set up for the Profile, removing the Profile would t
   - comments:
   - actor: User
   - trigger:
-  - precondition: Profile has been selected (and has been logged into)
-Other Devices has been onboarded for this Identity
+  - precondition: Profile has been selected (and has been logged into) Other Devices has been onboarded for this Identity
   - result: The Profile is removed from the Device
   - priority: HIGH
   - complexity: LOW
