@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RA5
+  - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
   - function: getAttribute
@@ -16,10 +17,10 @@ properties:
   - feature category: Normalized attributes
   - tech category: Attributes
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
   - priority: n/a
@@ -27,11 +28,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: get /api/v2/Attributes/{id}
   - published: default
   - link: consumption/get-attribute
 require:
 required_by:
+api_route_regex: ^get /api/v2/Attributes/{id}$
 ---
 
 {% include use-cases/use-case-consumption-get-attribute.md %}

@@ -125,12 +125,12 @@
                 <ul class="list-items" id="component"></ul>
             </div>
         </th>
-        <th style="width: 10%">
+        <!-- <th style="width: 10%">
             <div class="container">
                 <div class="select-btn">Status ⌄</div>
                 <ul class="list-items" id="status"></ul>
             </div>
-        </th>
+        </th> -->
     </tr>
     {% for use-case in use-cases%}
     <tr>
@@ -141,7 +141,7 @@
         <td class="actor-list">{{ use-case.properties | map:"actor" }}</td>
         <td class="category-list">{{ use-case.properties | map:"tech category" }}</td>
         <td class="component-list">{{ use-case.properties | map:"component" }}</td>
-        <td class="status-list">{{ use-case.properties | map:"status" }}</td>
+        <!-- <td class="status-list">{{ use-case.properties | map:"status" }}</td> -->
     </tr>
     {% endfor %}
 
