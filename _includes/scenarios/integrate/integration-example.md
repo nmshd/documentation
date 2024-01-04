@@ -13,8 +13,8 @@ You need to replace them with values before you send the requests.
 
 - If you want to use your own Connector for executing the examples:
   - [Install the Connector](https://enmeshed.eu/integrate/connector-installation)
-  - Make sure the [Sync Module is disabled](https://enmeshed.eu/operate/configuration#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
-  - Make sure the [docs are enabled](https://enmeshed.eu/operate/configuration#corehttpapi) for the documentation route to work
+  - Make sure the [Sync Module is disabled]({% link _docs_operate/configuration.md %}#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
+  - Make sure the [docs are enabled]({% link _docs_operate/configuration.md %}#corehttpapi) for the documentation route to work
   - Get the API key that was configured during installation of the Connector (it needs to be sent in the `X-API-KEY` header of every HTTP request)
 - You need the [enmeshed App]({% link _docs_use/install-the-app.md %}) installed on your mobile device.
 
