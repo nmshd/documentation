@@ -6,21 +6,19 @@ This guide explains the end to end flow of creating an [IdentityAttribute]({% li
 
 To create an IdentityAttribute as an Integrator for your own Connector, you need to proceed as described in the [Create an Attribute]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}) use case documentation using the following content:
 
-| Property    | Value                                                                                                    |
-| ----------- | -------------------------------------------------------------------------------------------------------- |
-| `@type`     | `"IdentityAttribute"`                                                                                    |
-| `owner`     | `"<Address of your Connector>"`                                                                          |
-| `validFrom` | `"<start of Attribute validity>"`                                                                        |
-| `validTo`   | `"<end of Attribute validity>"`                                                                          |
-| `value`     | Specify an [IdentityAttribute Value]({% link _docs_integrate/attribute-values.md %}#identity-attributes) |
-| `tags`      | `["<additional information 1>", ..., "<additional information m>"]`                                      |
+| Property    | Value                                                                                                    | Required |
+| ----------- | -------------------------------------------------------------------------------------------------------- | :------: |
+| `@type`     | `"IdentityAttribute"`                                                                                    |    ✓     |
+| `owner`     | `"<Address of your Connector>"`                                                                          |    ✓     |
+| `validFrom` | `"<start of Attribute validity>"`                                                                        |    ✗     |
+| `validTo`   | `"<end of Attribute validity>"`                                                                          |    ✗     |
+| `value`     | Specify an [IdentityAttribute Value]({% link _docs_integrate/attribute-values.md %}#identity-attributes) |    ✓     |
+| `tags`      | `["<additional information 1>", ..., "<additional information m>"]`                                      |    ✗     |
 
-You need to replace the placeholders marked with `<...>` appropriately. In particular, it is necessary that you insert one of the available [IdentityAttribute Values]({% link _docs_integrate/attribute-values.md %}#identity-attributes) into the `value` property. You are not allowed to specify the Address of a Connector other than your own as the value for the `owner` property, as the [Create an Attribute]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}) use case relates to the creation of Attributes for yourself and not for others. Note that the properties `validFrom`, `validTo` and `tags` are optional, so you can omit them.
+You need to replace the placeholders marked with `<...>` appropriately. In particular, it is necessary that you insert one of the available [IdentityAttribute Values]({% link _docs_integrate/attribute-values.md %}#identity-attributes) into the `value` property. You are not allowed to specify the Address of a Connector other than your own as the value for the `owner` property, as the [Create an Attribute]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}) use case relates to the creation of Attributes for yourself and not for others.
 
-In general, you can query your Connector's Address by proceeding as documented in the [Get currently used Identity]({% link _docs_use-cases/use-case-transport-get-currently-used-identity.md %}) use case. If you use the Demo Connector provided by us for testing purposes in the [interactive excerpt of the Connector's API documentation]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}), the Connector's Address is `id134nJmN7E4Carb6KyRJyePVnXxVHEYQgWD`.
+You can query your Connector's Address by proceeding as documented in the [Get currently used Identity]({% link _docs_use-cases/use-case-transport-get-currently-used-identity.md %}) use case.
 {: .notice--info}
-
-<!--- TODO: Change link to subsection of create an attribute use case --->
 
 ## Process
 
