@@ -14,20 +14,20 @@ This is not only more efficient, also, its is safer, since it keeps you updated 
 Working with events allows to determine routines, that are executed whenever a specific event arises, called handlers.
 An overview of the [Connector events]({% link _docs_integrate/connector-events.md %}) that may occur is given in the corresponding section.
 
-## Example: Sending and receiving messages
+## Motivation for using events
 
-As an exemplary process of how working with events can benefit your mode of operation, we look an the procedure of exchanging `Messages`.
+As an exemplary process of how working with events can benefit your mode of operation, we look at the procedure of exchanging `Messages`.
 
-### Without using events
+### Procedure without events
 
 Firstly, we consider the case without using events.
-To sent a `Message`, the external system posts the corresponding request to the REST API of the Connector.
+To send a `Message`, the external system posts the corresponding request to the REST API of the Connector.
 Then, it regularly fetches its state, until a response is received.
 This might take many cycles, depending on the refresh rate, and implies a delay between the time the response is received by the Connector and the external system.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/e4d12a4d-faf5-4133-9ea2-c69a716b1975" id="8vvNLAyZJbL9"></iframe></div>
 
-### Using events
+### Procedure with events
 
 In contrast, if you work with events, as soon as the Connector successfully sent your `Message`, a `transport.messageSent` event will be transmitted to your system as a confirmation.
 Awaiting the response, no long polling is necessary, since the Connector actively sends a `transport.messageReceived` event, containing the answer, once it is received.
@@ -38,13 +38,8 @@ Awaiting the response, no long polling is necessary, since the Connector activel
 
 In order to receive events, the Connector needs to be synchronized with the Backbone.
 This can be automated using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
-Fetching changes from the Backbone regularly, it automatically triggers the events used by other [Modules]({% link _docs_operate/modules.md %}).
-Currently, there are three options available: events can be received via [AMQP]({% link _docs_operate/modules.md %}#amqppublisher), via [PubSub]({% link _docs_operate/modules.md %}#pubsubpublisher) or via [Webhooks]({% link _docs_operate/modules.md %}#webhooksv2).
+Fetching changes from the Backbone regularly, it forwards the received events to [Modules]({% link _docs_operate/modules.md %}) that are configured to process them, e.g. [AMQP Publisher]({% link _docs_operate/modules.md %}#amqppublisher), [PubSub Publisher]({% link _docs_operate/modules.md %}#pubsubpublisher) or [Webhooks]({% link _docs_operate/modules.md %}#webhooksv2).
 Working with message brokers has the advantage that events are conserved, even in case of a downtime of the recipient.
-Furthermore, configuring exchanges allows to optimize the event processing for one's system.
-An example of an open source message broker is [RabbitMQ](https://www.rabbitmq.com/).
-In contrast, the WebhooksV2 Module will send `HTTP POST` requests to the corresponding handler, if an event occurs.
-However, in case of a downtime of the recipient, these events will get lost.
-Thus, we recommend to work with AMQP.
+Thus, we recommend to work with a message broker module like AMQP or PubSub instead of Webhooks.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/d077ee93-9025-43d6-833e-5ee2f1d966d5" id="bnvNknrH-TUP"></iframe></div>
