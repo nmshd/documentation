@@ -393,23 +393,52 @@ A Request allows you to ask another Identity to do something. What this "somethi
 | requestId | `string`                                                                             | The `id` of the Request this Response belongs to. The Sender of the Request needs this information to map the Response to the corresponding Request.                                                                                                           |
 | items     | `(`[`ResponseItemGroup`](#responseitemgroup)`\|`[`ResponseItem`](#responseitem)`)[]` | An array of Response Items and Groups that are part of the Response. For each Request Item (Group) of the Request, there must be one Response Item (Group) in the Response. Note that the indices have to be the same for matching Request and Response Items. |
 
-### ResponseItem
-
-Response Items are sent inside of a Response. They contain the response data that is sent by the recipient of the Request. There are three different kinds of Response Items: `AcceptResponseItem`, `RejectResponseItem` and `ErrorResponseItem`. Depending on the actual Request Item, there can be different derivations of these three items. For example, in case of a [`CreateAttributeRequestItem`]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem), there is a special [`CreateAttributeAcceptResponseItem`]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-response-itemproperties), while for an [`AuthenticationRequestItem`]({% link _docs_integrate/requests-and-requestitems.md %}#authenticationrequestitem), the [`AcceptResponseItem`](#acceptresponseitem) can be used, because there is no additional information necessary next to whether it was accepted or rejected.
-
-The [site documenting the Request Items]({% link _docs_integrate/requests-and-requestitems.md %}) shows which Response Item is required for each Request Item.
+### ResponseItems
 
 #### AcceptResponseItem
-
-The properties of the `AcceptResponseItem` are:
 
 | Name   | Type         | Description                                              |
 | ------ | ------------ | -------------------------------------------------------- |
 | result | `"Accepted"` | The only possible value here is the string `"Accepted"`. |
 
-#### RejectResponseItem
+##### CreateAttributeAcceptResponseItem
 
-The properties of the `RejectResponseItem` are:
+| Name        | Type         | Description                                              |
+| ----------- | ------------ | -------------------------------------------------------- |
+| attributeId | `string`     | The id of the created Attribute.                         |
+| result      | `"Accepted"` | The only possible value here is the string `"Accepted"`. |
+
+##### FreeTextAcceptResponseItem
+
+| Name     | Type         | Description                                              |
+| -------- | ------------ | -------------------------------------------------------- |
+| freeText | `string`     | The free text that is used to answer the RequestItem.    |
+| result   | `"Accepted"` | The only possible value here is the string `"Accepted"`. |
+
+##### ProposeAttributeAcceptResponseItem
+
+| Name        | Type                                                                                                                                                                                             | Description                                                                                                                                                                          |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| attributeId | `string`                                                                                                                                                                                         | The id of the created Attribute.                                                                                                                                                     |
+| attribute   | [`IdentityAttribute`]({% link _docs_integrate/data-model-overview.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute.<br>The owner of the Attribute which is proposed can only be the recipient Identity. |
+| result      | `"Accepted"`                                                                                                                                                                                     | The only possible value here is the string `"Accepted"`.                                                                                                                             |
+
+##### ReadAttributeAcceptResponseItem
+
+| Name        | Type                                                                                                                                                                                             | Description                                                                     |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| attributeId | `string`                                                                                                                                                                                         | The id of the returned Attribute.                                               |
+| attribute   | [`IdentityAttribute`]({% link _docs_integrate/data-model-overview.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that will be shared to the peer. |
+| result      | `"Accepted"`                                                                                                                                                                                     | The only possible value here is the string `"Accepted"`.                        |
+
+##### ShareAttributeAcceptResponseItem
+
+| Name        | Type         | Description                                              |
+| ----------- | ------------ | -------------------------------------------------------- |
+| attributeId | `string`     | The id of the created Attribute.                         |
+| result      | `"Accepted"` | The only possible value here is the string `"Accepted"`. |
+
+#### RejectResponseItem
 
 | Name    | Type                    | Description                                                   |
 | ------- | ----------------------- | ------------------------------------------------------------- |
