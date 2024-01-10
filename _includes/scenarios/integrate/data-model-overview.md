@@ -491,6 +491,7 @@ The ResponseWrapper is a wrapper around the Response that is sent by the recipie
 
 | Name                   | Type                                    | Description                                                                                                        |
 | ---------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| @type                  | `"ResponseWrapper"`                     |
 | requestId              | `string`                                | The `id` of the Request this Response belongs to.                                                                  |
 | requestSourceReference | `string`                                | The reference to the Message or RelationshipTemplate the Request was received with.                                |
 | requestSourceType      | `"Message"` \| `"RelationshipTemplate"` | Specifies if the Request was transferred via [Message](#message) or [RelationshipTemplate](#relationshiptemplate). |
@@ -561,13 +562,14 @@ There are cases in which you want to query some data from your peer that is not 
 
 #### RelationshipAttributeCreationHints
 
-| Name            | Type                                        | Description                                                                                                                                                     |
-| --------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title           | `string`                                    | A short text describing the purpose of the Attribute that is about to be created.                                                                               |
-| description     | `string` \| `undefined`                     | A long text describing the purpose of the Attribute that is about to be created.                                                                                |
-| valueType       | `string`                                    | The value type of the Attribute to be created (e.g. `"ProprietaryInteger"`, `"ProprietaryString"`, ...)                                                         |
-| confidentiality | `"public"` \|`"protected"` \|`"private"` \| | The confidentiality of the Attribute to be created. See [`RelationshipAttribute`](#relationshipattribute) for a more detailed description of confidentialities. |
-| valueHints      | [`ValueHints`](#valuehints) \| `undefined`  | Hints for validating the value, e.g. a regular expression or a min/max length.                                                                                  |
+| Name            | Type                                       | Description                                                                                                                                                     |
+| --------------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| @type           | `"RelationshipAttributeCreationHints"`     |                                                                                                                                                                 |
+| title           | `string`                                   | A short text describing the purpose of the Attribute that is about to be created.                                                                               |
+| description     | `string` \| `undefined`                    | A long text describing the purpose of the Attribute that is about to be created.                                                                                |
+| valueType       | `string`                                   | The value type of the Attribute to be created (e.g. `"ProprietaryInteger"`, `"ProprietaryString"`, ...)                                                         |
+| confidentiality | `"public"` \|`"protected"` \|`"private"`   | The confidentiality of the Attribute to be created. See [`RelationshipAttribute`](#relationshipattribute) for a more detailed description of confidentialities. |
+| valueHints      | [`ValueHints`](#valuehints) \| `undefined` | Hints for validating the value, e.g. a regular expression or a min/max length.                                                                                  |
 
 #### ValueHints
 
