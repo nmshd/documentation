@@ -145,3 +145,11 @@ div#banner {
     font-size: 0.8em;
     padding: 10px;
 }
+
+@media (min-width: 64em) {
+    .sidebar__right {
+        position: sticky;
+        float: right;
+        top: 2rem;
+    }
+}
