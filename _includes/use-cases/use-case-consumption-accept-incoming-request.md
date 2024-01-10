@@ -11,7 +11,7 @@ in advance.
 
 - The `id` of the incoming Request.
 - The decision for each individual [RequestItem]({% link _docs_integrate/data-model-overview.md %}#request)
-  expressed as the appropriate [Parameters defined in the Data Model]({% link _docs_integrate/requests-and-requestitems.md %}).
+  expressed as the appropriate [Parameters defined in the Data Model]({% link _docs_integrate/data-model-overview.md %}#deciderequestitemparameters).
 
 ## On Success
 
