@@ -564,7 +564,6 @@ There are cases in which you want to query some data from your peer that is not 
 
 | Name            | Type                                       | Description                                                                                                                                                     |
 | --------------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| @type           | `"RelationshipAttributeCreationHints"`     |                                                                                                                                                                 |
 | title           | `string`                                   | A short text describing the purpose of the Attribute that is about to be created.                                                                               |
 | description     | `string` \| `undefined`                    | A long text describing the purpose of the Attribute that is about to be created.                                                                                |
 | valueType       | `string`                                   | The value type of the Attribute to be created (e.g. `"ProprietaryInteger"`, `"ProprietaryString"`, ...)                                                         |
@@ -622,7 +621,6 @@ If you want to query Attributes by value, you can use the `IQLQuery`.
 
 | Name      | Type                                | Description |
 | --------- | ----------------------------------- | ----------- |
-| @type     | `"IQLQueryCreationHints"`           |             |
 | valueType | `AttributeValues.Identity.TypeName` |             |
 | tags      | `string[]` \| `undefined`           |             |
 
