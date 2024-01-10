@@ -659,3 +659,65 @@ A Mail can be sent as the content of a [Message](#message). It is comparable wit
 | cc      | `string[]` \| `undefined` | The enmeshed Addresses that should receive a copy of this Mail, additionally to the ones specified in `to`. |
 | subject | `string`                  | The subject of the Mail.                                                                                    |
 | body    | `string`                  | The body of the Mail.                                                                                       |
+
+# Consumption
+
+## DecideRequestItemParameters
+
+In order to answer a Request, the Response must be formulated using the appropiate parameters.
+If you want to reject any RequestItem, you must use the `RejectRequestItemParameters`.
+If you want to accept a RequestItem, however, depending on its kind you might need different parameters.
+For example, an AuthenticationRequestItem can be accepted using the AcceptRequestItemParameters, but for a FreeTextRequestItem `AcceptFreeTextRequestItemParameters` are required.
+
+### RejectRequestItemParameters
+
+| Name    | Type                    | Description                                                   |
+| ------- | ----------------------- | ------------------------------------------------------------- |
+| accept  | `"false"`               | The only possible value here is the string "false".           |
+| code    | `string` \| `undefined` | A code telling the sender about the reason for the rejection. |
+| message | `string` \| `undefined` | A human readable message with details about the rejection.    |
+
+### AcceptRequestItemParameters
+
+| Name   | Type     | Description                                        |
+| ------ | -------- | -------------------------------------------------- |
+| accept | `"true"` | The only possible value here is the string "true". |
+
+#### AcceptFreeTextRequestItemParameters
+
+| Name     | Type     | Description                                           |
+| -------- | -------- | ----------------------------------------------------- |
+| accept   | `"true"` | The only possible value here is the string "true".    |
+| freeText | `string` | The free text that is used to answer the RequestItem. |
+
+#### AcceptProposeAttributeRequestItemParameters
+
+The parameters to accept a ProposeAttributeRequestItem with an existing Attribute.
+
+| Name        | Type     | Description                                        |
+| ----------- | -------- | -------------------------------------------------- |
+| accept      | `"true"` | The only possible value here is the string "true". |
+| attributeId | `string` | The id of the existing LocalAttribute.             |
+
+The parameters to accept a ProposeAttributeRequestItem with a new Attribute.
+
+| Name      | Type                                           | Description                                        |
+| --------- | ---------------------------------------------- | -------------------------------------------------- |
+| accept    | `"true"`                                       | The only possible value here is the string "true". |
+| attribute | `IdentityAttribute` \| `RelationshipAttribute` | The new LocalAttribute.                            |
+
+#### AcceptReadAttributeRequestItemParameters
+
+The parameters to accept a ReadAttributeRequestItem with an existing Attribute.
+
+| Name                | Type     | Description                                        |
+| ------------------- | -------- | -------------------------------------------------- |
+| accept              | `"true"` | The only possible value here is the string "true". |
+| existingAttributeId | `string` | The id of the existing LocalAttribute.             |
+
+The parameters to accept a ReadAttributeRequestItem with a new Attribute.
+
+| Name         | Type                                           | Description                                        |
+| ------------ | ---------------------------------------------- | -------------------------------------------------- |
+| accept       | `"true"`                                       | The only possible value here is the string "true". |
+| newAttribute | `IdentityAttribute` \| `RelationshipAttribute` | The new LocalAttribute.                            |
