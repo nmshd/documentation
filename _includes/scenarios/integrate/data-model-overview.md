@@ -297,6 +297,8 @@ A Request allows you to ask another Identity to do something. What this "somethi
 
 ### RequestItems
 
+Request Items can be sent inside of a Request and specify what should be done when the Request is accepted.
+
 #### AuthenticationRequestItem
 
 | Name                  | Type                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -404,6 +406,8 @@ A Request allows you to ask another Identity to do something. What this "somethi
 | items     | `(`[`ResponseItemGroup`](#responseitemgroup)`\|`[`ResponseItem`](#responseitem)`)[]` | An array of Response Items and Groups that are part of the Response. For each Request Item (Group) of the Request, there must be one Response Item (Group) in the Response. Note that the indices have to be the same for matching Request and Response Items. |
 
 ### ResponseItems
+
+Response Items are sent inside of a Response. They contain the response data that is sent by the recipient of the Request. There are three different kinds of Response Items: `AcceptResponseItem`, `RejectResponseItem` and `ErrorResponseItem`. Depending on the actual Request Item, there can be different derivations of these three items. For example, in case of a [`CreateAttributeRequestItem`](#createattributerequestitem), there is a special [`CreateAttributeAcceptResponseItem`](#createattributeacceptresponseitem), while for an [`AuthenticationRequestItem`](#authenticationrequestitem), the [`AcceptResponseItem`](#acceptresponseitem) can be used, because there is no additional information necessary next to whether it was accepted or rejected.
 
 #### AcceptResponseItem
 
