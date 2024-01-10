@@ -422,7 +422,7 @@ Response Items are sent inside of a Response. They contain the response data tha
 | ----------- | ------------------------------------- | -------------------------------------------------------- |
 | @type       | `"CreateAttributeAcceptResponseItem"` | The type of the ResponseItem.                            |
 | result      | `"Accepted"`                          | The only possible value here is the string `"Accepted"`. |
-| attributeId | `string`                              | The id of the created Attribute.                         |
+| attributeId | `string`                              | The id of the created LocalAttribute.                    |
 
 ##### FreeTextAcceptResponseItem
 
@@ -438,7 +438,7 @@ Response Items are sent inside of a Response. They contain the response data tha
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | @type       | `"ProposeAttributeAcceptResponseItem"`                                                                                                                                                           | The type of the ResponseItem.                                                                                                                                                        |
 | result      | `"Accepted"`                                                                                                                                                                                     | The only possible value here is the string `"Accepted"`.                                                                                                                             |
-| attributeId | `string`                                                                                                                                                                                         | The id of the created Attribute.                                                                                                                                                     |
+| attributeId | `string`                                                                                                                                                                                         | The id of the created LocalAttribute.                                                                                                                                                |
 | attribute   | [`IdentityAttribute`]({% link _docs_integrate/data-model-overview.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute to propose for the peer as the queried Attribute.<br>The owner of the Attribute which is proposed can only be the recipient Identity. |
 
 ##### ReadAttributeAcceptResponseItem
@@ -447,7 +447,7 @@ Response Items are sent inside of a Response. They contain the response data tha
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
 | @type       | `"ReadAttributeAcceptResponseItem"`                                                                                                                                                              | The type of the ResponseItem.                                                   |
 | result      | `"Accepted"`                                                                                                                                                                                     | The only possible value here is the string `"Accepted"`.                        |
-| attributeId | `string`                                                                                                                                                                                         | The id of the returned Attribute.                                               |
+| attributeId | `string`                                                                                                                                                                                         | The id of the returned LocalAttribute.                                          |
 | attribute   | [`IdentityAttribute`]({% link _docs_integrate/data-model-overview.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) | The IdentityAttribute or RelationshipAttribute that will be shared to the peer. |
 
 ##### ShareAttributeAcceptResponseItem
@@ -456,7 +456,7 @@ Response Items are sent inside of a Response. They contain the response data tha
 | ----------- | ------------------------------------ | -------------------------------------------------------- |
 | @type       | `"ShareAttributeAcceptResponseItem"` | The type of the ResponseItem.                            |
 | result      | `"Accepted"`                         | The only possible value here is the string `"Accepted"`. |
-| attributeId | `string`                             | The id of the created Attribute.                         |
+| attributeId | `string`                             | The id of the shared LocalAttribute.                     |
 
 #### RejectResponseItem
 
