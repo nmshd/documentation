@@ -119,31 +119,11 @@ If the Recipient does not want to create any of the Attributes offered by the Se
 
 ### Accept a CreateAttributeRequestItem
 
-If the Recipient agrees to the creation of one of the Attributes offered by the Sender, it can accept the associated CreateAttributeRequestItem contained in the Request for creating Attributes. The following [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-response-parameters) must be used for that:
-
-| Property | Value  |
-| -------- | ------ |
-| `accept` | `true` |
-
-The acception of a CreateAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. The `content` of the LocalAttribute is the underlying `attribute` of the CreateAttributeRequestItem. Based on this, an appropriate [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [CreateAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-response-itemproperties) is generated:
-
-| Property      | Value                                                           |
-| ------------- | --------------------------------------------------------------- |
-| `@type`       | `"CreateAttributeAcceptResponseItem"`                           |
-| `result`      | `"Accepted"`                                                    |
-| `attributeId` | `"<ID of created LocalAttribute with LocalAttributeShareInfo>"` |
-
-This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for creating Attributes that will be transferred to the Sender. If the underlying `attribute` of the accepted [CreateAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem) is an IdentityAttribute, a corresponding LocalAttribute without a LocalAttributeShareInfo is additionally created for the Recipient beforehand.
+If the Recipient agrees to the creation of one of the Attributes offered by the Sender, it can accept the associated CreateAttributeRequestItem contained in the Request for creating Attributes. The [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-response-parameters) specified in the corresponding section of the [Data Model Overview]({% link _docs_integrate/data-model-overview.md %}) must be used for that. The acception of a CreateAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. The `content` of the LocalAttribute is the underlying `attribute` of the CreateAttributeRequestItem. Based on this, an appropriate [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [CreateAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-response-itemproperties) is generated, which incorporates the `id` of the LocalAttribute with the LocalAttributeShareInfo in its `attributeId` property. This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for creating Attributes that will be transferred to the Sender. If the underlying `attribute` of the accepted [CreateAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem) is an IdentityAttribute, a corresponding LocalAttribute without a LocalAttributeShareInfo is additionally created for the Recipient beforehand.
 
 ### Reject a CreateAttributeRequestItem
 
-Even if the Recipient accepts the Request for creating Attributes as a whole, it may decide not to accept all of the Attributes offered by the Sender. To be more precise, the Recipient has the option of rejecting [CreateAttributeRequestItems]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem) that have the value `false` specified in their `mustBeAccepted` property. To reject a CreateAttributeRequestItem, use the [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-response-parameters):
-
-| Property | Value   |
-| -------- | ------- |
-| `accept` | `false` |
-
-The rejection of a CreateAttributeRequestItem leads to the creation of a corresponding ResponseItem of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for creating Attributes.
+Even if the Recipient accepts the Request for creating Attributes as a whole, it may decide not to accept all of the Attributes offered by the Sender. To be more precise, the Recipient has the option of rejecting [CreateAttributeRequestItems]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem) that have the value `false` specified in their `mustBeAccepted` property. To reject a CreateAttributeRequestItem, use the [parameters]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem-response-parameters) described in the corresponding section of the [Data Model Overview]({% link _docs_integrate/data-model-overview.md %}). The rejection of a CreateAttributeRequestItem leads to the creation of a corresponding ResponseItem of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for creating Attributes.
 
 ### Example of accepting a RequestItemGroup
 
