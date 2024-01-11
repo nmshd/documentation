@@ -117,37 +117,68 @@ If the Recipient does not want to get any of the Sender's shared Attributes and 
 
 ### Accept a ShareAttributeRequestItem
 
-If the Recipient agrees to get one of the Sender's shared Attributes, it can accept the associated ShareAttributeRequestItem contained in the Request for sharing Attributes. The following [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem-response-parameters) must be used for this:
-
-| Property | Value  |
-| -------- | ------ |
-| `accept` | `true` |
-
-The acception of a ShareAttributeRequestItem leads to the creation of a corresponding LocalAttribute with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. The `content` of the LocalAttribute is the underlying `attribute` of the ShareAttributeRequestItem. Based on this, an appropriate [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ShareAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem-response-itemproperties) is generated:
-
-| Property      | Value                                                           |
-| ------------- | --------------------------------------------------------------- |
-| `@type`       | `"ShareAttributeAcceptResponseItem"`                            |
-| `result`      | `"Accepted"`                                                    |
-| `attributeId` | `"<ID of created LocalAttribute with LocalAttributeShareInfo>"` |
-
-This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for sharing Attributes that will be transferred to the Sender.
+If the Recipient agrees to get one of the Sender's shared Attributes, it can accept the associated ShareAttributeRequestItem contained in the Request for sharing Attributes. The [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem-response-parameters) specified in the corresponding section of the [Data Model Overview]({% link _docs_integrate/data-model-overview.md %}) must be used for this. The acception of a ShareAttributeRequestItem leads to the creation of a corresponding LocalAttribute with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. The `content` of the LocalAttribute is the underlying `attribute` of the ShareAttributeRequestItem. Based on this, an appropriate [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) of type [ShareAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem-response-itemproperties) is generated, which incorporates the `id` of the created LocalAttribute with the LocalAttributeShareInfo in its `attributeId` property. This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for sharing Attributes that will be transferred to the Sender.
 
 ### Reject a ShareAttributeRequestItem
 
-Even if the Recipient accepts the Request for sharing Attributes as a whole, it may decide not to accept all of the Sender's shared Attributes. To be more precise, the Recipient has the option of rejecting [ShareAttributeRequestItems]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem) that have the value `false` specified in their `mustBeAccepted` property. To reject a ShareAttributeRequestItem, use the [parameter]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem-response-parameters):
-
-| Property | Value   |
-| -------- | ------- |
-| `accept` | `false` |
-
-The rejection of a ShareAttributeRequestItem leads to the creation of a corresponding ResponseItem of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for sharing Attributes.
+Even if the Recipient accepts the Request for sharing Attributes as a whole, it may decide not to accept all of the Sender's shared Attributes. To be more precise, the Recipient has the option of rejecting [ShareAttributeRequestItems]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem) that have the value `false` specified in their `mustBeAccepted` property. To reject a ShareAttributeRequestItem, use the [parameters]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem-response-parameters) described in the corresponding section of the [Data Model Overview]({% link _docs_integrate/data-model-overview.md %}). The rejection of a ShareAttributeRequestItem leads to the creation of a corresponding ResponseItem of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for sharing Attributes.
 
 ### Example of accepting a RequestItemGroup
 
 Let's look at an example where the Sender wants to share its [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname) and contact information in the form of an [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) or a [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber) with the Recipient. For this purpose, the Sender creates a [Request]({% link _docs_integrate/data-model-overview.md %}#request) for sharing Attributes, which contains a ShareAttributeRequestItem belonging to the DisplayName and a RequestItemGroup belonging to the contact information in its `items` property. The [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) itself includes two ShareAttributeRequestItems in its `items` property, namely one for the EMailAddress and one for the PhoneNumber.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/ab4b085b-b498-4182-bb2a-2b18f6825006" id="YChSfL-aFISG"></iframe></div>
+```jsonc
+{
+  "@type": "Request",
+  "items": [
+    {
+      "@type": "ShareAttributeRequestItem",
+      "mustBeAccepted": true,
+      "attribute": {
+        "@type": "IdentityAttribute",
+        "owner": "<Address of Sender>",
+        "value": {
+          "@type": "DisplayName",
+          "value": "<display name that the Sender wants to share>"
+        }
+      },
+      "sourceAttributeId": "<ID of LocalAttribute which is the source of the DisplayName>"
+    },
+    {
+      "@type": "RequestItemGroup",
+      "mustBeAccepted": true,
+      "items": [
+        {
+          "@type": "ShareAttributeRequestItem",
+          "mustBeAccepted": true,
+          "attribute": {
+            "@type": "IdentityAttribute",
+            "owner": "<Address of Sender>",
+            "value": {
+              "@type": "EMailAddress",
+              "value": "<email address that the Sender wants to share>"
+            }
+          },
+          "sourceAttributeId": "<ID of LocalAttribute which is the source of the EMailAddress>"
+        },
+        {
+          "@type": "ShareAttributeRequestItem",
+          "mustBeAccepted": false,
+          "attribute": {
+            "@type": "IdentityAttribute",
+            "owner": "<Address of Sender>",
+            "value": {
+              "@type": "PhoneNumber",
+              "value": "<phone number that the Sender wants to share>"
+            }
+          },
+          "sourceAttributeId": "<ID of LocalAttribute which is the source of the PhoneNumber>"
+        }
+      ]
+    }
+  ]
+}
+```
 
 In our example, the Sender only requires the Recipient to accept the DisplayName and the EMailAddress, which is why the individual [ShareAttributeRequestItems]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem) and the [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) within the Request have specified corresponding values in their `mustBeAccepted` property. We assume that the Recipient wants to accept the Request and all its ShareAttributeRequestItems with the exception of the PhoneNumber.
 
