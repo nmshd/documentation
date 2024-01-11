@@ -185,34 +185,32 @@ In our example, the Sender only requires the Recipient to accept the DisplayName
 If the Recipient wants to accept the Request for sharing Attributes, it must accept all [ShareAttributeRequestItems]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem) for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted for the Recipient to refuse to accept the DisplayName or the EMailAddress shared by the Sender.
 {: .notice--info}
 
-Because the Recipient accepts the DisplayName of the Sender and also accepts at least one ShareAttributeRequestItem of the RequestItemGroup, it provides the following values for responding to the two components within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request):
+The Recipient accepts the DisplayName of the Sender and accepts at least one ShareAttributeRequestItem of the RequestItemGroup. Also, the Recipient accepts the EMailAddress and rejects the PhoneNumber of the Sender. It therefore responds to the Request for sharing Attributes as follows:
 
-- Accept DisplayName:
-
-  | Property | Value  |
-  | -------- | ------ |
-  | `accept` | `true` |
-
-- Accept RequestItemGroup:
-
-  | Property | Value                                                                                                                                                |
-  | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | `accept` | `true`                                                                                                                                               |
-  | `items`  | Responses of the Recipient to the two ShareAttributeRequestItems belonging to the EMailAddress and the PhoneNumber contained in the RequestItemGroup |
-
-Since the Recipient accepts the EMailAddress and rejects the PhoneNumber of the Sender, it responds to the two ShareAttributeRequestItems included in the `items` property of the already accepted [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) as follows:
-
-- Accept EMailAddress:
-
-  | Property | Value  |
-  | -------- | ------ |
-  | `accept` | `true` |
-
-- Reject PhoneNumber:
-
-  | Property | Value   |
-  | -------- | ------- |
-  | `accept` | `false` |
+```jsonc
+{
+  "items": [
+    {
+      //Accept DisplayName
+      "accept": true
+    },
+    {
+      //Accept RequestItemGroup
+      "accept": true,
+      "items": [
+        {
+          //Accept EMailAddress
+          "accept": true
+        },
+        {
+          //Reject PhoneNumber
+          "accept": false
+        }
+      ]
+    }
+  ]
+}
+```
 
 Note that it is important to respond to RequestItems and RequestItemGroups in the same order in which they were received.
 
