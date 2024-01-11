@@ -40,39 +40,57 @@ The following table provides an overview of the possible kinds of Attributes tha
 
 ### Example of creating an IdentityAttribute
 
-We assume that the Integrator of the Sender wants to create an IdentityAttribute of type [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) for the Recipient:
+We assume that the Integrator of the Sender wants to create an IdentityAttribute of type [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) for the Recipient. To request the creation of this IdentityAttribute for the Recipient, the Sender needs to insert it into the `attribute` property of the [CreateAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem) contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for creating Attributes. In our example, we have chosen to set the value of the `mustBeAccepted` property of the CreateAttributeRequestItem to `true`.
 
-| Property      | Value                                                                 |
-| ------------- | --------------------------------------------------------------------- |
-| `@type`       | `"IdentityAttribute"`                                                 |
-| `owner`       | `"<Address of Recipient>"`                                            |
-| `value.@type` | `"EMailAddress"`                                                      |
-| `value.value` | `"<email address that the Sender wants to create for the Recipient>"` |
-
-To request the creation of this IdentityAttribute for the Recipient, the Sender needs to insert it into the `attribute` property of the [CreateAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem) contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for creating Attributes.
-
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/db914817-6b8b-4119-8f5f-f15d48a7854c" id="XmLTn.emFtK~"></iframe></div>
+```jsonc
+{
+  "@type": "Request",
+  "items": [
+    {
+      "@type": "CreateAttributeRequestItem",
+      "mustBeAccepted": true,
+      "attribute": {
+        "@type": "IdentityAttribute",
+        "owner": "<Address of Recipient>",
+        "value": {
+          "@type": "EMailAddress",
+          "value": "<email address that the Sender wants to create for the Recipient>"
+        }
+      }
+    }
+  ]
+}
+```
 
 ### Example of creating a RelationshipAttribute
 
-We now consider the case in which the Sender has an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the Recipient and wants to create a RelationshipAttribute of type [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring) for this Relationship, which is owned by the Recipient:
+We now consider the case in which the Sender has an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the Recipient and wants to create a RelationshipAttribute of type [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring) for this Relationship, which is owned by the Recipient. The Sender can request the creation of this RelationshipAttribute by inserting it into the `attribute` property of the [CreateAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem) included in the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for creating Attributes. In our example, we have chosen to set the value of the `mustBeAccepted` property of the CreateAttributeRequestItem to true and the value of the `confidentiality` property of the RelationshipAttribute to `"public"`.
 
-| Property          | Value                                                                                                                    |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `@type`           | `"RelationshipAttribute"`                                                                                                |
-| `owner`           | `"<Address of Recipient>"`                                                                                               |
-| `key`             | `"<key of RelationshipAttribute>"`                                                                                       |
-| `confidentiality` | `"public"`, `"protected"` or `"private"`, depending on which confidentiality level the RelationshipAttribute should have |
-| `value.@type`     | `"ProprietaryString"`                                                                                                    |
-| `value.title`     | `"<title of RelationshipAttribute>"`                                                                                     |
-| `value.value`     | `"<actual value of RelationshipAttribute>"`                                                                              |
+```jsonc
+{
+  "@type": "Request",
+  "items": [
+    {
+      "@type": "CreateAttributeRequestItem",
+      "mustBeAccepted": true,
+      "attribute": {
+        "@type": "RelationshipAttribute",
+        "owner": "<Address of Recipient>",
+        "key": "<key of RelationshipAttribute>",
+        "confidentiality": "public",
+        "value": {
+          "@type": "ProprietaryString",
+          "title": "<title of RelationshipAttribute>",
+          "value": "<actual value of RelationshipAttribute>"
+        }
+      }
+    }
+  ]
+}
+```
 
 It would also be possible to specify the Address of the Sender as the value for the `owner` property if you want the RelationshipAttribute to be owned by the Sender instead of the Recipient.
 {: .notice--info}
-
-The Sender can request the creation of this RelationshipAttribute by inserting it into the `attribute` property of the [CreateAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem) included in the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for creating Attributes.
-
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/e1b8cefc-6968-479b-9a1b-7d35088d753a" id="keMT2BRBKzrb"></iframe></div>
 
 ### Create multiple Attributes
 
