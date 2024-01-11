@@ -15,7 +15,7 @@ Once the succession at your side is completed, a Notification is sent to your pe
 
 ## On Success
 
-- The response returns a `predecessor` and a `successor` Attribute.
+- The response returns a `predecessor` and a `successor` Attribute, as well as the `notificationId` of the notification sent to the peer.
 - The `predecessor` is an updated version of the own shared RelationshipAttribute, having the `succeededBy` field set to the `successor`'s ID.
 - The `successor` is a new own shared RelationshipAttribute version with the specified `successorContent`. Its `succeeds` property links to the `predecessor`.
 

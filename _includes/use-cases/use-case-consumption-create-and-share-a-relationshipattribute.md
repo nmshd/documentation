@@ -16,7 +16,7 @@ Once you receive the [Response]({% link _docs_integrate/data-model-overview.md %
 
 ## On Success
 
-- A Request is sent via Message to the peer, containing a CreateAttributeRequestItem with the RelationshipAttribute you want to create and share with the peer.
+- A Request is sent via Message to the peer, containing a CreateAttributeRequestItem with the RelationshipAttribute you want to create and share with the peer. Furthermore, the Request is returned.
 
 ## On Failure
 

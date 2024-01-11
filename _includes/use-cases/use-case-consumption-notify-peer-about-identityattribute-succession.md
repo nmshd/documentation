@@ -3,8 +3,7 @@
 {% include properties_list.html %}
 
 If you succeeded a private [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute), not having a `shareInfo`, whose previous version you shared with a peer, you can decide to let the peer know about the succession.
-In case you shared the Attribute with multiple peers, you can select individually which of them you would like to inform.
-Those chosen will receive a Notification via [Message]({% link _docs_integrate/data-model-overview.md %}#message), which handles the succession of their peer shared IdentityAttributes.
+If you do so, the peer will receive a Notification via [Message]({% link _docs_integrate/data-model-overview.md %}#message), which handles the succession of their peer shared IdentityAttributes.
 Also, the associated own shared IdentityAttributes at your side will be succeeded, i.e. a new version of the successor will be created and the predecessor will be updated to link to the successor in its `succeededBy` property.
 Note that it is possible to notify a peer about the succession of an IdentityAttribute you already shared with them, even if you didn't inform them about every previous version.
 In this case the `succeeds` field will link to the latest shared version.
@@ -17,7 +16,7 @@ Moreover, it is also possible to notify a peer about the succession of an Identi
 
 ## On Success
 
-- The response returns a `predecessor` and a `successor` Attribute.
+- The response returns a `predecessor` and a `successor` Attribute, as well as the `notificationId` of the notification sent to the peer.
 - The `predecessor` is an updated version of the own shared IdentityAttribute that was shared with the peer most recently. It has the `succeededBy` field set to the `successor`'s ID.
 - The `successor` is a new own shared IdentityAttribute version with the content of the succeeded private IdentityAttribute. Its `succeeds` property links to the `predecessor`.
 
