@@ -21,7 +21,7 @@
     "editor.formatOnPaste": true,
     "files.autoSave": "off",
     "editor.codeActionsOnSave": {
-        "source.organizeImports": true
+        "source.organizeImports": "explicit"
     },
     "files.eol": "\n",
     "todo-tree.filtering.excludeGlobs": ["**/node_modules/**", "**/dist/**", "**/dist-test/**", "**/lib-web/**", "**/*.min.*", "**/*.map"],

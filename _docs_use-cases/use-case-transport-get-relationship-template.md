@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RT4
+  - component: Runtime
   - layer: Transport
   - facade: RelationshipTemplatesFacade
   - function: getRelationshipTemplate
@@ -16,9 +17,9 @@ properties:
   - feature category: Consent required before any data is shared
   - tech category: RelationshipTemplates
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +28,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: GET /api/v2/RelationshipTemplates/{id}
   - published: default
   - link: transport/get-relationship-template
 require:
 required_by:
+api_route_regex: ^GET /api/v2/RelationshipTemplates/{id}$
 ---
 
 {% include use-cases/use-case-transport-get-relationship-template.md %}
