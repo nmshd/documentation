@@ -10,8 +10,8 @@ It is advised to call canReject before actually rejecting a Request, however can
 ## Parameters
 
 - The `id` of the incoming request.
-- The decision for each individual [RequestItem]({% link _docs_integrate/data-model-overview.md %}#request)
-  expressed as the appropriate [Parameters defined in the Data Model]({% link _docs_integrate/requests-and-requestitems.md %}).
+- The decision for each individual [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitems)
+  expressed as the appropriate [Parameters defined in the Data Model]({% link _docs_integrate/data-model-overview.md %}deciderequestitemparameters).
 
 ## On Success
 
