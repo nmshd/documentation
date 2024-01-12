@@ -174,39 +174,26 @@ To query Attributes which are not known to the sender, an Identity uses the Read
 | Relationship   | Recipient       | Third Party | Y         | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **sender requests a Relationship Attribute from a Relationship between the recipient and a third party. The Attribute must be owned by the recipient**<br> Example: A Social Network asks for Facebook privacy settings of a user to get senseful defaults of its own privacy settings |
 | Relationship   | Third Party     | Third Party | Y         | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **sender requests a Relationship Attribute from a Relationship between the recipient and a third party which is owned by the third party**<br> Example: An online shop asks for the Payback Customer Id of a user to book the order on his account                                     |
 
-<!-- ## RegisterAttributeListenerRequestItem
+## RegisterAttributeListenerRequestItem
 
-This item is used to register a [Listener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) for a specific Attribute. The Listener will create a Request in status `Draft` if an Attribute was created that matches the given query and the user is able to send the Request to the creator of the `RegisterAttributeListenerRequestItem`.
+This item is used to register a [Listener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) for a specific Attribute. The Listener will create a Request in status `Draft` if an Attribute was created that matches the given query and the user is able to send the Request to the creator of the [RegisterAttributeListenerRequestItem]({% link _docs_integrate/data-model-overview.md %}#registerattributelistenerrequestitem).
 
 ### Examples {#registerattributelistenerrequestitem-examples}
 
--   Asking for a specific RelationshipAttribute of a partner organization.
-
-### Properties {#registerattributelistenerrequestitem-properties}
-
-| Name    | Type                                                                                                                                                                                                                     | Description                                                           |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| `@type` | `"RegisterAttributeListenerRequestItem"`                                                                                                                                                                                 | Specifies the type of the RequestItem for internal processing.        |
-| `query` | [`IdentityAttributeQuery`]({% link _docs_integrate/data-model-overview.md %}#identityattributequery) \| [`ThirdPartyRelationshipAttributeQuery`]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery) | The structured query of the Attribute the sender would like to query. |
+- Asking for a specific RelationshipAttribute of a partner organization.
 
 ### Response {#registerattributelistenerrequestitem-response}
 
 #### Item Properties {#registerattributelistenerrequestitem-response-itemproperties}
 
--   To accept this RequestItem a `RegisterAttributeListenerAcceptResponseItem` will be transferred.
-
-    | Name         | Type                                            | Description                              |
-    | ------------ | ----------------------------------------------- | ---------------------------------------- |
-    | `@type`      | `"RegisterAttributeListenerAcceptResponseItem"` | The type of the ResponseItem.            |
-    | `listenerId` | `string`                                        | The id of the created AttributeListener. |
-
--   To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
--   In case of an error an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+- To accept this RequestItem a [RegisterAttributeListenerAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#registerattributelisteneracceptresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
 #### Parameters {#registerattributelistenerrequestitem-response-parameters}
 
--   To accept this RequestItem you can send `{ "accept": true }` as parameters.
--   To reject this RequestItem you can send `{ "accept": false }` as parameters. -->
+- To accept this RequestItem you can utilize [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters).
+- To reject this RequestItem you can utilize [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters).
 
 ## ShareAttributeRequestItem
 
