@@ -10,8 +10,8 @@ This is great for checking if all required information of a Request was filled o
 ## Parameters
 
 - The `id` of the incoming Request.
-- The decision for each individual [RequestItem]({% link _docs_integrate/data-model-overview.md %}#request)
-  expressed as the appropriate [Parameters defined in the Data Model]({% link _docs_integrate/requests-and-requestitems.md %}).
+- The decision for each individual [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitems)
+  expressed as the appropriate [Parameters defined in the Data Model]({% link _docs_integrate/data-model-overview.md %}#deciderequestitemparameters).
 
 ## On Success
 
