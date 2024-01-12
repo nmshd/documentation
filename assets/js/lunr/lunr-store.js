@@ -173,6 +173,12 @@ var store = [{
         "url": "/integrate/error-codes",
         "teaser": null
       },{
+        "title": "Event introduction",
+        "excerpt":"Connecting an external system with the enmeshed Connector, the main communication is performed by addressing the Connector’s REST API. This way, processes can be initiated by the organization’s backend service or data can be requested from the Connector. In addition, events offer the possibility for the Connector to actively give...","categories": [],
+        "tags": [],
+        "url": "/integrate/event-introduction",
+        "teaser": null
+      },{
         "title": "FAQ",
         "excerpt":"Welcome to our FAQ page! Here, you’ll find answers to the most common questions about enmeshed. If you’re looking for quick and straightforward information, you’ve come to the right place. Common questions What is enmeshed? A description of enmeshed can be found on the main page Technical Questions When I...","categories": [],
         "tags": [],
