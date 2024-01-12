@@ -87,16 +87,7 @@ If the Recipient does not want to create a new Attribute, it can also send an ex
 | `accept`      | `true`                                                                                 |
 | `attributeId` | `"<ID of the existing Attribute that the Recipient wants to send back to the Sender>"` |
 
-The acception of a ProposeAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. The `content` of the LocalAttribute is the Attribute that the Recipient wants to send back to the Sender. Depending on whether the Recipient confirms the validness of the proposed Attribute, it is therefore the proposed Attribute itself or a corrected version of it. Based on this LocalAttribute, an appropriate AcceptResponseItem of type [ProposeAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributeacceptresponseitem) is generated:
-
-| Property      | Value                                                           |
-| ------------- | --------------------------------------------------------------- |
-| `@type`       | `"ProposeAttributeAcceptResponseItem"`                          |
-| `result`      | `"Accepted"`                                                    |
-| `attributeId` | `"<ID of created LocalAttribute with LocalAttributeShareInfo>"` |
-| `attribute`   | Attribute that the Recipient wants to send back to the Sender   |
-
-This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for proposing Attributes that will be transferred to the Sender. If a new IdentityAttribute is to be created and sent back to the Sender, a corresponding LocalAttribute without a LocalAttributeShareInfo is additionally created for the Recipient beforehand.
+The acception of a ProposeAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. The `content` of the LocalAttribute is the Attribute that the Recipient wants to send back to the Sender. Depending on whether the Recipient confirms the validness of the proposed Attribute, it is therefore the proposed Attribute itself or a corrected version of it. Based on this LocalAttribute, an appropriate AcceptResponseItem of type [ProposeAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributeacceptresponseitem) is generated, which incorporates the `id` of the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with the LocalAttributeShareInfo in its `attributeId` property and the Attribute that the Recipient wants to send back to the Sender in its `attribute` property. This ProposeAttributeAcceptResponseItem will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for proposing Attributes that will be transferred to the Sender. If a new IdentityAttribute is to be created and sent back to the Sender, a corresponding LocalAttribute without a LocalAttributeShareInfo is additionally created for the Recipient beforehand.
 
 It is noticeable that accepting a ProposeAttributeRequestItem essentially works in the same way as accepting a [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem). Both types of RequestItems are used when an Identity needs information about a peer. The difference between the two RequestItems is that when using the ProposeAttributeRequestItem, the Identity can bring in existing knowledge about the peer and check its validness by proposing corresponding Attributes to the peer for creation. The ProposeAttributeRequestItem can therefore also be understood as a combination of the ReadAttributeRequestItem and the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem). To gain a deeper understanding of these connections, take a look at the Read Attribute from peer guide and the Create Attribute for peer guide.
 {: .notice--info}
@@ -120,7 +111,7 @@ Let's look at an example where the Sender proposes the Recipient's [PersonName](
       "mustBeAccepted": true,
       "attribute": {
         "@type": "IdentityAttribute",
-        "owner": "<Address of Recipient>",
+        "owner": "",
         "value": {
           "@type": "PersonName",
           "givenName": "<given name that the Sender proposes to the Recipient>",
@@ -141,7 +132,7 @@ Let's look at an example where the Sender proposes the Recipient's [PersonName](
           "mustBeAccepted": true,
           "attribute": {
             "@type": "IdentityAttribute",
-            "owner": "<Address of Recipient>",
+            "owner": "",
             "value": {
               "@type": "EMailAddress",
               "value": "<email address that the Sender proposes to the Recipient>"
@@ -157,7 +148,7 @@ Let's look at an example where the Sender proposes the Recipient's [PersonName](
           "mustBeAccepted": false,
           "attribute": {
             "@type": "IdentityAttribute",
-            "owner": "<Address of Recipient>",
+            "owner": "",
             "value": {
               "@type": "PhoneNumber",
               "value": "<phone number that the Sender proposes to the Recipient>"
@@ -189,7 +180,7 @@ We assume that the Recipient confirms the validness of the PersonName proposed b
       "accept": true,
       "attribute": {
         "@type": "IdentityAttribute",
-        "owner": "<Address of Recipient>",
+        "owner": "",
         "value": {
           "@type": "PersonName",
           "givenName": "<given name that the Sender proposes to the Recipient>",
@@ -206,7 +197,7 @@ We assume that the Recipient confirms the validness of the PersonName proposed b
           "accept": true,
           "attribute": {
             "@type": "IdentityAttribute",
-            "owner": "<Address of Recipient>",
+            "owner": "",
             "value": {
               "@type": "EMailAddress",
               "value": "<corrected version of the email address proposed by the Sender>"
