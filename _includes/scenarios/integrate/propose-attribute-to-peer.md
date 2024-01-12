@@ -111,43 +111,117 @@ Even if the Recipient accepts the Request for proposing Attributes as a whole, i
 
 Let's look at an example where the Sender proposes the Recipient's [PersonName]({% link _docs_integrate/attribute-values.md %}#personname) and contact information in the form of an [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) and a [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber) to the Recipient during its onboarding process. For this purpose, the Sender creates a [Request]({% link _docs_integrate/data-model-overview.md %}#request) for proposing Attributes, which contains a ProposeAttributeRequestItem belonging to the PersonName and a RequestItemGroup belonging to the contact information in its `items` property. The [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) itself includes two ProposeAttributeRequestItems in its `items` property, namely one for the EMailAddress and one for the PhoneNumber. Please note that the `<...>` notation is used as a placeholder for the actual data as usual.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/afa55feb-f56d-4d83-a91f-6a49bb1352c9" id="hpFYV3oEP4Iv"></iframe></div>
+```jsonc
+{
+  "@type": "Request",
+  "items": [
+    {
+      "@type": "ProposeAttributeRequestItem",
+      "mustBeAccepted": true,
+      "attribute": {
+        "@type": "IdentityAttribute",
+        "owner": "<Address of Recipient>",
+        "value": {
+          "@type": "PersonName",
+          "givenName": "<given name that the Sender proposes to the Recipient>",
+          "surname": "<surname that the Sender proposes to the Recipient>"
+        }
+      },
+      "query": {
+        "@type": "IdentityAttributeQuery",
+        "valueType": "PersonName"
+      }
+    },
+    {
+      "@type": "RequestItemGroup",
+      "mustBeAccepted": true,
+      "items": [
+        {
+          "@type": "ProposeAttributeRequestItem",
+          "mustBeAccepted": true,
+          "attribute": {
+            "@type": "IdentityAttribute",
+            "owner": "<Address of Recipient>",
+            "value": {
+              "@type": "EMailAddress",
+              "value": "<email address that the Sender proposes to the Recipient>"
+            }
+          },
+          "query": {
+            "@type": "IdentityAttributeQuery",
+            "valueType": "EMailAddress"
+          }
+        },
+        {
+          "@type": "ProposeAttributeRequestItem",
+          "mustBeAccepted": false,
+          "attribute": {
+            "@type": "IdentityAttribute",
+            "owner": "<Address of Recipient>",
+            "value": {
+              "@type": "PhoneNumber",
+              "value": "<phone number that the Sender proposes to the Recipient>"
+            }
+          },
+          "query": {
+            "@type": "IdentityAttributeQuery",
+            "valueType": "PhoneNumber"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
 
 In our example, the Sender only requires the Recipient to accept the ProposeAttributeRequestItems belonging to the PersonName and the EMailAddress, which is why the individual [ProposeAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) and the [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) within the Request have specified corresponding values in their `mustBeAccepted` property. We assume that the Recipient wants to accept the Request and all its ProposeAttributeRequestItems with the exception of the PhoneNumber.
 
 If the Recipient wants to accept the Request for proposing Attributes, it must accept all [ProposeAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted for the Recipient to refuse to accept the ProposeAttributeRequestItem belonging to the PersonName or the EMailAddress.
 {: .notice--info}
 
-In our example, the Recipient confirms the validness of the PersonName proposed by the Sender. As it also accepts at least one ProposeAttributeRequestItem of the RequestItemGroup, it provides the following values for responding to the two components within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request):
+We assume that the Recipient confirms the validness of the PersonName proposed by the Sender and that the Sender has proposed an outdated EMailAddress to the Recipient for creation. The Recipient therefore wants to create a corrected version of the EMailAddress and send it back to the Sender. The Recipient accepts at least one ProposeAttributeRequestItem of the RequestItemGroup, rejects the PhoneNumber and accepts the ProposeAttributeRequestItems belonging to the PersonName and the EMailAddress. Consequently, it responds to the Request for proposing Attributes as follows:
 
-- Accept the creation of the proposed PersonName:
-
-  | Property    | Value                                                             |
-  | ----------- | ----------------------------------------------------------------- |
-  | `accept`    | `true`                                                            |
-  | `attribute` | Proposed IdentityAttribute of the Attribute Value type PersonName |
-
-- Accept RequestItemGroup:
-
-  | Property | Value                                                                                                                                                  |
-  | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-  | `accept` | `true`                                                                                                                                                 |
-  | `items`  | Responses of the Recipient to the two ProposeAttributeRequestItems belonging to the EMailAddress and the PhoneNumber contained in the RequestItemGroup |
-
-We assume that the Sender has proposed an outdated EMailAddress to the Recipient for creation. The Recipient therefore wants to create a corrected version of the EMailAddress and send it back to the Sender. Since the Recipient accepts the ProposeAttributeRequestItem belonging to the EMailAddress and rejects the PhoneNumber, it responds to the two ProposeAttributeRequestItems included in the `items` property of the already accepted [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) as follows:
-
-- Create a corrected version of the proposed EMailAddress:
-
-  | Property    | Value                                                                                        |
-  | ----------- | -------------------------------------------------------------------------------------------- |
-  | `accept`    | `true`                                                                                       |
-  | `attribute` | Corrected version of the proposed IdentityAttribute of the Attribute Value type EMailAddress |
-
-- Reject PhoneNumber:
-
-  | Property | Value   |
-  | -------- | ------- |
-  | `accept` | `false` |
+```jsonc
+{
+  "items": [
+    {
+      //Accept the creation of the proposed PersonName
+      "accept": true,
+      "attribute": {
+        "@type": "IdentityAttribute",
+        "owner": "<Address of Recipient>",
+        "value": {
+          "@type": "PersonName",
+          "givenName": "<given name that the Sender proposes to the Recipient>",
+          "surname": "<surname that the Sender proposes to the Recipient>"
+        }
+      }
+    },
+    {
+      //Accept RequestItemGroup
+      "accept": true,
+      "items": [
+        {
+          //Create a corrected version of the proposed EMailAddress
+          "accept": true,
+          "attribute": {
+            "@type": "IdentityAttribute",
+            "owner": "<Address of Recipient>",
+            "value": {
+              "@type": "EMailAddress",
+              "value": "<corrected version of the email address proposed by the Sender>"
+            }
+          }
+        },
+        {
+          //Reject PhoneNumber
+          "accept": false
+        }
+      ]
+    }
+  ]
+}
+```
 
 Note that it is important to respond to RequestItems and RequestItemGroups in the same order in which they were received.
 
