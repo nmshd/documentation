@@ -105,13 +105,7 @@ It is noticeable that accepting a ProposeAttributeRequestItem essentially works 
 
 ### Reject a ProposeAttributeRequestItem
 
-Even if the Recipient accepts the Request for proposing Attributes as a whole, it may decide not to deal with all of the Attributes proposed by the Sender. To be more precise, the Recipient has the option of rejecting [ProposeAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) that have the value `false` specified in their `mustBeAccepted` property. To reject a ProposeAttributeRequestItem, use the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters):
-
-| Property | Value   |
-| -------- | ------- |
-| `accept` | `false` |
-
-The rejection of a ProposeAttributeRequestItem leads to the creation of a corresponding ResponseItem of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for proposing Attributes.
+Even if the Recipient accepts the Request for proposing Attributes as a whole, it may decide not to deal with all of the Attributes proposed by the Sender. To be more precise, the Recipient has the option of rejecting [ProposeAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) that have the value `false` specified in their `mustBeAccepted` property. To reject a ProposeAttributeRequestItem, use the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) specified in the corresponding section of the [Data Model Overview]({% link _docs_integrate/data-model-overview.md %}). The rejection of a ProposeAttributeRequestItem leads to the creation of a corresponding ResponseItem of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for proposing Attributes.
 
 ### Example of accepting a RequestItemGroup
 
