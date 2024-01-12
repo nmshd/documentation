@@ -129,41 +129,90 @@ Even if the Recipient accepts the Request for creating Attributes as a whole, it
 
 Let's look at an example where the Sender wants to create an [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress), a [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) and a [BirthPlace]({% link _docs_integrate/attribute-values.md %}#birthplace) for the Recipient. For this purpose, the Sender creates a [Request]({% link _docs_integrate/data-model-overview.md %}#request) for creating Attributes, which contains a CreateAttributeRequestItem belonging to the EMailAddress and a RequestItemGroup belonging to the birth information in its `items` property. The [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) itself includes two CreateAttributeRequestItems in its `items` property, namely one for the BirthDate and one for the BirthPlace.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/cf9fca09-e5ef-4505-acd4-c31f1fa0e488" id="oPQTV0-AaDyp"></iframe></div>
+```jsonc
+{
+  "@type": "Request",
+  "items": [
+    {
+      "@type": "CreateAttributeRequestItem",
+      "mustBeAccepted": true,
+      "attribute": {
+        "@type": "IdentityAttribute",
+        "owner": "<Address of Recipient>",
+        "value": {
+          "@type": "EMailAddress",
+          "value": "<email address that the Sender wants to create for the Recipient>"
+        }
+      }
+    },
+    {
+      "@type": "RequestItemGroup",
+      "mustBeAccepted": true,
+      "items": [
+        {
+          "@type": "CreateAttributeRequestItem",
+          "mustBeAccepted": true,
+          "attribute": {
+            "@type": "IdentityAttribute",
+            "owner": "<Address of Recipient>",
+            "value": {
+              "@type": "BirthDate",
+              "day": <day of birth date that the Sender wants to create for the Recipient>,
+              "month": <month of birth date that the Sender wants to create for the Recipient>,
+              "year": <year of birth date that the Sender wants to create for the Recipient>
+            }
+          }
+        },
+        {
+          "@type": "CreateAttributeRequestItem",
+          "mustBeAccepted": false,
+          "attribute": {
+            "@type": "IdentityAttribute",
+            "owner": "<Address of Recipient>",
+            "value": {
+              "@type": "BirthPlace",
+              "city": "<city of birth place that the Sender wants to create for the Recipient>",
+              "country": "<country of birth place that the Sender wants to create for the Recipient>"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+```
 
 In our example, the Sender only requires the Recipient to accept the EMailAddress and the BirthDate, which is why the individual [CreateAttributeRequestItems]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem) and the [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) within the Request have specified corresponding values in their `mustBeAccepted` property. We assume that the Recipient wants to accept the Request and all its CreateAttributeRequestItems with the exception of the BirthPlace.
 
 If the Recipient wants to accept the Request for creating Attributes, it must accept all [CreateAttributeRequestItems]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem) for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted for the Recipient to refuse to accept the EMailAddress or the BirthDate offered by the Sender.
 {: .notice--info}
 
-Because the Recipient accepts the EMailAddress of the Sender and also accepts at least one CreateAttributeRequestItem of the RequestItemGroup, it provides the following values for responding to the two components within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request):
+The Recipient accepts the EMailAddress of the Sender and accepts at least one CreateAttributeRequestItem of the RequestItemGroup. Also, the Recipient accepts the BirthDate and rejects the BirthPlace of the Sender. It therefore responds to the Request for creating Attributes as follows:
 
-- Accept EMailAddress:
-
-  | Property | Value  |
-  | -------- | ------ |
-  | `accept` | `true` |
-
-- Accept RequestItemGroup:
-
-  | Property | Value                                                                                                                                             |
-  | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | `accept` | `true`                                                                                                                                            |
-  | `items`  | Responses of the Recipient to the two CreateAttributeRequestItems belonging to the BirthDate and the BirthPlace contained in the RequestItemGroup |
-
-Since the Recipient accepts the BirthDate and rejects the BirthPlace of the Sender, it responds to the two CreateAttributeRequestItems included in the `items` property of the already accepted [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) as follows:
-
-- Accept BirthDate:
-
-  | Property | Value  |
-  | -------- | ------ |
-  | `accept` | `true` |
-
-- Reject BirthPlace:
-
-  | Property | Value   |
-  | -------- | ------- |
-  | `accept` | `false` |
+```jsonc
+{
+  "items": [
+    {
+      //Accept EMailAddress
+      "accept": true
+    },
+    {
+      //Accept RequestItemGroup
+      "accept": true,
+      "items": [
+        {
+          //Accept BirthDate
+          "accept": true
+        },
+        {
+          //Reject BirthPlace
+          "accept": false
+        }
+      ]
+    }
+  ]
+}
+```
 
 Note that it is important to respond to RequestItems and RequestItemGroups in the same order in which they were received.
 
