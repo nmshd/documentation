@@ -306,6 +306,41 @@ It is not recommended to use this Module for production scenarios.
 
   The interval in seconds at which the sync Module will fetch changes from the Backbone.
 
+#### PubSubPublisher <a href="{% link _docs_operate/modules.md %}#pubsubpublisher"><i class="fas fa-fw fa-info-circle"/></a> {#pubsubpublisher}
+
+**Sample Configuration:**
+
+```jsonc
+{
+  // ...
+
+  "modules": {
+    "PubSubPublisher": {
+      "enabled": false,
+      "projectId": "",
+      "topic": "",
+      "keyFile": ""
+    }
+  }
+}
+```
+
+- **enabled** `default: false`
+
+  Enable or disable the PubSub Publisher Module.
+
+- **projectId** `required`
+
+  The project id of the Google Cloud project.
+
+- **topic** `required`
+
+  The name of the PubSub topic to publish to.
+
+- **keyFile** `required`
+
+  The location of the key file to authenticate with the Google Cloud project.
+
 #### webhooksV2 <a href="{% link _docs_operate/modules.md %}#webhooksv2"><i class="fas fa-fw fa-info-circle"/></a> {#webhooksv2}
 
 **Sample Configuration:**

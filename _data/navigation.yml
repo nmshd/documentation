@@ -81,10 +81,8 @@ docs_integrate:
         url: /integrate/access-the-connector
       - title: "Integration example"
         url: /integrate/integration-example
-      #- title: "Event introduction"
-      #  url: /integrate/event-introduction
-      - title: "Use Cases"
-        url: /integrate/use-cases
+      - title: "Event introduction"
+        url: /integrate/event-introduction
 
   - title: Manage Requests
     children:
@@ -108,6 +106,8 @@ docs_integrate:
         url: /integrate/requesting-one-time-consents
   - title: Data Model
     children:
+      - title: "Use Cases"
+        url: /integrate/use-cases
       - title: "Data Model Overview"
         url: /integrate/data-model-overview
       - title: "Connector Events"
@@ -120,10 +120,10 @@ docs_integrate:
     children:
       - title: "Error Codes"
         url: /integrate/error-codes
-      #- title: "FAQ"
-      #  url: /integrate/faq
-      #- title: "Support"
-      #  url: /integrate/support
+      - title: "FAQ"
+        url: /integrate/faq
+      - title: "Support"
+        url: /integrate/support
 
 docs_operate:
   - title: Connector Setup

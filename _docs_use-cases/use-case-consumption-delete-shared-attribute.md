@@ -9,16 +9,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RA14
+  - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
   - function:
   - description:
   - feature category:
   - tech category: Attributes
-  - status: OPEN
+  - status: IDEA
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,8 +28,8 @@ properties:
   - size: M
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
+  - api_route_regex:
+  - published:
   - link: consumption/delete-shared-attribute
 require:
 required_by:

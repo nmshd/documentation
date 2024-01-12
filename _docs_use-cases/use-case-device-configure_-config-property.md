@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-device-configure_-config-property
-published: true
+published: false
 title: "Configure Config Property"
 type: use-case
 toc: true
@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: C03
+  - component: Connector
   - layer: Device
   - facade: Connector
   - function:
@@ -16,9 +17,9 @@ properties:
   - feature category:
   - tech category: Configuration
   - status: DONE
+  - documentation status:
   - comments:
   - actor: Integrator
-  - component: Connector
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: device/configure-config-property
 require:

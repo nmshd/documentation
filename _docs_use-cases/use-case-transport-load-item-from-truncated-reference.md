@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-load-item-from-truncated-reference
-published: false
+published: true
 title: "Load item from truncated reference"
 type: use-case
 toc: true
@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RU9
+  - component: Runtime
   - layer: Transport
   - facade: AccountFacade
   - function: loadItemFromTruncatedReference
@@ -16,9 +17,9 @@ properties:
   - feature category: Share information over side-channel
   - tech category: Account
   - status: QUESTIONS
+  - documentation status: DONE
   - comments: rather somewhere else?
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: transport/load-item-from-truncated-reference
 require:

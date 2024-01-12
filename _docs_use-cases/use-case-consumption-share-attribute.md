@@ -9,16 +9,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RA13
+  - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
   - function: shareAttribute
   - description:
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
-  - status: QUESTIONS
-  - comments: Shouldn't we create requestItems here?
+  - status: CHANGES REQUIRED
+  - documentation status:
+  - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: consumption/share-attribute
 require:

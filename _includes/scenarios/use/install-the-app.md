@@ -1,3 +1,8 @@
+Caution: As enmeshed is open-source and the App is a white-label component, there are several flavors of the enmeshed App in the corresponding app stores.
+{: .notice--warning}
+
+# Enmeshed App
+
 You can get the enmeshed App over your favorite app stores. Please find the links below:
 
 - [Enmeshed App on Apple AppStore](https://apps.apple.com/us/app/enmeshed/id1576693742#?platform=ipad)

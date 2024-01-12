@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RIR7
+  - component: Runtime
   - layer: Consumption
   - facade: IncomingRequestsFacade
   - function: canAccept
@@ -16,10 +17,10 @@ properties:
   - feature category: Normalized requests/responses to and from users
   - tech category: Requests
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
   - priority: n/a
@@ -27,11 +28,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: put /api/v2/Requests/Incoming/{id}/CanAccept
   - published: default
   - link: consumption/check-if-incoming-request-can-be-accepted
 require:
 required_by:
+api_route_regex: ^put /api/v2/Requests/Incoming/{id}/CanAccept$
 ---
 
 {% include use-cases/use-case-consumption-check-if-incoming-request-can-be-accepted.md %}

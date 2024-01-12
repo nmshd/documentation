@@ -9,16 +9,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RD8
+  - component: Runtime
   - layer: Transport
   - facade: DevicesFacade
   - function:
   - description:
   - feature category: Multi-device
   - tech category: Devices
-  - status: QUESTIONS
+  - status: IDEA
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,8 +28,8 @@ properties:
   - size: L
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
+  - api_route_regex:
+  - published:
   - link: transport/trigger-device-deletion-of-onboarded-device
 require:
 required_by:
