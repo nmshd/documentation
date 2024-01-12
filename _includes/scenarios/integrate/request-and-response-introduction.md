@@ -15,7 +15,7 @@ Please note that there are some data structures used in the context of enmeshed,
 ### Structure of Requests
 
 A [Request]({% link _docs_integrate/data-model-overview.md %}#request) can be created by an Identity and sent to a peer to exchange information with them.
-Specifying the exact demands to the peer, [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitem)s are the core of the Request.
+Specifying the exact demands to the peer, [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) are the core of the Request.
 In case multiple RequestItems should be answered jointly, e.g. to enhance the structure for the user, they can be combined to a [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup).
 After creating the Request, it can be transmitted either via a Template (see [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %})) or via a Message (see [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %})).
 
@@ -25,15 +25,16 @@ To extinguish different scenarios how to use Requests, there are various types o
 They are all described in detail on the [Requests and RequestItems]({% link _docs_integrate/requests-and-requestitems.md %}) page.
 Here, we just want to give a brief overview:
 
-- [AuthenticationRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#authenticationrequestitem)s can be used to request an authentication, e.g. for a login to a website
-- [ConsentRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#consentrequestitem)s can be used to request consent to a freely configurable text, e.g. to receive a newsletter
-- [CreateAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#createattributerequestitem)s can be used to create an Identity- or RelationshipAttribute with a fixed value for a peer, e.g. a certificate
-- [FreeTextRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#freetextrequestitem)s can be used to send a free text to a contact, that in turn can accept it with a free text as well
-- [ProposeAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#proposeattributerequestitem)s can be used to ask the peer for Attributes, already suggesting answers, e.g. asking for an address and setting the country of the organization as default
-- [ReadAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem)s can be used to ask a peer for Attributes, e.g. asking for an address
-- [ShareAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem)s can be used to share own Attributes with a contact, e.g. the DisplayName
+- [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem)s can be used to request an authentication, e.g. for a login to a website
+- [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem)s can be used to request consent to a freely configurable text, e.g. to receive a newsletter
+- [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem)s can be used to create an Identity- or RelationshipAttribute with a fixed value for a peer, e.g. a certificate
+- [FreeTextRequestItem]({% link _docs_integrate/data-model-overview.md %}#freetextrequestitem)s can be used to send a free text to a contact, that in turn can accept it with a free text as well
+- [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem)s can be used to ask the peer for Attributes, already suggesting answers, e.g. asking for an address and setting the country of the organization as default
+- [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem)s can be used to ask a peer for Attributes, e.g. asking for an address
+- [RegisterAttributeListenerRequestItem]({% link _docs_integrate/data-model-overview.md %}#registerattributelistenerrequestitem)s can be used to create LocalAttributeListeners, e.g. to be informed about the creation of a specific RelationshipAttribute of a partner organization
+- [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem)s can be used to share own Attributes with a contact, e.g. the DisplayName
 
-### Properties associated with Requests
+<!-- ### Properties associated with Requests
 
 A Request can have an unambiguous `id`, enabling a clear assignment, if the Request can be mapped to a specific [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest).
 Also, a date can be specified, at which the Request expires and from when on it can't be answered anymore.
@@ -46,7 +47,7 @@ If it is enabled, the Request can't be accepted without accepting the respective
 Note that the `mustBeAccepted` property of a RequestItem inside a RequestItemGroup will only be assessed, if the RequestItemGroup itself is accepted.
 By default RequestItems can be accepted automatically.
 However, the sender may enforce a manual acceptance step using `requireManualDecision`.
-Depending on the kind of RequestItem, additional properties may be available.
+Depending on the kind of RequestItem, additional properties may be available. -->
 
 ## Responses
 
@@ -54,33 +55,36 @@ Depending on the kind of RequestItem, additional properties may be available.
 
 ### Structure of Responses
 
-Once the other Identity receives a Request, it can decide whether or not to accept it.
-If so, a [Response]({% link _docs_integrate/data-model-overview.md %}#response) will be created, containing a [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) or [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) for every RequestItem or RequestItemGroup, respectively.
-The Response, then, is wrapped in a [ResponseWrapper]({% link _docs_integrate/data-model-overview.md %}#responsewrapper), which holds additional information about the corresponding Request, so that it can be processed correctly once it is returned.
+Once the other Identity receives a Request, they can decide whether to accept or reject it.
+Then, a [Response]({% link _docs_integrate/data-model-overview.md %}#response) will be created, containing a [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitem) or [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) for every RequestItem or RequestItemGroup, respectively.
+The kind of ResponseItem depends on the decision of the Recipient, as well as on the kind of RequestItem.
+
+<!-- The Response, then, is wrapped in a [ResponseWrapper]({% link _docs_integrate/data-model-overview.md %}#responsewrapper), which holds additional information about the corresponding Request, so that it can be processed correctly once it is returned. -->
 
 ### Types of ResponseItems
 
 There are three different categories of ResponseItems.
 If a RequestItem is accepted, an [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) will be created.
 Depending on the kind of RequestItem, it might be a specific AcceptResponseItem, extending the actual AcceptResponseItem to answer to RequestItems demanding additional information.
-For example, a ReadAttributeRequestItem is accepted using a [ReadAttributeAcceptResponseItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem-response).
-If a RequestItem is rejected, however, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) is created.
-Lastly, in case the enmeshed Runtime detects a problem, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) is generated.
+For example, a ReadAttributeRequestItem is accepted using a [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem).
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/1d3f3866-4d85-46b5-8523-ecc581052f4b" id="NCvNTKLN71pl"></iframe></div>
 
-### Properties associated with Responses
+If a RequestItem is rejected, however, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) is created.
+Lastly, in case the enmeshed Runtime detects a problem, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) is generated.
+
+<!-- ### Properties associated with Responses
 
 Since each Response is associated with a specific Request, the corresponding `requestId` is indicated in the Response.
 Its `result` property declares whether the Request was accepted or rejected.
 Also, each ResponseItem has a `result` property itself, whose value depends on the kind of ResponseItem and can either be `Accepted`, `Rejected` or `Error`.
 In addition, RejectResponseItems and ErrorResponseItems may have a `code` and a `message` specified, providing more details about the rejection or error.
-The ResponseWrapper holds additional information about the Request, namely its ID, the `requestSourceType`, i.e. if the Request was transmitted via a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) or a [Message]({% link _docs_integrate/data-model-overview.md %}#message), and the `requestSourceReference`, containing the respective ID.
+The ResponseWrapper holds additional information about the Request, namely its ID, the `requestSourceType`, i.e. if the Request was transmitted via a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) or a [Message]({% link _docs_integrate/data-model-overview.md %}#message), and the `requestSourceReference`, containing the respective ID. -->
 
 ## LocalRequests and LocalResponses
 
 Requests and Responses as discussed above refer to the data structures that are exchanged between Identities.
-Locally, each Identity stores them in LocalRequests and [LocalResponses]({% link _docs_integrate/data-model-overview.md %}#localresponse).
+Locally, each Identity stores them in [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest) and [LocalResponses]({% link _docs_integrate/data-model-overview.md %}#localresponse).
 They contain additional metadata that is distinct for each Identity.
 For example, a LocalRequest stores the address of the opposite Identity in the `peer` property and `isOwn` declares whether the Request was sent by you or received from the peer.
 Moreover, a timestamp indicates when it was created and the current `status` is saved.
