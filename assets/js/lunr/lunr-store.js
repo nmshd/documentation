@@ -240,7 +240,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Requests and RequestItems",
-        "excerpt":"All the RequestItems listed below inherit from the RequestItem and are therefore sharing its properties. AuthenticationRequestItem With this item the sender can request the peer for an authentication in a business context for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived...","categories": [],
+        "excerpt":"AuthenticationRequestItem With the AuthenticationRequestItem the sender can request the peer for an authentication in a business context for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived and limited in time. Examples Authentication for a login to a website Authentication for opening...","categories": [],
         "tags": [],
         "url": "/integrate/requests-and-requestitems",
         "teaser": null
