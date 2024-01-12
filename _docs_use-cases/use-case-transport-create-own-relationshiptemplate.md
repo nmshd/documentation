@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RT1
+  - component: Runtime
   - layer: Transport
   - facade: RelationshipTemplatesFacade
   - function: createOwnRelationshipTemplate
@@ -16,9 +17,9 @@ properties:
   - feature category: Consent required before any data is shared
   - tech category: RelationshipTemplates
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +28,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: POST /api/v2/RelationshipTemplates/Own
   - published: default
   - link: transport/create-own-relationshiptemplate
 require:
 required_by:
+api_route_regex: ^POST /api/v2/RelationshipTemplates/Own$
 ---
 
 {% include use-cases/use-case-transport-create-own-relationshiptemplate.md %}

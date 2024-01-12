@@ -27,7 +27,7 @@ In this guide, the first Connector will be called Sender and the second Connecto
 ## Check your Requests validity
 
 At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Sender Connector with the following body.
-For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_integrate/requests-and-requestitems.md %}) you want.
+For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) you want.
 
 Even though the `peer` property is optional, it is recommended to specify it whenever possible. This allows additional validation rules to execute. When you are sending a Request over Messages you always know your peer.
 
@@ -115,7 +115,7 @@ For more information about the events you can head over to the [Connector Module
 
 ### Accept
 
-If you want to accept the Request you can do so by calling the `POST /api/v2/Requests/Incoming/{id}/Accept` route. You can use the `id` you saved in the previous step. In the payload you have to accept at least all RequestItems where the `mustBeAccepted` property is set to `true`. In case of the example Request the payload is the following:
+If you want to accept the Request you can do so by calling the `PUT /api/v2/Requests/Incoming/{id}/Accept` route. You can use the `id` you saved in the previous step. In the payload you have to accept at least all RequestItems where the `mustBeAccepted` property is set to `true`. In case of the example Request the payload is the following:
 
 ```jsonc
 {
@@ -129,7 +129,7 @@ If you want to accept the Request you can do so by calling the `POST /api/v2/Req
 
 ### Reject
 
-If you want to reject the Request you can do so by calling the `POST /api/v2/Requests/Incoming/{id}/Reject` route. You can use the `id` you saved in the previous step. In the payload you have to reject all RequestItems. In case of the example Request the payload is the following:
+If you want to reject the Request you can do so by calling the `PUT /api/v2/Requests/Incoming/{id}/Reject` route. You can use the `id` you saved in the previous step. In the payload you have to reject all RequestItems. In case of the example Request the payload is the following:
 
 ```jsonc
 {

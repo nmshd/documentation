@@ -23,7 +23,7 @@ Inbound and outbound data must be validated by the transport layer. It is respon
 
 ## Encryption
 
-All encryption-relevant topics like key handling and signature verification are encapsulated by the transport layer. The transport layer communicates in plaintext to the consumers building on top of the transport layer. All traffic to the backbone layer is encrypted or "zero knowledge".
+All encryption-relevant topics like key handling and signature verification are encapsulated by the transport layer. The transport layer communicates in plaintext to the consumers building on top of the transport layer. All traffic to the backbone layer is encrypted or "least knowledge".
 
 ## Key Handling
 

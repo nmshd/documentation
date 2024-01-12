@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ARS1
+  - component: AppRuntime
   - layer: Device
   - facade: AppRuntime
   - function: selectAccount
@@ -16,9 +17,9 @@ properties:
   - feature category: Multi-profile
   - tech category: Profiles
   - status: CHANGES REQUIRED
+  - documentation status:
   - comments: Why is this not within AccountServices? Password needs to be taken into consideration
   - actor: User
-  - component: AppRuntime
   - trigger:
   - precondition: A pin / password has been set up for this Profile
   - result: The Device knows which Profile should be used for the user interface or any action.     If a specific action was triggered to select the Profile, the action is now executed     If not, the User is redirected to the Profile's Start Screen
@@ -27,7 +28,7 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: device/select-profile-/-profile-login-/-create-profile-session
 require:

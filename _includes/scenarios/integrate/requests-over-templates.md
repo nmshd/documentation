@@ -8,12 +8,12 @@ You can use the [Connector Installation Guide]({% link _docs_operate/setup-with-
 
 {% include properties_list.html %}
 
-On the first Connector you will create a Template. This Connector will be called Templator in the in the following steps. The second Connector is called Requestor, because it will create the Relationship and therefore it creates the `RelationshipCreationChangeRequest`.
+On the first Connector you will create a Template. This Connector will be called Templator in the following steps. The second Connector is called Requestor, because it will create the Relationship and therefore it creates the `RelationshipCreationChangeRequest`.
 
 ## Check your Request's validity
 
 At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Templator Connector with the following body.
-For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_integrate/requests-and-requestitems.md %}) you want.
+For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) you want.
 
 ```json
 {
@@ -90,7 +90,7 @@ If there is no open RelationshipRequest or existing Relationship, you can trigge
 
 ### Reject
 
-If you want to reject the Request you can do so by calling the `POST /api/v2/Requests/Incoming/{id}/Reject` route. You can use the `id` you saved in the previous step. In the payload you have to reject all RequestItems. In case of the example Request the payload is the following:
+If you want to reject the Request you can do so by calling the `PUT /api/v2/Requests/Incoming/{id}/Reject` route. You can use the `id` you saved in the previous step. In the payload you have to reject all RequestItems. In case of the example Request the payload is the following:
 
 ```jsonc
 {
@@ -108,7 +108,7 @@ In the response you can see the Request has moved to status `Decided`. This is w
 
 If you tried out the Rejection before this step make sure to create a Request by [loading the Template again](#load-the-template-and-get-the-request) with the same truncated reference.
 
-If you want to accept the Request you can do so by calling the `POST /api/v2/Requests/Incoming/{id}/Accept` route. You can use the `id` you saved in the [template loading](#load-the-template-and-get-the-request) step. In the payload you have to accept at least all RequestItems where the `mustBeAccepted` property is set to `true`. In case of the example Request the payload is the following:
+If you want to accept the Request you can do so by calling the `PUT /api/v2/Requests/Incoming/{id}/Accept` route. You can use the `id` you saved in the [template loading](#load-the-template-and-get-the-request) step. In the payload you have to accept at least all RequestItems where the `mustBeAccepted` property is set to `true`. In case of the example Request the payload is the following:
 
 ```jsonc
 {
