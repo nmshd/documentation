@@ -224,7 +224,7 @@ To share own IdentityAttributes (owner = self) an Identity uses the ShareAttribu
 
 #### Item Properties {#shareattributerequestitem-response-itemproperties}
 
-- To accept this RequestItem a [ShareAttributeListenerAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#shareattributeacceptresponseitem) will be transferred.
+- To accept this RequestItem a [ShareAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#shareattributeacceptresponseitem) will be transferred.
 - To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
