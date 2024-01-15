@@ -113,8 +113,7 @@ To create an Attribute with a value proposed by the sender, an Identity uses the
 
 ### Examples {#proposeattributerequestitem-examples}
 
-- Onboard an existing customer to enmeshed and propose the known private Attributes, like its name or address.
-- Ask the user if a newsletter would be of interest and propose the opt-in. This could be stored as a RelationshipAttribute with owner = recipient and could then be changed by the recipient at will.
+Examples of use cases for the ProposeAttributeRequestItem can be found in the [Propose Attribute to peer]({% link _docs_integrate/propose-attribute-to-peer.md %}) guide.
 
 ### Response {#proposeattributerequestitem-response}
 
@@ -131,12 +130,7 @@ To create an Attribute with a value proposed by the sender, an Identity uses the
 
 ### Combinations and usage scenarios {#proposeattributerequestitem-combinationsandusagescenarios}
 
-| Attribute Type | Attribute Owner | Possible? | Automation      | Examples/Reason                                                                                                                                                                                                                                                                                                  |
-| -------------- | --------------- | --------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Identity       | Sender          | N         | `N/A`           | It makes no sense to propose own Attributes, use [ShareAttributeRequestItem](#shareattributerequestitem) instead.                                                                                                                                                                                                |
-| Identity       | Recipient       | Y         | `USER_DECISION` | Company sends name and address to new customer during its onboarding process.                                                                                                                                                                                                                                    |
-| Relationship   | Sender          | Y         | `USER_DECISION` | With this combination the **sender gives the recipient the one-time permission** to write a Relationship Attribute once AND the **sender proposes a value** which might make sense as a default.<br>Example: Electricity provider asks new customer for the electricity meter number and proposes a known number |
-| Relationship   | Recipient       | Y         | `USER_DECISION` | With this combination the **sender asks the recipient for the one-time permission** to write a Relationship Attribute once AND the **sender proposes a value** which might make sense as a default.<br>Example: Asking for a newsletter subscription                                                             |
+[Combinations and usage scenarios of the ProposeAttributeRequestItem]({% link _docs_integrate/propose-attribute-to-peer.md %}#combinations-and-usage-scenarios-of-proposeattributerequestitem) can be found in the [Propose Attribute to peer]({% link _docs_integrate/propose-attribute-to-peer.md %}) guide.
 
 ## ReadAttributeRequestItem
 
