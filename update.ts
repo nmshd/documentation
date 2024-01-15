@@ -9,26 +9,27 @@ const useCasesWorksheetName = "UseCases";
 interface DynamicUseCase {
     [key: string]: string;
 }
-function writeTextToFile(object: DynamicUseCase, text: string): void {
-    var fileName = "";
-    if (object["ID"].startsWith("SC")) {
-        fileName = "_docs_" + object.Component + "/" + object.Link + ".md";
-    } else {
-        fileName = "_docs_use-cases/" + object.Link + ".md";
-    }
 
-    fs.readFile(fileName, "utf8", (missingFile, data) => {
-        const regex = /---[\s\S]*?---/g; // Regular expression to match text between "---" across multiple lines
-        var newText = "";
-        if (missingFile) {
-            console.info("\x1b[32m%s", "Create: " + object.ID + " - ", object.Link);
-            newText = text;
-        } else {
-            console.info("\x1b[93m%s", "Update: " + object.ID + " - ", object.Link);
-            newText = data.replace(regex, text);
-        }
-        fs.promises.writeFile(fileName, newText, "utf-8");
-    });
+function getFileName(object: DynamicUseCase): string {
+    if (object["ID"].startsWith("SC")) {
+        return `_docs_${object.Component}/${object.Link}.md`;
+    } else {
+        return `_docs_use-cases/${object.Link}.md`;
+    }
+}
+async function writeTextToFile(object: DynamicUseCase, text: string): Promise<void> {
+    const fileName = getFileName(object);
+    const regex = /---[\s\S]*?---/g; // Regular expression to match text between "---" across multiple lines
+
+    try {
+        const data = await fs.promises.readFile(fileName, "utf8");
+        console.info("\x1b[93m%s", `Update: ${object.ID} - ${object.Link}`);
+        const newText = data.replace(regex, text);
+        await fs.promises.writeFile(fileName, newText, "utf-8");
+    } catch (missingFile) {
+        console.info("\x1b[32m%s", `Create: ${object.ID} - ${object.Link}`);
+        await fs.promises.writeFile(fileName, text, "utf-8");
+    }
 }
 
 function createScenarioText(scenarioObject: DynamicUseCase): string {
