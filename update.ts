@@ -122,6 +122,14 @@ function createUseCaseText(useCaseObject: DynamicUseCase): string {
     return text;
 }
 
+function getCellValue(cell: { value: any }): string {
+    if (typeof cell.value === "object" && cell.value !== null) {
+        return cell.value.result;
+    } else {
+        return cell.value;
+    }
+}
+
 async function readExcelFile(filePath: string, worksheetName: string): Promise<DynamicUseCase[]> {
     var workbook = new Excel.Workbook();
     try {
@@ -132,7 +140,7 @@ async function readExcelFile(filePath: string, worksheetName: string): Promise<D
         // Check if the worksheet exists
         if (!worksheet) {
             const worksheetNames = workbook.worksheets.map((worksheet: { name: any }) => worksheet.name);
-            throw new Error("Worksheet '" + worksheetName + "' not found. Possible entries are: " + worksheetNames);
+            throw new Error(`Worksheet '${worksheetName}' not found. Possible entries are: ${worksheetNames}`);
         }
 
         // Get the headers from the first row of the Excel file
@@ -149,19 +157,11 @@ async function readExcelFile(filePath: string, worksheetName: string): Promise<D
             // Create a DynamicUseCase object for the current row
             const dynamicUseCase: DynamicUseCase = {};
             headers.forEach((header, index) => {
-                // if the result is a formula, only the result is used
-                if (typeof currentRow.getCell(index + 1).value === "object" && currentRow.getCell(index + 1).value !== null) {
-                    dynamicUseCase[header] = currentRow.getCell(index + 1).value.result;
-                } else {
-                    dynamicUseCase[header] = currentRow.getCell(index + 1).value;
-                }
+                dynamicUseCase[header] = getCellValue(currentRow.getCell(index + 1));
             });
             // Add the DynamicUseCase object to the array
             dynamicUseCases.push(dynamicUseCase);
         }
-
-        // Now 'dynamicUseCases' is an array containing objects for each row in the Excel table
-
         return dynamicUseCases;
     } catch (error: any) {
         // This block will catch any errors thrown in the try block or by the Promise
@@ -181,8 +181,8 @@ function replaceEach(str: string, replacements: string[]): string {
 
 function findMissingFilesInArray(folderPath: string, objectArray: DynamicUseCase[]): string[] {
     const allFiles = fs.readdirSync(folderPath);
-    const linksInArray = objectArray.map((obj) => obj.Link + ".md");
-    const missingLinks = allFiles.filter((file) => !linksInArray.includes(file));
+    const linksInArray = new Set(objectArray.map((obj) => obj.Link + ".md"));
+    const missingLinks = allFiles.filter((file) => !linksInArray.has(file));
     return missingLinks;
 }
 
