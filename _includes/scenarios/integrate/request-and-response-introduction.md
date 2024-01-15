@@ -21,20 +21,92 @@ After creating the Request, it can be transmitted either via a Template (see [Re
 
 ### Types of RequestItems
 
-<!-- TODO: give more information on each RequestItem -->
-
 To extinguish different scenarios how to use Requests, there are various types of RequestItems tailored to them.
-They are all described in detail on the [Requests and RequestItems]({% link _docs_integrate/requests-and-requestitems.md %}) page.
-Here, we just want to give a brief overview:
 
-- [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem)s can be used to request an authentication, e.g. for a login to a website
-- [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem)s can be used to request consent to a freely configurable text, e.g. to receive a newsletter
-- [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem)s can be used to create an Identity- or RelationshipAttribute with a fixed value for a peer, e.g. a certificate
-- [FreeTextRequestItem]({% link _docs_integrate/data-model-overview.md %}#freetextrequestitem)s can be used to send a free text to a contact, that in turn can accept it with a free text as well
-- [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem)s can be used to ask the peer for Attributes, already suggesting answers, e.g. asking for an address and setting the country of the organization as default
-- [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem)s can be used to ask a peer for Attributes, e.g. asking for an address
-- [RegisterAttributeListenerRequestItem]({% link _docs_integrate/data-model-overview.md %}#registerattributelistenerrequestitem)s can be used to create LocalAttributeListeners, e.g. to be informed about the creation of a specific RelationshipAttribute of a partner organization
-- [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem)s can be used to share own Attributes with a contact, e.g. the DisplayName
+#### AuthenticationRequestItem
+
+With the [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem) the sender can request the peer for an authentication in a business context for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived and limited in time.
+
+Examples:
+
+- Authentication for a login to a website
+- Authentication for opening a door
+
+#### ConsentRequestItem
+
+With the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) it is possible to request a consent of the peer to an arbitrary text and thus reach agreement on a certain non machine-processable context.
+
+To request an accept/reject decision from a peer to a free text, the ConsentRequestItem is used.
+
+Please do not use the ConsentRequestItem to submit tons of text to the peer Identity. It is meant to be a short consent or summary the user agrees to. Please move longer text to external websites.
+The ConsentRequestItem is also not meant for contractual agreements.
+{: .notice--info}
+
+Examples:
+
+- "I hereby confirm that I have read the privacy terms of this cloud service and agree to them."
+- "The provided EULA has been read and agreed to."
+- "Yes, I have backed up all of my data of this PC and you can wipe it."
+- "I opt in to the newsletter."
+
+#### CreateAttributeRequestItem
+
+If you want to create Identity- or RelationshipAttributes for the peer, the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) can be used. Please have a look at the [ProposeAttributeRequestItem](#proposeattributerequestitem) if the peer should be able to overwrite the Attribute.
+
+To create an Attribute with a fixed value defined by the sender, an Identity uses the CreateAttributeRequestItem. A fixed value in this case means, that the recipient is not allowed to change the value when accepting the request.
+
+Examples:
+
+- Share the corporate E-Mail Address of the peer to the peer
+- Send a certificate of the peer to the peer, so that the peer is able to easily share it
+- Create a RelationshipAttribute for the peer
+
+#### FreeTextRequestItem
+
+With the [FreeTextRequestItem]({% link _docs_integrate/data-model-overview.md %}#freetextrequestitem) it is possible to send a free text to the peer. The peer itself can accept this with a free text as well.
+
+#### ProposeAttributeRequestItem
+
+The [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) is a combination of [ReadAttributeRequestItem](#readattributerequestitem) and [CreateAttributeRequestItem](#createattributerequestitem). The sender would like to receive a correct Attribute from the peer, thinks it has a possible value but the peer might overrule this value with an existing or new one.
+
+To create an Attribute with a value proposed by the sender, an Identity uses the ProposeAttributeRequestItem. A proposed value in this case means, that the recipient is allowed to change the value if accepting the request.
+
+Examples:
+
+- Onboard an existing customer to enmeshed and propose the known private Attributes, like its name or address.
+- Ask the user if a newsletter would be of interest and propose the opt-in. This could be stored as a RelationshipAttribute with owner = recipient and could then be changed by the recipient at will.
+
+#### ReadAttributeRequestItem
+
+If you want to query an Identity's Attributes this is done with the [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem).
+
+To query Attributes which are not known to the sender, an Identity uses the ReadAttributeRequestItem.
+
+Examples:
+
+- Optional query of the BirthDate, to congratulate on birthdays
+- Required query of the Age, to check if alcohol may be bought
+- Required query of the StreetAddress, to send an invoice to the recipient
+
+#### RegisterAttributeListenerRequestItem
+
+This item is used to register a [Listener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) for a specific Attribute. The Listener will create a Request in status `Draft` if an Attribute was created that matches the given query and the user is able to send the Request to the creator of the [RegisterAttributeListenerRequestItem]({% link _docs_integrate/data-model-overview.md %}#registerattributelistenerrequestitem).
+
+Examples:
+
+- Asking for a specific RelationshipAttribute of a partner organization.
+
+#### ShareAttributeRequestItem
+
+If you want to share the own DisplayName and possibly other Attributes this is done with the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem).
+
+To share own IdentityAttributes (owner = self) an Identity uses the ShareAttributeRequestItem. The Identity needs to create the IdentityAttribute separately before the Attribute can be shared.
+
+Examples:
+
+- Share own DisplayName.
+- Share own Address.
+- Share customer number of company A with company B.
 
 ## Responses
 
