@@ -69,7 +69,7 @@ function createScenarioText(scenarioObject: DynamicUseCase): string {
                 if (value == null) {
                     text += "  - " + `${key.toLowerCase()}:\n`;
                 } else {
-                    text += "  - " + `${key.toLowerCase()}: ${value.replaceAll("\n", " ")}\n`;
+                    text += "  - " + `${key.toLowerCase()}: ${value.replace("\n", " ")}\n`;
                 }
             }
     }
@@ -108,7 +108,7 @@ function createUseCaseText(useCaseObject: DynamicUseCase): string {
                 if (value == null) {
                     text += "  - " + `${key.toLowerCase()}:\n`;
                 } else {
-                    text += "  - " + `${key.toLowerCase()}: ${value.replaceAll("\n", " ")}\n`;
+                    text += "  - " + `${key.toLowerCase()}: ${value.replace("\n", " ")}\n`;
                 }
             }
     }
