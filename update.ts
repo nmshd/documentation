@@ -186,45 +186,36 @@ function findMissingFilesInArray(folderPath: string, objectArray: DynamicUseCase
     return missingLinks;
 }
 
+async function processObjects(filePath: string, worksheetName: string, createTextFunction: (object: DynamicUseCase) => string, paths: string[]) {
+    try {
+        const objects = await readExcelFile(filePath, worksheetName);
+        console.info("\x1b[31m%s\x1b[0m", "untracked Files:");
+        paths.forEach((path) => {
+            console.info("\x1b[31m%s\x1b[0m", findMissingFilesInArray(path, objects));
+        });
+
+        if (objects && objects.length > 0) {
+            for (const object of objects) {
+                if (object.ID != null) {
+                    const text = createTextFunction(object);
+                    await writeTextToFile(object, text);
+                }
+            }
+        } else {
+            console.log("The array is empty or undefined.");
+        }
+    } catch (error) {
+        console.error(`Error updating ${worksheetName}:`, error);
+    }
+}
+
 async function main() {
-    try {
-        const scenariosObject = await readExcelFile(filePath, scenariosWorksheetName);
-        console.info("\x1b[31m%s\x1b[0m", "untracked Files:");
-        console.info("\x1b[31m%s\x1b[0m", findMissingFilesInArray("/workspaces/documentation/_docs_operate/", scenariosObject));
-        console.info("\x1b[31m%s\x1b[0m", findMissingFilesInArray("/workspaces/documentation/_docs_use/", scenariosObject));
-        console.info("\x1b[31m%s\x1b[0m", findMissingFilesInArray("/workspaces/documentation/_docs_integrate/", scenariosObject));
-
-        if (scenariosObject && scenariosObject.length > 0) {
-            scenariosObject.forEach((scenarioObject) => {
-                if (scenarioObject.ID != null) {
-                    var scenarioText = createScenarioText(scenarioObject);
-                    writeTextToFile(scenarioObject, scenarioText);
-                }
-            });
-        } else {
-            console.log("The array is empty or undefined.");
-        }
-    } catch (error) {
-        console.error("Error updating Scenarios:", error);
-    }
-    try {
-        const useCasesObject = await readExcelFile(filePath, useCasesWorksheetName);
-        console.info("\x1b[31m%s\x1b[0m", "untracked Files:");
-        console.info("\x1b[31m%s\x1b[0m", findMissingFilesInArray("/workspaces/documentation/_docs_use-cases/", useCasesObject));
-
-        if (useCasesObject && useCasesObject.length > 0) {
-            useCasesObject.forEach((useCaseObject) => {
-                if (useCaseObject.ID != null) {
-                    var useCaseText = createUseCaseText(useCaseObject);
-                    writeTextToFile(useCaseObject, useCaseText);
-                }
-            });
-        } else {
-            console.log("The array is empty or undefined.");
-        }
-    } catch (error) {
-        console.error("Error updating UseCases:", error);
-    }
+    await processObjects(filePath, scenariosWorksheetName, createScenarioText, [
+        "/workspaces/documentation/_docs_operate/",
+        "/workspaces/documentation/_docs_use/",
+        "/workspaces/documentation/_docs_integrate/"
+    ]);
+    await processObjects(filePath, useCasesWorksheetName, createUseCaseText, ["/workspaces/documentation/_docs_use-cases/"]);
 }
 
 main();
