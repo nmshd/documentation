@@ -59,11 +59,11 @@ We now consider the case that the Sender has an active Relationship established 
 
 ### Read multiple Attributes
 
-It is not necessary to request just a single Attribute. Instead, it is also possible to request read access to multiple Attributes at the same time. Several ReadAttributeRequestItems or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes for this purpose. If you want to use a RequestItemGroup in order to request read access to multiple Attributes of the Recipient at the same time, you must insert corresponding ReadAttributeRequestItems into the `items` property of it.
+Requesting read access is not limited to just a single Attribute, but it is possible to request read access to multiple Attributes at the same time. Several ReadAttributeRequestItems or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes for this purpose. If you want to use a RequestItemGroup in order to request read access to multiple Attributes of the Recipient at the same time, you must insert corresponding ReadAttributeRequestItems into the `items` property of it.
 
 ## Send and receive the Request
 
-The Sender that wants to read an Attribute of the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method is more suitable for sending the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes). There are basically two ways to send the Request for reading Attributes created by the Sender to the Recipient.
+The Sender that wants to read an Attribute of the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method can be used to send the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes). There are two ways to send the Request for reading Attributes created by the Sender to the Recipient.
 
 ### Request over Template
 
@@ -71,13 +71,13 @@ If there is currently no Relationship between the Sender and the Recipient, this
 
 ### Request over Message
 
-The Sender only has the option of sending a Request to the Recipient via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) if there is already an active Relationship between the Sender and the Recipient. All information on how to send and receive a Request via a Message can be found in the [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) guide.
+The Sender only has the option of sending a Request to the Recipient via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) if there is already an active Relationship between them. All information on how to send and receive a Request via a Message can be found in the [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) guide.
 
 ## Accept the Request
 
-After the Sender has sent the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) to the Recipient and the Recipient has received this Request, the Recipient can accept it to give the Sender read access to all or some of the requested Attributes. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). You must also decide and specify for each ReadAttributeRequestItem contained in the Request for reading Attributes whether you want to accept or reject it.
+After the Recipient has received the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes), it can accept it to give the Sender read access to all or some of the requested Attributes. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). You must also decide and specify for each ReadAttributeRequestItem and RequestItemGroup contained in the Request for reading Attributes whether you want to accept or reject it.
 
-If the Recipient does not want the Sender to read any Attributes of it and therefore does not want to accept the Request for reading Attributes of the Sender, it can reject it as a whole as well. For this, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
+If the Recipient does not want the Sender to read any of its Attributes and, therefore, does not want to accept the Request for reading Attributes of the Sender, it can reject it as a whole as well. For this, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/164e1c68-0997-4a16-832c-c1e53bb55571" id="NypRt8MoA-HR"></iframe></div>
@@ -137,7 +137,7 @@ In our example, the Sender only requires the Recipient to share its EMailAddress
 If the Recipient wants to accept the Request for reading Attributes, it must accept all ReadAttributeRequestItems for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted, for example, for the Recipient to refuse to share its EMailAddress and instead share its PhoneNumber.
 {: .notice--info}
 
-The Recipient refuses to share its BirthDate with the Sender and accepts at least one ReadAttributeRequestItem of the RequestItemGroup. Also, the Recipient accepts the sharing of its EMailAddress and rejects the sharing of its PhoneNumber. If the `<...>` notation is used as a placeholder for the actual data as usual, it therefore responds to the Request for reading Attributes as follows:
+The Recipient refuses to share its BirthDate with the Sender and accepts at least one ReadAttributeRequestItem of the RequestItemGroup. Also, the Recipient accepts the sharing of its EMailAddress and rejects the sharing of its PhoneNumber. Thus, it responds to the Request for reading Attributes as follows, whereby the `<...>` notation is used as a placeholder for the actual data as usual:
 
 ```jsonc
 {
