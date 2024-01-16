@@ -10,9 +10,7 @@ If the peer should be able to adjust the Attribute offered for creation, the Pro
 
 <!--- TODO: Insert Link to "Propose attribute to peer" guide --->
 
-We will now explain how a Connector, hereinafter referred to as the Sender, can create an Attribute for another Connector, the so-called Recipient. Since understanding this creation process requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and how to use them in general, you should take a look at our Request and Response introduction before continuing reading this guide.
-
-<!--- TODO: Insert Link to "Request and Response introduction" guide --->
+We will now explain how a Connector, hereinafter referred to as the Sender, can create an Attribute for another Connector, the so-called Recipient. Since understanding this creation process requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and how to use them in general, you should take a look at our [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) before continuing reading this guide.
 
 Please note that the general procedure is the same if the Connector wants to create an Attribute for an App user instead of another Connector. For reasons of clarity, this guide focuses on the creation process with two Connectors.
 {: .notice--info}
