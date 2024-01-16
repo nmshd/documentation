@@ -5,7 +5,7 @@ There are many situations in which an Identity is interested in an [IdentityAttr
 - An organization is interested in the birth date of a member so that it can wish them a happy birthday every year.
 - A university needs to know the email address of a student in order to be able to send them emails.
 
-In this guide, we explain how a Connector, hereinafter referred to as the Sender, can read an [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) of another Connector, the so-called Recipient. Since understanding this reading process requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and how to use them in general, you should take a look at our Request and Response introduction before continuing reading this guide.
+In this guide, we explain how a Connector, hereinafter referred to as the Sender, can read an [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) of another Connector, the so-called Recipient. Since understanding this reading process requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and how to use them in general, you should take a look at our [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) before continuing reading this guide.
 
 <!--- TODO: Insert Link to "Request and Response introduction" guide --->
 
