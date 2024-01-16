@@ -46,3 +46,7 @@ With the REST API, pull mechanisms are supported. However, as there are many bid
 For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Event]({% link _docs_integrate/connector-events.md %}) is triggered (e.g. a new Message has been received => `transport.messageReceived`).
 
 Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The `sync` Module automates this, but you can also do this manually by calling the `/api/v2/Account/Sync` route.
+
+### Requesting Modules
+
+In case you need a further Module for your application, please state a [feature request](https://github.com/nmshd/feedback/issues/new?assignees=&labels=enhancement&projects=&template=feature_request.md&title=%5BFEATURE%5D+).
