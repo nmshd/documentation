@@ -94,11 +94,11 @@ It would also be possible to specify the Address of the Sender as the value for 
 
 ### Create multiple Attributes
 
-It is not necessary to create just a single Attribute for a peer. Instead, it is also possible to request the creation of multiple Attributes at the same time. For this purpose, several CreateAttributeRequestItems or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for creating Attributes. If you want to use a RequestItemGroup in order to create multiple Attributes for the Recipient at the same time, you must insert corresponding CreateAttributeRequestItems into the `items` property of it.
+Requesting the creation of Attributes for a peer is not limited to just a single Attribute, but it is possible to request the creation of multiple Attributes at the same time. For this purpose, several CreateAttributeRequestItems or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for creating Attributes. If you want to use a RequestItemGroup in order to create multiple Attributes for the Recipient at the same time, you must insert corresponding CreateAttributeRequestItems into the `items` property of it.
 
 ## Send and receive the Request
 
-The Sender that wants to create an Attribute for the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method is more suitable for sending the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes). There are basically two ways to send the Request for creating Attributes created by the Sender to the Recipient.
+The Sender that wants to create an Attribute for the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method can be used to send the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes). There are two ways to send the Request for creating Attributes created by the Sender to the Recipient.
 
 ### Request over Template
 
@@ -106,13 +106,13 @@ If there is currently no Relationship between the Sender and the Recipient, this
 
 ### Request over Message
 
-The Sender only has the option of sending a Request to the Recipient via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) if there is already an active Relationship between the Sender and the Recipient. All information on how to send and receive a Request via a Message can be found in the [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) guide.
+The Sender only has the option of sending a Request to the Recipient via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) if there is already an active Relationship between them. All information on how to send and receive a Request via a Message can be found in the [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) guide.
 
 ## Accept the Request and create the Attributes
 
-After the Sender has sent the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes) to the Recipient and the Recipient has received this Request, the Recipient can accept it to create all or some of the Attributes that were offered for creation by the Sender. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). Also, you need to decide and specify for each CreateAttributeRequestItem contained in the Request for creating Attributes whether you want to accept or reject it.
+After the Recipient has received the [Request for creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}#request-for-creating-attributes), it can accept it to create all or some of the Attributes that were offered for creation by the Sender. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). Also, you need to decide and specify for each CreateAttributeRequestItem and RequestItemGroup contained in the Request for creating Attributes whether you want to accept or reject it.
 
-If the Recipient does not want to create any of the Attributes offered by the Sender and therefore does not want to accept the Request for creating Attributes of the Sender, it can reject it as a whole as well. For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
+If the Recipient does not want to create any of the Attributes offered by the Sender and, therefore, does not want to accept the Request for creating Attributes of the Sender, it can reject it as a whole as well. For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/c2e1db15-8377-43bc-9ada-42623e5e938f" id="RROTOBMS1a-2"></iframe></div>
