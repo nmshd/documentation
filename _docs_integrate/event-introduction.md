@@ -14,7 +14,7 @@ properties:
   - level:
   - implementation status: DOCS ONLY
   - documentation status: DONE
-  - published: true 
+  - published: true
   - link: event-introduction
 require:
 required_by:
