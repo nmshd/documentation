@@ -3,7 +3,7 @@
 {% include properties_list.html %}
 
 If the value of a private [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) changes, this can be replicated in enmeshed with the SucceedIdentityAttribute use case.
-It allows you to update the content and keeps a coherent history of all versions by establishing a double-linked list, using the Attribute parameters `succeeds` and `succeededBy`.
+It allows you to update the content and keeps a coherent history of all versions by establishing a doubly linked list, using the Attribute parameters `succeeds` and `succeededBy`.
 Hence, every Attribute may have exactly one predecessor and one successor.
 In case you shared the predecessing version of the IdentityAttribute, own shared IdentityAttribute copies will only be succeeded, too, if you decide to [notify the peer]({% link _docs_use-cases/use-case-consumption-notify-peer-about-identityattribute-succession.md %}) of the respective shared IdentityAttribute about the succession.
 
