@@ -92,8 +92,8 @@ docs_integrate:
         url: /integrate/requests-over-messages
   - title: Manage attributes of yourself
     children:
-      - title: "Updating IdentityAttributes of yourself"
-        url: /integrate/updating-identityattributes-of-yourself
+      - title: "Succeeding Attributes to update their values"
+        url: /integrate/succeeding-attributes-to-update-their-values
   - title: Manage attributes of others
     children:
       - title: "Request persistent consent of peer"

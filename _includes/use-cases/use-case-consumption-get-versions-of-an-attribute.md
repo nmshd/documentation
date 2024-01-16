@@ -2,7 +2,7 @@
 
 {% include properties_list.html %}
 
-[Succeeding an Attribute]({% link _docs_integrate/updating-identityattributes-of-yourself.md %}) allows you to update its value, while keeping all versions for a coherent history.
+[Succeeding an Attribute]({% link _docs_integrate/succeeding-attributes-to-update-their-values.md %}) allows you to update its value, while keeping all versions for a coherent history.
 This use case allows you to retrieve a list of all those versions of the succession chain for a specified Attribute.
 
 ## Parameters

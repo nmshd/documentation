@@ -1,5 +1,3 @@
-TODO: change title to "Succeeding Attributes to update their values" ?
-
 The way enmeshed handles updates to your personal data is by succeeding old Attributes with new ones.
 Instead of simply replacing old data, a wholly new Attribute is created which succeeds its predecessor.
 Thus, you and your peers are provided a coherent history of all past versions.
