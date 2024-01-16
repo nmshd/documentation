@@ -221,6 +221,12 @@ var store = [{
         "url": "/integrate/request-and-process-attributes-by-messages",
         "teaser": null
       },{
+        "title": "Request and Response introduction",
+        "excerpt":"Requests are the main instrument in enmeshed to interact with other Identities. They enable various business processes, e.g. creating, sharing or receiving Attributes, asking a peer for authentication or consent, and much more. Also, parts of a vaster business process can be implemented with them, like querying all personal information...","categories": [],
+        "tags": [],
+        "url": "/integrate/request-and-response-introduction",
+        "teaser": null
+      },{
         "title": "Request persistent consent of peer",
         "excerpt":"Here is an explanation of how to obtain a person’s persistent consent on a particular topic To request an accept/reject decision from a peer to a free text, the ConsentRequestItem is used. Represents the consent of a person to a specific topic. If you want to obtain a consent, you...","categories": [],
         "tags": [],
