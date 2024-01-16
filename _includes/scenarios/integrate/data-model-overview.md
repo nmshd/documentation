@@ -259,13 +259,14 @@ A LocalAttribute contains the local metadata for an [Attribute](#attributes). Th
 
 ### LocalAttributeShareInfo
 
-The LocalAttribute Share Info helps to keep track of how the LocalAttribute was received/sent, from whom it was received/who sent it, as well as which LocalAttribute it was copied from (in case of a shared Repository Attribute). For example, this enables us to track back who we shared a certain Repository Attribute with, so we are able to notify each of them when changing the Repository Attribute.
+The LocalAttribute Share Info helps to keep track of how the LocalAttribute was received/sent, from whom it was received/who sent it, as well as which LocalAttribute it was copied from (in case of a shared Repository Attribute). For example, this enables us to track back who we shared a certain Repository Attribute with, so we are able to notify each of them when changing the Repository Attribute. The Attribute can be either transmitted via Request or Notification. Hence, only one of `requestReference` and `notificationReference` can be set.
 
-| Name             | Type                    | Description                                                                                                                |
-| ---------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| requestReference | `string`                | The ID of the Local Request the LocalAttribute was received in/sent with.                                                  |
-| peer             | `string`                | The Address of the Identity the LocalAttribute was received from/shared with.                                              |
-| sourceAttribute  | `string` \| `undefined` | If the LocalAttribute is a copy of a Repository Attribute, then this property contains the ID of the Repository Attribute. |
+| Name                  | Type                    | Description                                                                                                                          |
+| --------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| peer                  | `string`                | The Address of the Identity the LocalAttribute was received from/shared with.                                                        |
+| requestReference      | `string` \| `undefined` | The ID of the Local Request the LocalAttribute was received in/sent with. If this is set, `notificationReference` must be undefined. |
+| notificationReference | `string` \| `undefined` | The ID of the Notification the LocalAttribute was received in/sent with. If this is set, `requestReference` must be undefined.       |
+| sourceAttribute       | `string` \| `undefined` | If the LocalAttribute is a copy of a Repository Attribute, then this property contains the ID of the Repository Attribute.           |
 
 ## LocalAttributeListener
 
