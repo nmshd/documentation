@@ -12,8 +12,8 @@ properties:
   - customer: All
   - component: integrate
   - level: Beginner
-  - implementation status: OPEN
-  - documentation status: OPEN
+  - implementation status: DONE
+  - documentation status: DONE
   - published:
   - link: integrate/succeeding-attributes-to-update-their-values
 require:
