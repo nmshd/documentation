@@ -1,14 +1,14 @@
 In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship.
-This will create a better understanding of these processes, which will help you on automating them for your organization.
+This will create a better understanding of these processes, which will help you automating them for your organization.
 
 It is not mandatory to have an own Connector installed.
-The following steps include include small interactive pieces of the Connector's API documentation that, when executed, fire Requests on a Connector we provide for testing purposes.
+The following steps include small interactive pieces of the Connector's API documentation that, when executed, fire Requests on a Connector we provide for testing purposes.
 
 If you would like to use it, start by checking the health of the Connector:
 
 {% include rapidoc api_route_regex="^get /health$" title="" %}
 
-However, you are welcome to use your own Connector, either with a REST client (e.g. Insomnia or Postman) or by using the RapiDoc documentation (/docs/rapidoc) hosted on your Connector.
+Nevertheless, you are welcome to use your own Connector, either with a REST client (e.g. Insomnia or Postman) or by using the RapiDoc documentation (/docs/rapidoc) hosted on your Connector.
 
 The payloads for the Requests that are sent during this tutorial contain placeholders marked with `<...>`.
 You need to replace them with values before you send the Requests.
@@ -26,7 +26,7 @@ You need to replace them with values before you send the Requests.
 
 In order to communicate with another Identity, a Relationship to that Identity is required.
 Thus, in this first part of the tutorial you will learn how to establish a Relationship between your Connector and another Identity.
-In our example the other Identity will be an App.
+In this example the other Identity will be an App.
 However, it could be another Connector, as well, e.g. if two companies want to exchange data securily without opening a port or network.
 
 The way we will establish the Relationship is via a RelationshipTemplate.
@@ -36,25 +36,25 @@ It in turn accepts the Request, which results in the creation of a new Relations
 
 ### Connector: Create an Attribute
 
-Firstly, we want to create a display name for our Connector.
+Firstly, let's create a display name for our Connector.
 While communicating with the other Identity in the subsequent steps, we will choose to share this display name.
-Technically, for this we need to create an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an IdentityAttribute Value of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname) for our Connector.
+Technically, for this we need to create an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with a value of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname) for our Connector.
 To do so, execute `POST /api/v2/Attributes` with the following payload:
 
 ```json
 {
   "content": {
     "@type": "IdentityAttribute",
-    "owner": "<your connector's Address>",
+    "owner": "<your Connector's address>",
     "value": {
       "@type": "DisplayName",
-      "value": "Connector Tutorial"
+      "value": "Demo Connector of integration example"
     }
   }
 }
 ```
 
-You can query the Connector's Address under the route `/api/v2/Account/IdentityInfo`. If you are using the Demo Connector of this Tutorial, the Address is `id134nJmN7E4Carb6KyRJyePVnXxVHEYQgWD`.
+You can query the Connector's address via the route `/api/v2/Account/IdentityInfo`. If you are using the Demo Connector of this Tutorial, the address is `id134nJmN7E4Carb6KyRJyePVnXxVHEYQgWD`.
 {: .notice--info}
 
 {% include rapidoc api_route_regex="^post /api/v2/Attributes$" %}
@@ -143,7 +143,7 @@ If the Response is successful, we can create the RelationshipTemplate.
 To do so, we use the content we just validated.
 Furthermore, we specify an expiration date, which is located in the future, and restrict the access to a single allocation.
 
-```json
+```jsonc
 {
   "maxNumberOfAllocations": 1,
   "expiresAt": "2023-06-01T00:00:00.000Z",
@@ -198,7 +198,7 @@ To do so, we synchronize updates of the Backbone, which will fetch all changes t
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
-In the Response we will receive the created Relationship, which contains the corresponding Relationship Creation Change.
+In the Response we will receive the created Relationship, which contains the corresponding RelationshipCreationChange.
 
 Example:
 
@@ -226,7 +226,7 @@ Example:
 }
 ```
 
-{% include copy-notice description="Save the `id` of the Relationship (`REL_________________`) as well as the `id` of the first Relationship Change (`RCH_________________`) in the `changes` array and use them as input to the `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept` route. You can leave that Request body as it is." %}
+{% include copy-notice description="Save the `id` of the Relationship (`REL_________________`), as well as the `id` of the first RelationshipChange (`RCH_________________`) in the `changes` array and use them as input to the `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept` route. You can leave that Request body as it is." %}
 
 {% include rapidoc api_route_regex="^put /api/v2/Relationships/{id}/Changes/{changeId}/Accept$" %}
 
@@ -238,9 +238,9 @@ It can be found in the Response, when accepting the Relationship.
 
 ## Sending and Receiving Messages
 
-After having established a Relationship to an Identity, we can start to exchange [Messages]({% link _docs_integrate/data-model-overview.md %}#message).
+After having established a Relationship with an Identity, we can start to exchange [Messages]({% link _docs_integrate/data-model-overview.md %}#message).
 Enmeshed defines different types of Messages.
-In this tutorial we will focus on Messages of type [Mail]({% link _docs_integrate/data-model-overview.md %}#mail), which can be compared to a classic email: it is possible to specify one or more recipients, a subject and a body, as well as add attachments.
+In this tutorial we will focus on Messages of type [Mail]({% link _docs_integrate/data-model-overview.md %}#mail), which can be compared to a classic e-mail: it is possible to specify one or more recipients, a subject and a body, as well as to add attachments.
 
 ### Sending a Message with a Connector
 
