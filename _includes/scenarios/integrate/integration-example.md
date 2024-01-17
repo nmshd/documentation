@@ -2,10 +2,14 @@ In this tutorial we go through the basic steps necessary to establish a Relation
 This will create a better understanding of these processes, which will help you on automating them for your organization.
 
 It is not mandatory to have an own Connector installed.
-The individual steps link to pages, which include small interactive pieces of the Connector's API documentation that, when executed, fire requests on a Connector we provide for testing purposes.
+The following steps include include small interactive pieces of the Connector's API documentation that, when executed, fire requests on a Connector we provide for testing purposes.
+
+If you would like to use it, start by checking the health of the Connector:
+
+{% include rapidoc api_route_regex="^get /health$" title="" %}
+
 However, you are welcome to use your own Connector, either with a REST client (e.g. Insomnia or Postman) or by using the RapiDoc documentation (/docs/rapidoc) hosted on your Connector.
 
-[//]: # "<span style="color:red">(TODO: insert between "The individual steps..." and "However", embed link)</span> If you would like to use it, start by [checking the health of the Connector]({link \_docs_operate/check-health-of-connector.md})."
 The payloads for the requests that are sent during this tutorial contain placeholders marked with `<...>`.
 You need to replace them with values before you send the requests.
 
@@ -35,18 +39,27 @@ It in turn accepts the Request, which results in the creation of a new Relations
 Firstly, we want to create a display name for our Connector.
 While communicating with the other Identity in the subsequent steps, we will choose to share this display name.
 Technically, for this we need to create an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an IdentityAttribute Value of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname) for our Connector.
-To do so, proceed as described in the Create own IdentityAttribute guide with the following content.
+To do so, execute `POST /api/v2/Attributes` with the following payload:
 
-[//]: # "<span style="color:red">(TODO: insert link)</span> To do so, proceed as described in the [Create own IdentityAttribute]({ link \_docs_integrate/create-own-identityattribute.md })"
+```json
+{
+  "content": {
+    "@type": "IdentityAttribute",
+    "owner": "<your connector's Address>",
+    "value": {
+      "@type": "DisplayName",
+      "value": "Connector Tutorial"
+    }
+  }
+}
+```
 
-| IdentityAttribute |                                     |
-| ----------------- | ----------------------------------- |
-| `@type`           | `"IdentityAttribute"`               |
-| `owner`           | `"<your connector's address>"`      |
-| `value.@type`     | `"DisplayName"`                     |
-| `value.value`     | `"<your Connector's display name>"` |
+You can query the Connector's Address under the route `/api/v2/Account/IdentityInfo`. If you are using the Demo Connector of this Tutorial, the Address is `id134nJmN7E4Carb6KyRJyePVnXxVHEYQgWD`.
+{: .notice--info}
 
-{% include copy-notice description="When you have successfully created the IdentityAttribute, you will receive a response containing its ID. It is necessary to save this ID, in order to be able to share the created IdentityAttribute with the other Identity later." %}
+{% include rapidoc api_route_regex="^post /api/v2/Attributes$" %}
+
+{% include copy-notice description="Save the `id` of the Attribute that you can find in the response. You will need it in the next step." %}
 
 ### Connector: Test your Request's Validity
 
@@ -54,61 +67,106 @@ Next, we want to create a Relationship Template, that can be used by the App to 
 The content of the template can be widely configured, but for simplicity we will use just two [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in our example.
 On the one hand, we want to share data with the App, namely the display name of our Connector we created in the previous step.
 For this, we use a [ShareAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#shareattributerequestitem).
-On the other hand, we use [ReadAttributeRequestItem]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem)s to query information of the App.
+On the other hand, we use [ReadAttributeRequestItems]({% link _docs_integrate/requests-and-requestitems.md %}#readattributerequestitem) to query information of the App.
 Let's assume the Connector needs to know the given name and surname of its contact to create a Relationship and, additionally, offers the option to specify an e-mail address for communication.
 
-| RequestItemGroups |                               |                               |
-| ----------------- | ----------------------------- | ----------------------------- |
-| `@type`           | `"RequestItemGroup"`          | `"RequestItemGroup"`          |
-| `title`           | `"Shared Attributes"`         | `"Requested Attributes"`      |
-| `items`           | `<ShareAttributeRequestItem>` | `<ReadAttributeRequestItems>` |
-| `mustBeAccepted`  | `true`                        | `true`                        |
-
-| ShareAttributeRequestItem |                                                        |
-| ------------------------- | ------------------------------------------------------ |
-| `@type`                   | `"ShareAttributeRequestItem"`                          |
-| `attribute`               | `<IdentityAttribute created in the previous step>`     |
-| `sourceAttributeId`       | `"<id of the attribute created in the previous step>"` |
-| `mustBeAccepted`          | `true`                                                 |
-
-| ReadAttributeRequestItems |                              |
-| ------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
-| `@type`                   | `"ReadAttributeRequestItem"` | `"ReadAttributeRequestItem"` | `"ReadAttributeRequestItem"` |
-| `query.@type`             | `"IdentityAttributeQuery"`   | `"IdentityAttributeQuery"`   | `"IdentityAttributeQuery"`   |
-| `query.valueType`         | `"GivenName"`                | `"Surname"`                  | `"EMailAddress"`             |
-| `mustBeAccepted`          | `true`                       | `true`                       | `false`                      |
+```json
+{
+  "content": {
+    "items": [
+      {
+        "@type": "RequestItemGroup",
+        "mustBeAccepted": true,
+        "title": "Shared Attributes",
+        "items": [
+          {
+            "@type": "ShareAttributeRequestItem",
+            "mustBeAccepted": true,
+            "attribute": {
+              "@type": "IdentityAttribute",
+              "owner": "",
+              "value": {
+                "@type": "DisplayName",
+                "value": "Connector Tutorial"
+              }
+            },
+            "sourceAttributeId": "<the id of the attribute created above>"
+          }
+        ]
+      },
+      {
+        "@type": "RequestItemGroup",
+        "mustBeAccepted": true,
+        "title": "Requested Attributes",
+        "items": [
+          {
+            "@type": "ReadAttributeRequestItem",
+            "mustBeAccepted": true,
+            "query": {
+              "@type": "IdentityAttributeQuery",
+              "valueType": "GivenName"
+            }
+          },
+          {
+            "@type": "ReadAttributeRequestItem",
+            "mustBeAccepted": true,
+            "query": {
+              "@type": "IdentityAttributeQuery",
+              "valueType": "Surname"
+            }
+          },
+          {
+            "@type": "ReadAttributeRequestItem",
+            "mustBeAccepted": false,
+            "query": {
+              "@type": "IdentityAttributeQuery",
+              "valueType": "EMailAddress"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 Before we actually create the template, we want to ensure the validity of the Request and its items.
 
-[//]: # "<span style="color:red">(TODO: insert link)</span> Please see ... { link \_docs_integrate/test-your-request's-validity.md }"
+{% include rapidoc api_route_regex="^post /api/v2/Requests/Outgoing/Validate$" %}
 
 Even though the Requests are validated during the RelationshipTemplate creation, you should not skip this step, as it gives you additional information in case of validation errors.
 {: .notice--info}
 
 ### Connector: Create a Relationship Template
 
-[//]: # "<span style="color:red">(TODO: insert link)</span> Link to create a Relationship Template (1. sentence): { link \_docs_integrate/request-and-process-attributes-by-code-or-link-of-new-contacts.md }"
-
 If the response is successful, we can create the Relationship Template.
 To do so, we use the content we just validated.
 Furthermore, we specify an expiration date, which is located in the future, and restrict the access to a single allocation.
 
-| RelationshipTemplate        |                                                            |
-| --------------------------- | ---------------------------------------------------------- |
-| `content.@type`             | `RelationshipTemplateContent`                              |
-| `content.title`             | `"Connector Demo Contact"`                                 |
-| `content.onNewRelationship` | `<RelationshipTemplateContent validated in previous step>` |
-| `expiresAt`                 | `"<date in the future>"`                                   |
-| `maxNumberOfAllocations`    | `1`                                                        |
+```json
+{
+  "maxNumberOfAllocations": 1,
+  "expiresAt": "2023-06-01T00:00:00.000Z",
+  "content": {
+    "@type": "RelationshipTemplateContent",
+    "title": "Connector Demo Contact",
+    "onNewRelationship": {
+      // <the value of the 'content' property validated in the previous step>
+    }
+  }
+}
+```
+
+{% include rapidoc api_route_regex="^post /api/v2/RelationshipTemplates/Own$" %}
 
 {% include copy-notice description="Save the `id` of the Relationship Template that you can find in the response. You will need it in the next step." %}
 
 ### Connector: Create a QR Code for the Relationship Template
 
 Now, to allow the App to retrieve the Relationship Template, we create a QR Code, that can be scanned by the App.
-For this, we use the ID of our Relationship Template.
+For this, execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Header: `image/png`) and use the ID of the Relationship Template from the previous step as the value for `id`.
 
-[//]: # "<span style="color:red">(TODO: insert link)</span> [create a QR code] { link \_docs_use/create-own-enmeshed-codes-to-share-with-your-peers.md }"
+{% include rapidoc api_route_regex="^get /api/v2/RelationshipTemplates/{id}$" %}
 
 ### App: Send a Relationship Request
 
@@ -135,18 +193,48 @@ Finally, fill out the required fields and click on "Add contact" to send the Rel
 
 ### Connector: Accept the Relationship Request
 
-[//]: # "<span style="color:red">(TODO: insert link)</span> [accept the Relationship Request]{ link \_docs_integrate/respond-to-incoming-requests.md }"
-
 In order to move the Relationship into the `Active` state, we now need to accept the Relationship Request with the Connector.
-To do so, we [synchronize updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), which will fetch all changes that occurred since the last time this endpoint was executed.
+To do so, we synchronize updates of the Backbone, which will fetch all changes that occurred since the last time this endpoint was executed.
+
+{% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
+
 In the response we will receive the created Relationship, which contains the corresponding Relationship Creation Change.
-To accept the Relationship Request, save the ID of the Relationship, as well as the ID of the Relationship Change.
+
+Example:
+
+```json
+{
+  "result": {
+    "messages": [],
+    "relationships": [
+      {
+        "id": "RELmJj25x2bZW0VXzAiQ",
+        ...
+        "status": "Pending",
+        "peer": "id19Sy75wjCWhQSxsbMiGLn6iSBfWvQmot5b",
+        "changes": [
+          {
+            "id": "RCHUwBw7BWlROPlEjb51",
+            ...
+            "status": "Pending",
+            "type": "Creation"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+{% include copy-notice description="Save the `id` of the Relationship (`REL_________________`) as well as the `id` of the first Relationship Change (`RCH_________________`) in the `changes` array and use them as input to the `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept` route. You can leave that request body as it is." %}
+
+{% include rapidoc api_route_regex="^put /api/v2/Relationships/{id}/Changes/{changeId}/Accept$" %}
 
 Now the Relationship is in the `Active` state, so we can start to communicate with the opposite Identity, which we will do in the next part of this tutorial.
 For this, we will need the address of that Identity.
 It can be found in the response, when accepting the Relationship.
 
-{% include copy-notice description="Save the `peer` property of the response. You will need it in the next step." %}
+{% include copy-notice description="Save the `peer` property of the response (`id1_________________`). You will need it in the next step." %}
 
 ## Sending and Receiving Messages
 
@@ -157,15 +245,22 @@ In this tutorial we will focus on Messages of type [Mail]({% link _docs_integrat
 ### Sending a Message with a Connector
 
 Firstly, we will [send a Message]({% link _docs_integrate/sending-messages.md %}) from the Connector to the App.
-For this, we need the address of our peer and must specify a Message subject and body.
+For this, we need the address of our peer, that we copied in the previous step, and insert it in the fields `recipient` and `to`.
+Further, the `subject` and `body` properties can be modified with some custom content.
 
-| Message           |                    |
-| ----------------- | ------------------ |
-| `recipients`      | `<peer address>`   |
-| `content.@type`   | `"Mail"`           |
-| `content.to`      | `<peer address>`   |
-| `content.subject` | `"<your subject>"` |
-| `content.body`    | `"<your message>"` |
+```json
+{
+  "recipients": ["id_________________________________"],
+  "content": {
+    "@type": "Mail",
+    "to": ["id_________________________________"],
+    "subject": "Welcome",
+    "body": "Hello. We are pleased to welcome you as our customer."
+  }
+}
+```
+
+{% include rapidoc api_route_regex="^post /api/v2/Messages$" %}
 
 After having sent the Message, you should receive a push notification on your phone.
 Open the enmeshed App, navigate to "Contacts" and select the Relationship.
@@ -178,7 +273,9 @@ Next, we are going to send a Message from the App to the Connector.
 So, open the enmeshed App, navigate to "Contacts" and select your Relationship.
 Then, tap on "New Message", enter a subject and body and tap on "Send".
 
-In order to fetch the Message, we need to [synchronize the Connector with the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) again.
+In order to fetch the Message, we need to synchronize the Connector with the Backbone again.
+
+{% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 The response should contain a Message with the content you entered in the App.
 
 ## What's next?
