@@ -13,7 +13,7 @@ On the first Connector you will create a Template. This Connector will be called
 ## Check your Request's validity
 
 At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Templator Connector with the following body.
-For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_integrate/requests-and-requestitems.md %}) you want.
+For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) you want.
 
 ```json
 {

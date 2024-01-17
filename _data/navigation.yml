@@ -81,9 +81,12 @@ docs_integrate:
         url: /integrate/access-the-connector
       - title: "Integration example"
         url: /integrate/integration-example
-      #- title: "Event introduction"
-      #  url: /integrate/event-introduction
-
+      - title: "Event introduction"
+        url: /integrate/event-introduction
+  - title: Working with requests
+    children:
+      - title: "Request and Response introduction"
+        url: /integrate/request-and-response-introduction
   - title: Manage Requests
     children:
       - title: "Requests over Templates"
