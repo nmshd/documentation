@@ -87,7 +87,7 @@ Let's assume the Connector needs to know the given name and surname of its conta
               "owner": "",
               "value": {
                 "@type": "DisplayName",
-                "value": "Connector Tutorial"
+                "value": "Demo Connector of integration example"
               }
             },
             "sourceAttributeId": "<the id of the attribute created above>"
@@ -146,7 +146,7 @@ Furthermore, we specify an expiration date, which is located in the future, and 
 ```jsonc
 {
   "maxNumberOfAllocations": 1,
-  "expiresAt": "2023-06-01T00:00:00.000Z",
+  "expiresAt": "2024-12-31T00:00:00.000Z",
   "content": {
     "@type": "RelationshipTemplateContent",
     "title": "Connector Demo Contact",
