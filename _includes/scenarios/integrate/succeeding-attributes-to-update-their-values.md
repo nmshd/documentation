@@ -16,13 +16,12 @@ Thus, sharing an IdentityAttribute will create an own shared IdentityAttribute c
 Now, let's consider the case that the value of your IdentityAttribute changes and you want to update it.
 To [succeed the (unshared) IdentityAttribute]({% link _docs_use-cases/use-case-consumption-succeed-an-identityattribute.md %}), a new version with the updated value will be created.
 In its `succeeds` property the predecessor ID is stored.
-It in turn is updated, too, to link to the newer version in its `succeededBy` property.
-Consequently, the different versions of an Attribute created by Attribute successions are stored in a doubly linked list.
+The old Attribute version is updated, too, to link to the newly created version in its `succeededBy` property.
+Consequently, the different versions of an Attribute created by Attribute successions make up a doubly linked list.
 
-Next, you can [notify your peers about the succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-identityattribute-succession.md %}), so that they'll receive the current version, too.
-Note that it is also possible to make a selection of the peers you want to notify about the Attribute succession, if for some reason you don't want to inform all of them.
-The own shared IdentityAttributes associated with the peers chosen will be succeeded in the same manner as your unshared IdentityAttribute before.
-Then, the peers are sent a Notification containing the updated Attribute data, which will trigger a succession as described above at their side, such that their Attribute versions replicate the succession chain at your side.
+Next, you can check out [with which of your peers you have previously shared the succeeded Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-identityattribute.md %}) to choose those, you'd like to [notify about the succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-identityattribute-succession.md %}).
+Your own shared IdentityAttributes associated with the peers chosen will be succeeded in the same manner as your unshared IdentityAttribute before.
+Then, the peers are sent a Notification containing the updated Attribute data, which will trigger a likewise succession at their side, such that their Attribute versions replicate the succession chain at your side.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/aef8ef85-ca90-47ae-959b-5bab7af7f43a" id="8.LThfly522r"></iframe></div>
 
