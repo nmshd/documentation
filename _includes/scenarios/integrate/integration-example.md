@@ -186,5 +186,5 @@ The response should contain a Message with the content you entered in the App.
 Now that you have successfully established a Relationship and exchanged Messages, you can further explore the enmeshed API. You can for example:
 
 - explore the [enmeshed data model]({% link _docs_integrate/data-model-overview.md %}) and learn more about the objects you used during this tutorial and the objects you will encounter in the future
-- learn how to send [Requests over Messages]({% link _docs_integrate/sending-messages.md %}) with your established Relationship
+- learn how to send [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) with your established Relationship
 - dive deeper into creating and sending [Requests over RelationshipTemplates]({% link _docs_integrate/requests-over-templates.md %})
