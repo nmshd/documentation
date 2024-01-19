@@ -33,7 +33,7 @@ The following table provides an overview of the possible kinds of Attributes tha
 
 ### Example of reading an IdentityAttribute
 
-We assume that the Sender wants to read an IdentityAttribute of type [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) of the Recipient. To do this, it must insert the corresponding IdentityAttributeQuery into the `query` property of the [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), which is contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes. In our example, we have chosen to set the value of the `mustBeAccepted` property of the ReadAttributeRequestItem to `true`.
+We assume that the Sender wants to read an IdentityAttribute of type [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) of the Recipient. To do this, it inserts the corresponding IdentityAttributeQuery into the `query` property of the [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), which is contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes. In our example, we have chosen to set the value of the `mustBeAccepted` property of the ReadAttributeRequestItem to `true`.
 
 ```jsonc
 {
@@ -51,9 +51,33 @@ We assume that the Sender wants to read an IdentityAttribute of type [EMailAddre
 }
 ```
 
-### Read a RelationshipAttribute
+### Example of reading a RelationshipAttribute
 
-We now consider the case that the Sender has an active Relationship established with the Recipient and that the Sender wants to read a RelationshipAttribute of this Relationship. Then the associated [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), which is contained in the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes created by the Sender, must contain an appropriate RelationshipAttributeQuery in its `query` property. Further details on the purposes for which you can use a RelationshipAttributeQuery can be found in the table of the [Combinations and usage scenarios of the ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#combinations-and-usage-scenarios-of-readattributerequestitem). For information on using the ThirdPartyRelationshipAttributeQuery, you should also refer to this table.
+We now consider the case that the Sender has an active Relationship established with the Recipient and that the Sender wants to read a RelationshipAttribute of this Relationship. Then the associated [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), which is contained in the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes created by the Sender, must contain an appropriate RelationshipAttributeQuery in its `query` property. For example, if the Sender wants to read a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) of type [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring) that is owned by the Recipient and whose `confidentiality` is `"public"`, the Request could look like this:
+
+```jsonc
+{
+  "@type": "Request",
+  "items": [
+    {
+      "@type": "ReadAttributeRequestItem",
+      "mustBeAccepted": true,
+      "query": {
+        "@type": "RelationshipAttributeQuery",
+        "key": "<key of RelationshipAttribute>",
+        "owner": "<Address of Recipient>",
+        "attributeCreationHints": {
+          "title": "<title of RelationshipAttribute>",
+          "valueType": "ProprietaryString",
+          "confidentiality": "public"
+        }
+      }
+    }
+  ]
+}
+```
+
+Note that the `<...>` notation is used as a placeholder for the actual data as usual. Further details on the purposes for which you can use a RelationshipAttributeQuery can be found in the table of the [Combinations and usage scenarios of the ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#combinations-and-usage-scenarios-of-readattributerequestitem). For information on using the ThirdPartyRelationshipAttributeQuery, you should also refer to this table.
 
 ### Read multiple Attributes
 
@@ -135,7 +159,7 @@ In our example, the Sender only requires the Recipient to share its EMailAddress
 If the Recipient wants to accept the Request for reading Attributes, it must accept all ReadAttributeRequestItems for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted, for example, for the Recipient to refuse to share its EMailAddress and instead share its PhoneNumber.
 {: .notice--info}
 
-The Recipient refuses to share its BirthDate with the Sender and accepts at least one ReadAttributeRequestItem of the RequestItemGroup. Also, the Recipient accepts the sharing of its EMailAddress and rejects the sharing of its PhoneNumber. Thus, it responds to the Request for reading Attributes as follows, whereby the `<...>` notation is used as a placeholder for the actual data as usual:
+The Recipient refuses to share its BirthDate with the Sender and accepts at least one ReadAttributeRequestItem of the RequestItemGroup. Also, the Recipient accepts the sharing of its EMailAddress and rejects the sharing of its PhoneNumber. Thus, it responds to the Request for reading Attributes as follows:
 
 ```jsonc
 {
