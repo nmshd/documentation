@@ -102,11 +102,7 @@ If you want to share the own DisplayName and possibly other Attributes this is d
 
 To share own IdentityAttributes (owner = self) an Identity uses the ShareAttributeRequestItem. The Identity needs to create the IdentityAttribute separately before the Attribute can be shared.
 
-Examples:
-
-- Share own DisplayName.
-- Share own Address.
-- Share customer number of company A with company B.
+Examples of use cases for the ShareAttributeRequestItem can be found in the [Share own Attribute to peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}) guide.
 
 ## Responses
 
