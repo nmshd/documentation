@@ -68,7 +68,11 @@ function createScenarioText(scenarioObject: DynamicUseCase): string {
                 if (value == null) {
                     text += "  - " + `${key.toLowerCase()}:\n`;
                 } else {
-                    text += "  - " + `${key.toLowerCase()}: ${value.replaceAll("\n", " ")}\n`;
+                    if (typeof value === "string") {
+                        text += "  - " + `${key.toLowerCase()}: ${value.replaceAll("\n", " ")}\n`;
+                    } else {
+                        text += "  - " + `${key.toLowerCase()}: ${value}\n`;
+                    }
                 }
             }
     }
