@@ -30,12 +30,18 @@ As you can see from the diagram below, after you have entered the input values t
 
 An example of a simple IdentityAttribute is one of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname). If you want to create it without specifying optional parameters, you must use the following content:
 
-| Property      | Value                                |
-| ------------- | ------------------------------------ |
-| `@type`       | `"IdentityAttribute"`                |
-| `owner`       | `"<Address of your Connector>"`      |
-| `value.@type` | `"DisplayName"`                      |
-| `value.value` | `"<display name of your Connector>"` |
+```jsonc
+{
+  "content": {
+    "@type": "IdentityAttribute",
+    "owner": "<Address of your Connector>",
+    "value": {
+      "@type": "DisplayName",
+      "value": "<display name of your Connector>"
+    }
+  }
+}
+```
 
 Assuming that the input value for the Connector's display name specified in the `value.value` property meets the [validation criterion]({% link _docs_integrate/attribute-values.md %}#displayname), which means that the entered name is not more than 100 characters long, the IdentityAttribute is saved as a LocalAttribute and a success response is sent.
 
@@ -43,14 +49,20 @@ Assuming that the input value for the Connector's display name specified in the 
 
 An example of a complex IdentityAttribute is one of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate). If you want to create it without specifying optional parameters, you must use the following content:
 
-| Property      | Value                           |
-| ------------- | ------------------------------- |
-| `@type`       | `"IdentityAttribute"`           |
-| `owner`       | `"<Address of your Connector>"` |
-| `value.@type` | `"BirthDate"`                   |
-| `value.day`   | `<day of birth>`                |
-| `value.month` | `<month of birth>`              |
-| `value.year`  | `<year of birth>`               |
+```jsonc
+{
+  "content": {
+    "@type": "IdentityAttribute",
+    "owner": "<Address of your Connector>",
+    "value": {
+      "@type": "BirthDate",
+      "day": <day of birth>,
+      "month": <month of birth>,
+      "year": <year of birth>
+    }
+  }
+}
+```
 
 Assuming that the input values ​​for the properties `value.day`, `value.month` and `value.year` meet the [validation criteria]({% link _docs_integrate/attribute-values.md %}#birthdate), which means, for example, that the input value for `value.month` is an integer between 1 and 12, the IdentityAttribute is saved as a LocalAttribute. The components `value.day`, `value.month` and `value.year` can each be understood as an additional simple IdentityAttribute of type [BirthDay]({% link _docs_integrate/attribute-values.md %}#birthday), [BirthMonth]({% link _docs_integrate/attribute-values.md %}#birthmonth) and [BirthYear]({% link _docs_integrate/attribute-values.md %}#birthyear), respectively. For this reason, another LocalAttribute is created internally for each of these components before a success response is sent.
 
