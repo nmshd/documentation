@@ -5,7 +5,6 @@ const filePath = path.normalize(__dirname + "/UseCases.xlsx");
 const scenariosWorksheetName = "Scenarios";
 const useCasesWorksheetName = "UseCases";
 
-// Define the interface dynamically based on the headers
 interface DynamicUseCase {
     [key: string]: string;
 }
@@ -137,7 +136,6 @@ async function readExcelFile(filePath: string, worksheetName: string): Promise<D
 
         var worksheet = workbook.getWorksheet(worksheetName);
 
-        // Check if the worksheet exists
         if (!worksheet) {
             const worksheetNames = workbook.worksheets.map((worksheet: { name: any }) => worksheet.name);
             throw new Error(`Worksheet '${worksheetName}' not found. Possible entries are: ${worksheetNames}`);
@@ -154,19 +152,15 @@ async function readExcelFile(filePath: string, worksheetName: string): Promise<D
         for (let rowNumber = 2; rowNumber <= worksheet.rowCount; rowNumber++) {
             const currentRow = worksheet.getRow(rowNumber);
 
-            // Create a DynamicUseCase object for the current row
             const dynamicUseCase: DynamicUseCase = {};
             headers.forEach((header, index) => {
                 dynamicUseCase[header] = getCellValue(currentRow.getCell(index + 1));
             });
-            // Add the DynamicUseCase object to the array
             dynamicUseCases.push(dynamicUseCase);
         }
         return dynamicUseCases;
     } catch (error: any) {
-        // This block will catch any errors thrown in the try block or by the Promise
         console.error("Async operation failed:", error.message);
-        // Propagate the error or handle it as needed
         throw error;
     }
 }
