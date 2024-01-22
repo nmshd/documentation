@@ -180,7 +180,11 @@ function replaceEach(str: string, replacements: string[]): string {
 function findMissingFilesInArray(folderPath: string, objectArray: DynamicUseCase[]): string[] {
     const allFiles = fs.readdirSync(folderPath);
     const linksInArray = new Set(objectArray.map((obj) => obj.Link + ".md"));
-    const missingLinks = allFiles.filter((file) => !linksInArray.has(file));
+    const missingLinks = allFiles.filter((file) => {
+        const filePath = path.join(folderPath, file);
+        const isDirectory = fs.statSync(filePath).isDirectory();
+        return !isDirectory && !linksInArray.has(file);
+    });
     return missingLinks;
 }
 
