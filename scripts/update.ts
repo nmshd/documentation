@@ -264,7 +264,7 @@ function findLinkByElement(scenarios: DynamicUseCase[], useCases: DynamicUseCase
             }
         }
     }
-    return "";
+    throw new Error(`Element '${element}' not found in scenarios or use cases.`);
 }
 
 async function main() {
