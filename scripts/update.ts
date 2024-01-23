@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import path from "path";
 const Excel = require("exceljs");
-const filePath = path.normalize(__dirname + "/UseCases.xlsx");
+const filePath = path.normalize(__dirname + "/../UseCases.xlsx");
 const scenariosWorksheetName = "Scenarios";
 const useCasesWorksheetName = "UseCases";
 
