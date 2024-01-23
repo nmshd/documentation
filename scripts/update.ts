@@ -246,42 +246,8 @@ async function processObjects(
     }
 }
 
-async function main() {
-    const scenarios = await readExcelFile(filePath, scenariosWorksheetName);
-    const useCases = await readExcelFile(filePath, useCasesWorksheetName);
-    var requiredByTable: { [key: string]: string } = {};
-    var requireTable: { [key: string]: string } = {};
-
-    for (const object of scenarios) {
-        if (object.ID != null) {
-            if (object.Require != null) {
-                var require = object.Require.valueOf().replaceAll(" ", "").split(",");
-                for (const element of require) {
-                    if (requireTable[object.ID] != null) {
-                        requireTable[object.ID] += "," + findLinkByElement(scenarios, useCases, element);
-                    } else {
-                        requireTable[object.ID] = findLinkByElement(scenarios, useCases, element);
-                    }
-
-                    if (requiredByTable[element] != null) {
-                        requiredByTable[element] += "," + object.Component + "/" + object.Link;
-                    } else {
-                        requiredByTable[element] = object.Component + "/" + object.Link;
-                    }
-                }
-            }
-        }
-    }
-
-    await processObjects(
-        filePath,
-        scenariosWorksheetName,
-        createScenarioText,
-        ["/workspaces/documentation/_docs_operate/", "/workspaces/documentation/_docs_use/", "/workspaces/documentation/_docs_integrate/"],
-        requiredByTable,
-        requireTable
-    );
-    await processObjects(filePath, useCasesWorksheetName, createUseCaseText, ["/workspaces/documentation/_docs_use-cases/"], requiredByTable, requireTable);
+function updateTable(table: { [key: string]: string }, key: string, value: string) {
+    return table[key] ? `${table[key]},${value}` : value;
 }
 
 function findLinkByElement(scenarios: DynamicUseCase[], useCases: DynamicUseCase[], element: string): string {
@@ -299,6 +265,33 @@ function findLinkByElement(scenarios: DynamicUseCase[], useCases: DynamicUseCase
         }
     }
     return "";
+}
+
+async function main() {
+    const scenarios = await readExcelFile(filePath, scenariosWorksheetName);
+    const useCases = await readExcelFile(filePath, useCasesWorksheetName);
+    var requiredByTable: { [key: string]: string } = {};
+    var requireTable: { [key: string]: string } = {};
+
+    for (const object of scenarios) {
+        if (object.ID != null && object.Require != null) {
+            const require = object.Require.valueOf().replaceAll(" ", "").split(",");
+            for (const element of require) {
+                requireTable[object.ID] = updateTable(requireTable, object.ID, findLinkByElement(scenarios, useCases, element));
+                requiredByTable[element] = updateTable(requiredByTable, element, `${object.Component}/${object.Link}`);
+            }
+        }
+    }
+
+    await processObjects(
+        filePath,
+        scenariosWorksheetName,
+        createScenarioText,
+        ["/workspaces/documentation/_docs_operate/", "/workspaces/documentation/_docs_use/", "/workspaces/documentation/_docs_integrate/"],
+        requiredByTable,
+        requireTable
+    );
+    await processObjects(filePath, useCasesWorksheetName, createUseCaseText, ["/workspaces/documentation/_docs_use-cases/"], requiredByTable, requireTable);
 }
 
 main();
