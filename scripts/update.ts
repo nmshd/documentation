@@ -61,7 +61,9 @@ function createScenarioText(scenarioObject: DynamicUseCase): string {
             key != "Require" &&
             key != "NBP_Scenario" &&
             key != "Link to Jira" &&
-            key != "redirect_from"
+            key != "redirect_from" &&
+            key != "required_by" &&
+            key != "require"
         )
             if (Object.prototype.hasOwnProperty.call(scenarioObject, key)) {
                 const value = scenarioObject[key];
@@ -76,9 +78,20 @@ function createScenarioText(scenarioObject: DynamicUseCase): string {
                 }
             }
     }
-
     text += "require:\n";
+    if (scenarioObject.require != null) {
+        const requirements = scenarioObject.require.valueOf().replaceAll(" ", "").split(",");
+        for (const requirement of requirements) {
+            text += "  - " + requirement + "\n";
+        }
+    }
     text += "required_by:\n";
+    if (scenarioObject.required_by != null) {
+        const requirements = scenarioObject.required_by.valueOf().replaceAll(" ", "").split(",");
+        for (const requirement of requirements) {
+            text += "  - " + requirement + "\n";
+        }
+    }
     text += "---";
     return text;
 }
@@ -105,7 +118,7 @@ function createUseCaseText(useCaseObject: DynamicUseCase): string {
     text += "properties:\n";
 
     for (const key in useCaseObject) {
-        if (key != "Title" && key != "Require" && key != "redirect_from")
+        if (key != "Title" && key != "Require" && key != "redirect_from" && key != "required_by" && key != "require")
             if (Object.prototype.hasOwnProperty.call(useCaseObject, key)) {
                 const value = useCaseObject[key];
                 if (value == null) {
@@ -117,7 +130,19 @@ function createUseCaseText(useCaseObject: DynamicUseCase): string {
     }
 
     text += "require:\n";
+    if (useCaseObject.require != null) {
+        const requirements = useCaseObject.require.valueOf().replaceAll(" ", "").split(",");
+        for (const requirement of requirements) {
+            text += "  - " + requirement + "\n";
+        }
+    }
     text += "required_by:\n";
+    if (useCaseObject.required_by != null) {
+        const requirements = useCaseObject.required_by.valueOf().replaceAll(" ", "").split(",");
+        for (const requirement of requirements) {
+            text += "  - " + requirement + "\n";
+        }
+    }
     if (useCaseObject["api_route_regex"]) {
         text += "api_route_regex: ^" + useCaseObject["api_route_regex"] + "$\n";
     }
@@ -188,7 +213,14 @@ function findMissingFilesInArray(folderPath: string, objectArray: DynamicUseCase
     return missingLinks;
 }
 
-async function processObjects(filePath: string, worksheetName: string, createTextFunction: (object: DynamicUseCase) => string, paths: string[]) {
+async function processObjects(
+    filePath: string,
+    worksheetName: string,
+    createTextFunction: (object: DynamicUseCase) => string,
+    paths: string[],
+    requiredByTable: { [key: string]: string },
+    requireTable: { [key: string]: string }
+) {
     try {
         const objects = await readExcelFile(filePath, worksheetName);
         console.info("\x1b[31m%s\x1b[0m", "untracked Files:");
@@ -199,6 +231,9 @@ async function processObjects(filePath: string, worksheetName: string, createTex
         if (objects && objects.length > 0) {
             for (const object of objects) {
                 if (object.ID != null) {
+                    object.required_by = requiredByTable[object.ID];
+                    object.require = requireTable[object.ID];
+
                     const text = createTextFunction(object);
                     await writeTextToFile(object, text);
                 }
@@ -212,12 +247,58 @@ async function processObjects(filePath: string, worksheetName: string, createTex
 }
 
 async function main() {
-    await processObjects(filePath, scenariosWorksheetName, createScenarioText, [
-        "/workspaces/documentation/_docs_operate/",
-        "/workspaces/documentation/_docs_use/",
-        "/workspaces/documentation/_docs_integrate/"
-    ]);
-    await processObjects(filePath, useCasesWorksheetName, createUseCaseText, ["/workspaces/documentation/_docs_use-cases/"]);
+    const scenarios = await readExcelFile(filePath, scenariosWorksheetName);
+    const useCases = await readExcelFile(filePath, useCasesWorksheetName);
+    var requiredByTable: { [key: string]: string } = {};
+    var requireTable: { [key: string]: string } = {};
+
+    for (const object of scenarios) {
+        if (object.ID != null) {
+            if (object.Require != null) {
+                var require = object.Require.valueOf().replaceAll(" ", "").split(",");
+                for (const element of require) {
+                    if (requireTable[object.ID] != null) {
+                        requireTable[object.ID] += "," + findLinkByElement(scenarios, useCases, element);
+                    } else {
+                        requireTable[object.ID] = findLinkByElement(scenarios, useCases, element);
+                    }
+
+                    if (requiredByTable[element] != null) {
+                        requiredByTable[element] += "," + object.Component + "/" + object.Link;
+                    } else {
+                        requiredByTable[element] = object.Component + "/" + object.Link;
+                    }
+                }
+            }
+        }
+    }
+
+    await processObjects(
+        filePath,
+        scenariosWorksheetName,
+        createScenarioText,
+        ["/workspaces/documentation/_docs_operate/", "/workspaces/documentation/_docs_use/", "/workspaces/documentation/_docs_integrate/"],
+        requiredByTable,
+        requireTable
+    );
+    await processObjects(filePath, useCasesWorksheetName, createUseCaseText, ["/workspaces/documentation/_docs_use-cases/"], requiredByTable, requireTable);
+}
+
+function findLinkByElement(scenarios: DynamicUseCase[], useCases: DynamicUseCase[], element: string): string {
+    if (element.startsWith("SC")) {
+        for (const object of scenarios) {
+            if (object.ID === element) {
+                return object.Component + "/" + object.Link;
+            }
+        }
+    } else {
+        for (const object of useCases) {
+            if (object.ID === element) {
+                return object.Link;
+            }
+        }
+    }
+    return "";
 }
 
 main();

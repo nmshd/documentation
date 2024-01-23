@@ -17,7 +17,9 @@ properties:
   - published:
   - link: create-own-identityattribute
 require:
+  - integrate/identityattribute-introduction
 required_by:
+  - integrate/test-your-requests-validity
 ---
 
 {% include scenarios/integrate/create-own-identityattribute.md %}
