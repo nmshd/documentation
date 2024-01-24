@@ -22,7 +22,7 @@ To create an IdentityAttribute as an Integrator for your own Connector, you need
 }
 ```
 
-You need to replace the placeholders marked with `<...>` appropriately. Also, it is necessary that you insert one of the available [IdentityAttribute Values]({% link _docs_integrate/attribute-values.md %}#identity-attributes) into the `value` property. You are not allowed to specify the Address of a Connector other than your own as the value for the `owner` property, as the [Create an Attribute]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}) use case relates to the creation of Attributes for yourself and not for others. Note that the properties `validFrom`, `validTo` and `tags` are optional, so you can omit them.
+You need to replace the placeholders marked with `<...>` appropriately. Also, it is necessary that you insert one of the available [IdentityAttribute Values]({% link _docs_integrate/attribute-values.md %}#identity-attributes) into the `value` property. You are not allowed to specify the Address of a Connector other than your own as the value for the `owner` property, as the [Create an Attribute]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}) use case relates to the creation of IdentityAttributes for yourself and not for others. For that reason, it is also possible to omit the `owner` property. In that case, your Connector automatically becomes the owner of the IdentityAttribute. Note that the properties `validFrom`, `validTo` and `tags` are optional, so you can omit them as well.
 
 You can query your Connector's Address by proceeding as documented in the [Get currently used Identity]({% link _docs_use-cases/use-case-transport-get-currently-used-identity.md %}) use case.
 {: .notice--info}
