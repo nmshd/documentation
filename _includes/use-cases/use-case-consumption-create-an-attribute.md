@@ -9,13 +9,13 @@ based on a given [IdentityAttribute]({% link _docs_integrate/data-model-overview
 
 ## Parameters
 
-- The `content` for the to be created LocalAttribute as [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) without the `owner`
+- The `content` for the LocalAttribute that ought to be created as IdentityAttribute without the `owner`
   property, since it is automatically set to your address
 
 ## On Success
 
-- A [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) is created according to the parameters and returned.
+- A LocalAttribute is created according to the parameters and returned.
 
 ## On Failure
 
-- The Attribute cannot be created if the parameter is malformed.
+- The LocalAttribute cannot be created if the parameter is malformed.
