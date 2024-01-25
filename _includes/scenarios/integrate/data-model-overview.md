@@ -183,8 +183,6 @@ A LocalRequest contains the local metadata for a [Request](#request).
 | source    | [`LocalRequestSource`](#localrequestsource) \| `undefined` | Information about the Transport object with which the Request came in/was sent. This property is `undefined` if the Request is not sent yet. |
 | response  | [`LocalResponse`](#localresponse) \| `undefined`           | Metadata + Content object of the response. If there is no response yet, this property is `undefined`.                                        |
 
-<!-- TODO: add statusLog -->
-
 ### LocalRequestStatus
 
 Depending on whether it is an incoming or an outgoing Request, there can be different statuses. The following state diagram shows which status exists in both cases and when there are transitions from one state to another:
