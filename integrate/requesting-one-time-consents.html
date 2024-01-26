@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-01-16T14:00:11+01:00">
+  <meta property="article:published_time" content="2024-01-26T16:54:43+01:00">
 
 
 
@@ -314,7 +314,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Requesting one-time consents">
     <meta itemprop="description" content="With the ConsentRequest it is possible to request a consent of the peer to an arbitrary text and thus reach agreement on a certain non machine-processable context.To request an accept/reject decision from a peer to a free text, the ConsentRequestItem is used.Check your Requests validityAt first you should check if your Request is valid. You can do this by calling the POST /api/v2/Requests/Outgoing/Validate route on the Sender Connector with the following body.For the one-time consent request we use the ConsentRequestItem.Even though the peer property is optional, it is recommended to specify it whenever possible. This allows additional validation rules to execute. When you are sending a Request over Messages you always know your peer.{  &quot;content&quot;: {    &quot;items&quot;: [      {        &quot;@type&quot;: &quot;ConsentRequestItem&quot;,        &quot;mustBeAccepted&quot;: true,        &quot;title&quot;: &quot;The Sender is asking for an one time consent&quot;,        &quot;consent&quot;: &quot;I hereby confirm that I have read the privacy terms of this cloud service and agree to them.&quot;,        &quot;link&quot;: &quot;privacy.demo&quot;      }    ]  },  &quot;peer&quot;: &quot;&lt;the address of the Recipient Connector&gt;&quot;}Examples  “I hereby confirm the login to the website”  “I confirm my presence in the course”Please do not use the ConsentRequest to submit tons of text to the peer Identity. It is meant to be a short consent or summary the user agrees to. Please move longer text to external websites.The ConsentRequest is also not meant for contractual agreements.Create the RequestTo create the Request you have to call the POST /api/v2/Requests/Outgoing route on the Sender Connector. Use the following JSON in the Request body:{  &quot;content&quot;: {    // the content property of the payload in the step before  },  &quot;peer&quot;: &quot;&lt;the address of the Recipient Connector&gt;&quot;}Note that the Request is currently in status Draft.                    Save the complete content of the response. You will need it in the sending Request step.    Example response:{  &quot;id&quot;: &quot;REQ...&quot;,  &quot;status&quot;: &quot;Draft&quot;,  // ...  &quot;content&quot;: {    &quot;@type&quot;: &quot;Request&quot;,    &quot;id&quot;: &quot;REQ...&quot;,    &quot;items&quot;: [      {        &quot;@type&quot;: &quot;AuthenticationRequestItem&quot;,        &quot;mustBeAccepted&quot;: true,        &quot;title&quot;: &quot;The Sender is asking for an authentication&quot;      }    ]  }}Sending RequestThere are 2 ways to send the request to the user. Either when creating a RelationshipTemplate or with a contact who already has a relationship, via a message.">
-    <meta itemprop="datePublished" content="2024-01-16T14:00:11+01:00">
+    <meta itemprop="datePublished" content="2024-01-26T16:54:43+01:00">
     
 
     <div class="page__inner-wrap">
@@ -486,7 +486,7 @@ The ConsentRequest is also not meant for contractual agreements.</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-01-16T14:00:11+01:00">January 16, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-01-26T16:54:43+01:00">January 26, 2024</time></p>
 
       </footer>
 
