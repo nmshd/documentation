@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-01-26T16:54:43+01:00">
+  <meta property="article:published_time" content="2024-01-29T16:58:15+01:00">
 
 
 
@@ -314,7 +314,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Event introduction">
     <meta itemprop="description" content="Connecting an external system with the enmeshed Connector, the main communication is performed by addressing the Connector’s REST API.This way, processes can be initiated by the organization’s backend service or data can be requested from the Connector.In addition, events offer the possibility for the Connector to actively give feedback to the external system.Thus, a bidirectional communication is established.What is an event?Events are predefined datastructures used within enmeshed to communicate a significant change of an entity’s state.They are heavily used internally by the enmeshed Runtime, but can also be propagated by the Connector to external systems.Thus, these systems don’t have to perform long polling, in order to receive changes, but are actively informed once they occur.This is not only more efficient, also, its is safer, since it keeps you updated about all changes of interest.Working with events allows to determine routines, that are executed whenever a specific event arises, called handlers.An overview of the Connector events that may occur is given in the corresponding section.Motivation for using eventsAs an exemplary process of how working with events can benefit your mode of operation, we look at the procedure of exchanging Messages.Procedure without eventsFirstly, we consider the case without using events.To send a Message, the external system posts the corresponding request to the REST API of the Connector.Then, it regularly fetches its state, until a response is received.This might take many cycles, depending on the refresh rate, and implies a delay between the time the response is received by the Connector and the external system.Procedure with eventsIn contrast, if you work with events, as soon as the Connector successfully sent your Message, a transport.messageSent event will be transmitted to your system as a confirmation.Awaiting the response, no long polling is necessary, since the Connector actively sends a transport.messageReceived event, containing the answer, once it is received.Modules to receive eventsIn order to receive events, the Connector needs to be synchronized with the Backbone.This can be automated using the Sync Module.Fetching changes from the Backbone regularly, it forwards the received events to Modules that are configured to process them, e.g. AMQP Publisher, PubSub Publisher or Webhooks.Working with message brokers has the advantage that events are conserved, even in case of a downtime of the recipient.Thus, we recommend to work with a message broker module like AMQP or PubSub instead of Webhooks.">
-    <meta itemprop="datePublished" content="2024-01-26T16:54:43+01:00">
+    <meta itemprop="datePublished" content="2024-01-29T16:58:15+01:00">
     
 
     <div class="page__inner-wrap">
@@ -397,7 +397,7 @@ Thus, we recommend to work with a message broker module like AMQP or PubSub inst
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-01-26T16:54:43+01:00">January 26, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-01-29T16:58:15+01:00">January 29, 2024</time></p>
 
       </footer>
 
