@@ -158,9 +158,10 @@ A File further has its content, of course. But since this is not a JSON property
 
 In addition to the types that are shared between Identities via the Backbone, there are certain types that only exist within one Identity. These types usually contain metadata about [Content types](#content-types) that should not be transferred to other Identities. They are created and updated by the [Consumption Layer]({% link _docs_explore/43-consumption-layer.md %}).
 
-Currently there are two main Local types:
+Currently there are three main Local types:
 
 - LocalRequest
+- LocalNotification
 - LocalAttribute
 
 Each of them further describes some sub types.
@@ -239,6 +240,46 @@ With the information in this type you can clearly identify the Transport object 
 | type      | "Message" \| "RelationshipChange" | The type of Transport object the Response was sent/received in.   |
 | reference | `string`                          | The ID of the Transport object the Response was sent/received in. |
 
+## LocalNotification
+
+A LocalNotification contains the local metadata for a [Notification](#notification).
+
+| Name             | Type                                                  | Description                                                                                                                             |
+| ---------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| id               | `string`                                              | {% include descr_id class="LocalNotification" prefix="NOT" %}                                                                           |
+| isOwn            | `boolean`                                             | `true` if you sent the Notification, `false` if you received it.                                                                        |
+| peer             | `string`                                              | The Identity that sent you the corresponding Notification/that you sent the Notification to.                                            |
+| createdAt        | `string`                                              | {% include descr_createdAt class="LocalNotification" %}                                                                                 |
+| status           | [`LocalNotificationStatus`](#localnotificationstatus) | The current status of the Notification. See [below](#localnotificationstatus) for a list of all possible values.                        |
+| content          | [`Notification`](#notification)                       | The actual Content object this LocalNotification defines the metadata for.                                                              |
+| source           | [`LocalNotificationSource`](#localnotificationsource) | Information about the Transport object with which the Notification came in/was sent.                                                    |
+| receivedByDevice | `string` \| `undefined`                               | The ID of the device that received the Notification. For reasons of consistence, the Notification can only be processed by this device. |
+
+### LocalNotificationStatus
+
+Depending on whether it is an incoming or an outgoing Notification, there can be different statuses.
+
+Sent
+: This is the only valid status on sender side. If a Notification is sent and, therefore, a LocalNotification is created, its status will be set to `Sent`.
+
+Open
+: Receiving a Notification, a LocalNotification is created with status `Open`.
+
+Completed
+: After receiving a Notification, its items will be processed internally. If all processes finish successfully, the status of the LocalNotification will be set to `Completed`.
+
+Error
+: If an error occurs while processing the items of a received Notification, the status of the LocalNotification will be set to `Error`.
+
+### LocalNotificationSource
+
+With the information in this type you can clearly identify the Transport object the Notification was sent/received in. Currently, the only possibility for transmitting Notifications are Messages.
+
+| Name      | Type      | Description                                                                                                                                 |
+| --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| type      | "Message" | The type of Transport object the Notification was sent/received in. So far, Notifications can only be transmitted via [Messages](#message). |
+| reference | `string`  | The ID of the Transport object the Notification was sent/received in.                                                                       |
+
 ## LocalAttribute
 
 A LocalAttribute contains the local metadata for an [Attribute](#attributes). There are three situations a LocalAttribute is created in the database:
@@ -259,14 +300,14 @@ A LocalAttribute contains the local metadata for an [Attribute](#attributes). Th
 
 ### LocalAttributeShareInfo
 
-The LocalAttributeShareInfo helps to keep track of how the LocalAttribute was received/sent, from whom it was received/who sent it, as well as which LocalAttribute it was copied from (in case of a shared RepositoryAttribute). For example, this enables us to track back who we shared a certain RepositoryAttribute with, so we are able to notify each of them when changing the RepositoryAttribute. The Attribute can be either transmitted via Request or Notification. Hence, only one of `requestReference` and `notificationReference` can be set.
+The LocalAttributeShareInfo helps to keep track of how the LocalAttribute was received/sent, from whom it was received/who sent it, as well as which LocalAttribute it was copied from (in case of a shared IdentityAttribute). For example, this enables us to track back who we shared a certain IdentityAttribute with, so we are able to notify each of them when changing it. The Attribute can be either transmitted via Request or Notification. Hence, only one of `requestReference` and `notificationReference` can be set.
 
-| Name                  | Type                    | Description                                                                                                                         |
-| --------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| peer                  | `string`                | The Address of the Identity the LocalAttribute was received from/shared with.                                                       |
-| requestReference      | `string` \| `undefined` | The ID of the LocalRequest the LocalAttribute was received in/sent with. If this is set, `notificationReference` must be undefined. |
-| notificationReference | `string` \| `undefined` | The ID of the Notification the LocalAttribute was received in/sent with. If this is set, `requestReference` must be undefined.      |
-| sourceAttribute       | `string` \| `undefined` | If the LocalAttribute is a copy of a RepositoryAttribute, then this property contains the ID of the RepositoryAttribute.            |
+| Name                  | Type                    | Description                                                                                                                                               |
+| --------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| peer                  | `string`                | The Address of the Identity the LocalAttribute was received from/shared with.                                                                             |
+| requestReference      | `string` \| `undefined` | The ID of the [LocalRequest](#localrequest) the LocalAttribute was received in/sent with. If this is set, `notificationReference` must be undefined.      |
+| notificationReference | `string` \| `undefined` | The ID of the [LocalNotification](#localnotification) the LocalAttribute was received in/sent with. If this is set, `requestReference` must be undefined. |
+| sourceAttribute       | `string` \| `undefined` | If the LocalAttribute is a copy of a RepositoryAttribute, then this property contains the `id` of the RepositoryAttribute.                                |
 
 ## LocalAttributeListener
 
@@ -512,11 +553,39 @@ The ResponseWrapper is a wrapper around the Response that is sent by the recipie
 
 | Name                   | Type                                    | Description                                                                                                        |
 | ---------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| @type                  | `"ResponseWrapper"`                     |
+| @type                  | `"ResponseWrapper"`                     |                                                                                                                    |
 | requestId              | `string`                                | The `id` of the Request this Response belongs to.                                                                  |
 | requestSourceReference | `string`                                | The reference to the Message or RelationshipTemplate the Request was received with.                                |
 | requestSourceType      | `"Message"` \| `"RelationshipTemplate"` | Specifies if the Request was transferred via [Message](#message) or [RelationshipTemplate](#relationshiptemplate). |
 | response               | [`Response`](#response)                 | The Response that is sent by the recipient of the Request.                                                         |
+
+## Notification
+
+Notifications provide you with the possibility to notify a peer about something, e.g. the succession of one of your Attributes.
+However, unlike [Requests](#request) they don't offer the option to make a decision whether or not they want to accept this change.
+In the example of Attribute succession, the peer can not decide to accept or reject the updated value, but is simply informed about it.
+
+| Name  | Type                                       | Description                                                                                                        |
+| ----- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| @type | `"Notification"`                           |                                                                                                                    |
+| id    | `string`                                   | {% include descr_id class="Notification" prefix="NOT" %}                                                           |
+| items | [`NotificationItem[]`](#notificationitems) | An array of NotificationItems that are part of the Notification. There must be at least one Item per Notification. |
+
+### NotificationItems
+
+NotificationItems are sent inside a Notification and specify which processes should be triggered when receiving the Notification.
+
+#### PeerSharedAttributeSucceededNotificationItem
+
+A PeerSharedAttributeSucceededNotificationItem will be sent, if an Attribute, a peer shared with you, was succeeded by them and they choose to notify you about it.
+Internally, the succeeded version will then be created at your side as successor for your previously received Attribute.
+
+| Name             | Type                                                                                           | Description                                        |
+| ---------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| @type            | `"PeerSharedAttributeSucceededNotificationItem"`                                               |                                                    |
+| predecessorId    | `string`                                                                                       | The `id` of the LocalAttribute that was succeeded  |
+| successorId      | `string`                                                                                       | The `id` of the LocalAttribute it was succeeded by |
+| successorContent | [`IdentityAttribute`](#identityattribute) \| [`RelationshipAttribute`](#relationshipattribute) | The updated content of the LocalAttribute          |
 
 ## Attributes
 
