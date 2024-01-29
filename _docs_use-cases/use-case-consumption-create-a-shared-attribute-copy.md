@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RA6
+  - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
   - function: createSharedAttributeCopy
@@ -16,10 +17,10 @@ properties:
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
   - status: DONE
-  - comments:
+  - documentation status: DONE
+  - comments: Internal
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: Runtime
   - precondition:
   - result:
   - priority: n/a
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: consumption/create-a-shared-attribute-copy
 require:

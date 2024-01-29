@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ARS7
+  - component: AppRuntime
   - layer: Device
   - facade: AccountServices
   - function: renameAccount
@@ -16,9 +17,9 @@ properties:
   - feature category: Multi-profile
   - tech category: Profile
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: User
-  - component: AppRuntime
   - trigger:
   - precondition:
   - result: The Profile has been renamed
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: device/rename-profile
 require:

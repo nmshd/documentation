@@ -6,7 +6,7 @@ Read more about the Module configuration on the <i class="fas fa-fw fa-cog"/> ic
 
 ### AMQP Publisher <a href="{% link _docs_operate/configuration.md %}#amqppublisher"><i class="fas fa-fw fa-cog"/></a> {#amqppublisher}
 
-This Module proxies all events in the internal event bus of the Connector to an exchange in a configurable AMQP server.
+This Module proxies all events of the internal event bus of the Connector to an exchange in a configurable AMQP server.
 
 Compared to [webhooks](#webhooksv2), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
 
@@ -30,6 +30,15 @@ This Module contains the HTTP API with all enmeshed base functionalities.
 
 The `sync` Module regularly fetches changes from the Backbone (e.g. new Messages / new incoming Relationship Requests). This process automatically triggers the events used by other Modules like the `webhooks` Module.
 
+### PubSub Publisher <a href="{% link _docs_operate/configuration.md %}#pubsubpublisher"><i class="fas fa-fw fa-cog"/></a> {#pubsubpublisher}
+
+This Module proxies all events of the internal event bus of the Connector to a configurable PubSub instance.
+
+Compared to [webhooks](#webhooksv2), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
+
+- You need persistence for the triggered events.
+- You want to integrate enmeshed into an already existing message broker.
+
 ### WebhooksV2 <a href="{% link _docs_operate/configuration.md %}#webhooksv2"><i class="fas fa-fw fa-cog"/></a> {#webhooksv2}
 
 With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
@@ -37,3 +46,7 @@ With the REST API, pull mechanisms are supported. However, as there are many bid
 For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Event]({% link _docs_integrate/connector-events.md %}) is triggered (e.g. a new Message has been received => `transport.messageReceived`).
 
 Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The `sync` Module automates this, but you can also do this manually by calling the `/api/v2/Account/Sync` route.
+
+### Requesting Modules
+
+In case you need a further Module for your application, please state a [feature request](https://github.com/nmshd/feedback/issues/new?assignees=&labels=enhancement&projects=&template=feature_request.md&title=%5BFEATURE%5D+).

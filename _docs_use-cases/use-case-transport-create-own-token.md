@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RK1
+  - component: Runtime
   - layer: Transport
   - facade: TokensFacade
   - function: createOwnToken
@@ -16,10 +17,10 @@ properties:
   - feature category: Normalized requests/responses to and from users
   - tech category: Tokens
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
   - priority: n/a
@@ -27,11 +28,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: POST /api/v2/Tokens/Own
   - published: default
   - link: transport/create-own-token
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Tokens/Own$
 ---
 
 {% include use-cases/use-case-transport-create-own-token.md %}

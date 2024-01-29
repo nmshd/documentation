@@ -18,7 +18,7 @@ Enmeshed consists of three main components using different layers to communicate
 
 ## Layers
 
-- [Backbone Layer]({% link _docs_explore/41-backbone-layer.md %}): Secured, zero-knowledge synchronization layer between App-to-Backbone or Connector-to-Backbone with cross-device capabilities and postal services
+- [Backbone Layer]({% link _docs_explore/41-backbone-layer.md %}): Secured, least-knowledge synchronization layer between App-to-Backbone or Connector-to-Backbone with cross-device capabilities and postal services
 - [Transport Layer]({% link _docs_explore/42-transport-layer.md %}): Cross-identity secure communication tunnel App-to-App, App-to-Connector or Connector-to-Connector
 - [Consumption Layer]({% link _docs_explore/43-consumption-layer.md %}): Cross-identity payload definitions and normalized data structures (schemas), as well as single-identity business logic implementation and data structures, either for persons or organizational identities.
 - [Integration Layer]({% link _docs_explore/44-integration-layer.md %}): Single-identity integration logic to integrate existing business systems primarily for organizational identities.

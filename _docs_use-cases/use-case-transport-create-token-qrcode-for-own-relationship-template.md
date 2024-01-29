@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RT6
+  - component: Runtime
   - layer: Transport
   - facade: RelationshipTemplatesFacade
   - function: createTokenQrCodeForOwnTemplate
@@ -16,9 +17,9 @@ properties:
   - feature category: Consent required before any data is shared
   - tech category: RelationshipTemplates
   - status: QUESTIONS
+  - documentation status:
   - comments: QR vs Qr, QR vs Tr
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: transport/create-token-qrcode-for-own-relationship-template
 require:

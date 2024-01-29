@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RIR10
+  - component: Runtime
   - layer: Consumption
   - facade: IncomingRequestsFacade
   - function: reject
@@ -16,10 +17,10 @@ properties:
   - feature category: Normalized requests/responses to and from users
   - tech category: Requests
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
   - priority: n/a
@@ -27,11 +28,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: put /api/v2/Requests/Incoming/{id}/Reject
   - published: default
   - link: consumption/reject-incoming-request
 require:
 required_by:
+api_route_regex: ^put /api/v2/Requests/Incoming/{id}/Reject$
 ---
 
 {% include use-cases/use-case-consumption-reject-incoming-request.md %}

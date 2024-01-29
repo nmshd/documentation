@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RK2
+  - component: Runtime
   - layer: Transport
   - facade: TokensFacade
   - function: loadPeerToken
@@ -16,10 +17,10 @@ properties:
   - feature category: Share structured information over side-channel
   - tech category: Tokens
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
   - priority: n/a
@@ -27,11 +28,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: POST /api/v2/Tokens/Peer
   - published: default
   - link: transport/load-token-created-by-others
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Tokens/Peer$
 ---
 
 {% include use-cases/use-case-transport-load-token-created-by-others.md %}

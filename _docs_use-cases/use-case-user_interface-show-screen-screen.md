@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-user_interface-show-screen-screen
-published: true
+published: false
 title: "Show (screen) Screen"
 type: use-case
 toc: true
@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: A04
+  - component: App
   - layer: User Interface
   - facade:
   - function:
@@ -16,9 +17,9 @@ properties:
   - feature category:
   - tech category: App
   - status: DONE
+  - documentation status:
   - comments:
   - actor: User
-  - component: App
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: user interface/show-screen-screen
 require:

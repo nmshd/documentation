@@ -9,16 +9,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: CR2
+  - component: ConnectorRuntime
   - layer: Device
   - facade: ConnectorRuntime
   - function: getHealth
   - description:
   - feature category:
-  - tech category: Bootstrap
+  - tech category: Monitoring
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Integrator
-  - component: ConnectorRuntime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +28,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: GET /health
   - published: default
   - link: device/get-the-connector-health-status
 require:
 required_by:
+api_route_regex: ^GET /health$
 ---
 
 {% include use-cases/use-case-device-get-the-connector-health-status.md %}
