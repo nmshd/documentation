@@ -7,25 +7,41 @@ A RelationshipTemplate is a formal description of the aspects of a Relationship 
 
 ### Input for creating a RelationshipTemplate
 
-To create a RelationshipTemplate on a Connector, the so-called Templator Connector, you need to follow the instructions described in the [Create own RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-own-relationshiptemplate.md %}) use case documentation using the following table values as input:
+To create a RelationshipTemplate on a Connector, the so-called Templator Connector, you need to follow the instructions described in the [Create own RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-own-relationshiptemplate.md %}) use case documentation using the following JSON payload as input:
 
-| Property                 | Value                                         |
-| ------------------------ | --------------------------------------------- |
-| `maxNumberOfAllocations` | `<maximum number of allocations>`             |
-| `expiresAt`              | `"<expiration date of RelationshipTemplate>"` |
-| `content`                | `<Content of RelationshipTemplate>`           |
+```jsonc
+{
+  "maxNumberOfAllocations": <maximum number of allocations>,
+  "expiresAt": "<expiration date of RelationshipTemplate>",
+  "content": {
+    // Content of RelationshipTemplate
+    ...
+  }
+}
+```
 
-You need to replace the placeholders marked with `<...>` appropriately. The `maxNumberOfAllocations` property is optional, so you can omit it. If you need help filling the `content` property or the `maxNumberOfAllocations` property with appropriate values, see the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) description in the [Data Model Overview]({% link _docs_integrate/data-model-overview.md %}). It is important to note that if you intend to use the RelationshipTemplate to establish a Relationship between the Templator Connector and an App user, you must use a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) as the value for the `content` property. In this case, the input must be as follows:
+You need to replace the placeholders marked with `<...>` appropriately. The `maxNumberOfAllocations` property is optional, so you can omit it. If you need help filling the `content` property or the `maxNumberOfAllocations` property with appropriate values, see the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) description in the Data Model Overview. It is important to note that if you intend to use the RelationshipTemplate to establish a Relationship between the Templator Connector and an App user, you must use a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) as the value for the `content` property. In this case, the input must be as follows:
 
-| Property                         | Value                                |
-| -------------------------------- | ------------------------------------ |
-| `maxNumberOfAllocations`         | `<maximum number of allocations>`    |
-| `expiresAt`                      | `"<expiration date>"`                |
-| `content.@type`                  | `"RelationshipTemplateContent"`      |
-| `content.title`                  | `"<title of RelationshipTemplate>"`  |
-| `content.metadata`               | `<custom metadata>`                  |
-| `content.onNewRelationship`      | `<Specification of a Request>`       |
-| `content.onExistingRelationship` | `<Specification of another Request>` |
+```jsonc
+{
+  "maxNumberOfAllocations": <maximum number of allocations>,
+  "expiresAt": "<expiration date of RelationshipTemplate>",
+  "content": {
+    // RelationshipTemplateContent
+    "@type": "RelationshipTemplateContent",
+    "title": "<title of RelationshipTemplate>",
+    "metadata": <custom metadata>,
+    "onNewRelationship": {
+      // Specification of a Request
+      ...
+    },
+    "onExistingRelationship": {
+      // Specification of another Request
+      ...
+    }
+  }
+}
+```
 
 The properties `content.title`, `content.metadata` and `content.onExistingRelationship` are optional, so you can omit them.
 
@@ -34,26 +50,33 @@ In case the `content` property of the RelationshipTemplate contains a [Relations
 
 ### Success response
 
-If you have successfully created the RelationshipTemplate on the Templator Connector on a certain Device, you will receive a success response from which you can read the result:
+If you have successfully created the RelationshipTemplate on the Templator Connector, you will receive a success response from which you can read the result:
 
-| Property                 | Value                                             |
-| ------------------------ | ------------------------------------------------- |
-| `id`                     | `"<ID of RelationshipTemplate>"`                  |
-| `isOwn`                  | `true`                                            |
-| `createdBy`              | `"<Address of Templator Connector>"`              |
-| `createdByDevice`        | `"<ID of Device>"`                                |
-| `createdAt`              | `"<creation date of RelationshipTemplate>"`       |
-| `expiresAt`              | `"<expiration date of RelationshipTemplate>"`     |
-| `content`                | `<Content of RelationshipTemplate>`               |
-| `truncatedReference`     | `"<truncated reference of RelationshipTemplate>"` |
-| `maxNumberOfAllocations` | `<maximum number of allocations>`                 |
-| `secretKey`              | `"<secret key of RelationshipTemplate"`           |
+```jsonc
+{
+  "result": {
+    "id": "<ID of RelationshipTemplate>",
+    "isOwn": true,
+    "createdBy": "<Address of Templator Connector>",
+    "createdByDevice": "<ID of Device used for creating RelationshipTemplate>",
+    "createdAt": "<creation date of RelationshipTemplate>",
+    "expiresAt": "<expiration date of RelationshipTemplate>",
+    "content": {
+      // Content of RelationshipTemplate
+      ...
+    },
+    "truncatedReference": "<truncated reference of RelationshipTemplate>",
+    "maxNumberOfAllocations": <maximum number of allocations>,
+    "secretKey": "<secret key of RelationshipTemplate>"
+  }
+}
+```
 
-{% include copy-notice description="The ID of the RelationshipTemplate can be read from the `id` property. Save it so that you can refer to your RelationshipTemplate later. For the same reason, save the values of the `truncatedReference` and `secretKey` properties." %}
+{% include copy-notice description="Save the `id` of the RelationshipTemplate so that you can refer to it later. For the same reason, save the values of the `truncatedReference` and `secretKey` properties." %}
 
 ## Onboarding
 
-Before an Identity can establish a Relationship with the Templator Connector, it must send a Relationship Request specifying the ID of a valid RelationshipTemplate owned by the Templator Connector. Depending on whether the Identity is an App user or another Connector, the so-called Requestor Connector, a different approach must be used to make the RelationshipTemplate available to it:
+Before an Identity can establish a Relationship with the Templator Connector, it must send a Relationship Request specifying the `id` of a valid [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) owned by the Templator Connector. Depending on whether the Identity is an App user or another Connector, the so-called Requestor Connector, a different approach must be used to make the RelationshipTemplate available to it:
 
 - Onboarding of an App user: Scan the QR Code of the RelationshipTemplate.
 - Onboarding of another Connector: Load the RelationshipTemplate onto it.
@@ -68,18 +91,22 @@ If an App user wants to send a Relationship Request to the Templator Connector, 
 
 If another Connector, the so-called Requestor Connector, wants to send a Relationship Request to the Templator Connector, it must first load a RelationshipTemplate owned by the Templator Connector onto itself. This can be done by following the [Load RelationshipTemplate created by others]({% link _docs_use-cases/use-case-transport-load-relationship-template-created-by-others.md %}) use case description and providing the input:
 
-| Property    | Value                                             |
-| ----------- | ------------------------------------------------- |
-| `reference` | `"<truncated reference of RelationshipTemplate>"` |
+```jsonc
+{
+  "reference": "<truncated reference of RelationshipTemplate>"
+}
+```
 
-In doing so, it is necessary to insert the value of the `truncatedReference` property read from the [success response]({% link _docs_integrate/prepare-enmeshed-onboarding-package.md %}#success-response) above into the `reference` property. Alternatively, it is possible to use the following input, where the ID and the secret key of the RelationshipTemplate obtained from the same [success response]({% link _docs_integrate/prepare-enmeshed-onboarding-package.md %}#success-response) must be specified:
+In doing so, it is necessary to insert the value of the `truncatedReference` property read from the [success response]({% link _docs_integrate/prepare-enmeshed-onboarding-package.md %}#success-response) above into the `reference` property. Alternatively, it is possible to use the following input, where the `id` and the `secretKey` of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) obtained from the same success response must be specified:
 
-| Property    | Value                                    |
-| ----------- | ---------------------------------------- |
-| `id`        | `"<ID of RelationshipTemplate>"`         |
-| `secretKey` | `"<secret key of RelationshipTemplate>"` |
+```jsonc
+{
+  "id": "<ID of RelationshipTemplate>",
+  "secretKey": "<secret key of RelationshipTemplate>"
+}
+```
 
-When the RelationshipTemplate of the Templator Connector is successfully loaded onto the Requestor Connector, a success response is sent. This looks like the above [success response]({% link _docs_integrate/prepare-enmeshed-onboarding-package.md %}#success-response) except that the value of the property `isOwn` is now `false` instead of `true`. Assuming that there is no [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between the two Connectors yet and that the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) contains a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) in its `content` property, the Requestor Connector will additionally receive a new incoming Request. The Integrator of the Requestor Connector can accept it if they want to send a Relationship Request to the Templator Connector.
+When the RelationshipTemplate of the Templator Connector is successfully loaded onto the Requestor Connector, a success response is sent. This looks like the above [success response]({% link _docs_integrate/prepare-enmeshed-onboarding-package.md %}#success-response) except that the value of the property `isOwn` is now `false` instead of `true`. Assuming that there is no Relationship between the two Connectors yet and that the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) contains a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) in its `content` property, the Requestor Connector will additionally receive a new incoming Request. The Integrator of the Requestor Connector can accept it if they want to send a Relationship Request to the Templator Connector.
 
 ## What's next?
 
