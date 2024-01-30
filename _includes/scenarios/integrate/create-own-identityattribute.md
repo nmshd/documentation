@@ -14,7 +14,7 @@ To create an IdentityAttribute as an Integrator for your own Connector, you need
     "validFrom": "<start of Attribute validity>",
     "validTo": "<end of Attribute validity>",
     "value": {
-      //IdentityAttribute Value
+      // IdentityAttribute Value
       ...
     },
     "tags": ["<additional information 1>", ..., "<additional information m>"]
