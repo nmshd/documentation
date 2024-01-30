@@ -29,7 +29,7 @@ The following table provides an overview of the possible kinds of Attributes tha
 | Relationship   | Sender          |             |     ✓     | `USER_DECISION`                                              | With this combination the **Sender gives the Recipient the one-time permission** to write a RelationshipAttribute once.<br>Example: Electricity provider asks new customers for electricity meter number.                                                                                          |
 | Relationship   | Recipient       |             |     ✓     | `USER_DECISION`                                              | With this combination the **Sender asks the Recipient for the one-time permission** to write a RelationshipAttribute.<br>Example: Company asks new customer to subscribe to the newsletter.                                                                                                        |
 | Relationship   | Recipient       | Third Party |     ✓     | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **Sender requests a RelationshipAttribute from a Relationship between the Recipient and a third party that is owned by the Recipient.**<br> Example: A social network asks for Facebook privacy settings of a user to get senseful defaults of its own privacy settings. |
-| Relationship   | Third Party     | Third Party |     ✓     | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **Sender requests a RelationshipAttribute from a Relationship between the Recipient and a third party that is owned by the third party.**<br> Example: An online shop asks for the Payback customer ID of a user to book the order on his account.                       |
+| Relationship   | Third Party     | Third Party |     ✓     | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **Sender requests a RelationshipAttribute from a Relationship between the Recipient and a third party that is owned by the third party.**<br> Example: An online shop asks for the Payback customer ID of a user to book the order on their account.                     |
 
 ### Example of reading an IdentityAttribute
 
@@ -165,20 +165,20 @@ The Recipient refuses to share its BirthDate with the Sender and accepts at leas
 {
   "items": [
     {
-      //Reject sharing of BirthDate
+      // Reject sharing of BirthDate
       "accept": false
     },
     {
-      //Accept RequestItemGroup
+      // Accept RequestItemGroup
       "accept": true,
       "items": [
         {
-          //Accept sharing of existing EMailAddress
+          // Accept sharing of existing EMailAddress
           "accept": true,
           "existingAttributeId": "<ID of LocalAttribute of EMailAddress>"
         },
         {
-          //Reject sharing of PhoneNumber
+          // Reject sharing of PhoneNumber
           "accept": false
         }
       ]
