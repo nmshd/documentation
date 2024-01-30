@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: C07
+  - component: Connector
   - layer: Device
   - facade: Connector
   - function:
@@ -16,9 +17,9 @@ properties:
   - feature category:
   - tech category: Integration
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Integrator
-  - component: Connector
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: device/delete-rest-endpoint
 require:

@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RF8
+  - component: Runtime
   - layer: Transport
   - facade: FilesFacade
   - function: createTokenQrCodeForFile
@@ -16,9 +17,9 @@ properties:
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: QUESTIONS
+  - documentation status:
   - comments: QR vs Qr, QR vs Tr
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,7 +28,7 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
   - link: transport/create-token-qrcode-for-file
 require:

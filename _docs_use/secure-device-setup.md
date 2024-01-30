@@ -14,8 +14,8 @@ properties:
   - customer:
   - component: use
   - level: Beginner
-  - implementation status:
-  - documentation status:
+  - implementation status: DOCS ONLY
+  - documentation status: OLD
   - published: true
   - link: use/secure-device-setup
 require:

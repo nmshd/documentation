@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RR1
+  - component: Runtime
   - layer: Transport
   - facade: RelationshipsFacade
   - function: createRelationship
@@ -16,9 +17,9 @@ properties:
   - feature category: Mutual peer-to-peer relationships
   - tech category: Relationships
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +28,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: POST /api/v2/Relationships
   - published: default
   - link: transport/create-relationship-with-relationshiptemplate
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Relationships$
 ---
 
 {% include use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}

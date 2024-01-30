@@ -1,7 +1,7 @@
 ---
-permalink: /use-case-transport-delete-identity-from-backbone
+permalink: /use-case-transport-request-deletion-of-identity
 published: false
-title: "Delete Identity from Backbone"
+title: "Request Deletion of Identity"
 type: use-case
 toc: true
 sidebar:
@@ -9,6 +9,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ARS5
+  - component: AppRuntime
   - layer: Transport
   - facade:
   - function:
@@ -16,9 +17,9 @@ properties:
   - feature category:
   - tech category: Profile
   - status: OPEN
-  - comments:
+  - documentation status:
+  - comments: Only AppRuntime or where to find this UseCases inside the Runtime (Connector also needs to remove its Identity)
   - actor: User
-  - component: AppRuntime
   - trigger:
   - precondition: Profile has been selected (and has been logged into)
   - result: The Identity has been removed from the Identity
@@ -27,11 +28,11 @@ properties:
   - size: L
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
-  - link: transport/delete-identity-from-backbone
+  - api_route_regex:
+  - published:
+  - link: transport/request-deletion-of-identity
 require:
 required_by:
 ---
 
-{% include use-cases/use-case-transport-delete-identity-from-backbone.md %}
+{% include use-cases/use-case-transport-request-deletion-of-identity.md %}
