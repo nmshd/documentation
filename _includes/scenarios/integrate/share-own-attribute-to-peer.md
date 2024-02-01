@@ -86,7 +86,7 @@ In our example, the Sender wants to share the IdentityAttribute with the Recipie
 
 ### Example of sharing an own RelationshipAttribute
 
-We now consider the case in which the Sender has an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with a third party and owns a RelationshipAttribute of type [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring) of this Relationship. The Sender can request to share this RelationshipAttribute with the Recipient if its `confidentiality` is `"protected"` or `"public"`. In our example, we assume that the `confidentiality` of the RelationshipAttribute is `"public"` and that it is stored locally within the `content` property of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) of the Sender.
+We now consider the case in which the Sender has an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with a third party and owns a RelationshipAttribute, which has already been created by using an appropriate Request, of type [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring) of this Relationship. The Sender can request to share this RelationshipAttribute with the Recipient if its `confidentiality` is `"protected"` or `"public"`. In our example, we assume that the `confidentiality` of the RelationshipAttribute is `"public"` and that it is stored locally within the `content` property of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) of the Sender.
 
 ```jsonc
 {
@@ -105,7 +105,8 @@ We now consider the case in which the Sender has an active [Relationship]({% lin
     }
   },
   "shareInfo": {
-    "peer": "<Address of third party>"
+    "peer": "<Address of third party>",
+    "requestReference": "<ID of Request used for creating RelationshipAttribute>"
   }
 }
 ```
@@ -239,19 +240,19 @@ The Recipient accepts the DisplayName of the Sender and accepts at least one Sha
 {
   "items": [
     {
-      //Accept DisplayName
+      // Accept DisplayName
       "accept": true
     },
     {
-      //Accept RequestItemGroup
+      // Accept RequestItemGroup
       "accept": true,
       "items": [
         {
-          //Accept EMailAddress
+          // Accept EMailAddress
           "accept": true
         },
         {
-          //Reject PhoneNumber
+          // Reject PhoneNumber
           "accept": false
         }
       ]
