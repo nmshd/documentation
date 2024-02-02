@@ -194,9 +194,7 @@ To share own IdentityAttributes (owner = self) an Identity uses the ShareAttribu
 
 ### Examples {#shareattributerequestitem-examples}
 
-- Share own DisplayName.
-- Share own Address.
-- Share customer number of company A with company B.
+Examples of use cases for the ShareAttributeRequestItem can be found in the [Share own Attribute to peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}) guide.
 
 ### Response {#shareattributerequestitem-response}
 
@@ -213,13 +211,4 @@ To share own IdentityAttributes (owner = self) an Identity uses the ShareAttribu
 
 ### Combinations and usage scenarios {#shareattributerequestitem-combinationsandusagescenarios}
 
-| Attribute Type | Attribute Owner | Possible? | Automation                                                     | Examples/Reason                                                                                                                                                                                                                                                                                     |
-| -------------- | --------------- | --------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Identity       | Sender          | Y         | `AUTO ACCEPT`                                                  | Company sends new customer the address of the company                                                                                                                                                                                                                                               |
-| Identity       | Recipient       | N         | `N/A`                                                          | It makes no sense to share the Attribute to the recipient, because he already owns it.                                                                                                                                                                                                              |
-| Identity       | Third Party     | N         | `N/A`                                                          | You cannot share an Attribute of which you are not the owner.                                                                                                                                                                                                                                       |
-| Identity       | `<empty>`       | Y         | `AUTO ACCEPT`                                                  | An empty owner defaults to an Attribute with owner=`<sender>`.                                                                                                                                                                                                                                      |
-| Relationship   | Sender          | Y         | `USER DECISION` / `NOT ALLOWED` (depending on confidentiality) | A user can share own RelationshipAttributes of any Relationship to any other Relationship (if the confidentiality of the RelationshipAttribute is protected or public).<br>Example: Share Customer ID from Company A with Company B (User is owner of RelationshipAttribute)                        |
-| Relationship   | Recipient       | N         | `N/A`                                                          | It makes no sense to share the Attribute to the recipient, because he already owns it.                                                                                                                                                                                                              |
-| Relationship   | Third Party     | Y         | `USER DECISION` / `NOT ALLOWED` (depending on confidentiality) | A user can share RelationshipAttributes of any Relationship to any other Relationship (if the confidentiality of the RelationshipAttribute is protected or public).<br> Example: Share Customer ID from Company A with Company B (Company A is owner of RelationshipAttribute), e.g. Payback number |
-| Relationship   | `<empty>`       | Y         | `AUTO ACCEPT`                                                  | An empty owner defaults to an Attribute with owner=`<sender>`.                                                                                                                                                                                                                                      |
+[Combinations and usage scenarios of the ShareAttributeRequestItem]({% link _docs_integrate/share-own-attribute-to-peer.md %}#combinations-and-usage-scenarios-of-shareattributerequestitem) can be found in the [Share own Attribute to peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}) guide.
