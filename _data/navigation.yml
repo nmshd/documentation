@@ -103,6 +103,8 @@ docs_integrate:
         url: /integrate/read-attribute-from-peer
       - title: "Create Attribute for peer"
         url: /integrate/create-attribute-for-peer
+      - title: "Propose Attribute to peer"
+        url: /integrate/propose-attribute-to-peer
       - title: "Request persistent consent of peer"
         url: /integrate/request-persistent-consent-of-peer
   - title: Basic communication

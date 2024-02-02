@@ -67,10 +67,7 @@ The [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md
 
 To create an Attribute with a value proposed by the sender, an Identity uses the ProposeAttributeRequestItem. A proposed value in this case means, that the recipient is allowed to change the value if accepting the request.
 
-Examples:
-
-- Onboard an existing customer to enmeshed and propose the known private Attributes, like its name or address.
-- Ask the user if a newsletter would be of interest and propose the opt-in. This could be stored as a RelationshipAttribute with owner = recipient and could then be changed by the recipient at will.
+Examples of use cases for the ProposeAttributeRequestItem can be found in the [Propose Attribute to peer]({% link _docs_integrate/propose-attribute-to-peer.md %}) guide.
 
 #### ReadAttributeRequestItem
 
