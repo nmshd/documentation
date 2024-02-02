@@ -146,9 +146,7 @@ To query Attributes which are not known to the sender, an Identity uses the Read
 
 ### Examples {#readattributerequestitem-examples}
 
-- Optional query of the BirthDate, to congratulate on birthdays
-- Required query of the Age, to check if alcohol may be bought
-- Required query of the StreetAddress, to send an invoice to the recipient
+Examples of use cases for the ReadAttributeRequestItem can be found in the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide.
 
 ### Response {#readattributerequestitem-response}
 
@@ -165,14 +163,7 @@ To query Attributes which are not known to the sender, an Identity uses the Read
 
 ### Combinations and usage scenarios {#readattributerequestitem-combinationsandusagescenarios}
 
-| Attribute Type | Attribute Owner | Third Party | Possible? | Automation                                                   | Examples/Reason                                                                                                                                                                                                                                                                                                  |
-| -------------- | --------------- | ----------- | --------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Identity       | Sender          |             | N         | `N/A`                                                        | It makes no sense to read own IdentityAttributes.                                                                                                                                                                                                                                                                |
-| Identity       | Recipient       |             | Y         | `USER_DECISION`                                              | Company asks customer for its delivery address                                                                                                                                                                                                                                                                   |
-| Relationship   | Sender          |             | Y         | `USER_DECISION`                                              | With this combination the **sender gives the recipient the one-time permission** to write a Relationship Attribute once<br>Example: Electricity provider asks new customers for electricity meter number                                                                                                         |
-| Relationship   | Recipient       |             | Y         | `USER_DECISION`                                              | With this combination the **sender asks the recipient for the one-time permission** to write a Relationship Attribute<br>Example: Company asks new customer to subscribe to the newsletter and proposes the subscription as default once                                                                         |
-| Relationship   | Recipient       | Third Party | Y         | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **sender requests a Relationship Attribute from a Relationship between the recipient and a third party. The Attribute must be owned by the recipient**<br> Example: A Social Network asks for Facebook privacy settings of a user to get senseful defaults of its own privacy settings |
-| Relationship   | Third Party     | Third Party | Y         | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **sender requests a Relationship Attribute from a Relationship between the recipient and a third party which is owned by the third party**<br> Example: An online shop asks for the Payback Customer Id of a user to book the order on his account                                     |
+[Combinations and usage scenarios of the ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#combinations-and-usage-scenarios-of-readattributerequestitem) can be found in the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide.
 
 ## RegisterAttributeListenerRequestItem
 

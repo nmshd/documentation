@@ -82,11 +82,7 @@ If you want to query an Identity's Attributes this is done with the [ReadAttribu
 
 To query Attributes which are not known to the sender, an Identity uses the ReadAttributeRequestItem.
 
-Examples:
-
-- Optional query of the BirthDate, to congratulate on birthdays
-- Required query of the Age, to check if alcohol may be bought
-- Required query of the StreetAddress, to send an invoice to the recipient
+Examples of use cases for the ReadAttributeRequestItem can be found in the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide.
 
 #### RegisterAttributeListenerRequestItem
 
