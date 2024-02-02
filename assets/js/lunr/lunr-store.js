@@ -209,8 +209,8 @@ var store = [{
         "url": "/integrate/propose-attribute-to-peer",
         "teaser": null
       },{
-        "title": "Read attribute from peer",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "title": "Read Attribute from peer",
+        "excerpt":"There are many situations in which an Identity is interested in an IdentityAttribute or a RelationshipAttribute of another Identity, for example: A company must know the age of a customer in order to carry out an age check if they want to purchase alcohol or other age-restricted goods. A company...","categories": [],
         "tags": [],
         "url": "/integrate/read-attribute-from-peer",
         "teaser": null
