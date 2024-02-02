@@ -95,6 +95,8 @@ docs_integrate:
         url: /integrate/requests-over-messages
   - title: Manage attributes of others
     children:
+      - title: "Read Attribute from peer"
+        url: /integrate/read-attribute-from-peer
       - title: "Request persistent consent of peer"
         url: /integrate/request-persistent-consent-of-peer
   - title: Basic communication
