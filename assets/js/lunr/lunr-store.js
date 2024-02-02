@@ -143,8 +143,8 @@ var store = [{
         "url": "/integrate/connector-events",
         "teaser": null
       },{
-        "title": "Create attribute for peer",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "title": "Create Attribute for peer",
+        "excerpt":"There are many situations in which an Identity wants to create an IdentityAttribute or a RelationshipAttribute for another Identity, for example: A university wants to send a graduate their degree certificate. A company wants to provide an employee with their business email address at the start of their employment. We...","categories": [],
         "tags": [],
         "url": "/integrate/create-attribute-for-peer",
         "teaser": null
