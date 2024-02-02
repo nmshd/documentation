@@ -60,7 +60,40 @@ It is also possible to use an appropriate [IQLQuery]({% link _docs_integrate/dat
 
 ### Example of proposing a RelationshipAttribute
 
-It is possible to propose a RelationshipAttribute to a peer, as can be seen from the [Combinations and usage scenarios of the ProposeAttributeRequestItem]({% link _docs_integrate/propose-attribute-to-peer.md %}#combinations-and-usage-scenarios-of-proposeattributerequestitem). Let's consider the case in which the Sender has established an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the Recipient and the Sender wants to propose a RelationshipAttribute for this Relationship to the Recipient. Then the Sender needs to insert a corresponding [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem), which contains the RelationshipAttribute in its `attribute` property and a matching [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) in its `query` property, into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for proposing Attributes. In particular, it is necessary that the specified value for the `attributeCreationHints.valueType` property of the RelationshipAttributeQuery corresponds to the Attribute Value type of the RelationshipAttribute.
+Let's consider the case in which the Sender has established an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the Recipient and the Sender wants to propose a RelationshipAttribute for this Relationship to the Recipient. Then the Sender needs to insert a corresponding [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem), which contains the RelationshipAttribute in its `attribute` property and a matching [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) in its `query` property, into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for proposing Attributes. In particular, it is necessary that the specified value for the `attributeCreationHints.valueType` property of the RelationshipAttributeQuery corresponds to the Attribute Value type of the RelationshipAttribute. For example, the Sender wants to propose a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) of type [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring) to the Recipient whose `confidentiality` is `"public"`, whereby the value of the `mustBeAccepted` property of the associated ProposeAttributeRequestItem is set to `true`.
+
+```jsonc
+{
+  "@type": "Request",
+  "items": [
+    {
+      "@type": "ProposeAttributeRequestItem",
+      "mustBeAccepted": true,
+      "attribute": {
+        "@type": "RelationshipAttribute",
+        "owner": "",
+        "key": "<key of RelationshipAttribute>",
+        "confidentiality": "public",
+        "value": {
+          "@type": "ProprietaryString",
+          "title": "<title of RelationshipAttribute>",
+          "value": "<actual value of RelationshipAttribute that the Sender proposes to the Recipient>"
+        }
+      },
+      "query": {
+        "@type": "RelationshipAttributeQuery",
+        "key": "<key of RelationshipAttribute>",
+        "owner": "",
+        "attributeCreationHints": {
+          "title": "<title of RelationshipAttribute>",
+          "valueType": "ProprietaryString",
+          "confidentiality": "public"
+        }
+      }
+    }
+  ]
+}
+```
 
 ### Propose multiple Attributes
 
