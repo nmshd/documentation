@@ -28,11 +28,37 @@ The following table provides an overview of the possible kinds of Attributes tha
 | Relationship   | Sender          |     ✗     | `N/A`           | It makes no sense to propose own Attributes, use [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) or [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) instead.                                                                                                                                                 |
 | Relationship   | `<empty>`       |     ✓     | `USER_DECISION` | An empty owner defaults to an Attribute with `owner=<Recipient>`. With this combination the **Sender asks the Recipient for the one-time permission** to write a RelationshipAttribute, which is owned by the Recipient, once **and** the **Sender proposes a value** which might make sense as a default.<br>Example: Company asks new customer to subscribe to the newsletter and proposes the subscription as default once. |
 
-### Propose an IdentityAttribute
+### Example of proposing an IdentityAttribute
 
-In the case in which the Sender wants to propose an IdentityAttribute to the Recipient, it must use a [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) which contains the IdentityAttribute in its `attribute` property and a matching [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery) in its `query` property. This means that the specified value for the `valueType` property of the IdentityAttributeQuery must correspond to the Attribute Value type of the IdentityAttribute. The ProposeAttributeRequestItem must then be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for proposing Attributes. The Sender can also use an appropriate [IQLQuery]({% link _docs_integrate/data-model-overview.md %}#iqlquery) as the `query`.
+In the case in which the Sender wants to propose an IdentityAttribute to the Recipient, it must use a [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) which contains the IdentityAttribute in its `attribute` property and a matching [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery) in its `query` property. This means that the specified value for the `valueType` property of the IdentityAttributeQuery must correspond to the Attribute Value type of the IdentityAttribute. The ProposeAttributeRequestItem must then be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for proposing Attributes. For example, the Sender wants to propose an IdentityAttribute of type [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) to the Recipient. The value of the `mustBeAccepted` property of the ProposeAttributeRequestItem is set to `true` in our example and the `<...>` notation is used as a placeholder for the actual data as usual.
 
-### Propose a RelationshipAttribute
+```jsonc
+{
+  "@type": "Request",
+  "items": [
+    {
+      "@type": "ProposeAttributeRequestItem",
+      "mustBeAccepted": true,
+      "attribute": {
+        "@type": "IdentityAttribute",
+        "owner": "",
+        "value": {
+          "@type": "EMailAddress",
+          "value": "<email address that the Sender proposes to the Recipient>"
+        }
+      },
+      "query": {
+        "@type": "IdentityAttributeQuery",
+        "valueType": "EMailAddress"
+      }
+    }
+  ]
+}
+```
+
+It is also possible to use an appropriate [IQLQuery]({% link _docs_integrate/data-model-overview.md %}#iqlquery) instead of an IdentityAttributeQuery as the `query` when proposing an IdentityAttribute with a [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem), as long as it matches the corresponding IdentityAttribute specified for the `attribute` property.
+
+### Example of proposing a RelationshipAttribute
 
 It is possible to propose a RelationshipAttribute to a peer, as can be seen from the [Combinations and usage scenarios of the ProposeAttributeRequestItem]({% link _docs_integrate/propose-attribute-to-peer.md %}#combinations-and-usage-scenarios-of-proposeattributerequestitem). Let's consider the case in which the Sender has established an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the Recipient and the Sender wants to propose a RelationshipAttribute for this Relationship to the Recipient. Then the Sender needs to insert a corresponding [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem), which contains the RelationshipAttribute in its `attribute` property and a matching [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) in its `query` property, into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for proposing Attributes. In particular, it is necessary that the specified value for the `attributeCreationHints.valueType` property of the RelationshipAttributeQuery corresponds to the Attribute Value type of the RelationshipAttribute.
 
@@ -76,7 +102,7 @@ Even if the Recipient accepts the Request for proposing Attributes as a whole, i
 
 ### Example of accepting a RequestItemGroup
 
-Let's look at an example where the Sender proposes the Recipient's [PersonName]({% link _docs_integrate/attribute-values.md %}#personname) and contact information in the form of an [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) and a [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber) to the Recipient during its onboarding process. For this purpose, the Sender creates a [Request]({% link _docs_integrate/data-model-overview.md %}#request) for proposing Attributes, which contains a ProposeAttributeRequestItem belonging to the PersonName and a RequestItemGroup belonging to the contact information in its `items` property. The [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) itself includes two ProposeAttributeRequestItems in its `items` property, namely one for the EMailAddress and one for the PhoneNumber. Please note that the `<...>` notation is used as a placeholder for the actual data as usual.
+Let's look at an example where the Sender proposes the Recipient's [PersonName]({% link _docs_integrate/attribute-values.md %}#personname) and contact information in the form of an [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) and a [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber) to the Recipient during its onboarding process. For this purpose, the Sender creates a [Request]({% link _docs_integrate/data-model-overview.md %}#request) for proposing Attributes, which contains a ProposeAttributeRequestItem belonging to the PersonName and a RequestItemGroup belonging to the contact information in its `items` property. The [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) itself includes two ProposeAttributeRequestItems in its `items` property, namely one for the EMailAddress and one for the PhoneNumber.
 
 ```jsonc
 {
