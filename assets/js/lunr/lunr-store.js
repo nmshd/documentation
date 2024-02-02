@@ -203,8 +203,8 @@ var store = [{
         "url": "/integrate/process-responses-to-outgoing-requests",
         "teaser": null
       },{
-        "title": "Propose attribute to peer",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "title": "Propose Attribute to peer",
+        "excerpt":"An Identity may have received information about a peer in the past that it needs to process a transaction at a later time. To ensure the accuracy of the available information, the Identity can propose Attributes to the peer for creation. Depending on whether the peer confirms the fittingness of...","categories": [],
         "tags": [],
         "url": "/integrate/propose-attribute-to-peer",
         "teaser": null
