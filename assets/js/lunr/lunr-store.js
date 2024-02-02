@@ -281,8 +281,8 @@ var store = [{
         "url": "/integrate/sending-messages",
         "teaser": null
       },{
-        "title": "Share own attribute to peer",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
+        "title": "Share own Attribute to peer",
+        "excerpt":"There are many situations in which an Identity wants to share an own IdentityAttribute or a RelationshipAttribute with another Identity, for example: A university wants to give a student the street address of its student administration so that they can send it documents by post. An organization wants to share...","categories": [],
         "tags": [],
         "url": "/integrate/share-own-attribute-to-peer",
         "teaser": null
