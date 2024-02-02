@@ -56,7 +56,7 @@ In the case in which the Sender wants to propose an IdentityAttribute to the Rec
 }
 ```
 
-It is also possible to use an appropriate [IQLQuery]({% link _docs_integrate/data-model-overview.md %}#iqlquery) instead of an IdentityAttributeQuery as the `query` when proposing an IdentityAttribute with a [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem), as long as it matches the corresponding IdentityAttribute specified for the `attribute` property.
+It is also possible to use an appropriate [IQLQuery]({% link _docs_integrate/data-model-overview.md %}#iqlquery) instead of an IdentityAttributeQuery as the `query` when proposing an IdentityAttribute with a [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem).
 
 ### Example of proposing a RelationshipAttribute
 
