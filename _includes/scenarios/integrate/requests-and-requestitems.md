@@ -58,9 +58,7 @@ To create an Attribute with a fixed value defined by the sender, an Identity use
 
 ### Examples {#createattributerequestitem-examples}
 
-- Share the corporate E-Mail Address of the peer to the peer
-- Send a certificate of the peer to the peer, so that the peer is able to easily share it
-- Create a RelationshipAttribute for the peer
+Examples of use cases for the CreateAttributeRequestItem can be found in the [Create Attribute for peer]({% link _docs_integrate/create-attribute-for-peer.md %}) guide.
 
 ### Response {#createattributerequestitem-response}
 
@@ -77,14 +75,7 @@ To create an Attribute with a fixed value defined by the sender, an Identity use
 
 ### Combinations and usage scenarios {#createattributerequestitem-combinationsandusagescenarios}
 
-| Attribute Type | Attribute Owner | Possible? | Automation      | Examples/Reason                                                                                                                                                                                                                                                       |
-| -------------- | --------------- | --------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Identity       | Sender          | N         | `N/A`           | Use [ShareAttributeRequestItem](#shareattributerequestitem) instead.                                                                                                                                                                                                  |
-| Identity       | Recipient       | Y         | `USER_DECISION` | University sends student his certificate (Propose would be inappropriate in this case, because the student should not be able to return his own value)                                                                                                                |
-| Identity       | `<empty>`       | Y         | `USER_DECISION` | An empty owner defaults to an Attribute with owner=`<recipient>`. This is needed for Requests inside of Relationship Templates, since you don’t know the enmeshed Address of your peer before the Relationship is established.                                        |
-| Relationship   | Sender          | Y         | `AUTO_ACCEPT`   | Company sends new customer his customer number.                                                                                                                                                                                                                       |
-| Relationship   | Recipient       | Y         | `USER_DECISION` | With this combination the **sender asks the recipient for the one-time permission** to write a Relationship Attribute once AND the **sender defined a value** which can either be accepted and stored, or rejected. Thus, the user cannot change the value by itself. |
-| Relationship   | `<empty>`       | Y         | `USER_DECISION` | An empty owner defaults to an Attribute with owner=`<recipient>`. This is needed for Requests inside of Relationship Templates, since you don’t know the enmeshed Address of your peer before the Relationship is established.                                        |
+[Combinations and usage scenarios of the CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#combinations-and-usage-scenarios-of-createattributerequestitem) can be found in the [Create Attribute for peer]({% link _docs_integrate/create-attribute-for-peer.md %}) guide.
 
 ## FreeTextRequestItem
 

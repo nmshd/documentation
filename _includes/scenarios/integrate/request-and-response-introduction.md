@@ -55,11 +55,7 @@ If you want to create Identity- or RelationshipAttributes for the peer, the [Cre
 
 To create an Attribute with a fixed value defined by the sender, an Identity uses the CreateAttributeRequestItem. A fixed value in this case means, that the recipient is not allowed to change the value when accepting the request.
 
-Examples:
-
-- Share the corporate E-Mail Address of the peer to the peer
-- Send a certificate of the peer to the peer, so that the peer is able to easily share it
-- Create a RelationshipAttribute for the peer
+Examples of use cases for the CreateAttributeRequestItem can be found in the [Create Attribute for peer]({% link _docs_integrate/create-attribute-for-peer.md %}) guide.
 
 #### FreeTextRequestItem
 
