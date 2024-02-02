@@ -55,11 +55,7 @@ If you want to create Identity- or RelationshipAttributes for the peer, the [Cre
 
 To create an Attribute with a fixed value defined by the sender, an Identity uses the CreateAttributeRequestItem. A fixed value in this case means, that the recipient is not allowed to change the value when accepting the request.
 
-Examples:
-
-- Share the corporate E-Mail Address of the peer to the peer
-- Send a certificate of the peer to the peer, so that the peer is able to easily share it
-- Create a RelationshipAttribute for the peer
+Examples of use cases for the CreateAttributeRequestItem can be found in the [Create Attribute for peer]({% link _docs_integrate/create-attribute-for-peer.md %}) guide.
 
 #### FreeTextRequestItem
 
@@ -79,11 +75,7 @@ If you want to query an Identity's Attributes this is done with the [ReadAttribu
 
 To query Attributes which are not known to the sender, an Identity uses the ReadAttributeRequestItem.
 
-Examples:
-
-- Optional query of the BirthDate, to congratulate on birthdays
-- Required query of the Age, to check if alcohol may be bought
-- Required query of the StreetAddress, to send an invoice to the recipient
+Examples of use cases for the ReadAttributeRequestItem can be found in the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide.
 
 #### RegisterAttributeListenerRequestItem
 
@@ -99,11 +91,7 @@ If you want to share the own DisplayName and possibly other Attributes this is d
 
 To share own IdentityAttributes (owner = self) an Identity uses the ShareAttributeRequestItem. The Identity needs to create the IdentityAttribute separately before the Attribute can be shared.
 
-Examples:
-
-- Share own DisplayName.
-- Share own Address.
-- Share customer number of company A with company B.
+Examples of use cases for the ShareAttributeRequestItem can be found in the [Share own Attribute to peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}) guide.
 
 ## Responses
 
