@@ -58,9 +58,7 @@ To create an Attribute with a fixed value defined by the sender, an Identity use
 
 ### Examples {#createattributerequestitem-examples}
 
-- Share the corporate E-Mail Address of the peer to the peer
-- Send a certificate of the peer to the peer, so that the peer is able to easily share it
-- Create a RelationshipAttribute for the peer
+Examples of use cases for the CreateAttributeRequestItem can be found in the [Create Attribute for peer]({% link _docs_integrate/create-attribute-for-peer.md %}) guide.
 
 ### Response {#createattributerequestitem-response}
 
@@ -77,14 +75,7 @@ To create an Attribute with a fixed value defined by the sender, an Identity use
 
 ### Combinations and usage scenarios {#createattributerequestitem-combinationsandusagescenarios}
 
-| Attribute Type | Attribute Owner | Possible? | Automation      | Examples/Reason                                                                                                                                                                                                                                                       |
-| -------------- | --------------- | --------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Identity       | Sender          | N         | `N/A`           | Use [ShareAttributeRequestItem](#shareattributerequestitem) instead.                                                                                                                                                                                                  |
-| Identity       | Recipient       | Y         | `USER_DECISION` | University sends student his certificate (Propose would be inappropriate in this case, because the student should not be able to return his own value)                                                                                                                |
-| Identity       | `<empty>`       | Y         | `USER_DECISION` | An empty owner defaults to an Attribute with owner=`<recipient>`. This is needed for Requests inside of Relationship Templates, since you don’t know the enmeshed Address of your peer before the Relationship is established.                                        |
-| Relationship   | Sender          | Y         | `AUTO_ACCEPT`   | Company sends new customer his customer number.                                                                                                                                                                                                                       |
-| Relationship   | Recipient       | Y         | `USER_DECISION` | With this combination the **sender asks the recipient for the one-time permission** to write a Relationship Attribute once AND the **sender defined a value** which can either be accepted and stored, or rejected. Thus, the user cannot change the value by itself. |
-| Relationship   | `<empty>`       | Y         | `USER_DECISION` | An empty owner defaults to an Attribute with owner=`<recipient>`. This is needed for Requests inside of Relationship Templates, since you don’t know the enmeshed Address of your peer before the Relationship is established.                                        |
+[Combinations and usage scenarios of the CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#combinations-and-usage-scenarios-of-createattributerequestitem) can be found in the [Create Attribute for peer]({% link _docs_integrate/create-attribute-for-peer.md %}) guide.
 
 ## FreeTextRequestItem
 
@@ -113,8 +104,7 @@ To create an Attribute with a value proposed by the sender, an Identity uses the
 
 ### Examples {#proposeattributerequestitem-examples}
 
-- Onboard an existing customer to enmeshed and propose the known private Attributes, like its name or address.
-- Ask the user if a newsletter would be of interest and propose the opt-in. This could be stored as a RelationshipAttribute with owner = recipient and could then be changed by the recipient at will.
+Examples of use cases for the ProposeAttributeRequestItem can be found in the [Propose Attribute to peer]({% link _docs_integrate/propose-attribute-to-peer.md %}) guide.
 
 ### Response {#proposeattributerequestitem-response}
 
@@ -131,12 +121,7 @@ To create an Attribute with a value proposed by the sender, an Identity uses the
 
 ### Combinations and usage scenarios {#proposeattributerequestitem-combinationsandusagescenarios}
 
-| Attribute Type | Attribute Owner | Possible? | Automation      | Examples/Reason                                                                                                                                                                                                                                                                                                  |
-| -------------- | --------------- | --------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Identity       | Sender          | N         | `N/A`           | It makes no sense to propose own Attributes, use [ShareAttributeRequestItem](#shareattributerequestitem) instead.                                                                                                                                                                                                |
-| Identity       | Recipient       | Y         | `USER_DECISION` | Company sends name and address to new customer during its onboarding process.                                                                                                                                                                                                                                    |
-| Relationship   | Sender          | Y         | `USER_DECISION` | With this combination the **sender gives the recipient the one-time permission** to write a Relationship Attribute once AND the **sender proposes a value** which might make sense as a default.<br>Example: Electricity provider asks new customer for the electricity meter number and proposes a known number |
-| Relationship   | Recipient       | Y         | `USER_DECISION` | With this combination the **sender asks the recipient for the one-time permission** to write a Relationship Attribute once AND the **sender proposes a value** which might make sense as a default.<br>Example: Asking for a newsletter subscription                                                             |
+[Combinations and usage scenarios of the ProposeAttributeRequestItem]({% link _docs_integrate/propose-attribute-to-peer.md %}#combinations-and-usage-scenarios-of-proposeattributerequestitem) can be found in the [Propose Attribute to peer]({% link _docs_integrate/propose-attribute-to-peer.md %}) guide.
 
 ## ReadAttributeRequestItem
 
@@ -146,9 +131,7 @@ To query Attributes which are not known to the sender, an Identity uses the Read
 
 ### Examples {#readattributerequestitem-examples}
 
-- Optional query of the BirthDate, to congratulate on birthdays
-- Required query of the Age, to check if alcohol may be bought
-- Required query of the StreetAddress, to send an invoice to the recipient
+Examples of use cases for the ReadAttributeRequestItem can be found in the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide.
 
 ### Response {#readattributerequestitem-response}
 
@@ -165,14 +148,7 @@ To query Attributes which are not known to the sender, an Identity uses the Read
 
 ### Combinations and usage scenarios {#readattributerequestitem-combinationsandusagescenarios}
 
-| Attribute Type | Attribute Owner | Third Party | Possible? | Automation                                                   | Examples/Reason                                                                                                                                                                                                                                                                                                  |
-| -------------- | --------------- | ----------- | --------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Identity       | Sender          |             | N         | `N/A`                                                        | It makes no sense to read own IdentityAttributes.                                                                                                                                                                                                                                                                |
-| Identity       | Recipient       |             | Y         | `USER_DECISION`                                              | Company asks customer for its delivery address                                                                                                                                                                                                                                                                   |
-| Relationship   | Sender          |             | Y         | `USER_DECISION`                                              | With this combination the **sender gives the recipient the one-time permission** to write a Relationship Attribute once<br>Example: Electricity provider asks new customers for electricity meter number                                                                                                         |
-| Relationship   | Recipient       |             | Y         | `USER_DECISION`                                              | With this combination the **sender asks the recipient for the one-time permission** to write a Relationship Attribute<br>Example: Company asks new customer to subscribe to the newsletter and proposes the subscription as default once                                                                         |
-| Relationship   | Recipient       | Third Party | Y         | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **sender requests a Relationship Attribute from a Relationship between the recipient and a third party. The Attribute must be owned by the recipient**<br> Example: A Social Network asks for Facebook privacy settings of a user to get senseful defaults of its own privacy settings |
-| Relationship   | Third Party     | Third Party | Y         | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **sender requests a Relationship Attribute from a Relationship between the recipient and a third party which is owned by the third party**<br> Example: An online shop asks for the Payback Customer Id of a user to book the order on his account                                     |
+[Combinations and usage scenarios of the ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#combinations-and-usage-scenarios-of-readattributerequestitem) can be found in the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide.
 
 ## RegisterAttributeListenerRequestItem
 
@@ -203,9 +179,7 @@ To share own IdentityAttributes (owner = self) an Identity uses the ShareAttribu
 
 ### Examples {#shareattributerequestitem-examples}
 
-- Share own DisplayName.
-- Share own Address.
-- Share customer number of company A with company B.
+Examples of use cases for the ShareAttributeRequestItem can be found in the [Share own Attribute to peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}) guide.
 
 ### Response {#shareattributerequestitem-response}
 
@@ -222,13 +196,4 @@ To share own IdentityAttributes (owner = self) an Identity uses the ShareAttribu
 
 ### Combinations and usage scenarios {#shareattributerequestitem-combinationsandusagescenarios}
 
-| Attribute Type | Attribute Owner | Possible? | Automation                                                     | Examples/Reason                                                                                                                                                                                                                                                                                     |
-| -------------- | --------------- | --------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Identity       | Sender          | Y         | `AUTO ACCEPT`                                                  | Company sends new customer the address of the company                                                                                                                                                                                                                                               |
-| Identity       | Recipient       | N         | `N/A`                                                          | It makes no sense to share the Attribute to the recipient, because he already owns it.                                                                                                                                                                                                              |
-| Identity       | Third Party     | N         | `N/A`                                                          | You cannot share an Attribute of which you are not the owner.                                                                                                                                                                                                                                       |
-| Identity       | `<empty>`       | Y         | `AUTO ACCEPT`                                                  | An empty owner defaults to an Attribute with owner=`<sender>`.                                                                                                                                                                                                                                      |
-| Relationship   | Sender          | Y         | `USER DECISION` / `NOT ALLOWED` (depending on confidentiality) | A user can share own RelationshipAttributes of any Relationship to any other Relationship (if the confidentiality of the RelationshipAttribute is protected or public).<br>Example: Share Customer ID from Company A with Company B (User is owner of RelationshipAttribute)                        |
-| Relationship   | Recipient       | N         | `N/A`                                                          | It makes no sense to share the Attribute to the recipient, because he already owns it.                                                                                                                                                                                                              |
-| Relationship   | Third Party     | Y         | `USER DECISION` / `NOT ALLOWED` (depending on confidentiality) | A user can share RelationshipAttributes of any Relationship to any other Relationship (if the confidentiality of the RelationshipAttribute is protected or public).<br> Example: Share Customer ID from Company A with Company B (Company A is owner of RelationshipAttribute), e.g. Payback number |
-| Relationship   | `<empty>`       | Y         | `AUTO ACCEPT`                                                  | An empty owner defaults to an Attribute with owner=`<sender>`.                                                                                                                                                                                                                                      |
+[Combinations and usage scenarios of the ShareAttributeRequestItem]({% link _docs_integrate/share-own-attribute-to-peer.md %}#combinations-and-usage-scenarios-of-shareattributerequestitem) can be found in the [Share own Attribute to peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}) guide.
