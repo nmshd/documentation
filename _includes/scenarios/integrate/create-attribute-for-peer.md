@@ -10,12 +10,9 @@ Please note that the general procedure is the same if the Connector wants to cre
 
 The Sender has several options for requesting an Attribute creation. This guide covers how it can request the creation of an Attribute for the Recipient so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Sender itself and cannot be modified by the Recipient when accepting the Request.
 
-If the Recipient should be able to adjust the Attribute offered for creation, the Propose attribute to peer guide must be consulted instead. Also, it is possible for the Sender to ask the Recipient for an Attribute of a specific Attribute Value Type without offering an Attribute by following the Read Attribute from peer guide. If the Recipient complies with this request by using the `newAttribute` parameter of the [AcceptReadAttributeRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptreadattributerequestitemparameters),
+If the Recipient should be able to adjust the Attribute offered for creation, the [Propose Attribute to peer]({% link _docs_integrate/propose-attribute-to-peer.md %}) guide must be consulted instead. Also, it is possible for the Sender to ask the Recipient for an Attribute of a specific Attribute Value Type without offering an Attribute by following the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide. If the Recipient complies with this request by using the `newAttribute` parameter of the [AcceptReadAttributeRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptreadattributerequestitemparameters),
 this leads to the creation of an Attribute of the Recipient whose Attribute Value was chosen completely freely by it.
 {: .notice--info}
-
-<!--- TODO: Insert Link to "Propose Attribute to peer" guide --->
-<!--- TODO: Insert Link to "Read Attribute from peer" guide --->
 
 ## Request for creating Attributes
 
@@ -234,6 +231,4 @@ In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-ove
 
 ## What's next?
 
-As already mentioned, this guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Identity itself and cannot be modified by the peer when accepting the Request. In many cases, it makes more sense if the peer can adjust the Attribute that was offered for creation. For that, take a look at the Propose attribute to peer guide.
-
-<!--- TODO: Insert link to scenario description "Propose attribute to peer" --->
+As already mentioned, this guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Identity itself and cannot be modified by the peer when accepting the Request. In many cases, it makes more sense if the peer can adjust the Attribute that was offered for creation. For that, take a look at the [Propose Attribute to peer]({% link _docs_integrate/propose-attribute-to-peer.md %}) guide.
