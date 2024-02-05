@@ -1,4 +1,4 @@
-In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship.
+In this tutorial we go through the basic steps necessary to establish a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) to another Identity and send [Messages]({% link _docs_integrate/data-model-overview.md %}#message) between two Identities with an existing Relationship.
 This will create a better understanding of these processes, which will help you automating them for your organization.
 
 It is not mandatory to have an own Connector installed.
@@ -29,7 +29,7 @@ Thus, in this first part of the tutorial you will learn how to establish a Relat
 In this example the other Identity will be an App.
 However, it could be another Connector, as well, e.g. if two companies want to exchange data securily without opening a port or network.
 
-The way we will establish the Relationship is via a RelationshipTemplate.
+The way we will establish the Relationship is via a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
 This is created by the Connector and contains its display name, as well as the data it would like to receive from the other Identity.
 Then, the App user fills out all required information of the template and sends the Relationship Request to the Connector.
 It in turn accepts the Request, which results in the creation of a new Relationship.
@@ -64,10 +64,10 @@ You can query the Connector's address via the route `/api/v2/Account/IdentityInf
 ### Connector: Test your Request's Validity
 
 Next, we want to create a RelationshipTemplate, that can be used by the App to send a Relationship Request to our Connector.
-The content of the template can be widely configured, but for simplicity we will use just two [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in our example.
-On the one hand, we want to share data with the App, namely the display name of our Connector we created in the previous step.
+The content of the template can be widely configured, but for simplicity we will use a [Request]({% link _docs_integrate/data-model-overview.md %}#request) with just two [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in our example.
+On the one hand, we want to [share an Attribute]({% link _docs_integrate/share-own-attribute-to-peer.md %}) with the App, namely the display name of our Connector we created in the previous step.
 For this, we use a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem).
-On the other hand, we use [ReadAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) to query information of the App.
+On the other hand, we use [ReadAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) to [receive Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}) from the App.
 Let's assume the Connector needs to know the given name and surname of its contact to create a Relationship and, additionally, offers the option to specify an e-mail address for communication.
 
 ```json
@@ -140,7 +140,7 @@ Even though the Requests are validated during the RelationshipTemplate creation,
 ### Connector: Create a RelationshipTemplate
 
 If the Response is successful, we can create the RelationshipTemplate.
-To do so, we use the content we just validated.
+To do so, we use the `content` we just validated.
 Furthermore, we specify an expiration date, which is located in the future, and restrict the access to a single allocation.
 
 ```jsonc
@@ -164,7 +164,7 @@ Furthermore, we specify an expiration date, which is located in the future, and 
 ### Connector: Create a QR Code for the RelationshipTemplate
 
 Now, to allow the App to retrieve the RelationshipTemplate, we create a QR Code, that can be scanned by the App.
-For this, execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Header: `image/png`) and use the ID of the RelationshipTemplate from the previous step as the value for `id`.
+For this, execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Header: `image/png`) and use the `id` of the RelationshipTemplate from the previous step as the value for `id`.
 
 {% include rapidoc api_route_regex="^get /api/v2/RelationshipTemplates/{id}$" %}
 
@@ -185,7 +185,7 @@ Open the created QR Code and start the enmeshed App. Depending on what you alrea
   - click on "Add contact"
   - hold the camera in front of the QR code
 
-All three paths should result in a screen similar to the one below, where you can see the information that you added as content to the RelationshipTemplate.
+All three paths should result in a screen similar to the one below, where you can see the information that you added as `content` to the RelationshipTemplate.
 
 !["Add contact" screen]( {{ '/assets/images/add-contact-screen.jpg' | relative_url }} )
 
@@ -193,16 +193,16 @@ Finally, fill out the required fields and click on "Add contact" to send the Rel
 
 ### Connector: Accept the Relationship Request
 
-In order to move the Relationship into the `Active` state, we now need to accept the Relationship Request with the Connector.
-To do so, we synchronize updates of the Backbone, which will fetch all changes that occurred since the last time this endpoint was executed.
+In order to move the Relationship into the `Active` state, we now need to [accept the Relationship Request]({% link _docs_use-cases/use-case-transport-accept-relationship-change.md %}) with the Connector.
+To do so, we [synchronize updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), which will fetch all changes that occurred since the last time this endpoint was executed.
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
-In the Response we will receive the created Relationship, which contains the corresponding RelationshipCreationChange.
+In the Response we will receive the created Relationship, which contains the corresponding [RelationshipCreationChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange).
 
 Example:
 
-```json
+```jsonc
 {
   "result": {
     "messages": [],
@@ -246,7 +246,7 @@ In this tutorial we will focus on Messages of type [Mail]({% link _docs_integrat
 
 Firstly, we will [send a Message]({% link _docs_integrate/sending-messages.md %}) from the Connector to the App.
 For this, we need the address of our peer, that we copied in the previous step, and insert it in the fields `recipient` and `to`.
-Further, the `subject` and `body` properties can be modified with some custom content.
+Further, the `subject` and `body` properties can be modified with some custom `content`.
 
 ```json
 {
@@ -276,7 +276,7 @@ Then, tap on "New Message", enter a subject and body and tap on "Send".
 In order to fetch the Message, we need to synchronize the Connector with the Backbone again.
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
-The Response should contain a Message with the content you entered in the App.
+The Response should contain a Message with the `content` you entered in the App.
 
 ## What's next?
 
