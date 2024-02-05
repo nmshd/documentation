@@ -95,10 +95,18 @@ docs_integrate:
         url: /integrate/requests-over-messages
   - title: Manage attributes of yourself
     children:
+      - title: "Share own Attribute to peer"
+        url: /integrate/share-own-attribute-to-peer
       - title: "Succeeding Attributes to update their values"
         url: /integrate/succeeding-attributes-to-update-their-values
   - title: Manage attributes of others
     children:
+      - title: "Read Attribute from peer"
+        url: /integrate/read-attribute-from-peer
+      - title: "Create Attribute for peer"
+        url: /integrate/create-attribute-for-peer
+      - title: "Propose Attribute to peer"
+        url: /integrate/propose-attribute-to-peer
       - title: "Request persistent consent of peer"
         url: /integrate/request-persistent-consent-of-peer
   - title: Basic communication
