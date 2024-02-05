@@ -186,7 +186,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Integration example",
-        "excerpt":"In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you on automating them for your organization. The following steps include...","categories": [],
+        "excerpt":"In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization. It is not mandatory to...","categories": [],
         "tags": [],
         "url": "/integrate/integration-example",
         "teaser": null
