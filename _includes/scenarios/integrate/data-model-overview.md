@@ -282,11 +282,17 @@ With the information in this type you can clearly identify the Transport object 
 
 ## LocalAttribute
 
-A LocalAttribute contains the local metadata for an [Attribute](#attributes). There are three situations a LocalAttribute is created in the database:
+A LocalAttribute contains the local metadata for an [Attribute](#attributes). In the context of [IdentityAttributes](#identityattribute), there are three situations a LocalAttribute is created in the database:
 
-- The Identity maintains an Attribute about itself (e.g. sets its first name). We call such a LocalAttribute "RepositoryAttribute".
-- The Identity shares an Attribute of itself with another Identity (e.g. sends it in a Request). In that case, a _copy of the original LocalAttribute_ is created, where the `shareInfo` property is set.
-- The Identity receives an Attribute from another Identity (e.g. receives it in a Request). In that case a _new LocalAttribute_ is created, where the `shareInfo` is set.
+- The Identity maintains an Attribute about itself (e.g. sets its first name). We call such an unshared LocalAttribute "RepositoryAttribute". Its `shareInfo` property is undefined.
+- The Identity shares an Attribute of itself with another Identity (e.g. sends it in a Request). In that case, a _copy of the original LocalAttribute_ is created, where the `shareInfo` property is set. We call this LocalAttribute an "own shared IdentityAttribute".
+- The Identity receives an Attribute from another Identity (e.g. receives it in a Request). In that case a _new LocalAttribute_ is created, where the `shareInfo` is set. We call this LocalAttribute a "peer shared IdentityAttribute".
+
+In contrast, [RelationshipAttributes](#relationshipattribute) always exist in the context of a [Relationship](#relationship).
+Thus, it is not possible for an Identity to have an unshared RelationshipAttribute.
+
+- We refer to the LocalAttribute of the owner as "own shared RelationshipAttribute".
+- The peer’s LocalAttribute we referred to as "peer shared RelationshipAttribute".
 
 | Name        | Type                                                                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ----------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
