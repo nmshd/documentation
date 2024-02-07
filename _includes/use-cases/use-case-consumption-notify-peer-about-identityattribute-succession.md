@@ -12,7 +12,7 @@ Moreover, it is also possible to notify a peer about the succession of an Identi
 ## Parameters
 
 - `attributeId` of the succeeded RepositoryAttribute
-- The address of the `peer`
+- The Address of the `peer`
 
 ## On Success
 

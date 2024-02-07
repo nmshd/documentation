@@ -8,7 +8,7 @@ Assuming your peer accepts the Request, at their side a peer shared IdentityAttr
 The corresponding [Response]({% link _docs_integrate/data-model-overview.md %}#response) informs you about their acceptance and creates a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a copy of the RepositoryAttribute's `content` you shared.
 This own shared IdentityAttribute copy, however, in addition has a defined `shareInfo` property.
 It stores information about the `peer` you shared the attribute with, the `id` of the original RepositoryAttribute in the field `sourceAttribute`, and a reference to the Request used to share the Attribute.
-Note that the own shared IdentityAttribute at your side and the peer shared IdentityAttribute at your peer's side are identitcal, except for the value in the `shareInfo.peer` field: on your side it will have the peer's address and on the peer's side it will have your address.
+Note that the own shared IdentityAttribute at your side and the peer shared IdentityAttribute at your peer's side are identitcal, except for the value in the `shareInfo.peer` field: on your side it will have the peer's Address and on the peer's side it will have your Address.
 Please note further, that this use case is meant to be used to share a version of an IdentityAttribute for the first time.
 If you have already shared another version of a succeeded Attribute with the peer and you want to let them know about the changes to its `value`, use the [NotifyPeerAboutIdentityAttributeSuccession use-case]({% link _docs_use-cases/use-case-consumption-notify-peer-about-identityattribute-succession.md %}).
 
@@ -16,7 +16,7 @@ If you have already shared another version of a succeeded Attribute with the pee
 
 - The `attributeId` of your RepositoryAttribute
 - The address of the `peer`
-- Optionally `requestMetadata` as described in the [data model]({% link _docs_integrate/data-model-overview.md %}#request), except for the `id` and `items`, which are handled automatically.
+- Optionally `requestMetadata` as described in the [data model]({% link _docs_integrate/data-model-overview.md %}#request), except for the `id` and `items`, which are handled automatically
 
 ## On Success
 
