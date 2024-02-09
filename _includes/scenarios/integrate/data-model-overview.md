@@ -108,6 +108,7 @@ A Message is a piece of data that can be sent to one or more recipients. The sen
 - [`Mail`](#mail)
 - [`Request`](#request)
 - [`ResponseWrapper`](#responsewrapper)
+- [`Notification`](#notification)
 
 You can read more details about each of these in the corresponding sections of the "Content Types" chapter.
 
@@ -116,7 +117,7 @@ But if you are communicating with another Connector, feel free to settle on any 
 | Name            | Type                          | Description                                                                                                                                                                                                                                               | Remarks                                       |
 | --------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
 | id              | `string`                      | {% include descr_id class="Message" prefix="MSG" %}                                                                                                                                                                                                       |                                               |
-| content         | `unknown`                     | The content of the Message. You can add whatever you want here. However, if it is intended for a User of the enmeshed App, use either `Mail`, `Request` or `Response`. Otherwise feel free to insert whatever you want or need.                           | will be encrypted before sent to the Backbone |
+| content         | `unknown`                     | The content of the Message. You can add whatever you want here. However, if it is intended for a User of the enmeshed App, use either `Mail`, `Request`, `Response` or `Notification`. Otherwise feel free to insert whatever you want or need.           | will be encrypted before sent to the Backbone |
 | createdBy       | `string`                      | {% include descr_createdBy class="Message" %}                                                                                                                                                                                                             |                                               |
 | createdByDevice | `string`                      | {% include descr_createdByDevice class="Message" %}                                                                                                                                                                                                       |                                               |
 | recipients      | [`Recipient`](#recipient)`[]` | An array of recipients of this Message.                                                                                                                                                                                                                   |                                               |
