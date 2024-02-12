@@ -1,7 +1,7 @@
 ---
-permalink: /use-case-consumption-get-shared-versions-of-an-identityattribute
+permalink: /use-case-consumption-get-shared-versions-of-a-repositoryattribute
 published: true
-title: "Get shared versions of an IdentityAttribute"
+title: "Get shared versions of a RepositoryAttribute"
 type: use-case
 toc: true
 sidebar:
@@ -12,7 +12,7 @@ properties:
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: getSharedVersionsOfIdentityAttribute
+  - function: getSharedVersionsOfRepositoryAttribute
   - description:
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
@@ -30,10 +30,10 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/get-shared-versions-of-an-identityattribute
+  - link: consumption/get-shared-versions-of-a-repositoryattribute
   - redirect_from:
 require:
 required_by:
 ---
 
-{% include use-cases/use-case-consumption-get-shared-versions-of-an-identityattribute.md %}
+{% include use-cases/use-case-consumption-get-shared-versions-of-a-repositoryattribute.md %}

@@ -5,7 +5,7 @@
 If the `value` of a private [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute), called RepositoryAttribute, changes, this can be replicated in enmeshed with this use-case.
 It allows you to [update the `content`]({% link _docs_integrate/succeeding-attributes-to-update-their-values.md %}) and keeps a coherent history of all versions by establishing a doubly linked list, using the [LocalAttribute's]({% link _docs_integrate/data-model-overview.md %}#localattribute) parameters `succeeds` and `succeededBy`.
 Hence, every LocalAttribute may have exactly one predecessor and one successor.
-In case you shared the predecessing version of the RepositoryAttribute, the corresponding own shared IdentityAttribute copy will only be succeeded, if you decide to [notify the peer]({% link _docs_use-cases/use-case-consumption-notify-peer-about-identityattribute-succession.md %}) of the respective shared IdentityAttribute about the succession.
+In case you shared the predecessing version of the RepositoryAttribute, the corresponding own shared IdentityAttribute copy will only be succeeded, if you decide to [notify the peer]({% link _docs_use-cases/use-case-consumption-notify-peer-about-repositoryattribute-succession.md %}) of the respective shared IdentityAttribute about the succession.
 
 ## Parameters
 

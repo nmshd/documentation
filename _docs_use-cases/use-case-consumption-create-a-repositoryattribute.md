@@ -1,7 +1,7 @@
 ---
-permalink: /use-case-consumption-create-an-attribute
+permalink: /use-case-consumption-create-a-repositoryattribute
 published: true
-title: "Create an Attribute"
+title: "Create a RepositoryAttribute"
 type: use-case
 toc: true
 sidebar:
@@ -12,11 +12,11 @@ properties:
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: createIdentityAttribute
+  - function: createRepositoryAttribute
   - description:
   - feature category: Normalized attributes
   - tech category: Attributes
-  - status: CHANGES REQUIRED
+  - status: DONE
   - documentation status: DONE
   - comments: We cannot create RelationshipAttributes with this UseCase
   - actor: Identity
@@ -30,11 +30,11 @@ properties:
   - changed_at:
   - api_route_regex: post /api/v2/Attributes
   - published: default
-  - link: consumption/create-an-attribute
-  - redirect_from:
+  - link: consumption/create-a-repositoryattribute
+  - redirect_from: /use-case-consumption-create-an-attribute.md
 require:
 required_by:
 api_route_regex: ^post /api/v2/Attributes$
 ---
 
-{% include use-cases/use-case-consumption-create-an-attribute.md %}
+{% include use-cases/use-case-consumption-create-a-repositoryattribute.md %}

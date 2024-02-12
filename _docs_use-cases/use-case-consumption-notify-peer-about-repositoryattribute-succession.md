@@ -1,7 +1,7 @@
 ---
-permalink: /use-case-consumption-notify-peer-about-identityattribute-succession
+permalink: /use-case-consumption-notify-peer-about-repositoryattribute-succession
 published: true
-title: "Notify peer about IdentityAttribute succession"
+title: "Notify peer about RepositoryAttribute succession"
 type: use-case
 toc: true
 sidebar:
@@ -12,7 +12,7 @@ properties:
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: notifyPeerAboutIdentityAttributeSuccession
+  - function: notifyPeerAboutRepositoryAttributeSuccession
   - description:
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
@@ -30,10 +30,10 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/notify-peer-about-identityattribute-succession
+  - link: consumption/notify-peer-about-repositoryattribute-succession
   - redirect_from:
 require:
 required_by:
 ---
 
-{% include use-cases/use-case-consumption-notify-peer-about-identityattribute-succession.md %}
+{% include use-cases/use-case-consumption-notify-peer-about-repositoryattribute-succession.md %}

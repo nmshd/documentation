@@ -17,7 +17,7 @@ Hence, we will look at the process of creating, sharing and succeeding an Identi
 ### Creating a RepositoryAttribute
 
 Enmeshed allows you to store data about yourself in the form of IdentityAttributes.
-When [creating an IdentityAttribute]({% link _docs_use-cases/use-case-consumption-create-an-attribute.md %}), it is not necessary to share it immediately with a peer.
+When [creating an IdentityAttribute]({% link _docs_use-cases/use-case-consumption-create-a-repositoryattribute.md %}), it is not necessary to share it immediately with a peer.
 Instead, it will be stored in the `content` property of a LocalAttribute with an undefined `shareInfo`.
 We refer to these unshared LocalAttributes as RepositoryAttributes, since they make up your private repository of Attributes.
 
@@ -42,7 +42,7 @@ Concluding, sharing an IdentityAttribute will create an own shared IdentityAttri
 ### Succeeding a RepositoryAttribute
 
 Next, let's consider the case that the `value` of your [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) changes and you want to update it.
-To [succeed the RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-succeed-an-identityattribute.md %}), a new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with the updated `content` will be created.
+To [succeed the RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-succeed-a-repositoryattribute.md %}), a new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with the updated `content` will be created.
 This successor stores the `id` of the old version, the predecessor, in its `succeeds` property.
 The predecessor is updated, too, such that its `succeededBy` property links to the successor.
 Consequently, the different versions of a LocalAttribute created by Attribute successions make up a doubly linked list.
@@ -51,7 +51,7 @@ Consequently, the different versions of a LocalAttribute created by Attribute su
 
 ### Notifying a peer about a RepositoryAttribute succession
 
-After succeeding a RepositoryAttribute, you can check out [with which of your peers you have previously shared the succeeded Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-identityattribute.md %}) to choose those, you'd like to [notify about the succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-identityattribute-succession.md %}).
+After succeeding a RepositoryAttribute, you can check out [with which of your peers you have previously shared the succeeded Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-a-repositoryattribute.md %}) to choose those, you'd like to [notify about the succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-repositoryattribute-succession.md %}).
 Your own shared IdentityAttributes associated with the peers chosen will be succeeded in the same manner as your RepositoryAttribute before.
 Then, a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification) is sent to the peers, containing a [PeerSharedAttributeSucceededNotificationItem]({% link _docs_integrate/data-model-overview.md %}#peersharedattributesucceedednotificationitem).
 In its `successorContent` property the updated IdentityAttribute is transmitted and automatically a likewise succession at their side will be triggered, such that their LocalAttribute versions replicate the succession chain at your side.
