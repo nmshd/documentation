@@ -9,8 +9,8 @@ It is advised to [check if the incoming Request can be accepted](/use-case-consu
 ## Parameters
 
 - The `id` of the incoming LocalRequest.
-- The decision for each individual [RequestItem]({% link _docs_integrate/data-model-overview.md %}#request)
-  expressed as the appropriate [Parameters defined in the Data Model]({% link _docs_integrate/requests-and-requestitems.md %}).
+- The decision for each individual [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitem)
+  expressed as the appropriate [Parameters defined in the Data Model]({% link _docs_integrate/data-model-overview.md %}deciderequestitemparameters).
 
 ## On Success
 

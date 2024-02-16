@@ -81,17 +81,30 @@ docs_integrate:
         url: /integrate/access-the-connector
       - title: "Integration example"
         url: /integrate/integration-example
-      #- title: "Event introduction"
-      #  url: /integrate/event-introduction
-
+      - title: "Event introduction"
+        url: /integrate/event-introduction
+  - title: Working with requests
+    children:
+      - title: "Request and Response introduction"
+        url: /integrate/request-and-response-introduction
   - title: Manage Requests
     children:
       - title: "Requests over Templates"
         url: /integrate/requests-over-templates
       - title: "Requests over Messages"
         url: /integrate/requests-over-messages
+  - title: Manage attributes of yourself
+    children:
+      - title: "Share own Attribute to peer"
+        url: /integrate/share-own-attribute-to-peer
   - title: Manage attributes of others
     children:
+      - title: "Read Attribute from peer"
+        url: /integrate/read-attribute-from-peer
+      - title: "Create Attribute for peer"
+        url: /integrate/create-attribute-for-peer
+      - title: "Propose Attribute to peer"
+        url: /integrate/propose-attribute-to-peer
       - title: "Request persistent consent of peer"
         url: /integrate/request-persistent-consent-of-peer
   - title: Basic communication
