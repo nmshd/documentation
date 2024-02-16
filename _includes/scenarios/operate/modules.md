@@ -8,7 +8,7 @@ Read more about the Module configuration on the <i class="fas fa-fw fa-cog"/> ic
 
 This Module proxies all events of the internal event bus of the Connector to an exchange in a configurable AMQP server.
 
-Compared to [webhooks](#webhooksv2), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
+Compared to [webhooks](#webhooks), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
 
 - You need persistence for the triggered events.
 - You want to integrate enmeshed into an already existing message broker.
@@ -34,12 +34,12 @@ The `sync` Module regularly fetches changes from the Backbone (e.g. new Messages
 
 This Module proxies all events of the internal event bus of the Connector to a configurable PubSub instance.
 
-Compared to [webhooks](#webhooksv2), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
+Compared to [webhooks](#webhooks), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
 
 - You need persistence for the triggered events.
 - You want to integrate enmeshed into an already existing message broker.
 
-### WebhooksV2 <a href="{% link _docs_operate/configuration.md %}#webhooksv2"><i class="fas fa-fw fa-cog"/></a> {#webhooksv2}
+### Webhooks <a href="{% link _docs_operate/configuration.md %}#webhooks"><i class="fas fa-fw fa-cog"/></a> {#webhooks}
 
 With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization's backend services about changes.
 
