@@ -107,7 +107,7 @@ The enmeshed Runtime will read the Message and create a new incoming Request. Yo
 
 The long polling is done by calling the `GET /api/v2/Requests/Incoming` route. You can use the query params `source.reference=<id-of-the-message>` and `status=ManualDecisionRequired` to filter for Requests that belong to the Message that contained the Request.
 
-For more information about the events you can head over to the [Connector Modules site]({% link _docs_operate/modules.md %}) and read about the [AMQP Publisher module]({% link _docs_operate/modules.md %}#amqppublisher) and the [WebhooksV2 module]({% link _docs_operate/modules.md %}#webhooksv2) that are propagating events.
+For more information about the events you can head over to the [Connector Modules site]({% link _docs_operate/modules.md %}) and read about the [AMQP Publisher module]({% link _docs_operate/modules.md %}#amqppublisher) and the [Webhooks module]({% link _docs_operate/modules.md %}#webhooks) that are propagating events.
 
 {% include copy-notice description="After you received the Request, save its `id` for the next step." %}
 
