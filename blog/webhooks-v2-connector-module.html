@@ -320,7 +320,7 @@ If you don’t want to use the new Module it doesn’t require further actions.<
 
 <h2 id="the-new-module">The new Module</h2>
 
-<p>The new Module gives you the possibility to define so called <code class="language-plaintext highlighter-rouge">triggers</code>, which represent the names of the events we already send Connector-internally (e.g. <code class="language-plaintext highlighter-rouge">transport.messageReceived</code>). The Module then listens to the configured events and simply sends the event data to the configured URL. For a detailed documentation of how to configure the new webhooks Module, see <a href="/operate/configuration#webhooksv2">the Connector configuration docs</a>.</p>
+<p>The new Module gives you the possibility to define so called <code class="language-plaintext highlighter-rouge">triggers</code>, which represent the names of the events we already send Connector-internally (e.g. <code class="language-plaintext highlighter-rouge">transport.messageReceived</code>). The Module then listens to the configured events and simply sends the event data to the configured URL. For a detailed documentation of how to configure the new webhooks Module, see <a href="/operate/configuration#webhooks">the Connector configuration docs</a>.</p>
 
 <p>While in the old Module you could configure an interval in which the new information is published, the new Module calls the webhook immediately after the configured event was triggered.
 <em>Do you miss the possibility to configure a publish interval? Raise a feature request in our <a href="https://github.com/nmshd/feedback/issues/new/choose">feedback repository</a>, and we will see what we can do about it.</em></p>
