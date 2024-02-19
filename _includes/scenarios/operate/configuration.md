@@ -341,7 +341,7 @@ It is not recommended to use this Module for production scenarios.
 
   The location of the key file to authenticate with the Google Cloud project.
 
-#### webhooksV2 <a href="{% link _docs_operate/modules.md %}#webhooksv2"><i class="fas fa-fw fa-info-circle"/></a> {#webhooksv2}
+#### webhooks <a href="{% link _docs_operate/modules.md %}#webhooks"><i class="fas fa-fw fa-info-circle"/></a> {#webhooks}
 
 **Sample Configuration:**
 
@@ -350,7 +350,7 @@ It is not recommended to use this Module for production scenarios.
   // ...
 
   "modules": {
-    "webhooksV2": {
+    "webhooks": {
       "enabled": false,
       "targets": {},
       "webhooks": []
@@ -361,7 +361,7 @@ It is not recommended to use this Module for production scenarios.
 
 - **enabled** `default: false`
 
-  Enable or disable the webhooksV2 Module.
+  Enable or disable the webhooks Module.
 
 - **targets** `default: {}`
 
