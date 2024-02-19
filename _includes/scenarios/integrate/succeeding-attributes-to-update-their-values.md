@@ -1,6 +1,6 @@
 The way enmeshed handles updates to your personal data is by succeeding old [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) with new ones.
 Instead of simply replacing old data, a completely new Attribute is created which succeeds its predecessor.
-Thus, you and your peers are provided a coherent history of all past versions.
+Thus, you and your peers are provided with a coherent history of all past versions.
 How the Attribute succession works in detail depends on the type of Attribute.
 
 ## Succeeding own IdentityAttributes
@@ -51,10 +51,10 @@ Consequently, the different versions of a LocalAttribute created by Attribute su
 
 ### Notifying a peer about a RepositoryAttribute succession
 
-After succeeding a RepositoryAttribute, you can check out [with which of your peers you have previously shared the succeeded Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-a-repositoryattribute.md %}) to choose those, you'd like to [notify about the succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-repositoryattribute-succession.md %}).
+After succeeding a RepositoryAttribute, you can check [with which of your peers you have previously shared the succeeded Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-a-repositoryattribute.md %}) to choose those, you'd like to [notify about the succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-repositoryattribute-succession.md %}).
 Your own shared IdentityAttributes associated with the peers chosen will be succeeded in the same manner as your RepositoryAttribute before.
 Then, a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification) is sent to the peers, containing a [PeerSharedAttributeSucceededNotificationItem]({% link _docs_integrate/data-model-overview.md %}#peersharedattributesucceedednotificationitem).
-In its `successorContent` property the updated IdentityAttribute is transmitted and automatically a likewise succession at their side will be triggered, such that their LocalAttribute versions replicate the succession chain at your side.
+In the `successorContent` property of the latter the updated IdentityAttribute is transmitted and automatically a likewise succession at the peers' side will be triggered, such that their LocalAttribute versions replicate the succession chain at your side.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/079d7602-95af-4ddf-8fd5-cca5294038d9" id="Fv0-x9lenepV"></iframe></div>
 
@@ -69,7 +69,7 @@ We refer to the LocalAttribute of the `owner` as **own shared RelationshipAttrib
 
 Wanting to [create a RelationshipAttribute]({% link _docs_use-cases/use-case-consumption-create-and-share-a-relationshipattribute.md %}) always involves sharing it directly with a peer.
 To this end, a Request containing a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) with the RelationshipAttribute will be created and will be sent to the peer.
-Only if the peer accepts this Request, a LocalAttribute with the RelationshipAttribute as `content` will be created at their side and, by receiving the Response, at your side, too.
+Only if the peer accepts this Request will a LocalAttribute with the RelationshipAttribute as `content` be created at their side and after you receive their Response, at your side, too.
 Hence, you and your peer will always have an identical shared RelationshipAttribute, only differing in the LocalAttribute's `shareInfo.peer` property.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/11244175-05b4-4225-b08f-7da48aa21e2f" id="gw0-8Yqzp0IL"></iframe></div>

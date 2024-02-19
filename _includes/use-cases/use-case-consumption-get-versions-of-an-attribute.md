@@ -11,10 +11,10 @@ This use-case allows you to retrieve a list of all those versions of the success
 
 ## On Success
 
-- If the `attributeId` correlates to a RepositoryAttribute, a list of all versions of this RepositoryAttribute will be returned.
-- If the `attributeId` correlates to an own shared IdentityAttribute, a list of all versions of that Attribute shared with the same peer will be returned.
-- If the `attributeId` correlates to a peer shared IdentityAttribute, a list of all versions of that Attribute received from the peer will be returned.
-- If the `attributeId` correlates to a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), a list of all versions of that RelationshipAttribute will be returned.
+- If the `attributeId` refers to a RepositoryAttribute, a list of all versions of this RepositoryAttribute will be returned.
+- If the `attributeId` refers to an own shared IdentityAttribute, a list of all versions of that Attribute shared with the same peer will be returned.
+- If the `attributeId` refers to a peer shared IdentityAttribute, a list of all versions of that Attribute received from the peer will be returned.
+- If the `attributeId` refers to a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), a list of all versions of that RelationshipAttribute will be returned.
 
 ## On Failure
 

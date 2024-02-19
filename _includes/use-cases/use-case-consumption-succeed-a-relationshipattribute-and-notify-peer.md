@@ -7,7 +7,7 @@ This use-case allows the owner to update a [RelationshipAttribute]({% link _docs
 In its `succeeds` property it links to the predecessing version, which in turn is also updated and links to the newly created version in its `succeededBy` property.
 Thus, a doubly linked list is established, ensuring every version to have not more that one predecessor or successor.
 Once the succession at your side is completed, a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification) is sent automatically to your peer.
-It triggers the succession of their peer shared RelationshipAttribute in the same manner as described above, such that both your succession chains coincide.
+It triggers the succession of their peer shared RelationshipAttribute in the same manner as described above, such that both your succession chains match.
 
 ## Parameters
 
