@@ -103,7 +103,7 @@ Note that RelationshipChangeRequest and RelationshipChangeResponse have nothing 
 
 ## Message
 
-A Message is a piece of data that can be sent to one or more recipients. The sender is completely free in what the content of the Message looks like. Though in order to enable a normalized communication, enmeshed defines some content structures for Messages, and in the future there will be more of those. Consider that the enmeshed App only supports those normalized Message `content`s. Currently there are:
+A Message is a piece of data that can be sent to one or more recipients. The sender is completely free in what the content of the Message looks like. Though in order to enable a normalized communication, enmeshed defines some `content` structures for Messages, and in the future there will be more of those. Consider that the enmeshed App only supports Messages with such a normalized `content`. Currently there are:
 
 - [`Mail`](#mail)
 - [`Request`](#request)
