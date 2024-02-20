@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published:
   - link: consumption/create-requestitem-to-inform-about-forced-attribute-deletion
+  - redirect_from:
 require:
 required_by:
 ---

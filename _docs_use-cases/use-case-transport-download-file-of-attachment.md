@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: transport/download-file-of-attachment
+  - redirect_from:
 require:
 required_by:
 ---

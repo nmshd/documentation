@@ -31,6 +31,7 @@ properties:
   - api_route_regex: get /api/v2/Requests/incoming
   - published: default
   - link: consumption/query-incoming-requests
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^get /api/v2/Requests/incoming$

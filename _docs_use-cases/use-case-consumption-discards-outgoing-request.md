@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: consumption/discards-outgoing-request
+  - redirect_from:
 require:
 required_by:
 ---

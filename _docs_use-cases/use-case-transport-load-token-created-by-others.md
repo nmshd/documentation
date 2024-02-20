@@ -31,6 +31,7 @@ properties:
   - api_route_regex: POST /api/v2/Tokens/Peer
   - published: default
   - link: transport/load-token-created-by-others
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^POST /api/v2/Tokens/Peer$

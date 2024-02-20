@@ -31,6 +31,7 @@ properties:
   - api_route_regex: GET /api/v2/Account/getSyncInfo
   - published: default
   - link: transport/get-synchronization-status-with-backbone
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^GET /api/v2/Account/getSyncInfo$

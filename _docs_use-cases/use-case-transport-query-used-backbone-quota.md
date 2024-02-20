@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published:
   - link: transport/query-used-backbone-quota
+  - redirect_from:
 require:
 required_by:
 ---

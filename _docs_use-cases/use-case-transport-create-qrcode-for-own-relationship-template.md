@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: transport/create-qrcode-for-own-relationship-template
+  - redirect_from:
 require:
 required_by:
 ---

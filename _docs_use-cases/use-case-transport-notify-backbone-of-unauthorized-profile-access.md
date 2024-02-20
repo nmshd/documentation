@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published:
   - link: transport/notify-backbone-of-unauthorized-profile-access
+  - redirect_from:
 require:
 required_by:
 ---

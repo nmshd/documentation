@@ -15,7 +15,7 @@ properties:
   - component: use
   - level: Beginner
   - implementation status:
-  - documentation status:
+  - documentation status: OLD
   - published: true
   - link: use/install-the-app
 require:

@@ -31,6 +31,7 @@ properties:
   - api_route_regex: POST /api/v2/Account/Sync
   - published: default
   - link: transport/synchronize-updates-of-backbone
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^POST /api/v2/Account/Sync$

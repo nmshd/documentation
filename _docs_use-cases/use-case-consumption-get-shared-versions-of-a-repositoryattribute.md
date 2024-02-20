@@ -1,38 +1,39 @@
 ---
-permalink: /use-case-consumption-succeed-attribute
-published: false
-title: "Succeed Attribute"
+permalink: /use-case-consumption-get-shared-versions-of-a-repositoryattribute
+published: true
+title: "Get shared versions of a RepositoryAttribute"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate Enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA11
+  - id: RA20
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: succeedAttribute
+  - function: getSharedVersionsOfRepositoryAttribute
   - description:
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
-  - status: QUESTIONS
+  - status:
   - documentation status:
   - comments:
   - actor: Identity
   - trigger:
   - precondition:
   - result:
-  - priority: HIGH
-  - complexity: MEDIUM
-  - size: M
+  - priority:
+  - complexity:
+  - size:
   - created_at:
   - changed_at:
   - api_route_regex:
-  - published: default
-  - link: consumption/succeed-attribute
+  - published:
+  - link: consumption/get-shared-versions-of-a-repositoryattribute
+  - redirect_from:
 require:
 required_by:
 ---
 
-{% include use-cases/use-case-consumption-succeed-attribute.md %}
+{% include use-cases/use-case-consumption-get-shared-versions-of-a-repositoryattribute.md %}

@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: user interface/start-app-with-parameters-by-using-link
+  - redirect_from:
 require:
 required_by:
 ---

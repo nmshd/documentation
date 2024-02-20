@@ -31,6 +31,7 @@ properties:
   - api_route_regex: GET /api/v2/Files/{id}/Download
   - published: default
   - link: transport/download-file
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^GET /api/v2/Files/{id}/Download$

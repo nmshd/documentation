@@ -31,6 +31,7 @@ properties:
   - api_route_regex: POST /api/v2/Messages
   - published: default
   - link: transport/send-message-to-recipients
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^POST /api/v2/Messages$

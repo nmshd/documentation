@@ -31,6 +31,7 @@ properties:
   - api_route_regex: POST /api/v2/Files/{id}/Token
   - published: default
   - link: transport/create-token-for-file
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^POST /api/v2/Files/{id}/Token$

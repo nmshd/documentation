@@ -31,6 +31,7 @@ properties:
   - api_route_regex: GET /api/v2/Relationships/{id}
   - published: default
   - link: transport/get-relationship-by-relationshipid
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^GET /api/v2/Relationships/{id}$

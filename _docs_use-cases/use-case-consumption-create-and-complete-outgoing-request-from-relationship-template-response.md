@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: consumption/create-and-complete-outgoing-request-from-relationship-template-response
+  - redirect_from:
 require:
 required_by:
 ---

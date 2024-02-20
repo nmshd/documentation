@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published:
   - link: consumption/update-setting
+  - redirect_from:
 require:
 required_by:
 ---

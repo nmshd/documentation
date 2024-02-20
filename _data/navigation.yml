@@ -97,6 +97,8 @@ docs_integrate:
     children:
       - title: "Share own Attribute to peer"
         url: /integrate/share-own-attribute-to-peer
+      - title: "Succeeding Attributes to update their values"
+        url: /integrate/succeeding-attributes-to-update-their-values
   - title: Manage attributes of others
     children:
       - title: "Read Attribute from peer"

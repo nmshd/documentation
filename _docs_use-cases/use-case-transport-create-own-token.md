@@ -31,6 +31,7 @@ properties:
   - api_route_regex: POST /api/v2/Tokens/Own
   - published: default
   - link: transport/create-own-token
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^POST /api/v2/Tokens/Own$

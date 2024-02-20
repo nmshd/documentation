@@ -31,6 +31,7 @@ properties:
   - api_route_regex: GET /api/v2/Tokens/{id}
   - published: default
   - link: transport/get-token-by-tokenid
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^GET /api/v2/Tokens/{id}$

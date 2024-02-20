@@ -31,6 +31,7 @@ properties:
   - api_route_regex: POST /api/v2/Relationships
   - published: default
   - link: transport/create-relationship-with-relationshiptemplate
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^POST /api/v2/Relationships$

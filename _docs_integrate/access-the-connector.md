@@ -15,7 +15,7 @@ properties:
   - component: integrate
   - level:
   - implementation status: DOCS ONLY
-  - documentation status: OPEN
+  - documentation status: OLD
   - published: true
   - link: integrate/access-the-connector
 require:

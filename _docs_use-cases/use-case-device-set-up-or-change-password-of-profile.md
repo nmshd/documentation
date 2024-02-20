@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published:
   - link: device/set-up-or-change-password-of-profile
+  - redirect_from:
 require:
 required_by:
 ---

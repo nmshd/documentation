@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: human/scan-qr-code-on-different-device
+  - redirect_from:
 require:
 required_by:
 ---

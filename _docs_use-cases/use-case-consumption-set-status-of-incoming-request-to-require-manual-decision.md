@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: consumption/set-status-of-incoming-request-to-require-manual-decision
+  - redirect_from:
 require:
 required_by:
 ---

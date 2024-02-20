@@ -1,22 +1,22 @@
 ---
-permalink: /use-case-consumption-share-attribute
-published: false
-title: "Share Attribute"
+permalink: /use-case-consumption-create-and-share-a-relationshipattribute
+published: true
+title: "Create and share a RelationshipAttribute"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate Enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA13
+  - id: RA21
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: shareAttribute
+  - function: createAndShareRelationshipAttribute
   - description:
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
-  - status: CHANGES REQUIRED
+  - status:
   - documentation status:
   - comments:
   - actor: Identity
@@ -29,10 +29,11 @@ properties:
   - created_at:
   - changed_at:
   - api_route_regex:
-  - published: default
-  - link: consumption/share-attribute
+  - published:
+  - link: consumption/create-and-share-a-relationshipattribute
+  - redirect_from:
 require:
 required_by:
 ---
 
-{% include use-cases/use-case-consumption-share-attribute.md %}
+{% include use-cases/use-case-consumption-create-and-share-a-relationshipattribute.md %}

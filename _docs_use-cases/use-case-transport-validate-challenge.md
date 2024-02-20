@@ -31,6 +31,7 @@ properties:
   - api_route_regex: POST /api/v2/Challenges/Validate
   - published:
   - link: transport/validate-challenge
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^POST /api/v2/Challenges/Validate$

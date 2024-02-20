@@ -31,6 +31,7 @@ properties:
   - api_route_regex: GET /health
   - published: default
   - link: device/get-the-connector-health-status
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^GET /health$
