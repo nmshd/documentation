@@ -149,22 +149,10 @@ var store = [{
         "url": "/integrate/create-attribute-for-peer",
         "teaser": null
       },{
-        "title": "Creating complex requests",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
-        "tags": [],
-        "url": "/integrate/creating-complex-requests",
-        "teaser": null
-      },{
         "title": "Data Model Overview",
         "excerpt":"The enmeshed data model can be divided into three parts: Transport types Local types Content types The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail. (note that you can click...","categories": [],
         "tags": [],
         "url": "/integrate/data-model-overview",
-        "teaser": null
-      },{
-        "title": "Delete Identity from enmeshed",
-        "excerpt":"This feature (or parts of it) and its documentation are still in development Please note that this section describes features which are currently in development, and we are actively working on enhancing your experience. Thus you could encounter unfinished APIs, incompatible changes, mistakes or bugs in below information. However, we...","categories": [],
-        "tags": [],
-        "url": "/integrate/delete-identity-from-enmeshed",
         "teaser": null
       },{
         "title": "Error Codes",
@@ -179,28 +167,10 @@ var store = [{
         "url": "/integrate/event-introduction",
         "teaser": null
       },{
-        "title": "FAQ",
-        "excerpt":"Welcome to our FAQ page! Here, you’ll find answers to the most common questions about enmeshed. If you’re looking for quick and straightforward information, you’ve come to the right place. Common questions What is enmeshed? A description of enmeshed can be found on the main page Technical Questions When I...","categories": [],
-        "tags": [],
-        "url": "/integrate/faq",
-        "teaser": null
-      },{
         "title": "Integration example",
         "excerpt":"In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization. It is not mandatory to...","categories": [],
         "tags": [],
         "url": "/integrate/integration-example",
-        "teaser": null
-      },{
-        "title": "Process received enmeshed onboarding package and create relationship",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
-        "tags": [],
-        "url": "/integrate/process-received-enmeshed-onboarding-package-and-create-relationship",
-        "teaser": null
-      },{
-        "title": "Process responses to outgoing requests",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
-        "tags": [],
-        "url": "/integrate/process-responses-to-outgoing-requests",
         "teaser": null
       },{
         "title": "Propose Attribute to peer",
@@ -215,12 +185,6 @@ var store = [{
         "url": "/integrate/read-attribute-from-peer",
         "teaser": null
       },{
-        "title": "Request and process attributes by messages",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
-        "tags": [],
-        "url": "/integrate/request-and-process-attributes-by-messages",
-        "teaser": null
-      },{
         "title": "Request and Response introduction",
         "excerpt":"Requests are the main instrument in enmeshed to interact with other Identities. They enable various business processes, e.g. creating, sharing or receiving Attributes, asking a peer for authentication or consent, and much more. Also, parts of a vaster business process can be implemented with them, like querying all personal information...","categories": [],
         "tags": [],
@@ -231,12 +195,6 @@ var store = [{
         "excerpt":"Here is an explanation of how to obtain a person’s persistent consent on a particular topic To request an accept/reject decision from a peer to a free text, the ConsentRequestItem is used. Represents the consent of a person to a specific topic. If you want to obtain a consent, you...","categories": [],
         "tags": [],
         "url": "/integrate/request-persistent-consent-of-peer",
-        "teaser": null
-      },{
-        "title": "Requesting authentication",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
-        "tags": [],
-        "url": "/integrate/requesting-authentication",
         "teaser": null
       },{
         "title": "Requesting one-time consents",
@@ -263,18 +221,6 @@ var store = [{
         "url": "/integrate/requests-over-templates",
         "teaser": null
       },{
-        "title": "Respond to incoming requests",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
-        "tags": [],
-        "url": "/integrate/respond-to-incoming-requests",
-        "teaser": null
-      },{
-        "title": "Sending Messages with attachments",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
-        "tags": [],
-        "url": "/integrate/sending-messages-with-attachments",
-        "teaser": null
-      },{
         "title": "Sending Messages",
         "excerpt":"The Connector can send and receive messages with attachments using REST requests and file IDs, which are first uploaded and encrypted on the Platform. Messages can be queried and downloaded, and the Connector pulls for new messages periodically. In order to send messages to recipients, a REST request can be...","categories": [],
         "tags": [],
@@ -287,22 +233,10 @@ var store = [{
         "url": "/integrate/share-own-attribute-to-peer",
         "teaser": null
       },{
-        "title": "Succeed attribute of peer",
-        "excerpt":"This feature (or parts of it) and its documentation are still in development Please note that this section describes features which are currently in development, and we are actively working on enhancing your experience. Thus you could encounter unfinished APIs, incompatible changes, mistakes or bugs in below information. However, we...","categories": [],
+        "title": "Succeeding Attributes to update their values",
+        "excerpt":"The way enmeshed handles updates to your personal data is by succeeding old Attributes with new ones. Instead of simply replacing old data, a completely new Attribute is created which succeeds its predecessor. Thus, you and your peers are provided with a coherent history of all past versions. How the...","categories": [],
         "tags": [],
-        "url": "/integrate/succeed-attribute-of-peer",
-        "teaser": null
-      },{
-        "title": "Support",
-        "excerpt":"For assisted support with the Connector or the Backbone provided by the j&amp;s-soft GmbH contact us via support[at]enmeshed.eu. Community support is a great way to get help and even contribute to the projects. Open bug reports and feature requests in the enmeshed issue tracker or share your feedback with the...","categories": [],
-        "tags": [],
-        "url": "/integrate/support",
-        "teaser": null
-      },{
-        "title": "Updating IdentityAttributes of yourself",
-        "excerpt":"This feature (or parts of it) and its documentation are still in development Please note that this section describes features which are currently in development, and we are actively working on enhancing your experience. Thus you could encounter unfinished APIs, incompatible changes, mistakes or bugs in below information. However, we...","categories": [],
-        "tags": [],
-        "url": "/integrate/updating-identityattributes-of-yourself",
+        "url": "/integrate/succeeding-attributes-to-update-their-values",
         "teaser": null
       },{
         "title": "Use Cases",
@@ -389,70 +323,16 @@ var store = [{
         "url": "/use",
         "teaser": null
       },{
-        "title": "Create an Identity",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
-        "tags": [],
-        "url": "/use/create-an-identity",
-        "teaser": null
-      },{
-        "title": "Delete Identity from enmeshed",
-        "excerpt":"This feature (or parts of it) and its documentation are still in development Please note that this section describes features which are currently in development, and we are actively working on enhancing your experience. Thus you could encounter unfinished APIs, incompatible changes, mistakes or bugs in below information. However, we...","categories": [],
-        "tags": [],
-        "url": "/use/delete-identity-from-enmeshed",
-        "teaser": null
-      },{
-        "title": "Delete Profile from the App",
-        "excerpt":"This feature (or parts of it) and its documentation are still in development Please note that this section describes features which are currently in development, and we are actively working on enhancing your experience. Thus you could encounter unfinished APIs, incompatible changes, mistakes or bugs in below information. However, we...","categories": [],
-        "tags": [],
-        "url": "/use/delete-profile-from-the-app",
-        "teaser": null
-      },{
-        "title": "Get overview of your data",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
-        "tags": [],
-        "url": "/use/get-overview-of-your-data",
-        "teaser": null
-      },{
         "title": "Install the App",
         "excerpt":"Caution: As enmeshed is open-source and the App is a white-label component, there are several flavors of the enmeshed App in the corresponding app stores. Enmeshed App You can get the enmeshed App over your favorite app stores. Please find the links below: Enmeshed App on Apple AppStore Enmeshed App...","categories": [],
         "tags": [],
         "url": "/use/install-the-app",
         "teaser": null
       },{
-        "title": "Manually fill Attributes of your Identity",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
-        "tags": [],
-        "url": "/use/manually-fill-attributes-of-your-identity",
-        "teaser": null
-      },{
-        "title": "Process received enmeshed onboarding package and create relationship",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
-        "tags": [],
-        "url": "/use/process-received-enmeshed-onboarding-package-and-create-relationship",
-        "teaser": null
-      },{
-        "title": "Process requests of contact",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
-        "tags": [],
-        "url": "/use/process-requests-of-contact",
-        "teaser": null
-      },{
-        "title": "Rename Profile to distinguish multiple Profiles",
-        "excerpt":"This section is a pre-release Please note that this section of our documentation is currently under construction, and we are actively working on enhancing your experience. Thus you could encounter typos, mistakes, or bugs in below information. However, we would like you to receive the most up-to-date information as soon...","categories": [],
-        "tags": [],
-        "url": "/use/rename-profile-to-distinguish-multiple-profiles",
-        "teaser": null
-      },{
         "title": "Secure device setup",
         "excerpt":"We’ve summarized some tips for end-user device usage on this site. A great resource for more in-depth information about those tips is the website of the Federal Office for Information Security (BSI, Bundesamt für Sicherheit in der Informationstechnik). We do not know every security guideline and tip out there, so...","categories": [],
         "tags": [],
         "url": "/use/secure-device-setup",
-        "teaser": null
-      },{
-        "title": "Send prefabricated request to contact",
-        "excerpt":"This feature (or parts of it) and its documentation are still in development Please note that this section describes features which are currently in development, and we are actively working on enhancing your experience. Thus you could encounter unfinished APIs, incompatible changes, mistakes or bugs in below information. However, we...","categories": [],
-        "tags": [],
-        "url": "/use/send-prefabricated-request-to-contact",
         "teaser": null
       },{
         "title": "Load Token by id and key (without having an account)",
@@ -491,22 +371,28 @@ var store = [{
         "url": "/use-case-consumption-check-if-outgoing-request-can-be-created",
         "teaser": null
       },{
+        "title": "Create a RepositoryAttribute",
+        "excerpt":"This use-case is intended to create a RepositoryAttribute, i.e. an unshared LocalAttribute based on a given IdentityAttribute. Parameters The content for the LocalAttribute that ought to be created as IdentityAttribute without the owner property, since it is automatically set to your Address On Success A LocalAttribute is created according to...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-create-a-repositoryattribute",
+        "teaser": null
+      },{
         "title": "Create a shared Attribute copy",
         "excerpt":"Be advised that this is a Runtime-internal use-case which is automatically used by the module system. You should not call this use-case without having good reason. This use-case is intended to create a copy of a LocalAttribute with the intent to share it. The copy references the original LocalAttribute. Parameters...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-create-a-shared-attribute-copy",
         "teaser": null
       },{
-        "title": "Create an Attribute",
-        "excerpt":"   This use-case is intended to create a LocalAttribute based on a given Attribute.   Parameters      The content for the to be created LocalAttribute as Attribute   On Success      A LocalAttribute is created according to the parameters and returned.   On Failure      The Attribute cannot be created if the parameter is malformed.   ","categories": [],
-        "tags": [],
-        "url": "/use-case-consumption-create-an-attribute",
-        "teaser": null
-      },{
         "title": "Create and complete outgoing Request from Relationship Template Response",
         "excerpt":"Be advised that this is a Runtime-internal use-case which is automatically used by the module system. You should not call this use-case without having good reason. This use-case is intended to create and instantly complete an outgoing Request which was shared by a RelationshipTemplate and the Response has been received...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-create-and-complete-outgoing-request-from-relationship-template-response",
+        "teaser": null
+      },{
+        "title": "Create and share a RelationshipAttribute",
+        "excerpt":"RelationshipAttributes are always associated with a Relationship between two Identities. Consequently, in contrast to IdentityAttributes, there cannot be unshared RelationshipAttributes. Instead, you and your peer will always each have a LocalAttribute with the same RelationshipAttribute as content and which only differs in the shareInfo.peer property. Thus, wanting to create a...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-create-and-share-a-relationshipattribute",
         "teaser": null
       },{
         "title": "Create outgoing Request",
@@ -575,6 +461,24 @@ var store = [{
         "url": "/use-case-consumption-get-outgoing-request",
         "teaser": null
       },{
+        "title": "Get shared versions of a RepositoryAttribute",
+        "excerpt":"This use-case allows you to retrieve a list of own shared IdentityAttributes for a specified RepositoryAttribute. Parameters The attributeId belonging to a RepositoryAttribute you would like to know all shared versions of Optionally the returned LocalAttributes can be limited to those shared with specific peers. onlyLatestVersions omits succeeded versions; by...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-get-shared-versions-of-a-repositoryattribute",
+        "teaser": null
+      },{
+        "title": "Get versions of an attribute",
+        "excerpt":"Succeeding an Attribute allows you to update its content, while keeping all versions for a coherent history. This use-case allows you to retrieve a list of all those versions of the succession chain for a specified LocalAttribute. Parameters The attributeId belonging to a LocalAttribute you would like to know all...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-get-versions-of-an-attribute",
+        "teaser": null
+      },{
+        "title": "Notify peer about RepositoryAttribute succession",
+        "excerpt":"If you succeeded a RepositoryAttribute, whose previous version you shared with a peer, you can decide to inform the peer about the succession. If you do so, the peer will receive a Notification via Message, which handles the succession of their peer shared IdentityAttribute. Also, the associated own shared IdentityAttribute...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-notify-peer-about-repositoryattribute-succession",
+        "teaser": null
+      },{
         "title": "Query AttributeListeners",
         "excerpt":"   This use-case is intended to query all Attribute Listeners based on a query.   Parameter      The query optionally describes the searched Attribute Listeners. If no query is given all Attribute Listeners are returned.   On Success      Returns a list of LocalAttributeListeners that match the query.   On Failure      The parameters are malformed.   ","categories": [],
         "tags": [],
@@ -603,6 +507,24 @@ var store = [{
         "excerpt":"This use-case attempts to reject an incoming LocalRequest. It is advised to check if the incoming Request can be accepted in advance. Parameters The id of the incoming LocalRequest. The decision for each individual RequestItem expressed as the appropriate Parameters defined in the Data Model. On Success All RequestItems of...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-reject-incoming-request",
+        "teaser": null
+      },{
+        "title": "Share a RepositoryAttribute",
+        "excerpt":"If you wish to share one of your private IdentityAttributes, called RepositoryAttributes, with a peer, this use-case allows you to do so. Internally, a Request with a ShareAttributeRequestItem will be created and will be sent via Message to the peer. Assuming your peer accepts the Request, at their side a...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-share-a-repositoryattribute",
+        "teaser": null
+      },{
+        "title": "Succeed a RelationshipAttribute and notify peer",
+        "excerpt":"This use-case allows the owner to update a RelationshipAttribute, while automatically handling the coherent versioning at both your and your peer&#8217;s side. Succeeding an own RelationshipAttribute, a new LocalAttribute with the updated content will be created at your side. In its succeeds property it links to the predecessing version, which...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-succeed-a-relationshipattribute-and-notify-peer",
+        "teaser": null
+      },{
+        "title": "Succeed a RepositoryAttribute",
+        "excerpt":"If the value of a RepositoryAttribute changes, this can be replicated in enmeshed with this use-case. It allows you to update the content and keeps a coherent history of all versions by establishing a doubly linked list, using the LocalAttribute&#8217;s parameters succeeds and succeededBy. Hence, every LocalAttribute may have exactly...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-succeed-a-repositoryattribute",
         "teaser": null
       },{
         "title": "DELETE REST Endpoint",
