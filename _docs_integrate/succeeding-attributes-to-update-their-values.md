@@ -16,6 +16,7 @@ properties:
   - documentation status: DONE
   - published:
   - link: integrate/succeeding-attributes-to-update-their-values
+redirect_from: /integrate/updating-identityattributes-of-yourself
 require:
 required_by:
 ---

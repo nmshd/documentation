@@ -31,7 +31,7 @@ properties:
   - api_route_regex: post /api/v2/Attributes
   - published: default
   - link: consumption/create-a-repositoryattribute
-  - redirect_from: /use-case-consumption-create-an-attribute
+redirect_from: /use-case-consumption-create-an-attribute
 require:
 required_by:
 api_route_regex: ^post /api/v2/Attributes$
