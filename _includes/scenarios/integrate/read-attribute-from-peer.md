@@ -66,7 +66,7 @@ We now consider the case that the Sender has an active Relationship established 
       "query": {
         "@type": "RelationshipAttributeQuery",
         "key": "<key of RelationshipAttribute>",
-        "owner": "<Address of Recipient>",
+        "owner": "",
         "attributeCreationHints": {
           "title": "<title of RelationshipAttribute>",
           "valueType": "ProprietaryString",
@@ -78,7 +78,7 @@ We now consider the case that the Sender has an active Relationship established 
 }
 ```
 
-Note that the `<...>` notation is used as a placeholder for the actual data as usual. Further details on the purposes for which you can use a RelationshipAttributeQuery can be found in the table of the [Combinations and usage scenarios of the ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#combinations-and-usage-scenarios-of-readattributerequestitem). For information on using the ThirdPartyRelationshipAttributeQuery, you should also refer to this table.
+Note that the `<...>` notation is used as a placeholder for the actual data as usual and that an empty string must be specified as the value for the `owner` property of the [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) if the Sender wants the requested RelationshipAttribute to be owned by the Recipient. Further details on the purposes for which you can use a RelationshipAttributeQuery can be found in the table of the [Combinations and usage scenarios of the ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#combinations-and-usage-scenarios-of-readattributerequestitem). For information on using the ThirdPartyRelationshipAttributeQuery, you should also refer to this table.
 
 ### Read multiple Attributes
 
