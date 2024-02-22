@@ -18,7 +18,7 @@ properties:
   - link: integrate/identityattribute-introduction
 require:
 required_by:
-  - integrate/create-own-identityattribute
+  - integrate/create-attribute-for-yourself
 ---
 
 {% include scenarios/integrate/identityattribute-introduction.md %}
