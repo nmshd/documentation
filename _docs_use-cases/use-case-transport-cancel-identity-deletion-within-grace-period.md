@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published:
   - link: transport/cancel-identity-deletion-within-grace-period
+  - redirect_from:
 require:
 required_by:
 ---

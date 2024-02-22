@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published:
   - link: transport/remove-profile-from-device
+  - redirect_from:
 require:
 required_by:
 ---

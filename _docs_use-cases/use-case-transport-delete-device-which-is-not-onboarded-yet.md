@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: transport/delete-device-which-is-not-onboarded-yet
+  - redirect_from:
 require:
 required_by:
 ---

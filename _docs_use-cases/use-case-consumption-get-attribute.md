@@ -14,7 +14,7 @@ properties:
   - facade: AttributesFacade
   - function: getAttribute
   - description: Fetches the attribute with the given 'id'.
-  - feature category: Normalized attributes
+  - feature category: Cross-identity attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
@@ -31,6 +31,7 @@ properties:
   - api_route_regex: get /api/v2/Attributes/{id}
   - published: default
   - link: consumption/get-attribute
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^get /api/v2/Attributes/{id}$

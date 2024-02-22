@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: device/create-profile-with-new-identity
+  - redirect_from:
 require:
 required_by:
 ---

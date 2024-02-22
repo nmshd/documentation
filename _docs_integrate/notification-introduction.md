@@ -6,7 +6,7 @@ title: "Notification introduction"
 type: scenario
 toc: true
 properties:
-  - id: SC102
+  - id: SC106
   - category: Working with Notifications
   - description:
   - customer: All

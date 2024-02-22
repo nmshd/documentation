@@ -31,6 +31,7 @@ properties:
   - api_route_regex: post /api/v2/Attributes/executeThirdpartyAttributeQuery
   - published: default
   - link: consumption/execute-a-thirdpartyattributequery
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^post /api/v2/Attributes/executeThirdpartyAttributeQuery$

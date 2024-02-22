@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published:
   - link: consumption/get-mail
+  - redirect_from:
 require:
 required_by:
 ---

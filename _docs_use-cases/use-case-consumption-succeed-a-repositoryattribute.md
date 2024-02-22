@@ -1,24 +1,24 @@
 ---
-permalink: /use-case-consumption-update-attribute
-published: false
-title: "Update Attribute"
+permalink: /use-case-consumption-succeed-a-repositoryattribute
+published: true
+title: "Succeed a RepositoryAttribute"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate Enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA12
+  - id: RA11
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: updateAttribute
+  - function: succeedRepositoryAttribute
   - description:
-  - feature category: Normalized attributes
+  - feature category: Cross-identity attribute sharing
   - tech category: Attributes
-  - status: CHANGES REQUIRED
+  - status:
   - documentation status:
-  - comments: Will be removed
+  - comments:
   - actor: Identity
   - trigger:
   - precondition:
@@ -30,9 +30,10 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: consumption/update-attribute
+  - link: consumption/succeed-a-repositoryattribute
+  - redirect_from:
 require:
 required_by:
 ---
 
-{% include use-cases/use-case-consumption-update-attribute.md %}
+{% include use-cases/use-case-consumption-succeed-a-repositoryattribute.md %}

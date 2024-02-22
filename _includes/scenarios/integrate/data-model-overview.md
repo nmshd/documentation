@@ -103,25 +103,28 @@ Note that RelationshipChangeRequest and RelationshipChangeResponse have nothing 
 
 ## Message
 
-A Message is a piece of data that can be sent to one or more recipients. The sender is completely free in what the content of the Message looks like. Though in order to enable a normalized communication, enmeshed defines some content structures for Messages, and in the future there will be more of those. Consider that the enmeshed App only supports those normalized Message contents. Currently there are:
+A Message is a piece of data that can be sent to one or more recipients. The sender is completely free in what the content of the Message looks like. Though in order to enable a normalized communication, enmeshed defines some `content` structures for Messages, and in the future there will be more of those. Consider that the enmeshed App only supports Messages with such a normalized `content`. Currently there are:
 
 - [`Mail`](#mail)
 - [`Request`](#request)
 - [`ResponseWrapper`](#responsewrapper)
+- [`Notification`](#notification)
 
 You can read more details about each of these in the corresponding sections of the "Content Types" chapter.
 
-But if you are communicating with another Connector, feel free to settle on any content structure that fits your needs.
+But if you are communicating with another Connector, feel free to settle on any `content` structure that fits your needs.
 
-| Name            | Type                          | Description                                                                                                                                                                                                                                               | Remarks                                       |
-| --------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| id              | `string`                      | {% include descr_id class="Message" prefix="MSG" %}                                                                                                                                                                                                       |                                               |
-| content         | `unknown`                     | The content of the Message. You can add whatever you want here. However, if it is intended for a User of the enmeshed App, use either `Mail`, `Request` or `Response`. Otherwise feel free to insert whatever you want or need.                           | will be encrypted before sent to the Backbone |
-| createdBy       | `string`                      | {% include descr_createdBy class="Message" %}                                                                                                                                                                                                             |                                               |
-| createdByDevice | `string`                      | {% include descr_createdByDevice class="Message" %}                                                                                                                                                                                                       |                                               |
-| recipients      | [`Recipient`](#recipient)`[]` | An array of recipients of this Message.                                                                                                                                                                                                                   |                                               |
-| createdAt       | `string`                      | {% include descr_createdAt class="Message" %}                                                                                                                                                                                                             |                                               |
-| attachments     | `string[]`                    | An array of [File](#file) IDs you want to attach to your Message. You receive the File ID after you uploaded a file to the Backbone. By attaching a File to a Message, you share the secret key used to encrypt/decrypt the File, which cannot be undone. |                                               |
+| Name            | Type                          | Description                                                                                                                                                                                                                                                                            | Remarks                                       |
+| --------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| id              | `string`                      | {% include descr_id class="Message" prefix="MSG" %}                                                                                                                                                                                                                                    |                                               |
+| content         | `unknown`                     | The content of the Message. You can add whatever you want here. However, if it is intended for a User of the enmeshed App, use either `Mail`, `Request`, `Response` or `Notification`. Otherwise feel free to insert whatever you want or need.                                        | will be encrypted before sent to the Backbone |
+| createdBy       | `string`                      | {% include descr_createdBy class="Message" %}                                                                                                                                                                                                                                          |                                               |
+| createdByDevice | `string`                      | {% include descr_createdByDevice class="Message" %}                                                                                                                                                                                                                                    |                                               |
+| recipients      | [`Recipient`](#recipient)`[]` | An array of recipients of this Message.                                                                                                                                                                                                                                                |                                               |
+| createdAt       | `string`                      | {% include descr_createdAt class="Message" %}                                                                                                                                                                                                                                          |                                               |
+| attachments     | `string[]`                    | An array of [File](#file) IDs you want to attach to your Message. You receive the File ID after you uploaded a file to the Backbone. By attaching a File to a Message, you share the secret key used to encrypt/decrypt the File, which cannot be undone.                              |                                               |
+| isOwn           | `boolean`                     | Indicates whether you are the sender (`true`) or recipient (`false`) of the Message.                                                                                                                                                                                                   |                                               |
+| wasReadAt       | `string` \| `undefined`       | A timestamp indicating when the Message was firstly read. If a Message is marked as unread, this will be `undefined`. If a Message is read again, after having marked it as unread, the timestamp is updated. However, if a Message marked as read is read again, it won't be updated. |                                               |
 
 ### Recipient
 
@@ -282,11 +285,17 @@ With the information in this type you can clearly identify the Transport object 
 
 ## LocalAttribute
 
-A LocalAttribute contains the local metadata for an [Attribute](#attributes). There are three situations a LocalAttribute is created in the database:
+A LocalAttribute contains the local metadata for an [Attribute](#attributes). In the context of [IdentityAttributes](#identityattribute), there are three situations a LocalAttribute is created in the database:
 
-- The Identity maintains an Attribute about itself (e.g. sets its first name). We call such a LocalAttribute "RepositoryAttribute".
-- The Identity shares an Attribute of itself with another Identity (e.g. sends it in a Request). In that case, a _copy of the original LocalAttribute_ is created, where the `shareInfo` property is set.
-- The Identity receives an Attribute from another Identity (e.g. receives it in a Request). In that case a _new LocalAttribute_ is created, where the `shareInfo` is set.
+- The Identity maintains an Attribute about itself (e.g. sets its first name). We call such an unshared LocalAttribute "RepositoryAttribute". Its `shareInfo` property is undefined.
+- The Identity shares an Attribute of itself with another Identity (e.g. sends it in a Request). In that case, a _copy of the original LocalAttribute_ is created, where the `shareInfo` property is set. We call this LocalAttribute an "own shared IdentityAttribute".
+- The Identity receives an Attribute from another Identity (e.g. receives it in a Request). In that case a _new LocalAttribute_ is created, where the `shareInfo` is set. We call this LocalAttribute a "peer shared IdentityAttribute".
+
+In contrast, [RelationshipAttributes](#relationshipattribute) always exist in the context of a [Relationship](#relationship).
+Thus, it is not possible for an Identity to have an unshared RelationshipAttribute.
+
+- We refer to the LocalAttribute of the owner as "own shared RelationshipAttribute".
+- The peer’s LocalAttribute we referred to as "peer shared RelationshipAttribute".
 
 | Name        | Type                                                                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ----------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

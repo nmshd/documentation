@@ -14,7 +14,7 @@ properties:
   - facade: AttributesFacade
   - function: deleteAttribute
   - description:
-  - feature category: Normalized attributes
+  - feature category: Cross-identity attribute sharing
   - tech category: Attributes
   - status: QUESTIONS
   - documentation status:
@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: consumption/delete-attribute
+  - redirect_from:
 require:
 required_by:
 ---

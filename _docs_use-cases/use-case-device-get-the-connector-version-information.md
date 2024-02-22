@@ -31,6 +31,7 @@ properties:
   - api_route_regex: GET /Monitoring/Version
   - published: default
   - link: device/get-the-connector-version-information
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^GET /Monitoring/Version$

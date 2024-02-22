@@ -31,6 +31,7 @@ properties:
   - api_route_regex: post /api/v2/Requests/Outgoing/Validate
   - published: default
   - link: consumption/check-if-outgoing-request-can-be-created
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^post /api/v2/Requests/Outgoing/Validate$

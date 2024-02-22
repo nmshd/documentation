@@ -12,7 +12,7 @@ properties:
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: getSharedToPeerAttributes
+  - function: getOwnSharedAttributes
   - description:
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
@@ -31,6 +31,7 @@ properties:
   - api_route_regex: GET /api/v2/Attributes
   - published: default
   - link: consumption/get-attributes-shared-to-peer
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^GET /api/v2/Attributes$

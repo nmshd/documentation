@@ -31,6 +31,7 @@ properties:
   - api_route_regex: GET /api/v2/Messages
   - published: default
   - link: transport/query-messages
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^GET /api/v2/Messages$

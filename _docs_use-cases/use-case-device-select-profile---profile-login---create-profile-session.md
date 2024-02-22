@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: device/select-profile-/-profile-login-/-create-profile-session
+  - redirect_from:
 require:
 required_by:
 ---

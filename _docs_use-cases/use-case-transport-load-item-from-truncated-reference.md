@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: transport/load-item-from-truncated-reference
+  - redirect_from:
 require:
 required_by:
 ---

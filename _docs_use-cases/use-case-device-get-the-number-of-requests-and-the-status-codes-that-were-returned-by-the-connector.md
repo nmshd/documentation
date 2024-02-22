@@ -31,6 +31,7 @@ properties:
   - api_route_regex: GET /Monitoring/Requests
   - published: default
   - link: device/get-the-number-of-requests-and-the-status-codes-that-were-returned-by-the-connector
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^GET /Monitoring/Requests$

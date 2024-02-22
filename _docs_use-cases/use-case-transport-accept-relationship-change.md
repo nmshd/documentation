@@ -31,6 +31,7 @@ properties:
   - api_route_regex: PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept
   - published: default
   - link: transport/accept-relationship-change
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept$

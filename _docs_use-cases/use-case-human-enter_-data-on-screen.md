@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: human/enter-data-on-screen
+  - redirect_from:
 require:
 required_by:
 ---

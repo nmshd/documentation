@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: transport/get-currently-used-device
+  - redirect_from:
 require:
 required_by:
 ---

@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: device/rename-profile
+  - redirect_from:
 require:
 required_by:
 ---

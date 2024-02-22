@@ -31,6 +31,7 @@ properties:
   - api_route_regex: post /api/v2/Attributes/ExecuteRelationshipAttributeQuery
   - published: default
   - link: consumption/execute-a-relationshipattributequery
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^post /api/v2/Attributes/ExecuteRelationshipAttributeQuery$

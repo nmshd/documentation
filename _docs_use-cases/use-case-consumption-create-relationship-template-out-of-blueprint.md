@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published:
   - link: consumption/create-relationship-template-out-of-blueprint
+  - redirect_from:
 require:
 required_by:
 ---

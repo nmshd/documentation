@@ -31,6 +31,7 @@ properties:
   - api_route_regex: GET /api/v2/RelationshipTemplates
   - published: default
   - link: transport/query-relationship-templates
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^GET /api/v2/RelationshipTemplates$

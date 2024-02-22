@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: anonymous/load-token-by-id-and-key-without-having-an-account
+  - redirect_from:
 require:
 required_by:
 ---

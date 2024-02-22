@@ -31,6 +31,7 @@ properties:
   - api_route_regex:
   - published: default
   - link: transport/enable-automated-datawallet-synchronization-with-backbone
+  - redirect_from:
 require:
 required_by:
 ---

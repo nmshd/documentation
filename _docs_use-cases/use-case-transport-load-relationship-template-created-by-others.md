@@ -31,6 +31,7 @@ properties:
   - api_route_regex: POST /api/v2/RelationshipTemplates/Peer
   - published: default
   - link: transport/load-relationship-template-created-by-others
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^POST /api/v2/RelationshipTemplates/Peer$

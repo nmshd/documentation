@@ -31,6 +31,7 @@ properties:
   - api_route_regex: get /api/v2/Attributes
   - published: default
   - link: consumption/query-attributes
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^get /api/v2/Attributes$

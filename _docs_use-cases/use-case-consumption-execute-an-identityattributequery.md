@@ -31,6 +31,7 @@ properties:
   - api_route_regex: post /api/v2/Attributes/ExecuteIdentityAttributeQuery
   - published: default
   - link: consumption/execute-an-identityattributequery
+  - redirect_from:
 require:
 required_by:
 api_route_regex: ^post /api/v2/Attributes/ExecuteIdentityAttributeQuery$
