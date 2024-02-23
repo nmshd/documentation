@@ -37,24 +37,24 @@ As you can see from the diagram below, after you have entered the input values t
 
 ### Example of creating a simple IdentityAttribute
 
-An example of a simple IdentityAttribute is one of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname). If you want to create it without specifying optional parameters, you must use the following `content`:
+An example of a simple IdentityAttribute is one of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname). To create one for your own Connector without specifying optional parameters, the following `content` must be used:
 
 ```jsonc
 {
   "content": {
     "value": {
       "@type": "DisplayName",
-      "value": "<display name of your Connector>"
+      "value": "<display name of your own Connector>"
     }
   }
 }
 ```
 
-Assuming that the input value for the Connector's display name specified in the `value.value` property meets the [validation criterion]({% link _docs_integrate/attribute-values.md %}#displayname), which means that the entered name is not more than 100 characters long, the IdentityAttribute is saved as a LocalAttribute and a success response is sent.
+Assuming that the input value for the Connector's display name specified in the `value.value` property meets the [validation criterion]({% link _docs_integrate/attribute-values.md %}#displayname), which means that the entered name is not more than 100 characters long, the IdentityAttribute is saved as a RepositoryAttribute and a success response is sent.
 
 ### Example of creating a complex IdentityAttribute
 
-An example of a complex IdentityAttribute is one of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate). If you want to create it without specifying optional parameters, you must use the following `content`:
+An example of a complex IdentityAttribute is one of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate). To create one for your own Connector without specifying optional parameters, the following `content` must be used:
 
 ```jsonc
 {
@@ -69,10 +69,10 @@ An example of a complex IdentityAttribute is one of type [BirthDate]({% link _do
 }
 ```
 
-Assuming that the input values ​​for the properties `value.day`, `value.month` and `value.year` meet the [validation criteria]({% link _docs_integrate/attribute-values.md %}#birthdate), which means, for example, that the input value for `value.month` is an integer between 1 and 12, the IdentityAttribute is saved as a LocalAttribute. The components `value.day`, `value.month` and `value.year` can each be understood as an additional simple IdentityAttribute of type [BirthDay]({% link _docs_integrate/attribute-values.md %}#birthday), [BirthMonth]({% link _docs_integrate/attribute-values.md %}#birthmonth) and [BirthYear]({% link _docs_integrate/attribute-values.md %}#birthyear), respectively. For this reason, another LocalAttribute is created internally for each of these components before a success response is sent.
+Assuming that the input values ​​for the properties `value.day`, `value.month` and `value.year` meet the [validation criteria]({% link _docs_integrate/attribute-values.md %}#birthdate), which means, for example, that the input value for `value.month` is an integer between 1 and 12, the IdentityAttribute is saved as a RepositoryAttribute. The components `value.day`, `value.month` and `value.year` can each be understood as an additional simple IdentityAttribute of type [BirthDay]({% link _docs_integrate/attribute-values.md %}#birthday), [BirthMonth]({% link _docs_integrate/attribute-values.md %}#birthmonth) and [BirthYear]({% link _docs_integrate/attribute-values.md %}#birthyear), respectively. For this reason, another RepositoryAttribute is created internally for each of these components before a success response is sent.
 
 ### Success response
 
-When you have successfully created an IdentityAttribute for your Connector, you will receive a success response. From the result, you can get the `id` of the corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) belonging to the IdentityAttribute. You will need this `id`, for example, if you want to share the IdentityAttribute with other Identities later, as in the [Integration Example]({% link _docs_integrate/integration-example.md %}).
+When you have successfully created an IdentityAttribute for your own Connector, you will receive a success response. From the result, you can get the `id` of the corresponding RepositoryAttribute belonging to the IdentityAttribute. You will need this `id`, for example, if you want to share the IdentityAttribute with other Identities later, as in the [Integration Example]({% link _docs_integrate/integration-example.md %}).
 
 ## Create a RelationshipAttribute for yourself
