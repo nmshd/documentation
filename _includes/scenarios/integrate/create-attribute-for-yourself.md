@@ -82,10 +82,26 @@ If you want to create a [RelationshipAttribute]({% link _docs_integrate/data-mod
 From a technical point of view, the creation of a RelationshipAttribute corresponds to the creation of one [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for yourself and one LocalAttribute for your peer, whereby their `content` is given by the RelationshipAttribute that is intended to be created and the `shareInfo` of both LocalAttributes contains a correspondingly suitable [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
 {: .notice--info}
 
-### Create a RelationshipAttribute with a ReadAttributeRequestitem
+### Utilization of a ReadAttributeRequestItem
 
-### Create a RelationshipAttribute with a ShareAttributeRequestitem
+Creating a RelationshipAttribute using a ReadAttributeRequestItem is suitable if...
 
-### Create a RelationshipAttribute with a CreateAttributeRequestitem
+All details on how to create a RelationshipAttribute using a ReadAttributeRequestItem can be found in the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide.
 
-### Create a RelationshipAttribute with a ProposeAttributeRequestitem
+### Utilization of a ShareAttributeRequestItem
+
+Creating a RelationshipAttribute using a ShareAttributeRequestItem is suitable if...
+
+All details on how to create a RelationshipAttribute using a ShareAttributeRequestItem can be found in the [Share own Attribute to peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}) guide.
+
+### Utilization of a CreateAttributeRequestItem
+
+Creating a RelationshipAttribute using a CreateAttributeRequestItem is suitable if...
+
+All details on how to create a RelationshipAttribute using a CreateAttributeRequestItem can be found in the [Create Attribute for peer]({% link _docs_integrate/create-attribute-for-peer.md %}) guide.
+
+### Utilization of a ProposeAttributeRequestItem
+
+Creating a RelationshipAttribute using a ProposeAttributeRequestItem is suitable if...
+
+All details on how to create a RelationshipAttribute using a ProposeAttributeRequestItem can be found in the [Propose Attribute to peer]({% link _docs_integrate/propose-attribute-to-peer.md %}) guide.
