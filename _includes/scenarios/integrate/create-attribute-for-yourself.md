@@ -77,31 +77,25 @@ When you have successfully created an IdentityAttribute for your own Connector, 
 
 ## Create a RelationshipAttribute for yourself
 
-If you want to create a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), you must proceed differently than when [creating an IdentityAttribute for yourself]({% link _docs_integrate/create-attribute-for-yourself.md %}#create-an-identityattribute-for-yourself). This is because a RelationshipAttribute can only exist in the context of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with a peer, which means that they must also agree to the creation of it. This is achieved by sending a [Request]({% link _docs_integrate/data-model-overview.md %}#request) whose `items` property contains an appropriate [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitems), which must be accepted by the peer. Depending on whether you or your peer should set the [RelationshipAttribute Value]({% link _docs_integrate/attribute-values.md %}#relationship-attributes) and depending on other factors, a [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem), [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) or [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) should be used for this.
+If you want to create a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), you must proceed differently than when [creating an IdentityAttribute for yourself]({% link _docs_integrate/create-attribute-for-yourself.md %}#create-an-identityattribute-for-yourself). This is because a RelationshipAttribute can only exist in the context of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with a peer, which means that they must also agree to the creation of it. This is achieved by sending a [Request]({% link _docs_integrate/data-model-overview.md %}#request) whose `items` property contains an appropriate [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitems), which must be accepted by the peer. Depending on whether you or your peer should set the [RelationshipAttribute Value]({% link _docs_integrate/attribute-values.md %}#relationship-attributes) and depending on other factors, a [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem), [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) or [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) should be used for this.
 
 From a technical point of view, the creation of a RelationshipAttribute corresponds to the creation of one [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for yourself and one LocalAttribute for your peer, whereby their `content` is given by the RelationshipAttribute that is intended to be created and the `shareInfo` of both LocalAttributes contains a correspondingly suitable [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
 {: .notice--info}
 
 ### Utilization of a ReadAttributeRequestItem
 
-Creating a RelationshipAttribute using a ReadAttributeRequestItem is suitable if...
-
-All details on how to create a RelationshipAttribute using a ReadAttributeRequestItem can be found in the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide.
-
-### Utilization of a ShareAttributeRequestItem
-
-Creating a RelationshipAttribute using a ShareAttributeRequestItem is suitable if...
-
-All details on how to create a RelationshipAttribute using a ShareAttributeRequestItem can be found in the [Share own Attribute to peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}) guide.
+You can use a [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) to create a RelationshipAttribute in the context of a Relationship between you and your peer if you want the RelationshipAttribute Value to be set by your peer. Even if it seems misleading to use a ReadAttributeRequestItem to create a RelationshipAttribute, this terminology makes sense insofar as the RelationshipAttribute Value is to be read from the peer in order to be able to create the RelationshipAttribute. All details on how to create a RelationshipAttribute using a ReadAttributeRequestItem can be found in the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide.
 
 ### Utilization of a CreateAttributeRequestItem
 
-Creating a RelationshipAttribute using a CreateAttributeRequestItem is suitable if...
-
-All details on how to create a RelationshipAttribute using a CreateAttributeRequestItem can be found in the [Create Attribute for peer]({% link _docs_integrate/create-attribute-for-peer.md %}) guide.
+You can use a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) to create a RelationshipAttribute in the context of a Relationship between you and your peer if you want the RelationshipAttribute Value to be set by yourself. Your peer can only accept or reject the creation of the RelationshipAttribute, but cannot modify the RelationshipAttribute Value. For full details on how to create a RelationshipAttribute using a CreateAttributeRequestItem, please refer to the [Create Attribute for peer]({% link _docs_integrate/create-attribute-for-peer.md %}) guide.
 
 ### Utilization of a ProposeAttributeRequestItem
 
-Creating a RelationshipAttribute using a ProposeAttributeRequestItem is suitable if...
+You can use a [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) to create a RelationshipAttribute in the context of a Relationship between you and your peer if you want to propose a RelationshipAttribute Value to your peer, but your peer can modify it before the RelationshipAttribute is created. A RelationshipAttribute that you want to create using a ProposeAttributeRequestItem must be owned by your peer. All details on how to create a RelationshipAttribute using a ProposeAttributeRequestItem can be found in the [Propose Attribute to peer]({% link _docs_integrate/propose-attribute-to-peer.md %}) guide.
 
-All details on how to create a RelationshipAttribute using a ProposeAttributeRequestItem can be found in the [Propose Attribute to peer]({% link _docs_integrate/propose-attribute-to-peer.md %}) guide.
+### Utilization of a ShareAttributeRequestItem
+
+Creating a RelationshipAttribute using a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) is suitable if...
+
+All details on how to create a RelationshipAttribute using a ShareAttributeRequestItem can be found in the [Share own Attribute to peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}) guide.
