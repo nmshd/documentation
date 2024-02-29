@@ -83,6 +83,10 @@ docs_integrate:
         url: /integrate/integration-example
       - title: "Event introduction"
         url: /integrate/event-introduction
+  - title: Get in touch with other Identities
+    children:
+      - title: "Establish a Relationship to another Identity"
+        url: integrate/establish-a-relationship-to-another-identity
   - title: Working with requests
     children:
       - title: "Request and Response introduction"
