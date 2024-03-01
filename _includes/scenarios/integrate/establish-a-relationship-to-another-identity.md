@@ -96,7 +96,7 @@ You have learned so far how to create a RelationshipTemplate on the Templator an
 
 ### Send it as a Connector
 
-Assuming that the Requestor in this section is another Connector, our starting situation is that the Requestor has successfully loaded the [created RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) onto itself. The received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) may or may not contain a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) in its `content` property. We now describe separately in both cases how the Requestor can use the RelationshipTemplate to send a Relationship Request to the Templator. An overview of this procedure is given in the following diagram.
+Assuming that the Requestor in this section is a Connector, our starting situation is that the Requestor has successfully loaded the [created RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) onto itself. The received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) may or may not contain a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) in its `content` property. We now describe separately in both cases how the Requestor can use the RelationshipTemplate to send a Relationship Request to the Templator. An overview of this procedure is given in the following diagram.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/5be09492-9e2c-42b1-bbb1-acd854118e2c" id="Ez1OCKfT1U40"></iframe></div>
 
@@ -114,9 +114,7 @@ It is not necessary, but you can query this Relationship by proceeding as descri
 <!--- TODO: Add link "Query Relationships" use case --->
 <!--- TODO: peerIdentity bei Relationship einfügen --->
 
-Note that it is of course also possible to reject the incoming Request, if the Requestor does not wish to establish an active Relationship to the Templator under the given conditions. In order to do this, make use of the documentation of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
-
-More detailed information about how to [reject]({% link _docs_integrate/requests-over-templates.md %}#reject) as well as how to [accept]({% link _docs_integrate/requests-over-templates.md %}#accept) an incoming Request can also be found in the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide.
+Note that it is of course also possible to reject the incoming Request, if the Requestor does not wish to establish an active Relationship to the Templator under the given conditions. In order to do this, make use of the documentation of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case. More detailed information about how to [reject]({% link _docs_integrate/requests-over-templates.md %}#reject) as well as how to [accept]({% link _docs_integrate/requests-over-templates.md %}#accept) an incoming Request can also be found in the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide.
 {: .notice--info}
 
 #### RelationshipTemplate without RelationshipTemplateContent
@@ -140,12 +138,10 @@ Saving the `id` of the Relationship and the `id` of the associated RelationshipC
 
 ### Send it as an App user
 
-As already mentioned in the description of the [input for creating a RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#input-for-creating-a-relationshiptemplate), a RelationshipTemplateContent must be used as the value of the `content` property of the RelationshipTemplate if you intend to use the RelationshipTemplate to establish a Relationship between the Templator and an App user.
+As already mentioned in the description of the [input for creating a RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#input-for-creating-a-relationshiptemplate), a RelationshipTemplateContent must be used as the value of the `content` property of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) if you intend to use the RelationshipTemplate to establish a Relationship between the Templator and an App user. Assuming that there is no Relationship between them yet, the App user receives the Request specified in the `onNewRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) after scanning the QR Code associated with the RelationshipTemplate. The App user has the option of accepting or rejecting the Request. If they accept the Request appropriately, a Relationship Request is sent to the Templator. Internally, this corresponds to the creation of a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with an associated RelationshipChange and `"Pending"` as `status`. The [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) has `"Creation"` as `type` and `"Pending"` as `status`. The `request.content.response` property of the RelationshipChange contains the Response of the App user to the Request.
 
-Please note that the general procedure is the same if the Templator wants to establish a Relationship to an App user instead of another Connector. For reasons of clarity, this guide focuses on the process of establishing a Relationship between the Templator and a Connector.
+Please note that the general procedure is the same if an App user instead of a Connector wants to send a Relationship Request to the Templator. The difference is that the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) does not need to contain a RelationshipTemplateContent in its `content` property if it is intended to be used by a Connector.
 {: .notice--info}
-
-<!--- TODO: Insert links to App scenarios and Connector scenarios --->
 
 ## Establish an active Relationship
 
@@ -168,8 +164,10 @@ For rejecting the Relationship Request and therefore not establishing an active 
 
 <!--- TODO: Rename Relationship Change use case --->
 
-Assuming the Requestor is another Connector, it must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), after the Templator has accepted the Relationship Request. The `result` of the response after synchronization shows in particular that the `status` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) has been changed from `"Pending"` to `"Active"` and that the `status` of the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) with `"Creation"` as `type` has been changed from `"Pending"` to `"Accepted"`. Now the Requestor is informed that the Templator has accepted the Relationship Request and therefore an active Relationship has been established between them.
+Assuming the Requestor is a Connector, it must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) after the Templator has accepted the Relationship Request. The `result` of the response after synchronization shows in particular that the `status` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) has been changed from `"Pending"` to `"Active"` and that the `status` of the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) with `"Creation"` as `type` has been changed from `"Pending"` to `"Accepted"`. Now the Requestor is informed that the Templator has accepted the Relationship Request and therefore an active Relationship has been established between them.
 
 ## What's next?
 
 After an active Relationship between the two Identities is established, they are able to share information with each other. For example, they can exchange Messages. How a Connector can send a Message to another Identity with which it has an active Relationship is described in the [Integration Example]({% link _docs_integrate/integration-example.md %}).
+
+<!--- TODO: Insert links to App scenarios and Connector scenarios --->
