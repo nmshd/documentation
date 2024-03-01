@@ -1,6 +1,6 @@
 ---
 permalink: /use-case-transport-query-relationships
-published: false
+published: true
 title: "Query Relationships"
 type: use-case
 toc: true

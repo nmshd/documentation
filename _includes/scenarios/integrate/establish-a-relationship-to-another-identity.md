@@ -108,10 +108,9 @@ We assume that there is no [Relationship]({% link _docs_integrate/data-model-ove
 
 The `content` of the LocalRequest is the Request specified in the `onNewRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent). This Request defines the conditions for establishing an active Relationship between the Requestor and the Templator. If the Requestor agrees to them, it can send a Relationship Request to the Templator by accepting the Request. This is done by following the instructions of the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case and providing the `id` of the Request as well as an appropriate input to build the [Response]({% link _docs_integrate/data-model-overview.md %}#response) of the Requestor to the Request. In case of success, the `status` of the LocalRequest will change from `"ManualDecisionRequired"` to `"Decided"`. The Response of the Requestor to the Request will be contained within the `response.content` property of the LocalRequest. By accepting the Request, a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with an associated RelationshipChange and `"Pending"` as `status` is created additionally. The [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) has `"Creation"` as `type` and `"Pending"` as `status`. The `request.content.response` property of the RelationshipChange contains the Response of the Requestor to the Request.
 
-It is not necessary, but you can query this Relationship by proceeding as described in the [Query Relationships] use case documentation, using the query parameter `template.id=<ID of RelationshipTemplate>`. If you decide to do this, you will receive a `result` as response from which you can read the `id` of the Relationship and the `id` of the associated RelationshipChange.
+It is not necessary, but you can query this Relationship by proceeding as described in the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case documentation, using the query parameter `template.id=<ID of RelationshipTemplate>`. If you decide to do this, you will receive a `result` as response from which you can read the `id` of the Relationship and the `id` of the associated RelationshipChange.
 {: .notice--info}
 
-<!--- TODO: Add link "Query Relationships" use case --->
 <!--- TODO: peerIdentity bei Relationship einfügen --->
 
 Note that it is of course also possible to reject the incoming Request, if the Requestor does not wish to establish an active Relationship to the Templator under the given conditions. In order to do this, make use of the documentation of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case. More detailed information about how to [reject]({% link _docs_integrate/requests-over-templates.md %}#reject) as well as how to [accept]({% link _docs_integrate/requests-over-templates.md %}#accept) an incoming Request can also be found in the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide.
@@ -133,7 +132,7 @@ We now consider the situation in which the [RelationshipTemplate]({% link _docs_
 
 Note that the `content` property is optional and can therefore be omitted. In case of success, you will receive a `result` as response, which contains the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) and in particular an associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange). The RelationshipChange has `"Creation"` as `type` and `"Pending"` as `status`. If you have specified a customized content within the `content` property of the input, it is contained within the `request.content` property of the RelationshipChange.
 
-Saving the `id` of the Relationship and the `id` of the associated RelationshipChange is useful if you want to return to the created Relationship later in order to retrace changes to the Relationship.
+Keeping the `id` of the Relationship and the `id` of the associated RelationshipChange in mind is useful if you want to return to the created Relationship later in order to retrace changes to the Relationship.
 {: .notice--info}
 
 ### Send it as an App user
@@ -169,5 +168,3 @@ Assuming the Requestor is a Connector, it must [synchronize the updates of the B
 ## What's next?
 
 After an active Relationship between the two Identities is established, they are able to share information with each other. For example, they can exchange Messages. How a Connector can send a Message to another Identity with which it has an active Relationship is described in the [Integration Example]({% link _docs_integrate/integration-example.md %}).
-
-<!--- TODO: Insert links to App scenarios and Connector scenarios --->
