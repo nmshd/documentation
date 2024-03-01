@@ -50,7 +50,9 @@ How to send a Request via a RelationshipTemplate is explained in detail in the [
 
 ### Successfully created RelationshipTemplate
 
-If you have successfully created the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) on the Templator, you will receive a success response from which you can read its `id`. Save it, so that you can refer to the RelationshipTemplate later. Also, save the values of the `truncatedReference` and `secretKey` properties so that you can make the created RelationshipTemplate available to other Identities. As the Templator is the creator of the RelationshipTemplate, the `createdBy` property contains the Address of the Templator. For this reason, the value of the `isOwn` property is set to `true` in this context.
+If you have successfully created the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) on the Templator, you will receive a success response from which you can read its `id`. As the Templator is the creator of the RelationshipTemplate, the `createdBy` property contains the Address of the Templator. For this reason, the value of the `isOwn` property is set to `true` in this context.
+
+{% include copy-notice description="Save the `id` of the RelationshipTemplate so that you can refer to it and make it available to other Identities later. For the same reason, save the values of the properties `truncatedReference` and `secretKey`." %}
 
 <!---TODO: Introduce `secretKey` property of RelationshipTemplate in Data Model Overview --->
 
@@ -100,88 +102,26 @@ Assuming that the Requestor in this section is another Connector, our starting s
 
 #### RelationshipTemplate with RelationshipTemplateContent
 
-We assume that there is no [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between the Requestor and the Templator yet and that a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) is used within the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate). In this case, the Requestor receives a new incoming [Request]({% link _docs_integrate/data-model-overview.md %}#request) after loading the associated RelationshipTemplate. This incoming Request can be queried on the Requestor by proceeding as described in the [Query incoming Requests]({% link _docs_use-cases/use-case-consumption-query-incoming-requests.md %}) use case documentation and specifying `source.reference=<ID of RelationshipTemplate>` as a query parameter. The result contains the corresponding [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest):
-
-```jsonc
-{
-  "result": [
-    {
-      "id": "<ID of Request>",
-      "isOwn": false,
-      "peer": "<Address of Templator>",
-      "createdAt": "<date of Request>",
-      "status": "ManualDecisionRequired",
-      "content": {
-        // Specified Request in "onNewRelationship" property of RelationshipTemplateContent
-        ...
-      },
-      "source": {
-        "type": "RelationshipTemplate",
-        "reference": "<ID of RelationshipTemplate>"
-      }
-    }
-  ]
-}
-```
+We assume that there is no [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between the Requestor and the Templator yet and that a RelationshipTemplateContent is used within the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate). In this case, the Requestor receives a new incoming Request after loading the RelationshipTemplate. By proceeding as described in the [Query incoming Requests]({% link _docs_use-cases/use-case-consumption-query-incoming-requests.md %}) use case documentation and specifying `source.reference=<ID of RelationshipTemplate>` as a query parameter, this Request can be queried on the Requestor. The `result` contains the corresponding [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest), from which you can read the `id` of the Request.
 
 {% include copy-notice description="Save the `id` of the incoming Request so that you can accept or reject it." %}
 
-The [Request]({% link _docs_integrate/data-model-overview.md %}#request) occuring in the `content` property defines the conditions for establishing an active Relationship between the Requestor and the Templator. If the Requestor agrees to them, it can send a Relationship Request to the Templator by accepting the incoming Request. This is done by following the instructions of the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case and providing the `id` of the incoming Request as well as an appropriate input to build the [Response]({% link _docs_integrate/data-model-overview.md %}#response) of the Requestor to the incoming Request. In case of success, the `status` of the incoming Request will change from `"ManualDecisionRequired"` to `"Decided"` and you will receive a [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) as output, which especially contains the Response of the Requestor to the incoming Request in its `response.content` property. By accepting the incoming Request, a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with an associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) and `"Pending"` as `status` is created additionally. It is not necessary, but you can query this Relationship by proceeding as described in the Query Relationships use case documentation, using the query parameter `template.id=<ID of RelationshipTemplate>`. If you decide to do this, you will receive the following result as response:
+The `content` of the LocalRequest is the Request specified in the `onNewRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent). This Request defines the conditions for establishing an active Relationship between the Requestor and the Templator. If the Requestor agrees to them, it can send a Relationship Request to the Templator by accepting the Request. This is done by following the instructions of the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case and providing the `id` of the Request as well as an appropriate input to build the [Response]({% link _docs_integrate/data-model-overview.md %}#response) of the Requestor to the Request. In case of success, the `status` of the LocalRequest will change from `"ManualDecisionRequired"` to `"Decided"`. The Response of the Requestor to the Request will be contained within the `response.content` property of the LocalRequest. By accepting the Request, a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with an associated RelationshipChange and `"Pending"` as `status` is created additionally. The [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) has `"Creation"` as `type` and `"Pending"` as `status`. The `request.content.response` property of the RelationshipChange contains the Response of the Requestor to the Request.
+
+It is not necessary, but you can query this Relationship by proceeding as described in the [Query Relationships] use case documentation, using the query parameter `template.id=<ID of RelationshipTemplate>`. If you decide to do this, you will receive a `result` as response from which you can read the `id` of the Relationship and the `id` of the associated RelationshipChange.
+{: .notice--info}
 
 <!--- TODO: Add link "Query Relationships" use case --->
+<!--- TODO: peerIdentity bei Relationship einfügen --->
 
-```jsonc
-{
-  "result": [
-    {
-      // Relationship
-      "id": "<ID of Relationship>",
-      "template": {
-        // Underlying RelationshipTemplate as described above
-        ...
-      },
-      "status": "Pending",
-      "peer": "<Address of Templator>",
-      "peerIdentity": {
-        "address": "<Address of Templator>",
-        "publicKey": "<Templator's Signature Public Key>",
-        "realm": "<Realm belonging to Templator's Address>"
-      },
-      "changes": [
-        {
-          // RelationshipChange
-          "id": "<ID of RelationshipChange>",
-          "type": "Creation",
-          "status": "Pending",
-          "request": {
-            // RelationshipChangeRequest
-            "createdBy": "<Address of Requestor>",
-            "createdByDevice": "<ID of Device used for creating RelationshipChangeRequest>",
-            "createdAt": "<creation date of RelationshipChangeRequest>",
-            "content": {
-              // RelationshipCreationChangeRequestContent
-              "@type": "RelationshipCreationChangeRequestContent",
-              "response": {
-                // Response of Requestor to incoming Request
-                ...
-              }
-            }
-          }
-        }
-      ]
-    }
-  ]
-}
-```
+Note that it is of course also possible to reject the incoming Request, if the Requestor does not wish to establish an active Relationship to the Templator under the given conditions. In order to do this, make use of the documentation of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 
-{% include copy-notice description="Saving the `id` of the Relationship and the `changes.id` of the RelationshipChange is useful if you want to return to the created Relationship later in order to retrace changes to the Relationship." %}
-
-Note that it is of course also possible to reject the incoming Request, if the Requestor does not wish to establish an active Relationship to the Templator under the given conditions. In order to do this, make use of the documentation of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case. More detailed information about how to [reject]({% link _docs_integrate/requests-over-templates.md %}#reject) as well as how to [accept]({% link _docs_integrate/requests-over-templates.md %}#accept) an incoming Request can also be found in the [Request over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide.
+More detailed information about how to [reject]({% link _docs_integrate/requests-over-templates.md %}#reject) as well as how to [accept]({% link _docs_integrate/requests-over-templates.md %}#accept) an incoming Request can also be found in the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide.
 {: .notice--info}
 
 #### RelationshipTemplate without RelationshipTemplateContent
 
-We now consider the situation in which the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) loaded onto the Requestor does not contain a RelationshipTemplateContent in its `content` property. In this case, the Requestor does not receive an incoming Request, but it can send a Relationship Request to the Templator by explicitly creating a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` based on the RelationshipTemplate. To do this, follow the instructions of the [Create Relationship with RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) use case and provide as input:
+We now consider the situation in which the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) loaded onto the Requestor does not contain a RelationshipTemplateContent in its `content` property. In this case, the Requestor does not receive an incoming Request. Nevertheless, it can send a Relationship Request to the Templator by explicitly creating a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` based on the RelationshipTemplate. To do this, follow the instructions of the [Create Relationship with RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) use case and provide as input:
 
 ```jsonc
 {
@@ -193,49 +133,10 @@ We now consider the situation in which the [RelationshipTemplate]({% link _docs_
 }
 ```
 
-Note that the `content` property is optional and can therefore be omitted. In case of success, you will receive a result as response in the following form, which in particular contains the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship):
+Note that the `content` property is optional and can therefore be omitted. In case of success, you will receive a `result` as response, which contains the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) and in particular an associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange). The RelationshipChange has `"Creation"` as `type` and `"Pending"` as `status`. If you have specified a customized content within the `content` property of the input, it is contained within the `request.content` property of the RelationshipChange.
 
-```jsonc
-{
-  "result": [
-    {
-      // Relationship
-      "id": "<ID of Relationship>",
-      "template": {
-        // Underlying RelationshipTemplate as described above
-        ...
-      },
-      "status": "Pending",
-      "peer": "<Address of Templator>",
-      "peerIdentity": {
-        "address": "<Address of Templator>",
-        "publicKey": "<Templator's Signature Public Key>",
-        "realm": "<Realm belonging to Templator's Address>"
-      },
-      "changes": [
-        {
-          // RelationshipChange
-          "id": "<ID of RelationshipChange>",
-          "type": "Creation",
-          "status": "Pending",
-          "request": {
-            // RelationshipChangeRequest
-            "createdBy": "<Address of Requestor>",
-            "createdByDevice": "<ID of Device used for creating RelationshipChangeRequest>",
-            "createdAt": "<creation date of RelationshipChangeRequest>",
-            "content": {
-                // Customized content
-                ...
-            }
-          }
-        }
-      ]
-    }
-  ]
-}
-```
-
-{% include copy-notice description="Saving the `id` of the Relationship and the `changes.id` of the RelationshipChange is useful if you want to return to the created Relationship later in order to retrace changes to the Relationship." %}
+Saving the `id` of the Relationship and the `id` of the associated RelationshipChange is useful if you want to return to the created Relationship later in order to retrace changes to the Relationship.
+{: .notice--info}
 
 ### Send it as an App user
 
@@ -254,9 +155,9 @@ After the Requestor has sent the Relationship Request, the Integrator of the Tem
 
 ### Receive the Relationship Request
 
-The Templator must first [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) in order to receive the data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` previously created by the Requestor and therefore the Relationship Request. The result of the response after synchronization contains the information about the created Relationship. In particular, the `id` of the Relationship and the `id` of the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) with `"Creation"` as `type` and `"Pending"` as `status` can be read from it.
+The Templator must first [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) in order to receive the data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` previously created by the Requestor and therefore the Relationship Request. The `result` of the response after synchronization contains the information about the created Relationship. In particular, the `id` of the Relationship and the `id` of the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) with `"Creation"` as `type` and `"Pending"` as `status` can be read from it.
 
-{% include copy-notice description="Read the `id` of the Relationship from the `relationships.id` property and the `id` of the RelationshipChange from the `relationships.changes.id` property of the synchronization result for the next step." %}
+{% include copy-notice description="Read the `id` of the Relationship from the `relationships.id` property and the `id` of the RelationshipChange from the `relationships.changes.id` property of the synchronization `result` for the next step." %}
 
 ### Accept the Relationship Request
 
@@ -265,7 +166,9 @@ If the Templator accepts the Relationship Request, the `status` of the data obje
 For rejecting the Relationship Request and therefore not establishing an active Relationship between the Templator and the Requestor, take a look at the documentation of the [Reject Relationship Change]({% link _docs_use-cases/use-case-transport-reject-relationship-change.md %}) use case.
 {: .notice--info}
 
-Assuming the Requestor is another Connector, it must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), after the Templator has accepted the Relationship Request. The result of the response after synchronization shows in particular that the `status` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) has been changed from `"Pending"` to `"Active"` and that the `status` of the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) with `"Creation"` as `type` has been changed from `"Pending"` to `"Accepted"`. Now the Requestor is informed that the Templator has accepted the Relationship Request and therefore an active Relationship has been established between them.
+<!--- TODO: Rename Relationship Change use case --->
+
+Assuming the Requestor is another Connector, it must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), after the Templator has accepted the Relationship Request. The `result` of the response after synchronization shows in particular that the `status` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) has been changed from `"Pending"` to `"Active"` and that the `status` of the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) with `"Creation"` as `type` has been changed from `"Pending"` to `"Accepted"`. Now the Requestor is informed that the Templator has accepted the Relationship Request and therefore an active Relationship has been established between them.
 
 ## What's next?
 
