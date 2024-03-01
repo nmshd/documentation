@@ -73,7 +73,7 @@ If a Connector wants to send a Relationship Request to the Templator, it must fi
 }
 ```
 
-In doing so, it is necessary to insert the value of the `truncatedReference` property read from the [RelationshipTemplate created above]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) into the `reference` property. Alternatively, it is possible to use the following input, in which the `id` and the `secretKey` obtained from the same [RelationshipTemplate created above]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) must be specified:
+In doing so, it is necessary to insert the value of the `truncatedReference` property read from the [created RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) into the `reference` property. Alternatively, it is possible to specify the `id` and the `secretKey` of the [created RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) and use the following input:
 
 ```jsonc
 {
@@ -86,7 +86,7 @@ When the RelationshipTemplate of the Templator is successfully loaded onto the C
 
 ### Make it available to an App user
 
-If an App user wants to send a Relationship Request to the Templator, the App user must first scan a QR Code that contains the reference to a RelationshipTemplate which is owned by the Templator. To create this QR Code on the Templator, proceed as described in the [Get RelationshipTemplate]({% link _docs_use-cases/use-case-transport-get-relationship-template.md %}) use case documentation, use the `id` of the [RelationshipTemplate created above]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) and specify the value `image/png` in the `Accept` header field. After scanning the QR Code, the App user receives the conditions for establishing a Relationship to the Templator as specified in the RelationshipTemplate. If these are accepted, the App user can now [send a Relationship Request]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#send-it-as-an-app-user) to the Templator.
+If an App user wants to send a Relationship Request to the Templator, the App user must first scan a QR Code that contains the reference to a RelationshipTemplate which is owned by the Templator. To create this QR Code on the Templator, proceed as described in the documentation of the [Get RelationshipTemplate]({% link _docs_use-cases/use-case-transport-get-relationship-template.md %}) use case, use the `id` of the [created RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) and specify the value `image/png` in the `Accept` header field. After scanning the QR Code, the App user receives the conditions for establishing a Relationship to the Templator as specified in the RelationshipTemplate. If these are accepted, the App user can now [send a Relationship Request]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#send-it-as-an-app-user) to the Templator.
 
 ## Send a Relationship Request
 
@@ -94,7 +94,7 @@ You have learned so far how to create a RelationshipTemplate on the Templator an
 
 ### Send it as a Connector
 
-Our starting situation is that a Connector, referred to in the following as Requestor, has successfully loaded the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) onto itself. The received RelationshipTemplate may or may not contain a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) in its `content` property. We now describe separately in both cases how the Requestor can use the RelationshipTemplate to send a Relationship Request to the Templator. An overview of this procedure is given in the following diagram.
+Assuming that the Requestor in this section is another Connector, our starting situation is that the Requestor has successfully loaded the [created RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) onto itself. The received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) may or may not contain a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) in its `content` property. We now describe separately in both cases how the Requestor can use the RelationshipTemplate to send a Relationship Request to the Templator. An overview of this procedure is given in the following diagram.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/5be09492-9e2c-42b1-bbb1-acd854118e2c" id="Ez1OCKfT1U40"></iframe></div>
 
@@ -248,26 +248,24 @@ Please note that the general procedure is the same if the Templator wants to est
 
 ## Establish an active Relationship
 
-After the Requestor has sent the Relationship Request, the Integrator of the Templator can accept it if they want to establish an active Relationship to the Requestor. We now explain all required steps for establishing an active Relationship, including the necessary synchronization of both Connectors at certain points in time. The diagram below provides a summary of the process. Please note that the synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
+After the Requestor has sent the Relationship Request, the Integrator of the Templator can accept it if they want to establish an active Relationship to the Requestor. We now explain all required steps for establishing an active Relationship, including the necessary synchronization of the Templator and any other Connector that may be involved at certain points in time. Please note that the synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/de35cc09-894e-431f-819a-33bc7363ea30" id="6y2O3PCGpyGD"></iframe></div>
 
-### Synchronization of Templator
+### Receive the Relationship Request
 
 The Templator must first [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) in order to receive the data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` previously created by the Requestor and therefore the Relationship Request. The result of the response after synchronization contains the information about the created Relationship. In particular, the `id` of the Relationship and the `id` of the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) with `"Creation"` as `type` and `"Pending"` as `status` can be read from it.
 
 {% include copy-notice description="Read the `id` of the Relationship from the `relationships.id` property and the `id` of the RelationshipChange from the `relationships.changes.id` property of the synchronization result for the next step." %}
 
-### Accept Relationship Request
+### Accept the Relationship Request
 
 If the Templator accepts the Relationship Request, the `status` of the data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) will change from `"Pending"` to `"Active"` and therefore an active Relationship between the Templator and the Requestor will be established. To do this, consult the [Accept Relationship Change]({% link _docs_use-cases/use-case-transport-accept-relationship-change.md %}) use case description and specify the `id` of the Relationship and the `id` of the RelationshipChange.
 
 For rejecting the Relationship Request and therefore not establishing an active Relationship between the Templator and the Requestor, take a look at the documentation of the [Reject Relationship Change]({% link _docs_use-cases/use-case-transport-reject-relationship-change.md %}) use case.
 {: .notice--info}
 
-### Synchronization of Requestor
-
-After the Templator has accepted the Relationship Request, the Requestor must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). The result of the response after synchronization shows in particular that the `status` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) has been changed from `"Pending"` to `"Active"` and that the `status` of the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) with `"Creation"` as `type` has been changed from `"Pending"` to `"Accepted"`. Now the Requestor is informed that the Templator has accepted the Relationship Request and therefore an active Relationship has been established between them.
+Assuming the Requestor is another Connector, it must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), after the Templator has accepted the Relationship Request. The result of the response after synchronization shows in particular that the `status` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) has been changed from `"Pending"` to `"Active"` and that the `status` of the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) with `"Creation"` as `type` has been changed from `"Pending"` to `"Accepted"`. Now the Requestor is informed that the Templator has accepted the Relationship Request and therefore an active Relationship has been established between them.
 
 ## What's next?
 
