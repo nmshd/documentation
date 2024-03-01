@@ -11,6 +11,7 @@ This use-case is intended to query outgoing [LocalRequests]({% link _docs_integr
 - `createdAt` indicates the date of LocalRequest creation.
 - The `status` of the LocalRequest.
 - The `content` describes the [Request]({% link _docs_integrate/data-model-overview.md %}#request) wrapped by the LocalRequest.
+- The `source` of the LocalRequest.
 - The `response` describes the [Response]({% link _docs_integrate/data-model-overview.md %}#response) that might exist for the Request.
 
 ## On Success
