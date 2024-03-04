@@ -54,8 +54,6 @@ If you have successfully created the [RelationshipTemplate]({% link _docs_integr
 
 {% include copy-notice description="Save the `id` of the RelationshipTemplate so that you can refer to it and make it available to other Identities later. For the same reason, save the values of the properties `truncatedReference` and `secretKey`." %}
 
-<!---TODO: Introduce `secretKey` property of RelationshipTemplate in Data Model Overview --->
-
 ## Make the RelationshipTemplate available
 
 Before an Identity can establish a Relationship to the Templator, it must send a Relationship Request using a valid [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) which is owned by the Templator. Depending on whether the Identity is a Connector or an App user, a different approach must be used to make the RelationshipTemplate available to the Identity:
@@ -111,8 +109,6 @@ The `content` of the LocalRequest is the Request specified in the `onNewRelation
 It is not necessary, but you can query this Relationship by proceeding as described in the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case documentation, using the query parameter `template.id=<ID of RelationshipTemplate>`. If you decide to do this, you will receive a `result` as response from which you can read the `id` of the Relationship and the `id` of the associated RelationshipChange.
 {: .notice--info}
 
-<!--- TODO: peerIdentity bei Relationship einfügen --->
-
 Note that it is of course also possible to reject the incoming Request, if the Requestor does not wish to establish an active Relationship to the Templator under the given conditions. In order to do this, make use of the documentation of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case. More detailed information about how to [reject]({% link _docs_integrate/requests-over-templates.md %}#reject) as well as how to [accept]({% link _docs_integrate/requests-over-templates.md %}#accept) an incoming Request can also be found in the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide.
 {: .notice--info}
 
@@ -156,12 +152,10 @@ The Templator must first [synchronize the updates of the Backbone]({% link _docs
 
 ### Accept the Relationship Request
 
-If the Templator accepts the Relationship Request, the `status` of the data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) will change from `"Pending"` to `"Active"` and therefore an active Relationship between the Templator and the Requestor will be established. To do this, consult the [Accept Relationship Change]({% link _docs_use-cases/use-case-transport-accept-relationship-change.md %}) use case description and specify the `id` of the Relationship and the `id` of the RelationshipChange.
+If the Templator accepts the Relationship Request, the `status` of the data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) will change from `"Pending"` to `"Active"` and therefore an active Relationship between the Templator and the Requestor will be established. To do this, consult the [Accept RelationshipChange]({% link _docs_use-cases/use-case-transport-accept-relationship-change.md %}) use case description and specify the `id` of the Relationship and the `id` of the RelationshipChange.
 
-For rejecting the Relationship Request and therefore not establishing an active Relationship between the Templator and the Requestor, take a look at the documentation of the [Reject Relationship Change]({% link _docs_use-cases/use-case-transport-reject-relationship-change.md %}) use case.
+For rejecting the Relationship Request and therefore not establishing an active Relationship between the Templator and the Requestor, take a look at the documentation of the [Reject RelationshipChange]({% link _docs_use-cases/use-case-transport-reject-relationship-change.md %}) use case.
 {: .notice--info}
-
-<!--- TODO: Rename Relationship Change use case --->
 
 Assuming the Requestor is a Connector, it must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) after the Templator has accepted the Relationship Request. The `result` of the response after synchronization shows in particular that the `status` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) has been changed from `"Pending"` to `"Active"` and that the `status` of the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) with `"Creation"` as `type` has been changed from `"Pending"` to `"Accepted"`. Now the Requestor is informed that the Templator has accepted the Relationship Request and therefore an active Relationship has been established between them.
 
