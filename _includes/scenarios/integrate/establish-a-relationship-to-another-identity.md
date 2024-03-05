@@ -157,7 +157,11 @@ If the Templator accepts the Relationship Request, the `status` of the data obje
 For rejecting the Relationship Request and therefore not establishing an active Relationship between the Templator and the Requestor, take a look at the documentation of the [Reject RelationshipChange]({% link _docs_use-cases/use-case-transport-reject-relationship-change.md %}) use case.
 {: .notice--info}
 
-Assuming the Requestor is a Connector, it must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) after the Templator has accepted the Relationship Request. The `result` of the response after synchronization shows in particular that the `status` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) has been changed from `"Pending"` to `"Active"` and that the `status` of the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) with `"Creation"` as `type` has been changed from `"Pending"` to `"Accepted"`. Now the Requestor is informed that the Templator has accepted the Relationship Request and therefore an active Relationship has been established between them.
+### Be informed about the acceptance of the Relationship Request
+
+Assuming the Requestor is a Connector, it must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) after the Templator has accepted the Relationship Request. The `result` of the response after synchronization shows in particular that the `status` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) has been changed from `"Pending"` to `"Active"` and that the `status` of the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) with `"Creation"` as `type` has been changed from `"Pending"` to `"Accepted"`. Now the Requestor is informed that the Templator has accepted the Relationship Request and therefore an active Relationship has been established between them. If the Requestor is an App user instead, they are informed about the acceptance of the Relationship Request analogously, without having to synchronize manually.
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/650bd1ea-e0fd-489e-ab26-e7fe201ef59e" id="~uUgN3n5x3eT"></iframe></div>
 
 ## What's next?
 
