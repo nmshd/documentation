@@ -774,7 +774,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Get synchronization status with Backbone",
-        "excerpt":"   This use-case returns metadata about the synchronization status of the current Identity or Device with the Backbone. So far, it returns the timestamp of the last successful synchronization run which is triggered by /use-case-transport-synchronize-updates-of-backbone   On Success      Returns the metadata of the last sync run   ","categories": [],
+        "excerpt":"   This use-case returns metadata about the synchronization status of the current Identity or Device with the Backbone. So far, it returns the timestamp of the last successful synchronization run which is triggered by the Synchronize updates of Backbone use-case.   On Success      Returns the metadata of the last sync run.   ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-synchronization-status-with-backbone",
         "teaser": null
