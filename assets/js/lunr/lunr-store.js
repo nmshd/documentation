@@ -149,6 +149,12 @@ var store = [{
         "url": "/integrate/create-attribute-for-peer",
         "teaser": null
       },{
+        "title": "Create Attribute for yourself",
+        "excerpt":"This guide explains the end to end flow of creating an Attribute for your own Connector as its Integrator. As there are two types of Attributes, IdentityAttributes and RelationshipAttributes, a distinction must be made between them when creating an Attribute for yourself. Create an IdentityAttribute for yourself This section is...","categories": [],
+        "tags": [],
+        "url": "/integrate/create-attribute-for-yourself",
+        "teaser": null
+      },{
         "title": "Data Model Overview",
         "excerpt":"The enmeshed data model can be divided into three parts: Transport types Local types Content types The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail. (note that you can click...","categories": [],
         "tags": [],
