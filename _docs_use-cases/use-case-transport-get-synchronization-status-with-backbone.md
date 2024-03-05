@@ -28,13 +28,13 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Account/getSyncInfo
+  - api_route_regex: GET /api/v2/Account/SyncInfo
   - published: default
   - link: transport/get-synchronization-status-with-backbone
   - redirect_from:
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Account/getSyncInfo$
+api_route_regex: ^GET /api/v2/Account/SyncInfo$
 ---
 
 {% include use-cases/use-case-transport-get-synchronization-status-with-backbone.md %}
