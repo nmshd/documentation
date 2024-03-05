@@ -37,9 +37,7 @@ The following table provides an overview of the possible kinds of Attributes tha
 
 ### Example of sharing an own IdentityAttribute
 
-We assume that the Integrator of the Sender has created an own IdentityAttribute of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) for the Sender by following the instructions of our Create own IdentityAttribute scenario documentation. This IdentityAttribute is stored locally within the `content` property of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) of the Sender.
-
-<!--- TODO: Insert link to "Create own IdentityAttribute" guide --->
+We assume that the Integrator of the Sender has created an own IdentityAttribute of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) for the Sender by following the instructions of our [Create Attribute for yourself]({% link _docs_integrate/create-attribute-for-yourself.md %}) scenario documentation. This IdentityAttribute is stored locally within the `content` property of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) of the Sender.
 
 ```jsonc
 {
