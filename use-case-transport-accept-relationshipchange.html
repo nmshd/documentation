@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Get Attributes for Relationship - enmeshed</title>
-<meta name="description" content="Retrieve all LocalAttributes that are related to the given Relationship id.  Parameters     id of the Relationship.   hideTechnical indicates if RelationshipAttributes marked as isTechnical should be filtered out.   On Success     All LocalAttributes that are related to the Relationship.   On Failure     The id did not resolve to a Relationship.">
+<!-- begin _includes/seo.html --><title>Accept RelationshipChange - enmeshed</title>
+<meta name="description" content="Accepts a RelationshipChange with the given changeId.  Parameters     relationshipId the Relationship&#8217;s id which should be changed by the RelationshipChange   changeId the RelationshipChange&#8217;s id   content a possible answer to the respective RelationshipChange which the peer can fetch   On Success     The RelationshipChange is accepted and the given content made available for the peer.   Returns the changed Relationship   On Failure     There is no such Relationship or RelationshipChange.   The changeId is not related to the relationshipId.">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Get Attributes for Relationship">
-<meta property="og:url" content="/use-case-transport-get-attributes-for-relationship">
+<meta property="og:title" content="Accept RelationshipChange">
+<meta property="og:url" content="/use-case-transport-accept-relationshipchange">
 
 
-  <meta property="og:description" content="Retrieve all LocalAttributes that are related to the given Relationship id.  Parameters     id of the Relationship.   hideTechnical indicates if RelationshipAttributes marked as isTechnical should be filtered out.   On Success     All LocalAttributes that are related to the Relationship.   On Failure     The id did not resolve to a Relationship.">
+  <meta property="og:description" content="Accepts a RelationshipChange with the given changeId.  Parameters     relationshipId the Relationship&#8217;s id which should be changed by the RelationshipChange   changeId the RelationshipChange&#8217;s id   content a possible answer to the respective RelationshipChange which the peer can fetch   On Success     The RelationshipChange is accepted and the given content made available for the peer.   Returns the changed Relationship   On Failure     There is no such Relationship or RelationshipChange.   The changeId is not related to the relationshipId.">
 
 
 
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="/use-case-transport-get-attributes-for-relationship">
+<link rel="canonical" href="/use-case-transport-accept-relationshipchange">
 
 
 
@@ -350,8 +350,8 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Get Attributes for Relationship">
-    <meta itemprop="description" content="Retrieve all LocalAttributes that are related to the given Relationship id.Parameters  id of the Relationship.  hideTechnical indicates if RelationshipAttributesmarked as isTechnical should be filtered out.On Success  All LocalAttributes that are related to the Relationship.On Failure  The id did not resolve to a Relationship.">
+    <meta itemprop="headline" content="Accept RelationshipChange">
+    <meta itemprop="description" content="Accepts a RelationshipChange with the given changeId.Parameters  relationshipId the Relationship&#8217;s id which should be changed by the RelationshipChange  changeId the RelationshipChange&#8217;s id  content a possible answer to the respective RelationshipChange which the peer can fetchOn Success  The RelationshipChange is accepted and the given content made available for the peer.  Returns the changed RelationshipOn Failure  There is no such Relationship or RelationshipChange.  The changeId is not related to the relationshipId.">
     <meta itemprop="datePublished" content="2024-03-06T15:56:29+01:00">
     
 
@@ -359,7 +359,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="/use-case-transport-get-attributes-for-relationship" class="u-url" itemprop="url">Get Attributes for Relationship
+            <a href="/use-case-transport-accept-relationshipchange" class="u-url" itemprop="url">Accept RelationshipChange
 </a>
           </h1>
           
@@ -383,7 +383,7 @@
     <table>
         
         <tr><td>id</td>
-            <td>RR5</td></tr>
+            <td>RR6</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
@@ -395,10 +395,10 @@
             <td>RelationshipsFacade</td></tr>
         
         <tr><td>function</td>
-            <td>getAttributesForRelationship</td></tr>
+            <td>acceptRelationshipChange</td></tr>
         
         <tr><td>description</td>
-            <td>Queries attributes that are related to the given relationship.</td></tr>
+            <td>Accepts the change with the given 'changeId'. If the change exists but belongs to another relationship, this call will fail and return status 404.</td></tr>
         
         <tr><td>feature category</td>
             <td>Mutual peer-to-peer relationships</td></tr>
@@ -437,15 +437,13 @@
         <tr></tr>
         
         <tr><td>api_route_regex</td>
-            <td>GET /api/v2/Relationships/{id}/Attributes</td></tr>
+            <td>PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept</td></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>transport/get-attributes-for-relationship</td></tr>
-        
-        <tr></tr>
+            <td>transport/accept-relationshipchange</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -453,26 +451,28 @@
 </div>
 -->
 
-<p>Retrieve all <a href="/integrate/data-model-overview#localattributes">LocalAttributes</a> that are related to the given Relationship id.</p>
+<p>Accepts a <a href="/integrate/data-model-overview#relationshipChange">RelationshipChange</a> with the given changeId.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">id</code> of the <a href="/integrate/data-model-overview#relationship">Relationship</a>.</li>
-  <li><code class="language-plaintext highlighter-rouge">hideTechnical</code> indicates if <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttributes</a>
-marked as <code class="language-plaintext highlighter-rouge">isTechnical</code> should be filtered out.</li>
+  <li><code class="language-plaintext highlighter-rouge">relationshipId</code> the <a href="/integrate/data-model-overview#relationship">Relationship</a>&#8217;s id which should be changed by the RelationshipChange</li>
+  <li><code class="language-plaintext highlighter-rouge">changeId</code> the RelationshipChange&#8217;s id</li>
+  <li><code class="language-plaintext highlighter-rouge">content</code> a possible answer to the respective RelationshipChange which the peer can fetch</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>All <a href="/integrate/data-model-overview#localattribute">LocalAttributes</a> that are related to the Relationship.</li>
+  <li>The RelationshipChange is accepted and the given <code class="language-plaintext highlighter-rouge">content</code> made available for the peer.</li>
+  <li>Returns the changed <a href="/integrate/data-model-overview#relationship">Relationship</a></li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>The <code class="language-plaintext highlighter-rouge">id</code> did not resolve to a Relationship.</li>
+  <li>There is no such Relationship or RelationshipChange.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">changeId</code> is not related to the <code class="language-plaintext highlighter-rouge">relationshipId</code>.</li>
 </ul>
 
   <h2>How to execute this use-case with the Connector?</h2>
@@ -495,7 +495,7 @@ This use-case can be executed with the REST API of the Connector which you can <
     theme="light"
     bg-color="#f9f9fb"
     
-    match-paths="^GET /api/v2/Relationships/{id}/Attributes$"
+    match-paths="^PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept$"
     
     match-type="regex"
 ></rapi-doc-mini>

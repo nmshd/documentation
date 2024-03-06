@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-03-05T15:25:26+01:00">
+  <meta property="article:published_time" content="2024-03-06T15:56:29+01:00">
 
 
 
@@ -254,7 +254,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Modules">
     <meta itemprop="description" content="Since the Connector is based on the Runtime, all Modules of the Runtime are also available in the Connector.Additionally, the Connector defines its own Modules that only make sense in the context of a Connector and are therefore not defined in the Runtime.Read more about the Module configuration on the  icon in each title.AMQP Publisher This Module proxies all events of the internal event bus of the Connector to an exchange in a configurable AMQP server.Compared to webhooks, this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:  You need persistence for the triggered events.  You want to integrate enmeshed into an already existing message broker.Auto Accept Relationship Creation Changes It is not recommended to use this Module for production scenarios.The autoAcceptRelationshipCreationChanges Module listens to the events about incoming Relationship Change Requests. It immediately accepts the Requests, using the configured responseContent.Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive incoming Relationship Requests. The sync Module automates this, but you can also do this manually by calling the /api/v2/Account/Sync route.Core HTTP API This Module contains the HTTP API with all enmeshed base functionalities.Sync The sync Module regularly fetches changes from the Backbone (e.g. new Messages / new incoming Relationship Requests). This process automatically triggers the events used by other Modules like the webhooks Module.PubSub Publisher This Module proxies all events of the internal event bus of the Connector to a configurable PubSub instance.Compared to webhooks, this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:  You need persistence for the triggered events.  You want to integrate enmeshed into an already existing message broker.Webhooks With the REST API, pull mechanisms are supported. However, as there are many bidirectional scenarios within enmeshed, a push mechanism is favorable: the Connector is synchronizing its state with the Backbone and notifies the organization’s backend services about changes.For this, the Connector supports the configuration of webhooks which are called every time a specific Connector Event is triggered (e.g. a new Message has been received =&gt; transport.messageReceived).Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The sync Module automates this, but you can also do this manually by calling the /api/v2/Account/Sync route.Requesting ModulesIn case you need a further Module for your application, please state a feature request.">
-    <meta itemprop="datePublished" content="2024-03-05T15:25:26+01:00">
+    <meta itemprop="datePublished" content="2024-03-06T15:56:29+01:00">
     
 
     <div class="page__inner-wrap">
@@ -347,7 +347,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-03-05T15:25:26+01:00">March 5, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-03-06T15:56:29+01:00">March 6, 2024</time></p>
 
       </footer>
 

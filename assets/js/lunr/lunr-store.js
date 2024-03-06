@@ -167,6 +167,12 @@ var store = [{
         "url": "/integrate/error-codes",
         "teaser": null
       },{
+        "title": "Establish a Relationship to another Identity",
+        "excerpt":"Communication and sharing of information between two Identities requires the existence of a Relationship between them. This guide describes how a Connector can establish an active Relationship to another Identity. Firstly, we explain how to create a RelationshipTemplate on a Connector, the so-called Templator, and how to make the RelationshipTemplate...","categories": [],
+        "tags": [],
+        "url": "/integrate/establish-a-relationship-to-another-identity",
+        "teaser": null
+      },{
         "title": "Event introduction",
         "excerpt":"Connecting an external system with the enmeshed Connector, the main communication is performed by addressing the Connector’s REST API. This way, processes can be initiated by the organization’s backend service or data can be requested from the Connector. In addition, events offer the possibility for the Connector to actively give...","categories": [],
         "tags": [],
@@ -498,7 +504,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Query incoming Requests",
-        "excerpt":"This use-case is intended to query incoming LocalRequests. Parameters The id of the LocalRequest. The peer is the Address of the Identity that sent the LocalRequest. createdAt indicates the date of LocalRequest creation. The status of the LocalRequest. The content describes the Request wrapped by the LocalRequest. The response describes...","categories": [],
+        "excerpt":"This use-case is intended to query incoming LocalRequests. Parameters The id of the LocalRequest. The peer is the Address of the Identity that sent the LocalRequest. createdAt indicates the date of LocalRequest creation. The status of the LocalRequest. The content describes the Request wrapped by the LocalRequest. The source of...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-query-incoming-requests",
         "teaser": null
@@ -653,10 +659,10 @@ var store = [{
         "url": "/use-case-human-select_-item-on-screen",
         "teaser": null
       },{
-        "title": "Accept Relationship Change",
+        "title": "Accept RelationshipChange",
         "excerpt":"Accepts a RelationshipChange with the given changeId. Parameters relationshipId the Relationship&#8217;s id which should be changed by the RelationshipChange changeId the RelationshipChange&#8217;s id content a possible answer to the respective RelationshipChange which the peer can fetch On Success The RelationshipChange is accepted and the given content made available for the...","categories": [],
         "tags": [],
-        "url": "/use-case-transport-accept-relationship-change",
+        "url": "/use-case-transport-accept-relationshipchange",
         "teaser": null
       },{
         "title": "Create own RelationshipTemplate",
@@ -833,16 +839,22 @@ var store = [{
         "url": "/use-case-transport-query-relationship-templates",
         "teaser": null
       },{
+        "title": "Query Relationships",
+        "excerpt":"This use-case queries Relationships of the Identity. Parameters peer is the enmeshed Address of the peer. status is the status of the Relationship. template.id is the id of the RelationshipTemplate that was used to initiate the Relationship. On Success Returns all Relationships that match the query. On Failure The parameters...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-query-relationships",
+        "teaser": null
+      },{
         "title": "Query Tokens by parameters",
         "excerpt":"This use-case queries Tokens of the Identity. Parameters createdAt is the ISODateTime the Token was created at. createdBy is the enmeshed Address of the Identity that created the Token. createdByDevice is the id of the Device that created the Token. expiresAt is the ISODateTime the Token expires. On Success Returns...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-tokens-by-parameters",
         "teaser": null
       },{
-        "title": "Reject Relationship Change",
+        "title": "Reject RelationshipChange",
         "excerpt":"Rejects a RelationshipChange with the given changeId. Parameters relationshipId the Relationship&#8217;s id which should be changed by the RelationshipChange changeId the RelationshipChange&#8217;s id content a possible answer to the respective RelationshipChange which the peer can fetch On Success The RelationshipChange is rejected and the given content made available for the...","categories": [],
         "tags": [],
-        "url": "/use-case-transport-reject-relationship-change",
+        "url": "/use-case-transport-reject-relationshipchange",
         "teaser": null
       },{
         "title": "Send message to recipient(s)",
