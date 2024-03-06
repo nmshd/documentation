@@ -157,7 +157,7 @@ If the Templator accepts the RelationshipRequest, the `status` of the data objec
 For rejecting the RelationshipRequest and therefore not establishing an active Relationship between the Templator and the Requestor, take a look at the documentation of the [Reject RelationshipChange]({% link _docs_use-cases/use-case-transport-reject-relationshipchange.md %}) use case.
 {: .notice--info}
 
-### Be informed about the acceptance of the RelationshipRequest
+### Get informed about the acceptance of the RelationshipRequest
 
 Assuming the Requestor is a Connector, it must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) after the Templator has accepted the RelationshipRequest. The synchronization causes the `transport.relationshipChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) to be triggered and the `result` of the response after synchronization shows in particular that the `status` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) has been changed from `"Pending"` to `"Active"` and that the `status` of the associated [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) with `"Creation"` as `type` has been changed from `"Pending"` to `"Accepted"`. Now the Requestor is informed that the Templator has accepted the RelationshipRequest and therefore an active Relationship has been established between them. If the Requestor is an App user instead, they are informed about the acceptance of the RelationshipRequest analogously.
 
