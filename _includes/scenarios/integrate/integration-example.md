@@ -193,7 +193,7 @@ Finally, fill out the required fields and click on "Add contact" to send the Rel
 
 ### Connector: Accept the Relationship Request
 
-In order to move the Relationship into the `Active` state, we now need to [accept the Relationship Request]({% link _docs_use-cases/use-case-transport-accept-relationship-change.md %}) with the Connector.
+In order to move the Relationship into the `Active` state, we now need to [accept the Relationship Request]({% link _docs_use-cases/use-case-transport-accept-relationshipchange.md %}) with the Connector.
 To do so, we [synchronize updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), which will fetch all changes that occurred since the last time this endpoint was executed.
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}

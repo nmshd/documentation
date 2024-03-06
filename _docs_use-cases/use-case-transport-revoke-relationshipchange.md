@@ -1,7 +1,7 @@
 ---
-permalink: /use-case-transport-revoke-relationship-change
+permalink: /use-case-transport-revoke-relationshipchange
 published: false
-title: "Revoke Relationship Change"
+title: "Revoke RelationshipChange"
 type: use-case
 toc: true
 sidebar:
@@ -30,10 +30,10 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: transport/revoke-relationship-change
+  - link: transport/revoke-relationshipchange
   - redirect_from:
 require:
 required_by:
 ---
 
-{% include use-cases/use-case-transport-revoke-relationship-change.md %}
+{% include use-cases/use-case-transport-revoke-relationshipchange.md %}

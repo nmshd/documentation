@@ -1,7 +1,7 @@
 ---
-permalink: /use-case-transport-accept-relationship-change
+permalink: /use-case-transport-accept-relationshipchange
 published: true
-title: "Accept Relationship Change"
+title: "Accept RelationshipChange"
 type: use-case
 toc: true
 sidebar:
@@ -30,11 +30,11 @@ properties:
   - changed_at:
   - api_route_regex: PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept
   - published: default
-  - link: transport/accept-relationship-change
-  - redirect_from:
+  - link: transport/accept-relationshipchange
+redirect_from: /use-case-transport-accept-relationship-change
 require:
 required_by:
 api_route_regex: ^PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept$
 ---
 
-{% include use-cases/use-case-transport-accept-relationship-change.md %}
+{% include use-cases/use-case-transport-accept-relationshipchange.md %}
