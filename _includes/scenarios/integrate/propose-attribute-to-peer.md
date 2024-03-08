@@ -213,7 +213,7 @@ We assume that the Recipient confirms the fittingness of the PersonName proposed
       "accept": true,
       "attribute": {
         "@type": "IdentityAttribute",
-        "owner": "",
+        "owner": "<Address of Recipient>",
         "value": {
           "@type": "PersonName",
           "givenName": "<given name that the Sender proposes to the Recipient>",
@@ -230,7 +230,7 @@ We assume that the Recipient confirms the fittingness of the PersonName proposed
           "accept": true,
           "attribute": {
             "@type": "IdentityAttribute",
-            "owner": "",
+            "owner": "<Address of Recipient>",
             "value": {
               "@type": "EMailAddress",
               "value": "<Recipient's corrected version of the email address>"
