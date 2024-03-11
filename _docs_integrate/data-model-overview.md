@@ -650,6 +650,26 @@ In the example of Attribute succession, the peer can not decide to accept or rej
 
 NotificationItems are sent inside a Notification and specify which processes should be triggered when receiving the Notification.
 
+#### OwnSharedAttributeDeletedByOwnerNotificationItem
+
+An OwnSharedAttributeDeletedByOwnerNotificationItem will be sent, if an Attribute, a peer shared with you, was deleted by them.
+Internally, for your corresponding peer shared Attribute the `deletionInfo.deletionStatus` will be set to `"DeletedByOwner"`, if it wasn't set to `"ToBeDeleted` before.
+
+| Name        | Type                                                 | Description                                                         |
+| ----------- | ---------------------------------------------------- | ------------------------------------------------------------------- |
+| @type       | `"OwnSharedAttributeDeletedByOwnerNotificationItem"` |                                                                     |
+| attributeId | `string`                                             | The `id` of the shared LocalAttribute that was deleted by the owner |
+
+#### PeerSharedAttributeDeletedByPeerNotificationItem
+
+A PeerSharedAttributeDeletedByPeerNotificationItem will be sent, if an Attribute, you shared with a peer, was deleted by them.
+Internally, for your corresponding own shared Attribute the `deletionInfo.deletionStatus` will be set to `"DeletedByPeer"` .
+
+| Name        | Type                                                 | Description                                                        |
+| ----------- | ---------------------------------------------------- | ------------------------------------------------------------------ |
+| @type       | `"PeerSharedAttributeDeletedByPeerNotificationItem"` |                                                                    |
+| attributeId | `string`                                             | The `id` of the shared LocalAttribute that was deleted by the peer |
+
 #### PeerSharedAttributeSucceededNotificationItem
 
 A PeerSharedAttributeSucceededNotificationItem will be sent, if an Attribute, a peer shared with you, was succeeded by them and they choose to notify you about it.
