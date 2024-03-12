@@ -43,3 +43,9 @@ api_route_regex: ^GET /health$
 {% include properties_list.html %}
 
 This use-case retrieves the service health information of the Connector.
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves the service health information of the Connector.
