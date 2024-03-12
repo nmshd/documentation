@@ -35,7 +35,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 {% include use-cases/use-case-consumption-set-status-of-incoming-request-to-check-prerequisites.md %}

@@ -19,7 +19,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 Requests are the main instrument in enmeshed to interact with other Identities.

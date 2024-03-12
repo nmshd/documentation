@@ -35,7 +35,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 {% include use-cases/use-case-human-enter_-data-on-screen.md %}

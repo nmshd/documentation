@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: integrate/request-persistent-consent-of-peer
 published: true
@@ -22,7 +21,6 @@ require:
   - integrate/requests-over-messages
 required_by:
 # End automatic generation
-
 ---
 
 <!-- A general description of the requirement can be given here. -->

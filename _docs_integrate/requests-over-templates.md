@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: integrate/requests-over-templates
 redirect_from:
@@ -26,7 +25,6 @@ required_by:
   - integrate/requesting-authentication
   - integrate/requests-over-messages
 # End automatic generation
-
 ---
 
 <!-- A general description of the requirement can be given here. -->

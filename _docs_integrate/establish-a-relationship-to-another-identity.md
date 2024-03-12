@@ -19,7 +19,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 Communication and sharing of information between two Identities requires the existence of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between them. This guide describes how a Connector can establish an active Relationship to another Identity. Firstly, we explain how to [create a RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#create-a-relationshiptemplate) on a Connector, the so-called Templator, and how to [make the RelationshipTemplate available]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#make-the-relationshiptemplate-available) to the other Identity. The RelationshipTemplate can then be used by the other Identity, the so-called Requestor, to [send a RelationshipRequest]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#send-a-relationship-request) to the Templator. This RelationshipRequest can finally be accepted by the Templator in order to [establish an active Relationship]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#establish-an-active-relationship) between them.

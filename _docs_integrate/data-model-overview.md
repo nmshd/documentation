@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: integrate/data-model-overview
 redirect_from:
@@ -22,7 +21,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 The enmeshed data model can be divided into three parts:

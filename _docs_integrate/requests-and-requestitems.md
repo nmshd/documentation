@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: integrate/requests-and-requestitems
 redirect_from:
@@ -22,7 +21,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 ## AuthenticationRequestItem

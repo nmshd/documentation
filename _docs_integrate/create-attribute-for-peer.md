@@ -19,7 +19,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 There are many situations in which an Identity wants to create an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) for another Identity, for example:

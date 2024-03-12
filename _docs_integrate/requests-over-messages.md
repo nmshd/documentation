@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: integrate/requests-over-messages
 redirect_from:
@@ -26,7 +25,6 @@ required_by:
   - integrate/request-persistent-consent-of-peer
   - integrate/requesting-authentication
 # End automatic generation
-
 ---
 
 <!-- A general description of the requirement can be given here. -->

@@ -19,7 +19,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 {% include warnings/feature-work-in-progress %}

@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: operate/modules
 redirect_from:
@@ -22,7 +21,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 Since the Connector is based on the Runtime, [all Modules of the Runtime]({% link _docs_explore/61-runtime.md %}#runtime-modules) are also available in the Connector.

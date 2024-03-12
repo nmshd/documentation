@@ -20,7 +20,6 @@ require:
 required_by:
   - integrate/sending-messages
 # End automatic generation
-
 ---
 
 {% include warnings/feature-work-in-progress %}

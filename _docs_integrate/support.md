@@ -19,7 +19,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 For assisted support with the Connector or the Backbone provided by the j&s-soft GmbH contact us via `support[at]enmeshed.eu`.

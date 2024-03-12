@@ -35,7 +35,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 {% include use-cases/use-case-device-onboard-device-by-device-onboarding-token.md %}

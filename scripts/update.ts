@@ -91,7 +91,7 @@ function createScenarioText(scenarioObject: DynamicUseCase): string {
             text += "  - " + requirement + "\n";
         }
     }
-    text += "# End automatic generation\n";
+    text += "# End automatic generation";
     return text;
 }
 
@@ -144,7 +144,7 @@ function createUseCaseText(useCaseObject: DynamicUseCase): string {
     if (useCaseObject["api_route_regex"]) {
         text += "api_route_regex: ^" + useCaseObject["api_route_regex"] + "$\n";
     }
-    text += "# End automatic generation\n";
+    text += "# End automatic generation";
     return text;
 }
 

@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: integrate/requesting-authentication
 published: false
@@ -22,7 +21,6 @@ require:
   - integrate/requests-over-messages
 required_by:
 # End automatic generation
-
 ---
 
 {% include warnings/documentation-is-prerelease %}

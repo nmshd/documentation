@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: operate/overview-of-connector-operations
 redirect_from:
@@ -22,7 +21,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 ## Basic Tasks

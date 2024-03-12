@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: integrate/sending-messages
 redirect_from:
@@ -23,7 +22,6 @@ require:
   - integrate/delete-identity-from-enmeshed
 required_by:
 # End automatic generation
-
 ---
 
 <!-- A general description of the requirement can be given here. -->

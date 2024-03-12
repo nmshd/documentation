@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: use/install-the-app
 redirect_from:
@@ -22,7 +21,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 Caution: As enmeshed is open-source and the App is a white-label component, there are several flavors of the enmeshed App in the corresponding app stores.

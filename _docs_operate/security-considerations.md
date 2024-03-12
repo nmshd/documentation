@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: operate/security-considerations
 redirect_from:
@@ -22,7 +21,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Connector and its data.

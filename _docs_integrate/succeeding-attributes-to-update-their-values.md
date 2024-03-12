@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: integrate/succeeding-attributes-to-update-their-values
 redirect_from:
@@ -22,7 +21,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 The way enmeshed handles updates to your personal data is by succeeding old [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) with new ones.

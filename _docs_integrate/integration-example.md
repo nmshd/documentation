@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: integrate/integration-example
 redirect_from:
@@ -22,7 +21,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 In this tutorial we go through the basic steps necessary to establish a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) to another Identity and send [Messages]({% link _docs_integrate/data-model-overview.md %}#message) between two Identities with an existing Relationship.

@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: integrate/test-your-requests-validity
 published: false
@@ -21,5 +20,4 @@ require:
   - integrate/create-attribute-for-yourself
 required_by:
 # End automatic generation
-
 ---

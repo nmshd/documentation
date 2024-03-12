@@ -20,5 +20,4 @@ require:
 required_by:
   - integrate/create-attribute-for-yourself
 # End automatic generation
-
 ---

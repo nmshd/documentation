@@ -35,7 +35,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 {% include use-cases/use-case-transport-cancel-identity-deletion-within-grace-period.md %}

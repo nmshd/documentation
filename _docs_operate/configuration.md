@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: operate/configuration
 redirect_from:
@@ -22,7 +21,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 ## Mounting a config file

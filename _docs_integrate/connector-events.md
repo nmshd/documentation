@@ -1,5 +1,4 @@
 ---
-
 # Start automatic generation
 permalink: integrate/connector-events
 redirect_from:
@@ -22,7 +21,6 @@ properties:
 require:
 required_by:
 # End automatic generation
-
 ---
 
 | Event                                                                                | Data                                                                                           | Description (This event is triggered when ...)                                                                                                                                                                                                                                                                                                                                                                              |
