@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: integrate/use-cases
 redirect_from:
-
-- /explore/use-cases
-  published: true
-  title: "Use Cases"
-  type: scenario
-  toc: true
-  properties:
-- id: SC082
-- category: Getting Started
-- description:
-- customer:
-- component: integrate
-- level:
-- implementation status: DONE
-- documentation status: OLD
-- published: true
-- link: use-cases
-  require:
-  required_by: 
+  - /explore/use-cases
+published: true
+title: "Use Cases"
+type: scenario
+toc: true
+properties:
+  - id: SC082
+  - category: Getting Started
+  - description:
+  - customer:
+  - component: integrate
+  - level:
+  - implementation status: DONE
+  - documentation status: OLD
+  - published: true
+  - link: use-cases
+require:
+required_by:
 # End automatic generation
+
 ---
 
 <!-- markdownlint-disable MD011 -->

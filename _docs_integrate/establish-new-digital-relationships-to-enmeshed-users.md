@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/establish-new-digital-relationships-to-enmeshed-users
 published: false
 title: "establish new digital relationships to enmeshed users"
@@ -17,7 +16,8 @@ properties:
   - documentation status:
   - published:
   - link: establish-new-digital-relationships-to-enmeshed-users
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

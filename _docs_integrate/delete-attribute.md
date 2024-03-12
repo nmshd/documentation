@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/delete-attribute
 published: false
 title: "delete Attribute"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: delete-attribute
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: integrate/access-the-connector
 redirect_from:
-
-- /integrate/connector-api
-  published: true
-  title: "Access the Connector"
-  type: scenario
-  toc: true
-  properties:
-- id: SC075
-- category: Getting Started
-- description: https://enmeshed.eu/integrate/connector-api
-- customer:
-- component: integrate
-- level:
-- implementation status: DOCS ONLY
-- documentation status: OLD
-- published: true
-- link: access-the-connector
-  require:
-  required_by: 
+  - /integrate/connector-api
+published: true
+title: "Access the Connector"
+type: scenario
+toc: true
+properties:
+  - id: SC075
+  - category: Getting Started
+  - description: https://enmeshed.eu/integrate/connector-api
+  - customer:
+  - component: integrate
+  - level:
+  - implementation status: DOCS ONLY
+  - documentation status: OLD
+  - published: true
+  - link: access-the-connector
+require:
+required_by:
 # End automatic generation
+
 ---
 
 The primary integration capability of the Connector is the REST API. In order to use it, you should have received an API-Key for the respective Connector. An API-Key so far has all authorizations for accessing the API.

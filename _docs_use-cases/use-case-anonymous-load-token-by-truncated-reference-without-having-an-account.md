@@ -35,6 +35,7 @@ properties:
 require:
 required_by:
 # End automatic generation
+
 ---
 
 {% include use-cases/use-case-anonymous-load-token-by-truncated-reference-without-having-an-account.md %}

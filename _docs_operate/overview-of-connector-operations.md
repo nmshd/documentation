@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: operate/overview-of-connector-operations
 redirect_from:
-
-- /integrate/connector-operations
-  published: true
-  title: "Overview of Connector operations"
-  type: scenario
-  toc: true
-  properties:
-- id: SC083
-- category: Connector Operations
-- description:
-- customer:
-- component: operate
-- level:
-- implementation status: DOCS ONLY
-- documentation status: OLD
-- published: true
-- link: overview-of-connector-operations
-  require:
-  required_by: 
+  - /integrate/connector-operations
+published: true
+title: "Overview of Connector operations"
+type: scenario
+toc: true
+properties:
+  - id: SC083
+  - category: Connector Operations
+  - description:
+  - customer:
+  - component: operate
+  - level:
+  - implementation status: DOCS ONLY
+  - documentation status: OLD
+  - published: true
+  - link: overview-of-connector-operations
+require:
+required_by:
 # End automatic generation
+
 ---
 
 ## Basic Tasks

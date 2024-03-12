@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/sending-messages-with-attachments
 published: false
 title: "Sending Messages with attachments"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published:
   - link: sending-messages-with-attachments
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 {% include warnings/documentation-is-prerelease %}

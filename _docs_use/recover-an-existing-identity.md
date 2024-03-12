@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/recover-an-existing-identity
 published: false
 title: "Recover an existing Identity"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: recover-an-existing-identity
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/updating-consents
 published: false
 title: "Updating consents"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: updating-consents
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

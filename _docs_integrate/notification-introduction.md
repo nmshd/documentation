@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/notification-introduction
 published: false
 title: "Notification introduction"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: notification-introduction
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

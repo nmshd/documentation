@@ -1,30 +1,29 @@
 ---
 
 # Start automatic generation
-
 permalink: integrate/sending-messages
 redirect_from:
-
-- /integrate/connector-flows-messages
-  published: true
-  title: "Sending Messages"
-  type: scenario
-  toc: true
-  properties:
-- id: SC058
-- category: Basic communication
-- description:
-- customer: All
-- component: integrate
-- level: Beginner
-- implementation status: DONE
-- documentation status: OLD
-- published: true
-- link: sending-messages
-  require:
-- integrate/delete-identity-from-enmeshed
-  required_by: 
+  - /integrate/connector-flows-messages
+published: true
+title: "Sending Messages"
+type: scenario
+toc: true
+properties:
+  - id: SC058
+  - category: Basic communication
+  - description:
+  - customer: All
+  - component: integrate
+  - level: Beginner
+  - implementation status: DONE
+  - documentation status: OLD
+  - published: true
+  - link: sending-messages
+require:
+  - integrate/delete-identity-from-enmeshed
+required_by:
 # End automatic generation
+
 ---
 
 <!-- A general description of the requirement can be given here. -->

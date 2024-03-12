@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: operate/faq
 published: false
 title: "FAQ"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: faq
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/create-recovery-data-for-the-identity
 published: false
 title: "Create Recovery Data for the Identity"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: create-recovery-data-for-the-identity
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/request-and-response-introduction
 published: true
 title: "Request and Response introduction"
@@ -17,9 +16,10 @@ properties:
   - documentation status: DONE
   - published: true
   - link: request-and-response-introduction
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 Requests are the main instrument in enmeshed to interact with other Identities.

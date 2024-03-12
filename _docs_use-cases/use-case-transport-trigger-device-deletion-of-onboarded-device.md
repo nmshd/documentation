@@ -35,6 +35,7 @@ properties:
 require:
 required_by:
 # End automatic generation
+
 ---
 
 {% include use-cases/use-case-transport-trigger-device-deletion-of-onboarded-device.md %}

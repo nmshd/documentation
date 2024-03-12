@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: operate/support
 published: true
 title: "Support"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OLD
   - published: true
   - link: support
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 ## Support

@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: operate/troubleshooting-guide
 redirect_from:
-
-- /integrate/connector-setup-troubleshooting
-  published: true
-  title: "Troubleshooting Guide"
-  type: scenario
-  toc: true
-  properties:
-- id: SC081
-- category: Troubleshooting
-- description:
-- customer:
-- component: operate
-- level:
-- implementation status: DOCS ONLY
-- documentation status: OLD
-- published: true
-- link: troubleshooting-guide
-  require:
-  required_by: 
+  - /integrate/connector-setup-troubleshooting
+published: true
+title: "Troubleshooting Guide"
+type: scenario
+toc: true
+properties:
+  - id: SC081
+  - category: Troubleshooting
+  - description:
+  - customer:
+  - component: operate
+  - level:
+  - implementation status: DOCS ONLY
+  - documentation status: OLD
+  - published: true
+  - link: troubleshooting-guide
+require:
+required_by:
 # End automatic generation
+
 ---
 
 ## Troubleshooting Guide

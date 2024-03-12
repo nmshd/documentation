@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/enable-profile-authentication
 published: false
 title: "Enable Profile authentication"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: enable-profile-authentication
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

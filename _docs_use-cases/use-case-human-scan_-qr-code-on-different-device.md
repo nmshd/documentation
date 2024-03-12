@@ -35,6 +35,7 @@ properties:
 require:
 required_by:
 # End automatic generation
+
 ---
 
 {% include use-cases/use-case-human-scan_-qr-code-on-different-device.md %}

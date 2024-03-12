@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/establish-a-new-digital-relationship-to-another-user
 published: false
 title: "establish a new digital relationship to another user"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: establish-a-new-digital-relationship-to-another-user
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

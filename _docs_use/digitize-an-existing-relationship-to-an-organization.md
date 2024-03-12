@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/digitize-an-existing-relationship-to-an-organization
 published: false
 title: "digitize an existing relationship to an organization"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: digitize-an-existing-relationship-to-an-organization
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

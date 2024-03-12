@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/identityattribute-introduction
 published: false
 title: "IdentityAttribute introduction"
@@ -17,8 +16,9 @@ properties:
   - documentation status: OPEN
   - published:
   - link: identityattribute-introduction
-    require:
-    required_by:
+require:
+required_by:
   - integrate/create-attribute-for-yourself
 # End automatic generation
+
 ---

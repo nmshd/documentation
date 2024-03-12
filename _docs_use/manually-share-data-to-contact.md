@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/manually-share-data-to-contact
 published: false
 title: "Manually share data to contact"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: manually-share-data-to-contact
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

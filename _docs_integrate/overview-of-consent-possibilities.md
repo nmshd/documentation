@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/overview-of-consent-possibilities
 published: false
 title: "Overview of consent possibilities"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: overview-of-consent-possibilities
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

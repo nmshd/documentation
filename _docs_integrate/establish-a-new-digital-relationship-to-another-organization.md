@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/establish-a-new-digital-relationship-to-another-organization
 published: false
 title: "establish a new digital relationship to another organization"
@@ -17,7 +16,8 @@ properties:
   - documentation status:
   - published:
   - link: establish-a-new-digital-relationship-to-another-organization
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

@@ -35,6 +35,7 @@ properties:
 require:
 required_by:
 # End automatic generation
+
 ---
 
 {% include use-cases/use-case-transport-get-qrcode-for-single-token.md %}

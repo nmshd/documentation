@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/create-attribute-for-yourself
 published: false
 title: "Create Attribute for yourself"
@@ -17,9 +16,12 @@ properties:
   - documentation status: OPEN
   - published:
   - link: create-attribute-for-yourself
-    require:
-    required_by:
+require:
+  - integrate/identityattribute-introduction
+required_by:
+  - integrate/test-your-requests-validity
 # End automatic generation
+
 ---
 
 This guide explains the end to end flow of creating an [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) for your own Connector as its Integrator. As there are two types of Attributes, [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) and [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), a distinction must be made between them when creating an Attribute for yourself.

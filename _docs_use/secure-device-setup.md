@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: use/secure-device-setup
 redirect_from:
-
-- /use/security-recommendations
-  published: true
-  title: "Secure device setup"
-  type: scenario
-  toc: true
-  properties:
-- id: SC094
-- category: Getting Started
-- description:
-- customer:
-- component: use
-- level: Beginner
-- implementation status: DOCS ONLY
-- documentation status: OLD
-- published: true
-- link: secure-device-setup
-  require:
-  required_by: 
+  - /use/security-recommendations
+published: true
+title: "Secure device setup"
+type: scenario
+toc: true
+properties:
+  - id: SC094
+  - category: Getting Started
+  - description:
+  - customer:
+  - component: use
+  - level: Beginner
+  - implementation status: DOCS ONLY
+  - documentation status: OLD
+  - published: true
+  - link: secure-device-setup
+require:
+required_by:
 # End automatic generation
+
 ---
 
 We've summarized some tips for end-user device usage on this site. A great resource for more in-depth information about those tips is the [website of the Federal Office for Information Security (BSI, Bundesamt für Sicherheit in der Informationstechnik).](https://www.bsi.bund.de/EN/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/Basisschutz-fuer-Computer-Mobilgeraete/Schutz-fuer-Mobilgeraete/Sicherheit-bei-Apps/sicherheit-bei-apps_node.html)

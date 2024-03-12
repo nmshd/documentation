@@ -32,8 +32,7 @@ async function writeTextToFile(object: DynamicUseCase, text: string): Promise<vo
 }
 
 function createScenarioText(scenarioObject: DynamicUseCase): string {
-    var text = "---\n";
-    text += "# Start automatic generation\n";
+    var text = "# Start automatic generation\n";
     text += "permalink: " + scenarioObject.Component + "/" + scenarioObject.Link + "\n";
     if ((scenarioObject["Documentation Status"] == "DONE" || scenarioObject["Documentation Status"] == "OLD") && scenarioObject.redirect_from !== null) {
         text += "redirect_from:\n";
@@ -85,21 +84,19 @@ function createScenarioText(scenarioObject: DynamicUseCase): string {
             text += "  - " + requirement + "\n";
         }
     }
-    text += "required_by: 
-# Start automatic generation\n";
+    text += "required_by:\n";
     if (scenarioObject.required_by != null) {
         const requirements = scenarioObject.required_by.valueOf().replaceAll(" ", "").split(",");
         for (const requirement of requirements) {
             text += "  - " + requirement + "\n";
         }
     }
-    text += "---";
+    text += "# End automatic generation\n";
     return text;
 }
 
 function createUseCaseText(useCaseObject: DynamicUseCase): string {
-    var text = "---\n";
-    text += "# Start automatic generation\n";
+    var text = "# Start automatic generation\n";
     text += "permalink: " + useCaseObject.Link + "\n";
     if ((useCaseObject["Documentation Status"] == "DONE" || useCaseObject["Documentation Status"] == "OLD") && useCaseObject.redirect_from !== null) {
         text += "redirect_from:\n";
@@ -137,8 +134,7 @@ function createUseCaseText(useCaseObject: DynamicUseCase): string {
             text += "  - " + requirement + "\n";
         }
     }
-    text += "required_by: 
-# Start automatic generation\n";
+    text += "required_by:\n";
     if (useCaseObject.required_by != null) {
         const requirements = useCaseObject.required_by.valueOf().replaceAll(" ", "").split(",");
         for (const requirement of requirements) {
@@ -148,7 +144,7 @@ function createUseCaseText(useCaseObject: DynamicUseCase): string {
     if (useCaseObject["api_route_regex"]) {
         text += "api_route_regex: ^" + useCaseObject["api_route_regex"] + "$\n";
     }
-    text += "---";
+    text += "# End automatic generation\n";
     return text;
 }
 

@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/register-a-new-online-account-with-an-organization
 published: false
 title: "register a new online account with an organization"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: register-a-new-online-account-with-an-organization
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

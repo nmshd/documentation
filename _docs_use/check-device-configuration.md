@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/check-device-configuration
 published: false
 title: "Check Device configuration"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: check-device-configuration
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

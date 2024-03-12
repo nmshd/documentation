@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/creating-complex-requests
 published: false
 title: "Creating complex requests"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published:
   - link: creating-complex-requests
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 {% include warnings/documentation-is-prerelease %}

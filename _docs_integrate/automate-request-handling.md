@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/automate-request-handling
 published: false
 title: "Automate request handling"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: automate-request-handling
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/respond-to-incoming-requests
 published: false
 title: "Respond to incoming requests"
@@ -17,8 +16,10 @@ properties:
   - documentation status: OPEN
   - published:
   - link: respond-to-incoming-requests
-    require:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 {% include warnings/documentation-is-prerelease %}

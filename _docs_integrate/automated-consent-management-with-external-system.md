@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/automated-consent-management-with-external-system
 published: false
 title: "Automated consent management with external system"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: automated-consent-management-with-external-system
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

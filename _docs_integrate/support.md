@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/support
 published: false
 title: "Support"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published: true
   - link: support
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 For assisted support with the Connector or the Backbone provided by the j&s-soft GmbH contact us via `support[at]enmeshed.eu`.

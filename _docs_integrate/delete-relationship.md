@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/delete-relationship
 published: false
 title: "delete Relationship"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: delete-relationship
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

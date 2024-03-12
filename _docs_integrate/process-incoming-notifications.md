@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/process-incoming-notifications
 published: false
 title: "Process-incoming-notifications"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: process-incoming-notifications
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

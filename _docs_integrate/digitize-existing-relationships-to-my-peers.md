@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/digitize-existing-relationships-to-my-peers
 published: false
 title: "digitize existing relationships to my peers"
@@ -17,7 +16,8 @@ properties:
   - documentation status:
   - published:
   - link: digitize-existing-relationships-to-my-peers
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

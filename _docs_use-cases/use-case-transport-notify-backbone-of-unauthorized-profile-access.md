@@ -35,6 +35,7 @@ properties:
 require:
 required_by:
 # End automatic generation
+
 ---
 
 {% include use-cases/use-case-transport-notify-backbone-of-unauthorized-profile-access.md %}

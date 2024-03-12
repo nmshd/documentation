@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/cluster-contacts-into-your-phase-of-live-or-categories
 published: false
 title: "Cluster Contacts into your phase of live or categories"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: cluster-contacts-into-your-phase-of-live-or-categories
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

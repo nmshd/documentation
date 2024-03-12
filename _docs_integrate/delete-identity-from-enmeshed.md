@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/delete-identity-from-enmeshed
 published: false
 title: "Delete Identity from enmeshed"
@@ -17,10 +16,11 @@ properties:
   - documentation status: OPEN
   - published:
   - link: delete-identity-from-enmeshed
-    require:
-    required_by:
+require:
+required_by:
   - integrate/sending-messages
 # End automatic generation
+
 ---
 
 {% include warnings/feature-work-in-progress %}

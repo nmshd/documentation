@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: operate/log-event-ids
 published: false
 title: "Log Event IDs"
@@ -17,9 +16,10 @@ properties:
   - documentation status:
   - published: true
   - link: log-event-ids
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 | EventId.Id | EventId.Name                                                              |

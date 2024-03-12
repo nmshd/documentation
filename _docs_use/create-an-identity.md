@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/create-an-identity
 published: false
 title: "Create an Identity"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published:
   - link: create-an-identity
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 {% include warnings/documentation-is-prerelease %}

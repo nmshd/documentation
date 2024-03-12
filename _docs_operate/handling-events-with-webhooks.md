@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: operate/handling-events-with-webhooks
 published: false
 title: "Handling events with Webhooks"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: handling-events-with-webhooks
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

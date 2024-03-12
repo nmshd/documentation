@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: integrate/request-persistent-consent-of-peer
 published: true
 title: "Request persistent consent of peer"
 type: scenario
 toc: true
 properties:
-
-- id: SC027
-- category: Manage attributes of others
-- description:
-- customer: All
-- component: integrate
-- level: Beginner
-- implementation status: DONE
-- documentation status: DONE
-- published: true
-- link: request-persistent-consent-of-peer
-  require:
-- integrate/requests-over-templates
-- integrate/requests-over-messages
-  required_by: 
+  - id: SC027
+  - category: Manage attributes of others
+  - description:
+  - customer: All
+  - component: integrate
+  - level: Beginner
+  - implementation status: DONE
+  - documentation status: DONE
+  - published: true
+  - link: request-persistent-consent-of-peer
+require:
+  - integrate/requests-over-templates
+  - integrate/requests-over-messages
+required_by:
 # End automatic generation
+
 ---
 
 <!-- A general description of the requirement can be given here. -->

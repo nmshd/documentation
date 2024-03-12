@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/archive-stale-contacts
 published: false
 title: "Archive stale Contacts"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: archive-stale-contacts
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

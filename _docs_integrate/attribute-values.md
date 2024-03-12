@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: integrate/attribute-values
 redirect_from:
-
-- /integrate/data-model-attribute-values
-  published: true
-  title: "Attribute Values"
-  type: scenario
-  toc: true
-  properties:
-- id: SC092
-- category: Data Model
-- description:
-- customer:
-- component: integrate
-- level:
-- implementation status: DOCS ONLY
-- documentation status: OLD
-- published: true
-- link: attribute-values
-  require:
-  required_by: 
+  - /integrate/data-model-attribute-values
+published: true
+title: "Attribute Values"
+type: scenario
+toc: true
+properties:
+  - id: SC092
+  - category: Data Model
+  - description:
+  - customer:
+  - component: integrate
+  - level:
+  - implementation status: DOCS ONLY
+  - documentation status: OLD
+  - published: true
+  - link: attribute-values
+require:
+required_by:
 # End automatic generation
+
 ---
 
 Each [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) contains an instance of an Attribute Value within its `value` property. There are different types of Attribute Values. The types define the value's structural definition, rendering information and validators. For example, an email address with the value `address@company.corp` is stored with the Attribute Value type [`EMailAddress`](#emailaddress), which defines

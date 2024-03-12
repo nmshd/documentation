@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/get-overview-of-your-data
 published: false
 title: "Get overview of your data"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published:
   - link: get-overview-of-your-data
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 {% include warnings/documentation-is-prerelease %}

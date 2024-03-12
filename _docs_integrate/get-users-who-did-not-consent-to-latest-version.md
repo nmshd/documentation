@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/get-users-who-did-not-consent-to-latest-version
 published: false
 title: "Get users who did not consent to latest version"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: get-users-who-did-not-consent-to-latest-version
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

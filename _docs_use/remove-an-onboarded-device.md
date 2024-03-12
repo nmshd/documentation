@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/remove-an-onboarded-device
 published: false
 title: "Remove an onboarded Device"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: remove-an-onboarded-device
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: integrate/requesting-authentication
 published: false
 title: "Requesting authentication"
 type: scenario
 toc: true
 properties:
-
-- id: SC032
-- category: Requesting authentication
-- description:
-- customer: All
-- component: integrate
-- level: Beginner
-- implementation status: DONE
-- documentation status: OPEN
-- published:
-- link: requesting-authentication
-  require:
-- integrate/requests-over-templates
-- integrate/requests-over-messages
-  required_by: 
+  - id: SC032
+  - category: Requesting authentication
+  - description:
+  - customer: All
+  - component: integrate
+  - level: Beginner
+  - implementation status: DONE
+  - documentation status: OPEN
+  - published:
+  - link: requesting-authentication
+require:
+  - integrate/requests-over-templates
+  - integrate/requests-over-messages
+required_by:
 # End automatic generation
+
 ---
 
 {% include warnings/documentation-is-prerelease %}

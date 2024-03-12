@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/pin-contacts-to-have-the-most-prominent-contacts-at-hand
 published: false
 title: "Pin Contacts to have the most prominent Contacts at hand"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: pin-contacts-to-have-the-most-prominent-contacts-at-hand
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

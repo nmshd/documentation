@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/request-and-process-attributes-by-messages
 published: false
 title: "Request and process attributes by messages"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published:
   - link: request-and-process-attributes-by-messages
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 {% include warnings/documentation-is-prerelease %}

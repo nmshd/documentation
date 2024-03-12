@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: operate/handling-events-with-amqp
 published: false
 title: "Handling events with AMQP"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: handling-events-with-amqp
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

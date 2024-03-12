@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: operate/check-health-of-connector
 published: false
 title: "Check health of Connector"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: check-health-of-connector
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

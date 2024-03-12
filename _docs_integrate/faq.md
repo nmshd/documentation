@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/faq
 published: false
 title: "FAQ"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published:
   - link: faq
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 Welcome to our FAQ page! Here, you'll find answers to the most common questions about enmeshed. If you're looking for quick and straightforward information, you've come to the right place.

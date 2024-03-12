@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/manually-fill-attributes-of-your-identity
 published: false
 title: "Manually fill Attributes of your Identity"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published:
   - link: manually-fill-attributes-of-your-identity
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 {% include warnings/documentation-is-prerelease %}

@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/process-responses-to-outgoing-requests
 published: false
 title: "Process responses to outgoing requests"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published:
   - link: process-responses-to-outgoing-requests
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 {% include warnings/documentation-is-prerelease %}

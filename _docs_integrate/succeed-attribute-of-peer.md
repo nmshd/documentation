@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/succeed-attribute-of-peer
 published: false
 title: "Succeed attribute of peer"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published:
   - link: succeed-attribute-of-peer
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 {% include warnings/feature-work-in-progress %}

@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: operate/setup-with-helm-charts
 redirect_from:
-
-- /integrate/helm-chart
-  published: true
-  title: "Setup with Helm Charts"
-  type: scenario
-  toc: true
-  properties:
-- id: SC078
-- category: Connector Setup
-- description:
-- customer:
-- component: operate
-- level:
-- implementation status: DOCS ONLY
-- documentation status: OLD
-- published: true
-- link: setup-with-helm-charts
-  require:
-  required_by: 
+  - /integrate/helm-chart
+published: true
+title: "Setup with Helm Charts"
+type: scenario
+toc: true
+properties:
+  - id: SC078
+  - category: Connector Setup
+  - description:
+  - customer:
+  - component: operate
+  - level:
+  - implementation status: DOCS ONLY
+  - documentation status: OLD
+  - published: true
+  - link: setup-with-helm-charts
+require:
+required_by:
 # End automatic generation
+
 ---
 
 ## Versions

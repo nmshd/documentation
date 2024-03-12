@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/delete-profile-from-the-app
 published: false
 title: "Delete Profile from the App"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published:
   - link: delete-profile-from-the-app
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 {% include warnings/feature-work-in-progress %}

@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/onboard-an-additional-device
 published: false
 title: "Onboard an additional Device"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: onboard-an-additional-device
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

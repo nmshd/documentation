@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/event-introduction
 published: true
 title: "Event introduction"
@@ -17,9 +16,10 @@ properties:
   - documentation status: DONE
   - published: true
   - link: event-introduction
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 Connecting an external system with the [enmeshed Connector]({% link _docs_explore/01-how_does_enmeshed_work.md %}#enmeshed-connector), the main communication is performed by addressing the Connector's REST API.

@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/requesting-authentication-by-multiple-parties
 published: false
 title: "Requesting authentication by multiple parties"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: requesting-authentication-by-multiple-parties
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

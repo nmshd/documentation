@@ -35,6 +35,7 @@ properties:
 require:
 required_by:
 # End automatic generation
+
 ---
 
 {% include use-cases/use-case-consumption-create-a-blueprint-of-a-relationship-template.md %}

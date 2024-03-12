@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/request-statuses
 published: false
 title: "Request statuses"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: request-statuses
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

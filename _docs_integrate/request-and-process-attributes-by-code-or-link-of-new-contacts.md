@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/request-and-process-attributes-by-code-or-link-of-new-contacts
 published: false
 title: "Request and process attributes by code or link of new contacts"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: request-and-process-attributes-by-code-or-link-of-new-contacts
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

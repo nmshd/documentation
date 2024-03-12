@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/process-requests-of-contact
 published: false
 title: "Process requests of contact"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published:
   - link: process-requests-of-contact
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 {% include warnings/documentation-is-prerelease %}

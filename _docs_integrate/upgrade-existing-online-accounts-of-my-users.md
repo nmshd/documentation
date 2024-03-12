@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/upgrade-existing-online-accounts-of-my-users
 published: false
 title: "upgrade existing online accounts of my users"
@@ -17,7 +16,8 @@ properties:
   - documentation status:
   - published:
   - link: upgrade-existing-online-accounts-of-my-users
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: integrate/requests-and-requestitems
 redirect_from:
-
-- /integrate/data-model-request-items
-  published: true
-  title: "Requests and RequestItems"
-  type: scenario
-  toc: true
-  properties:
-- id: SC091
-- category: Data Model
-- description:
-- customer:
-- component: integrate
-- level:
-- implementation status: DOCS ONLY
-- documentation status: OLD
-- published: true
-- link: requests-and-requestitems
-  require:
-  required_by: 
+  - /integrate/data-model-request-items
+published: true
+title: "Requests and RequestItems"
+type: scenario
+toc: true
+properties:
+  - id: SC091
+  - category: Data Model
+  - description:
+  - customer:
+  - component: integrate
+  - level:
+  - implementation status: DOCS ONLY
+  - documentation status: OLD
+  - published: true
+  - link: requests-and-requestitems
+require:
+required_by:
 # End automatic generation
+
 ---
 
 ## AuthenticationRequestItem

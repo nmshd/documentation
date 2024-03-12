@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: integrate/connector-events
 redirect_from:
-
-- /integrate/connector-events
-  published: true
-  title: "Connector Events"
-  type: scenario
-  toc: true
-  properties:
-- id: SC043
-- category: Data Model
-- description:
-- customer: All
-- component: integrate
-- level: Advanced
-- implementation status: DOCS ONLY
-- documentation status: OLD
-- published: true
-- link: connector-events
-  require:
-  required_by: 
+  - /integrate/connector-events
+published: true
+title: "Connector Events"
+type: scenario
+toc: true
+properties:
+  - id: SC043
+  - category: Data Model
+  - description:
+  - customer: All
+  - component: integrate
+  - level: Advanced
+  - implementation status: DOCS ONLY
+  - documentation status: OLD
+  - published: true
+  - link: connector-events
+require:
+required_by:
 # End automatic generation
+
 ---
 
 | Event                                                                                | Data                                                                                           | Description (This event is triggered when ...)                                                                                                                                                                                                                                                                                                                                                                              |

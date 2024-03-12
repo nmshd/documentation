@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/propose-attribute-to-peer
 published: false
 title: "Propose Attribute to peer"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published: true
   - link: propose-attribute-to-peer
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 An Identity may have received information about a peer in the past that it needs to process a transaction at a later time. To ensure the accuracy of the available information, the Identity can propose [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) to the peer for creation. Depending on whether the peer confirms the fittingness of a proposed Attribute, it can agree to its creation or correct the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) beforehand. Proposing Attributes to a peer can be useful in these and many other situations, such as:

@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: operate/writing-your-own-connector-module
 published: false
 title: "Writing your own Connector module"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: writing-your-own-connector-module
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

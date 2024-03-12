@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: operate/setup-with-docker-compose
 redirect_from:
-
-- /integrate/connector-installation
-  published: true
-  title: "Setup with Docker Compose"
-  type: scenario
-  toc: true
-  properties:
-- id: SC077
-- category: Connector Setup
-- description: #2 https://enmeshed.eu/integrate/connector-installation
-- customer:
-- component: operate
-- level:
-- implementation status: DOCS ONLY
-- documentation status: OLD
-- published: true
-- link: setup-with-docker-compose
-  require:
-  required_by: 
+  - /integrate/connector-installation
+published: true
+title: "Setup with Docker Compose"
+type: scenario
+toc: true
+properties:
+  - id: SC077
+  - category: Connector Setup
+  - description: #2 https://enmeshed.eu/integrate/connector-installation
+  - customer:
+  - component: operate
+  - level:
+  - implementation status: DOCS ONLY
+  - documentation status: OLD
+  - published: true
+  - link: setup-with-docker-compose
+require:
+required_by:
 # End automatic generation
+
 ---
 
 ## Prerequisites

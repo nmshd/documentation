@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/rename-profile-to-distinguish-multiple-profiles
 published: false
 title: "Rename Profile to distinguish multiple Profiles"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published:
   - link: rename-profile-to-distinguish-multiple-profiles
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 {% include warnings/documentation-is-prerelease %}

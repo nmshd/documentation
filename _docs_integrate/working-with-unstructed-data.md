@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/working-with-unstructed-data
 published: false
 title: "Working with unstructed data"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: working-with-unstructed-data
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

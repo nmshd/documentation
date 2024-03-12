@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: operate/privacy-considerations
 redirect_from:
-
-- /integrate/connector-privacy
-  published: true
-  title: "Privacy Considerations"
-  type: scenario
-  toc: true
-  properties:
-- id: SC085
-- category: Connector Operations
-- description:
-- customer:
-- component: operate
-- level:
-- implementation status: DOCS ONLY
-- documentation status: OLD
-- published: true
-- link: privacy-considerations
-  require:
-  required_by: 
+  - /integrate/connector-privacy
+published: true
+title: "Privacy Considerations"
+type: scenario
+toc: true
+properties:
+  - id: SC085
+  - category: Connector Operations
+  - description:
+  - customer:
+  - component: operate
+  - level:
+  - implementation status: DOCS ONLY
+  - documentation status: OLD
+  - published: true
+  - link: privacy-considerations
+require:
+required_by:
 # End automatic generation
+
 ---
 
 Please be aware that personal or sensitive plaintext data is processed and stored in the Connector and the corresponding MongoDB database. The same applies to secret and private keys which should be treated as strictly confidential.

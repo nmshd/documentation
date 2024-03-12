@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/send-prefabricated-request-to-contact
 published: false
 title: "Send prefabricated request to contact"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published:
   - link: send-prefabricated-request-to-contact
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 {% include warnings/feature-work-in-progress %}

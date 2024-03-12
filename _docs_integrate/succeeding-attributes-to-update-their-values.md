@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: integrate/succeeding-attributes-to-update-their-values
 redirect_from:
-
-- /integrate/updating-identityattributes-of-yourself
-  published: true
-  title: "Succeeding Attributes to update their values"
-  type: scenario
-  toc: true
-  properties:
-- id: SC053
-- category: Manage attributes of yourself
-- description:
-- customer: All
-- component: integrate
-- level: Beginner
-- implementation status: DONE
-- documentation status: DONE
-- published: true
-- link: succeeding-attributes-to-update-their-values
-  require:
-  required_by: 
+  - /integrate/updating-identityattributes-of-yourself
+published: true
+title: "Succeeding Attributes to update their values"
+type: scenario
+toc: true
+properties:
+  - id: SC053
+  - category: Manage attributes of yourself
+  - description:
+  - customer: All
+  - component: integrate
+  - level: Beginner
+  - implementation status: DONE
+  - documentation status: DONE
+  - published: true
+  - link: succeeding-attributes-to-update-their-values
+require:
+required_by:
 # End automatic generation
+
 ---
 
 The way enmeshed handles updates to your personal data is by succeeding old [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) with new ones.

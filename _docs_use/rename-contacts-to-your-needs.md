@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/rename-contacts-to-your-needs
 published: false
 title: "Rename Contacts to your needs"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: rename-contacts-to-your-needs
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

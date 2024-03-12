@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: integrate/data-model-overview
 redirect_from:
-
-- /integrate/data-model-overview
-  published: true
-  title: "Data Model Overview"
-  type: scenario
-  toc: true
-  properties:
-- id: SC090
-- category: Data Model
-- description:
-- customer:
-- component: integrate
-- level:
-- implementation status: DOCS ONLY
-- documentation status: OLD
-- published: true
-- link: data-model-overview
-  require:
-  required_by: 
+  - /integrate/data-model-overview
+published: true
+title: "Data Model Overview"
+type: scenario
+toc: true
+properties:
+  - id: SC090
+  - category: Data Model
+  - description:
+  - customer:
+  - component: integrate
+  - level:
+  - implementation status: DOCS ONLY
+  - documentation status: OLD
+  - published: true
+  - link: data-model-overview
+require:
+required_by:
 # End automatic generation
+
 ---
 
 The enmeshed data model can be divided into three parts:

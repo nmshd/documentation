@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/overview-of-request-items
 published: false
 title: "Overview of request items"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: overview-of-request-items
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

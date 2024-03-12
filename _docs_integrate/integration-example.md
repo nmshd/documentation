@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: integrate/integration-example
 redirect_from:
-
-- /integrate/connector-tutorial
-  published: true
-  title: "Integration example"
-  type: scenario
-  toc: true
-  properties:
-- id: SC095
-- category: Getting Started
-- description:
-- customer:
-- component: integrate
-- level:
-- implementation status: DOCS ONLY
-- documentation status: OLD
-- published: true
-- link: integration-example
-  require:
-  required_by: 
+  - /integrate/connector-tutorial
+published: true
+title: "Integration example"
+type: scenario
+toc: true
+properties:
+  - id: SC095
+  - category: Getting Started
+  - description:
+  - customer:
+  - component: integrate
+  - level:
+  - implementation status: DOCS ONLY
+  - documentation status: OLD
+  - published: true
+  - link: integration-example
+require:
+required_by:
 # End automatic generation
+
 ---
 
 In this tutorial we go through the basic steps necessary to establish a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) to another Identity and send [Messages]({% link _docs_integrate/data-model-overview.md %}#message) between two Identities with an existing Relationship.

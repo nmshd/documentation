@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/share-own-attribute-to-peer
 published: false
 title: "Share own Attribute to peer"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published: true
   - link: share-own-attribute-to-peer
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 There are many situations in which an Identity wants to share an own [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with another Identity, for example:

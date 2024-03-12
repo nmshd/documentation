@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: integrate/read-attribute-from-peer
 published: false
 title: "Read Attribute from peer"
@@ -17,9 +16,10 @@ properties:
   - documentation status: OPEN
   - published: true
   - link: read-attribute-from-peer
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---
 
 There are many situations in which an Identity is interested in an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) of another Identity, for example:

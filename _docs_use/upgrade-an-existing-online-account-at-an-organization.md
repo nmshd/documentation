@@ -1,6 +1,5 @@
 ---
 # Start automatic generation
-
 permalink: use/upgrade-an-existing-online-account-at-an-organization
 published: false
 title: "upgrade an existing online account at an organization"
@@ -17,7 +16,8 @@ properties:
   - documentation status: OPEN
   - published:
   - link: upgrade-an-existing-online-account-at-an-organization
-    require:
-    required_by:
+require:
+required_by:
 # End automatic generation
+
 ---

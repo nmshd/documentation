@@ -1,29 +1,28 @@
 ---
 
 # Start automatic generation
-
 permalink: integrate/requesting-one-time-consents
 published: true
 title: "Requesting one-time consents"
 type: scenario
 toc: true
 properties:
-
-- id: SC025
-- category: Requesting consent of users
-- description:
-- customer: All
-- component: integrate
-- level: Beginner
-- implementation status: DONE
-- documentation status: DONE
-- published: true
-- link: requesting-one-time-consents
-  require:
-- integrate/requests-over-templates
-- integrate/requests-over-messages
-  required_by: 
+  - id: SC025
+  - category: Requesting consent of users
+  - description:
+  - customer: All
+  - component: integrate
+  - level: Beginner
+  - implementation status: DONE
+  - documentation status: DONE
+  - published: true
+  - link: requesting-one-time-consents
+require:
+  - integrate/requests-over-templates
+  - integrate/requests-over-messages
+required_by:
 # End automatic generation
+
 ---
 
 <!-- A general description of the requirement can be given here. -->
