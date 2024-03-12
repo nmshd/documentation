@@ -17,8 +17,6 @@ properties:
   - published:
   - link: establish-a-new-digital-relationship-to-another-organization
 require:
-  - integrate/establish-new-digital-relationships-to-enmeshed-users
-  - integrate/digitize-existing-relationships-to-my-peers
-  - use-case-user_interface-get-app-version-information
 required_by:
----
+------ 
+

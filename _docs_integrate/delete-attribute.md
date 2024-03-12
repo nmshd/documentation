@@ -18,6 +18,5 @@ properties:
   - link: delete-attribute
 require:
 required_by:
----
+------ 
 
-{% include scenarios/integrate/delete-attribute.md %}

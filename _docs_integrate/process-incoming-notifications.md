@@ -18,6 +18,5 @@ properties:
   - link: process-incoming-notifications
 require:
 required_by:
----
+------ 
 
-{% include scenarios/integrate/process-incoming-notifications.md %}

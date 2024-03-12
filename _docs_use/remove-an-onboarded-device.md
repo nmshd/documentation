@@ -18,6 +18,5 @@ properties:
   - link: remove-an-onboarded-device
 require:
 required_by:
----
+------ 
 
-{% include scenarios/use/remove-an-onboarded-device.md %}

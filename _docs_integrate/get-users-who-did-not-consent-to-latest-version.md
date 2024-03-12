@@ -18,6 +18,5 @@ properties:
   - link: get-users-who-did-not-consent-to-latest-version
 require:
 required_by:
----
+------ 
 
-{% include scenarios/integrate/get-users-who-did-not-consent-to-latest-version.md %}

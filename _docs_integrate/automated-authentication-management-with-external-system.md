@@ -18,6 +18,5 @@ properties:
   - link: automated-authentication-management-with-external-system
 require:
 required_by:
----
+------ 
 
-{% include scenarios/integrate/automated-authentication-management-with-external-system.md %}

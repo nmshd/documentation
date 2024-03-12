@@ -18,6 +18,5 @@ properties:
   - link: archive-stale-contacts
 require:
 required_by:
----
+------ 
 
-{% include scenarios/use/archive-stale-contacts.md %}

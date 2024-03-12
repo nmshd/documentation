@@ -17,8 +17,6 @@ properties:
   - published:
   - link: test-your-requests-validity
 require:
-  - integrate/create-own-identityattribute
 required_by:
----
+------ 
 
-{% include scenarios/integrate/test-your-requests-validity.md %}

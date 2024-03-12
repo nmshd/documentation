@@ -18,5 +18,5 @@ properties:
   - link: establish-new-digital-relationships-to-enmeshed-users
 require:
 required_by:
-  - integrate/establish-a-new-digital-relationship-to-another-organization
----
+------ 
+

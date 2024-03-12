@@ -18,6 +18,5 @@ properties:
   - link: check-device-configuration
 require:
 required_by:
----
+------ 
 
-{% include scenarios/use/check-device-configuration.md %}

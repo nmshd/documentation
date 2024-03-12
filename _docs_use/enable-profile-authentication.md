@@ -18,6 +18,5 @@ properties:
   - link: enable-profile-authentication
 require:
 required_by:
----
+------ 
 
-{% include scenarios/use/enable-profile-authentication.md %}

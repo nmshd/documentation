@@ -18,6 +18,5 @@ properties:
   - link: automated-consent-management-with-external-system
 require:
 required_by:
----
+------ 
 
-{% include scenarios/integrate/automated-consent-management-with-external-system.md %}

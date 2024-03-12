@@ -20,6 +20,8 @@ properties:
   - link: performance-considerations
 require:
 required_by:
----
+------ 
 
-{% include scenarios/operate/performance-considerations.md %}
+## Scaling Horizontally
+
+Using multiple connectors with the same identity to scale horizontally and balance the workload across all available connectors is not supported at the moment.

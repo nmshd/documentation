@@ -18,6 +18,5 @@ properties:
   - link: updating-consents
 require:
 required_by:
----
+------ 
 
-{% include scenarios/integrate/updating-consents.md %}

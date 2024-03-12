@@ -18,6 +18,5 @@ properties:
   - link: recover-an-existing-identity
 require:
 required_by:
----
+------ 
 
-{% include scenarios/use/recover-an-existing-identity.md %}

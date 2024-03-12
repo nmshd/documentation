@@ -18,6 +18,5 @@ properties:
   - link: pin-contacts-to-have-the-most-prominent-contacts-at-hand
 require:
 required_by:
----
+------ 
 
-{% include scenarios/use/pin-contacts-to-have-the-most-prominent-contacts-at-hand.md %}

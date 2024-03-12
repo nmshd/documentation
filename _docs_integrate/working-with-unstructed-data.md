@@ -18,6 +18,5 @@ properties:
   - link: working-with-unstructed-data
 require:
 required_by:
----
+------ 
 
-{% include scenarios/integrate/working-with-unstructed-data.md %}

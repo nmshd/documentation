@@ -18,6 +18,5 @@ properties:
   - link: create-recovery-data-for-the-identity
 require:
 required_by:
----
+------ 
 
-{% include scenarios/use/create-recovery-data-for-the-identity.md %}

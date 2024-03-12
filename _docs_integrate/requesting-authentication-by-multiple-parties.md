@@ -18,6 +18,5 @@ properties:
   - link: requesting-authentication-by-multiple-parties
 require:
 required_by:
----
+------ 
 
-{% include scenarios/integrate/requesting-authentication-by-multiple-parties.md %}

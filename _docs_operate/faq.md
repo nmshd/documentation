@@ -18,6 +18,5 @@ properties:
   - link: faq
 require:
 required_by:
----
+------ 
 
-{% include scenarios/operate/faq.md %}

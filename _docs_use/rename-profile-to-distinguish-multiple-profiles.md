@@ -18,6 +18,8 @@ properties:
   - link: rename-profile-to-distinguish-multiple-profiles
 require:
 required_by:
----
+------ 
 
-{% include scenarios/use/rename-profile-to-distinguish-multiple-profiles.md %}
+{% include warnings/documentation-is-prerelease %}
+
+To distinguish the different Profiles within the App, the user can rename and select an image for every profile.

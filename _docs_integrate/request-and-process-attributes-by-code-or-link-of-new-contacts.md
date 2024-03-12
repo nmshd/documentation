@@ -18,6 +18,5 @@ properties:
   - link: request-and-process-attributes-by-code-or-link-of-new-contacts
 require:
 required_by:
----
+------ 
 
-{% include scenarios/integrate/request-and-process-attributes-by-code-or-link-of-new-contacts.md %}

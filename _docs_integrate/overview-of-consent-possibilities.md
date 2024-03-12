@@ -18,6 +18,5 @@ properties:
   - link: overview-of-consent-possibilities
 require:
 required_by:
----
+------ 
 
-{% include scenarios/integrate/overview-of-consent-possibilities.md %}

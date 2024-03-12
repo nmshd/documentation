@@ -18,6 +18,5 @@ properties:
   - link: respond-to-incoming-identityattribute-update-requests
 require:
 required_by:
----
+------ 
 
-{% include scenarios/integrate/respond-to-incoming-identityattribute-update-requests.md %}

@@ -18,5 +18,5 @@ properties:
   - link: digitize-existing-relationships-to-my-peers
 require:
 required_by:
-  - integrate/establish-a-new-digital-relationship-to-another-organization
----
+------ 
+

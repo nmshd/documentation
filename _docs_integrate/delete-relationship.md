@@ -18,6 +18,5 @@ properties:
   - link: delete-relationship
 require:
 required_by:
----
+------ 
 
-{% include scenarios/integrate/delete-relationship.md %}

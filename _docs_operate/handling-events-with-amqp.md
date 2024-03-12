@@ -18,6 +18,5 @@ properties:
   - link: handling-events-with-amqp
 require:
 required_by:
----
+------ 
 
-{% include scenarios/operate/handling-events-with-amqp.md %}

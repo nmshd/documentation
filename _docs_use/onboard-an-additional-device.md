@@ -18,6 +18,5 @@ properties:
   - link: onboard-an-additional-device
 require:
 required_by:
----
+------ 
 
-{% include scenarios/use/onboard-an-additional-device.md %}

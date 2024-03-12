@@ -18,6 +18,5 @@ properties:
   - link: request-statuses
 require:
 required_by:
----
+------ 
 
-{% include scenarios/integrate/request-statuses.md %}

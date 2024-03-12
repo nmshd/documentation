@@ -18,6 +18,5 @@ properties:
   - link: automate-request-handling
 require:
 required_by:
----
+------ 
 
-{% include scenarios/integrate/automate-request-handling.md %}

@@ -18,6 +18,5 @@ properties:
   - link: notification-introduction
 require:
 required_by:
----
+------ 
 
-{% include scenarios/integrate/notification-introduction.md %}

@@ -18,6 +18,5 @@ properties:
   - link: writing-your-own-connector-module
 require:
 required_by:
----
+------ 
 
-{% include scenarios/operate/writing-your-own-connector-module.md %}

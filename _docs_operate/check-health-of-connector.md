@@ -18,6 +18,5 @@ properties:
   - link: check-health-of-connector
 require:
 required_by:
----
+------ 
 
-{% include scenarios/operate/check-health-of-connector.md %}

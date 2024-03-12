@@ -18,6 +18,5 @@ properties:
   - link: cluster-contacts-into-your-phase-of-live-or-categories
 require:
 required_by:
----
+------ 
 
-{% include scenarios/use/cluster-contacts-into-your-phase-of-live-or-categories.md %}

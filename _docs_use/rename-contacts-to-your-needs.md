@@ -18,6 +18,5 @@ properties:
   - link: rename-contacts-to-your-needs
 require:
 required_by:
----
+------ 
 
-{% include scenarios/use/rename-contacts-to-your-needs.md %}

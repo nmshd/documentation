@@ -18,6 +18,5 @@ properties:
   - link: setup-connector-for-productive-use
 require:
 required_by:
----
+------ 
 
-{% include scenarios/operate/setup-connector-for-productive-use.md %}
