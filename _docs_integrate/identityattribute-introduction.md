@@ -18,5 +18,6 @@ properties:
   - link: identityattribute-introduction
 require:
 required_by:
+  - integrate/create-attribute-for-yourself
 ------ 
 

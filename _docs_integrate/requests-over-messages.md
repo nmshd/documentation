@@ -19,7 +19,11 @@ properties:
   - published: true
   - link: requests-over-messages
 require:
+  - integrate/requests-over-templates
 required_by:
+  - integrate/requesting-one-time-consents
+  - integrate/request-persistent-consent-of-peer
+  - integrate/requesting-authentication
 ------ 
 
 <!-- A general description of the requirement can be given here. -->

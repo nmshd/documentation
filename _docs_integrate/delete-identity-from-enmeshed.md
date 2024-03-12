@@ -18,6 +18,7 @@ properties:
   - link: delete-identity-from-enmeshed
 require:
 required_by:
+  - integrate/sending-messages
 ------ 
 
 {% include warnings/feature-work-in-progress %}

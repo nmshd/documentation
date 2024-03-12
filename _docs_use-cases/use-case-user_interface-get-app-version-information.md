@@ -34,7 +34,6 @@ properties:
   - link: use-case-user_interface-get-app-version-information
 require:
 required_by:
-  - integrate/establish-a-new-digital-relationship-to-another-organization
 ---
 
 {% include use-cases/use-case-user_interface-get-app-version-information.md %}

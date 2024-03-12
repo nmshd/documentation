@@ -18,7 +18,7 @@ function getFileName(object: DynamicUseCase): string {
 }
 async function writeTextToFile(object: DynamicUseCase, text: string): Promise<void> {
     const fileName = getFileName(object);
-    const regex = /---[\s\S]*?---/g; // Regular expression to match text between "---" across multiple lines
+    const regex = /---[\s\S]*?---[\s\n]/g; // Regular expression to match text between "---" across multiple lines
 
     try {
         const data = await fs.promises.readFile(fileName, "utf8");

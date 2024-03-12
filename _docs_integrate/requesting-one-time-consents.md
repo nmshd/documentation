@@ -17,6 +17,8 @@ properties:
   - published: true
   - link: requesting-one-time-consents
 require:
+  - integrate/requests-over-templates
+  - integrate/requests-over-messages
 required_by:
 ------ 
 
