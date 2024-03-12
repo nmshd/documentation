@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: integrate/create-attribute-for-yourself
-published: false
+published: true
 title: "Create Attribute for yourself"
 type: scenario
 toc: true
@@ -13,7 +13,7 @@ properties:
   - component: integrate
   - level: Beginner
   - implementation status: DONE
-  - documentation status: OPEN
+  - documentation status: DONE
   - published:
   - link: create-attribute-for-yourself
 require:

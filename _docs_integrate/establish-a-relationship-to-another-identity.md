@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: integrate/establish-a-relationship-to-another-identity
-published: false
+published: true
 title: "Establish a Relationship to another Identity"
 type: scenario
 toc: true
@@ -13,7 +13,7 @@ properties:
   - component: integrate
   - level:
   - implementation status:
-  - documentation status:
+  - documentation status: DONE
   - published:
   - link: establish-a-relationship-to-another-identity
 require:
