@@ -285,11 +285,11 @@ async function main() {
         filePath,
         scenariosWorksheetName,
         createScenarioText,
-        ["/workspaces/documentation/_docs_operate/", "/workspaces/documentation/_docs_use/", "/workspaces/documentation/_docs_integrate/"],
+        [__dirname + "/../_docs_operate/", __dirname + "/../_docs_use/", __dirname + "/../_docs_integrate/"],
         requiredByTable,
         requireTable
     );
-    await processObjects(filePath, useCasesWorksheetName, createUseCaseText, ["/workspaces/documentation/_docs_use-cases/"], requiredByTable, requireTable);
+    await processObjects(filePath, useCasesWorksheetName, createUseCaseText, [__dirname + "/../_docs_use-cases/"], requiredByTable, requireTable);
 }
 
 main();
