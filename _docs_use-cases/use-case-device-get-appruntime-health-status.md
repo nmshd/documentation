@@ -37,4 +37,8 @@ required_by:
 # End automatic generation
 ---
 
-{% include use-cases/use-case-device-get-appruntime-health-status.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves the service health information used by the app runtime.

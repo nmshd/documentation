@@ -36,5 +36,3 @@ require:
 required_by:
 # End automatic generation
 ---
-
-{% include use-cases/use-case-transport-create-token-qrcode-for-own-relationship-template.md %}

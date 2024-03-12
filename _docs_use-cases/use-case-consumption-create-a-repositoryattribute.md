@@ -36,6 +36,6 @@ properties:
   - link: use-case-consumption-create-a-repositoryattribute
 require:
 required_by:
-# Start automatic generation
 api_route_regex: ^post /api/v2/Attributes$
+# End automatic generation
 ---

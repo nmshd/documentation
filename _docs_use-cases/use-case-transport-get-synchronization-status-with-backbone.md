@@ -34,8 +34,16 @@ properties:
   - link: use-case-transport-get-synchronization-status-with-backbone
 require:
 required_by:
-# Start automatic generation
 api_route_regex: ^GET /api/v2/Account/SyncInfo$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-transport-get-synchronization-status-with-backbone.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case returns metadata about the synchronization status of the current Identity or Device with the Backbone. So far, it returns the timestamp of the last successful synchronization run which is triggered by /use-case-transport-synchronize-updates-of-backbone
+
+## On Success
+
+- Returns the metadata of the last sync run

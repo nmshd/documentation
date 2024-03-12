@@ -34,8 +34,12 @@ properties:
   - link: use-case-device-get-the-connector-version-information
 require:
 required_by:
-# Start automatic generation
 api_route_regex: ^GET /Monitoring/Version$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-device-get-the-connector-version-information.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves the version information of the Connector, including the `build` number, underlying git `commit`, the Connector's semantic `version` and its release `date`.

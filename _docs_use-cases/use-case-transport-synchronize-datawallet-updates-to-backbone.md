@@ -34,8 +34,6 @@ properties:
   - link: use-case-transport-synchronize-datawallet-updates-to-backbone
 require:
 required_by:
-# Start automatic generation
 api_route_regex: ^POST /api/v2/Account/Sync$
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-synchronize-datawallet-updates-to-backbone.md %}

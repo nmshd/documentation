@@ -36,5 +36,3 @@ require:
 required_by:
 # End automatic generation
 ---
-
-{% include use-cases/use-case-transport-request-deletion-of-identity.md %}

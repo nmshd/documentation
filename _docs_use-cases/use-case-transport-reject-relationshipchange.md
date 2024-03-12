@@ -36,6 +36,6 @@ properties:
   - link: use-case-transport-reject-relationshipchange
 require:
 required_by:
-# Start automatic generation
 api_route_regex: ^PUT /api/v2/Relationships/{id}/Changes/{changeId}/Reject$
+# End automatic generation
 ---

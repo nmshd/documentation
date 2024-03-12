@@ -37,4 +37,20 @@ required_by:
 # End automatic generation
 ---
 
-{% include use-cases/use-case-device-get-profile-by-enmeshed-address.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves the LocalAccount with the corresponding enmeshed Address.
+
+## Parameters
+
+- The `address` of the corresponding Identity of the LocalAccount.
+
+## On Success
+
+- Returns the LocalAccount of the Identity.
+
+## On Failure
+
+- There is no such LocalAccount.

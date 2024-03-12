@@ -34,8 +34,12 @@ properties:
   - link: use-case-transport-get-currently-used-identity
 require:
 required_by:
-# Start automatic generation
 api_route_regex: ^GET /api/v2/Account/IdentityInfo$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-transport-get-currently-used-identity.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves information about the currently used Identity.

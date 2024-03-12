@@ -36,5 +36,3 @@ require:
 required_by:
 # End automatic generation
 ---
-
-{% include use-cases/use-case-transport-delete-device-which-is-not-onboarded-yet.md %}

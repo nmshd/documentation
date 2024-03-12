@@ -34,8 +34,24 @@ properties:
   - link: use-case-consumption-get-attribute
 require:
 required_by:
-# Start automatic generation
 api_route_regex: ^get /api/v2/Attributes/{id}$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-consumption-get-attribute.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case is intended to retrieve a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute) by its id.
+
+## Parameters
+
+- The `id` of the LocalAttribute.
+
+## On Success
+
+- Returns the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute) corresponding to the `id`.
+
+## On Failure
+
+- The LocalAttribute does not exist.

@@ -37,4 +37,8 @@ required_by:
 # End automatic generation
 ---
 
-{% include use-cases/use-case-transport-get-currently-used-device.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves information about the currently used Device.

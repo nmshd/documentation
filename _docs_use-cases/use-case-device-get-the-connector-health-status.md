@@ -34,8 +34,12 @@ properties:
   - link: use-case-device-get-the-connector-health-status
 require:
 required_by:
-# Start automatic generation
 api_route_regex: ^GET /health$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-device-get-the-connector-health-status.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves the service health information of the Connector.

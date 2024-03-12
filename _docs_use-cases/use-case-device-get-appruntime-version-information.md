@@ -37,4 +37,8 @@ required_by:
 # End automatic generation
 ---
 
-{% include use-cases/use-case-device-get-appruntime-version-information.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves the runtime version of the app.

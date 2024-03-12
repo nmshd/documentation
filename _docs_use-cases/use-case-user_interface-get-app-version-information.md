@@ -36,5 +36,3 @@ require:
 required_by:
 # End automatic generation
 ---
-
-{% include use-cases/use-case-user_interface-get-app-version-information.md %}

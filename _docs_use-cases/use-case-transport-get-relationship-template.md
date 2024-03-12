@@ -34,8 +34,25 @@ properties:
   - link: use-case-transport-get-relationship-template
 require:
 required_by:
-# Start automatic generation
 api_route_regex: ^GET /api/v2/RelationshipTemplates/{id}$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-transport-get-relationship-template.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate)
+by its `id`.
+
+## Parameters
+
+- `id`of the RelationshipTemplate.
+
+## On Success
+
+- The RelationshipTemplate that corresponds to the `id`.
+
+## On Failure
+
+- The `id` doesn't resolve to a RelationshipTemplate.

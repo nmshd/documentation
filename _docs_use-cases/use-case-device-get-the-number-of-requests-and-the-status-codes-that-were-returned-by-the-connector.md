@@ -34,8 +34,12 @@ properties:
   - link: use-case-device-get-the-number-of-requests-and-the-status-codes-that-were-returned-by-the-connector
 require:
 required_by:
-# Start automatic generation
 api_route_regex: ^GET /Monitoring/Requests$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-device-get-the-number-of-requests-and-the-status-codes-that-were-returned-by-the-connector.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves the overall count of http-requests as `requestCount` sent by the Connector to the Backbone. The returned `requestCountByStatus` is a more detailed view on how many requests succeeded or failed.

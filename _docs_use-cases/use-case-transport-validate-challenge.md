@@ -34,8 +34,6 @@ properties:
   - link: use-case-transport-validate-challenge
 require:
 required_by:
-# Start automatic generation
 api_route_regex: ^POST /api/v2/Challenges/Validate$
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-validate-challenge.md %}
