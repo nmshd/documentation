@@ -33,6 +33,7 @@ properties:
   - link: consumption/update-attribute
 require:
 required_by:
+# End automatic generation
 ---
 
 {% include use-cases/use-case-consumption-update-attribute.md %}
