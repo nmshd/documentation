@@ -42,9 +42,3 @@ required_by:
 {% include properties_list.html %}
 
 This use-case retrieves the runtime version of the app.
-
-{{properties.description}}
-
-{% include properties_list.html %}
-
-This use-case retrieves the runtime version of the app.
