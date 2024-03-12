@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: integrate/support
-published: false
+published: true
 title: "Support"
 type: scenario
 toc: true
@@ -13,7 +13,7 @@ properties:
   - component: integrate
   - level:
   - implementation status: DOCS ONLY
-  - documentation status: OPEN
+  - documentation status: DONE
   - published: true
   - link: support
 require:

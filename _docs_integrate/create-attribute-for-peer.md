@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: integrate/create-attribute-for-peer
-published: false
+published: true
 title: "Create Attribute for peer"
 type: scenario
 toc: true
@@ -13,7 +13,7 @@ properties:
   - component: integrate
   - level: Beginner
   - implementation status: CHANGES REQUIRED
-  - documentation status: OPEN
+  - documentation status: DONE
   - published: true
   - link: create-attribute-for-peer
 require:

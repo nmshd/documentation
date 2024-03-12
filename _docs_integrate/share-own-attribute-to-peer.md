@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: integrate/share-own-attribute-to-peer
-published: false
+published: true
 title: "Share own Attribute to peer"
 type: scenario
 toc: true
@@ -13,7 +13,7 @@ properties:
   - component: integrate
   - level: Beginner
   - implementation status: DONE
-  - documentation status: OPEN
+  - documentation status: DONE
   - published: true
   - link: share-own-attribute-to-peer
 require:

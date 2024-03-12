@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: operate/log-event-ids
-published: false
+published: true
 title: "Log Event IDs"
 type: scenario
 toc: true
@@ -13,7 +13,7 @@ properties:
   - component: operate
   - level:
   - implementation status:
-  - documentation status:
+  - documentation status: DONE
   - published: true
   - link: log-event-ids
 require:

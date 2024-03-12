@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: integrate/propose-attribute-to-peer
-published: false
+published: true
 title: "Propose Attribute to peer"
 type: scenario
 toc: true
@@ -13,7 +13,7 @@ properties:
   - component: integrate
   - level: Beginner
   - implementation status: CHANGES REQUIRED
-  - documentation status: OPEN
+  - documentation status: DONE
   - published: true
   - link: propose-attribute-to-peer
 require:

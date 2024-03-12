@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: integrate/read-attribute-from-peer
-published: false
+published: true
 title: "Read Attribute from peer"
 type: scenario
 toc: true
@@ -13,7 +13,7 @@ properties:
   - component: integrate
   - level: Beginner
   - implementation status: CHANGES REQUIRED
-  - documentation status: OPEN
+  - documentation status: DONE
   - published: true
   - link: read-attribute-from-peer
 require:
