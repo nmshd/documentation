@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC075
   - category: Getting Started
-  - description: https://enmeshed.eu/integrate/connector-api
+  - description:
   - customer:
   - component: integrate
   - level:

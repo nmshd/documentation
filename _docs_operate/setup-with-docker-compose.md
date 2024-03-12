@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC077
   - category: Connector Setup
-  - description: #2 https://enmeshed.eu/integrate/connector-installation
+  - description:
   - customer:
   - component: operate
   - level:

@@ -8,7 +8,7 @@ toc: true
 properties:
   - id: SC063
   - category: Operations
-  - description: #1 https://enmeshed.eu/integrate/connector-installation
+  - description:
   - customer: All
   - component: operate
   - level: Beginner

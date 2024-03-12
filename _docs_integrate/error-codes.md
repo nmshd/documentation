@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC089
   - category: Troubleshooting
-  - description: https://enmeshed.eu/integrate/error-codes
+  - description:
   - customer:
   - component: integrate
   - level:
