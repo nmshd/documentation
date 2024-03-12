@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: integrate/support
-published: true
+published: false
 title: "Support"
 type: scenario
 toc: true
