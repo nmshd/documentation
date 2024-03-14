@@ -222,7 +222,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Requests over Messages",
-        "excerpt":"This guide explains how to send and receive a Request over enmeshed Messages using two Connectors, the first of which sends a Request to the second, and the second accepts or rejects the Request. It provides step-by-step instructions for validating the Request, creating and sending the Request, and accepting or...","categories": [],
+        "excerpt":"This guide explains how to send and receive a Request over enmeshed Messages using two Connectors. The first of them, which we will refer to as the Sender, will send the Request. The second, which we will refer to as the Recipient, can decide, whether they want to accept or...","categories": [],
         "tags": [],
         "url": "/integrate/requests-over-messages",
         "teaser": null

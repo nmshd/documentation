@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-03-08T16:25:32+01:00">
+  <meta property="article:published_time" content="2024-03-14T15:00:25+01:00">
 
 
 
@@ -352,7 +352,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Share a RepositoryAttribute">
     <meta itemprop="description" content="If you wish to share one of your private IdentityAttributes, called RepositoryAttributes, with a peer, this use-case allows you to do so.Internally, a Request with a ShareAttributeRequestItem will be created and will be sent via Message to the peer.Assuming your peer accepts the Request, at their side a peer shared IdentityAttribute will be created.The corresponding Response informs you about their acceptance and creates a LocalAttribute with a copy of the RepositoryAttribute&#8217;s content you shared.This own shared IdentityAttribute copy, however, in addition has a defined shareInfo property.It stores information about the peer you shared the attribute with, the id of the original RepositoryAttribute in the field sourceAttribute, and a reference to the Request used to share the Attribute.Note that the own shared IdentityAttribute at your side and the peer shared IdentityAttribute at your peer&#8217;s side are identical, except for the value in the shareInfo.peer field: on your side it will have the peer&#8217;s Address and on the peer&#8217;s side it will have your Address.Please note further, that this use case is meant to be used to share a version of a RepositoryAttribute for the first time.If you have already shared another version of a succeeded Attribute with the peer and you want to let them know about the changes to its value, use the NotifyPeerAboutIdentityAttributeSuccession use-case.Parameters  The attributeId of your RepositoryAttribute  The address of the peer  Optionally requestMetadata as described in the data model, except for the id and items, which are handled automaticallyOn Success  The LocalRequest is returned, that is associated with the Request which was sent to the peer.On Failure  The Request cannot be created, if the peer is unknown.  The Request cannot be created, if the attributeId belongs to a RelationshipAttribute.  The Request cannot be created, if the attributeId belongs to an IdentityAttribute with a shareInfo.  The Request cannot be created, if the Attribute has already been shared with the peer.  The Request cannot be created, if another version of the Attribute regarding succession has already been shared with the peer.  The Request cannot be created, if the parameters are malformed.">
-    <meta itemprop="datePublished" content="2024-03-08T16:25:32+01:00">
+    <meta itemprop="datePublished" content="2024-03-14T15:00:25+01:00">
     
 
     <div class="page__inner-wrap">
@@ -493,7 +493,7 @@ If you have already shared another version of a succeeded Attribute with the pee
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-03-08T16:25:32+01:00">March 8, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-03-14T15:00:25+01:00">March 14, 2024</time></p>
 
       </footer>
 
