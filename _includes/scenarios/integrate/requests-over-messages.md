@@ -77,7 +77,7 @@ Also, note that the `content` was extented by the `@type` property and a generat
       {
         "@type": "AuthenticationRequestItem",
         "mustBeAccepted": true,
-        "title": "The Sender is asking for an authentication"
+        "title": "The Sender is asking for an authentication."
       }
     ]
   },
