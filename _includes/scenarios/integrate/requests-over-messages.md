@@ -1,14 +1,19 @@
 <!-- A general description of the requirement can be given here. -->
 
-This guide explains how to send and receive a Request over enmeshed Messages using two Connectors, the first of which sends a Request to the second, and the second accepts or rejects the Request. It provides step-by-step instructions for validating the Request, creating and sending the Request, and accepting or rejecting the Request.
+This guide explains how to send and receive a [Request]({% link _docs_integrate/data-model-overview.md %}#request) over [enmeshed Messages]({% link _docs_integrate/data-model-overview.md %}#message) using two Connectors.
+The first of them, which we will refer to as the Sender, will send the Request.
+The second, which we will refer to as the Recipient, can decide, whether they want to accept or reject the Request.
+We'll go through the steps of validating and creating the Request, sending and receiving it, and finally accepting or rejecting the Request.
 
 <!-- This include inserts the table with the metadata  -->
 
 {% include properties_list.html %}
 
-This guide assumes that you already have an active Relationship between two Connectors. If you don't, you should follow the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide first. If you created a Relationship during the [Connector Tutorial]({% link _docs_integrate/integration-example.md %}) this will also work.
+This guide assumes that you already have an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between the two Connectors, e.g. from following the [Integration Example]({% link _docs_integrate/integration-example.md %}) or the scenario page [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}).
+If that is not the case, either take a look at those guides first or follow the instructions of how to [establish a Relationship to another Identity]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}).
 
-In this guide, the first Connector will be called Sender and the second Connector will be called Recipient. The Sender will send a Request to the Recipient. For the next steps you will need the enmeshed Address of the Recipient. You can find it out by calling the `GET /api/v2/Relationships` route on the Sender Connector.
+In order to send a Message to the Recipient, it is required to know their enmeshed Address.
+To retrieve it, the Sender can [query their Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) and look for the right one.
 
 ```jsonc
 [
@@ -22,14 +27,17 @@ In this guide, the first Connector will be called Sender and the second Connecto
 ]
 ```
 
-{% include copy-notice description="Look for the correct Relationship and then take its `peer` property. Save it for later." %}
+{% include copy-notice description="Look for the correct Relationship and save its `peer` property. You are going to need it later." %}
 
-## Check your Requests validity
+## Check your Request's validity
 
-At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Sender Connector with the following body.
-For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) you want.
+Firstly, you should [check if your Request is valid]({% link _docs_use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}).
+As an example, we use a Request with just an [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem), but you can use any Request you want.
+For an overview of the available [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems), checkout our [Request and Response Introduction]({% link _docs_integrate/request-and-response-introduction.md %}).
 
-Even though the `peer` property is optional, it is recommended to specify it whenever possible. This allows additional validation rules to execute. When you are sending a Request over Messages you always know your peer.
+Even though the `peer` property is optional, it is recommended to specify it whenever possible.
+This allows additional validation rules to execute.
+If you are sending a Request over Message, you'll always know the peer, as it is the `recipient` of the Message.
 
 ```json
 {
@@ -38,7 +46,7 @@ Even though the `peer` property is optional, it is recommended to specify it whe
       {
         "@type": "AuthenticationRequestItem",
         "mustBeAccepted": true,
-        "title": "The Sender is asking for an authentication"
+        "title": "The Sender is asking for an authentication."
       }
     ]
   },
@@ -48,28 +56,20 @@ Even though the `peer` property is optional, it is recommended to specify it whe
 
 ## Create the Request
 
-To create the Request you have to call the `POST /api/v2/Requests/Outgoing` route on the Sender Connector. Use the following JSON in the Request body:
+If the previous step was successful, you can [create the Request]({% link _docs_use-cases/use-case-consumption-create-outgoing-request.md %}).
+For this, use the same payload you just validated.
 
-```jsonc
-{
-  "content": {
-    // the content property of the payload in the step before
-  },
-  "peer": "<the address of the Recipient Connector>"
-}
-```
-
-Note that the Request is currently in status `Draft`.
-
-{% include copy-notice description="Save the complete `content` of the response. You will need it in the next step." %}
+In the response, you can see that the Request currently has the status `Draft`.
+Also, note that the `content` was extented by the `@type` property and a generated `id`, that you didn't have to specify manually.
 
 **Example response:**
 
 ```jsonc
 {
   "id": "REQ...",
-  "status": "Draft",
-  // ...
+  "isOwn": true,
+  "peer": "<the address of the Recipient Connector>",
+  "createdAt": "<time-of-creation>",
   "content": {
     "@type": "Request",
     "id": "REQ...",
@@ -80,34 +80,39 @@ Note that the Request is currently in status `Draft`.
         "title": "The Sender is asking for an authentication"
       }
     ]
-  }
+  },
+  "status": "Draft"
 }
 ```
 
+{% include copy-notice description="Save the complete `content` of the response. You will need it in the next step." %}
+
 ## Send the Request
 
-Now you have to send the Request to the Recipient. You can do so by calling the `POST /api/v2/Messages` route on the Sender Connector. Use the following JSON in the Request body:
+Now let's transmit the Request to the Recipient.
+To do so, [send a Message]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) using the following payload and make sure to use the `content` you copied from the response, which has the `@type` property.
+This is important for the Request to be processed correctly, since it is possible to send different types of objects via [Message]({% link _docs_integrate/data-model-overview.md %}#message).
 
 ```jsonc
 {
   "recipients": ["<the address of the Recipient Connector>"],
   "content": {
-    // the content you copied in the step before
+    // the content you copied from the response in the step before
   }
 }
 ```
 
-This is where the automation of the enmeshed Runtime steps in and moves the Request from status `Draft` to status `Open`. You can observe this behaviour by querying the Request via `GET /api/v2/Requests/Outgoing/{id}` on the Sender Connector.
+This is where the automation of the [enmeshed Runtime]({% link _docs_explore/61-runtime.md %}) steps in and moves the Request from status `Draft` to status `Open`.
+You can observe this behaviour by [querying the Request]({% link _docs_use-cases/use-case-consumption-get-outgoing-request.md %}) on the Sender Connector.
 
 ## Fetch the Request
 
-In order to fetch the Message with the Request, you have to synchronize the Recipient Connector (`GET /api/v2/Account/Sync`).
+In order to fetch the Message with the Request, you have to [synchronize the Recipient Connector]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
+The enmeshed Runtime will read the Message and create a new incoming Request.
+You can observe this by [long polling the incoming Requests]({% link _docs_use-cases/use-case-consumption-get-incoming-request.md %}) and optionally use the query params `source.reference=<id-of-the-message>` and `status=ManualDecisionRequired` to filter for Requests that belong to the Message that contained the Request.
 
-The enmeshed Runtime will read the Message and create a new incoming Request. You can observe this by long polling the incoming Requests or by waiting for the `consumption.incomingRequestReceived` event.
-
-The long polling is done by calling the `GET /api/v2/Requests/Incoming` route. You can use the query params `source.reference=<id-of-the-message>` and `status=ManualDecisionRequired` to filter for Requests that belong to the Message that contained the Request.
-
-For more information about the events you can head over to the [Connector Modules site]({% link _docs_operate/modules.md %}) and read about the [AMQP Publisher module]({% link _docs_operate/modules.md %}#amqppublisher) and the [Webhooks module]({% link _docs_operate/modules.md %}#webhooks) that are propagating events.
+In a productive environment, however, we recommend using the [Sync module]({% link _docs_operate/modules.md %}#sync) and waiting for a `consumption.incomingRequestReceived` [Connector Event]({% link _docs_integrate/connector-events.md %}).
+To learn more about events, how to use them in the context of enmeshed and which [modules]({% link _docs_operate/modules.md %}) to help you automating your business process are supported by enmeshed, check out our [Event introduction]({% link _docs_integrate/event-introduction.md %}).
 
 {% include copy-notice description="After you received the Request, save its `id` for the next step." %}
 
@@ -115,7 +120,10 @@ For more information about the events you can head over to the [Connector Module
 
 ### Accept
 
-If you want to accept the Request you can do so by calling the `PUT /api/v2/Requests/Incoming/{id}/Accept` route. You can use the `id` you saved in the previous step. In the payload you have to accept at least all RequestItems where the `mustBeAccepted` property is set to `true`. In case of the example Request the payload is the following:
+Firstly, let's consider the case the Recipient wants to [accept the Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}).
+For this, use the `id` of the Request you saved in the previous step.
+In the payload you have to accept at least all RequestItems where the `mustBeAccepted` property is set to `true`.
+In case of the example Request, the payload is the following:
 
 ```jsonc
 {
@@ -127,9 +135,14 @@ If you want to accept the Request you can do so by calling the `PUT /api/v2/Requ
 }
 ```
 
+Note that if you have multiple [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) or [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup), they must be accepted in the exact order they were specified in in the [Request]({% link _docs_integrate/data-model-overview.md %}#request).
+
 ### Reject
 
-If you want to reject the Request you can do so by calling the `PUT /api/v2/Requests/Incoming/{id}/Reject` route. You can use the `id` you saved in the previous step. In the payload you have to reject all RequestItems. In case of the example Request the payload is the following:
+Now, let's consider the case the Recipient wants to [reject the Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}).
+For this, use the `id` of the Request you saved in the previous step.
+In the payload you have to reject all RequestItems.
+In case of the example Request, the payload is the following:
 
 ```jsonc
 {
@@ -143,10 +156,16 @@ If you want to reject the Request you can do so by calling the `PUT /api/v2/Requ
 
 ### Runtime automation
 
-No matter if you accepted or rejected the Request: the response is similar. You can see that the Request moved to status `Decided`. This is where the enmeshed Runtime steps in and handles the Request based on you decision. It will move the Request to status `Completed` and send the Response to the Sender via a Message. This behavior can be observed by querying the Request again after a few seconds (`GET /api/v2/Requests/Incoming/{id}`).
+No matter if you accepted or rejected the Request, the response will be similar.
+You can see that the Request moved to status `Decided`.
+This is where the enmeshed Runtime steps in and handles the Request based on you decision.
+It will move the Request to status `Completed` and send the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Sender via a Message.
+This behavior can be observed by [querying the Request]({% link _docs_use-cases/use-case-consumption-get-incoming-request.md %}) again after a few seconds.
 
 ## Sync the Response
 
-The Sender will receive the Response as a Message. Therefore you have to synchronize the Sender Connector (`GET /api/v2/Account/Sync`).
+The Sender will receive the Response via a Message.
+For this, you have to [synchronize the Sender Connector]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 
-After a few seconds the Request has moved to status `Completed` and the Response is available in the `response` property of the Request. You can observe this by querying the Request via `GET /api/v2/Requests/Outgoing/{id}` on the Sender Connector.
+After a few seconds the Request has moved to status `Completed` and the Response is available in the `response` property of the Request.
+You can observe this by [querying the Request]({% link _docs_use-cases/use-case-consumption-get-outgoing-request.md %}) on the Sender Connector.
