@@ -33,9 +33,9 @@ This Module contains the HTTP API with all enmeshed base functionalities.
 
 The Message Broker Publisher Module allows you to publish [events]({% link _docs_integrate/connector-events.md %}) to different message brokers. Supported message brokers are: `AMQP`, `PubSub`, `Redis` and `MQTT`.
 
-Compared to [webhooks](#webhooks), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
+Compared to [webhooks](#webhooks), this gives you the full feature set of these message brokers. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
 
-- You need persistence for the triggered [events]({% link _docs_integrate/connector-events.md %}).
+- You need persistence or retries for the triggered [events]({% link _docs_integrate/connector-events.md %}).
 - You want to integrate enmeshed into an already existing message broker.
 
 ### Sync <a href="{% link _docs_operate/configuration.md %}#sync"><i class="fas fa-fw fa-cog"/></a> {#sync}
