@@ -6,6 +6,9 @@ Read more about the Module configuration on the <i class="fas fa-fw fa-cog"/> ic
 
 ### AMQP Publisher <a href="{% link _docs_operate/configuration.md %}#amqppublisher"><i class="fas fa-fw fa-cog"/></a> {#amqppublisher}
 
+This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
+{: .notice--danger}
+
 This Module proxies all events of the internal event bus of the Connector to an exchange in a configurable AMQP server.
 
 Compared to [webhooks](#webhooks), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
@@ -31,6 +34,9 @@ This Module contains the HTTP API with all enmeshed base functionalities.
 The `sync` Module regularly fetches changes from the Backbone (e.g. new Messages / new incoming Relationship Requests). This process automatically triggers the events used by other Modules like the `webhooks` Module.
 
 ### PubSub Publisher <a href="{% link _docs_operate/configuration.md %}#pubsubpublisher"><i class="fas fa-fw fa-cog"/></a> {#pubsubpublisher}
+
+This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
+{: .notice--danger}
 
 This Module proxies all events of the internal event bus of the Connector to a configurable PubSub instance.
 

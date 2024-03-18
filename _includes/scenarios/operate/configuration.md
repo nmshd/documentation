@@ -185,6 +185,9 @@ Every Module can be enabled or disabled by passing true / false to `enabled`. Re
 
 #### amqpPublisher <a href="{% link _docs_operate/modules.md %}#amqppublisher"><i class="fas fa-fw fa-info-circle"/></a> {#amqppublisher}
 
+This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
+{: .notice--danger}
+
 **Sample Configuration:**
 
 ```jsonc
@@ -307,6 +310,9 @@ It is not recommended to use this Module for production scenarios.
   The interval in seconds at which the sync Module will fetch changes from the Backbone.
 
 #### PubSubPublisher <a href="{% link _docs_operate/modules.md %}#pubsubpublisher"><i class="fas fa-fw fa-info-circle"/></a> {#pubsubpublisher}
+
+This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
+{: .notice--danger}
 
 **Sample Configuration:**
 
