@@ -59,7 +59,7 @@ If you are sending a Request over Message, you'll always know the peer, as it is
 If the previous step was successful, you can [create the Request]({% link _docs_use-cases/use-case-consumption-create-outgoing-request.md %}).
 For this, use the same payload you just validated.
 
-In the response, you can see that the Request currently has the status `Draft`.
+In the response, you can see that the Request currently has the `status` `"Draft"`.
 Also, note that the `content` was extented by the `@type` property and a generated `id`, that you didn't have to specify manually.
 
 **Example response:**
@@ -102,14 +102,14 @@ This is important for the Request to be processed correctly, since it is possibl
 }
 ```
 
-This is where the automation of the [enmeshed Runtime]({% link _docs_explore/61-runtime.md %}) steps in and moves the Request from status `Draft` to status `Open`.
+This is where the automation of the [enmeshed Runtime]({% link _docs_explore/61-runtime.md %}) steps in and moves the Request from `status` `"Draft"` to `status` `"Open"`.
 You can observe this behaviour by [querying the Request]({% link _docs_use-cases/use-case-consumption-get-outgoing-request.md %}) on the Sender Connector.
 
 ## Fetch the Request
 
 In order to fetch the Message with the Request, you have to [synchronize the Recipient Connector]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 The enmeshed Runtime will read the Message and create a new incoming Request.
-You can observe this by [long polling the incoming Requests]({% link _docs_use-cases/use-case-consumption-get-incoming-request.md %}) and optionally use the query params `source.reference=<id-of-the-message>` and `status=ManualDecisionRequired` to filter for Requests that belong to the Message that contained the Request.
+You can observe this by [long polling the incoming Requests]({% link _docs_use-cases/use-case-consumption-query-incoming-requests.md %}) and optionally use the query params `source.reference=<id-of-the-message>` and `status=ManualDecisionRequired` to filter for Requests that belong to the Message that contained the Request.
 
 In a productive environment, however, we recommend using the [Sync module]({% link _docs_operate/modules.md %}#sync) and waiting for a `consumption.incomingRequestReceived` [Connector Event]({% link _docs_integrate/connector-events.md %}).
 To learn more about events, how to use them in the context of enmeshed and which [modules]({% link _docs_operate/modules.md %}) to help you automating your business process are supported by enmeshed, check out our [Event introduction]({% link _docs_integrate/event-introduction.md %}).
@@ -157,9 +157,9 @@ In case of the example Request, the payload is the following:
 ### Runtime automation
 
 No matter if you accepted or rejected the Request, the response will be similar.
-You can see that the Request moved to status `Decided`.
+You can see that the Request moved to `status` `"Decided"`.
 This is where the enmeshed Runtime steps in and handles the Request based on you decision.
-It will move the Request to status `Completed` and send the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Sender via a Message.
+It will send the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Sender via a Message and move the Request to `status` `"Completed"` .
 This behavior can be observed by [querying the Request]({% link _docs_use-cases/use-case-consumption-get-incoming-request.md %}) again after a few seconds.
 
 ## Sync the Response
@@ -167,5 +167,5 @@ This behavior can be observed by [querying the Request]({% link _docs_use-cases/
 The Sender will receive the Response via a Message.
 For this, you have to [synchronize the Sender Connector]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 
-After a few seconds the Request has moved to status `Completed` and the Response is available in the `response` property of the Request.
+After a few seconds the Request has moved to `status` `"Completed"` and the Response is available in the `response` property of the Request.
 You can observe this by [querying the Request]({% link _docs_use-cases/use-case-consumption-get-outgoing-request.md %}) on the Sender Connector.
