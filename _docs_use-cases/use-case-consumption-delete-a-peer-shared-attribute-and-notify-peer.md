@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer
-published: false
+published: true
 title: "Delete a peer shared Attribute and notify peer"
 type: use-case
 toc: true
@@ -18,7 +18,7 @@ properties:
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
   - status: DONE
-  - documentation status:
+  - documentation status: DONE
   - comments:
   - actor: Identity
   - trigger: REST API
@@ -41,17 +41,18 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case allows you to delete a [LocalAttribute] a peer shared with you.
+This use-case allows you to delete a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) a peer shared with you.
 
 ## Parameters
 
-- The `attributeId` of the LocalAttribute you want to delete.
+- The `attributeId` of the peer shared Attribute you want to delete.
 
 ## On Success
 
-- The LocalAttribute will be deleted.
-- All predecessors of the LocalAttribute will be deleted.
-- A [Notification] is sent to the owner of the Attribute, informing them that you deleted their Attribute. Technically, the own shared Attribute of the owner and all predecessors will get a `deletionInfo` with `deletionStatus` `"DeletedByPeer"` and the time of receiving the Notification as `deletionDate`.
+- The peer shared Attribute will be deleted.
+- All predecessors of the peer shared Attribute will be deleted.
+- If the peer shared Attribute was succeeded, the `succeeds` property of the successor will be set to undefined.
+- A [Notification]({%link _docs_integrate/data-model-overview.md %}#notification) is sent to the owner of the Attribute, informing them that you deleted their Attribute. Technically, the own shared Attribute of the owner and all predecessors will get a `deletionInfo` with `deletionStatus` `"DeletedByPeer"` and the time of receiving the Notification as `deletionDate`.
 
 ## On Failure
 
