@@ -1,8 +1,8 @@
 ---
 # Start automatic generation
 permalink: integrate/delete-attribute
-published: false
-title: "delete Attribute"
+published: true
+title: "Delete Attribute"
 type: scenario
 toc: true
 properties:
