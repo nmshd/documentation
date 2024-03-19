@@ -27,6 +27,7 @@ async function writeTextToFile(object: DynamicUseCase, text: string): Promise<vo
         await fs.promises.writeFile(fileName, newText, "utf-8");
     } catch (missingFile) {
         console.info("\x1b[32m%s", `Create: ${object.ID} - ${object.Link}`);
+        text = "---\n" + text + "\n---\n";
         await fs.promises.writeFile(fileName, text, "utf-8");
     }
 }
