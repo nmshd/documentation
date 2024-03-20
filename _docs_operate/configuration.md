@@ -352,12 +352,19 @@ It is not recommended to use this Module for production scenarios.
 
     **configuration**
 
-    - url `string, required` - the URL of the AMQP broker
+    - url `string, required` -
+
+      the URL of the AMQP broker
 
       > the URL must be in the [AMQP url format](https://www.rabbitmq.com/docs/uri-spec)
 
-    - exchange `string` - the name of the exchange to publish to
-    - timeout `number` - the timeout in milliseconds for the broker to respond
+    - exchange `string` -
+
+      the name of the exchange to publish to
+
+    - timeout `number` -
+
+      the timeout in milliseconds for the broker to respond
 
   - type `MQTT`
 
@@ -367,14 +374,16 @@ It is not recommended to use this Module for production scenarios.
     {
       "type": "MQTT",
       "config": {
-        "brokerUrl": "mqtt://example.com:1883"
+        "url": "mqtt://example.com:1883"
       }
     }
     ```
 
     **configuration**
 
-    - brokerUrl `string, required` - the URL of the MQTT broker
+    - url `string, required`
+
+      the URL of the MQTT broker
 
       > the URL can be on the following protocols: `mqtt`, `mqtts`, `tcp`, `tls`, `ws`, `wss`, `wxs` or `alis`
 
@@ -395,9 +404,17 @@ It is not recommended to use this Module for production scenarios.
 
     **configuration**
 
-    - projectId `string, required` - the project id of the Google Cloud project
-    - topicName `string, required` - the name of the PubSub topic to publish to
-    - keyFile `string, required` - the location of the key file to authenticate with the Google Cloud project
+    - projectId `string, required`
+
+      the project id of the Google Cloud project
+
+    - topicName `string, required`
+
+      the name of the PubSub topic to publish to
+
+    - keyFile `string, required`
+
+      the location of the key file to authenticate with the Google Cloud project
 
   - type `Redis`
 
@@ -414,7 +431,9 @@ It is not recommended to use this Module for production scenarios.
 
     **configuration**
 
-    - url `string, required` - the URL of the broker
+    - url `string, required`
+
+      the URL of the broker
 
       > the URL must be in the Redis url format: `redis[s]://[[username:]password@]host[:port][/database]`
 
