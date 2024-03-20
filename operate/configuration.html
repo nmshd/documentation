@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-03-20T10:51:03+01:00">
+  <meta property="article:published_time" content="2024-03-20T15:45:47+01:00">
 
 
 
@@ -254,7 +254,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Configuration">
     <meta itemprop="description" content="Mounting a config file">
-    <meta itemprop="datePublished" content="2024-03-20T10:51:03+01:00">
+    <meta itemprop="datePublished" content="2024-03-20T15:45:47+01:00">
     
 
     <div class="page__inner-wrap">
@@ -275,7 +275,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#mounting-a-config-file">Mounting a config file</a></li><li><a href="#environment-variables">Environment variables</a><ul><li><a href="#parsing-rules">Parsing rules</a></li><li><a href="#example">Example</a></li></ul></li><li><a href="#configuration-options">Configuration options</a><ul><li><a href="#debug">debug availbable since version 3.3.0</a></li><li><a href="#transportlibrary">transportLibrary</a></li><li><a href="#database">database</a></li><li><a href="#infrastructure">infrastructure</a><ul><li><a href="#httpserver">httpServer</a></li></ul></li><li><a href="#modules">modules</a><ul><li><a href="#amqppublisher">amqpPublisher </a></li><li><a href="#autoacceptrelationshipcreationchanges">autoAcceptRelationshipCreationChanges </a></li><li><a href="#corehttpapi">coreHttpApi </a></li><li><a href="#sync">sync </a></li><li><a href="#pubsubpublisher">PubSubPublisher </a></li><li><a href="#webhooks">webhooks </a><ul><li><a href="#payload">Payload</a></li></ul></li></ul></li></ul></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
+              <ul class="toc__menu"><li><a href="#mounting-a-config-file">Mounting a config file</a></li><li><a href="#environment-variables">Environment variables</a><ul><li><a href="#parsing-rules">Parsing rules</a></li><li><a href="#example">Example</a></li></ul></li><li><a href="#configuration-options">Configuration options</a><ul><li><a href="#debug">debug availbable since version 3.3.0</a></li><li><a href="#transportlibrary">transportLibrary</a></li><li><a href="#database">database</a></li><li><a href="#infrastructure">infrastructure</a><ul><li><a href="#httpserver">httpServer</a></li></ul></li><li><a href="#modules">modules</a><ul><li><a href="#amqppublisher">amqpPublisher </a></li><li><a href="#autoacceptrelationshipcreationchanges">autoAcceptRelationshipCreationChanges </a></li><li><a href="#corehttpapi">coreHttpApi </a></li><li><a href="#messagebrokerpublisher">messageBrokerPublisher </a></li><li><a href="#sync">sync </a></li><li><a href="#pubsubpublisher">PubSubPublisher </a></li><li><a href="#webhooks">webhooks </a><ul><li><a href="#payload">Payload</a></li></ul></li></ul></li></ul></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
 
             </nav>
           </aside>
@@ -485,6 +485,8 @@
 
 <h4 id="amqppublisher">amqpPublisher <a href="/operate/modules#amqppublisher"><i class="fas fa-fw fa-info-circle"></i></a></h4>
 
+<p class="notice--danger">This module is deprecated in favor of the <a href="#messagebrokerpublisher">Message Broker Publisher</a> Module.</p>
+
 <p><strong>Sample Configuration:</strong></p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -592,6 +594,167 @@
   </li>
 </ul>
 
+<h4 id="messagebrokerpublisher">messageBrokerPublisher <a href="/operate/modules#messagebrokerpublisher"><i class="fas fa-fw fa-info-circle"></i></a></h4>
+
+<p><strong>Sample Configuration:</strong></p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+
+  </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"messageBrokerPublisher"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"brokers"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p>Enable or disable the sync Module.</p>
+  </li>
+  <li>
+    <p><strong>brokers</strong> <code class="language-plaintext highlighter-rouge">default: []</code></p>
+
+    <p>Here you can define multiple brokers to which the Connector should publish messages.</p>
+
+    <p>Each broker consists of a <code class="language-plaintext highlighter-rouge">type</code> (string) and a <code class="language-plaintext highlighter-rouge">config</code> object. The <code class="language-plaintext highlighter-rouge">type</code> specifies the type of the broker (e.g. <code class="language-plaintext highlighter-rouge">AMQP</code> or <code class="language-plaintext highlighter-rouge">PubSub</code>) and the <code class="language-plaintext highlighter-rouge">config</code> object contains the configuration for the broker.</p>
+
+    <ul>
+      <li>
+        <p>type <code class="language-plaintext highlighter-rouge">AMQP</code></p>
+
+        <p><strong>example</strong></p>
+
+        <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMQP"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"amqp://example.com:5672"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myExchange"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+
+        <p><strong>configuration</strong></p>
+
+        <ul>
+          <li>
+            <p>url <code class="language-plaintext highlighter-rouge">string, required</code> -</p>
+
+            <p>the URL of the AMQP broker</p>
+
+            <blockquote>
+              <p>the URL must be in the <a href="https://www.rabbitmq.com/docs/uri-spec">AMQP url format</a></p>
+            </blockquote>
+          </li>
+          <li>
+            <p>exchange <code class="language-plaintext highlighter-rouge">string</code> -</p>
+
+            <p>the name of the exchange to publish to</p>
+          </li>
+          <li>
+            <p>timeout <code class="language-plaintext highlighter-rouge">number</code> -</p>
+
+            <p>the timeout in milliseconds for the broker to respond</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>type <code class="language-plaintext highlighter-rouge">MQTT</code></p>
+
+        <p><strong>example</strong></p>
+
+        <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MQTT"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mqtt://example.com:1883"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+
+        <p><strong>configuration</strong></p>
+
+        <ul>
+          <li>
+            <p>url <code class="language-plaintext highlighter-rouge">string, required</code></p>
+
+            <p>the URL of the MQTT broker</p>
+
+            <blockquote>
+              <p>the URL can be on the following protocols: <code class="language-plaintext highlighter-rouge">mqtt</code>, <code class="language-plaintext highlighter-rouge">mqtts</code>, <code class="language-plaintext highlighter-rouge">tcp</code>, <code class="language-plaintext highlighter-rouge">tls</code>, <code class="language-plaintext highlighter-rouge">ws</code>, <code class="language-plaintext highlighter-rouge">wss</code>, <code class="language-plaintext highlighter-rouge">wxs</code> or <code class="language-plaintext highlighter-rouge">alis</code></p>
+            </blockquote>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>type <code class="language-plaintext highlighter-rouge">PubSub</code></p>
+
+        <p><strong>example</strong></p>
+
+        <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PubSub"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"projectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myProjectId"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"topicName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myTopicName"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"keyFile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/path/to/keyfile.json"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+
+        <p><strong>configuration</strong></p>
+
+        <ul>
+          <li>
+            <p>projectId <code class="language-plaintext highlighter-rouge">string, required</code></p>
+
+            <p>the project id of the Google Cloud project</p>
+          </li>
+          <li>
+            <p>topicName <code class="language-plaintext highlighter-rouge">string, required</code></p>
+
+            <p>the name of the PubSub topic to publish to</p>
+          </li>
+          <li>
+            <p>keyFile <code class="language-plaintext highlighter-rouge">string, required</code></p>
+
+            <p>the (absolute) path of the key file to authenticate with the Google Cloud project</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>type <code class="language-plaintext highlighter-rouge">Redis</code></p>
+
+        <p><strong>example</strong></p>
+
+        <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Redis"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"redis://example.com:6379"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+
+        <p><strong>configuration</strong></p>
+
+        <ul>
+          <li>
+            <p>url <code class="language-plaintext highlighter-rouge">string, required</code></p>
+
+            <p>the URL of the broker</p>
+
+            <blockquote>
+              <p>the URL must be in the Redis url format: <code class="language-plaintext highlighter-rouge">redis[s]://[[username:]password@]host[:port][/database]</code></p>
+            </blockquote>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
 <h4 id="sync">sync <a href="/operate/modules#sync"><i class="fas fa-fw fa-info-circle"></i></a></h4>
 
 <p><strong>Sample Configuration:</strong></p>
@@ -622,6 +785,8 @@
 </ul>
 
 <h4 id="pubsubpublisher">PubSubPublisher <a href="/operate/modules#pubsubpublisher"><i class="fas fa-fw fa-info-circle"></i></a></h4>
+
+<p class="notice--danger">This module is deprecated in favor of the <a href="#messagebrokerpublisher">Message Broker Publisher</a> Module.</p>
 
 <p><strong>Sample Configuration:</strong></p>
 
@@ -658,7 +823,7 @@
   <li>
     <p><strong>keyFile</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
 
-    <p>The location of the key file to authenticate with the Google Cloud project.</p>
+    <p>The (absolute) path of the key file to authenticate with the Google Cloud project.</p>
   </li>
 </ul>
 
@@ -778,7 +943,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-03-20T10:51:03+01:00">March 20, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-03-20T15:45:47+01:00">March 20, 2024</time></p>
 
       </footer>
 
