@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-create-mail
+# Start automatic generation
+permalink: use-case-consumption-create-mail
 published: false
 title: "Create Mail"
 type: use-case
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/create-mail
-  - redirect_from:
+  - link: use-case-consumption-create-mail
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-create-mail.md %}

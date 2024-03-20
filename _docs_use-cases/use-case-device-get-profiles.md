@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-get-profiles
+# Start automatic generation
+permalink: use-case-device-get-profiles
 published: true
 title: "Get Profiles"
 type: use-case
@@ -30,10 +31,22 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: device/get-profiles
-  - redirect_from:
+  - link: use-case-device-get-profiles
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-device-get-profiles.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves all LocalAccounts available on this Device.
+
+## Parameters
+
+---
+
+## On Success
+
+- A list of LocalAccounts.

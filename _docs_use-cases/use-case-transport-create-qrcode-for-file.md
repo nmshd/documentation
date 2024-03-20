@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-create-qrcode-for-file
+# Start automatic generation
+permalink: use-case-transport-create-qrcode-for-file
 published: false
 title: "Create QRCode for File"
 type: use-case
@@ -12,13 +13,13 @@ properties:
   - component: Runtime
   - layer: Transport
   - facade: FilesFacade
-  - function: createQrCodeForFile
+  - function: createQRCodeForFile
   - description:
   - feature category: Arbitrary large data support
   - tech category: Files
-  - status: QUESTIONS
+  - status: DONE
   - documentation status:
-  - comments: QR vs Qr, QR vs Tr
+  - comments:
   - actor: Identity
   - trigger:
   - precondition:
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: transport/create-qrcode-for-file
-  - redirect_from:
+  - link: use-case-transport-create-qrcode-for-file
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-create-qrcode-for-file.md %}

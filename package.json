@@ -7,6 +7,12 @@
     "license": "MIT",
     "author": "j&s-soft GmbH",
     "scripts": {
-        "start": "bundle exec jekyll serve"
+        "start": "bundle exec jekyll serve",
+        "excel": "npx ts-node ./scripts/update.ts"
+    },
+    "dependencies": {
+        "@types/node": "^20.10.4",
+        "exceljs": "^4.4.0",
+        "typescript": "^5.3.3"
     }
 }

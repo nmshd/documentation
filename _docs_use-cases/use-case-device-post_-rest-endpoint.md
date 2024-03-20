@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-post_-rest-endpoint
+# Start automatic generation
+permalink: use-case-device-post_-rest-endpoint
 published: true
 title: "POST REST Endpoint"
 type: use-case
@@ -30,10 +31,21 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: device/post-rest-endpoint
-  - redirect_from:
+  - link: use-case-device-post_-rest-endpoint
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-device-post_-rest-endpoint.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+Be advised that this is a Connector-specific use-case which is triggered by an http-request. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios.
+{: .notice--info}
+
+This use-case broadly describes REST endpoints using the `POST` HTTP verb
+that are exposed by the Connector.
+
+Click [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) to learn
+more about HTTP request methods.

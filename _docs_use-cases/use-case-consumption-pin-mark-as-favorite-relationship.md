@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-pin-mark-as-favorite-relationship
+# Start automatic generation
+permalink: use-case-consumption-pin-mark-as-favorite-relationship
 published: false
 title: "Pin/mark as favorite relationship"
 type: use-case
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/pin/mark-as-favorite-relationship
-  - redirect_from:
+  - link: use-case-consumption-pin-mark-as-favorite-relationship
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-pin-mark-as-favorite-relationship.md %}

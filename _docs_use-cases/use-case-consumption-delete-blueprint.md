@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-delete-blueprint
+# Start automatic generation
+permalink: use-case-consumption-delete-blueprint
 published: false
 title: "Delete Blueprint"
 type: use-case
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/delete-blueprint
-  - redirect_from:
+  - link: use-case-consumption-delete-blueprint
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-delete-blueprint.md %}

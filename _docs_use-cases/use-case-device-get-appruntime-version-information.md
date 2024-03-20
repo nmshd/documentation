@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-get-appruntime-version-information
+# Start automatic generation
+permalink: use-case-device-get-appruntime-version-information
 published: false
 title: "Get AppRuntime version information"
 type: use-case
@@ -30,10 +31,14 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: device/get-appruntime-version-information
-  - redirect_from:
+  - link: use-case-device-get-appruntime-version-information
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-device-get-appruntime-version-information.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves the runtime version of the app.

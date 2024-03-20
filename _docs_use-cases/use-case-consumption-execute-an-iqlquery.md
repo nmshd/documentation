@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-execute-an-iqlquery
+# Start automatic generation
+permalink: use-case-consumption-execute-an-iqlquery
 published: false
 title: "Execute an IQLQuery"
 type: use-case
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/execute-an-iqlquery
-  - redirect_from:
+  - link: use-case-consumption-execute-an-iqlquery
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-execute-an-iqlquery.md %}

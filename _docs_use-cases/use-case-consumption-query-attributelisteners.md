@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-query-attributelisteners
+# Start automatic generation
+permalink: use-case-consumption-query-attributelisteners
 published: true
 title: "Query AttributeListeners"
 type: use-case
@@ -30,10 +31,27 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/query-attributelisteners
-  - redirect_from:
+  - link: use-case-consumption-query-attributelisteners
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-consumption-query-attributelisteners.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case is intended to query all [Attribute Listeners]({% link _docs_integrate/data-model-overview.md %}#localattributelistener)
+based on a query.
+
+## Parameter
+
+- The `query` optionally describes the searched Attribute Listeners. If no query is given all Attribute Listeners are returned.
+
+## On Success
+
+- Returns a list of [LocalAttributeListeners]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) that match the query.
+
+## On Failure
+
+- The parameters are malformed.

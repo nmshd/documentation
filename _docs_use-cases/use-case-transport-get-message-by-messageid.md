@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-get-message-by-messageid
+# Start automatic generation
+permalink: use-case-transport-get-message-by-messageid
 published: true
 title: "Get Message by MessageId"
 type: use-case
@@ -30,11 +31,28 @@ properties:
   - changed_at:
   - api_route_regex: GET /api/v2/Messages/{id}
   - published: default
-  - link: transport/get-message-by-messageid
-  - redirect_from:
+  - link: use-case-transport-get-message-by-messageid
 require:
 required_by:
 api_route_regex: ^GET /api/v2/Messages/{id}$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-transport-get-message-by-messageid.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves a [Message]({% link _docs_integrate/data-model-overview.md %}#message)
+by its `id`.
+
+## Parameters
+
+- `id` of the Message.
+
+## On Success
+
+- Returns the Message that corresponds to the `id`.
+
+## On Failure
+
+- `id` does not resolve to a Message.
