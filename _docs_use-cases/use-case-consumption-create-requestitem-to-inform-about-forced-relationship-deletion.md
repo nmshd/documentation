@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-create-requestitem-to-inform-about-forced-relationship-deletion
+# Start automatic generation
+permalink: use-case-consumption-create-requestitem-to-inform-about-forced-relationship-deletion
 published: false
 title: "Create requestItem to inform about forced Relationship deletion"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/create-requestitem-to-inform-about-forced-relationship-deletion
+  - link: use-case-consumption-create-requestitem-to-inform-about-forced-relationship-deletion
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-create-requestitem-to-inform-about-forced-relationship-deletion.md %}

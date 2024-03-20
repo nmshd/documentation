@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-set-status-of-incoming-request-to-complete
+# Start automatic generation
+permalink: use-case-consumption-set-status-of-incoming-request-to-complete
 published: false
 title: "Set status of incoming Request to complete"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: consumption/set-status-of-incoming-request-to-complete
+  - link: use-case-consumption-set-status-of-incoming-request-to-complete
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-set-status-of-incoming-request-to-complete.md %}

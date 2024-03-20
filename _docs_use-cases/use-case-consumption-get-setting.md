@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-get-setting
+# Start automatic generation
+permalink: use-case-consumption-get-setting
 published: false
 title: "Get Setting"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/get-setting
+  - link: use-case-consumption-get-setting
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-get-setting.md %}

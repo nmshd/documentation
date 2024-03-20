@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-delete-draft
+# Start automatic generation
+permalink: use-case-consumption-delete-draft
 published: false
 title: "Delete Draft"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/delete-draft
+  - link: use-case-consumption-delete-draft
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-delete-draft.md %}

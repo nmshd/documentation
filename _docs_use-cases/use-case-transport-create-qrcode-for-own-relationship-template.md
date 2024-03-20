@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-create-qrcode-for-own-relationship-template
+# Start automatic generation
+permalink: use-case-transport-create-qrcode-for-own-relationship-template
 published: false
 title: "Create QRCode for own Relationship Template"
 type: use-case
@@ -12,13 +13,13 @@ properties:
   - component: Runtime
   - layer: Transport
   - facade: RelationshipTemplatesFacade
-  - function: createQrCodeForOwnTemplate
+  - function: createQRCodeForOwnTemplate
   - description:
   - feature category: Consent required before any data is shared
   - tech category: RelationshipTemplates
-  - status: QUESTIONS
+  - status: DONE
   - documentation status:
-  - comments: QR vs Qr, QR vs Tr
+  - comments:
   - actor: Identity
   - trigger:
   - precondition:
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: transport/create-qrcode-for-own-relationship-template
+  - link: use-case-transport-create-qrcode-for-own-relationship-template
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-create-qrcode-for-own-relationship-template.md %}

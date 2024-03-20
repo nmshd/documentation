@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-human-select_-item-on-screen
+# Start automatic generation
+permalink: use-case-human-select_-item-on-screen
 published: true
 title: "Select Item (on screen)"
 type: use-case
@@ -30,9 +31,17 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: human/select-item-on-screen
+  - link: use-case-human-select_-item-on-screen
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-human-select_-item-on-screen.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+Be advised that this is an App-specific use-case which is triggered by a manual user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios.
+{: .notice--info}
+
+This use-case broadly describes the manual action of a user that selects a specific item on the screen in order to receive more information about it or navigate to a specific page. Usually it triggers a navigation or a popup displaying this information.

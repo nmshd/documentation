@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-cancel-identity-deletion-within-grace-period
+# Start automatic generation
+permalink: use-case-transport-cancel-identity-deletion-within-grace-period
 published: false
 title: "Cancel identity deletion within grace period"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: transport/cancel-identity-deletion-within-grace-period
+  - link: use-case-transport-cancel-identity-deletion-within-grace-period
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-cancel-identity-deletion-within-grace-period.md %}

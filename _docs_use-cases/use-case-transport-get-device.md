@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-get-device
+# Start automatic generation
+permalink: use-case-transport-get-device
 published: true
 title: "Get Device"
 type: use-case
@@ -30,9 +31,26 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: transport/get-device
+  - link: use-case-transport-get-device
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-transport-get-device.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves the Device with the given `id`.
+
+## Parameters
+
+- `id` of the Device.
+
+## On Success
+
+- The Device that corresponds to the `id`.
+
+## On Failure
+
+- No Device corresponds to the `id`.

@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-set-up-or-change-password-of-profile
+# Start automatic generation
+permalink: use-case-device-set-up-or-change-password-of-profile
 published: false
 title: "Set-up or change password of Profile"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: device/set-up-or-change-password-of-profile
+  - link: use-case-device-set-up-or-change-password-of-profile
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-device-set-up-or-change-password-of-profile.md %}

@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-update-setting
+# Start automatic generation
+permalink: use-case-consumption-update-setting
 published: false
 title: "Update Setting"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/update-setting
+  - link: use-case-consumption-update-setting
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-update-setting.md %}

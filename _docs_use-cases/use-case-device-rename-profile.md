@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-rename-profile
+# Start automatic generation
+permalink: use-case-device-rename-profile
 published: true
 title: "Rename Profile"
 type: use-case
@@ -30,9 +31,27 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: device/rename-profile
+  - link: use-case-device-rename-profile
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-device-rename-profile.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case intends to rename a LocalAccount (Profile) of the App that matches the given `id`.
+
+## Parameters
+
+- The `localAccountId` is the id of the LocalAccount in question.
+- The `newAccountName` the LocalAccount name should use.
+
+## On Success
+
+- The LocalAccount with the `localAccountId` is now named `newAccountName`.
+
+## On Failure
+
+- There is no such LocalAccount.

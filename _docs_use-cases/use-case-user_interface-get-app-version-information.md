@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-user_interface-get-app-version-information
+# Start automatic generation
+permalink: use-case-user_interface-get-app-version-information
 published: false
 title: "Get app version information"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: user interface/get-app-version-information
+  - link: use-case-user_interface-get-app-version-information
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-user_interface-get-app-version-information.md %}

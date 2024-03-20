@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-validate-challenge
+# Start automatic generation
+permalink: use-case-transport-validate-challenge
 published: false
 title: "Validate Challenge"
 type: use-case
@@ -30,10 +31,9 @@ properties:
   - changed_at:
   - api_route_regex: POST /api/v2/Challenges/Validate
   - published:
-  - link: transport/validate-challenge
+  - link: use-case-transport-validate-challenge
 require:
 required_by:
 api_route_regex: ^POST /api/v2/Challenges/Validate$
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-validate-challenge.md %}

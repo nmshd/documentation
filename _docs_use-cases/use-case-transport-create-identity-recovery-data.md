@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-create-identity-recovery-data
+# Start automatic generation
+permalink: use-case-transport-create-identity-recovery-data
 published: false
 title: "Create Identity recovery data"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: transport/create-identity-recovery-data
+  - link: use-case-transport-create-identity-recovery-data
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-create-identity-recovery-data.md %}

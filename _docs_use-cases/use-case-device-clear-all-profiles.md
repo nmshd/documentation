@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-clear-all-profiles
+# Start automatic generation
+permalink: use-case-device-clear-all-profiles
 published: false
 title: "Clear all profiles"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: device/clear-all-profiles
+  - link: use-case-device-clear-all-profiles
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-device-clear-all-profiles.md %}

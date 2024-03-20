@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-create-device
+# Start automatic generation
+permalink: use-case-transport-create-device
 published: false
 title: "Create Device"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: transport/create-device
+  - link: use-case-transport-create-device
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-create-device.md %}

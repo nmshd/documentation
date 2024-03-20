@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-delete-attribute
+# Start automatic generation
+permalink: use-case-consumption-delete-attribute
 published: false
 title: "Delete Attribute"
 type: use-case
@@ -14,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: deleteAttribute
   - description:
-  - feature category: Normalized attributes
+  - feature category: Cross-identity attribute sharing
   - tech category: Attributes
   - status: QUESTIONS
   - documentation status:
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: consumption/delete-attribute
+  - link: use-case-consumption-delete-attribute
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-delete-attribute.md %}

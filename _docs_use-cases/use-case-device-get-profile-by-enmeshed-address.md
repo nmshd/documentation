@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-get-profile-by-enmeshed-address
+# Start automatic generation
+permalink: use-case-device-get-profile-by-enmeshed-address
 published: true
 title: "Get Profile by Enmeshed Address"
 type: use-case
@@ -30,9 +31,26 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: device/get-profile-by-enmeshed-address
+  - link: use-case-device-get-profile-by-enmeshed-address
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-device-get-profile-by-enmeshed-address.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves the LocalAccount with the corresponding enmeshed Address.
+
+## Parameters
+
+- The `address` of the corresponding Identity of the LocalAccount.
+
+## On Success
+
+- Returns the LocalAccount of the Identity.
+
+## On Failure
+
+- There is no such LocalAccount.

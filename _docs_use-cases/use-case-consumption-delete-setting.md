@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-delete-setting
+# Start automatic generation
+permalink: use-case-consumption-delete-setting
 published: false
 title: "Delete Setting"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/delete-setting
+  - link: use-case-consumption-delete-setting
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-delete-setting.md %}

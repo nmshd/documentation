@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-notify-backbone-of-unauthorized-profile-access
+# Start automatic generation
+permalink: use-case-transport-notify-backbone-of-unauthorized-profile-access
 published: false
 title: "Notify Backbone of unauthorized Profile access"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: transport/notify-backbone-of-unauthorized-profile-access
+  - link: use-case-transport-notify-backbone-of-unauthorized-profile-access
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-notify-backbone-of-unauthorized-profile-access.md %}

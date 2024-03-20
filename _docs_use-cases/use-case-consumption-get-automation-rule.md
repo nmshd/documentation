@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-get-automation-rule
+# Start automatic generation
+permalink: use-case-consumption-get-automation-rule
 published: false
 title: "Get Automation Rule"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/get-automation-rule
+  - link: use-case-consumption-get-automation-rule
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-get-automation-rule.md %}

@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-request-deletion-of-identity
+# Start automatic generation
+permalink: use-case-transport-request-deletion-of-identity
 published: false
 title: "Request Deletion of Identity"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: transport/request-deletion-of-identity
+  - link: use-case-transport-request-deletion-of-identity
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-request-deletion-of-identity.md %}

@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-update-blueprint
+# Start automatic generation
+permalink: use-case-consumption-update-blueprint
 published: false
 title: "Update Blueprint"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/update-blueprint
+  - link: use-case-consumption-update-blueprint
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-update-blueprint.md %}

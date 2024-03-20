@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-get-currently-used-device
+# Start automatic generation
+permalink: use-case-transport-get-currently-used-device
 published: true
 title: "Get currently used Device"
 type: use-case
@@ -30,9 +31,14 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: transport/get-currently-used-device
+  - link: use-case-transport-get-currently-used-device
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-transport-get-currently-used-device.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves information about the currently used Device.

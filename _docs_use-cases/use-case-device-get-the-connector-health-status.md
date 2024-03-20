@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-get-the-connector-health-status
+# Start automatic generation
+permalink: use-case-device-get-the-connector-health-status
 published: true
 title: "Get the Connector health status"
 type: use-case
@@ -30,10 +31,15 @@ properties:
   - changed_at:
   - api_route_regex: GET /health
   - published: default
-  - link: device/get-the-connector-health-status
+  - link: use-case-device-get-the-connector-health-status
 require:
 required_by:
 api_route_regex: ^GET /health$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-device-get-the-connector-health-status.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves the service health information of the Connector.

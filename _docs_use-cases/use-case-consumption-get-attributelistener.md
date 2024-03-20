@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-get-attributelistener
+# Start automatic generation
+permalink: use-case-consumption-get-attributelistener
 published: true
 title: "Get AttributeListener"
 type: use-case
@@ -30,9 +31,26 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/get-attributelistener
+  - link: use-case-consumption-get-attributelistener
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-consumption-get-attributelistener.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case is intended to retrieve an [Attribute Listener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) by its id.
+
+## Parameter
+
+- The unique `id` identifying the Attribute Listener.
+
+## On Success
+
+- Returns the [LocalAttributeListener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) that corresponds to the `id`.
+
+## On Failure
+
+- There is no such Attribute Listener.

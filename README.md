@@ -62,3 +62,12 @@ execute
 java -jar puml.jar _docs_integrate/diagrams/*.pu -o "$PWD/assets/diagrams/integrate"
 
 ```
+
+## regenerate header
+
+1. add excel file to root directory
+2. execute script
+
+```shell
+npx ts-node scripts/update.ts
+```

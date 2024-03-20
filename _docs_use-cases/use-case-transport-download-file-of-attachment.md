@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-download-file-of-attachment
+# Start automatic generation
+permalink: use-case-transport-download-file-of-attachment
 published: true
 title: "Download File of Attachment"
 type: use-case
@@ -13,7 +14,7 @@ properties:
   - layer: Transport
   - facade: MessagesFacade
   - function: downloadAttachment
-  - description: Downloads the file of the given 'attachmentId' of message with 'messageId'.
+  - description: Downloads the file of the given `attachmentId` of message with `messageId`.
   - feature category: Bidirectional (un-)structured communication
   - tech category: Messages
   - status: DONE
@@ -30,9 +31,17 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: transport/download-file-of-attachment
+  - link: use-case-transport-download-file-of-attachment
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-transport-download-file-of-attachment.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case downloads a file that was sent by a [Message]({% link _docs_integrate/data-model-overview.md %}#message)
+as an attachment.
+
+Internally uses the [Download File Use-Case](/use-case-transport-download-file)

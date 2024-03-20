@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-get-relationship-by-relationshipid
+# Start automatic generation
+permalink: use-case-transport-get-relationship-by-relationshipid
 published: true
 title: "Get Relationship by RelationshipId"
 type: use-case
@@ -30,10 +31,28 @@ properties:
   - changed_at:
   - api_route_regex: GET /api/v2/Relationships/{id}
   - published: default
-  - link: transport/get-relationship-by-relationshipid
+  - link: use-case-transport-get-relationship-by-relationshipid
 require:
 required_by:
 api_route_regex: ^GET /api/v2/Relationships/{id}$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-transport-get-relationship-by-relationshipid.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship)
+by its `id`.
+
+## Parameters
+
+- `id` of the Relationship.
+
+## On Success
+
+- The Relationship that corresponds to the `id`.
+
+## On Failure
+
+- The `id` does not resolve to a Relationship.

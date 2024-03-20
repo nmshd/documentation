@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-query-mails
+# Start automatic generation
+permalink: use-case-consumption-query-mails
 published: false
 title: "Query Mails"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/query-mails
+  - link: use-case-consumption-query-mails
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-query-mails.md %}

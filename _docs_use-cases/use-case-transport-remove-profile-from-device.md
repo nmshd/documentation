@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-remove-profile-from-device
+# Start automatic generation
+permalink: use-case-transport-remove-profile-from-device
 published: false
 title: "Remove Profile from Device"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: transport/remove-profile-from-device
+  - link: use-case-transport-remove-profile-from-device
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-remove-profile-from-device.md %}

@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-delete-attributelistener
+# Start automatic generation
+permalink: use-case-consumption-delete-attributelistener
 published: false
 title: "Delete AttributeListener"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/delete-attributelistener
+  - link: use-case-consumption-delete-attributelistener
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-delete-attributelistener.md %}

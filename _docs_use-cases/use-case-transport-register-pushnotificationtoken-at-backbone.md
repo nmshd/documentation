@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-register-pushnotificationtoken-at-backbone
+# Start automatic generation
+permalink: use-case-transport-register-pushnotificationtoken-at-backbone
 published: false
 title: "Register PushNotificationToken at Backbone"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: transport/register-pushnotificationtoken-at-backbone
+  - link: use-case-transport-register-pushnotificationtoken-at-backbone
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-register-pushnotificationtoken-at-backbone.md %}

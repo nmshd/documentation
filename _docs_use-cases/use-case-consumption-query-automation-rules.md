@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-query-automation-rules
+# Start automatic generation
+permalink: use-case-consumption-query-automation-rules
 published: false
 title: "Query Automation Rules"
 type: use-case
@@ -30,9 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/query-automation-rules
+  - link: use-case-consumption-query-automation-rules
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-query-automation-rules.md %}
