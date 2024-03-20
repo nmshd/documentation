@@ -49,6 +49,7 @@ The following table provides an overview of the possible kinds of Attributes tha
 | -------------- | --------------- | ----------- | :-------: | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Identity       | Sender          |             |     ✗     | `N/A`                                                        | It makes no sense to read own IdentityAttributes.                                                                                                                                                                                                                                                  |
 | Identity       | Recipient       |             |     ✓     | `USER_DECISION`                                              | Company asks customer for its delivery address.                                                                                                                                                                                                                                                    |
+| Identity       | Third Party     |             |     ✗     | `N/A`                                                        | The Recipient cannot share an IdentityAttribute that belongs to someone else.                                                                                                                                                                                                                      |
 | Relationship   | Sender          |             |     ✓     | `USER_DECISION`                                              | With this combination the **Sender gives the Recipient the one-time permission** to write a RelationshipAttribute once.<br>Example: Electricity provider asks new customers for electricity meter number.                                                                                          |
 | Relationship   | Recipient       |             |     ✓     | `USER_DECISION`                                              | With this combination the **Sender asks the Recipient for the one-time permission** to write a RelationshipAttribute.<br>Example: Company asks new customer to subscribe to the newsletter.                                                                                                        |
 | Relationship   | Recipient       | Third Party |     ✓     | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **Sender requests a RelationshipAttribute from a Relationship between the Recipient and a third party that is owned by the Recipient.**<br> Example: A social network asks for Facebook privacy settings of a user to get senseful defaults of its own privacy settings. |
@@ -88,7 +89,7 @@ We now consider the case that the Sender has an active Relationship established 
       "query": {
         "@type": "RelationshipAttributeQuery",
         "key": "<key of RelationshipAttribute>",
-        "owner": "<Address of Recipient>",
+        "owner": "",
         "attributeCreationHints": {
           "title": "<title of RelationshipAttribute>",
           "valueType": "ProprietaryString",
@@ -100,7 +101,7 @@ We now consider the case that the Sender has an active Relationship established 
 }
 ```
 
-Note that the `<...>` notation is used as a placeholder for the actual data as usual. Further details on the purposes for which you can use a RelationshipAttributeQuery can be found in the table of the [Combinations and usage scenarios of the ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#combinations-and-usage-scenarios-of-readattributerequestitem). For information on using the ThirdPartyRelationshipAttributeQuery, you should also refer to this table.
+Note that the `<...>` notation is used as a placeholder for the actual data as usual and that an empty string must be specified as the value for the `owner` property of the [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) if the Sender wants the requested RelationshipAttribute to be owned by the Recipient. Further details on the purposes for which you can use a RelationshipAttributeQuery can be found in the table of the [Combinations and usage scenarios of the ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#combinations-and-usage-scenarios-of-readattributerequestitem). For information on using the ThirdPartyRelationshipAttributeQuery, you should also refer to this table.
 
 ### Read multiple Attributes
 
