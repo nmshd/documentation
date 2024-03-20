@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-get-outgoing-request
+# Start automatic generation
+permalink: use-case-consumption-get-outgoing-request
 published: true
 title: "Get outgoing Request"
 type: use-case
@@ -30,11 +31,28 @@ properties:
   - changed_at:
   - api_route_regex: get /api/v2/Requests/Outgoing/{id}
   - published: default
-  - link: consumption/get-outgoing-request
-  - redirect_from:
+  - link: use-case-consumption-get-outgoing-request
 require:
 required_by:
 api_route_regex: ^get /api/v2/Requests/Outgoing/{id}$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-consumption-get-outgoing-request.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case is intended to retrieve an outgoing [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest)
+by its id. The differences of outgoing and an incoming Requests are defined [here]({% link _docs_integrate/data-model-overview.md %}#localrequeststatus).
+
+## Parameters
+
+- The `id` of the outgoing Request.
+
+## On Success
+
+- Returns the outgoing [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) corresponding to the id.
+
+## On Failure
+
+- There is no such outgoing Request.

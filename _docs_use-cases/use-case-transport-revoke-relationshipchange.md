@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-revoke-relationshipchange
+# Start automatic generation
+permalink: use-case-transport-revoke-relationshipchange
 published: false
 title: "Revoke RelationshipChange"
 type: use-case
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: transport/revoke-relationshipchange
-  - redirect_from:
+  - link: use-case-transport-revoke-relationshipchange
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-revoke-relationshipchange.md %}

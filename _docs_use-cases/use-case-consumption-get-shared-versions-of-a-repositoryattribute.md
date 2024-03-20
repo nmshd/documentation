@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-get-shared-versions-of-a-repositoryattribute
+# Start automatic generation
+permalink: use-case-consumption-get-shared-versions-of-a-repositoryattribute
 published: true
 title: "Get shared versions of a RepositoryAttribute"
 type: use-case
@@ -16,8 +17,8 @@ properties:
   - description:
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
-  - status:
-  - documentation status:
+  - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
   - trigger:
@@ -29,11 +30,35 @@ properties:
   - created_at:
   - changed_at:
   - api_route_regex:
-  - published:
-  - link: consumption/get-shared-versions-of-a-repositoryattribute
-  - redirect_from:
+  - published: default
+  - link: use-case-consumption-get-shared-versions-of-a-repositoryattribute
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-consumption-get-shared-versions-of-a-repositoryattribute.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case allows you to retrieve a list of own shared [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) for a specified RepositoryAttribute.
+
+## Parameters
+
+- The `attributeId` belonging to a RepositoryAttribute you would like to know all shared versions of
+- Optionally the returned [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) can be limited to those shared with specific `peers`.
+- `onlyLatestVersions` omits succeeded versions; by default this is set to be `true`.
+
+## On Success
+
+- A list of own shared IdentityAttribute versions of the RepositoryAttribute given as input will be returned.
+- If `peers` were speficied, the list is limited to the entries shared with those peers.
+- If `onlyLatestVersions` is disabled, all versions will be returned, even if they already have successors.
+
+## On Failure
+
+- No LocalAttributes can be returned, if the `attributeId` correlates to a RelationshipAttribute.
+- No LocalAttributes can be returned, if the `attributeId` correlates to an IdentityAttribute with a `shareInfo`.
+- No LocalAttributes can be returned, if the an empty list is provided for `peers`.
+- No LocalAttributes can be returned, if the `peers` are unknown.
+- No LocalAttributes can be returned, if the parameters are malformed.

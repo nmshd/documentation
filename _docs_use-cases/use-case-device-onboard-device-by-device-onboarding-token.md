@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-onboard-device-by-device-onboarding-token
+# Start automatic generation
+permalink: use-case-device-onboard-device-by-device-onboarding-token
 published: false
 title: "Onboard Device by Device Onboarding Token"
 type: use-case
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: device/onboard-device-by-device-onboarding-token
-  - redirect_from:
+  - link: use-case-device-onboard-device-by-device-onboarding-token
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-device-onboard-device-by-device-onboarding-token.md %}

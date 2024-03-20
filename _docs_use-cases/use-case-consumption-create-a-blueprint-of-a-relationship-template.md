@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-create-a-blueprint-of-a-relationship-template
+# Start automatic generation
+permalink: use-case-consumption-create-a-blueprint-of-a-relationship-template
 published: false
 title: "Create a Blueprint of a Relationship Template"
 type: use-case
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/create-a-blueprint-of-a-relationship-template
-  - redirect_from:
+  - link: use-case-consumption-create-a-blueprint-of-a-relationship-template
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-create-a-blueprint-of-a-relationship-template.md %}

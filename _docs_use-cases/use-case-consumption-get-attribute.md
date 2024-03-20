@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-get-attribute
+# Start automatic generation
+permalink: use-case-consumption-get-attribute
 published: true
 title: "Get Attribute"
 type: use-case
@@ -13,7 +14,7 @@ properties:
   - layer: Consumption
   - facade: AttributesFacade
   - function: getAttribute
-  - description: Fetches the attribute with the given 'id'.
+  - description: Fetches the attribute with the given `id`.
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
   - status: DONE
@@ -30,11 +31,27 @@ properties:
   - changed_at:
   - api_route_regex: get /api/v2/Attributes/{id}
   - published: default
-  - link: consumption/get-attribute
-  - redirect_from:
+  - link: use-case-consumption-get-attribute
 require:
 required_by:
 api_route_regex: ^get /api/v2/Attributes/{id}$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-consumption-get-attribute.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case is intended to retrieve a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute) by its id.
+
+## Parameters
+
+- The `id` of the LocalAttribute.
+
+## On Success
+
+- Returns the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute) corresponding to the `id`.
+
+## On Failure
+
+- The LocalAttribute does not exist.

@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-trigger-device-deletion-of-onboarded-device
+# Start automatic generation
+permalink: use-case-transport-trigger-device-deletion-of-onboarded-device
 published: false
 title: "Trigger Device deletion of onboarded Device"
 type: use-case
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: transport/trigger-device-deletion-of-onboarded-device
-  - redirect_from:
+  - link: use-case-transport-trigger-device-deletion-of-onboarded-device
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-trigger-device-deletion-of-onboarded-device.md %}

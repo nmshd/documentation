@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-configure_-config-property
+# Start automatic generation
+permalink: use-case-device-configure_-config-property
 published: false
 title: "Configure Config Property"
 type: use-case
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: device/configure-config-property
-  - redirect_from:
+  - link: use-case-device-configure_-config-property
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-device-configure_-config-property.md %}

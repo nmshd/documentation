@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-get-draft
+# Start automatic generation
+permalink: use-case-consumption-get-draft
 published: false
 title: "Get Draft"
 type: use-case
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/get-draft
-  - redirect_from:
+  - link: use-case-consumption-get-draft
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-get-draft.md %}

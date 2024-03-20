@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-query-relationship-templates
+# Start automatic generation
+permalink: use-case-transport-query-relationship-templates
 published: true
 title: "Query Relationship Templates"
 type: use-case
@@ -30,11 +31,35 @@ properties:
   - changed_at:
   - api_route_regex: GET /api/v2/RelationshipTemplates
   - published: default
-  - link: transport/query-relationship-templates
-  - redirect_from:
+  - link: use-case-transport-query-relationship-templates
 require:
 required_by:
 api_route_regex: ^GET /api/v2/RelationshipTemplates$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-transport-query-relationship-templates.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case queries [RelationshipTemplates]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate)
+of the Identity.
+
+## Parameters
+
+All parameters are optional. If no parameter is given, all RelationshipTemplates are returned.
+
+- `isOwn` indicates if the RelationshipTemplate was created by the current Identity.
+- `createdAt` is the ISODateTime the RelationshipTemplate was created at.
+- `expiresAt` is the ISODateTime the RelationshipTemplate expires.
+- `createdBy` is the enmeshed Address of the Identity that created the RelationshipTemplate.
+- `createdByDevice` is the `id` of the Device that created the RelationshipTemplate.
+- `maxNumberOfAllocations` is the number of times the RelationshipTemplate can be accessed by different Identities to initiate a Relationship. The Backbone returns an error, if one accesses a RelationshipTemplate with no allocations left. Accessing the same RelationshipTemplate with the same Identity multiple times doesn't affect the number of allocations. The allocation counts, even if the Identity does not accept the RelationshipTemplate by discarding it.
+
+## On Success
+
+- Returns all [RelationshipTemplates]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) that match the `query`.
+
+## On Failure
+
+- The parameters are malformed.

@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-disable-automated-datawallet-synchronization-with-backbone
+# Start automatic generation
+permalink: use-case-transport-disable-automated-datawallet-synchronization-with-backbone
 published: false
 title: "Disable automated Datawallet synchronization with Backbone"
 type: use-case
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: transport/disable-automated-datawallet-synchronization-with-backbone
-  - redirect_from:
+  - link: use-case-transport-disable-automated-datawallet-synchronization-with-backbone
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-disable-automated-datawallet-synchronization-with-backbone.md %}
