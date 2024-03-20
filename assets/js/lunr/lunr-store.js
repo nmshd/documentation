@@ -251,6 +251,12 @@ var store = [{
         "url": "/integrate/succeeding-attributes-to-update-their-values",
         "teaser": null
       },{
+        "title": "Support",
+        "excerpt":"For assisted support with the Connector or the Backbone provided by the j&amp;s-soft GmbH contact us via support[at]enmeshed.eu. Community support is a great way to get help and even contribute to the projects. Open bug reports and feature requests in the enmeshed issue tracker or share your feedback with the...","categories": [],
+        "tags": [],
+        "url": "/integrate/support",
+        "teaser": null
+      },{
         "title": "Use Cases",
         "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Load Token by id and key (without having an account) Anonymous Identity AnonymousTokens Runtime Load Token by truncated reference (without having an account) Anonymous Identity AnonymousTokens Runtime Accept incoming Request Consumption Identity Requests Runtime Check if incoming Request can be accepted...","categories": [],
         "tags": [],
@@ -288,7 +294,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Performance Considerations",
-        "excerpt":"Scaling Horizontally   Using multiple connectors with the same identity to scale horizontally and balance the workload across all available connectors is not supported at the moment.   ","categories": [],
+        "excerpt":"Scaling Horizontally   Using multiple connectors with the same identity to scale horizontally and balance the workload across all available connectors is not supported at the moment.  ","categories": [],
         "tags": [],
         "url": "/operate/performance-considerations",
         "teaser": null
@@ -438,13 +444,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Get Attribute",
-        "excerpt":"   This use-case is intended to retrieve a LocalAttribute by its id.   Parameters      The id of the LocalAttribute.   On Success      Returns the LocalAttribute corresponding to the id.   On Failure      The LocalAttribute does not exist.   ","categories": [],
+        "excerpt":"   This use-case is intended to retrieve a LocalAttribute by its id.   Parameters      The id of the LocalAttribute.   On Success      Returns the LocalAttribute corresponding to the id.   On Failure      The LocalAttribute does not exist.  ","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-attribute",
         "teaser": null
       },{
         "title": "Get AttributeListener",
-        "excerpt":"   This use-case is intended to retrieve an Attribute Listener by its id.   Parameter      The unique id identifying the Attribute Listener.   On Success      Returns the LocalAttributeListener that corresponds to the id.   On Failure      There is no such Attribute Listener.   ","categories": [],
+        "excerpt":"   This use-case is intended to retrieve an Attribute Listener by its id.   Parameter      The unique id identifying the Attribute Listener.   On Success      Returns the LocalAttributeListener that corresponds to the id.   On Failure      There is no such Attribute Listener.  ","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-attributelistener",
         "teaser": null
@@ -462,13 +468,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Get incoming Request",
-        "excerpt":"   This use-case is intended to retrieve an incoming LocalRequest by its id. The differences of outgoing and incoming Requests are defined here.   Parameters      The id of the incoming Request.   On Success      Returns the incoming LocalRequest corresponding to the id.   On Failure      There is no such incoming Request.   ","categories": [],
+        "excerpt":"   This use-case is intended to retrieve an incoming LocalRequest by its id. The differences of outgoing and incoming Requests are defined here.   Parameters      The id of the incoming Request.   On Success      Returns the incoming LocalRequest corresponding to the id.   On Failure      There is no such incoming Request.  ","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-incoming-request",
         "teaser": null
       },{
         "title": "Get outgoing Request",
-        "excerpt":"   This use-case is intended to retrieve an outgoing LocalRequest by its id. The differences of outgoing and an incoming Requests are defined here.   Parameters      The id of the outgoing Request.   On Success      Returns the outgoing LocalRequest corresponding to the id.   On Failure      There is no such outgoing Request.   ","categories": [],
+        "excerpt":"   This use-case is intended to retrieve an outgoing LocalRequest by its id. The differences of outgoing and an incoming Requests are defined here.   Parameters      The id of the outgoing Request.   On Success      Returns the outgoing LocalRequest corresponding to the id.   On Failure      There is no such outgoing Request.  ","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-outgoing-request",
         "teaser": null
@@ -479,7 +485,7 @@ var store = [{
         "url": "/use-case-consumption-get-shared-versions-of-a-repositoryattribute",
         "teaser": null
       },{
-        "title": "Get versions of an attribute",
+        "title": "Get versions of an Attribute",
         "excerpt":"Succeeding an Attribute allows you to update its content, while keeping all versions for a coherent history. This use-case allows you to retrieve a list of all those versions of the succession chain for a specified LocalAttribute. Parameters The attributeId belonging to a LocalAttribute you would like to know all...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-versions-of-an-attribute",
@@ -492,7 +498,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Query AttributeListeners",
-        "excerpt":"   This use-case is intended to query all Attribute Listeners based on a query.   Parameter      The query optionally describes the searched Attribute Listeners. If no query is given all Attribute Listeners are returned.   On Success      Returns a list of LocalAttributeListeners that match the query.   On Failure      The parameters are malformed.   ","categories": [],
+        "excerpt":"   This use-case is intended to query all Attribute Listeners based on a query.   Parameter      The query optionally describes the searched Attribute Listeners. If no query is given all Attribute Listeners are returned.   On Success      Returns a list of LocalAttributeListeners that match the query.   On Failure      The parameters are malformed.  ","categories": [],
         "tags": [],
         "url": "/use-case-consumption-query-attributelisteners",
         "teaser": null
@@ -539,6 +545,12 @@ var store = [{
         "url": "/use-case-consumption-succeed-a-repositoryattribute",
         "teaser": null
       },{
+        "title": "Create Profile with new Identity",
+        "excerpt":"   This use-case triggers the creation of a new Identity by the App or Connector.  ","categories": [],
+        "tags": [],
+        "url": "/use-case-device-create-profile-with-new-identity",
+        "teaser": null
+      },{
         "title": "DELETE REST Endpoint",
         "excerpt":"Be advised that this is a Connector-specific use-case which is triggered by an http-request. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use-case broadly describes the REST endpoints using the DELETE HTTP verb...","categories": [],
         "tags": [],
@@ -546,19 +558,19 @@ var store = [{
         "teaser": null
       },{
         "title": "Get Profile by Enmeshed Address",
-        "excerpt":"   This use-case retrieves the LocalAccount with the corresponding enmeshed Address.   Parameters      The address of the corresponding Identity of the LocalAccount.   On Success      Returns the LocalAccount of the Identity.   On Failure      There is no such LocalAccount.   ","categories": [],
+        "excerpt":"   This use-case retrieves the LocalAccount with the corresponding enmeshed Address.   Parameters      The address of the corresponding Identity of the LocalAccount.   On Success      Returns the LocalAccount of the Identity.   On Failure      There is no such LocalAccount.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-get-profile-by-enmeshed-address",
         "teaser": null
       },{
         "title": "Get Profile",
-        "excerpt":"   This use-case retrieves one LocalAccount by its id.   Parameters      The id of the LocalAccount.   On Success      The LocalAccount corresponding to the id.   On Failure      There is no such account.   ","categories": [],
+        "excerpt":"   This use-case retrieves one LocalAccount by its id.   Parameters      The id of the LocalAccount.   On Success      The LocalAccount corresponding to the id.   On Failure      There is no such account.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-get-profile",
         "teaser": null
       },{
         "title": "Get Profiles",
-        "excerpt":"   This use-case retrieves all LocalAccounts available on this Device.   Parameters     On Success      A list of LocalAccounts.   ","categories": [],
+        "excerpt":"   This use-case retrieves all LocalAccounts available on this Device.   Parameters     On Success      A list of LocalAccounts.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-get-profiles",
         "teaser": null
@@ -570,19 +582,19 @@ var store = [{
         "teaser": null
       },{
         "title": "Get the Connector health status",
-        "excerpt":"   This use-case retrieves the service health information of the Connector.   ","categories": [],
+        "excerpt":"   This use-case retrieves the service health information of the Connector.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-get-the-connector-health-status",
         "teaser": null
       },{
         "title": "Get the Connector version information",
-        "excerpt":"   This use-case retrieves the version information of the Connector, including the build number, underlying git commit, the Connector&#8217;s semantic version and its release date.   ","categories": [],
+        "excerpt":"   This use-case retrieves the version information of the Connector, including the build number, underlying git commit, the Connector&#8217;s semantic version and its release date.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-get-the-connector-version-information",
         "teaser": null
       },{
         "title": "Get the number of requests and the status codes that were returned by the Connector",
-        "excerpt":"   This use-case retrieves the overall count of http-requests as requestCount sent by the Connector to the Backbone. The returned requestCountByStatus is a more detailed view on how many requests succeeded or failed.   ","categories": [],
+        "excerpt":"   This use-case retrieves the overall count of http-requests as requestCount sent by the Connector to the Backbone. The returned requestCountByStatus is a more detailed view on how many requests succeeded or failed.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-get-the-number-of-requests-and-the-status-codes-that-were-returned-by-the-connector",
         "teaser": null
@@ -696,7 +708,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Download File of Attachment",
-        "excerpt":"   This use-case downloads a file that was sent by a Message as an attachment.   Internally uses the Download File Use-Case   ","categories": [],
+        "excerpt":"   This use-case downloads a file that was sent by a Message as an attachment.   Internally uses the Download File Use-Case  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-download-file-of-attachment",
         "teaser": null
@@ -708,25 +720,25 @@ var store = [{
         "teaser": null
       },{
         "title": "Get Attributes for Relationship",
-        "excerpt":"   Retrieve all LocalAttributes that are related to the given Relationship id.   Parameters      id of the Relationship.   hideTechnical indicates if RelationshipAttributes marked as isTechnical should be filtered out.   On Success      All LocalAttributes that are related to the Relationship.   On Failure      The id did not resolve to a Relationship.   ","categories": [],
+        "excerpt":"   Retrieve all LocalAttributes that are related to the given Relationship id.   Parameters      id of the Relationship.   hideTechnical indicates if RelationshipAttributes marked as isTechnical should be filtered out.   On Success      All LocalAttributes that are related to the Relationship.   On Failure      The id did not resolve to a Relationship.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-attributes-for-relationship",
         "teaser": null
       },{
         "title": "Get currently used Device",
-        "excerpt":"   This use-case retrieves information about the currently used Device.   ","categories": [],
+        "excerpt":"   This use-case retrieves information about the currently used Device.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-currently-used-device",
         "teaser": null
       },{
         "title": "Get currently used Identity",
-        "excerpt":"   This use-case retrieves information about the currently used Identity.   ","categories": [],
+        "excerpt":"   This use-case retrieves information about the currently used Identity.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-currently-used-identity",
         "teaser": null
       },{
         "title": "Get Device Onboarding Info",
-        "excerpt":"   This use-case retrieves the onboarding information a so far not-onboarded Device that corresponds to the given Device id in order to onboard the Device to the Identity.   Parameters      id of the Device.   On Success      Returns the onboarding information of the Device.   On Failure      The Device was already onboarded.   ","categories": [],
+        "excerpt":"   This use-case retrieves the onboarding information a so far not-onboarded Device that corresponds to the given Device id in order to onboard the Device to the Identity.   Parameters      id of the Device.   On Success      Returns the onboarding information of the Device.   On Failure      The Device was already onboarded.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-device-onboarding-info",
         "teaser": null
@@ -738,19 +750,19 @@ var store = [{
         "teaser": null
       },{
         "title": "Get Device",
-        "excerpt":"   This use-case retrieves the Device with the given id.   Parameters      id of the Device.   On Success      The Device that corresponds to the id.   On Failure      No Device corresponds to the id.   ","categories": [],
+        "excerpt":"   This use-case retrieves the Device with the given id.   Parameters      id of the Device.   On Success      The Device that corresponds to the id.   On Failure      No Device corresponds to the id.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-device",
         "teaser": null
       },{
         "title": "Get File Metadata of Attachment",
-        "excerpt":"   This use-case retrieves the metadata of a File that was sent by a Message as an attachment.   Internally uses the get or load file use-case.   ","categories": [],
+        "excerpt":"   This use-case retrieves the metadata of a File that was sent by a Message as an attachment.   Internally uses the get or load file use-case.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-file-metadata-of-attachment",
         "teaser": null
       },{
         "title": "Get Message by MessageId",
-        "excerpt":"   This use-case retrieves a Message by its id.   Parameters      id of the Message.   On Success      Returns the Message that corresponds to the id.   On Failure      id does not resolve to a Message.   ","categories": [],
+        "excerpt":"   This use-case retrieves a Message by its id.   Parameters      id of the Message.   On Success      Returns the Message that corresponds to the id.   On Failure      id does not resolve to a Message.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-message-by-messageid",
         "teaser": null
@@ -762,37 +774,37 @@ var store = [{
         "teaser": null
       },{
         "title": "Get own File",
-        "excerpt":"   This use-case retrieves an own File.   Parameters      id of the File which should be retrieved.   On Success      The metadata of the File that match the id.   On Failure      No File corresponds to the id.   ","categories": [],
+        "excerpt":"   This use-case retrieves an own File.   Parameters      id of the File which should be retrieved.   On Success      The metadata of the File that match the id.   On Failure      No File corresponds to the id.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-own-file",
         "teaser": null
       },{
         "title": "Get Relationship by Address",
-        "excerpt":"   This use-case retrieves a Relationship by the Address of a peer.   Parameters      address of the peer.   On Success      The Relationship that was inititated with the address.   On Failure      There is no Relationship linked to the given address.   ","categories": [],
+        "excerpt":"   This use-case retrieves a Relationship by the Address of a peer.   Parameters      address of the peer.   On Success      The Relationship that was inititated with the address.   On Failure      There is no Relationship linked to the given address.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-relationship-by-address",
         "teaser": null
       },{
         "title": "Get Relationship by RelationshipId",
-        "excerpt":"   This use-case retrieves a Relationship by its id.   Parameters      id of the Relationship.   On Success      The Relationship that corresponds to the id.   On Failure      The id does not resolve to a Relationship.   ","categories": [],
+        "excerpt":"   This use-case retrieves a Relationship by its id.   Parameters      id of the Relationship.   On Success      The Relationship that corresponds to the id.   On Failure      The id does not resolve to a Relationship.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-relationship-by-relationshipid",
         "teaser": null
       },{
         "title": "Get Relationship Template",
-        "excerpt":"   This use-case retrieves a RelationshipTemplate by its id.   Parameters      idof the RelationshipTemplate.   On Success      The RelationshipTemplate that corresponds to the id.   On Failure      The id doesn&#8217;t resolve to a RelationshipTemplate.   ","categories": [],
+        "excerpt":"   This use-case retrieves a RelationshipTemplate by its id.   Parameters      idof the RelationshipTemplate.   On Success      The RelationshipTemplate that corresponds to the id.   On Failure      The id doesn&#8217;t resolve to a RelationshipTemplate.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-relationship-template",
         "teaser": null
       },{
         "title": "Get synchronization status with Backbone",
-        "excerpt":"   This use-case returns metadata about the synchronization status of the current Identity or Device with the Backbone. So far, it returns the timestamp of the last successful synchronization run which is triggered by the Synchronize updates of Backbone use-case.   On Success      Returns the metadata of the last sync run.   ","categories": [],
+        "excerpt":"   This use-case returns metadata about the synchronization status of the current Identity or Device with the Backbone. So far, it returns the timestamp of the last successful synchronization run which is triggered by the Synchronize updates of Backbone use-case.   On Success      Returns the metadata of the last sync run.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-synchronization-status-with-backbone",
         "teaser": null
       },{
         "title": "Get Token by TokenID",
-        "excerpt":"   This use-case retieves a Token by its id.   Parameters      id of the Token.   On Success      The Token that corresponds to the id.   On Failure      The id doesn&#8217;t resolve to a Token.   ","categories": [],
+        "excerpt":"   This use-case retieves a Token by its id.   Parameters      id of the Token.   On Success      The Token that corresponds to the id.   On Failure      The id doesn&#8217;t resolve to a Token.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-token-by-tokenid",
         "teaser": null
@@ -816,7 +828,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Query Devices",
-        "excerpt":"   This use-case queries all Devices of the Identity.   On Success      Returns all Devices.   ","categories": [],
+        "excerpt":"   This use-case queries all Devices of the Identity.   On Success      Returns all Devices.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-devices",
         "teaser": null

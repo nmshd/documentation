@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Succeed a RelationshipAttribute and notify peer - enmeshed</title>
-<meta name="description" content="This use-case allows the owner to update a RelationshipAttribute, while automatically handling the coherent versioning at both your and your peer&#8217;s side. Succeeding an own RelationshipAttribute, a new LocalAttribute with the updated content will be created at your side. In its succeeds property it links to the predecessing version, which in turn is also updated and links to the newly created version in its succeededBy property. Thus, a doubly linked list is established, ensuring every version to have not more that one predecessor or successor. Once the succession at your side is completed, a Notification is sent automatically to your peer. It triggers the succession of their peer shared RelationshipAttribute in the same manner as described above, such that both your succession chains match.  Parameters     predecessorId: the id of the LocalAttribute with the RelationshipAttribute content you want to succeed   The updated successorContent limited to the value, validFrom and validTo properties of a RelationshipAttribute that may be changed by a succession   On Success     The response returns a predecessor and a successor LocalAttribute, as well as the notificationId of the Notification sent to the peer.   The predecessor is an updated version of the own shared RelationshipAttribute, having the succeededBy field set to the successor&#8217;s id.   The successor is a new own shared RelationshipAttribute version with the specified successorContent. Its succeeds property links to the predecessor.   On Failure     The response cannot be created, if the predecessorId doesn&#8217;t belong to a valid own LocalAttribute with RelationshipAttribute content.   The response cannot be created, if the LocalAttribute belonging to the predecessorId already has a successor.   The response cannot be created, if the parameters are malformed.">
+<meta name="description" content="">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="/use-case-consumption-succeed-a-relationshipattribute-and-notify-peer">
 
 
-  <meta property="og:description" content="This use-case allows the owner to update a RelationshipAttribute, while automatically handling the coherent versioning at both your and your peer&#8217;s side. Succeeding an own RelationshipAttribute, a new LocalAttribute with the updated content will be created at your side. In its succeeds property it links to the predecessing version, which in turn is also updated and links to the newly created version in its succeededBy property. Thus, a doubly linked list is established, ensuring every version to have not more that one predecessor or successor. Once the succession at your side is completed, a Notification is sent automatically to your peer. It triggers the succession of their peer shared RelationshipAttribute in the same manner as described above, such that both your succession chains match.  Parameters     predecessorId: the id of the LocalAttribute with the RelationshipAttribute content you want to succeed   The updated successorContent limited to the value, validFrom and validTo properties of a RelationshipAttribute that may be changed by a succession   On Success     The response returns a predecessor and a successor LocalAttribute, as well as the notificationId of the Notification sent to the peer.   The predecessor is an updated version of the own shared RelationshipAttribute, having the succeededBy field set to the successor&#8217;s id.   The successor is a new own shared RelationshipAttribute version with the specified successorContent. Its succeeds property links to the predecessor.   On Failure     The response cannot be created, if the predecessorId doesn&#8217;t belong to a valid own LocalAttribute with RelationshipAttribute content.   The response cannot be created, if the LocalAttribute belonging to the predecessorId already has a successor.   The response cannot be created, if the parameters are malformed.">
+  <meta property="og:description" content="">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-03-14T15:00:25+01:00">
+  <meta property="article:published_time" content="2024-03-20T10:51:03+01:00">
 
 
 
@@ -351,8 +351,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Succeed a RelationshipAttribute and notify peer">
-    <meta itemprop="description" content="This use-case allows the owner to update a RelationshipAttribute, while automatically handling the coherent versioning at both your and your peer&#8217;s side.Succeeding an own RelationshipAttribute, a new LocalAttribute with the updated content will be created at your side.In its succeeds property it links to the predecessing version, which in turn is also updated and links to the newly created version in its succeededBy property.Thus, a doubly linked list is established, ensuring every version to have not more that one predecessor or successor.Once the succession at your side is completed, a Notification is sent automatically to your peer.It triggers the succession of their peer shared RelationshipAttribute in the same manner as described above, such that both your succession chains match.Parameters  predecessorId: the id of the LocalAttribute with the RelationshipAttribute content you want to succeed  The updated successorContent limited to the value, validFrom and validTo properties of a RelationshipAttribute that may be changed by a successionOn Success  The response returns a predecessor and a successor LocalAttribute, as well as the notificationId of the Notification sent to the peer.  The predecessor is an updated version of the own shared RelationshipAttribute, having the succeededBy field set to the successor&#8217;s id.  The successor is a new own shared RelationshipAttribute version with the specified successorContent. Its succeeds property links to the predecessor.On Failure  The response cannot be created, if the predecessorId doesn&#8217;t belong to a valid own LocalAttribute with RelationshipAttribute content.  The response cannot be created, if the LocalAttribute belonging to the predecessorId already has a successor.  The response cannot be created, if the parameters are malformed.">
-    <meta itemprop="datePublished" content="2024-03-14T15:00:25+01:00">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2024-03-20T10:51:03+01:00">
     
 
     <div class="page__inner-wrap">
@@ -405,9 +405,11 @@
         <tr><td>tech category</td>
             <td>Attributes</td></tr>
         
-        <tr></tr>
+        <tr><td>status</td>
+            <td>DONE</td></tr>
         
-        <tr></tr>
+        <tr><td>documentation status</td>
+            <td>DONE</td></tr>
         
         <tr></tr>
         
@@ -432,12 +434,11 @@
         
         <tr></tr>
         
-        <tr></tr>
+        <tr><td>published</td>
+            <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>consumption/succeed-a-relationshipattribute-and-notify-peer</td></tr>
-        
-        <tr></tr>
+            <td>use-case-consumption-succeed-a-relationshipattribute-and-notify-peer</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -474,7 +475,6 @@ It triggers the succession of their peer shared RelationshipAttribute in the sam
   <li>The response cannot be created, if the LocalAttribute belonging to the <code class="language-plaintext highlighter-rouge">predecessorId</code> already has a successor.</li>
   <li>The response cannot be created, if the parameters are malformed.</li>
 </ul>
-
  
 
         
@@ -487,7 +487,7 @@ It triggers the succession of their peer shared RelationshipAttribute in the sam
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-03-14T15:00:25+01:00">March 14, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-03-20T10:51:03+01:00">March 20, 2024</time></p>
 
       </footer>
 

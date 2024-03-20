@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Succeed a RepositoryAttribute - enmeshed</title>
-<meta name="description" content="If the value of a RepositoryAttribute changes, this can be replicated in enmeshed with this use-case. It allows you to update the content and keeps a coherent history of all versions by establishing a doubly linked list, using the LocalAttribute&#8217;s parameters succeeds and succeededBy. Hence, every LocalAttribute may have exactly one predecessor and one successor. In case you shared the preceeding version of the RepositoryAttribute, the corresponding own shared IdentityAttribute copy will only be succeeded, if you decide to notify the peer of the respective shared IdentityAttribute about the succession.  Parameters     predecessorId: the id of the RepositoryAttribute you want to succeed   The successorContent according to the parameters of an IdentityAttribute as described in the data model, except for the owner, which is automatically set to your Address   On Success     The response returns a predecessor and a successor LocalAttribute.   The predecessor is an updated version of the RepositoryAttribute belonging to predecessorId, having the succeededBy field set to the successor&#8217;s id.   The successor is a new RepositoryAttribute with the updated successorContent. Its succeeds property links to the predecessor.   On Failure     The response cannot be created, if the predecessorId belongs to a RelationshipAttribute.   The response cannot be created, if the predecessorId belongs to an IdentityAttribute with a shareInfo.   The response cannot be created, if the LocalAttribute already has a successor.   The response cannot be created, if the successorContent contains invalid changes, e.g. of the value type.   The response cannot be created, if the parameters are malformed.">
+<meta name="description" content="">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="/use-case-consumption-succeed-a-repositoryattribute">
 
 
-  <meta property="og:description" content="If the value of a RepositoryAttribute changes, this can be replicated in enmeshed with this use-case. It allows you to update the content and keeps a coherent history of all versions by establishing a doubly linked list, using the LocalAttribute&#8217;s parameters succeeds and succeededBy. Hence, every LocalAttribute may have exactly one predecessor and one successor. In case you shared the preceeding version of the RepositoryAttribute, the corresponding own shared IdentityAttribute copy will only be succeeded, if you decide to notify the peer of the respective shared IdentityAttribute about the succession.  Parameters     predecessorId: the id of the RepositoryAttribute you want to succeed   The successorContent according to the parameters of an IdentityAttribute as described in the data model, except for the owner, which is automatically set to your Address   On Success     The response returns a predecessor and a successor LocalAttribute.   The predecessor is an updated version of the RepositoryAttribute belonging to predecessorId, having the succeededBy field set to the successor&#8217;s id.   The successor is a new RepositoryAttribute with the updated successorContent. Its succeeds property links to the predecessor.   On Failure     The response cannot be created, if the predecessorId belongs to a RelationshipAttribute.   The response cannot be created, if the predecessorId belongs to an IdentityAttribute with a shareInfo.   The response cannot be created, if the LocalAttribute already has a successor.   The response cannot be created, if the successorContent contains invalid changes, e.g. of the value type.   The response cannot be created, if the parameters are malformed.">
+  <meta property="og:description" content="">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-03-14T15:00:25+01:00">
+  <meta property="article:published_time" content="2024-03-20T10:51:03+01:00">
 
 
 
@@ -351,8 +351,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Succeed a RepositoryAttribute">
-    <meta itemprop="description" content="If the value of a RepositoryAttribute changes, this can be replicated in enmeshed with this use-case.It allows you to update the content and keeps a coherent history of all versions by establishing a doubly linked list, using the LocalAttribute&#8217;s parameters succeeds and succeededBy.Hence, every LocalAttribute may have exactly one predecessor and one successor.In case you shared the preceeding version of the RepositoryAttribute, the corresponding own shared IdentityAttribute copy will only be succeeded, if you decide to notify the peer of the respective shared IdentityAttribute about the succession.Parameters  predecessorId: the id of the RepositoryAttribute you want to succeed  The successorContent according to the parameters of an IdentityAttribute as described in the data model, except for the owner, which is automatically set to your AddressOn Success  The response returns a predecessor and a successor LocalAttribute.  The predecessor is an updated version of the RepositoryAttribute belonging to predecessorId, having the succeededBy field set to the successor&#8217;s id.  The successor is a new RepositoryAttribute with the updated successorContent. Its succeeds property links to the predecessor.On Failure  The response cannot be created, if the predecessorId belongs to a RelationshipAttribute.  The response cannot be created, if the predecessorId belongs to an IdentityAttribute with a shareInfo.  The response cannot be created, if the LocalAttribute already has a successor.  The response cannot be created, if the successorContent contains invalid changes, e.g. of the value type.  The response cannot be created, if the parameters are malformed.">
-    <meta itemprop="datePublished" content="2024-03-14T15:00:25+01:00">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2024-03-20T10:51:03+01:00">
     
 
     <div class="page__inner-wrap">
@@ -405,9 +405,11 @@
         <tr><td>tech category</td>
             <td>Attributes</td></tr>
         
-        <tr></tr>
+        <tr><td>status</td>
+            <td>DONE</td></tr>
         
-        <tr></tr>
+        <tr><td>documentation status</td>
+            <td>DONE</td></tr>
         
         <tr></tr>
         
@@ -439,9 +441,7 @@
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>consumption/succeed-a-repositoryattribute</td></tr>
-        
-        <tr></tr>
+            <td>use-case-consumption-succeed-a-repositoryattribute</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -478,7 +478,6 @@ In case you shared the preceeding version of the RepositoryAttribute, the corres
   <li>The response cannot be created, if the <code class="language-plaintext highlighter-rouge">successorContent</code> contains invalid changes, e.g. of the value type.</li>
   <li>The response cannot be created, if the parameters are malformed.</li>
 </ul>
-
  
 
         
@@ -491,7 +490,7 @@ In case you shared the preceeding version of the RepositoryAttribute, the corres
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-03-14T15:00:25+01:00">March 14, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-03-20T10:51:03+01:00">March 20, 2024</time></p>
 
       </footer>
 
