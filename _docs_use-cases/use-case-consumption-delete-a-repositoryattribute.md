@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: use-case-consumption-delete-a-repositoryattribute
-published: false
+published: true
 title: "Delete a RepositoryAttribute"
 type: use-case
 toc: true
@@ -53,7 +53,6 @@ This use-case allows you to delete a RepositoryAttribute, i.e. an own [LocalAttr
 - All predecessors of the RepositoryAttribute will be deleted.
 - If the RepositoryAttribute was succeeded, the `succeeds` property of the successor will be set to undefined.
 - If there are shared copies of the RepositoryAttribute, the `shareInfo.sourceAttribute` of those own shared Attributes and their predecessors will be set to undefined.
-- If shared copies of the RepositoryAttribute were succeeded, the `succeeds` property of their successors will be set to undefined.
 
 ## On Failure
 
