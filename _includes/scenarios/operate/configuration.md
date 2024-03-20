@@ -284,6 +284,108 @@ It is not recommended to use this Module for production scenarios.
 
   If set to `true` rapidoc persists the API Key in the local storage of the browser.
 
+#### messageBrokerPublisher <a href="{% link _docs_operate/modules.md %}#messagebrokerpublisher"><i class="fas fa-fw fa-info-circle"/></a> {#messagebrokerpublisher}
+
+**Sample Configuration:**
+
+```jsonc
+{
+  // ...
+
+  "modules": {
+    "messageBrokerPublisher": {
+      "enabled": false,
+      "brokers": []
+    }
+  }
+}
+```
+
+- **enabled** `default: false`
+
+  Enable or disable the sync Module.
+
+- **brokers** `default: []`
+
+  Here you can define multiple brokers to which the Connector should publish messages.
+
+  Each broker consists of a `type` (string) and a `config` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `config` object contains the configuration for the broker.
+
+  - type `AMQP`
+
+    **example**
+
+    ```jsonc
+    {
+      "type": "AMQP",
+      "config": {
+        "url": "amqp://example.com:5672",
+        "exchange": "myExchange"
+      }
+    }
+    ```
+
+    **configuration**
+
+    - url `string, required` - the URL of the broker
+    - exchange `string` - the name of the exchange to publish to
+    - timeout `number` - the timeout in milliseconds for the broker to respond
+
+  - type `MQTT`
+
+    **example**
+
+    ```jsonc
+    {
+      "type": "MQTT",
+      "config": {
+        "brokerUrl": "mqtt://example.com:1883"
+      }
+    }
+    ```
+
+    **configuration**
+
+    - brokerUrl `string, required` - the URL of the broker
+
+  - type `PubSub`
+
+    **example**
+
+    ```jsonc
+    {
+      "type": "PubSub",
+      "config": {
+        "projectId": "myProjectId",
+        "topicName": "myTopicName",
+        "keyFile": "path/to/keyfile.json"
+      }
+    }
+    ```
+
+    **configuration**
+
+    - projectId `string, required` - the project id of the Google Cloud project
+    - topicName `string, required` - the name of the PubSub topic to publish to
+    - keyFile `string, required` - the location of the key file to authenticate with the Google Cloud project
+
+  - type `Redis`
+
+    **example**
+
+    ```jsonc
+    {
+      "type": "Redis",
+      "config": {
+        "url": "redis://example.com:6379"
+      }
+    }
+    ```
+
+    **configuration**
+
+    - url `string, required` - the URL of the broker
+
 #### sync <a href="{% link _docs_operate/modules.md %}#sync"><i class="fas fa-fw fa-info-circle"/></a> {#sync}
 
 **Sample Configuration:**
