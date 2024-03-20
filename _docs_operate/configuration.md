@@ -397,7 +397,7 @@ It is not recommended to use this Module for production scenarios.
       "config": {
         "projectId": "myProjectId",
         "topicName": "myTopicName",
-        "keyFile": "path/to/keyfile.json"
+        "keyFile": "/path/to/keyfile.json"
       }
     }
     ```
@@ -414,7 +414,7 @@ It is not recommended to use this Module for production scenarios.
 
     - keyFile `string, required`
 
-      the location of the key file to authenticate with the Google Cloud project
+      the (absolute) path of the key file to authenticate with the Google Cloud project
 
   - type `Redis`
 
@@ -498,7 +498,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
 - **keyFile** `required`
 
-  The location of the key file to authenticate with the Google Cloud project.
+  The (absolute) path of the key file to authenticate with the Google Cloud project.
 
 #### webhooks <a href="{% link _docs_operate/modules.md %}#webhooks"><i class="fas fa-fw fa-info-circle"/></a> {#webhooks}
 
