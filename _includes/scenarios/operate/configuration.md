@@ -327,7 +327,10 @@ It is not recommended to use this Module for production scenarios.
 
     **configuration**
 
-    - url `string, required` - the URL of the broker
+    - url `string, required` - the URL of the AMQP broker
+
+      > the URL must be in the [AMQP url format](https://www.rabbitmq.com/docs/uri-spec)
+
     - exchange `string` - the name of the exchange to publish to
     - timeout `number` - the timeout in milliseconds for the broker to respond
 
@@ -346,7 +349,9 @@ It is not recommended to use this Module for production scenarios.
 
     **configuration**
 
-    - brokerUrl `string, required` - the URL of the broker
+    - brokerUrl `string, required` - the URL of the MQTT broker
+
+      > the URL can be on the following protocols: `mqtt`, `mqtts`, `tcp`, `tls`, `ws`, `wss`, `wxs` or `alis`
 
   - type `PubSub`
 
@@ -385,6 +390,8 @@ It is not recommended to use this Module for production scenarios.
     **configuration**
 
     - url `string, required` - the URL of the broker
+
+      > the URL must be in the Redis url format: `redis[s]://[[username:]password@]host[:port][/database]`
 
 #### sync <a href="{% link _docs_operate/modules.md %}#sync"><i class="fas fa-fw fa-info-circle"/></a> {#sync}
 
