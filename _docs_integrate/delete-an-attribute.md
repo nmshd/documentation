@@ -83,31 +83,7 @@ It is also possible for the peer to [reject the Request]({% link _docs_use-cases
 In this case, it is advised to provide a `message` using the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters), informing the Sender of the Request about the reasons not to delete the Attributes.
 {: .notice--info}
 
-<!-- TODO: include diagram -->
-<!-- ```plantuml
-@startuml Request Deletion of Peer Shared Attribute [User Story]
-
-title Request Deletion of Peer Shared Attribute [User Story]
-
-participant "Attribute Owner" as owner
-participant "Attribute Peer" as peer
-
-group RequestDeletionOfPeerSharedAttribute Use Case
-owner -> owner : validate request (own shared attributes only)
-owner -> peer : send DeleteAttributeRequest item\n { "attributeId": "ATTdeadbeef1234" }
-end group
-
-group Accept Request
-peer -> peer : mark peer shared attribute and all of its predecessors as\n{ "deletionStatus": { "status": "toBeDeleted", "deletionDate": "2024-01-01" }}
-peer -> owner : Send DeleteAttributeRequest response\n { "deletionDate": "2024-01-01" }
-end group
-
-group Process Response
-owner -> owner : mark own shared attribute and all of its predecessors as\n { "deletionStatus": { "status": "toBeDeletedByPeer", "deletionDate": 2024-01-01 }}
-end group
-
-@enduml
-``` -->
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/a738fd76-2fe0-4e3e-a0fd-bec86b3b7939" id="ZGDlhHzeKlb-"></iframe></div>
 
 ## Delete peer shared Attributes
 
@@ -119,12 +95,9 @@ Internally, not just the given Attribute is deleted, but also all its predecesso
 Moreover, if the Attribute had a successor, its `succeeds` property will be set to undefined, as the corresponding predecessor no longer exists.
 Then, a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification) with a [PeerSharedAttributeDeletedByPeerNotificationItem]({% link _docs_integrate/data-model-overview.md %}#peersharedattributedeletedbypeernotificationitem) is generated and sent to the owner of the Attribute, informing them that you deleted the Attribute they shared with you.
 Consequently, the `deletionInfo` of their corresponding own shared Attribute and of all potential predecessors is updated with `deletionStatus` `"DeletedByPeer"` and the time of receiving the Notification as `deletionDate`.
-If the Attribute has a successor, its `succeeds` property will be removed, too.
 In case the owner already [deleted their own shared Attribute](#delete-own-shared-attributes), nothing happens.
 
-<!-- TODO: implement adjustement of successor in NotificationItemProcessor -->
-
-<!-- TODO: insert diagram -->
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/2385af4a-4bfa-43f4-a119-afb51273194d" id="HNEl2zIWWLxc"></iframe></div>
 
 ## Delete own shared Attributes
 
@@ -140,12 +113,13 @@ If they already deleted their corresponding peer shared Attribute or marked it f
 However, if the `deletionInfo` of their peer shared Attribute was undefined before, since you didn't send a Request for Attribute deletion or the Request was rejected, a `deletionInfo` will be set.
 Its `deletionStatus` will be set to `"DeletedByOwner"` and the `deletionDate` will be the time of receiving the Notification.
 
-<!-- TODO: insert diagram -->
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/9aaf5a91-803b-4180-b0c7-4adb7bc5ced6" id="xQEl1j.jqJxq"></iframe></div>
 
 ## Delete RepositoryAttributes
 
 Lastly, you can also [delete RepositoryAttributes]({% link _docs_use-cases/use-case-consumption-delete-a-repositoryattribute.md %}), i.e. own LocalAttributes without `shareInfo`.
-Analogously to the cases above, also all predecessors of the Attribute with specified `attributeId` will be deleted and the `succeeds` property of the successor will be removed in case of [Attribute succession]({% link _docs_integrate/succeeding-attributes-to-update-their-values.md %}).
+Analogously to the cases above, also all predecessors of the Attribute with specified `attributeId` will be deleted.
+Additionally, the `succeeds` property of the successor will be removed in case of [Attribute succession]({% link _docs_integrate/succeeding-attributes-to-update-their-values.md %}).
 
 Furthermore, if there are any shared copies of the RepositoryAttribute, their `shareInfo` will be updated such that `sourceAttribute` doesn't link to the deleted RepositoryAttribute anymore.
 As a consequence, the [get shared versions of a RepositoryAttribute use case]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-a-repositoryattribute.md %}) will no longer return those shared versions.
