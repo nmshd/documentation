@@ -265,4 +265,4 @@ In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-ove
 
 ## What's next?
 
-Take a look at our [Integration example]({% link _docs_integrate/integration-example.md %}) if you want to see how an Attribute of a peer is read by an Identity in the context of a larger process. Also note that it is not only possible to request the reading of an Attribute from a peer, but that you can share your own Attribute with a peer as well. Consult the [Share own Attribute to peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}) guide for this.
+Take a look at our [Integration example]({% link _docs_integrate/integration-example.md %}) if you want to see how an Attribute of a peer is read by an Identity in the context of a larger process. Also note that it is not only possible to request the reading of an Attribute from a peer, but that you can share your own Attribute with a peer as well. Consult the [Share Attribute with peer]({% link _docs_integrate/share-attribute-with-peer.md %}) guide for this.

@@ -204,7 +204,7 @@ To share own IdentityAttributes (owner = self) an Identity uses the ShareAttribu
 
 ### Examples {#shareattributerequestitem-examples}
 
-Examples of use cases for the ShareAttributeRequestItem can be found in the [Share own Attribute to peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}) guide.
+Examples of use cases for the ShareAttributeRequestItem can be found in the [Share Attribute with peer]({% link _docs_integrate/share-attribute-with-peer.md %}) guide.
 
 ### Response {#shareattributerequestitem-response}
 
@@ -221,4 +221,4 @@ Examples of use cases for the ShareAttributeRequestItem can be found in the [Sha
 
 ### Combinations and usage scenarios {#shareattributerequestitem-combinationsandusagescenarios}
 
-[Combinations and usage scenarios of the ShareAttributeRequestItem]({% link _docs_integrate/share-own-attribute-to-peer.md %}#combinations-and-usage-scenarios-of-shareattributerequestitem) can be found in the [Share own Attribute to peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}) guide.
+[Combinations and usage scenarios of the ShareAttributeRequestItem]({% link _docs_integrate/share-attribute-with-peer.md %}#combinations-and-usage-scenarios-of-shareattributerequestitem) can be found in the [Share Attribute with peer]({% link _docs_integrate/share-attribute-with-peer.md %}) guide.
