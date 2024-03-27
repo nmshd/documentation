@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case allows you to delete a RepositoryAttribute, i.e. an own [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) without `shareInfo`.
+This use-case allows you to delete a RepositoryAttribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) that is owned by yourself and whose `shareInfo` property is undefined.
 
 ## Parameters
 
@@ -52,9 +52,9 @@ This use-case allows you to delete a RepositoryAttribute, i.e. an own [LocalAttr
 - The RepositoryAttribute will be deleted.
 - All predecessors of the RepositoryAttribute will be deleted.
 - If the RepositoryAttribute was succeeded, the `succeeds` property of the successor will be set to undefined.
-- If there are shared copies of the RepositoryAttribute, the `shareInfo.sourceAttribute` of those own shared Attributes and their predecessors will be set to undefined.
+- If there are shared copies of the RepositoryAttribute or potential predecessors of it, the `shareInfo.sourceAttribute` of those own shared Attributes will be set to undefined.
 
 ## On Failure
 
-- No Attribute can be deleted, if you don't have a LocalAttribute with given `attributeId`.
-- No Attribute can be deleted, if the Attribute with given `attributeId` is not a RepositoryAttribute.
+- No Attribute can be deleted if you don't have a LocalAttribute with given `attributeId`.
+- No Attribute can be deleted if the Attribute with given `attributeId` is not a RepositoryAttribute.

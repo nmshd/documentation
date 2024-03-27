@@ -41,7 +41,8 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case allows you to delete an own shared [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute), i.e. a LocalAttribute with a `shareInfo`, that is owned by you.
+This use-case allows you to delete an own shared Attribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) with a `shareInfo`, that is owned by you.
+It is created as a result of sharing the `content` of a RepositoryAttribute with a peer.
 
 ## Parameters
 
@@ -56,5 +57,5 @@ This use-case allows you to delete an own shared [LocalAttribute]({%link _docs_i
 
 ## On Failure
 
-- No Attribute can be deleted, if you don't have a LocalAttribute with given `attributeId`.
-- No Attribute can be deleted, if the Attribute with given `attributeId` is not an own shared Attribute.
+- No Attribute can be deleted if you don't have a LocalAttribute with given `attributeId`.
+- No Attribute can be deleted if the Attribute with given `attributeId` is not an own shared Attribute.

@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case allows you to delete a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) a peer shared with you.
+This use-case allows you to delete a peer shared Attribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) a peer shared with you.
 
 ## Parameters
 
@@ -56,5 +56,5 @@ This use-case allows you to delete a [LocalAttribute]({%link _docs_integrate/dat
 
 ## On Failure
 
-- No Attribute can be deleted, if you don't have a LocalAttribute with given `attributeId`.
-- No Attribute can be deleted, if the Attribute with given `attributeId` is not a peer shared Attribute.
+- No Attribute can be deleted if you don't have a LocalAttribute with given `attributeId`.
+- No Attribute can be deleted if the Attribute with given `attributeId` is not a peer shared Attribute.
