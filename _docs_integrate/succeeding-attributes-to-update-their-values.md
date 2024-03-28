@@ -46,7 +46,7 @@ When [creating an IdentityAttribute]({% link _docs_integrate/create-attribute-fo
 Instead, it will be stored in the `content` property of a LocalAttribute with an undefined `shareInfo`.
 We refer to these unshared LocalAttributes as RepositoryAttributes, since they make up your private repository of Attributes.
 
-In the following examples, the `createdAt` and `deletionInfo` properties of all occuring LocalAttribute is omitted, since they aren't required for the explanation.
+In the following examples, the `createdAt` and `deletionInfo` properties of all occuring LocalAttributes is omitted, since they aren't required for the explanation.
 {: .notice--info}
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/33654502-420f-41bd-801a-e0d4c1564df0" id="zs0-w2Ag-nJ4"></iframe></div>
