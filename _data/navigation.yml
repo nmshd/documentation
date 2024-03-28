@@ -123,6 +123,10 @@ docs_integrate:
     children:
       - title: "Requesting one-time consents"
         url: /integrate/requesting-one-time-consents
+  - title: Handling data deletion
+    children:
+      - title: "Delete an Attribute"
+        url: /integrate/delete-an-attribute
   - title: Data Model
     children:
       - title: "Use Cases"
