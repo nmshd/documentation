@@ -36,7 +36,7 @@ Note that this doesn't automatically deletes their Attribute, since the peer may
 
 ## Request the deletion of own Attributes from peer
 
-Wanting to delete a peer shared Attribute owned by you from the peer technically describes the endeavor of reverting sharing the Attribute with them.
+Wanting to delete a peer shared Attribute owned by you from the peer technically describes the endeavor of withdrawing the permission you gave them to use your Attribute.
 To this end, a [Request]({% link _docs_integrate/data-model-overview.md %}#request) must be used with a [DeleteAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#deleteattributerequestitem).
 As a parameter, the `attributeId` of the peer shared Attribute you would like the peer to delete must be provided.
 Note, that the peer shared Attribute at the peer's side has the same `id` like the own shared Attribute at your side.
@@ -49,7 +49,7 @@ A possible Request for deleting a peer shared Attribute from a peer could look a
     {
       "@type": "DeleteAttributeRequestItem",
       "mustBeAccepted": true,
-      "attributeId": "<ID of peer shared LocalAttribute>"
+      "attributeId": "<ID of peer shared Attribute>"
     }
   ]
 }
@@ -87,7 +87,7 @@ Then, the appropriate [DeleteAttributeAcceptResponseItem]({% link _docs_integrat
 There, the `deletionInfo` of the corresponding own shared Attribute and its predecessors is set with `deletionStatus` `"ToBeDeletedByPeer"` and the `deletionDate` received in the Response.
 
 It is also possible for the peer to reject the DeleteAttributeRequestItem, if its `mustBeAccepted` property is set `false`, or to [reject the Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) for deleting a peer shared Attribute as a whole, if they have a valid reason for keeping the respective peer shared Attribute.
-In this case, it is advised to provide a `message` using the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters), informing the Sender of the Request about the reasons not to delete the peer shared Attributes.
+In this case, the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) must be used and it is advised to provide a `message`, informing the Sender of the Request about the reason not to delete the peer shared Attribute.
 {: .notice--info}
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/a738fd76-2fe0-4e3e-a0fd-bec86b3b7939" id="ZGDlhHzeKlb-"></iframe></div>

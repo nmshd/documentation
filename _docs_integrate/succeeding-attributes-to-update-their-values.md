@@ -107,3 +107,9 @@ The `succeeds` property of this LocalAttribute links to the old version, whose `
 Then, a Notification is sent automatically to the peer, which triggers the creation of a new peer shared RelationshipAttribute at their side, such that their LocalAttribute versions replicate the succession chain at your side.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/67c46978-696b-4adf-b04a-cf27d0438f53" id="ww0-.JinZtEX"></iframe></div>
+
+## What's next?
+
+As we have seen, succeeding an Attribute allows you to mark a version of the Attribute as outdated and lets you specify an updated version that is to be used instead.
+However, you might also find yourself in a situation where you want to delete an Attribute altogether.
+To do so, proceed as described in the guide on [how to delete Attributes]({% link _docs_integrate/delete-an-attribute.md %}).
