@@ -61,8 +61,8 @@ Awaiting the response, no long polling is necessary, since the Connector activel
 
 In order to receive events, the Connector needs to be synchronized with the Backbone.
 This can be automated using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
-Fetching changes from the Backbone regularly, it forwards the received events to [Modules]({% link _docs_operate/modules.md %}) that are configured to process them, e.g. [AMQP Publisher]({% link _docs_operate/modules.md %}#amqppublisher), [PubSub Publisher]({% link _docs_operate/modules.md %}#pubsubpublisher) or [Webhooks]({% link _docs_operate/modules.md %}#webhooks).
+Fetching changes from the Backbone regularly, it forwards the received events to [Modules]({% link _docs_operate/modules.md %}) that are configured to process them, e.g. [Message Broker Publisher]({% link _docs_operate/modules.md %}#messagebrokerpublisher) or [Webhooks]({% link _docs_operate/modules.md %}#webhooks).
 Working with message brokers has the advantage that events are conserved, even in case of a downtime of the recipient.
-Thus, we recommend to work with a message broker module like AMQP or PubSub instead of Webhooks.
+Thus, we recommend to work with the message broker module instead of Webhooks.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/d077ee93-9025-43d6-833e-5ee2f1d966d5" id="bnvNknrH-TUP"></iframe></div>

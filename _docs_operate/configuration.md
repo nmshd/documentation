@@ -210,6 +210,9 @@ Every Module can be enabled or disabled by passing true / false to `enabled`. Re
 
 #### amqpPublisher <a href="{% link _docs_operate/modules.md %}#amqppublisher"><i class="fas fa-fw fa-info-circle"/></a> {#amqppublisher}
 
+This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
+{: .notice--danger}
+
 **Sample Configuration:**
 
 ```jsonc
@@ -306,6 +309,134 @@ It is not recommended to use this Module for production scenarios.
 
   If set to `true` rapidoc persists the API Key in the local storage of the browser.
 
+#### messageBrokerPublisher <a href="{% link _docs_operate/modules.md %}#messagebrokerpublisher"><i class="fas fa-fw fa-info-circle"/></a> {#messagebrokerpublisher}
+
+**Sample Configuration:**
+
+```jsonc
+{
+  // ...
+
+  "modules": {
+    "messageBrokerPublisher": {
+      "enabled": false,
+      "brokers": []
+    }
+  }
+}
+```
+
+- **enabled** `default: false`
+
+  Enable or disable the sync Module.
+
+- **brokers** `default: []`
+
+  Here you can define multiple brokers to which the Connector should publish messages.
+
+  Each broker consists of a `type` (string) and a `config` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `config` object contains the configuration for the broker.
+
+  - type `AMQP`
+
+    **example**
+
+    ```jsonc
+    {
+      "type": "AMQP",
+      "config": {
+        "url": "amqp://example.com:5672",
+        "exchange": "myExchange"
+      }
+    }
+    ```
+
+    **configuration**
+
+    - url `string, required` -
+
+      the URL of the AMQP broker
+
+      > the URL must be in the [AMQP url format](https://www.rabbitmq.com/docs/uri-spec)
+
+    - exchange `string` -
+
+      the name of the exchange to publish to
+
+    - timeout `number` -
+
+      the timeout in milliseconds for the broker to respond
+
+  - type `MQTT`
+
+    **example**
+
+    ```jsonc
+    {
+      "type": "MQTT",
+      "config": {
+        "url": "mqtt://example.com:1883"
+      }
+    }
+    ```
+
+    **configuration**
+
+    - url `string, required`
+
+      the URL of the MQTT broker
+
+      > the URL can be on the following protocols: `mqtt`, `mqtts`, `tcp`, `tls`, `ws`, `wss`, `wxs` or `alis`
+
+  - type `PubSub`
+
+    **example**
+
+    ```jsonc
+    {
+      "type": "PubSub",
+      "config": {
+        "projectId": "myProjectId",
+        "topicName": "myTopicName",
+        "keyFile": "/path/to/keyfile.json"
+      }
+    }
+    ```
+
+    **configuration**
+
+    - projectId `string, required`
+
+      the project id of the Google Cloud project
+
+    - topicName `string, required`
+
+      the name of the PubSub topic to publish to
+
+    - keyFile `string, required`
+
+      the (absolute) path of the key file to authenticate with the Google Cloud project
+
+  - type `Redis`
+
+    **example**
+
+    ```jsonc
+    {
+      "type": "Redis",
+      "config": {
+        "url": "redis://example.com:6379"
+      }
+    }
+    ```
+
+    **configuration**
+
+    - url `string, required`
+
+      the URL of the broker
+
+      > the URL must be in the Redis url format: `redis[s]://[[username:]password@]host[:port][/database]`
+
 #### sync <a href="{% link _docs_operate/modules.md %}#sync"><i class="fas fa-fw fa-info-circle"/></a> {#sync}
 
 **Sample Configuration:**
@@ -332,6 +463,9 @@ It is not recommended to use this Module for production scenarios.
   The interval in seconds at which the sync Module will fetch changes from the Backbone.
 
 #### PubSubPublisher <a href="{% link _docs_operate/modules.md %}#pubsubpublisher"><i class="fas fa-fw fa-info-circle"/></a> {#pubsubpublisher}
+
+This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
+{: .notice--danger}
 
 **Sample Configuration:**
 
@@ -364,7 +498,7 @@ It is not recommended to use this Module for production scenarios.
 
 - **keyFile** `required`
 
-  The location of the key file to authenticate with the Google Cloud project.
+  The (absolute) path of the key file to authenticate with the Google Cloud project.
 
 #### webhooks <a href="{% link _docs_operate/modules.md %}#webhooks"><i class="fas fa-fw fa-info-circle"/></a> {#webhooks}
 
