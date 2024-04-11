@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC027
-  - category: Manage attributes of others
+  - category: Requesting consent of users
   - description:
   - customer: All
   - component: integrate
@@ -23,41 +23,31 @@ required_by:
 # End automatic generation
 ---
 
-<!-- A general description of the requirement can be given here. -->
+This guide explains how an Identity can obtain the persistent consent of one of its peers on a particular issue. Technically, this form of consent is stored by a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with [Consent]({% link _docs_integrate/attribute-values.md %}#consent) as `value.@type`, that exists in the context of their [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) and that is usually owned by the peer.
 
-This guide explains how an Identity can obtain the persistent consent from a peer on a particular topic. Technically, this form of consent is stored by a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with [Consent]({% link _docs_integrate/attribute-values.md %}#consent) as `value.@type`, that exists in the context of their [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) and that is usually owned by the peer.
-
-Information about establishing Relationships can be found in the [Establish a Relationship to another Identity]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}) scenario documentation.
+For more information on how to establish Relationships, refer to the [Establish a Relationship to another Identity]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}) scenario documentation.
 {: .notice--info}
 
-If you want to obtain a consent, you can send a [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with a [Consent]({% link _docs_integrate/attribute-values.md %}#consent) value where the owner is the peer.
+If an Identity wants to obtain the persistent consent of one of its peers and thus [create a RelationshipAttribute]({% link _docs_integrate/create-attribute-for-yourself.md %}#create-a-relationshipattribute-for-yourself) with Consent as `value.@type` for their Relationship, it has several options on how to do this. These have in common that the Identity must send a [Request]({% link _docs_integrate/data-model-overview.md %}#request) to create such a RelationshipAttribute to its peer, which must be accepted by the peer. The Identity usually wants to define the values for the properties of the [Consent]({% link _docs_integrate/attribute-values.md %}#consent) itself. This applies in particular to its `consent` property, in which the text is specified to which the peer should persistently agree. The peer should not be able to change this text or the other values for the properties of the Consent. For this purpose, it makes the most sense for the Identity to send a [Request]({% link _docs_integrate/data-model-overview.md %}#request) to the peer that contains a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) within its `items` property. The RelationshipAttribute to be created must then be inserted into the `attribute` property of the CreateAttributeRequestItem. Further information on using the CreateAttributeRequestItem can be found in the [Create Attribute for peer]({% link _docs_integrate/create-attribute-for-peer.md %}) guide.
 
-If a one-time consent is to be asked for instead of a permanent consent, the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) can be used. Processing the ConsentRequestItem does not lead to the creation of a RelationshipAttribute with [Consent]({% link _docs_integrate/attribute-values.md %}#consent) as `value.@type` in the background. For more details, the documentation of the [Requesting one-time consents]({% link _docs_integrate/requesting-one-time-consents.md %}) scenario can be consulted.
-{: .notice--info}
+## Examples of consents
 
-<!-- This include inserts the table with the metadata  -->
+There are many situations in which an Identity needs or wants the persistent consent of one of its peers. The corresponding text that the peer should agree to is contained within the `consent` property of a [Consent]({% link _docs_integrate/attribute-values.md %}#consent), for example:
 
-{% include properties_list.html %}
-
-<!-- here is the description in detail  -->
-
-## Examples {#consentrequestitem-examples}
-
-There are many situations in which an Identity needs or wants the persistent consent of another Identity, for example:
-
-- "I hereby confirm that I have read the privacy terms of this cloud service and agree to them."
+- "I hereby confirm that I have read and agree to the privacy terms of this cloud service."
 - "The provided EULA has been read and agreed to."
-- "Yes, I have backed up all of my data of this PC and you can wipe it."
-- "I opt in to the newsletter."
+- "Yes, I have backed up all of my data on this computer and you can wipe it."
+- "Yes, I want to opt-in to the newsletter."
 
-Please do not use the Consent to submit tons of text to the peer Identity. It is meant to be a short consent or summary the user agrees to. Please move longer text to external websites.
-The Consent is also not meant for contractual agreements.
-{: .notice--info}
+The `consent` property of a Consent is not intended to be used by an Identity to send tons of text to the peer. Instead, it should contain a brief summary of the issue, which the peer should agree with. Longer texts should be placed on external websites. A link to such a website can be specified in the optional `link` property of the Consent. Also note that the Consent should not be used for contractual agreements.
 
-## Check your Request's validity
+## Create the Request for persistent consent
+
+In the following, we describe how a Connector, hereinafter referred to as the Sender, can create a RelationshipAttribute with Consent as `value.@type` for a Relationship to another Connector, the so-called Recipient, by sending a Request. The Recipient should be the `owner` of the RelationshipAttribute. We assume that it contains a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) within its `items` property.
+
+### Check the Request's validity
 
 At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Sender Connector with the following body.
-For the persistent consent request we use the [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem).
 
 ```json
 {
@@ -93,7 +83,7 @@ For the persistent consent request we use the [ProposeAttributeRequestItem]({% l
 }
 ```
 
-## Create the Request
+### Create the Request for persistent consent
 
 To create the Request you have to call the `POST /api/v2/Messages` route on the Sender Connector, with the content property of the payload in the step before. Use the following JSON in the body:
 
@@ -158,3 +148,7 @@ Note that the Request is currently in status `Draft`.
 "requestId": "REQ...",
 "result": "Accepted"
 ```
+
+## What's next?
+
+If an Identity asks for a one-time consent instead of a persistent consent of one of its peers, the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) can be used. It must be inserted into the `items` property of an appropriate [Request]({% link _docs_integrate/data-model-overview.md %}#request). Processing the ConsentRequestItem does not lead to the creation of a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with Consent as `value.@type` in the background. For more details, the documentation of the [Requesting one-time consents]({% link _docs_integrate/requesting-one-time-consents.md %}) scenario can be consulted.
