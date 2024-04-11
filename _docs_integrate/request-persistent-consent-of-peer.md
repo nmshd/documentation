@@ -41,13 +41,13 @@ There are many situations in which an Identity needs or wants the persistent con
 
 The `consent` property of a Consent is not intended to be used by an Identity to send tons of text to the peer. Instead, it should contain a brief summary of the issue, which the peer should agree with. Longer texts should be placed on external websites. A link to such a website can be specified in the optional `link` property of the Consent. Also note that the Consent should not be used for contractual agreements.
 
-## Create the Request for persistent consent
+## Request for persistent consent
 
-In the following, we describe how a Connector, hereinafter referred to as the Sender, can create a RelationshipAttribute with Consent as `value.@type` for a Relationship to another Connector, the so-called Recipient, by sending a Request. The Recipient should be the `owner` of the RelationshipAttribute. We assume that it contains a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) within its `items` property.
+In the following, we describe how a Connector, hereinafter referred to as the Sender, can create a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with [Consent]({% link _docs_integrate/attribute-values.md %}#consent) as `value.@type` for a Relationship to another Connector, the so-called Recipient, by sending a [Request]({% link _docs_integrate/data-model-overview.md %}#request). As there is already a Relationship between the Sender and the Recipient, the Sender can send the [Request via a Message]({% link _docs_integrate/requests-over-messages.md %}) to the Recipient. Note that the Sender could also send the [Request via a RelationshipTemplate]({% link _docs_integrate/requests-over-templates.md %}), but this is not discussed further below.
 
-### Check the Request's validity
+### Create the Request
 
-At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Sender Connector with the following body.
+We assume that the Request contains a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) within its `items` property. The RelationshipAttribute to be created must be inserted into the `attribute` property of the CreateAttributeRequestItem. The RelationshipAttribute should be owned by the Recipient, which is why an empty string is specified for its `owner`. For creating the Request, we proceed as described in the [create outgoing Request]({% link _docs_use-cases/use-case-consumption-create-outgoing-request.md %}) use case. Please note that the `<...>` notation is used as a placeholder for the actual data as usual and that the `link` property of the [Consent]({% link _docs_integrate/attribute-values.md %}#consent) is optional and can therefore be omitted.
 
 ```json
 {
@@ -55,26 +55,17 @@ At first you should check if your Request is valid. You can do this by calling t
     "@type": "Request",
     "items": [
       {
-        "@type": "ProposeAttributeRequestItem",
+        "@type": "CreateAttributeRequestItem",
         "mustBeAccepted": true,
         "attribute": {
           "@type": "RelationshipAttribute",
-          "key": "MyConsent",
+          "key": "<key of RelationshipAttribute>",
           "owner": "",
           "confidentiality": "private",
           "value": {
             "@type": "Consent",
-            "consent": "I hereby confirm that I have read the privacy terms of this cloud service and agree to them."
-          }
-        },
-        "query": {
-          "@type": "RelationshipAttributeQuery",
-          "key": "MyConsent",
-          "owner": "",
-          "attributeCreationHints": {
-            "title": "consent to content",
-            "valueType": "Consent",
-            "confidentiality": "private"
+            "consent": "<issue that the Sender wants the Recipient to agree to>",
+            "link": "<link to external website with more information on the issue>"
           }
         }
       }
@@ -83,37 +74,31 @@ At first you should check if your Request is valid. You can do this by calling t
 }
 ```
 
-### Create the Request for persistent consent
+At first the Sender should check if the Request is valid. This can be done by proceeding as described in the documentation of the [Check if outgoing Request can be created]({% link _docs_use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}) use case.
+{: .notice--info}
 
-To create the Request you have to call the `POST /api/v2/Messages` route on the Sender Connector, with the content property of the payload in the step before. Use the following JSON in the body:
+### Send the Request
+
+After the Sender has created the Request, it can send it to the Recipient. To send the [Request via a Message]({% link _docs_integrate/requests-over-messages.md %}), the Sender have to follow the instructions of the [Send a Message to the Recipient]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) use case documentation, using the Request specified in the `content` property of the payload in the step before. Use the following JSON payload in the body:
 
 ```jsonc
 {
-  "recipients": ["<the address of the Recipient Connector>"],
+  "recipients": ["<Address of Recipient>"],
   "content": {
     "@type": "Request",
     "items": [
       {
-        "@type": "ProposeAttributeRequestItem",
+        "@type": "CreateAttributeRequestItem",
         "mustBeAccepted": true,
         "attribute": {
           "@type": "RelationshipAttribute",
-          "key": "MyConsent",
-          "owner": "<the address of the Recipient Connector>",
+          "key": "<key of RelationshipAttribute>",
+          "owner": "",
           "confidentiality": "private",
           "value": {
             "@type": "Consent",
-            "consent": "I hereby confirm that I have read the privacy terms of this cloud service and agree to them."
-          }
-        },
-        "query": {
-          "@type": "RelationshipAttributeQuery",
-          "key": "MyConsent",
-          "owner": "<the address of the Recipient Connector>",
-          "attributeCreationHints": {
-            "title": "consent to content",
-            "valueType": "Consent",
-            "confidentiality": "private"
+            "consent": "<issue that the Sender wants the Recipient to agree to>",
+            "link": "<link to external website with more information on the issue>"
           }
         }
       }
@@ -127,26 +112,17 @@ Note that the Request is currently in status `Draft`.
 **Example accepted response:**
 
 ```jsonc
-"items": [
-  {
-    "@type": "ProposeAttributeAcceptResponseItem",
-    "attribute": {
-      "@type": "RelationshipAttribute",
-      "confidentiality": "private",
-      "isTechnical": false,
-      "key": "MyConsent",
-      "owner": "<the address of the Recipient Connector>",
-      "value": {
-        "@type": "Consent",
-        "consent": "I hereby confirm that I have read the privacy terms of this cloud service and agree to them."
-      }
-    },
-    "attributeId": "ATT...",
-    "result": "Accepted"
-  }
-],
-"requestId": "REQ...",
-"result": "Accepted"
+{
+  "requestId": "REQ...",
+  "result": "Accepted"
+  "items": [
+    {
+      "@type": "CreateAttributeAcceptResponseItem",
+      "result": "Accepted",
+      "attributeId": "ATT..."
+    }
+  ]
+}
 ```
 
 ## What's next?
