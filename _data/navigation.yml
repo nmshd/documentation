@@ -113,14 +113,14 @@ docs_integrate:
         url: /integrate/create-attribute-for-peer
       - title: "Propose Attribute to peer"
         url: /integrate/propose-attribute-to-peer
-      - title: "Request persistent consent of peer"
-        url: /integrate/request-persistent-consent-of-peer
   - title: Basic communication
     children:
       - title: "Sending Messages"
         url: /integrate/sending-messages
   - title: Requesting consent of users
     children:
+      - title: "Request persistent consent of peer"
+        url: /integrate/request-persistent-consent-of-peer
       - title: "Requesting one-time consents"
         url: /integrate/requesting-one-time-consents
   - title: Data Model
