@@ -47,7 +47,7 @@ In the following, we describe how a Connector, hereinafter referred to as the Se
 
 ### Create the Request
 
-We assume that the Request contains a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) within its `items` property. The RelationshipAttribute to be created must be inserted into the `attribute` property of the CreateAttributeRequestItem. The RelationshipAttribute should be owned by the Recipient, which is why an empty string is specified for its `owner`. For creating the Request, we proceed as described in the [create outgoing Request]({% link _docs_use-cases/use-case-consumption-create-outgoing-request.md %}) use case. Please note that the `<...>` notation is used as a placeholder for the actual data as usual and that the `link` property of the [Consent]({% link _docs_integrate/attribute-values.md %}#consent) is optional and can therefore be omitted.
+As already indicated, the Request contains a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) within its `items` property. The RelationshipAttribute to be created must be inserted into the `attribute` property of the CreateAttributeRequestItem. The RelationshipAttribute should be owned by the Recipient, which is why an empty string is specified as the value for its `owner` property. The Recipient then automatically becomes the `owner` later on. To create the Request, the Sender must proceed as described in the [Create outgoing Request]({% link _docs_use-cases/use-case-consumption-create-outgoing-request.md %}) use case, specifying a suitable payload as given in the example below. In this example, the `confidentiality` of the RelationshipAttribute is set to `"private"` and the value of the `mustBeAccepted` property of the CreateAttributeRequestItem is set to `true`. Please note that the `<...>` notation is used as a placeholder for the actual data as usual and that the `link` property of the [Consent]({% link _docs_integrate/attribute-values.md %}#consent) is optional and can therefore also be omitted.
 
 ```json
 {
@@ -70,22 +70,24 @@ We assume that the Request contains a [CreateAttributeRequestItem]({% link _docs
         }
       }
     ]
-  }
+  },
+  "peer": "<Address of Recipient>"
 }
 ```
 
-At first the Sender should check if the Request is valid. This can be done by proceeding as described in the documentation of the [Check if outgoing Request can be created]({% link _docs_use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}) use case.
+Before creating the Request, the Sender should check whether it is valid. This can be done by proceeding as described in the documentation of the [Check if outgoing Request can be created]({% link _docs_use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}) use case. The advantage of checking the validity of the Request first before attempting to create it is that the Sender would receive a more precise [error]({% link _docs_integrate/error-codes.md %}) description in the case of a faulty Request.
 {: .notice--info}
 
 ### Send the Request
 
-After the Sender has created the Request, it can send it to the Recipient. To send the [Request via a Message]({% link _docs_integrate/requests-over-messages.md %}), the Sender have to follow the instructions of the [Send a Message to the Recipient]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) use case documentation, using the Request specified in the `content` property of the payload in the step before. Use the following JSON payload in the body:
+After the Request is created, the Sender can send it to the Recipient. To send the [Request via a Message]({% link _docs_integrate/requests-over-messages.md %}), the Sender have to follow the instructions of the [Send a Message to the Recipient]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) use case documentation, using the Request specified in the `content` property of the payload in the step before. Use the following JSON payload in the body:
 
 ```jsonc
 {
   "recipients": ["<Address of Recipient>"],
   "content": {
     "@type": "Request",
+    "id": "REQ...",
     "items": [
       {
         "@type": "CreateAttributeRequestItem",
