@@ -111,17 +111,12 @@ After the Request is created, the Sender can send it to the Recipient. To send t
 
 ### Receive and accept the Request
 
-After the Recipient has received the Message with the [Request for persistent consent]({% link _docs_integrate/request-persistent-consent-of-peer.md %}#request-for-persistent-consent) after [synchronizing the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), it must use the [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) to [accept the incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}).
+After the Recipient has received the Message with the [Request for persistent consent]({% link _docs_integrate/request-persistent-consent-of-peer.md %}#request-for-persistent-consent) after [synchronizing the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), it must proceed as described in the documentation of the [accept the incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case and use the [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) to accept the CreateAttributeRequestItem contained within the `items` property of the Request if it persistently consents to the issue originating from the Sender.
 
-It can also [reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}).
+If the Recipient does not want to agree to the issue that the Sender wants the Recipient to agree to, it can of course also reject the corresponding CreateAttributeRequestItem by using the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) or [reject the incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) as a whole.
 {: .notice--info}
 
-An appropriate AcceptResponseItem of type [CreateAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#createattributeacceptresponseitem) is generated, which incorporates the `id` of the created LocalAttribute associated with the RelationshipAttribute in its `attributeId` property. After the Request is accepted by the Recipient, the Sender can [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) in order to be informed about that. Then, the corresponding peer shared RelationshipAttribute is created.
-
-Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
-{: .notice--info}
-
-#### Example of Response to accepted Request
+Accepting the Request leads to the creation of the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with [Consent]({% link _docs_integrate/attribute-values.md %}#consent) as `value.@type`. Technically, this is stored as the `content` of a LocalAttribute. Based on this, an appropriate AcceptResponseItem of type [CreateAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#createattributeacceptresponseitem) is generated, which incorporates the `id` of the created LocalAttribute in its `attributeId` property. This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for persistent consent that will be transferred to the Sender.
 
 ```jsonc
 {
@@ -136,6 +131,13 @@ Please note that this synchronization can also be automated by using the [Sync M
   ]
 }
 ```
+
+### Receive the Response to the Request
+
+After the Request is accepted by the Recipient, the Sender can [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) in order to be informed about that. Then, the corresponding peer shared RelationshipAttribute is created.
+
+Please note that the required synchronization of both Identities can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
+{: .notice--info}
 
 ## What's next?
 
