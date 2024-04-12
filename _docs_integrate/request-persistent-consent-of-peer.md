@@ -80,14 +80,14 @@ Before creating the Request, the Sender should check whether it is valid. This c
 
 ### Send the Request
 
-After the Request is created, the Sender can send it to the Recipient. To send the [Request via a Message]({% link _docs_integrate/requests-over-messages.md %}), the Sender have to follow the instructions of the [Send a Message to the Recipient]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) use case documentation, using the Request specified in the `content` property of the payload in the step before. Use the following JSON payload in the body:
+After the Request is created, the Sender can send it to the Recipient. To send the [Request via a Message]({% link _docs_integrate/requests-over-messages.md %}), the Sender have to follow the instructions of the [Send a Message to the Recipient]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) use case documentation. To continue the example, the following payload must be used by the Sender to send the [created Request]({% link _docs_integrate/request-persistent-consent-of-peer.md %}#create-the-request) to the Recipient via a Message. It is essential that the `id` of the Request is specified, which was generated after the Request was created by the Sender with the [Create outgoing Request]({% link _docs_use-cases/use-case-consumption-create-outgoing-request.md %}) use case. This enables the Request to be processed correctly by the Recipient.
 
 ```jsonc
 {
   "recipients": ["<Address of Recipient>"],
   "content": {
     "@type": "Request",
-    "id": "REQ...",
+    "id": "<ID of Request>",
     "items": [
       {
         "@type": "CreateAttributeRequestItem",
@@ -109,19 +109,29 @@ After the Request is created, the Sender can send it to the Recipient. To send t
 }
 ```
 
-Note that the Request is currently in status `Draft`.
+### Receive and accept the Request
 
-**Example accepted response:**
+After the Recipient has received the Message with the [Request for persistent consent]({% link _docs_integrate/request-persistent-consent-of-peer.md %}#request-for-persistent-consent) after [synchronizing the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), it must use the [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) to [accept the incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}).
+
+It can also [reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}).
+{: .notice--info}
+
+An appropriate AcceptResponseItem of type [CreateAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#createattributeacceptresponseitem) is generated, which incorporates the `id` of the created LocalAttribute associated with the RelationshipAttribute in its `attributeId` property. After the Request is accepted by the Recipient, the Sender can [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) in order to be informed about that. Then, the corresponding peer shared RelationshipAttribute is created.
+
+Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
+{: .notice--info}
+
+#### Example of Response to accepted Request
 
 ```jsonc
 {
-  "requestId": "REQ...",
+  "requestId": "<ID of Request>",
   "result": "Accepted"
   "items": [
     {
       "@type": "CreateAttributeAcceptResponseItem",
       "result": "Accepted",
-      "attributeId": "ATT..."
+      "attributeId": "<ID of created LocalAttribute>"
     }
   ]
 }
