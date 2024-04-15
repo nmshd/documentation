@@ -120,10 +120,12 @@ Accepting the CreateAttributeRequestItem leads to the creation of the [Relations
 
 ### Receive the Response to the Request
 
-After the Request is accepted by the Recipient, the Sender can [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) in order to be informed about that. Then, the corresponding peer shared RelationshipAttribute is created.
+We now assume that the Recipient has accepted the [Request for persistent consent]({% link _docs_integrate/request-persistent-consent-of-peer.md %}#request-for-persistent-consent) of the Sender and in particular the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem), whose value of the `mustBeAccepted` property is set to `true` and which is used in the example studied to request the creation of a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with Consent as `value.@type`. In order for the Sender to receive the Recipient's Response to the Request, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 
 Please note that the required synchronization of both Identities can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 {: .notice--info}
+
+The accepted CreateAttributeRequestItem leads to the creation of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for the Sender, a so-called peer shared RelationshipAttribute. Its `content` is given by the `attribute` specified within the CreateAttributeRequestItem, in other words by the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with Consent as `value.@type`, which is owned by the Recipient. It represents the necessary counterpart to the Recipient's own shared RelationshipAttribute.
 
 ## What's next?
 
