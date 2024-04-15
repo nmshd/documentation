@@ -39,7 +39,7 @@ There are many situations in which an Identity needs or wants the persistent con
 - "Yes, I have backed up all of my data on this computer and you can wipe it."
 - "Yes, I want to opt-in to the newsletter."
 
-The `consent` property of a Consent is not intended to be used by an Identity to send tons of text to the peer. Instead, it should contain a brief summary of the issue, which the peer should agree with. Longer texts should be placed on external websites. A link to such a website can be specified in the optional `link` property of the Consent. Also note that the Consent should not be used for contractual agreements.
+The `consent` property of a Consent is not intended to be used by an Identity to send tons of text to the peer. Instead, it should contain a brief summary of the issue, which the peer should agree to. Longer texts should be placed on external websites. A link to such a website can be specified in the optional `link` property of the Consent. Also note that the Consent should not be used for contractual agreements.
 
 ## Request for persistent consent
 
@@ -111,26 +111,12 @@ After the Request is created, the Sender can send it to the Recipient. To send t
 
 ### Receive and accept the Request
 
-After the Recipient has received the Message with the [Request for persistent consent]({% link _docs_integrate/request-persistent-consent-of-peer.md %}#request-for-persistent-consent) after [synchronizing the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), it must proceed as described in the documentation of the [accept the incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case and use the [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) to accept the CreateAttributeRequestItem contained within the `items` property of the Request if it persistently consents to the issue originating from the Sender.
+In order to receive the [Message]({% link _docs_integrate/data-model-overview.md %}#message) that contains the [Request for persistent consent]({% link _docs_integrate/request-persistent-consent-of-peer.md %}#request-for-persistent-consent) as `content`, the Recipient must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). If the Recipient wants to accept the Request and in particular all its [CreateAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) for which the value of the `mustBeAccepted` property is set to `true`, it must proceed as described in the documentation of the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case. In doing so, the [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) must be used to accept a CreateAttributeRequestItem, which is used in this context to request the creation of a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with [Consent]({% link _docs_integrate/attribute-values.md %}#consent) as `value.@type`, if the Recipient persistently consents to the corresponding issue originating from the Sender.
 
-If the Recipient does not want to agree to the issue that the Sender wants the Recipient to agree to, it can of course also reject the corresponding CreateAttributeRequestItem by using the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) or [reject the incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) as a whole.
+If the Recipient does not want to agree to the issue that the Sender wants the Recipient to agree to, it can of course also reject the corresponding [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) by using the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters), as long as its value of the `mustBeAccepted` property is set to `false`, or [reject the incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) as a whole.
 {: .notice--info}
 
-Accepting the Request leads to the creation of the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with [Consent]({% link _docs_integrate/attribute-values.md %}#consent) as `value.@type`. Technically, this is stored as the `content` of a LocalAttribute. Based on this, an appropriate AcceptResponseItem of type [CreateAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#createattributeacceptresponseitem) is generated, which incorporates the `id` of the created LocalAttribute in its `attributeId` property. This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for persistent consent that will be transferred to the Sender.
-
-```jsonc
-{
-  "requestId": "<ID of Request>",
-  "result": "Accepted"
-  "items": [
-    {
-      "@type": "CreateAttributeAcceptResponseItem",
-      "result": "Accepted",
-      "attributeId": "<ID of created LocalAttribute>"
-    }
-  ]
-}
-```
+Accepting the CreateAttributeRequestItem leads to the creation of the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with Consent as `value.@type`. Technically, this is stored as the `content` of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute). As the Recipient is the `owner` of the underlying RelationshipAttribute in the example studied, the LocalAttribute is also referred to as own shared RelationshipAttribute. Based on this, an appropriate AcceptResponseItem of type [CreateAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#createattributeacceptresponseitem) is generated, which incorporates the `id` of the created own shared RelationshipAttribute in its `attributeId` property. This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for persistent consent that will be transferred to the Sender.
 
 ### Receive the Response to the Request
 
