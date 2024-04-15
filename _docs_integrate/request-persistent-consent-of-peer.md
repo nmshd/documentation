@@ -125,7 +125,7 @@ We now assume that the Recipient has accepted the [Request for persistent consen
 Please note that the required synchronization of both Identities can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 {: .notice--info}
 
-The accepted CreateAttributeRequestItem leads to the creation of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for the Sender, a so-called peer shared RelationshipAttribute. Its `content` is given by the `attribute` specified within the CreateAttributeRequestItem, in other words by the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with Consent as `value.@type`, which is owned by the Recipient. It represents the necessary counterpart to the Recipient's own shared RelationshipAttribute.
+The accepted CreateAttributeRequestItem leads to the creation of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for the Sender, a so-called peer shared RelationshipAttribute. Its `content` is given by the `attribute` specified within the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem), in other words by the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with Consent as `value.@type`, which is owned by the Recipient. It represents the necessary counterpart to the Recipient's own shared RelationshipAttribute.
 
 ## What's next?
 
