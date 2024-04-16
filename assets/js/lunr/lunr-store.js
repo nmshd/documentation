@@ -204,7 +204,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Request persistent consent of peer",
-        "excerpt":"Here is an explanation of how to obtain a person’s persistent consent on a particular topic To request an accept/reject decision from a peer to a free text, the ConsentRequestItem is used. Represents the consent of a person to a specific topic. If you want to obtain a consent, you...","categories": [],
+        "excerpt":"This guide explains how an Identity can obtain the persistent consent of one of its peers on a particular issue. Technically, this form of consent is stored by a RelationshipAttribute with Consent as value.@type, that exists in the context of their Relationship and that is usually owned by the peer....","categories": [],
         "tags": [],
         "url": "/integrate/request-persistent-consent-of-peer",
         "teaser": null
