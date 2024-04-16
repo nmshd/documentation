@@ -15,35 +15,43 @@ Here you'll find everything you need to seamlessly dive into the world of enmesh
 
 ## Getting Started
 
-Begin your integration journey by familiarizing yourself with the Connector REST API and exploring the fundamental steps for integration.
+Begin your integration journey by familiarizing yourself with the [Connector REST API]({% link _docs_integrate/access-the-connector.md %}) and exploring the fundamental steps for integration. Discover how events work and how you can leverage them in your application in the [event introduction]({% link _docs_integrate/event-introduction.md %}).
 
-## Data Model
+## Get in touch with other Identities
 
-Understand enmeshed's data model and how it fits into your integration, including error codes and attribute values.
-
-## Handling Events
-
-Discover how events work and how you can leverage them in your application.
+Learn how to [establish a Relationship to another Identity]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}).
 
 ## Working with Requests
 
 Learn how to create and manage Requests.
 
-## Manage Attributes of Others
+## Manage Attributes of yourself
 
-Explore how to store and query attributes in the Wallet for other users.
+Explore how to [create Attributes for yourself]({% link _docs_integrate/create-attribute-for-yourself.md %}) and how to [share Attributes with a peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}). Furthermore, learn how to [succeed Attributes to update their values]({% link _docs_integrate/succeeding-attributes-to-update-their-values.md %}).
 
-## Messages
+## Manage Attributes of others
 
-Explore how to send messages through enmeshed for simple and secure communication.
+Explore how to [query Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}) and [store Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}) in the Wallet for others.
+
+## Basic communication
+
+Explore how to [send Messages]({% link _docs_integrate/sending-messages.md %}) through enmeshed for simple and secure communication.
+
+## Request consent
+
+Discover how to request [persistent consent]({% link _docs_integrate/request-persistent-consent-of-peer.md %}) and [one-time consent]({% link _docs_integrate/requesting-one-time-consents.md %}) of a peer.
+
+## Data Model
+
+Understand [enmeshed's data model]({% link _docs_integrate/data-model-overview.md %}) and how it fits into your integration, including [Connector events]({% link _docs_integrate/connector-events.md %}) and [Attribute values]({% link _docs_integrate/attribute-values.md %}). Also get an overview of our [use cases]({% link _docs_integrate/use-cases.md %}).
+
+## Troubleshooting
+
+Here you can find the [error codes]({% link _docs_integrate/error-codes.md %}) and our [FAQ]({% link _docs_integrate/faq.md %}) page.
 
 ## Programming
 
 Gain insights into effectively utilizing the Connector SDKs to streamline and optimize your integration.
-
-## Requesting Consent of Users
-
-Discover how to request one-time consents from users.
 
 <!-- markdownlint-disable MD011 -->
 <!-- <style>

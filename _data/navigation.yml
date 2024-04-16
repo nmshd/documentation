@@ -87,7 +87,7 @@ docs_integrate:
     children:
       - title: "Establish a Relationship to another Identity"
         url: integrate/establish-a-relationship-to-another-identity
-  - title: Working with requests
+  - title: Working with Requests
     children:
       - title: "Request and Response introduction"
         url: /integrate/request-and-response-introduction
@@ -95,7 +95,7 @@ docs_integrate:
         url: /integrate/requests-over-templates
       - title: "Requests over Messages"
         url: /integrate/requests-over-messages
-  - title: Manage attributes of yourself
+  - title: Manage Attributes of yourself
     children:
       - title: "Create Attribute for yourself"
         url: /integrate/create-attribute-for-yourself
@@ -103,7 +103,7 @@ docs_integrate:
         url: /integrate/share-own-attribute-to-peer
       - title: "Succeeding Attributes to update their values"
         url: /integrate/succeeding-attributes-to-update-their-values
-  - title: Manage attributes of others
+  - title: Manage Attributes of others
     children:
       - title: "Read Attribute from peer"
         url: /integrate/read-attribute-from-peer
@@ -115,7 +115,7 @@ docs_integrate:
     children:
       - title: "Sending Messages"
         url: /integrate/sending-messages
-  - title: Requesting consent of users
+  - title: Request consent
     children:
       - title: "Request persistent consent of peer"
         url: /integrate/request-persistent-consent-of-peer
