@@ -679,6 +679,16 @@ Internally, the succeeded version will then be created at your side as successor
 | successorId      | `string`                                                                                       | The `id` of the LocalAttribute it was succeeded by |
 | successorContent | [`IdentityAttribute`](#identityattribute) \| [`RelationshipAttribute`](#relationshipattribute) | The updated `content` of the LocalAttribute        |
 
+#### ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem
+
+If you have shared a RelationshipAttribute, that is not owned by you, with a peer from a different Relationship and that peer deletes their third party owned RelationshipAttribute, a ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem will be sent to you.
+Internally, for your corresponding third party owned RelationshipAttribute the `deletionInfo.deletionStatus` will be set to `"DeletedByPeer"` .
+
+| Name        | Type                                                                  | Description                                                                                                                                                                 |
+| ----------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| @type       | `"ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem"` |                                                                                                                                                                             |
+| attributeId | `string`                                                              | The `id` of the third party owned RelationshipAttribute that was deleted by the peer. The third party owned RelationshipAttribute IDs of the sender and recipient coincide. |
+
 ## Attributes
 
 An Attribute is some piece of information about an Identity itself (e.g. its name, address, birth date, etc.) or about an Identity in the context of a Relationship (e.g. the customer id the of the user the Relationship). Since the two scenarios differ quite a lot, there are two different types for them: IdentityAttribute and RelationshipAttribute.
