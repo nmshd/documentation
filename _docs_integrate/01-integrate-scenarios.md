@@ -15,7 +15,7 @@ Here you'll find everything you need to seamlessly dive into the world of enmesh
 
 ## Getting Started
 
-Begin your integration journey by familiarizing yourself with the [Connector REST API]({% link _docs_integrate/access-the-connector.md %}) and exploring the fundamental steps for integration. Discover how events work and how you can leverage them in your application in the [event introduction]({% link _docs_integrate/event-introduction.md %}).
+Begin your integration journey by familiarizing yourself with the [Connector REST API]({% link _docs_integrate/access-the-connector.md %}) and exploring the fundamental steps for integration. Gain insights into effectively utilizing the [Connector SDKs]({% link _docs_integrate/access-the-connector.md %}#accessing-the-connector-by-software-development-kits-sdk) to streamline and optimize your integration. Discover how events work and how you can leverage them in your application in the [event introduction]({% link _docs_integrate/event-introduction.md %}).
 
 ## Get in touch with other Identities
 
@@ -23,7 +23,7 @@ Learn how to [establish a Relationship to another Identity]({% link _docs_integr
 
 ## Working with Requests
 
-Learn how to create and manage Requests.
+Learn how to create and manage Requests. Check out the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) and the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) and [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) guides.
 
 ## Manage Attributes of yourself
 
@@ -43,15 +43,11 @@ Discover how to request [persistent consent]({% link _docs_integrate/request-per
 
 ## Data Model
 
-Understand [enmeshed's data model]({% link _docs_integrate/data-model-overview.md %}) and how it fits into your integration, including [Connector events]({% link _docs_integrate/connector-events.md %}) and [Attribute values]({% link _docs_integrate/attribute-values.md %}). Also get an overview of our [use cases]({% link _docs_integrate/use-cases.md %}).
+Understand [enmeshed's data model]({% link _docs_integrate/data-model-overview.md %}) and how it fits into your integration. Also get an overview of the [Connector events]({% link _docs_integrate/connector-events.md %}), the [Attribute values]({% link _docs_integrate/attribute-values.md %}) and our [use cases]({% link _docs_integrate/use-cases.md %}).
 
 ## Troubleshooting
 
 Here you can find the [error codes]({% link _docs_integrate/error-codes.md %}) and our [FAQ]({% link _docs_integrate/faq.md %}) page.
-
-## Programming
-
-Gain insights into effectively utilizing the Connector SDKs to streamline and optimize your integration.
 
 <!-- markdownlint-disable MD011 -->
 <!-- <style>
