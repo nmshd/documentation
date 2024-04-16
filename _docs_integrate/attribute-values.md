@@ -705,7 +705,7 @@ The Attribute Values in this chapter can only be used in a [Relationship Attribu
 
 ## Consent
 
-Represents the consent of a person to a specific topic. If you want to obtain a consent, you can send a [`ReadAttributeRequestItem`]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) with a Consent-[RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) where the owner is the peer.
+Represents the consent of an Identity to a specific topic. To obtain persistent consent from a peer, a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) can be sent, which contains a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), whose `owner` is the peer, with Consent as `value.@type` within its `attribute` property. For more details, refer to the documentation of the [Request persistent consent of peer]({% link _docs_integrate/request-persistent-consent-of-peer.md %}) scenario.
 
 **Properties**
 
