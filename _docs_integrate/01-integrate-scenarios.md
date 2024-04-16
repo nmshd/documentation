@@ -25,9 +25,9 @@ Understand enmeshed's data model and how it fits into your integration, includin
 
 Discover how events work and how you can leverage them in your application.
 
-## Manage Requests
+## Working with Requests
 
-Learn how to create and manage requests.
+Learn how to create and manage Requests.
 
 ## Manage Attributes of Others
 
