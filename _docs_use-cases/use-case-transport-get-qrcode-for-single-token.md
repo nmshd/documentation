@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-get-qrcode-for-single-token
+# Start automatic generation
+permalink: use-case-transport-get-qrcode-for-single-token
 published: false
 title: "Get QRCode for single Token"
 type: use-case
@@ -9,16 +10,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RK5
+  - component: Runtime
   - layer: Transport
   - facade: TokensFacade
   - function: getQRCodeForToken
   - description:
   - feature category: Share structured information over side-channel
   - tech category: Tokens
-  - status: QUESTIONS
-  - comments: QR vs Qr, QR vs Tr
+  - status: DONE
+  - documentation status:
+  - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: transport/get-qrcode-for-single-token
+  - link: use-case-transport-get-qrcode-for-single-token
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-get-qrcode-for-single-token.md %}

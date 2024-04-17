@@ -8,7 +8,7 @@ ruby "~> 3"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 4.2.1"
+gem "jekyll", "~> 4.3.3"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
@@ -27,11 +27,11 @@ group :jekyll_plugins do
   gem 'jekyll-redirect-from'
 end
 
+gem "tzinfo-data"
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
 platforms :mingw, :x64_mingw, :mswin, :jruby do
   gem "tzinfo", "~> 1.2"
-  gem "tzinfo-data"
 end
 
 # Performance-booster for watching directories on Windows

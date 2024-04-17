@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-get-profile
+# Start automatic generation
+permalink: use-case-device-get-profile
 published: true
 title: "Get Profile"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ARP3
+  - component: AppRuntime
   - layer: Device
   - facade: AccountServices
   - function: getProfile
@@ -16,9 +18,9 @@ properties:
   - feature category: Multi-profile
   - tech category: Profiles
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: App
-  - component: AppRuntime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,28 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: device/get-profile
+  - link: use-case-device-get-profile
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-device-get-profile.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves one LocalAccount by its `id`.
+
+## Parameters
+
+- The `id` of the LocalAccount.
+
+## On Success
+
+- The LocalAccount corresponding to the `id`.
+
+## On Failure
+
+- There is no such account.

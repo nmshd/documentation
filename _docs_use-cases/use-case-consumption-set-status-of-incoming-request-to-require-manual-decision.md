@@ -1,6 +1,7 @@
 ---
-permalink: /use-case-consumption-set-status-of-incoming-request-to-require-manual-decision
-published: true
+# Start automatic generation
+permalink: use-case-consumption-set-status-of-incoming-request-to-require-manual-decision
+published: false
 title: "Set status of incoming Request to require manual decision"
 type: use-case
 toc: true
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RIR5
+  - component: Runtime
   - layer: Consumption
   - facade: IncomingRequestsFacade
   - function: requireManualDecision
@@ -16,9 +18,9 @@ properties:
   - feature category: Request automation
   - tech category: Requests
   - status: DONE
-  - comments:
+  - documentation status:
+  - comments: Internal
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: consumption/set-status-of-incoming-request-to-require-manual-decision
+  - link: use-case-consumption-set-status-of-incoming-request-to-require-manual-decision
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-set-status-of-incoming-request-to-require-manual-decision.md %}

@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-get-device
+# Start automatic generation
+permalink: use-case-transport-get-device
 published: true
 title: "Get Device"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RD3
+  - component: Runtime
   - layer: Transport
   - facade: DevicesFacade
   - function: getDevice
@@ -16,10 +18,10 @@ properties:
   - feature category: Multi-device
   - tech category: Devices
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: Runtime
   - precondition:
   - result:
   - priority: n/a
@@ -27,11 +29,28 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: transport/get-device
+  - link: use-case-transport-get-device
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-transport-get-device.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves the Device with the given `id`.
+
+## Parameters
+
+- `id` of the Device.
+
+## On Success
+
+- The Device that corresponds to the `id`.
+
+## On Failure
+
+- No Device corresponds to the `id`.

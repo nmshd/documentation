@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-get-appruntime-health-status
+# Start automatic generation
+permalink: use-case-device-get-appruntime-health-status
 published: false
 title: "Get AppRuntime health status"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: AR1
+  - component: AppRuntime
   - layer: Device
   - facade: AppRuntime
   - function: getHealth
@@ -16,9 +18,9 @@ properties:
   - feature category:
   - tech category: AppRuntime
   - status: CHANGES REQUIRED
-  - comments: Only returning true - could be offline/online indication?
+  - documentation status:
+  - comments: Only returning true -> could be offline/online indication?
   - actor: App
-  - component: AppRuntime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,16 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: device/get-appruntime-health-status
+  - link: use-case-device-get-appruntime-health-status
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-device-get-appruntime-health-status.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves the service health information used by the app runtime.

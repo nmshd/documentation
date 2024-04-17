@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-get-the-connector-health-status
+# Start automatic generation
+permalink: use-case-device-get-the-connector-health-status
 published: true
 title: "Get the Connector health status"
 type: use-case
@@ -9,16 +10,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: CR2
+  - component: ConnectorRuntime
   - layer: Device
   - facade: ConnectorRuntime
   - function: getHealth
   - description:
   - feature category:
-  - tech category: Bootstrap
+  - tech category: Monitoring
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Integrator
-  - component: ConnectorRuntime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,17 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: GET /health
   - published: default
-  - link: device/get-the-connector-health-status
+  - link: use-case-device-get-the-connector-health-status
 require:
 required_by:
+api_route_regex: ^GET /health$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-device-get-the-connector-health-status.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves the service health information of the Connector.

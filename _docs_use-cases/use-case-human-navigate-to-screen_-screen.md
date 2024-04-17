@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-human-navigate-to-screen_-screen
+# Start automatic generation
+permalink: use-case-human-navigate-to-screen_-screen
 published: true
 title: "Navigate to (screen) Screen"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: A11
+  - component: App
   - layer: Human
   - facade: Screen
   - function:
@@ -16,9 +18,9 @@ properties:
   - feature category:
   - tech category: User Action
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: User
-  - component: App
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,19 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: human/navigate-to-screen-screen
+  - link: use-case-human-navigate-to-screen_-screen
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-human-navigate-to-screen_-screen.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+Be advised that this is an App-specific use-case which is triggered by a manual user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios.
+{: .notice--info}
+
+This use-case describes the manual navigation of the App to a specific screen by the user. It includes all the actions the user needs to do in order to reach the specific screen.

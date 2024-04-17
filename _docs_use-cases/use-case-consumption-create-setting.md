@@ -1,6 +1,7 @@
 ---
-permalink: /use-case-consumption-create-setting
-published: true
+# Start automatic generation
+permalink: use-case-consumption-create-setting
+published: false
 title: "Create Setting"
 type: use-case
 toc: true
@@ -9,16 +10,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RS1
+  - component: Runtime
   - layer: Consumption
   - facade: SettingFacade
   - function: createSetting
   - description:
   - feature category: Cross-device configuration
   - tech category: Settings
-  - status: DONE
-  - comments:
+  - status: PRERELEASE
+  - documentation status:
+  - comments: Internal
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
-  - link: consumption/create-setting
+  - api_route_regex:
+  - published:
+  - link: use-case-consumption-create-setting
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-create-setting.md %}

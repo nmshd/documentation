@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-query-outgoing-requests
+# Start automatic generation
+permalink: use-case-consumption-query-outgoing-requests
 published: true
 title: "Query outgoing Requests"
 type: use-case
@@ -9,16 +10,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ROR3
+  - component: Runtime
   - layer: Consumption
   - facade: OutgoingRequestsFacade
   - function: getRequests
-  - description: Queries outgoing 'Requests'.
+  - description: Queries outgoing `Requests`.
   - feature category: Normalized requests/responses to and from users
   - tech category: Requests
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,35 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: get /api/v2/Requests/Outgoing
   - published: default
-  - link: consumption/query-outgoing-requests
+  - link: use-case-consumption-query-outgoing-requests
 require:
 required_by:
+api_route_regex: ^get /api/v2/Requests/Outgoing$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-consumption-query-outgoing-requests.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case is intended to query outgoing [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest).
+
+## Parameters
+
+- The `id` of the LocalRequest.
+- The `peer` is the Address of the Identity that the LocalRequest was sent to.
+- `createdAt` indicates the date of LocalRequest creation.
+- The `status` of the LocalRequest.
+- The `content` describes the [Request]({% link _docs_integrate/data-model-overview.md %}#request) wrapped by the LocalRequest.
+- The `source` of the LocalRequest.
+- The `response` describes the [Response]({% link _docs_integrate/data-model-overview.md %}#response) that might exist for the Request.
+
+## On Success
+
+- Returns a list of outgoing [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest) that match the query.
+
+## On Failure
+
+- The parameters are malformed.

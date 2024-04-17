@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-human-scan_-qr-code-on-different-device
+# Start automatic generation
+permalink: use-case-human-scan_-qr-code-on-different-device
 published: true
 title: "Scan QR-Code (on different device)"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: A14
+  - component: App
   - layer: Human
   - facade: Screen
   - function:
@@ -16,9 +18,9 @@ properties:
   - feature category:
   - tech category: User Action
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: User
-  - component: App
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,20 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: human/scan-qr-code-on-different-device
+  - link: use-case-human-scan_-qr-code-on-different-device
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-human-scan_-qr-code-on-different-device.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+Be advised that this is an App-specific use-case which is triggered by a manual user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios.
+{: .notice--info}
+
+This use-case describes the process of using the Device's camera to scan a qr-code.
+Typically, the qr-code encodes a link starting with `nmshd://`.

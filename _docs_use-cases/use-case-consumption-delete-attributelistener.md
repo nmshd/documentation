@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-delete-attributelistener
+# Start automatic generation
+permalink: use-case-consumption-delete-attributelistener
 published: false
 title: "Delete AttributeListener"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RAL3
+  - component: Runtime
   - layer: Consumption
   - facade:
   - function:
@@ -16,9 +18,9 @@ properties:
   - feature category: Attribute automation
   - tech category: AttributeListeners
   - status: OPEN
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: S
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
-  - link: consumption/delete-attributelistener
+  - api_route_regex:
+  - published:
+  - link: use-case-consumption-delete-attributelistener
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-delete-attributelistener.md %}

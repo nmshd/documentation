@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-update-device
+# Start automatic generation
+permalink: use-case-transport-update-device
 published: true
 title: "Update Device"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RD6
+  - component: Runtime
   - layer: Transport
   - facade: DevicesFacade
   - function: updateDevice
@@ -16,10 +18,10 @@ properties:
   - feature category: Multi-device
   - tech category: Devices
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: Runtime
   - precondition:
   - result:
   - priority: n/a
@@ -27,11 +29,30 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: transport/update-device
+  - link: use-case-transport-update-device
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-transport-update-device.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case updates the `name` or `description` of a Device using its `id`.
+
+## Parameters
+
+- The `id` of the Device.
+- The new `name` of the Device
+- The new `description` of the Device
+
+## On Success
+
+- The corresponding Device is updated to the given `name` and `description`.
+
+## On Failure
+
+- There is no such Device.

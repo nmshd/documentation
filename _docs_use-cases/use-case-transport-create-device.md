@@ -1,6 +1,7 @@
 ---
-permalink: /use-case-transport-create-device
-published: true
+# Start automatic generation
+permalink: use-case-transport-create-device
+published: false
 title: "Create Device"
 type: use-case
 toc: true
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RD1
+  - component: Runtime
   - layer: Transport
   - facade: DevicesFacade
   - function: createDevice
@@ -16,10 +18,10 @@ properties:
   - feature category: Multi-device
   - tech category: Devices
   - status: DONE
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: Runtime
   - precondition:
   - result:
   - priority: n/a
@@ -27,11 +29,10 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: transport/create-device
+  - link: use-case-transport-create-device
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-create-device.md %}

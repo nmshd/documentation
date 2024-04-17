@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-get-attributelistener
+# Start automatic generation
+permalink: use-case-consumption-get-attributelistener
 published: true
 title: "Get AttributeListener"
 type: use-case
@@ -9,17 +10,18 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RAL2
+  - component: Runtime
   - layer: Consumption
   - facade: AttributeListenersFacade
   - function: getAttributeListener
   - description:
   - feature category: Attribute automation
   - tech category: AttributeListeners
-  - status: DONE
+  - status: PRERELEASE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: Runtime
   - precondition:
   - result:
   - priority: n/a
@@ -27,11 +29,28 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
-  - link: consumption/get-attributelistener
+  - api_route_regex:
+  - published:
+  - link: use-case-consumption-get-attributelistener
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-consumption-get-attributelistener.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case is intended to retrieve an [Attribute Listener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) by its id.
+
+## Parameter
+
+- The unique `id` identifying the Attribute Listener.
+
+## On Success
+
+- Returns the [LocalAttributeListener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) that corresponds to the `id`.
+
+## On Failure
+
+- There is no such Attribute Listener.

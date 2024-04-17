@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-set-up-or-change-auto-logout-of-profile
+# Start automatic generation
+permalink: use-case-device-set-up-or-change-auto-logout-of-profile
 published: false
 title: "Set-up or change auto logout of Profile"
 type: use-case
@@ -8,7 +9,8 @@ sidebar:
   - title: "Integrate Enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: ARS7
+  - id: ARS8
+  - component: AppRuntime
   - layer: Device
   - facade:
   - function:
@@ -16,9 +18,9 @@ properties:
   - feature category: Identity Hardening
   - tech category: Profile
   - status: IDEA
+  - documentation status:
   - comments:
   - actor: User
-  - component: AppRuntime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: S
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
-  - link: device/set-up-or-change-auto-logout-of-profile
+  - api_route_regex:
+  - published:
+  - link: use-case-device-set-up-or-change-auto-logout-of-profile
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-device-set-up-or-change-auto-logout-of-profile.md %}

@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-get-currently-used-device
+# Start automatic generation
+permalink: use-case-transport-get-currently-used-device
 published: true
 title: "Get currently used Device"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RU2
+  - component: Runtime
   - layer: Transport
   - facade: AccountFacade
   - function: getDeviceInfo
@@ -16,9 +18,9 @@ properties:
   - feature category: Multi-device
   - tech category: Account
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,16 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: transport/get-currently-used-device
+  - link: use-case-transport-get-currently-used-device
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-transport-get-currently-used-device.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves information about the currently used Device.

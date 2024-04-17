@@ -1,6 +1,7 @@
 ---
-permalink: /use-case-consumption-query-drafts
-published: true
+# Start automatic generation
+permalink: use-case-consumption-query-drafts
+published: false
 title: "Query Drafts"
 type: use-case
 toc: true
@@ -9,17 +10,18 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RDR2
+  - component: Runtime
   - layer: Consumption
   - facade: DraftFacade
   - function: getDrafts
   - description:
   - feature category: Cross-device draft handling
   - tech category: Drafts
-  - status: DONE
-  - comments:
+  - status: PRERELEASE
+  - documentation status:
+  - comments: Internal
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: Runtime
   - precondition:
   - result:
   - priority: n/a
@@ -27,11 +29,10 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
-  - link: consumption/query-drafts
+  - api_route_regex:
+  - published:
+  - link: use-case-consumption-query-drafts
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-query-drafts.md %}

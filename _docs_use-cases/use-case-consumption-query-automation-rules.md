@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-query-automation-rules
+# Start automatic generation
+permalink: use-case-consumption-query-automation-rules
 published: false
 title: "Query Automation Rules"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: IAR2
+  - component: Runtime
   - layer: Consumption
   - facade: AutomationRuleFacade
   - function:
@@ -16,9 +18,9 @@ properties:
   - feature category:
   - tech category: Automation Rules
   - status: IDEA
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: S
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
-  - link: consumption/query-automation-rules
+  - api_route_regex:
+  - published:
+  - link: use-case-consumption-query-automation-rules
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-query-automation-rules.md %}

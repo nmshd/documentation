@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-rename-profile
+# Start automatic generation
+permalink: use-case-device-rename-profile
 published: true
 title: "Rename Profile"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ARS7
+  - component: AppRuntime
   - layer: Device
   - facade: AccountServices
   - function: renameAccount
@@ -16,9 +18,9 @@ properties:
   - feature category: Multi-profile
   - tech category: Profile
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: User
-  - component: AppRuntime
   - trigger:
   - precondition:
   - result: The Profile has been renamed
@@ -27,11 +29,29 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: device/rename-profile
+  - link: use-case-device-rename-profile
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-device-rename-profile.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case intends to rename a LocalAccount (Profile) of the App that matches the given `id`.
+
+## Parameters
+
+- The `localAccountId` is the id of the LocalAccount in question.
+- The `newAccountName` the LocalAccount name should use.
+
+## On Success
+
+- The LocalAccount with the `localAccountId` is now named `newAccountName`.
+
+## On Failure
+
+- There is no such LocalAccount.

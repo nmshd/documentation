@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-get-the-connector-version-information
+# Start automatic generation
+permalink: use-case-device-get-the-connector-version-information
 published: true
 title: "Get the Connector version information"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: C01
+  - component: Connector
   - layer: Device
   - facade: Connector
   - function:
@@ -16,9 +18,9 @@ properties:
   - feature category:
   - tech category: Monitoring
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Integrator
-  - component: Connector
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,17 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: GET /Monitoring/Version
   - published: default
-  - link: device/get-the-connector-version-information
+  - link: use-case-device-get-the-connector-version-information
 require:
 required_by:
+api_route_regex: ^GET /Monitoring/Version$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-device-get-the-connector-version-information.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves the version information of the Connector, including the `build` number, underlying git `commit`, the Connector's semantic `version` and its release `date`.

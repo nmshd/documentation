@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-set-up-global-exception-handling
+# Start automatic generation
+permalink: use-case-device-set-up-global-exception-handling
 published: false
 title: "Set up global exception handling"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: CR4
+  - component: ConnectorRuntime
   - layer: Device
   - facade: ConnectorRuntime
   - function: setupGlobalExceptionHandling
@@ -16,9 +18,9 @@ properties:
   - feature category:
   - tech category: Bootstrap
   - status: QUESTIONS
+  - documentation status:
   - comments:
   - actor: Device
-  - component: ConnectorRuntime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: device/set-up-global-exception-handling
+  - link: use-case-device-set-up-global-exception-handling
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-device-set-up-global-exception-handling.md %}

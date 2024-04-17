@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-delete-device-which-is-not-onboarded-yet
+# Start automatic generation
+permalink: use-case-transport-delete-device-which-is-not-onboarded-yet
 published: false
 title: "Delete Device which is not onboarded yet"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RD7
+  - component: Runtime
   - layer: Transport
   - facade: DevicesFacade
   - function: deleteDevice
@@ -16,9 +18,9 @@ properties:
   - feature category: Multi-device
   - tech category: Devices
   - status: QUESTIONS
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: transport/delete-device-which-is-not-onboarded-yet
+  - link: use-case-transport-delete-device-which-is-not-onboarded-yet
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-delete-device-which-is-not-onboarded-yet.md %}

@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-create-a-shared-attribute-copy
+# Start automatic generation
+permalink: use-case-consumption-create-a-shared-attribute-copy
 published: true
 title: "Create a shared Attribute copy"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RA6
+  - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
   - function: createSharedAttributeCopy
@@ -16,10 +18,10 @@ properties:
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
   - status: DONE
-  - comments:
+  - documentation status: DONE
+  - comments: Internal
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: Runtime
   - precondition:
   - result:
   - priority: n/a
@@ -27,11 +29,33 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: consumption/create-a-shared-attribute-copy
+  - link: use-case-consumption-create-a-shared-attribute-copy
 require:
 required_by:
+# End automatic generation
 ---
 
-{% include use-cases/use-case-consumption-create-a-shared-attribute-copy.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+Be advised that this is a Runtime-internal use-case which is automatically used by the module system. You should not call this use-case without having good reason.
+{: .notice--warning}
+
+This use-case is intended to create a copy of a LocalAttribute with the intent to share it. The copy references the original [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
+
+## Parameters
+
+- `attributeId` is the id of the attribute that the copy is made of.
+- `peer` is the address of the peer the copy will be sent to.
+- `requestReference` is a reference to the request the copy will be sent with.
+
+## On Success
+
+- The copy is created and returned as a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
+
+## On Failure
+
+- The parameters are malformed.

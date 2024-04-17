@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-create-a-blueprint-of-a-relationship-template
+# Start automatic generation
+permalink: use-case-consumption-create-a-blueprint-of-a-relationship-template
 published: false
 title: "Create a Blueprint of a Relationship Template"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RB1
+  - component: Runtime
   - layer: Consumption
   - facade:
   - function:
@@ -16,9 +18,9 @@ properties:
   - feature category:
   - tech category: Blueprint
   - status: IDEA
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: HIGH
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
-  - link: consumption/create-a-blueprint-of-a-relationship-template
+  - api_route_regex:
+  - published:
+  - link: use-case-consumption-create-a-blueprint-of-a-relationship-template
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-create-a-blueprint-of-a-relationship-template.md %}

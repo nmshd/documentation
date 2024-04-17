@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-create-requestitem-to-delete-shared-attribute
+# Start automatic generation
+permalink: use-case-consumption-create-requestitem-to-delete-shared-attribute
 published: false
 title: "Create requestItem to delete shared Attribute"
 type: use-case
@@ -9,16 +10,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RA15
+  - component: Runtime
   - layer: Consumption
-  - facade:
+  - facade: AttributesFacade
   - function:
   - description:
   - feature category:
   - tech category: Attributes
   - status: IDEA
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: S
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
-  - link: consumption/create-requestitem-to-delete-shared-attribute
+  - api_route_regex:
+  - published:
+  - link: use-case-consumption-create-requestitem-to-delete-shared-attribute
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-create-requestitem-to-delete-shared-attribute.md %}

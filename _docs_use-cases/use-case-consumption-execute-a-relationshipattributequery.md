@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-execute-a-relationshipattributequery
+# Start automatic generation
+permalink: use-case-consumption-execute-a-relationshipattributequery
 published: true
 title: "Execute a RelationshipAttributeQuery"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RA9
+  - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
   - function: executeRelationshipAttributeQuery
@@ -16,10 +18,10 @@ properties:
   - feature category: Cross-identity attribute sharing
   - tech category: Attributes
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
   - priority: n/a
@@ -27,11 +29,29 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: post /api/v2/Attributes/ExecuteRelationshipAttributeQuery
   - published: default
-  - link: consumption/execute-a-relationshipattributequery
+  - link: use-case-consumption-execute-a-relationshipattributequery
 require:
 required_by:
+api_route_regex: ^post /api/v2/Attributes/ExecuteRelationshipAttributeQuery$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-consumption-execute-a-relationshipattributequery.md %}
+{properties.description}
+
+{% include properties_list.html %}
+
+This use-case is intended to execute an incoming [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) (e.g. received by a ReadAttributeRequestItem) which returns a list of matching [Relationship Attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
+
+## Parameters
+
+- The `query` for the RelationshipAttributes as described in the [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery).
+
+## On Success
+
+- Returns the `RelationshipAttributes` as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that match the given query.
+
+## On Failure
+
+- The query was malformed.

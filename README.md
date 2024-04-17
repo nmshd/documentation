@@ -11,6 +11,8 @@ This documentation is meant as an overarching documentation for the whole enmesh
 - So far, English only
 - Keep it simple
 - Think about the audience
+- Links to other pages of the documentation are rendered using jekyll's liquid:
+  `{% link {path_to_file} %}#{fragment_identifier}`
 
 ## Contribute to the documentation
 
@@ -59,4 +61,13 @@ execute
 ```shell
 java -jar puml.jar _docs_integrate/diagrams/*.pu -o "$PWD/assets/diagrams/integrate"
 
+```
+
+## regenerate header
+
+1. add excel file to root directory
+2. execute script
+
+```shell
+npx ts-node scripts/update.ts
 ```

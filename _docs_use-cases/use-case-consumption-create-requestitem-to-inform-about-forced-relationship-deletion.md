@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-create-requestitem-to-inform-about-forced-relationship-deletion
+# Start automatic generation
+permalink: use-case-consumption-create-requestitem-to-inform-about-forced-relationship-deletion
 published: false
 title: "Create requestItem to inform about forced Relationship deletion"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RRI2
+  - component: Runtime
   - layer: Consumption
   - facade: RequestItemFacade
   - function:
@@ -16,9 +18,9 @@ properties:
   - feature category:
   - tech category: RequestItems
   - status: IDEA
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: S
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
-  - link: consumption/create-requestitem-to-inform-about-forced-relationship-deletion
+  - api_route_regex:
+  - published:
+  - link: use-case-consumption-create-requestitem-to-inform-about-forced-relationship-deletion
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-create-requestitem-to-inform-about-forced-relationship-deletion.md %}

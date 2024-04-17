@@ -1,6 +1,7 @@
 ---
-permalink: /use-case-consumption-update-setting
-published: true
+# Start automatic generation
+permalink: use-case-consumption-update-setting
+published: false
 title: "Update Setting"
 type: use-case
 toc: true
@@ -9,16 +10,17 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RS5
+  - component: Runtime
   - layer: Consumption
   - facade: SettingFacade
   - function: updateSetting
   - description:
   - feature category: Cross-device configuration
   - tech category: Settings
-  - status: DONE
-  - comments:
+  - status: PRERELEASE
+  - documentation status:
+  - comments: Internal
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
-  - link: consumption/update-setting
+  - api_route_regex:
+  - published:
+  - link: use-case-consumption-update-setting
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-update-setting.md %}

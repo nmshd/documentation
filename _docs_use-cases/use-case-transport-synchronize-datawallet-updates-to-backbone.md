@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-synchronize-datawallet-updates-to-backbone
+# Start automatic generation
+permalink: use-case-transport-synchronize-datawallet-updates-to-backbone
 published: false
 title: "Synchronize Datawallet updates to Backbone"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RU5
+  - component: Runtime
   - layer: Transport
   - facade: AccountFacade
   - function: syncDatawallet
@@ -16,9 +18,9 @@ properties:
   - feature category: Multi-device synchronization
   - tech category: Account
   - status: QUESTIONS
+  - documentation status:
   - comments: rather AppRuntime?
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,11 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: POST /api/v2/Account/Sync
   - published: default
-  - link: transport/synchronize-datawallet-updates-to-backbone
+  - link: use-case-transport-synchronize-datawallet-updates-to-backbone
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Account/Sync$
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-synchronize-datawallet-updates-to-backbone.md %}

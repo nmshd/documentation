@@ -1,6 +1,7 @@
 ---
-permalink: /use-case-consumption-set-status-of-incoming-request-to-complete
-published: true
+# Start automatic generation
+permalink: use-case-consumption-set-status-of-incoming-request-to-complete
+published: false
 title: "Set status of incoming Request to complete"
 type: use-case
 toc: true
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RIR6
+  - component: Runtime
   - layer: Consumption
   - facade: IncomingRequestsFacade
   - function: complete
@@ -16,9 +18,9 @@ properties:
   - feature category: Request automation
   - tech category: Requests
   - status: DONE
-  - comments:
+  - documentation status:
+  - comments: Internal
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: consumption/set-status-of-incoming-request-to-complete
+  - link: use-case-consumption-set-status-of-incoming-request-to-complete
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-set-status-of-incoming-request-to-complete.md %}

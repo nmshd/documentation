@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-register-pushnotificationtoken-at-backbone
+# Start automatic generation
+permalink: use-case-transport-register-pushnotificationtoken-at-backbone
 published: false
 title: "Register PushNotificationToken at Backbone"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RU3
+  - component: Runtime
   - layer: Transport
   - facade: AccountFacade
   - function: registerPushNotificationToken
@@ -16,9 +18,9 @@ properties:
   - feature category: Multi-device
   - tech category: Account
   - status: QUESTIONS
+  - documentation status:
   - comments: rather AppRuntime?
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: transport/register-pushnotificationtoken-at-backbone
+  - link: use-case-transport-register-pushnotificationtoken-at-backbone
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-register-pushnotificationtoken-at-backbone.md %}

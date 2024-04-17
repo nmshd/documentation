@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-onboard-device-by-device-onboarding-token
+# Start automatic generation
+permalink: use-case-device-onboard-device-by-device-onboarding-token
 published: false
 title: "Onboard Device by Device Onboarding Token"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ARP6
+  - component: AppRuntime
   - layer: Device
   - facade: AccountServices
   - function: onboardAccount
@@ -16,9 +18,9 @@ properties:
   - feature category: Multi-device
   - tech category: Profiles
   - status: QUESTIONS
+  - documentation status:
   - comments: Naming
   - actor: User
-  - component: AppRuntime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex:
   - published: default
-  - link: device/onboard-device-by-device-onboarding-token
+  - link: use-case-device-onboard-device-by-device-onboarding-token
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-device-onboard-device-by-device-onboarding-token.md %}

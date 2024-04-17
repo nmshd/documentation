@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-set-up-or-change-password-of-profile
+# Start automatic generation
+permalink: use-case-device-set-up-or-change-password-of-profile
 published: false
 title: "Set-up or change password of Profile"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: ARS3
+  - component: AppRuntime
   - layer: Device
   - facade:
   - function:
@@ -16,9 +18,9 @@ properties:
   - feature category: Identity Hardening
   - tech category: Profile
   - status: IDEA
+  - documentation status:
   - comments:
   - actor: User
-  - component: AppRuntime
   - trigger:
   - precondition: Profile has been selected (and has been logged into)
   - result: A (new) password for this Profile is stored
@@ -27,11 +29,10 @@ properties:
   - size: L
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
-  - link: device/set-up-or-change-password-of-profile
+  - api_route_regex:
+  - published:
+  - link: use-case-device-set-up-or-change-password-of-profile
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-device-set-up-or-change-password-of-profile.md %}

@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-get-mail
+# Start automatic generation
+permalink: use-case-consumption-get-mail
 published: false
 title: "Get Mail"
 type: use-case
@@ -8,7 +9,8 @@ sidebar:
   - title: "Integrate Enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RM3
+  - id: RML3
+  - component: Runtime
   - layer: Consumption
   - facade:
   - function:
@@ -16,9 +18,9 @@ properties:
   - feature category: Bidirectional unstructured communication
   - tech category: Mail
   - status: IDEA
+  - documentation status:
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,10 @@ properties:
   - size: S
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
-  - link: consumption/get-mail
+  - api_route_regex:
+  - published:
+  - link: use-case-consumption-get-mail
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-get-mail.md %}

@@ -1,6 +1,7 @@
 ---
-permalink: /use-case-consumption-delete-draft
-published: true
+# Start automatic generation
+permalink: use-case-consumption-delete-draft
+published: false
 title: "Delete Draft"
 type: use-case
 toc: true
@@ -9,17 +10,18 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RDR5
+  - component: Runtime
   - layer: Consumption
   - facade: DraftFacade
   - function: deleteDraft
   - description:
   - feature category: Cross-device draft handling
   - tech category: Drafts
-  - status: DONE
-  - comments:
+  - status: PRERELEASE
+  - documentation status:
+  - comments: Internal
   - actor: Identity
-  - component: Runtime
-  - trigger:
+  - trigger: Runtime
   - precondition:
   - result:
   - priority: n/a
@@ -27,11 +29,10 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
-  - published: default
-  - link: consumption/delete-draft
+  - api_route_regex:
+  - published:
+  - link: use-case-consumption-delete-draft
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-delete-draft.md %}

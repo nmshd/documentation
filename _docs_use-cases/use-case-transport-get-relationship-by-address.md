@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-get-relationship-by-address
+# Start automatic generation
+permalink: use-case-transport-get-relationship-by-address
 published: true
 title: "Get Relationship by Address"
 type: use-case
@@ -9,6 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RR4
+  - component: Runtime
   - layer: Transport
   - facade: RelationshipsFacade
   - function: getRelationshipByAddress
@@ -16,9 +18,9 @@ properties:
   - feature category: Mutual peer-to-peer relationships
   - tech category: Relationships
   - status: DONE
+  - documentation status: DONE
   - comments:
   - actor: Identity
-  - component: Runtime
   - trigger:
   - precondition:
   - result:
@@ -27,11 +29,30 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - link auf testcode:
+  - api_route_regex: GET /api/v2/Relationships
   - published: default
-  - link: transport/get-relationship-by-address
+  - link: use-case-transport-get-relationship-by-address
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Relationships$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-transport-get-relationship-by-address.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship)
+by the Address of a peer.
+
+## Parameters
+
+- `address` of the peer.
+
+## On Success
+
+- The Relationship that was inititated with the `address`.
+
+## On Failure
+
+- There is no Relationship linked to the given `address`.
