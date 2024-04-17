@@ -99,8 +99,8 @@ docs_integrate:
         url: /integrate/requests-over-messages
   - title: Manage attributes of yourself
     children:
-      - title: "IdentityAttribute introduction"
-        url: /integrate/identityattribute-introduction
+      - title: "Attribute introduction"
+        url: /integrate/attribute-introduction
       - title: "Create Attribute for yourself"
         url: /integrate/create-attribute-for-yourself
       - title: "Share own Attribute to peer"
