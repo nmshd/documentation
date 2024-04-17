@@ -1,21 +1,21 @@
 ---
 # Start automatic generation
-permalink: integrate/respond-to-incoming-identityattribute-update-requests
+permalink: integrate/delete-a-relationship
 published: false
-title: "Respond to incoming IdentityAttribute update requests"
+title: "Delete a Relationship"
 type: scenario
 toc: true
 properties:
-  - id: SC054
-  - category: Manage Attributes of others
+  - id: SC056
+  - category: Handling data deletion
   - description:
   - customer: All
   - component: integrate
-  - level: Beginner
+  - level: Advanced
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: respond-to-incoming-identityattribute-update-requests
+  - link: delete-a-relationship
 require:
 required_by:
 # End automatic generation

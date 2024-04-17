@@ -14,7 +14,7 @@ properties:
   - level:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
-  - published:
+  - published: true
   - link: faq
 require:
 required_by:
