@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case allows you to delete a peer shared Attribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) a peer shared with you.
+This use-case allows you to delete a peer shared Attribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) that a peer owns and has shared with you.
 
 ## Parameters
 
@@ -52,7 +52,8 @@ This use-case allows you to delete a peer shared Attribute, i.e. a [LocalAttribu
 - The peer shared Attribute will be deleted.
 - All predecessors of the peer shared Attribute will be deleted.
 - If the peer shared Attribute was succeeded, the `succeeds` property of the successor will be set to undefined.
-- A [Notification]({%link _docs_integrate/data-model-overview.md %}#notification) with [PeerSharedAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#peersharedattributedeletedbypeernotificationitem) is sent to the owner of the Attribute, informing them that you deleted their Attribute. Technically, the own shared Attribute of the owner and all predecessors will get a `deletionInfo` with `deletionStatus` `"DeletedByPeer"` and the time of receiving the Notification as `deletionDate`.
+- If the `attributeId` relates to a [RelationshipAttribute]({%link _docs_integrate/data-model-overview.md %}#relationshipattribute) and there are shared copies of the peer shared RelationshipAttribute or potential predecessors of it, the `shareInfo.sourceAttribute` of those peer shared ThirdPartyRelationshipAttributes will be set to undefined.
+- A [Notification]({%link _docs_integrate/data-model-overview.md %}#notification) with a [PeerSharedAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#peersharedattributedeletedbypeernotificationitem) is sent to the owner of the Attribute, informing them that you deleted their Attribute. Technically, the own shared Attribute of the owner and all predecessors will get a `deletionInfo` with `deletionStatus` `"DeletedByPeer"` and the time of receiving the Notification as `deletionDate`.
 - The `notificationId` is returned.
 
 ## On Failure

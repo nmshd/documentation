@@ -52,7 +52,8 @@ This use-case allows you to delete a third party owned RelationshipAttribute, i.
 - The third party owned RelationshipAttribute will be deleted.
 - All predecessors of the third party owned RelationshipAttribute will be deleted.
 - If the third party owned RelationshipAttribute was succeeded, the `succeeds` property of the successor will be set to undefined.
-- A [Notification]({%link _docs_integrate/data-model-overview.md %}#notification) with [ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#thirdpartyownedrelationshipattributedeletedbypeernotificationitem) is sent to the peer of the Attribute, informing them that you deleted the Attribute. Technically, the Attribute of the owner and all predecessors will get a `deletionInfo` with `deletionStatus` `"DeletedByPeer"` and the time of receiving the Notification as `deletionDate`.
+- If there are shared copies of the third party owned RelationshipAttribute or potential predecessors of it, the `shareInfo.sourceAttribute` of those third party owned ThirdPartyRelationshipAttributes will be set to undefined.
+- A [Notification]({%link _docs_integrate/data-model-overview.md %}#notification) with a [ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#thirdpartyownedrelationshipattributedeletedbypeernotificationitem) is sent to the peer of the Attribute, informing them that you deleted the Attribute. Technically, the Attribute of the peer and all predecessors will get a `deletionInfo` with `deletionStatus` `"DeletedByPeer"` and the time of receiving the Notification as `deletionDate`.
 - The `notificationId` is returned.
 
 ## On Failure

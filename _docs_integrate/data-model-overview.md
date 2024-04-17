@@ -682,12 +682,12 @@ Internally, the succeeded version will then be created at your side as successor
 #### ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem
 
 If you have shared a RelationshipAttribute, that is not owned by you, with a peer from a different Relationship and that peer deletes their third party owned RelationshipAttribute, a ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem will be sent to you.
-Internally, for your corresponding third party owned RelationshipAttribute the `deletionInfo.deletionStatus` will be set to `"DeletedByPeer"` .
+Internally, for your corresponding third party owned RelationshipAttribute the `deletionInfo.deletionStatus` will be set to `"DeletedByPeer"`.
 
-| Name        | Type                                                                  | Description                                                                                                                                                                 |
-| ----------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| @type       | `"ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem"` |                                                                                                                                                                             |
-| attributeId | `string`                                                              | The `id` of the third party owned RelationshipAttribute that was deleted by the peer. The third party owned RelationshipAttribute IDs of the sender and recipient coincide. |
+| Name        | Type                                                                  | Description                                                                                                                                                                                   |
+| ----------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| @type       | `"ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem"` |                                                                                                                                                                                               |
+| attributeId | `string`                                                              | The `id` of the third party owned RelationshipAttribute that was deleted by the peer. The `id` of the third party owned RelationshipAttribute of the sender matches the one of the recipient. |
 
 ## Attributes
 
