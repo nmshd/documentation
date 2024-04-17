@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-set-categorization-of-relationship
+# Start automatic generation
+permalink: use-case-consumption-set-categorization-of-relationship
 published: false
 title: "Set categorization of relationship"
 type: use-case
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/set-categorization-of-relationship
-  - redirect_from:
+  - link: use-case-consumption-set-categorization-of-relationship
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-set-categorization-of-relationship.md %}

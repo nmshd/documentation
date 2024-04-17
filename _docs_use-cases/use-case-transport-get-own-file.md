@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-get-own-file
+# Start automatic generation
+permalink: use-case-transport-get-own-file
 published: true
 title: "Get own File"
 type: use-case
@@ -30,11 +31,27 @@ properties:
   - changed_at:
   - api_route_regex: GET /api/v2/Files/Own
   - published: default
-  - link: transport/get-own-file
-  - redirect_from:
+  - link: use-case-transport-get-own-file
 require:
 required_by:
 api_route_regex: ^GET /api/v2/Files/Own$
+# End automatic generation
 ---
 
-{% include use-cases/use-case-transport-get-own-file.md %}
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use-case retrieves an own File.
+
+## Parameters
+
+- `id` of the File which should be retrieved.
+
+## On Success
+
+- The metadata of the [File]({% link _docs_integrate/data-model-overview.md %}#file) that match the `id`.
+
+## On Failure
+
+- No File corresponds to the `id`.

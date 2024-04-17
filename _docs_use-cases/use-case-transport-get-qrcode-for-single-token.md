@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-transport-get-qrcode-for-single-token
+# Start automatic generation
+permalink: use-case-transport-get-qrcode-for-single-token
 published: false
 title: "Get QRCode for single Token"
 type: use-case
@@ -16,9 +17,9 @@ properties:
   - description:
   - feature category: Share structured information over side-channel
   - tech category: Tokens
-  - status: QUESTIONS
+  - status: DONE
   - documentation status:
-  - comments: QR vs Qr, QR vs Tr
+  - comments:
   - actor: Identity
   - trigger:
   - precondition:
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: transport/get-qrcode-for-single-token
-  - redirect_from:
+  - link: use-case-transport-get-qrcode-for-single-token
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-transport-get-qrcode-for-single-token.md %}

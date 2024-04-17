@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-consumption-query-settings
+# Start automatic generation
+permalink: use-case-consumption-query-settings
 published: false
 title: "Query Settings"
 type: use-case
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: consumption/query-settings
-  - redirect_from:
+  - link: use-case-consumption-query-settings
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-consumption-query-settings.md %}

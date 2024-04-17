@@ -1,5 +1,6 @@
 ---
-permalink: /use-case-device-set-up-global-exception-handling
+# Start automatic generation
+permalink: use-case-device-set-up-global-exception-handling
 published: false
 title: "Set up global exception handling"
 type: use-case
@@ -30,10 +31,8 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: device/set-up-global-exception-handling
-  - redirect_from:
+  - link: use-case-device-set-up-global-exception-handling
 require:
 required_by:
+# End automatic generation
 ---
-
-{% include use-cases/use-case-device-set-up-global-exception-handling.md %}
