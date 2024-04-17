@@ -98,7 +98,7 @@ Assuming that the input values ​​for the properties `value.day`, `value.mont
 
 ### What's next?
 
-When you have successfully created an IdentityAttribute for your own Connector, you will receive a success response. From the result, you can get the `id` of the corresponding RepositoryAttribute belonging to the IdentityAttribute. You will need this `id`, for example, if you want to share the underlying IdentityAttribute with other Identities later, as in the [Share own Attribute to peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}) scenario.
+When you have successfully created an IdentityAttribute for your own Connector, you will receive a success response. From the result, you can get the `id` of the corresponding RepositoryAttribute belonging to the IdentityAttribute. You will need this `id`, for example, if you want to share the underlying IdentityAttribute with other Identities later, as in the [Share own Attribute to peer]({% link _docs_integrate/share-attribute-with-peer.md %}) scenario.
 
 ## Create a RelationshipAttribute for yourself
 
@@ -121,4 +121,4 @@ You can use a [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-o
 
 ### Utilization of a ShareAttributeRequestItem
 
-You can use a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) to create a RelationshipAttribute in the context of a Relationship between you and your peer if you want to use an existing RelationshipAttribute between you and a third party as the source for creating the new RelationshipAttribute. Your peer can only accept or reject the creation of it, but cannot modify it. A RelationshipAttribute that you want to create using a ShareAttributeRequestItem can be owned by yourself or the third party, but not by your peer. All details on how to create a RelationshipAttribute using a ShareAttributeRequestItem can be found in the [Share own Attribute to peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}) guide.
+You can use a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) to create a RelationshipAttribute in the context of a Relationship between you and your peer if you want to use an existing RelationshipAttribute between you and a third party as the source for creating the new RelationshipAttribute. Your peer can only accept or reject the creation of it, but cannot modify it. A RelationshipAttribute that you want to create using a ShareAttributeRequestItem can be owned by yourself or the third party, but not by your peer. All details on how to create a RelationshipAttribute using a ShareAttributeRequestItem can be found in the [Share own Attribute to peer]({% link _docs_integrate/share-attribute-with-peer.md %}) guide.

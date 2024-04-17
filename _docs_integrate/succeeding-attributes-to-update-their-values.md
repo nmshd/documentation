@@ -53,7 +53,7 @@ In the following examples, the `createdAt` property all occuring LocalAttribute 
 
 ### Sharing a RepositoryAttribute
 
-Now, in order to [share a RepositoryAttribute]({% link _docs_integrate/share-own-attribute-to-peer.md %}), you need to send an according [Request]({% link _docs_integrate/data-model-overview.md %}#request) to the peer you want to share it with.
+Now, in order to [share a RepositoryAttribute]({% link _docs_integrate/share-attribute-with-peer.md %}), you need to send an according [Request]({% link _docs_integrate/data-model-overview.md %}#request) to the peer you want to share it with.
 If they [accept your Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}), a new LocalAttribute will be created at the peer's side.
 This peer shared IdentityAttribute has the same `content` like your RepositoryAttribute and, in addition, a defined `shareInfo` property.
 It stores the Address of the `peer` who shared the Attribute with them, i.e. your Address, and a reference to the Request that was used to share the Attribute.
