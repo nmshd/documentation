@@ -1,13 +1,7 @@
-<!-- A general description of the requirement can be given here. -->
-
 This guide explains how to send and receive a [Request]({% link _docs_integrate/data-model-overview.md %}#request) over [enmeshed Messages]({% link _docs_integrate/data-model-overview.md %}#message) using two Connectors.
 The first of them, which we will refer to as the Sender, will send the Request.
 The second, which we will refer to as the Recipient, can decide, whether they want to accept or reject the Request.
 We'll go through the steps of validating and creating the Request, sending and receiving it, and finally accepting or rejecting the Request.
-
-<!-- This include inserts the table with the metadata  -->
-
-{% include properties_list.html %}
 
 This guide assumes that you already have an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between the two Connectors, e.g. from following the [Integration Example]({% link _docs_integrate/integration-example.md %}) or the scenario page [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}).
 If that is not the case, either take a look at those guides first or follow the instructions of how to [establish a Relationship to another Identity]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}).
@@ -33,7 +27,7 @@ To retrieve it, the Sender can [query their Relationships]({% link _docs_use-cas
 
 Firstly, you should [check if your Request is valid]({% link _docs_use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}).
 As an example, we use a Request with just an [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem), but you can use any Request you want.
-For an overview of the available [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems), checkout our [Request and Response Introduction]({% link _docs_integrate/request-and-response-introduction.md %}).
+For an overview of the available [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems), check out our [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}).
 
 Even though the `peer` property is optional, it is recommended to specify it whenever possible.
 This allows additional validation rules to execute.
@@ -50,7 +44,7 @@ If you are sending a Request over Message, you'll always know the peer, as it is
       }
     ]
   },
-  "peer": "<the address of the Recipient Connector>"
+  "peer": "<Address of Recipient>"
 }
 ```
 
@@ -68,8 +62,8 @@ Also, note that the `content` was extented by the `@type` property and a generat
 {
   "id": "REQ...",
   "isOwn": true,
-  "peer": "<the address of the Recipient Connector>",
-  "createdAt": "<time-of-creation>",
+  "peer": "<Address of Recipient>",
+  "createdAt": "<time of creation>",
   "content": {
     "@type": "Request",
     "id": "REQ...",
@@ -95,7 +89,7 @@ This is important for the Request to be processed correctly, since it is possibl
 
 ```jsonc
 {
-  "recipients": ["<the address of the Recipient Connector>"],
+  "recipients": ["<Address of Recipient>"],
   "content": {
     // the content you copied from the response in the step before
   }
@@ -109,10 +103,10 @@ You can observe this behaviour by [querying the Request]({% link _docs_use-cases
 
 In order to fetch the Message with the Request, you have to [synchronize the Recipient Connector]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 The enmeshed Runtime will read the Message and create a new incoming Request.
-You can observe this by [long polling the incoming Requests]({% link _docs_use-cases/use-case-consumption-query-incoming-requests.md %}) and optionally use the query params `source.reference=<id-of-the-message>` and `status=ManualDecisionRequired` to filter for Requests that belong to the Message that contained the Request.
+You can observe this by [long polling the incoming Requests]({% link _docs_use-cases/use-case-consumption-query-incoming-requests.md %}) and optionally use the query parameters `source.reference=<ID of the Message>` and `status=ManualDecisionRequired` to filter for Requests that belong to the Message that contained the Request.
 
 In a productive environment, however, we recommend using the [Sync module]({% link _docs_operate/modules.md %}#sync) and waiting for a `consumption.incomingRequestReceived` [Connector Event]({% link _docs_integrate/connector-events.md %}).
-To learn more about events, how to use them in the context of enmeshed and which [modules]({% link _docs_operate/modules.md %}) to help you automating your business process are supported by enmeshed, check out our [Event introduction]({% link _docs_integrate/event-introduction.md %}).
+To learn more about events, how to use them in the context of enmeshed and which [modules]({% link _docs_operate/modules.md %}) are supported by enmeshed to help you automating your business process, check out our [Event introduction]({% link _docs_integrate/event-introduction.md %}).
 
 {% include copy-notice description="After you received the Request, save its `id` for the next step." %}
 
@@ -158,7 +152,7 @@ In case of the example Request, the payload is the following:
 
 No matter if you accepted or rejected the Request, the response will be similar.
 You can see that the Request moved to `status` `"Decided"`.
-This is where the enmeshed Runtime steps in and handles the Request based on you decision.
+This is where the enmeshed Runtime steps in and handles the Request based on your decision.
 It will send the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Sender via a Message and move the Request to `status` `"Completed"` .
 This behavior can be observed by [querying the Request]({% link _docs_use-cases/use-case-consumption-get-incoming-request.md %}) again after a few seconds.
 
