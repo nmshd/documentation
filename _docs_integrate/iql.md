@@ -51,3 +51,9 @@ To negate a subquery, i.e. to match the set complement of the subquery use the n
 ```
 PhoneNumber && !#emergency
 ```
+
+## Interactive Demo Playground
+
+Use the following text area to test out different IQL queries. Below is a selection of IdentityAttributes which, if matched by the query, will have their background highlighted. The input area will also inform you of syntax errors.
+
+{% include iql-demo.html %}
