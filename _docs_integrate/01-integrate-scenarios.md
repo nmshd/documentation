@@ -15,11 +15,11 @@ Here you'll find everything you need to seamlessly dive into the world of enmesh
 
 ## Getting Started
 
-Begin your integration journey by familiarizing yourself with the [Connector REST API]({% link _docs_integrate/access-the-connector.md %}) and exploring the fundamental steps for integration. Gain insights into effectively utilizing the [Connector SDKs]({% link _docs_integrate/access-the-connector.md %}#accessing-the-connector-by-software-development-kits-sdk) to streamline and optimize your integration. Discover how events work and how you can leverage them in your application in the [event introduction]({% link _docs_integrate/event-introduction.md %}).
+Begin your integration journey by familiarizing yourself with the [Connector REST API]({% link _docs_integrate/access-the-connector.md %}) and exploring the fundamental steps for integration. Gain insights into effectively utilizing the [Connector SDKs]({% link _docs_integrate/access-the-connector.md %}#accessing-the-connector-by-software-development-kits-sdk) to streamline and optimize your integration. To get a first impression of certain integration processes, take a look at our [Integration example]({% link _docs_integrate/integration-example.md %}). Discover how events work and how you can leverage them in your application in the [Event introduction]({% link _docs_integrate/event-introduction.md %}).
 
 ## Get in touch with other Identities
 
-Learn how to [establish a Relationship to another Identity]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}).
+Learn how to [establish a Relationship to another Identity]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}) in order to be able to communicate and exchange information with it.
 
 ## Working with Requests
 
@@ -27,15 +27,15 @@ Learn how to create and manage Requests. Check out the [Request and Response int
 
 ## Manage Attributes of yourself
 
-Explore how to [create Attributes for yourself]({% link _docs_integrate/create-attribute-for-yourself.md %}) and how to [share Attributes with a peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}). Furthermore, learn how to [succeed Attributes to update their values]({% link _docs_integrate/succeeding-attributes-to-update-their-values.md %}).
+Explore how to [create Attributes for yourself]({% link _docs_integrate/create-attribute-for-yourself.md %}) and how to [share Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}) with a peer. Furthermore, learn how to [succeed Attributes to update their values]({% link _docs_integrate/succeeding-attributes-to-update-their-values.md %}).
 
 ## Manage Attributes of others
 
-Explore how to [query Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}) and [store Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}) in the Wallet for others.
+Explore how to [read Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}) from a peer and how to store Attributes in a peer's Wallet for them. The latter can be realised by [creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}) for them or by [proposing Attributes]({% link _docs_integrate/propose-attribute-to-peer.md %}) to them. The peer must give you their permission for this.
 
 ## Basic communication
 
-Explore how to [send Messages]({% link _docs_integrate/sending-messages.md %}) through enmeshed for simple and secure communication.
+Explore how to [send Messages]({% link _docs_integrate/sending-messages.md %}) using enmeshed to communicate simply and securely with your peers.
 
 ## Request consent
 
@@ -43,11 +43,11 @@ Discover how to request [persistent consent]({% link _docs_integrate/request-per
 
 ## Data Model
 
-Understand [enmeshed's data model]({% link _docs_integrate/data-model-overview.md %}) and how it fits into your integration. Also get an overview of the [Connector events]({% link _docs_integrate/connector-events.md %}), the [Attribute values]({% link _docs_integrate/attribute-values.md %}) and our [use cases]({% link _docs_integrate/use-cases.md %}).
+Understand the [Data Model]({% link _docs_integrate/data-model-overview.md %}) of enmeshed and how it fits into your integration. Also get an overview of the [Connector Events]({% link _docs_integrate/connector-events.md %}), the [Attribute Values]({% link _docs_integrate/attribute-values.md %}) and our [Use Cases]({% link _docs_integrate/use-cases.md %}).
 
 ## Troubleshooting
 
-Here you can find the [error codes]({% link _docs_integrate/error-codes.md %}) and our [FAQ]({% link _docs_integrate/faq.md %}) page.
+Here you can find the [Error Codes]({% link _docs_integrate/error-codes.md %}) and our [FAQ]({% link _docs_integrate/faq.md %}) page.
 
 <!-- markdownlint-disable MD011 -->
 <!-- <style>
