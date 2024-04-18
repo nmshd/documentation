@@ -1,8 +1,10 @@
 ---
 # Start automatic generation
-permalink: integrate/requesting-one-time-consents
+permalink: integrate/request-one-time-consent-of-peer
+redirect_from:
+  - /integrate/requesting-one-time-consents
 published: true
-title: "Requesting one-time consents"
+title: "Request one-time consent of peer"
 type: scenario
 toc: true
 properties:
@@ -15,7 +17,7 @@ properties:
   - implementation status: DONE
   - documentation status: DONE
   - published: true
-  - link: requesting-one-time-consents
+  - link: request-one-time-consent-of-peer
 require:
   - integrate/requests-over-templates
   - integrate/requests-over-messages

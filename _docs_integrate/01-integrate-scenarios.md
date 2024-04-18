@@ -35,7 +35,7 @@ Explore how to [send Messages]({% link _docs_integrate/sending-messages.md %}) u
 
 ## Request consent
 
-Discover how to request [persistent consent]({% link _docs_integrate/request-persistent-consent-of-peer.md %}) and [one-time consent]({% link _docs_integrate/requesting-one-time-consents.md %}) of a peer.
+Discover how to request [persistent consent]({% link _docs_integrate/request-persistent-consent-of-peer.md %}) and [one-time consent]({% link _docs_integrate/request-one-time-consent-of-peer.md %}) of a peer.
 
 ## Data Model
 

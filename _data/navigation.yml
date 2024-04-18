@@ -117,8 +117,8 @@ docs_integrate:
     children:
       - title: "Request persistent consent of peer"
         url: /integrate/request-persistent-consent-of-peer
-      - title: "Requesting one-time consents"
-        url: /integrate/requesting-one-time-consents
+      - title: "Request one-time consent of peer"
+        url: /integrate/request-one-time-consent-of-peer
   - title: Data Model
     children:
       - title: "Use Cases"

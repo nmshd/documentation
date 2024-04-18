@@ -21,7 +21,7 @@ properties:
 require:
   - integrate/requests-over-templates
 required_by:
-  - integrate/requesting-one-time-consents
+  - integrate/request-one-time-consent-of-peer
   - integrate/request-persistent-consent-of-peer
   - integrate/requesting-authentication
 # End automatic generation
