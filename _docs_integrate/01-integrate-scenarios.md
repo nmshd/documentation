@@ -25,13 +25,9 @@ Learn how to [establish a Relationship to another Identity]({% link _docs_integr
 
 Learn how to create and manage Requests. Check out the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) and the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) and [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) guides.
 
-## Manage Attributes of yourself
+## Manage Attributes
 
-Explore how to [create Attributes for yourself]({% link _docs_integrate/create-attribute-for-yourself.md %}) and how to [share Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}) with a peer. Furthermore, learn how to [succeed Attributes to update their values]({% link _docs_integrate/succeeding-attributes-to-update-their-values.md %}).
-
-## Manage Attributes of others
-
-Explore how to [read Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}) from a peer and how to store Attributes in a peer's Wallet for them. The latter can be realised by [creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}) for them or by [proposing Attributes]({% link _docs_integrate/propose-attribute-to-peer.md %}) to them. The peer must give you their permission for this.
+Explore how to [create Attributes for yourself]({% link _docs_integrate/create-attribute-for-yourself.md %}) and how to [share Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}) with a peer. Also, discover how to [read Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}) from a peer and how to store Attributes in a peer's Wallet for them. The latter can be realised by [creating Attributes]({% link _docs_integrate/create-attribute-for-peer.md %}) for them or by [proposing Attributes]({% link _docs_integrate/propose-attribute-to-peer.md %}) to them. The peer must give you their permission for this. Furthermore, learn how to [succeed Attributes to update their values]({% link _docs_integrate/succeeding-attributes-to-update-their-values.md %}).
 
 ## Basic communication
 

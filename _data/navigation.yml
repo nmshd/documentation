@@ -95,22 +95,20 @@ docs_integrate:
         url: /integrate/requests-over-templates
       - title: "Requests over Messages"
         url: /integrate/requests-over-messages
-  - title: Manage Attributes of yourself
+  - title: Manage Attributes
     children:
       - title: "Create Attribute for yourself"
         url: /integrate/create-attribute-for-yourself
       - title: "Share own Attribute to peer"
         url: /integrate/share-own-attribute-to-peer
-      - title: "Succeeding Attributes to update their values"
-        url: /integrate/succeeding-attributes-to-update-their-values
-  - title: Manage Attributes of others
-    children:
       - title: "Read Attribute from peer"
         url: /integrate/read-attribute-from-peer
       - title: "Create Attribute for peer"
         url: /integrate/create-attribute-for-peer
       - title: "Propose Attribute to peer"
         url: /integrate/propose-attribute-to-peer
+      - title: "Succeeding Attributes to update their values"
+        url: /integrate/succeeding-attributes-to-update-their-values
   - title: Basic communication
     children:
       - title: "Sending Messages"
