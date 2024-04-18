@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC032
-  - category: Requesting authentication
+  - category: Request authentication
   - description:
   - customer: All
   - component: integrate

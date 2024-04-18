@@ -11,7 +11,7 @@ You want to seamlessly use enmeshed with your processes, solutions and software 
 
 We've built the enmeshed Connector exactly for this scenario: to integrate existing systems with the enmeshed approach with as little effort as possible.
 
-Here you'll find everything you need to seamlessly dive into the world of enmeshed and integrate it into your applications and systems. Whether you're just starting out or already familiar with enmeshed, our comprehensive guide and resources are at your disposal.
+Here you'll find everything you need to seamlessly dive into the world of enmeshed and integrate it into your applications and systems. Whether you're just starting out or are already familiar with enmeshed, our comprehensive guide and resources are at your disposal.
 
 ## Getting Started
 
@@ -21,7 +21,7 @@ Begin your integration journey by familiarizing yourself with the [Connector RES
 
 Learn how to [establish a Relationship to another Identity]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}) in order to be able to communicate and exchange information with it.
 
-## Working with Requests
+## Work with Requests
 
 Learn how to create and manage Requests. Check out the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) and the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) and [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) guides.
 

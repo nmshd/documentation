@@ -87,7 +87,7 @@ docs_integrate:
     children:
       - title: "Establish a Relationship to another Identity"
         url: integrate/establish-a-relationship-to-another-identity
-  - title: Working with Requests
+  - title: Work with Requests
     children:
       - title: "Request and Response introduction"
         url: /integrate/request-and-response-introduction
