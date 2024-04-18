@@ -99,8 +99,8 @@ docs_integrate:
     children:
       - title: "Create Attribute for yourself"
         url: /integrate/create-attribute-for-yourself
-      - title: "Share own Attribute to peer"
-        url: /integrate/share-own-attribute-to-peer
+      - title: "Share Attribute with peer"
+        url: /integrate/share-attribute-with-peer
       - title: "Read Attribute from peer"
         url: /integrate/read-attribute-from-peer
       - title: "Create Attribute for peer"

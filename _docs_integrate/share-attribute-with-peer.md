@@ -1,8 +1,10 @@
 ---
 # Start automatic generation
-permalink: integrate/share-own-attribute-to-peer
+permalink: integrate/share-attribute-with-peer
+redirect_from:
+  - /integrate/share-own-attribute-to-peer
 published: true
-title: "Share own Attribute to peer"
+title: "Share Attribute with peer"
 type: scenario
 toc: true
 properties:
@@ -15,7 +17,7 @@ properties:
   - implementation status: DONE
   - documentation status: DONE
   - published: true
-  - link: share-own-attribute-to-peer
+  - link: share-attribute-with-peer
 require:
 required_by:
 # End automatic generation
@@ -158,7 +160,7 @@ To share the RelationshipAttribute with the Recipient, the Sender needs to inser
 }
 ```
 
-The table of the [Combinations and usage scenarios of the ShareAttributeRequestItem]({% link _docs_integrate/share-own-attribute-to-peer.md %}#combinations-and-usage-scenarios-of-shareattributerequestitem) contains further information on sharing RelationshipAttributes in different application scenarios.
+The table of the [Combinations and usage scenarios of the ShareAttributeRequestItem]({% link _docs_integrate/share-attribute-with-peer.md %}#combinations-and-usage-scenarios-of-shareattributerequestitem) contains further information on sharing RelationshipAttributes in different application scenarios.
 
 ### Share multiple Attributes
 
@@ -166,7 +168,7 @@ Sharing is not limited to just a single Attribute, but it is possible to request
 
 ## Send and receive the Request
 
-The Sender that wants to share an Attribute with the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method can be used to send the [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes). There are two ways to send the Request for sharing Attributes created by the Sender to the Recipient.
+The Sender that wants to share an Attribute with the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method can be used to send the [Request for sharing Attributes]({% link _docs_integrate/share-attribute-with-peer.md %}#request-for-sharing-attributes). There are two ways to send the Request for sharing Attributes created by the Sender to the Recipient.
 
 ### Request over Template
 
@@ -178,7 +180,7 @@ The Sender only has the option of sending a Request to the Recipient via a [Mess
 
 ## Accept the Request and get the Attributes
 
-After the Recipient has received the [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes), it can accept it to get all or some of the Sender's shared Attributes. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). Also, you need to decide and specify for each ShareAttributeRequestItem and RequestItemGroup contained in the Request for sharing Attributes whether you want to accept or reject it.
+After the Recipient has received the [Request for sharing Attributes]({% link _docs_integrate/share-attribute-with-peer.md %}#request-for-sharing-attributes), it can accept it to get all or some of the Sender's shared Attributes. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). Also, you need to decide and specify for each ShareAttributeRequestItem and RequestItemGroup contained in the Request for sharing Attributes whether you want to accept or reject it.
 
 If the Recipient does not want to get any of the Sender's shared Attributes and, therefore, does not want to accept the Request for sharing Attributes of the Sender, it can reject it as a whole too. For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
@@ -286,14 +288,14 @@ Note that it is important to respond to RequestItems and RequestItemGroups in th
 
 ## Receive the Response to the Request
 
-We now assume that the Recipient has accepted the [Request for sharing Attributes]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-for-sharing-attributes) of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
+We now assume that the Recipient has accepted the [Request for sharing Attributes]({% link _docs_integrate/share-attribute-with-peer.md %}#request-for-sharing-attributes) of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/14e97556-0a62-417a-9c97-41872d029056" id="DG~Sz6M~q5zO"></iframe></div>
 
 To view the Response to the Request, search for it in the synchronization result or proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
-- If the [Request was sent via a Template]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-over-template): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
-- If the [Request was sent via a Message]({% link _docs_integrate/share-own-attribute-to-peer.md %}#request-over-message): Specify `<ID of Request>` as the value for the `id` query parameter.
+- If the [Request was sent via a Template]({% link _docs_integrate/share-attribute-with-peer.md %}#request-over-template): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
+- If the [Request was sent via a Message]({% link _docs_integrate/share-attribute-with-peer.md %}#request-over-message): Specify `<ID of Request>` as the value for the `id` query parameter.
 
 The Integrator of the Sender can now get the Response of the Recipient from the `response.content` property of the result. In the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) is a [ShareAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#shareattributeacceptresponseitem) for each accepted ShareAttributeRequestItem and a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) for each rejected ShareAttributeRequestItem included. Note that each accepted ShareAttributeRequestItem leads to the creation of an appropriate LocalAttribute with a LocalAttributeShareInfo of the Sender. The `content` of the LocalAttribute is the underlying `attribute` of the ShareAttributeRequestItem.
 
