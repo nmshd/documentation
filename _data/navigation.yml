@@ -107,8 +107,8 @@ docs_integrate:
         url: /integrate/create-attribute-for-peer
       - title: "Propose Attribute to peer"
         url: /integrate/propose-attribute-to-peer
-      - title: "Succeeding Attributes to update their values"
-        url: /integrate/succeeding-attributes-to-update-their-values
+      - title: "Succeed Attribute to update its value"
+        url: /integrate/succeed-attribute-to-update-its-value
   - title: Basic communication
     children:
       - title: "Sending Messages"
