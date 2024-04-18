@@ -228,7 +228,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Requests over Templates",
-        "excerpt":"This guide will explain the end to end flow of sharing and answering a Request over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don’t have a...","categories": [],
+        "excerpt":"This guide will explain the end-to-end flow of sharing and answering a Request via a RelationshipTemplate. Usually, this flow happens between a Connector and the App, but for simplicity and more transparency we will use two Connectors in this example. Thus, you’ll need two Connectors, that either already have a...","categories": [],
         "tags": [],
         "url": "/integrate/requests-over-templates",
         "teaser": null

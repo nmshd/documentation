@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Requests over Messages - enmeshed</title>
-<meta name="description" content="">
+<meta name="description" content="This guide explains how to send and receive a Request over enmeshed Messages using two Connectors. The first of them, which we will refer to as the Sender, will send the Request. The second, which we will refer to as the Recipient, can decide, whether they want to accept or reject the Request. We’ll go through the steps of validating and creating the Request, sending and receiving it, and finally accepting or rejecting the Request.">
 
 
   <meta name="author" content="Enmeshed Team">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="/integrate/requests-over-messages">
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="This guide explains how to send and receive a Request over enmeshed Messages using two Connectors. The first of them, which we will refer to as the Sender, will send the Request. The second, which we will refer to as the Recipient, can decide, whether they want to accept or reject the Request. We’ll go through the steps of validating and creating the Request, sending and receiving it, and finally accepting or rejecting the Request.">
 
 
 
@@ -34,7 +34,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-04-16T07:26:19+02:00">
+  <meta property="article:published_time" content="2024-04-18T18:04:18+02:00">
 
 
 
@@ -351,8 +351,8 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Requests over Messages">
-    <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2024-04-16T07:26:19+02:00">
+    <meta itemprop="description" content="This guide explains how to send and receive a Request over enmeshed Messages using two Connectors.The first of them, which we will refer to as the Sender, will send the Request.The second, which we will refer to as the Recipient, can decide, whether they want to accept or reject the Request.We’ll go through the steps of validating and creating the Request, sending and receiving it, and finally accepting or rejecting the Request.">
+    <meta itemprop="datePublished" content="2024-04-18T18:04:18+02:00">
     
 
     <div class="page__inner-wrap">
@@ -378,70 +378,10 @@
             </nav>
           </aside>
         
-        <!-- A general description of the requirement can be given here. -->
-
-<p>This guide explains how to send and receive a <a href="/integrate/data-model-overview#request">Request</a> over <a href="/integrate/data-model-overview#message">enmeshed Messages</a> using two Connectors.
+        <p>This guide explains how to send and receive a <a href="/integrate/data-model-overview#request">Request</a> over <a href="/integrate/data-model-overview#message">enmeshed Messages</a> using two Connectors.
 The first of them, which we will refer to as the Sender, will send the Request.
 The second, which we will refer to as the Recipient, can decide, whether they want to accept or reject the Request.
 We’ll go through the steps of validating and creating the Request, sending and receiving it, and finally accepting or rejecting the Request.</p>
-
-<!-- This include inserts the table with the metadata  -->
-
-<!--<div>
-    <table>
-        
-        <tr><td>id</td>
-            <td>SC060</td></tr>
-        
-        <tr><td>category</td>
-            <td>Manage Requests</td></tr>
-        
-        <tr></tr>
-        
-        <tr><td>customer</td>
-            <td>All</td></tr>
-        
-        <tr><td>component</td>
-            <td>integrate</td></tr>
-        
-        <tr><td>level</td>
-            <td>Beginner</td></tr>
-        
-        <tr><td>implementation status</td>
-            <td>DONE</td></tr>
-        
-        <tr><td>documentation status</td>
-            <td>OLD</td></tr>
-        
-        <tr><td>published</td>
-            <td>true</td></tr>
-        
-        <tr><td>link</td>
-            <td>requests-over-messages</td></tr>
-        
-        <tr><td colspan="2">
-                <details>
-                    <summary>requires</summary>
-                        
-                    <p><a href="../integrate/requests-over-templates">  Requests over Templates  </a></p>
-                    
-                </details>
-            </td></tr>
-        <tr><td colspan="2">
-                <details>
-                    <summary>required by</summary>
-                        
-                    <p><a href="../integrate/requesting-one-time-consents">  Requesting one-time consents   </a></p>
-                        
-                    <p><a href="../integrate/request-persistent-consent-of-peer">  Request persistent consent of peer   </a></p>
-                        
-                    <p><a href="../integrate/requesting-authentication">     </a></p>
-                    
-                </details>
-            </td></tr>
-    </table>
-</div>
--->
 
 <p>This guide assumes that you already have an active <a href="/integrate/data-model-overview#relationship">Relationship</a> between the two Connectors, e.g. from following the <a href="/integrate/integration-example">Integration Example</a> or the scenario page <a href="/integrate/requests-over-templates">Requests over Templates</a>.
 If that is not the case, either take a look at those guides first or follow the instructions of how to <a href="/integrate/establish-a-relationship-to-another-identity">establish a Relationship to another Identity</a>.</p>
@@ -472,7 +412,7 @@ To retrieve it, the Sender can <a href="/use-case-transport-query-relationships"
 
 <p>Firstly, you should <a href="/use-case-consumption-check-if-outgoing-request-can-be-created">check if your Request is valid</a>.
 As an example, we use a Request with just an <a href="/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a>, but you can use any Request you want.
-For an overview of the available <a href="/integrate/data-model-overview#requestitems">RequestItems</a>, checkout our <a href="/integrate/request-and-response-introduction">Request and Response Introduction</a>.</p>
+For an overview of the available <a href="/integrate/data-model-overview#requestitems">RequestItems</a>, check out our <a href="/integrate/request-and-response-introduction">Request and Response introduction</a>.</p>
 
 <p>Even though the <code class="language-plaintext highlighter-rouge">peer</code> property is optional, it is recommended to specify it whenever possible.
 This allows additional validation rules to execute.
@@ -488,7 +428,7 @@ If you are sending a Request over Message, you’ll always know the peer, as it 
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;the address of the Recipient Connector&gt;"</span><span class="w">
+  </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Address of Recipient&gt;"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -497,7 +437,7 @@ If you are sending a Request over Message, you’ll always know the peer, as it 
 <p>If the previous step was successful, you can <a href="/use-case-consumption-create-outgoing-request">create the Request</a>.
 For this, use the same payload you just validated.</p>
 
-<p>In the response, you can see that the Request currently has the status <code class="language-plaintext highlighter-rouge">Draft</code>.
+<p>In the response, you can see that the Request currently has the <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Draft"</code>.
 Also, note that the <code class="language-plaintext highlighter-rouge">content</code> was extented by the <code class="language-plaintext highlighter-rouge">@type</code> property and a generated <code class="language-plaintext highlighter-rouge">id</code>, that you didn’t have to specify manually.</p>
 
 <p><strong>Example response:</strong></p>
@@ -505,8 +445,8 @@ Also, note that the <code class="language-plaintext highlighter-rouge">content</
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ..."</span><span class="p">,</span><span class="w">
   </span><span class="nl">"isOwn"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;the address of the Recipient Connector&gt;"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;time-of-creation&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Address of Recipient&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;time of creation&gt;"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ..."</span><span class="p">,</span><span class="w">
@@ -537,24 +477,24 @@ To do so, <a href="/use-case-transport-send-message-to-recipients">send a Messag
 This is important for the Request to be processed correctly, since it is possible to send different types of objects via <a href="/integrate/data-model-overview#message">Message</a>.</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;the address of the Recipient Connector&gt;"</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;Address of Recipient&gt;"</span><span class="p">],</span><span class="w">
   </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="c1">// the content you copied from the response in the step before</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>This is where the automation of the <a href="/explore/runtime">enmeshed Runtime</a> steps in and moves the Request from status <code class="language-plaintext highlighter-rouge">Draft</code> to status <code class="language-plaintext highlighter-rouge">Open</code>.
+<p>This is where the automation of the <a href="/explore/runtime">enmeshed Runtime</a> steps in and moves the Request from <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Draft"</code> to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Open"</code>.
 You can observe this behaviour by <a href="/use-case-consumption-get-outgoing-request">querying the Request</a> on the Sender Connector.</p>
 
 <h2 id="fetch-the-request">Fetch the Request</h2>
 
 <p>In order to fetch the Message with the Request, you have to <a href="/use-case-transport-synchronize-updates-of-backbone">synchronize the Recipient Connector</a>.
 The enmeshed Runtime will read the Message and create a new incoming Request.
-You can observe this by <a href="/use-case-consumption-get-incoming-request">long polling the incoming Requests</a> and optionally use the query params <code class="language-plaintext highlighter-rouge">source.reference=&lt;id-of-the-message&gt;</code> and <code class="language-plaintext highlighter-rouge">status=ManualDecisionRequired</code> to filter for Requests that belong to the Message that contained the Request.</p>
+You can observe this by <a href="/use-case-consumption-query-incoming-requests">long polling the incoming Requests</a> and optionally use the query parameters <code class="language-plaintext highlighter-rouge">source.reference=&lt;ID of the Message&gt;</code> and <code class="language-plaintext highlighter-rouge">status=ManualDecisionRequired</code> to filter for Requests that belong to the Message that contained the Request.</p>
 
 <p>In a productive environment, however, we recommend using the <a href="/operate/modules#sync">Sync module</a> and waiting for a <code class="language-plaintext highlighter-rouge">consumption.incomingRequestReceived</code> <a href="/integrate/connector-events">Connector Event</a>.
-To learn more about events, how to use them in the context of enmeshed and which <a href="/operate/modules">modules</a> to help you automating your business process are supported by enmeshed, check out our <a href="/integrate/event-introduction">Event introduction</a>.</p>
+To learn more about events, how to use them in the context of enmeshed and which <a href="/operate/modules">modules</a> are supported by enmeshed to help you automating your business process, check out our <a href="/integrate/event-introduction">Event introduction</a>.</p>
 
 <table style="border: none" class="notice--warning">
     <tr>
@@ -603,9 +543,9 @@ In case of the example Request, the payload is the following:</p>
 <h3 id="runtime-automation">Runtime automation</h3>
 
 <p>No matter if you accepted or rejected the Request, the response will be similar.
-You can see that the Request moved to status <code class="language-plaintext highlighter-rouge">Decided</code>.
-This is where the enmeshed Runtime steps in and handles the Request based on you decision.
-It will move the Request to status <code class="language-plaintext highlighter-rouge">Completed</code> and send the <a href="/integrate/data-model-overview#response">Response</a> to the Sender via a Message.
+You can see that the Request moved to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Decided"</code>.
+This is where the enmeshed Runtime steps in and handles the Request based on your decision.
+It will send the <a href="/integrate/data-model-overview#response">Response</a> to the Sender via a Message and move the Request to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Completed"</code> .
 This behavior can be observed by <a href="/use-case-consumption-get-incoming-request">querying the Request</a> again after a few seconds.</p>
 
 <h2 id="sync-the-response">Sync the Response</h2>
@@ -613,7 +553,7 @@ This behavior can be observed by <a href="/use-case-consumption-get-incoming-req
 <p>The Sender will receive the Response via a Message.
 For this, you have to <a href="/use-case-transport-synchronize-updates-of-backbone">synchronize the Sender Connector</a>.</p>
 
-<p>After a few seconds the Request has moved to status <code class="language-plaintext highlighter-rouge">Completed</code> and the Response is available in the <code class="language-plaintext highlighter-rouge">response</code> property of the Request.
+<p>After a few seconds the Request has moved to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Completed"</code> and the Response is available in the <code class="language-plaintext highlighter-rouge">response</code> property of the Request.
 You can observe this by <a href="/use-case-consumption-get-outgoing-request">querying the Request</a> on the Sender Connector.</p>
 
         
@@ -626,7 +566,7 @@ You can observe this by <a href="/use-case-consumption-get-outgoing-request">que
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-04-16T07:26:19+02:00">April 16, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-04-18T18:04:18+02:00">April 18, 2024</time></p>
 
       </footer>
 
