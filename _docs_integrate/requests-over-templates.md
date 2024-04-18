@@ -76,10 +76,12 @@ But note, that the `onNewRelationship` property is required and must, therefore,
     "onNewRelationship": {
       // the content property of the payload of the previous step,
       // if the Connectors don't have a Relationship with each other, yet
+      ...
     },
     "onExistingRelationship": {
       // the content property of the payload of the previous step,
       // if the Connectors already have a Relationship with each other
+      ...
     }
   }
 }
