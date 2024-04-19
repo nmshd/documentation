@@ -1,8 +1,10 @@
 ---
 # Start automatic generation
-permalink: integrate/requesting-authentication
+permalink: integrate/request-authentication
+redirect_from:
+  - /integrate/requesting-authentication
 published: false
-title: "Requesting authentication"
+title: "Request authentication"
 type: scenario
 toc: true
 properties:
@@ -15,7 +17,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: requesting-authentication
+  - link: request-authentication
 require:
   - integrate/requests-over-templates
   - integrate/requests-over-messages

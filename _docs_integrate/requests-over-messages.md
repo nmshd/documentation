@@ -23,7 +23,7 @@ require:
 required_by:
   - integrate/request-one-time-consent-of-peer
   - integrate/request-persistent-consent-of-peer
-  - integrate/requesting-authentication
+  - integrate/request-authentication
 # End automatic generation
 ---
 

@@ -1,8 +1,8 @@
 ---
 # Start automatic generation
-permalink: integrate/requesting-authentication-by-multiple-parties
+permalink: integrate/request-authentication-by-multiple-parties
 published: false
-title: "Requesting authentication by multiple parties"
+title: "Request authentication by multiple parties"
 type: scenario
 toc: true
 properties:
@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: requesting-authentication-by-multiple-parties
+  - link: request-authentication-by-multiple-parties
 require:
 required_by:
 # End automatic generation
