@@ -112,7 +112,7 @@ docs_integrate:
   - title: Basic communication
     children:
       - title: "Send Messages"
-        url: /integrate/sending-messages
+        url: /integrate/send-messages
   - title: Request consent
     children:
       - title: "Request persistent consent of peer"

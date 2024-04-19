@@ -31,7 +31,7 @@ Explore how to [create Attributes for yourself]({% link _docs_integrate/create-a
 
 ## Basic communication
 
-Explore how to [send Messages]({% link _docs_integrate/sending-messages.md %}) using enmeshed to communicate simply and securely with your peers.
+Explore how to [send Messages]({% link _docs_integrate/send-messages.md %}) using enmeshed to communicate simply and securely with your peers.
 
 ## Request consent
 
