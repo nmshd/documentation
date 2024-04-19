@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use-case-transport-get-relationshiptemplate
 redirect_from:
-  - /use-case-transport-get-relationship-template
+  - use-case-transport-get-relationship-template
 published: true
 title: "Get RelationshipTemplate"
 type: use-case

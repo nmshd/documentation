@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use-case-transport-load-relationshiptemplate-created-by-others
 redirect_from:
-  - /use-case-transport-load-relationship-template-created-by-others
+  - use-case-transport-load-relationship-template-created-by-others
 published: true
 title: "Load RelationshipTemplate created by others"
 type: use-case

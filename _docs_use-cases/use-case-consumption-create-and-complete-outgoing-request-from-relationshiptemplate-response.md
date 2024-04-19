@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use-case-consumption-create-and-complete-outgoing-request-from-relationshiptemplate-response
 redirect_from:
-  - /use-case-consumption-create-and-complete-outgoing-request-from-relationship-template-response
+  - use-case-consumption-create-and-complete-outgoing-request-from-relationshiptemplate-response
 published: true
 title: "Create and complete outgoing Request from RelationshipTemplate Response"
 type: use-case
