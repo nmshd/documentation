@@ -19,8 +19,8 @@ properties:
   - published:
   - link: request-authentication
 require:
-  - integrate/requests-over-templates
-  - integrate/requests-over-messages
+  - integrate/requests-via-relationshiptemplates
+  - integrate/requests-via-messages
 required_by:
 # End automatic generation
 ---

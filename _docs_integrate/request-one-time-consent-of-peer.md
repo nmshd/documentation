@@ -19,8 +19,8 @@ properties:
   - published: true
   - link: request-one-time-consent-of-peer
 require:
-  - integrate/requests-over-templates
-  - integrate/requests-over-messages
+  - integrate/requests-via-relationshiptemplates
+  - integrate/requests-via-messages
 required_by:
 # End automatic generation
 ---
@@ -109,4 +109,4 @@ Note that the Request is currently in status `Draft`.
 
 ## Sending Request
 
-There are 2 ways to send the request to the user. Either when creating a [RelationshipTemplate]({% link _docs_integrate/requests-over-templates.md %}) or with a contact who already has a relationship, via a [message]({% link _docs_integrate/requests-over-messages.md %}).
+There are 2 ways to send the request to the user. Either when creating a [RelationshipTemplate]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) or with a contact who already has a relationship, via a [message]({% link _docs_integrate/requests-via-messages.md %}).

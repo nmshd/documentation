@@ -1,10 +1,10 @@
 ---
 # Start automatic generation
-permalink: integrate/requests-over-templates
+permalink: integrate/requests-via-relationshiptemplates
 redirect_from:
   - /integrate/requests-over-templates
 published: true
-title: "Requests over Templates"
+title: "Requests via RelationshipTemplates"
 type: scenario
 toc: true
 properties:
@@ -17,13 +17,13 @@ properties:
   - implementation status: DONE
   - documentation status: OLD
   - published: true
-  - link: requests-over-templates
+  - link: requests-via-relationshiptemplates
 require:
 required_by:
   - integrate/request-one-time-consent-of-peer
   - integrate/request-persistent-consent-of-peer
   - integrate/request-authentication
-  - integrate/requests-over-messages
+  - integrate/requests-via-messages
 # End automatic generation
 ---
 

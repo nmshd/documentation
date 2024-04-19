@@ -23,7 +23,7 @@ Learn how to [establish a Relationship]({% link _docs_integrate/establish-relati
 
 ## Work with Requests
 
-Learn how to create and manage Requests. Check out the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) and the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) and [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) guides.
+Learn how to create and manage Requests. Check out the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) and the [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) and [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) guides.
 
 ## Manage Attributes
 

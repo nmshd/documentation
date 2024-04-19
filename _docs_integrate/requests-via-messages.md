@@ -1,10 +1,10 @@
 ---
 # Start automatic generation
-permalink: integrate/requests-over-messages
+permalink: integrate/requests-via-messages
 redirect_from:
   - /integrate/requests-over-messages
 published: true
-title: "Requests over Messages"
+title: "Requests via Messages"
 type: scenario
 toc: true
 properties:
@@ -17,9 +17,9 @@ properties:
   - implementation status: DONE
   - documentation status: OLD
   - published: true
-  - link: requests-over-messages
+  - link: requests-via-messages
 require:
-  - integrate/requests-over-templates
+  - integrate/requests-via-relationshiptemplates
 required_by:
   - integrate/request-one-time-consent-of-peer
   - integrate/request-persistent-consent-of-peer
@@ -32,7 +32,7 @@ The first of them, which we will refer to as the Sender, will send the Request.
 The second, which we will refer to as the Recipient, can decide, whether they want to accept or reject the Request.
 We'll go through the steps of validating and creating the Request, sending and receiving it, and finally accepting or rejecting the Request.
 
-This guide assumes that you already have an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between the two Connectors, e.g. from following the [Integration Example]({% link _docs_integrate/integration-example.md %}) or the scenario page [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}).
+This guide assumes that you already have an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between the two Connectors, e.g. from following the [Integration Example]({% link _docs_integrate/integration-example.md %}) or the scenario page [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}).
 If that is not the case, either take a look at those guides first or follow the instructions of how to [establish a Relationship]({% link _docs_integrate/establish-relationships.md %}) to another Identity.
 
 In order to send a Message to the Recipient, it is required to know their enmeshed Address.

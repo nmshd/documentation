@@ -40,7 +40,7 @@ Please note that there are some data structures used in the context of enmeshed,
 A [Request]({% link _docs_integrate/data-model-overview.md %}#request) can be created by an Identity and sent to a peer to exchange information with them.
 Specifying the exact demands to the peer, [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) are the core of the Request.
 In case multiple RequestItems should be answered jointly, e.g. to enhance the structure for the user, they can be combined to a [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup).
-After creating the Request, it can be transmitted either via a Template (see [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %})) or via a Message (see [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %})).
+After creating the Request, it can be transmitted either via a Template (see [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %})) or via a Message (see [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %})).
 
 ### Types of RequestItems
 
@@ -153,7 +153,7 @@ Requests can only be send via Message, if you already have an active Relationshi
 Otherwise, you need to utilize a [RelationshipTemplate](#sending-requests-via-relationshiptemplates).
 {: .notice--info}
 
-If you want to send a [Request via Message]({% link _docs_integrate/requests-over-messages.md %}), firstly you need to create a LocalRequest.
+If you want to send a [Request via Message]({% link _docs_integrate/requests-via-messages.md %}), firstly you need to create a LocalRequest.
 Its ID equals the one of the associated Request that is sent in a [Message]({% link _docs_integrate/data-model-overview.md %}#message) to your peer.
 If the peer accepts the Request and reponds to it, at their side a LocalRequest will be created, having the same ID, however, opposite values for the fields `peer` and `isOwn`.
 Also, a LocalResponse will be created and stored directly within the LocalRequest.
@@ -167,7 +167,7 @@ If you don't have a Relationship with the Recipient yet, the Request needs to be
 Otherwise, utilize the `onExistingRelationship` property.
 {: .notice--info}
 
-Alternatively, you can transfer [Requests via RelationshipTemplates]({% link _docs_integrate/requests-over-templates.md %}).
+Alternatively, you can transfer [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}).
 To do so, you locally create the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) and in the process the Request, however, no LocalRequest will be created, yet.
 Hence, the Request your peer receives also doesn't have an ID, yet.
 Now, there are two possibilities: either you already have a Relationship with the peer or you wish to establish one, given the condition the peer accepts your Request.
