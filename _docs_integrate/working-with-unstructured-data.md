@@ -1,23 +1,22 @@
 ---
 # Start automatic generation
-permalink: integrate/identityattribute-introduction
+permalink: integrate/working-with-unstructured-data
 published: false
-title: "IdentityAttribute introduction"
+title: "Working with unstructured data"
 type: scenario
 toc: true
 properties:
-  - id: SC047
+  - id: SC057
   - category: Manage Attributes
   - description:
   - customer: All
   - component: integrate
-  - level: Beginner
+  - level: Advanced
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: identityattribute-introduction
+  - link: working-with-unstructured-data
 require:
 required_by:
-  - integrate/create-attribute-for-yourself
 # End automatic generation
 ---

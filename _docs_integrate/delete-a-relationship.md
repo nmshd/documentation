@@ -1,21 +1,21 @@
 ---
 # Start automatic generation
-permalink: integrate/working-with-unstructed-data
+permalink: integrate/delete-a-relationship
 published: false
-title: "Working with unstructed data"
+title: "Delete a Relationship"
 type: scenario
 toc: true
 properties:
-  - id: SC057
-  - category: Manage Attributes
+  - id: SC056
+  - category: Handling data deletion
   - description:
   - customer: All
   - component: integrate
   - level: Advanced
-  - implementation status: DOCS ONLY
+  - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: working-with-unstructed-data
+  - link: delete-a-relationship
 require:
 required_by:
 # End automatic generation
