@@ -170,7 +170,7 @@ Sharing is not limited to just a single Attribute, but it is possible to request
 
 The Sender that wants to share an Attribute with the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method can be used to send the [Request for sharing Attributes]({% link _docs_integrate/share-attribute-with-peer.md %}#request-for-sharing-attributes). There are two ways to send the Request for sharing Attributes created by the Sender to the Recipient.
 
-### Request over Template
+### Request via RelationshipTemplate
 
 If there is currently no Relationship between the Sender and the Recipient, this approach must be used. However, it is also possible for the Sender to use a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) to send a Request to the Recipient if there is already an active Relationship between them. All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) guide.
 
