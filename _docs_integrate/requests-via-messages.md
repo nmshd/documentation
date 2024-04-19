@@ -60,7 +60,7 @@ For an overview of the available [RequestItems]({% link _docs_integrate/data-mod
 
 Even though the `peer` property is optional, it is recommended to specify it whenever possible.
 This allows additional validation rules to execute.
-If you are sending a Request over Message, you'll always know the peer, as it is the `recipient` of the Message.
+If you are sending a Request via Message, you'll always know the peer, as it is the `recipient` of the Message.
 
 ```json
 {
