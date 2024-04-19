@@ -39,7 +39,7 @@ Discover how to request [persistent consent]({% link _docs_integrate/request-per
 
 ## Data Model
 
-Understand the [Data Model]({% link _docs_integrate/data-model-overview.md %}) of enmeshed and how it fits into your integration. Also get an overview of the [Connector Events]({% link _docs_integrate/connector-events.md %}), the [Attribute Values]({% link _docs_integrate/attribute-values.md %}) and our [Use Cases]({% link _docs_integrate/use-cases.md %}).
+Understand the [Data Model]({% link _docs_integrate/data-model-overview.md %}) of enmeshed and how it fits into your integration. Also get an overview of the [Attribute Values]({% link _docs_integrate/attribute-values.md %}), the [Connector Events]({% link _docs_integrate/connector-events.md %}) and our [Use Cases]({% link _docs_integrate/use-cases.md %}).
 
 ## Troubleshooting
 

@@ -1,8 +1,8 @@
 ---
 # Start automatic generation
-permalink: integrate/working-with-unstructured-data
+permalink: integrate/work-with-unstructured-data
 published: false
-title: "Working with unstructured data"
+title: "Work with unstructured data"
 type: scenario
 toc: true
 properties:
@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: working-with-unstructured-data
+  - link: work-with-unstructured-data
 require:
 required_by:
 # End automatic generation

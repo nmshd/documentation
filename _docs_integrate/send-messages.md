@@ -1,10 +1,11 @@
 ---
 # Start automatic generation
-permalink: integrate/sending-messages
+permalink: integrate/send-messages
 redirect_from:
   - /integrate/connector-flows-messages
+  - /integrate/sending-messages
 published: true
-title: "Sending Messages"
+title: "Send Messages"
 type: scenario
 toc: true
 properties:
@@ -17,7 +18,7 @@ properties:
   - implementation status: DONE
   - documentation status: OLD
   - published: true
-  - link: sending-messages
+  - link: send-messages
 require:
   - integrate/delete-identity-from-enmeshed
 required_by:

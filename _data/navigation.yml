@@ -111,7 +111,7 @@ docs_integrate:
         url: /integrate/succeed-attribute-to-update-its-value
   - title: Basic communication
     children:
-      - title: "Sending Messages"
+      - title: "Send Messages"
         url: /integrate/sending-messages
   - title: Request consent
     children:
