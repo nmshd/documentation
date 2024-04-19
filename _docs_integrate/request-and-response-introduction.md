@@ -52,8 +52,21 @@ With the [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview
 
 Examples:
 
-- Authentication for a login to a website
-- Authentication for opening a door
+- Authentication for a login to a website.
+- Authentication for opening a door.
+
+Response Parameters
+
+Item Properties
+
+- To accept this RequestItem an [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+
+Parameters
+
+- To accept this RequestItem you can utilize [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters).
+- To reject this RequestItem you can utilize [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters).
 
 #### ConsentRequestItem
 
@@ -72,17 +85,60 @@ Examples:
 - "Yes, I have backed up all of my data of this PC and you can wipe it."
 - "I opt in to the newsletter."
 
+Response Parameters
+
+Item Properties
+
+- To accept this RequestItem an [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+
+Parameters
+
+- To accept this RequestItem you can utilize [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters).
+- To reject this RequestItem you can utilize [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters).
+
 #### CreateAttributeRequestItem
 
-If you want to create Identity- or RelationshipAttributes for the peer, the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) can be used. Please have a look at the [ProposeAttributeRequestItem](#proposeattributerequestitem) if the peer should be able to overwrite the Attribute.
+If you want to create IdentityAttributes or RelationshipAttributes for the peer, the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) can be used. Please have a look at the [ProposeAttributeRequestItem](#proposeattributerequestitem) if the peer should be able to overwrite the Attribute.
 
 To create an Attribute with a fixed value defined by the sender, an Identity uses the CreateAttributeRequestItem. A fixed value in this case means, that the recipient is not allowed to change the value when accepting the request.
 
 Examples of use cases for the CreateAttributeRequestItem can be found in the [Create Attribute for peer]({% link _docs_integrate/create-attribute-for-peer.md %}) guide.
 
+Response
+
+Item Properties
+
+- To accept this RequestItem a [CreateAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#createattributeacceptresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+
+Parameters
+
+- To accept this RequestItem you can utilize [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters).
+- To reject this RequestItem you can utilize [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters).
+
+Combinations and usage scenarios
+
+[Combinations and usage scenarios of the CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#combinations-and-usage-scenarios-of-createattributerequestitem) can be found in the [Create Attribute for peer]({% link _docs_integrate/create-attribute-for-peer.md %}) guide.
+
 #### FreeTextRequestItem
 
 With the [FreeTextRequestItem]({% link _docs_integrate/data-model-overview.md %}#freetextrequestitem) it is possible to send a free text to the peer. The peer itself can accept this with a free text as well.
+
+Response Parameters
+
+Item Properties
+
+- To accept this RequestItem a [FreeTextAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#freetextacceptresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+
+Parameters
+
+- To accept this RequestItem you can utilize [AcceptFreeTextRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptfreetextrequestitemparameters).
+- To reject this RequestItem you can utilize [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters).
 
 #### ProposeAttributeRequestItem
 
@@ -92,6 +148,23 @@ To create an Attribute with a value proposed by the sender, an Identity uses the
 
 Examples of use cases for the ProposeAttributeRequestItem can be found in the [Propose Attribute to peer]({% link _docs_integrate/propose-attribute-to-peer.md %}) guide.
 
+Response
+
+Item Properties
+
+- To accept this RequestItem a [ProposeAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributeacceptresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+
+Parameters
+
+- To accept this RequestItem you can utilize [AcceptProposeAttributeRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptproposeattributerequestitemparameters).
+- To reject this RequestItem you can utilize [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters).
+
+Combinations and usage scenarios
+
+[Combinations and usage scenarios of the ProposeAttributeRequestItem]({% link _docs_integrate/propose-attribute-to-peer.md %}#combinations-and-usage-scenarios-of-proposeattributerequestitem) can be found in the [Propose Attribute to peer]({% link _docs_integrate/propose-attribute-to-peer.md %}) guide.
+
 #### ReadAttributeRequestItem
 
 If you want to query an Identity's Attributes this is done with the [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem).
@@ -99,6 +172,23 @@ If you want to query an Identity's Attributes this is done with the [ReadAttribu
 To query Attributes which are not known to the sender, an Identity uses the ReadAttributeRequestItem.
 
 Examples of use cases for the ReadAttributeRequestItem can be found in the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide.
+
+Response
+
+Item Properties
+
+- To accept this RequestItem a [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+
+Parameters
+
+- To accept this RequestItem you can utilize [AcceptReadAttributeRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptreadattributerequestitemparameters).
+- To reject this RequestItem you can utilize [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters).
+
+Combinations and usage scenarios
+
+[Combinations and usage scenarios of the ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#combinations-and-usage-scenarios-of-readattributerequestitem) can be found in the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide.
 
 #### RegisterAttributeListenerRequestItem
 
@@ -108,6 +198,19 @@ Examples:
 
 - Asking for a specific RelationshipAttribute of a partner organization.
 
+Response
+
+Item Properties
+
+- To accept this RequestItem a [RegisterAttributeListenerAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#registerattributelisteneracceptresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+
+Parameters
+
+- To accept this RequestItem you can utilize [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters).
+- To reject this RequestItem you can utilize [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters).
+
 #### ShareAttributeRequestItem
 
 If you want to share the own DisplayName and possibly other Attributes this is done with the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem).
@@ -115,6 +218,23 @@ If you want to share the own DisplayName and possibly other Attributes this is d
 To share own IdentityAttributes (owner = self) an Identity uses the ShareAttributeRequestItem. The Identity needs to create the IdentityAttribute separately before the Attribute can be shared.
 
 Examples of use cases for the ShareAttributeRequestItem can be found in the [Share Attribute with peer]({% link _docs_integrate/share-attribute-with-peer.md %}) guide.
+
+Response
+
+Item Properties
+
+- To accept this RequestItem a [ShareAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#shareattributeacceptresponseitem) will be transferred.
+- To reject this RequestItem a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+- In case of an error an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+
+Parameters
+
+- To accept this RequestItem you can utilize [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters).
+- To reject this RequestItem you can utilize [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters).
+
+Combinations and usage scenarios
+
+[Combinations and usage scenarios of the ShareAttributeRequestItem]({% link _docs_integrate/share-attribute-with-peer.md %}#combinations-and-usage-scenarios-of-shareattributerequestitem) can be found in the [Share Attribute with peer]({% link _docs_integrate/share-attribute-with-peer.md %}) guide.
 
 ## Responses
 
