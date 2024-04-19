@@ -121,16 +121,16 @@ docs_integrate:
         url: /integrate/request-one-time-consent-of-peer
   - title: Data Model
     children:
-      - title: "Use Cases"
-        url: /integrate/use-cases
       - title: "Data Model Overview"
         url: /integrate/data-model-overview
-      - title: "Connector Events"
-        url: /integrate/connector-events
-      - title: "Requests and RequestItems"
-        url: /integrate/requests-and-requestitems
       - title: "Attribute Values"
         url: /integrate/attribute-values
+      - title: "Connector Events"
+        url: /integrate/connector-events
+      - title: "Use Cases"
+        url: /integrate/use-cases
+      - title: "Requests and RequestItems"
+        url: /integrate/requests-and-requestitems
   - title: Troubleshooting
     children:
       - title: "Error Codes"
