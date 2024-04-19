@@ -88,7 +88,7 @@ Before an Identity can establish a Relationship to the Templator, it must send a
 
 ### Make it available to a Connector
 
-If a Connector wants to send a RelationshipRequest to the Templator, it must first load a RelationshipTemplate, which is owned by the Templator, onto itself. This can be done by following the [Load RelationshipTemplate created by others]({% link _docs_use-cases/use-case-transport-load-relationship-template-created-by-others.md %}) use case description and providing the input:
+If a Connector wants to send a RelationshipRequest to the Templator, it must first load a RelationshipTemplate, which is owned by the Templator, onto itself. This can be done by following the [Load RelationshipTemplate created by others]({% link _docs_use-cases/use-case-transport-load-relationshiptemplate-created-by-others.md %}) use case description and providing the input:
 
 ```jsonc
 {
@@ -109,7 +109,7 @@ When the RelationshipTemplate of the Templator is successfully loaded onto the C
 
 ### Make it available to an App user
 
-If an App user wants to send a RelationshipRequest to the Templator, the App user must first scan a QR Code that contains the reference to a RelationshipTemplate which is owned by the Templator. To create this QR Code on the Templator, proceed as described in the documentation of the [Get RelationshipTemplate]({% link _docs_use-cases/use-case-transport-get-relationship-template.md %}) use case, use the `id` of the [created RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) and specify the value `image/png` in the `Accept` header field. After scanning the QR Code, the App user receives the conditions for establishing a Relationship to the Templator as specified in the RelationshipTemplate. If these are accepted, the App user can now [send a RelationshipRequest]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#send-it-as-an-app-user) to the Templator.
+If an App user wants to send a RelationshipRequest to the Templator, the App user must first scan a QR Code that contains the reference to a RelationshipTemplate which is owned by the Templator. To create this QR Code on the Templator, proceed as described in the documentation of the [Get RelationshipTemplate]({% link _docs_use-cases/use-case-transport-get-relationshiptemplate.md %}) use case, use the `id` of the [created RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) and specify the value `image/png` in the `Accept` header field. After scanning the QR Code, the App user receives the conditions for establishing a Relationship to the Templator as specified in the RelationshipTemplate. If these are accepted, the App user can now [send a RelationshipRequest]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#send-it-as-an-app-user) to the Templator.
 
 ## Send a RelationshipRequest
 
