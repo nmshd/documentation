@@ -1,20 +1,20 @@
 ---
 # Start automatic generation
-permalink: use-case-consumption-create-a-blueprint-of-a-relationship-template
+permalink: use-case-consumption-create-relationshiptemplate-out-of-blueprint
 published: false
-title: "Create a Blueprint of a Relationship Template"
+title: "Create RelationshipTemplate out of Blueprint"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate Enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RB1
+  - id: RB6
   - component: Runtime
   - layer: Consumption
   - facade:
   - function:
-  - description: Create a parametrizable Blueprint to create Relationship Templates with. This is used for creating specific business cards for Users.
+  - description:
   - feature category:
   - tech category: Blueprint
   - status: IDEA
@@ -25,13 +25,13 @@ properties:
   - precondition:
   - result:
   - priority: LOW
-  - complexity: HIGH
-  - size: HIGH
+  - complexity: MEDIUM
+  - size: S
   - created_at:
   - changed_at:
   - api_route_regex:
   - published:
-  - link: use-case-consumption-create-a-blueprint-of-a-relationship-template
+  - link: use-case-consumption-create-relationshiptemplate-out-of-blueprint
 require:
 required_by:
 # End automatic generation

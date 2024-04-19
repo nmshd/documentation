@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use-case-transport-send-message-to-recipients
 published: true
-title: "Send message to recipient(s)"
+title: "Send Message to Recipient(s)"
 type: use-case
 toc: true
 sidebar:

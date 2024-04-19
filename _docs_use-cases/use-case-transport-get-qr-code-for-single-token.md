@@ -1,8 +1,8 @@
 ---
 # Start automatic generation
-permalink: use-case-transport-get-qrcode-for-single-token
+permalink: use-case-transport-get-qr-code-for-single-token
 published: false
-title: "Get QRCode for single Token"
+title: "Get QR Code for single Token"
 type: use-case
 toc: true
 sidebar:
@@ -31,7 +31,7 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: use-case-transport-get-qrcode-for-single-token
+  - link: use-case-transport-get-qr-code-for-single-token
 require:
 required_by:
 # End automatic generation

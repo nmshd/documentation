@@ -1,8 +1,10 @@
 ---
 # Start automatic generation
-permalink: use-case-transport-get-relationship-template
+permalink: use-case-transport-get-relationshiptemplate
+redirect_from:
+  - /use-case-transport-get-relationship-template
 published: true
-title: "Get Relationship Template"
+title: "Get RelationshipTemplate"
 type: use-case
 toc: true
 sidebar:
@@ -31,7 +33,7 @@ properties:
   - changed_at:
   - api_route_regex: GET /api/v2/RelationshipTemplates/{id}
   - published: default
-  - link: use-case-transport-get-relationship-template
+  - link: use-case-transport-get-relationshiptemplate
 require:
 required_by:
 api_route_regex: ^GET /api/v2/RelationshipTemplates/{id}$
