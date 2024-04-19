@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: integrate/establish-new-digital-relationships-to-enmeshed-users
 published: false
-title: "establish new digital relationships to enmeshed users"
+title: "Establish new digital relationships to enmeshed users"
 type: scenario
 toc: true
 properties:

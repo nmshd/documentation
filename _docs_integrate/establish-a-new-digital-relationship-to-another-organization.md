@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: integrate/establish-a-new-digital-relationship-to-another-organization
 published: false
-title: "establish a new digital relationship to another organization"
+title: "Establish a new digital relationship to another organization"
 type: scenario
 toc: true
 properties:

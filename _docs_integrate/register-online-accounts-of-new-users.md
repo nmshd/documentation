@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: integrate/register-online-accounts-of-new-users
 published: false
-title: "register online accounts of new users"
+title: "Register online accounts of new users"
 type: scenario
 toc: true
 properties:
