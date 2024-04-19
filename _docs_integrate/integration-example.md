@@ -309,4 +309,4 @@ Now that you have successfully established a Relationship and exchanged Messages
 
 - explore the [enmeshed data model]({% link _docs_integrate/data-model-overview.md %}) and learn more about the objects you used during this tutorial and the objects you will encounter in the future
 - learn how to send [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) with your established Relationship
-- dive deeper into creating and sending [Requests over RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %})
+- dive deeper into creating and sending [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %})
