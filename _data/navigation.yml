@@ -129,8 +129,6 @@ docs_integrate:
         url: /integrate/connector-events
       - title: "Use Cases"
         url: /integrate/use-cases
-      - title: "Requests and RequestItems"
-        url: /integrate/requests-and-requestitems
   - title: Troubleshooting
     children:
       - title: "Error Codes"
