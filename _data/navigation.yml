@@ -85,8 +85,8 @@ docs_integrate:
         url: /integrate/event-introduction
   - title: Get in touch with other Identities
     children:
-      - title: "Establish a Relationship to another Identity"
-        url: integrate/establish-a-relationship-to-another-identity
+      - title: "Establish Relationships"
+        url: integrate/establish-relationships
   - title: Work with Requests
     children:
       - title: "Request and Response introduction"

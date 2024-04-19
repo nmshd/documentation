@@ -19,7 +19,7 @@ Begin your integration journey by familiarizing yourself with the [Connector RES
 
 ## Get in touch with other Identities
 
-Learn how to [establish a Relationship to another Identity]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}) in order to be able to communicate and exchange information with it.
+Learn how to [establish a Relationship]({% link _docs_integrate/establish-relationships.md %}) to another Identity in order to be able to communicate and exchange information with it.
 
 ## Work with Requests
 

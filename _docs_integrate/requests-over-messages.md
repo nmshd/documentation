@@ -39,7 +39,7 @@ We'll go through the steps of validating and creating the Request, sending and r
 {% include properties_list.html %}
 
 This guide assumes that you already have an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between the two Connectors, e.g. from following the [Integration Example]({% link _docs_integrate/integration-example.md %}) or the scenario page [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}).
-If that is not the case, either take a look at those guides first or follow the instructions of how to [establish a Relationship to another Identity]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}).
+If that is not the case, either take a look at those guides first or follow the instructions of how to [establish a Relationship]({% link _docs_integrate/establish-relationships.md %}) to another Identity.
 
 In order to send a Message to the Recipient, it is required to know their enmeshed Address.
 To retrieve it, the Sender can [query their Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) and look for the right one.
