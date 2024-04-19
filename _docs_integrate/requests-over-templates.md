@@ -27,22 +27,20 @@ required_by:
 # End automatic generation
 ---
 
-<!-- A general description of the requirement can be given here. -->
+This guide will explain the end-to-end flow of sharing and answering a [Request]({% link _docs_integrate/data-model-overview.md %}#request) via a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
+Usually, this flow happens between a [Connector]({% link _docs_explore/52-connector.md %}) and the [App]({% link _docs_explore/50-app.md %}), but for simplicity and more transparency we will use two Connectors in this example.
+Thus, you'll need two Connectors, that either already have a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with each other or not yet.
 
-This guide will explain the end to end flow of sharing and answering a [Request]({% link _docs_integrate/data-model-overview.md %}#request) over a Template. This flow usually happens between the App and a Connector, but for simplicity and more transparency we will use two Connectors. Therefore you have to start two Connectors that don't have a Relationship yet.
+You can use the [Connector Installation Guide]({% link _docs_operate/setup-with-docker-compose.md %}) if you need help setting up the Connectors.
 
-You can use the [Connector Installation Guide]({% link _docs_operate/setup-with-docker-compose.md %}) if you need help for the setup the Connectors.
-
-<!-- This include inserts the table with the metadata  -->
-
-{% include properties_list.html %}
-
-On the first Connector you will create a Template. This Connector will be called Templator in the following steps. The second Connector is called Requestor, because it will create the Relationship and therefore it creates the `RelationshipCreationChangeRequest`.
+On the first Connector, which we will refer to as the Sender, you will create the Request and the RelationshipTemplate.
+The second Connector, which we will refer to as the Recipient, will receive the RelationshipTemplate and respond to the Request.
 
 ## Check your Request's validity
 
-At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Templator Connector with the following body.
-For simplicity the Request inside the Template only contains an AuthenticationRequestItem, but you can use any [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) you want.
+Firstly, you should [check if your Request is valid]({% link _docs_use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}).
+As an example, we use a Request with just an [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem), but you can use any Request you want.
+For an overview of the available [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems), check out our [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}).
 
 ```json
 {
@@ -51,7 +49,7 @@ For simplicity the Request inside the Template only contains an AuthenticationRe
       {
         "@type": "AuthenticationRequestItem",
         "mustBeAccepted": true,
-        "title": "The templator is asking for an authentication"
+        "title": "The Sender is asking for an authentication."
       }
     ]
   }
@@ -61,27 +59,35 @@ For simplicity the Request inside the Template only contains an AuthenticationRe
 Even though the Requests are validated during the RelationshipTemplate creation you should not skip this step as it gives you additional information in case of validation errors.
 {: .notice--info}
 
-## Create the Template
+## Create the RelationshipTemplate
 
-Create the Relationship Template on the Templator's Connector. You can do so by calling the `POST /api/v2/RelationshipTemplates/Own` route. Use the following JSON in the Request body:
+Next, [create a RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-own-relationshiptemplate.md %}) on the Sender Connector, using a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent).
+If there is no Relationship between the Connectors, yet, you must put the `content` property of the payload of the previous step in the `onNewRelationship` property of the RelationshipTemplateContent.
+However, if the Connectors already have a Relationship with each other, you must put it in the `onExistingRelationship` property of the `RelationshipTemplateContent`.
+But note, that the `onNewRelationship` property is required and must, therefore, always be set.
 
 ```jsonc
 {
   "maxNumberOfAllocations": 1,
-  "expiresAt": "2023-06-01T00:00:00.000Z",
+  "expiresAt": "2025-01-01T00:00:00.000Z",
   "content": {
     "@type": "RelationshipTemplateContent",
-    "title": "Connector Demo Contact",
+    "title": "Requests via RelationshipTemplates example",
     "onNewRelationship": {
-      // the content property of the payload in the step before
+      // the content property of the payload of the previous step,
+      // if the Connectors don't have a Relationship with each other, yet
+      ...
+    },
+    "onExistingRelationship": {
+      // the content property of the payload of the previous step,
+      // if the Connectors already have a Relationship with each other
+      ...
     }
   }
 }
 ```
 
 You will receive a response with the complete RelationshipTemplate.
-
-{% include copy-notice description="Save the `truncatedReference` and the `id` of the RelationshipTemplate. You will need them in the next steps." %}
 
 ```jsonc
 {
@@ -91,35 +97,37 @@ You will receive a response with the complete RelationshipTemplate.
 }
 ```
 
-## Load the Template and get the Request
+{% include copy-notice description="Save the `truncatedReference` and the `id` of the RelationshipTemplate. You will need them in the next steps." %}
 
-Now you have to load the Template on the Requestor Connector. You can do so by calling the `POST /api/v2/RelationshipTemplates/Peer` route with the following content. Use the `truncatedReference` you copied before:
+## Load the RelationshipTemplate and get the Request
+
+Now you have to [load the RelationshipTemplate on the Recipient Connector]({% link _docs_use-cases/use-case-transport-load-relationship-template-created-by-others.md %}) using the following payload:
 
 ```jsonc
 {
-  "reference": "UkxU..."
+  "reference": "<truncated reference of RelationshipTemplate>"
 }
 ```
 
-If no Relationship exists, this will trigger a process in the enmeshed Runtime. It will create a new incoming Request on which we will work in the next step. You can observe this by long polling the incoming Requests or by waiting for the `consumption.incomingRequestReceived` event.
+This will trigger a process in the [enmeshed Runtime]({% link _docs_explore/61-runtime.md %}), which will create a new incoming Request.
+You can observe this by [long polling the incoming Requests]({% link _docs_use-cases/use-case-consumption-query-incoming-requests.md %}) and optionally use the query parameters `source.reference=<ID of the RelationshipTemplate>` and `status=ManualDecisionRequired` to filter for Requests that belong to the RelationshipTemplate you are currently working on.
 
-The long polling is done by calling the `GET /api/v2/Requests/Incoming` route. You can use the query params `source.reference=<id-of-the-template>` and `status=ManualDecisionRequired` to filter for Requests that belong to the Template you are currently working on.
-
-For more information about the events you can head over to the [Connector Modules site]({% link _docs_operate/modules.md %}) and read about the [AMQP Publisher module]({% link _docs_operate/modules.md %}#amqppublisher) and the [Webhooks module]({% link _docs_operate/modules.md %}#webhooks) that are propagating events.
+In a productive environment, however, we recommend using the [Sync module]({% link _docs_operate/modules.md %}#sync) and waiting for a `consumption.incomingRequestReceived` [Connector Event]({% link _docs_integrate/connector-events.md %}).
+To learn more about events, how to use them in the context of enmeshed and which [modules]({% link _docs_operate/modules.md %}) are supported by enmeshed to help you automating your business process, check out our [Event introduction]({% link _docs_integrate/event-introduction.md %}).
 
 {% include copy-notice description="After you received the Request, save its `id` for the next step." %}
 
 ## Answer the Request
 
-The rejection is explained before the acceptance because you can re-do it as often if you want. If you accept the Request a RelationshipRequest will be sent and no new Request will be created until the RelationshipRequest is answered. If the RelationshipRequest is accepted the enmeshed Runtime will recognize the existing Relationship and will also not create a new Request.
-
-So if you want to test the full flow, you should first reject the Request. After that you can create a new one, which you can accept.
-
-If there is no open RelationshipRequest or existing Relationship, you can trigger the creation of a new Request by [loading the Template again](#load-the-template-and-get-the-request) with the same truncated reference.
+If you want to test the full flow, we recommend to reject the Request first.
+Afterwards, you can create a new one by [loading the RelationshipTemplate](#load-the-relationshiptemplate-and-get-the-request) again and accept it.
 
 ### Reject
 
-If you want to reject the Request you can do so by calling the `PUT /api/v2/Requests/Incoming/{id}/Reject` route. You can use the `id` you saved in the previous step. In the payload you have to reject all RequestItems. In case of the example Request the payload is the following:
+Let's consider the case the Recipient wants to [reject the Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}).
+For this, use the `id` of the Request you saved in the previous step.
+In the payload you have to reject all RequestItems.
+In case of the example Request, the payload is the following:
 
 ```jsonc
 {
@@ -131,13 +139,19 @@ If you want to reject the Request you can do so by calling the `PUT /api/v2/Requ
 }
 ```
 
-In the response you can see the Request has moved to status `Decided`. This is where the enmeshed Runtime steps in and handles the Request based on you decision. Because you rejected the Request, the enmeshed Runtime will only move the Request to status completed. This behavior can be observed by querying the Request again after a few seconds (`GET /api/v2/Requests/Incoming/{id}`).
+In the response you can see that the Request has moved to `status` `"Decided"`.
+This is where the enmeshed Runtime steps in and handles the Request based on your decision.
+It creates a [Response]({% link _docs_integrate/data-model-overview.md %}#response) with the appropriate [RejectResponseItems]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) and returns it to the Sender of the Request.
+Then, it will move the Request to `status` `"Completed"`.
+This can be observed by [querying the Request]({% link _docs_use-cases/use-case-consumption-get-incoming-request.md %}) again after a few seconds.
 
 ### Accept
 
-If you tried out the Rejection before this step make sure to create a Request by [loading the Template again](#load-the-template-and-get-the-request) with the same truncated reference.
+If you tried out the rejection before this step, make sure to create a new Request by [loading the RelationshipTemplate](#load-the-relationshiptemplate-and-get-the-request) again with the same `truncatedReference`.
 
-If you want to accept the Request you can do so by calling the `PUT /api/v2/Requests/Incoming/{id}/Accept` route. You can use the `id` you saved in the [template loading](#load-the-template-and-get-the-request) step. In the payload you have to accept at least all RequestItems where the `mustBeAccepted` property is set to `true`. In case of the example Request the payload is the following:
+To [accept the Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}), you need its `id` that you saved in a previous step.
+In the payload you have to accept at least all RequestItems where the `mustBeAccepted` property is set to `true`.
+In case of the example Request, the payload is the following:
 
 ```jsonc
 {
@@ -149,9 +163,22 @@ If you want to accept the Request you can do so by calling the `PUT /api/v2/Requ
 }
 ```
 
-In the response you can see the Request has moved to status `Decided`. This is where the enmeshed Runtime steps in and handles the Request based on you decision. Because you accepted the Request, the enmeshed Runtime will send your Response to the Templator by creating a Relationship. This behavior can be observed by querying the Request again after a few seconds (`GET /api/v2/Requests/Incoming/{id}`). When the Request is in status `Completed` you can query the created Relationship (`GET /api/v2/Relationships`, query parameter `template.id=<id-of-the-template>`).
+In the response you can see the Request has moved to `status` `"Decided"`.
+This behavior can be observed by [querying the Request]({% link _docs_use-cases/use-case-consumption-get-incoming-request.md %}) again after a few seconds.
+Now, the enmeshed Runtime steps in and handles the Request based on your decision.
+The Response is created with the appropriate ResponseItems.
 
-If you synchronize the Templator Connector (`POST /api/v2/Account/Sync`) you will see a new Relationship in the response. The Relationship looks as follows:
+If there is already an active Relationship between the Connectors, the Response will be sent back to the Sender via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) and the Request will move to `status` `"Completed"`.
+The Sender, then, can fetch it by [synchronizing the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
+
+However, if there is no active Relationship between the Connectors, yet, a Relationship will be created, which has the `status` `"Pending"` for now.
+It contains a [RelationshipChangeRequest]({% link _docs_integrate/data-model-overview.md %}#relationshipchangerequest) with a `content` of type [RelationshipCreationChangeRequestContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationchangerequestcontent), that in turn contains the Response to the Request.
+This Relationship will be sent back to the Sender via a Message.
+Then, the Request will be set to `status` `"Completed"` and you can [query the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) using the query parameter `template.id=<ID of the RelationshipTemplate>`.
+Until the RelationshipChangeRequest is answered, no new Request will be created by [loading the RelationshipTemplate](#load-the-relationshiptemplate-and-get-the-request).
+
+The Sender can fetch the Relationship by [synchronizing the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
+In the response you will see a new Relationship, which looks as follows:
 
 ```jsonc
 {
@@ -168,7 +195,7 @@ If you synchronize the Templator Connector (`POST /api/v2/Account/Sync`) you wil
       "request": {
         "createdBy": "id1...",
         "createdByDevice": "DVC...",
-        "createdAt": "2022-11-04T13:31:01.360Z",
+        "createdAt": "<time of creation>",
         "content": {
           "@type": "RelationshipCreationChangeRequestContent",
           "response": {
@@ -191,8 +218,8 @@ If you synchronize the Templator Connector (`POST /api/v2/Account/Sync`) you wil
 }
 ```
 
-Pay particular attention to the `changes.0.request.content` property that contains the Response that was generated by the enmeshed Runtime.
+{% include copy-notice description="Save the `id` of the Relationship and of the RelationshipChange to accept the RelationshipChange." %}
 
-Now you can accept the Relationship on the Templator Connector by calling the `PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Accept` route.
+Now you can [accept the RelationshipChange]({% link _docs_use-cases/use-case-transport-accept-relationshipchange.md %}) on the Sender Connector with the `id` of the Relationship and the `id` of the RelationshipChange.
 
-When you synchronize the Requestor Connector (`POST /api/v2/Account/Sync`) you can see that the Relationship is now in status `Active` on both Connectors.
+When you [synchronize the Recipient Connector]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), you can see that the Relationship now has the `status` `"Active"` on both Connectors.
