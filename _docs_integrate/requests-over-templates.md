@@ -101,7 +101,7 @@ You will receive a response with the complete RelationshipTemplate.
 
 ## Load the RelationshipTemplate and get the Request
 
-Now you have to [load the RelationshipTemplate on the Recipient Connector]({% link _docs_use-cases/use-case-transport-load-relationship-template-created-by-others.md %}) using the following payload:
+Now you have to [load the RelationshipTemplate on the Recipient Connector]({% link _docs_use-cases/use-case-transport-load-relationshiptemplate-created-by-others.md %}) using the following payload:
 
 ```jsonc
 {
