@@ -1,13 +1,13 @@
 ---
 # Start automatic generation
-permalink: integrate/request-and-process-attributes-by-code-or-link-of-new-contacts
+permalink: integrate/attribute-introduction
 published: false
-title: "Request and process attributes by code or link of new contacts"
+title: "Attribute introduction"
 type: scenario
 toc: true
 properties:
-  - id: SC050
-  - category: Manage Attributes of others
+  - id: SC047
+  - category: Manage Attributes of yourself
   - description:
   - customer: All
   - component: integrate
@@ -15,8 +15,9 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: request-and-process-attributes-by-code-or-link-of-new-contacts
+  - link: attribute-introduction
 require:
 required_by:
+  - integrate/create-attribute-for-yourself
 # End automatic generation
 ---

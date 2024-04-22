@@ -1,21 +1,21 @@
 ---
 # Start automatic generation
-permalink: integrate/request-statuses
+permalink: integrate/delete-an-attribute
 published: false
-title: "Request statuses"
+title: "Delete an Attribute"
 type: scenario
 toc: true
 properties:
-  - id: SC037
-  - category: Working with Requests
+  - id: SC055
+  - category: Handling data deletion
   - description:
   - customer: All
   - component: integrate
   - level: Advanced
-  - implementation status: DOCS ONLY
-  - documentation status: OPEN
+  - implementation status: IN PROGRESS
+  - documentation status: In PROGRESS
   - published:
-  - link: request-statuses
+  - link: delete-an-attribute
 require:
 required_by:
 # End automatic generation

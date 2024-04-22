@@ -1,21 +1,21 @@
 ---
 # Start automatic generation
-permalink: integrate/respond-to-incoming-identityattribute-update-requests
+permalink: integrate/working-with-unstructured-data
 published: false
-title: "Respond to incoming IdentityAttribute update requests"
+title: "Working with unstructured data"
 type: scenario
 toc: true
 properties:
-  - id: SC054
+  - id: SC057
   - category: Manage Attributes of others
   - description:
   - customer: All
   - component: integrate
-  - level: Beginner
-  - implementation status: OPEN
+  - level: Advanced
+  - implementation status: DOCS ONLY
   - documentation status: OPEN
   - published:
-  - link: respond-to-incoming-identityattribute-update-requests
+  - link: working-with-unstructured-data
 require:
 required_by:
 # End automatic generation

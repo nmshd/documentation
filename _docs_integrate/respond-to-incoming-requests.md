@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC041
-  - category: Working with requests
+  - category: Working with Requests
   - description:
   - customer: All
   - component: integrate

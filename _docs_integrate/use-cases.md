@@ -9,7 +9,7 @@ type: scenario
 toc: true
 properties:
   - id: SC082
-  - category: Getting Started
+  - category: Data Model
   - description:
   - customer:
   - component: integrate
