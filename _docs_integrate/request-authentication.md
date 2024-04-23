@@ -1,8 +1,6 @@
 ---
 # Start automatic generation
 permalink: integrate/request-authentication
-redirect_from:
-  - /integrate/requesting-authentication
 published: false
 title: "Request authentication"
 type: scenario

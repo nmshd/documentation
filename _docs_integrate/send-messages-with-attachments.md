@@ -1,8 +1,6 @@
 ---
 # Start automatic generation
 permalink: integrate/send-messages-with-attachments
-redirect_from:
-  - integrate/sending-messages-with-attachments
 published: false
 title: "Send Messages with attachments"
 type: scenario
