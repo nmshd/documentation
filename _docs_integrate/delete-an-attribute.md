@@ -23,7 +23,7 @@ required_by:
 The exact process of deleting an Attribute depends on the kind of Attribute at hand.
 [Creating an Attribute]({% link _docs_integrate/create-attribute-for-yourself.md %}), we must distinguish between [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) and [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
 In the former case, a so-called RepositoryAttribute is created, which is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) without `shareInfo`, that you are the `owner` of.
-Afterwards, you may [share it]({% link _docs_integrate/share-own-attribute-to-peer.md %}) with a peer, which yields the creation of an own shared IdentityAttribute.
+Afterwards, you may [share it]({% link _docs_integrate/share-attribute-with-peer.md %}) with a peer, which yields the creation of an own shared IdentityAttribute.
 This is a LocalAttribute with the copied `content` of the RepositoryAttribute, but an additional `shareInfo` property.
 Doing so, also a LocalAttribute with the same `content` and a respective `shareInfo` is created for the peer, which is referred to as peer shared Attribute.
 In the case of RelationshipAttributes we have own shared and peer shared RelationshipAttributes analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with RepositoryAttributes.
@@ -63,7 +63,7 @@ Before sending the Request, we recommend to [validate its content]({% link _docs
 
 Next, send the Request to the peer.
 You can either do so by [Message]({% link _docs_integrate/data-model-overview.md %}#message) or by a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate), using the `onExistingRelationship` property of a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent).
-For a detailed explanation check out our guides on how to send [Requests via Messages]({% link _docs_integrate/requests-over-messages.md %}) and [Requests via RelationshipTemplates]({% link _docs_integrate/requests-over-templates.md %}).
+For a detailed explanation check out our guides on how to send [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) and [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}).
 
 Once the peer received the Request, they can accept or reject it.
 If they want to [accept it]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}), they must use the [AcceptDeleteAttributeRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptdeleteattributerequestitemparameters).
@@ -131,7 +131,7 @@ Its `deletionStatus` will be set to `"DeletedByOwner"` and the `deletionDate` wi
 
 Lastly, you can also [delete RepositoryAttributes]({% link _docs_use-cases/use-case-consumption-delete-a-repositoryattribute.md %}), i.e. LocalAttributes that are owned by yourself and whose `shareInfo` property is undefined.
 Analogously to the cases above, also all predecessors of the RepositoryAttribute with specified `attributeId` will be deleted.
-Additionally, the `succeeds` property of the successor will be removed in case of [Attribute succession]({% link _docs_integrate/succeeding-attributes-to-update-their-values.md %}).
+Additionally, the `succeeds` property of the successor will be removed in case of [Attribute succession]({% link _docs_integrate/succeed-attribute-to-update-its-value.md %}).
 
 Furthermore, if there are any shared copies of the RepositoryAttribute, their `shareInfo` will be updated such that `sourceAttribute` doesn't link to the deleted RepositoryAttribute anymore.
 As a consequence, the [get shared versions of a RepositoryAttribute use case]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-a-repositoryattribute.md %}) will no longer return those shared versions.
