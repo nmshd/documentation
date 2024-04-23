@@ -110,7 +110,7 @@ docs_integrate:
       - title: "Succeed Attribute to update its value"
         url: /integrate/succeed-attribute-to-update-its-value
       - title: "Delete an Attribute"
-        url: /integrate/delete-an-attribute
+        url: /integrate/delete-attributes
   - title: Basic communication
     children:
       - title: "Send Messages"

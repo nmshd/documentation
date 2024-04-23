@@ -113,4 +113,4 @@ Then, a Notification is sent automatically to the peer, which triggers the creat
 
 As we have seen, succeeding an Attribute allows you to mark a version of the Attribute as outdated and lets you specify an updated version that is to be used instead.
 However, you might also find yourself in a situation where you want to delete an Attribute altogether.
-To do so, proceed as described in the guide on [how to delete Attributes]({% link _docs_integrate/delete-an-attribute.md %}).
+To do so, proceed as described in the guide on [how to delete Attributes]({% link _docs_integrate/delete-attributes.md %}).
