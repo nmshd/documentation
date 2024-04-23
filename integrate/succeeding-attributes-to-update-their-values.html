@@ -1,10 +1,11 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
-  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Minimal Mistakes Jekyll Theme 4.25.0 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
+
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
@@ -34,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-04-18T18:04:18+02:00">
+  <meta property="article:published_time" content="2024-04-23T09:46:10+02:00">
 
 
 
@@ -79,8 +80,8 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
 
 
 
@@ -301,6 +302,20 @@
     
       <li>
         
+          <span class="nav__sub-title">Handling data deletion</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/delete-an-attribute">Delete an Attribute</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
           <span class="nav__sub-title">Data Model</span>
         
 
@@ -352,7 +367,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Succeeding Attributes to update their values">
     <meta itemprop="description" content="The way enmeshed handles updates to your personal data is by succeeding old Attributes with new ones.Instead of simply replacing old data, a completely new Attribute is created which succeeds its predecessor.Thus, you and your peers are provided with a coherent history of all past versions.How the Attribute succession works in detail depends on the type of Attribute.">
-    <meta itemprop="datePublished" content="2024-04-18T18:04:18+02:00">
+    <meta itemprop="datePublished" content="2024-04-23T09:46:10+02:00">
     
 
     <div class="page__inner-wrap">
@@ -373,7 +388,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#succeeding-own-identityattributes">Succeeding own IdentityAttributes</a><ul><li><a href="#creating-a-repositoryattribute">Creating a RepositoryAttribute</a></li><li><a href="#sharing-a-repositoryattribute">Sharing a RepositoryAttribute</a></li><li><a href="#succeeding-a-repositoryattribute">Succeeding a RepositoryAttribute</a></li><li><a href="#notifying-a-peer-about-a-repositoryattribute-succession">Notifying a peer about a RepositoryAttribute succession</a></li></ul></li><li><a href="#succeeding-own-relationshipattributes">Succeeding own RelationshipAttributes</a><ul><li><a href="#creating-and-sharing-a-relationshipattribute">Creating and sharing a RelationshipAttribute</a></li><li><a href="#succeeding-a-relationshipattribute-and-notifying-the-peer">Succeeding a RelationshipAttribute and notifying the peer</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#succeeding-own-identityattributes">Succeeding own IdentityAttributes</a><ul><li><a href="#creating-a-repositoryattribute">Creating a RepositoryAttribute</a></li><li><a href="#sharing-a-repositoryattribute">Sharing a RepositoryAttribute</a></li><li><a href="#succeeding-a-repositoryattribute">Succeeding a RepositoryAttribute</a></li><li><a href="#notifying-a-peer-about-a-repositoryattribute-succession">Notifying a peer about a RepositoryAttribute succession</a></li></ul></li><li><a href="#succeeding-own-relationshipattributes">Succeeding own RelationshipAttributes</a><ul><li><a href="#creating-and-sharing-a-relationshipattribute">Creating and sharing a RelationshipAttribute</a></li><li><a href="#succeeding-a-relationshipattribute-and-notifying-the-peer">Succeeding a RelationshipAttribute and notifying the peer</a></li></ul></li><li><a href="#whats-next">What’s next?</a></li></ul>
 
             </nav>
           </aside>
@@ -403,7 +418,7 @@ When <a href="/integrate/create-attribute-for-yourself">creating an IdentityAttr
 Instead, it will be stored in the <code class="language-plaintext highlighter-rouge">content</code> property of a LocalAttribute with an undefined <code class="language-plaintext highlighter-rouge">shareInfo</code>.
 We refer to these unshared LocalAttributes as RepositoryAttributes, since they make up your private repository of Attributes.</p>
 
-<p class="notice--info">In the following examples, the <code class="language-plaintext highlighter-rouge">createdAt</code> property all occuring LocalAttribute is omitted, since it isn’t required for the explanation.</p>
+<p class="notice--info">In the following examples, the <code class="language-plaintext highlighter-rouge">createdAt</code> and <code class="language-plaintext highlighter-rouge">deletionInfo</code> properties of all occuring LocalAttributes is omitted, since they aren’t required for the explanation.</p>
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/33654502-420f-41bd-801a-e0d4c1564df0" id="zs0-w2Ag-nJ4"></iframe></div>
 
@@ -464,6 +479,12 @@ Then, a Notification is sent automatically to the peer, which triggers the creat
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/67c46978-696b-4adf-b04a-cf27d0438f53" id="ww0-.JinZtEX"></iframe></div>
 
+<h2 id="whats-next">What’s next?</h2>
+
+<p>As we have seen, succeeding an Attribute allows you to mark a version of the Attribute as outdated and lets you specify an updated version that is to be used instead.
+However, you might also find yourself in a situation where you want to delete an Attribute altogether.
+To do so, proceed as described in the guide on <a href="/integrate/delete-an-attribute">how to delete Attributes</a>.</p>
+
         
       </section>
 
@@ -474,7 +495,7 @@ Then, a Notification is sent automatically to the peer, which triggers the creat
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-04-18T18:04:18+02:00">April 18, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-04-23T09:46:10+02:00">April 23, 2024</time></p>
 
       </footer>
 
@@ -490,6 +511,7 @@ Then, a Notification is sent automatically to the peer, which triggers the creat
   
 </div>
 
+      
     </div>
 
     
@@ -560,7 +582,6 @@ Then, a Notification is sent automatically to the peer, which triggers the creat
 <script src="/assets/js/lunr/lunr.min.js"></script>
 <script src="/assets/js/lunr/lunr-store.js"></script>
 <script src="/assets/js/lunr/lunr-en.js"></script>
-
 
 
 

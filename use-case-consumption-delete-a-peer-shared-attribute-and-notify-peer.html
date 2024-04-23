@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Sending Messages - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Delete a peer shared Attribute and notify peer - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Sending Messages">
-<meta property="og:url" content="/integrate/sending-messages">
+<meta property="og:title" content="Delete a peer shared Attribute and notify peer">
+<meta property="og:url" content="/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/integrate/sending-messages">
+<link rel="canonical" href="/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer">
 
 
 
@@ -98,7 +98,7 @@
 
   </head>
 
-  <body class="layout--single">
+  <body class="layout--usecase">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -162,7 +162,7 @@
   
     
       
-      <h3>Integrate enmeshed</h3>
+      <h3>Integrate Enmeshed</h3>
       
       
 
@@ -278,7 +278,7 @@
         
         <ul>
           
-            <li><a href="/integrate/sending-messages" class="active">Sending Messages</a></li>
+            <li><a href="/integrate/sending-messages">Sending Messages</a></li>
           
         </ul>
         
@@ -365,7 +365,7 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Sending Messages">
+    <meta itemprop="headline" content="Delete a peer shared Attribute and notify peer">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2024-04-23T09:46:10+02:00">
     
@@ -374,7 +374,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="/integrate/sending-messages" class="u-url" itemprop="url">Sending Messages
+            <a href="/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer" class="u-url" itemprop="url">Delete a peer shared Attribute and notify peer
 </a>
           </h1>
           
@@ -388,84 +388,109 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#upload-files">Upload Files</a></li><li><a href="#get-messages">Get Messages</a></li><li><a href="#download-attachments-of-messages">Download Attachments of Messages</a></li><li><a href="#receive-messages">Receive Messages</a></li></ul>
+              <ul class="toc__menu"><li><a href="#parameters">Parameters</a></li><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
 
             </nav>
           </aside>
         
-        <!-- A general description of the requirement can be given here. -->
-
-<p>The Connector can send and receive messages with attachments using REST requests and file IDs, which are first uploaded and encrypted on the Platform. Messages can be queried and downloaded, and the Connector pulls for new messages periodically.</p>
-
-<!-- This include inserts the table with the metadata  -->
-
+        
 <!--<div>
     <table>
         
         <tr><td>id</td>
-            <td>SC058</td></tr>
+            <td>RA24</td></tr>
         
-        <tr><td>category</td>
-            <td>Basic communication</td></tr>
+        <tr><td>component</td>
+            <td>Runtime</td></tr>
+        
+        <tr><td>layer</td>
+            <td>Consumption</td></tr>
+        
+        <tr><td>facade</td>
+            <td>AttributesFacade</td></tr>
+        
+        <tr><td>function</td>
+            <td>deletePeerSharedAttributeAndNotifyPeer</td></tr>
         
         <tr></tr>
         
-        <tr><td>customer</td>
-            <td>All</td></tr>
+        <tr><td>feature category</td>
+            <td>Cross-identity attribute sharing</td></tr>
         
-        <tr><td>component</td>
-            <td>integrate</td></tr>
+        <tr><td>tech category</td>
+            <td>Attributes</td></tr>
         
-        <tr><td>level</td>
-            <td>Beginner</td></tr>
-        
-        <tr><td>implementation status</td>
+        <tr><td>status</td>
             <td>DONE</td></tr>
         
         <tr><td>documentation status</td>
-            <td>OLD</td></tr>
+            <td>DONE</td></tr>
+        
+        <tr></tr>
+        
+        <tr><td>actor</td>
+            <td>Identity</td></tr>
+        
+        <tr><td>trigger</td>
+            <td>REST API</td></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr><td>priority</td>
+            <td>n/a</td></tr>
+        
+        <tr><td>complexity</td>
+            <td>n/a</td></tr>
+        
+        <tr><td>size</td>
+            <td>n/a</td></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
         
         <tr><td>published</td>
-            <td>true</td></tr>
+            <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>sending-messages</td></tr>
+            <td>use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer</td></tr>
         
-        <tr><td colspan="2">
-                <details>
-                    <summary>requires</summary>
-                        
-                    <p><a href="../integrate/delete-identity-from-enmeshed">    </a></p>
-                    
-                </details>
-            </td></tr>
+        <tr></tr>
         <tr></tr>
     </table>
 </div>
 -->
 
-<p>In order to send messages to recipients, a REST request can be sent with the given <code class="language-plaintext highlighter-rouge">recipients</code> and message <code class="language-plaintext highlighter-rouge">content</code>. Different message content structures are possible and defined in the chapter Data Structures. Additionally, an array of file ids can be added for property <code class="language-plaintext highlighter-rouge">attachments</code> in order to send attachments.</p>
+<p>This use-case allows you to delete a peer shared Attribute, i.e. a <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> that a peer owns and has shared with you.</p>
 
-<p><img src="/assets/diagrams/integrate/Connector_SendMessage.png" alt="Send Message Sequence Diagram" title="Send Message" /></p>
+<h2 id="parameters">Parameters</h2>
 
-<h2 id="upload-files">Upload Files</h2>
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">attributeId</code> of the peer shared Attribute you want to delete.</li>
+</ul>
 
-<p>In order to submit attachments/files via message, they have to be first uploaded to the Connector. The files are then encrypted and uploaded to the Platform, which results in a FileId for every file.
-These FileIds can then be used as attachments to send messages with attachments.</p>
+<h2 id="on-success">On Success</h2>
 
-<h2 id="get-messages">Get Messages</h2>
+<ul>
+  <li>The peer shared Attribute will be deleted.</li>
+  <li>All predecessors of the peer shared Attribute will be deleted.</li>
+  <li>If the peer shared Attribute was succeeded, the <code class="language-plaintext highlighter-rouge">succeeds</code> property of the successor will be set to undefined.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">attributeId</code> relates to a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> and there are shared copies of the peer shared RelationshipAttribute or potential predecessors of it, the <code class="language-plaintext highlighter-rouge">shareInfo.sourceAttribute</code> of those peer shared ThirdPartyRelationshipAttributes will be set to undefined.</li>
+  <li>A <a href="/integrate/data-model-overview#notification">Notification</a> with a <a href="/integrate/data-model-overview#peersharedattributedeletedbypeernotificationitem">PeerSharedAttributeDeletedByPeerNotificationItem</a> is sent to the owner of the Attribute, informing them that you deleted their Attribute. Technically, the own shared Attribute of the owner and all predecessors will get a <code class="language-plaintext highlighter-rouge">deletionInfo</code> with <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code> and the time of receiving the Notification as <code class="language-plaintext highlighter-rouge">deletionDate</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">notificationId</code> is returned.</li>
+</ul>
 
-<p>Messages can be directly queried from the Connector.</p>
+<h2 id="on-failure">On Failure</h2>
 
-<p><img src="/assets/diagrams/integrate/Connector_GetMessage.png" alt="Get Message Sequence Diagram" title="Get Message" /></p>
-
-<h2 id="download-attachments-of-messages">Download Attachments of Messages</h2>
-
-<p>The metadata of attachments can be found within the message, the actual files/binaries must be downloaded separately.</p>
-
-<h2 id="receive-messages">Receive Messages</h2>
-
-<p>The Connector pulls occasionally for new messages from the Platform and temporarily stores them in the database. They can then be fetched by the corresponding business systems by the REST API (pull) or by the defined HTTP endpoint (push).</p>
+<ul>
+  <li>No Attribute can be deleted if you don&#8217;t have a LocalAttribute with given <code class="language-plaintext highlighter-rouge">attributeId</code>.</li>
+  <li>No Attribute can be deleted if the Attribute with given <code class="language-plaintext highlighter-rouge">attributeId</code> is not a peer shared Attribute.</li>
+</ul>
+ 
 
         
       </section>

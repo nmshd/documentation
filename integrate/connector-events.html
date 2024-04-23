@@ -1,10 +1,11 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
-  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Minimal Mistakes Jekyll Theme 4.25.0 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
+
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
@@ -34,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-04-18T18:04:18+02:00">
+  <meta property="article:published_time" content="2024-04-23T09:46:10+02:00">
 
 
 
@@ -79,8 +80,8 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
 
 
 
@@ -301,6 +302,20 @@
     
       <li>
         
+          <span class="nav__sub-title">Handling data deletion</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/delete-an-attribute">Delete an Attribute</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
           <span class="nav__sub-title">Data Model</span>
         
 
@@ -352,7 +367,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Events">
     <meta itemprop="description" content="            Event      Data      Description (This event is triggered when …)                  consumption.attributeCreated      LocalAttribute      … an Attribute was created manually or through a Request.              consumption.attributeDeleted      LocalAttribute      … an Attribute was deleted manually or through a Request.              consumption.attributeSucceeded      LocalAttribute      … an Attribute was succeeded manually or through a Request.              consumption.attributeUpdated      LocalAttribute      … an Attribute was updated manually or through a Request.              consumption.incomingRequestReceived      LocalRequest      … an incoming Request was received either by loading a Relationship Template or by receiving a Message              consumption.incomingRequestStatusChanged      RequestStatusChangedEventData      … the status of an incoming Request has changed.              consumption.messageProcessed      MessageProcessedEventData      … a Message was processed by Modules like the RequestModule or DeciderModule.              consumption.outgoingRequestCreated      LocalRequest      … any outgoing Request was created by the Connector API or Connector Module.              consumption.outgoingRequestCreatedAndCompleted      LocalRequest      … any outgoing Request was transferred via a template.This event could either be triggered: • by an incoming relationship creation change using the onNewRelationship property within the RelationshipTemplateContent • by an incoming message using the onExistingRelationship property within the RelationshipTemplateContent, if the user already has a relationship with the template creator              consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted      LocalRequest      … a consumption.outgoingRequestCreatedAndCompleted event is fired and it was fired due to a RelationshipCreation Change. This convenience event is especially useful to act on incoming RelationshipRequests.              consumption.outgoingRequestStatusChanged      RequestStatusChangedEventData      … the status of an outgoing Request has changed.              consumption.relationshipTemplateProcessed      RelationshipTemplateProcessedEventData      … a RelationshipTemplate was processed by Modules like the RequestModule or DeciderModule.              consumption.sharedAttributeCopyCreated      LocalAttribute      … an Attribute is copied for sharing with another identity.              transport.messageReceived      Message      … a Message is received during synchronization.              transport.messageSent      Message      … a Message was sent.              transport.peerRelationshipTemplateLoaded      RelationshipTemplate      … a Relationship Template was loaded that belongs to another identity.              transport.relationshipChanged      Relationship      … a Relationship has changed. This can be due to one of the following cases: • you create a Relationship • you accept, reject or revoke a Relationship Change • a Relationship Change is received during synchronization      ">
-    <meta itemprop="datePublished" content="2024-04-18T18:04:18+02:00">
+    <meta itemprop="datePublished" content="2024-04-23T09:46:10+02:00">
     
 
     <div class="page__inner-wrap">
@@ -533,7 +548,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-04-18T18:04:18+02:00">April 18, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-04-23T09:46:10+02:00">April 23, 2024</time></p>
 
       </footer>
 
@@ -549,6 +564,7 @@
   
 </div>
 
+      
     </div>
 
     
@@ -619,7 +635,6 @@
 <script src="/assets/js/lunr/lunr.min.js"></script>
 <script src="/assets/js/lunr/lunr-store.js"></script>
 <script src="/assets/js/lunr/lunr-en.js"></script>
-
 
 
 

@@ -1,10 +1,11 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
-  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Minimal Mistakes Jekyll Theme 4.25.0 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
+
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
@@ -34,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-04-18T18:04:18+02:00">
+  <meta property="article:published_time" content="2024-04-23T09:46:10+02:00">
 
 
 
@@ -79,8 +80,8 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
 
 
 
@@ -301,6 +302,20 @@
     
       <li>
         
+          <span class="nav__sub-title">Handling data deletion</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/delete-an-attribute">Delete an Attribute</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
           <span class="nav__sub-title">Data Model</span>
         
 
@@ -352,7 +367,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2024-04-18T18:04:18+02:00">
+    <meta itemprop="datePublished" content="2024-04-23T09:46:10+02:00">
     
 
     <div class="page__inner-wrap">
@@ -373,7 +388,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#transport-types">Transport Types</a><ul><li><a href="#token">Token</a></li><li><a href="#relationshiptemplate">RelationshipTemplate</a></li><li><a href="#relationship">Relationship</a><ul><li><a href="#relationshipchange">RelationshipChange</a></li><li><a href="#relationshipchangerequest">RelationshipChangeRequest</a></li><li><a href="#relationshipchangeresponse">RelationshipChangeResponse</a></li></ul></li><li><a href="#message">Message</a><ul><li><a href="#recipient">Recipient</a></li></ul></li><li><a href="#file">File</a></li></ul></li><li><a href="#local-types">Local Types</a><ul><li><a href="#localrequest">LocalRequest</a><ul><li><a href="#localrequeststatus">LocalRequestStatus</a></li><li><a href="#localrequestsource">LocalRequestSource</a></li><li><a href="#localresponse">LocalResponse</a></li><li><a href="#localresponsesource">LocalResponseSource</a></li></ul></li><li><a href="#localnotification">LocalNotification</a><ul><li><a href="#localnotificationstatus">LocalNotificationStatus</a></li><li><a href="#localnotificationsource">LocalNotificationSource</a></li></ul></li><li><a href="#localattribute">LocalAttribute</a><ul><li><a href="#localattributeshareinfo">LocalAttributeShareInfo</a></li></ul></li><li><a href="#localattributelistener">LocalAttributeListener</a></li></ul></li><li><a href="#content-types">Content Types</a><ul><li><a href="#request">Request</a><ul><li><a href="#requestitems">RequestItems</a><ul><li><a href="#authenticationrequestitem">AuthenticationRequestItem</a></li><li><a href="#consentrequestitem">ConsentRequestItem</a></li><li><a href="#createattributerequestitem">CreateAttributeRequestItem</a></li><li><a href="#freetextrequestitem">FreeTextRequestItem</a></li><li><a href="#proposeattributerequestitem">ProposeAttributeRequestItem</a></li><li><a href="#readattributerequestitem">ReadAttributeRequestItem</a></li><li><a href="#registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</a></li><li><a href="#shareattributerequestitem">ShareAttributeRequestItem</a></li></ul></li><li><a href="#requestitemgroup">RequestItemGroup</a></li></ul></li><li><a href="#response">Response</a><ul><li><a href="#responseitems">ResponseItems</a><ul><li><a href="#acceptresponseitem">AcceptResponseItem</a><ul><li><a href="#createattributeacceptresponseitem">CreateAttributeAcceptResponseItem</a></li><li><a href="#freetextacceptresponseitem">FreeTextAcceptResponseItem</a></li><li><a href="#proposeattributeacceptresponseitem">ProposeAttributeAcceptResponseItem</a></li><li><a href="#readattributeacceptresponseitem">ReadAttributeAcceptResponseItem</a></li><li><a href="#registerattributelisteneracceptresponseitem">RegisterAttributeListenerAcceptResponseItem</a></li><li><a href="#shareattributeacceptresponseitem">ShareAttributeAcceptResponseItem</a></li></ul></li><li><a href="#rejectresponseitem">RejectResponseItem</a></li><li><a href="#errorresponseitem">ErrorResponseItem</a></li></ul></li><li><a href="#responseitemgroup">ResponseItemGroup</a></li></ul></li><li><a href="#responsewrapper">ResponseWrapper</a></li><li><a href="#notification">Notification</a><ul><li><a href="#notificationitems">NotificationItems</a><ul><li><a href="#peersharedattributesucceedednotificationitem">PeerSharedAttributeSucceededNotificationItem</a></li></ul></li></ul></li><li><a href="#attributes">Attributes</a><ul><li><a href="#identityattribute">IdentityAttribute</a></li><li><a href="#relationshipattribute">RelationshipAttribute</a></li></ul></li><li><a href="#attributequeries">AttributeQueries</a><ul><li><a href="#identityattributequery">IdentityAttributeQuery</a></li><li><a href="#relationshipattributequery">RelationshipAttributeQuery</a><ul><li><a href="#relationshipattributecreationhints">RelationshipAttributeCreationHints</a></li><li><a href="#valuehints">ValueHints</a></li><li><a href="#valuehintsoverride">ValueHintsOverride</a></li><li><a href="#valuehintsvalue">ValueHintsValue</a></li></ul></li><li><a href="#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a></li><li><a href="#iqlquery">IQLQuery</a><ul><li><a href="#iqlquerycreationhints">IQLQueryCreationHints</a></li></ul></li></ul></li><li><a href="#relationshiptemplatecontent">RelationshipTemplateContent</a></li><li><a href="#relationshipcreationchangerequestcontent">RelationshipCreationChangeRequestContent</a></li><li><a href="#mail">Mail</a></li></ul></li><li><a href="#consumption">Consumption</a><ul><li><a href="#deciderequestitemparameters">DecideRequestItemParameters</a><ul><li><a href="#rejectrequestitemparameters">RejectRequestItemParameters</a></li><li><a href="#acceptrequestitemparameters">AcceptRequestItemParameters</a><ul><li><a href="#acceptfreetextrequestitemparameters">AcceptFreeTextRequestItemParameters</a></li><li><a href="#acceptproposeattributerequestitemparameters">AcceptProposeAttributeRequestItemParameters</a></li><li><a href="#acceptreadattributerequestitemparameters">AcceptReadAttributeRequestItemParameters</a></li></ul></li></ul></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#transport-types">Transport Types</a><ul><li><a href="#token">Token</a></li><li><a href="#relationshiptemplate">RelationshipTemplate</a></li><li><a href="#relationship">Relationship</a><ul><li><a href="#relationshipchange">RelationshipChange</a></li><li><a href="#relationshipchangerequest">RelationshipChangeRequest</a></li><li><a href="#relationshipchangeresponse">RelationshipChangeResponse</a></li></ul></li><li><a href="#message">Message</a><ul><li><a href="#recipient">Recipient</a></li></ul></li><li><a href="#file">File</a></li></ul></li><li><a href="#local-types">Local Types</a><ul><li><a href="#localrequest">LocalRequest</a><ul><li><a href="#localrequeststatus">LocalRequestStatus</a></li><li><a href="#localrequestsource">LocalRequestSource</a></li><li><a href="#localresponse">LocalResponse</a></li><li><a href="#localresponsesource">LocalResponseSource</a></li></ul></li><li><a href="#localnotification">LocalNotification</a><ul><li><a href="#localnotificationstatus">LocalNotificationStatus</a></li><li><a href="#localnotificationsource">LocalNotificationSource</a></li></ul></li><li><a href="#localattribute">LocalAttribute</a><ul><li><a href="#localattributeshareinfo">LocalAttributeShareInfo</a></li><li><a href="#localattributedeletioninfo">LocalAttributeDeletionInfo</a></li></ul></li><li><a href="#localattributelistener">LocalAttributeListener</a></li></ul></li><li><a href="#content-types">Content Types</a><ul><li><a href="#request">Request</a><ul><li><a href="#requestitems">RequestItems</a><ul><li><a href="#authenticationrequestitem">AuthenticationRequestItem</a></li><li><a href="#consentrequestitem">ConsentRequestItem</a></li><li><a href="#createattributerequestitem">CreateAttributeRequestItem</a></li><li><a href="#deleteattributerequestitem">DeleteAttributeRequestItem</a></li><li><a href="#freetextrequestitem">FreeTextRequestItem</a></li><li><a href="#proposeattributerequestitem">ProposeAttributeRequestItem</a></li><li><a href="#readattributerequestitem">ReadAttributeRequestItem</a></li><li><a href="#registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</a></li><li><a href="#shareattributerequestitem">ShareAttributeRequestItem</a></li></ul></li><li><a href="#requestitemgroup">RequestItemGroup</a></li></ul></li><li><a href="#response">Response</a><ul><li><a href="#responseitems">ResponseItems</a><ul><li><a href="#acceptresponseitem">AcceptResponseItem</a><ul><li><a href="#createattributeacceptresponseitem">CreateAttributeAcceptResponseItem</a></li><li><a href="#deleteattributeacceptresponseitem">DeleteAttributeAcceptResponseItem</a></li><li><a href="#freetextacceptresponseitem">FreeTextAcceptResponseItem</a></li><li><a href="#proposeattributeacceptresponseitem">ProposeAttributeAcceptResponseItem</a></li><li><a href="#readattributeacceptresponseitem">ReadAttributeAcceptResponseItem</a></li><li><a href="#registerattributelisteneracceptresponseitem">RegisterAttributeListenerAcceptResponseItem</a></li><li><a href="#shareattributeacceptresponseitem">ShareAttributeAcceptResponseItem</a></li></ul></li><li><a href="#rejectresponseitem">RejectResponseItem</a></li><li><a href="#errorresponseitem">ErrorResponseItem</a></li></ul></li><li><a href="#responseitemgroup">ResponseItemGroup</a></li></ul></li><li><a href="#responsewrapper">ResponseWrapper</a></li><li><a href="#notification">Notification</a><ul><li><a href="#notificationitems">NotificationItems</a><ul><li><a href="#ownsharedattributedeletedbyownernotificationitem">OwnSharedAttributeDeletedByOwnerNotificationItem</a></li><li><a href="#peersharedattributedeletedbypeernotificationitem">PeerSharedAttributeDeletedByPeerNotificationItem</a></li><li><a href="#peersharedattributesucceedednotificationitem">PeerSharedAttributeSucceededNotificationItem</a></li><li><a href="#thirdpartyownedrelationshipattributedeletedbypeernotificationitem">ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem</a></li></ul></li></ul></li><li><a href="#attributes">Attributes</a><ul><li><a href="#identityattribute">IdentityAttribute</a></li><li><a href="#relationshipattribute">RelationshipAttribute</a></li></ul></li><li><a href="#attributequeries">AttributeQueries</a><ul><li><a href="#identityattributequery">IdentityAttributeQuery</a></li><li><a href="#relationshipattributequery">RelationshipAttributeQuery</a><ul><li><a href="#relationshipattributecreationhints">RelationshipAttributeCreationHints</a></li><li><a href="#valuehints">ValueHints</a></li><li><a href="#valuehintsoverride">ValueHintsOverride</a></li><li><a href="#valuehintsvalue">ValueHintsValue</a></li></ul></li><li><a href="#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a></li><li><a href="#iqlquery">IQLQuery</a><ul><li><a href="#iqlquerycreationhints">IQLQueryCreationHints</a></li></ul></li></ul></li><li><a href="#relationshiptemplatecontent">RelationshipTemplateContent</a></li><li><a href="#relationshipcreationchangerequestcontent">RelationshipCreationChangeRequestContent</a></li><li><a href="#mail">Mail</a></li></ul></li><li><a href="#consumption">Consumption</a><ul><li><a href="#deciderequestitemparameters">DecideRequestItemParameters</a><ul><li><a href="#rejectrequestitemparameters">RejectRequestItemParameters</a></li><li><a href="#acceptrequestitemparameters">AcceptRequestItemParameters</a><ul><li><a href="#acceptdeleteattributerequestitemparameters">AcceptDeleteAttributeRequestItemParameters</a></li><li><a href="#acceptfreetextrequestitemparameters">AcceptFreeTextRequestItemParameters</a></li><li><a href="#acceptproposeattributerequestitemparameters">AcceptProposeAttributeRequestItemParameters</a></li><li><a href="#acceptreadattributerequestitemparameters">AcceptReadAttributeRequestItemParameters</a></li></ul></li></ul></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -1063,7 +1078,7 @@
   <tbody>
     <tr>
       <td>type</td>
-      <td>“Message” | “RelationshipTemplate”</td>
+      <td><code class="language-plaintext highlighter-rouge">"Message"</code> | <code class="language-plaintext highlighter-rouge">"RelationshipTemplate"</code></td>
       <td>The type of Transport object the Request was sent/received in.</td>
     </tr>
     <tr>
@@ -1120,7 +1135,7 @@
   <tbody>
     <tr>
       <td>type</td>
-      <td>“Message” | “RelationshipChange”</td>
+      <td><code class="language-plaintext highlighter-rouge">"Message"</code> | <code class="language-plaintext highlighter-rouge">"RelationshipChange"</code></td>
       <td>The type of Transport object the Response was sent/received in.</td>
     </tr>
     <tr>
@@ -1290,12 +1305,17 @@ Thus, it is not possible for an Identity to have an unshared RelationshipAttribu
       <td><a href="#localattributeshareinfo"><code class="language-plaintext highlighter-rouge">LocalAttributeShareInfo</code></a> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>Information about the peer this LocalAttribute was received from/shared with, as well as via which LocalRequest it was received/sent. If the LocalAttribute refers to a RepositoryAttribute, this property is <code class="language-plaintext highlighter-rouge">undefined</code>.</td>
     </tr>
+    <tr>
+      <td>deletionInfo</td>
+      <td><a href="#localattributedeletioninfo"><code class="language-plaintext highlighter-rouge">LocalAttributeDeletionInfo</code></a> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>Information about whether the counterpart of a shared Attribute is to be deleted or was deleted by the peer of the Relationship, as well as the point in time of that deletion.</td>
+    </tr>
   </tbody>
 </table>
 
 <h3 id="localattributeshareinfo">LocalAttributeShareInfo</h3>
 
-<p>The LocalAttributeShareInfo helps to keep track of how the LocalAttribute was received/sent, from whom it was received/who sent it, as well as which LocalAttribute it was copied from (in case of a shared IdentityAttribute). For example, this enables us to track back who we shared a certain IdentityAttribute with, so we are able to notify each of them when changing it. The Attribute can be either transmitted via Request or Notification. Hence, only one of <code class="language-plaintext highlighter-rouge">requestReference</code> and <code class="language-plaintext highlighter-rouge">notificationReference</code> can be set.</p>
+<p>The LocalAttributeShareInfo helps to keep track of how the LocalAttribute was received/sent, from whom it was received/who sent it, as well as which LocalAttribute it was copied from. For example, this enables us to track back who we shared a certain IdentityAttribute with, so we are able to notify each of those peers when changing it. The Attribute can be either transmitted via Request or Notification. Hence, only one of <code class="language-plaintext highlighter-rouge">requestReference</code> and <code class="language-plaintext highlighter-rouge">notificationReference</code> can be set.</p>
 
 <table>
   <thead>
@@ -1324,7 +1344,40 @@ Thus, it is not possible for an Identity to have an unshared RelationshipAttribu
     <tr>
       <td>sourceAttribute</td>
       <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>If the <a href="#localattribute">LocalAttribute</a> is a copy of a RepositoryAttribute, then this property contains the <code class="language-plaintext highlighter-rouge">id</code> of the RepositoryAttribute.</td>
+      <td>If the <a href="#localattribute">LocalAttribute</a> is an own shared IdentityAttribute, then this property contains the <code class="language-plaintext highlighter-rouge">id</code> of the RepositoryAttribute it was copied from. Also, if a RelationshipAttribute is shared with a third party, i.e. in the context of a Relationship that is different to the one the RelationshipAttribute was initially created in, this ThirdPartyRelationshipAttribute will link to the source RelationshipAttribute. Note that <code class="language-plaintext highlighter-rouge">sourceAttribute</code> is only defined for the peer who also has the Attribute this property links to. Regarding IdentityAttributes this is the owner. For ThirdPartyRelationshipAttributes it is the peer who is in the Relationship the source RelationshipAttribute is copied from.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="localattributedeletioninfo">LocalAttributeDeletionInfo</h3>
+
+<p>The LocalAttributeDeletionInfo holds information about the deletion status of the counterpart of a shared Attribute, as well as the point in time of that deletion.
+If the Attribute’s owner requested the deletion of a shared Attribute via a <a href="#deleteattributerequestitem">DeleteAttributeRequestItem</a> from the peer and they accepted using the <a href="#acceptdeleteattributerequestitemparameters">AcceptDeleteAttributeRequestItemParameters</a>, the <code class="language-plaintext highlighter-rouge">deletionStatus</code> of the peer shared Attribute of the peer will be set to <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> and its <code class="language-plaintext highlighter-rouge">deletionDate</code> will be set to the <code class="language-plaintext highlighter-rouge">deletionDate</code> the peer sent in their Response.
+Accordingly, the <code class="language-plaintext highlighter-rouge">deletionStatus</code> of the own shared Attribute of the owner will move to <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code> with the same <code class="language-plaintext highlighter-rouge">deletionDate</code>.
+Once the peer shared Attribute is deleted by the peer, a <a href="#peersharedattributedeletedbypeernotificationitem">PeerSharedAttributeDeletedByPeerNotificationItem</a> is sent to the owner, where the <code class="language-plaintext highlighter-rouge">deletionStatus</code> of the own shared Attribute is set to <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code> with the current time stamp as <code class="language-plaintext highlighter-rouge">deletionDate</code>.
+Likewise, if the owner deletes their own shared Attribute, before the peer deleted their corresponding peer shared Attribute, an <a href="#ownsharedattributedeletedbyownernotificationitem">OwnSharedAttributeDeletedByOwnerNotificationItem</a> is sent to the peer.
+If the <code class="language-plaintext highlighter-rouge">deletionInfo</code> of the peer was undefined before, the <code class="language-plaintext highlighter-rouge">deletionStatus</code> will be set to <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> with the current time stamp as <code class="language-plaintext highlighter-rouge">deletionDate</code>.
+However, if the <code class="language-plaintext highlighter-rouge">deletionInfo</code> was defined before with <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> as <code class="language-plaintext highlighter-rouge">deletionStatus</code>, it will remain unchanged, such that the peer will be able to delete their peer shared Attribute as planned.
+This will be the case, if the peer already accepted the DeleteAttributeRequestItem for this particular Attribute.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>deletionStatus</td>
+      <td><code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> | <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code> | <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> | <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code></td>
+      <td>The deletion status of the peer’s counterpart of the shared Attribute. For own shared Attributes it may only be set to <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code> or <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code>, whereas for peer shared Attributes only the values <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> and <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> are allowed.</td>
+    </tr>
+    <tr>
+      <td>deletionDate</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The point in time an upcoming deletion is planned (for the <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code>) or a completed deletion has been notified (for <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> or <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code>).</td>
     </tr>
   </tbody>
 </table>
@@ -1537,6 +1590,55 @@ Thus, it is not possible for an Identity to have an unshared RelationshipAttribu
       <td>attribute</td>
       <td><a href="/integrate/data-model-overview#identityattribute"><code class="language-plaintext highlighter-rouge">IdentityAttribute</code></a> | <a href="/integrate/data-model-overview#relationshipattribute"><code class="language-plaintext highlighter-rouge">RelationshipAttribute</code></a></td>
       <td>The IdentityAttribute or RelationshipAttribute to create for the peer within the Identity of the peer.</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>An optional, human readable title for the RequestItem.</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>An optional, human readable description for the RequestItem.</td>
+    </tr>
+    <tr>
+      <td>metadata</td>
+      <td><code class="language-plaintext highlighter-rouge">object</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>The metadata property can be used to provide arbitrary JSON content by the sender of the request. The metadata is not processed by enmeshed. It is a great way to use your own process descriptors at the time of sending the request which helps you identify the correct internal process at the time of receiving the response.</td>
+    </tr>
+    <tr>
+      <td>mustBeAccepted</td>
+      <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
+      <td>The mandatory mustBeAccepted property is used to differentiate between required and optional RequestItems within the Request. In other words, if the peer Identity may or may not decide to ignore this specific RequestItem. If set to true, the peer cannot accept the Request without accepting this item. For example, some Attributes are mandatory for the business process and thus the respective RequestItems must be accepted (mustBeAccepted = true). A consent to a newsletter is optional and thus only can be accepted (mustBeAccepted = false). Keep in mind that if the RequestItem is inside of a RequestItem Group, then this flag takes effect only when the Group is accepted. So as long as the Group is not accepted, the Item does not have to be accepted either.</td>
+    </tr>
+    <tr>
+      <td>requireManualDecision</td>
+      <td><code class="language-plaintext highlighter-rouge">boolean</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>To block the automated acceptance of Requests, the requireManualDecision property can be set to true. The default is, that each RequestItem may be automatically processed on the peer side. If the sender would like to have an enforced manual acceptance step the requireManualDecision property can be set to true.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="deleteattributerequestitem">DeleteAttributeRequestItem</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@type</td>
+      <td><code class="language-plaintext highlighter-rouge">"DeleteAttributeRequestItem"</code></td>
+      <td>Specifies the type of the RequestItem for internal processing.</td>
+    </tr>
+    <tr>
+      <td>attributeId</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The <code class="language-plaintext highlighter-rouge">id</code> of the own shared Attribute you wish for the peer to delete. This will match the <code class="language-plaintext highlighter-rouge">id</code> of the corresponding peer shared Attribute at the peer’s side.</td>
     </tr>
     <tr>
       <td>title</td>
@@ -1956,6 +2058,35 @@ Thus, it is not possible for an Identity to have an unshared RelationshipAttribu
   </tbody>
 </table>
 
+<h5 id="deleteattributeacceptresponseitem">DeleteAttributeAcceptResponseItem</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@type</td>
+      <td><code class="language-plaintext highlighter-rouge">"DeleteAttributeAcceptResponseItem"</code></td>
+      <td>The type of the ResponseItem.</td>
+    </tr>
+    <tr>
+      <td>result</td>
+      <td><code class="language-plaintext highlighter-rouge">"Accepted"</code></td>
+      <td>The only possible value here is the string <code class="language-plaintext highlighter-rouge">"Accepted"</code>.</td>
+    </tr>
+    <tr>
+      <td>deletionDate</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The timestamp of when the peer will delete the Attribute.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h5 id="freetextacceptresponseitem">FreeTextAcceptResponseItem</h5>
 
 <table>
@@ -2283,6 +2414,60 @@ In the example of Attribute succession, the peer can not decide to accept or rej
 
 <p>NotificationItems are sent inside a Notification and specify which processes should be triggered when receiving the Notification.</p>
 
+<h4 id="ownsharedattributedeletedbyownernotificationitem">OwnSharedAttributeDeletedByOwnerNotificationItem</h4>
+
+<p>If a peer has shared one of their Attributes with you and deletes their own shared Attribute, an OwnSharedAttributeDeletedByOwnerNotificationItem will be sent to you.
+Internally, for your corresponding peer shared Attribute the <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code> will be set to <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> if it wasn’t set to <code class="language-plaintext highlighter-rouge">"ToBeDeleted</code> before.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@type</td>
+      <td><code class="language-plaintext highlighter-rouge">"OwnSharedAttributeDeletedByOwnerNotificationItem"</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>attributeId</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The <code class="language-plaintext highlighter-rouge">id</code> of the own shared Attribute that was deleted by the owner. It matches the <code class="language-plaintext highlighter-rouge">id</code> of the corresponding peer shared Attributes of the recipient.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="peersharedattributedeletedbypeernotificationitem">PeerSharedAttributeDeletedByPeerNotificationItem</h4>
+
+<p>If you have shared one of your Attributes with a peer and they delete their peer shared Attribute, a PeerSharedAttributeDeletedByPeerNotificationItem will be sent to you.
+Internally, for your corresponding own shared Attribute the <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code> will be set to <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code> .</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@type</td>
+      <td><code class="language-plaintext highlighter-rouge">"PeerSharedAttributeDeletedByPeerNotificationItem"</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>attributeId</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The <code class="language-plaintext highlighter-rouge">id</code> of the peer shared Attribute that was deleted by the peer. It matches the <code class="language-plaintext highlighter-rouge">id</code> of the corresponding own shared Attributes of the recipient.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="peersharedattributesucceedednotificationitem">PeerSharedAttributeSucceededNotificationItem</h4>
 
 <p>A PeerSharedAttributeSucceededNotificationItem will be sent, if an Attribute, a peer shared with you, was succeeded by them and they choose to notify you about it.
@@ -2316,6 +2501,33 @@ Internally, the succeeded version will then be created at your side as successor
       <td>successorContent</td>
       <td><a href="#identityattribute"><code class="language-plaintext highlighter-rouge">IdentityAttribute</code></a> | <a href="#relationshipattribute"><code class="language-plaintext highlighter-rouge">RelationshipAttribute</code></a></td>
       <td>The updated <code class="language-plaintext highlighter-rouge">content</code> of the LocalAttribute</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="thirdpartyownedrelationshipattributedeletedbypeernotificationitem">ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem</h4>
+
+<p>If you have shared a RelationshipAttribute, that is not owned by you, with a peer from a different Relationship and that peer deletes their third party owned RelationshipAttribute, a ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem will be sent to you.
+Internally, for your corresponding third party owned RelationshipAttribute the <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code> will be set to <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@type</td>
+      <td><code class="language-plaintext highlighter-rouge">"ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem"</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>attributeId</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The <code class="language-plaintext highlighter-rouge">id</code> of the third party owned RelationshipAttribute that was deleted by the peer. The <code class="language-plaintext highlighter-rouge">id</code> of the third party owned RelationshipAttribute of the sender matches the one of the recipient.</td>
     </tr>
   </tbody>
 </table>
@@ -2380,6 +2592,7 @@ Internally, the succeeded version will then be created at your side as successor
       <th>Name</th>
       <th>Type</th>
       <th>Description</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -2387,40 +2600,48 @@ Internally, the succeeded version will then be created at your side as successor
       <td>@type</td>
       <td><code class="language-plaintext highlighter-rouge">"RelationshipAttribute"</code></td>
       <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td>owner</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>The Identity that owns this Attribute. Only the owner of an Attribute is allowed to change it after its creation.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>validFrom</td>
       <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>The date from which on the Attribute is valid. Could be in the future if the Attribute is not yet valid.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>validTo</td>
       <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>The date until this Attribute is valid. Could be in the past if the Attribute is already expired.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>key</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>An arbitrary key that is set by the creator of this Attribute. It is used to identify the Attribute in a query, especially by a third party. Example: you could set something like <code class="language-plaintext highlighter-rouge">customerId</code> in case of a customer id.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>isTechnical</td>
       <td><code class="language-plaintext highlighter-rouge">boolean</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>Defines whether the RelationshipAttribute contains data that is actually relevant for the user (<code class="language-plaintext highlighter-rouge">isTechnical=false</code>) or whether it should be hidden in the UI (<code class="language-plaintext highlighter-rouge">isTechnical=true</code>).</td>
+      <td> </td>
     </tr>
     <tr>
       <td>value</td>
       <td><a href="/integrate/attribute-values#relationship-attributes"><code class="language-plaintext highlighter-rouge">RelationshipAttributeValue</code></a></td>
       <td>The Attribute’s value.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>confidentiality</td>
-      <td><code class="language-plaintext highlighter-rouge">"public"</code> | <code class="language-plaintext highlighter-rouge">"protected"</code> | <code class="language-plaintext highlighter-rouge">"private"</code> | When this property is set to <code class="language-plaintext highlighter-rouge">"private"</code>, it means that third parties are not able to query this RelationshipAttribute. It therefore only exists in the Relationship it was created in. If the confidentiality is <code class="language-plaintext highlighter-rouge">"protected"</code>, third parties can query the RelationshipAttribute, but the App shows a warning saying that you should only share it with someone you trust. If the confidentiality is <code class="language-plaintext highlighter-rouge">"public"</code>, everybody can query the Attribute, without anything special to happen.</td>
+      <td><code class="language-plaintext highlighter-rouge">"public"</code> | <code class="language-plaintext highlighter-rouge">"protected"</code> | <code class="language-plaintext highlighter-rouge">"private"</code></td>
+      <td>When this property is set to <code class="language-plaintext highlighter-rouge">"private"</code>, it means that third parties are not able to query this RelationshipAttribute. It therefore only exists in the Relationship it was created in. If the confidentiality is <code class="language-plaintext highlighter-rouge">"protected"</code>, third parties can query the RelationshipAttribute, but the App shows a warning saying that you should only share it with someone you trust. If the confidentiality is <code class="language-plaintext highlighter-rouge">"public"</code>, everybody can query the Attribute, without anything special to happen.</td>
       <td> </td>
     </tr>
   </tbody>
@@ -2913,6 +3134,30 @@ For example, an AuthenticationRequestItem can be accepted using the AcceptReques
   </tbody>
 </table>
 
+<h4 id="acceptdeleteattributerequestitemparameters">AcceptDeleteAttributeRequestItemParameters</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>accept</td>
+      <td><code class="language-plaintext highlighter-rouge">"true"</code></td>
+      <td>The only possible value here is the string “true”.</td>
+    </tr>
+    <tr>
+      <td>deletionDate</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The timestamp of when the Attribute will be deleted. Only dates in the future are allowed here.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="acceptfreetextrequestitemparameters">AcceptFreeTextRequestItemParameters</h4>
 
 <table>
@@ -3047,7 +3292,7 @@ For example, an AuthenticationRequestItem can be accepted using the AcceptReques
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-04-18T18:04:18+02:00">April 18, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-04-23T09:46:10+02:00">April 23, 2024</time></p>
 
       </footer>
 
@@ -3063,6 +3308,7 @@ For example, an AuthenticationRequestItem can be accepted using the AcceptReques
   
 </div>
 
+      
     </div>
 
     
@@ -3133,7 +3379,6 @@ For example, an AuthenticationRequestItem can be accepted using the AcceptReques
 <script src="/assets/js/lunr/lunr.min.js"></script>
 <script src="/assets/js/lunr/lunr-store.js"></script>
 <script src="/assets/js/lunr/lunr-en.js"></script>
-
 
 
 

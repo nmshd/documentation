@@ -161,6 +161,12 @@ var store = [{
         "url": "/integrate/data-model-overview",
         "teaser": null
       },{
+        "title": "Delete an Attribute",
+        "excerpt":"The exact process of deleting an Attribute depends on the kind of Attribute at hand. Creating an Attribute, we must distinguish between IdentityAttributes and RelationshipAttributes. In the former case, a so-called RepositoryAttribute is created, which is a LocalAttribute without shareInfo, that you are the owner of. Afterwards, you may share...","categories": [],
+        "tags": [],
+        "url": "/integrate/delete-an-attribute",
+        "teaser": null
+      },{
         "title": "Error Codes",
         "excerpt":"Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker. ErrorCode Description error.connector.http.methodNotAllowed This method...","categories": [],
         "tags": [],
@@ -417,6 +423,30 @@ var store = [{
         "excerpt":"This use-case is intended to create an actionable LocalRequest based on a given Request for a given peer. One can (and should) check if the outgoing Request can be created before creating the LocalRequest with this use-case. The created LocalRequest needs to be manually submitted to the peer, e.g. by...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-create-outgoing-request",
+        "teaser": null
+      },{
+        "title": "Delete a peer shared Attribute and notify peer",
+        "excerpt":"This use-case allows you to delete a peer shared Attribute, i.e. a LocalAttribute that a peer owns and has shared with you. Parameters The attributeId of the peer shared Attribute you want to delete. On Success The peer shared Attribute will be deleted. All predecessors of the peer shared Attribute...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer",
+        "teaser": null
+      },{
+        "title": "Delete a RepositoryAttribute",
+        "excerpt":"This use-case allows you to delete a RepositoryAttribute, i.e. a LocalAttribute that is owned by yourself and whose shareInfo property is undefined. Parameters The attributeId of the RepositoryAttribute you want to delete. On Success The RepositoryAttribute will be deleted. All predecessors of the RepositoryAttribute will be deleted. If the RepositoryAttribute...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-delete-a-repositoryattribute",
+        "teaser": null
+      },{
+        "title": "Delete a third party owned RelationshipAttribute and notify peer",
+        "excerpt":"This use-case allows you to delete a third party owned RelationshipAttribute, i.e. a LocalAttribute that exists in a Relationship with a peer, but is not owned by you or this peer but by a third party. Parameters The attributeId of the third party owned RelationshipAttribute you want to delete. On...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer",
+        "teaser": null
+      },{
+        "title": "Delete an own shared Attribute and notify peer",
+        "excerpt":"This use-case allows you to delete an own shared Attribute, i.e. a LocalAttribute with a shareInfo, that is owned by you. It is created as a result of sharing the content of a RepositoryAttribute with a peer. Parameters The attributeId of the own shared Attribute you want to delete. On...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-delete-an-own-shared-attribute-and-notify-peer",
         "teaser": null
       },{
         "title": "Discards outgoing Request",
