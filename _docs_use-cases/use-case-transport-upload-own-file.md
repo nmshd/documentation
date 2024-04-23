@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: FilesFacade
   - function: uploadOwnFile
-  - description: Uploads a new own file with metadata.
+  - description: Uploads a new own file with metadata (and tags).
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE
