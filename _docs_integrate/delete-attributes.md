@@ -4,7 +4,7 @@ permalink: integrate/delete-an-attribute
 redirect_from:
   - /integrate/delete-an-attribute
 published: true
-title: "Delete an Attribute"
+title: "Delete Attributes"
 type: scenario
 toc: true
 properties:

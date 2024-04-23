@@ -109,7 +109,7 @@ docs_integrate:
         url: /integrate/propose-attribute-to-peer
       - title: "Succeed Attribute to update its value"
         url: /integrate/succeed-attribute-to-update-its-value
-      - title: "Delete an Attribute"
+      - title: "Delete Attributes"
         url: /integrate/delete-attributes
   - title: Basic communication
     children:
