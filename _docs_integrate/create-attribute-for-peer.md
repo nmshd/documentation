@@ -21,19 +21,19 @@ required_by:
 # End automatic generation
 ---
 
-There are many situations in which an Identity wants to create an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) for another Identity, for example:
+There are many situations in which an Identity wants to create an [IdentityAttribute](#identityattribute) or a [RelationshipAttribute](#relationshipattribute) for another Identity, for example:
 
 - A university wants to send a graduate their degree certificate.
 - A company wants to provide an employee with their business email address at the start of their employment.
 
-We will now explain how a Connector, hereinafter referred to as the Sender, can create an Attribute for another Connector, the so-called Recipient. Since understanding this creation process requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and how to use them in general, you should take a look at our [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) before continuing reading this guide.
+We will now explain how a Connector, hereinafter referred to as the Sender, can create an Attribute for another Connector, the so-called Recipient. Since understanding this creation process requires knowledge about [Requests](#request) and how to use them in general, you should take a look at our [Request and Response introduction](#) before continuing reading this guide.
 
 Please note that the general procedure is the same if the Connector wants to create an Attribute for an App user instead of another Connector. For reasons of clarity, this guide focuses on the creation process with two Connectors.
 {: .notice--info}
 
-The Sender has several options for requesting an Attribute creation. This guide covers how it can request the creation of an Attribute for the Recipient so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is only set by the Sender itself and cannot be modified by the Recipient when accepting the Request.
+The Sender has several options for requesting an Attribute creation. This guide covers how it can request the creation of an Attribute for the Recipient so that the [Attribute Value](#) is only set by the Sender itself and cannot be modified by the Recipient when accepting the Request.
 
-If the Recipient should be able to adjust the Attribute offered for creation, the [Propose Attribute to peer]({% link _docs_integrate/propose-attribute-to-peer.md %}) guide must be consulted instead. Also, it is possible for the Sender to ask the Recipient for an Attribute of a specific Attribute Value Type without offering an Attribute by following the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide. If the Recipient complies with this request by using the `newAttribute` parameter of the [AcceptReadAttributeRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptreadattributerequestitemparameters),
+If the Recipient should be able to adjust the Attribute offered for creation, the [Propose Attribute to peer](#) guide must be consulted instead. Also, it is possible for the Sender to ask the Recipient for an Attribute of a specific Attribute Value Type without offering an Attribute by following the [Read Attribute from peer](#) guide. If the Recipient complies with this request by using the `newAttribute` parameter of the [AcceptReadAttributeRequestItemParameters](#),
 this leads to the creation of an Attribute of the Recipient whose Attribute Value was chosen completely freely by it.
 {: .notice--info}
 
@@ -43,15 +43,15 @@ The Sender wants to create an Attribute for the Recipient. To do this, the Sende
 
 ### Role of CreateAttributeRequestItem
 
-For requesting the creation of a single Attribute for the Recipient, a single RequestItem of type [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) must be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request). It is possible to request the creation of an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), which must be inserted into the `attribute` property of the CreateAttributeRequestItem. Depending on whether an IdentityAttribute or a RelationshipAttribute is to be created for the Recipient, the Sender has a different number of input options when defining the prospective `owner` of the [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes). More details on the various input options when creating a Request for creating Attributes and the corresponding application scenarios can be found in the table of the [Combinations and usage scenarios of the CreateAttributeRequestItem]({% link _docs_integrate/create-attribute-for-peer.md %}#combinations-and-usage-scenarios-of-createattributerequestitem).
+For requesting the creation of a single Attribute for the Recipient, a single RequestItem of type [CreateAttributeRequestItem](#) must be inserted into the `items` property of the [Request](#). It is possible to request the creation of an [IdentityAttribute](#) or a [RelationshipAttribute](#), which must be inserted into the `attribute` property of the CreateAttributeRequestItem. Depending on whether an IdentityAttribute or a RelationshipAttribute is to be created for the Recipient, the Sender has a different number of input options when defining the prospective `owner` of the [Attribute](#). More details on the various input options when creating a Request for creating Attributes and the corresponding application scenarios can be found in the table of the [Combinations and usage scenarios of the CreateAttributeRequestItem](#).
 
 ### Combinations and usage scenarios of CreateAttributeRequestItem
 
-The following table provides an overview of the possible kinds of Attributes that the Sender can create for the Recipient using the CreateAttributeRequestItem. It must be taken into account whether the [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) is an IdentityAttribute or a RelationshipAttribute and which Identity is its `owner`.
+The following table provides an overview of the possible kinds of Attributes that the Sender can create for the Recipient using the CreateAttributeRequestItem. It must be taken into account whether the [Attribute](#) is an IdentityAttribute or a RelationshipAttribute and which Identity is its `owner`.
 
 | Attribute Type | Attribute Owner | Possible? | Automation      | Examples/Reason                                                                                                                                                                                                                                                          |
 | -------------- | --------------- | :-------: | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Identity       | Sender          |     ✗     | `N/A`           | Use [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) instead.                                                                                                                                                    |
+| Identity       | Sender          |     ✗     | `N/A`           | Use [ShareAttributeRequestItem](#) instead.                                                                                                                                                                                                                              |
 | Identity       | Recipient       |     ✓     | `USER_DECISION` | University sends student their certificate (Propose would be inappropriate in this case, because the student should not be able to return their own value).                                                                                                              |
 | Identity       | `<empty>`       |     ✓     | `USER_DECISION` | An empty owner defaults to an Attribute with `owner=<Recipient>`. This is needed for Requests inside of RelationshipTemplates, since you don’t know the enmeshed Address of your peer before the Relationship is established.                                            |
 | Relationship   | Sender          |     ✓     | `AUTO_ACCEPT`   | Company sends new customer their customer number.                                                                                                                                                                                                                        |
@@ -60,9 +60,9 @@ The following table provides an overview of the possible kinds of Attributes tha
 
 ### Example of creating an IdentityAttribute
 
-We assume that the Integrator of the Sender wants to create an IdentityAttribute of type [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) for the Recipient. To request the creation of this IdentityAttribute for the Recipient, the Sender needs to insert it into the `attribute` property of the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for creating Attributes. In our example, we have chosen to set the value of the `mustBeAccepted` property of the CreateAttributeRequestItem to `true`. Please note that the `<...>` notation is used as a placeholder for the actual data as usual.
+We assume that the Integrator of the Sender wants to create an IdentityAttribute of type [EMailAddress](#) for the Recipient. To request the creation of this IdentityAttribute for the Recipient, the Sender needs to insert it into the `attribute` property of the [CreateAttributeRequestItem](#) contained within the `items` property of the [Request](#) for creating Attributes. In our example, we have chosen to set the value of the `mustBeAccepted` property of the CreateAttributeRequestItem to `true`. Please note that the `<...>` notation is used as a placeholder for the actual data as usual.
 
-```jsonc
+```json
 {
   "@type": "Request",
   "items": [

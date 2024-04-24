@@ -12,7 +12,9 @@
     },
     "dependencies": {
         "@types/node": "^20.10.4",
+        "dotenv": "^16.4.5",
         "exceljs": "^4.4.0",
+        "openai": "^4.38.2",
         "typescript": "^5.3.3"
     }
 }
