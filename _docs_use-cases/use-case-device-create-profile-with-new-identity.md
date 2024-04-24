@@ -14,7 +14,7 @@ properties:
   - layer: Device
   - facade: AccountServices
   - function: createAccount
-  - description: A Profile needs to be created in order to use the App. Without a Profile, a very limited set of features is available. In order to create a Profile, the App's privacy policy and possibly end-user license agreements needs to be accepted.
+  - description: A Profile needs to be created in order to use the App. Without a Profile, a very limited set of features is available. In order to create a Profile, the App's privacy policy and possibly end-user license agreements needs to be accepted. It should be possible to create multiple profiles within the same App/on the same device.
   - feature category: Multi-profile
   - tech category: Profiles
   - status: DONE

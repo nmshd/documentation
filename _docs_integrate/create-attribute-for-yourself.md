@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC049
-  - category: Manage attributes of yourself
+  - category: Manage Attributes
   - description:
   - customer: All
   - component: integrate
@@ -17,7 +17,7 @@ properties:
   - published:
   - link: create-attribute-for-yourself
 require:
-  - integrate/identityattribute-introduction
+  - integrate/attribute-introduction
 required_by:
   - integrate/test-your-requests-validity
 # End automatic generation

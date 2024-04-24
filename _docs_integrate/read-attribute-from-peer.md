@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC065
-  - category: Manage attributes of others
+  - category: Manage Attributes
   - description:
   - customer: All
   - component: integrate

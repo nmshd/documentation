@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC027
-  - category: Requesting consent of users
+  - category: Request consent
   - description:
   - customer: All
   - component: integrate
@@ -17,8 +17,8 @@ properties:
   - published: true
   - link: request-persistent-consent-of-peer
 require:
-  - integrate/requests-over-templates
-  - integrate/requests-over-messages
+  - integrate/requests-via-relationshiptemplates
+  - integrate/requests-via-messages
 required_by:
 # End automatic generation
 ---

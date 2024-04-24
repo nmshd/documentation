@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: integrate/upgrade-existing-online-accounts-of-my-users
 published: false
-title: "upgrade existing online accounts of my users"
+title: "Upgrade existing online accounts of my users"
 type: scenario
 toc: true
 properties:
