@@ -17,7 +17,7 @@ Here you'll find everything you need to seamlessly dive into the world of enmesh
 
 Begin your integration journey by familiarizing yourself with the [Connector REST API]({% link _docs_integrate/access-the-connector.md %}) and exploring the fundamental steps for integration. Gain insights into effectively utilizing the [Connector SDKs]({% link _docs_integrate/access-the-connector.md %}#accessing-the-connector-by-software-development-kits-sdk) to streamline and optimize your integration. To get a first impression of certain integration processes, take a look at our [Integration example]({% link _docs_integrate/integration-example.md %}). Discover how events work and how you can leverage them in your application in the [Event introduction]({% link _docs_integrate/event-introduction.md %}).
 
-## Get in touch with other Identities
+## Relationships to other Identities
 
 Learn how to [establish a Relationship]({% link _docs_integrate/establish-relationships.md %}) to another Identity in order to be able to communicate and exchange information with it.
 

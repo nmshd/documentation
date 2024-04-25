@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC016
-  - category: Get in touch with other Identities
+  - category: Relationships to other Identities
   - description: Nutzer möchte ohne einen Online Account seinen Vertrag auf enmeshed heben
   - customer: All
   - component: use

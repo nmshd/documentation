@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC015
-  - category: Get in touch with other Identities
+  - category: Relationships to other Identities
   - description: Nutzer möchte sich mit enmeshed einen neuen Online Account anlegen. QR Code einscannen, Daten eingeben, abschicken, Website ist angemeldet
   - customer: All
   - component: use

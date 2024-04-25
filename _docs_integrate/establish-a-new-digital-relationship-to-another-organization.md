@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC112
-  - category: Get in touch with other Identities
+  - category: Relationships to other Identities
   - description: Verein möchte mit anderem Verein reden
   - customer:
   - component: integrate

@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC108
-  - category: Get in touch with other Identities
+  - category: Relationships to other Identities
   - description: Verein/Versicherung mit Identity Provider hat einen bestehenden Kunden mit Username/Password Nutzer kommt auf Website Nutzer muss sich anmelden personalisiertes und sessionbasiertes Template erzeugen Nutzer scannt QR Code ein Nutzer stellt Kontaktanfrage Kontaktanfrage wird mit session und Nutzer gemappt Nutzer wird auf enmeshed gehoben (z.B. adresse als Attribut speichern) Refresh der Website mittels Websockets antriggern Bestehender Nutzer kann enmeshed benutzen
   - customer:
   - component: integrate
