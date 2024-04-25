@@ -83,62 +83,52 @@ docs_integrate:
         url: /integrate/integration-example
       - title: "Event introduction"
         url: /integrate/event-introduction
-  - title: Get in touch with other Identities
+  - title: Relationships between Identities
     children:
-      - title: "Establish a Relationship to another Identity"
-        url: integrate/establish-a-relationship-to-another-identity
-  - title: Working with requests
+      - title: "Establish Relationships"
+        url: integrate/establish-relationships
+      - title: "Exchange Messages"
+        url: /integrate/exchange-messages
+  - title: Working with Requests
     children:
       - title: "Request and Response introduction"
         url: /integrate/request-and-response-introduction
-  - title: Manage Requests
+      - title: "Requests via RelationshipTemplates"
+        url: /integrate/requests-via-relationshiptemplates
+      - title: "Requests via Messages"
+        url: /integrate/requests-via-messages
+  - title: Manage Attributes
     children:
-      - title: "Requests over Templates"
-        url: /integrate/requests-over-templates
-      - title: "Requests over Messages"
-        url: /integrate/requests-over-messages
-  - title: Manage attributes of yourself
-    children:
-      - title: "Create Attribute for yourself"
-        url: /integrate/create-attribute-for-yourself
-      - title: "Share own Attribute to peer"
-        url: /integrate/share-own-attribute-to-peer
-      - title: "Succeeding Attributes to update their values"
-        url: /integrate/succeeding-attributes-to-update-their-values
-  - title: Manage attributes of others
-    children:
-      - title: "Read Attribute from peer"
-        url: /integrate/read-attribute-from-peer
-      - title: "Create Attribute for peer"
-        url: /integrate/create-attribute-for-peer
-      - title: "Propose Attribute to peer"
-        url: /integrate/propose-attribute-to-peer
-  - title: Basic communication
-    children:
-      - title: "Sending Messages"
-        url: /integrate/sending-messages
-  - title: Requesting consent of users
+      - title: "Create Attributes for yourself"
+        url: /integrate/create-attributes-for-yourself
+      - title: "Share Attributes with peer"
+        url: /integrate/share-attributes-with-peer
+      - title: "Read Attributes from peer"
+        url: /integrate/read-attributes-from-peer
+      - title: "Create Attributes for peer"
+        url: /integrate/create-attributes-for-peer
+      - title: "Propose Attributes to peer"
+        url: /integrate/propose-attributes-to-peer
+      - title: "Update Attributes by succession"
+        url: /integrate/update-attributes-by-succession
+      - title: "Delete Attributes"
+        url: /integrate/delete-attributes
+  - title: Request consent
     children:
       - title: "Request persistent consent of peer"
         url: /integrate/request-persistent-consent-of-peer
-      - title: "Requesting one-time consents"
-        url: /integrate/requesting-one-time-consents
-  - title: Handling data deletion
-    children:
-      - title: "Delete an Attribute"
-        url: /integrate/delete-an-attribute
+      - title: "Request one-time consent of peer"
+        url: /integrate/request-one-time-consent-of-peer
   - title: Data Model
     children:
-      - title: "Use Cases"
-        url: /integrate/use-cases
       - title: "Data Model Overview"
         url: /integrate/data-model-overview
-      - title: "Connector Events"
-        url: /integrate/connector-events
-      - title: "Requests and RequestItems"
-        url: /integrate/requests-and-requestitems
       - title: "Attribute Values"
         url: /integrate/attribute-values
+      - title: "Connector Events"
+        url: /integrate/connector-events
+      - title: "Use Cases"
+        url: /integrate/use-cases
   - title: Troubleshooting
     children:
       - title: "Error Codes"

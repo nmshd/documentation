@@ -18,7 +18,7 @@ properties:
   - link: delete-identity-from-enmeshed
 require:
 required_by:
-  - integrate/sending-messages
+  - integrate/exchange-messages
 # End automatic generation
 ---
 
