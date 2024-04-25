@@ -24,9 +24,9 @@ required_by:
 ---
 
 The exact process of deleting an Attribute depends on the kind of Attribute at hand.
-[Creating an Attribute]({% link _docs_integrate/create-attribute-for-yourself.md %}), we must distinguish between [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) and [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
+[Creating an Attribute]({% link _docs_integrate/create-attributes-for-yourself.md %}), we must distinguish between [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) and [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
 In the former case, a so-called RepositoryAttribute is created, which is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) without `shareInfo`, that you are the `owner` of.
-Afterwards, you may [share it]({% link _docs_integrate/share-attribute-with-peer.md %}) with a peer, which yields the creation of an own shared IdentityAttribute.
+Afterwards, you may [share it]({% link _docs_integrate/share-attributes-with-peer.md %}) with a peer, which yields the creation of an own shared IdentityAttribute.
 This is a LocalAttribute with the copied `content` of the RepositoryAttribute, but an additional `shareInfo` property.
 Doing so, also a LocalAttribute with the same `content` and a respective `shareInfo` is created for the peer, which is referred to as peer shared Attribute.
 In the case of RelationshipAttributes we have own shared and peer shared RelationshipAttributes analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with RepositoryAttributes.

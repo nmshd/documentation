@@ -43,7 +43,7 @@ Hence, we will look at the process of creating, sharing and succeeding an Identi
 ### Creating a RepositoryAttribute
 
 Enmeshed allows you to store data about yourself in the form of IdentityAttributes.
-When [creating an IdentityAttribute]({% link _docs_integrate/create-attribute-for-yourself.md %}), it is not necessary to share it immediately with a peer.
+When [creating an IdentityAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}), it is not necessary to share it immediately with a peer.
 Instead, it will be stored in the `content` property of a LocalAttribute with an undefined `shareInfo`.
 We refer to these unshared LocalAttributes as RepositoryAttributes, since they make up your private repository of Attributes.
 
@@ -54,7 +54,7 @@ In the following examples, the `createdAt` and `deletionInfo` properties of all 
 
 ### Sharing a RepositoryAttribute
 
-Now, in order to [share a RepositoryAttribute]({% link _docs_integrate/share-attribute-with-peer.md %}), you need to send an according [Request]({% link _docs_integrate/data-model-overview.md %}#request) to the peer you want to share it with.
+Now, in order to [share a RepositoryAttribute]({% link _docs_integrate/share-attributes-with-peer.md %}), you need to send an according [Request]({% link _docs_integrate/data-model-overview.md %}#request) to the peer you want to share it with.
 If they [accept your Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}), a new LocalAttribute will be created at the peer's side.
 This peer shared IdentityAttribute has the same `content` like your RepositoryAttribute and, in addition, a defined `shareInfo` property.
 It stores the Address of the `peer` who shared the Attribute with them, i.e. your Address, and a reference to the Request that was used to share the Attribute.

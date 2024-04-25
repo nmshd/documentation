@@ -90,9 +90,9 @@ You can query the Connector's address via the route `/api/v2/Account/IdentityInf
 
 Next, we want to create a RelationshipTemplate, that can be used by the App to send a Relationship Request to our Connector.
 The content of the template can be widely configured, but for simplicity we will use a [Request]({% link _docs_integrate/data-model-overview.md %}#request) with just two [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in our example.
-On the one hand, we want to [share an Attribute]({% link _docs_integrate/share-attribute-with-peer.md %}) with the App, namely the display name of our Connector we created in the previous step.
+On the one hand, we want to [share an Attribute]({% link _docs_integrate/share-attributes-with-peer.md %}) with the App, namely the display name of our Connector we created in the previous step.
 For this, we use a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem).
-On the other hand, we use [ReadAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) to [receive Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}) from the App.
+On the other hand, we use [ReadAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) to [receive Attributes]({% link _docs_integrate/read-attributes-from-peer.md %}) from the App.
 Let's assume the Connector needs to know the given name and surname of its contact to create a Relationship and, additionally, offers the option to specify an e-mail address for communication.
 
 ```json
