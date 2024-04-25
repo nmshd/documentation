@@ -23,20 +23,20 @@ required_by:
 # End automatic generation
 ---
 
-There are many situations in which an Identity wants to share an own [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with another Identity, for example:
+There are many situations in which an Identity wants to share an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with another Identity, for example:
 
 - A university wants to give a student the street address of its student administration so that they can send it documents by post.
 - An organization wants to share its email address with its members in order to be able to receive emails from them.
 - A company wants to share the customer number of one of its customers with another company.
 
-In this guide, we explain how a Connector, hereinafter referred to as the Sender, can share an own [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) with another Connector, the so-called Recipient. Since understanding this sharing process requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and how to use them in general, you should take a look at our [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) before continuing reading this guide.
+In this guide, we explain how a Connector, hereinafter referred to as the Sender, can share an [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) with another Connector, the so-called Recipient. Since understanding this sharing process requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and how to use them in general, you should take a look at our [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) before continuing reading this guide.
 
-Please note that the general procedure is the same if the Connector wants to share an own Attribute with an App user instead of another Connector. For reasons of clarity, this guide focuses on the sharing process with two Connectors.
+Please note that the general procedure is the same if the Connector wants to share an Attribute with an App user instead of another Connector. For reasons of clarity, this guide focuses on the sharing process with two Connectors.
 {: .notice--info}
 
 ## Request for sharing Attributes
 
-The Sender wants to share an own Attribute with the Recipient. To do this, the Sender must first create a suitable Request, which it can then send to the Recipient. In the following subsections, we describe the general appearance of a Request for sharing Attributes.
+The Sender wants to share an Attribute with the Recipient. To do this, the Sender must first create a suitable Request, which it can then send to the Recipient. In the following subsections, we describe the general appearance of a Request for sharing Attributes.
 
 ### Role of ShareAttributeRequestItem
 
@@ -55,14 +55,14 @@ The following table provides an overview of the possible kinds of Attributes tha
 | Identity       | Recipient       |     ✗     | `N/A`                                                          | It makes no sense to share the Attribute with the Recipient, because he already owns it.                                                                                                                                                                                                               |
 | Identity       | Third Party     |     ✗     | `N/A`                                                          | You cannot share an Attribute of which you are not the owner.                                                                                                                                                                                                                                          |
 | Identity       | `<empty>`       |     ✓     | `AUTO ACCEPT`                                                  | An empty owner defaults to an Attribute with `owner=<Sender>`.                                                                                                                                                                                                                                         |
-| Relationship   | Sender          |     ✓     | `USER DECISION` / `NOT ALLOWED` (depending on confidentiality) | A user can share own RelationshipAttributes of any Relationship with any other Relationship (if the confidentiality of the RelationshipAttribute is protected or public).<br>Example: Share customer ID from company A with company B (User is owner of RelationshipAttribute).                        |
+| Relationship   | Sender          |     ✓     | `USER DECISION` / `NOT ALLOWED` (depending on confidentiality) | A user can share RelationshipAttributes of any Relationship with any other Relationship (if the confidentiality of the RelationshipAttribute is protected or public).<br>Example: Share customer ID from company A with company B (User is owner of RelationshipAttribute).                            |
 | Relationship   | Recipient       |     ✗     | `N/A`                                                          | It makes no sense to share the Attribute with the Recipient, because he already owns it.                                                                                                                                                                                                               |
 | Relationship   | Third Party     |     ✓     | `USER DECISION` / `NOT ALLOWED` (depending on confidentiality) | A user can share RelationshipAttributes of any Relationship with any other Relationship (if the confidentiality of the RelationshipAttribute is protected or public).<br> Example: Share customer ID from company A with company B (Company A is owner of RelationshipAttribute), e.g. Payback number. |
 | Relationship   | `<empty>`       |     ✓     | `AUTO ACCEPT`                                                  | An empty owner defaults to an Attribute with `owner=<Sender>`.                                                                                                                                                                                                                                         |
 
-### Example of sharing an own IdentityAttribute
+### Example of sharing an IdentityAttribute
 
-We assume that the Integrator of the Sender has created an own IdentityAttribute of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) for the Sender by following the instructions of our [Create Attribute for yourself]({% link _docs_integrate/create-attribute-for-yourself.md %}) scenario documentation. This IdentityAttribute is stored locally within the `content` property of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) of the Sender.
+We assume that the Integrator of the Sender has created an IdentityAttribute of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) for the Sender by following the instructions of our [Create Attribute for yourself]({% link _docs_integrate/create-attribute-for-yourself.md %}) scenario documentation. This IdentityAttribute is stored locally within the `content` property of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) of the Sender.
 
 ```jsonc
 {
@@ -107,7 +107,7 @@ In our example, the Sender wants to share the IdentityAttribute with the Recipie
 }
 ```
 
-### Example of sharing an own RelationshipAttribute
+### Example of sharing a RelationshipAttribute
 
 We now consider the case in which the Sender has an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with a third party and owns a RelationshipAttribute, which has already been created by using an appropriate Request, of type [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring) of this Relationship. The Sender can request to share this RelationshipAttribute with the Recipient if its `confidentiality` is `"protected"` or `"public"`. In our example, we assume that the `confidentiality` of the RelationshipAttribute is `"public"` and that it is stored locally within the `content` property of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) of the Sender.
 
@@ -304,4 +304,4 @@ In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-ove
 
 ## What's next?
 
-Take a look at our [Integration example]({% link _docs_integrate/integration-example.md %}) if you want to see how an Identity shares an own Attribute with a peer in the context of a larger process. Also note that it is not only possible to share your own Attribute with a peer, but you can also request to read an Attribute from a peer. Consult the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide for this.
+Take a look at our [Integration example]({% link _docs_integrate/integration-example.md %}) if you want to see how an Identity shares an Attribute with a peer in the context of a larger process. Also note that it is not only possible to share an Attribute with a peer, but you can also request to read an Attribute from a peer. Consult the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide for this.
