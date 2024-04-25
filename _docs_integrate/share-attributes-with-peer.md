@@ -3,7 +3,7 @@
 permalink: integrate/share-attributes-with-peer
 redirect_from:
   - /integrate/share-own-attribute-to-peer
-  - /integrate/share-attributes-with-peer
+  - /integrate/share-attribute-with-peer
 published: true
 title: "Share Attributes with peer"
 type: scenario

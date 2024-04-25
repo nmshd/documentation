@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: integrate/read-attributes-from-peer
 redirect_from:
-  - /integrate/read-attributes-for-peer
+  - /integrate/read-attribute-for-peer
 published: true
 title: "Read Attributes from peer"
 type: scenario

@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: integrate/create-attributes-for-yourself
 redirect_from:
-  - /integrate/create-attributes-for-yourself
+  - /integrate/create-attribute-for-yourself
 published: true
 title: "Create Attributes for yourself"
 type: scenario

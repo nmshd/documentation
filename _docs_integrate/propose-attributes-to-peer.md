@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: integrate/propose-attributes-to-peer
 redirect_from:
-  - /integrate/propose-attributes-to-peer
+  - /integrate/propose-attribute-to-peer
 published: true
 title: "Propose Attributes to peer"
 type: scenario

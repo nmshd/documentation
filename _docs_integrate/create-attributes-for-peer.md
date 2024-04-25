@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: integrate/create-attributes-for-peer
 redirect_from:
-  - /integrate/create-attributes-for-peer
+  - /integrate/create-attribute-for-peer
 published: true
 title: "Create Attributes for peer"
 type: scenario
