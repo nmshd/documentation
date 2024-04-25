@@ -1,0 +1,784 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.25.0 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Share Attributes with peer - enmeshed</title>
+<meta name="description" content="There are many situations in which an Identity wants to share an IdentityAttribute or a RelationshipAttribute with another Identity, for example:">
+
+
+  <meta name="author" content="Enmeshed Team">
+  
+  <meta property="article:author" content="Enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Share Attributes with peer">
+<meta property="og:url" content="/integrate/share-attributes-with-peer">
+
+
+  <meta property="og:description" content="There are many situations in which an Identity wants to share an IdentityAttribute or a RelationshipAttribute with another Identity, for example:">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-04-25T17:21:20+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/integrate/share-attributes-with-peer">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/operate">Operate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog">Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/access-the-connector">Access the Connector</a></li>
+          
+            <li><a href="/integrate/integration-example">Integration example</a></li>
+          
+            <li><a href="/integrate/event-introduction">Event introduction</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Relationships between Identities</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/establish-relationships">Establish Relationships</a></li>
+          
+            <li><a href="/integrate/exchange-messages">Exchange Messages</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Working with Requests</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/request-and-response-introduction">Request and Response introduction</a></li>
+          
+            <li><a href="/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a></li>
+          
+            <li><a href="/integrate/requests-via-messages">Requests via Messages</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Manage Attributes</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/create-attributes-for-yourself">Create Attributes for yourself</a></li>
+          
+            <li><a href="/integrate/share-attributes-with-peer" class="active">Share Attributes with peer</a></li>
+          
+            <li><a href="/integrate/read-attributes-from-peer">Read Attributes from peer</a></li>
+          
+            <li><a href="/integrate/create-attributes-for-peer">Create Attributes for peer</a></li>
+          
+            <li><a href="/integrate/propose-attributes-to-peer">Propose Attributes to peer</a></li>
+          
+            <li><a href="/integrate/update-attributes-by-succession">Update Attributes by succession</a></li>
+          
+            <li><a href="/integrate/delete-attributes">Delete Attributes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Request consent</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
+          
+            <li><a href="/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Data Model</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/data-model-overview">Data Model Overview</a></li>
+          
+            <li><a href="/integrate/attribute-values">Attribute Values</a></li>
+          
+            <li><a href="/integrate/connector-events">Connector Events</a></li>
+          
+            <li><a href="/integrate/use-cases">Use Cases</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Troubleshooting</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/error-codes">Error Codes</a></li>
+          
+            <li><a href="/integrate/faq">FAQ</a></li>
+          
+            <li><a href="/integrate/support">Support</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Share Attributes with peer">
+    <meta itemprop="description" content="There are many situations in which an Identity wants to share an IdentityAttribute or a RelationshipAttribute with another Identity, for example:">
+    <meta itemprop="datePublished" content="2024-04-25T17:21:20+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/integrate/share-attributes-with-peer" class="u-url" itemprop="url">Share Attributes with peer
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#request-for-sharing-attributes">Request for sharing Attributes</a><ul><li><a href="#role-of-shareattributerequestitem">Role of ShareAttributeRequestItem</a></li><li><a href="#combinations-and-usage-scenarios-of-shareattributerequestitem">Combinations and usage scenarios of ShareAttributeRequestItem</a></li><li><a href="#example-of-sharing-an-identityattribute">Example of sharing an IdentityAttribute</a></li><li><a href="#example-of-sharing-a-relationshipattribute">Example of sharing a RelationshipAttribute</a></li><li><a href="#share-multiple-attributes">Share multiple Attributes</a></li></ul></li><li><a href="#send-and-receive-the-request">Send and receive the Request</a><ul><li><a href="#request-via-relationshiptemplate">Request via RelationshipTemplate</a></li><li><a href="#request-via-message">Request via Message</a></li></ul></li><li><a href="#accept-the-request-and-get-the-attributes">Accept the Request and get the Attributes</a><ul><li><a href="#accept-a-shareattributerequestitem">Accept a ShareAttributeRequestItem</a></li><li><a href="#reject-a-shareattributerequestitem">Reject a ShareAttributeRequestItem</a></li><li><a href="#example-of-accepting-a-requestitemgroup">Example of accepting a RequestItemGroup</a></li></ul></li><li><a href="#receive-the-response-to-the-request">Receive the Response to the Request</a></li><li><a href="#whats-next">What’s next?</a></li></ul>
+            </nav>
+          </aside>
+        
+        <p>There are many situations in which an Identity wants to share an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> or a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> with another Identity, for example:</p>
+
+<ul>
+  <li>A university wants to give a student the street address of its student administration so that they can send it documents by post.</li>
+  <li>An organization wants to share its email address with its members in order to be able to receive emails from them.</li>
+  <li>A company wants to share the customer number of one of its customers with another company.</li>
+</ul>
+
+<p>In this guide, we explain how a Connector, hereinafter referred to as the Sender, can share an <a href="/integrate/data-model-overview#attributes">Attribute</a> with another Connector, the so-called Recipient. Since understanding this sharing process requires knowledge about <a href="/integrate/data-model-overview#request">Requests</a> and how to use them in general, you should take a look at our <a href="/integrate/request-and-response-introduction">Request and Response introduction</a> before continuing reading this guide.</p>
+
+<p class="notice--info">Please note that the general procedure is the same if the Connector wants to share an Attribute with an App user instead of another Connector. For reasons of clarity, this guide focuses on the sharing process with two Connectors.</p>
+
+<h2 id="request-for-sharing-attributes">Request for sharing Attributes</h2>
+
+<p>The Sender wants to share an Attribute with the Recipient. To do this, the Sender must first create a suitable Request, which it can then send to the Recipient. In the following subsections, we describe the general appearance of a Request for sharing Attributes.</p>
+
+<h3 id="role-of-shareattributerequestitem">Role of ShareAttributeRequestItem</h3>
+
+<p>For sharing a single Attribute, the Sender needs to insert a single RequestItem of type <a href="/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a> into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#request">Request</a>. The Sender can only share an Attribute that already exists as a <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> and, in the case of IdentityAttributes, is owned by it. The latter means that the Address of the Sender is contained in the <code class="language-plaintext highlighter-rouge">content.owner</code> property of the corresponding LocalAttribute. The <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute must be inserted into the <code class="language-plaintext highlighter-rouge">sourceAttributeId</code> property and the <code class="language-plaintext highlighter-rouge">content</code> of the LocalAttribute into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the ShareAttributeRequestItem.</p>
+
+<p class="notice--info">To get a list of all LocalAttributes that are owned by the Sender, proceed as described in the <a href="/use-case-consumption-query-attributes">Query Attributes</a> use case documentation and use <code class="language-plaintext highlighter-rouge">"content.owner=&lt;Address of Sender&gt;"</code> as query parameter. Please note that the <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> notation is used as a placeholder for the actual data as usual. If the <code class="language-plaintext highlighter-rouge">id</code> of a LocalAttribute is known, the underlying IdentityAttribute or RelationshipAttribute within its <code class="language-plaintext highlighter-rouge">content</code> property can be displayed by consulting the <a href="/use-case-consumption-get-attribute">Get Attribute</a> use case description and specifying the <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute.</p>
+
+<h3 id="combinations-and-usage-scenarios-of-shareattributerequestitem">Combinations and usage scenarios of ShareAttributeRequestItem</h3>
+
+<p>The following table provides an overview of the possible kinds of Attributes that the Sender can share with the Recipient using the ShareAttributeRequestItem. It must be taken into account whether the <a href="/integrate/data-model-overview#attributes">Attribute</a> is an IdentityAttribute or a RelationshipAttribute and which Identity is its <code class="language-plaintext highlighter-rouge">owner</code>. If the Sender wants to share a RelationshipAttribute with the Recipient, a distinction must be made between which Identities the Relationship in question exists.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute Type</th>
+      <th>Attribute Owner</th>
+      <th style="text-align: center">Possible?</th>
+      <th>Automation</th>
+      <th>Examples/Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identity</td>
+      <td>Sender</td>
+      <td style="text-align: center">✓</td>
+      <td><code class="language-plaintext highlighter-rouge">AUTO ACCEPT</code></td>
+      <td>Company sends new customer the address of the company.</td>
+    </tr>
+    <tr>
+      <td>Identity</td>
+      <td>Recipient</td>
+      <td style="text-align: center">✗</td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
+      <td>It makes no sense to share the Attribute with the Recipient, because he already owns it.</td>
+    </tr>
+    <tr>
+      <td>Identity</td>
+      <td>Third Party</td>
+      <td style="text-align: center">✗</td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
+      <td>You cannot share an Attribute of which you are not the owner.</td>
+    </tr>
+    <tr>
+      <td>Identity</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;empty&gt;</code></td>
+      <td style="text-align: center">✓</td>
+      <td><code class="language-plaintext highlighter-rouge">AUTO ACCEPT</code></td>
+      <td>An empty owner defaults to an Attribute with <code class="language-plaintext highlighter-rouge">owner=&lt;Sender&gt;</code>.</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Sender</td>
+      <td style="text-align: center">✓</td>
+      <td><code class="language-plaintext highlighter-rouge">USER DECISION</code> / <code class="language-plaintext highlighter-rouge">NOT ALLOWED</code> (depending on confidentiality)</td>
+      <td>A user can share RelationshipAttributes of any Relationship with any other Relationship (if the confidentiality of the RelationshipAttribute is protected or public).<br />Example: Share customer ID from company A with company B (User is owner of RelationshipAttribute).</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Recipient</td>
+      <td style="text-align: center">✗</td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
+      <td>It makes no sense to share the Attribute with the Recipient, because he already owns it.</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Third Party</td>
+      <td style="text-align: center">✓</td>
+      <td><code class="language-plaintext highlighter-rouge">USER DECISION</code> / <code class="language-plaintext highlighter-rouge">NOT ALLOWED</code> (depending on confidentiality)</td>
+      <td>A user can share RelationshipAttributes of any Relationship with any other Relationship (if the confidentiality of the RelationshipAttribute is protected or public).<br /> Example: Share customer ID from company A with company B (Company A is owner of RelationshipAttribute), e.g. Payback number.</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;empty&gt;</code></td>
+      <td style="text-align: center">✓</td>
+      <td><code class="language-plaintext highlighter-rouge">AUTO ACCEPT</code></td>
+      <td>An empty owner defaults to an Attribute with <code class="language-plaintext highlighter-rouge">owner=&lt;Sender&gt;</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-of-sharing-an-identityattribute">Example of sharing an IdentityAttribute</h3>
+
+<p>We assume that the Integrator of the Sender has created an IdentityAttribute of type <a href="/integrate/attribute-values#birthdate">BirthDate</a> for the Sender by following the instructions of our <a href="/integrate/create-attributes-for-yourself">Create Attributes for yourself</a> scenario documentation. This IdentityAttribute is stored locally within the <code class="language-plaintext highlighter-rouge">content</code> property of a corresponding <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> of the Sender.</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LocalAttribute"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID of LocalAttribute&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;creation date of LocalAttribute&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Address of Sender&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BirthDate"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"day"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;day</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">birth</span><span class="w"> </span><span class="err">date&gt;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"month"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;month</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">birth</span><span class="w"> </span><span class="err">date&gt;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"year"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;year</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">birth</span><span class="w"> </span><span class="err">date&gt;</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In our example, the Sender wants to share the IdentityAttribute with the Recipient. To do so, it needs to insert the <code class="language-plaintext highlighter-rouge">id</code> of the corresponding LocalAttribute into the <code class="language-plaintext highlighter-rouge">sourceAttributeId</code> property and the IdentityAttribute itself into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the <a href="/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a> contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#request">Request</a> for sharing Attributes. The value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the ShareAttributeRequestItem is set to <code class="language-plaintext highlighter-rouge">true</code> in this example.</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ShareAttributeRequestItem"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Address of Sender&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BirthDate"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"day"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;day</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">birth</span><span class="w"> </span><span class="err">date&gt;</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"month"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;month</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">birth</span><span class="w"> </span><span class="err">date&gt;</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"year"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;year</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">birth</span><span class="w"> </span><span class="err">date&gt;</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"sourceAttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID of LocalAttribute&gt;"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="example-of-sharing-a-relationshipattribute">Example of sharing a RelationshipAttribute</h3>
+
+<p>We now consider the case in which the Sender has an active <a href="/integrate/data-model-overview#relationship">Relationship</a> with a third party and owns a RelationshipAttribute, which has already been created by using an appropriate Request, of type <a href="/integrate/attribute-values#proprietarystring">ProprietaryString</a> of this Relationship. The Sender can request to share this RelationshipAttribute with the Recipient if its <code class="language-plaintext highlighter-rouge">confidentiality</code> is <code class="language-plaintext highlighter-rouge">"protected"</code> or <code class="language-plaintext highlighter-rouge">"public"</code>. In our example, we assume that the <code class="language-plaintext highlighter-rouge">confidentiality</code> of the RelationshipAttribute is <code class="language-plaintext highlighter-rouge">"public"</code> and that it is stored locally within the <code class="language-plaintext highlighter-rouge">content</code> property of a corresponding <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> with a <a href="/integrate/data-model-overview#localattributeshareinfo">LocalAttributeShareInfo</a> of the Sender.</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LocalAttribute"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID of LocalAttribute&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;creation date of LocalAttribute&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RelationshipAttribute"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Address of Sender&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;key of RelationshipAttribute&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"confidentiality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProprietaryString"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;title of RelationshipAttribute&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;actual value of RelationshipAttribute&gt;"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"shareInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Address of third party&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"requestReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID of Request used for creating RelationshipAttribute&gt;"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>To share the RelationshipAttribute with the Recipient, the Sender needs to insert the <code class="language-plaintext highlighter-rouge">id</code> of the corresponding LocalAttribute into the <code class="language-plaintext highlighter-rouge">sourceAttributeId</code> property and the RelationshipAttribute itself into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the <a href="/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a> contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#request">Request</a> for sharing Attributes. The value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the ShareAttributeRequestItem is set to <code class="language-plaintext highlighter-rouge">true</code> in this example.</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ShareAttributeRequestItem"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RelationshipAttribute"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Address of Sender&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;key of RelationshipAttribute&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"confidentiality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProprietaryString"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;title of RelationshipAttribute&gt;"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;actual value of RelationshipAttribute&gt;"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"sourceAttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID of LocalAttribute&gt;"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The table of the <a href="/integrate/share-attributes-with-peer#combinations-and-usage-scenarios-of-shareattributerequestitem">Combinations and usage scenarios of the ShareAttributeRequestItem</a> contains further information on sharing RelationshipAttributes in different application scenarios.</p>
+
+<h3 id="share-multiple-attributes">Share multiple Attributes</h3>
+
+<p>Sharing is not limited to just a single Attribute, but it is possible to request the sharing of multiple Attributes at the same time. For this purpose, several ShareAttributeRequestItems or suitable <a href="/integrate/data-model-overview#requestitemgroup">RequestItemGroups</a> can be inserted into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#request">Request</a> for sharing Attributes. If you want to use a RequestItemGroup in order to share multiple Attributes with the Recipient at the same time, you must insert corresponding ShareAttributeRequestItems into the <code class="language-plaintext highlighter-rouge">items</code> property of it.</p>
+
+<h2 id="send-and-receive-the-request">Send and receive the Request</h2>
+
+<p>The Sender that wants to share an Attribute with the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method can be used to send the <a href="/integrate/share-attributes-with-peer#request-for-sharing-attributes">Request for sharing Attributes</a>. There are two ways to send the Request for sharing Attributes created by the Sender to the Recipient.</p>
+
+<h3 id="request-via-relationshiptemplate">Request via RelationshipTemplate</h3>
+
+<p>If there is currently no Relationship between the Sender and the Recipient, this approach must be used. However, it is also possible for the Sender to use a <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> to send a Request to the Recipient if there is already an active Relationship between them. All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the <a href="/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a> guide.</p>
+
+<h3 id="request-via-message">Request via Message</h3>
+
+<p>The Sender only has the option of sending a Request to the Recipient via a <a href="/integrate/data-model-overview#message">Message</a> if there is already an active Relationship between them. All information on how to send and receive a Request via a Message can be found in the <a href="/integrate/requests-via-messages">Requests via Messages</a> guide.</p>
+
+<h2 id="accept-the-request-and-get-the-attributes">Accept the Request and get the Attributes</h2>
+
+<p>After the Recipient has received the <a href="/integrate/share-attributes-with-peer#request-for-sharing-attributes">Request for sharing Attributes</a>, it can accept it to get all or some of the Sender’s shared Attributes. To do this, proceed as described in the <a href="/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case documentation and specify the <code class="language-plaintext highlighter-rouge">id</code> of the received <a href="/integrate/data-model-overview#request">Request</a>. Also, you need to decide and specify for each ShareAttributeRequestItem and RequestItemGroup contained in the Request for sharing Attributes whether you want to accept or reject it.</p>
+
+<p class="notice--info">If the Recipient does not want to get any of the Sender’s shared Attributes and, therefore, does not want to accept the Request for sharing Attributes of the Sender, it can reject it as a whole too. For that, follow the instructions of the <a href="/use-case-consumption-reject-incoming-request">Reject incoming Request</a> use case.</p>
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/b79abea1-1062-4f0d-8929-85dd4d728a59" id="7SfSSvpj.eT3"></iframe></div>
+
+<h3 id="accept-a-shareattributerequestitem">Accept a ShareAttributeRequestItem</h3>
+
+<p>If the Recipient agrees to get one of the Sender’s shared Attributes, it can accept the associated ShareAttributeRequestItem contained in the Request for sharing Attributes. The <a href="/integrate/data-model-overview#acceptrequestitemparameters">AcceptRequestItemParameters</a> must be used for this. The acceptance of a ShareAttributeRequestItem leads to the creation of a corresponding LocalAttribute with a <a href="/integrate/data-model-overview#localattributeshareinfo">LocalAttributeShareInfo</a> contained within its <code class="language-plaintext highlighter-rouge">shareInfo</code> property. The <code class="language-plaintext highlighter-rouge">content</code> of the LocalAttribute is the underlying <code class="language-plaintext highlighter-rouge">attribute</code> of the ShareAttributeRequestItem. Based on this, an appropriate AcceptResponseItem of type <a href="/integrate/data-model-overview#shareattributeacceptresponseitem">ShareAttributeAcceptResponseItem</a> is generated, which incorporates the <code class="language-plaintext highlighter-rouge">id</code> of the created LocalAttribute with the LocalAttributeShareInfo in its <code class="language-plaintext highlighter-rouge">attributeId</code> property. This will be contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#response">Response</a> to the Request for sharing Attributes that will be transferred to the Sender.</p>
+
+<h3 id="reject-a-shareattributerequestitem">Reject a ShareAttributeRequestItem</h3>
+
+<p>Even if the Recipient accepts the Request for sharing Attributes as a whole, it may decide not to accept all of the Sender’s shared Attributes. To be more precise, the Recipient has the option of rejecting <a href="/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItems</a> that have the value <code class="language-plaintext highlighter-rouge">false</code> specified in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property. To reject a ShareAttributeRequestItem, use the <a href="/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a>. The rejection of a ShareAttributeRequestItem leads to the creation of a corresponding ResponseItem of type <a href="/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a>. This will be contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#response">Response</a> to the Request for sharing Attributes.</p>
+
+<h3 id="example-of-accepting-a-requestitemgroup">Example of accepting a RequestItemGroup</h3>
+
+<p>Let’s look at an example where the Sender wants to share its <a href="/integrate/attribute-values#displayname">DisplayName</a> and contact information in the form of an <a href="/integrate/attribute-values#emailaddress">EMailAddress</a> or a <a href="/integrate/attribute-values#phonenumber">PhoneNumber</a> with the Recipient. For this purpose, the Sender creates a <a href="/integrate/data-model-overview#request">Request</a> for sharing Attributes, which contains a ShareAttributeRequestItem belonging to the DisplayName and a RequestItemGroup belonging to the contact information in its <code class="language-plaintext highlighter-rouge">items</code> property. The <a href="/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> itself includes two ShareAttributeRequestItems in its <code class="language-plaintext highlighter-rouge">items</code> property, namely one for the EMailAddress and one for the PhoneNumber.</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ShareAttributeRequestItem"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Address of Sender&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DisplayName"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;display name that the Sender wants to share&gt;"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"sourceAttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID of LocalAttribute which is the source of the DisplayName&gt;"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RequestItemGroup"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ShareAttributeRequestItem"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Address of Sender&gt;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMailAddress"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;email address that the Sender wants to share&gt;"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"sourceAttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID of LocalAttribute which is the source of the EMailAddress&gt;"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ShareAttributeRequestItem"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Address of Sender&gt;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PhoneNumber"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;phone number that the Sender wants to share&gt;"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"sourceAttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID of LocalAttribute which is the source of the PhoneNumber&gt;"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In our example, the Sender only requires the Recipient to accept the DisplayName and the EMailAddress, which is why the individual <a href="/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItems</a> and the <a href="/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> within the Request have specified corresponding values in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property. We assume that the Recipient wants to accept the Request and all its ShareAttributeRequestItems with the exception of the PhoneNumber.</p>
+
+<p class="notice--info">If the Recipient wants to accept the Request for sharing Attributes, it must accept all ShareAttributeRequestItems for which the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code>. It is therefore not permitted for the Recipient to refuse to accept the DisplayName or the EMailAddress shared by the Sender.</p>
+
+<p>The Recipient accepts the DisplayName of the Sender and accepts at least one ShareAttributeRequestItem of the RequestItemGroup. Also, the Recipient accepts the EMailAddress and rejects the PhoneNumber of the Sender. It therefore responds to the Request for sharing Attributes as follows:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="c1">// Accept DisplayName</span><span class="w">
+      </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="c1">// Accept RequestItemGroup</span><span class="w">
+      </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="c1">// Accept EMailAddress</span><span class="w">
+          </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="c1">// Reject PhoneNumber</span><span class="w">
+          </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Note that it is important to respond to RequestItems and RequestItemGroups in the same order in which they were received.</p>
+
+<h2 id="receive-the-response-to-the-request">Receive the Response to the Request</h2>
+
+<p>We now assume that the Recipient has accepted the <a href="/integrate/share-attributes-with-peer#request-for-sharing-attributes">Request for sharing Attributes</a> of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to <a href="/use-case-transport-synchronize-updates-of-backbone">synchronize the updates of the Backbone</a>. Please note that this synchronization can also be automated by using the <a href="/operate/modules#sync">Sync Module</a>.</p>
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/14e97556-0a62-417a-9c97-41872d029056" id="DG~Sz6M~q5zO"></iframe></div>
+
+<p>To view the Response to the Request, search for it in the synchronization result or proceed as described in the <a href="/use-case-consumption-query-outgoing-requests">Query outgoing Requests</a> use case documentation and use the following query parameter:</p>
+
+<ul>
+  <li>If the <a href="/integrate/share-attributes-with-peer#request-over-template">Request was sent via a Template</a>: Specify <code class="language-plaintext highlighter-rouge">&lt;ID of RelationshipTemplate&gt;</code> as the value for the <code class="language-plaintext highlighter-rouge">source.reference</code> query parameter.</li>
+  <li>If the <a href="/integrate/share-attributes-with-peer#request-over-message">Request was sent via a Message</a>: Specify <code class="language-plaintext highlighter-rouge">&lt;ID of Request&gt;</code> as the value for the <code class="language-plaintext highlighter-rouge">id</code> query parameter.</li>
+</ul>
+
+<p>The Integrator of the Sender can now get the Response of the Recipient from the <code class="language-plaintext highlighter-rouge">response.content</code> property of the result. In the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#response">Response</a> is a <a href="/integrate/data-model-overview#shareattributeacceptresponseitem">ShareAttributeAcceptResponseItem</a> for each accepted ShareAttributeRequestItem and a <a href="/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> for each rejected ShareAttributeRequestItem included. Note that each accepted ShareAttributeRequestItem leads to the creation of an appropriate LocalAttribute with a LocalAttributeShareInfo of the Sender. The <code class="language-plaintext highlighter-rouge">content</code> of the LocalAttribute is the underlying <code class="language-plaintext highlighter-rouge">attribute</code> of the ShareAttributeRequestItem.</p>
+
+<p class="notice--info">In case of an error, <a href="/integrate/data-model-overview#errorresponseitem">ErrorResponseItems</a> can also be included in the Response. If the Request for sharing Attributes contains a RequestItemGroup in its <code class="language-plaintext highlighter-rouge">items</code> property, the Response to this Request contains a corresponding <a href="/integrate/data-model-overview#responseitemgroup">ResponseItemGroup</a> in its <code class="language-plaintext highlighter-rouge">items</code> property.</p>
+
+<h2 id="whats-next">What’s next?</h2>
+
+<p>Take a look at our <a href="/integrate/integration-example">Integration example</a> if you want to see how an Identity shares an Attribute with a peer in the context of a larger process. Also note that it is not only possible to share an Attribute with a peer, but you can also request to read an Attribute from a peer. Consult the <a href="/integrate/read-attributes-from-peer">Read Attributes from peer</a> guide for this.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-04-25T17:21:20+02:00">April 25, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+           
+        <li>
+            <a href="/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2024
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

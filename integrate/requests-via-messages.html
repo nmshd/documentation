@@ -1,0 +1,627 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.25.0 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Requests via Messages - enmeshed</title>
+<meta name="description" content="This guide explains how to send and receive a Request over enmeshed Messages using two Connectors. The first of them, which we will refer to as the Sender, will send the Request. The second, which we will refer to as the Recipient, can decide, whether they want to accept or reject the Request. We’ll go through the steps of validating and creating the Request, sending and receiving it, and finally accepting or rejecting the Request.">
+
+
+  <meta name="author" content="Enmeshed Team">
+  
+  <meta property="article:author" content="Enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Requests via Messages">
+<meta property="og:url" content="/integrate/requests-via-messages">
+
+
+  <meta property="og:description" content="This guide explains how to send and receive a Request over enmeshed Messages using two Connectors. The first of them, which we will refer to as the Sender, will send the Request. The second, which we will refer to as the Recipient, can decide, whether they want to accept or reject the Request. We’ll go through the steps of validating and creating the Request, sending and receiving it, and finally accepting or rejecting the Request.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-04-25T17:21:20+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/integrate/requests-via-messages">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/operate">Operate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog">Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/access-the-connector">Access the Connector</a></li>
+          
+            <li><a href="/integrate/integration-example">Integration example</a></li>
+          
+            <li><a href="/integrate/event-introduction">Event introduction</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Relationships between Identities</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/establish-relationships">Establish Relationships</a></li>
+          
+            <li><a href="/integrate/exchange-messages">Exchange Messages</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Working with Requests</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/request-and-response-introduction">Request and Response introduction</a></li>
+          
+            <li><a href="/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a></li>
+          
+            <li><a href="/integrate/requests-via-messages" class="active">Requests via Messages</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Manage Attributes</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/create-attributes-for-yourself">Create Attributes for yourself</a></li>
+          
+            <li><a href="/integrate/share-attributes-with-peer">Share Attributes with peer</a></li>
+          
+            <li><a href="/integrate/read-attributes-from-peer">Read Attributes from peer</a></li>
+          
+            <li><a href="/integrate/create-attributes-for-peer">Create Attributes for peer</a></li>
+          
+            <li><a href="/integrate/propose-attributes-to-peer">Propose Attributes to peer</a></li>
+          
+            <li><a href="/integrate/update-attributes-by-succession">Update Attributes by succession</a></li>
+          
+            <li><a href="/integrate/delete-attributes">Delete Attributes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Request consent</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
+          
+            <li><a href="/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Data Model</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/data-model-overview">Data Model Overview</a></li>
+          
+            <li><a href="/integrate/attribute-values">Attribute Values</a></li>
+          
+            <li><a href="/integrate/connector-events">Connector Events</a></li>
+          
+            <li><a href="/integrate/use-cases">Use Cases</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Troubleshooting</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/error-codes">Error Codes</a></li>
+          
+            <li><a href="/integrate/faq">FAQ</a></li>
+          
+            <li><a href="/integrate/support">Support</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Requests via Messages">
+    <meta itemprop="description" content="This guide explains how to send and receive a Request over enmeshed Messages using two Connectors.The first of them, which we will refer to as the Sender, will send the Request.The second, which we will refer to as the Recipient, can decide, whether they want to accept or reject the Request.We’ll go through the steps of validating and creating the Request, sending and receiving it, and finally accepting or rejecting the Request.">
+    <meta itemprop="datePublished" content="2024-04-25T17:21:20+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/integrate/requests-via-messages" class="u-url" itemprop="url">Requests via Messages
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#check-your-requests-validity">Check your Request’s validity</a></li><li><a href="#create-the-request">Create the Request</a></li><li><a href="#send-the-request">Send the Request</a></li><li><a href="#fetch-the-request">Fetch the Request</a></li><li><a href="#answer-the-request">Answer the Request</a><ul><li><a href="#accept">Accept</a></li><li><a href="#reject">Reject</a></li><li><a href="#runtime-automation">Runtime automation</a></li></ul></li><li><a href="#sync-the-response">Sync the Response</a></li></ul>
+            </nav>
+          </aside>
+        
+        <p>This guide explains how to send and receive a <a href="/integrate/data-model-overview#request">Request</a> over <a href="/integrate/data-model-overview#message">enmeshed Messages</a> using two Connectors.
+The first of them, which we will refer to as the Sender, will send the Request.
+The second, which we will refer to as the Recipient, can decide, whether they want to accept or reject the Request.
+We’ll go through the steps of validating and creating the Request, sending and receiving it, and finally accepting or rejecting the Request.</p>
+
+<p>This guide assumes that you already have an active <a href="/integrate/data-model-overview#relationship">Relationship</a> between the two Connectors, e.g. from following the <a href="/integrate/integration-example">Integration Example</a> or the scenario page <a href="/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a>.
+If that is not the case, either take a look at those guides first or follow the instructions of how to <a href="/integrate/establish-relationships">establish a Relationship</a> to another Identity.</p>
+
+<p>In order to send a Message to the Recipient, it is required to know their enmeshed Address.
+To retrieve it, the Sender can <a href="/use-case-transport-query-relationships">query their Relationships</a> and look for the right one.</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REL.."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+    </span><span class="c1">// ...</span><span class="w">
+    </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1..."</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<table style="border: none" class="notice--warning">
+    <tr>
+        <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
+        <td style="border: none"><p>Look for the correct Relationship and save its <code class="language-plaintext highlighter-rouge">peer</code> property. You are going to need it later.</p>
+</td>
+    </tr>
+</table>
+
+<h2 id="check-your-requests-validity">Check your Request’s validity</h2>
+
+<p>Firstly, you should <a href="/use-case-consumption-check-if-outgoing-request-can-be-created">check if your Request is valid</a>.
+As an example, we use a Request with just an <a href="/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a>, but you can use any Request you want.
+For an overview of the available <a href="/integrate/data-model-overview#requestitems">RequestItems</a>, check out our <a href="/integrate/request-and-response-introduction">Request and Response introduction</a>.</p>
+
+<p>Even though the <code class="language-plaintext highlighter-rouge">peer</code> property is optional, it is recommended to specify it whenever possible.
+This allows additional validation rules to execute.
+If you are sending a Request via Message, you’ll always know the peer, as it is the <code class="language-plaintext highlighter-rouge">recipient</code> of the Message.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AuthenticationRequestItem"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Sender is asking for an authentication."</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Address of Recipient&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="create-the-request">Create the Request</h2>
+
+<p>If the previous step was successful, you can <a href="/use-case-consumption-create-outgoing-request">create the Request</a>.
+For this, use the same payload you just validated.</p>
+
+<p>In the response, you can see that the Request currently has the <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Draft"</code>.
+Also, note that the <code class="language-plaintext highlighter-rouge">content</code> was extented by the <code class="language-plaintext highlighter-rouge">@type</code> property and a generated <code class="language-plaintext highlighter-rouge">id</code>, that you didn’t have to specify manually.</p>
+
+<p><strong>Example response:</strong></p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ..."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"isOwn"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Address of Recipient&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;time of creation&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ..."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AuthenticationRequestItem"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Sender is asking for an authentication."</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Draft"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table style="border: none" class="notice--warning">
+    <tr>
+        <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
+        <td style="border: none"><p>Save the complete <code class="language-plaintext highlighter-rouge">content</code> of the response. You will need it in the next step.</p>
+</td>
+    </tr>
+</table>
+
+<h2 id="send-the-request">Send the Request</h2>
+
+<p>Now let’s transmit the Request to the Recipient.
+To do so, <a href="/use-case-transport-send-message-to-recipients">send a Message</a> using the following payload and make sure to use the <code class="language-plaintext highlighter-rouge">content</code> you copied from the response, which has the <code class="language-plaintext highlighter-rouge">@type</code> property.
+This is important for the Request to be processed correctly, since it is possible to send different types of objects via <a href="/integrate/data-model-overview#message">Message</a>.</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;Address of Recipient&gt;"</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="c1">// the content you copied from the response in the step before</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>This is where the automation of the <a href="/explore/runtime">enmeshed Runtime</a> steps in and moves the Request from <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Draft"</code> to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Open"</code>.
+You can observe this behaviour by <a href="/use-case-consumption-get-outgoing-request">querying the Request</a> on the Sender Connector.</p>
+
+<h2 id="fetch-the-request">Fetch the Request</h2>
+
+<p>In order to fetch the Message with the Request, you have to <a href="/use-case-transport-synchronize-updates-of-backbone">synchronize the Recipient Connector</a>.
+The enmeshed Runtime will read the Message and create a new incoming Request.
+You can observe this by <a href="/use-case-consumption-query-incoming-requests">long polling the incoming Requests</a> and optionally use the query parameters <code class="language-plaintext highlighter-rouge">source.reference=&lt;ID of the Message&gt;</code> and <code class="language-plaintext highlighter-rouge">status=ManualDecisionRequired</code> to filter for Requests that belong to the Message that contained the Request.</p>
+
+<p>In a productive environment, however, we recommend using the <a href="/operate/modules#sync">Sync module</a> and waiting for a <code class="language-plaintext highlighter-rouge">consumption.incomingRequestReceived</code> <a href="/integrate/connector-events">Connector Event</a>.
+To learn more about events, how to use them in the context of enmeshed and which <a href="/operate/modules">modules</a> are supported by enmeshed to help you automating your business process, check out our <a href="/integrate/event-introduction">Event introduction</a>.</p>
+
+<table style="border: none" class="notice--warning">
+    <tr>
+        <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
+        <td style="border: none"><p>After you received the Request, save its <code class="language-plaintext highlighter-rouge">id</code> for the next step.</p>
+</td>
+    </tr>
+</table>
+
+<h2 id="answer-the-request">Answer the Request</h2>
+
+<h3 id="accept">Accept</h3>
+
+<p>Firstly, let’s consider the case the Recipient wants to <a href="/use-case-consumption-accept-incoming-request">accept the Request</a>.
+For this, use the <code class="language-plaintext highlighter-rouge">id</code> of the Request you saved in the previous step.
+In the payload you have to accept at least all RequestItems where the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code>.
+In case of the example Request, the payload is the following:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Note that if you have multiple <a href="/integrate/data-model-overview#requestitems">RequestItems</a> or <a href="/integrate/data-model-overview#requestitemgroup">RequestItemGroups</a>, they must be accepted in the exact order they were specified in in the <a href="/integrate/data-model-overview#request">Request</a>.</p>
+
+<h3 id="reject">Reject</h3>
+
+<p>Now, let’s consider the case the Recipient wants to <a href="/use-case-consumption-reject-incoming-request">reject the Request</a>.
+For this, use the <code class="language-plaintext highlighter-rouge">id</code> of the Request you saved in the previous step.
+In the payload you have to reject all RequestItems.
+In case of the example Request, the payload is the following:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="runtime-automation">Runtime automation</h3>
+
+<p>No matter if you accepted or rejected the Request, the response will be similar.
+You can see that the Request moved to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Decided"</code>.
+This is where the enmeshed Runtime steps in and handles the Request based on your decision.
+It will send the <a href="/integrate/data-model-overview#response">Response</a> to the Sender via a Message and move the Request to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Completed"</code> .
+This behavior can be observed by <a href="/use-case-consumption-get-incoming-request">querying the Request</a> again after a few seconds.</p>
+
+<h2 id="sync-the-response">Sync the Response</h2>
+
+<p>The Sender will receive the Response via a Message.
+For this, you have to <a href="/use-case-transport-synchronize-updates-of-backbone">synchronize the Sender Connector</a>.</p>
+
+<p>After a few seconds the Request has moved to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Completed"</code> and the Response is available in the <code class="language-plaintext highlighter-rouge">response</code> property of the Request.
+You can observe this by <a href="/use-case-consumption-get-outgoing-request">querying the Request</a> on the Sender Connector.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-04-25T17:21:20+02:00">April 25, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+           
+        <li>
+            <a href="/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2024
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

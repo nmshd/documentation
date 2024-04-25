@@ -1,0 +1,750 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.25.0 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Propose Attributes to peer - enmeshed</title>
+<meta name="description" content="An Identity may have received information about a peer in the past that it needs to process a transaction at a later time. To ensure the accuracy of the available information, the Identity can propose Attributes to the peer for creation. Depending on whether the peer confirms the fittingness of a proposed Attribute, it can agree to its creation or correct the Attribute Value beforehand. Proposing Attributes to a peer can be useful in these and many other situations, such as:">
+
+
+  <meta name="author" content="Enmeshed Team">
+  
+  <meta property="article:author" content="Enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Propose Attributes to peer">
+<meta property="og:url" content="/integrate/propose-attributes-to-peer">
+
+
+  <meta property="og:description" content="An Identity may have received information about a peer in the past that it needs to process a transaction at a later time. To ensure the accuracy of the available information, the Identity can propose Attributes to the peer for creation. Depending on whether the peer confirms the fittingness of a proposed Attribute, it can agree to its creation or correct the Attribute Value beforehand. Proposing Attributes to a peer can be useful in these and many other situations, such as:">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-04-25T17:21:20+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/integrate/propose-attributes-to-peer">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/use">Use</a>
+            </li><li class="masthead__menu-item">
+              <a href="/explore">Explore</a>
+            </li><li class="masthead__menu-item">
+              <a href="/integrate">Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/operate">Operate</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contribute">Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog">Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate enmeshed</h3>
+      
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Getting Started</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/access-the-connector">Access the Connector</a></li>
+          
+            <li><a href="/integrate/integration-example">Integration example</a></li>
+          
+            <li><a href="/integrate/event-introduction">Event introduction</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Relationships between Identities</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/establish-relationships">Establish Relationships</a></li>
+          
+            <li><a href="/integrate/exchange-messages">Exchange Messages</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Working with Requests</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/request-and-response-introduction">Request and Response introduction</a></li>
+          
+            <li><a href="/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a></li>
+          
+            <li><a href="/integrate/requests-via-messages">Requests via Messages</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Manage Attributes</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/create-attributes-for-yourself">Create Attributes for yourself</a></li>
+          
+            <li><a href="/integrate/share-attributes-with-peer">Share Attributes with peer</a></li>
+          
+            <li><a href="/integrate/read-attributes-from-peer">Read Attributes from peer</a></li>
+          
+            <li><a href="/integrate/create-attributes-for-peer">Create Attributes for peer</a></li>
+          
+            <li><a href="/integrate/propose-attributes-to-peer" class="active">Propose Attributes to peer</a></li>
+          
+            <li><a href="/integrate/update-attributes-by-succession">Update Attributes by succession</a></li>
+          
+            <li><a href="/integrate/delete-attributes">Delete Attributes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Request consent</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
+          
+            <li><a href="/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Data Model</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/data-model-overview">Data Model Overview</a></li>
+          
+            <li><a href="/integrate/attribute-values">Attribute Values</a></li>
+          
+            <li><a href="/integrate/connector-events">Connector Events</a></li>
+          
+            <li><a href="/integrate/use-cases">Use Cases</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Troubleshooting</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/integrate/error-codes">Error Codes</a></li>
+          
+            <li><a href="/integrate/faq">FAQ</a></li>
+          
+            <li><a href="/integrate/support">Support</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Propose Attributes to peer">
+    <meta itemprop="description" content="An Identity may have received information about a peer in the past that it needs to process a transaction at a later time. To ensure the accuracy of the available information, the Identity can propose Attributes to the peer for creation. Depending on whether the peer confirms the fittingness of a proposed Attribute, it can agree to its creation or correct the Attribute Value beforehand. Proposing Attributes to a peer can be useful in these and many other situations, such as:">
+    <meta itemprop="datePublished" content="2024-04-25T17:21:20+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="/integrate/propose-attributes-to-peer" class="u-url" itemprop="url">Propose Attributes to peer
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#request-for-proposing-attributes">Request for proposing Attributes</a><ul><li><a href="#role-of-proposeattributerequestitem">Role of ProposeAttributeRequestItem</a></li><li><a href="#combinations-and-usage-scenarios-of-proposeattributerequestitem">Combinations and usage scenarios of ProposeAttributeRequestItem</a></li><li><a href="#example-of-proposing-an-identityattribute">Example of proposing an IdentityAttribute</a></li><li><a href="#example-of-proposing-a-relationshipattribute">Example of proposing a RelationshipAttribute</a></li><li><a href="#propose-multiple-attributes">Propose multiple Attributes</a></li></ul></li><li><a href="#send-and-receive-the-request">Send and receive the Request</a><ul><li><a href="#request-via-relationshiptemplate">Request via RelationshipTemplate</a></li><li><a href="#request-via-message">Request via Message</a></li></ul></li><li><a href="#accept-the-request-and-deal-with-the-proposed-attributes">Accept the Request and deal with the proposed Attributes</a><ul><li><a href="#accept-a-proposeattributerequestitem">Accept a ProposeAttributeRequestItem</a></li><li><a href="#reject-a-proposeattributerequestitem">Reject a ProposeAttributeRequestItem</a></li><li><a href="#example-of-accepting-a-requestitemgroup">Example of accepting a RequestItemGroup</a></li></ul></li><li><a href="#receive-the-response-to-the-request">Receive the Response to the Request</a></li><li><a href="#whats-next">What’s next?</a></li></ul>
+            </nav>
+          </aside>
+        
+        <p>An Identity may have received information about a peer in the past that it needs to process a transaction at a later time. To ensure the accuracy of the available information, the Identity can propose <a href="/integrate/data-model-overview#attributes">Attributes</a> to the peer for creation. Depending on whether the peer confirms the fittingness of a proposed Attribute, it can agree to its creation or correct the <a href="/integrate/attribute-values">Attribute Value</a> beforehand. Proposing Attributes to a peer can be useful in these and many other situations, such as:</p>
+
+<ul>
+  <li>An organization supports an Identity in setting up an enmeshed account by proposing Attributes to it that was derived from the organization’s knowledge about the Identity.</li>
+  <li>A company wants to make sure that the currently stored street address of a customer is valid before using it to ship an item to the customer.</li>
+  <li>A company proposes subscribing to its newsletter to one of its customers.</li>
+</ul>
+
+<p>We will now explain how a Connector, hereinafter referred to as the Sender, can propose an Attribute to another Connector, the so-called Recipient. Since understanding this proposing process requires knowledge about <a href="/integrate/data-model-overview#request">Requests</a> and how to use them in general, you should take a look at our <a href="/integrate/request-and-response-introduction">Request and Response introduction</a> before continuing reading this guide.</p>
+
+<p class="notice--info">Please note that the general procedure is the same if the Connector wants to propose an Attribute to an App user instead of another Connector. For reasons of clarity, this guide focuses on the proposing process with two Connectors.</p>
+
+<h2 id="request-for-proposing-attributes">Request for proposing Attributes</h2>
+
+<p>The Sender wants to propose an Attribute to the Recipient. To do this, the Sender must first create a suitable Request, which it can then send to the Recipient. In the following subsections, we describe the general appearance of a Request for proposing Attributes.</p>
+
+<h3 id="role-of-proposeattributerequestitem">Role of ProposeAttributeRequestItem</h3>
+
+<p>To propose a single Attribute to the Recipient, a single RequestItem of type <a href="/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a> must be inserted into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#request">Request</a>. It is possible to propose an IdentityAttribute or a RelationshipAttribute, which must be inserted into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the ProposeAttributeRequestItem. As it only makes sense for the Sender to propose an Attribute to the Recipient which is owned by the Recipient, the Sender must specify an empty string as the value for the <code class="language-plaintext highlighter-rouge">owner</code> property of the <a href="/integrate/data-model-overview#attributes">Attribute</a>. The Recipient automatically becomes the owner of the Attribute later on. As the Recipient may want to change the Attribute Value of the proposed Attribute, the Sender must formulate a <code class="language-plaintext highlighter-rouge">query</code> matching the <code class="language-plaintext highlighter-rouge">attribute</code>. If the Sender specifies an <code class="language-plaintext highlighter-rouge">attribute</code> and a <code class="language-plaintext highlighter-rouge">query</code> that are incompatible, an <a href="/integrate/error-codes">error</a> with the code <code class="language-plaintext highlighter-rouge">error.runtime.requestDeserialization</code> is to be expected.</p>
+
+<h3 id="combinations-and-usage-scenarios-of-proposeattributerequestitem">Combinations and usage scenarios of ProposeAttributeRequestItem</h3>
+
+<p>The following table provides an overview of the possible kinds of Attributes that the Sender can propose to the Recipient using the ProposeAttributeRequestItem. It must be taken into account whether the Attribute is an IdentityAttribute or a RelationshipAttribute and that its owner must be the Recipient, which is why the Sender must always specify an empty string as the value for the <code class="language-plaintext highlighter-rouge">owner</code> property of the <a href="/integrate/data-model-overview#attributes">Attribute</a> contained within the <code class="language-plaintext highlighter-rouge">attribute</code> property of the ProposeAttributeRequestItem.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute Type</th>
+      <th>Attribute Owner</th>
+      <th style="text-align: center">Possible?</th>
+      <th>Automation</th>
+      <th>Examples/Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identity</td>
+      <td>Sender</td>
+      <td style="text-align: center">✗</td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
+      <td>It makes no sense to propose own Attributes, use <a href="/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a> instead.</td>
+    </tr>
+    <tr>
+      <td>Identity</td>
+      <td>Recipient</td>
+      <td style="text-align: center">✓</td>
+      <td><code class="language-plaintext highlighter-rouge">USER_DECISION</code></td>
+      <td>Company sends name and address to new customer during its onboarding process.</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Sender</td>
+      <td style="text-align: center">✗</td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
+      <td>It makes no sense to propose own Attributes, use <a href="/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> or <a href="/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a> instead.</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Recipient</td>
+      <td style="text-align: center">✓</td>
+      <td><code class="language-plaintext highlighter-rouge">USER_DECISION</code></td>
+      <td>With this combination the <strong>Sender asks the Recipient for the one-time permission</strong> to write a RelationshipAttribute, which is owned by the Recipient, once <strong>and</strong> the <strong>Sender proposes a value</strong> which might make sense as a default.<br />Example: Company asks new customer to subscribe to the newsletter and proposes the subscription as default once.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-of-proposing-an-identityattribute">Example of proposing an IdentityAttribute</h3>
+
+<p>In the case in which the Sender wants to propose an IdentityAttribute to the Recipient, it must use a <a href="/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a> which contains the IdentityAttribute in its <code class="language-plaintext highlighter-rouge">attribute</code> property and a matching <a href="/integrate/data-model-overview#identityattributequery">IdentityAttributeQuery</a> in its <code class="language-plaintext highlighter-rouge">query</code> property. This means that the specified value for the <code class="language-plaintext highlighter-rouge">valueType</code> property of the IdentityAttributeQuery must correspond to the Attribute Value type of the IdentityAttribute. The ProposeAttributeRequestItem must then be inserted into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#request">Request</a> for proposing Attributes. For example, the Sender wants to propose an IdentityAttribute of type <a href="/integrate/attribute-values#emailaddress">EMailAddress</a> to the Recipient. The value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the ProposeAttributeRequestItem is set to <code class="language-plaintext highlighter-rouge">true</code> in our example and the <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> notation is used as a placeholder for the actual data as usual.</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProposeAttributeRequestItem"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMailAddress"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;email address that the Sender proposes to the Recipient&gt;"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttributeQuery"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMailAddress"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>It is also possible to use an appropriate <a href="/integrate/data-model-overview#iqlquery">IQLQuery</a> instead of an IdentityAttributeQuery as the <code class="language-plaintext highlighter-rouge">query</code> when proposing an IdentityAttribute with a <a href="/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a>.</p>
+
+<h3 id="example-of-proposing-a-relationshipattribute">Example of proposing a RelationshipAttribute</h3>
+
+<p>Let’s consider the case in which the Sender has established an active <a href="/integrate/data-model-overview#relationship">Relationship</a> with the Recipient and the Sender wants to propose a RelationshipAttribute for this Relationship to the Recipient. Then the Sender needs to insert a corresponding <a href="/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a>, which contains the RelationshipAttribute in its <code class="language-plaintext highlighter-rouge">attribute</code> property and a matching <a href="/integrate/data-model-overview#relationshipattributequery">RelationshipAttributeQuery</a> in its <code class="language-plaintext highlighter-rouge">query</code> property, into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#request">Request</a> for proposing Attributes. In particular, it is necessary that the specified value for the <code class="language-plaintext highlighter-rouge">attributeCreationHints.valueType</code> property of the RelationshipAttributeQuery corresponds to the Attribute Value type of the RelationshipAttribute. For example, the Sender wants to propose a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> of type <a href="/integrate/attribute-values#proprietarystring">ProprietaryString</a> to the Recipient whose <code class="language-plaintext highlighter-rouge">confidentiality</code> is <code class="language-plaintext highlighter-rouge">"public"</code>, whereby the value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the associated ProposeAttributeRequestItem is set to <code class="language-plaintext highlighter-rouge">true</code>.</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProposeAttributeRequestItem"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RelationshipAttribute"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;key of RelationshipAttribute&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"confidentiality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProprietaryString"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;title of RelationshipAttribute&gt;"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;actual value of RelationshipAttribute that the Sender proposes to the Recipient&gt;"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RelationshipAttributeQuery"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;key of RelationshipAttribute&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"attributeCreationHints"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;title of RelationshipAttribute&gt;"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProprietaryString"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"confidentiality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="propose-multiple-attributes">Propose multiple Attributes</h3>
+
+<p>Proposing Attributes to a peer is not limited to just a single Attribute, but it is possible to propose multiple Attributes to a peer at the same time. For this purpose, several ProposeAttributeRequestItems or suitable <a href="/integrate/data-model-overview#requestitemgroup">RequestItemGroups</a> can be inserted into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#request">Request</a> for proposing Attributes. If you want to use a RequestItemGroup in order to propose multiple Attributes to the Recipient at the same time, you must insert corresponding ProposeAttributeRequestItems into the <code class="language-plaintext highlighter-rouge">items</code> property of it.</p>
+
+<h2 id="send-and-receive-the-request">Send and receive the Request</h2>
+
+<p>The Sender that wants to propose an Attribute to the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method can be used to send the <a href="/integrate/propose-attributes-to-peer#request-for-proposing-attributes">Request for proposing Attributes</a>. There are two ways to send the Request for proposing Attributes created by the Sender to the Recipient.</p>
+
+<h3 id="request-via-relationshiptemplate">Request via RelationshipTemplate</h3>
+
+<p>If there is currently no Relationship between the Sender and the Recipient, this approach must be used. However, it is also possible for the Sender to use a <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> to send a Request to the Recipient if there is already an active Relationship between them. All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the <a href="/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a> guide.</p>
+
+<h3 id="request-via-message">Request via Message</h3>
+
+<p>The Sender only has the option of sending a Request to the Recipient via a <a href="/integrate/data-model-overview#message">Message</a> if there is already an active Relationship between them. All information on how to send and receive a Request via a Message can be found in the <a href="/integrate/requests-via-messages">Requests via Messages</a> guide.</p>
+
+<h2 id="accept-the-request-and-deal-with-the-proposed-attributes">Accept the Request and deal with the proposed Attributes</h2>
+
+<p>After the Recipient has received the <a href="/integrate/propose-attributes-to-peer#request-for-proposing-attributes">Request for proposing Attributes</a>, it can accept it to create all or some of the Attributes that were proposed for creation by the Sender. The Recipient also has the option of overwriting the Attribute Values beforehand or sending existing Attributes back to the Sender instead of creating new ones. To accept the Request, proceed as described in the <a href="/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case documentation and specify the <code class="language-plaintext highlighter-rouge">id</code> of the received <a href="/integrate/data-model-overview#request">Request</a>. Also, you need to decide and specify for each ProposeAttributeRequestItem and RequestItemGroup contained in the Request for proposing Attributes whether you want to accept or reject it.</p>
+
+<p class="notice--info">If the Recipient does not want to deal with any of the Attributes proposed by the Sender and, therefore, does not want to accept the Request for proposing Attributes of the Sender, it can reject it as a whole as well. For that, follow the instructions of the <a href="/use-case-consumption-reject-incoming-request">Reject incoming Request</a> use case.</p>
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/25159913-8e8c-4f65-98eb-f2522b8248a6" id="zk3XNeKG5NpM"></iframe></div>
+
+<h3 id="accept-a-proposeattributerequestitem">Accept a ProposeAttributeRequestItem</h3>
+
+<p>The Recipient can accept a ProposeAttributeRequestItem contained in the Request for proposing Attributes using an appropriate <a href="/integrate/data-model-overview#acceptproposeattributerequestitemparameters">AcceptProposeAttributeRequestItemParameter</a>. Depending on whether the Recipient confirms the fittingness of the associated proposed Attribute, it can agree to its creation and send it back to the Sender unchanged or correct the Attribute Value beforehand. To do this, the Recipient needs to specify the proposed Attribute or an Attribute that differs from the proposed Attribute only by the Attribute Value as the value for the <code class="language-plaintext highlighter-rouge">attribute</code> parameter of the AcceptProposeAttributeRequestItemParameters. If the Recipient does not want to create a new Attribute, it can alternatively send an existing Attribute back to the Sender. The <code class="language-plaintext highlighter-rouge">attributeId</code> parameter of the AcceptProposeAttributeRequestItemParameters must be used for that. The existing Attribute may only differ from the proposed Attribute by the Attribute Value. The acceptance of a ProposeAttributeRequestItem leads to the creation of a corresponding <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> with a <a href="/integrate/data-model-overview#localattributeshareinfo">LocalAttributeShareInfo</a> contained within its <code class="language-plaintext highlighter-rouge">shareInfo</code> property. The <code class="language-plaintext highlighter-rouge">content</code> of the LocalAttribute is the Attribute that the Recipient wants to send back to the Sender. Depending on whether the Recipient confirms the fittingness of the proposed Attribute, it is therefore the proposed Attribute itself or a corrected version of it. Based on this LocalAttribute, an appropriate AcceptResponseItem of type <a href="/integrate/data-model-overview#proposeattributeacceptresponseitem">ProposeAttributeAcceptResponseItem</a> is generated, which incorporates the <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute with the LocalAttributeShareInfo in its <code class="language-plaintext highlighter-rouge">attributeId</code> property and the Attribute that the Recipient wants to send back to the Sender in its <code class="language-plaintext highlighter-rouge">attribute</code> property. This ProposeAttributeAcceptResponseItem will be contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#response">Response</a> to the Request for proposing Attributes that will be transferred to the Sender. If a new IdentityAttribute is to be created and sent back to the Sender, a corresponding LocalAttribute without a LocalAttributeShareInfo is additionally created for the Recipient beforehand.</p>
+
+<p class="notice--info">It is noticeable that accepting a ProposeAttributeRequestItem essentially works in the same way as accepting a <a href="/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>. Both types of RequestItems are used when an Identity needs information from a peer. The difference between the two RequestItems is that when using the ProposeAttributeRequestItem, the Identity not only asks for an Attribute of a certain Attribute Value Type, but also proposes a specific Attribute to the peer for creation that might be suitable. The ProposeAttributeRequestItem can therefore also be understood as a combination of the ReadAttributeRequestItem and the <a href="/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a>. To gain a deeper understanding of these connections, take a look at the <a href="/integrate/read-attributes-from-peer">Read Attributes from peer</a> guide and the <a href="/integrate/create-attributes-for-peer">Create Attributes for peer</a> guide.</p>
+
+<h3 id="reject-a-proposeattributerequestitem">Reject a ProposeAttributeRequestItem</h3>
+
+<p>Even if the Recipient accepts the Request for proposing Attributes as a whole, it may decide not to accept all of the <a href="/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItems</a> it contains. To be more precise, the Recipient has the option of rejecting ProposeAttributeRequestItems that have the value <code class="language-plaintext highlighter-rouge">false</code> specified in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property. To reject a ProposeAttributeRequestItem, use the <a href="/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a>. The rejection of a ProposeAttributeRequestItem leads to the creation of a corresponding ResponseItem of type <a href="/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a>. This will be contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#response">Response</a> to the Request for proposing Attributes.</p>
+
+<h3 id="example-of-accepting-a-requestitemgroup">Example of accepting a RequestItemGroup</h3>
+
+<p>Let’s look at an example where the Sender proposes the Recipient’s <a href="/integrate/attribute-values#personname">PersonName</a> and contact information in the form of an <a href="/integrate/attribute-values#emailaddress">EMailAddress</a> and a <a href="/integrate/attribute-values#phonenumber">PhoneNumber</a> to the Recipient during its onboarding process. For this purpose, the Sender creates a <a href="/integrate/data-model-overview#request">Request</a> for proposing Attributes, which contains a ProposeAttributeRequestItem belonging to the PersonName and a RequestItemGroup belonging to the contact information in its <code class="language-plaintext highlighter-rouge">items</code> property. The <a href="/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> itself includes two ProposeAttributeRequestItems in its <code class="language-plaintext highlighter-rouge">items</code> property, namely one for the EMailAddress and one for the PhoneNumber.</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProposeAttributeRequestItem"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PersonName"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"givenName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;given name that the Sender proposes to the Recipient&gt;"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"surname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;surname that the Sender proposes to the Recipient&gt;"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttributeQuery"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PersonName"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RequestItemGroup"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProposeAttributeRequestItem"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMailAddress"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;email address that the Sender proposes to the Recipient&gt;"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttributeQuery"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMailAddress"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProposeAttributeRequestItem"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PhoneNumber"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;phone number that the Sender proposes to the Recipient&gt;"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttributeQuery"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PhoneNumber"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In our example, the Sender only requires the Recipient to accept the ProposeAttributeRequestItems belonging to the PersonName and the EMailAddress, which is why the individual <a href="/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItems</a> and the <a href="/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> within the Request have specified corresponding values in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property. We assume that the Recipient wants to accept the Request and all its ProposeAttributeRequestItems with the exception of the PhoneNumber.</p>
+
+<p class="notice--info">If the Recipient wants to accept the Request for proposing Attributes, it must accept all ProposeAttributeRequestItems for which the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code>. It is therefore not permitted for the Recipient to refuse to accept the ProposeAttributeRequestItem belonging to the PersonName or the EMailAddress.</p>
+
+<p>We assume that the Recipient confirms the fittingness of the PersonName proposed by the Sender and that the Sender has proposed an outdated EMailAddress to the Recipient for creation. The Recipient therefore wants to create a corrected version of the EMailAddress and send it back to the Sender. The Recipient accepts at least one ProposeAttributeRequestItem of the RequestItemGroup, rejects the PhoneNumber and accepts the ProposeAttributeRequestItems belonging to the PersonName and the EMailAddress. Consequently, it responds to the Request for proposing Attributes as follows:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="c1">// Accept the creation of the proposed PersonName</span><span class="w">
+      </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Address of Recipient&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PersonName"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"givenName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;given name that the Sender proposes to the Recipient&gt;"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"surname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;surname that the Sender proposes to the Recipient&gt;"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="c1">// Accept RequestItemGroup</span><span class="w">
+      </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="c1">// Create a corrected version of the proposed EMailAddress</span><span class="w">
+          </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Address of Recipient&gt;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMailAddress"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;Recipient's corrected version of the email address&gt;"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="c1">// Reject PhoneNumber</span><span class="w">
+          </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Note that it is important to respond to RequestItems and RequestItemGroups in the same order in which they were received.</p>
+
+<h2 id="receive-the-response-to-the-request">Receive the Response to the Request</h2>
+
+<p>We now assume that the Recipient has accepted the <a href="/integrate/propose-attributes-to-peer#request-for-proposing-attributes">Request for proposing Attributes</a> of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to <a href="/use-case-transport-synchronize-updates-of-backbone">synchronize the updates of the Backbone</a>. Please note that this synchronization can also be automated by using the <a href="/operate/modules#sync">Sync Module</a>.</p>
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/f3818539-0050-42a4-a343-fb410d4134fc" id="bzlYC7NrKA9y"></iframe></div>
+
+<p>To view the Response to the Request, search for it in the synchronization result or proceed as described in the <a href="/use-case-consumption-query-outgoing-requests">Query outgoing Requests</a> use case documentation and use the following query parameter:</p>
+
+<ul>
+  <li>If the <a href="/integrate/propose-attributes-to-peer#request-over-template">Request was sent via a Template</a>: Specify <code class="language-plaintext highlighter-rouge">&lt;ID of RelationshipTemplate&gt;</code> as the value for the <code class="language-plaintext highlighter-rouge">source.reference</code> query parameter.</li>
+  <li>If the <a href="/integrate/propose-attributes-to-peer#request-over-message">Request was sent via a Message</a>: Specify <code class="language-plaintext highlighter-rouge">&lt;ID of Request&gt;</code> as the value for the <code class="language-plaintext highlighter-rouge">id</code> query parameter.</li>
+</ul>
+
+<p>The Integrator of the Sender can now get the Response of the Recipient from the <code class="language-plaintext highlighter-rouge">response.content</code> property of the result. In the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#response">Response</a> is a <a href="/integrate/data-model-overview#proposeattributeacceptresponseitem">ProposeAttributeAcceptResponseItem</a> for each accepted ProposeAttributeRequestItem and a <a href="/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> for each rejected ProposeAttributeRequestItem included. Note that each accepted ProposeAttributeRequestItem leads to the creation of an appropriate LocalAttribute with a LocalAttributeShareInfo of the Sender. The <code class="language-plaintext highlighter-rouge">content</code> of the <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> is the Attribute that the Recipient has sent back to the Sender. Depending on whether the Recipient has confirmed the fittingness of the Attribute proposed by the Sender, it is therefore the proposed Attribute itself or a corrected version of it.</p>
+
+<p class="notice--info">In case of an error, <a href="/integrate/data-model-overview#errorresponseitem">ErrorResponseItems</a> can also be included in the Response. If the Request for proposing Attributes contains a RequestItemGroup in its <code class="language-plaintext highlighter-rouge">items</code> property, the Response to this Request contains a corresponding <a href="/integrate/data-model-overview#responseitemgroup">ResponseItemGroup</a> in its <code class="language-plaintext highlighter-rouge">items</code> property.</p>
+
+<h2 id="whats-next">What’s next?</h2>
+
+<p>An Identity has several options for requesting an Attribute creation. This guide covers how an Identity can request the creation of an Attribute for a peer so that the <a href="/integrate/attribute-values">Attribute Value</a> is proposed by the Identity, but can be modified by the peer when accepting the Request. In some cases, it makes more sense if the peer cannot change the proposed Attribute Value. For that, take a look at the <a href="/integrate/create-attributes-for-peer">Create Attributes for peer</a> guide.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-04-25T17:21:20+02:00">April 25, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+           
+        <li>
+            <a href="/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2024
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

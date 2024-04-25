@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-04-23T09:46:10+02:00">
+  <meta property="article:published_time" content="2024-04-25T17:21:20+02:00">
 
 
 
@@ -192,13 +192,15 @@
     
       <li>
         
-          <span class="nav__sub-title">Get in touch with other Identities</span>
+          <span class="nav__sub-title">Relationships between Identities</span>
         
 
         
         <ul>
           
-            <li><a href="/integrate/establish-a-relationship-to-another-identity">Establish a Relationship to another Identity</a></li>
+            <li><a href="/integrate/establish-relationships">Establish Relationships</a></li>
+          
+            <li><a href="/integrate/exchange-messages">Exchange Messages</a></li>
           
         </ul>
         
@@ -206,7 +208,7 @@
     
       <li>
         
-          <span class="nav__sub-title">Working with requests</span>
+          <span class="nav__sub-title">Working with Requests</span>
         
 
         
@@ -214,39 +216,35 @@
           
             <li><a href="/integrate/request-and-response-introduction">Request and Response introduction</a></li>
           
+            <li><a href="/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a></li>
+          
+            <li><a href="/integrate/requests-via-messages">Requests via Messages</a></li>
+          
         </ul>
         
       </li>
     
       <li>
         
-          <span class="nav__sub-title">Manage Requests</span>
+          <span class="nav__sub-title">Manage Attributes</span>
         
 
         
         <ul>
           
-            <li><a href="/integrate/requests-over-templates">Requests over Templates</a></li>
+            <li><a href="/integrate/create-attributes-for-yourself">Create Attributes for yourself</a></li>
           
-            <li><a href="/integrate/requests-over-messages">Requests over Messages</a></li>
+            <li><a href="/integrate/share-attributes-with-peer">Share Attributes with peer</a></li>
           
-        </ul>
-        
-      </li>
-    
-      <li>
-        
-          <span class="nav__sub-title">Manage attributes of yourself</span>
-        
-
-        
-        <ul>
+            <li><a href="/integrate/read-attributes-from-peer">Read Attributes from peer</a></li>
           
-            <li><a href="/integrate/create-attribute-for-yourself">Create Attribute for yourself</a></li>
+            <li><a href="/integrate/create-attributes-for-peer">Create Attributes for peer</a></li>
           
-            <li><a href="/integrate/share-own-attribute-to-peer">Share own Attribute to peer</a></li>
+            <li><a href="/integrate/propose-attributes-to-peer">Propose Attributes to peer</a></li>
           
-            <li><a href="/integrate/succeeding-attributes-to-update-their-values">Succeeding Attributes to update their values</a></li>
+            <li><a href="/integrate/update-attributes-by-succession">Update Attributes by succession</a></li>
+          
+            <li><a href="/integrate/delete-attributes">Delete Attributes</a></li>
           
         </ul>
         
@@ -254,39 +252,7 @@
     
       <li>
         
-          <span class="nav__sub-title">Manage attributes of others</span>
-        
-
-        
-        <ul>
-          
-            <li><a href="/integrate/read-attribute-from-peer">Read Attribute from peer</a></li>
-          
-            <li><a href="/integrate/create-attribute-for-peer">Create Attribute for peer</a></li>
-          
-            <li><a href="/integrate/propose-attribute-to-peer">Propose Attribute to peer</a></li>
-          
-        </ul>
-        
-      </li>
-    
-      <li>
-        
-          <span class="nav__sub-title">Basic communication</span>
-        
-
-        
-        <ul>
-          
-            <li><a href="/integrate/sending-messages">Sending Messages</a></li>
-          
-        </ul>
-        
-      </li>
-    
-      <li>
-        
-          <span class="nav__sub-title">Requesting consent of users</span>
+          <span class="nav__sub-title">Request consent</span>
         
 
         
@@ -294,21 +260,7 @@
           
             <li><a href="/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
           
-            <li><a href="/integrate/requesting-one-time-consents">Requesting one-time consents</a></li>
-          
-        </ul>
-        
-      </li>
-    
-      <li>
-        
-          <span class="nav__sub-title">Handling data deletion</span>
-        
-
-        
-        <ul>
-          
-            <li><a href="/integrate/delete-an-attribute">Delete an Attribute</a></li>
+            <li><a href="/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a></li>
           
         </ul>
         
@@ -322,15 +274,13 @@
         
         <ul>
           
-            <li><a href="/integrate/use-cases">Use Cases</a></li>
-          
             <li><a href="/integrate/data-model-overview">Data Model Overview</a></li>
+          
+            <li><a href="/integrate/attribute-values">Attribute Values</a></li>
           
             <li><a href="/integrate/connector-events" class="active">Connector Events</a></li>
           
-            <li><a href="/integrate/requests-and-requestitems">Requests and RequestItems</a></li>
-          
-            <li><a href="/integrate/attribute-values">Attribute Values</a></li>
+            <li><a href="/integrate/use-cases">Use Cases</a></li>
           
         </ul>
         
@@ -367,7 +317,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Connector Events">
     <meta itemprop="description" content="            Event      Data      Description (This event is triggered when …)                  consumption.attributeCreated      LocalAttribute      … an Attribute was created manually or through a Request.              consumption.attributeDeleted      LocalAttribute      … an Attribute was deleted manually or through a Request.              consumption.attributeSucceeded      LocalAttribute      … an Attribute was succeeded manually or through a Request.              consumption.attributeUpdated      LocalAttribute      … an Attribute was updated manually or through a Request.              consumption.incomingRequestReceived      LocalRequest      … an incoming Request was received either by loading a Relationship Template or by receiving a Message              consumption.incomingRequestStatusChanged      RequestStatusChangedEventData      … the status of an incoming Request has changed.              consumption.messageProcessed      MessageProcessedEventData      … a Message was processed by Modules like the RequestModule or DeciderModule.              consumption.outgoingRequestCreated      LocalRequest      … any outgoing Request was created by the Connector API or Connector Module.              consumption.outgoingRequestCreatedAndCompleted      LocalRequest      … any outgoing Request was transferred via a template.This event could either be triggered: • by an incoming relationship creation change using the onNewRelationship property within the RelationshipTemplateContent • by an incoming message using the onExistingRelationship property within the RelationshipTemplateContent, if the user already has a relationship with the template creator              consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted      LocalRequest      … a consumption.outgoingRequestCreatedAndCompleted event is fired and it was fired due to a RelationshipCreation Change. This convenience event is especially useful to act on incoming RelationshipRequests.              consumption.outgoingRequestStatusChanged      RequestStatusChangedEventData      … the status of an outgoing Request has changed.              consumption.relationshipTemplateProcessed      RelationshipTemplateProcessedEventData      … a RelationshipTemplate was processed by Modules like the RequestModule or DeciderModule.              consumption.sharedAttributeCopyCreated      LocalAttribute      … an Attribute is copied for sharing with another identity.              transport.messageReceived      Message      … a Message is received during synchronization.              transport.messageSent      Message      … a Message was sent.              transport.peerRelationshipTemplateLoaded      RelationshipTemplate      … a Relationship Template was loaded that belongs to another identity.              transport.relationshipChanged      Relationship      … a Relationship has changed. This can be due to one of the following cases: • you create a Relationship • you accept, reject or revoke a Relationship Change • a Relationship Change is received during synchronization      ">
-    <meta itemprop="datePublished" content="2024-04-23T09:46:10+02:00">
+    <meta itemprop="datePublished" content="2024-04-25T17:21:20+02:00">
     
 
     <div class="page__inner-wrap">
@@ -389,7 +339,6 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
               <ul class="toc__menu"><li><a href="#event-structure">Event structure</a><ul><li><a href="#requeststatuschangedeventdata">RequestStatusChangedEventData</a></li><li><a href="#messageprocessedeventdata">MessageProcessedEventData</a></li><li><a href="#relationshiptemplateprocessedeventdata">RelationshipTemplateProcessedEventData</a></li></ul></li></ul>
-
             </nav>
           </aside>
         
@@ -548,7 +497,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-04-23T09:46:10+02:00">April 23, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-04-25T17:21:20+02:00">April 25, 2024</time></p>
 
       </footer>
 

@@ -143,16 +143,16 @@ var store = [{
         "url": "/integrate/connector-events",
         "teaser": null
       },{
-        "title": "Create Attribute for peer",
+        "title": "Create Attributes for peer",
         "excerpt":"There are many situations in which an Identity wants to create an IdentityAttribute or a RelationshipAttribute for another Identity, for example: A university wants to send a graduate their degree certificate. A company wants to provide an employee with their business email address at the start of their employment. We...","categories": [],
         "tags": [],
-        "url": "/integrate/create-attribute-for-peer",
+        "url": "/integrate/create-attributes-for-peer",
         "teaser": null
       },{
-        "title": "Create Attribute for yourself",
+        "title": "Create Attributes for yourself",
         "excerpt":"This guide explains the end to end flow of creating an Attribute for your own Connector as its Integrator. As there are two types of Attributes, IdentityAttributes and RelationshipAttributes, a distinction must be made between them when creating an Attribute for yourself. Create an IdentityAttribute for yourself This section is...","categories": [],
         "tags": [],
-        "url": "/integrate/create-attribute-for-yourself",
+        "url": "/integrate/create-attributes-for-yourself",
         "teaser": null
       },{
         "title": "Data Model Overview",
@@ -161,10 +161,10 @@ var store = [{
         "url": "/integrate/data-model-overview",
         "teaser": null
       },{
-        "title": "Delete an Attribute",
+        "title": "Delete Attributes",
         "excerpt":"The exact process of deleting an Attribute depends on the kind of Attribute at hand. Creating an Attribute, we must distinguish between IdentityAttributes and RelationshipAttributes. In the former case, a so-called RepositoryAttribute is created, which is a LocalAttribute without shareInfo, that you are the owner of. Afterwards, you may share...","categories": [],
         "tags": [],
-        "url": "/integrate/delete-an-attribute",
+        "url": "/integrate/delete-attributes",
         "teaser": null
       },{
         "title": "Error Codes",
@@ -173,10 +173,10 @@ var store = [{
         "url": "/integrate/error-codes",
         "teaser": null
       },{
-        "title": "Establish a Relationship to another Identity",
+        "title": "Establish Relationships",
         "excerpt":"Communication and sharing of information between two Identities requires the existence of a Relationship between them. This guide describes how a Connector can establish an active Relationship to another Identity. Firstly, we explain how to create a RelationshipTemplate on a Connector, the so-called Templator, and how to make the RelationshipTemplate...","categories": [],
         "tags": [],
-        "url": "/integrate/establish-a-relationship-to-another-identity",
+        "url": "/integrate/establish-relationships",
         "teaser": null
       },{
         "title": "Event introduction",
@@ -185,22 +185,34 @@ var store = [{
         "url": "/integrate/event-introduction",
         "teaser": null
       },{
+        "title": "Exchange Messages",
+        "excerpt":"The Connector can send and receive messages with attachments using REST requests and file IDs, which are first uploaded and encrypted on the Platform. Messages can be queried and downloaded, and the Connector pulls for new messages periodically. In order to send messages to recipients, a REST request can be...","categories": [],
+        "tags": [],
+        "url": "/integrate/exchange-messages",
+        "teaser": null
+      },{
+        "title": "FAQ",
+        "excerpt":"Welcome to our FAQ page! Here, you’ll find answers to the most common questions about enmeshed. If you’re looking for quick and straightforward information, you’ve come to the right place. Common questions What is enmeshed? A description of enmeshed can be found on the main page. Technical questions When I...","categories": [],
+        "tags": [],
+        "url": "/integrate/faq",
+        "teaser": null
+      },{
         "title": "Integration example",
         "excerpt":"In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization. It is not mandatory to...","categories": [],
         "tags": [],
         "url": "/integrate/integration-example",
         "teaser": null
       },{
-        "title": "Propose Attribute to peer",
+        "title": "Propose Attributes to peer",
         "excerpt":"An Identity may have received information about a peer in the past that it needs to process a transaction at a later time. To ensure the accuracy of the available information, the Identity can propose Attributes to the peer for creation. Depending on whether the peer confirms the fittingness of...","categories": [],
         "tags": [],
-        "url": "/integrate/propose-attribute-to-peer",
+        "url": "/integrate/propose-attributes-to-peer",
         "teaser": null
       },{
-        "title": "Read Attribute from peer",
+        "title": "Read Attributes from peer",
         "excerpt":"There are many situations in which an Identity is interested in an IdentityAttribute or a RelationshipAttribute of another Identity, for example: A company must know the age of a customer in order to carry out an age check if they want to purchase alcohol or other age-restricted goods. A company...","categories": [],
         "tags": [],
-        "url": "/integrate/read-attribute-from-peer",
+        "url": "/integrate/read-attributes-from-peer",
         "teaser": null
       },{
         "title": "Request and Response introduction",
@@ -209,58 +221,46 @@ var store = [{
         "url": "/integrate/request-and-response-introduction",
         "teaser": null
       },{
+        "title": "Request one-time consent of peer",
+        "excerpt":"With the ConsentRequest it is possible to request a consent of the peer to an arbitrary text and thus reach agreement on a certain non machine-processable context. To request an accept/reject decision from a peer to a free text, the ConsentRequestItem is used. Check your Requests validity At first you...","categories": [],
+        "tags": [],
+        "url": "/integrate/request-one-time-consent-of-peer",
+        "teaser": null
+      },{
         "title": "Request persistent consent of peer",
         "excerpt":"This guide explains how an Identity can obtain the persistent consent of one of its peers on a particular issue. Technically, this form of consent is stored by a RelationshipAttribute with Consent as value.@type, that exists in the context of their Relationship and that is usually owned by the peer....","categories": [],
         "tags": [],
         "url": "/integrate/request-persistent-consent-of-peer",
         "teaser": null
       },{
-        "title": "Requesting one-time consents",
-        "excerpt":"With the ConsentRequest it is possible to request a consent of the peer to an arbitrary text and thus reach agreement on a certain non machine-processable context. To request an accept/reject decision from a peer to a free text, the ConsentRequestItem is used. Check your Requests validity At first you...","categories": [],
-        "tags": [],
-        "url": "/integrate/requesting-one-time-consents",
-        "teaser": null
-      },{
-        "title": "Requests and RequestItems",
-        "excerpt":"AuthenticationRequestItem With the AuthenticationRequestItem the sender can request the peer for an authentication in a business context for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived and limited in time. Examples Authentication for a login to a website Authentication for opening...","categories": [],
-        "tags": [],
-        "url": "/integrate/requests-and-requestitems",
-        "teaser": null
-      },{
-        "title": "Requests over Messages",
+        "title": "Requests via Messages",
         "excerpt":"This guide explains how to send and receive a Request over enmeshed Messages using two Connectors. The first of them, which we will refer to as the Sender, will send the Request. The second, which we will refer to as the Recipient, can decide, whether they want to accept or...","categories": [],
         "tags": [],
-        "url": "/integrate/requests-over-messages",
+        "url": "/integrate/requests-via-messages",
         "teaser": null
       },{
-        "title": "Requests over Templates",
+        "title": "Requests via RelationshipTemplates",
         "excerpt":"This guide will explain the end-to-end flow of sharing and answering a Request via a RelationshipTemplate. Usually, this flow happens between a Connector and the App, but for simplicity and more transparency we will use two Connectors in this example. Thus, you’ll need two Connectors, that either already have a...","categories": [],
         "tags": [],
-        "url": "/integrate/requests-over-templates",
+        "url": "/integrate/requests-via-relationshiptemplates",
         "teaser": null
       },{
-        "title": "Sending Messages",
-        "excerpt":"The Connector can send and receive messages with attachments using REST requests and file IDs, which are first uploaded and encrypted on the Platform. Messages can be queried and downloaded, and the Connector pulls for new messages periodically. In order to send messages to recipients, a REST request can be...","categories": [],
+        "title": "Share Attributes with peer",
+        "excerpt":"There are many situations in which an Identity wants to share an IdentityAttribute or a RelationshipAttribute with another Identity, for example: A university wants to give a student the street address of its student administration so that they can send it documents by post. An organization wants to share its...","categories": [],
         "tags": [],
-        "url": "/integrate/sending-messages",
-        "teaser": null
-      },{
-        "title": "Share own Attribute to peer",
-        "excerpt":"There are many situations in which an Identity wants to share an own IdentityAttribute or a RelationshipAttribute with another Identity, for example: A university wants to give a student the street address of its student administration so that they can send it documents by post. An organization wants to share...","categories": [],
-        "tags": [],
-        "url": "/integrate/share-own-attribute-to-peer",
-        "teaser": null
-      },{
-        "title": "Succeeding Attributes to update their values",
-        "excerpt":"The way enmeshed handles updates to your personal data is by succeeding old Attributes with new ones. Instead of simply replacing old data, a completely new Attribute is created which succeeds its predecessor. Thus, you and your peers are provided with a coherent history of all past versions. How the...","categories": [],
-        "tags": [],
-        "url": "/integrate/succeeding-attributes-to-update-their-values",
+        "url": "/integrate/share-attributes-with-peer",
         "teaser": null
       },{
         "title": "Support",
         "excerpt":"For assisted support with the Connector or the Backbone provided by the j&amp;s-soft GmbH contact us via support[at]enmeshed.eu. Community support is a great way to get help and even contribute to the projects. Open bug reports and feature requests in the enmeshed issue tracker or share your feedback with the...","categories": [],
         "tags": [],
         "url": "/integrate/support",
+        "teaser": null
+      },{
+        "title": "Update Attributes by succession",
+        "excerpt":"The way enmeshed handles updates to your personal data is by succeeding old Attributes with new ones. Instead of simply replacing old data, a completely new Attribute is created which succeeds its predecessor. Thus, you and your peers are provided with a coherent history of all past versions. How the...","categories": [],
+        "tags": [],
+        "url": "/integrate/update-attributes-by-succession",
         "teaser": null
       },{
         "title": "Use Cases",
@@ -407,10 +407,10 @@ var store = [{
         "url": "/use-case-consumption-create-a-shared-attribute-copy",
         "teaser": null
       },{
-        "title": "Create and complete outgoing Request from Relationship Template Response",
+        "title": "Create and complete outgoing Request from RelationshipTemplate Response",
         "excerpt":"Be advised that this is a Runtime-internal use-case which is automatically used by the module system. You should not call this use-case without having good reason. This use-case is intended to create and instantly complete an outgoing Request which was shared by a RelationshipTemplate and the Response has been received...","categories": [],
         "tags": [],
-        "url": "/use-case-consumption-create-and-complete-outgoing-request-from-relationship-template-response",
+        "url": "/use-case-consumption-create-and-complete-outgoing-request-from-relationshiptemplate-response",
         "teaser": null
       },{
         "title": "Create and share a RelationshipAttribute",
@@ -461,10 +461,10 @@ var store = [{
         "url": "/use-case-consumption-execute-a-relationshipattributequery",
         "teaser": null
       },{
-        "title": "Execute a ThirdPartyAttributeQuery",
+        "title": "Execute a ThirdPartyRelationshipAttributeQuery",
         "excerpt":"This use-case is intended to execute an incoming ThirdPartyRelationshipAttributeQuery (e.g. received by a ReadAttributeRequestItem) which returns a list of matching Relationship Attributes of another peer. Parameters The query for the RelationshipAttributes as described in the ThirdPartyRelationshipAttributeQuery. On Success Returns the RelationshipAttributes as LocalAttributes that match the given query. On Failure...","categories": [],
         "tags": [],
-        "url": "/use-case-consumption-execute-a-thirdpartyattributequery",
+        "url": "/use-case-consumption-execute-a-thirdpartyrelationshipattributequery",
         "teaser": null
       },{
         "title": "Execute an IdentityAttributeQuery",
@@ -587,7 +587,7 @@ var store = [{
         "url": "/use-case-device-delete_-rest-endpoint",
         "teaser": null
       },{
-        "title": "Get Profile by Enmeshed Address",
+        "title": "Get Profile by enmeshed Address",
         "excerpt":"   This use-case retrieves the LocalAccount with the corresponding enmeshed Address.   Parameters      The address of the corresponding Identity of the LocalAccount.   On Success      Returns the LocalAccount of the Identity.   On Failure      There is no such LocalAccount.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-get-profile-by-enmeshed-address",
@@ -689,7 +689,7 @@ var store = [{
         "url": "/use-case-human-positive_-action",
         "teaser": null
       },{
-        "title": "Scan QR-Code (on different device)",
+        "title": "Scan QR Code (on different device)",
         "excerpt":"Be advised that this is an App-specific use-case which is triggered by a manual user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use-case describes the process of using the Device&#8217;s camera...","categories": [],
         "tags": [],
         "url": "/use-case-human-scan_-qr-code-on-different-device",
@@ -731,10 +731,10 @@ var store = [{
         "url": "/use-case-transport-create-token-for-file",
         "teaser": null
       },{
-        "title": "Create Token for own Relationship Template",
+        "title": "Create Token for own RelationshipTemplate",
         "excerpt":"Creates a Token for a given RelationshipTemplate Parameters fileId is the id of the File the Token should be created for. expiresAt is the ISODateTime the Token expires at. ephemeral indicates if the Token should be ephemeral and thus not be stored and cached on the local database. This is...","categories": [],
         "tags": [],
-        "url": "/use-case-transport-create-token-for-own-relationship-template",
+        "url": "/use-case-transport-create-token-for-own-relationshiptemplate",
         "teaser": null
       },{
         "title": "Download File of Attachment",
@@ -821,10 +821,10 @@ var store = [{
         "url": "/use-case-transport-get-relationship-by-relationshipid",
         "teaser": null
       },{
-        "title": "Get Relationship Template",
+        "title": "Get RelationshipTemplate",
         "excerpt":"   This use-case retrieves a RelationshipTemplate by its id.   Parameters      idof the RelationshipTemplate.   On Success      The RelationshipTemplate that corresponds to the id.   On Failure      The id doesn&#8217;t resolve to a RelationshipTemplate.  ","categories": [],
         "tags": [],
-        "url": "/use-case-transport-get-relationship-template",
+        "url": "/use-case-transport-get-relationshiptemplate",
         "teaser": null
       },{
         "title": "Get synchronization status with Backbone",
@@ -845,10 +845,10 @@ var store = [{
         "url": "/use-case-transport-load-item-from-truncated-reference",
         "teaser": null
       },{
-        "title": "Load Relationship Template created by others",
+        "title": "Load RelationshipTemplate created by others",
         "excerpt":"This use-case loads a peer&#8217;s RelatonshipTemplate from the Backbone by a given reference to the RelationshipTemplate. Parameters There are three different options to use this use-case, depending on the actual information received by the peer: by knowing an id and the secretKey of the peer&#8217;s RelationshipTemplate (RelationshipTemplateReference) id of the...","categories": [],
         "tags": [],
-        "url": "/use-case-transport-load-relationship-template-created-by-others",
+        "url": "/use-case-transport-load-relationshiptemplate-created-by-others",
         "teaser": null
       },{
         "title": "Load Token created by others",
@@ -875,16 +875,16 @@ var store = [{
         "url": "/use-case-transport-query-messages",
         "teaser": null
       },{
-        "title": "Query Relationship Templates",
-        "excerpt":"This use-case queries RelationshipTemplates of the Identity. Parameters All parameters are optional. If no parameter is given, all RelationshipTemplates are returned. isOwn indicates if the RelationshipTemplate was created by the current Identity. createdAt is the ISODateTime the RelationshipTemplate was created at. expiresAt is the ISODateTime the RelationshipTemplate expires. createdBy is...","categories": [],
-        "tags": [],
-        "url": "/use-case-transport-query-relationship-templates",
-        "teaser": null
-      },{
         "title": "Query Relationships",
         "excerpt":"This use-case queries Relationships of the Identity. Parameters peer is the enmeshed Address of the peer. status is the status of the Relationship. template.id is the id of the RelationshipTemplate that was used to initiate the Relationship. On Success Returns all Relationships that match the query. On Failure The parameters...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-relationships",
+        "teaser": null
+      },{
+        "title": "Query RelationshipTemplates",
+        "excerpt":"This use-case queries RelationshipTemplates of the Identity. Parameters All parameters are optional. If no parameter is given, all RelationshipTemplates are returned. isOwn indicates if the RelationshipTemplate was created by the current Identity. createdAt is the ISODateTime the RelationshipTemplate was created at. expiresAt is the ISODateTime the RelationshipTemplate expires. createdBy is...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-query-relationshiptemplates",
         "teaser": null
       },{
         "title": "Query Tokens by parameters",
@@ -899,7 +899,7 @@ var store = [{
         "url": "/use-case-transport-reject-relationshipchange",
         "teaser": null
       },{
-        "title": "Send message to recipient(s)",
+        "title": "Send Message to Recipient(s)",
         "excerpt":"This use-case sends a Message to the given recipient(s). Parameters recipients is a list of the enmeshed Addresses which should receive the Message. content the structured content of the Message. Usually a Mail when communicating with a user. attachments is a list of File ids which should be attached to...","categories": [],
         "tags": [],
         "url": "/use-case-transport-send-message-to-recipients",

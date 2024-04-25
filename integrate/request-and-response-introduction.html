@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-04-23T09:46:10+02:00">
+  <meta property="article:published_time" content="2024-04-25T17:21:20+02:00">
 
 
 
@@ -192,13 +192,15 @@
     
       <li>
         
-          <span class="nav__sub-title">Get in touch with other Identities</span>
+          <span class="nav__sub-title">Relationships between Identities</span>
         
 
         
         <ul>
           
-            <li><a href="/integrate/establish-a-relationship-to-another-identity">Establish a Relationship to another Identity</a></li>
+            <li><a href="/integrate/establish-relationships">Establish Relationships</a></li>
+          
+            <li><a href="/integrate/exchange-messages">Exchange Messages</a></li>
           
         </ul>
         
@@ -206,7 +208,7 @@
     
       <li>
         
-          <span class="nav__sub-title">Working with requests</span>
+          <span class="nav__sub-title">Working with Requests</span>
         
 
         
@@ -214,39 +216,35 @@
           
             <li><a href="/integrate/request-and-response-introduction" class="active">Request and Response introduction</a></li>
           
+            <li><a href="/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a></li>
+          
+            <li><a href="/integrate/requests-via-messages">Requests via Messages</a></li>
+          
         </ul>
         
       </li>
     
       <li>
         
-          <span class="nav__sub-title">Manage Requests</span>
+          <span class="nav__sub-title">Manage Attributes</span>
         
 
         
         <ul>
           
-            <li><a href="/integrate/requests-over-templates">Requests over Templates</a></li>
+            <li><a href="/integrate/create-attributes-for-yourself">Create Attributes for yourself</a></li>
           
-            <li><a href="/integrate/requests-over-messages">Requests over Messages</a></li>
+            <li><a href="/integrate/share-attributes-with-peer">Share Attributes with peer</a></li>
           
-        </ul>
-        
-      </li>
-    
-      <li>
-        
-          <span class="nav__sub-title">Manage attributes of yourself</span>
-        
-
-        
-        <ul>
+            <li><a href="/integrate/read-attributes-from-peer">Read Attributes from peer</a></li>
           
-            <li><a href="/integrate/create-attribute-for-yourself">Create Attribute for yourself</a></li>
+            <li><a href="/integrate/create-attributes-for-peer">Create Attributes for peer</a></li>
           
-            <li><a href="/integrate/share-own-attribute-to-peer">Share own Attribute to peer</a></li>
+            <li><a href="/integrate/propose-attributes-to-peer">Propose Attributes to peer</a></li>
           
-            <li><a href="/integrate/succeeding-attributes-to-update-their-values">Succeeding Attributes to update their values</a></li>
+            <li><a href="/integrate/update-attributes-by-succession">Update Attributes by succession</a></li>
+          
+            <li><a href="/integrate/delete-attributes">Delete Attributes</a></li>
           
         </ul>
         
@@ -254,39 +252,7 @@
     
       <li>
         
-          <span class="nav__sub-title">Manage attributes of others</span>
-        
-
-        
-        <ul>
-          
-            <li><a href="/integrate/read-attribute-from-peer">Read Attribute from peer</a></li>
-          
-            <li><a href="/integrate/create-attribute-for-peer">Create Attribute for peer</a></li>
-          
-            <li><a href="/integrate/propose-attribute-to-peer">Propose Attribute to peer</a></li>
-          
-        </ul>
-        
-      </li>
-    
-      <li>
-        
-          <span class="nav__sub-title">Basic communication</span>
-        
-
-        
-        <ul>
-          
-            <li><a href="/integrate/sending-messages">Sending Messages</a></li>
-          
-        </ul>
-        
-      </li>
-    
-      <li>
-        
-          <span class="nav__sub-title">Requesting consent of users</span>
+          <span class="nav__sub-title">Request consent</span>
         
 
         
@@ -294,21 +260,7 @@
           
             <li><a href="/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
           
-            <li><a href="/integrate/requesting-one-time-consents">Requesting one-time consents</a></li>
-          
-        </ul>
-        
-      </li>
-    
-      <li>
-        
-          <span class="nav__sub-title">Handling data deletion</span>
-        
-
-        
-        <ul>
-          
-            <li><a href="/integrate/delete-an-attribute">Delete an Attribute</a></li>
+            <li><a href="/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a></li>
           
         </ul>
         
@@ -322,15 +274,13 @@
         
         <ul>
           
-            <li><a href="/integrate/use-cases">Use Cases</a></li>
-          
             <li><a href="/integrate/data-model-overview">Data Model Overview</a></li>
+          
+            <li><a href="/integrate/attribute-values">Attribute Values</a></li>
           
             <li><a href="/integrate/connector-events">Connector Events</a></li>
           
-            <li><a href="/integrate/requests-and-requestitems">Requests and RequestItems</a></li>
-          
-            <li><a href="/integrate/attribute-values">Attribute Values</a></li>
+            <li><a href="/integrate/use-cases">Use Cases</a></li>
           
         </ul>
         
@@ -367,7 +317,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Request and Response introduction">
     <meta itemprop="description" content="Requests are the main instrument in enmeshed to interact with other Identities.They enable various business processes, e.g. creating, sharing or receiving Attributes, asking a peer for authentication or consent, and much more.Also, parts of a vaster business process can be implemented with them, like querying all personal information of a user to fill out a tax form.">
-    <meta itemprop="datePublished" content="2024-04-23T09:46:10+02:00">
+    <meta itemprop="datePublished" content="2024-04-25T17:21:20+02:00">
     
 
     <div class="page__inner-wrap">
@@ -388,8 +338,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#requests">Requests</a><ul><li><a href="#structure-of-requests">Structure of Requests</a></li><li><a href="#types-of-requestitems">Types of RequestItems</a><ul><li><a href="#authenticationrequestitem">AuthenticationRequestItem</a></li><li><a href="#consentrequestitem">ConsentRequestItem</a></li><li><a href="#createattributerequestitem">CreateAttributeRequestItem</a></li><li><a href="#freetextrequestitem">FreeTextRequestItem</a></li><li><a href="#proposeattributerequestitem">ProposeAttributeRequestItem</a></li><li><a href="#readattributerequestitem">ReadAttributeRequestItem</a></li><li><a href="#registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</a></li><li><a href="#shareattributerequestitem">ShareAttributeRequestItem</a></li></ul></li></ul></li><li><a href="#responses">Responses</a><ul><li><a href="#structure-of-responses">Structure of Responses</a></li><li><a href="#types-of-responseitems">Types of ResponseItems</a></li></ul></li><li><a href="#request-response-flow">Request-Response flow</a><ul><li><a href="#localrequests-and-localresponses">LocalRequests and LocalResponses</a></li><li><a href="#sending-requests-via-messages">Sending Requests via Messages</a></li><li><a href="#sending-requests-via-relationshiptemplates">Sending Requests via RelationshipTemplates</a></li></ul></li><li><a href="#examples">Examples</a><ul><li><a href="#working-with-required-and-optional-requestitems">Working with required and optional RequestItems</a></li><li><a href="#working-with-requestitemgroups">Working with RequestItemGroups</a></li></ul></li></ul>
-
+              <ul class="toc__menu"><li><a href="#requests">Requests</a><ul><li><a href="#structure-of-requests">Structure of Requests</a></li><li><a href="#types-of-requestitems">Types of RequestItems</a><ul><li><a href="#authenticationrequestitem">AuthenticationRequestItem</a></li><li><a href="#consentrequestitem">ConsentRequestItem</a></li><li><a href="#createattributerequestitem">CreateAttributeRequestItem</a></li><li><a href="#deleteattributerequestitem">DeleteAttributeRequestItem</a></li><li><a href="#freetextrequestitem">FreeTextRequestItem</a></li><li><a href="#proposeattributerequestitem">ProposeAttributeRequestItem</a></li><li><a href="#readattributerequestitem">ReadAttributeRequestItem</a></li><li><a href="#registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</a></li><li><a href="#shareattributerequestitem">ShareAttributeRequestItem</a></li></ul></li></ul></li><li><a href="#responses">Responses</a><ul><li><a href="#structure-of-responses">Structure of Responses</a></li><li><a href="#types-of-responseitems">Types of ResponseItems</a></li></ul></li><li><a href="#request-response-flow">Request-Response flow</a><ul><li><a href="#localrequests-and-localresponses">LocalRequests and LocalResponses</a></li><li><a href="#sending-requests-via-messages">Sending Requests via Messages</a></li><li><a href="#sending-requests-via-relationshiptemplates">Sending Requests via RelationshipTemplates</a></li></ul></li><li><a href="#examples">Examples</a><ul><li><a href="#working-with-required-and-optional-requestitems">Working with required and optional RequestItems</a></li><li><a href="#working-with-requestitemgroups">Working with RequestItemGroups</a></li></ul></li></ul>
             </nav>
           </aside>
         
@@ -412,7 +361,7 @@ The Request-Response flow allows to establish transactional behavior between Ide
 <p>A <a href="/integrate/data-model-overview#request">Request</a> can be created by an Identity and sent to a peer to exchange information with them.
 Specifying the exact demands to the peer, <a href="/integrate/data-model-overview#requestitems">RequestItems</a> are the core of the Request.
 In case multiple RequestItems should be answered jointly, e.g. to enhance the structure for the user, they can be combined to a <a href="/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a>.
-After creating the Request, it can be transmitted either via a Template (see <a href="/integrate/requests-over-templates">Requests over Templates</a>) or via a Message (see <a href="/integrate/requests-over-messages">Requests over Messages</a>).</p>
+After creating the Request, it can be transmitted either via a Template (see <a href="/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a>) or via a Message (see <a href="/integrate/requests-via-messages">Requests via Messages</a>).</p>
 
 <h3 id="types-of-requestitems">Types of RequestItems</h3>
 
@@ -420,25 +369,36 @@ After creating the Request, it can be transmitted either via a Template (see <a 
 
 <h4 id="authenticationrequestitem">AuthenticationRequestItem</h4>
 
-<p>With the <a href="/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> the sender can request the peer for an authentication in a business context for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived and limited in time.</p>
-
-<p>Examples:</p>
+<p>With the <a href="/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> the Sender can request the peer for an authentication in a business context for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived and limited in time. Possible examples are:</p>
 
 <ul>
-  <li>Authentication for a login to a website</li>
-  <li>Authentication for opening a door</li>
+  <li>Authentication for a login to a website.</li>
+  <li>Authentication for opening a door.</li>
+</ul>
+
+<p>Depending on whether the AuthenticationRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
+
+<ul>
+  <li>To accept this RequestItem, the <a href="/integrate/data-model-overview#acceptrequestitemparameters">AcceptRequestItemParameters</a> can be utilized.</li>
+  <li>To reject this RequestItem, the <a href="/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a> can be utilized.</li>
+</ul>
+
+<p>After the Recipient has responded to the AuthenticationRequestItem, a suitable <a href="/integrate/data-model-overview#responseitems">ResponseItem</a> is generated and transferred to the Sender of the Request:</p>
+
+<ul>
+  <li>After accepting this RequestItem, an <a href="/integrate/data-model-overview#acceptresponseitem">AcceptResponseItem</a> will be transferred.</li>
+  <li>After rejecting this RequestItem, a <a href="/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error, an <a href="/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
 </ul>
 
 <h4 id="consentrequestitem">ConsentRequestItem</h4>
 
 <p>With the <a href="/integrate/data-model-overview#consentrequestitem">ConsentRequestItem</a> it is possible to request a consent of the peer to an arbitrary text and thus reach agreement on a certain non machine-processable context.</p>
 
-<p>To request an accept/reject decision from a peer to a free text, the ConsentRequestItem is used.</p>
-
 <p class="notice--info">Please do not use the ConsentRequestItem to submit tons of text to the peer Identity. It is meant to be a short consent or summary the user agrees to. Please move longer text to external websites.
 The ConsentRequestItem is also not meant for contractual agreements.</p>
 
-<p>Examples:</p>
+<p>Possible examples are:</p>
 
 <ul>
   <li>“I hereby confirm that I have read the privacy terms of this cloud service and agree to them.”</li>
@@ -447,51 +407,157 @@ The ConsentRequestItem is also not meant for contractual agreements.</p>
   <li>“I opt in to the newsletter.”</li>
 </ul>
 
+<p>Depending on whether the ConsentRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
+
+<ul>
+  <li>To accept this RequestItem, the <a href="/integrate/data-model-overview#acceptrequestitemparameters">AcceptRequestItemParameters</a> can be utilized.</li>
+  <li>To reject this RequestItem, the <a href="/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a> can be utilized.</li>
+</ul>
+
+<p>After the Recipient has responded to the ConsentRequestItem, a suitable <a href="/integrate/data-model-overview#responseitems">ResponseItem</a> is generated and transferred to the Sender of the Request:</p>
+
+<ul>
+  <li>After accepting this RequestItem, an <a href="/integrate/data-model-overview#acceptresponseitem">AcceptResponseItem</a> will be transferred.</li>
+  <li>After rejecting this RequestItem, a <a href="/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error, an <a href="/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
+
 <h4 id="createattributerequestitem">CreateAttributeRequestItem</h4>
 
-<p>If you want to create Identity- or RelationshipAttributes for the peer, the <a href="/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> can be used. Please have a look at the <a href="#proposeattributerequestitem">ProposeAttributeRequestItem</a> if the peer should be able to overwrite the Attribute.</p>
+<p>If you want to create IdentityAttributes or RelationshipAttributes for the peer, the <a href="/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> can be used. Please have a look at the <a href="#proposeattributerequestitem">ProposeAttributeRequestItem</a> if the peer should be able to overwrite the Attribute. To create an Attribute with a fixed value defined by the Sender, an Identity uses the CreateAttributeRequestItem. A fixed value in this case means, that the Recipient is not allowed to change the value when accepting the Request. All details on how to use the CreateAttributeRequestItem and examples of use cases for it can be found in the <a href="/integrate/create-attributes-for-peer">Create Attributes for peer</a> guide.</p>
 
-<p>To create an Attribute with a fixed value defined by the sender, an Identity uses the CreateAttributeRequestItem. A fixed value in this case means, that the recipient is not allowed to change the value when accepting the request.</p>
+<p>Depending on whether the CreateAttributeRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
 
-<p>Examples of use cases for the CreateAttributeRequestItem can be found in the <a href="/integrate/create-attribute-for-peer">Create Attribute for peer</a> guide.</p>
+<ul>
+  <li>To accept this RequestItem, the <a href="/integrate/data-model-overview#acceptrequestitemparameters">AcceptRequestItemParameters</a> can be utilized.</li>
+  <li>To reject this RequestItem, the <a href="/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a> can be utilized.</li>
+</ul>
+
+<p>After the Recipient has responded to the CreateAttributeRequestItem, a suitable <a href="/integrate/data-model-overview#responseitems">ResponseItem</a> is generated and transferred to the Sender of the Request:</p>
+
+<ul>
+  <li>After accepting this RequestItem, a <a href="/integrate/data-model-overview#createattributeacceptresponseitem">CreateAttributeAcceptResponseItem</a> will be transferred.</li>
+  <li>After rejecting this RequestItem, a <a href="/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error, an <a href="/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
+
+<h4 id="deleteattributerequestitem">DeleteAttributeRequestItem</h4>
+
+<p>If you want to <a href="/integrate/delete-attributes#request-the-deletion-of-own-attributes-from-peer">request the deletion of an own Attribute from a peer</a>, the <a href="/integrate/data-model-overview#deleteattributerequestitem">DeleteAttributeRequestItem</a> must be used.</p>
+
+<p>Depending on whether the DeleteAttributeRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
+
+<ul>
+  <li>To accept this RequestItem, the <a href="/integrate/data-model-overview#acceptdeleteattributerequestitemparameters">AcceptDeleteAttributeRequestItemParameters</a> can be utilized.</li>
+  <li>To reject this RequestItem, the <a href="/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a> can be utilized.</li>
+</ul>
+
+<p>After the Recipient has responded to the DeleteAttributeRequestItem, a suitable <a href="/integrate/data-model-overview#responseitems">ResponseItem</a> is generated and transferred to the Sender of the Request:</p>
+
+<ul>
+  <li>After accepting this RequestItem, a <a href="/integrate/data-model-overview#deleteattributeacceptresponseitem">DeleteAttributeAcceptResponseItem</a> will be transferred.</li>
+  <li>After rejecting this RequestItem, a <a href="/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error, an <a href="/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
 
 <h4 id="freetextrequestitem">FreeTextRequestItem</h4>
 
 <p>With the <a href="/integrate/data-model-overview#freetextrequestitem">FreeTextRequestItem</a> it is possible to send a free text to the peer. The peer itself can accept this with a free text as well.</p>
 
+<p>Depending on whether the FreeTextRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
+
+<ul>
+  <li>To accept this RequestItem, the <a href="/integrate/data-model-overview#acceptfreetextrequestitemparameters">AcceptFreeTextRequestItemParameters</a> can be utilized.</li>
+  <li>To reject this RequestItem, the <a href="/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a> can be utilized.</li>
+</ul>
+
+<p>After the Recipient has responded to the FreeTextRequestItem, a suitable <a href="/integrate/data-model-overview#responseitems">ResponseItem</a> is generated and transferred to the Sender of the Request:</p>
+
+<ul>
+  <li>After accepting this RequestItem, a <a href="/integrate/data-model-overview#freetextacceptresponseitem">FreeTextAcceptResponseItem</a> will be transferred.</li>
+  <li>After rejecting this RequestItem, a <a href="/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error, an <a href="/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
+
 <h4 id="proposeattributerequestitem">ProposeAttributeRequestItem</h4>
 
-<p>The <a href="/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a> is a combination of <a href="#readattributerequestitem">ReadAttributeRequestItem</a> and <a href="#createattributerequestitem">CreateAttributeRequestItem</a>. The sender would like to receive a correct Attribute from the peer, thinks it has a possible value but the peer might overrule this value with an existing or new one.</p>
+<p>The <a href="/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a> is a combination of a <a href="#readattributerequestitem">ReadAttributeRequestItem</a> and a <a href="#createattributerequestitem">CreateAttributeRequestItem</a>. The Sender would like to receive a correct Attribute from the peer, thinks it has a possible value but the peer might overrule this value with an existing or new one. To create an Attribute with a value proposed by the Sender, an Identity uses the ProposeAttributeRequestItem. A proposed value in this case means, that the Recipient is allowed to change the value if accepting the Request. All details on how to use the ProposeAttributeRequestItem and examples of use cases for it can be found in the <a href="/integrate/propose-attributes-to-peer">Propose Attributes to peer</a> guide.</p>
 
-<p>To create an Attribute with a value proposed by the sender, an Identity uses the ProposeAttributeRequestItem. A proposed value in this case means, that the recipient is allowed to change the value if accepting the request.</p>
+<p>Depending on whether the ProposeAttributeRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
 
-<p>Examples of use cases for the ProposeAttributeRequestItem can be found in the <a href="/integrate/propose-attribute-to-peer">Propose Attribute to peer</a> guide.</p>
+<ul>
+  <li>To accept this RequestItem, the <a href="/integrate/data-model-overview#acceptproposeattributerequestitemparameters">AcceptProposeAttributeRequestItemParameters</a> can be utilized.</li>
+  <li>To reject this RequestItem, the <a href="/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a> can be utilized.</li>
+</ul>
+
+<p>After the Recipient has responded to the ProposeAttributeRequestItem, a suitable <a href="/integrate/data-model-overview#responseitems">ResponseItem</a> is generated and transferred to the Sender of the Request:</p>
+
+<ul>
+  <li>After accepting this RequestItem, a <a href="/integrate/data-model-overview#proposeattributeacceptresponseitem">ProposeAttributeAcceptResponseItem</a> will be transferred.</li>
+  <li>After rejecting this RequestItem, a <a href="/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error, an <a href="/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
 
 <h4 id="readattributerequestitem">ReadAttributeRequestItem</h4>
 
-<p>If you want to query an Identity’s Attributes this is done with the <a href="/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>.</p>
+<p>If you want to query an Identity’s Attributes this is done with the <a href="/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>. To query Attributes which are not known to the Sender, an Identity uses the ReadAttributeRequestItem. All details on how to use the ReadAttributeRequestItem and examples of use cases for it can be found in the <a href="/integrate/read-attributes-from-peer">Read Attributes from peer</a> guide.</p>
 
-<p>To query Attributes which are not known to the sender, an Identity uses the ReadAttributeRequestItem.</p>
+<p>Depending on whether the ReadAttributeRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
 
-<p>Examples of use cases for the ReadAttributeRequestItem can be found in the <a href="/integrate/read-attribute-from-peer">Read Attribute from peer</a> guide.</p>
+<ul>
+  <li>To accept this RequestItem, the <a href="/integrate/data-model-overview#acceptreadattributerequestitemparameters">AcceptReadAttributeRequestItemParameters</a> can be utilized.</li>
+  <li>To reject this RequestItem, the <a href="/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a> can be utilized.</li>
+</ul>
+
+<p>After the Recipient has responded to the ReadAttributeRequestItem, a suitable <a href="/integrate/data-model-overview#responseitems">ResponseItem</a> is generated and transferred to the Sender of the Request:</p>
+
+<ul>
+  <li>After accepting this RequestItem, a <a href="/integrate/data-model-overview#readattributeacceptresponseitem">ReadAttributeAcceptResponseItem</a> will be transferred.</li>
+  <li>After rejecting this RequestItem, a <a href="/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error, an <a href="/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
 
 <h4 id="registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</h4>
 
-<p>This item is used to register a <a href="/integrate/data-model-overview#localattributelistener">Listener</a> for a specific Attribute. The Listener will create a Request in status <code class="language-plaintext highlighter-rouge">Draft</code> if an Attribute was created that matches the given query and the user is able to send the Request to the creator of the <a href="/integrate/data-model-overview#registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</a>.</p>
-
-<p>Examples:</p>
+<p>This item is used to register a <a href="/integrate/data-model-overview#localattributelistener">Listener</a> for a specific Attribute. The Listener will create a Request in status <code class="language-plaintext highlighter-rouge">Draft</code> if an Attribute was created that matches the given query and the user is able to send the Request to the creator of the <a href="/integrate/data-model-overview#registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</a>. Possible examples are:</p>
 
 <ul>
   <li>Asking for a specific RelationshipAttribute of a partner organization.</li>
 </ul>
 
+<p>Depending on whether the RegisterAttributeListenerRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
+
+<ul>
+  <li>To accept this RequestItem, the <a href="/integrate/data-model-overview#acceptrequestitemparameters">AcceptRequestItemParameters</a> can be utilized.</li>
+  <li>To reject this RequestItem, the <a href="/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a> can be utilized.</li>
+</ul>
+
+<p>After the Recipient has responded to the RegisterAttributeListenerRequestItem, a suitable <a href="/integrate/data-model-overview#responseitems">ResponseItem</a> is generated and transferred to the Sender of the Request:</p>
+
+<ul>
+  <li>After accepting this RequestItem, a <a href="/integrate/data-model-overview#registerattributelisteneracceptresponseitem">RegisterAttributeListenerAcceptResponseItem</a> will be transferred.</li>
+  <li>After rejecting this RequestItem, a <a href="/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error, an <a href="/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
+
 <h4 id="shareattributerequestitem">ShareAttributeRequestItem</h4>
 
-<p>If you want to share the own DisplayName and possibly other Attributes this is done with the <a href="/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a>.</p>
+<p>If you want to share the own DisplayName and possibly other Attributes this is done with the <a href="/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a>. To share own IdentityAttributes (owner = self) an Identity uses the ShareAttributeRequestItem. The Identity needs to create the IdentityAttribute separately before the Attribute can be shared. All details on how to use the ShareAttributeRequestItem and examples of use cases for it can be found in the <a href="/integrate/share-attributes-with-peer">Share Attributes with peer</a> guide.</p>
 
-<p>To share own IdentityAttributes (owner = self) an Identity uses the ShareAttributeRequestItem. The Identity needs to create the IdentityAttribute separately before the Attribute can be shared.</p>
+<p>Depending on whether the ShareAttributeRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
 
-<p>Examples of use cases for the ShareAttributeRequestItem can be found in the <a href="/integrate/share-own-attribute-to-peer">Share own Attribute to peer</a> guide.</p>
+<ul>
+  <li>To accept this RequestItem, the <a href="/integrate/data-model-overview#acceptrequestitemparameters">AcceptRequestItemParameters</a> can be utilized.</li>
+  <li>To reject this RequestItem, the <a href="/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a> can be utilized.</li>
+</ul>
+
+<p>After the Recipient has responded to the ShareAttributeRequestItem, a suitable <a href="/integrate/data-model-overview#responseitems">ResponseItem</a> is generated and transferred to the Sender of the Request:</p>
+
+<ul>
+  <li>After accepting this RequestItem, a <a href="/integrate/data-model-overview#shareattributeacceptresponseitem">ShareAttributeAcceptResponseItem</a> will be transferred.</li>
+  <li>After rejecting this RequestItem, a <a href="/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error, an <a href="/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
 
 <h2 id="responses">Responses</h2>
 
@@ -526,10 +592,10 @@ Note that the LocalResponse is stored within the respective LocalRequest, beside
 
 <h3 id="sending-requests-via-messages">Sending Requests via Messages</h3>
 
-<p class="notice--info">Requests can only be send via Message, if you already have an active Relationship with the recipient.
+<p class="notice--info">Requests can only be send via Message, if you already have an active Relationship with the Recipient.
 Otherwise, you need to utilize a <a href="#sending-requests-via-relationshiptemplates">RelationshipTemplate</a>.</p>
 
-<p>If you want to send a <a href="/integrate/requests-over-messages">Request via Message</a>, firstly you need to create a LocalRequest.
+<p>If you want to send a <a href="/integrate/requests-via-messages">Request via Message</a>, firstly you need to create a LocalRequest.
 Its ID equals the one of the associated Request that is sent in a <a href="/integrate/data-model-overview#message">Message</a> to your peer.
 If the peer accepts the Request and reponds to it, at their side a LocalRequest will be created, having the same ID, however, opposite values for the fields <code class="language-plaintext highlighter-rouge">peer</code> and <code class="language-plaintext highlighter-rouge">isOwn</code>.
 Also, a LocalResponse will be created and stored directly within the LocalRequest.
@@ -542,7 +608,7 @@ Then, a Message will transfer the Response wrapped in a <a href="/integrate/data
 <p class="notice--info">If you don’t have a Relationship with the Recipient yet, the Request needs to be formulated within the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property of the <a href="/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a>.
 Otherwise, utilize the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property.</p>
 
-<p>Alternatively, you can transfer <a href="/integrate/requests-over-templates">Requests via RelationshipTemplates</a>.
+<p>Alternatively, you can transfer <a href="/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a>.
 To do so, you locally create the <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> and in the process the Request, however, no LocalRequest will be created, yet.
 Hence, the Request your peer receives also doesn’t have an ID, yet.
 Now, there are two possibilities: either you already have a Relationship with the peer or you wish to establish one, given the condition the peer accepts your Request.
@@ -604,7 +670,7 @@ Once the company accepts the new Relationship, they can exchange messages or oth
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-04-23T09:46:10+02:00">April 23, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-04-25T17:21:20+02:00">April 25, 2024</time></p>
 
       </footer>
 
