@@ -1,8 +1,10 @@
 ---
 # Start automatic generation
-permalink: integrate/read-attribute-from-peer
+permalink: integrate/read-attributes-from-peer
+redirect_from:
+  - /integrate/read-attribute-for-peer
 published: true
-title: "Read Attribute from peer"
+title: "Read Attributes from peer"
 type: scenario
 toc: true
 properties:
@@ -15,7 +17,7 @@ properties:
   - implementation status: CHANGES REQUIRED
   - documentation status: DONE
   - published: true
-  - link: read-attribute-from-peer
+  - link: read-attributes-from-peer
 require:
 required_by:
 # End automatic generation
@@ -100,7 +102,7 @@ We now consider the case that the Sender has an active Relationship established 
 }
 ```
 
-Note that the `<...>` notation is used as a placeholder for the actual data as usual. Further details on the purposes for which you can use a RelationshipAttributeQuery can be found in the table of the [Combinations and usage scenarios of the ReadAttributeRequestItem]({% link _docs_integrate/read-attribute-from-peer.md %}#combinations-and-usage-scenarios-of-readattributerequestitem). For information on using the ThirdPartyRelationshipAttributeQuery, you should also refer to this table.
+Note that the `<...>` notation is used as a placeholder for the actual data as usual. Further details on the purposes for which you can use a RelationshipAttributeQuery can be found in the table of the [Combinations and usage scenarios of the ReadAttributeRequestItem]({% link _docs_integrate/read-attributes-from-peer.md %}#combinations-and-usage-scenarios-of-readattributerequestitem). For information on using the ThirdPartyRelationshipAttributeQuery, you should also refer to this table.
 
 ### Read multiple Attributes
 
@@ -108,19 +110,19 @@ Requesting read access is not limited to just a single Attribute, but it is poss
 
 ## Send and receive the Request
 
-The Sender that wants to read an Attribute of the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method can be used to send the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes). There are two ways to send the Request for reading Attributes created by the Sender to the Recipient.
+The Sender that wants to read an Attribute of the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method can be used to send the [Request for reading Attributes]({% link _docs_integrate/read-attributes-from-peer.md %}#request-for-reading-attributes). There are two ways to send the Request for reading Attributes created by the Sender to the Recipient.
 
-### Request over Template
+### Request via RelationshipTemplate
 
-If there is currently no Relationship between the Sender and the Recipient, this approach must be used. But it is also possible for the Sender to use a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) to send a Request to the Recipient if there is already an active Relationship between them. All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide.
+If there is currently no Relationship between the Sender and the Recipient, this approach must be used. But it is also possible for the Sender to use a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) to send a Request to the Recipient if there is already an active Relationship between them. All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) guide.
 
-### Request over Message
+### Request via Message
 
-The Sender only has the option of sending a Request to the Recipient via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) if there is already an active Relationship between them. All information on how to send and receive a Request via a Message can be found in the [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) guide.
+The Sender only has the option of sending a Request to the Recipient via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) if there is already an active Relationship between them. All information on how to send and receive a Request via a Message can be found in the [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) guide.
 
 ## Accept the Request
 
-After the Recipient has received the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes), it can accept it to give the Sender read access to all or some of the requested Attributes. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). You must also decide and specify for each ReadAttributeRequestItem and RequestItemGroup contained in the Request for reading Attributes whether you want to accept or reject it.
+After the Recipient has received the [Request for reading Attributes]({% link _docs_integrate/read-attributes-from-peer.md %}#request-for-reading-attributes), it can accept it to give the Sender read access to all or some of the requested Attributes. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). You must also decide and specify for each ReadAttributeRequestItem and RequestItemGroup contained in the Request for reading Attributes whether you want to accept or reject it.
 
 If the Recipient does not want the Sender to read any of its Attributes and, therefore, does not want to accept the Request for reading Attributes of the Sender, it can reject it as a whole as well. For this, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
@@ -214,14 +216,14 @@ Note that it is important to respond to RequestItems and RequestItemGroups in th
 
 ## Get the Attributes
 
-We now assume that the Recipient has accepted the [Request for reading Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}#request-for-reading-attributes) of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
+We now assume that the Recipient has accepted the [Request for reading Attributes]({% link _docs_integrate/read-attributes-from-peer.md %}#request-for-reading-attributes) of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/c8e5575e-ed55-48c2-897e-68e99d5df932" id="jbZRol4VVGZQ"></iframe></div>
 
 To view the Response to the Request, search for it in the synchronization result or proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
-- If the [Request was sent via a Template]({% link _docs_integrate/read-attribute-from-peer.md %}#request-over-template): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
-- If the [Request was sent via a Message]({% link _docs_integrate/read-attribute-from-peer.md %}#request-over-message): Specify `<ID of Request>` as the value for the `id` query parameter.
+- If the [Request was sent via a Template]({% link _docs_integrate/read-attributes-from-peer.md %}#request-over-template): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
+- If the [Request was sent via a Message]({% link _docs_integrate/read-attributes-from-peer.md %}#request-over-message): Specify `<ID of Request>` as the value for the `id` query parameter.
 
 The Integrator of the Sender can now get the Response of the Recipient from the `response.content` property of the result. In particular, each requested and shared Attribute that belongs to an accepted ReadAttributeRequestItem can be read from a corresponding ReadAttributeAcceptResponseItem within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response). Internally, the shared `attribute` that can be read from the [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem) is used to create an appropriate LocalAttribute with a LocalAttributeShareInfo of the Sender. On the other hand, there is a corresponding RejectResponseItem in the `items` property of the Response for each rejected ReadAttributeRequestItem.
 
@@ -230,4 +232,4 @@ In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-ove
 
 ## What's next?
 
-Take a look at our [Integration example]({% link _docs_integrate/integration-example.md %}) if you want to see how an Attribute of a peer is read by an Identity in the context of a larger process. Also note that it is not only possible to request the reading of an Attribute from a peer, but that you can share your own Attribute with a peer as well. Consult the [Share own Attribute to peer]({% link _docs_integrate/share-own-attribute-to-peer.md %}) guide for this.
+Take a look at our [Integration example]({% link _docs_integrate/integration-example.md %}) if you want to see how an Attribute of a peer is read by an Identity in the context of a larger process. Also note that it is not only possible to request the reading of an Attribute from a peer, but that you can share an Attribute with a peer as well. Consult the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) guide for this.

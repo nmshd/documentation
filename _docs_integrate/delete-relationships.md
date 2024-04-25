@@ -1,13 +1,13 @@
 ---
 # Start automatic generation
-permalink: integrate/delete-attribute
+permalink: integrate/delete-relationships
 published: false
-title: "delete Attribute"
+title: "Delete Relationships"
 type: scenario
 toc: true
 properties:
-  - id: SC055
-  - category: Handling data deletion
+  - id: SC056
+  - category: Relationships between Identities
   - description:
   - customer: All
   - component: integrate
@@ -15,7 +15,7 @@ properties:
   - implementation status: OPEN
   - documentation status: OPEN
   - published:
-  - link: delete-attribute
+  - link: delete-relationships
 require:
 required_by:
 # End automatic generation

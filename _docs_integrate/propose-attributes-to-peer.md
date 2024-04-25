@@ -1,8 +1,10 @@
 ---
 # Start automatic generation
-permalink: integrate/propose-attribute-to-peer
+permalink: integrate/propose-attributes-to-peer
+redirect_from:
+  - /integrate/propose-attribute-to-peer
 published: true
-title: "Propose Attribute to peer"
+title: "Propose Attributes to peer"
 type: scenario
 toc: true
 properties:
@@ -15,7 +17,7 @@ properties:
   - implementation status: CHANGES REQUIRED
   - documentation status: DONE
   - published: true
-  - link: propose-attribute-to-peer
+  - link: propose-attributes-to-peer
 require:
 required_by:
 # End automatic generation
@@ -124,19 +126,19 @@ Proposing Attributes to a peer is not limited to just a single Attribute, but it
 
 ## Send and receive the Request
 
-The Sender that wants to propose an Attribute to the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method can be used to send the [Request for proposing Attributes]({% link _docs_integrate/propose-attribute-to-peer.md %}#request-for-proposing-attributes). There are two ways to send the Request for proposing Attributes created by the Sender to the Recipient.
+The Sender that wants to propose an Attribute to the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method can be used to send the [Request for proposing Attributes]({% link _docs_integrate/propose-attributes-to-peer.md %}#request-for-proposing-attributes). There are two ways to send the Request for proposing Attributes created by the Sender to the Recipient.
 
-### Request over Template
+### Request via RelationshipTemplate
 
-If there is currently no Relationship between the Sender and the Recipient, this approach must be used. However, it is also possible for the Sender to use a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) to send a Request to the Recipient if there is already an active Relationship between them. All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide.
+If there is currently no Relationship between the Sender and the Recipient, this approach must be used. However, it is also possible for the Sender to use a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) to send a Request to the Recipient if there is already an active Relationship between them. All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) guide.
 
-### Request over Message
+### Request via Message
 
-The Sender only has the option of sending a Request to the Recipient via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) if there is already an active Relationship between them. All information on how to send and receive a Request via a Message can be found in the [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) guide.
+The Sender only has the option of sending a Request to the Recipient via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) if there is already an active Relationship between them. All information on how to send and receive a Request via a Message can be found in the [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) guide.
 
 ## Accept the Request and deal with the proposed Attributes
 
-After the Recipient has received the [Request for proposing Attributes]({% link _docs_integrate/propose-attribute-to-peer.md %}#request-for-proposing-attributes), it can accept it to create all or some of the Attributes that were proposed for creation by the Sender. The Recipient also has the option of overwriting the Attribute Values beforehand or sending existing Attributes back to the Sender instead of creating new ones. To accept the Request, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). Also, you need to decide and specify for each ProposeAttributeRequestItem and RequestItemGroup contained in the Request for proposing Attributes whether you want to accept or reject it.
+After the Recipient has received the [Request for proposing Attributes]({% link _docs_integrate/propose-attributes-to-peer.md %}#request-for-proposing-attributes), it can accept it to create all or some of the Attributes that were proposed for creation by the Sender. The Recipient also has the option of overwriting the Attribute Values beforehand or sending existing Attributes back to the Sender instead of creating new ones. To accept the Request, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). Also, you need to decide and specify for each ProposeAttributeRequestItem and RequestItemGroup contained in the Request for proposing Attributes whether you want to accept or reject it.
 
 If the Recipient does not want to deal with any of the Attributes proposed by the Sender and, therefore, does not want to accept the Request for proposing Attributes of the Sender, it can reject it as a whole as well. For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
@@ -147,7 +149,7 @@ If the Recipient does not want to deal with any of the Attributes proposed by th
 
 The Recipient can accept a ProposeAttributeRequestItem contained in the Request for proposing Attributes using an appropriate [AcceptProposeAttributeRequestItemParameter]({% link _docs_integrate/data-model-overview.md %}#acceptproposeattributerequestitemparameters). Depending on whether the Recipient confirms the fittingness of the associated proposed Attribute, it can agree to its creation and send it back to the Sender unchanged or correct the Attribute Value beforehand. To do this, the Recipient needs to specify the proposed Attribute or an Attribute that differs from the proposed Attribute only by the Attribute Value as the value for the `attribute` parameter of the AcceptProposeAttributeRequestItemParameters. If the Recipient does not want to create a new Attribute, it can alternatively send an existing Attribute back to the Sender. The `attributeId` parameter of the AcceptProposeAttributeRequestItemParameters must be used for that. The existing Attribute may only differ from the proposed Attribute by the Attribute Value. The acceptance of a ProposeAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property. The `content` of the LocalAttribute is the Attribute that the Recipient wants to send back to the Sender. Depending on whether the Recipient confirms the fittingness of the proposed Attribute, it is therefore the proposed Attribute itself or a corrected version of it. Based on this LocalAttribute, an appropriate AcceptResponseItem of type [ProposeAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributeacceptresponseitem) is generated, which incorporates the `id` of the LocalAttribute with the LocalAttributeShareInfo in its `attributeId` property and the Attribute that the Recipient wants to send back to the Sender in its `attribute` property. This ProposeAttributeAcceptResponseItem will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for proposing Attributes that will be transferred to the Sender. If a new IdentityAttribute is to be created and sent back to the Sender, a corresponding LocalAttribute without a LocalAttributeShareInfo is additionally created for the Recipient beforehand.
 
-It is noticeable that accepting a ProposeAttributeRequestItem essentially works in the same way as accepting a [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem). Both types of RequestItems are used when an Identity needs information from a peer. The difference between the two RequestItems is that when using the ProposeAttributeRequestItem, the Identity not only asks for an Attribute of a certain Attribute Value Type, but also proposes a specific Attribute to the peer for creation that might be suitable. The ProposeAttributeRequestItem can therefore also be understood as a combination of the ReadAttributeRequestItem and the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem). To gain a deeper understanding of these connections, take a look at the [Read Attribute from peer]({% link _docs_integrate/read-attribute-from-peer.md %}) guide and the [Create Attribute for peer]({% link _docs_integrate/create-attribute-for-peer.md %}) guide.
+It is noticeable that accepting a ProposeAttributeRequestItem essentially works in the same way as accepting a [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem). Both types of RequestItems are used when an Identity needs information from a peer. The difference between the two RequestItems is that when using the ProposeAttributeRequestItem, the Identity not only asks for an Attribute of a certain Attribute Value Type, but also proposes a specific Attribute to the peer for creation that might be suitable. The ProposeAttributeRequestItem can therefore also be understood as a combination of the ReadAttributeRequestItem and the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem). To gain a deeper understanding of these connections, take a look at the [Read Attributes from peer]({% link _docs_integrate/read-attributes-from-peer.md %}) guide and the [Create Attributes for peer]({% link _docs_integrate/create-attributes-for-peer.md %}) guide.
 {: .notice--info}
 
 ### Reject a ProposeAttributeRequestItem
@@ -274,14 +276,14 @@ Note that it is important to respond to RequestItems and RequestItemGroups in th
 
 ## Receive the Response to the Request
 
-We now assume that the Recipient has accepted the [Request for proposing Attributes]({% link _docs_integrate/propose-attribute-to-peer.md %}#request-for-proposing-attributes) of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
+We now assume that the Recipient has accepted the [Request for proposing Attributes]({% link _docs_integrate/propose-attributes-to-peer.md %}#request-for-proposing-attributes) of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/f3818539-0050-42a4-a343-fb410d4134fc" id="bzlYC7NrKA9y"></iframe></div>
 
 To view the Response to the Request, search for it in the synchronization result or proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
-- If the [Request was sent via a Template]({% link _docs_integrate/propose-attribute-to-peer.md %}#request-over-template): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
-- If the [Request was sent via a Message]({% link _docs_integrate/propose-attribute-to-peer.md %}#request-over-message): Specify `<ID of Request>` as the value for the `id` query parameter.
+- If the [Request was sent via a Template]({% link _docs_integrate/propose-attributes-to-peer.md %}#request-over-template): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
+- If the [Request was sent via a Message]({% link _docs_integrate/propose-attributes-to-peer.md %}#request-over-message): Specify `<ID of Request>` as the value for the `id` query parameter.
 
 The Integrator of the Sender can now get the Response of the Recipient from the `response.content` property of the result. In the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) is a [ProposeAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributeacceptresponseitem) for each accepted ProposeAttributeRequestItem and a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) for each rejected ProposeAttributeRequestItem included. Note that each accepted ProposeAttributeRequestItem leads to the creation of an appropriate LocalAttribute with a LocalAttributeShareInfo of the Sender. The `content` of the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) is the Attribute that the Recipient has sent back to the Sender. Depending on whether the Recipient has confirmed the fittingness of the Attribute proposed by the Sender, it is therefore the proposed Attribute itself or a corrected version of it.
 
@@ -290,4 +292,4 @@ In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-ove
 
 ## What's next?
 
-An Identity has several options for requesting an Attribute creation. This guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is proposed by the Identity, but can be modified by the peer when accepting the Request. In some cases, it makes more sense if the peer cannot change the proposed Attribute Value. For that, take a look at the [Create Attribute for peer]({% link _docs_integrate/create-attribute-for-peer.md %}) guide.
+An Identity has several options for requesting an Attribute creation. This guide covers how an Identity can request the creation of an Attribute for a peer so that the [Attribute Value]({% link _docs_integrate/attribute-values.md %}) is proposed by the Identity, but can be modified by the peer when accepting the Request. In some cases, it makes more sense if the peer cannot change the proposed Attribute Value. For that, take a look at the [Create Attributes for peer]({% link _docs_integrate/create-attributes-for-peer.md %}) guide.

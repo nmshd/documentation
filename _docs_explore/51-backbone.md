@@ -80,7 +80,7 @@ The following services are available on the runtime:
 - Messages Service: Provides an interface for submitting and receiving messages
 - Relationships Service: Keeps track of relationships between identities, their status and possible change requests
 - Files Service: Files or other "static" binaries can be stored via the files service and used as attachments for messages.
-- Tokens Service: A repository for storing and consuming usually short-lived encrypted information, e.g. for QRCode contents.
+- Tokens Service: A repository for storing and consuming usually short-lived encrypted information, e.g. for QR Code contents.
 - Synchronization Service: Cross device synchronization of local identity data
 
 ## Backbone Services and Libraries (Designtime)

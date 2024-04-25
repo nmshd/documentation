@@ -17,7 +17,7 @@ properties:
   - published:
   - link: test-your-requests-validity
 require:
-  - integrate/create-attribute-for-yourself
+  - integrate/create-attributes-for-yourself
 required_by:
 # End automatic generation
 ---
