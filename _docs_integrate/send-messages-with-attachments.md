@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC063
-  - category: Basic communication
+  - category: Relationships between Identities
   - description:
   - customer: All
   - component: integrate

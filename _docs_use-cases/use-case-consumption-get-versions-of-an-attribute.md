@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-[Succeeding an Attribute]({% link _docs_integrate/succeed-attribute-to-update-its-value.md %}) allows you to update its `content`, while keeping all versions for a coherent history.
+[Succeeding an Attribute]({% link _docs_integrate/update-attributes-by-succession.md %}) allows you to update its `content`, while keeping all versions for a coherent history.
 This use-case allows you to retrieve a list of all those versions of the succession chain for a specified [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
 
 ## Parameters

@@ -134,7 +134,7 @@ Its `deletionStatus` will be set to `"DeletedByOwner"` and the `deletionDate` wi
 
 Lastly, you can also [delete RepositoryAttributes]({% link _docs_use-cases/use-case-consumption-delete-a-repositoryattribute.md %}), i.e. LocalAttributes that are owned by yourself and whose `shareInfo` property is undefined.
 Analogously to the cases above, also all predecessors of the RepositoryAttribute with specified `attributeId` will be deleted.
-Additionally, the `succeeds` property of the successor will be removed in case of [Attribute succession]({% link _docs_integrate/succeed-attribute-to-update-its-value.md %}).
+Additionally, the `succeeds` property of the successor will be removed in case of [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}).
 
 Furthermore, if there are any shared copies of the RepositoryAttribute, their `shareInfo` will be updated such that `sourceAttribute` doesn't link to the deleted RepositoryAttribute anymore.
 As a consequence, the [get shared versions of a RepositoryAttribute use case]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-a-repositoryattribute.md %}) will no longer return those shared versions.

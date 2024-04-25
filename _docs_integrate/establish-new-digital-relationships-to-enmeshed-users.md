@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC111
-  - category: Relationships to other Identities
+  - category: Relationships between Identities
   - description: Verein/Versicherung ohne Identity Provider bekommt einen neuen Kunden über enmeshed, Mitgliedsantrag, etc… Nicht-personalisierter QR Code wird erzeugt QR Code wird gedruckt / auf Website angezeigt Nutzer scannt QR Code ein Kontaktanfrage wird überprüft CRM System speichert neue Kontaktanfrage Organisation kann Nutzer Nachrichten schicken
   - customer:
   - component: integrate

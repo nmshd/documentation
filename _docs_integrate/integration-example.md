@@ -269,7 +269,7 @@ In this tutorial we will focus on Messages of type [Mail]({% link _docs_integrat
 
 ### Sending a Message with a Connector
 
-Firstly, we will [send a Message]({% link _docs_integrate/send-messages.md %}) from the Connector to the App.
+Firstly, we will [send a Message]({% link _docs_integrate/exchange-messages.md %}) from the Connector to the App.
 For this, we need the address of our peer, that we copied in the previous step, and insert it in the fields `recipient` and `to`.
 Further, the `subject` and `body` properties can be modified with some custom `content`.
 

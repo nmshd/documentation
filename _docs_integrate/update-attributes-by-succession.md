@@ -1,11 +1,11 @@
 ---
 # Start automatic generation
-permalink: integrate/succeed-attribute-to-update-its-value
+permalink: integrate/update-attributes-by-succession
 redirect_from:
   - /integrate/updating-identityattributes-of-yourself
   - /integrate/succeeding-attributes-to-update-their-values
 published: true
-title: "Succeed Attribute to update its value"
+title: "Update Attributes by succession"
 type: scenario
 toc: true
 properties:
@@ -18,7 +18,7 @@ properties:
   - implementation status: DONE
   - documentation status: DONE
   - published: true
-  - link: succeed-attribute-to-update-its-value
+  - link: update-attributes-by-succession
 require:
 required_by:
 # End automatic generation

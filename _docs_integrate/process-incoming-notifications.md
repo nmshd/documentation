@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC103
-  - category: Work with Notifications
+  - category: Working with Notifications
   - description:
   - customer: All
   - component: integrate

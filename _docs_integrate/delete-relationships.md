@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC056
-  - category: Relationships to other Identities
+  - category: Relationships between Identities
   - description:
   - customer: All
   - component: integrate
