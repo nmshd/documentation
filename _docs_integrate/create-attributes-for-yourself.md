@@ -31,10 +31,8 @@ This guide explains the end to end flow of creating an [Attribute]({% link _docs
 
 This section is about how to create an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) for your own Connector that is not initially shared with any other Identity. From a technical point of view, this corresponds to the creation of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `content` is given by the IdentityAttribute that is intended to be created and whose `shareInfo` is undefined. Such a LocalAttribute is referred to as a RepositoryAttribute.
 
-Since knowledge about IdentityAttributes is required in the following, you should take a look at our IdentityAttribute introduction before you continue reading this guide. In particular, a description of the two kinds of IdentityAttributes, the simple IdentityAttributes and the complex IdentityAttributes, can be found there.
+Since knowledge about IdentityAttributes is required in the following, you should take a look at our [IdentityAttribute introduction]({% link _docs_integrate/attribute-introduction.md %}#identityattributes) before you continue reading this guide. In particular, a description of the two kinds of IdentityAttributes, the [simple IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#simple-identityattributes) and the [complex IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), can be found there.
 {: .notice--info}
-
-<!--- TODO: Insert link to "IdentityAttribute introduction" --->
 
 ### Input for creating a RepositoryAttribute
 
@@ -102,7 +100,7 @@ Assuming that the input values ​​for the properties `value.day`, `value.mont
 
 When you have successfully created an IdentityAttribute for your own Connector, you will receive a success response. From the result, you can get the `id` of the corresponding RepositoryAttribute belonging to the IdentityAttribute. You will need this `id`, for example, if you want to share the underlying IdentityAttribute with other Identities later, as in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) scenario.
 
-## Create a RelationshipAttribute for yourself
+## Create a RelationshipAttribute
 
 If you want to create a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), you must proceed differently than when [creating an IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself). This is because a RelationshipAttribute can only exist in the context of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with a peer, which means that they must also agree to the creation of it. This is achieved by sending a [Request]({% link _docs_integrate/data-model-overview.md %}#request) whose `items` property contains an appropriate [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitems), which must be accepted by the peer. Depending on whether you or your peer should set the [RelationshipAttributeValue]({% link _docs_integrate/attribute-values.md %}#relationship-attributes) and depending on other factors, a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem), [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) or [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) should be used for this.
 
