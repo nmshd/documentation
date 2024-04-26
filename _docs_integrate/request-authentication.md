@@ -1,13 +1,13 @@
 ---
 # Start automatic generation
-permalink: integrate/requesting-authentication
+permalink: integrate/request-authentication
 published: false
-title: "Requesting authentication"
+title: "Request authentication"
 type: scenario
 toc: true
 properties:
   - id: SC032
-  - category: Requesting authentication
+  - category: Request authentication
   - description:
   - customer: All
   - component: integrate
@@ -15,10 +15,10 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: requesting-authentication
+  - link: request-authentication
 require:
-  - integrate/requests-over-templates
-  - integrate/requests-over-messages
+  - integrate/requests-via-relationshiptemplates
+  - integrate/requests-via-messages
 required_by:
 # End automatic generation
 ---

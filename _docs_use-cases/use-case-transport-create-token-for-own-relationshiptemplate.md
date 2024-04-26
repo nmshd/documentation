@@ -1,8 +1,10 @@
 ---
 # Start automatic generation
-permalink: use-case-transport-create-token-for-own-relationship-template
+permalink: use-case-transport-create-token-for-own-relationshiptemplate
+redirect_from:
+  - use-case-transport-create-token-for-own-relationship-template
 published: true
-title: "Create Token for own Relationship Template"
+title: "Create Token for own RelationshipTemplate"
 type: use-case
 toc: true
 sidebar:
@@ -31,7 +33,7 @@ properties:
   - changed_at:
   - api_route_regex: POST /api/v2/RelationshipTemplates/Own/{id}/Token
   - published: default
-  - link: use-case-transport-create-token-for-own-relationship-template
+  - link: use-case-transport-create-token-for-own-relationshiptemplate
 require:
 required_by:
 api_route_regex: ^POST /api/v2/RelationshipTemplates/Own/{id}/Token$

@@ -1,15 +1,16 @@
 ---
 # Start automatic generation
-permalink: integrate/succeeding-attributes-to-update-their-values
+permalink: integrate/update-attributes-by-succession
 redirect_from:
   - /integrate/updating-identityattributes-of-yourself
+  - /integrate/succeeding-attributes-to-update-their-values
 published: true
-title: "Succeeding Attributes to update their values"
+title: "Update Attributes by succession"
 type: scenario
 toc: true
 properties:
   - id: SC053
-  - category: Manage Attributes of yourself
+  - category: Manage Attributes
   - description:
   - customer: All
   - component: integrate
@@ -17,7 +18,7 @@ properties:
   - implementation status: DONE
   - documentation status: DONE
   - published: true
-  - link: succeeding-attributes-to-update-their-values
+  - link: update-attributes-by-succession
 require:
 required_by:
 # End automatic generation
@@ -42,18 +43,18 @@ Hence, we will look at the process of creating, sharing and succeeding an Identi
 ### Creating a RepositoryAttribute
 
 Enmeshed allows you to store data about yourself in the form of IdentityAttributes.
-When [creating an IdentityAttribute]({% link _docs_integrate/create-attribute-for-yourself.md %}), it is not necessary to share it immediately with a peer.
+When [creating an IdentityAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}), it is not necessary to share it immediately with a peer.
 Instead, it will be stored in the `content` property of a LocalAttribute with an undefined `shareInfo`.
 We refer to these unshared LocalAttributes as RepositoryAttributes, since they make up your private repository of Attributes.
 
-In the following examples, the `createdAt` property all occuring LocalAttribute is omitted, since it isn't required for the explanation.
+In the following examples, the `createdAt` and `deletionInfo` properties of all occuring LocalAttributes is omitted, since they aren't required for the explanation.
 {: .notice--info}
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/33654502-420f-41bd-801a-e0d4c1564df0" id="zs0-w2Ag-nJ4"></iframe></div>
 
 ### Sharing a RepositoryAttribute
 
-Now, in order to [share a RepositoryAttribute]({% link _docs_integrate/share-attribute-with-peer.md %}), you need to send an according [Request]({% link _docs_integrate/data-model-overview.md %}#request) to the peer you want to share it with.
+Now, in order to [share a RepositoryAttribute]({% link _docs_integrate/share-attributes-with-peer.md %}), you need to send an according [Request]({% link _docs_integrate/data-model-overview.md %}#request) to the peer you want to share it with.
 If they [accept your Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}), a new LocalAttribute will be created at the peer's side.
 This peer shared IdentityAttribute has the same `content` like your RepositoryAttribute and, in addition, a defined `shareInfo` property.
 It stores the Address of the `peer` who shared the Attribute with them, i.e. your Address, and a reference to the Request that was used to share the Attribute.
@@ -107,3 +108,9 @@ The `succeeds` property of this LocalAttribute links to the old version, whose `
 Then, a Notification is sent automatically to the peer, which triggers the creation of a new peer shared RelationshipAttribute at their side, such that their LocalAttribute versions replicate the succession chain at your side.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/67c46978-696b-4adf-b04a-cf27d0438f53" id="ww0-.JinZtEX"></iframe></div>
+
+## What's next?
+
+As we have seen, succeeding an Attribute allows you to mark a version of the Attribute as outdated and lets you specify an updated version that is to be used instead.
+However, you might also find yourself in a situation where you want to delete an Attribute altogether.
+To do so, proceed as described in the guide on [how to delete Attributes]({% link _docs_integrate/delete-attributes.md %}).

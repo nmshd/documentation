@@ -1,8 +1,10 @@
 ---
 # Start automatic generation
-permalink: use-case-consumption-create-and-complete-outgoing-request-from-relationship-template-response
+permalink: use-case-consumption-create-and-complete-outgoing-request-from-relationshiptemplate-response
+redirect_from:
+  - use-case-consumption-create-and-complete-outgoing-request-from-relationshiptemplate-response
 published: true
-title: "Create and complete outgoing Request from Relationship Template Response"
+title: "Create and complete outgoing Request from RelationshipTemplate Response"
 type: use-case
 toc: true
 sidebar:
@@ -31,7 +33,7 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: use-case-consumption-create-and-complete-outgoing-request-from-relationship-template-response
+  - link: use-case-consumption-create-and-complete-outgoing-request-from-relationshiptemplate-response
 require:
 required_by:
 # End automatic generation

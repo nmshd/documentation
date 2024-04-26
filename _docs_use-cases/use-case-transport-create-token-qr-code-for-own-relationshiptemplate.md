@@ -1,22 +1,22 @@
 ---
 # Start automatic generation
-permalink: use-case-transport-create-qrcode-for-file
+permalink: use-case-transport-create-token-qr-code-for-own-relationshiptemplate
 published: false
-title: "Create QRCode for File"
+title: "Create Token QR Code for own RelationshipTemplate"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate Enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RF7
+  - id: RT6
   - component: Runtime
   - layer: Transport
-  - facade: FilesFacade
-  - function: createQRCodeForFile
+  - facade: RelationshipTemplatesFacade
+  - function: createTokenQRCodeForOwnTemplate
   - description:
-  - feature category: Arbitrary large data support
-  - tech category: Files
+  - feature category: Consent required before any data is shared
+  - tech category: RelationshipTemplates
   - status: DONE
   - documentation status:
   - comments:
@@ -31,7 +31,7 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: use-case-transport-create-qrcode-for-file
+  - link: use-case-transport-create-token-qr-code-for-own-relationshiptemplate
 require:
 required_by:
 # End automatic generation

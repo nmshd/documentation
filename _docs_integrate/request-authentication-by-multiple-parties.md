@@ -1,21 +1,21 @@
 ---
 # Start automatic generation
-permalink: integrate/delete-a-relationship
+permalink: integrate/request-authentication-by-multiple-parties
 published: false
-title: "Delete a Relationship"
+title: "Request authentication by multiple parties"
 type: scenario
 toc: true
 properties:
-  - id: SC056
-  - category: Handling data deletion
+  - id: SC034
+  - category: Request authentication
   - description:
   - customer: All
   - component: integrate
   - level: Advanced
-  - implementation status: OPEN
+  - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: delete-a-relationship
+  - link: request-authentication-by-multiple-parties
 require:
 required_by:
 # End automatic generation

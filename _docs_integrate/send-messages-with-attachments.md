@@ -1,13 +1,13 @@
 ---
 # Start automatic generation
-permalink: integrate/sending-messages-with-attachments
+permalink: integrate/send-messages-with-attachments
 published: false
-title: "Sending Messages with attachments"
+title: "Send Messages with attachments"
 type: scenario
 toc: true
 properties:
   - id: SC063
-  - category: Basic communication
+  - category: Relationships between Identities
   - description:
   - customer: All
   - component: integrate
@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: OPEN
   - published:
-  - link: sending-messages-with-attachments
+  - link: send-messages-with-attachments
 require:
 required_by:
 # End automatic generation

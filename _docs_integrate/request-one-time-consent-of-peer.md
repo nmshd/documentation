@@ -1,8 +1,10 @@
 ---
 # Start automatic generation
-permalink: integrate/requesting-one-time-consents
+permalink: integrate/request-one-time-consent-of-peer
+redirect_from:
+  - /integrate/requesting-one-time-consents
 published: true
-title: "Requesting one-time consents"
+title: "Request one-time consent of peer"
 type: scenario
 toc: true
 properties:
@@ -15,10 +17,10 @@ properties:
   - implementation status: DONE
   - documentation status: DONE
   - published: true
-  - link: requesting-one-time-consents
+  - link: request-one-time-consent-of-peer
 require:
-  - integrate/requests-over-templates
-  - integrate/requests-over-messages
+  - integrate/requests-via-relationshiptemplates
+  - integrate/requests-via-messages
 required_by:
 # End automatic generation
 ---
@@ -39,7 +41,7 @@ To request an accept/reject decision from a peer to a free text, the ConsentRequ
 
 At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Sender Connector with the following body.
 For the one-time consent request we use the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem).
-Even though the `peer` property is optional, it is recommended to specify it whenever possible. This allows additional validation rules to execute. When you are sending a Request over Messages you always know your peer.
+Even though the `peer` property is optional, it is recommended to specify it whenever possible. This allows additional validation rules to execute. When you are sending a Request via Messages you always know your peer.
 
 ```json
 {
@@ -107,4 +109,4 @@ Note that the Request is currently in status `Draft`.
 
 ## Sending Request
 
-There are 2 ways to send the request to the user. Either when creating a [RelationshipTemplate]({% link _docs_integrate/requests-over-templates.md %}) or with a contact who already has a relationship, via a [message]({% link _docs_integrate/requests-over-messages.md %}).
+There are 2 ways to send the request to the user. Either when creating a [RelationshipTemplate]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) or with a contact who already has a relationship, via a [message]({% link _docs_integrate/requests-via-messages.md %}).

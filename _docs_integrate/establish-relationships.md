@@ -1,13 +1,15 @@
 ---
 # Start automatic generation
-permalink: integrate/establish-a-relationship-to-another-identity
+permalink: integrate/establish-relationships
+redirect_from:
+  - /integrate/establish-a-relationship-to-another-identity
 published: true
-title: "Establish a Relationship to another Identity"
+title: "Establish Relationships"
 type: scenario
 toc: true
 properties:
   - id: SC107
-  - category: Get in touch with other Identities
+  - category: Relationships between Identities
   - description: Create Relationship Template (with respective content) Communicate Template to peer (over side channel) Scan Template / Press Link Check and accept Request Send Relationship Request (including Response to Template's Request) Receive Relationship Request Check Relationship Request Accept Relationship Request
   - customer:
   - component: integrate
@@ -15,13 +17,13 @@ properties:
   - implementation status:
   - documentation status: DONE
   - published:
-  - link: establish-a-relationship-to-another-identity
+  - link: establish-relationships
 require:
 required_by:
 # End automatic generation
 ---
 
-Communication and sharing of information between two Identities requires the existence of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between them. This guide describes how a Connector can establish an active Relationship to another Identity. Firstly, we explain how to [create a RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#create-a-relationshiptemplate) on a Connector, the so-called Templator, and how to [make the RelationshipTemplate available]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#make-the-relationshiptemplate-available) to the other Identity. The RelationshipTemplate can then be used by the other Identity, the so-called Requestor, to [send a RelationshipRequest]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#send-a-relationship-request) to the Templator. This RelationshipRequest can finally be accepted by the Templator in order to [establish an active Relationship]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#establish-an-active-relationship) between them.
+Communication and sharing of information between two Identities requires the existence of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between them. This guide describes how a Connector can establish an active Relationship to another Identity. Firstly, we explain how to [create a RelationshipTemplate]({% link _docs_integrate/establish-relationships.md %}#create-a-relationshiptemplate) on a Connector, the so-called Templator, and how to [make the RelationshipTemplate available]({% link _docs_integrate/establish-relationships.md %}#make-the-relationshiptemplate-available) to the other Identity. The RelationshipTemplate can then be used by the other Identity, the so-called Requestor, to [send a RelationshipRequest]({% link _docs_integrate/establish-relationships.md %}#send-a-relationship-request) to the Templator. This RelationshipRequest can finally be accepted by the Templator in order to [establish an active Relationship]({% link _docs_integrate/establish-relationships.md %}#establish-an-active-relationship) between them.
 
 ## Create a RelationshipTemplate
 
@@ -66,9 +68,9 @@ You need to replace the placeholders marked with `<...>` appropriately as usual.
 }
 ```
 
-The properties `content.title`, `content.metadata` and `content.onExistingRelationship` are optional, so you can omit them. In case the `content` property of the RelationshipTemplate contains a RelationshipTemplateContent and therefore in particular at least one [Request]({% link _docs_integrate/data-model-overview.md %}#request), you should [test the Requests' Validity]({% link _docs_integrate/requests-over-templates.md %}#check-your-requests-validity) before you create the RelationshipTemplate. An Identity to which the RelationshipTemplate will be made available and which does not yet have a Relationship to the Templator will receive the Request specified in the `onNewRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent). However, if a Relationship already exists between them and a Request has been specified in the `onExistingRelationship` property of the RelationshipTemplateContent, the Identity will receive this Request instead.
+The properties `content.title`, `content.metadata` and `content.onExistingRelationship` are optional, so you can omit them. In case the `content` property of the RelationshipTemplate contains a RelationshipTemplateContent and therefore in particular at least one [Request]({% link _docs_integrate/data-model-overview.md %}#request), you should [test the Requests' Validity]({% link _docs_integrate/requests-via-relationshiptemplates.md %}#check-your-requests-validity) before you create the RelationshipTemplate. An Identity to which the RelationshipTemplate will be made available and which does not yet have a Relationship to the Templator will receive the Request specified in the `onNewRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent). However, if a Relationship already exists between them and a Request has been specified in the `onExistingRelationship` property of the RelationshipTemplateContent, the Identity will receive this Request instead.
 
-How to send a Request via a RelationshipTemplate is explained in detail in the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide.
+How to send a Request via a RelationshipTemplate is explained in detail in the [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) guide.
 {: .notice--info}
 
 ### Successfully created RelationshipTemplate
@@ -81,14 +83,14 @@ If you have successfully created the [RelationshipTemplate]({% link _docs_integr
 
 Before an Identity can establish a Relationship to the Templator, it must send a RelationshipRequest using a valid [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) which is owned by the Templator. Depending on whether the Identity is a Connector or an App user, a different approach must be used to make the RelationshipTemplate available to the Identity:
 
-- [Make it available to a Connector]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#make-it-available-to-a-connector): Load the RelationshipTemplate onto it.
-- [Make it available to an App user]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#make-it-available-to-an-app-user): Scan the QR Code of the RelationshipTemplate.
+- [Make it available to a Connector]({% link _docs_integrate/establish-relationships.md %}#make-it-available-to-a-connector): Load the RelationshipTemplate onto it.
+- [Make it available to an App user]({% link _docs_integrate/establish-relationships.md %}#make-it-available-to-an-app-user): Scan the QR Code of the RelationshipTemplate.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/d03afadd-af30-4b08-abd6-c8f3d05d42db" id="rW5NlwcVLvBH"></iframe></div>
 
 ### Make it available to a Connector
 
-If a Connector wants to send a RelationshipRequest to the Templator, it must first load a RelationshipTemplate, which is owned by the Templator, onto itself. This can be done by following the [Load RelationshipTemplate created by others]({% link _docs_use-cases/use-case-transport-load-relationship-template-created-by-others.md %}) use case description and providing the input:
+If a Connector wants to send a RelationshipRequest to the Templator, it must first load a RelationshipTemplate, which is owned by the Templator, onto itself. This can be done by following the [Load RelationshipTemplate created by others]({% link _docs_use-cases/use-case-transport-load-relationshiptemplate-created-by-others.md %}) use case description and providing the input:
 
 ```jsonc
 {
@@ -96,7 +98,7 @@ If a Connector wants to send a RelationshipRequest to the Templator, it must fir
 }
 ```
 
-In doing so, it is necessary to insert the value of the `truncatedReference` property read from the [created RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) into the `reference` property. Alternatively, it is possible to specify the `id` and the `secretKey` of the [created RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) and use the following input:
+In doing so, it is necessary to insert the value of the `truncatedReference` property read from the [created RelationshipTemplate]({% link _docs_integrate/establish-relationships.md %}#successfully-created-relationshiptemplate) into the `reference` property. Alternatively, it is possible to specify the `id` and the `secretKey` of the [created RelationshipTemplate]({% link _docs_integrate/establish-relationships.md %}#successfully-created-relationshiptemplate) and use the following input:
 
 ```jsonc
 {
@@ -105,11 +107,11 @@ In doing so, it is necessary to insert the value of the `truncatedReference` pro
 }
 ```
 
-When the RelationshipTemplate of the Templator is successfully loaded onto the Connector, the `transport.peerRelationshipTemplateLoaded` [Connector event]({% link _docs_integrate/connector-events.md %}) is triggered and a success response is sent. This success response looks like the success response you receive when you have [successfully created a RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) on the Templator, except that the value of the property `isOwn` is now `false` instead of `true`. Assuming that there is no Relationship between the Connector and the Templator yet and that the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) contains a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) in its `content` property, the Connector will additionally receive a new incoming Request. The Integrator of the Connector can [accept]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) it if they want to [send a RelationshipRequest]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#send-it-as-a-connector) to the Templator.
+When the RelationshipTemplate of the Templator is successfully loaded onto the Connector, the `transport.peerRelationshipTemplateLoaded` [Connector event]({% link _docs_integrate/connector-events.md %}) is triggered and a success response is sent. This success response looks like the success response you receive when you have [successfully created a RelationshipTemplate]({% link _docs_integrate/establish-relationships.md %}#successfully-created-relationshiptemplate) on the Templator, except that the value of the property `isOwn` is now `false` instead of `true`. Assuming that there is no Relationship between the Connector and the Templator yet and that the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) contains a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) in its `content` property, the Connector will additionally receive a new incoming Request. The Integrator of the Connector can [accept]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) it if they want to [send a RelationshipRequest]({% link _docs_integrate/establish-relationships.md %}#send-it-as-a-connector) to the Templator.
 
 ### Make it available to an App user
 
-If an App user wants to send a RelationshipRequest to the Templator, the App user must first scan a QR Code that contains the reference to a RelationshipTemplate which is owned by the Templator. To create this QR Code on the Templator, proceed as described in the documentation of the [Get RelationshipTemplate]({% link _docs_use-cases/use-case-transport-get-relationship-template.md %}) use case, use the `id` of the [created RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) and specify the value `image/png` in the `Accept` header field. After scanning the QR Code, the App user receives the conditions for establishing a Relationship to the Templator as specified in the RelationshipTemplate. If these are accepted, the App user can now [send a RelationshipRequest]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#send-it-as-an-app-user) to the Templator.
+If an App user wants to send a RelationshipRequest to the Templator, the App user must first scan a QR Code that contains the reference to a RelationshipTemplate which is owned by the Templator. To create this QR Code on the Templator, proceed as described in the documentation of the [Get RelationshipTemplate]({% link _docs_use-cases/use-case-transport-get-relationshiptemplate.md %}) use case, use the `id` of the [created RelationshipTemplate]({% link _docs_integrate/establish-relationships.md %}#successfully-created-relationshiptemplate) and specify the value `image/png` in the `Accept` header field. After scanning the QR Code, the App user receives the conditions for establishing a Relationship to the Templator as specified in the RelationshipTemplate. If these are accepted, the App user can now [send a RelationshipRequest]({% link _docs_integrate/establish-relationships.md %}#send-it-as-an-app-user) to the Templator.
 
 ## Send a RelationshipRequest
 
@@ -117,7 +119,7 @@ After the Templator has created a RelationshipTemplate and made it available to 
 
 ### Send it as a Connector
 
-Assuming that the Requestor in this section is a Connector, our starting situation is that the Requestor has successfully loaded the [created RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#successfully-created-relationshiptemplate) onto itself. The received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) may or may not contain a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) in its `content` property. We now describe separately in both cases how the Requestor can use the RelationshipTemplate to send a RelationshipRequest to the Templator. An overview of this procedure is given in the following diagram.
+Assuming that the Requestor in this section is a Connector, our starting situation is that the Requestor has successfully loaded the [created RelationshipTemplate]({% link _docs_integrate/establish-relationships.md %}#successfully-created-relationshiptemplate) onto itself. The received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) may or may not contain a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) in its `content` property. We now describe separately in both cases how the Requestor can use the RelationshipTemplate to send a RelationshipRequest to the Templator. An overview of this procedure is given in the following diagram.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/5be09492-9e2c-42b1-bbb1-acd854118e2c" id="Ez1OCKfT1U40"></iframe></div>
 
@@ -132,7 +134,7 @@ The `content` of the LocalRequest is the Request specified in the `onNewRelation
 It is not necessary, but you can query this Relationship by proceeding as described in the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case documentation, using the query parameter `template.id=<ID of RelationshipTemplate>`. If you decide to do this, you will receive a `result` as response from which you can read the `id` of the Relationship and the `id` of the associated RelationshipChange.
 {: .notice--info}
 
-Note that it is of course also possible to reject the incoming Request, if the Requestor does not wish to establish an active Relationship to the Templator under the given conditions. In order to do this, make use of the documentation of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case. More detailed information about how to [reject]({% link _docs_integrate/requests-over-templates.md %}#reject) as well as how to [accept]({% link _docs_integrate/requests-over-templates.md %}#accept) an incoming Request can also be found in the [Requests over Templates]({% link _docs_integrate/requests-over-templates.md %}) guide.
+Note that it is of course also possible to reject the incoming Request, if the Requestor does not wish to establish an active Relationship to the Templator under the given conditions. In order to do this, make use of the documentation of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case. More detailed information about how to [reject]({% link _docs_integrate/requests-via-relationshiptemplates.md %}#reject) as well as how to [accept]({% link _docs_integrate/requests-via-relationshiptemplates.md %}#accept) an incoming Request can also be found in the [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) guide.
 {: .notice--info}
 
 #### RelationshipTemplate without RelationshipTemplateContent
@@ -156,7 +158,7 @@ Saving the `id` of the Relationship and the `id` of the associated RelationshipC
 
 ### Send it as an App user
 
-As already mentioned in the description of the [input for creating a RelationshipTemplate]({% link _docs_integrate/establish-a-relationship-to-another-identity.md %}#input-for-creating-a-relationshiptemplate), a RelationshipTemplateContent must be used as the value of the `content` property of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) if you intend to use the RelationshipTemplate to establish a Relationship between the Templator and an App user. Assuming that there is no Relationship between them yet, the App user receives the Request specified in the `onNewRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) after scanning the QR Code associated with the RelationshipTemplate. The App user has the option of accepting or rejecting the Request. If they accept the Request appropriately, a RelationshipRequest is sent to the Templator. Internally, this corresponds to the creation of a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` and an associated RelationshipChange within its `changes` property. The [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) has `"Creation"` as `type` and `"Pending"` as `status`. The Response of the App user to the Request is contained within the `request.content.response` property of the RelationshipChange.
+As already mentioned in the description of the [input for creating a RelationshipTemplate]({% link _docs_integrate/establish-relationships.md %}#input-for-creating-a-relationshiptemplate), a RelationshipTemplateContent must be used as the value of the `content` property of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) if you intend to use the RelationshipTemplate to establish a Relationship between the Templator and an App user. Assuming that there is no Relationship between them yet, the App user receives the Request specified in the `onNewRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) after scanning the QR Code associated with the RelationshipTemplate. The App user has the option of accepting or rejecting the Request. If they accept the Request appropriately, a RelationshipRequest is sent to the Templator. Internally, this corresponds to the creation of a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` and an associated RelationshipChange within its `changes` property. The [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange) has `"Creation"` as `type` and `"Pending"` as `status`. The Response of the App user to the Request is contained within the `request.content.response` property of the RelationshipChange.
 
 Please note that the general procedure is the same if an App user instead of a Connector wants to send a RelationshipRequest to the Templator. The difference is that the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) does not need to contain a RelationshipTemplateContent in its `content` property if it is intended to be used by a Connector.
 {: .notice--info}
@@ -188,4 +190,4 @@ Assuming the Requestor is a Connector, it must [synchronize the updates of the B
 
 ## What's next?
 
-After an active Relationship between the two Identities is established, they are able to share information with each other. For example, they can exchange Messages. A possible scenario that demonstrates how a Connector can send a Message to another Identity with which it has an active Relationship is described in the [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) scenario documentation.
+After an active Relationship between the two Identities is established, they are able to share information with each other. For example, they can exchange Messages. A possible scenario that demonstrates how a Connector can send a Message to another Identity with which it has an active Relationship is described in the [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) scenario documentation.
