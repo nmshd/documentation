@@ -41,25 +41,31 @@ Depending on what IdentityAttribute value type is used, the associated IdentityA
 
 #### Simple IdentityAttributes
 
-[Examples of simple IdentityAttributes]({% link _docs_integrate/create-attributes-for-yourself.md %}#example-of-creating-a-simple-identityattribute) are IdentityAttributes for which [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname), [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) or [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber) is used as the IdentityAttribute value type.
+A simple IdentityAttribute is an IdentityAttribute with an [IdentityAttribute value type]({% link _docs_integrate/attribute-values.md %}#identity-attributes) whose properties cannot be interpreted as another IdentityAttribute value type. In most cases, the IdentityAttribute value type then only has a single property, which often also has the name `value`. This property stores the actual value of the IdentityAttribute. From a technical point of view, it can be stated that the `id` of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `content` is given by a simple IdentityAttribute cannot be the `parentId` of another LocalAttribute. In other words, it could be said that simple IdentityAttributes are not composite. Examples of simple IdentityAttributes are IdentityAttributes for which [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname), [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) or [PhoneNumber]({% link _docs_integrate/attribute-values.md %}#phonenumber) is used as the IdentityAttribute value type.
 
 #### Complex IdentityAttributes
 
-[Examples of complex IdentityAttributes]({% link _docs_integrate/create-attributes-for-yourself.md %}#example-of-creating-a-complex-identityattribute) are IdentityAttributes for which [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) or [StreetAddress]({% link _docs_integrate/attribute-values.md %}#streetaddress) is used as the IdentityAttribute value type.
+A complex IdentityAttribute is an IdentityAttribute with an [IdentityAttribute value type]({% link _docs_integrate/attribute-values.md %}#identity-attributes) for which at least one property can be interpreted as another IdentityAttribute value type. Whether an IdentityAttribute value type includes such a property can be determined by whether another IdentityAttribute value type is mentioned in its table in the [documentation]({% link _docs_integrate/attribute-values.md %}#identity-attributes) with regard to the validation of the property. Examples of complex IdentityAttributes are IdentityAttributes for which [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) or [StreetAddress]({% link _docs_integrate/attribute-values.md %}#streetaddress) is used as the IdentityAttribute value type. When [creating a complex IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#example-of-creating-a-complex-identityattribute), there is an important detail to note in contrast to the [creation of a simple IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#example-of-creating-a-simple-identityattribute). Creating an IdentityAttribute for yourself always leads to the creation of a LocalAttribute whose `shareInfo` property is undefined and whose `content` is given by the IdentityAttribute owned by yourself. Such a LocalAttribute is also referred to as a RepositoryAttribute. If a RepositoryAttribute is created that contains a complex IdentityAttribute within its `content` property, additional RepositoryAttributes are automatically created for each property of the complex IdentityAttribute that can be interpreted as another IdentityAttribute value type. This makes it possible to share individual components of a complex IdentityAttribute. If a date of birth has been created, it is possible, for example, to share only the year of birth with other Identities, instead of the full date of birth. The year of birth does not have to be created manually beforehand.
 
 ### LocalAttributes and IdentityAttributes
 
-From a technical perspective, an IdentityAttribute is stored as the `content` of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute). Depending on the values of certain properties of the LocalAttribute, to a LocalAttribute whose `content` is given by an IdentityAttribute is also referred to as a RepositoryAttribute, an own shared IdentityAttribute or a peer shared IdentityAttribute.
+From a technical perspective, an IdentityAttribute is always stored as the `content` of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute). Depending on the values of certain properties of the LocalAttribute, a LocalAttribute whose `content` is given by an IdentityAttribute is also referred to as a **RepositoryAttribute**, an **own shared IdentityAttribute** or a **peer shared IdentityAttribute**.
 
 #### RepositoryAttributes
 
+As already mentioned in the section on [complex IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), a RepositoryAttribute is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `shareInfo` property is undefined and whose `content` is given by an IdentityAttribute owned by yourself. A RepositoryAttribute is created when an Identity [creates an IdentityAttribute for itself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself). If the IdentityAttribute is a complex IdentityAttribute, RepositoryAttributes are also created for the properties of the IdentityAttribute value type, which can be interpreted as other IdentityAttribute value types.
+
 #### Own shared IdentityAttributes
+
+The Identity shares an Attribute of itself with another Identity (e.g. sends it in a Request). In that case, a copy of the original LocalAttribute is created, where the `shareInfo` property is set. We call this LocalAttribute an own shared IdentityAttribute.
 
 #### Peer shared IdentityAttributes
 
+The Identity receives an Attribute from another Identity (e.g. receives it in a Request). In that case a new LocalAttribute is created, where the `shareInfo` is set. We call this LocalAttribute a peer shared IdentityAttribute.
+
 ## RelationshipAttributes
 
-[RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) are specific to a Relationship. In the context of a single Relationship, each RelationshipAttribute has its unique `key` for identification.
+A [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) can only exist in the context of a Relationship with a peer, which means that they must also agree to the creation of it. [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) are specific to a Relationship. In the context of a single Relationship, each RelationshipAttribute has its unique `key` for identification.
 
 For more information on how to establish Relationships, refer to the [Establish Relationships]({% link _docs_integrate/establish-relationships.md %}) scenario documentation.
 {: .notice--info}
@@ -70,7 +76,9 @@ There are many [RelationshipAttribute value types]({% link _docs_integrate/attri
 
 ### LocalAttributes and RelationshipAttributes
 
-From a technical perspective, a RelationshipAttribute is stored as the `content` of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute). Depending on the values of certain properties of the LocalAttribute, to a LocalAttribute whose `content` is given by a RelationshipAttribute is also referred to as an own shared RelationshipAttribute, a peer shared RelationshipAttribute or a third party owned RelationshipAttribute.
+From a technical perspective, a RelationshipAttribute is always stored as the `content` of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute). Depending on the values of certain properties of the LocalAttribute, a LocalAttribute whose `content` is given by a RelationshipAttribute is also referred to as an **own shared RelationshipAttribute**, a **peer shared RelationshipAttribute** or a **third party owned RelationshipAttribute**.
+
+From a technical point of view, the creation of a RelationshipAttribute corresponds to the creation of one [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for yourself and one LocalAttribute for your peer, whereby their `content` is given by the RelationshipAttribute that is intended to be created and the `shareInfo` of both LocalAttributes contains a correspondingly suitable [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
 
 #### Own shared RelationshipAttributes
 
