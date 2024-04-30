@@ -56,13 +56,13 @@ You need to replace the placeholders marked with `<...>` appropriately. Also, it
 
 ### Process of creating a RepositoryAttribute
 
-As you can see from the diagram below, after you have entered the [input for creating a RepositoryAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#input-for-creating-a-repositoryattribute), a check is performed whether the input values for the properties of the specified [IdentityAttributeValue]({% link _docs_integrate/attribute-values.md %}#identity-attributes) meet the validation criteria documented on the [Attribute Values]({% link _docs_integrate/attribute-values.md %}) page. If the validation is not successful, an [error message]({% link _docs_integrate/error-codes.md %}) is sent in response. Otherwise, a RepositoryAttribute is created that contains the IdentityAttribute in its `content` property. If it is a simple IdentityAttribute, a success response is sent directly. In the case of a complex IdentityAttribute, on the other hand, another RepositoryAttribute is created beforehand for each of its appropriate properties. These RepositoryAttributes for the properties are also referred to as children of the RepositoryAttribute belonging to the complex IdentityAttribute. The `id` of their parent is contained within their `parentId` property. Note that the successful creation of a LocalAttribute, and therefore in particular the creation of a RepositoryAttribute, triggers the `consumption.attributeCreated` [Connector event]({% link _docs_integrate/connector-events.md %}).
+As you can see from the diagram below, after you have entered the [input for creating a RepositoryAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#input-for-creating-a-repositoryattribute), a check is performed whether the input values for the properties of the specified [IdentityAttributeValue]({% link _docs_integrate/attribute-values.md %}#identity-attributes) meet the validation criteria documented on the [Attribute Values]({% link _docs_integrate/attribute-values.md %}) page. If the validation is not successful, an [error message]({% link _docs_integrate/error-codes.md %}) is sent in response. Otherwise, a RepositoryAttribute is created that contains the IdentityAttribute in its `content` property. If it is a [simple IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#simple-identityattributes), a success response is sent directly. In the case of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), on the other hand, another RepositoryAttribute is created beforehand for each of its appropriate properties. These RepositoryAttributes for the properties are also referred to as children of the RepositoryAttribute belonging to the complex IdentityAttribute. The `id` of their parent is contained within their `parentId` property. Note that the successful creation of a LocalAttribute, and therefore in particular the creation of a RepositoryAttribute, triggers the `consumption.attributeCreated` [Connector event]({% link _docs_integrate/connector-events.md %}).
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/310cea0e-6f6f-4ee0-9efd-55e180ec5dda" id="WT4OFNWd3bcS"></iframe></div>
 
 ### Example of creating a simple IdentityAttribute
 
-An example of a simple IdentityAttribute is one of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname). To create one for your own Connector without specifying optional parameters, the following `content` must be used:
+An example of a [simple IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#simple-identityattributes) is one of type [DisplayName]({% link _docs_integrate/attribute-values.md %}#displayname). To create one for your own Connector without specifying optional parameters, the following `content` must be used:
 
 ```jsonc
 {
@@ -79,7 +79,7 @@ Assuming that the input value for the Connector's display name specified in the 
 
 ### Example of creating a complex IdentityAttribute
 
-An example of a complex IdentityAttribute is one of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate). To create one for your own Connector without specifying optional parameters, the following `content` must be used:
+An example of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) is one of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate). To create one for your own Connector without specifying optional parameters, the following `content` must be used:
 
 ```jsonc
 {
