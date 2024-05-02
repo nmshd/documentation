@@ -52,7 +52,7 @@ To retrieve it, the Sender can [query their Relationships]({% link _docs_use-cas
 
 {% include copy-notice description="Look for the correct Relationship and save its `peer` property. You are going to need it later." %}
 
-## Check your Request's validity
+## Check the Request's validity
 
 Firstly, you should [check if your Request is valid]({% link _docs_use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}).
 As an example, we use a Request with just an [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem), but you can use any Request you want.

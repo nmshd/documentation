@@ -27,24 +27,33 @@ required_by:
 # End automatic generation
 ---
 
-This guide will explain the end-to-end flow of sharing and answering a [Request]({% link _docs_integrate/data-model-overview.md %}#request) via a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
-Usually, this flow happens between a [Connector]({% link _docs_explore/52-connector.md %}) and the [App]({% link _docs_explore/50-app.md %}), but for simplicity and more transparency we will use two Connectors in this example.
-Thus, you'll need two Connectors, that either already have a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with each other or not yet.
+This guide explains the end-to-end flow of sending a [Request]({% link _docs_integrate/data-model-overview.md %}#request) via a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) and responding to it.
+Usually, this flow happens between a [Connector]({% link _docs_explore/52-connector.md %}) and the [App]({% link _docs_explore/50-app.md %}), but for simplicity and more transparency, two Connectors are used in this guide.
+To try out the examples in this guide on your own, you therefore need two Connectors.
 
-You can use the [Connector Installation Guide]({% link _docs_operate/setup-with-docker-compose.md %}) if you need help setting up the Connectors.
+You can use the [Connector Setup]({% link _docs_operate/setup-with-docker-compose.md %}) guide if you need help installing the Connectors. Since understanding the process of sending a Request via a RelationshipTemplate requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) in general, you should also take a look at our [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}).
+{: .notice--info}
 
-On the first Connector, which we will refer to as the Sender, you will create the Request and the RelationshipTemplate.
-The second Connector, which we will refer to as the Recipient, will receive the RelationshipTemplate and respond to the Request.
+On the first Connector, which is referred to as the Sender, you will construct the Request and [create the RelationshipTemplate](#create-the-relationshiptemplate) that contains the Request.
+The second Connector, which is referred to as the Recipient, will [receive the Request by loading the RelationshipTemplate](#receive-the-request-by-loading-the-relationshiptemplate). The Recipient then [responds to the Request](#respond-to-the-request).
+Note that the Sender and the Recipient may or may not have already established an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) at the beginning.
 
-## Check your Request's validity
+A RelationshipTemplate is generally used to establish a Relationship between two Identities. A Request can be sent in this process of establishing a Relationship.
+Nevertheless, a RelationshipTemplate can also be used to exchange Requests between Identities that have already established an active Relationship.
+For more information on how to establish Relationships, refer to the [Establish Relationships]({% link _docs_integrate/establish-relationships.md %}) scenario documentation.
+{: .notice--info}
 
-Firstly, you should [check if your Request is valid]({% link _docs_use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}).
-As an example, we use a Request with just an [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem), but you can use any Request you want.
-For an overview of the available [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems), check out our [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}).
+## Check the Request's validity
 
-```json
+The Sender wants to construct a Request that it can send to the Recipient by inserting it into a RelationshipTemplate.
+Before the Request is sent via the RelationshipTemplate, the Sender should first check its validity by proceeding as described in the documentation of the [Check if outgoing Request can be created]({% link _docs_use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}) use case.
+To do this, the Request must be specified in the `content` property of the payload.
+As an example in this guide, a [Request]({% link _docs_integrate/data-model-overview.md %}#request) containing only a single [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem) within its `items` property is used, but any other Request can also be used.
+
+```jsonc
 {
   "content": {
+    // Specification of a Request
     "items": [
       {
         "@type": "AuthenticationRequestItem",
@@ -56,50 +65,64 @@ For an overview of the available [RequestItems]({% link _docs_integrate/data-mod
 }
 ```
 
-Even though the Requests are validated during the RelationshipTemplate creation you should not skip this step as it gives you additional information in case of validation errors.
+If a Request is contained within a RelationshipTemplate, its validity is automatically checked when the [RelationshipTemplate is created](#create-the-relationshiptemplate). The RelationshipTemplate cannot be created if the Request is faulty.
+Nevertheless, the Request's validity should be checked before attempting to create the RelationshipTemplate in order to obtain additional information about the reasons for the error in the case of a faulty Request.
 {: .notice--info}
 
 ## Create the RelationshipTemplate
 
-Next, [create a RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-own-relationshiptemplate.md %}) on the Sender Connector, using a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent).
-If there is no Relationship between the Connectors, yet, you must put the `content` property of the payload of the previous step in the `onNewRelationship` property of the RelationshipTemplateContent.
-However, if the Connectors already have a Relationship with each other, you must put it in the `onExistingRelationship` property of the `RelationshipTemplateContent`.
-But note, that the `onNewRelationship` property is required and must, therefore, always be set.
+Next, the Sender wants to create the RelationshipTemplate, which contains the Request it wants to send to the Recipient. To specify a Request within a RelationshipTemplate, a data object of type [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) must be used within the `content` property of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
+A Request can be specified in the `onNewRelationship` property or the `onExistingRelationship` property of the RelationshipTemplateContent.
+If no Relationship has yet been established between the Sender and the Recipient, the Recipient receives the Request specified in the `onNewRelationship` property when loading the RelationshipTemplate.
+However, if an active Relationship already exists, the Recipient receives the Request specified in the `onExistingRelationship` property when loading the RelationshipTemplate, if such is specified. The specification of a Request in the `onNewRelationship` property is mandatory in contrast to the specification of a Request in the `onExistingRelationship` property.
+
+Note that the same Request can be specified in the `onExistingRelationship` property as in the `onNewRelationship` property, but a different Request can also be used.
+These customization options are useful as the Recipient that will load the RelationshipTemplate may not be known in advance.
+It is therefore possible that a Relationship between the Sender and the Recipient already exists or not.
+It is also possible to configure the RelationshipTemplate so that it can be loaded by multiple Identities.
+The creator of the RelationshipTemplate may have a Relationship to some of these Identities and no Relationship to others of these Identities.
+{: .notice--info}
+
+To create a RelationshipTemplate, the instructions of the [Create own RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-own-relationshiptemplate.md %}) use case documentation must be followed.
+A RelationshipTemplateContent needs to be specified in the `content` of the payload because the Sender wants to send the Recipient a Request via the RelationshipTemplate.
+In the payload example below, the [Request whose validity we have already checked](#check-the-requests-validity) is contained both within the `onNewRelationship` property and within the `onExistingRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent).
 
 ```jsonc
 {
   "maxNumberOfAllocations": 1,
-  "expiresAt": "2025-01-01T00:00:00.000Z",
+  "expiresAt": "2026-01-01T00:00:00.000Z",
   "content": {
+    // RelationshipTemplateContent
     "@type": "RelationshipTemplateContent",
-    "title": "Requests via RelationshipTemplates example",
     "onNewRelationship": {
-      // the content property of the payload of the previous step,
-      // if the Connectors don't have a Relationship with each other, yet
-      ...
+      // Specification of a Request
+      "items": [
+        {
+          "@type": "AuthenticationRequestItem",
+          "mustBeAccepted": true,
+          "title": "The Sender is asking for an authentication."
+        }
+      ]
     },
     "onExistingRelationship": {
-      // the content property of the payload of the previous step,
-      // if the Connectors already have a Relationship with each other
-      ...
+      // Specification of another Request
+      "items": [
+        {
+          "@type": "AuthenticationRequestItem",
+          "mustBeAccepted": true,
+          "title": "The Sender is asking for an authentication."
+        }
+      ]
     }
   }
 }
 ```
 
-You will receive a response with the complete RelationshipTemplate.
+If the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) has been successfully created, the Sender receives a success response from which its `id` and `truncatedReference` can be read.
 
-```jsonc
-{
-  "id": "RLT..",
-  // ...
-  "truncatedReference": "UkxU..."
-}
-```
+{% include copy-notice description="Save the `id` and the `truncatedReference` of the RelationshipTemplate because these values are needed in the next steps." %}
 
-{% include copy-notice description="Save the `truncatedReference` and the `id` of the RelationshipTemplate. You will need them in the next steps." %}
-
-## Load the RelationshipTemplate and get the Request
+## Receive the Request by loading the RelationshipTemplate
 
 Now you have to [load the RelationshipTemplate on the Recipient Connector]({% link _docs_use-cases/use-case-transport-load-relationshiptemplate-created-by-others.md %}) using the following payload:
 
@@ -117,10 +140,10 @@ To learn more about events, how to use them in the context of enmeshed and which
 
 {% include copy-notice description="After you received the Request, save its `id` for the next step." %}
 
-## Answer the Request
+## Respond to the Request
 
 If you want to test the full flow, we recommend to reject the Request first.
-Afterwards, you can create a new one by [loading the RelationshipTemplate](#load-the-relationshiptemplate-and-get-the-request) again and accept it.
+Afterwards, you can create a new one by [loading the RelationshipTemplate](#receive-the-request-by-loading-the-relationshiptemplate) again and accept it.
 
 ### Reject
 
@@ -147,7 +170,7 @@ This can be observed by [querying the Request]({% link _docs_use-cases/use-case-
 
 ### Accept
 
-If you tried out the rejection before this step, make sure to create a new Request by [loading the RelationshipTemplate](#load-the-relationshiptemplate-and-get-the-request) again with the same `truncatedReference`.
+If you tried out the rejection before this step, make sure to create a new Request by [loading the RelationshipTemplate](#receive-the-request-by-loading-the-relationshiptemplate) again with the same `truncatedReference`.
 
 To [accept the Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}), you need its `id` that you saved in a previous step.
 In the payload you have to accept at least all RequestItems where the `mustBeAccepted` property is set to `true`.
@@ -175,7 +198,7 @@ However, if there is no active Relationship between the Connectors, yet, a Relat
 It contains a [RelationshipChangeRequest]({% link _docs_integrate/data-model-overview.md %}#relationshipchangerequest) with a `content` of type [RelationshipCreationChangeRequestContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationchangerequestcontent), that in turn contains the Response to the Request.
 This Relationship will be sent back to the Sender via a Message.
 Then, the Request will be set to `status` `"Completed"` and you can [query the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) using the query parameter `template.id=<ID of the RelationshipTemplate>`.
-Until the RelationshipChangeRequest is answered, no new Request will be created by [loading the RelationshipTemplate](#load-the-relationshiptemplate-and-get-the-request).
+Until the RelationshipChangeRequest is answered, no new Request will be created by [loading the RelationshipTemplate](#receive-the-request-by-loading-the-relationshiptemplate).
 
 The Sender can fetch the Relationship by [synchronizing the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 In the response you will see a new Relationship, which looks as follows:
