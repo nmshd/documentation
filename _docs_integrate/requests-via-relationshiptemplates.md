@@ -58,7 +58,7 @@ As an example in this guide, a [Request]({% link _docs_integrate/data-model-over
       {
         "@type": "AuthenticationRequestItem",
         "mustBeAccepted": true,
-        "title": "The Sender is asking for an authentication."
+        "title": "The Sender is asking for an authentication"
       }
     ]
   }
@@ -85,7 +85,7 @@ The creator of the RelationshipTemplate may have a Relationship to some of these
 
 To create a RelationshipTemplate, the instructions of the [Create own RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-own-relationshiptemplate.md %}) use case documentation must be followed.
 A RelationshipTemplateContent needs to be specified in the `content` of the payload because the Sender wants to send the Recipient a Request via the RelationshipTemplate.
-In the payload example below, the [Request whose validity we have already checked](#check-the-requests-validity) is contained both within the `onNewRelationship` property and within the `onExistingRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent).
+In the payload example below, the [Request whose validity was already checked](#check-the-requests-validity) is contained both within the `onNewRelationship` property and within the `onExistingRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent).
 
 ```jsonc
 {
@@ -94,23 +94,26 @@ In the payload example below, the [Request whose validity we have already checke
   "content": {
     // RelationshipTemplateContent
     "@type": "RelationshipTemplateContent",
+    "title": "Example of sending Requests via a RelationshipTemplate",
     "onNewRelationship": {
-      // Specification of a Request
+      // Specification of the Request whose validity was checked in the previous step
+      // Is used if no active Relationship yet exists between the Sender and the Recipient
       "items": [
         {
           "@type": "AuthenticationRequestItem",
           "mustBeAccepted": true,
-          "title": "The Sender is asking for an authentication."
+          "title": "The Sender is asking for an authentication"
         }
       ]
     },
     "onExistingRelationship": {
-      // Specification of another Request
+      // Specification of the Request whose validity was checked in the previous step
+      // Is used if an active Relationship already exists between the Sender and the Recipient
       "items": [
         {
           "@type": "AuthenticationRequestItem",
           "mustBeAccepted": true,
-          "title": "The Sender is asking for an authentication."
+          "title": "The Sender is asking for an authentication"
         }
       ]
     }
