@@ -36,10 +36,10 @@ You can use the [Connector Setup]({% link _docs_operate/setup-with-docker-compos
 
 On the first Connector, which is referred to as the Sender, you will construct the Request and [create the RelationshipTemplate](#create-the-relationshiptemplate) that contains the Request.
 The second Connector, which is referred to as the Recipient, will [receive the Request by loading the RelationshipTemplate](#receive-the-request-by-loading-the-relationshiptemplate). The Recipient then [responds to the Request](#respond-to-the-request).
-Note that the Sender and the Recipient may or may not have already established an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) at the beginning.
+Note that the Sender and the Recipient may or may not have already established a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) at the beginning.
 
 A RelationshipTemplate is generally used to establish a Relationship between two Identities. A Request can be sent in this process of establishing a Relationship.
-Nevertheless, a RelationshipTemplate can also be used to exchange Requests between Identities that have already established an active Relationship.
+Nevertheless, a RelationshipTemplate can also be used to exchange Requests between Identities that have already established a Relationship.
 For more information on how to establish Relationships, refer to the [Establish Relationships]({% link _docs_integrate/establish-relationships.md %}) scenario documentation.
 {: .notice--info}
 
@@ -54,6 +54,7 @@ As an example in this guide, a [Request]({% link _docs_integrate/data-model-over
 {
   "content": {
     // Specification of a Request
+    "title": "Example of a Request",
     "items": [
       {
         "@type": "AuthenticationRequestItem",
@@ -94,10 +95,10 @@ In the payload example below, the [Request whose validity was already checked](#
   "content": {
     // RelationshipTemplateContent
     "@type": "RelationshipTemplateContent",
-    "title": "Example of sending Requests via a RelationshipTemplate",
     "onNewRelationship": {
       // Specification of the Request whose validity was checked in the previous step
       // Is used if no active Relationship yet exists between the Sender and the Recipient
+      "title": "Example of a Request",
       "items": [
         {
           "@type": "AuthenticationRequestItem",
@@ -109,6 +110,7 @@ In the payload example below, the [Request whose validity was already checked](#
     "onExistingRelationship": {
       // Specification of the Request whose validity was checked in the previous step
       // Is used if an active Relationship already exists between the Sender and the Recipient
+      "title": "Example of a Request",
       "items": [
         {
           "@type": "AuthenticationRequestItem",
@@ -135,7 +137,8 @@ To receive the Request, the Recipient have to [load the RelationshipTemplate cre
 }
 ```
 
-This will trigger a process in the [enmeshed Runtime]({% link _docs_explore/61-runtime.md %}), which will create a new incoming Request for the Recipient.
+Loading the RelationshipTemplate triggers a process in the [enmeshed Runtime]({% link _docs_explore/61-runtime.md %}) that creates a new incoming Request for the Recipient. Depending on whether a Relationship has already been established between the Sender and the Recipient, the Recipient receives the Request specified in the `onNewRelationship` property or in the `onExistingRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent). If a Relationship has already been established between the Sender and the Recipient and no Request has been specified in the `onExistingRelationship` property, the Recipient will not receive an incoming Request when the RelationshipTemplate is loaded.
+
 You can observe this by [long polling the incoming Requests]({% link _docs_use-cases/use-case-consumption-query-incoming-requests.md %}) and optionally use the query parameters `source.reference=<ID of RelationshipTemplate>` and `status=ManualDecisionRequired` to filter for Requests that belong to the RelationshipTemplate you are currently working on.
 
 In a productive environment, however, we recommend using the [Sync Module]({% link _docs_operate/modules.md %}#sync) and waiting for a `consumption.incomingRequestReceived` [Connector Event]({% link _docs_integrate/connector-events.md %}).
