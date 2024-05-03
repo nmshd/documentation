@@ -89,7 +89,10 @@ There are many [RelationshipAttribute value types]({% link _docs_integrate/attri
 
 From a technical perspective, a RelationshipAttribute is always stored as the `content` of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute). Depending on the values of certain properties of the LocalAttribute, a LocalAttribute whose `content` is given by a RelationshipAttribute is also referred to as an **own shared RelationshipAttribute**, a **peer shared RelationshipAttribute** or a **third party owned RelationshipAttribute**.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/dd79b31c-0404-48bb-9773-9b989801c03c" id="RbDyLSjh7BzY"></iframe></div>
+If an own shared RelationshipAttribute is originated from another own shared RelationshipAttribute, it is also referred to as an **own shared ThirdPartyRelationshipAttribute**. Its counterpart is then also referred to as a **peer shared ThirdPartyRelationshipAttribute**. Since third party owned RelationshipAttributes always originate from peer shared RelationshipAttributes, we do not need to speak of third party owned ThirdPartyRelationshipAttributes at all.
+{: .notice--info}
+
+<div style="width: 640px; height: 720px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:720px" src="https://lucid.app/documents/embedded/dd79b31c-0404-48bb-9773-9b989801c03c" id="RbDyLSjh7BzY"></iframe></div>
 
 #### Own shared RelationshipAttributes
 
