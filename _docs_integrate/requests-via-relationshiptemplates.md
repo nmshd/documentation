@@ -129,7 +129,7 @@ If the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#
 
 ## Receive the Request by loading the RelationshipTemplate
 
-To receive the Request, the Recipient have to [load the RelationshipTemplate created by the Sender]({% link _docs_use-cases/use-case-transport-load-relationshiptemplate-created-by-others.md %}) using the following payload, whereby the `<...>` notation is used as a placeholder for the actual data as usual:
+To receive a Request that is contained within a RelationshipTemplate, the Recipient have to [load the RelationshipTemplate created by the Sender]({% link _docs_use-cases/use-case-transport-load-relationshiptemplate-created-by-others.md %}) using the following payload, whereby the `<...>` notation is used as a placeholder for the actual data as usual:
 
 ```jsonc
 {
@@ -137,14 +137,17 @@ To receive the Request, the Recipient have to [load the RelationshipTemplate cre
 }
 ```
 
-Loading the RelationshipTemplate triggers a process in the [enmeshed Runtime]({% link _docs_explore/61-runtime.md %}) that creates a new incoming Request for the Recipient. Depending on whether a Relationship has already been established between the Sender and the Recipient, the Recipient receives the Request specified in the `onNewRelationship` property or in the `onExistingRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent). If a Relationship has already been established between the Sender and the Recipient and no Request has been specified in the `onExistingRelationship` property, the Recipient will not receive an incoming Request when the RelationshipTemplate is loaded.
+Loading the RelationshipTemplate triggers a process in the [enmeshed Runtime]({% link _docs_explore/61-runtime.md %}) that creates a new incoming Request for the Recipient. Depending on whether a Relationship has already been established between the Sender and the Recipient, the Recipient receives the Request specified in the `onNewRelationship` property or in the `onExistingRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent).
 
-You can observe this by [long polling the incoming Requests]({% link _docs_use-cases/use-case-consumption-query-incoming-requests.md %}) and optionally use the query parameters `source.reference=<ID of RelationshipTemplate>` and `status=ManualDecisionRequired` to filter for Requests that belong to the RelationshipTemplate you are currently working on.
+If a Relationship has already been established between the Sender and the Recipient and no Request has been specified in the `onExistingRelationship` property, the Recipient will not receive an incoming Request when the RelationshipTemplate is loaded.
+{: .notice--info}
+
+By proceeding as described in the [Query incoming Requests]({% link _docs_use-cases/use-case-consumption-query-incoming-requests.md %}) use case documentation and specifying `source.reference=<ID of RelationshipTemplate>` and `status=ManualDecisionRequired` as query parameters, the new incoming Request can be queried. The `result` contains the corresponding [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest), from which you can read the `id` of the Request.
+
+{% include copy-notice description="Save the `id` of the incoming Request so that you can accept or reject it." %}
 
 In a productive environment, however, we recommend using the [Sync Module]({% link _docs_operate/modules.md %}#sync) and waiting for a `consumption.incomingRequestReceived` [Connector Event]({% link _docs_integrate/connector-events.md %}).
-To learn more about events, how to use them in the context of enmeshed and which [Modules]({% link _docs_operate/modules.md %}) are supported by enmeshed to help you automating your business process, check out our [Event introduction]({% link _docs_integrate/event-introduction.md %}).
-
-{% include copy-notice description="After you received the Request, save its `id` for the next step." %}
+To learn more about events, how to use them in the context of enmeshed and which [Modules]({% link _docs_operate/modules.md %}) are supported by enmeshed to help you automating your business processes, check out our [Event introduction]({% link _docs_integrate/event-introduction.md %}).
 
 ## Respond to the Request
 
@@ -158,7 +161,7 @@ Let's consider the case the Recipient wants to [reject the Request]({% link _doc
 For this, use the `id` of the Request you saved in the previous step.
 In the payload you have to reject all RequestItems.
 An [AuthenticationRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#authenticationrequestitem) can be rejected by using the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters).
-In case of the example Request, the payload is the following:
+In the case of the above example Request, the payload is therefore as follows:
 
 ```jsonc
 {
@@ -183,7 +186,7 @@ If you tried out the rejection before this step, make sure to create a new Reque
 To [accept the Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}), you need its `id` that you saved in a previous step.
 In the payload you have to accept at least all RequestItems where the `mustBeAccepted` property is set to `true`.
 An [AuthenticationRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#authenticationrequestitem) can be accepted by using the [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters).
-In case of the example Request, the payload is the following:
+In the case of the above example Request, the payload is therefore as follows:
 
 ```jsonc
 {
