@@ -66,9 +66,13 @@ When exchanging a RepositoryAttribute with a peer, suitable copies of this Repos
 
 The Identity shares an Attribute of itself with another Identity (e.g. sends it in a Request). In that case, a copy of the original LocalAttribute is created, where the `shareInfo` property is set. We call this LocalAttribute an own shared IdentityAttribute.
 
+The `id` of the RepositoryAttribute used as the source is stored in its `shareInfo.sourceAttribute` property. This is the case at least until the RepositoryAttribute used as the source has not been deleted.
+
 #### Peer shared IdentityAttributes
 
-The Identity receives an Attribute from another Identity (e.g. receives it in a Request). In that case a new LocalAttribute is created, where the `shareInfo` is set. We call this LocalAttribute a peer shared IdentityAttribute.
+The Identity receives an Attribute from another Identity (e.g. receives it in a Request). In that case a new LocalAttribute is created, where the `shareInfo` is set. We call this LocalAttribute a peer shared IdentityAttribute. It is not possible to share this peer shared IdentityAttribute with a third party.
+
+Note that the `shareInfo.sourceAttribute` property of a peer shared IdentityAttribute is always undefined, as the RepositoryAttribute used as the source can only be available locally to its owner.
 
 ## RelationshipAttributes
 
@@ -85,6 +89,8 @@ There are many [RelationshipAttribute value types]({% link _docs_integrate/attri
 
 From a technical perspective, a RelationshipAttribute is always stored as the `content` of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute). Depending on the values of certain properties of the LocalAttribute, a LocalAttribute whose `content` is given by a RelationshipAttribute is also referred to as an **own shared RelationshipAttribute**, a **peer shared RelationshipAttribute** or a **third party owned RelationshipAttribute**.
 
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/dd79b31c-0404-48bb-9773-9b989801c03c" id="RbDyLSjh7BzY"></iframe></div>
+
 #### Own shared RelationshipAttributes
 
 From a technical point of view, the creation of a RelationshipAttribute corresponds to the creation of one [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for yourself and one LocalAttribute for your peer, whereby their `content` is given by the RelationshipAttribute that is intended to be created and the `shareInfo` of both LocalAttributes contains a correspondingly suitable [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
@@ -98,6 +104,8 @@ Sometimes a peer shared RelationshipAttribute is referred to as a peer shared Th
 {: .notice--info}
 
 #### Third party owned RelationshipAttributes
+
+Note that the `shareInfo.sourceAttribute` property of a third party owned ThirdPartyRelationshipAttribute is only defined for the peer for that the peer shared RelationshipAttribute used as the source exists in the Relationship to a third party. This is the case at least until the peer shared RelationshipAttribute used as the source has not been deleted.
 
 RelationshipAttributes owned by third parties could always be referred to as ThirdPartyRelationshipAttributes. Therefore, instead of third party owned ThirdPartyRelationshipAttributes, it is simply referred to as third party owned RelationshipAttributes.
 {: .notice--info}
