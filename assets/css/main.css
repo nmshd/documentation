@@ -13,7 +13,7 @@
 
 /* Copyright comment */
 /*!
- * Minimal Mistakes Jekyll Theme 4.25.1 by Michael Rose
+ * Minimal Mistakes Jekyll Theme 4.26.0 by Michael Rose
  * Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
  * Free for personal and commercial use under the MIT license
  * https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -3565,6 +3565,69 @@ a.reversefootnote:hover {
 :-webkit-full-screen-ancestor .masthead,
 :-webkit-full-screen-ancestor .page__footer {
   position: static;
+}
+
+/*
+   Copy <pre> block to clipboard
+   ========================================================================== */
+.clipboard-helper {
+  font-size: 12pt !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  outline: none !important;
+  position: absolute;
+}
+
+pre .clipboard-copy-button {
+  display: block;
+  position: absolute;
+  top: 0.6em;
+  right: 0.5em;
+  width: 1.8em;
+  height: 1.5em;
+  z-index: 1;
+  background: none;
+  border: none;
+  outline: none;
+  border-radius: 0.1em;
+  padding: 0.2em 0.5em;
+  color: white;
+  opacity: 0.4;
+  transition: color 0.25s linear -0.25s, opacity 0.25s linear;
+}
+pre .clipboard-copy-button:hover {
+  color: #ffffca;
+}
+pre .clipboard-copy-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+pre .clipboard-copy-button i {
+  position: absolute;
+  top: 0.25em;
+  right: 0.25em;
+}
+pre .clipboard-copy-button i.copied {
+  opacity: 0;
+}
+pre .clipboard-copy-button.copied i {
+  opacity: 0;
+}
+pre .clipboard-copy-button.copied i.copied {
+  opacity: 1;
+}
+.no-copy pre .clipboard-copy-button {
+  display: none;
+}
+
+pre:hover .clipboard-copy-button {
+  opacity: 1;
 }
 
 /* Layout specific */
