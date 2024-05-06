@@ -90,9 +90,9 @@ You can query the Connector's address via the route `/api/v2/Account/IdentityInf
 
 Next, we want to create a RelationshipTemplate, that can be used by the App to send a Relationship Request to our Connector.
 The content of the template can be widely configured, but for simplicity we will use a [Request]({% link _docs_integrate/data-model-overview.md %}#request) with just two [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in our example.
-On the one hand, we want to [share an Attribute]({% link _docs_integrate/share-own-attribute-to-peer.md %}) with the App, namely the display name of our Connector we created in the previous step.
+On the one hand, we want to [share an Attribute]({% link _docs_integrate/share-attributes-with-peer.md %}) with the App, namely the display name of our Connector we created in the previous step.
 For this, we use a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem).
-On the other hand, we use [ReadAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) to [receive Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}) from the App.
+On the other hand, we use [ReadAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) to [receive Attributes]({% link _docs_integrate/read-attributes-from-peer.md %}) from the App.
 Let's assume the Connector needs to know the given name and surname of its contact to create a Relationship and, additionally, offers the option to specify an e-mail address for communication.
 
 ```json
@@ -269,7 +269,7 @@ In this tutorial we will focus on Messages of type [Mail]({% link _docs_integrat
 
 ### Sending a Message with a Connector
 
-Firstly, we will [send a Message]({% link _docs_integrate/sending-messages.md %}) from the Connector to the App.
+Firstly, we will [send a Message]({% link _docs_integrate/exchange-messages.md %}) from the Connector to the App.
 For this, we need the address of our peer, that we copied in the previous step, and insert it in the fields `recipient` and `to`.
 Further, the `subject` and `body` properties can be modified with some custom `content`.
 
@@ -308,5 +308,5 @@ The Response should contain a Message with the `content` you entered in the App.
 Now that you have successfully established a Relationship and exchanged Messages, you can further explore the enmeshed API. You can for example:
 
 - explore the [enmeshed data model]({% link _docs_integrate/data-model-overview.md %}) and learn more about the objects you used during this tutorial and the objects you will encounter in the future
-- learn how to send [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) with your established Relationship
-- dive deeper into creating and sending [Requests over RelationshipTemplates]({% link _docs_integrate/requests-over-templates.md %})
+- learn how to send [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) with your established Relationship
+- dive deeper into creating and sending [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %})
