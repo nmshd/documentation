@@ -167,7 +167,7 @@ To use the api platform hosted on the Connector you need to make the following c
 
 ## Video
 
-<video class="elementor-video" src="https://enmeshed.de/app/uploads/2024/05/Connector-aufsetzen_mit-Untertitel.mp4" controls="" preload="metadata" controlslist="nodownload" poster="https://enmeshed.de/app/uploads/2024/05/Thumbnail-1.png" style="width: -moz-available;"></video>
+<video class="elementor-video" src="https://enmeshed.de/app/uploads/2024/05/Connector-aufsetzen_mit-Untertitel.mp4" controls="" preload="metadata" controlslist="nodownload" poster="https://enmeshed.de/app/uploads/2024/05/Thumbnail-1.png" style="width:100%;"></video>
 
 ## Troubleshooting
 
