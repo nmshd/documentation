@@ -70,14 +70,14 @@ If an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#iden
 
 ## RelationshipAttributes
 
-A [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) can only exist in the context of a Relationship with a peer, which means that they must also agree to the creation of it. RelationshipAttributes are specific to a Relationship. In the context of a single Relationship, each RelationshipAttribute has its unique `key` for identification.
+A [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) is used to store data that is relevant in the context of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between two Identities. Both Identities involved in the Relationship must agree to its creation. RelationshipAttributes are specific to a Relationship. In the context of a single Relationship, each RelationshipAttribute has its unique `key` for identification. RelationshipAttributes can be shared with third parties as long as their `confidentiality` is not `"private"`.
 
-For more information on how to establish Relationships, refer to the [Establish Relationships]({% link _docs_integrate/establish-relationships.md %}) scenario documentation.
+For information on how to establish Relationships, refer to the [Establish Relationships]({% link _docs_integrate/establish-relationships.md %}) scenario documentation.
 {: .notice--info}
 
 ### RelationshipAttribute value types
 
-There are many [RelationshipAttribute value types]({% link _docs_integrate/attribute-values.md %}#relationship-attributes). These are used to define the type of the `value` property of a RelationshipAttribute. An example is the [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring).
+The [RelationshipAttribute value types]({% link _docs_integrate/attribute-values.md %}#relationship-attributes) are used to define the type of the `value` property of a RelationshipAttribute. In order to fulfill various purposes, many such RelationshipAttribute value types are provided. Examples of RelationshipAttribute value types are [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring) and [ProprietaryEMailAddress]({% link _docs_integrate/attribute-values.md %}#proprietaryemailaddress). In contrast to IdentityAttributes, RelationshipAttributes are not divided into simple RelationshipAttributes and complex RelationshipAttributes depending on the value type. Nevertheless, the RelationshipAttribute value type [Consent]({% link _docs_integrate/attribute-values.md %}#consent) should be highlighted, as it differs slightly from the other RelationshipAttribute value types. Accordingly, with the [Request persistent consent of peer]({% link _docs_integrate/request-persistent-consent-of-peer.md %}) scenario documentation, there is a separate guide for creating RelationshipAttributes with Consent as RelationshipAttribute value type.
 
 ### LocalAttributes and RelationshipAttributes
 
