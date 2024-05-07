@@ -70,7 +70,7 @@ If an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#iden
 
 ## RelationshipAttributes
 
-A [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) is used to store data that is relevant in the context of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between two Identities. Both Identities involved in the Relationship must agree to its creation. RelationshipAttributes are specific to a Relationship. In the context of a single Relationship, each RelationshipAttribute has its unique `key` for identification. RelationshipAttributes can be shared with third parties as long as their `confidentiality` is not `"private"`.
+A [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) is used to store data that is relevant in the context of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between two Identities. Both Identities involved in the Relationship must agree to its creation. RelationshipAttributes are specific to a Relationship. In the context of a single Relationship, each RelationshipAttribute has its unique `key` for identification. RelationshipAttributes can be shared with third parties as long as their `confidentiality` is not `"private"`. Sharing a RelationshipAttribute with third parties that are not involved in the Relationship in which the RelationshipAttribute exists leads to the creation of ThirdPartyRelationshipAttributes.
 
 For information on how to establish Relationships, refer to the [Establish Relationships]({% link _docs_integrate/establish-relationships.md %}) scenario documentation.
 {: .notice--info}
@@ -83,7 +83,7 @@ The [RelationshipAttribute value types]({% link _docs_integrate/attribute-values
 
 From a technical perspective, a RelationshipAttribute is always stored as the `content` of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute). Depending on the values of certain properties of the LocalAttribute, a LocalAttribute whose `content` is given by a RelationshipAttribute is also referred to as an **own shared RelationshipAttribute**, a **peer shared RelationshipAttribute** or a **third party owned RelationshipAttribute**.
 
-If an own shared RelationshipAttribute is originated from another own shared RelationshipAttribute, it is also referred to as an **own shared ThirdPartyRelationshipAttribute**. Its counterpart is then also referred to as a **peer shared ThirdPartyRelationshipAttribute**. Since third party owned RelationshipAttributes always originate from peer shared RelationshipAttributes, we do not need to speak of third party owned ThirdPartyRelationshipAttributes at all.
+If an own shared RelationshipAttribute is originated from another own shared RelationshipAttribute, it is also referred to as an **own shared ThirdPartyRelationshipAttribute**. Its counterpart is then also referred to as a **peer shared ThirdPartyRelationshipAttribute**. The so-called **third party owned RelationshipAttributes** originate from peer shared RelationshipAttributes.
 {: .notice--info}
 
 <div style="width: 640px; height: 720px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:720px" src="https://lucid.app/documents/embedded/dd79b31c-0404-48bb-9773-9b989801c03c" id="RbDyLSjh7BzY"></iframe></div>
@@ -104,7 +104,7 @@ Sometimes a peer shared RelationshipAttribute is referred to as a peer shared Th
 
 Note that the `shareInfo.sourceAttribute` property of a third party owned ThirdPartyRelationshipAttribute is only defined for the peer for that the peer shared RelationshipAttribute used as the source exists in the Relationship to a third party. This is the case at least until the peer shared RelationshipAttribute used as the source has not been deleted.
 
-RelationshipAttributes owned by third parties could always be referred to as ThirdPartyRelationshipAttributes. Therefore, instead of third party owned ThirdPartyRelationshipAttributes, it is simply referred to as third party owned RelationshipAttributes.
+RelationshipAttributes owned by third parties could always be referred to as ThirdPartyRelationshipAttributes. Therefore, instead of third party owned ThirdPartyRelationshipAttributes, it is simply referred to as third party owned RelationshipAttributes. We do not need to speak of third party owned ThirdPartyRelationshipAttributes at all.
 {: .notice--info}
 
 ## Attribute management options
