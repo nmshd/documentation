@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Requests/Incoming/{id}$
 
 {% include properties_list.html %}
 
-This use-case is intended to retrieve an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) by its id. The differences of outgoing and incoming Requests are defined [here]({% link _docs_integrate/data-model-overview.md %}#localrequeststatus).
+This use case is intended to retrieve an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) by its id. The differences of outgoing and incoming Requests are defined [here]({% link _docs_integrate/data-model-overview.md %}#localrequeststatus).
 
 ## Parameters
 

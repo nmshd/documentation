@@ -42,7 +42,7 @@ api_route_regex: ^POST /api/v2/Attributes/ExecuteIdentityAttributeQuery$
 
 {% include properties_list.html %}
 
-This use-case is intended to execute an incoming
+This use case is intended to execute an incoming
 [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery) (e.g. of a ReadAttributeRequestItem) which returns a list of matching [Identity Attributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
 
 ## Parameters

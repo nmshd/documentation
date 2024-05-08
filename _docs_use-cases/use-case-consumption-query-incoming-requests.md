@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Requests/incoming$
 
 {% include properties_list.html %}
 
-This use-case is intended to query incoming [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest).
+This use case is intended to query incoming [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest).
 
 ## Parameters
 

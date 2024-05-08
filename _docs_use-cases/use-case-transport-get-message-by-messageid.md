@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Messages/{id}$
 
 {% include properties_list.html %}
 
-This use-case retrieves a [Message]({% link _docs_integrate/data-model-overview.md %}#message)
+This use case retrieves a [Message]({% link _docs_integrate/data-model-overview.md %}#message)
 by its `id`.
 
 ## Parameters

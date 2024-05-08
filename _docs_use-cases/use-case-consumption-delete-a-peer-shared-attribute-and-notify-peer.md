@@ -42,7 +42,7 @@ api_route_regex: ^DELETE /api/v2/Attributes/Peer/Shared/{id}$
 
 {% include properties_list.html %}
 
-This use-case allows you to delete a peer shared Attribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) that a peer owns and has shared with you.
+This use case allows you to delete a peer shared Attribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) that a peer owns and has shared with you.
 
 ## Parameters
 

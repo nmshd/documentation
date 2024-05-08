@@ -42,7 +42,7 @@ api_route_regex: ^PUT /api/v2/Requests/Incoming/{id}/Reject$
 
 {% include properties_list.html %}
 
-This use-case attempts to reject an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest).
+This use case attempts to reject an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest).
 
 It is advised to [check if the incoming Request can be accepted](/use-case-consumption-check-if-incoming-request-can-be-rejected) in advance.
 
