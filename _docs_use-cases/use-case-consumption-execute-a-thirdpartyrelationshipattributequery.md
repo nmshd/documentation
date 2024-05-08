@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: post /api/v2/Attributes/executeThirdPartyRelationshipAttributeQuery
+  - api_route_regex: POST /api/v2/Attributes/ExecuteThirdPartyRelationshipAttributeQuery
   - published: default
   - link: use-case-consumption-execute-a-thirdpartyrelationshipattributequery
 require:
 required_by:
-api_route_regex: ^post /api/v2/Attributes/executeThirdPartyRelationshipAttributeQuery$
+api_route_regex: ^POST /api/v2/Attributes/ExecuteThirdPartyRelationshipAttributeQuery$
 # End automatic generation
 ---
 
