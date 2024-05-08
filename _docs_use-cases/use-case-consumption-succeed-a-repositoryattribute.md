@@ -29,11 +29,12 @@ properties:
   - size: M
   - created_at:
   - changed_at:
-  - api_route_regex:
+  - api_route_regex: POST /api/v2/Attributes/{predecessorId}/Succeed
   - published: default
   - link: use-case-consumption-succeed-a-repositoryattribute
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Attributes/{predecessorId}/Succeed$
 # End automatic generation
 ---
 

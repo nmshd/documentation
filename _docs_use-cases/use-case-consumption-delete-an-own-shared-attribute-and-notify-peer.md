@@ -29,11 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex:
+  - api_route_regex: DELETE /api/v2/Attributes/Own/Shared/{id}
   - published: default
   - link: use-case-consumption-delete-an-own-shared-attribute-and-notify-peer
 require:
 required_by:
+api_route_regex: ^DELETE /api/v2/Attributes/Own/Shared/{id}$
 # End automatic generation
 ---
 
