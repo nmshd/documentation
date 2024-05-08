@@ -139,7 +139,7 @@ To receive a Request that is contained within a RelationshipTemplate, the Recipi
 
 Loading the RelationshipTemplate triggers a process in the [enmeshed Runtime]({% link _docs_explore/61-runtime.md %}) that creates a new incoming Request for the Recipient. Depending on whether a Relationship has already been established between the Sender and the Recipient, the Recipient receives the Request specified in the `onNewRelationship` property or in the `onExistingRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent).
 
-If a Relationship has already been established between the Sender and the Recipient and no Request has been specified in the `onExistingRelationship` property, the Recipient does not receive an incoming Request when the RelationshipTemplate is loaded.
+If a Relationship has already been established between the Sender and the Recipient and no Request has been specified in the `onExistingRelationship` property, the Recipient will not receive an incoming Request when the RelationshipTemplate is loaded.
 {: .notice--info}
 
 By proceeding as described in the [Query incoming Requests]({% link _docs_use-cases/use-case-consumption-query-incoming-requests.md %}) use case documentation and specifying `source.reference=<ID of RelationshipTemplate>` and `status=ManualDecisionRequired` as query parameters, the new incoming Request can be queried. The `result` contains the corresponding [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest), from which you can read the `id` of the Request.
@@ -203,10 +203,10 @@ This behavior can be observed by [querying the Request]({% link _docs_use-cases/
 Now, the enmeshed Runtime steps in and handles the Request based on your decision.
 The Response is created with the appropriate ResponseItems.
 
-If there is already an active Relationship between the Connectors, the Response is sent back to the Sender via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) and the Request moves to `status` `"Completed"`.
+If there is already an active Relationship between the Connectors, the Response will be sent back to the Sender via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) and the Request will move to `status` `"Completed"`.
 The Sender, then, can fetch it by [synchronizing the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 
-However, if there is no active Relationship between the Connectors, yet, a Relationship is created, which has the `status` `"Pending"` for now.
+However, if there is no active Relationship between the Connectors, yet, a Relationship will be created, which has the `status` `"Pending"` for now.
 It contains a [RelationshipChangeRequest]({% link _docs_integrate/data-model-overview.md %}#relationshipchangerequest) with a `content` of type [RelationshipCreationChangeRequestContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationchangerequestcontent), that in turn contains the Response to the Request.
 This Relationship is sent back to the Sender via a Message.
 Then, the Request is set to `status` `"Completed"` and you can [query the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) using the query parameter `template.id=<ID of RelationshipTemplate>`.
