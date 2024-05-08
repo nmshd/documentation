@@ -29,11 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex:
+  - api_route_regex: DELETE /api/v2/Attributes/ThirdParty/{id}
   - published: default
   - link: use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer
 require:
 required_by:
+api_route_regex: ^DELETE /api/v2/Attributes/ThirdParty/{id}$
 # End automatic generation
 ---
 

@@ -31,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: post /api/v2/Attributes
+  - api_route_regex: POST /api/v2/Attributes
   - published: default
   - link: use-case-consumption-create-a-repositoryattribute
 require:
 required_by:
-api_route_regex: ^post /api/v2/Attributes$
+api_route_regex: ^POST /api/v2/Attributes$
 # End automatic generation
 ---
 
