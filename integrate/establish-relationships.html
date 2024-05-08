@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-05-08T13:55:04+02:00">
+  <meta property="article:published_time" content="2024-05-08T16:50:17+02:00">
 
 
 
@@ -331,7 +331,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Establish Relationships">
     <meta itemprop="description" content="Communication and sharing of information between two Identities requires the existence of a Relationship between them. This guide describes how a Connector can establish an active Relationship to another Identity. Firstly, we explain how to create a RelationshipTemplate on a Connector, the so-called Templator, and how to make the RelationshipTemplate available to the other Identity. The RelationshipTemplate can then be used by the other Identity, the so-called Requestor, to send a RelationshipRequest to the Templator. This RelationshipRequest can finally be accepted by the Templator in order to establish an active Relationship between them.">
-    <meta itemprop="datePublished" content="2024-05-08T13:55:04+02:00">
+    <meta itemprop="datePublished" content="2024-05-08T16:50:17+02:00">
     
 
     <div class="page__inner-wrap">
@@ -399,7 +399,7 @@ A RelationshipTemplate is a formal description of the aspects of a Relationship 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>The properties <code class="language-plaintext highlighter-rouge">content.title</code>, <code class="language-plaintext highlighter-rouge">content.metadata</code> and <code class="language-plaintext highlighter-rouge">content.onExistingRelationship</code> are optional, so you can omit them. In case the <code class="language-plaintext highlighter-rouge">content</code> property of the RelationshipTemplate contains a RelationshipTemplateContent and therefore in particular at least one <a href="/integrate/data-model-overview#request">Request</a>, you should <a href="/integrate/requests-via-relationshiptemplates#check-your-requests-validity">test the Requests’ Validity</a> before you create the RelationshipTemplate. An Identity to which the RelationshipTemplate will be made available and which does not yet have a Relationship to the Templator will receive the Request specified in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property of the <a href="/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a>. However, if a Relationship already exists between them and a Request has been specified in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property of the RelationshipTemplateContent, the Identity will receive this Request instead.</p>
+<p>The properties <code class="language-plaintext highlighter-rouge">content.title</code>, <code class="language-plaintext highlighter-rouge">content.metadata</code> and <code class="language-plaintext highlighter-rouge">content.onExistingRelationship</code> are optional, so you can omit them. In case the <code class="language-plaintext highlighter-rouge">content</code> property of the RelationshipTemplate contains a RelationshipTemplateContent and therefore in particular at least one <a href="/integrate/data-model-overview#request">Request</a>, you should <a href="/integrate/requests-via-relationshiptemplates#check-the-requests-validity">check the Requests’ validity</a> before you create the RelationshipTemplate. An Identity to which the RelationshipTemplate will be made available and which does not yet have a Relationship to the Templator will receive the Request specified in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property of the <a href="/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a>. However, if a Relationship already exists between them and a Request has been specified in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property of the RelationshipTemplateContent, the Identity will receive this Request instead.</p>
 
 <p class="notice--info">How to send a Request via a RelationshipTemplate is explained in detail in the <a href="/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a> guide.</p>
 
@@ -544,7 +544,7 @@ A RelationshipTemplate is a formal description of the aspects of a Relationship 
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-05-08T13:55:04+02:00">May 8, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-05-08T16:50:17+02:00">May 8, 2024</time></p>
 
       </footer>
 

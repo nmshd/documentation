@@ -150,7 +150,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create Attributes for yourself",
-        "excerpt":"This guide explains the end to end flow of creating an Attribute for your own Connector as its Integrator. As there are two types of Attributes, IdentityAttributes and RelationshipAttributes, a distinction must be made between them when creating an Attribute for yourself. Create an IdentityAttribute for yourself This section is...","categories": [],
+        "excerpt":"This guide explains the end-to-end flow of creating an Attribute for your own Connector as its Integrator. As there are two types of Attributes, IdentityAttributes and RelationshipAttributes, a distinction must be made between them when creating an Attribute for yourself. Create an IdentityAttribute for yourself This section is about how...","categories": [],
         "tags": [],
         "url": "/integrate/create-attributes-for-yourself",
         "teaser": null
@@ -222,7 +222,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Request one-time consent of peer",
-        "excerpt":"With the ConsentRequest it is possible to request a consent of the peer to an arbitrary text and thus reach agreement on a certain non machine-processable context. To request an accept/reject decision from a peer to a free text, the ConsentRequestItem is used. Check your Requests validity At first you...","categories": [],
+        "excerpt":"With the ConsentRequest it is possible to request a consent of the peer to an arbitrary text and thus reach agreement on a certain non machine-processable context. To request an accept/reject decision from a peer to a free text, the ConsentRequestItem is used. Check the Request’s validity At first you...","categories": [],
         "tags": [],
         "url": "/integrate/request-one-time-consent-of-peer",
         "teaser": null
@@ -240,7 +240,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Requests via RelationshipTemplates",
-        "excerpt":"This guide will explain the end-to-end flow of sharing and answering a Request via a RelationshipTemplate. Usually, this flow happens between a Connector and the App, but for simplicity and more transparency we will use two Connectors in this example. Thus, you’ll need two Connectors, that either already have a...","categories": [],
+        "excerpt":"This guide explains the end-to-end flow of sending a Request via a RelationshipTemplate and responding to it. Usually, this flow happens between a Connector and the App, but for simplicity and more transparency, two Connectors are used here. To try out the examples in this guide on your own, you...","categories": [],
         "tags": [],
         "url": "/integrate/requests-via-relationshiptemplates",
         "teaser": null
@@ -270,7 +270,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Operate enmeshed",
-        "excerpt":"Looking to set up and maintain a connector in your own infrastructure? No worries, we’ve got you covered!   We’ll guide you on how to configure and maintain your systems optimally, ensuring smooth operations.     ","categories": [],
+        "excerpt":"Looking to set up and maintain a Connector in your own infrastructure? No worries, we’ve got you covered!   We’ll guide you on how to configure and maintain your systems optimally, ensuring smooth operations.     ","categories": [],
         "tags": [],
         "url": "/operate",
         "teaser": null
