@@ -29,12 +29,12 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Own/Repository
+  - api_route_regex: GET /api/v2/Attributes/Own/Repository
   - published:
   - link: use-case-consumption-get-repositoryattributes
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Own/Repository$
+api_route_regex: ^GET /api/v2/Attributes/Own/Repository$
 # End automatic generation
 ---
 
