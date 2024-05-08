@@ -98,14 +98,20 @@ Sometimes an own shared RelationshipAttribute is referred to as an own shared Th
 
 #### Peer shared RelationshipAttributes
 
+As already mentioned, the creation of a RelationshipAttribute corresponds to the creation of one LocalAttribute for its `owner` and one LocalAttribute for the peer with whom the `owner` has established a Relationship. The peer shared RelationshipAttribute is the peer's LocalAttribute and therefore forms the counterpart of the own shared RelationshipAttribute. The `id` of a peer shared RelationshipAttribute is always the same as the `id` of the associated own shared RelationshipAttribute. As with the own shared RelationshipAttribute, the `shareInfo` property of a peer shared RelationshipAttribute is of course set. Within the `shareInfo.peer` property, the Address of the `owner` of the RelationshipAttribute is specified. In any case, the `shareInfo.sourceAttribute` property of a peer shared RelationshipAttribute is undefined. This is plausible if the RelationshipAttribute is initially created for a specific Relationship and does not originate from another RelationshipAttribute, but this is also the case if it originates from another.
+
 Sometimes a peer shared RelationshipAttribute is referred to as a peer shared ThirdPartyRelationshipAttribute. This is the case if it can be interpreted as a counterpart of an own shared ThirdPartyRelationshipAttribute. Note that the `shareInfo.sourceAttribute` property of a peer shared ThirdPartyRelationshipAttribute is always undefined, as the own shared RelationshipAttribute used as the source can only be available locally to its owner.
 {: .notice--info}
 
+Although the peer is not its `owner`, the underlying RelationshipAttribute of a peer shared RelationshipAttribute can be shared with third parties if its `confidentiality` is not `"private"`. The sharing of the RelationshipAttribute by the peer with another Identity is technically documented by the creation of a so-called third party owned RelationshipAttribute.
+
 #### Third party owned RelationshipAttributes
+
+This contains the Address of the third party within its `shareInfo.peer` property. However, as this third party owned RelationshipAttribute originates from a peer shared RelationshipAttribute, it contains the `id` of the source peer shared RelationshipAttribute within its `shareInfo.sourceAttribute` property.
 
 The so-called third party owned RelationshipAttributes originate from peer shared RelationshipAttributes.
 
-Note that the `shareInfo.sourceAttribute` property of a third party owned ThirdPartyRelationshipAttribute is only defined for the peer for that the peer shared RelationshipAttribute used as the source exists in the Relationship to a third party. This is the case at least until the peer shared RelationshipAttribute used as the source has not been deleted.
+Note that the `shareInfo.sourceAttribute` property of a third party owned ThirdPartyRelationshipAttribute is only defined for the peer for that the peer shared RelationshipAttribute used as the source exists in the Relationship to a third party. This is the case at least until the peer shared RelationshipAttribute used as the source has not been [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-peer-shared-attributes).
 
 RelationshipAttributes owned by third parties could always be referred to as ThirdPartyRelationshipAttributes. Therefore, instead of third party owned ThirdPartyRelationshipAttributes, it is simply referred to as third party owned RelationshipAttributes. We do not need to speak of third party owned ThirdPartyRelationshipAttributes at all.
 {: .notice--info}
