@@ -61,7 +61,7 @@ $(document).ready(function () {
   }
 
   // Auto scroll sticky ToC with content
-  document.addEventListener("gumshoeActivate", function (event) {
+  const scrollTocToContent = function (event) {
     var target = event.target;
     var scrollOptions = { behavior: "auto", block: "nearest", inline: "start" };
 
@@ -75,7 +75,12 @@ $(document).ready(function () {
     } else {
       target.scrollIntoView(scrollOptions);
     }
-  });
+  };
+
+  // Has issues on Firefox, whitelist Chrome for now
+  if (!!window.chrome) {
+    document.addEventListener("gumshoeActivate", scrollTocToContent);
+  }
 
   // add lightbox class to all image links
   $(
@@ -206,7 +211,7 @@ $(document).ready(function () {
 
   if (window.enable_copy_code_button) {
     document
-      .querySelectorAll(".page__content pre > code")
+      .querySelectorAll(".page__content pre.highlight > code")
       .forEach(function (element, index, parentList) {
         // Locate the <pre> element
         var container = element.parentElement;

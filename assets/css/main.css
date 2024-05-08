@@ -3244,20 +3244,16 @@ body:hover .visually-hidden button {
 .social-icons .fal {
   color: #222831;
 }
-.social-icons .fa-behance,
-.social-icons .fa-behance-square {
+.social-icons .fa-behance, .social-icons .fa-behance-square {
   color: #1769ff;
 }
 .social-icons .fa-bitbucket {
   color: #205081;
 }
-.social-icons .fa-dribbble,
-.social-icons .fa-dribble-square {
+.social-icons .fa-dribbble, .social-icons .fa-dribbble-square {
   color: #ea4c89;
 }
-.social-icons .fa-facebook,
-.social-icons .fa-facebook-square,
-.social-icons .fa-facebook-f {
+.social-icons .fa-facebook, .social-icons .fa-facebook-square, .social-icons .fa-facebook-f {
   color: #3b5998;
 }
 .social-icons .fa-flickr {
@@ -3266,9 +3262,7 @@ body:hover .visually-hidden button {
 .social-icons .fa-foursquare {
   color: #0072b1;
 }
-.social-icons .fa-github,
-.social-icons .fa-github-alt,
-.social-icons .fa-github-square {
+.social-icons .fa-github, .social-icons .fa-github-alt, .social-icons .fa-github-square {
   color: #171516;
 }
 .social-icons .fa-gitlab {
@@ -3280,59 +3274,47 @@ body:hover .visually-hidden button {
 .social-icons .fa-keybase {
   color: #ef7639;
 }
-.social-icons .fa-lastfm,
-.social-icons .fa-lastfm-square {
+.social-icons .fa-lastfm, .social-icons .fa-lastfm-square {
   color: #d51007;
 }
-.social-icons .fa-linkedin,
-.social-icons .fa-linkedin-in {
+.social-icons .fa-linkedin, .social-icons .fa-linkedin-in {
   color: #007bb6;
 }
-.social-icons .fa-mastodon,
-.social-icons .fa-mastodon-square {
+.social-icons .fa-mastodon, .social-icons .fa-mastodon-square {
   color: #2b90d9;
 }
-.social-icons .fa-pinterest,
-.social-icons .fa-pinterest-p,
-.social-icons .fa-pinterest-square {
+.social-icons .fa-pinterest, .social-icons .fa-pinterest-p, .social-icons .fa-pinterest-square {
   color: #cb2027;
 }
 .social-icons .fa-reddit {
   color: #ff4500;
 }
-.social-icons .fa-rss,
-.social-icons .fa-rss-square {
+.social-icons .fa-rss, .social-icons .fa-rss-square {
   color: #fa9b39;
 }
 .social-icons .fa-soundcloud {
   color: #ff3300;
 }
-.social-icons .fa-stack-exchange,
-.social-icons .fa-stack-overflow {
+.social-icons .fa-stack-exchange, .social-icons .fa-stack-overflow {
   color: #fe7a15;
 }
-.social-icons .fa-tumblr,
-.social-icons .fa-tumblr-square {
+.social-icons .fa-tumblr, .social-icons .fa-tumblr-square {
   color: #32506d;
 }
-.social-icons .fa-twitter,
-.social-icons .fa-twitter-square {
+.social-icons .fa-twitter, .social-icons .fa-twitter-square {
   color: #55acee;
 }
-.social-icons .fa-vimeo,
-.social-icons .fa-vimeo-square,
-.social-icons .fa-vimeo-v {
+.social-icons .fa-vimeo, .social-icons .fa-vimeo-square, .social-icons .fa-vimeo-v {
   color: #1ab7ea;
 }
 .social-icons .fa-vine {
   color: #00bf8f;
 }
+.social-icons .fa-xing, .social-icons .fa-xing-square {
+  color: #006567;
+}
 .social-icons .fa-youtube {
   color: #bb0000;
-}
-.social-icons .fa-xing,
-.social-icons .fa-xing-square {
-  color: #006567;
 }
 
 /*
@@ -3579,6 +3561,9 @@ a.reversefootnote:hover {
   position: absolute;
 }
 
+pre.highlight .clipboard-copy-button {
+  color: #ffffca;
+}
 pre .clipboard-copy-button {
   display: block;
   position: absolute;
@@ -3592,12 +3577,8 @@ pre .clipboard-copy-button {
   outline: none;
   border-radius: 0.1em;
   padding: 0.2em 0.5em;
-  color: white;
   opacity: 0.4;
   transition: color 0.25s linear -0.25s, opacity 0.25s linear;
-}
-pre .clipboard-copy-button:hover {
-  color: #ffffca;
 }
 pre .clipboard-copy-button::before {
   content: "";

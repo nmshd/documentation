@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-05-06T13:36:26+02:00">
+  <meta property="article:published_time" content="2024-05-08T13:55:04+02:00">
 
 
 
@@ -331,7 +331,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Succeed a RepositoryAttribute">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2024-05-06T13:36:26+02:00">
+    <meta itemprop="datePublished" content="2024-05-08T13:55:04+02:00">
     
 
     <div class="page__inner-wrap">
@@ -413,7 +413,8 @@
         
         <tr></tr>
         
-        <tr></tr>
+        <tr><td>api_route_regex</td>
+            <td>POST /api/v2/Attributes/{predecessorId}/Succeed</td></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
@@ -456,6 +457,31 @@ In case you shared the preceeding version of the RepositoryAttribute, the corres
   <li>The response cannot be created, if the <code class="language-plaintext highlighter-rouge">successorContent</code> contains invalid changes, e.g. of the value type.</li>
   <li>The response cannot be created, if the parameters are malformed.</li>
 </ul>
+  <h2>How to execute this use-case with the Connector?</h2>
+
+The Connector is our first-class citizen, thus we provide you with a detailed API description for every use-case.
+This use-case can be executed with the REST API of the Connector which you can <a href="/integrate/access-the-connector">Access the Connector</a>.
+ 
+<h6>Corresponding interactive API docs excerpt:</h6>
+
+<rapi-doc-mini
+    server-url="https://doc-demo.is.enmeshed.eu/"
+    default-api-server="https://doc-demo.is.enmeshed.eu/"
+    api-key-name="x-api-key"
+    api-key-location="header"
+    api-key-value="apikey"
+    layout="column"
+    default-schema-tab="example"
+    spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
+    paths-expanded="false"
+    theme="light"
+    bg-color="#f9f9fb"
+    
+    match-paths="^POST /api/v2/Attributes/{predecessorId}/Succeed$"
+    
+    match-type="regex"
+></rapi-doc-mini>
+<br />
  
 
         
@@ -468,7 +494,7 @@ In case you shared the preceeding version of the RepositoryAttribute, the corres
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-05-06T13:36:26+02:00">May 6, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-05-08T13:55:04+02:00">May 8, 2024</time></p>
 
       </footer>
 
