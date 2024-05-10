@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Files$
 
 {% include properties_list.html %}
 
-This use-case queries [Files]({% link _docs_integrate/data-model-overview.md %}#file) of the Identity.
+This use case queries [Files]({% link _docs_integrate/data-model-overview.md %}#file) of the Identity.
 
 ## Parameters
 

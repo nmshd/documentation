@@ -43,10 +43,10 @@ required_by:
 
 {% include properties_list.html %}
 
-Be advised that this is a Runtime-internal use-case which is automatically used by the module system. You should not call this use-case without having good reason.
+Be advised that this is a Runtime-internal use case which is automatically used by the module system. You should not call this use case without having good reason.
 {: .notice--warning}
 
-This use-case is intended to create and instantly complete an outgoing Request which was shared by a RelationshipTemplate and the Response has been received by an incoming RelationshipCreationChange.
+This use case is intended to create and instantly complete an outgoing Request which was shared by a RelationshipTemplate and the Response has been received by an incoming RelationshipCreationChange.
 
 ## Parameters
 

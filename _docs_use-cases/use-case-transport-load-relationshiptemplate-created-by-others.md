@@ -44,7 +44,7 @@ api_route_regex: ^POST /api/v2/RelationshipTemplates/Peer$
 
 {% include properties_list.html %}
 
-This use-case loads a peer's [RelatonshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) from the Backbone by a given reference to the RelationshipTemplate.
+This use case loads a peer's [RelatonshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) from the Backbone by a given reference to the RelationshipTemplate.
 
 ## Parameters
 

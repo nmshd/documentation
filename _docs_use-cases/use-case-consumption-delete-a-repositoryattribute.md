@@ -42,7 +42,7 @@ api_route_regex: ^DELETE /api/v2/Attributes/{id}$
 
 {% include properties_list.html %}
 
-This use-case allows you to delete a RepositoryAttribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) that is owned by yourself and whose `shareInfo` property is undefined.
+This use case allows you to delete a RepositoryAttribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) that is owned by yourself and whose `shareInfo` property is undefined.
 
 ## Parameters
 

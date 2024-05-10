@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case intends to load an entity by its `reference` received by peer. It is internally using the specific use-cases of each entity:
+This use case intends to load an entity by its `reference` received by peer. It is internally using the specific use cases of each entity:
 
 - If the `reference` references a Token, fetches the Token just like [Load Token created by others](use-case-transport-load-token-created-by-others.md).
 - If the `reference` references a RelationshipTemplate, fetches the RelationshipTemplate just like [Load Relationship Template created by others](use-case-transport-load-relationshiptemplate-created-by-others.md).

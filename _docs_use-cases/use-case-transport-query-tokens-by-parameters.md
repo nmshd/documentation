@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case queries [Tokens]({% link _docs_integrate/data-model-overview.md %}#token) of the Identity.
+This use case queries [Tokens]({% link _docs_integrate/data-model-overview.md %}#token) of the Identity.
 
 ## Parameters
 
