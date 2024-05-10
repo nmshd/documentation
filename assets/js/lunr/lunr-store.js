@@ -360,55 +360,55 @@ var store = [{
         "teaser": null
       },{
         "title": "Load Token by id and key (without having an account)",
-        "excerpt":"This use-case attempts to retrieve a Token by its id and secretKey without having an account on the Backbone, thus without an authentication. This can be used to fetch Tokens for Device Onboarding or Recovery. Parameters The id of the Token. The secretKey the Token was encrypted with, Base64URL encoded....","categories": [],
+        "excerpt":"This use case attempts to retrieve a Token by its id and secretKey without having an account on the Backbone, thus without an authentication. This can be used to fetch Tokens for Device Onboarding or Recovery. Parameters The id of the Token. The secretKey the Token was encrypted with, Base64URL...","categories": [],
         "tags": [],
         "url": "/use-case-anonymous-load-token-by-id-and-key-without-having-an-account",
         "teaser": null
       },{
         "title": "Load Token by truncated reference (without having an account)",
-        "excerpt":"This use-case attempts to retrieve a Token by its truncatedReference without having an account on the Backbone, thus without an authentication. This can be used to fetch Tokens for Device Onboarding or Recovery. Parameters The reference that contains all information to load a Token. On Success Returns the corresponding Token....","categories": [],
+        "excerpt":"This use case attempts to retrieve a Token by its truncatedReference without having an account on the Backbone, thus without an authentication. This can be used to fetch Tokens for Device Onboarding or Recovery. Parameters The reference that contains all information to load a Token. On Success Returns the corresponding...","categories": [],
         "tags": [],
         "url": "/use-case-anonymous-load-token-by-truncated-reference-without-having-an-account",
         "teaser": null
       },{
         "title": "Accept incoming Request",
-        "excerpt":"This use-case attempts to accept an incoming LocalRequest with the corresponding parameters. It is advised to check if incoming Request can be accepted in advance. Parameters The id of the incoming Request. The decision for each individual RequestItem expressed as the appropriate Parameters defined in the Data Model. On Success...","categories": [],
+        "excerpt":"This use case attempts to accept an incoming LocalRequest with the corresponding parameters. It is advised to check if incoming Request can be accepted in advance. Parameters The id of the incoming Request. The decision for each individual RequestItem expressed as the appropriate Parameters defined in the Data Model. On...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-accept-incoming-request",
         "teaser": null
       },{
         "title": "Check if incoming Request can be accepted",
-        "excerpt":"This use-case tests if an incoming LocalRequest can be accepted with the given parameters without actually accepting it. This is great for checking if all required information of a Request was filled out in order to accept it, e.g. to update a user interface with the respective errors (and render...","categories": [],
+        "excerpt":"This use case tests if an incoming LocalRequest can be accepted with the given parameters without actually accepting it. This is great for checking if all required information of a Request was filled out in order to accept it, e.g. to update a user interface with the respective errors (and...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-check-if-incoming-request-can-be-accepted",
         "teaser": null
       },{
         "title": "Check if incoming Request can be rejected",
-        "excerpt":"This use-case tests if an incoming Request can be rejected with the given parameters without actually rejecting it. It is advised to call canReject before actually rejecting a Request, however canReject will usually be successful, as there are only rare cases which block a rejection. Parameters The id of the...","categories": [],
+        "excerpt":"This use case tests if an incoming Request can be rejected with the given parameters without actually rejecting it. It is advised to call canReject before actually rejecting a Request, however canReject will usually be successful, as there are only rare cases which block a rejection. Parameters The id of...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-check-if-incoming-request-can-be-rejected",
         "teaser": null
       },{
         "title": "Check if outgoing Request can be created",
-        "excerpt":"This use-case is intended to check if a LocalRequest can be created based on a given Request for a given peer. Parameters The content as a Request for the to be created LocalRequest The peer is the address for which the LocalRequest should be created. There can only be one...","categories": [],
+        "excerpt":"This use case is intended to check if a LocalRequest can be created based on a given Request for a given peer. Parameters The content as a Request for the to be created LocalRequest The peer is the address for which the LocalRequest should be created. There can only be...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-check-if-outgoing-request-can-be-created",
         "teaser": null
       },{
         "title": "Create a RepositoryAttribute",
-        "excerpt":"This use-case is intended to create a RepositoryAttribute, i.e. an unshared LocalAttribute based on a given IdentityAttribute. Parameters The content for the LocalAttribute that ought to be created as IdentityAttribute without the owner property, since it is automatically set to your Address On Success A LocalAttribute is created according to...","categories": [],
+        "excerpt":"This use case is intended to create a RepositoryAttribute, i.e. an unshared LocalAttribute based on a given IdentityAttribute. Parameters The content for the LocalAttribute that ought to be created as IdentityAttribute without the owner property, since it is automatically set to your Address On Success A LocalAttribute is created according...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-create-a-repositoryattribute",
         "teaser": null
       },{
         "title": "Create a shared Attribute copy",
-        "excerpt":"Be advised that this is a Runtime-internal use-case which is automatically used by the module system. You should not call this use-case without having good reason. This use-case is intended to create a copy of a LocalAttribute with the intent to share it. The copy references the original LocalAttribute. Parameters...","categories": [],
+        "excerpt":"Be advised that this is a Runtime-internal use case which is automatically used by the module system. You should not call this use case without having good reason. This use case is intended to create a copy of a LocalAttribute with the intent to share it. The copy references the...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-create-a-shared-attribute-copy",
         "teaser": null
       },{
         "title": "Create and complete outgoing Request from RelationshipTemplate Response",
-        "excerpt":"Be advised that this is a Runtime-internal use-case which is automatically used by the module system. You should not call this use-case without having good reason. This use-case is intended to create and instantly complete an outgoing Request which was shared by a RelationshipTemplate and the Response has been received...","categories": [],
+        "excerpt":"Be advised that this is a Runtime-internal use case which is automatically used by the module system. You should not call this use case without having good reason. This use case is intended to create and instantly complete an outgoing Request which was shared by a RelationshipTemplate and the Response...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-create-and-complete-outgoing-request-from-relationshiptemplate-response",
         "teaser": null
@@ -420,103 +420,103 @@ var store = [{
         "teaser": null
       },{
         "title": "Create outgoing Request",
-        "excerpt":"This use-case is intended to create an actionable LocalRequest based on a given Request for a given peer. One can (and should) check if the outgoing Request can be created before creating the LocalRequest with this use-case. The created LocalRequest needs to be manually submitted to the peer, e.g. by...","categories": [],
+        "excerpt":"This use case is intended to create an actionable LocalRequest based on a given Request for a given peer. One can (and should) check if the outgoing Request can be created before creating the LocalRequest with this use-case. The created LocalRequest needs to be manually submitted to the peer, e.g....","categories": [],
         "tags": [],
         "url": "/use-case-consumption-create-outgoing-request",
         "teaser": null
       },{
         "title": "Delete a peer shared Attribute and notify peer",
-        "excerpt":"This use-case allows you to delete a peer shared Attribute, i.e. a LocalAttribute that a peer owns and has shared with you. Parameters The attributeId of the peer shared Attribute you want to delete. On Success The peer shared Attribute will be deleted. All predecessors of the peer shared Attribute...","categories": [],
+        "excerpt":"This use case allows you to delete a peer shared Attribute, i.e. a LocalAttribute that a peer owns and has shared with you. Parameters The attributeId of the peer shared Attribute you want to delete. On Success The peer shared Attribute will be deleted. All predecessors of the peer shared...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer",
         "teaser": null
       },{
         "title": "Delete a RepositoryAttribute",
-        "excerpt":"This use-case allows you to delete a RepositoryAttribute, i.e. a LocalAttribute that is owned by yourself and whose shareInfo property is undefined. Parameters The attributeId of the RepositoryAttribute you want to delete. On Success The RepositoryAttribute will be deleted. All predecessors of the RepositoryAttribute will be deleted. If the RepositoryAttribute...","categories": [],
+        "excerpt":"This use case allows you to delete a RepositoryAttribute, i.e. a LocalAttribute that is owned by yourself and whose shareInfo property is undefined. Parameters The attributeId of the RepositoryAttribute you want to delete. On Success The RepositoryAttribute will be deleted. All predecessors of the RepositoryAttribute will be deleted. If the...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-delete-a-repositoryattribute",
         "teaser": null
       },{
         "title": "Delete a third party owned RelationshipAttribute and notify peer",
-        "excerpt":"This use-case allows you to delete a third party owned RelationshipAttribute, i.e. a LocalAttribute that exists in a Relationship with a peer, but is not owned by you or this peer but by a third party. Parameters The attributeId of the third party owned RelationshipAttribute you want to delete. On...","categories": [],
+        "excerpt":"This use case allows you to delete a third party owned RelationshipAttribute, i.e. a LocalAttribute that exists in a Relationship with a peer, but is not owned by you or this peer but by a third party. Parameters The attributeId of the third party owned RelationshipAttribute you want to delete....","categories": [],
         "tags": [],
         "url": "/use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer",
         "teaser": null
       },{
         "title": "Delete an own shared Attribute and notify peer",
-        "excerpt":"This use-case allows you to delete an own shared Attribute, i.e. a LocalAttribute with a shareInfo, that is owned by you. It is created as a result of sharing the content of a RepositoryAttribute with a peer. Parameters The attributeId of the own shared Attribute you want to delete. On...","categories": [],
+        "excerpt":"This use case allows you to delete an own shared Attribute, i.e. a LocalAttribute with a shareInfo, that is owned by you. It is created as a result of sharing the content of a RepositoryAttribute with a peer. Parameters The attributeId of the own shared Attribute you want to delete....","categories": [],
         "tags": [],
         "url": "/use-case-consumption-delete-an-own-shared-attribute-and-notify-peer",
         "teaser": null
       },{
         "title": "Discards outgoing Request",
-        "excerpt":"This use-case is intended to discard an outgoing LocalRequest that has not been sent to the peer yet and is thus still in status Draft. Parameters id references the outgoing LocalRequest that is to be discarded. On Success The LocalRequest is deleted and returned. On Failure The LocalRequest could not...","categories": [],
+        "excerpt":"This use case is intended to discard an outgoing LocalRequest that has not been sent to the peer yet and is thus still in status Draft. Parameters id references the outgoing LocalRequest that is to be discarded. On Success The LocalRequest is deleted and returned. On Failure The LocalRequest could...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-discards-outgoing-request",
         "teaser": null
       },{
         "title": "Execute a RelationshipAttributeQuery",
-        "excerpt":"{properties.description} This use-case is intended to execute an incoming RelationshipAttributeQuery (e.g. received by a ReadAttributeRequestItem) which returns a list of matching Relationship Attributes. Parameters The query for the RelationshipAttributes as described in the RelationshipAttributeQuery. On Success Returns the RelationshipAttributes as LocalAttributes that match the given query. On Failure The query...","categories": [],
+        "excerpt":"{properties.description} This use case is intended to execute an incoming RelationshipAttributeQuery (e.g. received by a ReadAttributeRequestItem) which returns a list of matching Relationship Attributes. Parameters The query for the RelationshipAttributes as described in the RelationshipAttributeQuery. On Success Returns the RelationshipAttributes as LocalAttributes that match the given query. On Failure The...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-execute-a-relationshipattributequery",
         "teaser": null
       },{
         "title": "Execute a ThirdPartyRelationshipAttributeQuery",
-        "excerpt":"This use-case is intended to execute an incoming ThirdPartyRelationshipAttributeQuery (e.g. received by a ReadAttributeRequestItem) which returns a list of matching Relationship Attributes of another peer. Parameters The query for the RelationshipAttributes as described in the ThirdPartyRelationshipAttributeQuery. On Success Returns the RelationshipAttributes as LocalAttributes that match the given query. On Failure...","categories": [],
+        "excerpt":"This use case is intended to execute an incoming ThirdPartyRelationshipAttributeQuery (e.g. received by a ReadAttributeRequestItem) which returns a list of matching Relationship Attributes of another peer. Parameters The query for the RelationshipAttributes as described in the ThirdPartyRelationshipAttributeQuery. On Success Returns the RelationshipAttributes as LocalAttributes that match the given query. On...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-execute-a-thirdpartyrelationshipattributequery",
         "teaser": null
       },{
         "title": "Execute an IdentityAttributeQuery",
-        "excerpt":"This use-case is intended to execute an incoming IdentityAttributeQuery (e.g. of a ReadAttributeRequestItem) which returns a list of matching Identity Attributes. Parameters The query for the IdentityAttributes as described in the IdentityAttributeQuery. On Success Returns the IdentityAttributes as LocalAttributes that match the given query. On Failure The query was malformed....","categories": [],
+        "excerpt":"This use case is intended to execute an incoming IdentityAttributeQuery (e.g. of a ReadAttributeRequestItem) which returns a list of matching Identity Attributes. Parameters The query for the IdentityAttributes as described in the IdentityAttributeQuery. On Success Returns the IdentityAttributes as LocalAttributes that match the given query. On Failure The query was...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-execute-an-identityattributequery",
         "teaser": null
       },{
         "title": "Get Attribute",
-        "excerpt":"   This use-case is intended to retrieve a LocalAttribute by its id.   Parameters      The id of the LocalAttribute.   On Success      Returns the LocalAttribute corresponding to the id.   On Failure      The LocalAttribute does not exist.  ","categories": [],
+        "excerpt":"   This use case is intended to retrieve a LocalAttribute by its id.   Parameters      The id of the LocalAttribute.   On Success      Returns the LocalAttribute corresponding to the id.   On Failure      The LocalAttribute does not exist.  ","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-attribute",
         "teaser": null
       },{
         "title": "Get AttributeListener",
-        "excerpt":"   This use-case is intended to retrieve an Attribute Listener by its id.   Parameter      The unique id identifying the Attribute Listener.   On Success      Returns the LocalAttributeListener that corresponds to the id.   On Failure      There is no such Attribute Listener.  ","categories": [],
+        "excerpt":"   This use case is intended to retrieve an Attribute Listener by its id.   Parameter      The unique id identifying the Attribute Listener.   On Success      Returns the LocalAttributeListener that corresponds to the id.   On Failure      There is no such Attribute Listener.  ","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-attributelistener",
         "teaser": null
       },{
         "title": "Get Attributes of peer",
-        "excerpt":"This use-case is intended to retrieve Attributes that a peer has shared with the current Identity as LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters peer is the Address of the Identity that shared the LocalAttributes. onlyValid filters the requested LocalAttributes to only consider currently valid LocalAttributes...","categories": [],
+        "excerpt":"This use case is intended to retrieve Attributes that a peer has shared with the current Identity as LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters peer is the Address of the Identity that shared the LocalAttributes. onlyValid filters the requested LocalAttributes to only consider currently valid...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-attributes-of-peer",
         "teaser": null
       },{
         "title": "Get Attributes shared to peer",
-        "excerpt":"This use-case is intended to retrieve Attributes that the current Idenity shared to a peer as LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters peer is the Address of the Identity that shared the LocalAttributes. onlyValid filters the requested LocalAttributes to only consider currently valid LocalAttributes if...","categories": [],
+        "excerpt":"This use case is intended to retrieve Attributes that the current Idenity shared to a peer as LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters peer is the Address of the Identity that shared the LocalAttributes. onlyValid filters the requested LocalAttributes to only consider currently valid LocalAttributes...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-attributes-shared-to-peer",
         "teaser": null
       },{
         "title": "Get incoming Request",
-        "excerpt":"   This use-case is intended to retrieve an incoming LocalRequest by its id. The differences of outgoing and incoming Requests are defined here.   Parameters      The id of the incoming Request.   On Success      Returns the incoming LocalRequest corresponding to the id.   On Failure      There is no such incoming Request.  ","categories": [],
+        "excerpt":"   This use case is intended to retrieve an incoming LocalRequest by its id. The differences of outgoing and incoming Requests are defined here.   Parameters      The id of the incoming Request.   On Success      Returns the incoming LocalRequest corresponding to the id.   On Failure      There is no such incoming Request.  ","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-incoming-request",
         "teaser": null
       },{
         "title": "Get outgoing Request",
-        "excerpt":"   This use-case is intended to retrieve an outgoing LocalRequest by its id. The differences of outgoing and an incoming Requests are defined here.   Parameters      The id of the outgoing Request.   On Success      Returns the outgoing LocalRequest corresponding to the id.   On Failure      There is no such outgoing Request.  ","categories": [],
+        "excerpt":"   This use case is intended to retrieve an outgoing LocalRequest by its id. The differences of outgoing and an incoming Requests are defined here.   Parameters      The id of the outgoing Request.   On Success      Returns the outgoing LocalRequest corresponding to the id.   On Failure      There is no such outgoing Request.  ","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-outgoing-request",
         "teaser": null
       },{
         "title": "Get shared versions of a RepositoryAttribute",
-        "excerpt":"This use-case allows you to retrieve a list of own shared IdentityAttributes for a specified RepositoryAttribute. Parameters The attributeId belonging to a RepositoryAttribute you would like to know all shared versions of Optionally the returned LocalAttributes can be limited to those shared with specific peers. onlyLatestVersions omits succeeded versions; by...","categories": [],
+        "excerpt":"This use case allows you to retrieve a list of own shared IdentityAttributes for a specified RepositoryAttribute. Parameters The attributeId belonging to a RepositoryAttribute you would like to know all shared versions of Optionally the returned LocalAttributes can be limited to those shared with specific peers. onlyLatestVersions omits succeeded versions;...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-shared-versions-of-a-repositoryattribute",
         "teaser": null
       },{
         "title": "Get versions of an Attribute",
-        "excerpt":"Succeeding an Attribute allows you to update its content, while keeping all versions for a coherent history. This use-case allows you to retrieve a list of all those versions of the succession chain for a specified LocalAttribute. Parameters The attributeId belonging to a LocalAttribute you would like to know all...","categories": [],
+        "excerpt":"Succeeding an Attribute allows you to update its content, while keeping all versions for a coherent history. This use case allows you to retrieve a list of all those versions of the succession chain for a specified LocalAttribute. Parameters The attributeId belonging to a LocalAttribute you would like to know...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-versions-of-an-attribute",
         "teaser": null
@@ -528,43 +528,43 @@ var store = [{
         "teaser": null
       },{
         "title": "Query AttributeListeners",
-        "excerpt":"   This use-case is intended to query all Attribute Listeners based on a query.   Parameter      The query optionally describes the searched Attribute Listeners. If no query is given all Attribute Listeners are returned.   On Success      Returns a list of LocalAttributeListeners that match the query.   On Failure      The parameters are malformed.  ","categories": [],
+        "excerpt":"This use case is intended to query all Attribute Listeners based on a query. Parameter The query optionally describes the searched Attribute Listeners. If no query is given all Attribute Listeners are returned. On Success Returns a list of LocalAttributeListeners that match the query. On Failure The parameters are malformed....","categories": [],
         "tags": [],
         "url": "/use-case-consumption-query-attributelisteners",
         "teaser": null
       },{
         "title": "Query Attributes",
-        "excerpt":"This use-case is intended to query LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters The createdAt parameter describes the time when the LocalAttribute was created. The content describes the searched Attribute (either a IdentityAttribute or a RelationshipAttribute. succeeds and succeededBy give information about succession state of the...","categories": [],
+        "excerpt":"This use case is intended to query LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters The createdAt parameter describes the time when the LocalAttribute was created. The content describes the searched Attribute (either a IdentityAttribute or a RelationshipAttribute. succeeds and succeededBy give information about succession state of...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-query-attributes",
         "teaser": null
       },{
         "title": "Query incoming Requests",
-        "excerpt":"This use-case is intended to query incoming LocalRequests. Parameters The id of the LocalRequest. The peer is the Address of the Identity that sent the LocalRequest. createdAt indicates the date of LocalRequest creation. The status of the LocalRequest. The content describes the Request wrapped by the LocalRequest. The source of...","categories": [],
+        "excerpt":"This use case is intended to query incoming LocalRequests. Parameters The id of the LocalRequest. The peer is the Address of the Identity that sent the LocalRequest. createdAt indicates the date of LocalRequest creation. The status of the LocalRequest. The content describes the Request wrapped by the LocalRequest. The source...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-query-incoming-requests",
         "teaser": null
       },{
         "title": "Query outgoing Requests",
-        "excerpt":"This use-case is intended to query outgoing LocalRequests. Parameters The id of the LocalRequest. The peer is the Address of the Identity that the LocalRequest was sent to. createdAt indicates the date of LocalRequest creation. The status of the LocalRequest. The content describes the Request wrapped by the LocalRequest. The...","categories": [],
+        "excerpt":"This use case is intended to query outgoing LocalRequests. Parameters The id of the LocalRequest. The peer is the Address of the Identity that the LocalRequest was sent to. createdAt indicates the date of LocalRequest creation. The status of the LocalRequest. The content describes the Request wrapped by the LocalRequest....","categories": [],
         "tags": [],
         "url": "/use-case-consumption-query-outgoing-requests",
         "teaser": null
       },{
         "title": "Reject incoming Request",
-        "excerpt":"This use-case attempts to reject an incoming LocalRequest. It is advised to check if the incoming Request can be accepted in advance. Parameters The id of the incoming LocalRequest. The decision for each individual RequestItem expressed as the appropriate Parameters defined in the Data Model. On Success All RequestItems of...","categories": [],
+        "excerpt":"This use case attempts to reject an incoming LocalRequest. It is advised to check if the incoming Request can be accepted in advance. Parameters The id of the incoming LocalRequest. The decision for each individual RequestItem expressed as the appropriate Parameters defined in the Data Model. On Success All RequestItems...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-reject-incoming-request",
         "teaser": null
       },{
         "title": "Share a RepositoryAttribute",
-        "excerpt":"If you wish to share one of your private IdentityAttributes, called RepositoryAttributes, with a peer, this use-case allows you to do so. Internally, a Request with a ShareAttributeRequestItem will be created and will be sent via Message to the peer. Assuming your peer accepts the Request, at their side a...","categories": [],
+        "excerpt":"If you wish to share one of your private IdentityAttributes, called RepositoryAttributes, with a peer, this use case allows you to do so. Internally, a Request with a ShareAttributeRequestItem will be created and will be sent via Message to the peer. Assuming your peer accepts the Request, at their side...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-share-a-repositoryattribute",
         "teaser": null
       },{
         "title": "Succeed a RelationshipAttribute and notify peer",
-        "excerpt":"This use-case allows the owner to update a RelationshipAttribute, while automatically handling the coherent versioning at both your and your peer&#8217;s side. Succeeding an own RelationshipAttribute, a new LocalAttribute with the updated content will be created at your side. In its succeeds property it links to the predecessing version, which...","categories": [],
+        "excerpt":"This use case allows the owner to update a RelationshipAttribute, while automatically handling the coherent versioning at both your and your peer&#8217;s side. Succeeding an own RelationshipAttribute, a new LocalAttribute with the updated content will be created at your side. In its succeeds property it links to the predecessing version,...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-succeed-a-relationshipattribute-and-notify-peer",
         "teaser": null
@@ -576,127 +576,127 @@ var store = [{
         "teaser": null
       },{
         "title": "Create Profile with new Identity",
-        "excerpt":"   This use-case triggers the creation of a new Identity by the App or Connector.  ","categories": [],
+        "excerpt":"   This use case triggers the creation of a new Identity by the App or Connector.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-create-profile-with-new-identity",
         "teaser": null
       },{
         "title": "DELETE REST Endpoint",
-        "excerpt":"Be advised that this is a Connector-specific use-case which is triggered by an http-request. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use-case broadly describes the REST endpoints using the DELETE HTTP verb...","categories": [],
+        "excerpt":"Be advised that this is a Connector-specific use case which is triggered by an http-request. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use case broadly describes the REST endpoints using the...","categories": [],
         "tags": [],
         "url": "/use-case-device-delete_-rest-endpoint",
         "teaser": null
       },{
         "title": "Get Profile by enmeshed Address",
-        "excerpt":"   This use-case retrieves the LocalAccount with the corresponding enmeshed Address.   Parameters      The address of the corresponding Identity of the LocalAccount.   On Success      Returns the LocalAccount of the Identity.   On Failure      There is no such LocalAccount.  ","categories": [],
+        "excerpt":"   This use case retrieves the LocalAccount with the corresponding enmeshed Address.   Parameters      The address of the corresponding Identity of the LocalAccount.   On Success      Returns the LocalAccount of the Identity.   On Failure      There is no such LocalAccount.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-get-profile-by-enmeshed-address",
         "teaser": null
       },{
         "title": "Get Profile",
-        "excerpt":"   This use-case retrieves one LocalAccount by its id.   Parameters      The id of the LocalAccount.   On Success      The LocalAccount corresponding to the id.   On Failure      There is no such account.  ","categories": [],
+        "excerpt":"   This use case retrieves one LocalAccount by its id.   Parameters      The id of the LocalAccount.   On Success      The LocalAccount corresponding to the id.   On Failure      There is no such account.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-get-profile",
         "teaser": null
       },{
         "title": "Get Profiles",
-        "excerpt":"   This use-case retrieves all LocalAccounts available on this Device.   Parameters     On Success      A list of LocalAccounts.  ","categories": [],
+        "excerpt":"   This use case retrieves all LocalAccounts available on this Device.   Parameters     On Success      A list of LocalAccounts.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-get-profiles",
         "teaser": null
       },{
         "title": "Get support Information",
-        "excerpt":"This use-case retrieves support information of the Connector, which can be used to receive support by the community / developers. It contains the Connector&#8217;s version information, its health, its configuration parameters and its Identity information (address and public key). Although, secrets out of the configuration are blanked out, you should...","categories": [],
+        "excerpt":"This use case retrieves support information of the Connector, which can be used to receive support by the community / developers. It contains the Connector&#8217;s version information, its health, its configuration parameters and its Identity information (address and public key). Although, secrets out of the configuration are blanked out, you...","categories": [],
         "tags": [],
         "url": "/use-case-device-get-support-information",
         "teaser": null
       },{
         "title": "Get the Connector health status",
-        "excerpt":"   This use-case retrieves the service health information of the Connector.  ","categories": [],
+        "excerpt":"   This use case retrieves the service health information of the Connector.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-get-the-connector-health-status",
         "teaser": null
       },{
         "title": "Get the Connector version information",
-        "excerpt":"   This use-case retrieves the version information of the Connector, including the build number, underlying git commit, the Connector&#8217;s semantic version and its release date.  ","categories": [],
+        "excerpt":"   This use case retrieves the version information of the Connector, including the build number, underlying git commit, the Connector&#8217;s semantic version and its release date.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-get-the-connector-version-information",
         "teaser": null
       },{
         "title": "Get the number of requests and the status codes that were returned by the Connector",
-        "excerpt":"   This use-case retrieves the overall count of http-requests as requestCount sent by the Connector to the Backbone. The returned requestCountByStatus is a more detailed view on how many requests succeeded or failed.  ","categories": [],
+        "excerpt":"   This use case retrieves the overall count of http-requests as requestCount sent by the Connector to the Backbone. The returned requestCountByStatus is a more detailed view on how many requests succeeded or failed.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-get-the-number-of-requests-and-the-status-codes-that-were-returned-by-the-connector",
         "teaser": null
       },{
         "title": "GET REST Endpoint",
-        "excerpt":"Be advised that this is a Connector-specific use-case which is triggered by an http-request. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use-case broadly describes REST endpoints using the GET HTTP verb that...","categories": [],
+        "excerpt":"Be advised that this is a Connector-specific use case which is triggered by an http-request. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use case broadly describes REST endpoints using the GET...","categories": [],
         "tags": [],
         "url": "/use-case-device-get_-rest-endpoint",
         "teaser": null
       },{
         "title": "POST REST Endpoint",
-        "excerpt":"Be advised that this is a Connector-specific use-case which is triggered by an http-request. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use-case broadly describes REST endpoints using the POST HTTP verb that...","categories": [],
+        "excerpt":"Be advised that this is a Connector-specific use case which is triggered by an http-request. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use case broadly describes REST endpoints using the POST...","categories": [],
         "tags": [],
         "url": "/use-case-device-post_-rest-endpoint",
         "teaser": null
       },{
         "title": "PUT REST Endpoint",
-        "excerpt":"Be advised that this is a Connector-specific use-case which is triggered by an http-request. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use-case broadly describes REST endpoints using the PUT HTTP verb that...","categories": [],
+        "excerpt":"Be advised that this is a Connector-specific use case which is triggered by an http-request. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use case broadly describes REST endpoints using the PUT...","categories": [],
         "tags": [],
         "url": "/use-case-device-put_-rest-endpoint",
         "teaser": null
       },{
         "title": "Rename Profile",
-        "excerpt":"This use-case intends to rename a LocalAccount (Profile) of the App that matches the given id. Parameters The localAccountId is the id of the LocalAccount in question. The newAccountName the LocalAccount name should use. On Success The LocalAccount with the localAccountId is now named newAccountName. On Failure There is no...","categories": [],
+        "excerpt":"This use case intends to rename a LocalAccount (Profile) of the App that matches the given id. Parameters The localAccountId is the id of the LocalAccount in question. The newAccountName the LocalAccount name should use. On Success The LocalAccount with the localAccountId is now named newAccountName. On Failure There is...","categories": [],
         "tags": [],
         "url": "/use-case-device-rename-profile",
         "teaser": null
       },{
         "title": "Cancel Action",
-        "excerpt":"Be advised that this is an App-specific use-case which is triggered by a manual user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios. The cancel action use-case generally describes the action a user...","categories": [],
+        "excerpt":"Be advised that this is an App-specific use case which is triggered by a manual user interaction. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios. The cancel action use case generally describes the...","categories": [],
         "tags": [],
         "url": "/use-case-human-cancel_-action",
         "teaser": null
       },{
         "title": "Device External UseCase",
-        "excerpt":"Be advised that this is an App-specific use-case which is triggered by a manual user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use-case describes any required manual user interaction on the...","categories": [],
+        "excerpt":"Be advised that this is an App-specific use case which is triggered by a manual user interaction. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use case describes any required manual user...","categories": [],
         "tags": [],
         "url": "/use-case-human-device_-external-usecase",
         "teaser": null
       },{
         "title": "Enter Data (on screen)",
-        "excerpt":"Be advised that this is an App-specific use-case which is triggered by a manual user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use-case describes entering data on the currently shown screen...","categories": [],
+        "excerpt":"Be advised that this is an App-specific use case which is triggered by a manual user interaction. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use case describes entering data on the...","categories": [],
         "tags": [],
         "url": "/use-case-human-enter_-data-on-screen",
         "teaser": null
       },{
         "title": "Navigate to (screen) Screen",
-        "excerpt":"Be advised that this is an App-specific use-case which is triggered by a manual user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use-case describes the manual navigation of the App to...","categories": [],
+        "excerpt":"Be advised that this is an App-specific use case which is triggered by a manual user interaction. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use case describes the manual navigation of...","categories": [],
         "tags": [],
         "url": "/use-case-human-navigate-to-screen_-screen",
         "teaser": null
       },{
         "title": "Negative Action",
-        "excerpt":"Be advised that this is an App-specific use-case which is triggered by a manual user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This App use-case broadly describes a dissent of the user...","categories": [],
+        "excerpt":"Be advised that this is an App-specific use case which is triggered by a manual user interaction. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This App use case broadly describes a dissent...","categories": [],
         "tags": [],
         "url": "/use-case-human-negative_-action",
         "teaser": null
       },{
         "title": "Positive Action",
-        "excerpt":"Be advised that this is an App-specific use-case which is triggered by a manual user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use-case broadly describes the manual action of a user...","categories": [],
+        "excerpt":"Be advised that this is an App-specific use case which is triggered by a manual user interaction. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use case broadly describes the manual action...","categories": [],
         "tags": [],
         "url": "/use-case-human-positive_-action",
         "teaser": null
       },{
         "title": "Scan QR Code (on different device)",
-        "excerpt":"Be advised that this is an App-specific use-case which is triggered by a manual user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use-case describes the process of using the Device&#8217;s camera...","categories": [],
+        "excerpt":"Be advised that this is an App-specific use case which is triggered by a manual user interaction. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use case describes the process of using...","categories": [],
         "tags": [],
         "url": "/use-case-human-scan_-qr-code-on-different-device",
         "teaser": null
       },{
         "title": "Select Item (on screen)",
-        "excerpt":"Be advised that this is an App-specific use-case which is triggered by a manual user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use-case broadly describes the manual action of a user...","categories": [],
+        "excerpt":"Be advised that this is an App-specific use case which is triggered by a manual user interaction. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use case broadly describes the manual action...","categories": [],
         "tags": [],
         "url": "/use-case-human-select_-item-on-screen",
         "teaser": null
@@ -720,7 +720,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create Relationship with RelationshipTemplate",
-        "excerpt":"This use-case intends to create a Relationship based on a received RelationshipTemplate. Parameters templateId references the RelationshipTemplate that was received from a party. content can be used as a response with arbitrary data to the peer. This response is usually related to the data received by the RelationshipTemplate, e.g. the...","categories": [],
+        "excerpt":"This use case intends to create a Relationship based on a received RelationshipTemplate. Parameters templateId references the RelationshipTemplate that was received from a party. content can be used as a response with arbitrary data to the peer. This response is usually related to the data received by the RelationshipTemplate, e.g....","categories": [],
         "tags": [],
         "url": "/use-case-transport-create-relationship-with-relationshiptemplate",
         "teaser": null
@@ -738,13 +738,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Download File of Attachment",
-        "excerpt":"   This use-case downloads a file that was sent by a Message as an attachment.   Internally uses the Download File Use-Case  ","categories": [],
+        "excerpt":"   This use case downloads a file that was sent by a Message as an attachment.   Internally uses the Download File Use-Case  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-download-file-of-attachment",
         "teaser": null
       },{
         "title": "Download File",
-        "excerpt":"Download the File&#8217;s binary content that corresponds to the fileId. As the File is not stored/cached within the Connector, the encrypted File is downloaded from the Backbone, decrypted and returned every time this use-case is called. Parameters id of the File. On Success Downloads the binary content of the File...","categories": [],
+        "excerpt":"Download the File&#8217;s binary content that corresponds to the fileId. As the File is not stored/cached within the Connector, the encrypted File is downloaded from the Backbone, decrypted and returned every time this use case is called. Parameters id of the File. On Success Downloads the binary content of the...","categories": [],
         "tags": [],
         "url": "/use-case-transport-download-file",
         "teaser": null
@@ -756,139 +756,139 @@ var store = [{
         "teaser": null
       },{
         "title": "Get currently used Device",
-        "excerpt":"   This use-case retrieves information about the currently used Device.  ","categories": [],
+        "excerpt":"   This use case retrieves information about the currently used Device.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-currently-used-device",
         "teaser": null
       },{
         "title": "Get currently used Identity",
-        "excerpt":"   This use-case retrieves information about the currently used Identity.  ","categories": [],
+        "excerpt":"   This use case retrieves information about the currently used Identity.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-currently-used-identity",
         "teaser": null
       },{
         "title": "Get Device Onboarding Info",
-        "excerpt":"   This use-case retrieves the onboarding information a so far not-onboarded Device that corresponds to the given Device id in order to onboard the Device to the Identity.   Parameters      id of the Device.   On Success      Returns the onboarding information of the Device.   On Failure      The Device was already onboarded.  ","categories": [],
+        "excerpt":"   This use case retrieves the onboarding information a so far not-onboarded Device that corresponds to the given Device id in order to onboard the Device to the Identity.   Parameters      id of the Device.   On Success      Returns the onboarding information of the Device.   On Failure      The Device was already onboarded.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-device-onboarding-info",
         "teaser": null
       },{
         "title": "Get Device Onboarding Token",
-        "excerpt":"This use-case retrieves the Token of a so far not-onboarded Device that corresponds to the given Device id in order to onboard the Device to the Identity. Parameters id of the Device. expiresAt is the ISODateTime the Token expires at. On Success Returns the Token of the Device to onboard....","categories": [],
+        "excerpt":"This use case retrieves the Token of a so far not-onboarded Device that corresponds to the given Device id in order to onboard the Device to the Identity. Parameters id of the Device. expiresAt is the ISODateTime the Token expires at. On Success Returns the Token of the Device to...","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-device-onboarding-token",
         "teaser": null
       },{
         "title": "Get Device",
-        "excerpt":"   This use-case retrieves the Device with the given id.   Parameters      id of the Device.   On Success      The Device that corresponds to the id.   On Failure      No Device corresponds to the id.  ","categories": [],
+        "excerpt":"   This use case retrieves the Device with the given id.   Parameters      id of the Device.   On Success      The Device that corresponds to the id.   On Failure      No Device corresponds to the id.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-device",
         "teaser": null
       },{
         "title": "Get File Metadata of Attachment",
-        "excerpt":"   This use-case retrieves the metadata of a File that was sent by a Message as an attachment.   Internally uses the get or load file use-case.  ","categories": [],
+        "excerpt":"   This use case retrieves the metadata of a File that was sent by a Message as an attachment.   Internally uses the get or load file use-case.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-file-metadata-of-attachment",
         "teaser": null
       },{
         "title": "Get Message by MessageId",
-        "excerpt":"   This use-case retrieves a Message by its id.   Parameters      id of the Message.   On Success      Returns the Message that corresponds to the id.   On Failure      id does not resolve to a Message.  ","categories": [],
+        "excerpt":"   This use case retrieves a Message by its id.   Parameters      id of the Message.   On Success      Returns the Message that corresponds to the id.   On Failure      id does not resolve to a Message.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-message-by-messageid",
         "teaser": null
       },{
         "title": "Get or load File",
-        "excerpt":"This use-case retrieves a File by an id or the reference. This is usually the case, when a reference to a File was received by a peer (over a Message or by any side channel). Paramers id or reference that identify the File. On Success The File that corresponds to...","categories": [],
+        "excerpt":"This use case retrieves a File by an id or the reference. This is usually the case, when a reference to a File was received by a peer (over a Message or by any side channel). Paramers id or reference that identify the File. On Success The File that corresponds...","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-or-load-file",
         "teaser": null
       },{
         "title": "Get own File",
-        "excerpt":"   This use-case retrieves an own File.   Parameters      id of the File which should be retrieved.   On Success      The metadata of the File that match the id.   On Failure      No File corresponds to the id.  ","categories": [],
+        "excerpt":"   This use case retrieves an own File.   Parameters      id of the File which should be retrieved.   On Success      The metadata of the File that match the id.   On Failure      No File corresponds to the id.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-own-file",
         "teaser": null
       },{
         "title": "Get Relationship by Address",
-        "excerpt":"   This use-case retrieves a Relationship by the Address of a peer.   Parameters      address of the peer.   On Success      The Relationship that was inititated with the address.   On Failure      There is no Relationship linked to the given address.  ","categories": [],
+        "excerpt":"   This use case retrieves a Relationship by the Address of a peer.   Parameters      address of the peer.   On Success      The Relationship that was inititated with the address.   On Failure      There is no Relationship linked to the given address.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-relationship-by-address",
         "teaser": null
       },{
         "title": "Get Relationship by RelationshipId",
-        "excerpt":"   This use-case retrieves a Relationship by its id.   Parameters      id of the Relationship.   On Success      The Relationship that corresponds to the id.   On Failure      The id does not resolve to a Relationship.  ","categories": [],
+        "excerpt":"   This use case retrieves a Relationship by its id.   Parameters      id of the Relationship.   On Success      The Relationship that corresponds to the id.   On Failure      The id does not resolve to a Relationship.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-relationship-by-relationshipid",
         "teaser": null
       },{
         "title": "Get RelationshipTemplate",
-        "excerpt":"   This use-case retrieves a RelationshipTemplate by its id.   Parameters      idof the RelationshipTemplate.   On Success      The RelationshipTemplate that corresponds to the id.   On Failure      The id doesn&#8217;t resolve to a RelationshipTemplate.  ","categories": [],
+        "excerpt":"   This use case retrieves a RelationshipTemplate by its id.   Parameters      idof the RelationshipTemplate.   On Success      The RelationshipTemplate that corresponds to the id.   On Failure      The id doesn&#8217;t resolve to a RelationshipTemplate.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-relationshiptemplate",
         "teaser": null
       },{
         "title": "Get synchronization status with Backbone",
-        "excerpt":"   This use-case returns metadata about the synchronization status of the current Identity or Device with the Backbone. So far, it returns the timestamp of the last successful synchronization run which is triggered by the Synchronize updates of Backbone use-case.   On Success      Returns the metadata of the last sync run.  ","categories": [],
+        "excerpt":"This use case returns metadata about the synchronization status of the current Identity or Device with the Backbone. So far, it returns the timestamp of the last successful synchronization run which is triggered by the Synchronize updates of Backbone use-case. On Success Returns the metadata of the last sync run....","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-synchronization-status-with-backbone",
         "teaser": null
       },{
         "title": "Get Token by TokenID",
-        "excerpt":"   This use-case retieves a Token by its id.   Parameters      id of the Token.   On Success      The Token that corresponds to the id.   On Failure      The id doesn&#8217;t resolve to a Token.  ","categories": [],
+        "excerpt":"   This use case retieves a Token by its id.   Parameters      id of the Token.   On Success      The Token that corresponds to the id.   On Failure      The id doesn&#8217;t resolve to a Token.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-token-by-tokenid",
         "teaser": null
       },{
         "title": "Load item from truncated reference",
-        "excerpt":"This use-case intends to load an entity by its reference received by peer. It is internally using the specific use-cases of each entity: If the reference references a Token, fetches the Token just like Load Token created by others. If the reference references a RelationshipTemplate, fetches the RelationshipTemplate just like...","categories": [],
+        "excerpt":"This use case intends to load an entity by its reference received by peer. It is internally using the specific use cases of each entity: If the reference references a Token, fetches the Token just like Load Token created by others. If the reference references a RelationshipTemplate, fetches the RelationshipTemplate...","categories": [],
         "tags": [],
         "url": "/use-case-transport-load-item-from-truncated-reference",
         "teaser": null
       },{
         "title": "Load RelationshipTemplate created by others",
-        "excerpt":"This use-case loads a peer&#8217;s RelatonshipTemplate from the Backbone by a given reference to the RelationshipTemplate. Parameters There are three different options to use this use-case, depending on the actual information received by the peer: by knowing an id and the secretKey of the peer&#8217;s RelationshipTemplate (RelationshipTemplateReference) id of the...","categories": [],
+        "excerpt":"This use case loads a peer&#8217;s RelatonshipTemplate from the Backbone by a given reference to the RelationshipTemplate. Parameters There are three different options to use this use-case, depending on the actual information received by the peer: by knowing an id and the secretKey of the peer&#8217;s RelationshipTemplate (RelationshipTemplateReference) id of...","categories": [],
         "tags": [],
         "url": "/use-case-transport-load-relationshiptemplate-created-by-others",
         "teaser": null
       },{
         "title": "Load Token created by others",
-        "excerpt":"This use-case intends to load a peer&#8217;s Token from the Backbone by a given reference to the Token. Parameters There are two possible options to load the Token: by knowing the reference of the peer&#8217;s Token reference that identifies the Token. ephemeral to indicate that the Token should be stored...","categories": [],
+        "excerpt":"This use case intends to load a peer&#8217;s Token from the Backbone by a given reference to the Token. Parameters There are two possible options to load the Token: by knowing the reference of the peer&#8217;s Token reference that identifies the Token. ephemeral to indicate that the Token should be...","categories": [],
         "tags": [],
         "url": "/use-case-transport-load-token-created-by-others",
         "teaser": null
       },{
         "title": "Query Devices",
-        "excerpt":"   This use-case queries all Devices of the Identity.   On Success      Returns all Devices.  ","categories": [],
+        "excerpt":"   This use case queries all Devices of the Identity.   On Success      Returns all Devices.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-devices",
         "teaser": null
       },{
         "title": "Query Files",
-        "excerpt":"This use-case queries Files of the Identity. Parameters All parameters are optional. If no parameter is given, all Files are returned. createdAt is the ISODateTime the File was created at. createdBy is the enmeshed Address of the Identity that created the File. createdByDevice is the id of the Device that...","categories": [],
+        "excerpt":"This use case queries Files of the Identity. Parameters All parameters are optional. If no parameter is given, all Files are returned. createdAt is the ISODateTime the File was created at. createdBy is the enmeshed Address of the Identity that created the File. createdByDevice is the id of the Device...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-files",
         "teaser": null
       },{
         "title": "Query Messages",
-        "excerpt":"This use-case queries Messages of the Identity. Parameters All parameters are optional. If no parameter is given, all Messages are returned. createdBy is the enmeshed Address of the Identity that created the Messsage. createdByDevice is the id of the Device that created the File. createdAt is the ISODateTime the Message...","categories": [],
+        "excerpt":"This use case queries Messages of the Identity. Parameters All parameters are optional. If no parameter is given, all Messages are returned. createdBy is the enmeshed Address of the Identity that created the Messsage. createdByDevice is the id of the Device that created the File. createdAt is the ISODateTime the...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-messages",
         "teaser": null
       },{
         "title": "Query Relationships",
-        "excerpt":"This use-case queries Relationships of the Identity. Parameters peer is the enmeshed Address of the peer. status is the status of the Relationship. template.id is the id of the RelationshipTemplate that was used to initiate the Relationship. On Success Returns all Relationships that match the query. On Failure The parameters...","categories": [],
+        "excerpt":"This use case queries Relationships of the Identity. Parameters peer is the enmeshed Address of the peer. status is the status of the Relationship. template.id is the id of the RelationshipTemplate that was used to initiate the Relationship. On Success Returns all Relationships that match the query. On Failure The...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-relationships",
         "teaser": null
       },{
         "title": "Query RelationshipTemplates",
-        "excerpt":"This use-case queries RelationshipTemplates of the Identity. Parameters All parameters are optional. If no parameter is given, all RelationshipTemplates are returned. isOwn indicates if the RelationshipTemplate was created by the current Identity. createdAt is the ISODateTime the RelationshipTemplate was created at. expiresAt is the ISODateTime the RelationshipTemplate expires. createdBy is...","categories": [],
+        "excerpt":"This use case queries RelationshipTemplates of the Identity. Parameters All parameters are optional. If no parameter is given, all RelationshipTemplates are returned. isOwn indicates if the RelationshipTemplate was created by the current Identity. createdAt is the ISODateTime the RelationshipTemplate was created at. expiresAt is the ISODateTime the RelationshipTemplate expires. createdBy...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-relationshiptemplates",
         "teaser": null
       },{
         "title": "Query Tokens by parameters",
-        "excerpt":"This use-case queries Tokens of the Identity. Parameters createdAt is the ISODateTime the Token was created at. createdBy is the enmeshed Address of the Identity that created the Token. createdByDevice is the id of the Device that created the Token. expiresAt is the ISODateTime the Token expires. On Success Returns...","categories": [],
+        "excerpt":"This use case queries Tokens of the Identity. Parameters createdAt is the ISODateTime the Token was created at. createdBy is the enmeshed Address of the Identity that created the Token. createdByDevice is the id of the Device that created the Token. expiresAt is the ISODateTime the Token expires. On Success...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-tokens-by-parameters",
         "teaser": null
@@ -900,25 +900,25 @@ var store = [{
         "teaser": null
       },{
         "title": "Send Message to Recipient(s)",
-        "excerpt":"This use-case sends a Message to the given recipient(s). Parameters recipients is a list of the enmeshed Addresses which should receive the Message. content the structured content of the Message. Usually a Mail when communicating with a user. attachments is a list of File ids which should be attached to...","categories": [],
+        "excerpt":"This use case sends a Message to the given recipient(s). Parameters recipients is a list of the enmeshed Addresses which should receive the Message. content the structured content of the Message. Usually a Mail when communicating with a user. attachments is a list of File ids which should be attached...","categories": [],
         "tags": [],
         "url": "/use-case-transport-send-message-to-recipients",
         "teaser": null
       },{
         "title": "Synchronize updates of Backbone",
-        "excerpt":"Be advised that calling this use-case to sync the Identity/Device on a regular basis is discouraged, as it could lead to wrong return values if multiple endpoints trigger this use-case. Please configure the SyncModule and use eventing instead. This use-case retrieves all relevant data changes between the current Identity (and...","categories": [],
+        "excerpt":"Be advised that calling this use case to sync the Identity/Device on a regular basis is discouraged, as it could lead to wrong return values if multiple endpoints trigger this use-case. Please configure the SyncModule and use eventing instead. This use case retrieves all relevant data changes between the current...","categories": [],
         "tags": [],
         "url": "/use-case-transport-synchronize-updates-of-backbone",
         "teaser": null
       },{
         "title": "Update Device",
-        "excerpt":"This use-case updates the name or description of a Device using its id. Parameters The id of the Device. The new name of the Device The new description of the Device On Success The corresponding Device is updated to the given name and description. On Failure There is no such...","categories": [],
+        "excerpt":"This use case updates the name or description of a Device using its id. Parameters The id of the Device. The new name of the Device The new description of the Device On Success The corresponding Device is updated to the given name and description. On Failure There is no...","categories": [],
         "tags": [],
         "url": "/use-case-transport-update-device",
         "teaser": null
       },{
         "title": "Upload own File",
-        "excerpt":"This use-case uses a given file outside of enmeshed, encrypts and uploads it to the Backbone and creates a File with the respective metadata information for the Identity to access it. The File can from now on be shared by references to other Identities. Parameters content is the to-be-uploaded file...","categories": [],
+        "excerpt":"This use case uses a given file outside of enmeshed, encrypts and uploads it to the Backbone and creates a File with the respective metadata information for the Identity to access it. The File can from now on be shared by references to other Identities. Parameters content is the to-be-uploaded...","categories": [],
         "tags": [],
         "url": "/use-case-transport-upload-own-file",
         "teaser": null
