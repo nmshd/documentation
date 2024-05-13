@@ -311,17 +311,22 @@ With the information in this type you can clearly identify the Transport object 
 
 ## LocalAttribute
 
-A LocalAttribute contains the local metadata for an [Attribute](#attributes). In the context of [IdentityAttributes](#identityattribute), there are three situations a LocalAttribute is created in the database:
+A LocalAttribute stores the local metadata for an [Attribute](#attributes). This is contained within the `content` property of the LocalAttribute. The Attribute can be an IdentityAttribute or a RelationshipAttribute. In the case of [IdentityAttributes](#identityattribute), there are three situations in which a LocalAttribute is created in the database:
 
-- The Identity maintains an Attribute about itself (e.g. sets its first name). We call such an unshared LocalAttribute "RepositoryAttribute". Its `shareInfo` property is undefined.
-- The Identity shares an Attribute of itself with another Identity (e.g. sends it in a Request). In that case, a _copy of the original LocalAttribute_ is created, where the `shareInfo` property is set. We call this LocalAttribute an "own shared IdentityAttribute".
-- The Identity receives an Attribute from another Identity (e.g. receives it in a Request). In that case a _new LocalAttribute_ is created, where the `shareInfo` is set. We call this LocalAttribute a "peer shared IdentityAttribute".
+- The Identity [creates an IdentityAttribute for itself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself) (e.g. sets its first name). In particular, it is the `owner` of the IdentityAttribute. Its `shareInfo` property is undefined. Such an unshared LocalAttribute is called a **RepositoryAttribute**.
+- The Identity shares an IdentityAttribute of itself with another Identity (e.g. sends it in a suitable [Request]({% link _docs_integrate/data-model-overview.md %}#request) by using a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem)). In that case, a _copy_ of the RepositoryAttribute used as the source is created for which the `shareInfo` property is set. This LocalAttribute is referred to as an **own shared IdentityAttribute**.
+- The Identity receives an IdentityAttribute from another Identity (e.g. receives it via a [Request]({% link _docs_integrate/data-model-overview.md %}#request)). In that case a _new_ LocalAttribute is created for which the `shareInfo` property is set. This LocalAttribute is called a **peer shared IdentityAttribute**.
 
 In contrast, [RelationshipAttributes](#relationshipattribute) always exist in the context of a [Relationship](#relationship).
-Thus, it is not possible for an Identity to have an unshared RelationshipAttribute.
+For this reason, it is not possible for an Identity to have an unshared RelationshipAttribute.
+The [creation of a RelationshipAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-a-relationshipattribute) corresponds to the creation of one LocalAttribute for its `owner` and one LocalAttribute for the peer with whom the `owner` has a Relationship.
 
-- We refer to the LocalAttribute of the owner as "own shared RelationshipAttribute".
-- The peer’s LocalAttribute we referred to as "peer shared RelationshipAttribute".
+- We refer to the LocalAttribute of the `owner` as an **own shared RelationshipAttribute**.
+- The peer’s LocalAttribute is referred to as a **peer shared RelationshipAttribute**.
+
+If the underlying RelationshipAttribute of an own shared RelationshipAttribute is shared with a peer who is not involved in the Relationship in which the RelationshipAttribute exists, this results in the creation of two LocalAttributes, an **own shared ThirdPartyRelationshipAttribute** on the one hand and a **peer shared ThirdPartyRelationshipAttribute** on the other.
+The two LocalAttributes that are created when sharing an underlying RelationshipAttribute of a peer shared RelationshipAttribute with a peer who is not involved in the Relationship in which the RelationshipAttribute exists are both referred to as a **third party owned RelationshipAttribute**.
+In the [Attribute introduction]({% link _docs_integrate/attribute-introduction.md %}), more details on the terminology relating to LocalAttributes can be found.
 
 | Name         | Type                                                                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------ | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
