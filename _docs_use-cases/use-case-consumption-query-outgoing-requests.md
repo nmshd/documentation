@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: get /api/v2/Requests/Outgoing
+  - api_route_regex: GET /api/v2/Requests/Outgoing
   - published: default
   - link: use-case-consumption-query-outgoing-requests
 require:
 required_by:
-api_route_regex: ^get /api/v2/Requests/Outgoing$
+api_route_regex: ^GET /api/v2/Requests/Outgoing$
 # End automatic generation
 ---
 
@@ -42,7 +42,7 @@ api_route_regex: ^get /api/v2/Requests/Outgoing$
 
 {% include properties_list.html %}
 
-This use-case is intended to query outgoing [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest).
+This use case is intended to query outgoing [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest).
 
 ## Parameters
 

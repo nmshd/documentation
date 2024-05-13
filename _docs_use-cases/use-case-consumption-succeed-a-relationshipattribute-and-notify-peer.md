@@ -29,11 +29,12 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - api_route_regex:
+  - api_route_regex: POST /api/v2/Attributes/{predecessorId}/Succeed
   - published: default
   - link: use-case-consumption-succeed-a-relationshipattribute-and-notify-peer
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Attributes/{predecessorId}/Succeed$
 # End automatic generation
 ---
 
@@ -41,7 +42,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case allows the owner to update a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), while automatically handling the coherent versioning at both your and your peer's side.
+This use case allows the owner to update a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), while automatically handling the coherent versioning at both your and your peer's side.
 [Succeeding an own RelationshipAttribute]({% link _docs_integrate/update-attributes-by-succession.md %}#succeeding-own-relationshipattributes), a new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with the updated `content` will be created at your side.
 In its `succeeds` property it links to the predecessing version, which in turn is also updated and links to the newly created version in its `succeededBy` property.
 Thus, a doubly linked list is established, ensuring every version to have not more that one predecessor or successor.

@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Relationships$
 
 {% include properties_list.html %}
 
-This use-case retrieves a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship)
+This use case retrieves a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship)
 by the Address of a peer.
 
 ## Parameters

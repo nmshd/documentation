@@ -44,7 +44,7 @@ api_route_regex: ^GET /api/v2/RelationshipTemplates/{id}$
 
 {% include properties_list.html %}
 
-This use-case retrieves a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate)
+This use case retrieves a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate)
 by its `id`.
 
 ## Parameters
