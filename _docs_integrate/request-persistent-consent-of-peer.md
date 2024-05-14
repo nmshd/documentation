@@ -35,7 +35,10 @@ If an Identity wants to obtain the persistent consent of one of its peers and th
 There are many situations in which an Identity needs or wants the persistent consent of one of its peers. The corresponding text that the peer should agree to is contained within the `consent` property of a [Consent]({% link _docs_integrate/attribute-values.md %}#consent), for example:
 
 - "I hereby confirm that I have read and agree to the privacy terms of this cloud service."
+- "I hereby confirm that I have read and agree to the privacy terms of this cloud service."
 - "The provided EULA has been read and agreed to."
+- "Yes, I have backed up all of my data on this computer and you can wipe it."
+- "Yes, I want to opt-in to the newsletter."
 - "Yes, I have backed up all of my data on this computer and you can wipe it."
 - "Yes, I want to opt-in to the newsletter."
 
@@ -56,14 +59,18 @@ As already indicated, the Request contains a [CreateAttributeRequestItem]({% lin
     "items": [
       {
         "@type": "CreateAttributeRequestItem",
+        "@type": "CreateAttributeRequestItem",
         "mustBeAccepted": true,
         "attribute": {
           "@type": "RelationshipAttribute",
+          "key": "<key of RelationshipAttribute>",
           "key": "<key of RelationshipAttribute>",
           "owner": "",
           "confidentiality": "private",
           "value": {
             "@type": "Consent",
+            "consent": "<issue that the Sender wants the Recipient to agree to>",
+            "link": "<link to external website with more information on the issue>"
             "consent": "<issue that the Sender wants the Recipient to agree to>",
             "link": "<link to external website with more information on the issue>"
           }
@@ -85,20 +92,27 @@ After the Request is created, the Sender can send it to the Recipient. To send t
 ```jsonc
 {
   "recipients": ["<Address of Recipient>"],
+  "recipients": ["<Address of Recipient>"],
   "content": {
     "@type": "Request",
     "id": "<ID of Request>",
+    "id": "<ID of Request>",
     "items": [
       {
+        "@type": "CreateAttributeRequestItem",
         "@type": "CreateAttributeRequestItem",
         "mustBeAccepted": true,
         "attribute": {
           "@type": "RelationshipAttribute",
           "key": "<key of RelationshipAttribute>",
           "owner": "",
+          "key": "<key of RelationshipAttribute>",
+          "owner": "",
           "confidentiality": "private",
           "value": {
             "@type": "Consent",
+            "consent": "<issue that the Sender wants the Recipient to agree to>",
+            "link": "<link to external website with more information on the issue>"
             "consent": "<issue that the Sender wants the Recipient to agree to>",
             "link": "<link to external website with more information on the issue>"
           }
