@@ -42,4 +42,4 @@ api_route_regex: ^GET /api/v2/Account/IdentityInfo$
 
 {% include properties_list.html %}
 
-This use-case retrieves information about the currently used Identity.
+This use case retrieves information about the currently used Identity.

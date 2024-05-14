@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: FilesFacade
   - function: uploadOwnFile
-  - description: Uploads a new own file with metadata.
+  - description: Uploads a new own file with metadata (and tags).
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE
@@ -42,7 +42,7 @@ api_route_regex: ^POST /api/v2/Files/Own$
 
 {% include properties_list.html %}
 
-This use-case uses a given file outside of enmeshed, encrypts and uploads it to the Backbone and creates a [File]({% link _docs_integrate/data-model-overview.md %}#file) with the respective metadata information for the Identity to access it. The File can from now on be shared by references to other Identities.
+This use case uses a given file outside of enmeshed, encrypts and uploads it to the Backbone and creates a [File]({% link _docs_integrate/data-model-overview.md %}#file) with the respective metadata information for the Identity to access it. The File can from now on be shared by references to other Identities.
 
 ## Parameters
 

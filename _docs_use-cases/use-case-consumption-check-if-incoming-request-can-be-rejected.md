@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: put /api/v2/Requests/Incoming/{id}/canReject
+  - api_route_regex: PUT /api/v2/Requests/Incoming/{id}/CanReject
   - published: default
   - link: use-case-consumption-check-if-incoming-request-can-be-rejected
 require:
 required_by:
-api_route_regex: ^put /api/v2/Requests/Incoming/{id}/canReject$
+api_route_regex: ^PUT /api/v2/Requests/Incoming/{id}/CanReject$
 # End automatic generation
 ---
 
@@ -42,7 +42,7 @@ api_route_regex: ^put /api/v2/Requests/Incoming/{id}/canReject$
 
 {% include properties_list.html %}
 
-This use-case tests if an incoming [Request]({% link _docs_integrate/data-model-overview.md %}#request)
+This use case tests if an incoming [Request]({% link _docs_integrate/data-model-overview.md %}#request)
 can be rejected with the given parameters without actually rejecting it.
 
 It is advised to call canReject before actually rejecting a Request, however canReject will usually be successful, as there are only rare cases which block a rejection.

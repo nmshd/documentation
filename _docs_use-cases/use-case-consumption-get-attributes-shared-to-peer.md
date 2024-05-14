@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Attributes
+  - api_route_regex: GET /api/v2/Attributes/Own/Shared/Identity
   - published: default
   - link: use-case-consumption-get-attributes-shared-to-peer
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Attributes$
+api_route_regex: ^GET /api/v2/Attributes/Own/Shared/Identity$
 # End automatic generation
 ---
 
@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Attributes$
 
 {% include properties_list.html %}
 
-This use-case is intended to retrieve Attributes that the current Idenity shared to a peer as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute). The LocalAttributes can be specified using a complex query.
+This use case is intended to retrieve Attributes that the current Idenity shared to a peer as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute). The LocalAttributes can be specified using a complex query.
 
 ## Parameters
 
