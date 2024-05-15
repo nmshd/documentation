@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Attributes/Own/Repository$
 
 {% include properties_list.html %}
 
-This use-case is intended to return all RepositoryAttributes, i.e. [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) you are the `owner` of and whose `shareInfo` is undefined.
+This use case is intended to return all RepositoryAttributes, i.e. [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) you are the `owner` of and whose `shareInfo` is undefined.
 In case of Attribute succession, by default only the latest version will be returned.
 The LocalAttributes can be specified using a complex query.
 
@@ -53,8 +53,8 @@ The LocalAttributes can be specified using a complex query.
 
 ## On Success
 
-- An array of [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be returned. It contains all own RepositoryAttributes that match the query.
+- An array of [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be returned. It contains all RepositoryAttributes that match the query.
 
 ## On Failure
 
-- No Attributes can be returned, if the parameters are malformed.
+- No Attributes can be returned if the parameters are malformed.
