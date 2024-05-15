@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case retrieves the LocalAccount with the corresponding enmeshed Address.
+This use case retrieves the LocalAccount with the corresponding enmeshed Address.
 
 ## Parameters
 

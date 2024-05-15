@@ -42,7 +42,7 @@ api_route_regex: ^DELETE /api/v2/Attributes/ThirdParty/{id}$
 
 {% include properties_list.html %}
 
-This use-case allows you to delete a third party owned RelationshipAttribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) that exists in a Relationship with a peer, but is not owned by you or this peer but by a third party.
+This use case allows you to delete a third party owned RelationshipAttribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) that exists in a Relationship with a peer, but is not owned by you or this peer but by a third party.
 
 ## Parameters
 

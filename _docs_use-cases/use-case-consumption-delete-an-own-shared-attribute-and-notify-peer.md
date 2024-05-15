@@ -42,7 +42,7 @@ api_route_regex: ^DELETE /api/v2/Attributes/Own/Shared/{id}$
 
 {% include properties_list.html %}
 
-This use-case allows you to delete an own shared Attribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) with a `shareInfo`, that is owned by you.
+This use case allows you to delete an own shared Attribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) with a `shareInfo`, that is owned by you.
 It is created as a result of sharing the `content` of a RepositoryAttribute with a peer.
 
 ## Parameters

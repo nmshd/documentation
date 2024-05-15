@@ -43,7 +43,7 @@ api_route_regex: ^GET /api/v2/Attributes/{id}/Versions$
 {% include properties_list.html %}
 
 [Succeeding an Attribute]({% link _docs_integrate/update-attributes-by-succession.md %}) allows you to update its `content`, while keeping all versions for a coherent history.
-This use-case allows you to retrieve a list of all those versions of the succession chain for a specified [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
+This use case allows you to retrieve a list of all those versions of the succession chain for a specified [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
 
 ## Parameters
 

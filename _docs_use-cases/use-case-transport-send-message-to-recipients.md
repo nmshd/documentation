@@ -42,7 +42,7 @@ api_route_regex: ^POST /api/v2/Messages$
 
 {% include properties_list.html %}
 
-This use-case sends a [Message]({% link _docs_integrate/data-model-overview.md %}#message) to the given recipient(s).
+This use case sends a [Message]({% link _docs_integrate/data-model-overview.md %}#message) to the given recipient(s).
 
 ## Parameters
 

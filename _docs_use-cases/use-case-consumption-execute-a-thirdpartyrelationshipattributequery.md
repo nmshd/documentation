@@ -42,7 +42,7 @@ api_route_regex: ^POST /api/v2/Attributes/ExecuteThirdPartyRelationshipAttribute
 
 {% include properties_list.html %}
 
-This use-case is intended to execute an incoming [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery)
+This use case is intended to execute an incoming [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery)
 (e.g. received by a ReadAttributeRequestItem) which returns a list of matching
 [Relationship Attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute)
 of another peer.
