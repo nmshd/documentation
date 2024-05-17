@@ -111,7 +111,7 @@ For an overview about the mentioned events in this section please refer to the [
 
 The Message Module is responsible for processing `transport.MessageReceived` events and re-publish them as events that are able to handle and consume in different situations.
 
-In every case the MessageModule will publish a `consumption.relationshipEvent.<relationshipID-between-the-sender-and-you>` for e.g. reloading the Relationship including its newest Messages in an UI.
+In every case the MessageModule will publish a `consumption.relationshipEvent.<Relationship-ID-between-the-sender-and-you>` for e.g. reloading the Relationship including its newest Messages in an UI.
 
 When the Message is a [Mail]({% link _docs_integrate/data-model-overview.md %}#Mail) a `consumption.mailReceived` event will be published. This is useful if you only want to refresh your UI that is rendering structured Mails.
 

@@ -133,7 +133,7 @@ The file id and the generated metadata secret key are the only two properties wh
 
 Abbreviated: MSG
 
-A message is any kind of structured content which should be securely transmitted to relationships. Messages can be submitted to multiple recipients and can deliver multiple attachments (in form of file references).
+A message is any kind of structured content which should be securely transmitted to Relationships. Messages can be submitted to multiple recipients and can deliver multiple attachments (in form of file references).
 Depending on the content of the message, a message could act as a technical message (e.g. a multi-factor authentication request) which shouldn't be rendered.
 
 ### Message Structure
@@ -146,15 +146,15 @@ Depending on the content of the message, a message could act as a technical mess
   - address: Address of one of the identity which should receive the message
   - receivedAt: ISO String when the recipient received the message
   - receivedByDevice: Device id of the recipient's device which received the message
-- relationshipIds: Array of relationship ids of the recipients (same order as recipients)
+- relationshipIds: Array of Relationship IDs of the recipients (same order as recipients)
 - content: The content of the message
 - attachments: Array of files which are attached to this message
 
 ## Relationships
 
-The link between two identities is called relationship. From the view of one identity or its device, the "own" keyword decribes content created by its own. The "peer" keyword describes content of the other party.
+The link between two identities is called Relationship. From the view of one identity or its device, the "own" keyword decribes content created by its own. The "peer" keyword describes content of the other party.
 
-Relationships are usually used as the technical term, whereas contact is used as a business terminology. To be more strict, one could say that contacts are active relationships, as a relationship could also be terminated (thus a communication would no longer be possible).
+Relationships are usually used as the technical term, whereas contact is used as a business terminology. To be more strict, one could say that contacts are active Relationships, as a Relationship could also be terminated (thus a communication would no longer be possible).
 
 ### Relationship Structure
 
@@ -181,13 +181,13 @@ Relationships are usually used as the technical term, whereas contact is used as
 
 ## Relationship Changes
 
-Relationships are agreements between two identities. Thus, to change a relationship both parties have to accept on the new "terms". This is done by requesting a change which the other party can accept or reject. The requestor could also revoke a requested change, as long as the other party did not react to the change yet.
+Relationships are agreements between two identities. Thus, to change a Relationship both parties have to accept on the new "terms". This is done by requesting a change which the other party can accept or reject. The requestor could also revoke a requested change, as long as the other party did not react to the change yet.
 
-The very first agreement between both parties is to actually create the relationship, the "relationship request". Technically, the term "relationship creation change request" would be more correct but is seldom used in the documentation because of readability.
+The very first agreement between both parties is to actually create the Relationship, the "Relationship request". Technically, the term "Relationship creation change request" would be more correct but is seldom used in the documentation because of readability.
 
 ### Relationship Creation Change Requests
 
-The relationship request - next to the required technical information - usually contains:
+The Relationship request - next to the required technical information - usually contains:
 
 - Requested information from the requestor
   - Required/optional attributes
@@ -200,7 +200,7 @@ The relationship request - next to the required technical information - usually 
 
 ## RelationshipTemplates
 
-A RelationshipTemplate is a structured representation of data which is required for a relationship to be established. Thus, it is usually also addressing the required information for a business process to start.
+A RelationshipTemplate is a structured representation of data which is required for a Relationship to be established. Thus, it is usually also addressing the required information for a business process to start.
 
 RelationshipTemplates solve the problem of linking enmeshed identities to a currently existing real world context, e.g. an existing customer account or an anonymous web session.
 
@@ -221,7 +221,7 @@ In addition to technical information like public keys, certificates or signature
   - Data privacy guidelines
   - EULAs
 
-A RelationshipTemplate needs to be created in order to receive relationship requests and ultimately create an active relationship between two identities. The RelationshipTemplate is then usually shared with the user via a token.
+A RelationshipTemplate needs to be created in order to receive Relationship requests and ultimately create an active Relationship between two identities. The RelationshipTemplate is then usually shared with the user via a token.
 
 RelationshipTemplates can be both: identity-specific (RelationshipTemplate is personalized for one specific identity - which might not exist yet) or identity-agnostic (RelationshipTemplate is open for multiple identities).
 
@@ -229,11 +229,11 @@ RelationshipTemplates can be both: identity-specific (RelationshipTemplate is pe
 
 Generic RelationshipTemplates are used if the counterpart is not known at all. They include their own data which they would like to share (e.g. the name of the company) and also data required for the business process.
 
-It does not matter however, who is using the RelationshipTemplate, as there is no sensitive data stored in the RelationshipTemplate. Anyone could scan the RelationshipTemplate and create a relationship with it.
+It does not matter however, who is using the RelationshipTemplate, as there is no sensitive data stored in the RelationshipTemplate. Anyone could scan the RelationshipTemplate and create a Relationship with it.
 
 It is possible to use a generic RelationshipTemplate multiple times, e.g. for anonymous web sites or printed flyers.
 
-It is also possible to create a generic RelationshipTemplate for every user accessing an anonymous website including a unique id of the web session. This could be handy if the website should for example redirect the user to the profile page once the user scanned the QR-code and the relationship was accepted.
+It is also possible to create a generic RelationshipTemplate for every user accessing an anonymous website including a unique id of the web session. This could be handy if the website should for example redirect the user to the profile page once the user scanned the QR-code and the Relationship was accepted.
 
 ### Personalized RelationshipTemplates
 

@@ -63,10 +63,10 @@ The developers at enmeshed interpret the data privacy regulations narrowly, whic
 
 1. (Non-technical) personal data which could directly identify a person (like names, e-mail addresses, birth dates, public/social ids, or phone numbers) is only processed in an end-to-end encrypted way between users and organizations. The central service does not have access to this data.
 2. Pseudonyms or technical identifiers which are shared between multiple identities (like enmeshed Addresses, enmeshed Public Keys, Device Ids, or identity versions) are considered PII, as an entity could use this information to map this data to real world persons.
-3. Pseudonyms, technical identifiers or secrets which are shared between two identities (like Backbone credentials, device versions, or relationship public keys) are considered PII, as an entity could use this information to map this data to real world persons.
+3. Pseudonyms, technical identifiers or secrets which are shared between two identities (like Backbone credentials, device versions, or Relationship public keys) are considered PII, as an entity could use this information to map this data to real world persons.
 4. One-way functions (hashes/digests) of PII are considered PII, as an entity theoretically has the possibility of mapping these hashes to real world persons or could potentially map the hashes to real world persons.
 5. Encrypted data (without having the keys to it) is considered PII, as an entity has the theoretical possibility of decrypting the ciphertexts (e.g. if it gets the keys) or could potentially decrypt the ciphertexts without having the keys (be it weak or old encryption algorithms, or the best computers in the world to crack the most up-to-date encryption).
-6. Metadata like are considered PII on a case-by-case decision, depending if an entity would have the possibility of mapping this metadata to real-world persons (e.g. if the entity could deduct the person by knowing that a real world person triggered a Backbone action at the same time or by analyzing the relationships of an Identity)
+6. Metadata like are considered PII on a case-by-case decision, depending if an entity would have the possibility of mapping this metadata to real-world persons (e.g. if the entity could deduct the person by knowing that a real world person triggered a Backbone action at the same time or by analyzing the Relationships of an Identity)
 
 When considering a **relative data privacy** , one might contend that only data categories 1 and 2 are Personally Identifiable Information (PII) since the possibility of misuse of categories 3-6 in the near future is unrealistic. One could even argue that categories 3-6 could be considered as anonymous data.
 
@@ -100,7 +100,7 @@ Without the actual keys from the respective identities (which the Backbone hosti
 
 However, as stated in the chapter above, because of the **absolute data privacy** mindset, even this technical information is considered to be PII, because of the theoretical possibility, that somebody could crack the used ciphertexts or hashes. To fulfill the absolute data privacy mindset, all the data of the Backbone can be deleted.
 
-Keep in mind: The threat of metadata analytics should not be underestimated and also cannot be eradicated by us unfortunately. Consequently, a Backbone operator might still be able to analyze the technical metadata stored within the Backbone although it is "least knowledge". For instance, the number of customers an organization has could be inferred based on the number of identities with a relationship.
+Keep in mind: The threat of metadata analytics should not be underestimated and also cannot be eradicated by us unfortunately. Consequently, a Backbone operator might still be able to analyze the technical metadata stored within the Backbone although it is "least knowledge". For instance, the number of customers an organization has could be inferred based on the number of identities with a Relationship.
 
 However, this is far less information than any other current central identity provider knows of the users.
 

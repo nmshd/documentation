@@ -19,8 +19,8 @@ For us, security is not only about securing access to data, but making the data 
 
 When talking about the Backbone, one has to have trust in it in order to fulfill the requirements:
 
-- Only allow messages between sender and recipient(s) if they have a relationship with each other
-- Transmit any message to any recipient (if they have a relationship)
+- Only allow messages between sender and recipient(s) if they have a Relationship with each other
+- Transmit any message to any recipient (if they have a Relationship)
 - Do not delay any message
 - Use up-to-date timestamps
 - Generate unique ids for every new item

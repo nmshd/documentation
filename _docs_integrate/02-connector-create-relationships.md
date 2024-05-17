@@ -5,18 +5,18 @@ toc: true
 published: false
 ---
 
-For creating a relationship, we differentiate between "incoming" and "outgoing" flows:
+For creating a Relationship, we differentiate between "incoming" and "outgoing" flows:
 
-- Incoming means, that the Connector creates a RelationshipTemplate, shares it over a separate channel and receives a relationship request, which it then can accept or reject. From an organization's perspective, this is the common flow.
-- Outgoing is the other way round: The Connector (or a business user of the organization) receives a RelationshipTemplate created by another party, and sends out the relationship request to the other party, which can then be accepted (or rejected).
+- Incoming means, that the Connector creates a RelationshipTemplate, shares it over a separate channel and receives a Relationship request, which it then can accept or reject. From an organization's perspective, this is the common flow.
+- Outgoing is the other way round: The Connector (or a business user of the organization) receives a RelationshipTemplate created by another party, and sends out the Relationship request to the other party, which can then be accepted (or rejected).
 
 ## Incoming Flow
 
-The Connector creates the RelationshipTemplate, renders it for a user and eventually receives a relationship request from the user. The relationship request is then accepted or rejected by the Connector based on the given content.
+The Connector creates the RelationshipTemplate, renders it for a user and eventually receives a Relationship request from the user. The Relationship request is then accepted or rejected by the Connector based on the given content.
 
 ### Create RelationshipTemplate
 
-In order to receive relationship requests, a RelationshipTemplate needs to be created first. This is done by calling the `POST /RelationshipTemplates/Own` route.
+In order to receive Relationship requests, a RelationshipTemplate needs to be created first. This is done by calling the `POST /RelationshipTemplates/Own` route.
 
 {% include rapidoc api_route_regex="^post /api/v2/RelationshipTemplates/Own$" title="" %}
 
@@ -39,9 +39,9 @@ There are multiple ways how the token reference can be communicated to the user:
 
 ### Receive Relationship Request
 
-Once the user has reviewed the RelationshipTemplate and created the corresponding relationship request, it is submitted over the backbone (as a cipher only the organization can decrypt) to the organization's Connector. The Connector decrypts the cipher and stores the relationship request in the database.
+Once the user has reviewed the RelationshipTemplate and created the corresponding Relationship request, it is submitted over the backbone (as a cipher only the organization can decrypt) to the organization's Connector. The Connector decrypts the cipher and stores the Relationship request in the database.
 
-The relationship request can be accessed either manually via a REST API (pull) or it can be pushed to a [configurable custom HTTP endpoint]({% link _docs_integrate/11-connector-configuration.md %}).
+The Relationship request can be accessed either manually via a REST API (pull) or it can be pushed to a [configurable custom HTTP endpoint]({% link _docs_integrate/11-connector-configuration.md %}).
 
 ![Get Open Relationship Requests Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_GetOpenRelationshipRequests.png' | relative_url }} "Get Open Relationship Requests")
 
@@ -54,7 +54,7 @@ But please keep in mind that the user might not like to wait that long. If there
 
 ### Respond to Relationship Request
 
-Once the data has been processed on the business system, it is time to respond to the relationship request: you can either accept or reject it. Both responses can transfer additional data to the requestor, e.g. the created customer id, contract id or suchlike (accept) - or the rejection reason, like an invalid required attribute or an insufficient financial score.
+Once the data has been processed on the business system, it is time to respond to the Relationship request: you can either accept or reject it. Both responses can transfer additional data to the requestor, e.g. the created customer id, contract id or suchlike (accept) - or the rejection reason, like an invalid required attribute or an insufficient financial score.
 
 If the change is accepted, the connection to the requestor is automatically generated and from this point in time, both parties may communicate over a secure, bi-directional tunnel.
 
@@ -68,7 +68,7 @@ The Connector receives a RelationshipTemplate (or Token) from an external party 
 
 ### Get an External RelationshipTemplate
 
-In order to send out own relationship request to other parties, a RelationshipTemplate must be fetched from the external party. The RelationshipTemplate is created by the external party and then usually shared by a truncated reference over a link or QR code. This reference can be used to retrieve the actual RelationshipTemplate, for example with requested attribute.
+In order to send out own Relationship request to other parties, a RelationshipTemplate must be fetched from the external party. The RelationshipTemplate is created by the external party and then usually shared by a truncated reference over a link or QR code. This reference can be used to retrieve the actual RelationshipTemplate, for example with requested attribute.
 
 ![Get RelationshipTemplate Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_GetTemplate.png' | relative_url }} "Get RelationshipTemplate")
 
@@ -76,8 +76,8 @@ In order to send out own relationship request to other parties, a RelationshipTe
 
 ### Create a Relationship
 
-Once the external RelationshipTemplate has been successfully read in, and the terms/requested content be found acceptable, one can answer the RelationshipTemplate with a relationship request. This is done by calling the POST /Relationships route.
-This request contains - equivalent to incoming relationship creation changes - any information the other party requested, for example legal and contact information. Thus, one should parse the given RelationshipTemplate correctly and send the required attributes within this request. Otherwise the other party might reject the relationship creation change, as requested attributes are not existing.
+Once the external RelationshipTemplate has been successfully read in, and the terms/requested content be found acceptable, one can answer the RelationshipTemplate with a Relationship request. This is done by calling the POST /Relationships route.
+This request contains - equivalent to incoming Relationship creation changes - any information the other party requested, for example legal and contact information. Thus, one should parse the given RelationshipTemplate correctly and send the required attributes within this request. Otherwise the other party might reject the Relationship creation change, as requested attributes are not existing.
 
 ![Create Relationship Request Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_CreateRelationshipRequest.png' | relative_url }} "Create Relationship Request")
 
@@ -85,7 +85,7 @@ This request contains - equivalent to incoming relationship creation changes - a
 
 ### Check outgoing Relationship Changes
 
-In order to create relationships out of accepted relationship requests, the Connector needs to track the status of these requests. This can be done manually with the POST /Account/Sync route. The return values then contain possible changed relationships.
+In order to create Relationships out of accepted Relationship requests, the Connector needs to track the status of these requests. This can be done manually with the POST /Account/Sync route. The return values then contain possible changed Relationships.
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
