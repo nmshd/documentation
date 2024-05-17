@@ -801,25 +801,25 @@ If you want to query Attributes the user has in the context of a Relationship wi
 
 ### IQLQuery
 
-If you want to query Attributes by their content, you can use the `IQLQuery`.
-It allows you to specify conditions the Attribute must match and which may be chained using binary operations.
-Every property of the Attribute's content may be queried, independend of whether it is nested or not, by formulating it as a lowercase key.
+If you want to query IdentityAttributes by their content, you can use the `IQLQuery`.
+It allows you to specify conditions the IdentityAttribute must match and which may be chained using binary operations.
+Every property of the IdentityAttribute's content may be queried, independend of whether it is nested or not, by formulating it as a lowercase key.
 Furthermore, using an uppercase term is a shortcut for comparing the term to the `value.@type` property and using `#` refers to the `tag` property.
 For example, if you want to query a `StreetAddress` in Germany which is tagged as `[Primary Address]` the `queryString` would be `StreetAddress && value.country.value == Germany && #"Primary Address"`.
-If no corresponding Attribute exists at the peer's side, you are given the possibility to add `attributeCreationHints`, suggesting to create an Attribute which matches a specific `valueType` and optionally `tags`.
+If no corresponding IdentityAttribute exists at the peer's side, you are given the possibility to add `attributeCreationHints`, suggesting to create an IdentityAttribute which matches a specific `valueType` and optionally `tags`.
 
-| Name                   | Type                                   | Description                                                                                                                                                                                                                        |
-| ---------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| @type                  | `"IQLQuery"`                           |                                                                                                                                                                                                                                    |
-| queryString            | `string`                               | The condition the attribute must fulfill. It is made up of terms of the form `<key> <operator> <value>`, which may be chained using binary operations. Uppercase expressions refer to the property `value@type` and `#` to `tags`. |
-| attributeCreationHints | `IQLQueryCreationHints` \| `undefined` | Suggestions for creating a new Attribute, if the query returns empty.                                                                                                                                                              |
+| Name                   | Type                                   | Description                                                                                                                                                                                                                                |
+| ---------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| @type                  | `"IQLQuery"`                           |                                                                                                                                                                                                                                            |
+| queryString            | `string`                               | The condition the IdentityAttribute must fulfill. It is made up of terms of the form `<key> <operator> <value>`, which may be chained using binary operations. Uppercase expressions refer to the property `value@type` and `#` to `tags`. |
+| attributeCreationHints | `IQLQueryCreationHints` \| `undefined` | Suggestions for creating a new IdentityAttribute, if the query returns empty.                                                                                                                                                              |
 
 #### IQLQueryCreationHints
 
-| Name      | Type                                | Description                                                  |
-| --------- | ----------------------------------- | ------------------------------------------------------------ |
-| valueType | `AttributeValues.Identity.TypeName` | The `value.@type` of the Attribute, which should be created. |
-| tags      | `string[]` \| `undefined`           | The `tags` for the Attribute, which should be created.       |
+| Name      | Type                                | Description                                                          |
+| --------- | ----------------------------------- | -------------------------------------------------------------------- |
+| valueType | `AttributeValues.Identity.TypeName` | The `value.@type` of the IdentityAttribute, which should be created. |
+| tags      | `string[]` \| `undefined`           | The `tags` for the IdentityAttribute, which should be created.       |
 
 ## RelationshipTemplateContent
 
@@ -900,14 +900,14 @@ The parameters to accept a ProposeAttributeRequestItem with an existing Attribut
 | Name        | Type     | Description                                        |
 | ----------- | -------- | -------------------------------------------------- |
 | accept      | `"true"` | The only possible value here is the string "true". |
-| attributeId | `string` | The id of the existing LocalAttribute.             |
+| attributeId | `string` | The `id` of the existing LocalAttribute.           |
 
 The parameters to accept a ProposeAttributeRequestItem with a new Attribute.
 
 | Name      | Type                                           | Description                                        |
 | --------- | ---------------------------------------------- | -------------------------------------------------- |
 | accept    | `"true"`                                       | The only possible value here is the string "true". |
-| attribute | `IdentityAttribute` \| `RelationshipAttribute` | The new LocalAttribute.                            |
+| attribute | `IdentityAttribute` \| `RelationshipAttribute` | The new Attribute.                                 |
 
 #### AcceptReadAttributeRequestItemParameters
 
@@ -916,11 +916,11 @@ The parameters to accept a ReadAttributeRequestItem with an existing Attribute.
 | Name                | Type     | Description                                        |
 | ------------------- | -------- | -------------------------------------------------- |
 | accept              | `"true"` | The only possible value here is the string "true". |
-| existingAttributeId | `string` | The id of the existing LocalAttribute.             |
+| existingAttributeId | `string` | The `id` of the existing LocalAttribute.           |
 
 The parameters to accept a ReadAttributeRequestItem with a new Attribute.
 
 | Name         | Type                                           | Description                                        |
 | ------------ | ---------------------------------------------- | -------------------------------------------------- |
 | accept       | `"true"`                                       | The only possible value here is the string "true". |
-| newAttribute | `IdentityAttribute` \| `RelationshipAttribute` | The new LocalAttribute.                            |
+| newAttribute | `IdentityAttribute` \| `RelationshipAttribute` | The new Attribute.                                 |
