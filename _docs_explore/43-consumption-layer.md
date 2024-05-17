@@ -15,7 +15,7 @@ The consumption layer contains processes, logic and data structures either for p
 
 ## Attribute Handling
 
-The consumption layer handles the central attribute store of an identity. With it, requests and relationship templates can be automatically filled based on the already stored attributes.
+The consumption layer handles the central attribute store of an identity. With it, requests and RelationshipTemplates can be automatically filled based on the already stored attributes.
 
 ## Request Handling
 

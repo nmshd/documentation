@@ -247,7 +247,7 @@ Data submitted to Backbone:
 - relationshipTemplateId
 - relationshipChangeContent
 
-## Relationship Templates
+## RelationshipTemplates
 
 Abbreviated: RLT
 

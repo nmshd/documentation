@@ -56,7 +56,7 @@ However, it could be another Connector, as well, e.g. if two companies want to e
 
 The way we will establish the Relationship is via a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
 This is created by the Connector and contains its display name, as well as the data it would like to receive from the other Identity.
-Then, the App user fills out all required information of the template and sends the Relationship Request to the Connector.
+Then, the App user fills out all required information of the RelationshipTemplate and sends the RelationshipRequest to the Connector.
 It in turn accepts the Request, which results in the creation of a new Relationship.
 
 ### Connector: Create an Attribute
@@ -89,7 +89,7 @@ You can query the Connector's address via the route `/api/v2/Account/IdentityInf
 ### Connector: Test your Request's Validity
 
 Next, we want to create a RelationshipTemplate, that can be used by the App to send a Relationship Request to our Connector.
-The content of the template can be widely configured, but for simplicity we will use a [Request]({% link _docs_integrate/data-model-overview.md %}#request) with just two [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in our example.
+The content of the RelationshipTemplate can be widely configured, but for simplicity we will use a [Request]({% link _docs_integrate/data-model-overview.md %}#request) with just two [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in our example.
 On the one hand, we want to [share an Attribute]({% link _docs_integrate/share-attributes-with-peer.md %}) with the App, namely the display name of our Connector we created in the previous step.
 For this, we use a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem).
 On the other hand, we use [ReadAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) to [receive Attributes]({% link _docs_integrate/read-attributes-from-peer.md %}) from the App.
@@ -155,7 +155,7 @@ Let's assume the Connector needs to know the given name and surname of its conta
 }
 ```
 
-Before we actually create the template, we want to ensure the validity of the Request and its items.
+Before we actually create the RelationshipTemplate, we want to ensure the validity of the Request and its items.
 
 {% include rapidoc api_route_regex="^post /api/v2/Requests/Outgoing/Validate$" %}
 

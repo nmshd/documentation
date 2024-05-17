@@ -62,5 +62,5 @@ This use case is intended to create and instantly complete an outgoing Request w
 
 ## On Failure
 
-- The template could not be found.
+- The RelationshipTemplate could not be found.
 - The response source could not be found.

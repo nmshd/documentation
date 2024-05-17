@@ -159,7 +159,7 @@ Relationships are usually used as the technical term, whereas contact is used as
 ### Relationship Structure
 
 - id
-- template
+- RelationshipTemplate
 - status
 - peer
 - changes
@@ -198,11 +198,11 @@ The relationship request - next to the required technical information - usually 
 - OK to privacy statement
 - OK to EULA
 
-## Relationship Templates
+## RelationshipTemplates
 
-A relationship template is a structured representation of data which is required for a relationship to be established. Thus, it is usually also addressing the required information for a business process to start.
+A RelationshipTemplate is a structured representation of data which is required for a relationship to be established. Thus, it is usually also addressing the required information for a business process to start.
 
-Templates solve the problem of linking enmeshed identities to a currently existing real world context, e.g. an existing customer account or an anonymous web session.
+RelationshipTemplates solve the problem of linking enmeshed identities to a currently existing real world context, e.g. an existing customer account or an anonymous web session.
 
 In addition to technical information like public keys, certificates or signatures, it usually contains:
 
@@ -221,39 +221,39 @@ In addition to technical information like public keys, certificates or signature
   - Data privacy guidelines
   - EULAs
 
-A relationship template needs to be created in order to receive relationship requests and ultimately create an active relationship between two identities. The relationship template is then usually shared with the user via a token.
+A RelationshipTemplate needs to be created in order to receive relationship requests and ultimately create an active relationship between two identities. The RelationshipTemplate is then usually shared with the user via a token.
 
-Relationship templates can be both: identity-specific (template is personalized for one specific identity - which might not exist yet) or identity-agnostic (template is open for multiple identities).
+RelationshipTemplates can be both: identity-specific (RelationshipTemplate is personalized for one specific identity - which might not exist yet) or identity-agnostic (RelationshipTemplate is open for multiple identities).
 
-### Generic Templates
+### Generic RelationshipTemplates
 
-Generic templates are used if the counterpart is not known at all. They include their own data which they would like to share (e.g. the name of the company) and also data required for the business process.
+Generic RelationshipTemplates are used if the counterpart is not known at all. They include their own data which they would like to share (e.g. the name of the company) and also data required for the business process.
 
-It does not matter however, who is using the template, as there is no sensitive data stored in the template. Anyone could scan the template and create a relationship with it.
+It does not matter however, who is using the RelationshipTemplate, as there is no sensitive data stored in the RelationshipTemplate. Anyone could scan the RelationshipTemplate and create a relationship with it.
 
-It is possible to use a generic template multiple times, e.g. for anonymous web sites or printed flyers.
+It is possible to use a generic RelationshipTemplate multiple times, e.g. for anonymous web sites or printed flyers.
 
-It is also possible to create a generic template for every user accessing an anonymous website including a unique id of the web session. This could be handy if the website should for example redirect the user to the profile page once the user scanned the QR-code and the relationship was accepted.
+It is also possible to create a generic RelationshipTemplate for every user accessing an anonymous website including a unique id of the web session. This could be handy if the website should for example redirect the user to the profile page once the user scanned the QR-code and the relationship was accepted.
 
-### Personalized Templates
+### Personalized RelationshipTemplates
 
-Personalized templates are short-lived relationship templates including sensitive or personal data of a specific person. They are meant to be used by this specific person only, in order to share personalized data when onboarding.
+Personalized RelationshipTemplates are short-lived RelationshipTemplates including sensitive or personal data of a specific person. They are meant to be used by this specific person only, in order to share personalized data when onboarding.
 
-This is usually combined with an upfront digital authentication of the person, e.g. existing web sessions of the user. Only this specific user would then have access to the personalized template within the secured website (e.g. over an QR-code).
+This is usually combined with an upfront digital authentication of the person, e.g. existing web sessions of the user. Only this specific user would then have access to the personalized RelationshipTemplate within the secured website (e.g. over an QR-code).
 
-Personalized templates are primary used for a much better onboarding experience of net-new enmeshed users: they won't need to enter their data again, even if the data is already stored somehow.
+Personalized RelationshipTemplates are primary used for a much better onboarding experience of net-new enmeshed users: they won't need to enter their data again, even if the data is already stored somehow.
 
-Personalized templates can only be used if the person is authenticated upfront or it is ensured that only the respective person can receive the template.
+Personalized RelationshipTemplates can only be used if the person is authenticated upfront or it is ensured that only the respective person can receive the RelationshipTemplate.
 
-It should also be clear that personalized templates should expire as soon as possible, depending on the context. The `maxNumberOfAllocations` property when creating the template should be set to 1, so that the template can only be used once. Keep in mind that it could still be scanned multiple times - including the access of the personalized data - as long as it is not expired.
+It should also be clear that personalized RelationshipTemplates should expire as soon as possible, depending on the context. The `maxNumberOfAllocations` property when creating the RelationshipTemplate should be set to 1, so that the RelationshipTemplate can only be used once. Keep in mind that it could still be scanned multiple times - including the access of the personalized data - as long as it is not expired.
 
 **Example 1**
-Horst has an online account of his favorite webshop and is already logged in there. The webshop can create a personalized template for Horst which includes Horst's private address. If Horst scans this template, the app can automatically fill Horst's datawallet with the private address. The personalized relationship template might expire after 5 minutes.
+Horst has an online account of his favorite webshop and is already logged in there. The webshop can create a personalized RelationshipTemplate for Horst which includes Horst's private address. If Horst scans this RelationshipTemplate, the app can automatically fill Horst's datawallet with the private address. The personalized RelationshipTemplate might expire after 5 minutes.
 
 **Example 2**
-A company has no customer system where customers can log in but would still like to submit information digitally to its customers. The company creates a personalized template for a customer, e.g. Susan and prints the QR-Code on a letter. Susan can then scan in the QR-Code and can establish a secure connection to the company, although there is no online customer system. The personalized relationship template might expire after two weeks.
+A company has no customer system where customers can log in but would still like to submit information digitally to its customers. The company creates a personalized RelationshipTemplate for a customer, e.g. Susan and prints the QR-Code on a letter. Susan can then scan in the QR-Code and can establish a secure connection to the company, although there is no online customer system. The personalized RelationshipTemplate might expire after two weeks.
 
-### Relationship Template Structure
+### RelationshipTemplate Structure
 
 - id
 - maxNumberOfAllocations
@@ -266,7 +266,7 @@ A company has no customer system where customers can log in but would still like
 
 ## Tokens
 
-Commonly used data-sharing possibilities like links (URIs) or QR codes are limited in size. Thus, even compressed representations of - e.g. relationship templates - are too big to be stored in a QR code. In addition, the data which is shared usually should expire after a certain period of time. For example, a personalized relationship template containing sensitive data should be deleted after 5 minutes.
+Commonly used data-sharing possibilities like links (URIs) or QR codes are limited in size. Thus, even compressed representations of - e.g. RelationshipTemplates - are too big to be stored in a QR code. In addition, the data which is shared usually should expire after a certain period of time. For example, a personalized RelationshipTemplate containing sensitive data should be deleted after 5 minutes.
 
 To overcome these technical limitations, an indirection with a shared token is introduced. The token acts as a small data-reference object: The actual to-be-shared data is encrypted with a random key and the corresponding cipher is stored on the central platform with additional information like an expiry date.
 

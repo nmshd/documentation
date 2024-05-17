@@ -52,13 +52,13 @@ The list below is a non-complete list of use cases within enmeshed:
       - Get relationships
       - Reject relationship change
       - Revoke relationship change
-    - Relationship templates
-      - Create own relationship template
-      - Get relationship template
-      - Get relationship templates
-      - Get token for own template
-      - Get token qr-code for own template
-      - Load peer relationship template
+    - RelationshipTemplates
+      - Create own RelationshipTemplate
+      - Get RelationshipTemplate
+      - Get RelationshipTemplates
+      - Get token for own RelationshipTemplate
+      - Get token qr-code for own RelationshipTemplate
+      - Load peer RelationshipTemplate
     - Tokens
 
       - Create own token
