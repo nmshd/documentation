@@ -32,10 +32,12 @@ Doing so, also a LocalAttribute with the same `content` and a respective `shareI
 In the case of RelationshipAttributes we have own shared and peer shared RelationshipAttributes analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with RepositoryAttributes.
 These different kinds of Attributes have different demands that need to be taken into account, wanting to delete them.
 
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/04c48548-90a3-4e9e-839a-4bb9a5dddcfb" id="9hZD~iRvE8aL"></iframe></div>
+
 In general, you can only delete data from your own wallet and never from the peer's.
 So, for example you can delete Attributes a peer shared with you from your wallet, but you can't delete Attributes you shared with a peer from their wallet.
 Wanting to do so, you need to send a Request to the peer, asking them to delete the respective Attribute.
-Note that this doesn't automatically deletes their Attribute, since the peer may have a valid reason to still keep it for a certain amount of time.
+Note that this doesn't automatically delete their Attribute, since the peer may have a valid reason to still keep it for a certain amount of time.
 
 ## Request the deletion of own Attributes from peer
 
