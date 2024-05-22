@@ -31,16 +31,16 @@ The implementation of the transport layer is the transport library. It combines 
 
 - Communication with the Backbone
 - Synchronization with the Backbone
-- Encrypting and decrypting communication with other identities
-- Managing identities and devices
+- Encrypting and decrypting communication with other Identities
+- Managing Identities and devices
 - Managing cryptographic artifacts
 - Cross-device synchronization of the datawallet
 
 ### Content Library <a href="https://github.com/nmshd/cns-content"><i class="fab fa-fw fa-github"/></a> {#content-library}
 
-To separate the actual payload of Messages from the Message structure and envelope, the content library was set up. It is a repository of interfaces and types which are used as the payload of communication between identities.
+To separate the actual payload of Messages from the Message structure and envelope, the content library was set up. It is a repository of interfaces and types which are used as the payload of communication between Identities.
 
-Whereas the transport library implements the foundation of communication between identities and the actual secure tunnel between identities, the content library defines the payload on top of this tunnel. You can see it as the definition of a contract between all identities.
+Whereas the transport library implements the foundation of communication between Identities and the actual secure tunnel between Identities, the content library defines the payload on top of this tunnel. You can see it as the definition of a contract between all Identities.
 
 - Attributes and AttributeValues
 - Message formats like Mails, RequestMails, or technical messages

@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: RelationshipsFacade
   - function: createRelationship
-  - description: Creates a `Relationship` to the creator of a given relationshipTemplateId. The `RelationshipTemplate` of the given `relationshipTemplateId` must come from another identity and must be loaded by `POST /RelationshipTemplates/Peer` first.
+  - description: Creates a `Relationship` to the creator of a given relationshipTemplateId. The `RelationshipTemplate` of the given `relationshipTemplateId` must come from another Identity and must be loaded by `POST /RelationshipTemplates/Peer` first.
   - feature category: Mutual peer-to-peer relationships
   - tech category: Relationships
   - status: DONE

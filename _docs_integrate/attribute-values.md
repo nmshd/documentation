@@ -536,7 +536,7 @@ It is not recommended to send a DigitalIdentityDescriptor to another Identity by
 | Name         | Type                          | Required | Validation                                           |
 | ------------ | ----------------------------- | :------: | ---------------------------------------------------- |
 | `@type`      | `"DigitalIdentityDescriptor"` |    ✓     |                                                      |
-| `address`    | `string`                      |    ✓     | The address of the identity that owns the statement. |
+| `address`    | `string`                      |    ✓     | The aAddress of the dentity that owns the statement. |
 | `attributes` | `string []`                   |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
 
 ## StatementAuthorityType
@@ -597,7 +597,7 @@ It is not recommended to send a object to another Identity by its own. Instead, 
 | Name         | Type                | Required | Validation                                           |
 | ------------ | ------------------- | :------: | ---------------------------------------------------- |
 | `@type`      | `"StatementObject"` |    ✓     |                                                      |
-| `address`    | `string`            |    ✓     | The address of the identity that owns the statement. |
+| `address`    | `string`            |    ✓     | The Address of the Identity that owns the statement. |
 | `attributes` | `string []`         |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
 
 ## StatementPredicate
@@ -626,7 +626,7 @@ It is not recommended to send a subject to another Identity by its own. Instead,
 | Name         | Type                 | Required | Validation                                           |
 | ------------ | -------------------- | :------: | ---------------------------------------------------- |
 | `@type`      | `"StatementSubject"` |    ✓     |                                                      |
-| `address`    | `string`             |    ✓     | The address of the identity that owns the statement. |
+| `address`    | `string`             |    ✓     | The Address of the Identity that owns the statement. |
 | `attributes` | `string []`          |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
 
 ## Street

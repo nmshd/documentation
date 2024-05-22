@@ -23,6 +23,6 @@ required_by:
 
 {% include warnings/documentation-is-prerelease %}
 
-The onExistingRelationship field can also be sent with a RelationshipTemplateContent. The request in this field is processed if this RelationshipTemplate is processed by an identity that already has a Relationship with the Connector.
+The onExistingRelationship field can also be sent with a RelationshipTemplateContent. The request in this field is processed if this RelationshipTemplate is processed by an Identity that already has a Relationship with the Connector.
 
 This can be used, for example, to be able to log in via QR code.

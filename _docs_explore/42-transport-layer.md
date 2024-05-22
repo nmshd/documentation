@@ -31,11 +31,11 @@ As the transport layer encapsulates all encryption-relevant topics, keys are gen
 
 ## Cross-Device Synchronization
 
-The synchronization between the devices is completely encrypted and works a bit like the communication with other identities. When an identity is created, a random synchronization key is generated and used to encrypt and synchronize all local data to the backbone. This synchronization key is then shared when onboarding a new device, allowing the new device to have access to the complete (encrypted) history of the identity on the backbone which can then be downloaded and applied.
+The synchronization between the devices is completely encrypted and works a bit like the communication with other Identities. When an Identity is created, a random synchronization key is generated and used to encrypt and synchronize all local data to the backbone. This synchronization key is then shared when onboarding a new device, allowing the new device to have access to the complete (encrypted) history of the Identity on the backbone which can then be downloaded and applied.
 
-Changes on one device are directly synchronized with the backbone and thus communicated to and reflected on other devices. The synchronization service (we also call it datawallet service) only adds information to the identity's history. Therefore, enmeshed would even be able to roll back local changes on user errors, as we have a kind of local data versioning across devices with this approach.
+Changes on one device are directly synchronized with the backbone and thus communicated to and reflected on other devices. The synchronization service (we also call it datawallet service) only adds information to the Identity's history. Therefore, enmeshed would even be able to roll back local changes on user errors, as we have a kind of local data versioning across devices with this approach.
 
-We have a blocking mechanism in place that allows only one device to update the identity's history on a single point in time.
+We have a blocking mechanism in place that allows only one device to update the Identity's history on a single point in time.
 
 ## Cross-Device Versioning
 
@@ -45,31 +45,31 @@ The transport layer is also responsible for keeping track of the versions used o
 
 ## Identity
 
-The identity semantically is the "digital twin" of the actual real-world person or organization.
+The Identity semantically is the "digital twin" of the actual real-world person or organization.
 
-Technically, the identity primarily consists of one keypair. By signing with the identity's private key, one is able to prove the ownership of the identity and thus manage the identity completely. Based on the identity's public key, the primary identification property, the address is created.
+Technically, the Identity primarily consists of one keypair. By signing with the Identity's private key, one is able to prove the ownership of the Identity and thus manage the Identity completely. Based on the Identity's public key, the primary identification property, the address is created.
 
-One has to keep in mind that enmeshed doesn't enforce the validation of the real-world entities. Thus one real-world entity could create fake identities.
+One has to keep in mind that enmeshed doesn't enforce the validation of the real-world entities. Thus one real-world entity could create fake Identities.
 
-Additionally, enmeshed cannot enforce a uniqueness of real-world entities, i.e. one real-world entity could create multiple enmeshed identities for itself.
+Additionally, enmeshed cannot enforce a uniqueness of real-world entities, i.e. one real-world entity could create multiple enmeshed Identities for itself.
 
 ### Address
 
-The identity's address is the primary way to identify an identity. It is a calculated property based on the identity's public key and thus cannot be changed for an identity.
+The Identity's address is the primary way to identify an Identity. It is a calculated property based on the Identity's public key and thus cannot be changed for an Identity.
 
 ## Devices
 
-A device is a technical part of the identity. One identity can use multiple devices to interact with the outside world. The outside world however usually doesn't care about the devices of one identity. An example of an exception would be multi-device authentication in business processes, where the devices (actually their signatures) would take part in the process itself.
+A device is a technical part of the Identity. One Identity can use multiple devices to interact with the outside world. The outside world however usually doesn't care about the devices of one Identity. An example of an exception would be multi-device authentication in business processes, where the devices (actually their signatures) would take part in the process itself.
 
-Thus devices are usually handled within the identity, just like one person uses multiple devices for reading mails or browsing the web.
+Thus devices are usually handled within the Identity, just like one person uses multiple devices for reading mails or browsing the web.
 
 A very interesting part of enmeshed is, that devices are usually kept in synchronization with each other over a synchronization service. This is a big difference from other communication providers where there is usually a "main" device which is remotely controlled by other devices.
 
-Thus, every device has the complete access on the identity and its data without relying on another device. This is a great backup and recovery mechanism, as having two devices for an identity means an automatic backup device if one device is broken or replaced.
+Thus, every device has the complete access on the Identity and its data without relying on another device. This is a great backup and recovery mechanism, as having two devices for an Identity means an automatic backup device if one device is broken or replaced.
 
 ### Device Structure
 
-Devices in the Transport Layer have a different set of Attributes from devices in the Backbone Layer. The devices of one identity know each other and this is the information which is shared accross the devices.
+Devices in the Transport Layer have a different set of Attributes from devices in the Backbone Layer. The devices of one Identity know each other and this is the information which is shared accross the devices.
 
 - id
 - publicKey (optional)
@@ -85,7 +85,7 @@ Devices in the Transport Layer have a different set of Attributes from devices i
 
 ### Device Onboarding Info
 
-If a new device is onboarded, the device onboarding info is shared via a side channel. With this information, all necessary data is exchanged to access the identity. So this should be kept very secure.
+If a new device is onboarded, the device onboarding info is shared via a side channel. With this information, all necessary data is exchanged to access the Identity. So this should be kept very secure.
 
 - id
 - createdAt
@@ -95,8 +95,8 @@ If a new device is onboarded, the device onboarding info is shared via a side ch
 - secretBaseKey
 - deviceIndex
 - synchronizationKey
-- identityPrivateKey (optional)
-- identity
+- IdentityPrivateKey (optional)
+- Identity
 - password
 - username
 
@@ -116,13 +116,13 @@ The actual file is then shared by a file reference to a recipient. Files can be 
 - filename: Filename of the original file (used for storing the file on local systems)
 - filesize: Plaintext size of the original file's payload
 - createdAt: ISO String when the file has been created
-- createdBy: Address of the identity which created the file
+- createdBy: Address of the Identity which created the file
 - createdByDevice: Device id of the device which created the file
 - expiresAt: ISO String when the file expires
 - mimetype: Mimetype of the file's payload
-- isOwn: Whether or not the file was uploaded by the current identity
+- isOwn: Whether or not the file was uploaded by the current Identity
 - deletedAt: ISO String when the file has been deleted
-- deletedBy: Address of the identity which deleted the file
+- deletedBy: Address of the Identity which deleted the file
 - deletedByDevice: Device id of the device which deleted the file
 
 ### File Reference
@@ -140,10 +140,10 @@ Depending on the content of the Message, a Message could act as a technical Mess
 
 - id: random Message id generated by the backbone once the Message has been created
 - createdAt: ISO String when the Message has been created
-- createdBy: Address of the identity which created the Message
+- createdBy: Address of the Identity which created the Message
 - createdByDevice: Device id of the device which created the Message
 - recipients: Array of recipients
-  - address: Address of one of the identity which should receive the Message
+  - address: Address of one of the Identity which should receive the Message
   - receivedAt: ISO String when the recipient received the Message
   - receivedByDevice: Device id of the recipient's device which received the Message
 - relationshipIds: Array of Relationship IDs of the recipients (same order as recipients)
@@ -152,7 +152,7 @@ Depending on the content of the Message, a Message could act as a technical Mess
 
 ## Relationships
 
-The link between two identities is called Relationship. From the view of one identity or its device, the "own" keyword decribes content created by its own. The "peer" keyword describes content of the other party.
+The link between two Identities is called Relationship. From the view of one Identity or its device, the "own" keyword decribes content created by its own. The "peer" keyword describes content of the other party.
 
 Relationships are usually used as the technical term, whereas contact is used as a business terminology. To be more strict, one could say that contacts are active Relationships, as a Relationship could also be terminated (thus a communication would no longer be possible).
 
@@ -181,7 +181,7 @@ Relationships are usually used as the technical term, whereas contact is used as
 
 ## Relationship Changes
 
-Relationships are agreements between two identities. Thus, to change a Relationship both parties have to accept on the new "terms". This is done by requesting a change which the other party can accept or reject. The requestor could also revoke a requested change, as long as the other party did not react to the change yet.
+Relationships are agreements between two Identities. Thus, to change a Relationship both parties have to accept on the new "terms". This is done by requesting a change which the other party can accept or reject. The requestor could also revoke a requested change, as long as the other party did not react to the change yet.
 
 The very first agreement between both parties is to actually create the Relationship, the "Relationship request". Technically, the term "Relationship creation change request" would be more correct but is seldom used in the documentation because of readability.
 
@@ -202,7 +202,7 @@ The Relationship request - next to the required technical information - usually 
 
 A RelationshipTemplate is a structured representation of data which is required for a Relationship to be established. Thus, it is usually also addressing the required information for a business process to start.
 
-RelationshipTemplates solve the problem of linking enmeshed identities to a currently existing real world context, e.g. an existing customer account or an anonymous web session.
+RelationshipTemplates solve the problem of linking enmeshed Identities to a currently existing real world context, e.g. an existing customer account or an anonymous web session.
 
 In addition to technical information like public keys, certificates or signatures, it usually contains:
 
@@ -221,9 +221,9 @@ In addition to technical information like public keys, certificates or signature
   - Data privacy guidelines
   - EULAs
 
-A RelationshipTemplate needs to be created in order to receive Relationship requests and ultimately create an active Relationship between two identities. The RelationshipTemplate is then usually shared with the user via a token.
+A RelationshipTemplate needs to be created in order to receive Relationship requests and ultimately create an active Relationship between two Identities. The RelationshipTemplate is then usually shared with the user via a token.
 
-RelationshipTemplates can be both: identity-specific (RelationshipTemplate is personalized for one specific identity - which might not exist yet) or identity-agnostic (RelationshipTemplate is open for multiple identities).
+RelationshipTemplates can be both: Identity-specific (RelationshipTemplate is personalized for one specific Identity - which might not exist yet) or Identity-agnostic (RelationshipTemplate is open for multiple Identities).
 
 ### Generic RelationshipTemplates
 

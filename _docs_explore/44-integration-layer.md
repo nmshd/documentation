@@ -4,7 +4,7 @@ permalink: /explore/layers/integration
 toc: true
 ---
 
-The integration layer is only available within the Connector and sits on top of the transport and consumption layers. It is responsible for providing integration capabilities to other systems. It acts for a single identity only, which is usually an organization.
+The integration layer is only available within the Connector and sits on top of the transport and consumption layers. It is responsible for providing integration capabilities to other systems. It acts for a single Identity only, which is usually an organization.
 
 **Components**
 

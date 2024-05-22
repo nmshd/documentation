@@ -43,7 +43,7 @@ Enmeshed consists of different layers, each of which provide a different set of 
 
 The Connector stores required enmeshed metadata on a central point within the organization network, making it possible for existing system to access all the features of the Connector. With this approach, it is not necessary to implement the whole stack of enmeshed in each and every system, like user key management and encryption capabilities.
 
-Additionally, the Connector should be run within the organizations network, as it acts as the digital identity of the organization itself, as well as a secure gateway to enmeshed. Although it could be hosted by a third party as a software-as-a-service, we discourage this approach for production environments. The hosting provider would be able to impersonate the actual organization within the enmeshed ecosystem and would be able to access the plaintext data of users, messages, files, an so on.
+Additionally, the Connector should be run within the organizations network, as it acts as the digital Identity of the organization itself, as well as a secure gateway to enmeshed. Although it could be hosted by a third party as a software-as-a-service, we discourage this approach for production environments. The hosting provider would be able to impersonate the actual organization within the enmeshed ecosystem and would be able to access the plaintext data of users, messages, files, an so on.
 
 If you ask yourself now "Why does enmeshed itself host Connectors then?" - good catch! We do host Connectors but only for development, test or demo reasons.
 

@@ -12,14 +12,14 @@ The list below is a non-complete list of use cases within enmeshed:
     - Load peer token anonymous by id and key
     - Load peer token anonymous by truncated reference
     - Get version information
-    - Login to identity
+    - Login to Identity
   - Transport
 
     - Account
       - Disable auto sync
       - Enable auto sync
       - Get device info
-      - Get identity info
+      - Get Identity info
       - Get sync info
       - Sync datawallet
       - Sync everything

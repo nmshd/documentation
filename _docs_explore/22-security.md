@@ -48,7 +48,7 @@ For more information on the security of the device, please read the [Security Re
 
 # Communication Security
 
-Enmeshed uses the highest standards of encrypted communication. It is end-to-end encrypted by using public key cryptography between identities. Different keypairs for the identity, for each device and each contact are used to distinguish the different communication areas (technical, multi-factor or contractual). Where possible, random keys are used and shared securely. If a random key is not possible, derived keys from high-entropy master keys (not passwords) are used. The very first keys are exchanged over Key Exchange Protocols, so that as little key material as possible is shared. Please refer to the [Cryptography Section]({% link _docs_explore/62-cryptography.md %}) to get more information about the used algorithms, libraries and methodologies.
+Enmeshed uses the highest standards of encrypted communication. It is end-to-end encrypted by using public key cryptography between Identities. Different keypairs for the Identity, for each device and each contact are used to distinguish the different communication areas (technical, multi-factor or contractual). Where possible, random keys are used and shared securely. If a random key is not possible, derived keys from high-entropy master keys (not passwords) are used. The very first keys are exchanged over Key Exchange Protocols, so that as little key material as possible is shared. Please refer to the [Cryptography Section]({% link _docs_explore/62-cryptography.md %}) to get more information about the used algorithms, libraries and methodologies.
 
 For technical communication with contacts, the contact-specific signature keypair is used. Thus, every Message of enmeshed contains multiple digital signatures of the same Message, one signature per recipient (as the sender communicates with a different private key per contact). The digital signature enforces that only the sender can sign the payload and that nobody in between could tamper with the Message itself, e.g. change the Message payload.
 
@@ -72,8 +72,8 @@ So far, the Backbone is not using digitally signed timestamps by officially cert
 
 # Law Enforcement Compliance
 
-It is possible to temporarily or permanently block access or delete identities, if illegal activities are brought to the attention of the Backbone's operator. For this the Backbone operator requires the help of at least one of the parties which received illegal content from a sender.
+It is possible to temporarily or permanently block access or delete Identities, if illegal activities are brought to the attention of the Backbone's operator. For this the Backbone operator requires the help of at least one of the parties which received illegal content from a sender.
 
-In addition, enmeshed supports law enforcement up to a certain degree. As like any other central provider, it is possible to block access or delete content if the Backbone operator gets the official task to comply. For this, the Backbone operator would need detailed information about the identity or the payload from the law enforcement agencies.
+In addition, enmeshed supports law enforcement up to a certain degree. As like any other central provider, it is possible to block access or delete content if the Backbone operator gets the official task to comply. For this, the Backbone operator would need detailed information about the Identity or the payload from the law enforcement agencies.
 
-Additionally, it is possible to point law enforcement entities to other enmeshed identities which have communicated with an target identity in the past. If the actual real-world entity behind such an identity is known (e.g. a company) they might know who the target identity is and could further help law enforcement.
+Additionally, it is possible to point law enforcement entities to other enmeshed Identities which have communicated with an target Identity in the past. If the actual real-world entity behind such an Identity is known (e.g. a company) they might know who the target Identity is and could further help law enforcement.

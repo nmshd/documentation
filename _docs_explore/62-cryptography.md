@@ -11,7 +11,7 @@ Stored data - so called "data at rest" - is encrypted on the respective systems,
 
 # Transport Layer Encryption
 
-The communication between identities via the Backbone is end-to-end encrypted. This means, that nobody between the digital identities (i.e. their devices) is able to access the data. This prevents even the operator of the Backbone to access the payload which is sent between identities. It is also reducing the threats of data leaks to a minimum, as only the metadata could be leaked. Such a metadata leak would be the same level of information leak as a public blockchain is doing all along its public network.
+The communication between Identities via the Backbone is end-to-end encrypted. This means, that nobody between the digital Identities (i.e. their devices) is able to access the data. This prevents even the operator of the Backbone to access the payload which is sent between Identities. It is also reducing the threats of data leaks to a minimum, as only the metadata could be leaked. Such a metadata leak would be the same level of information leak as a public blockchain is doing all along its public network.
 
 We use modern cryptographic algorithms to our best knowledge. The cryptographic library we use is [libsodium](https://doc.libsodium.org/) and its JavaScript wrapper [libsodium.js](https://github.com/jedisct1/libsodium.js). Libsodium is a fork of NaCl which is primarily stripping out unnecessary or dangerours interfaces or algorithms.
 
@@ -41,39 +41,39 @@ Every Identity needs a set of keys used by the Identity in order to digitally si
 
 Abbreviated: PrivId
 
-The identity's most secret, private signature key with which it is signing certificates, documents or the creation of new devices.
+The Identity's most secret, private signature key with which it is signing certificates, documents or the creation of new devices.
 
 ### Identity Signature Public Key
 
 Abbreviated: PubId
 
-The identity's public key which acts as the primary form of verifying data signed by an identity. Only with a known Identity Signature Public Key of an identity, the signature of an identity can be securely verified.
+The Identity's public key which acts as the primary form of verifying data signed by an Identity. Only with a known Identity Signature Public Key of an Identity, the signature of an Identity can be securely verified.
 
-With the identity's public key, the identity's address is calculated.
+With the Identity's public key, the Identity's address is calculated.
 
-Usually, you receive another identity's signature public key while making the first contact (e.g. from the RelationshipTemplate or the Relationship request followed upon it).
+Usually, you receive another Identity's signature public key while making the first contact (e.g. from the RelationshipTemplate or the Relationship request followed upon it).
 
 ### Synchronization Base Secret Key
 
-The secret key which is used to derive the synchronization derived secret keys. The synchronization base secret key is randomly generated on creation for every identity. The symmetric keys which are derived from the synchronization base key and are used to actually encrypt/decrypt the synchronization events.
+The secret key which is used to derive the synchronization derived secret keys. The synchronization base secret key is randomly generated on creation for every Identity. The symmetric keys which are derived from the synchronization base key and are used to actually encrypt/decrypt the synchronization events.
 
 ## Device Keys
 
-One identity has one to many devices using the identity. In order to authenticate the devices between each other, a device creates an own signing key, which will never leave the device.
+One Identity has one to many devices using the Identity. In order to authenticate the devices between each other, a device creates an own signing key, which will never leave the device.
 
 ## Device Signature Private Key
 
-Every device of an identity has its own private key which is also not shared to other devices. With this, it is possible to have multi-factor authentication capabilities across different devices of one identity.
+Every device of an Identity has its own private key which is also not shared to other devices. With this, it is possible to have multi-factor authentication capabilities across different devices of one Identity.
 
 Additionally, the private signature keys can be used to sign data which is synchronized across devices.
 
 ## Device Signature Public Key
 
-The device's public key which is stored in the Datawallet of an identity and thus is know to any other device of the identity. The public key can be used to verify data coming from other devices of an identity.
+The device's public key which is stored in the Datawallet of an Identity and thus is know to any other device of the Identity. The public key can be used to verify data coming from other devices of an Identity.
 
 ## Symmetric Encryption
 
-Symmetric encryption is used throughout this solution in order to securely encrypt sensitive data. Prior to a communication to a different device or identity, a random secret key is generated and used to encrypt the payload. This secret key is then shared via a secure side-channel / out-of-band communication. This could be a Message communicated over enmeshed, a QR-Code shown in a browser session or any other secure communication channel. The secret key is never transmitted unencrypted over the Backbone, as this would break up the end-to-end encryption.
+Symmetric encryption is used throughout this solution in order to securely encrypt sensitive data. Prior to a communication to a different device or Identity, a random secret key is generated and used to encrypt the payload. This secret key is then shared via a secure side-channel / out-of-band communication. This could be a Message communicated over enmeshed, a QR-Code shown in a browser session or any other secure communication channel. The secret key is never transmitted unencrypted over the Backbone, as this would break up the end-to-end encryption.
 
 Examples where symmetric encryption is used:
 

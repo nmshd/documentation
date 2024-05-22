@@ -24,10 +24,10 @@ In order to receive Relationship requests, a RelationshipTemplate needs to be cr
 
 We differentiate between two types of RelationshipTemplates:
 
-- Identity-specific RelationshipTemplate which are short-living personalized RelationshipTemplates for known identities/users, which also could incorporate personal data to fill the user's identity when scanned. This is usually the case if the RelationshipTemplate is created for an authenticated user session. It must be ensured that only the user whose personal data is stored within the RelationshipTemplate has access to the RelationshipTemplate.
-- Identity-agnostic RelationshipTemplate for unknown identities/users or scenarios where personal information should not be available in the RelationshipTemplate. These RelationshipTemplates are usually long-living RelationshipTemplates for new user registrations or printouts.
+- Identity-specific RelationshipTemplate which are short-living personalized RelationshipTemplates for known Identities/users, which also could incorporate personal data to fill the user's Identity when scanned. This is usually the case if the RelationshipTemplate is created for an authenticated user session. It must be ensured that only the user whose personal data is stored within the RelationshipTemplate has access to the RelationshipTemplate.
+- Identity-agnostic RelationshipTemplate for unknown Identities/users or scenarios where personal information should not be available in the RelationshipTemplate. These RelationshipTemplates are usually long-living RelationshipTemplates for new user registrations or printouts.
 
-Once the RelationshipTemplate is created, a token needs to be created for the RelationshipTemplate, as the token is the primary way to communicate with unknown identities. The POST /Token route for a specific RelationshipTemplate is used for this.
+Once the RelationshipTemplate is created, a token needs to be created for the RelationshipTemplate, as the token is the primary way to communicate with unknown Identities. The POST /Token route for a specific RelationshipTemplate is used for this.
 
 {% include rapidoc api_route_regex="^post /api/v2/RelationshipTemplates/Own/{id}/Token$" %}
 

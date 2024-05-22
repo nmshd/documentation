@@ -62,8 +62,8 @@ Due to the broad scope of scenarios encompassed within the public sector, an abs
 The developers at enmeshed interpret the data privacy regulations narrowly, which has earned the appreciation of lawyers and data privacy experts for the design of the solution. Notably, the ability to delete all of the following data categories within our solution is pivotal for **absolute data privacy**:
 
 1. (Non-technical) personal data which could directly identify a person (like names, e-mail addresses, birth dates, public/social ids, or phone numbers) is only processed in an end-to-end encrypted way between users and organizations. The central service does not have access to this data.
-2. Pseudonyms or technical identifiers which are shared between multiple identities (like enmeshed Addresses, enmeshed Public Keys, Device Ids, or identity versions) are considered PII, as an entity could use this information to map this data to real world persons.
-3. Pseudonyms, technical identifiers or secrets which are shared between two identities (like Backbone credentials, device versions, or Relationship public keys) are considered PII, as an entity could use this information to map this data to real world persons.
+2. Pseudonyms or technical identifiers which are shared between multiple Identities (like enmeshed Addresses, enmeshed Public Keys, Device Ids, or Identity versions) are considered PII, as an entity could use this information to map this data to real world persons.
+3. Pseudonyms, technical identifiers or secrets which are shared between two Identities (like Backbone credentials, device versions, or Relationship public keys) are considered PII, as an entity could use this information to map this data to real world persons.
 4. One-way functions (hashes/digests) of PII are considered PII, as an entity theoretically has the possibility of mapping these hashes to real world persons or could potentially map the hashes to real world persons.
 5. Encrypted data (without having the keys to it) is considered PII, as an entity has the theoretical possibility of decrypting the ciphertexts (e.g. if it gets the keys) or could potentially decrypt the ciphertexts without having the keys (be it weak or old encryption algorithms, or the best computers in the world to crack the most up-to-date encryption).
 6. Metadata like are considered PII on a case-by-case decision, depending if an entity would have the possibility of mapping this metadata to real-world persons (e.g. if the entity could deduct the person by knowing that a real world person triggered a Backbone action at the same time or by analyzing the Relationships of an Identity)
@@ -79,8 +79,8 @@ When considering a **relative data privacy** , one might contend that only data 
 - Data received from or sent to the Backbone is either pseudonymous (e.g. addresses), non-personalized (e.g. ids, dates, states) or encrypted in a way, that the Backbone cannot process this data.
 - Keys to encrypted material on the Backbone are never transmitted in a way, that the Backbone could make use of it. For example, keys are shared on a side-channel (e.g. scan qr-code from website) or an end-to-end encrypted communication channel.
 - The enmeshed App allows users to customize access for individuals and systems so that only necessary resources are shared.
-- Data synchronization of the same identity across enmeshed Apps is possible. This is done over a device-to-device encrypted communication channel (via the Backbone). The keys for this communication channel are transferred via a side-channel when onboarding a device for an identity.
-- Data exchange between users takes place after explicit consent is provided. No data is shared until this consent is final, at which point technical and personal data is shared between the user and another enmeshed identity.
+- Data synchronization of the same Identity across enmeshed Apps is possible. This is done over a device-to-device encrypted communication channel (via the Backbone). The keys for this communication channel are transferred via a side-channel when onboarding a device for an Identity.
+- Data exchange between users takes place after explicit consent is provided. No data is shared until this consent is final, at which point technical and personal data is shared between the user and another enmeshed Identity.
 
 ## Data is shared by the user
 
@@ -94,15 +94,15 @@ Enmeshed additionally follows the once-only principle for such data, thus enabli
 
 The Backbone is the most significant component in terms of privacy. As a centrally hosted component by a third-party, it is understandable that privacy-related questions usually focus this component."
 
-The Backbone only stores technical information of identities or devices. It never has access to cleartext data such as content of Messages, names, e-mail addresses, and so on, as all this information is end-to-end encrypted. Furthermore, even encrypted data of the Backbone is not publicly available - only the identities which have reason to access the data get access.
+The Backbone only stores technical information of Identities or devices. It never has access to cleartext data such as content of Messages, names, e-mail addresses, and so on, as all this information is end-to-end encrypted. Furthermore, even encrypted data of the Backbone is not publicly available - only the Identities which have reason to access the data get access.
 
-Without the actual keys from the respective identities (which the Backbone hosting entity does not receive) the actual data cannot practically be decrypted or analyzed. The **relative data privacy** mindset should thus be reasonably fulfilled by using the enmeshed mechanisms.
+Without the actual keys from the respective Identities (which the Backbone hosting entity does not receive) the actual data cannot practically be decrypted or analyzed. The **relative data privacy** mindset should thus be reasonably fulfilled by using the enmeshed mechanisms.
 
 However, as stated in the chapter above, because of the **absolute data privacy** mindset, even this technical information is considered to be PII, because of the theoretical possibility, that somebody could crack the used ciphertexts or hashes. To fulfill the absolute data privacy mindset, all the data of the Backbone can be deleted.
 
-Keep in mind: The threat of metadata analytics should not be underestimated and also cannot be eradicated by us unfortunately. Consequently, a Backbone operator might still be able to analyze the technical metadata stored within the Backbone although it is "least knowledge". For instance, the number of customers an organization has could be inferred based on the number of identities with a Relationship.
+Keep in mind: The threat of metadata analytics should not be underestimated and also cannot be eradicated by us unfortunately. Consequently, a Backbone operator might still be able to analyze the technical metadata stored within the Backbone although it is "least knowledge". For instance, the number of customers an organization has could be inferred based on the number of Identities with a Relationship.
 
-However, this is far less information than any other current central identity provider knows of the users.
+However, this is far less information than any other current central Identity provider knows of the users.
 
 # Comparison to decentralized technologies
 
