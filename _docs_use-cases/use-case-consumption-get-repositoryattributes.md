@@ -15,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: getRepositoryAttributes
   - description: Fetches all RepositoryAttributes
-  - feature category: Normalized attributes
+  - feature category: Normalized Attributes
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE

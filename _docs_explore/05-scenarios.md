@@ -23,7 +23,7 @@ The list below is by far not complete:
   - Digitally receive and share school certificates
 - Higher-Education
   - Cross functional identities for students, course participants or institutions
-  - Submit digital tests, applications or attributes
+  - Submit digital tests, applications or Attributes
 - Professional Career
   - Identities for future, current and past employees or contractors
   - GDPR-compliant communication to private devices
@@ -31,12 +31,12 @@ The list below is by far not complete:
   - Employee Self Services with digital signatures
 - Suppliers
   - Secure request and invoice communication
-  - Secure attribute management (e.g. payment data)
+  - Secure Attribute management (e.g. payment data)
 - Freelancers/Consulting/Facility-Management
   - Third-party authorizations (e.g. facilities, rooms, software components)
   - Secure contract communication
 - Healthcare
-  - Fast attribute sharing of patients (to other organizations or doctors)
+  - Fast Attribute sharing of patients (to other organizations or doctors)
   - Anamnesis of patients
   - Privacy forms for insurances
   - Legal guardianships

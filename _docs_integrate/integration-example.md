@@ -115,7 +115,7 @@ Let's assume the Connector needs to know the given name and surname of its conta
                 "value": "Demo Connector of integration example"
               }
             },
-            "sourceAttributeId": "<the id of the attribute created above>"
+            "sourceAttributeId": "<the ID of the Attribute created above>"
           }
         ]
       },

@@ -54,7 +54,7 @@ But please keep in mind that the user might not like to wait that long. If there
 
 ### Respond to Relationship Request
 
-Once the data has been processed on the business system, it is time to respond to the Relationship request: you can either accept or reject it. Both responses can transfer additional data to the requestor, e.g. the created customer id, contract id or suchlike (accept) - or the rejection reason, like an invalid required attribute or an insufficient financial score.
+Once the data has been processed on the business system, it is time to respond to the Relationship request: you can either accept or reject it. Both responses can transfer additional data to the requestor, e.g. the created customer id, contract id or suchlike (accept) - or the rejection reason, like an invalid required Attribute or an insufficient financial score.
 
 If the change is accepted, the connection to the requestor is automatically generated and from this point in time, both parties may communicate over a secure, bi-directional tunnel.
 
@@ -68,7 +68,7 @@ The Connector receives a RelationshipTemplate (or Token) from an external party 
 
 ### Get an External RelationshipTemplate
 
-In order to send out own Relationship request to other parties, a RelationshipTemplate must be fetched from the external party. The RelationshipTemplate is created by the external party and then usually shared by a truncated reference over a link or QR code. This reference can be used to retrieve the actual RelationshipTemplate, for example with requested attribute.
+In order to send out own Relationship request to other parties, a RelationshipTemplate must be fetched from the external party. The RelationshipTemplate is created by the external party and then usually shared by a truncated reference over a link or QR code. This reference can be used to retrieve the actual RelationshipTemplate, for example with requested Attribute.
 
 ![Get RelationshipTemplate Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_GetTemplate.png' | relative_url }} "Get RelationshipTemplate")
 
@@ -77,7 +77,7 @@ In order to send out own Relationship request to other parties, a RelationshipTe
 ### Create a Relationship
 
 Once the external RelationshipTemplate has been successfully read in, and the terms/requested content be found acceptable, one can answer the RelationshipTemplate with a Relationship request. This is done by calling the POST /Relationships route.
-This request contains - equivalent to incoming Relationship creation changes - any information the other party requested, for example legal and contact information. Thus, one should parse the given RelationshipTemplate correctly and send the required attributes within this request. Otherwise the other party might reject the Relationship creation change, as requested attributes are not existing.
+This request contains - equivalent to incoming Relationship creation changes - any information the other party requested, for example legal and contact information. Thus, one should parse the given RelationshipTemplate correctly and send the required Attributes within this request. Otherwise the other party might reject the Relationship creation change, as requested Attributes are not existing.
 
 ![Create Relationship Request Sequence Diagram]({{ '/assets/diagrams/integrate/Connector_CreateRelationshipRequest.png' | relative_url }} "Create Relationship Request")
 

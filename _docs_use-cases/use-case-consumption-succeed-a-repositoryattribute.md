@@ -15,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: succeedRepositoryAttribute
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE

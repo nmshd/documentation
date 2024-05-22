@@ -15,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: shareRepositoryAttribute
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
@@ -46,7 +46,7 @@ Internally, a [Request]({% link _docs_integrate/data-model-overview.md %}#reques
 Assuming your peer accepts the Request, at their side a peer shared IdentityAttribute will be created.
 The corresponding [Response]({% link _docs_integrate/data-model-overview.md %}#response) informs you about their acceptance and creates a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a copy of the RepositoryAttribute's `content` you shared.
 This own shared IdentityAttribute copy, however, in addition has a defined `shareInfo` property.
-It stores information about the `peer` you shared the attribute with, the `id` of the original RepositoryAttribute in the field `sourceAttribute`, and a reference to the Request used to share the Attribute.
+It stores information about the `peer` you shared the Attribute with, the `id` of the original RepositoryAttribute in the field `sourceAttribute`, and a reference to the Request used to share the Attribute.
 Note that the own shared IdentityAttribute at your side and the peer shared IdentityAttribute at your peer's side are identical, except for the value in the `shareInfo.peer` field: on your side it will have the peer's Address and on the peer's side it will have your Address.
 Please note further, that this use case is meant to be used to share a version of a RepositoryAttribute for the first time.
 If you have already shared another version of a succeeded Attribute with the peer and you want to let them know about the changes to its `value`, use the [NotifyPeerAboutIdentityAttributeSuccession use-case]({% link _docs_use-cases/use-case-consumption-notify-peer-about-repositoryattribute-succession.md %}).

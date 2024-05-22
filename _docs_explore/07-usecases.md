@@ -71,17 +71,17 @@ The list below is a non-complete list of use cases within enmeshed:
 
       - Attributes
 
-        - Create attribute
-        - Delete attribute
-        - Delete attribute by name
+        - Create Attribute
+        - Delete Attribute
+        - Delete Attribute by name
         - Get all valid
-        - Get attribute
-        - Get attribute by name
-        - Get attributes
-        - Get attributes by name
+        - Get Attribute
+        - Get Attribute by name
+        - Get Attributes
+        - Get Attributes by name
         - Get history by name
-        - Suceed attribute
-        - Update attribute
+        - Suceed Attribute
+        - Update Attribute
 
       - Settings
 

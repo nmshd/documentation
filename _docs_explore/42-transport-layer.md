@@ -69,7 +69,7 @@ Thus, every device has the complete access on the identity and its data without 
 
 ### Device Structure
 
-Devices in the Transport Layer have a different set of attributes from devices in the Backbone Layer. The devices of one identity know each other and this is the information which is shared accross the devices.
+Devices in the Transport Layer have a different set of Attributes from devices in the Backbone Layer. The devices of one identity know each other and this is the information which is shared accross the devices.
 
 - id
 - publicKey (optional)
@@ -190,7 +190,7 @@ The very first agreement between both parties is to actually create the Relation
 The Relationship request - next to the required technical information - usually contains:
 
 - Requested information from the requestor
-  - Required/optional attributes
+  - Required/optional Attributes
   - Certificates
   - Signatures
   - Answers to questionnaire
@@ -207,13 +207,13 @@ RelationshipTemplates solve the problem of linking enmeshed identities to a curr
 In addition to technical information like public keys, certificates or signatures, it usually contains:
 
 - Information which the templator would like to share about itself
-  - Templator attributes (e.g. company name, address, phone numbers)
+  - Templator Attributes (e.g. company name, address, phone numbers)
   - Contact details
 - Private information which the templator would like to share about the requestor
-  - Requestor attributes
+  - Requestor Attributes
   - Websession information
 - Requested additional information about the requestor
-  - Required/optional attributes
+  - Required/optional Attributes
   - Certificates
   - Signatures
   - Questionnaires

@@ -796,7 +796,7 @@ If you want to query Attributes the user has in the context of a Relationship wi
 | validFrom  | `string` \| `undefined`                  | The start date of the time frame the returned Attribute should be valid in.                                                                                                         |
 | validTo    | `string` \| `undefined`                  | The end date of the time frame the returned Attribute should be valid in.                                                                                                           |
 | key        | `string`                                 | The key of the RelationshipAttribute that should be queried.                                                                                                                        |
-| owner      | `string`                                 | The owner of the queried RelationshipAttribute. Can be an empty string (`""`), if the owner is unknown or you are querying from multiple thirdParties that could own the attribute. |
+| owner      | `string`                                 | The owner of the queried RelationshipAttribute. Can be an empty string (`""`), if the owner is unknown or you are querying from multiple thirdParties that could own the Attribute. |
 | thirdParty | `string[]`                               | The Address of the third parties the RelationshipAttribute should be queried from.                                                                                                  |
 
 ### IQLQuery

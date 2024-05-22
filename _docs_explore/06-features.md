@@ -6,7 +6,7 @@ permalink: /explore/features
 Features included with enmeshed:
 
 - Self-sovereign identity
-- Datawallet capabilitites, i.e. repository of structured data like attributes and files
+- Datawallet capabilitites, i.e. repository of structured data like Attributes and files
 - Datalog, i.e. know what data was shared when and to whom
 - Cross-identity transparent encryption and digital signatures
 - Cross-identity bi-directional data communication

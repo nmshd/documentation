@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: RelationshipsFacade
   - function: getAttributesForRelationship
-  - description: Queries attributes that are related to the given relationship.
+  - description: Queries Attributes that are related to the given Relationship.
   - feature category: Mutual peer-to-peer relationships
   - tech category: Relationships
   - status: DONE

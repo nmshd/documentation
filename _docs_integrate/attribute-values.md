@@ -470,7 +470,7 @@ The officially registered pseudonym of a person.
 
 ## SchematizedXML
 
-SchematizedXML can be used to exchange files in XML format. The exchange of XML files is also possible via [`IdentityFileReference`](#identityfilereference), but SchematizedXML has the advantage that it is possible to validate the XML and display the attributes in the wallet.
+SchematizedXML can be used to exchange files in XML format. The exchange of XML files is also possible via [`IdentityFileReference`](#identityfilereference), but SchematizedXML has the advantage that it is possible to validate the XML and display the Attributes in the wallet.
 
 **Properties**
 

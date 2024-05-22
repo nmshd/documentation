@@ -15,7 +15,7 @@ The consumption layer contains processes, logic and data structures either for p
 
 ## Attribute Handling
 
-The consumption layer handles the central attribute store of an identity. With it, requests and RelationshipTemplates can be automatically filled based on the already stored attributes.
+The consumption layer handles the central Attribute store of an identity. With it, requests and RelationshipTemplates can be automatically filled based on the already stored Attributes.
 
 ## Request Handling
 
@@ -25,6 +25,6 @@ It is planned to have automation rules for processing requests, so that users of
 
 ## Data Log
 
-Data received or sent via Messages is tracked by the consumption layer. Thus it is possible to see which contact received which data (usually attributes) of the identity and what data was sent to the identity by its contacts.
+Data received or sent via Messages is tracked by the consumption layer. Thus it is possible to see which contact received which data (usually Attributes) of the identity and what data was sent to the identity by its contacts.
 
-This is required to synchronize changes of attributes of an identity to all contacts who have receive the attribute in the past, e.g. send a Message to contacts who already have my private address that the address needs to be change to a new one beginning of next month.
+This is required to synchronize changes of Attributes of an identity to all contacts who have receive the Attribute in the past, e.g. send a Message to contacts who already have my private address that the address needs to be change to a new one beginning of next month.
