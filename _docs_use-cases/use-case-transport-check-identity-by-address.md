@@ -19,7 +19,7 @@ properties:
   - tech category: Identities
   - status: DONE
   - documentation status:
-  - comments:
+  - comments: Will be deleted with v5 since it isn't used
   - actor: Identity
   - trigger:
   - precondition:

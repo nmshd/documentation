@@ -15,7 +15,7 @@ properties:
   - facade:
   - function:
   - description: Possible other Devices of the Identity should be notified, if the pin or password has been wrongly entered multiple times. This notification could happen by the use of the Backbone, in addition to a possible central tracking of failed login attempts on Devices.
-  - feature category: Identity Hardening
+  - feature category: Identity Handling
   - tech category: Profiles
   - status: IDEA
   - documentation status:
