@@ -31,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: post /api/v2/Attributes
+  - api_route_regex: POST /api/v2/Attributes
   - published: default
   - link: use-case-consumption-create-a-repositoryattribute
 require:
 required_by:
-api_route_regex: ^post /api/v2/Attributes$
+api_route_regex: ^POST /api/v2/Attributes$
 # End automatic generation
 ---
 
@@ -44,7 +44,7 @@ api_route_regex: ^post /api/v2/Attributes$
 
 {% include properties_list.html %}
 
-This use-case is intended to create a RepositoryAttribute, i.e. an unshared [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute)
+This use case is intended to create a RepositoryAttribute, i.e. an unshared [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute)
 based on a given [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
 
 ## Parameters

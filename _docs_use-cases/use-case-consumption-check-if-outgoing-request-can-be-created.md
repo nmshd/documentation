@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: post /api/v2/Requests/Outgoing/Validate
+  - api_route_regex: POST /api/v2/Requests/Outgoing/Validate
   - published: default
   - link: use-case-consumption-check-if-outgoing-request-can-be-created
 require:
 required_by:
-api_route_regex: ^post /api/v2/Requests/Outgoing/Validate$
+api_route_regex: ^POST /api/v2/Requests/Outgoing/Validate$
 # End automatic generation
 ---
 
@@ -42,7 +42,7 @@ api_route_regex: ^post /api/v2/Requests/Outgoing/Validate$
 
 {% include properties_list.html %}
 
-This use-case is intended to check if a [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) can be created
+This use case is intended to check if a [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) can be created
 based on a given [Request]({% link _docs_integrate/data-model-overview.md %}#request) for a given `peer`.
 
 ## Parameters

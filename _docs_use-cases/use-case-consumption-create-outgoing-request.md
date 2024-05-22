@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: post /api/v2/Requests/Outgoing
+  - api_route_regex: POST /api/v2/Requests/Outgoing
   - published: default
   - link: use-case-consumption-create-outgoing-request
 require:
 required_by:
-api_route_regex: ^post /api/v2/Requests/Outgoing$
+api_route_regex: ^POST /api/v2/Requests/Outgoing$
 # End automatic generation
 ---
 
@@ -42,8 +42,8 @@ api_route_regex: ^post /api/v2/Requests/Outgoing$
 
 {% include properties_list.html %}
 
-This use-case is intended to create an actionable [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) based on a given [Request]({% link _docs_integrate/data-model-overview.md %}#localrequest) for a given `peer`.
-One can (and should) [check if the outgoing Request can be created](use-case-consumption-check-if-outgoing-request-can-be-created) before creating the LocalRequest with this use-case.
+This use case is intended to create an actionable [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) based on a given [Request]({% link _docs_integrate/data-model-overview.md %}#localrequest) for a given `peer`.
+One can (and should) [check if the outgoing Request can be created](use-case-consumption-check-if-outgoing-request-can-be-created) before creating the LocalRequest with this use case.
 
 The created LocalRequest needs to be manually submitted to the peer, e.g. [by sending a Message]({% link _docs_integrate/requests-via-messages.md %}).
 

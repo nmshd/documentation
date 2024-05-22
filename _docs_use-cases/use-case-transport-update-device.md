@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case updates the `name` or `description` of a Device using its `id`.
+This use case updates the `name` or `description` of a Device using its `id`.
 
 ## Parameters
 

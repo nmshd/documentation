@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-If you wish to share one of your private [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute), called RepositoryAttributes, with a peer, this use-case allows you to do so.
+If you wish to share one of your private [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute), called RepositoryAttributes, with a peer, this use case allows you to do so.
 Internally, a [Request]({% link _docs_integrate/data-model-overview.md %}#request) with a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) will be created and will be sent via [Message]({% link _docs_integrate/data-model-overview.md %}#message) to the peer.
 Assuming your peer accepts the Request, at their side a peer shared IdentityAttribute will be created.
 The corresponding [Response]({% link _docs_integrate/data-model-overview.md %}#response) informs you about their acceptance and creates a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a copy of the RepositoryAttribute's `content` you shared.

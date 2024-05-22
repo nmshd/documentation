@@ -25,7 +25,7 @@ required_by:
 # End automatic generation
 ---
 
-This guide explains the end to end flow of creating an [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) for your own Connector as its Integrator. As there are two types of Attributes, [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) and [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), a distinction must be made between them when creating an Attribute for yourself.
+This guide explains the end-to-end flow of creating an [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) for your own Connector as its Integrator. As there are two types of Attributes, [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) and [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), a distinction must be made between them when creating an Attribute for yourself.
 
 ## Create an IdentityAttribute for yourself
 

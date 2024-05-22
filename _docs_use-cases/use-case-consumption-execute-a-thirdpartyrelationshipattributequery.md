@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: post /api/v2/Attributes/executeThirdPartyRelationshipAttributeQuery
+  - api_route_regex: POST /api/v2/Attributes/ExecuteThirdPartyRelationshipAttributeQuery
   - published: default
   - link: use-case-consumption-execute-a-thirdpartyrelationshipattributequery
 require:
 required_by:
-api_route_regex: ^post /api/v2/Attributes/executeThirdPartyRelationshipAttributeQuery$
+api_route_regex: ^POST /api/v2/Attributes/ExecuteThirdPartyRelationshipAttributeQuery$
 # End automatic generation
 ---
 
@@ -42,7 +42,7 @@ api_route_regex: ^post /api/v2/Attributes/executeThirdPartyRelationshipAttribute
 
 {% include properties_list.html %}
 
-This use-case is intended to execute an incoming [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery)
+This use case is intended to execute an incoming [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery)
 (e.g. received by a ReadAttributeRequestItem) which returns a list of matching
 [Relationship Attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute)
 of another peer.

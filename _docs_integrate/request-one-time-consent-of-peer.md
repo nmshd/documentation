@@ -37,7 +37,7 @@ To request an accept/reject decision from a peer to a free text, the ConsentRequ
 
 <!-- here is the description in detail  -->
 
-## Check your Requests validity
+## Check the Request's validity
 
 At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Sender Connector with the following body.
 For the one-time consent request we use the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem).
