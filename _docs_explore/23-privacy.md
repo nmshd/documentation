@@ -94,7 +94,7 @@ Enmeshed additionally follows the once-only principle for such data, thus enabli
 
 The Backbone is the most significant component in terms of privacy. As a centrally hosted component by a third-party, it is understandable that privacy-related questions usually focus this component."
 
-The Backbone only stores technical information of identities or devices. It never has access to cleartext data such as content of messages, names, e-mail addresses, and so on, as all this information is end-to-end encrypted. Furthermore, even encrypted data of the Backbone is not publicly available - only the identities which have reason to access the data get access.
+The Backbone only stores technical information of identities or devices. It never has access to cleartext data such as content of Messages, names, e-mail addresses, and so on, as all this information is end-to-end encrypted. Furthermore, even encrypted data of the Backbone is not publicly available - only the identities which have reason to access the data get access.
 
 Without the actual keys from the respective identities (which the Backbone hosting entity does not receive) the actual data cannot practically be decrypted or analyzed. The **relative data privacy** mindset should thus be reasonably fulfilled by using the enmeshed mechanisms.
 
@@ -110,7 +110,7 @@ When comparing privacy between enmeshed and decentralized approaches discussed i
 
 However, there are some advantages to a central architecture:
 
-- With a central architecture, it is generally possible to restrict the access to data on a network level. Only the sender and recipients of a message have access to the encrypted payload of this message, for example. Even if the data is encrypted or pseudonymized, on a decentralized architecture everybody would still have access to the encrypted payload.
+- With a central architecture, it is generally possible to restrict the access to data on a network level. Only the sender and recipients of a Message have access to the encrypted payload of this Message, for example. Even if the data is encrypted or pseudonymized, on a decentralized architecture everybody would still have access to the encrypted payload.
 - With a central architecture, the analysis of metadata can only be done by the central player. On a decentralized system, anybody could analyze the metadata.
 - With a central architecture, it is generally possible to effectively delete data (or let it expire). Although there are also some decentralized technologies allowing the deletion of data, there is no guarantee, that data which was available in the decentralized network prior to deletion, is really deleted from any node or node backup of the network.
 - The adoption of a fully functional deletion process for data is crucial in the adherence to an **absolute data privacy** mindset can be followed, particularly for public organizations.. To our knowledge, this cannot be done by any current public blockchain technology, as the underlying peer-to-peer network is open, and the data can be read by everyone.

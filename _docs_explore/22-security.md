@@ -13,19 +13,19 @@ Enmeshed itself handles very private and sensitive information. We are aware tha
 
 Though having a central architecture, enmeshed cannot access the keys or payload of data within the backbone. Even if there would be a data breach, nobody could really do something with this metadata and encrypted payload.
 
-For us, security is not only about securing access to data, but making the data itself secure. This applies to the whole communication, be it that the data is completely end-to-end encrypted and digitally signed (so that no one could change the data in between) or that the encrypted data is additionally persisted on the backbone for a specific set of time. This means, that the encrypted data on the backbone can be accessed by authorized parties (e.g. sender and recipients of messages) as long as it is persisted. The Backbone thus acts as a kind of personal archive.
+For us, security is not only about securing access to data, but making the data itself secure. This applies to the whole communication, be it that the data is completely end-to-end encrypted and digitally signed (so that no one could change the data in between) or that the encrypted data is additionally persisted on the backbone for a specific set of time. This means, that the encrypted data on the backbone can be accessed by authorized parties (e.g. sender and recipients of Messages) as long as it is persisted. The Backbone thus acts as a kind of personal archive.
 
 # Backbone Trust
 
 When talking about the Backbone, one has to have trust in it in order to fulfill the requirements:
 
-- Only allow messages between sender and recipient(s) if they have a Relationship with each other
-- Transmit any message to any recipient (if they have a Relationship)
-- Do not delay any message
+- Only allow Messages between sender and recipient(s) if they have a Relationship with each other
+- Transmit any Message to any recipient (if they have a Relationship)
+- Do not delay any Message
 - Use up-to-date timestamps
 - Generate unique ids for every new item
 - Do not delete content if it isn't expired yet
-- Check beforehand, if a file exists for any submitted message attachment
+- Check beforehand, if a file exists for any submitted Message attachment
 
 # Web Stack
 
@@ -50,21 +50,21 @@ For more information on the security of the device, please read the [Security Re
 
 Enmeshed uses the highest standards of encrypted communication. It is end-to-end encrypted by using public key cryptography between identities. Different keypairs for the identity, for each device and each contact are used to distinguish the different communication areas (technical, multi-factor or contractual). Where possible, random keys are used and shared securely. If a random key is not possible, derived keys from high-entropy master keys (not passwords) are used. The very first keys are exchanged over Key Exchange Protocols, so that as little key material as possible is shared. Please refer to the [Cryptography Section]({% link _docs_explore/62-cryptography.md %}) to get more information about the used algorithms, libraries and methodologies.
 
-For technical communication with contacts, the contact-specific signature keypair is used. Thus, every message of enmeshed contains multiple digital signatures of the same message, one signature per recipient (as the sender communicates with a different private key per contact). The digital signature enforces that only the sender can sign the payload and that nobody in between could tamper with the message itself, e.g. change the message payload.
+For technical communication with contacts, the contact-specific signature keypair is used. Thus, every Message of enmeshed contains multiple digital signatures of the same Message, one signature per recipient (as the sender communicates with a different private key per contact). The digital signature enforces that only the sender can sign the payload and that nobody in between could tamper with the Message itself, e.g. change the Message payload.
 
-A timestamp from the sender's device is included within the signed content. This reduces the risk of replay attacks (an encrypted message is sent again to the recipient without knowing the content) on the client side and might be used for legal purposes (sender's signing date).
+A timestamp from the sender's device is included within the signed content. This reduces the risk of replay attacks (an encrypted Message is sent again to the recipient without knowing the content) on the client side and might be used for legal purposes (sender's signing date).
 
 It is explicitly enforced, that the addresses of all recipients of the mail are included in the signed content as well. This eliminates the risk of forward attacks, i.e. an attacker forwarding an encrypted mail to another person.
 
-The message payload is symmetrically encrypted with a randomly generated high entropy key. The generated high entropy key itself is encrypted with the next transmission key derivate of a contact-specific encryption master key.
+The Message payload is symmetrically encrypted with a randomly generated high entropy key. The generated high entropy key itself is encrypted with the next transmission key derivate of a contact-specific encryption master key.
 
-Thus, a message consists of multiple ciphers, one for the message content and one cipher for every recipient. In other words: Every recipient receives the same symmetric key (to decipher the message content) with a contact-specific key cipher which only the respective recipient can decrypt with a specific derived key. The same message with the same cipher of the message content can thus be decrypted by different recipients.
+Thus, a Message consists of multiple ciphers, one for the Message content and one cipher for every recipient. In other words: Every recipient receives the same symmetric key (to decipher the Message content) with a contact-specific key cipher which only the respective recipient can decrypt with a specific derived key. The same Message with the same cipher of the Message content can thus be decrypted by different recipients.
 
-Once the signing and encryption processes are done, the sender submits the encrypted message to the Backbone. The Backbone creates a unique id for this message, with which replay attacks can be identified. It is also creating a timestamp for the creation date of the message. Such a timestamp from a trusted third party (in this case the Backbone) could act as the transmission timestamp on which the communication parties would usually agree on.
+Once the signing and encryption processes are done, the sender submits the encrypted Message to the Backbone. The Backbone creates a unique id for this Message, with which replay attacks can be identified. It is also creating a timestamp for the creation date of the Message. Such a timestamp from a trusted third party (in this case the Backbone) could act as the transmission timestamp on which the communication parties would usually agree on.
 
-The Backbone then notifies all recipients that a new message is available.
+The Backbone then notifies all recipients that a new Message is available.
 
-Once a device of a recipient receives the notification, it fetches the message from the Backbone. The Backbone set the received timestamp for this recipient and the device. With it, the message counts as delivered.
+Once a device of a recipient receives the notification, it fetches the Message from the Backbone. The Backbone set the received timestamp for this recipient and the device. With it, the Message counts as delivered.
 
 # Trusted Timestamps
 

@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: MessagesFacade
   - function: getAttachmentMetadata
-  - description: Returns the attachment's metadata of the given `attachmentId` of message with `messageId`.
+  - description: Returns the attachment's metadata of the given `attachmentId` of Message with `messageId`.
   - feature category: Bidirectional (un-)structured communication
   - tech category: Messages
   - status: DONE

@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: integrate/request-and-process-attributes-by-messages
 published: false
-title: "Request and process attributes by messages"
+title: "Request and process Attributes by Messages"
 type: scenario
 toc: true
 properties:

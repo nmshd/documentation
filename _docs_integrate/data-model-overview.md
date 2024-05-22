@@ -235,7 +235,7 @@ Decided
 : When the User or the Decider Module accepts or rejects the Request, the Response and ResponseItems are generated based on the passed parameters. This Response is saved in the `response` property of the `LocalRequest`, but not yet sent.
 
 Completed
-: In case of an incoming Request, the Runtime Module listens to an Event saying that a Request moved to status `Decided`. It then checks on which way the Request was received (Message/RelationshipTemplate) and sends the Response on the corresponding way (by sending a message or creating a Relationship). After the Response was successfully sent, it moves the LocalRequest to `Completed`.
+: In case of an incoming Request, the Runtime Module listens to an Event saying that a Request moved to status `Decided`. It then checks on which way the Request was received (Message/RelationshipTemplate) and sends the Response on the corresponding way (by sending a Message or creating a Relationship). After the Response was successfully sent, it moves the LocalRequest to `Completed`.
 : In case of an outgoing Request, the Runtime Module listens to the `MessageReceivedEvent` and checks the content of the sent Message for a Response. If there is one, it moves the corresponding LocalRequest to `Completed`.
 
 Expired

@@ -41,9 +41,9 @@ The list below is a non-complete list of use cases within enmeshed:
     - Messages
       - Download attachment
       - Get attachment metadata
-      - Get message
-      - Get messages
-      - Send message
+      - Get Message
+      - Get Messages
+      - Send Message
     - Relationships
       - Accept Relationship change
       - Create Relationship

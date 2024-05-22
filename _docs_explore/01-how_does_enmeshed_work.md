@@ -13,7 +13,7 @@ Enmeshed consists of three main components using different layers to communicate
 ## Components
 
 - [App]({% link _docs_explore/50-app.md %}): Mobile and desktop software client for end users or small companies
-- [Backbone]({% link _docs_explore/51-backbone.md %}): A central communication component routing messages between identities without having access to the payload
+- [Backbone]({% link _docs_explore/51-backbone.md %}): A central communication component routing Messages between identities without having access to the payload
 - [Connector]({% link _docs_explore/52-connector.md %}): Client for organizations which is hosted on-site with integration capabilities for business systems
 
 ## Layers
@@ -42,9 +42,9 @@ It is possible to use multiple identities with the same App. It is also possible
 
 The [enmeshed Backbone]({% link _docs_explore/51-backbone.md %}) provides the foundation to communicate between the components on the backbone layer. It hosts the central services which are required for a seamless experience across identities and the devices of one identity.
 
-It is an encrypted storage layer for all kind of information. Although the messages, files, tokens, etc. have a certain expiry date, the data is stored on the backbone until this expiry date. Thus, the backbone acts as a data-access, backup and synchronization helper for the identities.
+It is an encrypted storage layer for all kind of information. Although the Messages, files, tokens, etc. have a certain expiry date, the data is stored on the backbone until this expiry date. Thus, the backbone acts as a data-access, backup and synchronization helper for the identities.
 
-Due to the fact that devices of end-users are not always online, a "technical recipient" needs to be introduced which receives the (encrypted) messages from senders and stores them. The recipients are notified automatically by push channels.
+Due to the fact that devices of end-users are not always online, a "technical recipient" needs to be introduced which receives the (encrypted) Messages from senders and stores them. The recipients are notified automatically by push channels.
 
 The Backbone is based on a microservice architecture and is highly virtualized with Docker containers. It is thus quite capable to scale vertically and horizontally.
 

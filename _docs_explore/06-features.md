@@ -16,7 +16,7 @@ Features included with enmeshed:
 - Cross-device structured data synchronization (automated)
 - Zero-knowledge highly scalable central architecture
 - Zero-knowledge secure central data archive
-- Central timestamp capabilities to proof submission date of messages
+- Central timestamp capabilities to proof submission date of Messages
 
 Features possible with enmeshed:
 
