@@ -22,7 +22,7 @@ fs.readFile(path, "utf8", async (err, data) => {
                     textParts[index] = result.message.content as string;
                 })
             );
-            fs.writeFile(path, `${parts[0]}# End automatic generation2\n---\n${textParts.join("")}`, (err: NodeJS.ErrnoException | null) => {
+            fs.writeFile(path, `${parts[0]}# End automatic generation\n---\n${textParts.join("\n")}`, (err: NodeJS.ErrnoException | null) => {
                 if (err) {
                     console.error(`Could not write file at ${path}`);
                 } else {
