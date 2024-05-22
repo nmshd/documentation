@@ -120,7 +120,7 @@ This is the case as long as the own shared RelationshipAttribute used as the sou
 
 In the wallet of the peer with whom the underlying RelationshipAttribute of the own shared RelationshipAttribute was shared, a corresponding peer shared RelationshipAttribute is created.
 It is also referred to as a peer shared ThirdPartyRelationshipAttribute.
-It can therefore be interpreted as a counterpart of an own shared ThirdPartyRelationshipAttribute.
+It can therefore be interpreted as the counterpart of an own shared ThirdPartyRelationshipAttribute.
 The `shareInfo.sourceAttribute` property of a peer shared ThirdPartyRelationshipAttribute is always undefined, as the own shared RelationshipAttribute used as the source can only be available locally to the `owner` of the RelationshipAttribute.
 
 #### Third party owned RelationshipAttributes
@@ -137,7 +137,7 @@ Its `id` matches that of the other third party owned RelationshipAttribute.
 Furthermore, note that its `shareInfo.sourceAttribute` property is always undefined, as the peer shared RelationshipAttribute used as the source is not available locally to that peer.
 In summary, a third party owned RelationshipAttribute originates from a peer shared RelationshipAttribute and is characterized by the fact that it is owned by a third party that is not part of the Relationship in whose context it exists.
 
-The term ThirdPartyRelationshipAttribute is always descriptive for a RelationshipAttribute owned by a third party. Therefore, instead of third party owned ThirdPartyRelationshipAttributes, it is simply referred to as third party owned RelationshipAttributes. It is not at all necessary to introduce the term third party owned ThirdPartyRelationshipAttributes.
+The term ThirdPartyRelationshipAttribute is always descriptive for a third party owned RelationshipAttribute. Therefore, instead of third party owned ThirdPartyRelationshipAttributes, it is simply referred to as third party owned RelationshipAttributes. The introduction of the term third party owned ThirdPartyRelationshipAttribute is not necessary at all.
 {: .notice--info}
 
 ## Attribute management options
