@@ -48,7 +48,7 @@ This use case loads a peer's [RelatonshipTemplate]({% link _docs_integrate/data-
 
 ## Parameters
 
-There are three different options to use this use-case, depending on the actual information received by the peer:
+There are three different options to use this use case, depending on the actual information received by the peer:
 
 - by knowing an `id` and the `secretKey` of the peer's RelationshipTemplate (RelationshipTemplateReference)
   - `id` of the RelationshipTemplate
