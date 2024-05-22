@@ -420,7 +420,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create outgoing Request",
-        "excerpt":"This use case is intended to create an actionable LocalRequest based on a given Request for a given peer. One can (and should) check if the outgoing Request can be created before creating the LocalRequest with this use-case. The created LocalRequest needs to be manually submitted to the peer, e.g....","categories": [],
+        "excerpt":"This use case is intended to create an actionable LocalRequest based on a given Request for a given peer. One can (and should) check if the outgoing Request can be created before creating the LocalRequest with this use case. The created LocalRequest needs to be manually submitted to the peer,...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-create-outgoing-request",
         "teaser": null
@@ -509,6 +509,12 @@ var store = [{
         "url": "/use-case-consumption-get-outgoing-request",
         "teaser": null
       },{
+        "title": "Get RepositoryAttributes",
+        "excerpt":"This use case is intended to return all RepositoryAttributes, i.e. LocalAttributes with an IdentityAttribute as content you are the owner of and whose shareInfo is undefined. In case of Attribute succession, by default only the latest version will be returned. The LocalAttributes can be specified using a complex query. Parameters...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-get-repositoryattributes",
+        "teaser": null
+      },{
         "title": "Get shared versions of a RepositoryAttribute",
         "excerpt":"This use case allows you to retrieve a list of own shared IdentityAttributes for a specified RepositoryAttribute. Parameters The attributeId belonging to a RepositoryAttribute you would like to know all shared versions of Optionally the returned LocalAttributes can be limited to those shared with specific peers. onlyLatestVersions omits succeeded versions;...","categories": [],
         "tags": [],
@@ -570,7 +576,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Succeed a RepositoryAttribute",
-        "excerpt":"If the value of a RepositoryAttribute changes, this can be replicated in enmeshed with this use-case. It allows you to update the content and keeps a coherent history of all versions by establishing a doubly linked list, using the LocalAttribute&#8217;s parameters succeeds and succeededBy. Hence, every LocalAttribute may have exactly...","categories": [],
+        "excerpt":"If the value of a RepositoryAttribute changes, this can be replicated in enmeshed with this use case. It allows you to update the content and keeps a coherent history of all versions by establishing a doubly linked list, using the LocalAttribute&#8217;s parameters succeeds and succeededBy. Hence, every LocalAttribute may have...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-succeed-a-repositoryattribute",
         "teaser": null
@@ -786,7 +792,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Get File Metadata of Attachment",
-        "excerpt":"   This use case retrieves the metadata of a File that was sent by a Message as an attachment.   Internally uses the get or load file use-case.  ","categories": [],
+        "excerpt":"   This use case retrieves the metadata of a File that was sent by a Message as an attachment.   Internally uses the get or load file use case.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-file-metadata-of-attachment",
         "teaser": null
@@ -828,7 +834,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Get synchronization status with Backbone",
-        "excerpt":"This use case returns metadata about the synchronization status of the current Identity or Device with the Backbone. So far, it returns the timestamp of the last successful synchronization run which is triggered by the Synchronize updates of Backbone use-case. On Success Returns the metadata of the last sync run....","categories": [],
+        "excerpt":"This use case returns metadata about the synchronization status of the current Identity or Device with the Backbone. So far, it returns the timestamp of the last successful synchronization run which is triggered by the Synchronize updates of Backbone use case. On Success Returns the metadata of the last sync...","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-synchronization-status-with-backbone",
         "teaser": null
@@ -846,7 +852,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Load RelationshipTemplate created by others",
-        "excerpt":"This use case loads a peer&#8217;s RelatonshipTemplate from the Backbone by a given reference to the RelationshipTemplate. Parameters There are three different options to use this use-case, depending on the actual information received by the peer: by knowing an id and the secretKey of the peer&#8217;s RelationshipTemplate (RelationshipTemplateReference) id of...","categories": [],
+        "excerpt":"This use case loads a peer&#8217;s RelatonshipTemplate from the Backbone by a given reference to the RelationshipTemplate. Parameters There are three different options to use this use case, depending on the actual information received by the peer: by knowing an id and the secretKey of the peer&#8217;s RelationshipTemplate (RelationshipTemplateReference) id...","categories": [],
         "tags": [],
         "url": "/use-case-transport-load-relationshiptemplate-created-by-others",
         "teaser": null
@@ -906,7 +912,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Synchronize updates of Backbone",
-        "excerpt":"Be advised that calling this use case to sync the Identity/Device on a regular basis is discouraged, as it could lead to wrong return values if multiple endpoints trigger this use-case. Please configure the SyncModule and use eventing instead. This use case retrieves all relevant data changes between the current...","categories": [],
+        "excerpt":"Be advised that calling this use case to sync the Identity/Device on a regular basis is discouraged, as it could lead to wrong return values if multiple endpoints trigger this use case. Please configure the SyncModule and use eventing instead. This use case retrieves all relevant data changes between the...","categories": [],
         "tags": [],
         "url": "/use-case-transport-synchronize-updates-of-backbone",
         "teaser": null
