@@ -29,10 +29,11 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - api_route_regex:
+  - api_route_regex: POST /api/v2/Attributes/ExecuteIQLQuery
   - published:
   - link: use-case-consumption-execute-an-iqlquery
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Attributes/ExecuteIQLQuery$
 # End automatic generation
 ---

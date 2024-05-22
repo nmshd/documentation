@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use-case-human-scan_-qr-code-on-different-device
 published: true
-title: "Scan QR-Code (on different device)"
+title: "Scan QR Code (on different device)"
 type: use-case
 toc: true
 sidebar:
@@ -14,7 +14,7 @@ properties:
   - layer: Human
   - facade: Screen
   - function:
-  - description: The user scans a QR-Code from a different device by the app.
+  - description: The user scans a QR Code from a different device by the app.
   - feature category:
   - tech category: User Action
   - status: DONE
@@ -41,8 +41,8 @@ required_by:
 
 {% include properties_list.html %}
 
-Be advised that this is an App-specific use-case which is triggered by a manual user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios.
+Be advised that this is an App-specific use case which is triggered by a manual user interaction. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios.
 {: .notice--info}
 
-This use-case describes the process of using the Device's camera to scan a qr-code.
+This use case describes the process of using the Device's camera to scan a qr-code.
 Typically, the qr-code encodes a link starting with `nmshd://`.

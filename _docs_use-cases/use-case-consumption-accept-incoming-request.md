@@ -42,7 +42,7 @@ api_route_regex: ^PUT /api/v2/Requests/Incoming/{id}/Accept$
 
 {% include properties_list.html %}
 
-This use-case attempts to accept an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) with the corresponding parameters.
+This use case attempts to accept an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) with the corresponding parameters.
 
 It is advised to [check if incoming Request can be accepted](/use-case-consumption-check-if-incoming-request-can-be-accepted)
 in advance.

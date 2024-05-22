@@ -29,11 +29,12 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - api_route_regex:
+  - api_route_regex: GET /api/v2/Attributes/{id}/Versions/Shared
   - published: default
   - link: use-case-consumption-get-shared-versions-of-a-repositoryattribute
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Attributes/{id}/Versions/Shared$
 # End automatic generation
 ---
 
@@ -41,7 +42,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case allows you to retrieve a list of own shared [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) for a specified RepositoryAttribute.
+This use case allows you to retrieve a list of own shared [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) for a specified RepositoryAttribute.
 
 ## Parameters
 

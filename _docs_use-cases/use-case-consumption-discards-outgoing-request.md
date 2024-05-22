@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case is intended to discard an outgoing [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) that has not been sent to the peer yet and is thus still in status `Draft`.
+This use case is intended to discard an outgoing [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) that has not been sent to the peer yet and is thus still in status `Draft`.
 
 ## Parameters
 

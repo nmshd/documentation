@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case retrieves all LocalAccounts available on this Device.
+This use case retrieves all LocalAccounts available on this Device.
 
 ## Parameters
 

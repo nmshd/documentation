@@ -41,4 +41,4 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case retrieves information about the currently used Device.
+This use case retrieves information about the currently used Device.

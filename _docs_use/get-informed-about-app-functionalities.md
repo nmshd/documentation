@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use/get-informed-about-app-functionalities
 published: false
-title: "get informed about App functionalities"
+title: "Get informed about App functionalities"
 type: scenario
 toc: true
 properties:

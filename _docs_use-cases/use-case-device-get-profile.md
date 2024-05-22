@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case retrieves one LocalAccount by its `id`.
+This use case retrieves one LocalAccount by its `id`.
 
 ## Parameters
 

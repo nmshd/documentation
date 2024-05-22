@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: put /api/v2/Requests/Incoming/{id}/CanAccept
+  - api_route_regex: PUT /api/v2/Requests/Incoming/{id}/CanAccept
   - published: default
   - link: use-case-consumption-check-if-incoming-request-can-be-accepted
 require:
 required_by:
-api_route_regex: ^put /api/v2/Requests/Incoming/{id}/CanAccept$
+api_route_regex: ^PUT /api/v2/Requests/Incoming/{id}/CanAccept$
 # End automatic generation
 ---
 
@@ -42,7 +42,7 @@ api_route_regex: ^put /api/v2/Requests/Incoming/{id}/CanAccept$
 
 {% include properties_list.html %}
 
-This use-case tests if an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest)
+This use case tests if an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest)
 can be accepted with the given parameters without actually accepting it.
 
 This is great for checking if all required information of a Request was filled out in order to accept it, e.g. to update a user interface with the respective errors (and render an "Accept Button" as disabled) as long as there are errors.

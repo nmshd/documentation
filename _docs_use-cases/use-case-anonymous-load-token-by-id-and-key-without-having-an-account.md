@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case attempts to retrieve a [Token]({% link _docs_integrate/data-model-overview.md %}#token)
+This use case attempts to retrieve a [Token]({% link _docs_integrate/data-model-overview.md %}#token)
 by its `id` and `secretKey` without having an account on the Backbone, thus without an authentication.
 
 This can be used to fetch `Tokens` for Device Onboarding or Recovery.

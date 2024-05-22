@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: post /api/v2/Attributes/ExecuteRelationshipAttributeQuery
+  - api_route_regex: POST /api/v2/Attributes/ExecuteRelationshipAttributeQuery
   - published: default
   - link: use-case-consumption-execute-a-relationshipattributequery
 require:
 required_by:
-api_route_regex: ^post /api/v2/Attributes/ExecuteRelationshipAttributeQuery$
+api_route_regex: ^POST /api/v2/Attributes/ExecuteRelationshipAttributeQuery$
 # End automatic generation
 ---
 
@@ -42,7 +42,7 @@ api_route_regex: ^post /api/v2/Attributes/ExecuteRelationshipAttributeQuery$
 
 {% include properties_list.html %}
 
-This use-case is intended to execute an incoming [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) (e.g. received by a ReadAttributeRequestItem) which returns a list of matching [Relationship Attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
+This use case is intended to execute an incoming [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) (e.g. received by a ReadAttributeRequestItem) which returns a list of matching [Relationship Attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
 
 ## Parameters
 

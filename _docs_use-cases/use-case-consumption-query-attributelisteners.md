@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case is intended to query all [Attribute Listeners]({% link _docs_integrate/data-model-overview.md %}#localattributelistener)
+This use case is intended to query all [Attribute Listeners]({% link _docs_integrate/data-model-overview.md %}#localattributelistener)
 based on a query.
 
 ## Parameter

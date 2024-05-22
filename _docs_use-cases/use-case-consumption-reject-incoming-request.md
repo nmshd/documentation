@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: put /api/v2/Requests/Incoming/{id}/Reject
+  - api_route_regex: PUT /api/v2/Requests/Incoming/{id}/Reject
   - published: default
   - link: use-case-consumption-reject-incoming-request
 require:
 required_by:
-api_route_regex: ^put /api/v2/Requests/Incoming/{id}/Reject$
+api_route_regex: ^PUT /api/v2/Requests/Incoming/{id}/Reject$
 # End automatic generation
 ---
 
@@ -42,7 +42,7 @@ api_route_regex: ^put /api/v2/Requests/Incoming/{id}/Reject$
 
 {% include properties_list.html %}
 
-This use-case attempts to reject an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest).
+This use case attempts to reject an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest).
 
 It is advised to [check if the incoming Request can be accepted](/use-case-consumption-check-if-incoming-request-can-be-rejected) in advance.
 

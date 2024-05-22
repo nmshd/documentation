@@ -7,7 +7,7 @@ sidebar:
     nav: "docs_operate"
 ---
 
-Looking to set up and maintain a connector in your own infrastructure? No worries, we've got you covered!
+Looking to set up and maintain a Connector in your own infrastructure? No worries, we've got you covered!
 
 We'll guide you on how to configure and maintain your systems optimally, ensuring smooth operations.
 

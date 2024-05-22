@@ -26,7 +26,7 @@ A landscape can be trimmed by different scalability options, depending on the wo
 
 All required infrastructure and infrastructure services, like a database, a load balancer or a file storage are combined within the infrastructure building block. The infrastructure itself is not enmeshed-specific, the composition of services and the overall configuration however is.
 
-There are different possible cloud providers to host the backbone, the big hyperscalers or smaller ones. Even regional cloud providers would make sense for specific use-cases.
+There are different possible cloud providers to host the backbone, the big hyperscalers or smaller ones. Even regional cloud providers would make sense for specific use cases.
 
 The current cloud provider for the centrally hosted enmeshed Backbone is Microsoft Azure and as thus, the landscape details (and terminology) are primarily focused on the Azure setup. Although there are Azure-specific components and configurations, most of the components used are cloud-provider agnostic, i.e. they will exist in other cloud providers in an equivalent form.
 
@@ -64,7 +64,7 @@ Nearly every request to a landscape results in a request to the database. Thus, 
 
 Data of binary large objects (BLOBs) is not stored on the database, but on a kind of file system. Binary data is usually queried by ids and process in a whole (e.g. by providing a download for an encrypted file).
 
-A BLOB storage is usually scaled horizontally (more storage). Access performance is not critical for the given use-cases.
+A BLOB storage is usually scaled horizontally (more storage). Access performance is not critical for the given use cases.
 
 ### Kubernetes Cluster/Nodes
 
@@ -80,7 +80,7 @@ The following services are available on the runtime:
 - Messages Service: Provides an interface for submitting and receiving messages
 - Relationships Service: Keeps track of relationships between identities, their status and possible change requests
 - Files Service: Files or other "static" binaries can be stored via the files service and used as attachments for messages.
-- Tokens Service: A repository for storing and consuming usually short-lived encrypted information, e.g. for QRCode contents.
+- Tokens Service: A repository for storing and consuming usually short-lived encrypted information, e.g. for QR Code contents.
 - Synchronization Service: Cross device synchronization of local identity data
 
 ## Backbone Services and Libraries (Designtime)

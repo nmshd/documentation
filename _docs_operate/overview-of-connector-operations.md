@@ -92,4 +92,4 @@ As some of the operative tasks should be done on a regular basis, please find a 
 
 ### Check Third-Party Systems
 
-- Every third-party system (e.g. database, event buses, network components) and host system should be regularly checked for available resources (CPU, RAM, HDD) and system updates.
+- Every third party system (e.g. database, event buses, network components) and host system should be regularly checked for available resources (CPU, RAM, HDD) and system updates.

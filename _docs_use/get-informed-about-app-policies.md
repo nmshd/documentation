@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use/get-informed-about-app-policies
 published: false
-title: "get informed about App policies"
+title: "Get informed about App policies"
 type: scenario
 toc: true
 properties:
