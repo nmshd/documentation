@@ -15,7 +15,7 @@ properties:
   - facade: RelationshipsFacade
   - function: createRelationship
   - description: Creates a `Relationship` to the creator of a given relationshipTemplateId. The `RelationshipTemplate` of the given `relationshipTemplateId` must come from another Identity and must be loaded by `POST /RelationshipTemplates/Peer` first.
-  - feature category: Mutual peer-to-peer relationships
+  - feature category: Mutual peer-to-peer Relationships
   - tech category: Relationships
   - status: DONE
   - documentation status: DONE

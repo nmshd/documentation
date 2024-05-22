@@ -15,7 +15,7 @@ properties:
   - facade: IncomingRequestsFacade
   - function: reject
   - description: Rejects the incoming `Request` with the given `id`.
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE

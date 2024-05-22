@@ -15,7 +15,7 @@ properties:
   - facade: TokensFacade
   - function: createOwnToken
   - description:
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Tokens
   - status: DONE
   - documentation status: DONE

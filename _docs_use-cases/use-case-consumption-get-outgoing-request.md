@@ -15,7 +15,7 @@ properties:
   - facade: OutgoingRequestsFacade
   - function: getRequest
   - description:
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE

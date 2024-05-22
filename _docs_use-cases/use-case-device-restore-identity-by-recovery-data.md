@@ -15,7 +15,7 @@ properties:
   - facade:
   - function:
   - description:
-  - feature category: Identity Handling
+  - feature category: Identity handling
   - tech category: Profiles
   - status: IDEA
   - documentation status:

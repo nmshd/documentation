@@ -15,7 +15,7 @@ properties:
   - facade: RelationshipsFacade
   - function: getAttributesForRelationship
   - description: Queries Attributes that are related to the given Relationship.
-  - feature category: Mutual peer-to-peer relationships
+  - feature category: Mutual peer-to-peer Relationships
   - tech category: Relationships
   - status: DONE
   - documentation status: DONE

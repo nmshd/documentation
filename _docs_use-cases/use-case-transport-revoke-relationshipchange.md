@@ -15,7 +15,7 @@ properties:
   - facade: RelationshipsFacade
   - function: revokeRelationshipChange
   - description:
-  - feature category: Mutual peer-to-peer relationships
+  - feature category: Mutual peer-to-peer Relationships
   - tech category: Relationships
   - status: QUESTIONS
   - documentation status:
