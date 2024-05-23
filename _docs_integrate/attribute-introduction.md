@@ -94,7 +94,7 @@ From a technical perspective, a RelationshipAttribute is always stored as the `c
 #### Own shared and peer shared RelationshipAttributes
 
 A [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) can only exist in the context of a Relationship and must therefore be stored locally for both Identities involved in the Relationship.
-Accordingly, the [creation of a RelationshipAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-a-relationshipattribute) corresponds to the creation of one [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for its `owner` and one LocalAttribute for the peer with whom the `owner` has established a Relationship.
+Accordingly, the [creation of a RelationshipAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-a-relationshipattribute) corresponds to the creation of one [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for its `owner` and one LocalAttribute for the peer with whom the `owner` has established the Relationship in whose context the RelationshipAttribute is to exist.
 The own shared RelationshipAttribute is the LocalAttribute of the `owner` of the RelationshipAttribute and the peer's LocalAttribute is referred to as a peer shared RelationshipAttribute.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/dd79b31c-0404-48bb-9773-9b989801c03c" id="RbDyLSjh7BzY"></iframe></div>
@@ -103,14 +103,14 @@ Of course, the `shareInfo` property of the own shared RelationshipAttribute is s
 If the RelationshipAttribute is initially created for a specific Relationship and does not originate from another RelationshipAttribute, the `shareInfo.sourceAttribute` property is undefined.
 The peer shared RelationshipAttribute is the peer's [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) and forms the counterpart of the own shared RelationshipAttribute. The `id` of a peer shared RelationshipAttribute is always the same as the `id` of the associated own shared RelationshipAttribute. As with the own shared RelationshipAttribute, the `shareInfo` property of a peer shared RelationshipAttribute is of course set.
 Within the `shareInfo.peer` property, the Address of the `owner` of the RelationshipAttribute is specified.
-It should be emphasized that this is characteristic for a peer shared RelationshipAttribute.
 In any case, the `shareInfo.sourceAttribute` property of a peer shared RelationshipAttribute is undefined.
 This is plausible if the RelationshipAttribute is initially created for a specific Relationship and does not originate from another RelationshipAttribute, but this is also the case if it originates from another.
-This is because the LocalAttribute which is associated with the RelationshipAttribute and which is used as the source for sharing can only be available locally to the RelationshipAttribute's sharer.
+This is because the LocalAttribute which is associated with the RelationshipAttribute and which is used as the source for sharing can only be available locally to the Identity that shares the RelationshipAttribute.
 
 #### Own shared and peer shared ThirdPartyRelationshipAttributes
 
-Note that it is possible to share the underlying RelationshipAttribute of an [own shared RelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-relationshipattributes) with peers who are not involved in the Relationship in which the RelationshipAttribute exists, provided that the `confidentiality` of the RelationshipAttribute is not `"private"`.
+Note that it is possible to share a RelationshipAttribute with peers who are not involved in the Relationship in which the RelationshipAttribute exists, provided that the `confidentiality` of the RelationshipAttribute is not `"private"`.
+In particular, it is possible to share the underlying RelationshipAttribute of an [own shared RelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-relationshipattributes) with peers who are not involved in the Relationship in which the RelationshipAttribute exists.
 The sharing of a RelationshipAttribute by its `owner` with such a peer in turn leads to the creation of another own shared RelationshipAttribute in the wallet of the `owner`, which contains the Address of this peer within its `shareInfo.peer` property.
 Such an own shared RelationshipAttribute is referred to as an own shared ThirdPartyRelationshipAttribute.
 As this own shared ThirdPartyRelationshipAttribute originates from another own shared RelationshipAttribute that exists in the context of a different Relationship, it contains the `id` of the source own shared RelationshipAttribute within its `shareInfo.sourceAttribute` property.
@@ -158,4 +158,4 @@ If an Identity has created an Attribute that is owned by itself and is no longer
 
 ### Delete Attributes
 
-An Identity may have created an Attribute for itself or received an Attribute from a peer that it does not need any longer. In both cases, it can [delete the Attribute]({% link _docs_integrate/delete-attributes.md %}). If an Identity has shared an Attribute that is owned by itself with a peer, it can [request the deletion of this Attribute from the peer]({% link _docs_integrate/delete-attributes.md %}#request-the-deletion-of-own-attributes-from-peer) in order to withdraw their permission to use the Attribute. Of course, the associated [own shared Attribute can be deleted]({% link _docs_integrate/delete-attributes.md %}#delete-own-shared-attributes).
+An Identity may have created an Attribute for itself or received an Attribute from a peer that it does not need any longer. In both cases, it can [delete the Attribute]({% link _docs_integrate/delete-attributes.md %}). If an Identity has shared an Attribute that is owned by itself with a peer, it can [request the deletion of this Attribute from the peer]({% link _docs_integrate/delete-attributes.md %}#request-the-deletion-of-own-attributes-from-peer) in order to withdraw their permission to use the Attribute. Of course, the associated [own shared Attribute can be deleted]({% link _docs_integrate/delete-attributes.md %}#delete-own-shared-attributes), too.

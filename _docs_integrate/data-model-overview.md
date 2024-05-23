@@ -319,7 +319,7 @@ A LocalAttribute stores the local metadata for an [Attribute](#attributes). This
 
 In contrast, [RelationshipAttributes](#relationshipattribute) always exist in the context of a [Relationship](#relationship).
 For this reason, it is not possible for an Identity to have an unshared RelationshipAttribute.
-The [creation of a RelationshipAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-a-relationshipattribute) corresponds to the creation of one LocalAttribute for its `owner` and one LocalAttribute for the peer with whom the `owner` has a Relationship.
+The [creation of a RelationshipAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-a-relationshipattribute) corresponds to the creation of one LocalAttribute for its `owner` and one LocalAttribute for the peer with whom the `owner` has established the Relationship in whose context the RelationshipAttribute is to exist.
 
 - We refer to the LocalAttribute of the `owner` as an **own shared RelationshipAttribute**.
 - The peer’s LocalAttribute is referred to as a **peer shared RelationshipAttribute**.
