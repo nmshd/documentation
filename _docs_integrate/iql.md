@@ -44,6 +44,8 @@ Conjunctions can contain arbitrarily many subqueries and will be evaluated from 
 ( GivenName || LastName ) || ( PhoneNumber && #emergency )
 ```
 
+**NOTE** Multiple levels of nested parentheses must be separated by a whitespace character: `( ( ... ) )`.
+
 ### Negation
 
 To negate a subquery, i.e. to match the set complement of the subquery use the negation `!` operator. The following query will return all phone numbers which do not have an _emergency_ tag:
