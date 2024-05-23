@@ -13,7 +13,7 @@ properties:
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: validate
+  - function: validateIQLQuery
   - description:
   - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
