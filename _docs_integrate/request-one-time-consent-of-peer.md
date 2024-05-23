@@ -35,12 +35,12 @@ To request an accept-reject-decision from a peer to a free text, the ConsentRequ
 
 ## Examples of consents {#consentrequestitem-examples}
 
-- "I hereby confirm the login to the website."
-- "I confirm my presence in the course."
+There are many situations in which an Identity needs or wants the one-time consent of one of its peers. The corresponding text that the peer should agree to is contained within the `consent` property of a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), for example:
 
-Please do not use the ConsentRequestItem to submit tons of text to the peer Identity. It is meant to be a short consent or summary the user agrees to. Please move longer text to external websites.
-The ConsentRequestItem is also not meant for contractual agreements.
-{: .notice--info}
+- "I hereby confirm the login to the website."
+- "I confirm my attendance at the course."
+
+The `consent` property of a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) is not intended to be used by an Identity to send tons of text to the peer. Instead, it should contain a brief summary of the issue, which the peer should agree to. Longer texts should be placed on external websites. A link to such a website can be specified in the optional `link` property of the ConsentRequestItem. Also note that the ConsentRequestItem should not be used for contractual agreements.
 
 ## Request for one-time consent
 

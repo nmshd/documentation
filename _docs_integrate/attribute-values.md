@@ -43,12 +43,12 @@ A complex Attribute Value type which defines the affiliation of a person to an o
 
 **Properties**
 
-| Name         | Type            | Required | Validation                                                |
-| ------------ | --------------- | :------: | --------------------------------------------------------- |
-| `@type`      | `"Affiliation"` |    ✓     |                                                           |
-| role         | `string`        |    ✗     | see [`AffiliationRole`](#affiliationrole)                 |
-| organization | `string`        |    ✓     | see [`AffiliationOrganization`](#affiliationorganization) |
-| unit         | `string`        |    ✗     | see [`AffiliationUnit`](#affiliationunit)                 |
+| Name           | Type            | Required | Validation                                                |
+| -------------- | --------------- | :------: | --------------------------------------------------------- |
+| `@type`        | `"Affiliation"` |    ✓     |                                                           |
+| `role`         | `string`        |    ✗     | see [`AffiliationRole`](#affiliationrole)                 |
+| `organization` | `string`        |    ✓     | see [`AffiliationOrganization`](#affiliationorganization) |
+| `unit`         | `string`        |    ✗     | see [`AffiliationUnit`](#affiliationunit)                 |
 
 ## AffiliationOrganization
 
