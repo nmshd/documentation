@@ -1,5 +1,24 @@
 ---
-permalink: integrate/iql
+# Start automatic generation
+permalink: integrate/iql-syntax
+published: true
+title: "IQL Syntax"
+type: scenario
+toc: true
+properties:
+  - id: SC048
+  - category: Manage Attributes
+  - description: Description of the IQL Syntax
+  - customer: All
+  - component: integrate
+  - level: Advanced
+  - implementation status: DONE
+  - documentation status: DONE
+  - published: true
+  - link: iql-syntax
+require:
+required_by:
+# End automatic generation
 ---
 
 The Enmeshed _Identity Query Language_ (IQL) is a domain-specific language to query IdentityAttributes using a concise and simple syntax. The IQL is tailored towards usage by non-technical users and integrators. The IQL is complete, i.e. it's expressive enough to query arbitrary subsets of IdentityAttributes and can thus serve as a replacement of the other types of queries dealing with IdentityAttributes.
