@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use-case-device-get-profile-by-enmeshed-address
 published: true
-title: "Get Profile by Enmeshed Address"
+title: "Get Profile by enmeshed Address"
 type: use-case
 toc: true
 sidebar:

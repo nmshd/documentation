@@ -15,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: getSharedVersionsOfRepositoryAttribute
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
@@ -29,11 +29,12 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - api_route_regex:
+  - api_route_regex: GET /api/v2/Attributes/{id}/Versions/Shared
   - published: default
   - link: use-case-consumption-get-shared-versions-of-a-repositoryattribute
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Attributes/{id}/Versions/Shared$
 # End automatic generation
 ---
 

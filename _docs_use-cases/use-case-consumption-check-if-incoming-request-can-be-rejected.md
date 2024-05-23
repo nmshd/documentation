@@ -15,7 +15,7 @@ properties:
   - facade: IncomingRequestsFacade
   - function: canReject
   - description: Checks if the `Request` with the given `id` can be rejected.
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE
@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: put /api/v2/Requests/Incoming/{id}/canReject
+  - api_route_regex: PUT /api/v2/Requests/Incoming/{id}/CanReject
   - published: default
   - link: use-case-consumption-check-if-incoming-request-can-be-rejected
 require:
 required_by:
-api_route_regex: ^put /api/v2/Requests/Incoming/{id}/canReject$
+api_route_regex: ^PUT /api/v2/Requests/Incoming/{id}/CanReject$
 # End automatic generation
 ---
 

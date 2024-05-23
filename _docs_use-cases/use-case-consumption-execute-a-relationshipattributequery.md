@@ -15,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: executeRelationshipAttributeQuery
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: post /api/v2/Attributes/ExecuteRelationshipAttributeQuery
+  - api_route_regex: POST /api/v2/Attributes/ExecuteRelationshipAttributeQuery
   - published: default
   - link: use-case-consumption-execute-a-relationshipattributequery
 require:
 required_by:
-api_route_regex: ^post /api/v2/Attributes/ExecuteRelationshipAttributeQuery$
+api_route_regex: ^POST /api/v2/Attributes/ExecuteRelationshipAttributeQuery$
 # End automatic generation
 ---
 

@@ -14,8 +14,8 @@ properties:
   - layer: Consumption
   - facade: AttributesFacade
   - function: getAttribute
-  - description: Fetches the attribute with the given `id`.
-  - feature category: Cross-identity attribute sharing
+  - description: Fetches the Attribute with the given `id`.
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: get /api/v2/Attributes/{id}
+  - api_route_regex: GET /api/v2/Attributes/{id}
   - published: default
   - link: use-case-consumption-get-attribute
 require:
 required_by:
-api_route_regex: ^get /api/v2/Attributes/{id}$
+api_route_regex: ^GET /api/v2/Attributes/{id}$
 # End automatic generation
 ---
 

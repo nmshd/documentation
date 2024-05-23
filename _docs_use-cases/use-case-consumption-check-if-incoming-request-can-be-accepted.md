@@ -15,7 +15,7 @@ properties:
   - facade: IncomingRequestsFacade
   - function: canAccept
   - description: Checks if the `Request` with the given `id` can be accepted.
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE
@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: put /api/v2/Requests/Incoming/{id}/CanAccept
+  - api_route_regex: PUT /api/v2/Requests/Incoming/{id}/CanAccept
   - published: default
   - link: use-case-consumption-check-if-incoming-request-can-be-accepted
 require:
 required_by:
-api_route_regex: ^put /api/v2/Requests/Incoming/{id}/CanAccept$
+api_route_regex: ^PUT /api/v2/Requests/Incoming/{id}/CanAccept$
 # End automatic generation
 ---
 

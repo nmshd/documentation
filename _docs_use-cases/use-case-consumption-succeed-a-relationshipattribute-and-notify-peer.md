@@ -15,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: succeedRelationshipAttributeAndNotifyPeer
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
@@ -29,11 +29,12 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - api_route_regex:
+  - api_route_regex: POST /api/v2/Attributes/{predecessorId}/Succeed
   - published: default
   - link: use-case-consumption-succeed-a-relationshipattribute-and-notify-peer
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Attributes/{predecessorId}/Succeed$
 # End automatic generation
 ---
 

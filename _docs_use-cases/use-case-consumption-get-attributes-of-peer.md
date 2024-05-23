@@ -15,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: getPeerSharedAttributes
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Attributes
+  - api_route_regex: GET /api/v2/Attributes/Peer/Shared/Identity
   - published: default
   - link: use-case-consumption-get-attributes-of-peer
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Attributes$
+api_route_regex: ^GET /api/v2/Attributes/Peer/Shared/Identity$
 # End automatic generation
 ---
 

@@ -2,12 +2,12 @@
 # Start automatic generation
 permalink: integrate/succeed-attribute-of-peer
 published: false
-title: "Succeed attribute of peer"
+title: "Succeed Attribute of peer"
 type: scenario
 toc: true
 properties:
   - id: SC062
-  - category: Manage attributes of others
+  - category: Manage Attributes
   - description:
   - customer: All
   - component: integrate

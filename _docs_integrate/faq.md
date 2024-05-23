@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: integrate/faq
-published: false
+published: true
 title: "FAQ"
 type: scenario
 toc: true
@@ -13,8 +13,8 @@ properties:
   - component: integrate
   - level:
   - implementation status: DOCS ONLY
-  - documentation status: OPEN
-  - published:
+  - documentation status: DONE
+  - published: true
   - link: faq
 require:
 required_by:

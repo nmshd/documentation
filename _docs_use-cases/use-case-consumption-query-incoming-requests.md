@@ -15,7 +15,7 @@ properties:
   - facade: IncomingRequestsFacade
   - function: getRequests
   - description: Queries incoming `Requests`.
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE
@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: get /api/v2/Requests/incoming
+  - api_route_regex: GET /api/v2/Requests/incoming
   - published: default
   - link: use-case-consumption-query-incoming-requests
 require:
 required_by:
-api_route_regex: ^get /api/v2/Requests/incoming$
+api_route_regex: ^GET /api/v2/Requests/incoming$
 # End automatic generation
 ---
 

@@ -15,7 +15,7 @@ properties:
   - facade:
   - function:
   - description: If a password for a Profile has been set up, an auto logout can be enabled.
-  - feature category: Identity Hardening
+  - feature category: Identity handling
   - tech category: Profile
   - status: IDEA
   - documentation status:

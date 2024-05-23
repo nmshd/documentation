@@ -17,7 +17,7 @@ properties:
   - facade: RelationshipsFacade
   - function: rejectRelationshipChange
   - description: Rejects the change with the given `changeId`. If the change exists but belongs to another relationship, this call will fail and return status 404.
-  - feature category: Mutual peer-to-peer relationships
+  - feature category: Mutual peer-to-peer Relationships
   - tech category: Relationships
   - status: DONE
   - documentation status: DONE
