@@ -25,9 +25,10 @@ required_by:
 # End automatic generation
 ---
 
-With the ConsentRequestItem it is possible to request a consent of the peer to an arbitrary text and thus reach agreement on a certain non machine-processable context.
+This guide explains how an Identity can obtain the one-time consent of one of its peers on a particular issue using the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem). With the ConsentRequestItem it is possible to request the consent of a peer to an arbitrary text and thus reach agreement on a certain non-machine-processable context. The text for which the peer is asked for an one-time consent is specified in its `consent` property. To obtain an one-time consent, the Identity must send a [Request]({% link _docs_integrate/data-model-overview.md %}#request) to its peer that contains the corresponding ConsentRequestItem within its `items` property. The peer can accept or reject the ConsentRequestItem depending on whether or not the peer gives one-time consent to the text.
 
-To request an accept-reject-decision from a peer to a free text, the ConsentRequestItem is used.
+Since understanding the process of asking a peer for an one-time consent requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) in general, you should take a look at our [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) before continuing reading this guide. Further information on the [ConsentRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#consentrequestitem) can be found there as well.
+{: .notice--info}
 
 <!-- This include inserts the table with the metadata  -->
 
@@ -35,16 +36,24 @@ To request an accept-reject-decision from a peer to a free text, the ConsentRequ
 
 ## Examples of consents {#consentrequestitem-examples}
 
-There are many situations in which an Identity needs or wants the one-time consent of one of its peers. The corresponding text that the peer should agree to is contained within the `consent` property of a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), for example:
+There are many situations in which an Identity needs or wants the one-time consent of one of its peers.
+The corresponding text that the peer should agree to is contained within the `consent` property of a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), for example:
 
 - "I hereby confirm the login to the website."
 - "I confirm my attendance at the course."
 
-The `consent` property of a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) is not intended to be used by an Identity to send tons of text to the peer. Instead, it should contain a brief summary of the issue, which the peer should agree to. Longer texts should be placed on external websites. A link to such a website can be specified in the optional `link` property of the ConsentRequestItem. Also note that the ConsentRequestItem should not be used for contractual agreements.
+The `consent` property of a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) is not intended to be used by an Identity to send tons of text to the peer.
+Instead, it should contain a brief summary of the issue, which the peer should agree to.
+Longer texts should be placed on external websites.
+A link to such a website can be specified in the optional `link` property of the ConsentRequestItem.
+Also note that the ConsentRequestItem should not be used for contractual agreements.
 
 ## Request for one-time consent
 
-In the following, we describe how a Connector, hereinafter referred to as the Sender, can get the one-time consent of another Connector, the so-called Recipient, by using a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) within a [Request]({% link _docs_integrate/data-model-overview.md %}#request).
+In the following, we describe how a Connector, hereinafter referred to as the Sender, can get the one-time consent of another Connector, with which it has already established a Relationship and which is also referred to as the Recipient, by using a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) within a [Request]({% link _docs_integrate/data-model-overview.md %}#request). As there is already a Relationship between the Sender and the Recipient, the Sender can send the [Request via a Message]({% link _docs_integrate/requests-via-messages.md %}) to the Recipient. Note that the Sender could also send the [Request via a RelationshipTemplate]({% link _docs_integrate/requests-via-relationshiptemplates.md %}), but this is not discussed further below.
+
+For information on how to establish Relationships, refer to the [Establish Relationships]({% link _docs_integrate/establish-relationships.md %}) scenario documentation.
+{: .notice--info}
 
 ### Check the Request's validity
 
@@ -129,4 +138,4 @@ The accepted ConsentRequestItem does not lead to the creation of a [LocalAttribu
 
 ## What's next?
 
-If an Identity asks for a persistent consent instead of a one-time consent of one of its peers, the ConsentRequestItem cannot be used. For persistent consent, it is necessary that the Identity sends a [Request]({% link _docs_integrate/data-model-overview.md %}#request) to its peer, which leads to the creation of a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with [Consent]({% link _docs_integrate/attribute-values.md %}#consent) as `value.@type` in the background. For more details, the documentation of the [Request persistent consent of peer]({% link _docs_integrate/request-persistent-consent-of-peer.md %}) scenario can be consulted.
+If an Identity asks for a persistent consent instead of an one-time consent of one of its peers, the ConsentRequestItem cannot be used. For persistent consent, it is necessary that the Identity sends a [Request]({% link _docs_integrate/data-model-overview.md %}#request) to its peer, which leads to the creation of a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with [Consent]({% link _docs_integrate/attribute-values.md %}#consent) as `value.@type` in the background. For more details, the documentation of the [Request persistent consent of peer]({% link _docs_integrate/request-persistent-consent-of-peer.md %}) scenario can be consulted.
