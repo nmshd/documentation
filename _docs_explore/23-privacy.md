@@ -92,7 +92,7 @@ Enmeshed additionally follows the once-only principle for such data, thus enabli
 
 # Backbone Privacy
 
-The Backbone is the most significant component in terms of privacy. As a centrally hosted component by a third-party, it is understandable that privacy-related questions usually focus this component."
+The Backbone is the most significant component in terms of privacy. As a centrally hosted component by a third party, it is understandable that privacy-related questions usually focus this component."
 
 The Backbone only stores technical information of identities or devices. It never has access to cleartext data such as content of messages, names, e-mail addresses, and so on, as all this information is end-to-end encrypted. Furthermore, even encrypted data of the Backbone is not publicly available - only the identities which have reason to access the data get access.
 
