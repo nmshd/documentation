@@ -99,28 +99,24 @@ The own shared RelationshipAttribute is the LocalAttribute of the `owner` of the
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/dd79b31c-0404-48bb-9773-9b989801c03c" id="RbDyLSjh7BzY"></iframe></div>
 
-Of course, the `shareInfo` property of the own shared RelationshipAttribute is set. Within the `shareInfo.peer` property, the Address of the peer to whom the RelationshipAttribute's `owner` has established the Relationship is specified.
+Of course, the `shareInfo` property of the own shared RelationshipAttribute is set. Within the `shareInfo.peer` property, the Address of the peer to whom the RelationshipAttribute's `owner` has established the Relationship in whose context the RelationshipAttribute exists is specified.
 If the RelationshipAttribute is initially created for a specific Relationship and does not originate from another RelationshipAttribute, the `shareInfo.sourceAttribute` property is undefined.
 The peer shared RelationshipAttribute is the peer's [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) and forms the counterpart of the own shared RelationshipAttribute. The `id` of a peer shared RelationshipAttribute is always the same as the `id` of the associated own shared RelationshipAttribute. As with the own shared RelationshipAttribute, the `shareInfo` property of a peer shared RelationshipAttribute is of course set.
 Within the `shareInfo.peer` property, the Address of the `owner` of the RelationshipAttribute is specified.
-In any case, the `shareInfo.sourceAttribute` property of a peer shared RelationshipAttribute is undefined.
-This is plausible if the RelationshipAttribute is initially created for a specific Relationship and does not originate from another RelationshipAttribute, but this is also the case if it originates from another.
-This is because the LocalAttribute which is associated with the RelationshipAttribute and which is used as the source for sharing can only be available locally to the Identity that shares the RelationshipAttribute.
+Furthermore, the `shareInfo.sourceAttribute` property of a peer shared RelationshipAttribute is undefined.
 
 #### Own shared and peer shared ThirdPartyRelationshipAttributes
 
 Note that it is possible to share a RelationshipAttribute with peers who are not involved in the Relationship in which the RelationshipAttribute exists, provided that the `confidentiality` of the RelationshipAttribute is not `"private"`.
 In particular, it is possible to share the underlying RelationshipAttribute of an [own shared RelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-relationshipattributes) with peers who are not involved in the Relationship in which the RelationshipAttribute exists.
-The sharing of a RelationshipAttribute by its `owner` with such a peer in turn leads to the creation of another own shared RelationshipAttribute in the wallet of the `owner`, which contains the Address of this peer within its `shareInfo.peer` property.
-Such an own shared RelationshipAttribute is referred to as an own shared ThirdPartyRelationshipAttribute.
+The sharing of a RelationshipAttribute by its `owner` with such a peer leads to the creation of a so-called own shared ThirdPartyRelationshipAttribute in the wallet of the `owner`, which is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) similar to an own shared RelationshipAttribute that contains the Address of this peer within its `shareInfo.peer` property.
 As this own shared ThirdPartyRelationshipAttribute originates from another own shared RelationshipAttribute that exists in the context of a different Relationship, it contains the `id` of the source own shared RelationshipAttribute within its `shareInfo.sourceAttribute` property.
 This is the case as long as the own shared RelationshipAttribute used as the source has not been [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-own-shared-attributes).
 
 <div style="width: 640px; height: 720px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:720px" src="https://lucid.app/documents/embedded/68fbda7f-30c1-40d1-853a-fd94a91988e8" id="oSgEzd9YW_TQ"></iframe></div>
 
-In the wallet of the peer with whom the underlying RelationshipAttribute of the own shared RelationshipAttribute was shared, a corresponding peer shared RelationshipAttribute is created.
-It is also referred to as a peer shared ThirdPartyRelationshipAttribute.
-It can therefore be interpreted as the counterpart of an own shared ThirdPartyRelationshipAttribute.
+In the wallet of the peer with whom the underlying RelationshipAttribute of the own shared RelationshipAttribute was shared, a so-called peer shared ThirdPartyRelationshipAttribute is created.
+It is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) similar to a peer shared RelationshipAttribute that can be interpreted as the counterpart of an own shared ThirdPartyRelationshipAttribute.
 The `shareInfo.sourceAttribute` property of a peer shared ThirdPartyRelationshipAttribute is always undefined, as the own shared RelationshipAttribute used as the source can only be available locally to the `owner` of the RelationshipAttribute.
 
 #### Third party owned RelationshipAttributes
