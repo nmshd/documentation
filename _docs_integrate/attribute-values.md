@@ -536,7 +536,7 @@ It is not recommended to send a DigitalIdentityDescriptor to another Identity by
 | Name         | Type                          | Required | Validation                                           |
 | ------------ | ----------------------------- | :------: | ---------------------------------------------------- |
 | `@type`      | `"DigitalIdentityDescriptor"` |    ✓     |                                                      |
-| `address`    | `string`                      |    ✓     | The aAddress of the dentity that owns the statement. |
+| `address`    | `string`                      |    ✓     | The Address of the Identity that owns the statement. |
 | `attributes` | `string []`                   |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
 
 ## StatementAuthorityType
