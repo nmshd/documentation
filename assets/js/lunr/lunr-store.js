@@ -131,6 +131,12 @@ var store = [{
         "url": "/integrate/access-the-connector",
         "teaser": null
       },{
+        "title": "Attribute introduction",
+        "excerpt":"This guide provides an introduction to Attributes in the enmeshed context. Attributes are used to store information about Identities or data that is relevant in a Relationship between Identities. There are therefore two types of Attributes, the IdentityAttributes and the RelationshipAttributes, which are designed for these different purposes. Both have...","categories": [],
+        "tags": [],
+        "url": "/integrate/attribute-introduction",
+        "teaser": null
+      },{
         "title": "Attribute Values",
         "excerpt":"Each Attribute contains an instance of an Attribute Value within its value property. There are different types of Attribute Values. The types define the value’s structural definition, rendering information and validators. For example, an email address with the value address@company.corp is stored with the Attribute Value type EMailAddress, which defines...","categories": [],
         "tags": [],
