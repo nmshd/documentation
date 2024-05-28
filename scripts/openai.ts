@@ -11,7 +11,7 @@ export async function main(content: string): Promise<OpenAI.Chat.Completions.Cha
             {
                 role: "system",
                 content:
-                    "you paraphrase the text of a technical documentation in fluent, professional-sounding english, and output the result as jekyll markdown, keep existing links and html"
+                    "you paraphrase the text of a technical documentation in fluent, professional-sounding business english, and output the result as jekyll markdown, keep existing links and html"
             },
             { role: "user", content: content }
         ],
