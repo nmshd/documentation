@@ -1,6 +1,6 @@
 var store = [{
         "title": "How does enmeshed work?",
-        "excerpt":"Enmeshed introduces an overarching solution, securely connecting users and organizations without the use of decentralized technologies like blockchains. However, it makes use of the decentralized mindset, like decentralized identities. Mature technologies and architectures are used as a base for enmeshed. In combination with state-of-the-art encryption technologies, a complete web stack...","categories": [],
+        "excerpt":"enmeshed introduces an overarching solution, securely connecting users and organizations without the use of decentralized technologies like blockchains. However, it makes use of the decentralized mindset, like decentralized Identities. Mature technologies and architectures are used as a base for enmeshed. In combination with state-of-the-art encryption technologies, a complete web stack...","categories": [],
         "tags": [],
         "url": "/explore/how_does_enmeshed_work",
         "teaser": null
@@ -12,13 +12,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Example Scenarios",
-        "excerpt":"Enmeshed supports many possible business scenarios within various lines of businesses or industries. But not only enterprises, companies or organizations benefit of these approaches. Also leisure activities with clubs or communities can make use of enmeshed. Though the digital life of persons is used as a prominent example throughout this...","categories": [],
+        "excerpt":"enmeshed supports many possible business scenarios within various lines of businesses or industries. But not only enterprises, companies or organizations benefit of these approaches. Also leisure activities with clubs or communities can make use of enmeshed. Though the digital life of persons is used as a prominent example throughout this...","categories": [],
         "tags": [],
         "url": "/explore/example-scenarios",
         "teaser": null
       },{
         "title": "Features",
-        "excerpt":"Features included with enmeshed: Self-sovereign identity Datawallet capabilitites, i.e. repository of structured data like attributes and files Datalog, i.e. know what data was shared when and to whom Cross-identity transparent encryption and digital signatures Cross-identity bi-directional data communication Cross-identity structured data synchronization (manual or automated) Cross-device transparent encryption Cross-device bi-directional...","categories": [],
+        "excerpt":"Features included with enmeshed: Self-sovereign Identity Datawallet capabilitites, i.e. repository of structured data like Attributes and files Datalog, i.e. know what data was shared when and to whom Cross-identity transparent encryption and digital signatures Cross-identity bi-directional data communication Cross-identity structured data synchronization (manual or automated) Cross-device transparent encryption Cross-device bi-directional...","categories": [],
         "tags": [],
         "url": "/explore/features",
         "teaser": null
@@ -30,7 +30,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Integration Considerations",
-        "excerpt":"Enmeshed does not only enable users taking part of the digitalization process. Organizations also benefit of enmeshed as well, as they usually need to invest heavily to stay up to date in today’s technological race. Enmeshed is a flexible communication platform, with a rich default feature set and possibilities to...","categories": [],
+        "excerpt":"enmeshed does not only enable users taking part of the digitalization process. Organizations also benefit of enmeshed as well, as they usually need to invest heavily to stay up to date in today’s technological race. enmeshed is a flexible communication platform, with a rich default feature set and possibilities to...","categories": [],
         "tags": [],
         "url": "/explore/integration",
         "teaser": null
@@ -60,49 +60,49 @@ var store = [{
         "teaser": null
       },{
         "title": "Consumption Layer",
-        "excerpt":"The consumption layer contains processes, logic and data structures either for personal or organizational identities. It sits on top of the transport layer and exposes its functionality to either the user experience or the integration layer. Components App Connector Tasks Attribute Handling The consumption layer handles the central attribute store...","categories": [],
+        "excerpt":"The consumption layer contains processes, logic and data structures either for personal or organizational Identities. It sits on top of the transport layer and exposes its functionality to either the user experience or the integration layer. Components App Connector Tasks Attribute Handling The consumption layer handles the central Attribute store...","categories": [],
         "tags": [],
         "url": "/explore/layers/consumption",
         "teaser": null
       },{
         "title": "Integration Layer",
-        "excerpt":"The integration layer is only available within the Connector and sits on top of the transport and consumption layers. It is responsible for providing integration capabilities to other systems. It acts for a single identity only, which is usually an organization. Components Connector Tasks Webserver with Authentication The integration layer...","categories": [],
+        "excerpt":"The integration layer is only available within the Connector and sits on top of the transport and consumption layers. It is responsible for providing integration capabilities to other systems. It acts for a single Identity only, which is usually an organization. Components Connector Tasks Webserver with Authentication The integration layer...","categories": [],
         "tags": [],
         "url": "/explore/layers/integration",
         "teaser": null
       },{
         "title": "User-Experience Layer",
-        "excerpt":"The user experience layer is only available within the App and sits on top of the transport and consumption layers. It exposes the functionality of underlying layers for the user, meaning it is rendering out user interfaces and handling interactions. It acts for a single identity only, which is usually...","categories": [],
+        "excerpt":"The user experience layer is only available within the App and sits on top of the transport and consumption layers. It exposes the functionality of underlying layers for the user, meaning it is rendering out user interfaces and handling interactions. It acts for a single Identity only, which is usually...","categories": [],
         "tags": [],
         "url": "/explore/layers/user-experience",
         "teaser": null
       },{
-        "title": "Enmeshed App",
+        "title": "enmeshed App",
         "excerpt":"App Building Blocks Platform-dependant App Binaries For each of the various platforms, each version of the app is packaged into a platform-dependant binary. This binary is then executable / installable for the users. The binaries of the enmeshed App are created, maintained and published by j&amp;s-soft GmbH and are available...","categories": [],
         "tags": [],
         "url": "/explore/app",
         "teaser": null
       },{
-        "title": "Enmeshed Backbone",
+        "title": "enmeshed Backbone",
         "excerpt":"Backbone Building Blocks The enmeshed Backbone embraces all central services required by the enmeshed platform to work. It consists of the underlying infrastructure, its hosted services, and the libraries used within the services. There could be many enmeshed Backbones hosted along the same number of enmeshed Apps. But keep in...","categories": [],
         "tags": [],
         "url": "/explore/backbone",
         "teaser": null
       },{
-        "title": "Enmeshed Connector",
+        "title": "enmeshed Connector",
         "excerpt":"Connector Building Blocks Connector Docker Image The Connector is usually deployed with a Docker image. The Docker images can be fetched from the GitHub container registry using your Docker client. Note: You have to be logged in using a GitHub account to list available tags. The Docker images are created,...","categories": [],
         "tags": [],
         "url": "/explore/connector",
         "teaser": null
       },{
-        "title": "Enmeshed Addresses",
+        "title": "enmeshed Addresses",
         "excerpt":"The Address is the primary identifier for an enmeshed Identity. It is public and created out of the Identity’s Signature Public Key. Thus, the Identity’s root signature key and its corresponding Address are interlinked with each other and cannot be changed. Nobody is able to change the public key for...","categories": [],
         "tags": [],
         "url": "/explore/addresses",
         "teaser": null
       },{
-        "title": "Enmeshed Runtime",
-        "excerpt":"Enmeshed Runtime GitHub Repository The Runtime wraps all features of enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser. Versions, local...","categories": [],
+        "title": "enmeshed Runtime",
+        "excerpt":"enmeshed Runtime GitHub Repository The Runtime wraps all features of enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser. Versions, local...","categories": [],
         "tags": [],
         "url": "/explore/runtime",
         "teaser": null
@@ -114,7 +114,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Why we do not use a blockchain",
-        "excerpt":"The new world of identities Self-Sovereignty and Self-Sovereign Identities Having full control over data, authorizations, or the hard- and software one can use for using the data is called self-sovereignty. A self-sovereign Identity is a digital identity which anybody can set up, without the power of somebody else to deny...","categories": [],
+        "excerpt":"The new world of Identities Self-Sovereignty and Self-Sovereign Identities Having full control over data, authorizations, or the hard- and software one can use for using the data is called self-sovereignty. A self-sovereign Identity is a digital Identity which anybody can set up, without the power of somebody else to deny...","categories": [],
         "tags": [],
         "url": "/explore/blockchain",
         "teaser": null
@@ -192,7 +192,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Exchange Messages",
-        "excerpt":"The Connector can send and receive messages with attachments using REST requests and file IDs, which are first uploaded and encrypted on the Platform. Messages can be queried and downloaded, and the Connector pulls for new messages periodically. In order to send messages to recipients, a REST request can be...","categories": [],
+        "excerpt":"The Connector can send and receive Messages with attachments using REST requests and file IDs, which are first uploaded and encrypted on the Platform. Messages can be queried and downloaded, and the Connector pulls for new Messages periodically. In order to send Messages to recipients, a REST request can be...","categories": [],
         "tags": [],
         "url": "/integrate/exchange-messages",
         "teaser": null
@@ -306,7 +306,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Performance Considerations",
-        "excerpt":"Scaling Horizontally   Using multiple connectors with the same identity to scale horizontally and balance the workload across all available connectors is not supported at the moment.  ","categories": [],
+        "excerpt":"Scaling Horizontally   Using multiple Connectors with the same Identity to scale horizontally and balance the workload across all available Connectors is not supported at the moment.  ","categories": [],
         "tags": [],
         "url": "/operate/performance-considerations",
         "teaser": null
@@ -354,7 +354,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Install the App",
-        "excerpt":"Caution: As enmeshed is open-source and the App is a white-label component, there are several flavors of the enmeshed App in the corresponding app stores. Enmeshed App You can get the enmeshed App over your favorite app stores. Please find the links below: Enmeshed App on Apple AppStore Enmeshed App...","categories": [],
+        "excerpt":"Caution: As enmeshed is open-source and the App is a white-label component, there are several flavors of the enmeshed App in the corresponding app stores. enmeshed App You can get the enmeshed App over your favorite app stores. Please find the links below: enmeshed App on Apple AppStore enmeshed App...","categories": [],
         "tags": [],
         "url": "/use/install-the-app",
         "teaser": null
@@ -564,7 +564,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Reject incoming Request",
-        "excerpt":"This use case attempts to reject an incoming LocalRequest. It is advised to check if the incoming Request can be accepted in advance. Parameters The id of the incoming LocalRequest. The decision for each individual RequestItem expressed as the appropriate Parameters defined in the Data Model. On Success All RequestItems...","categories": [],
+        "excerpt":"This use case attempts to reject an incoming LocalRequest. It is advised to check if the incoming Request can be rejected in advance. Parameters The id of the incoming LocalRequest. The decision for each individual RequestItem expressed as the appropriate Parameters defined in the Data Model. On Success All RequestItems...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-reject-incoming-request",
         "teaser": null

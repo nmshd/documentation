@@ -10,24 +10,24 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Enmeshed Runtime - enmeshed</title>
-<meta name="description" content="Enmeshed Runtime GitHub Repository">
+<!-- begin _includes/seo.html --><title>enmeshed Runtime - enmeshed</title>
+<meta name="description" content="enmeshed Runtime GitHub Repository">
 
 
-  <meta name="author" content="Enmeshed Team">
+  <meta name="author" content="enmeshed Team">
   
-  <meta property="article:author" content="Enmeshed Team">
+  <meta property="article:author" content="enmeshed Team">
   
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Enmeshed Runtime">
+<meta property="og:title" content="enmeshed Runtime">
 <meta property="og:url" content="/explore/runtime">
 
 
-  <meta property="og:description" content="Enmeshed Runtime GitHub Repository">
+  <meta property="og:description" content="enmeshed Runtime GitHub Repository">
 
 
 
@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-05-24T17:04:49+02:00">
+  <meta property="article:published_time" content="2024-05-28T13:49:15+02:00">
 
 
 
@@ -293,16 +293,16 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Enmeshed Runtime">
-    <meta itemprop="description" content="Enmeshed Runtime GitHub Repository">
-    <meta itemprop="datePublished" content="2024-05-24T17:04:49+02:00">
+    <meta itemprop="headline" content="enmeshed Runtime">
+    <meta itemprop="description" content="enmeshed Runtime GitHub Repository">
+    <meta itemprop="datePublished" content="2024-05-28T13:49:15+02:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/explore/runtime" itemprop="url">Enmeshed Runtime
+            <a href="/explore/runtime" itemprop="url">enmeshed Runtime
 </a>
           </h1>
           
@@ -320,7 +320,7 @@
             </nav>
           </aside>
         
-        <p><a href="https://github.com/nmshd/cns-runtime">Enmeshed Runtime GitHub Repository</a></p>
+        <p><a href="https://github.com/nmshd/cns-runtime">enmeshed Runtime GitHub Repository</a></p>
 
 <p>The Runtime wraps all features of enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser.</p>
 
@@ -350,17 +350,17 @@
 <ul>
   <li>Communication with the Backbone</li>
   <li>Synchronization with the Backbone</li>
-  <li>Encrypting and decrypting communication with other identities</li>
-  <li>Managing identities and devices</li>
+  <li>Encrypting and decrypting communication with other Identities</li>
+  <li>Managing Identities and devices</li>
   <li>Managing cryptographic artifacts</li>
   <li>Cross-device synchronization of the datawallet</li>
 </ul>
 
 <h3 id="content-library">Content Library <a href="https://github.com/nmshd/cns-content"><i class="fab fa-fw fa-github"></i></a></h3>
 
-<p>To separate the actual payload of Messages from the Message structure and envelope, the content library was set up. It is a repository of interfaces and types which are used as the payload of communication between identities.</p>
+<p>To separate the actual payload of Messages from the Message structure and envelope, the content library was set up. It is a repository of interfaces and types which are used as the payload of communication between Identities.</p>
 
-<p>Whereas the transport library implements the foundation of communication between identities and the actual secure tunnel between identities, the content library defines the payload on top of this tunnel. You can see it as the definition of a contract between all identities.</p>
+<p>Whereas the transport library implements the foundation of communication between Identities and the actual secure tunnel between Identities, the content library defines the payload on top of this tunnel. You can see it as the definition of a contract between all Identities.</p>
 
 <ul>
   <li>Attributes and AttributeValues</li>
@@ -416,7 +416,7 @@
   <li>scanning for Requests in outgoing Messages to store it as outgoing LocalRequests in the database</li>
   <li>taking action when the User decides (accepts or rejects) a Request
     <ul>
-      <li>when the Request came from a Template the Module creates a Relationship with the contents of the User’s Response if the User accepted the Request (rejection is currently not handled)</li>
+      <li>when the Request came from a RelationshipTemplate the Module creates a Relationship with the contents of the User’s Response if the User accepted the Request (rejection is currently not handled)</li>
       <li>when the Request came from a Message the Module sends back a Message containing the User’s Response (accept and reject)</li>
     </ul>
   </li>
@@ -437,7 +437,7 @@
 
 <p>The Message Module is responsible for processing <code class="language-plaintext highlighter-rouge">transport.MessageReceived</code> events and re-publish them as events that are able to handle and consume in different situations.</p>
 
-<p>In every case the MessageModule will publish a <code class="language-plaintext highlighter-rouge">consumption.relationshipEvent.&lt;relationshipID-between-the-sender-and-you&gt;</code> for e.g. reloading the Relationship including its newest Messages in an UI.</p>
+<p>In every case the MessageModule will publish a <code class="language-plaintext highlighter-rouge">consumption.relationshipEvent.&lt;Relationship-ID-between-the-sender-and-you&gt;</code> for e.g. reloading the Relationship including its newest Messages in an UI.</p>
 
 <p>When the Message is a <a href="/integrate/data-model-overview#Mail">Mail</a> a <code class="language-plaintext highlighter-rouge">consumption.mailReceived</code> event will be published. This is useful if you only want to refresh your UI that is rendering structured Mails.</p>
 
@@ -453,7 +453,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-05-24T17:04:49+02:00">May 24, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-05-28T13:49:15+02:00">May 28, 2024</time></p>
 
       </footer>
 

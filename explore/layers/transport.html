@@ -14,9 +14,9 @@
 <meta name="description" content="The transport layer is located between the backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is the primary technical building block, containing the transport library, the content library and the crypto library.">
 
 
-  <meta name="author" content="Enmeshed Team">
+  <meta name="author" content="enmeshed Team">
   
-  <meta property="article:author" content="Enmeshed Team">
+  <meta property="article:author" content="enmeshed Team">
   
 
 
@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-05-24T17:04:49+02:00">
+  <meta property="article:published_time" content="2024-05-28T13:49:15+02:00">
 
 
 
@@ -295,7 +295,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Transport Layer">
     <meta itemprop="description" content="The transport layer is located between the backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is the primary technical building block, containing the transport library, the content library and the crypto library.">
-    <meta itemprop="datePublished" content="2024-05-24T17:04:49+02:00">
+    <meta itemprop="datePublished" content="2024-05-28T13:49:15+02:00">
     
 
     <div class="page__inner-wrap">
@@ -316,7 +316,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#tasks">Tasks</a><ul><li><a href="#data-handling">Data Handling</a></li><li><a href="#syntactical-validation-of-plaintext-data">Syntactical validation of plaintext data</a></li><li><a href="#encryption">Encryption</a></li><li><a href="#key-handling">Key Handling</a></li><li><a href="#cross-device-synchronization">Cross-Device Synchronization</a></li><li><a href="#cross-device-versioning">Cross-Device Versioning</a></li></ul></li><li><a href="#entities">Entities</a><ul><li><a href="#identity">Identity</a><ul><li><a href="#address">Address</a></li></ul></li><li><a href="#devices">Devices</a><ul><li><a href="#device-structure">Device Structure</a></li><li><a href="#device-onboarding-info">Device Onboarding Info</a></li></ul></li><li><a href="#files">Files</a><ul><li><a href="#file-structure">File Structure</a></li><li><a href="#file-reference">File Reference</a></li></ul></li><li><a href="#messages">Messages</a><ul><li><a href="#message-structure">Message Structure</a></li></ul></li><li><a href="#relationships">Relationships</a><ul><li><a href="#relationship-structure">Relationship Structure</a></li></ul></li><li><a href="#relationship-changes">Relationship Changes</a><ul><li><a href="#relationship-creation-change-requests">Relationship Creation Change Requests</a></li></ul></li><li><a href="#relationship-templates">Relationship Templates</a><ul><li><a href="#generic-templates">Generic Templates</a></li><li><a href="#personalized-templates">Personalized Templates</a></li><li><a href="#relationship-template-structure">Relationship Template Structure</a></li></ul></li><li><a href="#tokens">Tokens</a><ul><li><a href="#token-references">Token References</a></li><li><a href="#token-structure">Token Structure</a></li></ul></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#tasks">Tasks</a><ul><li><a href="#data-handling">Data Handling</a></li><li><a href="#syntactical-validation-of-plaintext-data">Syntactical validation of plaintext data</a></li><li><a href="#encryption">Encryption</a></li><li><a href="#key-handling">Key Handling</a></li><li><a href="#cross-device-synchronization">Cross-Device Synchronization</a></li><li><a href="#cross-device-versioning">Cross-Device Versioning</a></li></ul></li><li><a href="#entities">Entities</a><ul><li><a href="#identity">Identity</a><ul><li><a href="#address">Address</a></li></ul></li><li><a href="#devices">Devices</a><ul><li><a href="#device-structure">Device Structure</a></li><li><a href="#device-onboarding-info">Device Onboarding Info</a></li></ul></li><li><a href="#files">Files</a><ul><li><a href="#file-structure">File Structure</a></li><li><a href="#file-reference">File Reference</a></li></ul></li><li><a href="#messages">Messages</a><ul><li><a href="#message-structure">Message Structure</a></li></ul></li><li><a href="#relationships">Relationships</a><ul><li><a href="#relationship-structure">Relationship Structure</a></li></ul></li><li><a href="#relationship-changes">Relationship Changes</a><ul><li><a href="#relationship-creation-change-requests">Relationship Creation Change Requests</a></li></ul></li><li><a href="#relationshiptemplates">RelationshipTemplates</a><ul><li><a href="#generic-relationshiptemplates">Generic RelationshipTemplates</a></li><li><a href="#personalized-relationshiptemplates">Personalized RelationshipTemplates</a></li><li><a href="#relationshiptemplate-structure">RelationshipTemplate Structure</a></li></ul></li><li><a href="#tokens">Tokens</a><ul><li><a href="#token-references">Token References</a></li><li><a href="#token-structure">Token Structure</a></li></ul></li></ul></li></ul>
             </nav>
           </aside>
         
@@ -349,11 +349,11 @@
 
 <h2 id="cross-device-synchronization">Cross-Device Synchronization</h2>
 
-<p>The synchronization between the devices is completely encrypted and works a bit like the communication with other identities. When an identity is created, a random synchronization key is generated and used to encrypt and synchronize all local data to the backbone. This synchronization key is then shared when onboarding a new device, allowing the new device to have access to the complete (encrypted) history of the identity on the backbone which can then be downloaded and applied.</p>
+<p>The synchronization between the devices is completely encrypted and works a bit like the communication with other Identities. When an Identity is created, a random synchronization key is generated and used to encrypt and synchronize all local data to the backbone. This synchronization key is then shared when onboarding a new device, allowing the new device to have access to the complete (encrypted) history of the Identity on the backbone which can then be downloaded and applied.</p>
 
-<p>Changes on one device are directly synchronized with the backbone and thus communicated to and reflected on other devices. The synchronization service (we also call it datawallet service) only adds information to the identity’s history. Therefore, enmeshed would even be able to roll back local changes on user errors, as we have a kind of local data versioning across devices with this approach.</p>
+<p>Changes on one device are directly synchronized with the backbone and thus communicated to and reflected on other devices. The synchronization service (we also call it datawallet service) only adds information to the Identity’s history. Therefore, enmeshed would even be able to roll back local changes on user errors, as we have a kind of local data versioning across devices with this approach.</p>
 
-<p>We have a blocking mechanism in place that allows only one device to update the identity’s history on a single point in time.</p>
+<p>We have a blocking mechanism in place that allows only one device to update the Identity’s history on a single point in time.</p>
 
 <h2 id="cross-device-versioning">Cross-Device Versioning</h2>
 
@@ -363,31 +363,31 @@
 
 <h2 id="identity">Identity</h2>
 
-<p>The identity semantically is the “digital twin” of the actual real-world person or organization.</p>
+<p>The Identity semantically is the “digital twin” of the actual real-world person or organization.</p>
 
-<p>Technically, the identity primarily consists of one keypair. By signing with the identity’s private key, one is able to prove the ownership of the identity and thus manage the identity completely. Based on the identity’s public key, the primary identification property, the address is created.</p>
+<p>Technically, the Identity primarily consists of one keypair. By signing with the Identity’s private key, one is able to prove the ownership of the Identity and thus manage the Identity completely. Based on the Identity’s public key, the primary identification property, the address is created.</p>
 
-<p>One has to keep in mind that enmeshed doesn’t enforce the validation of the real-world entities. Thus one real-world entity could create fake identities.</p>
+<p>One has to keep in mind that enmeshed doesn’t enforce the validation of the real-world entities. Thus one real-world entity could create fake Identities.</p>
 
-<p>Additionally, enmeshed cannot enforce a uniqueness of real-world entities, i.e. one real-world entity could create multiple enmeshed identities for itself.</p>
+<p>Additionally, enmeshed cannot enforce a uniqueness of real-world entities, i.e. one real-world entity could create multiple enmeshed Identities for itself.</p>
 
 <h3 id="address">Address</h3>
 
-<p>The identity’s address is the primary way to identify an identity. It is a calculated property based on the identity’s public key and thus cannot be changed for an identity.</p>
+<p>The Identity’s address is the primary way to identify an Identity. It is a calculated property based on the Identity’s public key and thus cannot be changed for an Identity.</p>
 
 <h2 id="devices">Devices</h2>
 
-<p>A device is a technical part of the identity. One identity can use multiple devices to interact with the outside world. The outside world however usually doesn’t care about the devices of one identity. An example of an exception would be multi-device authentication in business processes, where the devices (actually their signatures) would take part in the process itself.</p>
+<p>A device is a technical part of the Identity. One Identity can use multiple devices to interact with the outside world. The outside world however usually doesn’t care about the devices of one Identity. An example of an exception would be multi-device authentication in business processes, where the devices (actually their signatures) would take part in the process itself.</p>
 
-<p>Thus devices are usually handled within the identity, just like one person uses multiple devices for reading mails or browsing the web.</p>
+<p>Thus devices are usually handled within the Identity, just like one person uses multiple devices for reading mails or browsing the web.</p>
 
 <p>A very interesting part of enmeshed is, that devices are usually kept in synchronization with each other over a synchronization service. This is a big difference from other communication providers where there is usually a “main” device which is remotely controlled by other devices.</p>
 
-<p>Thus, every device has the complete access on the identity and its data without relying on another device. This is a great backup and recovery mechanism, as having two devices for an identity means an automatic backup device if one device is broken or replaced.</p>
+<p>Thus, every device has the complete access on the Identity and its data without relying on another device. This is a great backup and recovery mechanism, as having two devices for an Identity means an automatic backup device if one device is broken or replaced.</p>
 
 <h3 id="device-structure">Device Structure</h3>
 
-<p>Devices in the Transport Layer have a different set of attributes from devices in the Backbone Layer. The devices of one identity know each other and this is the information which is shared accross the devices.</p>
+<p>Devices in the Transport Layer have a different set of Attributes from devices in the Backbone Layer. The devices of one Identity know each other and this is the information which is shared accross the devices.</p>
 
 <ul>
   <li>id</li>
@@ -405,7 +405,7 @@
 
 <h3 id="device-onboarding-info">Device Onboarding Info</h3>
 
-<p>If a new device is onboarded, the device onboarding info is shared via a side channel. With this information, all necessary data is exchanged to access the identity. So this should be kept very secure.</p>
+<p>If a new device is onboarded, the device onboarding info is shared via a side channel. With this information, all necessary data is exchanged to access the Identity. So this should be kept very secure.</p>
 
 <ul>
   <li>id</li>
@@ -416,8 +416,8 @@
   <li>secretBaseKey</li>
   <li>deviceIndex</li>
   <li>synchronizationKey</li>
-  <li>identityPrivateKey (optional)</li>
-  <li>identity</li>
+  <li>IdentityPrivateKey (optional)</li>
+  <li>Identity</li>
   <li>password</li>
   <li>username</li>
 </ul>
@@ -439,57 +439,57 @@
   <li>filename: Filename of the original file (used for storing the file on local systems)</li>
   <li>filesize: Plaintext size of the original file’s payload</li>
   <li>createdAt: ISO String when the file has been created</li>
-  <li>createdBy: Address of the identity which created the file</li>
+  <li>createdBy: Address of the Identity which created the file</li>
   <li>createdByDevice: Device id of the device which created the file</li>
   <li>expiresAt: ISO String when the file expires</li>
   <li>mimetype: Mimetype of the file’s payload</li>
-  <li>isOwn: Whether or not the file was uploaded by the current identity</li>
+  <li>isOwn: Whether or not the file was uploaded by the current Identity</li>
   <li>deletedAt: ISO String when the file has been deleted</li>
-  <li>deletedBy: Address of the identity which deleted the file</li>
+  <li>deletedBy: Address of the Identity which deleted the file</li>
   <li>deletedByDevice: Device id of the device which deleted the file</li>
 </ul>
 
 <h3 id="file-reference">File Reference</h3>
 
-<p>The file id and the generated metadata secret key are the only two properties which need to be submitted to another user. Both properties are usually sent within a message to the recipients.</p>
+<p>The file id and the generated metadata secret key are the only two properties which need to be submitted to another user. Both properties are usually sent within a Message to the recipients.</p>
 
 <h2 id="messages">Messages</h2>
 
 <p>Abbreviated: MSG</p>
 
-<p>A message is any kind of structured content which should be securely transmitted to relationships. Messages can be submitted to multiple recipients and can deliver multiple attachments (in form of file references).
-Depending on the content of the message, a message could act as a technical message (e.g. a multi-factor authentication request) which shouldn’t be rendered.</p>
+<p>A Message is any kind of structured content which should be securely transmitted to Relationships. Messages can be submitted to multiple recipients and can deliver multiple attachments (in form of file references).
+Depending on the content of the Message, a Message could act as a technical Message (e.g. a multi-factor authentication request) which shouldn’t be rendered.</p>
 
 <h3 id="message-structure">Message Structure</h3>
 
 <ul>
-  <li>id: random message id generated by the backbone once the message has been created</li>
-  <li>createdAt: ISO String when the message has been created</li>
-  <li>createdBy: Address of the identity which created the message</li>
-  <li>createdByDevice: Device id of the device which created the message</li>
+  <li>id: random Message id generated by the backbone once the Message has been created</li>
+  <li>createdAt: ISO String when the Message has been created</li>
+  <li>createdBy: Address of the Identity which created the Message</li>
+  <li>createdByDevice: Device id of the device which created the Message</li>
   <li>recipients: Array of recipients
     <ul>
-      <li>address: Address of one of the identity which should receive the message</li>
-      <li>receivedAt: ISO String when the recipient received the message</li>
-      <li>receivedByDevice: Device id of the recipient’s device which received the message</li>
+      <li>address: Address of one of the Identity which should receive the Message</li>
+      <li>receivedAt: ISO String when the recipient received the Message</li>
+      <li>receivedByDevice: Device id of the recipient’s device which received the Message</li>
     </ul>
   </li>
-  <li>relationshipIds: Array of relationship ids of the recipients (same order as recipients)</li>
-  <li>content: The content of the message</li>
-  <li>attachments: Array of files which are attached to this message</li>
+  <li>relationshipIds: Array of Relationship IDs of the recipients (same order as recipients)</li>
+  <li>content: The content of the Message</li>
+  <li>attachments: Array of files which are attached to this Message</li>
 </ul>
 
 <h2 id="relationships">Relationships</h2>
 
-<p>The link between two identities is called relationship. From the view of one identity or its device, the “own” keyword decribes content created by its own. The “peer” keyword describes content of the other party.</p>
+<p>The link between two Identities is called Relationship. From the view of one Identity or its device, the “own” keyword decribes content created by its own. The “peer” keyword describes content of the other party.</p>
 
-<p>Relationships are usually used as the technical term, whereas contact is used as a business terminology. To be more strict, one could say that contacts are active relationships, as a relationship could also be terminated (thus a communication would no longer be possible).</p>
+<p>Relationships are usually used as the technical term, whereas contact is used as a business terminology. To be more strict, one could say that contacts are active Relationships, as a Relationship could also be terminated (thus a communication would no longer be possible).</p>
 
 <h3 id="relationship-structure">Relationship Structure</h3>
 
 <ul>
   <li>id</li>
-  <li>template</li>
+  <li>RelationshipTemplate</li>
   <li>status</li>
   <li>peer</li>
   <li>changes
@@ -521,18 +521,18 @@ Depending on the content of the message, a message could act as a technical mess
 
 <h2 id="relationship-changes">Relationship Changes</h2>
 
-<p>Relationships are agreements between two identities. Thus, to change a relationship both parties have to accept on the new “terms”. This is done by requesting a change which the other party can accept or reject. The requestor could also revoke a requested change, as long as the other party did not react to the change yet.</p>
+<p>Relationships are agreements between two Identities. Thus, to change a Relationship both parties have to accept on the new “terms”. This is done by requesting a change which the other party can accept or reject. The requestor could also revoke a requested change, as long as the other party did not react to the change yet.</p>
 
-<p>The very first agreement between both parties is to actually create the relationship, the “relationship request”. Technically, the term “relationship creation change request” would be more correct but is seldom used in the documentation because of readability.</p>
+<p>The very first agreement between both parties is to actually create the Relationship, the “Relationship request”. Technically, the term “Relationship creation change request” would be more correct but is seldom used in the documentation because of readability.</p>
 
 <h3 id="relationship-creation-change-requests">Relationship Creation Change Requests</h3>
 
-<p>The relationship request - next to the required technical information - usually contains:</p>
+<p>The Relationship request - next to the required technical information - usually contains:</p>
 
 <ul>
   <li>Requested information from the requestor
     <ul>
-      <li>Required/optional attributes</li>
+      <li>Required/optional Attributes</li>
       <li>Certificates</li>
       <li>Signatures</li>
       <li>Answers to questionnaire</li>
@@ -543,30 +543,30 @@ Depending on the content of the message, a message could act as a technical mess
   <li>OK to EULA</li>
 </ul>
 
-<h2 id="relationship-templates">Relationship Templates</h2>
+<h2 id="relationshiptemplates">RelationshipTemplates</h2>
 
-<p>A relationship template is a structured representation of data which is required for a relationship to be established. Thus, it is usually also addressing the required information for a business process to start.</p>
+<p>A RelationshipTemplate is a structured representation of data which is required for a Relationship to be established. Thus, it is usually also addressing the required information for a business process to start.</p>
 
-<p>Templates solve the problem of linking enmeshed identities to a currently existing real world context, e.g. an existing customer account or an anonymous web session.</p>
+<p>RelationshipTemplates solve the problem of linking enmeshed Identities to a currently existing real world context, e.g. an existing customer account or an anonymous web session.</p>
 
 <p>In addition to technical information like public keys, certificates or signatures, it usually contains:</p>
 
 <ul>
   <li>Information which the templator would like to share about itself
     <ul>
-      <li>Templator attributes (e.g. company name, address, phone numbers)</li>
+      <li>Templator Attributes (e.g. company name, address, phone numbers)</li>
       <li>Contact details</li>
     </ul>
   </li>
   <li>Private information which the templator would like to share about the requestor
     <ul>
-      <li>Requestor attributes</li>
+      <li>Requestor Attributes</li>
       <li>Websession information</li>
     </ul>
   </li>
   <li>Requested additional information about the requestor
     <ul>
-      <li>Required/optional attributes</li>
+      <li>Required/optional Attributes</li>
       <li>Certificates</li>
       <li>Signatures</li>
       <li>Questionnaires</li>
@@ -580,39 +580,39 @@ Depending on the content of the message, a message could act as a technical mess
   </li>
 </ul>
 
-<p>A relationship template needs to be created in order to receive relationship requests and ultimately create an active relationship between two identities. The relationship template is then usually shared with the user via a token.</p>
+<p>A RelationshipTemplate needs to be created in order to receive Relationship requests and ultimately create an active Relationship between two Identities. The RelationshipTemplate is then usually shared with the user via a token.</p>
 
-<p>Relationship templates can be both: identity-specific (template is personalized for one specific identity - which might not exist yet) or identity-agnostic (template is open for multiple identities).</p>
+<p>RelationshipTemplates can be both: Identity-specific (RelationshipTemplate is personalized for one specific Identity - which might not exist yet) or Identity-agnostic (RelationshipTemplate is open for multiple Identities).</p>
 
-<h3 id="generic-templates">Generic Templates</h3>
+<h3 id="generic-relationshiptemplates">Generic RelationshipTemplates</h3>
 
-<p>Generic templates are used if the counterpart is not known at all. They include their own data which they would like to share (e.g. the name of the company) and also data required for the business process.</p>
+<p>Generic RelationshipTemplates are used if the counterpart is not known at all. They include their own data which they would like to share (e.g. the name of the company) and also data required for the business process.</p>
 
-<p>It does not matter however, who is using the template, as there is no sensitive data stored in the template. Anyone could scan the template and create a relationship with it.</p>
+<p>It does not matter however, who is using the RelationshipTemplate, as there is no sensitive data stored in the RelationshipTemplate. Anyone could scan the RelationshipTemplate and create a Relationship with it.</p>
 
-<p>It is possible to use a generic template multiple times, e.g. for anonymous web sites or printed flyers.</p>
+<p>It is possible to use a generic RelationshipTemplate multiple times, e.g. for anonymous web sites or printed flyers.</p>
 
-<p>It is also possible to create a generic template for every user accessing an anonymous website including a unique id of the web session. This could be handy if the website should for example redirect the user to the profile page once the user scanned the QR-code and the relationship was accepted.</p>
+<p>It is also possible to create a generic RelationshipTemplate for every user accessing an anonymous website including a unique id of the web session. This could be handy if the website should for example redirect the user to the profile page once the user scanned the QR-code and the Relationship was accepted.</p>
 
-<h3 id="personalized-templates">Personalized Templates</h3>
+<h3 id="personalized-relationshiptemplates">Personalized RelationshipTemplates</h3>
 
-<p>Personalized templates are short-lived relationship templates including sensitive or personal data of a specific person. They are meant to be used by this specific person only, in order to share personalized data when onboarding.</p>
+<p>Personalized RelationshipTemplates are short-lived RelationshipTemplates including sensitive or personal data of a specific person. They are meant to be used by this specific person only, in order to share personalized data when onboarding.</p>
 
-<p>This is usually combined with an upfront digital authentication of the person, e.g. existing web sessions of the user. Only this specific user would then have access to the personalized template within the secured website (e.g. over an QR-code).</p>
+<p>This is usually combined with an upfront digital authentication of the person, e.g. existing web sessions of the user. Only this specific user would then have access to the personalized RelationshipTemplate within the secured website (e.g. over an QR-code).</p>
 
-<p>Personalized templates are primary used for a much better onboarding experience of net-new enmeshed users: they won’t need to enter their data again, even if the data is already stored somehow.</p>
+<p>Personalized RelationshipTemplates are primary used for a much better onboarding experience of net-new enmeshed users: they won’t need to enter their data again, even if the data is already stored somehow.</p>
 
-<p>Personalized templates can only be used if the person is authenticated upfront or it is ensured that only the respective person can receive the template.</p>
+<p>Personalized RelationshipTemplates can only be used if the person is authenticated upfront or it is ensured that only the respective person can receive the RelationshipTemplate.</p>
 
-<p>It should also be clear that personalized templates should expire as soon as possible, depending on the context. The <code class="language-plaintext highlighter-rouge">maxNumberOfAllocations</code> property when creating the template should be set to 1, so that the template can only be used once. Keep in mind that it could still be scanned multiple times - including the access of the personalized data - as long as it is not expired.</p>
+<p>It should also be clear that personalized RelationshipTemplates should expire as soon as possible, depending on the context. The <code class="language-plaintext highlighter-rouge">maxNumberOfAllocations</code> property when creating the RelationshipTemplate should be set to 1, so that the RelationshipTemplate can only be used once. Keep in mind that it could still be scanned multiple times - including the access of the personalized data - as long as it is not expired.</p>
 
 <p><strong>Example 1</strong>
-Horst has an online account of his favorite webshop and is already logged in there. The webshop can create a personalized template for Horst which includes Horst’s private address. If Horst scans this template, the app can automatically fill Horst’s datawallet with the private address. The personalized relationship template might expire after 5 minutes.</p>
+Horst has an online account of his favorite webshop and is already logged in there. The webshop can create a personalized RelationshipTemplate for Horst which includes Horst’s private address. If Horst scans this RelationshipTemplate, the app can automatically fill Horst’s datawallet with the private address. The personalized RelationshipTemplate might expire after 5 minutes.</p>
 
 <p><strong>Example 2</strong>
-A company has no customer system where customers can log in but would still like to submit information digitally to its customers. The company creates a personalized template for a customer, e.g. Susan and prints the QR-Code on a letter. Susan can then scan in the QR-Code and can establish a secure connection to the company, although there is no online customer system. The personalized relationship template might expire after two weeks.</p>
+A company has no customer system where customers can log in but would still like to submit information digitally to its customers. The company creates a personalized RelationshipTemplate for a customer, e.g. Susan and prints the QR-Code on a letter. Susan can then scan in the QR-Code and can establish a secure connection to the company, although there is no online customer system. The personalized RelationshipTemplate might expire after two weeks.</p>
 
-<h3 id="relationship-template-structure">Relationship Template Structure</h3>
+<h3 id="relationshiptemplate-structure">RelationshipTemplate Structure</h3>
 
 <ul>
   <li>id</li>
@@ -627,7 +627,7 @@ A company has no customer system where customers can log in but would still like
 
 <h2 id="tokens">Tokens</h2>
 
-<p>Commonly used data-sharing possibilities like links (URIs) or QR codes are limited in size. Thus, even compressed representations of - e.g. relationship templates - are too big to be stored in a QR code. In addition, the data which is shared usually should expire after a certain period of time. For example, a personalized relationship template containing sensitive data should be deleted after 5 minutes.</p>
+<p>Commonly used data-sharing possibilities like links (URIs) or QR codes are limited in size. Thus, even compressed representations of - e.g. RelationshipTemplates - are too big to be stored in a QR code. In addition, the data which is shared usually should expire after a certain period of time. For example, a personalized RelationshipTemplate containing sensitive data should be deleted after 5 minutes.</p>
 
 <p>To overcome these technical limitations, an indirection with a shared token is introduced. The token acts as a small data-reference object: The actual to-be-shared data is encrypted with a random key and the corresponding cipher is stored on the central platform with additional information like an expiry date.</p>
 
@@ -660,7 +660,7 @@ A company has no customer system where customers can log in but would still like
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-05-24T17:04:49+02:00">May 24, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-05-28T13:49:15+02:00">May 28, 2024</time></p>
 
       </footer>
 
