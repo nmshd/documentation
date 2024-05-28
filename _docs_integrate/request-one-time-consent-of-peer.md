@@ -50,7 +50,7 @@ Also note that the ConsentRequestItem should not be used for contractual agreeme
 
 ## Request for one-time consent
 
-In the following, we describe how a Connector, hereinafter referred to as the Sender, can get the one-time consent of another Connector, with which it has already established a Relationship and which is also referred to as the Recipient, by using a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) within a [Request]({% link _docs_integrate/data-model-overview.md %}#request).
+In the following, we describe how a Connector, hereinafter referred to as the Sender, can get the one-time consent of another Connector, with which it has already established a Relationship and which is also referred to as the Recipient, by using a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) within the `items` property of an appropriate [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 
 The general procedure is the same if the Connector wants to obtain the one-time consent of an App user instead of another Connector. For reasons of clarity, this guide focuses on the process with two Connectors. For information on how to establish Relationships, refer to the [Establish Relationships]({% link _docs_integrate/establish-relationships.md %}) scenario documentation.
 {: .notice--info}
@@ -112,7 +112,7 @@ After the Request is created, the Sender can send it to the Recipient. To send t
 
 In order to receive the [Message]({% link _docs_integrate/data-model-overview.md %}#message) that contains the [Request for one-time consent]({% link _docs_integrate/request-one-time-consent-of-peer.md %}#request-for-one-time-consent) as `content`, the Recipient must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 If the Recipient wants to accept the Request and in particular all its [ConsentRequestItems]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) for which the value of the `mustBeAccepted` property is set to `true`, it must proceed as described in the documentation of the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case.
-In doing so, the [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) must be used to accept a ConsentRequestItem if the Recipient give the Sender one-time consent to the corresponding issue originating from the Sender.
+In doing so, the [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) must be used to accept a ConsentRequestItem. If the Recipient gives the Sender one-time consent to an issue, it should accept the corresponding ConsentRequestItem.
 
 If the Recipient does not want to agree to the issue that the Sender wants the Recipient to agree to, it can of course also reject the corresponding [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) by using the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters), as long as its value of the `mustBeAccepted` property is set to `false`, or [reject the incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) as a whole.
 {: .notice--info}
@@ -121,12 +121,10 @@ Accepting the ConsentRequestItem leads to the creation of an [AcceptResponseItem
 
 ### Receive the Response to the Request
 
-We now assume that the Recipient has accepted the [Request for one-time consent]({% link _docs_integrate/request-one-time-consent-of-peer.md %}#request-for-one-time-consent) of the Sender and in particular the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), whose value of the `mustBeAccepted` property is set to `true` and which is used in the example studied to request a one-time consent. In order for the Sender to receive the Recipient's Response to the Request, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
+We now assume that the Recipient has accepted the [Request for one-time consent]({% link _docs_integrate/request-one-time-consent-of-peer.md %}#request-for-one-time-consent) of the Sender and in particular the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), whose value of the `mustBeAccepted` property is set to `true` and which is used in the example studied to request a one-time consent. In order for the Sender to receive the Recipient's Response to the Request, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). The Sender is then informed whether or not the Recipient has given one-time consent to the issue originating from the Sender.
 
 Please note that the required synchronization of both Identities can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 {: .notice--info}
-
-The accepted ConsentRequestItem does not lead to the creation of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) as `content` for the Sender.
 
 ## What's next?
 
