@@ -66,18 +66,10 @@ After the Recipient has responded to the AuthenticationRequestItem, a suitable [
 
 #### ConsentRequestItem
 
-With the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) it is possible to request a consent of the peer to an arbitrary text and thus reach agreement on a certain non machine-processable context.
+With the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) it is possible to request the one-time consent of a peer to an arbitrary text and thus reach agreement on a certain non-machine-processable context. All details on how to use the ConsentRequestItem and examples of use cases for it can be found in the [Request one-time consent of peer]({% link _docs_integrate/request-one-time-consent-of-peer.md %}) guide.
 
-Please do not use the ConsentRequestItem to submit tons of text to the peer Identity. It is meant to be a short consent or summary the user agrees to. Please move longer text to external websites.
-The ConsentRequestItem is also not meant for contractual agreements.
+Note that the ConsentRequestItem cannot be used if intending to [request persistent consent from a peer]({% link _docs_integrate/request-persistent-consent-of-peer.md %}).
 {: .notice--info}
-
-Possible examples are:
-
-- "I hereby confirm that I have read the privacy terms of this cloud service and agree to them."
-- "The provided EULA has been read and agreed to."
-- "Yes, I have backed up all of my data of this PC and you can wipe it."
-- "I opt in to the newsletter."
 
 Depending on whether the ConsentRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
 
