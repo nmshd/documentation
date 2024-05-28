@@ -60,15 +60,14 @@ As there is already a Relationship between the Sender and the Recipient, the Sen
 Please note that if there is no active Relationship between the Sender and the Recipient, the Request for one-time consent must be sent via a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) instead of a [Message]({% link _docs_integrate/data-model-overview.md %}#message). The process of [establishing a Relationship]({% link _docs_integrate/establish-relationships.md %}) is then initiated at the same time.
 {: .notice--info}
 
-### Check the Request's validity
+### Create the Request
 
-At first you should check if your Request is valid. You can do this by calling the `POST /api/v2/Requests/Outgoing/Validate` route on the Sender Connector with the following body.
-For the one-time consent request we use the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem).
-Even though the `peer` property is optional, it is recommended to specify it whenever possible. This allows additional validation rules to execute. When you are sending a Request via Messages you always know your peer.
+As already indicated, the Request contains a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) within its `items` property.
+To create the Request, the Sender must proceed as described in the [Create outgoing Request]({% link _docs_use-cases/use-case-consumption-create-outgoing-request.md %}) use case, specifying a suitable payload as given in the example below.
+In this example, the value of the `mustBeAccepted` property of the ConsentRequestItem is set to `true`.
 Please note that the `<...>` notation is used as a placeholder for the actual data as usual and that the `link` property of the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) is optional and can therefore also be omitted.
-In our example, we have chosen to set the value of the `mustBeAccepted` property of the ConsentRequestItem to `true`.
 
-```json
+```jsonc
 {
   "content": {
     "items": [
@@ -84,22 +83,8 @@ In our example, we have chosen to set the value of the `mustBeAccepted` property
 }
 ```
 
-### Create the Request
-
-To create the Request you have to call the `POST /api/v2/Requests/Outgoing` route on the Sender Connector. Use the following JSON in the Request body:
-
-```jsonc
-{
-  "content": {
-    // the content property of the payload in the step before
-  },
-  "peer": "<Address of Recipient>"
-}
-```
-
-Note that the Request is currently in status `Draft`.
-
-{% include copy-notice description="Save the complete `content` of the response. You will need it in the sending Request step." %}
+Before creating the Request, the Sender should check whether it is valid. This can be done by proceeding as described in the documentation of the [Check if outgoing Request can be created]({% link _docs_use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}) use case. The advantage of checking the validity of the Request first before attempting to create it is that the Sender would receive a more precise [error]({% link _docs_integrate/error-codes.md %}) description in the case of a faulty Request.
+{: .notice--info}
 
 **Example response:**
 

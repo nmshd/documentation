@@ -48,7 +48,7 @@ based on a given [Request]({% link _docs_integrate/data-model-overview.md %}#req
 ## Parameters
 
 - The `content` as a [Request]({% link _docs_integrate/data-model-overview.md %}#request) for the to be created [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest)
-- The `peer` is the address for which the LocalRequest should be created. There can only be one peer per LocalRequest.
+- The `peer` is the address for which the LocalRequest should be created. There can only be one peer per LocalRequest. Even though the `peer` parameter is optional, it is recommended to specify it whenever possible. This allows additional validation rules to execute. When sending a [Request via a Message]({% link _docs_integrate/requests-via-messages.md %}), the `peer` receiving it is always known.
 
 ## On Success
 
