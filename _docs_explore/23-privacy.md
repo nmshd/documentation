@@ -12,7 +12,7 @@ Please be advised, that enmeshed is an open-source solution which brings no warr
 
 # Privacy Introduction
 
-There are multiple laws, regulations, user and organizational viewpoints to consider. Enmeshed aligns with the European General Data Protection Regulation (GDPR), which in Germany is referred to as the “Datenschutz-Grundverordnung (DSGVO)”.
+There are multiple laws, regulations, user and organizational viewpoints to consider. enmeshed aligns with the European General Data Protection Regulation (GDPR), which in Germany is referred to as the “Datenschutz-Grundverordnung (DSGVO)”.
 
 ## What is Personal Data / Personally Identifiable Information?
 
@@ -84,11 +84,11 @@ When considering a **relative data privacy** , one might contend that only data 
 
 ## Data is shared by the user
 
-Enmeshed thinks privacy from a user perspective: Only the data owner can share the data between one or more data processors, always knowing who has received which personal data.
+enmeshed thinks privacy from a user perspective: Only the data owner can share the data between one or more data processors, always knowing who has received which personal data.
 
 Additionally, data can be requested in a normalized manner between known enmeshed participants, thus enabling a much richer process integration for end users.
 
-Enmeshed additionally follows the once-only principle for such data, thus enabling the user to quickly share structured and unstructured data via such data requests without having to enter the data every time.
+enmeshed additionally follows the once-only principle for such data, thus enabling the user to quickly share structured and unstructured data via such data requests without having to enter the data every time.
 
 # Backbone Privacy
 

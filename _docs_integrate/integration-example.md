@@ -264,7 +264,7 @@ It can be found in the Response, when accepting the Relationship.
 ## Sending and Receiving Messages
 
 After having established a Relationship with an Identity, we can start to exchange [Messages]({% link _docs_integrate/data-model-overview.md %}#message).
-Enmeshed defines different types of Messages.
+enmeshed defines different types of Messages.
 In this tutorial we will focus on Messages of type [Mail]({% link _docs_integrate/data-model-overview.md %}#mail), which can be compared to a classic e-mail: it is possible to specify one or more recipients, a subject and a body, as well as to add attachments.
 
 ### Sending a Message with a Connector

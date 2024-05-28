@@ -1,5 +1,5 @@
 ---
-title: "Enmeshed Connector"
+title: "enmeshed Connector"
 permalink: /explore/connector
 toc: true
 ---
@@ -39,7 +39,7 @@ Going a bit more technical, the Connector uses NodeJS with Express to host an HT
 
 ## Why does my organization need a Connector?
 
-Enmeshed consists of different layers, each of which provide a different set of functionality and abstractions. The very low levels introduce a common set of communication and encryption contracts, which are required for all the upper levels. Just like you do not want to implement your own network stack, you usually do not want to implement the contracts by yourself.
+enmeshed consists of different layers, each of which provide a different set of functionality and abstractions. The very low levels introduce a common set of communication and encryption contracts, which are required for all the upper levels. Just like you do not want to implement your own network stack, you usually do not want to implement the contracts by yourself.
 
 The Connector stores required enmeshed metadata on a central point within the organization network, making it possible for existing system to access all the features of the Connector. With this approach, it is not necessary to implement the whole stack of enmeshed in each and every system, like user key management and encryption capabilities.
 

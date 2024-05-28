@@ -1,5 +1,5 @@
 ---
-title: "Enmeshed Backbone"
+title: "enmeshed Backbone"
 permalink: /explore/backbone
 toc: true
 ---

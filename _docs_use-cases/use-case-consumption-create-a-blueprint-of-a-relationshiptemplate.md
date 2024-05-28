@@ -6,7 +6,7 @@ title: "Create a Blueprint of a RelationshipTemplate"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RB1

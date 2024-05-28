@@ -8,7 +8,7 @@ title: "Create and complete outgoing Request from RelationshipTemplate Response"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ROR5

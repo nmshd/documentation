@@ -6,7 +6,7 @@ title: "Load Token by truncated reference (without having an account)"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RY1

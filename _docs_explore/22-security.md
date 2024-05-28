@@ -7,7 +7,7 @@ Security is one of the main pillars of digitalization approaches. It might be th
 
 News are full of hacking, spamming, skimming, phishing, or you-name-it attempts. Even lives are at stake if hospitals are out-of-order because of malware. Users are usually unaware of the security impacts of old devices or outdated software. The same applies for organizations just on a much higher scale. In addition, the modern cloud world enables misconfiguration and misunderstanding to be one of the topmost reason of data breaches.
 
-Enmeshed itself handles very private and sensitive information. We are aware that security must be one of our topmost priorities. And by using enmeshed, we think that the world would be a lot more secure.
+enmeshed itself handles very private and sensitive information. We are aware that security must be one of our topmost priorities. And by using enmeshed, we think that the world would be a lot more secure.
 
 # Backbone Security
 
@@ -48,7 +48,7 @@ For more information on the security of the device, please read the [Security Re
 
 # Communication Security
 
-Enmeshed uses the highest standards of encrypted communication. It is end-to-end encrypted by using public key cryptography between Identities. Different keypairs for the Identity, for each device and each contact are used to distinguish the different communication areas (technical, multi-factor or contractual). Where possible, random keys are used and shared securely. If a random key is not possible, derived keys from high-entropy master keys (not passwords) are used. The very first keys are exchanged over Key Exchange Protocols, so that as little key material as possible is shared. Please refer to the [Cryptography Section]({% link _docs_explore/62-cryptography.md %}) to get more information about the used algorithms, libraries and methodologies.
+enmeshed uses the highest standards of encrypted communication. It is end-to-end encrypted by using public key cryptography between Identities. Different keypairs for the Identity, for each device and each contact are used to distinguish the different communication areas (technical, multi-factor or contractual). Where possible, random keys are used and shared securely. If a random key is not possible, derived keys from high-entropy master keys (not passwords) are used. The very first keys are exchanged over Key Exchange Protocols, so that as little key material as possible is shared. Please refer to the [Cryptography Section]({% link _docs_explore/62-cryptography.md %}) to get more information about the used algorithms, libraries and methodologies.
 
 For technical communication with contacts, the contact-specific signature keypair is used. Thus, every Message of enmeshed contains multiple digital signatures of the same Message, one signature per recipient (as the sender communicates with a different private key per contact). The digital signature enforces that only the sender can sign the payload and that nobody in between could tamper with the Message itself, e.g. change the Message payload.
 

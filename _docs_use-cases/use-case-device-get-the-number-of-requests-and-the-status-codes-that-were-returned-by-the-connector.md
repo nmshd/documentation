@@ -6,7 +6,7 @@ title: "Get the number of requests and the status codes that were returned by th
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: C02

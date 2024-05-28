@@ -6,7 +6,7 @@ title: "Check if outgoing Request can be created"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ROR1

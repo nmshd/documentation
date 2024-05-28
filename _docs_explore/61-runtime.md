@@ -1,10 +1,10 @@
 ---
-title: "Enmeshed Runtime"
+title: "enmeshed Runtime"
 permalink: /explore/runtime
 toc: true
 ---
 
-[Enmeshed Runtime GitHub Repository](https://github.com/nmshd/cns-runtime)
+[enmeshed Runtime GitHub Repository](https://github.com/nmshd/cns-runtime)
 
 The Runtime wraps all features of enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser.
 

@@ -42,7 +42,7 @@ Hence, we will look at the process of creating, sharing and succeeding an Identi
 
 ### Creating a RepositoryAttribute
 
-Enmeshed allows you to store data about yourself in the form of IdentityAttributes.
+enmeshed allows you to store data about yourself in the form of IdentityAttributes.
 When [creating an IdentityAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}), it is not necessary to share it immediately with a peer.
 Instead, it will be stored in the `content` property of a LocalAttribute with an undefined `shareInfo`.
 We refer to these unshared LocalAttributes as RepositoryAttributes, since they make up your private repository of Attributes.
