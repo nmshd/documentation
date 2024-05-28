@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: use-case-transport-approve-identitydeletionprocess
-published: false
+published: true
 title: "Approve IdentityDeletionProcess"
 type: use-case
 toc: true
@@ -18,7 +18,7 @@ properties:
   - feature category: Identity Handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
-  - documentation status: OPEN
+  - documentation status: DONE
   - comments:
   - actor: Identity
   - trigger: REST API
@@ -36,3 +36,18 @@ require:
 required_by:
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use case allows you to approve an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) that was started via the Backbone Admin UI for your own Identity.
+
+## On Success
+
+- Moves the IdentityDeletionProcess in status `"Approved"`
+- Returns the approved IdentityDeletionProcess
+
+## On Failure
+
+- No IdentityDeletionProcess can be approved if non was started via the Backbone Admin UI, i.e. no IdentityDeletionProcess in `status` `"WaitingForApproval"` exists for this Identity.

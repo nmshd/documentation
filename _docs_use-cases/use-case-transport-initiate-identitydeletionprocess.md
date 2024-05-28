@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: use-case-transport-initiate-identitydeletionprocess
-published: false
+published: true
 title: "Initiate IdentityDeletionProcess"
 type: use-case
 toc: true
@@ -18,7 +18,7 @@ properties:
   - feature category: Identity Handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
-  - documentation status: OPEN
+  - documentation status: DONE
   - comments:
   - actor: Identity
   - trigger: REST API
@@ -36,3 +36,18 @@ require:
 required_by:
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use case is intended to initiate an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for the own Identity.
+
+## On Success
+
+- Creates an IdentityDeletionProcess in status `"Approved"`
+- Returns the initiated IdentityDeletionProcess
+
+## On Failure
+
+- No IdentityDeletionProcess can be initiated if there is already an active IdentityDeletionProcess, i.e. an IdentityDeletionProcess in `status` `"Approved"` or `"WaitingForApproval"`, for this Identity.

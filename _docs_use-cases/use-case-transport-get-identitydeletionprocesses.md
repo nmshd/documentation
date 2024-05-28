@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: use-case-transport-get-identitydeletionprocesses
-published: false
+published: true
 title: "Get IdentityDeletionProcesses"
 type: use-case
 toc: true
@@ -18,7 +18,7 @@ properties:
   - feature category: Identity Handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
-  - documentation status: OPEN
+  - documentation status: DONE
   - comments:
   - actor: Identity
   - trigger: REST API
@@ -36,3 +36,13 @@ require:
 required_by:
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use case will return all [IdentityDeletionProcesses]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your own Identity.
+
+## On Success
+
+- Returns a list with all IdentityDeletionProcesses of your Identity

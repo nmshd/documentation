@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: use-case-transport-get-identitydeletionprocess
-published: false
+published: true
 title: "Get IdentityDeletionProcess"
 type: use-case
 toc: true
@@ -18,7 +18,7 @@ properties:
   - feature category: Identity Handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
-  - documentation status: OPEN
+  - documentation status: DONE
   - comments:
   - actor: Identity
   - trigger: REST API
@@ -36,3 +36,21 @@ require:
 required_by:
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use case allows you to query an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your own Identity by ID.
+
+## Parameters
+
+- `id` of the IdentityDeletionProcess
+
+## On Success
+
+- Returns the IdentityDeletionProcess corresponding to the provided `id`
+
+## On Failure
+
+- No IdentityDeletionProcess can be returned if non exists with the given `id` for this Identity.

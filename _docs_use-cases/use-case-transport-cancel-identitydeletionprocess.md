@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: use-case-transport-cancel-identitydeletionprocess
-published: false
+published: true
 title: "Cancel IdentityDeletionProcess"
 type: use-case
 toc: true
@@ -18,7 +18,7 @@ properties:
   - feature category: Identity Handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
-  - documentation status: OPEN
+  - documentation status: DONE
   - comments:
   - actor: Identity
   - trigger: REST API
@@ -36,3 +36,18 @@ require:
 required_by:
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use case allows you to cancel an approved [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your own Identity.
+
+## On Success
+
+- Moves the IdentityDeletionProcess in status `"Cancelled"`
+- Returns the cancelled IdentityDeletionProcess
+
+## On Failure
+
+- No IdentityDeletionProcess can be cancelled if non was in `status` `"Approved"` for this Identity.
