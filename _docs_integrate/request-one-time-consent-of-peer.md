@@ -111,7 +111,13 @@ After the Request is created, the Sender can send it to the Recipient. To send t
 ### Receive and accept the Request
 
 In order to receive the [Message]({% link _docs_integrate/data-model-overview.md %}#message) that contains the [Request for one-time consent]({% link _docs_integrate/request-one-time-consent-of-peer.md %}#request-for-one-time-consent) as `content`, the Recipient must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
-If the Recipient wants to accept the Request and in particular all its [ConsentRequestItems]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) for which the value of the `mustBeAccepted` property is set to `true`, it must proceed as described in the documentation of the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case. In doing so, the [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) must be used to accept a ConsentRequestItem if the Recipient give the Sender one-time consent to the corresponding issue originating from the Sender.
+If the Recipient wants to accept the Request and in particular all its [ConsentRequestItems]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) for which the value of the `mustBeAccepted` property is set to `true`, it must proceed as described in the documentation of the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case.
+In doing so, the [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) must be used to accept a ConsentRequestItem if the Recipient give the Sender one-time consent to the corresponding issue originating from the Sender.
+
+If the Recipient does not want to agree to the issue that the Sender wants the Recipient to agree to, it can of course also reject the corresponding [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) by using the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters), as long as its value of the `mustBeAccepted` property is set to `false`, or [reject the incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) as a whole.
+{: .notice--info}
+
+Accepting the ConsentRequestItem leads to the creation of an [AcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#acceptresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for one-time consent that will be transferred to the Sender.
 
 ### Receive the Response to the Request
 
