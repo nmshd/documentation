@@ -396,7 +396,7 @@ A Request allows you to ask another Identity to do something. What this "somethi
 
 ### RequestItems
 
-RequestItems can be sent inside of a Request and specify what should be done when the Request is accepted.
+RequestItems can be sent inside of a Request and specify what should be done when the Request is accepted. More information on how to use the individual [types of RequestItems]({% link _docs_integrate/request-and-response-introduction.md %}#types-of-requestitems) for your purposes can be found in the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}).
 
 #### AuthenticationRequestItem
 
