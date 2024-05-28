@@ -79,7 +79,7 @@ Below you can find the major changes of the new Attribute handling:
     - Value Y will be proposed to the User if a `StreetAddress` with tag `work` is queried.
 - In addition to the tags, we would like to introduce a Relationship store concept, with which Attributes can be stored between Identities on a per-Relationship base. This comes in handy for use cases with Relationship-specific or contract-specific Attributes:
   - Think about a customer number which needs to be stored between a User and a webshop somehow. It doesn't belong to the User but it also does not belong to the webshop.
-  - Additionally, this concept can be used for submitting Relationship metadata like company brand/theme information, possible actions a User could trigger for the relationship or other cool stuff.
+  - Additionally, this concept can be used for submitting Relationship metadata like company brand/theme information, possible actions a User could trigger for the Relationship or other cool stuff.
   - A restriction of who can change the Relationship Attribute can block Users messing around with their `customerId`.
 
 ## Conclusion

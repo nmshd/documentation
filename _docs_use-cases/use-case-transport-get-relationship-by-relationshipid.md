@@ -6,7 +6,7 @@ title: "Get Relationship by RelationshipId"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RR3
@@ -15,7 +15,7 @@ properties:
   - facade: RelationshipsFacade
   - function: getRelationship
   - description:
-  - feature category: Mutual peer-to-peer relationships
+  - feature category: Mutual peer-to-peer Relationships
   - tech category: Relationships
   - status: DONE
   - documentation status: DONE

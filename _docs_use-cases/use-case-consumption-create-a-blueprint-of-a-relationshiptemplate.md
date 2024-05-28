@@ -6,7 +6,7 @@ title: "Create a Blueprint of a RelationshipTemplate"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RB1
@@ -14,7 +14,7 @@ properties:
   - layer: Consumption
   - facade:
   - function:
-  - description: Create a parametrizable Blueprint to create Relationship Templates with. This is used for creating specific business cards for Users.
+  - description: Create a parametrizable Blueprint to create RelationshipTemplates with. This is used for creating specific business cards for Users.
   - feature category:
   - tech category: Blueprint
   - status: IDEA
