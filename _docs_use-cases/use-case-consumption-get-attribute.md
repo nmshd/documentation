@@ -6,7 +6,7 @@ title: "Get Attribute"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA5
@@ -14,8 +14,8 @@ properties:
   - layer: Consumption
   - facade: AttributesFacade
   - function: getAttribute
-  - description: Fetches the attribute with the given `id`.
-  - feature category: Cross-identity attribute sharing
+  - description: Fetches the Attribute with the given `id`.
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE

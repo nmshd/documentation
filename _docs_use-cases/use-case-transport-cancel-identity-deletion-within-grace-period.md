@@ -2,11 +2,11 @@
 # Start automatic generation
 permalink: use-case-transport-cancel-identity-deletion-within-grace-period
 published: false
-title: "Cancel identity deletion within grace period"
+title: "Cancel Identity deletion within grace period"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ARS10
