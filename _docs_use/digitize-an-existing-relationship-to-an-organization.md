@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use/digitize-an-existing-relationship-to-an-organization
 published: false
-title: "digitize an existing relationship to an organization"
+title: "Digitize an existing Relationship to an organization"
 type: scenario
 toc: true
 properties:
