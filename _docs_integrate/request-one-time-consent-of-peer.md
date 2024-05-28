@@ -86,16 +86,16 @@ Please note that the `<...>` notation is used as a placeholder for the actual da
 Before creating the Request, the Sender should check whether it is valid. This can be done by proceeding as described in the documentation of the [Check if outgoing Request can be created]({% link _docs_use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}) use case. The advantage of checking the validity of the Request first before attempting to create it is that the Sender would receive a more precise [error]({% link _docs_integrate/error-codes.md %}) description in the case of a faulty Request.
 {: .notice--info}
 
-**Example response:**
+### Send the Request
+
+After the Request is created, the Sender can send it to the Recipient. To send the [Request via a Message]({% link _docs_integrate/requests-via-messages.md %}), the Sender have to follow the instructions of the [Send a Message to the Recipient]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) use case documentation. To continue the example, the following payload must be used by the Sender to send the [created Request]({% link _docs_integrate/request-one-time-consent-of-peer.md %}#create-the-request) to the Recipient via a Message. It is essential that the `id` of the Request is specified, which was generated after the Request was created by the Sender with the [Create outgoing Request]({% link _docs_use-cases/use-case-consumption-create-outgoing-request.md %}) use case. This enables the Request to be processed correctly by the Recipient.
 
 ```jsonc
 {
-  "id": "REQ...",
-  "status": "Draft",
-  // ...
+  "recipients": ["<Address of Recipient>"],
   "content": {
     "@type": "Request",
-    "id": "REQ...",
+    "id": "<ID of Request>",
     "items": [
       {
         "@type": "ConsentRequestItem",
@@ -107,10 +107,6 @@ Before creating the Request, the Sender should check whether it is valid. This c
   }
 }
 ```
-
-### Send the Request
-
-There are two ways for the Sender to send the Request to the Recipient. Either when creating a [RelationshipTemplate]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) or with a contact who already has a Relationship, via a [Message]({% link _docs_integrate/requests-via-messages.md %}).
 
 ### Receive and accept the Request
 
