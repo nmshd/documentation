@@ -6,7 +6,7 @@ title: "Send Message to Recipient(s)"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RM1

@@ -6,7 +6,7 @@ title: "Get or load File"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RF4
@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: FilesFacade
   - function: getOrLoadFile
-  - description: Loads a file of another identity. After it is loaded once, you can retrieve it without the need for the secret key by calling one of the GET-routes.
+  - description: Loads a file of another Identity. After it is loaded once, you can retrieve it without the need for the secret key by calling one of the GET-routes.
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE

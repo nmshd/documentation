@@ -6,7 +6,7 @@ title: "Set status of incoming Request to check prerequisites"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RIR4

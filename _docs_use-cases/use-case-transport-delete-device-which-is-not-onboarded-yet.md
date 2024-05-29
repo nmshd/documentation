@@ -6,7 +6,7 @@ title: "Delete Device which is not onboarded yet"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RD7

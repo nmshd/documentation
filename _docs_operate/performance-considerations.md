@@ -25,4 +25,4 @@ required_by:
 
 ## Scaling Horizontally
 
-Using multiple connectors with the same identity to scale horizontally and balance the workload across all available connectors is not supported at the moment.
+Using multiple Connectors with the same Identity to scale horizontally and balance the workload across all available Connectors is not supported at the moment.

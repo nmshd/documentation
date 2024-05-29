@@ -6,7 +6,7 @@ title: "Trigger Device deletion of onboarded Device"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RD8

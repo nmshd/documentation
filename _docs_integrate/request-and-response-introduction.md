@@ -40,7 +40,7 @@ Please note that there are some data structures used in the context of enmeshed,
 A [Request]({% link _docs_integrate/data-model-overview.md %}#request) can be created by an Identity and sent to a peer to exchange information with them.
 Specifying the exact demands to the peer, [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) are the core of the Request.
 In case multiple RequestItems should be answered jointly, e.g. to enhance the structure for the user, they can be combined to a [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup).
-After creating the Request, it can be transmitted either via a Template (see [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %})) or via a Message (see [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %})).
+After creating the Request, it can be transmitted either via a RelationshipTemplate (see [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %})) or via a Message (see [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %})).
 
 ### Types of RequestItems
 
@@ -296,6 +296,6 @@ One of them contains Attributes the company shares with the peer, e.g. the compa
 The other contains Attributes it would like to query from the peer.
 In this example they are the given and surname and optionally an e-mail address, following the [Integration example]({% link _docs_integrate/integration-example.md %}).
 Now, an interested person can scan the QR-code, provide their information and send their Response inside a RelationshipCreationChangeRequest.
-Once the company accepts the new Relationship, they can exchange messages or other data using enmeshed.
+Once the company accepts the new Relationship, they can exchange Messages or other data using enmeshed.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/4ac53380-b21a-4e33-982a-aa9167c471f3" id="iDvN-GT-yvbN"></iframe></div>

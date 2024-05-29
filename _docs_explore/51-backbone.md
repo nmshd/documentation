@@ -1,5 +1,5 @@
 ---
-title: "Enmeshed Backbone"
+title: "enmeshed Backbone"
 permalink: /explore/backbone
 toc: true
 ---
@@ -48,11 +48,11 @@ Private keys, credentials or other secrets must be securely stored. For this, mu
 
 ### Service Bus
 
-The service bus is an event bus between all the different services which can be leveraged for cross-service communication and message handling.
+The service bus is an event bus between all the different services which can be leveraged for cross-service communication and Message handling.
 
 ### Notification Hub
 
-To manage push notifications to the various push notification providers – like Apple Push Notification Service, Firebase Cloud Messaging, or Windows Notification Service – the notification hub is a service which manages registered devices and a generic interface to send out messages, no matter which push notification service needs to be addressed.
+To manage push notifications to the various push notification providers – like Apple Push Notification Service, Firebase Cloud Messaging, or Windows Notification Service – the notification hub is a service which manages registered devices and a generic interface to send out Messages, no matter which push notification service needs to be addressed.
 
 ### Database
 
@@ -76,12 +76,12 @@ Each request is handled by a service, running on a Kubernetes node within a whol
 
 The following services are available on the runtime:
 
-- Devices Service: Manages the device profiles for authenticating against the different services. Additionally keeps track of the identity behind devices and the registration of push notification tokens of the respective messaging providers (e.g. Apple Push Notification Service, Firebase Cloud Messaging)
-- Messages Service: Provides an interface for submitting and receiving messages
-- Relationships Service: Keeps track of relationships between identities, their status and possible change requests
-- Files Service: Files or other "static" binaries can be stored via the files service and used as attachments for messages.
+- Devices Service: Manages the device profiles for authenticating against the different services. Additionally keeps track of the Identity behind devices and the registration of push notification tokens of the respective messaging providers (e.g. Apple Push Notification Service, Firebase Cloud Messaging)
+- Messages Service: Provides an interface for submitting and receiving Messages
+- Relationships Service: Keeps track of Relationships between Identities, their status and possible change requests
+- Files Service: Files or other "static" binaries can be stored via the files service and used as attachments for Messages.
 - Tokens Service: A repository for storing and consuming usually short-lived encrypted information, e.g. for QR Code contents.
-- Synchronization Service: Cross device synchronization of local identity data
+- Synchronization Service: Cross device synchronization of local Identity data
 
 ## Backbone Services and Libraries (Designtime)
 

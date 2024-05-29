@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use/establish-a-new-digital-relationship-to-another-user
 published: false
-title: "establish a new digital relationship to another user"
+title: "Establish a new digital Relationship to another user"
 type: scenario
 toc: true
 properties:

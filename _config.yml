@@ -16,7 +16,7 @@
 title: enmeshed
 email: info@enmeshed.eu
 description: >- # this means to ignore newlines until "baseurl:"
-  Enmeshed is a home of various open source components, making the digital life
+  enmeshed is a home of various open source components, making the digital life
   of users and organizations easier.
 github_username: nmshd
 repository: "nmshd/documentation"
@@ -88,9 +88,9 @@ collections:
     permalink: /:collection/:path
 
 author:
-  name: "Enmeshed Team"
+  name: "enmeshed Team"
   avatar: "/assets/images/Logo.svg"
-  bio: "The official enmeshed Team"
+  bio: "The official enmeshed team"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"

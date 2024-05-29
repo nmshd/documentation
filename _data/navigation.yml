@@ -99,6 +99,8 @@ docs_integrate:
         url: /integrate/requests-via-messages
   - title: Manage Attributes
     children:
+      - title: "Attribute introduction"
+        url: /integrate/attribute-introduction
       - title: "Create Attributes for yourself"
         url: /integrate/create-attributes-for-yourself
       - title: "Share Attributes with peer"

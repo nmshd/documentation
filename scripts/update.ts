@@ -113,7 +113,7 @@ function createUseCaseText(useCaseObject: DynamicUseCase): string {
     text += 'title: "' + replaceEach(useCaseObject.Title, ["<", "", ">", "", ":", "", "’", "'"]) + '"\n';
     text += "type: use-case\n";
     text += "toc: true\n";
-    text += 'sidebar:\n  - title: "Integrate Enmeshed"\n    nav: "docs_integrate"\n';
+    text += 'sidebar:\n  - title: "Integrate enmeshed"\n    nav: "docs_integrate"\n';
     text += "properties:\n";
 
     for (const key in useCaseObject) {

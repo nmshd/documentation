@@ -6,7 +6,7 @@ title: "Restore Identity by recovery data"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ARP7
@@ -15,7 +15,7 @@ properties:
   - facade:
   - function:
   - description:
-  - feature category: Identity Hardening
+  - feature category: Identity handling
   - tech category: Profiles
   - status: IDEA
   - documentation status:

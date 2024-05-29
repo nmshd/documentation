@@ -45,7 +45,7 @@ Examples are:
 
 ## Trust
 
-Although enmeshed introduces a secure way of knowing who is sending messages to the Connector, and the corresponding Backbone is blocking messages from unknown parties, you shouldn't trust others to not send you invalid, incorrect, illegal, or outright harmful data over the secure connection.
+Although enmeshed introduces a secure way of knowing who is sending Messages to the Connector, and the corresponding Backbone is blocking Messages from unknown parties, you shouldn't trust others to not send you invalid, incorrect, illegal, or outright harmful data over the secure connection.
 
 Especially the encrypted data coming from the Backbone - which hasn't been decrypted yet - might be harmful. We cannot check if the data is correctly encrypted. Only the Connector in your landscape does this automatically (in terms of decrypting the data and verifying its digital signature).
 

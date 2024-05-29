@@ -8,7 +8,7 @@ title: "Load RelationshipTemplate created by others"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RT2
@@ -16,7 +16,7 @@ properties:
   - layer: Transport
   - facade: RelationshipTemplatesFacade
   - function: loadPeerRelationshipTemplate
-  - description: Loads a `RelationshipTemplate` created by others. This is a prerequisite for using the template while creating a new `Relationship`.
+  - description: Loads a `RelationshipTemplate` created by others. This is a prerequisite for using the RelationshipTemplate while creating a new `Relationship`.
   - feature category: Consent required before any data is shared
   - tech category: RelationshipTemplates
   - status: DONE

@@ -6,7 +6,7 @@ title: "Query incoming Requests"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RIR1
@@ -15,7 +15,7 @@ properties:
   - facade: IncomingRequestsFacade
   - function: getRequests
   - description: Queries incoming `Requests`.
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE

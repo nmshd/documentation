@@ -8,7 +8,7 @@ title: "Accept RelationshipChange"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RR6
@@ -17,7 +17,7 @@ properties:
   - facade: RelationshipsFacade
   - function: acceptRelationshipChange
   - description: Accepts the change with the given `changeId`. If the change exists but belongs to another relationship, this call will fail and return status 404.
-  - feature category: Mutual peer-to-peer relationships
+  - feature category: Mutual peer-to-peer Relationships
   - tech category: Relationships
   - status: DONE
   - documentation status: DONE

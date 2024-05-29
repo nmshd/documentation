@@ -6,7 +6,7 @@ title: "Get RepositoryAttributes"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA22
@@ -15,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: getRepositoryAttributes
   - description: Fetches all RepositoryAttributes
-  - feature category: Normalized attributes
+  - feature category: Normalized Attributes
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
@@ -24,13 +24,13 @@ properties:
   - trigger: REST API
   - precondition:
   - result:
-  - priority:
-  - complexity:
-  - size:
+  - priority: n/a
+  - complexity: n/a
+  - size: n/a
   - created_at:
   - changed_at:
   - api_route_regex: GET /api/v2/Attributes/Own/Repository
-  - published:
+  - published: default
   - link: use-case-consumption-get-repositoryattributes
 require:
 required_by:

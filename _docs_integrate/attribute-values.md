@@ -29,7 +29,7 @@ Each [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) c
 - how it is validated (the pattern of an email address and a maximum length)
 - information about how it can be rendered on the UI
 
-Enmeshed defines a standard set of possible Attribute Value types for Identities within the enmeshed ecosystem and its meaning for the Identities. And every Identity can understand/use/fill/query these Attribute Value types of other Identities.
+enmeshed defines a standard set of possible Attribute Value types for Identities within the enmeshed ecosystem and its meaning for the Identities. And every Identity can understand/use/fill/query these Attribute Value types of other Identities.
 
 Most Attribute Value types are atomic, which means that they have only one property called `value` (e.g. [`EMailAddress`](#emailaddress), [`DisplayName`](#displayname), [`PhoneNumber`](#phonenumber)). But there are also more complex Attribute Value types which consist of multiple properties with a strong correlation (e.g. [`StreetAddress`](#streetaddress), [`PersonName`](#personname)). These properties can (but don't have to) contain other Attribute Values.
 
@@ -470,7 +470,7 @@ The officially registered pseudonym of a person.
 
 ## SchematizedXML
 
-SchematizedXML can be used to exchange files in XML format. The exchange of XML files is also possible via [`IdentityFileReference`](#identityfilereference), but SchematizedXML has the advantage that it is possible to validate the XML and display the attributes in the wallet.
+SchematizedXML can be used to exchange files in XML format. The exchange of XML files is also possible via [`IdentityFileReference`](#identityfilereference), but SchematizedXML has the advantage that it is possible to validate the XML and display the Attributes in the wallet.
 
 **Properties**
 
@@ -536,7 +536,7 @@ It is not recommended to send a DigitalIdentityDescriptor to another Identity by
 | Name         | Type                          | Required | Validation                                           |
 | ------------ | ----------------------------- | :------: | ---------------------------------------------------- |
 | `@type`      | `"DigitalIdentityDescriptor"` |    ✓     |                                                      |
-| `address`    | `string`                      |    ✓     | The address of the identity that owns the statement. |
+| `address`    | `string`                      |    ✓     | The Address of the Identity that owns the statement. |
 | `attributes` | `string []`                   |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
 
 ## StatementAuthorityType
@@ -597,7 +597,7 @@ It is not recommended to send a object to another Identity by its own. Instead, 
 | Name         | Type                | Required | Validation                                           |
 | ------------ | ------------------- | :------: | ---------------------------------------------------- |
 | `@type`      | `"StatementObject"` |    ✓     |                                                      |
-| `address`    | `string`            |    ✓     | The address of the identity that owns the statement. |
+| `address`    | `string`            |    ✓     | The Address of the Identity that owns the statement. |
 | `attributes` | `string []`         |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
 
 ## StatementPredicate
@@ -626,7 +626,7 @@ It is not recommended to send a subject to another Identity by its own. Instead,
 | Name         | Type                 | Required | Validation                                           |
 | ------------ | -------------------- | :------: | ---------------------------------------------------- |
 | `@type`      | `"StatementSubject"` |    ✓     |                                                      |
-| `address`    | `string`             |    ✓     | The address of the identity that owns the statement. |
+| `address`    | `string`             |    ✓     | The Address of the Identity that owns the statement. |
 | `attributes` | `string []`          |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
 
 ## Street

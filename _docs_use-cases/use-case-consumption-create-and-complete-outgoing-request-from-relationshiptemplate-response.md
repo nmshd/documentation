@@ -8,7 +8,7 @@ title: "Create and complete outgoing Request from RelationshipTemplate Response"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ROR5
@@ -17,7 +17,7 @@ properties:
   - facade: OutgoingRequestsFacade
   - function: createAndCompleteFromRelationshipTemplateResponse
   - description:
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE
@@ -62,5 +62,5 @@ This use case is intended to create and instantly complete an outgoing Request w
 
 ## On Failure
 
-- The template could not be found.
+- The RelationshipTemplate could not be found.
 - The response source could not be found.

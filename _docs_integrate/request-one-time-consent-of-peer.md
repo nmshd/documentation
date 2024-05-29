@@ -109,4 +109,4 @@ Note that the Request is currently in status `Draft`.
 
 ## Sending Request
 
-There are 2 ways to send the request to the user. Either when creating a [RelationshipTemplate]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) or with a contact who already has a relationship, via a [message]({% link _docs_integrate/requests-via-messages.md %}).
+There are 2 ways to send the request to the user. Either when creating a [RelationshipTemplate]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) or with a contact who already has a Relationship, via a [message]({% link _docs_integrate/requests-via-messages.md %}).

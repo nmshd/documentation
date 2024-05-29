@@ -6,7 +6,7 @@ title: "Execute a RelationshipAttributeQuery"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA9
@@ -15,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: executeRelationshipAttributeQuery
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE

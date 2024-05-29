@@ -6,7 +6,7 @@ title: "Delete an own shared Attribute and notify peer"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA23
@@ -15,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: deleteOwnSharedAttributeAndNotifyPeer
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE

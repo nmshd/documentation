@@ -33,4 +33,4 @@ A description of enmeshed can be found on the [main page]({% link index.md %}#wh
 
 ## When I scan the QR Code, why do I get the error "error.relationshipTemplateProcessedModule.relationshipTemplateNotSupported"?
 
-It seems the wrapper [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) around the RequestItems in the RelationshipTemplate is missing. If the Template is intended for a User of the enmeshed App (which is the primary use-case), the wrapper RelationshipTemplateContent has to be used.
+It seems the wrapper [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) around the RequestItems in the RelationshipTemplate is missing. If the RelationshipTemplate is intended for a User of the enmeshed App (which is the primary use-case), the wrapper RelationshipTemplateContent has to be used.

@@ -48,7 +48,7 @@ interface RelationshipTemplateContent {
 
 More about the structure of a Request will follow in the V2 documentation.
 
-When the RelationshipTemplate is scanned by the App, the Request (defined by the creator of the Template) is rendered for the User. This is similar to the flow in V1. The App will then automatically create the Relationship when the User accepts the Request.
+When the RelationshipTemplate is scanned by the App, the Request (defined by the creator of the RelationshipTemplate) is rendered for the User. This is similar to the flow in V1. The App will then automatically create the Relationship when the User accepts the Request.
 
 ### Messages
 

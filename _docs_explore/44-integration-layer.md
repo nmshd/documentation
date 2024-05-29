@@ -4,7 +4,7 @@ permalink: /explore/layers/integration
 toc: true
 ---
 
-The integration layer is only available within the Connector and sits on top of the transport and consumption layers. It is responsible for providing integration capabilities to other systems. It acts for a single identity only, which is usually an organization.
+The integration layer is only available within the Connector and sits on top of the transport and consumption layers. It is responsible for providing integration capabilities to other systems. It acts for a single Identity only, which is usually an organization.
 
 **Components**
 
@@ -28,7 +28,7 @@ The integration layer enables an automated synchronization with the Backbone bas
 
 ## Webhooks to external systems
 
-Whenever a synchronization with the Backbone takes place, new messages or relationship changes could be received. The webhooks enable an automated routing of these events to external systems and thus a process automation with incoming messages or relationship changes.
+Whenever a synchronization with the Backbone takes place, new Messages or Relationship changes could be received. The webhooks enable an automated routing of these events to external systems and thus a process automation with incoming Messages or Relationship changes.
 
 ## Monitoring and Logging Capabilities
 

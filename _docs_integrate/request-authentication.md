@@ -27,7 +27,7 @@ required_by:
 
 # Flow
 
-Enmeshed supports specific authentication requests for users, e.g. for multi-factor based logins. This is done by sending out Requests with AuthenticationRequestItems.
+enmeshed supports specific authentication requests for users, e.g. for multi-factor based logins. This is done by sending out Requests with AuthenticationRequestItems.
 
 # Examples
 

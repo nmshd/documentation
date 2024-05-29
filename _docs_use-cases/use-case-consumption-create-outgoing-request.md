@@ -6,7 +6,7 @@ title: "Create outgoing Request"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ROR2
@@ -15,7 +15,7 @@ properties:
   - facade: OutgoingRequestsFacade
   - function: create
   - description: Creates a new outgoing `Request`.
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE

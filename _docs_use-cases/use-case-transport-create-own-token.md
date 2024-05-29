@@ -6,7 +6,7 @@ title: "Create own Token"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RK1
@@ -15,7 +15,7 @@ properties:
   - facade: TokensFacade
   - function: createOwnToken
   - description:
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Tokens
   - status: DONE
   - documentation status: DONE
