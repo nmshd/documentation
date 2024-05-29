@@ -6,7 +6,11 @@ title: "Create a Blueprint of a RelationshipTemplate"
 type: use-case
 toc: true
 sidebar:
+<<<<<<< HEAD
   - title: "Integrate Enmeshed"
+=======
+  - title: "Integrate enmeshed"
+>>>>>>> main
     nav: "docs_integrate"
 properties:
   - id: RB1
@@ -29,11 +33,18 @@ properties:
   - size: HIGH
   - created_at:
   - changed_at:
+<<<<<<< HEAD
   - api_route_regex:  
+=======
+  - api_route_regex:
+>>>>>>> main
   - published:
   - link: use-case-consumption-create-a-blueprint-of-a-relationshiptemplate
 require:
 required_by:
+<<<<<<< HEAD
 api_route_regex: ^ $
+=======
+>>>>>>> main
 # End automatic generation
 ---

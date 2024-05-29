@@ -6,7 +6,7 @@ title: "Get Attribute"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA5
@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Attributes/{id}$
 
 {% include properties_list.html %}
 
-This use-case is intended to retrieve a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute) by its id.
+This use case is intended to retrieve a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute) by its id.
 
 ## Parameters
 

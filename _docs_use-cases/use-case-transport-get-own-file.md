@@ -6,7 +6,7 @@ title: "Get own File"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RF3
@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Files/Own$
 
 {% include properties_list.html %}
 
-This use-case retrieves an own File.
+This use case retrieves an own File.
 
 ## Parameters
 

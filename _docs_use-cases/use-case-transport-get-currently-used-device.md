@@ -6,7 +6,7 @@ title: "Get currently used Device"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RU2
@@ -41,4 +41,4 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case retrieves information about the currently used Device.
+This use case retrieves information about the currently used Device.

@@ -1,5 +1,5 @@
 ---
-title: "Enmeshed Backbone"
+title: "enmeshed Backbone"
 permalink: /explore/backbone
 toc: true
 ---
@@ -26,7 +26,7 @@ A landscape can be trimmed by different scalability options, depending on the wo
 
 All required infrastructure and infrastructure services, like a database, a load balancer or a file storage are combined within the infrastructure building block. The infrastructure itself is not enmeshed-specific, the composition of services and the overall configuration however is.
 
-There are different possible cloud providers to host the backbone, the big hyperscalers or smaller ones. Even regional cloud providers would make sense for specific use-cases.
+There are different possible cloud providers to host the backbone, the big hyperscalers or smaller ones. Even regional cloud providers would make sense for specific use cases.
 
 The current cloud provider for the centrally hosted enmeshed Backbone is Microsoft Azure and as thus, the landscape details (and terminology) are primarily focused on the Azure setup. Although there are Azure-specific components and configurations, most of the components used are cloud-provider agnostic, i.e. they will exist in other cloud providers in an equivalent form.
 
@@ -48,11 +48,11 @@ Private keys, credentials or other secrets must be securely stored. For this, mu
 
 ### Service Bus
 
-The service bus is an event bus between all the different services which can be leveraged for cross-service communication and message handling.
+The service bus is an event bus between all the different services which can be leveraged for cross-service communication and Message handling.
 
 ### Notification Hub
 
-To manage push notifications to the various push notification providers – like Apple Push Notification Service, Firebase Cloud Messaging, or Windows Notification Service – the notification hub is a service which manages registered devices and a generic interface to send out messages, no matter which push notification service needs to be addressed.
+To manage push notifications to the various push notification providers – like Apple Push Notification Service, Firebase Cloud Messaging, or Windows Notification Service – the notification hub is a service which manages registered devices and a generic interface to send out Messages, no matter which push notification service needs to be addressed.
 
 ### Database
 
@@ -64,7 +64,7 @@ Nearly every request to a landscape results in a request to the database. Thus, 
 
 Data of binary large objects (BLOBs) is not stored on the database, but on a kind of file system. Binary data is usually queried by ids and process in a whole (e.g. by providing a download for an encrypted file).
 
-A BLOB storage is usually scaled horizontally (more storage). Access performance is not critical for the given use-cases.
+A BLOB storage is usually scaled horizontally (more storage). Access performance is not critical for the given use cases.
 
 ### Kubernetes Cluster/Nodes
 
@@ -76,12 +76,12 @@ Each request is handled by a service, running on a Kubernetes node within a whol
 
 The following services are available on the runtime:
 
-- Devices Service: Manages the device profiles for authenticating against the different services. Additionally keeps track of the identity behind devices and the registration of push notification tokens of the respective messaging providers (e.g. Apple Push Notification Service, Firebase Cloud Messaging)
-- Messages Service: Provides an interface for submitting and receiving messages
-- Relationships Service: Keeps track of relationships between identities, their status and possible change requests
-- Files Service: Files or other "static" binaries can be stored via the files service and used as attachments for messages.
-- Tokens Service: A repository for storing and consuming usually short-lived encrypted information, e.g. for QRCode contents.
-- Synchronization Service: Cross device synchronization of local identity data
+- Devices Service: Manages the device profiles for authenticating against the different services. Additionally keeps track of the Identity behind devices and the registration of push notification tokens of the respective messaging providers (e.g. Apple Push Notification Service, Firebase Cloud Messaging)
+- Messages Service: Provides an interface for submitting and receiving Messages
+- Relationships Service: Keeps track of Relationships between Identities, their status and possible change requests
+- Files Service: Files or other "static" binaries can be stored via the files service and used as attachments for Messages.
+- Tokens Service: A repository for storing and consuming usually short-lived encrypted information, e.g. for QR Code contents.
+- Synchronization Service: Cross device synchronization of local Identity data
 
 ## Backbone Services and Libraries (Designtime)
 

@@ -6,7 +6,7 @@ title: "Synchronize updates of Backbone"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RU4
@@ -42,11 +42,11 @@ api_route_regex: ^POST /api/v2/Account/Sync$
 
 {% include properties_list.html %}
 
-Be advised that calling this use-case to sync the Identity/Device on a regular basis is discouraged, as it could lead to wrong return values if multiple endpoints trigger this use-case.
+Be advised that calling this use case to sync the Identity/Device on a regular basis is discouraged, as it could lead to wrong return values if multiple endpoints trigger this use case.
 Please configure the [SyncModule]({% link _docs_operate/modules.md %}#sync) and use eventing instead.
 {: .notice--warning}
 
-This use-case retrieves all relevant data changes between the current Identity (and Device) and the Backbone since the last synchronization. The relevant data are so far new RelationshipChanges and Messages.
+This use case retrieves all relevant data changes between the current Identity (and Device) and the Backbone since the last synchronization. The relevant data are so far new RelationshipChanges and Messages.
 
 ## On Success
 

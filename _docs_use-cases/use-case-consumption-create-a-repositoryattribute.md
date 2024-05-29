@@ -8,7 +8,7 @@ title: "Create a RepositoryAttribute"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA1
@@ -44,7 +44,7 @@ api_route_regex: ^POST /api/v2/Attributes$
 
 {% include properties_list.html %}
 
-This use-case is intended to create a RepositoryAttribute, i.e. an unshared [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute)
+This use case is intended to create a RepositoryAttribute, i.e. an unshared [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute)
 based on a given [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
 
 ## Parameters

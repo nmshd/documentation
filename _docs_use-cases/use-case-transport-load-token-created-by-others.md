@@ -6,7 +6,7 @@ title: "Load Token created by others"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RK2
@@ -42,7 +42,7 @@ api_route_regex: ^POST /api/v2/Tokens/Peer$
 
 {% include properties_list.html %}
 
-This use-case intends to load a peer's [Token]({% link _docs_integrate/data-model-overview.md %}#token) from the Backbone by a given reference to the Token.
+This use case intends to load a peer's [Token]({% link _docs_integrate/data-model-overview.md %}#token) from the Backbone by a given reference to the Token.
 
 ## Parameters
 

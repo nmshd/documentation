@@ -6,7 +6,7 @@ title: "Upload own File"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RF1
@@ -42,7 +42,7 @@ api_route_regex: ^POST /api/v2/Files/Own$
 
 {% include properties_list.html %}
 
-This use-case uses a given file outside of enmeshed, encrypts and uploads it to the Backbone and creates a [File]({% link _docs_integrate/data-model-overview.md %}#file) with the respective metadata information for the Identity to access it. The File can from now on be shared by references to other Identities.
+This use case uses a given file outside of enmeshed, encrypts and uploads it to the Backbone and creates a [File]({% link _docs_integrate/data-model-overview.md %}#file) with the respective metadata information for the Identity to access it. The File can from now on be shared by references to other Identities.
 
 ## Parameters
 

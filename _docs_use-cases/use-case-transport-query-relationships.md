@@ -6,7 +6,7 @@ title: "Query Relationships"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RR2
@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Relationships$
 
 {% include properties_list.html %}
 
-This use-case queries [Relationships]({% link _docs_integrate/data-model-overview.md %}#relationship) of the Identity.
+This use case queries [Relationships]({% link _docs_integrate/data-model-overview.md %}#relationship) of the Identity.
 
 ## Parameters
 

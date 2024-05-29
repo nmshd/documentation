@@ -6,7 +6,7 @@ title: "Get currently used Identity"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RU1
@@ -42,4 +42,4 @@ api_route_regex: ^GET /api/v2/Account/IdentityInfo$
 
 {% include properties_list.html %}
 
-This use-case retrieves information about the currently used Identity.
+This use case retrieves information about the currently used Identity.

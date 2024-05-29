@@ -6,7 +6,7 @@ title: "Query incoming Requests"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RIR1
@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Requests/incoming$
 
 {% include properties_list.html %}
 
-This use-case is intended to query incoming [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest).
+This use case is intended to query incoming [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest).
 
 ## Parameters
 

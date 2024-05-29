@@ -6,7 +6,7 @@ title: "Get outgoing Request"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ROR4
@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Requests/Outgoing/{id}$
 
 {% include properties_list.html %}
 
-This use-case is intended to retrieve an outgoing [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest)
+This use case is intended to retrieve an outgoing [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest)
 by its id. The differences of outgoing and an incoming Requests are defined [here]({% link _docs_integrate/data-model-overview.md %}#localrequeststatus).
 
 ## Parameters

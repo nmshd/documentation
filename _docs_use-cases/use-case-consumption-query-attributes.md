@@ -6,7 +6,7 @@ title: "Query Attributes"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA2
@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Attributes$
 
 {% include properties_list.html %}
 
-This use-case is intended to query [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute). The LocalAttributes can be specified using a complex query.
+This use case is intended to query [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute). The LocalAttributes can be specified using a complex query.
 
 ## Parameters
 

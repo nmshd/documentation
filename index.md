@@ -40,20 +40,20 @@ feature_row:
     btn_class: "btn--primary"
 feature_ssi:
   - title: "The digital home in your pocket"
-    excerpt: "Take your digital identity wherever you go. Access, change and easily share the most important data of you without bothering about security, privacy or paperwork."
+    excerpt: "Take your digital Identity wherever you go. Access, change and easily share the most important data of you without bothering about security, privacy or paperwork."
 ---
 
 # What is enmeshed?
 
-Enmeshed is an open source project combining various assets into an overarching digitalization approach for users and organizations. Its overall goal is to introduce a secure but easy-to-use way to share and request data and digital signatures between contacts.
+enmeshed is an open source project combining various assets into an overarching digitalization approach for users and organizations. Its overall goal is to introduce a secure but easy-to-use way to share and request data and digital signatures between contacts.
 
 A focus is the digitalization of the end user: enmeshed is bringing back control to the end user in an easy-to-use way and thus empowering its users to use the modern IT world which was usually an area only experts were able to cope with. With enmeshed the user actively takes part of the business processes, allowing a whole new digital experience.
 
-On the other hand, many organizations are still having trouble to digitize their business processes. Enmeshed introduces a different mindset - as well as components and tools - on how to securely communicate with other organizations and users. All this is done while keeping an easy-to-integrate approach in mind.
+On the other hand, many organizations are still having trouble to digitize their business processes. enmeshed introduces a different mindset - as well as components and tools - on how to securely communicate with other organizations and users. All this is done while keeping an easy-to-integrate approach in mind.
 
 The adjective "enmeshed" (\in'meshd\ or \en'meshd\ or /ɪnˈmeʃt/ ) means "to be entangled in s.th." or "parts which are patched together". Though sometimes used with a negative touch, nowadays we are all enmeshed in digital processes somehow, with more or less user satisfactory and effectiveness.
 
-We think by not only connecting identities of users and organizations to those digital processes, but tightly interweaving them within the actual processes, the overall user experience and process efficiency will rise. Enmeshed identities have a secure, digital and modern link between each other, which is not only used for overall communication but for professional processes.
+We think by not only connecting Identities of users and organizations to those digital processes, but tightly interweaving them within the actual processes, the overall user experience and process efficiency will rise. enmeshed Identities have a secure, digital and modern link between each other, which is not only used for overall communication but for professional processes.
 
 For us, being enmeshed is a very good thing: you know what is going on and the data which is used. You can take part in completely digital processes, without the hazzle of repeating yourself again and again. Even automated actions are available for end users.
 
@@ -75,6 +75,6 @@ You know what we mean? Have a look at the next chapter for a quick introduction 
 
 # Who is behind enmeshed?
 
-The idea of enmeshed is based on the work of many others in the area of open source software, encryption, decentralized identities, decentralized ledgers, and so on. These approaches were combined by a group of people who envisioned a great digital experience for everybody.
+The idea of enmeshed is based on the work of many others in the area of open source software, encryption, decentralized Identities, decentralized ledgers, and so on. These approaches were combined by a group of people who envisioned a great digital experience for everybody.
 
 So far, the primary implementation work has been done by j&amp;s-soft GmbH in Heidelberg, Germany.

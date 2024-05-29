@@ -6,7 +6,7 @@ title: "Check if incoming Request can be accepted"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RIR7
@@ -42,7 +42,7 @@ api_route_regex: ^PUT /api/v2/Requests/Incoming/{id}/CanAccept$
 
 {% include properties_list.html %}
 
-This use-case tests if an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest)
+This use case tests if an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest)
 can be accepted with the given parameters without actually accepting it.
 
 This is great for checking if all required information of a Request was filled out in order to accept it, e.g. to update a user interface with the respective errors (and render an "Accept Button" as disabled) as long as there are errors.

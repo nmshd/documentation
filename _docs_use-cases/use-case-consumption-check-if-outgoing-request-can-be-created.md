@@ -6,7 +6,7 @@ title: "Check if outgoing Request can be created"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ROR1
@@ -42,7 +42,7 @@ api_route_regex: ^POST /api/v2/Requests/Outgoing/Validate$
 
 {% include properties_list.html %}
 
-This use-case is intended to check if a [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) can be created
+This use case is intended to check if a [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) can be created
 based on a given [Request]({% link _docs_integrate/data-model-overview.md %}#request) for a given `peer`.
 
 ## Parameters

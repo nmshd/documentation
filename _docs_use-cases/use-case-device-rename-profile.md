@@ -6,7 +6,7 @@ title: "Rename Profile"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ARS7
@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case intends to rename a LocalAccount (Profile) of the App that matches the given `id`.
+This use case intends to rename a LocalAccount (Profile) of the App that matches the given `id`.
 
 ## Parameters
 

@@ -6,7 +6,7 @@ title: "Get Attributes shared to peer"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA4
@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Attributes/Own/Shared/Identity$
 
 {% include properties_list.html %}
 
-This use-case is intended to retrieve Attributes that the current Idenity shared to a peer as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute). The LocalAttributes can be specified using a complex query.
+This use case is intended to retrieve Attributes that the current Idenity shared to a peer as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute). The LocalAttributes can be specified using a complex query.
 
 ## Parameters
 

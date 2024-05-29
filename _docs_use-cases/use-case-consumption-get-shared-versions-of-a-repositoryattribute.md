@@ -6,7 +6,7 @@ title: "Get shared versions of a RepositoryAttribute"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA20
@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Attributes/{id}/Versions/Shared$
 
 {% include properties_list.html %}
 
-This use-case allows you to retrieve a list of own shared [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) for a specified RepositoryAttribute.
+This use case allows you to retrieve a list of own shared [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) for a specified RepositoryAttribute.
 
 ## Parameters
 

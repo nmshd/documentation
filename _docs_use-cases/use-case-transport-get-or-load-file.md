@@ -6,7 +6,7 @@ title: "Get or load File"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RF4
@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Files/{idOrReference}$
 
 {% include properties_list.html %}
 
-This use-case retrieves a [File]({% link _docs_integrate/data-model-overview.md %}#file) by an `id` or the `reference`. This is usually the case, when a reference to a File was received by a peer (over a Message or by any side channel).
+This use case retrieves a [File]({% link _docs_integrate/data-model-overview.md %}#file) by an `id` or the `reference`. This is usually the case, when a reference to a File was received by a peer (over a Message or by any side channel).
 
 ## Paramers
 

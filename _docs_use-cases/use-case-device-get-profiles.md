@@ -6,7 +6,7 @@ title: "Get Profiles"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ARP2
@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case retrieves all LocalAccounts available on this Device.
+This use case retrieves all LocalAccounts available on this Device.
 
 ## Parameters
 

@@ -6,7 +6,7 @@ title: "Get Device Onboarding Token"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RD5
@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case retrieves the [Token]({% link _docs_integrate/data-model-overview.md %}#token)
+This use case retrieves the [Token]({% link _docs_integrate/data-model-overview.md %}#token)
 of a so far not-onboarded Device that corresponds to the given Device `id` in order to onboard the Device to the Identity.
 
 ## Parameters

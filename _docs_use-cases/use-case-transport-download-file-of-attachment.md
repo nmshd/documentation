@@ -6,7 +6,7 @@ title: "Download File of Attachment"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RM5
@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case downloads a file that was sent by a [Message]({% link _docs_integrate/data-model-overview.md %}#message)
+This use case downloads a file that was sent by a [Message]({% link _docs_integrate/data-model-overview.md %}#message)
 as an attachment.
 
 Internally uses the [Download File Use-Case](/use-case-transport-download-file)

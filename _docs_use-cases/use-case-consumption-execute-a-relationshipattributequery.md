@@ -6,7 +6,7 @@ title: "Execute a RelationshipAttributeQuery"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA9
@@ -42,7 +42,7 @@ api_route_regex: ^POST /api/v2/Attributes/ExecuteRelationshipAttributeQuery$
 
 {% include properties_list.html %}
 
-This use-case is intended to execute an incoming [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) (e.g. received by a ReadAttributeRequestItem) which returns a list of matching [Relationship Attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
+This use case is intended to execute an incoming [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) (e.g. received by a ReadAttributeRequestItem) which returns a list of matching [Relationship Attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
 
 ## Parameters
 

@@ -1,15 +1,6 @@
 ---
-title: "Operate enmeshed"
-permalink: /operate
-published: true
-sidebar:
-  - title: "Operate enmeshed"
-    nav: "docs_operate"
+published: false
 ---
-
-Looking to set up and maintain a Connector in your own infrastructure? No worries, we've got you covered!
-
-We'll guide you on how to configure and maintain your systems optimally, ensuring smooth operations.
 
 <!-- markdownlint-disable MD011 -->
 <!-- <style>
@@ -133,7 +124,7 @@ We'll guide you on how to configure and maintain your systems optimally, ensurin
         </th>
     </tr>
     {% for scenario in scenarios %}
-     {% assign status = scenario.properties | map:"documentation status" %}{% assign component = scenario.properties | map:"component" %}{% if component contains "Connector" %}    <tr>
+     {% assign status = scenario.properties | map:"documentation status" %}{% assign component = scenario.properties | map:"component" %}{% if component contains "Runtime" %}    <tr>
         <td>
             <a href="{{ scenario.url }}"> {{ scenario.title }} </a>
         </td>

@@ -6,7 +6,7 @@ title: "Get Relationship by RelationshipId"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RR3
@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Relationships/{id}$
 
 {% include properties_list.html %}
 
-This use-case retrieves a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship)
+This use case retrieves a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship)
 by its `id`.
 
 ## Parameters

@@ -6,7 +6,7 @@ title: "Query Messages"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RM2
@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Messages$
 
 {% include properties_list.html %}
 
-This use-case queries [Messages]({% link _docs_integrate/data-model-overview.md %}#message) of the Identity.
+This use case queries [Messages]({% link _docs_integrate/data-model-overview.md %}#message) of the Identity.
 
 ## Parameters
 

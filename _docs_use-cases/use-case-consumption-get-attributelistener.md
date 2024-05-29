@@ -6,7 +6,7 @@ title: "Get AttributeListener"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RAL2
@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case is intended to retrieve an [Attribute Listener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) by its id.
+This use case is intended to retrieve an [Attribute Listener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) by its id.
 
 ## Parameter
 
