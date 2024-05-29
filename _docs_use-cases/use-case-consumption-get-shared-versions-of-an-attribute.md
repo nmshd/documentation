@@ -50,7 +50,7 @@ In case of [RelationshipAttributes]({% link _docs_integrate/data-model-overview.
 
 - The `attributeId` belonging to a LocalAttribute you would like to know all shared versions of
 - Optionally the returned LocalAttributes can be limited to those shared with specific `peers`.
-- `onlyLatestVersions` omits succeeded versions such that only the most recent version you shared per peer is returned. In detail, this means that if the `attributeId` given as input belongs to a LocalAttribute, whose successor you also already have shared with the peer, the shared copy corresponding to the successor will be returned. By default this is set to be `true`.
+- `onlyLatestVersions` omits succeeded versions such that only the most recent version you shared per peer is returned. In detail, this means that if the `attributeId` given as input belongs to a LocalAttribute, that already has successors you also shared with the peer, only the shared copy corresponding to the most recently shared successor will be returned. By default this is set to be `true`.
 
 ## On Success
 
@@ -61,7 +61,7 @@ In case of [RelationshipAttributes]({% link _docs_integrate/data-model-overview.
 ## On Failure
 
 - No LocalAttributes can be returned if the `attributeId` correlates to an unknown LocalAttribute.
-- No LocalAttributes can be returned if the `attributeId` correlates to a LocalAttribute with a `shareInfo`.
-- No LocalAttributes can be returned if the an empty list is provided for `peers`.
+- No LocalAttributes can be returned if the `attributeId` correlates to an own shared or peer shared IdentityAttribute.
+- No LocalAttributes can be returned if an empty list is provided for `peers`.
 - No LocalAttributes can be returned if the `peers` are unknown.
 - No LocalAttributes can be returned if the parameters are malformed.
