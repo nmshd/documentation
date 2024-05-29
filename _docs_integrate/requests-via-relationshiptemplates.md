@@ -26,8 +26,6 @@ required_by:
   - integrate/requests-via-messages
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 This guide explains the end-to-end flow of sending a [Request]({% link _docs_integrate/data-model-overview.md %}#request) via a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) and responding to it.
 Usually, this flow happens between a [Connector]({% link _docs_explore/52-connector.md %}) and the [App]({% link _docs_explore/50-app.md %}), but for simplicity and more transparency, two Connectors are used here.
@@ -260,4 +258,3 @@ In the response you can see a new Relationship, which looks as follows:
 Now you can [accept the RelationshipChange]({% link _docs_use-cases/use-case-transport-accept-relationshipchange.md %}) on the Sender Connector with the `id` of the Relationship and the `id` of the RelationshipChange.
 
 When you [synchronize the Recipient Connector]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), you can see that the Relationship now has the `status` `"Active"` on both Connectors.
->>>>>>> main

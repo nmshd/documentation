@@ -26,8 +26,6 @@ required_by:
   - integrate/request-authentication
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 This guide explains how to send and receive a [Request]({% link _docs_integrate/data-model-overview.md %}#request) over [enmeshed Messages]({% link _docs_integrate/data-model-overview.md %}#message) using two Connectors.
 The first of them, which we will refer to as the Sender, will send the Request.
@@ -194,4 +192,3 @@ For this, you have to [synchronize the Sender Connector]({% link _docs_use-cases
 
 After a few seconds the Request has moved to `status` `"Completed"` and the Response is available in the `response` property of the Request.
 You can observe this by [querying the Request]({% link _docs_use-cases/use-case-consumption-get-outgoing-request.md %}) on the Sender Connector.
->>>>>>> main

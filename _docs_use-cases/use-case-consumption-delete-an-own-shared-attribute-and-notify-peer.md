@@ -6,11 +6,7 @@ title: "Delete an own shared Attribute and notify peer"
 type: use-case
 toc: true
 sidebar:
-<<<<<<< HEAD
-  - title: "Integrate Enmeshed"
-=======
   - title: "Integrate enmeshed"
->>>>>>> main
     nav: "docs_integrate"
 properties:
   - id: RA23
@@ -41,8 +37,6 @@ required_by:
 api_route_regex: ^DELETE /api/v2/Attributes/Own/Shared/{id}$
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 {{properties.description}}
 
@@ -68,4 +62,3 @@ It is created as a result of sharing the `content` of a RepositoryAttribute with
 
 - No Attribute can be deleted if you don't have a LocalAttribute with given `attributeId`.
 - No Attribute can be deleted if the Attribute with given `attributeId` is not an own shared Attribute.
->>>>>>> main

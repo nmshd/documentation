@@ -23,8 +23,6 @@ require:
 required_by:
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 The way enmeshed handles updates to your personal data is by succeeding old [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) with new ones.
 Instead of simply replacing old data, a completely new Attribute is created which succeeds its predecessor.
@@ -116,4 +114,3 @@ Then, a Notification is sent automatically to the peer, which triggers the creat
 As we have seen, succeeding an Attribute allows you to mark a version of the Attribute as outdated and lets you specify an updated version that is to be used instead.
 However, you might also find yourself in a situation where you want to delete an Attribute altogether.
 To do so, proceed as described in the guide on [how to delete Attributes]({% link _docs_integrate/delete-attributes.md %}).
->>>>>>> main

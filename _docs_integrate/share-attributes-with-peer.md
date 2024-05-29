@@ -23,8 +23,6 @@ require:
 required_by:
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 There are many situations in which an Identity wants to share an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with another Identity, for example:
 
@@ -308,4 +306,3 @@ In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-ove
 ## What's next?
 
 Take a look at our [Integration example]({% link _docs_integrate/integration-example.md %}) if you want to see how an Identity shares an Attribute with a peer in the context of a larger process. Also note that it is not only possible to share an Attribute with a peer, but you can also request to read an Attribute from a peer. Consult the [Read Attributes from peer]({% link _docs_integrate/read-attributes-from-peer.md %}) guide for this.
->>>>>>> main

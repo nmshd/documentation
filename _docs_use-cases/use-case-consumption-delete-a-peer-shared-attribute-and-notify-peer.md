@@ -6,11 +6,7 @@ title: "Delete a peer shared Attribute and notify peer"
 type: use-case
 toc: true
 sidebar:
-<<<<<<< HEAD
-  - title: "Integrate Enmeshed"
-=======
   - title: "Integrate enmeshed"
->>>>>>> main
     nav: "docs_integrate"
 properties:
   - id: RA24
@@ -41,8 +37,6 @@ required_by:
 api_route_regex: ^DELETE /api/v2/Attributes/Peer/Shared/{id}$
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 {{properties.description}}
 
@@ -67,4 +61,3 @@ This use case allows you to delete a peer shared Attribute, i.e. a [LocalAttribu
 
 - No Attribute can be deleted if you don't have a LocalAttribute with given `attributeId`.
 - No Attribute can be deleted if the Attribute with given `attributeId` is not a peer shared Attribute.
->>>>>>> main

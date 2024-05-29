@@ -22,8 +22,6 @@ require:
 required_by:
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 {% include warnings/documentation-is-prerelease %}
 
@@ -36,4 +34,3 @@ enmeshed supports specific authentication requests for users, e.g. for multi-fac
 - Single-factor based logins, e.g. scanning in an enmeshed QR-Code from an unknown browser window
 - Multi-factor based logins, e.g. requesting the user's authentication over enmeshed after a password-based login
 - Multi-factor based business processes, e.g. requesting the user's authentication if the user want to read or change certain kind of administrative information
->>>>>>> main

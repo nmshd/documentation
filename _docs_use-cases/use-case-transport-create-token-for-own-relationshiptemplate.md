@@ -8,11 +8,7 @@ title: "Create Token for own RelationshipTemplate"
 type: use-case
 toc: true
 sidebar:
-<<<<<<< HEAD
-  - title: "Integrate Enmeshed"
-=======
   - title: "Integrate enmeshed"
->>>>>>> main
     nav: "docs_integrate"
 properties:
   - id: RT7
@@ -43,8 +39,6 @@ required_by:
 api_route_regex: ^POST /api/v2/RelationshipTemplates/Own/{id}/Token$
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 {{properties.description}}
 
@@ -66,4 +60,3 @@ Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for a
 
 - `templateId` does not resolve to a RelationshipTemplate.
 - `expiresAt` lies in the past
->>>>>>> main

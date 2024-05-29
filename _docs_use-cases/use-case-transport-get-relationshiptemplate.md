@@ -8,11 +8,7 @@ title: "Get RelationshipTemplate"
 type: use-case
 toc: true
 sidebar:
-<<<<<<< HEAD
-  - title: "Integrate Enmeshed"
-=======
   - title: "Integrate enmeshed"
->>>>>>> main
     nav: "docs_integrate"
 properties:
   - id: RT4
@@ -43,8 +39,6 @@ required_by:
 api_route_regex: ^GET /api/v2/RelationshipTemplates/{id}$
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 {{properties.description}}
 
@@ -64,4 +58,3 @@ by its `id`.
 ## On Failure
 
 - The `id` doesn't resolve to a RelationshipTemplate.
->>>>>>> main

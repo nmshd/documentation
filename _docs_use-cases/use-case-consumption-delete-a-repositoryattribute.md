@@ -6,11 +6,7 @@ title: "Delete a RepositoryAttribute"
 type: use-case
 toc: true
 sidebar:
-<<<<<<< HEAD
-  - title: "Integrate Enmeshed"
-=======
   - title: "Integrate enmeshed"
->>>>>>> main
     nav: "docs_integrate"
 properties:
   - id: RA7
@@ -41,8 +37,6 @@ required_by:
 api_route_regex: ^DELETE /api/v2/Attributes/{id}$
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 {{properties.description}}
 
@@ -65,4 +59,3 @@ This use case allows you to delete a RepositoryAttribute, i.e. a [LocalAttribute
 
 - No Attribute can be deleted if you don't have a LocalAttribute with given `attributeId`.
 - No Attribute can be deleted if the Attribute with given `attributeId` is not a RepositoryAttribute.
->>>>>>> main

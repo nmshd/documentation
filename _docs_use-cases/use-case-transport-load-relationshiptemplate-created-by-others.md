@@ -8,11 +8,7 @@ title: "Load RelationshipTemplate created by others"
 type: use-case
 toc: true
 sidebar:
-<<<<<<< HEAD
-  - title: "Integrate Enmeshed"
-=======
   - title: "Integrate enmeshed"
->>>>>>> main
     nav: "docs_integrate"
 properties:
   - id: RT2
@@ -43,8 +39,6 @@ required_by:
 api_route_regex: ^POST /api/v2/RelationshipTemplates/Peer$
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 {{properties.description}}
 
@@ -74,4 +68,3 @@ There are three different options to use this use case, depending on the actual 
 - The RelationshipTemplate does not exist.
 - The RelationshipTemplate is expired.
 - The `maxNumberOfAllocations` of the RelationshipTemplate are depleted.
->>>>>>> main

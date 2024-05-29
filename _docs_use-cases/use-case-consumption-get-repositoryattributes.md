@@ -6,11 +6,7 @@ title: "Get RepositoryAttributes"
 type: use-case
 toc: true
 sidebar:
-<<<<<<< HEAD
-  - title: "Integrate Enmeshed"
-=======
   - title: "Integrate enmeshed"
->>>>>>> main
     nav: "docs_integrate"
 properties:
   - id: RA22
@@ -41,8 +37,6 @@ required_by:
 api_route_regex: ^GET /api/v2/Attributes/Own/Repository$
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 {{properties.description}}
 
@@ -64,4 +58,3 @@ The LocalAttributes can be specified using a complex query.
 ## On Failure
 
 - No LocalAttributes can be returned if the parameters are malformed.
->>>>>>> main

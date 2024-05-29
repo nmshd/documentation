@@ -20,8 +20,6 @@ require:
 required_by:
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 {% include warnings/documentation-is-prerelease %}
 
@@ -34,4 +32,3 @@ In order to submit Files via Message, they have to be first uploaded to the Conn
 ## Download Attachments of Messages
 
 The metadata of attachments can be found within the respective Message, the actual content if the File must be downloaded separately.
->>>>>>> main

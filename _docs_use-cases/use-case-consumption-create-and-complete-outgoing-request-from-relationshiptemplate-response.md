@@ -8,11 +8,7 @@ title: "Create and complete outgoing Request from RelationshipTemplate Response"
 type: use-case
 toc: true
 sidebar:
-<<<<<<< HEAD
-  - title: "Integrate Enmeshed"
-=======
   - title: "Integrate enmeshed"
->>>>>>> main
     nav: "docs_integrate"
 properties:
   - id: ROR5
@@ -42,8 +38,6 @@ require:
 required_by:
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 {{properties.description}}
 
@@ -70,4 +64,3 @@ This use case is intended to create and instantly complete an outgoing Request w
 
 - The RelationshipTemplate could not be found.
 - The response source could not be found.
->>>>>>> main

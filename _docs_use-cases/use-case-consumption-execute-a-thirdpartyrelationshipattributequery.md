@@ -6,11 +6,7 @@ title: "Execute a ThirdPartyRelationshipAttributeQuery"
 type: use-case
 toc: true
 sidebar:
-<<<<<<< HEAD
-  - title: "Integrate Enmeshed"
-=======
   - title: "Integrate enmeshed"
->>>>>>> main
     nav: "docs_integrate"
 properties:
   - id: RA10
@@ -41,8 +37,6 @@ required_by:
 api_route_regex: ^POST /api/v2/Attributes/ExecuteThirdPartyRelationshipAttributeQuery$
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 {{properties.description}}
 
@@ -64,4 +58,3 @@ of another peer.
 ## On Failure
 
 - The query is malformed.
->>>>>>> main

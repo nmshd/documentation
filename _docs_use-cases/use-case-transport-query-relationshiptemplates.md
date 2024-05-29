@@ -8,11 +8,7 @@ title: "Query RelationshipTemplates"
 type: use-case
 toc: true
 sidebar:
-<<<<<<< HEAD
-  - title: "Integrate Enmeshed"
-=======
   - title: "Integrate enmeshed"
->>>>>>> main
     nav: "docs_integrate"
 properties:
   - id: RT3
@@ -43,8 +39,6 @@ required_by:
 api_route_regex: ^GET /api/v2/RelationshipTemplates$
 # End automatic generation
 ---
-<<<<<<< HEAD
-=======
 
 {{properties.description}}
 
@@ -71,4 +65,3 @@ All parameters are optional. If no parameter is given, all RelationshipTemplates
 ## On Failure
 
 - The parameters are malformed.
->>>>>>> main
