@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: use-case-consumption-execute-an-iqlquery
-published: true
+published: false
 title: "Execute an IQLQuery"
 type: use-case
 toc: true

@@ -29,12 +29,11 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex:
+  - api_route_regex:  
   - published: default
   - link: use-case-device-get_-rest-endpoint
 require:
 required_by:
-api_route_regex: ^ $
 # End automatic generation
 ---
 

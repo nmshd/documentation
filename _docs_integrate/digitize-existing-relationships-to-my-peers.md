@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: integrate/digitize-existing-relationships-to-my-peers
 published: false
-title: "Digitize existing Relationships to my peers"
+title: "Digitize existing relationships to my peers"
 type: scenario
 toc: true
 properties:

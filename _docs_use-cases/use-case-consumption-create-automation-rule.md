@@ -29,11 +29,10 @@ properties:
   - size: L
   - created_at:
   - changed_at:
-  - api_route_regex:
+  - api_route_regex:  
   - published:
   - link: use-case-consumption-create-automation-rule
 require:
 required_by:
-api_route_regex: ^ $
 # End automatic generation
 ---

@@ -29,7 +29,7 @@ properties:
   - size: S
   - created_at:
   - changed_at:
-  - api_route_regex:
+  - api_route_regex:  
   - published:
   - link: use-case-consumption-create-relationshiptemplate-out-of-blueprint
 require:
