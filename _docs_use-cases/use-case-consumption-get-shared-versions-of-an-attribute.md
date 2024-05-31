@@ -61,7 +61,5 @@ In case of [RelationshipAttributes]({% link _docs_integrate/data-model-overview.
 ## On Failure
 
 - No LocalAttributes can be returned if the `attributeId` correlates to an unknown LocalAttribute.
-- No LocalAttributes can be returned if the `attributeId` correlates to an own shared or peer shared IdentityAttribute.
 - No LocalAttributes can be returned if an empty list is provided for `peers`.
-- No LocalAttributes can be returned if the `peers` are unknown.
 - No LocalAttributes can be returned if the parameters are malformed.

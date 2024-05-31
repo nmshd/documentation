@@ -66,5 +66,4 @@ This use case allows you to retrieve a list of own shared [IdentityAttributes]({
 - No LocalAttributes can be returned if the `attributeId` correlates to a RelationshipAttribute.
 - No LocalAttributes can be returned if the `attributeId` correlates to an own shared or peer shared IdentityAttribute.
 - No LocalAttributes can be returned if an empty list is provided for `peers`.
-- No LocalAttributes can be returned if the `peers` are unknown.
 - No LocalAttributes can be returned if the parameters are malformed.
