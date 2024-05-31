@@ -142,7 +142,7 @@ function createUseCaseText(useCaseObject: DynamicUseCase): string {
             text += "  - " + requirement + "\n";
         }
     }
-    if (useCaseObject["api_route_regex"]) {
+    if (useCaseObject["api_route_regex"] && useCaseObject["api_route_regex"].trim()) {
         text += "api_route_regex: ^" + useCaseObject["api_route_regex"] + "$\n";
     }
     text += "# End automatic generation";
