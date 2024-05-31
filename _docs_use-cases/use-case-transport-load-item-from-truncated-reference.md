@@ -6,7 +6,7 @@ title: "Load item from truncated reference"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RU9
@@ -44,6 +44,6 @@ required_by:
 This use case intends to load an entity by its `reference` received by peer. It is internally using the specific use cases of each entity:
 
 - If the `reference` references a Token, fetches the Token just like [Load Token created by others](use-case-transport-load-token-created-by-others.md).
-- If the `reference` references a RelationshipTemplate, fetches the RelationshipTemplate just like [Load Relationship Template created by others](use-case-transport-load-relationshiptemplate-created-by-others.md).
+- If the `reference` references a RelationshipTemplate, fetches the RelationshipTemplate just like [Load RelationshipTemplate created by others](use-case-transport-load-relationshiptemplate-created-by-others.md).
 - If the `reference` references a File, fetches the File just like [Get or load File](use-case-transport-get-or-load-file.md).
 - If the `reference` references a DeviceOnboardingInformation, fetches the DeviceOnboardingInformation just like [Get Device Onboarding Token](use-case-transport-get-device-onboarding-token.md).

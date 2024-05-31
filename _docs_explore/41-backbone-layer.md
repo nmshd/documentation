@@ -25,7 +25,7 @@ The backbone layer is responsible for validating the data sent to or received fr
 
 ## External Events
 
-The backbone layer keeps track of the current synchronization state of identities and devices and is able to manually synchronize with the Backbone.
+The backbone layer keeps track of the current synchronization state of Identities and devices and is able to manually synchronize with the Backbone.
 
 # Entities
 
@@ -247,7 +247,7 @@ Data submitted to Backbone:
 - relationshipTemplateId
 - relationshipChangeContent
 
-## Relationship Templates
+## RelationshipTemplates
 
 Abbreviated: RLT
 

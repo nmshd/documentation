@@ -8,7 +8,7 @@ title: "Create a RepositoryAttribute"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA1
@@ -17,7 +17,7 @@ properties:
   - facade: AttributesFacade
   - function: createRepositoryAttribute
   - description:
-  - feature category: Normalized attributes
+  - feature category: Normalized Attributes
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE

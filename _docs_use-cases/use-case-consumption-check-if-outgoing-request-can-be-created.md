@@ -6,7 +6,7 @@ title: "Check if outgoing Request can be created"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ROR1
@@ -15,7 +15,7 @@ properties:
   - facade: OutgoingRequestsFacade
   - function: canCreate
   - description: Validates the given `OutgoingRequest` before creating it
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE

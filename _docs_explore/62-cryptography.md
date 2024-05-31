@@ -11,7 +11,7 @@ Stored data - so called "data at rest" - is encrypted on the respective systems,
 
 # Transport Layer Encryption
 
-The communication between identities via the Backbone is end-to-end encrypted. This means, that nobody between the digital identities (i.e. their devices) is able to access the data. This prevents even the operator of the Backbone to access the payload which is sent between identities. It is also reducing the threats of data leaks to a minimum, as only the metadata could be leaked. Such a metadata leak would be the same level of information leak as a public blockchain is doing all along its public network.
+The communication between Identities via the Backbone is end-to-end encrypted. This means, that nobody between the digital Identities (i.e. their devices) is able to access the data. This prevents even the operator of the Backbone to access the payload which is sent between Identities. It is also reducing the threats of data leaks to a minimum, as only the metadata could be leaked. Such a metadata leak would be the same level of information leak as a public blockchain is doing all along its public network.
 
 We use modern cryptographic algorithms to our best knowledge. The cryptographic library we use is [libsodium](https://doc.libsodium.org/) and its JavaScript wrapper [libsodium.js](https://github.com/jedisct1/libsodium.js). Libsodium is a fork of NaCl which is primarily stripping out unnecessary or dangerours interfaces or algorithms.
 
@@ -41,61 +41,61 @@ Every Identity needs a set of keys used by the Identity in order to digitally si
 
 Abbreviated: PrivId
 
-The identity's most secret, private signature key with which it is signing certificates, documents or the creation of new devices.
+The Identity's most secret, private signature key with which it is signing certificates, documents or the creation of new devices.
 
 ### Identity Signature Public Key
 
 Abbreviated: PubId
 
-The identity's public key which acts as the primary form of verifying data signed by an identity. Only with a known Identity Signature Public Key of an identity, the signature of an identity can be securely verified.
+The Identity's public key which acts as the primary form of verifying data signed by an Identity. Only with a known Identity Signature Public Key of an Identity, the signature of an Identity can be securely verified.
 
-With the identity's public key, the identity's address is calculated.
+With the Identity's public key, the Identity's address is calculated.
 
-Usually, you receive another identity's signature public key while making the first contact (e.g. from the relationship template or the relationship request followed upon it).
+Usually, you receive another Identity's signature public key while making the first contact (e.g. from the RelationshipTemplate or the Relationship request followed upon it).
 
 ### Synchronization Base Secret Key
 
-The secret key which is used to derive the synchronization derived secret keys. The synchronization base secret key is randomly generated on creation for every identity. The symmetric keys which are derived from the synchronization base key and are used to actually encrypt/decrypt the synchronization events.
+The secret key which is used to derive the synchronization derived secret keys. The synchronization base secret key is randomly generated on creation for every Identity. The symmetric keys which are derived from the synchronization base key and are used to actually encrypt/decrypt the synchronization events.
 
 ## Device Keys
 
-One identity has one to many devices using the identity. In order to authenticate the devices between each other, a device creates an own signing key, which will never leave the device.
+One Identity has one to many devices using the Identity. In order to authenticate the devices between each other, a device creates an own signing key, which will never leave the device.
 
 ## Device Signature Private Key
 
-Every device of an identity has its own private key which is also not shared to other devices. With this, it is possible to have multi-factor authentication capabilities across different devices of one identity.
+Every device of an Identity has its own private key which is also not shared to other devices. With this, it is possible to have multi-factor authentication capabilities across different devices of one Identity.
 
 Additionally, the private signature keys can be used to sign data which is synchronized across devices.
 
 ## Device Signature Public Key
 
-The device's public key which is stored in the Datawallet of an identity and thus is know to any other device of the identity. The public key can be used to verify data coming from other devices of an identity.
+The device's public key which is stored in the Datawallet of an Identity and thus is know to any other device of the Identity. The public key can be used to verify data coming from other devices of an Identity.
 
 ## Symmetric Encryption
 
-Symmetric encryption is used throughout this solution in order to securely encrypt sensitive data. Prior to a communication to a different device or identity, a random secret key is generated and used to encrypt the payload. This secret key is then shared via a secure side-channel / out-of-band communication. This could be a message communicated over enmeshed, a QR-Code shown in a browser session or any other secure communication channel. The secret key is never transmitted unencrypted over the Backbone, as this would break up the end-to-end encryption.
+Symmetric encryption is used throughout this solution in order to securely encrypt sensitive data. Prior to a communication to a different device or Identity, a random secret key is generated and used to encrypt the payload. This secret key is then shared via a secure side-channel / out-of-band communication. This could be a Message communicated over enmeshed, a QR-Code shown in a browser session or any other secure communication channel. The secret key is never transmitted unencrypted over the Backbone, as this would break up the end-to-end encryption.
 
 Examples where symmetric encryption is used:
 
 - Device-to-Device Synchronization
 - Sharing Files
 - Messages
-- Relationship Templates
+- RelationshipTemplates
 - Tokens
 
 For files only: In addition to the payload, metadata (like filename or mimetype) of the file needs to be separately encrypted. For this, another random secret key is generated for encrypting the metadata of the file. To omit unnecessary payload while sharing files, the generated secret key for actual file payload is stored within this metadata. Thus, only the generated secret key for the metadata must be shared (in addition to the file id).
 
 ## Relationship Keys
 
-With each relationship, there are relationship keys automatically generated. These keys are used for signing and encrypting the communication with the relationship on a technical level.
+With each Relationship, there are Relationship keys automatically generated. These keys are used for signing and encrypting the communication with the Relationship on a technical level.
 
-- Relationship own exchange keypair: A pair of relationship own exchange private key (PrivOwnX) and corresponding relationship own exchange public key (PubOwnX). The relationship own exchange private key is used to derive the masterRelationship secret keys (transmit and receive). The relationship own exchange public key is communicated within the relationship creation change request or the relationship creation change response.
-- Relationship own signature keypair: A pair of relationship signature private key (PrivOwn) and corresponding relationship signature public key (PubOwn). The signature own private key is used for signing the communication with this relationship. It is synchronized across all devices and signed by the device signature private key of the device which creates the relationship creation change request or the relationship template. The signature own public key is used for verifying the signatures of all communications with this relationship.
-- Relationship peer exchange public key: The peer's exchange public key (PubPeerX) which is used to derive the master relationship secret keys (transmit and receive).
+- Relationship own exchange keypair: A pair of Relationship own exchange private key (PrivOwnX) and corresponding Relationship own exchange public key (PubOwnX). The Relationship own exchange private key is used to derive the masterRelationship secret keys (transmit and receive). The Relationship own exchange public key is communicated within the Relationship creation change request or the Relationship creation change response.
+- Relationship own signature keypair: A pair of Relationship signature private key (PrivOwn) and corresponding Relationship signature public key (PubOwn). The signature own private key is used for signing the communication with this Relationship. It is synchronized across all devices and signed by the device signature private key of the device which creates the Relationship creation change request or the RelationshipTemplate. The signature own public key is used for verifying the signatures of all communications with this Relationship.
+- Relationship peer exchange public key: The peer's exchange public key (PubPeerX) which is used to derive the master Relationship secret keys (transmit and receive).
 - Relationship peer signature public key: The peer's signature public key which is used to verify communication sent by the peer.
 - Relationship receive derived secret key (SecPeer'): A derived symmetric key of the master, which is actually used for decryption.
 - Relationship receive master secret key (SecPeer):
-  The symmetric master key for receiving communication of the relationship. The key is derived by the relationship peer exchange public key and the relationship own exchange private key while onboarding. This key equals to the relationship transmit master key of the peer.
+  The symmetric master key for receiving communication of the Relationship. The key is derived by the Relationship peer exchange public key and the Relationship own exchange private key while onboarding. This key equals to the Relationship transmit master key of the peer.
 - Relationship transmit derived secret key (SecOwn'): A derived symmetric key of the master, which is actually used for encryption.
 - Relationship transmit master secret key (SecOwn):
-  The derived symmetric master key for transmitting communication to the relationship. The key is derived by the relationship peer exchange public key and the relationship own exchange private key. This key equals to the relationship receive master key of the peer.
+  The derived symmetric master key for transmitting communication to the Relationship. The key is derived by the Relationship peer exchange public key and the Relationship own exchange private key. This key equals to the Relationship receive master key of the peer.

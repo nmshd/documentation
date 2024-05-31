@@ -6,7 +6,7 @@ title: "Check if incoming Request can be accepted"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RIR7
@@ -15,7 +15,7 @@ properties:
   - facade: IncomingRequestsFacade
   - function: canAccept
   - description: Checks if the `Request` with the given `id` can be accepted.
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE

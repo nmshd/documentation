@@ -6,7 +6,7 @@ title: "Download File of Attachment"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RM5
@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: MessagesFacade
   - function: downloadAttachment
-  - description: Downloads the file of the given `attachmentId` of message with `messageId`.
+  - description: Downloads the file of the given `attachmentId` of Message with `messageId`.
   - feature category: Bidirectional (un-)structured communication
   - tech category: Messages
   - status: DONE
