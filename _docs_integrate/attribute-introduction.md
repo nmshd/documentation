@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: integrate/attribute-introduction
-published: false
+published: true
 title: "Attribute introduction"
 type: scenario
 toc: true
@@ -13,8 +13,8 @@ properties:
   - component: integrate
   - level: Beginner
   - implementation status: DOCS ONLY
-  - documentation status: OPEN
-  - published:
+  - documentation status: DONE
+  - published: true
   - link: attribute-introduction
 require:
 required_by:

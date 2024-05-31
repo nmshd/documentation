@@ -19,14 +19,14 @@ properties:
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
-  - comments:
+  - comments: deprecated, will be removed with v5
   - actor: Identity
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
-  - priority:
-  - complexity:
-  - size:
+  - priority: n/a
+  - complexity: n/a
+  - size: n/a
   - created_at:
   - changed_at:
   - api_route_regex: GET /api/v2/Attributes/{id}/Versions/Shared

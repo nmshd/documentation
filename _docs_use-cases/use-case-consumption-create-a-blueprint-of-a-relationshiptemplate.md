@@ -29,7 +29,7 @@ properties:
   - size: HIGH
   - created_at:
   - changed_at:
-  - api_route_regex:  
+  - api_route_regex:
   - published:
   - link: use-case-consumption-create-a-blueprint-of-a-relationshiptemplate
 require:

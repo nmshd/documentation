@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: use-case-transport-get-identitydeletionprocesses
-published: false
+published: true
 title: "Get IdentityDeletionProcesses"
 type: use-case
 toc: true
@@ -18,7 +18,7 @@ properties:
   - feature category: Identity handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
-  - documentation status: OPEN
+  - documentation status: DONE
   - comments:
   - actor: Identity
   - trigger: REST API
