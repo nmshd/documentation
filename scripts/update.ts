@@ -120,10 +120,11 @@ function createUseCaseText(useCaseObject: DynamicUseCase): string {
         if (key != "Title" && key != "Require" && key != "redirect_from" && key != "required_by" && key != "require")
             if (Object.prototype.hasOwnProperty.call(useCaseObject, key)) {
                 const value = useCaseObject[key];
-                if (value == null) {
-                    text += "  - " + `${key.toLowerCase()}:\n`;
+                text += "  - " + `${key.toLowerCase()}:`;
+                if (value == null || !value.trim()) {
+                    text += "\n";
                 } else {
-                    text += "  - " + `${key.toLowerCase()}: ${value.replaceAll("\n", " ")}\n`;
+                    text += ` ${value.replaceAll("\n", " ")}\n`;
                 }
             }
     }
