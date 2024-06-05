@@ -6,7 +6,7 @@ title: "Get IdentityDeletionProcess"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RID5
@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use case allows you to query an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your own Identity by ID.
+This use case allows you to query an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your own Identity by its `id`.
 
 ## Parameters
 
@@ -53,4 +53,4 @@ This use case allows you to query an [IdentityDeletionProcess]({% link _docs_int
 
 ## On Failure
 
-- No IdentityDeletionProcess can be returned if non exists with the given `id` for this Identity.
+- No IdentityDeletionProcess can be returned if none exists with the given `id` for this Identity.

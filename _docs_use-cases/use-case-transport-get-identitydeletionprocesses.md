@@ -6,7 +6,7 @@ title: "Get IdentityDeletionProcesses"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RID7
@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: IdentityDeletionProcessFacade
   - function: getIdentityDeletionProcesses
-  - description: Get all IdentityDeletionProcess
+  - description: Get all IdentityDeletionProcesses
   - feature category: Identity Handling
   - tech category: IdentityDeletionProcesses
   - status: DONE

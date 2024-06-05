@@ -6,7 +6,7 @@ title: "Reject IdentityDeletionProcess"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RID4
@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: IdentityDeletionProcessFacade
   - function: rejectIdentityDeletionProcess
-  - description: Reject an IdentityDeletionProcess that has status 'Waiting for Approval' that was started by external support channel (from Backbone Admin UI)
+  - description: Reject an IdentityDeletionProcess that has status 'WaitingForApproval' that was started by external support channel (from Backbone Admin UI)
   - feature category: Identity Handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
@@ -42,12 +42,13 @@ required_by:
 {% include properties_list.html %}
 
 This use case allows you to reject an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) that was started via the Backbone Admin UI for your own Identity.
+The respective IdentityDeletionProcess has the `status` `"WaitingForApproval"` and can either be [approved]({% link _docs_use-cases/use-case-transport-approve-identitydeletionprocess.md %}) or rejected.
 
 ## On Success
 
-- Moves the IdentityDeletionProcess in status `"Rejected"`
+- Changes the `status` of the IdentityDeletionProcess from `"WaitingForApproval"` to `"Rejected"`
 - Returns the rejected IdentityDeletionProcess
 
 ## On Failure
 
-- No IdentityDeletionProcess can be rejected if non was started via the Backbone Admin UI, i.e. no IdentityDeletionProcess in `status` `"WaitingForApproval"` exists for this Identity.
+- No IdentityDeletionProcess can be rejected if none was started via the Backbone Admin UI, i.e. no IdentityDeletionProcess in `status` `"WaitingForApproval"` exists for this Identity.

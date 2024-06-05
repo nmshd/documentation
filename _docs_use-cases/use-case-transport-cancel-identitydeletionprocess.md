@@ -6,7 +6,7 @@ title: "Cancel IdentityDeletionProcess"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RID2
@@ -45,9 +45,9 @@ This use case allows you to cancel an approved [IdentityDeletionProcess]({% link
 
 ## On Success
 
-- Moves the IdentityDeletionProcess in status `"Cancelled"`
+- Changes the `status` of the IdentityDeletionProcess from `"Approved"` to `"Cancelled"`
 - Returns the cancelled IdentityDeletionProcess
 
 ## On Failure
 
-- No IdentityDeletionProcess can be cancelled if non was in `status` `"Approved"` for this Identity.
+- No IdentityDeletionProcess can be cancelled if none was in `status` `"Approved"` for this Identity.

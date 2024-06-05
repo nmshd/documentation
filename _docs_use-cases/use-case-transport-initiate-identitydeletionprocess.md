@@ -6,7 +6,7 @@ title: "Initiate IdentityDeletionProcess"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RID1
@@ -41,11 +41,11 @@ required_by:
 
 {% include properties_list.html %}
 
-This use case is intended to initiate an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for the own Identity.
+This use case is intended to initiate an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your Identity.
 
 ## On Success
 
-- Creates an IdentityDeletionProcess in status `"Approved"`
+- Creates an IdentityDeletionProcess with status `"Approved"`
 - Returns the initiated IdentityDeletionProcess
 
 ## On Failure
