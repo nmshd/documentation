@@ -183,13 +183,22 @@ The Backbone allows you to upload files, which are saved as - you guessed it - `
 
 A File further has its content, of course. But since this is not a JSON property, it is not included in this table. You can download the content of the File separately.
 
+## Identity
+
+| Name      | Type     | Description                                                     | Remarks |
+| --------- | -------- | --------------------------------------------------------------- | ------- |
+| address   | `string` | The unique address of the Identity.                             |         |
+| publicKey | `string` | The public key of the Identity.                                 |         |
+| realm     | `string` | The realm identitfies which Backbone the Identity is hosted on. |         |
+
 ## IdentityDeletionProcess
 
-If you want to delete your Identity, the actual deletion of all data associated with that Identity will only take place after a certain grace period has ended.
+If you want to delete your [Identity](#identity), the actual deletion of all data associated with that Identity will only take place after a certain grace period has ended.
 Up until then, the data about the deletion process is stored in an object called IdentityDeletionProcess.
 It is possible to cancel an IdentityDeletionProcess that hasn't reached the end of its grace period, yet.
 Furthermore, the deletion of an Identity can be initiated by the Backbone Admin UI.
-In this case, the Identity has to approve the IdentityDeletionProcess, in order to start the grace period.
+In this case, the Identity has to approve the IdentityDeletionProcess in order to start the grace period.
+The IdentityDeletionProcess can also be rejected if an Identity does not agree with its deletion initiated by the Backbone Admin UI.
 By rejecting or cancelling an IdentityDeletionProcess you can reach a situation in which there are multiple IdentityDeletionProcesses associated with the same Identity.
 Note, however, that at all times there can only be a single active IdentityDeletionProcess, i.e. with `status` `"WaitingForApproval"` or `"Approved"`, per Identity.
 
