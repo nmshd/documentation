@@ -189,6 +189,130 @@ After the Recipient has responded to the ShareAttributeRequestItem, a suitable [
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
+### Rendering of RequestItems
+
+This section gives an example of a [Request]({% link _docs_integrate/data-model-overview.md %}#request) that contains various [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems), namely an [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem), a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem), a [FreeTextRequestItem]({% link _docs_integrate/data-model-overview.md %}#freetextrequestitem), a [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem), a [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), a [RegisterAttributeListenerRequestItem]({% link _docs_integrate/data-model-overview.md %}#registerattributelistenerrequestitem) and a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem), within its `items` property. This Request can be sent from a Sender to an App user. A screenshot from the App showing how the Request is displayed to the App user is provided afterwards.
+
+```json
+{
+  "title": "<title of Request>",
+  "description": "<description of Request>",
+  "items": [
+    {
+      "@type": "AuthenticationRequestItem",
+      "mustBeAccepted": true,
+      "title": "<title of AuthenticationRequestItem>",
+      "description": "<description of AuthenticationRequestItem>"
+    },
+    {
+      "@type": "ConsentRequestItem",
+      "mustBeAccepted": true,
+      "title": "<title of ConsentRequestItem>",
+      "description": "<description of ConsentRequestItem>",
+      "consent": "<consent issue originating from the Sender>",
+      "link": "<link to external website with more information on the issue>"
+    },
+    {
+      "@type": "CreateAttributeRequestItem",
+      "mustBeAccepted": true,
+      "title": "<title of CreateAttributeRequestItem>",
+      "description": "<description of CreateAttributeRequestItem>",
+      "attribute": {
+        "@type": "IdentityAttribute",
+        "owner": "",
+        "value": {
+          "@type": "Surname",
+          "value": "<surname created for the App user by the Sender>"
+        },
+        "tags": ["<tag of surname to be created>"],
+        "validFrom": "<start of IdentityAttribute's validity>",
+        "validTo": "<end of IdentityAttribute's validity>"
+      }
+    },
+    {
+      "@type": "FreeTextRequestItem",
+      "mustBeAccepted": false,
+      "title": "<title of FreeTextRequestItem>",
+      "description": "<description of FreeTextRequestItem>",
+      "freeText": "<free text written by the Sender>"
+    },
+    {
+      "@type": "ProposeAttributeRequestItem",
+      "mustBeAccepted": false,
+      "title": "<title of ProposeAttributeRequestItem>",
+      "description": "<description of ProposeAttributeRequestItem>",
+      "attribute": {
+        "@type": "IdentityAttribute",
+        "owner": "",
+        "value": {
+          "@type": "GivenName",
+          "value": "<given name proposed by the Sender>"
+        },
+        "tags": ["<tag of proposed given name>"],
+        "validFrom": "<start of IdentityAttribute's validity>",
+        "validTo": "<end of IdentityAttribute's validity>"
+      },
+      "query": {
+        "@type": "IdentityAttributeQuery",
+        "valueType": "GivenName"
+      }
+    },
+    {
+      "@type": "ReadAttributeRequestItem",
+      "mustBeAccepted": false,
+      "title": "<title of ReadAttributeRequestItem>",
+      "description": "<description of ReadAttributeRequestItem>",
+      "query": {
+        "@type": "IdentityAttributeQuery",
+        "valueType": "BirthDate",
+        "tags": ["<tag of date of birth to be read>"],
+        "validFrom": "<start of IdentityAttribute's validity>",
+        "validTo": "<end of IdentityAttribute's validity>"
+      }
+    },
+    {
+      "@type": "RegisterAttributeListenerRequestItem",
+      "mustBeAccepted": false,
+      "title": "<title of RegisterAttributeListenerRequestItem>",
+      "description": "<description of RegisterAttributeListenerRequestItem>",
+      "query": {
+        "@type": "IdentityAttributeQuery",
+        "valueType": "StreetAddress",
+        "tags": ["<tag of street address for which the registration was made>"],
+        "validFrom": "<start of IdentityAttribute's validity>",
+        "validTo": "<end of IdentityAttribute's validity>"
+      }
+    },
+    {
+      "@type": "ShareAttributeRequestItem",
+      "mustBeAccepted": true,
+      "title": "<title of ShareAttributeRequestItem>",
+      "description": "<description of ShareAttributeRequestItem>",
+      "attribute": {
+        "@type": "IdentityAttribute",
+        "owner": "<address of Sender>",
+        "value": {
+          "@type": "DisplayName",
+          "value": "<display name shared by the Sender>"
+        },
+        "tags": ["<tag of shared display name>"],
+        "validFrom": "<start of IdentityAttribute's validity>",
+        "validTo": "<end of IdentityAttribute's validity>"
+      },
+      "sourceAttributeId": "<ID of source RepositoryAttribute>"
+    }
+  ]
+}
+```
+
+The `<...>` notation is used as a placeholder for the actual data as usual. Also note that in the example Request, the [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) have been used for test purposes instead of the [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) for those RequestItems that relate to [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes). For an overview of the different types of Attributes, consult the [Attribute introduction]({% link _docs_integrate/attribute-introduction.md %}).
+{: .notice--info}
+
+After the Sender has created the Request and sent it to the App user [via a Message]({% link _docs_integrate/requests-via-messages.md %}) or [via a RelationshipTemplate]({% link _docs_integrate/requests-via-relationshiptemplates.md %}), the Request is displayed to the App user.
+The following screenshot shows the rendering of the example Request in the App.
+The order in which the RequestItems are rendered corresponds to the order in which they appear in the example Request.
+The screenshot demonstrates that the rendering of the individual RequestItems is different.
+
 ## Responses
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/b42bc3d1-bb48-4bd5-a645-016dce559b30" id="Y.qRU24GDTrY"></iframe></div>
