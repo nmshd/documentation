@@ -139,6 +139,6 @@ Analogously to the cases above, also all predecessors of the RepositoryAttribute
 Additionally, the `succeeds` property of the successor will be removed in case of [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}).
 
 Furthermore, if there are any shared copies of the RepositoryAttribute, their `shareInfo` will be updated such that `sourceAttribute` doesn't link to the deleted RepositoryAttribute anymore.
-As a consequence, the [get shared versions of a RepositoryAttribute use case]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-a-repositoryattribute.md %}) will no longer return those shared versions.
+As a consequence, the [get shared versions of an Attribute use case]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) will no longer return those shared versions.
 Now, in case you shared a RepositoryAttribute with a peer, succeeded it without notifying the peer and then delete the source Attribute of the predecessor, you won't be able to [notify the peer about the succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-repositoryattribute-succession.md %}) of this no longer existing RepositoryAttribute anymore.
 Instead, if you want to inform them about a newer version of this RepositoryAttribute, you must [share that version]({% link _docs_use-cases/use-case-consumption-share-a-repositoryattribute.md %}) again.

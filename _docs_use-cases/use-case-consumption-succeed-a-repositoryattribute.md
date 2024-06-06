@@ -21,7 +21,7 @@ properties:
   - documentation status: DONE
   - comments:
   - actor: Identity
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
   - priority: HIGH
