@@ -43,7 +43,7 @@ api_route_regex: ^POST /api/v2/Requests/Outgoing/Validate$
 {% include properties_list.html %}
 
 This use case is intended to check if a [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) can be created based on a given [Request]({% link _docs_integrate/data-model-overview.md %}#request) for a given `peer`.
-This use case should be executed before actually attempting to [create the outgoing Request](use-case-consumption-create-outgoing-request).
+This use case should be executed before actually attempting to [create the outgoing Request](use-case-consumption-create-outgoing-request), because a more precise error description is provided in the case of a faulty Request.
 
 ## Parameters
 
@@ -56,4 +56,4 @@ This use case should be executed before actually attempting to [create the outgo
 
 ## On Failure
 
-- The LocalRequest cannot be created if the Request specified as `content` is malformed.
+- The `RequestValidationResult` cannot be created if the Request specified as `content` is malformed.
