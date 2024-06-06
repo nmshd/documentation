@@ -522,9 +522,15 @@ var store = [{
         "teaser": null
       },{
         "title": "Get shared versions of a RepositoryAttribute",
-        "excerpt":"This use case allows you to retrieve a list of own shared IdentityAttributes for a specified RepositoryAttribute. Parameters The attributeId belonging to a RepositoryAttribute you would like to know all shared versions of Optionally the returned LocalAttributes can be limited to those shared with specific peers. onlyLatestVersions omits succeeded versions;...","categories": [],
+        "excerpt":"This use case is deprecated and will be removed with the upcoming major release. Please use Get shared versions of an Attribute instead. This use case allows you to retrieve a list of own shared IdentityAttributes for a specified RepositoryAttribute. Parameters The attributeId belonging to a RepositoryAttribute you would like...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-shared-versions-of-a-repositoryattribute",
+        "teaser": null
+      },{
+        "title": "Get shared versions of an Attribute",
+        "excerpt":"This use case allows you to retrieve a list of shared LocalAttributes for a given source Attribute. In case of IdentityAttributes a list comprising of own shared IdentityAttributes for the specified RepositoryAttribute is returned. In case of RelationshipAttributes the list contains ThirdPartyRelationshipAttributes you re-shared based on the specified RelationshipAttribute. Parameters...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-get-shared-versions-of-an-attribute",
         "teaser": null
       },{
         "title": "Get versions of an Attribute",
