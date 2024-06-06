@@ -40,7 +40,7 @@ There are many situations in which an Identity needs or wants the one-time conse
 The corresponding text that the peer should agree to is contained within the `consent` property of a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), for example:
 
 - "I confirm my attendance at the course."
-- "By attending this event, I consent to be photographed."
+- "By attending this event, I consent to being photographed."
 
 The `consent` property of a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) is not intended to be used by an Identity to send a lot of text to the peer.
 Instead, it should contain a brief summary of the issue, which the peer should agree to.
