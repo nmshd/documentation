@@ -21,12 +21,12 @@ properties:
   - documentation status: DONE
   - comments:
   - actor: Identity
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
-  - priority:
-  - complexity:
-  - size:
+  - priority: n/a
+  - complexity: n/a
+  - size: n/a
   - created_at:
   - changed_at:
   - api_route_regex: POST /api/v2/Attributes/{predecessorId}/Succeed
