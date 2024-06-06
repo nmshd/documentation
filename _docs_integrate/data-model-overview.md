@@ -571,10 +571,41 @@ Response Items are sent inside of a Response. They contain the response data tha
 
 #### AcceptResponseItem
 
+An AcceptResponseItem can be received as answer to an AuthenticationRequestItem or ConstentRequestItem.
+
 | Name   | Type                   | Description                                              |
 | ------ | ---------------------- | -------------------------------------------------------- |
 | @type  | `"AcceptResponseItem"` | The type of the ResponseItem.                            |
 | result | `"Accepted"`           | The only possible value here is the string `"Accepted"`. |
+
+##### AttributeAlreadySharedAcceptResponseItem
+
+An AttributeAlreadySharedAcceptResponseItem can be received as answer to a ReadAttributeRequestItem or ProposeAttributeRequestItem.
+It is generated if the Recipient of the RequestItem responds to it with an exiting Attribute they already shared with the Sender.
+Instead of creating a further own shared/peer shared Attribute pair, the `id` of the already existing shared LocalAttributes is returned.
+Note that the `id` of the own/peer shared Attribute of the Sender matches the `id` of the corresponding peer/own shared Attribute of the Recipient.
+
+| Name        | Type                                         | Description                                              |
+| ----------- | -------------------------------------------- | -------------------------------------------------------- |
+| @type       | `"AttributeAlreadySharedAcceptResponseItem"` | The type of the ResponseItem.                            |
+| result      | `"Accepted"`                                 | The only possible value here is the string `"Accepted"`. |
+| attributeId | `string`                                     | The `id` of the already existing shared LocalAttributes. |
+
+##### AttributeSuccessionAcceptResponseItem
+
+An AttributeSuccessionAcceptResponseItem can be received as answer to a ReadAttributeRequestItem or ProposeAttributeRequestItem.
+It is generated if the Recipient of the RequestItem responds to it with an existing Attribute that is the successor of an Attribute they already shared with the Sender.
+Instead of creating an independent own shared/peer shared Attribute pair, internally an [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) is performed.
+The `id` of the already existing shared LocalAttribute predecessor is returned, as well as the `id` and `content` of the newly created successor.
+Receiving an AttributeSuccessionAcceptResponseItem, the respective shared LocalAttribute of the Sender of the Request is automatically succeeded accordingly.
+
+| Name             | Type                                                                                                                                                                                             | Description                                                                 |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
+| @type            | `"AttributeSuccessionAcceptResponseItem"`                                                                                                                                                        | The type of the ResponseItem.                                               |
+| result           | `"Accepted"`                                                                                                                                                                                     | The only possible value here is the string `"Accepted"`.                    |
+| predecessorId    | `string`                                                                                                                                                                                         | The `id` of the already existing shared LocalAttribute predecessor.         |
+| successorId      | `string`                                                                                                                                                                                         | The `id` of the shared LocalAttribute successor that is newly created.      |
+| successorContent | [`IdentityAttribute`]({% link _docs_integrate/data-model-overview.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) | The `content` of the shared LocalAttribute successor that is newly created. |
 
 ##### CreateAttributeAcceptResponseItem
 
