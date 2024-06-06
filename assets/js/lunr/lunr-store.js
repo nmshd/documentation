@@ -228,7 +228,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Request one-time consent of peer",
-        "excerpt":"With the ConsentRequest it is possible to request a consent of the peer to an arbitrary text and thus reach agreement on a certain non machine-processable context. To request an accept/reject decision from a peer to a free text, the ConsentRequestItem is used. Check the Request’s validity At first you...","categories": [],
+        "excerpt":"This guide explains how an Identity can obtain the one-time consent of one of its peers on a particular issue using the ConsentRequestItem. With the ConsentRequestItem it is possible to request the consent of a peer to an arbitrary text and thus reach agreement on a certain non-machine-processable context. The...","categories": [],
         "tags": [],
         "url": "/integrate/request-one-time-consent-of-peer",
         "teaser": null
@@ -396,7 +396,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Check if outgoing Request can be created",
-        "excerpt":"This use case is intended to check if a LocalRequest can be created based on a given Request for a given peer. Parameters The content as a Request for the to be created LocalRequest The peer is the address for which the LocalRequest should be created. There can only be...","categories": [],
+        "excerpt":"This use case is intended to check if a LocalRequest can be created based on a given Request for a given peer. This use case should be executed before actually attempting to create the outgoing Request, because a more precise error description is provided in the case of a faulty...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-check-if-outgoing-request-can-be-created",
         "teaser": null
@@ -426,7 +426,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create outgoing Request",
-        "excerpt":"This use case is intended to create an actionable LocalRequest based on a given Request for a given peer. One can (and should) check if the outgoing Request can be created before creating the LocalRequest with this use case. The created LocalRequest needs to be manually submitted to the peer,...","categories": [],
+        "excerpt":"This use case is intended to create an actionable LocalRequest based on a given Request for a given peer. The created LocalRequest needs to be manually submitted to the peer, for example by sending it via a Message. One can and should check if the outgoing Request can be created...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-create-outgoing-request",
         "teaser": null
