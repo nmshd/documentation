@@ -46,7 +46,7 @@ This use case is deprecated and will be removed with the upcoming major release.
 Please use [Get shared versions of an Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) instead.
 {: .notice--warning}
 
-This use case allows you to retrieve a list of own shared [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) for a specified RepositoryAttribute.
+This use case allows you to retrieve a list of [own shared IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) for a specified RepositoryAttribute.
 
 ## Parameters
 
