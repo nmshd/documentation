@@ -21,29 +21,41 @@ required_by:
 # End automatic generation
 ---
 
-The enmeshed _Identity Query Language_ (IQL) is a domain-specific language to query IdentityAttributes using a concise and simple syntax. The IQL is tailored towards usage by non-technical users and integrators. The IQL is complete, i.e. it's expressive enough to query arbitrary subsets of IdentityAttributes and can thus serve as a replacement for IdentityAttributeQueries.
+The enmeshed _Identity Query Language_ (IQL) is a domain-specific language to query IdentityAttributes using a concise and simple syntax. The IQL is tailored towards usage by non-technical users and integrators. The IQL is complete, i.e. it's expressive enough to query arbitrary subsets of IdentityAttributes and can thus serve as a replacement for IdentityAttributeQueries. IQL queries can be used as part of a [request]({% link _docs_use-cases/use-case-consumption-execute-an-iqlquery.md %}).
 
 ## Basic Syntax
 
 ### Filter by Value Type
 
-The most common usage of the IQL is to filter [IdentityAttributes]({% link _docs_integrate/attribute-values#identity-attributes %}) by their value types or tags. Value types are specified by directly using their names as terms in the query string. E.g. the following IQL query will match all phone numbers, i.e. all IdentityAttributes of value type _PhoneNumber_:
+The most common usage of the IQL is to filter [IdentityAttributes]({% link _docs_integrate/attribute-values#identity-attributes %}) by their value types or tags. Value types are specified by directly using their names as terms in the query string. For example, the following IQL query will match all phone numbers, i.e. all IdentityAttributes of value type _PhoneNumber_:
 
 ```iql
 PhoneNumber
 ```
 
+Complex IdentityAttributes can be queried individually on their fields by concatenating the field's name with the IdentityAttribute's type, separated by a period character '.' and then specifying the target value after the equality operator '='. For example, the following IQL query will match all German StreetAddresses:
+
+```iql
+StreetAddress.country=DE
+```
+
 ### Filter by Tags
 
-Tags can be filtered for by prefacing the tag with a hash _#_. E.g. the following IQL query will match all IdentityAttributes whose tags contain the value _emergency_:
+Tags can be filtered for by prefacing the tag with a hash _#_. For example, the following IQL query will match all IdentityAttributes whose tags contain the value _emergency_:
 
 ```iql
 #emergency
 ```
 
+Tags which contain whitespaces must be wrapped in single quotes. For example, the following IQL query will match all German StreetAddresses which are tagged as _Primary Addess_:
+
+```iql
+StreetAddress.country=DE && #'Primary Address'
+```
+
 ### Conjunctions of Terms
 
-Multiple query terms can be combined by using the and-operator `&&` or the or-operator `||` to retrieve the intersection or the union of the IdentityAttributes matching the subqueries. E.g. in order to filter all the phone numbers which contain the _emergency_ tag use the following IQL query:
+Multiple query terms can be combined by using the and-operator `&&` or the or-operator `||` to retrieve the intersection or the union of the IdentityAttributes matching the subqueries. For example, in order to filter all the phone numbers which contain the _emergency_ tag use the following IQL query:
 
 ```iql
 PhoneNumber && #emergency
@@ -57,7 +69,7 @@ GivenName || LastName
 
 ### Grouping and Order of Evaluation
 
-Conjunctions can contain arbitrarily many subqueries and will be evaluated from left to right. In order to specify a certain order in which subqueries are to be executed or to group subqueries, use parentheses `()`. E.g. in order to combine the last two examples and to return emergency phone numbers as well as name information, use the following query:
+Conjunctions can contain arbitrarily many subqueries and will be evaluated from left to right. In order to specify a certain order in which subqueries are to be executed or to group subqueries, use parentheses `()`. For example, in order to combine the last two examples and to return emergency phone numbers as well as name information, use the following query:
 
 ```iql
 ( GivenName || LastName ) || ( PhoneNumber && #emergency )
