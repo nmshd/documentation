@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use-case-consumption-validate-an-iql-query
 published: true
-title: "Validate an IQL Query"
+title: "Validate an IQLQuery"
 type: use-case
 toc: true
 sidebar:
