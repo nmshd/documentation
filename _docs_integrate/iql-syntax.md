@@ -21,13 +21,13 @@ required_by:
 # End automatic generation
 ---
 
-The Enmeshed _Identity Query Language_ (IQL) is a domain-specific language to query IdentityAttributes using a concise and simple syntax. The IQL is tailored towards usage by non-technical users and integrators. The IQL is complete, i.e. it's expressive enough to query arbitrary subsets of IdentityAttributes and can thus serve as a replacement of the other types of queries dealing with IdentityAttributes.
+The enmeshed _Identity Query Language_ (IQL) is a domain-specific language to query IdentityAttributes using a concise and simple syntax. The IQL is tailored towards usage by non-technical users and integrators. The IQL is complete, i.e. it's expressive enough to query arbitrary subsets of IdentityAttributes and can thus serve as a replacement for IdentityAttributeQueries.
 
 ## Basic Syntax
 
 ### Filter by Value Type
 
-The most common usage of the IQL is to filter IdentityAttributes by their value types or tags. Value types are specified by directly using their names as terms in the query string. E.g. the following IQL query will match all phone numbers, i.e. all IdentityAttributes of value type _PhoneNumber_:
+The most common usage of the IQL is to filter [IdentityAttributes]({% link _docs_integrate/attribute-values#identity-attributes %}) by their value types or tags. Value types are specified by directly using their names as terms in the query string. E.g. the following IQL query will match all phone numbers, i.e. all IdentityAttributes of value type _PhoneNumber_:
 
 ```iql
 PhoneNumber
@@ -43,13 +43,13 @@ Tags can be filtered for by prefacing the tag with a hash _#_. E.g. the followin
 
 ### Conjunctions of Terms
 
-Multiple query terms can be combined by using the and-operator `&&` or the or-operator `||` to retrieve the intersection or the union of the attributes matching the subqueries. E.g. in order to filter all the phone numbers which contain the _emergency_ tag use to following IQL query:
+Multiple query terms can be combined by using the and-operator `&&` or the or-operator `||` to retrieve the intersection or the union of the IdentityAttributes matching the subqueries. E.g. in order to filter all the phone numbers which contain the _emergency_ tag use the following IQL query:
 
 ```iql
 PhoneNumber && #emergency
 ```
 
-To filter for the given and last name attributes in a single query use the or-operator:
+To filter for the given and last name IdentiyAttributes in a single query use the or-operator:
 
 ```iql
 GivenName || LastName
@@ -64,10 +64,11 @@ Conjunctions can contain arbitrarily many subqueries and will be evaluated from 
 ```
 
 **NOTE** Multiple levels of nested parentheses must be separated by a whitespace character: `( ( ... ) )`.
+{: .notice--info}
 
 ### Negation
 
-To negate a subquery, i.e. to match the set complement of the subquery use the negation `!` operator. The following query will return all phone numbers which do not have an _emergency_ tag:
+To negate a subquery, i.e. to match the set complement of the subquery, use the negation `!` operator. The following query will return all phone numbers which do not have an _emergency_ tag:
 
 ```iql
 PhoneNumber && !#emergency
