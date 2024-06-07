@@ -311,7 +311,33 @@ The `<...>` notation is used as a placeholder for the actual data as usual. Also
 After the Sender has created the Request and sent it to the App user [via a Message]({% link _docs_integrate/requests-via-messages.md %}) or [via a RelationshipTemplate]({% link _docs_integrate/requests-via-relationshiptemplates.md %}), the Request is displayed to the App user.
 The following screenshot shows the rendering of the example Request in the App.
 The order in which the RequestItems are rendered corresponds to the order in which they appear in the example Request.
-The screenshot demonstrates that the rendering of the individual RequestItems is different.
+
+<div style="width: 640px; height: 600px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:600px" src="https://lucid.app/documents/embedded/847ca447-3c5b-461b-a9f8-206a2384475b" id="bN9IW2Drzrx."></iframe></div>
+
+At the bottom of the App screen, there is a "Reject" button to [reject the Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) and an "Accept" button to [accept the Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}). If no Relationship has been established between the Sender and the App user, and the Request was sent [via a RelationshipTemplate]({% link _docs_integrate/requests-via-relationshiptemplates.md %}), the "Accept" button is labeled "Add Contact" instead.
+{: .notice--info}
+
+The screenshot demonstrates that the rendering of the individual kinds of [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) differs from one another.
+However, the display of a RequestItem in the App depends not only on its properties, but also on which [DecideRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#deciderequestitemparameters) must be used to accept it.
+
+For instance, when accepting a ProposeAttributeRequestItem, the [AcceptProposeAttributeRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptproposeattributerequestitemparameters) must be utilized. These parameters enable acceptance of the ProposeAttributeRequestItem with either an existing Attribute or a new one, which could be the Attribute proposed by the Sender.
+In the App, a small arrow icon is displayed to the right of the ProposeAttributeRequestItem, which leads the App user to a list of existing Attributes that would be suitable for accepting the ProposeAttributeRequestItem, too.
+In addition, further new Attributes suitable for accepting the ProposeAttributeRequestItem can be created there.
+{: .notice--info}
+
+In principle, a RequestItem can not only be accepted, but also rejected, for which the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) are used.
+The App user can reject a RequestItem by unticking the checkbox to its left, and accept it by ticking the checkbox.
+However, any RequestItem whose value of the property `mustBeAccepted` is set to `true` must be accepted and cannot be rejected.
+In the App, this is shown by a ticked and greyed-out checkbox, indicating that the RequestItem cannot be rejected.
+In our example Request, this is the case for the [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem), the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) and the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem).
+If you do not agree to accept a RequestItem whose value of its `mustBeAccepted` property is set to `true`, you are forced to reject the Request as a whole.
+
+Some RequestItems exhibit particular characteristics.
+For the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), for example, a `link` to an external website with more information on the `consent` issue originating from the Sender can optionally be specified.
+Specifying a `link` causes an icon to appear to the right of the ConsentRequestItem.
+Clicking on this icon redirects to the corresponding website.
+The ConsentRequestItem from our example Request provides a `link`. For this reason, the mentioned icon can be found in the screenshot of the App.
+{: .notice--info}
 
 ## Responses
 
