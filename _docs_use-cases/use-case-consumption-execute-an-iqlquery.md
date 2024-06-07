@@ -42,15 +42,15 @@ api_route_regex: ^POST /api/v2/Attributes/ExecuteIQLQuery$
 
 {% include properties_list.html %}
 
-This use-case executes an IQL Query which returns a list of matching [Identity Attributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
+This use case executes an IQLQuery which returns a list of matching [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
 
 ## Parameters
 
-- The `query` for the IQL Query as described in the [IQLQuery]({% link _docs_integrate/data-model-overview.md %}#iqlquery).
+- The `query` field of the IQLQuery as described in [IQLQuery]({% link _docs_integrate/data-model-overview.md %}#iqlquery).
 
 ## On Success
 
-- Returns the `IdentityAttributes` as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that match the given query.
+- Returns the IdentityAttributes as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that match the given query.
 
 ## On Failure
 

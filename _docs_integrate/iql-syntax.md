@@ -27,13 +27,13 @@ The enmeshed _Identity Query Language_ (IQL) is a domain-specific language to qu
 
 ### Filter by Value Type
 
-The most common usage of the IQL is to filter [IdentityAttributes]({% link _docs_integrate/attribute-values#identity-attributes %}) by their value types or tags. Value types are specified by directly using their names as terms in the query string. For example, the following IQL query will match all phone numbers, i.e. all IdentityAttributes of value type _PhoneNumber_:
+The most common usage of the IQL is to filter [IdentityAttributes]({% link _docs_integrate/attribute-values %}#identity-attributes) by their value types or tags. Value types are specified by directly using their names as terms in the query string. For example, the following IQLQuery will match all phone numbers, i.e. all IdentityAttributes of value type _PhoneNumber_:
 
 ```iql
 PhoneNumber
 ```
 
-Complex IdentityAttributes can be queried individually on their fields by concatenating the field's name with the IdentityAttribute's type, separated by a period character '.' and then specifying the target value after the equality operator '='. For example, the following IQL query will match all German StreetAddresses:
+Complex IdentityAttributes can be queried individually on their fields by concatenating the field's name with the IdentityAttribute's type, separated by a period character '.' and then specifying the target value after the equality operator '='. For example, the following IQLQuery will match all German StreetAddresses:
 
 ```iql
 StreetAddress.country=DE
@@ -41,13 +41,13 @@ StreetAddress.country=DE
 
 ### Filter by Tags
 
-Tags can be filtered for by prefacing the tag with a hash _#_. For example, the following IQL query will match all IdentityAttributes whose tags contain the value _emergency_:
+Tags can be filtered for by prefacing the tag with a hash _#_. For example, the following IQLQuery will match all IdentityAttributes whose tags contain the value _emergency_:
 
 ```iql
 #emergency
 ```
 
-Tags which contain whitespaces must be wrapped in single quotes. For example, the following IQL query will match all German StreetAddresses which are tagged as _Primary Addess_:
+Tags which contain whitespaces must be wrapped in single quotes. For example, the following IQLQuery will match all German StreetAddresses which are tagged as _Primary Addess_:
 
 ```iql
 StreetAddress.country=DE && #'Primary Address'
@@ -55,7 +55,7 @@ StreetAddress.country=DE && #'Primary Address'
 
 ### Conjunctions of Terms
 
-Multiple query terms can be combined by using the and-operator `&&` or the or-operator `||` to retrieve the intersection or the union of the IdentityAttributes matching the subqueries. For example, in order to filter all the phone numbers which contain the _emergency_ tag use the following IQL query:
+Multiple query terms can be combined by using the and-operator `&&` or the or-operator `||` to retrieve the intersection or the union of the IdentityAttributes matching the subqueries. For example, in order to filter all the phone numbers which contain the _emergency_ tag use the following IQLQuery:
 
 ```iql
 PhoneNumber && #emergency
