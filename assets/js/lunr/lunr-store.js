@@ -725,6 +725,18 @@ var store = [{
         "url": "/use-case-transport-accept-relationshipchange",
         "teaser": null
       },{
+        "title": "Approve IdentityDeletionProcess",
+        "excerpt":"This use case allows you to approve an IdentityDeletionProcess that was started via the Backbone Admin UI for your Identity. The respective IdentityDeletionProcess has the status \"WaitingForApproval\" and can either be approved or rejected. On Success Changes the status of the IdentityDeletionProcess from \"WaitingForApproval\" to \"Approved\" Returns the approved IdentityDeletionProcess...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-approve-identitydeletionprocess",
+        "teaser": null
+      },{
+        "title": "Cancel IdentityDeletionProcess",
+        "excerpt":"   This use case allows you to cancel an approved IdentityDeletionProcess for your own Identity.   On Success      Changes the status of the IdentityDeletionProcess from \"Approved\" to \"Cancelled\"   Returns the cancelled IdentityDeletionProcess   On Failure      No IdentityDeletionProcess can be cancelled if none was in status \"Approved\" for this Identity.  ","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-cancel-identitydeletionprocess",
+        "teaser": null
+      },{
         "title": "Create own RelationshipTemplate",
         "excerpt":"Creates a RelationshipTemplate with the given parameters and submits it to the Backbone for other Identites to use. A RelationshipTemplate can be used by any party to either initiate a Relationship with the current Identity or retrieve a Request from an existing Relationship by a side-channel. Parameters expiresAt is the...","categories": [],
         "tags": [],
@@ -767,6 +779,12 @@ var store = [{
         "url": "/use-case-transport-download-file",
         "teaser": null
       },{
+        "title": "Get active IdentityDeletionProcess",
+        "excerpt":"This use case will return the active IdentityDeletionProcess for your own Identity if one exists. An IdentityDeletionProcess is active if it is in status \"WaitingForApproval\" or \"Approved\". At all times, there can only be at most one active IdentityDeletionProcess per Identity. On Success Returns the active IdentityDeletionProcess On Failure No...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-get-active-identitydeletionprocess",
+        "teaser": null
+      },{
         "title": "Get Attributes for Relationship",
         "excerpt":"   Retrieve all LocalAttributes that are related to the given Relationship id.   Parameters      id of the Relationship.   hideTechnical indicates if RelationshipAttributes marked as isTechnical should be filtered out.   On Success      All LocalAttributes that are related to the Relationship.   On Failure      The id did not resolve to a Relationship.  ","categories": [],
         "tags": [],
@@ -807,6 +825,18 @@ var store = [{
         "excerpt":"   This use case retrieves the metadata of a File that was sent by a Message as an attachment.   Internally uses the get or load file use case.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-file-metadata-of-attachment",
+        "teaser": null
+      },{
+        "title": "Get IdentityDeletionProcess",
+        "excerpt":"   This use case allows you to query an IdentityDeletionProcess for your own Identity by its id.   Parameters      id of the IdentityDeletionProcess   On Success      Returns the IdentityDeletionProcess corresponding to the provided id   On Failure      No IdentityDeletionProcess can be returned if none exists with the given id for this Identity.  ","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-get-identitydeletionprocess",
+        "teaser": null
+      },{
+        "title": "Get IdentityDeletionProcesses",
+        "excerpt":"   This use case will return all IdentityDeletionProcesses for your own Identity.   On Success      Returns a list with all IdentityDeletionProcesses of your Identity  ","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-get-identitydeletionprocesses",
         "teaser": null
       },{
         "title": "Get Message by MessageId",
@@ -855,6 +885,12 @@ var store = [{
         "excerpt":"   This use case retieves a Token by its id.   Parameters      id of the Token.   On Success      The Token that corresponds to the id.   On Failure      The id doesn&#8217;t resolve to a Token.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-token-by-tokenid",
+        "teaser": null
+      },{
+        "title": "Initiate IdentityDeletionProcess",
+        "excerpt":"   This use case is intended to initiate an IdentityDeletionProcess for your Identity.   On Success      Creates an IdentityDeletionProcess with status \"Approved\"   Returns the initiated IdentityDeletionProcess   On Failure      No IdentityDeletionProcess can be initiated if there is already an active IdentityDeletionProcess, i.e. an IdentityDeletionProcess in status \"Approved\" or \"WaitingForApproval\", for this Identity.  ","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-initiate-identitydeletionprocess",
         "teaser": null
       },{
         "title": "Load item from truncated reference",
@@ -909,6 +945,12 @@ var store = [{
         "excerpt":"This use case queries Tokens of the Identity. Parameters createdAt is the ISODateTime the Token was created at. createdBy is the enmeshed Address of the Identity that created the Token. createdByDevice is the id of the Device that created the Token. expiresAt is the ISODateTime the Token expires. On Success...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-tokens-by-parameters",
+        "teaser": null
+      },{
+        "title": "Reject IdentityDeletionProcess",
+        "excerpt":"This use case allows you to reject an IdentityDeletionProcess that was started via the Backbone Admin UI for your own Identity. The respective IdentityDeletionProcess has the status \"WaitingForApproval\" and can either be approved or rejected. On Success Changes the status of the IdentityDeletionProcess from \"WaitingForApproval\" to \"Rejected\" Returns the rejected...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-reject-identitydeletionprocess",
         "teaser": null
       },{
         "title": "Reject RelationshipChange",
