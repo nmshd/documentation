@@ -15,7 +15,7 @@ properties:
   - facade: IdentityDeletionProcessFacade
   - function: getIdentityDeletionProcess
   - description: Get IdentityDeletionProcess by ID
-  - feature category: Identity handling
+  - feature category: Identity Handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
   - documentation status: DONE
@@ -36,3 +36,21 @@ require:
 required_by:
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use case allows you to query an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your own Identity by its `id`.
+
+## Parameters
+
+- `id` of the IdentityDeletionProcess
+
+## On Success
+
+- Returns the IdentityDeletionProcess corresponding to the provided `id`
+
+## On Failure
+
+- No IdentityDeletionProcess can be returned if none exists with the given `id` for this Identity.

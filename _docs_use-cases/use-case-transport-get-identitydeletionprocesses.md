@@ -14,8 +14,8 @@ properties:
   - layer: Transport
   - facade: IdentityDeletionProcessFacade
   - function: getIdentityDeletionProcesses
-  - description: Get all IdentityDeletionProcess
-  - feature category: Identity handling
+  - description: Get all IdentityDeletionProcesses
+  - feature category: Identity Handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
   - documentation status: DONE
@@ -36,3 +36,13 @@ require:
 required_by:
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use case will return all [IdentityDeletionProcesses]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your own Identity.
+
+## On Success
+
+- Returns a list with all IdentityDeletionProcesses of your Identity

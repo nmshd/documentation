@@ -15,7 +15,7 @@ properties:
   - facade: IdentityDeletionProcessFacade
   - function: cancelIdentityDeletionProcess
   - description: Cancel an IdentityDeletionProcess that has status 'Approved' within grace period
-  - feature category: Identity handling
+  - feature category: Identity Handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
   - documentation status: DONE
@@ -36,3 +36,18 @@ require:
 required_by:
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use case allows you to cancel an approved [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your own Identity.
+
+## On Success
+
+- Changes the `status` of the IdentityDeletionProcess from `"Approved"` to `"Cancelled"`
+- Returns the cancelled IdentityDeletionProcess
+
+## On Failure
+
+- No IdentityDeletionProcess can be cancelled if none was in `status` `"Approved"` for this Identity.

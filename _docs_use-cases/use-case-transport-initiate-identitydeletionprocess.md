@@ -15,7 +15,7 @@ properties:
   - facade: IdentityDeletionProcessFacade
   - function: initiateIdentityDeletionProcess
   - description: Initiate an IdentityDeletionProcess that has status 'Approved'
-  - feature category: Identity handling
+  - feature category: Identity Handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
   - documentation status: DONE
@@ -36,3 +36,18 @@ require:
 required_by:
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use case is intended to initiate an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your Identity.
+
+## On Success
+
+- Creates an IdentityDeletionProcess with status `"Approved"`
+- Returns the initiated IdentityDeletionProcess
+
+## On Failure
+
+- No IdentityDeletionProcess can be initiated if there is already an active IdentityDeletionProcess, i.e. an IdentityDeletionProcess in `status` `"Approved"` or `"WaitingForApproval"`, for this Identity.
