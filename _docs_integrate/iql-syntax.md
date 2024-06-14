@@ -27,7 +27,7 @@ The enmeshed _Identity Query Language_ (IQL) is a domain-specific language to qu
 
 ### Filter by Value Type
 
-The most common usage of the IQL is to filter [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identity-attributes) by their [value types]({% link _docs_integrate/attribute-values.md %}#identity-attributes) or tags. Value types are specified by directly using their names as terms in the query string. For example, the following IQLQuery will match all phone numbers, i.e. all IdentityAttributes of value type _PhoneNumber_:
+The most common usage of the IQL is to filter [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) by their [value types]({% link _docs_integrate/attribute-values.md %}#identity-attributes) or tags. Value types are specified by directly using their names as terms in the query string. For example, the following IQLQuery will match all phone numbers, i.e. all IdentityAttributes of value type _PhoneNumber_:
 
 ```iql
 PhoneNumber
