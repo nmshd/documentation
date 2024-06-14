@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-06-10T15:08:06+02:00">
+  <meta property="article:published_time" content="2024-06-14T13:45:21+02:00">
 
 
 
@@ -333,7 +333,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2024-06-10T15:08:06+02:00">
+    <meta itemprop="datePublished" content="2024-06-14T13:45:21+02:00">
     
 
     <div class="page__inner-wrap">
@@ -3008,12 +3008,7 @@ Internally, for your corresponding third party owned RelationshipAttribute the <
 
 <h3 id="iqlquery">IQLQuery</h3>
 
-<p>If you want to query IdentityAttributes by their content, you can use the <code class="language-plaintext highlighter-rouge">IQLQuery</code>.
-It allows you to specify conditions the IdentityAttribute must match and which may be chained using binary operations.
-Every property of the IdentityAttribute’s content may be queried, independend of whether it is nested or not, by formulating it as a lowercase key.
-Furthermore, using an uppercase term is a shortcut for comparing the term to the <code class="language-plaintext highlighter-rouge">value.@type</code> property and using <code class="language-plaintext highlighter-rouge">#</code> refers to the <code class="language-plaintext highlighter-rouge">tag</code> property.
-For example, if you want to query a <code class="language-plaintext highlighter-rouge">StreetAddress</code> in Germany which is tagged as <code class="language-plaintext highlighter-rouge">[Primary Address]</code> the <code class="language-plaintext highlighter-rouge">queryString</code> would be <code class="language-plaintext highlighter-rouge">StreetAddress &amp;&amp; value.country.value == Germany &amp;&amp; #"Primary Address"</code>.
-If no corresponding IdentityAttribute exists at the peer’s side, you are given the possibility to add <code class="language-plaintext highlighter-rouge">attributeCreationHints</code>, suggesting to create an IdentityAttribute which matches a specific <code class="language-plaintext highlighter-rouge">valueType</code> and optionally <code class="language-plaintext highlighter-rouge">tags</code>.</p>
+<p>If you want to query IdentityAttributes by their content, you can use the <code class="language-plaintext highlighter-rouge">IQLQuery</code> which is based on the IQL language, a simple and accessible yet powerful query language for IdentityAttributes. It allows you to specify conditions the IdentityAttribute must match and which may be chained using binary operations. Every property of the IdentityAttribute’s content may be queried. For a full explanation of the IQL syntax, see its <a href="/integrate/iql-syntax">dedicated documentation page</a> which also includes an interactive demo for you to try out different queries. If no IdentityAttribute corresponding to the IQLQuery exists at the peer’s side, you are given the possibility to add <code class="language-plaintext highlighter-rouge">attributeCreationHints</code>, suggesting to create an IdentityAttribute which matches a specific <code class="language-plaintext highlighter-rouge">valueType</code> and optionally <code class="language-plaintext highlighter-rouge">tags</code>.</p>
 
 <table>
   <thead>
@@ -3032,12 +3027,12 @@ If no corresponding IdentityAttribute exists at the peer’s side, you are given
     <tr>
       <td>queryString</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The condition the IdentityAttribute must fulfill. It is made up of terms of the form <code class="language-plaintext highlighter-rouge">&lt;key&gt; &lt;operator&gt; &lt;value&gt;</code>, which may be chained using binary operations. Uppercase expressions refer to the property <code class="language-plaintext highlighter-rouge">value@type</code> and <code class="language-plaintext highlighter-rouge">#</code> to <code class="language-plaintext highlighter-rouge">tags</code>.</td>
+      <td>The IQL query string specifying which IdentityAttributes to match. See <a href="/integrate/iql-syntax">IQL Syntax</a> for a detailed explanation of the syntax.</td>
     </tr>
     <tr>
       <td>attributeCreationHints</td>
       <td><code class="language-plaintext highlighter-rouge">IQLQueryCreationHints</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>Suggestions for creating a new IdentityAttribute, if the query returns empty.</td>
+      <td>Suggestions for creating a new IdentityAttribute, if the query returns no matches.</td>
     </tr>
   </tbody>
 </table>
@@ -3391,7 +3386,7 @@ For example, an AuthenticationRequestItem can be accepted using the AcceptReques
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-06-10T15:08:06+02:00">June 10, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-06-14T13:45:21+02:00">June 14, 2024</time></p>
 
       </footer>
 

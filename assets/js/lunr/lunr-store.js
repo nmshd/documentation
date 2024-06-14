@@ -209,6 +209,12 @@ var store = [{
         "url": "/integrate/integration-example",
         "teaser": null
       },{
+        "title": "IQL Syntax",
+        "excerpt":"The enmeshed Identity Query Language (IQL) is a domain-specific language to query IdentityAttributes using a concise and simple syntax. The IQL is tailored towards usage by non-technical users and integrators. The IQL is complete, i.e. it’s expressive enough to query arbitrary subsets of IdentityAttributes and can thus serve as a...","categories": [],
+        "tags": [],
+        "url": "/integrate/iql-syntax",
+        "teaser": null
+      },{
         "title": "Propose Attributes to peer",
         "excerpt":"An Identity may have received information about a peer in the past that it needs to process a transaction at a later time. To ensure the accuracy of the available information, the Identity can propose Attributes to the peer for creation. Depending on whether the peer confirms the fittingness of...","categories": [],
         "tags": [],
@@ -479,6 +485,12 @@ var store = [{
         "url": "/use-case-consumption-execute-an-identityattributequery",
         "teaser": null
       },{
+        "title": "Execute an IQLQuery",
+        "excerpt":"   This use case executes an IQLQuery which returns a list of matching IdentityAttributes.   Parameters      The query field of the IQLQuery as described in IQLQuery.   On Success      Returns the IdentityAttributes as LocalAttributes that match the given query.   On Failure      The query was malformed.  ","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-execute-an-iqlquery",
+        "teaser": null
+      },{
         "title": "Get Attribute",
         "excerpt":"   This use case is intended to retrieve a LocalAttribute by its id.   Parameters      The id of the LocalAttribute.   On Success      Returns the LocalAttribute corresponding to the id.   On Failure      The LocalAttribute does not exist.  ","categories": [],
         "tags": [],
@@ -591,6 +603,12 @@ var store = [{
         "excerpt":"If the value of a RepositoryAttribute changes, this can be replicated in enmeshed with this use case. It allows you to update the content and keeps a coherent history of all versions by establishing a doubly linked list, using the LocalAttribute&#8217;s parameters succeeds and succeededBy. Hence, every LocalAttribute may have...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-succeed-a-repositoryattribute",
+        "teaser": null
+      },{
+        "title": "Validate an IQLQuery",
+        "excerpt":"This use case validates an IQLQuery&#8217;s query string by checking for syntactic errors. Parameters The query field of the IQLQuery as described in IQLQuery. On Success Returns { \"isValid\": true } if the query string is syntactically valid IQL. Otherwise { \"isValid\": false, \"error\": { \"message\": \"...\" }} is returned...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-validate-an-iql-query",
         "teaser": null
       },{
         "title": "Create Profile with new Identity",

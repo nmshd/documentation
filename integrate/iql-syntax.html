@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Delete a peer shared Attribute and notify peer - enmeshed</title>
-<meta name="description" content="">
+<!-- begin _includes/seo.html --><title>IQL Syntax - enmeshed</title>
+<meta name="description" content="The enmeshed Identity Query Language (IQL) is a domain-specific language to query IdentityAttributes using a concise and simple syntax. The IQL is tailored towards usage by non-technical users and integrators. The IQL is complete, i.e. it’s expressive enough to query arbitrary subsets of IdentityAttributes and can thus serve as a replacement for IdentityAttributeQueries. IQL queries can be used as part of a request.">
 
 
   <meta name="author" content="enmeshed Team">
@@ -23,11 +23,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Delete a peer shared Attribute and notify peer">
-<meta property="og:url" content="/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer">
+<meta property="og:title" content="IQL Syntax">
+<meta property="og:url" content="/integrate/iql-syntax">
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="The enmeshed Identity Query Language (IQL) is a domain-specific language to query IdentityAttributes using a concise and simple syntax. The IQL is tailored towards usage by non-technical users and integrators. The IQL is complete, i.e. it’s expressive enough to query arbitrary subsets of IdentityAttributes and can thus serve as a replacement for IdentityAttributeQueries. IQL queries can be used as part of a request.">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer">
+<link rel="canonical" href="/integrate/iql-syntax">
 
 
 
@@ -87,7 +87,7 @@
 
   </head>
 
-  <body class="layout--usecase">
+  <body class="layout--single">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -331,8 +331,8 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Delete a peer shared Attribute and notify peer">
-    <meta itemprop="description" content="">
+    <meta itemprop="headline" content="IQL Syntax">
+    <meta itemprop="description" content="The enmeshed Identity Query Language (IQL) is a domain-specific language to query IdentityAttributes using a concise and simple syntax. The IQL is tailored towards usage by non-technical users and integrators. The IQL is complete, i.e. it’s expressive enough to query arbitrary subsets of IdentityAttributes and can thus serve as a replacement for IdentityAttributeQueries. IQL queries can be used as part of a request.">
     <meta itemprop="datePublished" content="2024-06-14T13:45:21+02:00">
     
 
@@ -340,7 +340,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer" itemprop="url">Delete a peer shared Attribute and notify peer
+            <a href="/integrate/iql-syntax" itemprop="url">IQL Syntax
 </a>
           </h1>
           
@@ -354,134 +354,87 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#parameters">Parameters</a></li><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
+              <ul class="toc__menu"><li><a href="#basic-syntax">Basic Syntax</a><ul><li><a href="#filter-by-value-type">Filter by Value Type</a></li><li><a href="#filter-by-tags">Filter by Tags</a></li><li><a href="#conjunctions-of-terms">Conjunctions of Terms</a></li><li><a href="#grouping-and-order-of-evaluation">Grouping and Order of Evaluation</a></li><li><a href="#negation">Negation</a></li><li><a href="#whitespaces-in-tags-and-values">Whitespaces in Tags and Values</a></li></ul></li><li><a href="#interactive-demo-playground">Interactive Demo Playground</a></li></ul>
             </nav>
           </aside>
         
-        
-<!--<div>
-    <table>
-        
-        <tr><td>id</td>
-            <td>RA24</td></tr>
-        
-        <tr><td>component</td>
-            <td>Runtime</td></tr>
-        
-        <tr><td>layer</td>
-            <td>Consumption</td></tr>
-        
-        <tr><td>facade</td>
-            <td>AttributesFacade</td></tr>
-        
-        <tr><td>function</td>
-            <td>deletePeerSharedAttributeAndNotifyPeer</td></tr>
-        
-        <tr></tr>
-        
-        <tr><td>feature category</td>
-            <td>Cross-Identity Attribute sharing</td></tr>
-        
-        <tr><td>tech category</td>
-            <td>Attributes</td></tr>
-        
-        <tr><td>status</td>
-            <td>DONE</td></tr>
-        
-        <tr><td>documentation status</td>
-            <td>DONE</td></tr>
-        
-        <tr></tr>
-        
-        <tr><td>actor</td>
-            <td>Identity</td></tr>
-        
-        <tr><td>trigger</td>
-            <td>REST API</td></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr><td>priority</td>
-            <td>n/a</td></tr>
-        
-        <tr><td>complexity</td>
-            <td>n/a</td></tr>
-        
-        <tr><td>size</td>
-            <td>n/a</td></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr><td>api_route_regex</td>
-            <td>DELETE /api/v2/Attributes/Peer/Shared/{id}</td></tr>
-        
-        <tr><td>published</td>
-            <td>default</td></tr>
-        
-        <tr><td>link</td>
-            <td>use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer</td></tr>
-        
-        <tr></tr>
-        <tr></tr>
-    </table>
+        <p>The enmeshed <em>Identity Query Language</em> (IQL) is a domain-specific language to query IdentityAttributes using a concise and simple syntax. The IQL is tailored towards usage by non-technical users and integrators. The IQL is complete, i.e. it’s expressive enough to query arbitrary subsets of IdentityAttributes and can thus serve as a replacement for IdentityAttributeQueries. IQL queries can be used as part of a <a href="/use-case-consumption-execute-an-iqlquery">request</a>.</p>
+
+<h2 id="basic-syntax">Basic Syntax</h2>
+
+<h3 id="filter-by-value-type">Filter by Value Type</h3>
+
+<p>The most common usage of the IQL is to filter <a href="/integrate/data-model-overview#identityattribute">IdentityAttributes</a> by their <a href="/integrate/attribute-values#identity-attributes">value types</a> or tags. Value types are specified by directly using their names as terms in the query string. For example, the following IQLQuery will match all phone numbers, i.e. all IdentityAttributes of value type <em>PhoneNumber</em>:</p>
+
+<pre><code class="language-iql">PhoneNumber
+</code></pre>
+
+<p><a href="/integrate/attribute-introduction#simple-identityattributes">Simple IdentityAttributes</a> can be filtered by their values using the equality operator ‘=’. For example, the following IQLQuery will match all LastNames of value <em>Miller</em>:</p>
+
+<pre><code class="language-iql">LastName=Miller
+</code></pre>
+
+<p><a href="/integrate/attribute-introduction#complex-identityattributes">Complex IdentityAttributes</a> can be queried individually on their fields by concatenating the field’s name with the IdentityAttribute’s type, separated by a period character ‘.’ and then specifying the target value after the equality operator ‘=’. For example, the following IQLQuery will match all German StreetAddresses:</p>
+
+<pre><code class="language-iql">StreetAddress.country=DE
+</code></pre>
+
+<h3 id="filter-by-tags">Filter by Tags</h3>
+
+<p>Tags can be filtered for by prefacing the tag with a hash <em>#</em>. For example, the following IQLQuery will match all IdentityAttributes whose tags contain the value <em>emergency</em>:</p>
+
+<pre><code class="language-iql">#emergency
+</code></pre>
+
+<h3 id="conjunctions-of-terms">Conjunctions of Terms</h3>
+
+<p>Multiple query terms can be combined by using the and-operator <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> or the or-operator <code class="language-plaintext highlighter-rouge">||</code> to retrieve the intersection or the union of the IdentityAttributes matching the subqueries. For example, in order to filter all the phone numbers which contain the <em>emergency</em> tag use the following IQLQuery:</p>
+
+<pre><code class="language-iql">PhoneNumber &amp;&amp; #emergency
+</code></pre>
+
+<p>To filter for the given and last name IdentiyAttributes in a single query use the or-operator:</p>
+
+<pre><code class="language-iql">GivenName || LastName
+</code></pre>
+
+<h3 id="grouping-and-order-of-evaluation">Grouping and Order of Evaluation</h3>
+
+<p>Conjunctions can contain arbitrarily many subqueries and will be evaluated from left to right. In order to specify a certain order in which subqueries are to be executed or to group subqueries, use parentheses <code class="language-plaintext highlighter-rouge">()</code>. For example, in order to combine the last two examples and to return emergency phone numbers as well as name information, use the following query:</p>
+
+<pre><code class="language-iql">( GivenName || LastName ) || ( PhoneNumber &amp;&amp; #emergency )
+</code></pre>
+
+<p class="notice--info"><strong>NOTE</strong> Multiple levels of nested parentheses must be separated by a whitespace character: <code class="language-plaintext highlighter-rouge">( ( ... ) )</code>.</p>
+
+<h3 id="negation">Negation</h3>
+
+<p>To negate a subquery, i.e. to match the set complement of the subquery, use the negation <code class="language-plaintext highlighter-rouge">!</code> operator. The following query will return all phone numbers which do not have an <em>emergency</em> tag:</p>
+
+<pre><code class="language-iql">PhoneNumber &amp;&amp; !#emergency
+</code></pre>
+
+<h3 id="whitespaces-in-tags-and-values">Whitespaces in Tags and Values</h3>
+
+<p>Tags and values which contain whitespaces must be wrapped in single quotes. For example, the following IQLQuery will match all StreetAddresses in the city of ‘Weil am Rhein’ which are tagged as <em>Primary Address</em>:</p>
+
+<pre><code class="language-iql">StreetAddress.city='Weil am Rhein' &amp;&amp; #'Primary Address'
+</code></pre>
+
+<h2 id="interactive-demo-playground">Interactive Demo Playground</h2>
+
+<p>Use the following text area to test out different IQL queries. Below is a selection of IdentityAttributes which, if matched by the query, will have their background highlighted. The input area will also inform you of syntax errors.</p>
+
+<div>
+    <textarea type="text" id="query" rows="4" style="font-size: 12px; resize: none; width: 100%">PhoneNumber &amp;&amp; #emergency</textarea><br />
+    <textarea type="text" id="validation" rows="2" disabled="" style="font-size: 12px; color: red; resize: none; width: 100%"></textarea>
+    <br />
 </div>
--->
+<div id="data" style="font-size: 8px; font-family: monospace; padding: 3px; height: 600px; overflow-y: scroll">
+    <!-- Will contain rendering of the attributes -->
+</div>
+<script src="/assets/js/iql-demo.js"></script>
 
-<p>This use case allows you to delete a peer shared Attribute, i.e. a <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> that a peer owns and has shared with you.</p>
-
-<h2 id="parameters">Parameters</h2>
-
-<ul>
-  <li>The <code class="language-plaintext highlighter-rouge">attributeId</code> of the peer shared Attribute you want to delete.</li>
-</ul>
-
-<h2 id="on-success">On Success</h2>
-
-<ul>
-  <li>The peer shared Attribute will be deleted.</li>
-  <li>All predecessors of the peer shared Attribute will be deleted.</li>
-  <li>If the peer shared Attribute was succeeded, the <code class="language-plaintext highlighter-rouge">succeeds</code> property of the successor will be set to undefined.</li>
-  <li>If the <code class="language-plaintext highlighter-rouge">attributeId</code> relates to a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> and there are shared copies of the peer shared RelationshipAttribute or potential predecessors of it, the <code class="language-plaintext highlighter-rouge">shareInfo.sourceAttribute</code> of those peer shared ThirdPartyRelationshipAttributes will be set to undefined.</li>
-  <li>A <a href="/integrate/data-model-overview#notification">Notification</a> with a <a href="/integrate/data-model-overview#peersharedattributedeletedbypeernotificationitem">PeerSharedAttributeDeletedByPeerNotificationItem</a> is sent to the owner of the Attribute, informing them that you deleted their Attribute. Technically, the own shared Attribute of the owner and all predecessors will get a <code class="language-plaintext highlighter-rouge">deletionInfo</code> with <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code> and the time of receiving the Notification as <code class="language-plaintext highlighter-rouge">deletionDate</code>.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">notificationId</code> is returned.</li>
-</ul>
-
-<h2 id="on-failure">On Failure</h2>
-
-<ul>
-  <li>No Attribute can be deleted if you don&#8217;t have a LocalAttribute with given <code class="language-plaintext highlighter-rouge">attributeId</code>.</li>
-  <li>No Attribute can be deleted if the Attribute with given <code class="language-plaintext highlighter-rouge">attributeId</code> is not a peer shared Attribute.</li>
-</ul>
-  <h2>How to execute this use case with the Connector?</h2>
-
-The Connector is our first-class citizen, thus we provide you with a detailed API description for every use case.
-This use case can be executed with the REST API of the Connector which you can <a href="/integrate/access-the-connector">Access the Connector</a>.
- 
-<h6>Corresponding interactive API docs excerpt:</h6>
-
-<rapi-doc-mini
-    server-url="https://doc-demo.is.enmeshed.eu/"
-    default-api-server="https://doc-demo.is.enmeshed.eu/"
-    api-key-name="x-api-key"
-    api-key-location="header"
-    api-key-value="apikey"
-    layout="column"
-    default-schema-tab="example"
-    spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
-    paths-expanded="false"
-    theme="light"
-    bg-color="#f9f9fb"
-    
-    match-paths="^DELETE /api/v2/Attributes/Peer/Shared/{id}$"
-    
-    match-type="regex"
-></rapi-doc-mini>
-<br />
- 
 
         
       </section>

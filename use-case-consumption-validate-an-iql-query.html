@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Delete a peer shared Attribute and notify peer - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Validate an IQLQuery - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Delete a peer shared Attribute and notify peer">
-<meta property="og:url" content="/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer">
+<meta property="og:title" content="Validate an IQLQuery">
+<meta property="og:url" content="/use-case-consumption-validate-an-iql-query">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer">
+<link rel="canonical" href="/use-case-consumption-validate-an-iql-query">
 
 
 
@@ -331,7 +331,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Delete a peer shared Attribute and notify peer">
+    <meta itemprop="headline" content="Validate an IQLQuery">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2024-06-14T13:45:21+02:00">
     
@@ -340,7 +340,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer" itemprop="url">Delete a peer shared Attribute and notify peer
+            <a href="/use-case-consumption-validate-an-iql-query" itemprop="url">Validate an IQLQuery
 </a>
           </h1>
           
@@ -363,7 +363,7 @@
     <table>
         
         <tr><td>id</td>
-            <td>RA24</td></tr>
+            <td>RA26</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
@@ -375,7 +375,7 @@
             <td>AttributesFacade</td></tr>
         
         <tr><td>function</td>
-            <td>deletePeerSharedAttributeAndNotifyPeer</td></tr>
+            <td>validateIQLQuery</td></tr>
         
         <tr></tr>
         
@@ -417,13 +417,13 @@
         <tr></tr>
         
         <tr><td>api_route_regex</td>
-            <td>DELETE /api/v2/Attributes/Peer/Shared/{id}</td></tr>
+            <td>POST /api/v2/Attributes/ValidateIQLQuery</td></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer</td></tr>
+            <td>use-case-consumption-validate-an-iql-query</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -431,30 +431,24 @@
 </div>
 -->
 
-<p>This use case allows you to delete a peer shared Attribute, i.e. a <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> that a peer owns and has shared with you.</p>
+<p>This use case validates an <a href="/integrate/data-model-overview#iqlquery">IQLQuery</a>&#8217;s query string by checking for syntactic errors.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li>The <code class="language-plaintext highlighter-rouge">attributeId</code> of the peer shared Attribute you want to delete.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">query</code> field of the IQLQuery as described in <a href="/integrate/data-model-overview#iqlquery">IQLQuery</a>.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>The peer shared Attribute will be deleted.</li>
-  <li>All predecessors of the peer shared Attribute will be deleted.</li>
-  <li>If the peer shared Attribute was succeeded, the <code class="language-plaintext highlighter-rouge">succeeds</code> property of the successor will be set to undefined.</li>
-  <li>If the <code class="language-plaintext highlighter-rouge">attributeId</code> relates to a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> and there are shared copies of the peer shared RelationshipAttribute or potential predecessors of it, the <code class="language-plaintext highlighter-rouge">shareInfo.sourceAttribute</code> of those peer shared ThirdPartyRelationshipAttributes will be set to undefined.</li>
-  <li>A <a href="/integrate/data-model-overview#notification">Notification</a> with a <a href="/integrate/data-model-overview#peersharedattributedeletedbypeernotificationitem">PeerSharedAttributeDeletedByPeerNotificationItem</a> is sent to the owner of the Attribute, informing them that you deleted their Attribute. Technically, the own shared Attribute of the owner and all predecessors will get a <code class="language-plaintext highlighter-rouge">deletionInfo</code> with <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code> and the time of receiving the Notification as <code class="language-plaintext highlighter-rouge">deletionDate</code>.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">notificationId</code> is returned.</li>
+  <li>Returns <code class="language-plaintext highlighter-rouge">{ "isValid": true }</code> if the query string is syntactically valid IQL. Otherwise <code class="language-plaintext highlighter-rouge">{ "isValid": false, "error": { "message": "..." }}</code> is returned where the message contains additional information. See the <a href="/integrate/iql-syntax">IQL syntax documentation</a>.</li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>No Attribute can be deleted if you don&#8217;t have a LocalAttribute with given <code class="language-plaintext highlighter-rouge">attributeId</code>.</li>
-  <li>No Attribute can be deleted if the Attribute with given <code class="language-plaintext highlighter-rouge">attributeId</code> is not a peer shared Attribute.</li>
+  <li>The query was malformed.</li>
 </ul>
   <h2>How to execute this use case with the Connector?</h2>
 
@@ -476,7 +470,7 @@ This use case can be executed with the REST API of the Connector which you can <
     theme="light"
     bg-color="#f9f9fb"
     
-    match-paths="^DELETE /api/v2/Attributes/Peer/Shared/{id}$"
+    match-paths="^POST /api/v2/Attributes/ValidateIQLQuery$"
     
     match-type="regex"
 ></rapi-doc-mini>
