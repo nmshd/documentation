@@ -843,18 +843,13 @@ If you want to query Attributes the user has in the context of a Relationship wi
 
 ### IQLQuery
 
-If you want to query IdentityAttributes by their content, you can use the `IQLQuery`.
-It allows you to specify conditions the IdentityAttribute must match and which may be chained using binary operations.
-Every property of the IdentityAttribute's content may be queried, independend of whether it is nested or not, by formulating it as a lowercase key.
-Furthermore, using an uppercase term is a shortcut for comparing the term to the `value.@type` property and using `#` refers to the `tag` property.
-For example, if you want to query a `StreetAddress` in Germany which is tagged as `[Primary Address]` the `queryString` would be `StreetAddress && value.country.value == Germany && #"Primary Address"`.
-If no corresponding IdentityAttribute exists at the peer's side, you are given the possibility to add `attributeCreationHints`, suggesting to create an IdentityAttribute which matches a specific `valueType` and optionally `tags`.
+If you want to query IdentityAttributes by their content, you can use the `IQLQuery` which is based on the IQL language, a simple and accessible yet powerful query language for IdentityAttributes. It allows you to specify conditions the IdentityAttribute must match and which may be chained using binary operations. Every property of the IdentityAttribute's content may be queried. For a full explanation of the IQL syntax, see its [dedicated documentation page]({% link _docs_integrate/iql-syntax.md %}) which also includes an interactive demo for you to try out different queries. If no IdentityAttribute corresponding to the IQLQuery exists at the peer's side, you are given the possibility to add `attributeCreationHints`, suggesting to create an IdentityAttribute which matches a specific `valueType` and optionally `tags`.
 
-| Name                   | Type                                   | Description                                                                                                                                                                                                                                |
-| ---------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| @type                  | `"IQLQuery"`                           |                                                                                                                                                                                                                                            |
-| queryString            | `string`                               | The condition the IdentityAttribute must fulfill. It is made up of terms of the form `<key> <operator> <value>`, which may be chained using binary operations. Uppercase expressions refer to the property `value@type` and `#` to `tags`. |
-| attributeCreationHints | `IQLQueryCreationHints` \| `undefined` | Suggestions for creating a new IdentityAttribute, if the query returns empty.                                                                                                                                                              |
+| Name                   | Type                                   | Description                                                                                                                                                             |
+| ---------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| @type                  | `"IQLQuery"`                           |                                                                                                                                                                         |
+| queryString            | `string`                               | The IQL query string specifying which IdentityAttributes to match. See [IQL Syntax]({% link _docs_integrate/iql-syntax.md %}) for a detailed explanation of the syntax. |
+| attributeCreationHints | `IQLQueryCreationHints` \| `undefined` | Suggestions for creating a new IdentityAttribute, if the query returns no matches.                                                                                      |
 
 #### IQLQueryCreationHints
 
