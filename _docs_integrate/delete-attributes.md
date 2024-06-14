@@ -70,7 +70,7 @@ Next, send the Request to the peer.
 You can either do so by [Message]({% link _docs_integrate/data-model-overview.md %}#message) or by a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate), using the `onExistingRelationship` property of a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent).
 For a detailed explanation check out our guides on how to send [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) and [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}).
 Once the Request is sent, the according own shared Attribute of the Sender gets a [LocalAttributeDeletionInfo]({% link _docs_integrate/data-model-overview.md %}#localattributedeletioninfo).
-There, `DeletionRequestSent` is set as `deletionStatus` and the time of sending the Request is stored as `deletionDate`.
+There, `"DeletionRequestSent"` is set as `deletionStatus` and the time of sending the Request is stored as `deletionDate`.
 
 When the peer receives the Request, they can accept or reject it.
 If they want to [accept it]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}), they must use the [AcceptDeleteAttributeRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptdeleteattributerequestitemparameters).
@@ -97,7 +97,7 @@ There, the `deletionInfo` of the corresponding own shared Attribute and its pred
 
 It is also possible for the peer to reject the DeleteAttributeRequestItem, if its `mustBeAccepted` property is set `false`, or to [reject the Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) for deleting a peer shared Attribute as a whole, if they have a valid reason for keeping the respective peer shared Attribute.
 In this case, the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) must be used and it is advised to provide a `message`, informing the Sender of the Request about the reason not to delete the peer shared Attribute.
-Receiving the Response with the [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem), the own shared Attribute of the `owner` is given `DeletionRequestRejected` as `deletionStatus` and the reciving time is stored in the property `deletionDate`.
+Receiving the Response with the [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem), the own shared Attribute of the `owner` is given `"DeletionRequestRejected"` as `deletionStatus` and the receiving time is stored in the property `deletionDate`.
 {: .notice--info}
 
 ## Delete peer shared Attributes
