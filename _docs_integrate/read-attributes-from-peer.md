@@ -138,14 +138,14 @@ If a new IdentityAttribute is to be shared, a corresponding LocalAttribute witho
 
 If the ReadAttributeRequestItem is accepted with an existing Attribute that the Recipient already shared with the Sender, an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) will be generated.
 Instead of creating a further own shared/peer shared Attribute pair, the `id` of the already existing shared LocalAttribute is returned.
-Note that the `id` of the own/peer shared Attribute of the Sender matches the `id` of the corresponding peer/own shared Attribute of the Recipient.
+Note that the `id` of the shared Attribute of the Sender matches the `id` of the corresponding shared Attribute of the Recipient.
 
 Lastly, if the ReadAttributeRequestItem is accepted with an existing Attribute, whose predecessor the Recipient already shared with the Sender, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be generated.
 Instead of creating an independent own shared/peer shared Attribute pair, internally an [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) is performed.
 The `id` of the already existing shared LocalAttribute predecessor is returned, as well as the `id` and `content` of the newly created successor.
 When the Sender of the Request receives the AttributeSuccessionAcceptResponseItem, the according succession will automatically be performed for them.
 
-The respective AcceptResponseItem will be included in the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for reading Attributes that will be transferred to the Sender.
+In any case, the respective AcceptResponseItem will be included in the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for reading Attributes that will be transferred to the Sender.
 
 ### Reject a ReadAttributeRequestItem
 
