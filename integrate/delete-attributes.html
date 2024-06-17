@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.26.1 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
   Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-06-14T13:45:21+02:00">
+  <meta property="article:published_time" content="2024-06-17T14:04:30+02:00">
 
 
 
@@ -333,7 +333,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Delete Attributes">
     <meta itemprop="description" content="The exact process of deleting an Attribute depends on the kind of Attribute at hand.Creating an Attribute, we must distinguish between IdentityAttributes and RelationshipAttributes.In the former case, a so-called RepositoryAttribute is created, which is a LocalAttribute without shareInfo, that you are the owner of.Afterwards, you may share it with a peer, which yields the creation of an own shared IdentityAttribute.This is a LocalAttribute with the copied content of the RepositoryAttribute, but an additional shareInfo property.Doing so, also a LocalAttribute with the same content and a respective shareInfo is created for the peer, which is referred to as peer shared Attribute.In the case of RelationshipAttributes we have own shared and peer shared RelationshipAttributes analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with RepositoryAttributes.These different kinds of Attributes have different demands that need to be taken into account, wanting to delete them.">
-    <meta itemprop="datePublished" content="2024-06-14T13:45:21+02:00">
+    <meta itemprop="datePublished" content="2024-06-17T14:04:30+02:00">
     
 
     <div class="page__inner-wrap">
@@ -401,9 +401,11 @@ For this purpose, several DeleteAttributeRequestItems or suitable <a href="/inte
 
 <p>Next, send the Request to the peer.
 You can either do so by <a href="/integrate/data-model-overview#message">Message</a> or by a <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>, using the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property of a <a href="/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a>.
-For a detailed explanation check out our guides on how to send <a href="/integrate/requests-via-messages">Requests via Messages</a> and <a href="/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a>.</p>
+For a detailed explanation check out our guides on how to send <a href="/integrate/requests-via-messages">Requests via Messages</a> and <a href="/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a>.
+Once the Request is sent, the according own shared Attribute of the Sender gets a <a href="/integrate/data-model-overview#localattributedeletioninfo">LocalAttributeDeletionInfo</a>.
+There, <code class="language-plaintext highlighter-rouge">"DeletionRequestSent"</code> is set as <code class="language-plaintext highlighter-rouge">deletionStatus</code> and the time of sending the Request is stored as <code class="language-plaintext highlighter-rouge">deletionDate</code>.</p>
 
-<p>Once the peer received the Request, they can accept or reject it.
+<p>When the peer receives the Request, they can accept or reject it.
 If they want to <a href="/use-case-consumption-accept-incoming-request">accept it</a>, they must use the <a href="/integrate/data-model-overview#acceptdeleteattributerequestitemparameters">AcceptDeleteAttributeRequestItemParameters</a>.
 Doing so, they specify a <code class="language-plaintext highlighter-rouge">deletionDate</code> on which they plan to delete the peer shared Attribute.
 In the given example, the payload would look like the following:</p>
@@ -423,10 +425,11 @@ The same is done for all predecessors of the peer shared Attribute.
 Then, the appropriate <a href="/integrate/data-model-overview#deleteattributeacceptresponseitem">DeleteAttributeAcceptResponseItem</a> is generated and sent back in the <a href="/integrate/data-model-overview#response">Reponse</a> to the Sender of the Request.
 There, the <code class="language-plaintext highlighter-rouge">deletionInfo</code> of the corresponding own shared Attribute and its predecessors is set with <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code> and the <code class="language-plaintext highlighter-rouge">deletionDate</code> received in the Response.</p>
 
-<p class="notice--info">It is also possible for the peer to reject the DeleteAttributeRequestItem, if its <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set <code class="language-plaintext highlighter-rouge">false</code>, or to <a href="/use-case-consumption-reject-incoming-request">reject the Request</a> for deleting a peer shared Attribute as a whole, if they have a valid reason for keeping the respective peer shared Attribute.
-In this case, the <a href="/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a> must be used and it is advised to provide a <code class="language-plaintext highlighter-rouge">message</code>, informing the Sender of the Request about the reason not to delete the peer shared Attribute.</p>
-
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/a738fd76-2fe0-4e3e-a0fd-bec86b3b7939" id="ZGDlhHzeKlb-"></iframe></div>
+
+<p class="notice--info">It is also possible for the peer to reject the DeleteAttributeRequestItem, if its <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set <code class="language-plaintext highlighter-rouge">false</code>, or to <a href="/use-case-consumption-reject-incoming-request">reject the Request</a> for deleting a peer shared Attribute as a whole, if they have a valid reason for keeping the respective peer shared Attribute.
+In this case, the <a href="/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a> must be used and it is advised to provide a <code class="language-plaintext highlighter-rouge">message</code>, informing the Sender of the Request about the reason not to delete the peer shared Attribute.
+Receiving the Response with the <a href="/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a>, the own shared Attribute of the <code class="language-plaintext highlighter-rouge">owner</code> is given <code class="language-plaintext highlighter-rouge">"DeletionRequestRejected"</code> as <code class="language-plaintext highlighter-rouge">deletionStatus</code> and the receiving time is stored in the property <code class="language-plaintext highlighter-rouge">deletionDate</code>.</p>
 
 <h2 id="delete-peer-shared-attributes">Delete peer shared Attributes</h2>
 
@@ -483,7 +486,7 @@ Instead, if you want to inform them about a newer version of this RepositoryAttr
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-06-14T13:45:21+02:00">June 14, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-06-17T14:04:30+02:00">June 17, 2024</time></p>
 
       </footer>
 

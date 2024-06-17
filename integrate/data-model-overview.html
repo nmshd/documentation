@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.26.1 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
   Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-06-14T13:45:21+02:00">
+  <meta property="article:published_time" content="2024-06-17T14:04:30+02:00">
 
 
 
@@ -333,7 +333,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2024-06-14T13:45:21+02:00">
+    <meta itemprop="datePublished" content="2024-06-17T14:04:30+02:00">
     
 
     <div class="page__inner-wrap">
@@ -1451,7 +1451,10 @@ In the <a href="/integrate/attribute-introduction">Attribute introduction</a> mo
 <h3 id="localattributedeletioninfo">LocalAttributeDeletionInfo</h3>
 
 <p>The LocalAttributeDeletionInfo holds information about the deletion status of the counterpart of a shared Attribute, as well as the point in time of that deletion.
-If the Attribute’s owner requested the deletion of a shared Attribute via a <a href="#deleteattributerequestitem">DeleteAttributeRequestItem</a> from the peer and they accepted using the <a href="#acceptdeleteattributerequestitemparameters">AcceptDeleteAttributeRequestItemParameters</a>, the <code class="language-plaintext highlighter-rouge">deletionStatus</code> of the peer shared Attribute of the peer will be set to <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> and its <code class="language-plaintext highlighter-rouge">deletionDate</code> will be set to the <code class="language-plaintext highlighter-rouge">deletionDate</code> the peer sent in their Response.
+If the Attribute’s <code class="language-plaintext highlighter-rouge">owner</code> requests the deletion of a shared Attribute via a <a href="#deleteattributerequestitem">DeleteAttributeRequestItem</a> from the peer, their own shared Attribute will get <code class="language-plaintext highlighter-rouge">"DeletionRequestSent"</code> as <code class="language-plaintext highlighter-rouge">deletionStatus</code> and the time of sending the Request as <code class="language-plaintext highlighter-rouge">deletionDate</code>.
+Should the peer reject the DeleteAttributeRequestItem, the own shared Attribute of the <code class="language-plaintext highlighter-rouge">owner</code> is given <code class="language-plaintext highlighter-rouge">"DeletionRequestRejected"</code> as <code class="language-plaintext highlighter-rouge">deletionStatus</code>.
+The <code class="language-plaintext highlighter-rouge">deletionDate</code> then will be set to the time of receiving the <a href="#rejectresponseitem">RejectResponseItem</a>.
+If they accept, however, using the <a href="#acceptdeleteattributerequestitemparameters">AcceptDeleteAttributeRequestItemParameters</a>, the <code class="language-plaintext highlighter-rouge">deletionStatus</code> of the peer shared Attribute of the peer will be set to <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> and its <code class="language-plaintext highlighter-rouge">deletionDate</code> will be set to the <code class="language-plaintext highlighter-rouge">deletionDate</code> the peer sent in their Response.
 Accordingly, the <code class="language-plaintext highlighter-rouge">deletionStatus</code> of the own shared Attribute of the owner will move to <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code> with the same <code class="language-plaintext highlighter-rouge">deletionDate</code>.
 Once the peer shared Attribute is deleted by the peer, a <a href="#peersharedattributedeletedbypeernotificationitem">PeerSharedAttributeDeletedByPeerNotificationItem</a> is sent to the owner, where the <code class="language-plaintext highlighter-rouge">deletionStatus</code> of the own shared Attribute is set to <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code> with the current time stamp as <code class="language-plaintext highlighter-rouge">deletionDate</code>.
 Likewise, if the owner deletes their own shared Attribute, before the peer deleted their corresponding peer shared Attribute, an <a href="#ownsharedattributedeletedbyownernotificationitem">OwnSharedAttributeDeletedByOwnerNotificationItem</a> is sent to the peer.
@@ -1470,13 +1473,13 @@ This will be the case, if the peer already accepted the DeleteAttributeRequestIt
   <tbody>
     <tr>
       <td>deletionStatus</td>
-      <td><code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> | <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code> | <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> | <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code></td>
-      <td>The deletion status of the peer’s counterpart of the shared Attribute. For own shared Attributes it may only be set to <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code> or <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code>, whereas for peer shared Attributes only the values <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> and <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> are allowed.</td>
+      <td><code class="language-plaintext highlighter-rouge">"DeletionRequestSent"</code> | <code class="language-plaintext highlighter-rouge">"DeletionRequestRejected"</code> | <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> | <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code> | <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> | <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code></td>
+      <td>The deletion status of the peer’s counterpart of the shared Attribute. For own shared Attributes it may only be set to <code class="language-plaintext highlighter-rouge">"DeletionRequestSent"</code>, <code class="language-plaintext highlighter-rouge">"DeletionRequestRejected"</code>, <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code> or <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code>, whereas for peer shared Attributes only the values <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> and <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> are allowed.</td>
     </tr>
     <tr>
       <td>deletionDate</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The point in time an upcoming deletion is planned (for the <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code>) or a completed deletion has been notified (for <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> or <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code>).</td>
+      <td>The point in time<br /><ul><li>the Request with a DeleteAttributeRequestItem was sent (for <code>"DeletionRequestSent"</code>).</li><li>the Response with a RejectResponseItem was received (for <code>"DeletionRequestRejected"</code>).</li><li>an upcoming deletion is planned (for <code>"ToBeDeleted"</code> or <code>"ToBeDeletedByPeer"</code>).</li><li>a completed deletion has been notified (for <code>"DeletedByOwner"</code> or <code>"DeletedByPeer"</code>).</li></ul></td>
     </tr>
   </tbody>
 </table>
@@ -3386,7 +3389,7 @@ For example, an AuthenticationRequestItem can be accepted using the AcceptReques
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-06-14T13:45:21+02:00">June 14, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-06-17T14:04:30+02:00">June 17, 2024</time></p>
 
       </footer>
 
