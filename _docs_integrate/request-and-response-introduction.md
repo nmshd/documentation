@@ -21,8 +21,6 @@ required_by:
 # End automatic generation
 ---
 
-<!-- TODO: add new AcceptResponseItems -->
-
 Requests are the main instrument in enmeshed to interact with other Identities.
 They enable various business processes, e.g. creating, sharing or receiving Attributes, asking a peer for authentication or consent, and much more.
 Also, parts of a vaster business process can be implemented with them, like querying all personal information of a user to fill out a tax form.
