@@ -1,0 +1,167 @@
+@-webkit-keyframes intro {
+}
+@keyframes intro {
+}
+
+.page__content li p {
+    margin-bottom: 0;
+}
+
+.notice,
+.notice--primary,
+.notice--info,
+.notice--warning,
+.notice--danger,
+.notice--success {
+    margin: 1em !important;
+}
+
+b,
+i,
+strong,
+em,
+blockquote,
+p,
+q,
+span,
+figure,
+img,
+h1,
+h2,
+header,
+input,
+a,
+tr,
+td,
+form button,
+input[type="submit"],
+.btn,
+.highlight,
+.archive__item-teaser {
+    -webkit-transition: none;
+    transition: none;
+}
+
+.sidebar p,
+.sidebar li {
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+.sidebar a:hover {
+    text-decoration: underline;
+}
+.sidebar {
+    opacity: 1;
+}
+
+@media (min-width: 80em) {
+    html {
+        font-size: 18px;
+    }
+    .sidebar {
+        opacity: 1;
+    }
+}
+@media (min-width: 64em) {
+    html {
+        font-size: 18px;
+    }
+    .sidebar {
+        opacity: 1;
+        width: calc(300px - 1em);
+    }
+    .page {
+        float: right;
+        width: calc(100% - 300px);
+        padding-right: 200px;
+    }
+}
+@media (min-width: 48em) {
+    html {
+        font-size: 18px;
+    }
+    .sidebar {
+        opacity: 1;
+    }
+}
+
+html,
+.masthead {
+    background-color: #ffffff !important;
+}
+
+.greedy-nav {
+    background-color: transparent !important;
+}
+
+.greedy-nav::before {
+    position: relative;
+    left: 0px;
+    content: "";
+    background-image: url(/assets/images/Logo.svg);
+    background-size: 100% 100%;
+    width: 30px;
+    height: 30px;
+}
+
+.masthead {
+    border-bottom: 1px #cccccc solid;
+    -webkit-box-shadow: 0px 2px 2px 0px rgba(221, 221, 221, 0.8);
+    -moz-box-shadow: 0px 2px 2px 0px rgba(221, 221, 221, 0.8);
+    box-shadow: 0px 2px 2px 0px rgba(221, 221, 221, 0.8);
+}
+
+#main h1:not(:first-child) {
+    margin-top: 4rem;
+}
+
+#main h1::before {
+    display: inline-block;
+    content: "";
+    left: 0px;
+    top: 0px;
+    height: 1.2rem;
+    background-image: url(/assets/images/Logo.svg);
+    background-size: 0.8rem;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    width: 1rem;
+    margin-right: 0.5rem;
+}
+
+#main h1 > a {
+    margin-left: -0.2em;
+}
+
+.author__avatar img {
+    max-height: 110px;
+}
+
+div#banner {
+    background-color: rgb(230, 167, 0);
+    width: 100%;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 10px;
+}
+
+@media (min-width: 64em) {
+    .sidebar__right {
+        position: sticky;
+        float: inline-end;
+        top: 2rem;
+    }
+}
+
+@media (min-width: 64em) {
+    .toc__menu {
+        overflow-y: auto;
+        overflow-x: clip;
+        /*Full hight - the hight of the global header, top margin and padding and the toc header*/
+        max-height: calc(100vh - 8rem - 34.5px);
+    }
+}
+.toc__menu a {
+    overflow-wrap: break-word;
+}

@@ -1,0 +1,588 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Delete Attributes - enmeshed</title>
+<meta name="description" content="The exact process of deleting an Attribute depends on the kind of Attribute at hand. Creating an Attribute, we must distinguish between IdentityAttributes and RelationshipAttributes. In the former case, a so-called RepositoryAttribute is created, which is a LocalAttribute without shareInfo, that you are the owner of. Afterwards, you may share it with a peer, which yields the creation of an own shared IdentityAttribute. This is a LocalAttribute with the copied content of the RepositoryAttribute, but an additional shareInfo property. Doing so, also a LocalAttribute with the same content and a respective shareInfo is created for the peer, which is referred to as peer shared Attribute. In the case of RelationshipAttributes we have own shared and peer shared RelationshipAttributes analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with RepositoryAttributes. These different kinds of Attributes have different demands that need to be taken into account, wanting to delete them.">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Delete Attributes">
+<meta property="og:url" content="/versions/v5/integrate/delete-attributes">
+
+
+  <meta property="og:description" content="The exact process of deleting an Attribute depends on the kind of Attribute at hand. Creating an Attribute, we must distinguish between IdentityAttributes and RelationshipAttributes. In the former case, a so-called RepositoryAttribute is created, which is a LocalAttribute without shareInfo, that you are the owner of. Afterwards, you may share it with a peer, which yields the creation of an own shared IdentityAttribute. This is a LocalAttribute with the copied content of the RepositoryAttribute, but an additional shareInfo property. Doing so, also a LocalAttribute with the same content and a respective shareInfo is created for the peer, which is referred to as peer shared Attribute. In the case of RelationshipAttributes we have own shared and peer shared RelationshipAttributes analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with RepositoryAttributes. These different kinds of Attributes have different demands that need to be taken into account, wanting to delete them.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-06-19T16:46:09+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/v5/integrate/delete-attributes">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/v5/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="text/javascript">
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/v5/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/v5/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/v5/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/versions/v5/use"
+                
+                
+              >Use</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v5/explore"
+                
+                
+              >Explore</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v5/integrate"
+                
+                
+              >Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v5/operate"
+                
+                
+              >Operate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v5/contribute"
+                
+                
+              >Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v5/blog"
+                
+                
+              >Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate enmeshed</h3>
+      
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Getting Started</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v5/integrate/access-the-connector">Access the Connector</a></li>
+            
+              <li><a href="/versions/v5/integrate/integration-example">Integration example</a></li>
+            
+              <li><a href="/versions/v5/integrate/event-introduction">Event introduction</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Relationships between Identities</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v5/integrate/establish-relationships">Establish Relationships</a></li>
+            
+              <li><a href="/versions/v5/integrate/exchange-messages">Exchange Messages</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Working with Requests</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v5/integrate/request-and-response-introduction">Request and Response introduction</a></li>
+            
+              <li><a href="/versions/v5/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a></li>
+            
+              <li><a href="/versions/v5/integrate/requests-via-messages">Requests via Messages</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Manage Attributes</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v5/integrate/attribute-introduction">Attribute introduction</a></li>
+            
+              <li><a href="/versions/v5/integrate/create-attributes-for-yourself">Create Attributes for yourself</a></li>
+            
+              <li><a href="/versions/v5/integrate/share-attributes-with-peer">Share Attributes with peer</a></li>
+            
+              <li><a href="/versions/v5/integrate/read-attributes-from-peer">Read Attributes from peer</a></li>
+            
+              <li><a href="/versions/v5/integrate/create-attributes-for-peer">Create Attributes for peer</a></li>
+            
+              <li><a href="/versions/v5/integrate/propose-attributes-to-peer">Propose Attributes to peer</a></li>
+            
+              <li><a href="/versions/v5/integrate/update-attributes-by-succession">Update Attributes by succession</a></li>
+            
+              <li><a href="/versions/v5/integrate/delete-attributes" class="active">Delete Attributes</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Request consent</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v5/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
+            
+              <li><a href="/versions/v5/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Data Model</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v5/integrate/data-model-overview">Data Model Overview</a></li>
+            
+              <li><a href="/versions/v5/integrate/attribute-values">Attribute Values</a></li>
+            
+              <li><a href="/versions/v5/integrate/connector-events">Connector Events</a></li>
+            
+              <li><a href="/versions/v5/integrate/use-cases">Use Cases</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Troubleshooting</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v5/integrate/error-codes">Error Codes</a></li>
+            
+              <li><a href="/versions/v5/integrate/faq">FAQ</a></li>
+            
+              <li><a href="/versions/v5/integrate/support">Support</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Delete Attributes">
+    <meta itemprop="description" content="The exact process of deleting an Attribute depends on the kind of Attribute at hand.Creating an Attribute, we must distinguish between IdentityAttributes and RelationshipAttributes.In the former case, a so-called RepositoryAttribute is created, which is a LocalAttribute without shareInfo, that you are the owner of.Afterwards, you may share it with a peer, which yields the creation of an own shared IdentityAttribute.This is a LocalAttribute with the copied content of the RepositoryAttribute, but an additional shareInfo property.Doing so, also a LocalAttribute with the same content and a respective shareInfo is created for the peer, which is referred to as peer shared Attribute.In the case of RelationshipAttributes we have own shared and peer shared RelationshipAttributes analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with RepositoryAttributes.These different kinds of Attributes have different demands that need to be taken into account, wanting to delete them.">
+    <meta itemprop="datePublished" content="2024-06-19T16:46:09+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/versions/v5/integrate/delete-attributes" itemprop="url">Delete Attributes
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#request-the-deletion-of-own-attributes-from-peer">Request the deletion of own Attributes from peer</a></li><li><a href="#delete-peer-shared-attributes">Delete peer shared Attributes</a></li><li><a href="#delete-own-shared-attributes">Delete own shared Attributes</a></li><li><a href="#delete-repositoryattributes">Delete RepositoryAttributes</a></li></ul>
+            </nav>
+          </aside>
+        
+        <p>The exact process of deleting an Attribute depends on the kind of Attribute at hand.
+<a href="/versions/v5/integrate/create-attributes-for-yourself">Creating an Attribute</a>, we must distinguish between <a href="/versions/v5/integrate/data-model-overview#identityattribute">IdentityAttributes</a> and <a href="/versions/v5/integrate/data-model-overview#relationshipattribute">RelationshipAttributes</a>.
+In the former case, a so-called RepositoryAttribute is created, which is a <a href="/versions/v5/integrate/data-model-overview#localattribute">LocalAttribute</a> without <code class="language-plaintext highlighter-rouge">shareInfo</code>, that you are the <code class="language-plaintext highlighter-rouge">owner</code> of.
+Afterwards, you may <a href="/versions/v5/integrate/share-attributes-with-peer">share it</a> with a peer, which yields the creation of an own shared IdentityAttribute.
+This is a LocalAttribute with the copied <code class="language-plaintext highlighter-rouge">content</code> of the RepositoryAttribute, but an additional <code class="language-plaintext highlighter-rouge">shareInfo</code> property.
+Doing so, also a LocalAttribute with the same <code class="language-plaintext highlighter-rouge">content</code> and a respective <code class="language-plaintext highlighter-rouge">shareInfo</code> is created for the peer, which is referred to as peer shared Attribute.
+In the case of RelationshipAttributes we have own shared and peer shared RelationshipAttributes analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with RepositoryAttributes.
+These different kinds of Attributes have different demands that need to be taken into account, wanting to delete them.</p>
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/04c48548-90a3-4e9e-839a-4bb9a5dddcfb" id="9hZD~iRvE8aL"></iframe></div>
+
+<p>In general, you can only delete data from your own wallet and never from the peer’s.
+So, for example you can delete Attributes a peer shared with you from your wallet, but you can’t delete Attributes you shared with a peer from their wallet.
+Wanting to do so, you need to send a Request to the peer, asking them to delete the respective Attribute.
+Note that this doesn’t automatically delete their Attribute, since the peer may have a valid reason to still keep it for a certain amount of time.</p>
+
+<h2 id="request-the-deletion-of-own-attributes-from-peer">Request the deletion of own Attributes from peer</h2>
+
+<p>Wanting to delete a peer shared Attribute owned by you from the peer technically describes the endeavor of withdrawing the permission you gave them to use your Attribute.
+To this end, a <a href="/versions/v5/integrate/data-model-overview#request">Request</a> must be used with a <a href="/versions/v5/integrate/data-model-overview#deleteattributerequestitem">DeleteAttributeRequestItem</a>.
+As a parameter, the <code class="language-plaintext highlighter-rouge">attributeId</code> of the peer shared Attribute you would like the peer to delete must be provided.
+Note, that the peer shared Attribute at the peer’s side has the same <code class="language-plaintext highlighter-rouge">id</code> like the own shared Attribute at your side.
+A possible Request for deleting a peer shared Attribute from a peer could look as follows:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DeleteAttributeRequestItem"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID of peer shared Attribute&gt;"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Of course, it is also possible to request the deletion of multiple peer shared Attributes within a single Request.
+For this purpose, several DeleteAttributeRequestItems or suitable <a href="/versions/v5/integrate/data-model-overview#requestitemgroup">RequestItemGroups</a> can be inserted into the <code class="language-plaintext highlighter-rouge">items</code> property of the Request.</p>
+
+<p class="notice--info">Before sending the Request, we recommend to <a href="/versions/v5/use-case-consumption-check-if-outgoing-request-can-be-created">validate its content</a>, since this will give you additional information in case of an error.</p>
+
+<p>Next, send the Request to the peer.
+You can either do so by <a href="/versions/v5/integrate/data-model-overview#message">Message</a> or by a <a href="/versions/v5/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>, using the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property of a <a href="/versions/v5/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a>.
+For a detailed explanation check out our guides on how to send <a href="/versions/v5/integrate/requests-via-messages">Requests via Messages</a> and <a href="/versions/v5/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a>.
+Once the Request is sent, the according own shared Attribute of the Sender gets a <a href="/versions/v5/integrate/data-model-overview#localattributedeletioninfo">LocalAttributeDeletionInfo</a>.
+There, <code class="language-plaintext highlighter-rouge">"DeletionRequestSent"</code> is set as <code class="language-plaintext highlighter-rouge">deletionStatus</code> and the time of sending the Request is stored as <code class="language-plaintext highlighter-rouge">deletionDate</code>.</p>
+
+<p>When the peer receives the Request, they can accept or reject it.
+If they want to <a href="/versions/v5/use-case-consumption-accept-incoming-request">accept it</a>, they must use the <a href="/versions/v5/integrate/data-model-overview#acceptdeleteattributerequestitemparameters">AcceptDeleteAttributeRequestItemParameters</a>.
+Doing so, they specify a <code class="language-plaintext highlighter-rouge">deletionDate</code> on which they plan to delete the peer shared Attribute.
+In the given example, the payload would look like the following:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"deletionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;date the peer shared Attribute will be deleted&gt;"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Now, the <a href="/versions/v5/explore/runtime">enmeshed Runtime</a> sets the <code class="language-plaintext highlighter-rouge">deletionInfo</code> of the corresponding peer shared Attribute of the peer with <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> and the specified <code class="language-plaintext highlighter-rouge">deletionDate</code>.
+The same is done for all predecessors of the peer shared Attribute.
+Then, the appropriate <a href="/versions/v5/integrate/data-model-overview#deleteattributeacceptresponseitem">DeleteAttributeAcceptResponseItem</a> is generated and sent back in the <a href="/versions/v5/integrate/data-model-overview#response">Reponse</a> to the Sender of the Request.
+There, the <code class="language-plaintext highlighter-rouge">deletionInfo</code> of the corresponding own shared Attribute and its predecessors is set with <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code> and the <code class="language-plaintext highlighter-rouge">deletionDate</code> received in the Response.</p>
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/a738fd76-2fe0-4e3e-a0fd-bec86b3b7939" id="ZGDlhHzeKlb-"></iframe></div>
+
+<p class="notice--info">It is also possible for the peer to reject the DeleteAttributeRequestItem, if its <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set <code class="language-plaintext highlighter-rouge">false</code>, or to <a href="/versions/v5/use-case-consumption-reject-incoming-request">reject the Request</a> for deleting a peer shared Attribute as a whole, if they have a valid reason for keeping the respective peer shared Attribute.
+In this case, the <a href="/versions/v5/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a> must be used and it is advised to provide a <code class="language-plaintext highlighter-rouge">message</code>, informing the Sender of the Request about the reason not to delete the peer shared Attribute.
+Receiving the Response with the <a href="/versions/v5/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a>, the own shared Attribute of the <code class="language-plaintext highlighter-rouge">owner</code> is given <code class="language-plaintext highlighter-rouge">"DeletionRequestRejected"</code> as <code class="language-plaintext highlighter-rouge">deletionStatus</code> and the receiving time is stored in the property <code class="language-plaintext highlighter-rouge">deletionDate</code>.</p>
+
+<h2 id="delete-peer-shared-attributes">Delete peer shared Attributes</h2>
+
+<p>The actual deletion of a peer shared Attribute happens in a separate step.
+This can either be triggered if the <code class="language-plaintext highlighter-rouge">deletionInfo.deletionDate</code> is reached, in case the deletion was requested by the owner of the peer shared Attribute, or if the peer decides they no longer need it.</p>
+
+<p>To <a href="/versions/v5/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer">delete a peer shared Attribute</a>, only its <code class="language-plaintext highlighter-rouge">attributeId</code> must be specified.
+Internally, not just the given peer shared Attribute is deleted, but also all its predecessors, in case there were any.
+Moreover, if the peer shared Attribute had a successor, its <code class="language-plaintext highlighter-rouge">succeeds</code> property will be set to undefined, as the corresponding predecessor no longer exists.
+Then, a <a href="/versions/v5/integrate/data-model-overview#notification">Notification</a> with a <a href="/versions/v5/integrate/data-model-overview#peersharedattributedeletedbypeernotificationitem">PeerSharedAttributeDeletedByPeerNotificationItem</a> is generated and sent to the owner of the peer shared Attribute, informing them that you deleted the Attribute they shared with you.
+Consequently, the <code class="language-plaintext highlighter-rouge">deletionInfo</code> of their corresponding own shared Attribute and of all potential predecessors is updated with <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code> and the time of receiving the Notification as <code class="language-plaintext highlighter-rouge">deletionDate</code>.
+In case the owner already <a href="#delete-own-shared-attributes">deleted their own shared Attribute</a>, nothing happens.</p>
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/2385af4a-4bfa-43f4-a119-afb51273194d" id="HNEl2zIWWLxc"></iframe></div>
+
+<p class="notice--info">If you want to <a href="/versions/v5/use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer">delete a RelationshipAttribute that is owned by a third party</a>, i.e. neither you nor the peer you have the according Relationship with, the process will work analogously.
+In this case, a <a href="/versions/v5/integrate/data-model-overview#thirdpartyownedrelationshipattributedeletedbypeernotificationitem">ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem</a> will be sent.</p>
+
+<h2 id="delete-own-shared-attributes">Delete own shared Attributes</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">owner</code> can always delete their LocalAttributes without having to ask for consent, even if there are shared copies of it.
+Hence, it is always possible to delete own shared Attributes.
+Doing so before the <a href="#delete-peer-shared-attributes">peer deleted their copy of the shared Attribute</a>, however, you lose the information of having shared the Attribute with them and whether they keep their peer shared Attribute or delete it.
+Thus, we recommend to <a href="#request-the-deletion-of-own-attributes-from-peer">request the deletion of own Attributes from the peer</a> before deleting them yourself.</p>
+
+<p>If you decide to <a href="/versions/v5/use-case-consumption-delete-an-own-shared-attribute-and-notify-peer">delete an own shared Attribute</a>, you must specifiy its <code class="language-plaintext highlighter-rouge">attributeId</code>.
+Then, in addition to the own shared Attribute itself, also all its predecessors will be deleted, given there were any.
+Moreover, if the own shared Attribute had a successor, its <code class="language-plaintext highlighter-rouge">succeeds</code> property will be set to undefined, as the corresponding predecessor no longer exists.
+Then, a Notification with an <a href="/versions/v5/integrate/data-model-overview#ownsharedattributedeletedbyownernotificationitem">OwnSharedAttributeDeletedByOwnerNotificationItem</a> is generated and sent to the peer you shared the Attribute with, informing them that you deleted that own shared Attribute.
+If they already deleted their corresponding peer shared Attribute or marked it for deletion, nothing will change.
+However, if the <code class="language-plaintext highlighter-rouge">deletionInfo</code> of their peer shared Attribute was undefined before, since you didn’t send a Request for Attribute deletion or the Request was rejected, a <code class="language-plaintext highlighter-rouge">deletionInfo</code> will be set.
+Its <code class="language-plaintext highlighter-rouge">deletionStatus</code> will be set to <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> and the <code class="language-plaintext highlighter-rouge">deletionDate</code> will be the time of receiving the Notification.</p>
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/9aaf5a91-803b-4180-b0c7-4adb7bc5ced6" id="xQEl1j.jqJxq"></iframe></div>
+
+<h2 id="delete-repositoryattributes">Delete RepositoryAttributes</h2>
+
+<p>Lastly, you can also <a href="/versions/v5/use-case-consumption-delete-a-repositoryattribute">delete RepositoryAttributes</a>, i.e. LocalAttributes that are owned by yourself and whose <code class="language-plaintext highlighter-rouge">shareInfo</code> property is undefined.
+Analogously to the cases above, also all predecessors of the RepositoryAttribute with specified <code class="language-plaintext highlighter-rouge">attributeId</code> will be deleted.
+Additionally, the <code class="language-plaintext highlighter-rouge">succeeds</code> property of the successor will be removed in case of <a href="/versions/v5/integrate/update-attributes-by-succession">Attribute succession</a>.</p>
+
+<p>Furthermore, if there are any shared copies of the RepositoryAttribute, their <code class="language-plaintext highlighter-rouge">shareInfo</code> will be updated such that <code class="language-plaintext highlighter-rouge">sourceAttribute</code> doesn’t link to the deleted RepositoryAttribute anymore.
+As a consequence, the <a href="/versions/v5/use-case-consumption-get-shared-versions-of-an-attribute">get shared versions of an Attribute use case</a> will no longer return those shared versions.
+Now, in case you shared a RepositoryAttribute with a peer, succeeded it without notifying the peer and then delete the source Attribute of the predecessor, you won’t be able to <a href="/versions/v5/use-case-consumption-notify-peer-about-repositoryattribute-succession">notify the peer about the succession</a> of this no longer existing RepositoryAttribute anymore.
+Instead, if you want to inform them about a newer version of this RepositoryAttribute, you must <a href="/versions/v5/use-case-consumption-share-a-repositoryattribute">share that version</a> again.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-06-19T16:46:09+02:00">June 19, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+           
+        <li>
+            <a href="/versions/v5/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2024
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/v5/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/v5/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/v5/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/v5/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
