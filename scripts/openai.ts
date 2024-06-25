@@ -11,11 +11,11 @@ export async function main(content: string): Promise<OpenAI.Chat.Completions.Cha
             {
                 role: "system",
                 content:
-                    "you paraphrase the text of a technical documentation in fluent, professional-sounding business english, and output the result as jekyll markdown, keep existing links and html"
+                    "you paraphrase the text of a technical documentation in fluent, professional-sounding english business, and output the result as jekyll markdown, keep existing links, html, attributes and values in inline code"
             },
             { role: "user", content: content }
         ],
-        model: "gpt-3.5-turbo-0125",
+        model: "gpt-4-turbo",
         temperature: 1
     });
     console.log(completion.choices[0]);

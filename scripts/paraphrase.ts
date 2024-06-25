@@ -1,58 +1,103 @@
+import { exec } from "child_process";
 import * as fs from "fs";
 import * as openai from "./openai";
 
 const path = process.argv[2];
 
-if (!path || typeof path !== "string") {
-    console.error("Please provide a file path as a command line argument.");
-    process.exit(1);
+function validatePath(filePath: string): void {
+    if (!filePath) {
+        console.error("Please provide a file path as a command line argument.");
+        process.exit(1);
+    }
 }
 
-fs.readFile(path, "utf8", async (err, data) => {
-    if (err) {
-        console.error(`Could not read file at ${path}`);
-    } else {
-        const parts = await data.split("# End automatic generation\n---\n");
-        if (parts.length > 1) {
-            var textParts = splitText(parts[1]);
-
-            await Promise.all(
-                textParts.map(async (testPart, index) => {
-                    const result = await openai.main(testPart);
-                    textParts[index] = result.message.content as string;
-                })
-            );
-            fs.writeFile(path, `${parts[0]}# End automatic generation\n---\n${textParts.join("\n")}`, (err: NodeJS.ErrnoException | null) => {
-                if (err) {
-                    console.error(`Could not write file at ${path}`);
-                } else {
-                    console.log("File updated successfully.");
-                }
-            });
+function formatDocument(filePath: string): void {
+    exec(`prettier --write ${filePath}`, (error, stdout, stderr) => {
+        if (error) {
+            console.error(`Error executing prettier: ${error.message}`);
+            return;
         }
-    }
-});
+        if (stderr) {
+            console.error(`Prettier stderr: ${stderr}`);
+            return;
+        }
+        console.log("File formatted successfully.");
+    });
+}
 
 function splitText(fullText: string): string[] {
-    // Check if there is an H1 heading in the text
     if (fullText.match(/^# .+$/gm)) {
         console.error("H1 heading found. Aborting process.");
         process.exit(1);
     }
-    // Split the text at each H2 heading, but include the heading in the resulting parts
-    const parts = fullText.split(/(?=^## .*$)/gm);
+    return fullText.split(/\n(?=## [^#])/);
+}
 
+async function processTextParts(textParts: string[]): Promise<string[]> {
+    return Promise.all(
+        textParts.map(async (textPart, index) => {
+            if (checkForSummary(textPart)) {
+                const result = await openai.main(textPart);
+                return result.message.content as string;
+            }
+            return textPart;
+        })
+    );
+}
+
+function readFile(filePath: string): Promise<string> {
+    return new Promise((resolve, reject) => {
+        fs.readFile(filePath, "utf8", (err, data) => {
+            if (err) {
+                reject(`Could not read file at ${filePath}`);
+            } else {
+                resolve(data);
+            }
+        });
+    });
+}
+
+function writeFile(filePath: string, content: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+        fs.writeFile(filePath, content, (err) => {
+            if (err) {
+                reject(`Could not write file at ${filePath}`);
+            } else {
+                resolve();
+            }
+        });
+    });
+}
+
+async function main(filePath: string): Promise<void> {
+    validatePath(filePath);
+    try {
+        const fullText = await readFile(filePath);
+
+        const parts = getContent(fullText);
+
+        var data = splitText(parts[1]);
+        if (parts.length > 1) {
+            const textParts = await processTextParts(data);
+            await writeFile(filePath, `${parts[0]}# End automatic generation\n---\n${textParts.join("\n")}`);
+            console.log("File updated successfully.");
+            formatDocument(filePath);
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function checkForSummary(textPart: string): boolean {
+    return textPart.startsWith("##");
+}
+
+function getContent(fullText: string): string[] {
+    const parts = fullText.split("# End automatic generation\n---\n");
+    if (parts.length < 2) {
+        throw new Error("No content found after the marker.");
+    }
     return parts;
 }
 
-// function send(params:type) {
-//                 openai.main(parts[1]).then((result: OpenAI.Chat.Completions.ChatCompletion.Choice) => {
-//                     fs.writeFile(path, `${parts[0]}# End automatic generation\n---\n${result.message.content}`, (err: NodeJS.ErrnoException | null) => {
-//                         if (err) {
-//                             console.error(`Could not write file at ${path}`);
-//                         } else {
-//                             console.log("File updated successfully.");
-//                         }
-//                     });
-//                 });
-// }
+main(path);

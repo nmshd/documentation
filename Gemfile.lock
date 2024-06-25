@@ -157,7 +157,6 @@ GEM
     unicode-display_width (2.5.0)
     uri (0.13.0)
     verbal_expressions (0.1.5)
-    wdm (0.1.1)
     webrick (1.8.1)
 
 PLATFORMS
