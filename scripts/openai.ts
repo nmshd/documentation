@@ -5,7 +5,7 @@ const openai = new OpenAI({
     apiKey: process.env["OPENAI_API_KEY"] // This is the default and can be omitted
 });
 
-export async function main(content: string): Promise<OpenAI.Chat.Completions.ChatCompletion.Choice> {
+export async function paraphrase(content: string): Promise<OpenAI.Chat.Completions.ChatCompletion.Choice> {
     const completion = await openai.chat.completions.create({
         messages: [
             {
@@ -21,25 +21,21 @@ export async function main(content: string): Promise<OpenAI.Chat.Completions.Cha
     console.log(completion.choices[0]);
 
     return completion.choices[0];
-
-    // const choice: OpenAI.Chat.Completions.ChatCompletion.Choice = {
-    //     // Fill in the properties of the Choice object here
-    //     // For example:
-    //     finish_reason: "stop",
-    //     index: 0,
-    //     message: {
-    //         role: "assistant",
-    //         content: "The quick brown fox jumps over the lazy dog."
-    //     },
-    //     logprobs: null
-    // };
-    // return choice;
 }
-getFiles();
-async function getFiles() {
-    const list = await openai.files.list();
+export async function summarize(content: string): Promise<OpenAI.Chat.Completions.ChatCompletion.Choice> {
+    const completion = await openai.chat.completions.create({
+        messages: [
+            {
+                role: "system",
+                content:
+                    "you summarize in a short text without headlines the text of a technical documentation in fluent, professional-sounding english business, and output the result as jekyll markdown, try to use links from text in jekyll format"
+            },
+            { role: "user", content: content }
+        ],
+        model: "gpt-4-turbo",
+        temperature: 1
+    });
+    console.log(completion.choices[0]);
 
-    for await (const file of list) {
-        console.log(file);
-    }
+    return completion.choices[0];
 }

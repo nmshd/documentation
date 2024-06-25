@@ -37,10 +37,12 @@ async function processTextParts(textParts: string[]): Promise<string[]> {
     return Promise.all(
         textParts.map(async (textPart, index) => {
             if (checkForSummary(textPart)) {
-                const result = await openai.main(textPart);
+                const result = await openai.paraphrase(textPart);
+                return result.message.content as string;
+            } else {
+                const result = await openai.summarize(textParts.join("\n"));
                 return result.message.content as string;
             }
-            return textPart;
         })
     );
 }
