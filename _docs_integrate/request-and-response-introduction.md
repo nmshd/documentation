@@ -138,7 +138,9 @@ Depending on whether the ProposeAttributeRequestItem is to be accepted or reject
 
 After the Recipient has responded to the ProposeAttributeRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
 
-- After accepting this RequestItem, a [ProposeAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributeacceptresponseitem) will be transferred.
+- After accepting this RequestItem with an Attribute that wasn't shared with the peer before, a [ProposeAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributeacceptresponseitem) will be transferred.
+- After accepting this RequestItem with an Attribute that was shared with the peer already, an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) will be transferred.
+- After accepting this RequestItem with an Attribute whose predecessor was shared with the peer already, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be transferred.
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
@@ -153,7 +155,9 @@ Depending on whether the ReadAttributeRequestItem is to be accepted or rejected,
 
 After the Recipient has responded to the ReadAttributeRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
 
-- After accepting this RequestItem, a [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem) will be transferred.
+- After accepting this RequestItem with an Attribute that wasn't shared with the peer before, a [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem) will be transferred.
+- After accepting this RequestItem with an Attribute that was shared with the peer already, an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) will be transferred.
+- After accepting this RequestItem with an Attribute whose predecessor was shared with the peer already, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be transferred.
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
