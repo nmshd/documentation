@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use-case-transport-create-token-qr-code-for-file
 published: true
-title: "Create Token QR Code for File"
+title: "Create Token QR code for File"
 type: use-case
 toc: true
 sidebar:
@@ -42,16 +42,16 @@ api_route_regex: ^POST /api/v2/Files/{id}/Token$
 
 {% include properties_list.html %}
 
-Creates a QR Code for a [Token]({% link _docs_integrate/data-model-overview.md %}#token) of a [File]({% link _docs_integrate/data-model-overview.md %}#file) that corresponds to the given `fileId`.
+Creates a QR code for a [Token]({% link _docs_integrate/data-model-overview.md %}#token) of a [File]({% link _docs_integrate/data-model-overview.md %}#file) that corresponds to the given `fileId`.
 
 ## Parameters
 
-- `fileId` is the `id` of the File the Token and its QR Code should be created for.
+- `fileId` is the `id` of the File the Token and its QR code should be created for.
 - Optionally, `expiresAt` can be specified, which describes the ISODateTime the Token expires at.
 
 ## On Success
 
-- Returns the created QR Code encoded as Base64.
+- Returns the created QR code encoded as Base64.
 
 ## On Failure
 

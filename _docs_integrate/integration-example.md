@@ -186,16 +186,16 @@ Furthermore, we specify an expiration date, which is located in the future, and 
 
 {% include copy-notice description="Save the `id` of the RelationshipTemplate that you can find in the Response. You will need it in the next step." %}
 
-### Connector: Create a QR Code for the RelationshipTemplate
+### Connector: Create a QR code for the RelationshipTemplate
 
-Now, to allow the App to retrieve the RelationshipTemplate, we create a QR Code, that can be scanned by the App.
+Now, to allow the App to retrieve the RelationshipTemplate, we create a QR code, that can be scanned by the App.
 For this, execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Header: `image/png`) and use the `id` of the RelationshipTemplate from the previous step as the value for `id`.
 
 {% include rapidoc api_route_regex="^get /api/v2/RelationshipTemplates/{id}$" %}
 
 ### App: Send a Relationship Request
 
-Open the created QR Code and start the enmeshed App. Depending on what you already did with the App, choose one of the following paths:
+Open the created QR code and start the enmeshed App. Depending on what you already did with the App, choose one of the following paths:
 
 - If this is the first time you use the App:
   - click on "Scan code"

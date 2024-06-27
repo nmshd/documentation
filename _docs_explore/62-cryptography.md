@@ -73,7 +73,7 @@ The device's public key which is stored in the Datawallet of an Identity and thu
 
 ## Symmetric Encryption
 
-Symmetric encryption is used throughout this solution in order to securely encrypt sensitive data. Prior to a communication to a different device or Identity, a random secret key is generated and used to encrypt the payload. This secret key is then shared via a secure side-channel / out-of-band communication. This could be a Message communicated over enmeshed, a QR Code shown in a browser session or any other secure communication channel. The secret key is never transmitted unencrypted over the Backbone, as this would break up the end-to-end encryption.
+Symmetric encryption is used throughout this solution in order to securely encrypt sensitive data. Prior to a communication to a different device or Identity, a random secret key is generated and used to encrypt the payload. This secret key is then shared via a secure side-channel / out-of-band communication. This could be a Message communicated over enmeshed, a QR code shown in a browser session or any other secure communication channel. The secret key is never transmitted unencrypted over the Backbone, as this would break up the end-to-end encryption.
 
 Examples where symmetric encryption is used:
 

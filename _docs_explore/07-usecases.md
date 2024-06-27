@@ -35,7 +35,7 @@ The list below is a non-complete list of use cases within enmeshed:
       - Get file
       - Get files
       - Get token for file
-      - Get token qr-code for file
+      - Get token QR code for file
       - Load peer file
       - Upload own file
     - Messages
@@ -57,12 +57,12 @@ The list below is a non-complete list of use cases within enmeshed:
       - Get RelationshipTemplate
       - Get RelationshipTemplates
       - Get token for own RelationshipTemplate
-      - Get token qr-code for own RelationshipTemplate
+      - Get token QR code for own RelationshipTemplate
       - Load peer RelationshipTemplate
     - Tokens
 
       - Create own token
-      - Get qr-code for token
+      - Get QR code for token
       - Get token
       - Get tokens
       - Load peer token
