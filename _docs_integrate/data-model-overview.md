@@ -567,7 +567,11 @@ RequestItems can be sent inside of a Request and specify what should be done whe
 
 ### ResponseItems
 
-ResponseItems are sent inside of a Response. They contain the response data that is sent by the recipient of the Request. There are three different kinds of ResponseItems: `AcceptResponseItem`, `RejectResponseItem` and `ErrorResponseItem`. Depending on the actual RequestItem, there can be different derivations of these three items. For example, in case of a [`CreateAttributeRequestItem`](#createattributerequestitem), there is a special [`CreateAttributeAcceptResponseItem`](#createattributeacceptresponseitem), while for an [`AuthenticationRequestItem`](#authenticationrequestitem), the [`AcceptResponseItem`](#acceptresponseitem) can be used, because there is no additional information necessary next to whether it was accepted or rejected.
+ResponseItems are sent inside of a Response.
+They contain the response data that is sent by the recipient of the Request.
+There are three different kinds of ResponseItems: `AcceptResponseItem`, `RejectResponseItem` and `ErrorResponseItem`.
+Depending on the actual RequestItem and the AcceptRequestItemParameters used, there can be different derivations of these three items.
+For more information, please consult the respective chapter of the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#types-of-requestitems).
 
 #### AcceptResponseItem
 

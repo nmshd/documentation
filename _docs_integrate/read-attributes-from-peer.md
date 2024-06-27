@@ -143,7 +143,7 @@ Note that the `id` of the shared Attribute of the Sender matches the `id` of the
 Lastly, if the ReadAttributeRequestItem is accepted with an existing Attribute, whose predecessor the Recipient already shared with the Sender, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be generated.
 Instead of creating an independent own shared/peer shared Attribute pair, internally an [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) is performed.
 The `id` of the already existing shared LocalAttribute predecessor is returned, as well as the `id` and `content` of the newly created successor.
-When the Sender of the Request receives the AttributeSuccessionAcceptResponseItem, the according succession will automatically be performed for them.
+When the Sender of the Request receives the AttributeSuccessionAcceptResponseItem, the according succession is automatically performed for them.
 
 In any case, the respective AcceptResponseItem will be included in the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for reading Attributes that will be transferred to the Sender.
 
