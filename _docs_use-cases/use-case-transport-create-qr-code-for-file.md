@@ -42,15 +42,15 @@ api_route_regex: ^GET /api/v2/Files/{idOrReference}$
 
 {% include properties_list.html %}
 
-Creates a QR-code for a [File]({% link _docs_integrate/data-model-overview.md %}#file) that corresponds to the given `fileId`.
+Creates a QR Code for a [File]({% link _docs_integrate/data-model-overview.md %}#file) that corresponds to the given `fileId`.
 
 ## Parameters
 
-- `fileId` is the `id` of the File the QR-code should be created for.
+- `fileId` is the `id` of the File the QR Code should be created for.
 
 ## On Success
 
-- Returns the created QR-code encoded as Base64.
+- Returns the created QR Code encoded as Base64.
 
 ## On Failure
 

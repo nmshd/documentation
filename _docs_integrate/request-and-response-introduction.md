@@ -435,12 +435,12 @@ For simplicity some properties are omitted.
 ### Working with RequestItemGroups
 
 At a job fair a company wants to offer a convenient way to get in touch with interested jobseekers.
-For this, they provide a QR-code, linking to a RelationshipTemplate.
+For this, they provide a QR Code, linking to a RelationshipTemplate.
 In its `content.onNewRelationship` property it holds a Request with two RequestItemGroups.
 One of them contains Attributes the company shares with the peer, e.g. the company name.
 The other contains Attributes it would like to query from the peer.
 In this example they are the given and surname and optionally an e-mail address, following the [Integration example]({% link _docs_integrate/integration-example.md %}).
-Now, an interested person can scan the QR-code, provide their information and send their Response inside a RelationshipCreationChangeRequest.
+Now, an interested person can scan the QR Code, provide their information and send their Response inside a RelationshipCreationChangeRequest.
 Once the company accepts the new Relationship, they can exchange Messages or other data using enmeshed.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/4ac53380-b21a-4e33-982a-aa9167c471f3" id="iDvN-GT-yvbN"></iframe></div>

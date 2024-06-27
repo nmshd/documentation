@@ -233,13 +233,13 @@ It does not matter however, who is using the RelationshipTemplate, as there is n
 
 It is possible to use a generic RelationshipTemplate multiple times, e.g. for anonymous web sites or printed flyers.
 
-It is also possible to create a generic RelationshipTemplate for every user accessing an anonymous website including a unique id of the web session. This could be handy if the website should for example redirect the user to the profile page once the user scanned the QR-code and the Relationship was accepted.
+It is also possible to create a generic RelationshipTemplate for every user accessing an anonymous website including a unique id of the web session. This could be handy if the website should for example redirect the user to the profile page once the user scanned the QR Code and the Relationship was accepted.
 
 ### Personalized RelationshipTemplates
 
 Personalized RelationshipTemplates are short-lived RelationshipTemplates including sensitive or personal data of a specific person. They are meant to be used by this specific person only, in order to share personalized data when onboarding.
 
-This is usually combined with an upfront digital authentication of the person, e.g. existing web sessions of the user. Only this specific user would then have access to the personalized RelationshipTemplate within the secured website (e.g. over an QR-code).
+This is usually combined with an upfront digital authentication of the person, e.g. existing web sessions of the user. Only this specific user would then have access to the personalized RelationshipTemplate within the secured website (e.g. over an QR Code).
 
 Personalized RelationshipTemplates are primary used for a much better onboarding experience of net-new enmeshed users: they won't need to enter their data again, even if the data is already stored somehow.
 
@@ -251,7 +251,7 @@ It should also be clear that personalized RelationshipTemplates should expire as
 Horst has an online account of his favorite webshop and is already logged in there. The webshop can create a personalized RelationshipTemplate for Horst which includes Horst's private address. If Horst scans this RelationshipTemplate, the app can automatically fill Horst's datawallet with the private address. The personalized RelationshipTemplate might expire after 5 minutes.
 
 **Example 2**
-A company has no customer system where customers can log in but would still like to submit information digitally to its customers. The company creates a personalized RelationshipTemplate for a customer, e.g. Susan and prints the QR-Code on a letter. Susan can then scan in the QR-Code and can establish a secure connection to the company, although there is no online customer system. The personalized RelationshipTemplate might expire after two weeks.
+A company has no customer system where customers can log in but would still like to submit information digitally to its customers. The company creates a personalized RelationshipTemplate for a customer, e.g. Susan and prints the QR Code on a letter. Susan can then scan in the QR Code and can establish a secure connection to the company, although there is no online customer system. The personalized RelationshipTemplate might expire after two weeks.
 
 ### RelationshipTemplate Structure
 
