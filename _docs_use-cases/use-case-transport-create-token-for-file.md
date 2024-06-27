@@ -48,7 +48,7 @@ Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for a
 
 - `fileId` is the `id` of the File the Token should be created for.
 - Optionally, `expiresAt` can be specified, which describes the ISODateTime the Token expires at.
-- Optionally, `ephemeral` can be soecified, which indicates if the Token should be ephemeral and thus not be stored and cached on the local database. This is especially useful for Tokens which are created regularly, e.g. for [RelationshipTemplates]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) and don't need to be stored.
+- Optionally, `ephemeral` can be specified, which indicates if the Token should be ephemeral and thus not be stored and cached on the local database. This is especially useful for Tokens which are created regularly, e.g. for [RelationshipTemplates]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) and don't need to be stored.
 
 ## On Success
 
