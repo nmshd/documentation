@@ -57,7 +57,7 @@ This use case uses a given file outside of enmeshed, encrypts and uploads it to 
 
 - An encrypted File is stored on the Backbone and can be shared by its references.
 - Only the metadata of the File is stored locally.
-- If `expiresAt` wasn't speficied, the expiration date of the File will be set to a default value that corresponds to zero o'clock of the 31st of December, 9999.
+- If `expiresAt` wasn't specified, the expiration date of the File will be set to a default value that corresponds to zero o'clock of the 31st of December, 9999.
 - The created File is returned.
 
 ## On Failure
