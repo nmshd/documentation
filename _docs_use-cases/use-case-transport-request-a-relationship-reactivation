@@ -1,0 +1,16 @@
+Requests the reactivation of a terminated Relationship.
+
+## Parameters
+
+-   `id` of the Relationship
+
+## On Success
+
+-   Requests the reactivation of the relationship from the peer
+-   Returns the Relationship the reactivation was requested of
+
+## On Failure
+
+-   The `id` does not resolve to a terminated Relationship
+-   You have already requested the reactivation
+-   The peer has already requested the reactivation
