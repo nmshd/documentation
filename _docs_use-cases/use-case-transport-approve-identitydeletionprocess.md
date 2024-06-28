@@ -15,7 +15,7 @@ properties:
   - facade: IdentityDeletionProcessFacade
   - function: approveIdentityDeletionProcess
   - description: Approve an IdentityDeletionProcess that has status 'WaitingForApproval' that was started by external support channel (from Backbone Admin UI)
-  - feature category: Identity Handling
+  - feature category: Identity handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
   - documentation status: DONE

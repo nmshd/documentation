@@ -15,7 +15,7 @@ properties:
   - facade: IdentityDeletionProcessFacade
   - function: initiateIdentityDeletionProcess
   - description: Initiate an IdentityDeletionProcess that has status 'Approved'
-  - feature category: Identity Handling
+  - feature category: Identity handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
   - documentation status: DONE
