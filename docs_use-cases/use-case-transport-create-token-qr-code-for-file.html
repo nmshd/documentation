@@ -10,19 +10,21 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>attributes - enmeshed</title>
+<!-- begin _includes/seo.html --><title>enmeshed - enmeshed</title>
 <meta name="description" content="enmeshed is a home of various open source components, making the digital life of users and organizations easier.">
 
 
   <meta name="author" content="enmeshed Team">
   
+  <meta property="article:author" content="enmeshed Team">
+  
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="attributes">
-<meta property="og:url" content="/tags/attributes/">
+<meta property="og:title" content="enmeshed">
+<meta property="og:url" content="/docs_use-cases/use-case-transport-create-token-qr-code-for-file">
 
 
   <meta property="og:description" content="enmeshed is a home of various open source components, making the digital life of users and organizations easier.">
@@ -33,12 +35,14 @@
 
 
 
+  <meta property="article:published_time" content="2024-06-28T12:38:06+02:00">
 
 
 
 
 
-<link rel="canonical" href="/tags/attributes/">
+
+<link rel="canonical" href="/docs_use-cases/use-case-transport-create-token-qr-code-for-file">
 
 
 
@@ -83,7 +87,7 @@
 
   </head>
 
-  <body class="layout--archive-taxonomy" dir="ltr">
+  <body class="layout--usecase" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -162,56 +166,111 @@
 
 
 
+
+
 <div id="main" role="main">
   
-
-
-  <div class="archive">
-    
-      <h1 id="page-title" class="page__title">attributes</h1>
-    
+  <div class="sidebar sticky">
+  
+  
     
       
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
+      <h3>Use-Cases enmeshed</h3>
       
-        <a href="/blog/announcing-enmeshed-v2-attributes" rel="permalink">Announcing enmeshed V2 Attributes
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
     
       
       
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          4 minute read
-        
-      </span>
     
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">This is one of the blog posts regarding enmeshed V2. For an overview of all V2 blog posts, please refer to the V2 announcement blog post.
-</p>
-  </article>
-</div>
+  </ul>
+</nav>
 
     
+    
+  
   </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2024-06-28T12:38:06+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        
+<!--<div>
+    <table>
+        
+        <tr></tr>
+        <tr></tr>
+    </table>
+</div>
+-->
+
+<p>Creates a QR code for a <a href="/integrate/data-model-overview#token">Token</a> of a <a href="/integrate/data-model-overview#file">File</a> that corresponds to the given <code class="language-plaintext highlighter-rouge">fileId</code>.</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">fileId</code> is the <code class="language-plaintext highlighter-rouge">id</code> of the File the Token and its QR code should be created for.</li>
+  <li>Optionally, <code class="language-plaintext highlighter-rouge">expiresAt</code> can be specified, which describes the ISODateTime the Token expires at.</li>
+</ul>
+
+<h2 id="on-success">On Success</h2>
+
+<ul>
+  <li>Returns the created QR code encoded as Base64.</li>
+</ul>
+
+<h2 id="on-failure">On Failure</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">fileId</code> does not resolve to a File.</li>
+  <li><code class="language-plaintext highlighter-rouge">expiresAt</code> lies in the past.</li>
+</ul>
+ 
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-06-28T12:38:06+02:00">June 28, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
 </div>
 
       

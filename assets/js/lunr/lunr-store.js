@@ -725,7 +725,7 @@ var store = [{
         "url": "/use-case-human-positive_-action",
         "teaser": null
       },{
-        "title": "Scan QR Code (on different device)",
+        "title": "Scan QR code (on different device)",
         "excerpt":"Be advised that this is an App-specific use case which is triggered by a manual user interaction. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use case describes the process of using...","categories": [],
         "tags": [],
         "url": "/use-case-human-scan_-qr-code-on-different-device",
@@ -767,6 +767,12 @@ var store = [{
         "url": "/use-case-transport-create-own-token",
         "teaser": null
       },{
+        "title": null,
+        "excerpt":"Creates a QR code for a File that corresponds to the given fileId. Parameters fileId is the id of the File the QR code should be created for. On Success Returns the created QR code encoded as Base64. On Failure fileId does not resolve to a File. expiresAt lies in...","categories": [],
+        "tags": null,
+        "url": "/docs_use-cases/use-case-transport-create-qr-code-for-file",
+        "teaser": null
+      },{
         "title": "Create Relationship with RelationshipTemplate",
         "excerpt":"This use case intends to create a Relationship based on a received RelationshipTemplate. Parameters templateId references the RelationshipTemplate that was received from a party. content can be used as a response with arbitrary data to the peer. This response is usually related to the data received by the RelationshipTemplate, e.g....","categories": [],
         "tags": [],
@@ -774,7 +780,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create Token for File",
-        "excerpt":"Creates a Token for a given file that corresponds to the given id. Parameters fileId is the id of the File the Token should be created for. expiresAt is the ISODateTime the Token expires at. ephemeral indicates if the Token should be ephemeral and thus not be stored and cached...","categories": [],
+        "excerpt":"Creates a Token for a given File that corresponds to the given fileId. Parameters fileId is the id of the File the Token should be created for. Optionally, expiresAt can be specified, which describes the ISODateTime the Token expires at. Optionally, ephemeral can be specified, which indicates if the Token...","categories": [],
         "tags": [],
         "url": "/use-case-transport-create-token-for-file",
         "teaser": null
@@ -783,6 +789,12 @@ var store = [{
         "excerpt":"Creates a Token for a given RelationshipTemplate Parameters fileId is the id of the File the Token should be created for. expiresAt is the ISODateTime the Token expires at. ephemeral indicates if the Token should be ephemeral and thus not be stored and cached on the local database. This is...","categories": [],
         "tags": [],
         "url": "/use-case-transport-create-token-for-own-relationshiptemplate",
+        "teaser": null
+      },{
+        "title": null,
+        "excerpt":"Creates a QR code for a Token of a File that corresponds to the given fileId. Parameters fileId is the id of the File the Token and its QR code should be created for. Optionally, expiresAt can be specified, which describes the ISODateTime the Token expires at. On Success Returns...","categories": [],
+        "tags": null,
+        "url": "/docs_use-cases/use-case-transport-create-token-qr-code-for-file",
         "teaser": null
       },{
         "title": "Download File of Attachment",
