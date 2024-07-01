@@ -138,9 +138,9 @@ Depending on whether the ProposeAttributeRequestItem is to be accepted or reject
 
 After the Recipient has responded to the ProposeAttributeRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
 
-- After accepting this RequestItem with a new Attribute or an existing that wasn't shared with the peer before neither itself nor any of its predecessing versions, a [ProposeAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributeacceptresponseitem) will be transferred.
-- After accepting this RequestItem with an existing Attribute that was shared with the peer already, an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) will be transferred.
-- After accepting this RequestItem with an existing Attribute whose predecessor was shared with the peer already, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be transferred.
+- After accepting this RequestItem with a new Attribute or an existing one that isn't shared with the peer already neither itself nor any of its predecessing versions, a [ProposeAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributeacceptresponseitem) will be transferred.
+- After accepting this RequestItem with an existing Attribute that was shared with the peer already, an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) will be transferred, given that the own shared LocalAttribute doesn't have `DeletedByPeer` as `deletionInfo.deletionStatus`.
+- After accepting this RequestItem with an existing Attribute whose predecessor was shared with the peer already, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be transferred, given that the own shared predecessor doesn't have `DeletedByPeer` as `deletionInfo.deletionStatus`.
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
@@ -155,9 +155,9 @@ Depending on whether the ReadAttributeRequestItem is to be accepted or rejected,
 
 After the Recipient has responded to the ReadAttributeRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
 
-- After accepting this RequestItem with a new Attribute or an existing that wasn't shared with the peer before neither itself nor any of its predecessing versions, a [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem) will be transferred.
-- After accepting this RequestItem with an existing Attribute that was shared with the peer already, an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) will be transferred.
-- After accepting this RequestItem with an existing Attribute whose predecessor was shared with the peer already, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be transferred.
+- After accepting this RequestItem with a new Attribute or an existing one that isn't shared with the peer already neither itself nor any of its predecessing versions, a [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem) will be transferred.
+- After accepting this RequestItem with an existing Attribute that was shared with the peer already, an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) will be transferred, given that the own shared LocalAttribute doesn't have `DeletedByPeer` as `deletionInfo.deletionStatus`.
+- After accepting this RequestItem with an existing Attribute whose predecessor was shared with the peer already, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be transferred, given that the own shared predecessor doesn't have `DeletedByPeer` as `deletionInfo.deletionStatus`.
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
