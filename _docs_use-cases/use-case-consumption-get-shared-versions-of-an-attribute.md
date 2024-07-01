@@ -57,7 +57,7 @@ In case of [RelationshipAttributes]({% link _docs_integrate/data-model-overview.
 ## On Success
 
 - A list of shared LocalAttribute versions of the source Attribute belonging to the `attributeId` given as input is returned.
-- If `peers` were speficied, the list is limited to the entries shared with those peers.
+- If `peers` were specified, the list is limited to the entries shared with those peers.
 - If `onlyLatestVersions` is disabled, all versions will be returned, even if they already have successors.
 
 ## On Failure

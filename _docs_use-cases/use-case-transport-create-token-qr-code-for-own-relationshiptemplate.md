@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use-case-transport-create-token-qr-code-for-own-relationshiptemplate
 published: false
-title: "Create Token QR Code for own RelationshipTemplate"
+title: "Create Token QR code for own RelationshipTemplate"
 type: use-case
 toc: true
 sidebar:
