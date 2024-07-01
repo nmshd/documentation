@@ -343,7 +343,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "AMQP",
-      "config": {
+      "configuration": {
         "url": "amqp://example.com:5672",
         "exchange": "myExchange"
       }
@@ -373,7 +373,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "MQTT",
-      "config": {
+      "configuration": {
         "url": "mqtt://example.com:1883"
       }
     }
@@ -394,7 +394,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "PubSub",
-      "config": {
+      "configuration": {
         "projectId": "myProjectId",
         "topicName": "myTopicName",
         "keyFile": "/path/to/keyfile.json"
@@ -423,7 +423,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "Redis",
-      "config": {
+      "configuration": {
         "url": "redis://example.com:6379"
       }
     }
