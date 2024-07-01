@@ -62,9 +62,10 @@ Moreover, it is also possible to notify a peer about the succession of an Identi
 
 ## On Failure
 
-- The response cannot be created, if the `peer` is unknown.
-- The response cannot be created, if the `attributeId` belongs to a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
-- The response cannot be created, if the `attributeId` belongs to an IdentityAttribute with a `shareInfo`.
-- The response cannot be created, if you already notified the peer about the succession of the Attribute.
-- The response cannot be created, if you haven't shared a version of the Attribute with the peer before. To initially share an IdentityAttribute, use the [ShareIdentityAttribute use-case]({% link _docs_use-cases/use-case-consumption-share-a-repositoryattribute.md %}).
-- The response cannot be created, if the parameters are malformed.
+- The response cannot be created if the `peer` is unknown.
+- The response cannot be created if the `attributeId` belongs to a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
+- The response cannot be created if the `attributeId` belongs to an IdentityAttribute with a `shareInfo`.
+- The response cannot be created if you already notified the peer about the succession of the Attribute.
+- The response cannot be created if you haven't shared a version of the Attribute with the peer before. To initially share an IdentityAttribute, use the [ShareIdentityAttribute use-case]({% link _docs_use-cases/use-case-consumption-share-a-repositoryattribute.md %}).
+- The response cannot be created if the latest previous version you shared has `DeletedByPeer` as `deletionInfo.deletionStatus`.
+- The response cannot be created if the parameters are malformed.
