@@ -46,7 +46,7 @@ Be advised that calling this use case to sync the Identity/Device on a regular b
 Please configure the [SyncModule]({% link _docs_operate/modules.md %}#sync) and use eventing instead.
 {: .notice--warning}
 
-This use case retrieves all relevant data changes between the current Identity (and Device) and the Backbone since the last synchronization. The relevant data are so far new RelationshipChanges and Messages.
+This use case retrieves all relevant data changes between the current Identity (and Device) and the Backbone since the last synchronization. The relevant data so far are new Messages and new/changed Relationships.
 
 ## On Success
 

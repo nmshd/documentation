@@ -218,12 +218,12 @@ Finally, fill out the required fields and click on "Add contact" to send the Rel
 
 ### Connector: Accept the Relationship Request
 
-In order to move the Relationship into the `Active` state, we now need to [accept the Relationship Request]({% link _docs_use-cases/use-case-transport-accept-relationshipchange.md %}) with the Connector.
+In order to move the Relationship into the `Active` state, we now need to [accept the Relationship Request]({% link _docs_use-cases/use-case-transport-accept-relationship.md %}) with the Connector.
 To do so, we [synchronize updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), which will fetch all changes that occurred since the last time this endpoint was executed.
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
-In the Response we will receive the created Relationship, which contains the corresponding [RelationshipCreationChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange).
+In the Response we will receive the created Relationship.
 
 Example:
 
@@ -236,22 +236,14 @@ Example:
         "id": "RELmJj25x2bZW0VXzAiQ",
         ...
         "status": "Pending",
-        "peer": "id19Sy75wjCWhQSxsbMiGLn6iSBfWvQmot5b",
-        "changes": [
-          {
-            "id": "RCHUwBw7BWlROPlEjb51",
-            ...
-            "status": "Pending",
-            "type": "Creation"
-          }
-        ]
+        "peer": "id19Sy75wjCWhQSxsbMiGLn6iSBfWvQmot5b"
       }
     ]
   }
 }
 ```
 
-{% include copy-notice description="Save the `id` of the Relationship (`REL_________________`), as well as the `id` of the first RelationshipChange (`RCH_________________`) in the `changes` array and use them as input to the `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept` route. You can leave that Request body as it is." %}
+{% include copy-notice description="Save the `id` of the Relationship (`REL_________________`) and use it as input to the `PUT /api/v2/Relationships/{id}/Accept` route. You can leave that Request body as it is." %}
 
 {% include rapidoc api_route_regex="^put /api/v2/Relationships/{id}/Changes/{changeId}/Accept$" %}
 

@@ -52,7 +52,7 @@ This use case is intended to create and instantly complete an outgoing Request w
 
 - `templateId` identifies the RelationshipTemplate the response originates from.
 - `responseSourceId` references the response either a [message]({% link _docs_integrate/data-model-overview.md %}#Message)
-  or a [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange).
+  or a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship).
 - `response` is the content of the response.
 
 ## On Success
