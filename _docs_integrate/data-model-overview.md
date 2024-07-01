@@ -93,7 +93,7 @@ A Relationship between two Identities is the prerequisite for them to exchange M
 | template | [`RelationshipTemplate`](#relationshiptemplate)          | The RelationshipTemplate that was used to establish this Relationship.                                                                                                                                                                                                                                                                                                                                                                                       |         |
 | status   | `"Pending"` \| `"Active"` \| `"Rejected"` \| `"Revoked"` | The status of this Relationship. <br>{::nomarkdown}<ul><li>Pending: the Relationship was created, but not yet accepted the recipient. In this state you cannot send Messages yet.</li><li>Active: this means that the Relationship is active. As long as it is active, both participants can exchange Messages.</li><li>Rejected: the Relationship was rejected by the recipient.</li><li>Revoked: the Relationship was revoked by the sender.</li></ul>{:/} |         |
 
-| creationContent | []
+| creationContent | `unknown` | The creationContent is chosen freely when creating a Relationship. | |
 
 | peer | `string` | The Address of the Identity with which you have this Relationship. | saved only locally |
 
