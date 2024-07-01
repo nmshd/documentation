@@ -44,10 +44,10 @@ Note that the properties of the types are the ones that exist locally (aka on th
 
 ## Token
 
-Tokens can be used to save arbitrary structured data on the Backbone, which is encrypted with a random symmetric key. You can then pass the ID of the Token, together with the random key, to another Identity, which can then retrieve the token and decrypt it, e.g. inside of a QR Code, which you send to the recipient via letter. Tokens can be handy in a lot of scenarios, for example:
+Tokens can be used to save arbitrary structured data on the Backbone, which is encrypted with a random symmetric key. You can then pass the ID of the Token, together with the random key, to another Identity, which can then retrieve the token and decrypt it, e.g. inside of a QR code, which you send to the recipient via letter. Tokens can be handy in a lot of scenarios, for example:
 
 - You want to share secret information with someone you don't have a Relationship with.
-- The enmeshed App currently uses a Token to save a Backup of the Identity. ID and secret key are then encoded in a QR Code, which the user can print out and scan later in order to restore the Identity on a new device.
+- The enmeshed App currently uses a Token to save a Backup of the Identity. ID and secret key are then encoded in a QR code, which the user can print out and scan later in order to restore the Identity on a new device.
 
 A Token has the following properties:
 

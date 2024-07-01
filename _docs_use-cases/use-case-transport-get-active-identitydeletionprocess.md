@@ -15,7 +15,7 @@ properties:
   - facade: IdentityDeletionProcessFacade
   - function: getActiveIdentityDeletionProcess
   - description: Get IdentityDeletionProcess that is in status 'WaitingForApproval' or 'Approved'
-  - feature category: Identity Handling
+  - feature category: Identity handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
   - documentation status: DONE
