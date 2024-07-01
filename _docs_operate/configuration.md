@@ -328,13 +328,13 @@ It is not recommended to use this Module for production scenarios.
 
 - **enabled** `default: false`
 
-  Enable or disable the sync Module.
+  Enable or disable the messageBrokerPublisher Module.
 
 - **brokers** `default: []`
 
   Here you can define multiple brokers to which the Connector should publish messages.
 
-  Each broker consists of a `type` (string) and a `config` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `config` object contains the configuration for the broker.
+  Each broker consists of a `type` (string) and a `configuration` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `configuration` object contains the configuration for the broker.
 
   - type `AMQP`
 
@@ -343,7 +343,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "AMQP",
-      "config": {
+      "configuration": {
         "url": "amqp://example.com:5672",
         "exchange": "myExchange"
       }
@@ -373,7 +373,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "MQTT",
-      "config": {
+      "configuration": {
         "url": "mqtt://example.com:1883"
       }
     }
@@ -394,7 +394,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "PubSub",
-      "config": {
+      "configuration": {
         "projectId": "myProjectId",
         "topicName": "myTopicName",
         "keyFile": "/path/to/keyfile.json"
@@ -423,7 +423,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "Redis",
-      "config": {
+      "configuration": {
         "url": "redis://example.com:6379"
       }
     }
