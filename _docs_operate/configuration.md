@@ -334,7 +334,7 @@ It is not recommended to use this Module for production scenarios.
 
   Here you can define multiple brokers to which the Connector should publish messages.
 
-  Each broker consists of a `type` (string) and a `config` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `config` object contains the configuration for the broker.
+  Each broker consists of a `type` (string) and a `configuration` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `configuration` object contains the configuration for the broker.
 
   - type `AMQP`
 
