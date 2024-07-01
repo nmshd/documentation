@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Performance Considerations - enmeshed</title>
-<meta name="description" content="Scaling Horizontally">
+<!-- begin _includes/seo.html --><title>enmeshed - enmeshed</title>
+<meta name="description" content="enmeshed is a home of various open source components, making the digital life of users and organizations easier.">
 
 
   <meta name="author" content="enmeshed Team">
@@ -23,11 +23,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Performance Considerations">
-<meta property="og:url" content="/versions/v5/operate/performance-considerations">
+<meta property="og:title" content="enmeshed">
+<meta property="og:url" content="/versions/v5/docs_use-cases/use-case-transport-create-token-qr-code-for-file">
 
 
-  <meta property="og:description" content="Scaling Horizontally">
+  <meta property="og:description" content="enmeshed is a home of various open source components, making the digital life of users and organizations easier.">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/versions/v5/operate/performance-considerations">
+<link rel="canonical" href="/versions/v5/docs_use-cases/use-case-transport-create-token-qr-code-for-file">
 
 
 
@@ -92,7 +92,7 @@
 
   </head>
 
-  <body class="layout--single" dir="ltr">
+  <body class="layout--usecase" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -180,7 +180,7 @@
   
     
       
-      <h3>Operate enmeshed</h3>
+      <h3>Use-Cases enmeshed</h3>
       
       <nav class="nav__list">
   
@@ -189,76 +189,6 @@
   <ul class="nav__items">
     
       
-      
-        <li>
-          
-            <span class="nav__sub-title">Connector Setup</span>
-          
-
-          
-          <ul>
-            
-              <li><a href="/versions/v5/operate/setup-with-docker-compose">Setup with Docker Compose</a></li>
-            
-              <li><a href="/versions/v5/operate/setup-with-helm-charts">Setup with Helm Charts</a></li>
-            
-              <li><a href="/versions/v5/operate/configuration">Configuration</a></li>
-            
-              <li><a href="/versions/v5/operate/modules">Modules</a></li>
-            
-          </ul>
-          
-        </li>
-      
-        <li>
-          
-            <span class="nav__sub-title">Connector Operations</span>
-          
-
-          
-          <ul>
-            
-              <li><a href="/versions/v5/operate/overview-of-connector-operations">Overview of Connector operations</a></li>
-            
-              <li><a href="/versions/v5/operate/security-considerations">Security Considerations</a></li>
-            
-              <li><a href="/versions/v5/operate/privacy-considerations">Privacy Considerations</a></li>
-            
-              <li><a href="/versions/v5/operate/performance-considerations" class="active">Performance Considerations</a></li>
-            
-          </ul>
-          
-        </li>
-      
-        <li>
-          
-            <span class="nav__sub-title">Backbone Operations</span>
-          
-
-          
-          <ul>
-            
-              <li><a href="/versions/v5/operate/log-event-ids">Log Event IDs</a></li>
-            
-          </ul>
-          
-        </li>
-      
-        <li>
-          
-            <span class="nav__sub-title">Troubleshooting</span>
-          
-
-          
-          <ul>
-            
-              <li><a href="/versions/v5/operate/troubleshooting-guide">Troubleshooting Guide</a></li>
-            
-              <li><a href="/versions/v5/operate/support">Support</a></li>
-            
-          </ul>
-          
-        </li>
       
     
   </ul>
@@ -272,18 +202,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Performance Considerations">
-    <meta itemprop="description" content="Scaling Horizontally">
+    
+    <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2024-07-01T14:09:47+02:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/versions/v5/operate/performance-considerations" itemprop="url">Performance Considerations
-</a>
-          </h1>
+          
           
 
 
@@ -292,16 +219,38 @@
 
       <section class="page__content" itemprop="text">
         
-          <aside class="sidebar__right ">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#scaling-horizontally">Scaling Horizontally</a></li></ul>
-            </nav>
-          </aside>
         
-        <h2 id="scaling-horizontally">Scaling Horizontally</h2>
+<!--<div>
+    <table>
+        
+        <tr></tr>
+        <tr></tr>
+    </table>
+</div>
+-->
 
-<p>Using multiple Connectors with the same Identity to scale horizontally and balance the workload across all available Connectors is not supported at the moment.</p>
+<p>Creates a QR code for a <a href="/versions/v5/integrate/data-model-overview#token">Token</a> of a <a href="/versions/v5/integrate/data-model-overview#file">File</a> that corresponds to the given <code class="language-plaintext highlighter-rouge">fileId</code>.</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">fileId</code> is the <code class="language-plaintext highlighter-rouge">id</code> of the File the Token and its QR code should be created for.</li>
+  <li>Optionally, <code class="language-plaintext highlighter-rouge">expiresAt</code> can be specified, which describes the ISODateTime the Token expires at.</li>
+</ul>
+
+<h2 id="on-success">On Success</h2>
+
+<ul>
+  <li>Returns the created QR code encoded as Base64.</li>
+</ul>
+
+<h2 id="on-failure">On Failure</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">fileId</code> does not resolve to a File.</li>
+  <li><code class="language-plaintext highlighter-rouge">expiresAt</code> lies in the past.</li>
+</ul>
+ 
 
         
       </section>
