@@ -328,7 +328,7 @@ It is not recommended to use this Module for production scenarios.
 
 - **enabled** `default: false`
 
-  Enable or disable the sync Module.
+  Enable or disable the messageBrokerPublisher Module.
 
 - **brokers** `default: []`
 
