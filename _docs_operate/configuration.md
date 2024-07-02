@@ -559,6 +559,13 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
   }
   ```
 
+- **skipTlsCheck** `default: false`
+
+  Skip the TLS certificate check for https request to all targets.
+
+  This is a security risk and should only be used if you know what you are doing.
+  {: .notice--danger}
+
 - **webhooks** `default: []`
 
   The webhooks that will be called. A webhook consists of one or more [Connector Events]({% link _docs_integrate/connector-events.md %}) on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the `targets` object.
