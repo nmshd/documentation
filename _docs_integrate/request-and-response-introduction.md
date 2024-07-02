@@ -29,7 +29,9 @@ Requests are unique between Identities and can only be processed once by a singl
 Each Request can only have a single Response, which responds to the complete Request and contains all the information the requestor needs.
 The Request-Response flow allows to establish transactional behavior between Identities.
 
-Please note that there are some data structures used in the context of enmeshed, that also use the terms "Request" and "Response" in their name, but do not correspond to the objects described on this page, e.g. [RelationshipChangeRequest]({% link _docs_integrate/data-model-overview.md %}#relationshipchangerequest) and [RelationshipChangeResponse]({% link _docs_integrate/data-model-overview.md %}#relationshipchangeresponse).
+Please note that there are some data structures used in the context of enmeshed, that also use the terms "Request" and "Response" in their name, but do not correspond to the objects described on this page, e.g.
+
+<!-- TODO -->
 
 ## Requests
 
