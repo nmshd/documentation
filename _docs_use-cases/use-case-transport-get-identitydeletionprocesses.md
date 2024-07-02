@@ -15,7 +15,7 @@ properties:
   - facade: IdentityDeletionProcessFacade
   - function: getIdentityDeletionProcesses
   - description: Get all IdentityDeletionProcesses
-  - feature category: Identity Handling
+  - feature category: Identity handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
   - documentation status: DONE

@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use-case-transport-get-qr-code-for-single-token
 published: false
-title: "Get QR Code for single Token"
+title: "Get QR code for single Token"
 type: use-case
 toc: true
 sidebar:
