@@ -79,7 +79,10 @@ To do so, execute `POST /api/v2/Attributes` with the following payload:
 }
 ```
 
-You can query the Connector's address via the route `/api/v2/Account/IdentityInfo`. If you are using the Demo Connector of this Tutorial, the address is `id134nJmN7E4Carb6KyRJyePVnXxVHEYQgWD`.
+You can query the Connector's address via the route `/api/v2/Account/IdentityInfo`. If you are using the Demo Connector of this Tutorial, the address is
+
+<!-- TODO -->
+
 {: .notice--info}
 
 {% include rapidoc api_route_regex="^post /api/v2/Attributes$" %}
