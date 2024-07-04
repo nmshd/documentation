@@ -24,7 +24,7 @@ export async function paraphrase(content: string): Promise<OpenAI.Chat.Completio
     const systemMessage: ChatMessage = {
         role: "system",
         content:
-            "you paraphrase the text of a technical documentation in fluent, professional-sounding english business, and output the result as jekyll markdown, keep existing links, html, attributes and values in inline code"
+            "you paraphrase the text of a technical documentation in formal professional english and output the result as jekyll markdown, keep existing links, html, attributes and values in inline code"
     };
     const userMessage: ChatMessage = { role: "user", content: content };
     return createChatCompletion([systemMessage, userMessage]);
@@ -34,7 +34,7 @@ export async function summarize(content: string): Promise<OpenAI.Chat.Completion
     const systemMessage: ChatMessage = {
         role: "system",
         content:
-            "you summarize in a short text without headlines the text of a technical documentation in fluent, professional-sounding english business, and output the result as jekyll markdown, try to use links from text in jekyll format"
+            "you summarize in a short text without headlines the text of a technical documentation in formal, professional-sounding english and output the result as jekyll markdown, try to use links from text in jekyll format"
     };
     const userMessage: ChatMessage = { role: "user", content: content };
     return createChatCompletion([systemMessage, userMessage]);
