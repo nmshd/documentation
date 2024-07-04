@@ -88,7 +88,7 @@ You can query the Connector's address via the route `/api/v2/Account/IdentityInf
 
 ### Connector: Test your Request's Validity
 
-Next, we want to create a RelationshipTemplate, that can be used by the App to send a Relationship Request to our Connector.
+Next, we want to create a RelationshipTemplate, that can be used by the App to send a pending Relationship to our Connector.
 The content of the RelationshipTemplate can be widely configured, but for simplicity we will use a [Request]({% link _docs_integrate/data-model-overview.md %}#request) with just two [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in our example.
 On the one hand, we want to [share an Attribute]({% link _docs_integrate/share-attributes-with-peer.md %}) with the App, namely the display name of our Connector we created in the previous step.
 For this, we use a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem).
@@ -218,7 +218,7 @@ Finally, fill out the required fields and click on "Add contact" to send the Rel
 
 ### Connector: Accept the Relationship
 
-In order to move the Relationship into the `Active` state, we now need to [accept the Relationship Request]({% link _docs_use-cases/use-case-transport-accept-relationship.md %}) with the Connector.
+In order to move the Relationship into the `Active` state, we now need to [accept the Relationship]({% link _docs_use-cases/use-case-transport-accept-relationship.md %}) with the Connector.
 To do so, we [synchronize updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), which will fetch all changes that occurred since the last time this endpoint was executed.
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}

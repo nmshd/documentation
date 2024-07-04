@@ -216,7 +216,7 @@ In addition to technical information like public keys, certificates or signature
   - Data privacy guidelines
   - EULAs
 
-A RelationshipTemplate needs to be created in order to receive Relationship requests and ultimately create an active Relationship between two Identities. The RelationshipTemplate is then usually shared with the user via a token.
+A RelationshipTemplate needs to be created in order to receive pending Relationships and ultimately create an active Relationship between two Identities. The RelationshipTemplate is then usually shared with the user via a token.
 
 RelationshipTemplates can be both: Identity-specific (RelationshipTemplate is personalized for one specific Identity - which might not exist yet) or Identity-agnostic (RelationshipTemplate is open for multiple Identities).
 

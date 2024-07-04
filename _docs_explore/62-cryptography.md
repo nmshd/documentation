@@ -51,7 +51,7 @@ The Identity's public key which acts as the primary form of verifying data signe
 
 With the Identity's public key, the Identity's address is calculated.
 
-Usually, you receive another Identity's signature public key while making the first contact (e.g. from the RelationshipTemplate or the Relationship request followed upon it).
+Usually, you receive another Identity's signature public key while making the first contact (e.g. from the RelationshipTemplate or the pending Relationship followed upon it).
 
 ### Synchronization Base Secret Key
 
