@@ -245,7 +245,7 @@ Example:
 
 {% include copy-notice description="Save the `id` of the Relationship (`REL_________________`) and use it as input to the `PUT /api/v2/Relationships/{id}/Accept` route. You can leave that Request body as it is." %}
 
-{% include rapidoc api_route_regex="^put /api/v2/Relationships/{id}/Changes/{changeId}/Accept$" %}
+{% include rapidoc api_route_regex="^put /api/v2/Relationships/{id}/Accept$" %}
 
 Now the Relationship is in the `Active` state, so we can start to communicate with the opposite Identity, which we will do in the next part of this tutorial.
 For this, we will need the address of that Identity.
