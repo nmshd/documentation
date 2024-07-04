@@ -93,7 +93,7 @@ A Relationship between two Identities is the prerequisite for them to exchange M
 | template | [`RelationshipTemplate`](#relationshiptemplate)          | The RelationshipTemplate that was used to establish this Relationship.                                                                                                                                                                                                                                                                                                                                                                                       |         |
 | status   | `"Pending"` \| `"Active"` \| `"Rejected"` \| `"Revoked"` | The status of this Relationship. <br>{::nomarkdown}<ul><li>Pending: the Relationship was created, but not yet accepted the recipient. In this state you cannot send Messages yet.</li><li>Active: this means that the Relationship is active. As long as it is active, both participants can exchange Messages.</li><li>Rejected: the Relationship was rejected by the recipient.</li><li>Revoked: the Relationship was revoked by the sender.</li></ul>{:/} |         |
 
-| creationContent | `unknown` | The creationContent is chosen freely when creating a Relationship. | |
+| creationContent | [`RelationshipCreationContent`](#relationshipcreationcontent) \| `unknown` | The content sent along when the Relationship is created. You can add whatever you want here. However, if the other party uses the enmeshed App, [`RelationshipCreationContent`](#relationshipcreationcontent) has to be used. Otherwise feel free to insert whatever you want or need. | will be encrypted before sent to the Backbone |
 
 | peer | `string` | The Address of the Identity with which you have this Relationship. | saved only locally |
 
@@ -845,10 +845,10 @@ Theoretically you can send any kind of data in a RelationshipTemplate. However, 
 The naming on this one in combination with its `response` property is a bit confusing. Even though the `RelationshipCreationChangeRequestContent` contains the word "Request", it has a `response` property.
 This is because in the context of Relationships, there are [RelationshipChanges](#relationshipchange), which have a `request` and a `response` property. But caution: these have nothing to do with the Content-types `Request` and `Response`.
 
-| Name     | Type                            | Description                                                                                                                                                                                                 |
-| -------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| @type    | `"RelationshipCreationContent"` |                                                                                                                                                                                                             |
-| response | [`Response`](#response)         | The Response to the Request that was contained in the [RelationshipTemplateContent](#relationshiptemplatecontent) (either in the `onExistingRelationship` property or in the `onNewRelationship` property). |
+| Name     | Type                            | Description                                                                                                                                              |
+| -------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| @type    | `"RelationshipCreationContent"` |                                                                                                                                                          |
+| response | [`Response`](#response)         | The Response to the Request that was contained in the [RelationshipTemplateContent](#relationshiptemplatecontent) (in the `onNewRelationship` property). |
 
 ## Mail
 

@@ -193,7 +193,7 @@ For this, execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Hea
 
 {% include rapidoc api_route_regex="^get /api/v2/RelationshipTemplates/{id}$" %}
 
-### App: Send a Relationship Request
+### App: Send a Pending Relationship
 
 Open the created QR code and start the enmeshed App. Depending on what you already did with the App, choose one of the following paths:
 
@@ -214,9 +214,9 @@ All three paths should result in a screen similar to the one below, where you ca
 
 !["Add contact" screen]( {{ '/assets/images/add-contact-screen.jpg' | relative_url }} )
 
-Finally, fill out the required fields and click on "Add contact" to send the Relationship Request. This will create a new Relationship between the App and the Connector. This Relationship has the status `Pending` for now.
+Finally, fill out the required fields and click on "Add contact" to send the Relationship. This will create a new Relationship between the App and the Connector. This Relationship has the status `Pending` for now.
 
-### Connector: Accept the Relationship Request
+### Connector: Accept the Relationship
 
 In order to move the Relationship into the `Active` state, we now need to [accept the Relationship Request]({% link _docs_use-cases/use-case-transport-accept-relationship.md %}) with the Connector.
 To do so, we [synchronize updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), which will fetch all changes that occurred since the last time this endpoint was executed.
