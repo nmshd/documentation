@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-07-03T13:32:36+02:00">
+  <meta property="article:published_time" content="2024-07-04T15:52:40+02:00">
 
 
 
@@ -338,7 +338,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2024-07-03T13:32:36+02:00">
+    <meta itemprop="datePublished" content="2024-07-04T15:52:40+02:00">
     
 
     <div class="page__inner-wrap">
@@ -2970,7 +2970,7 @@ Internally, for your corresponding third party owned RelationshipAttribute the <
 
 <h3 id="thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</h3>
 
-<p>If you want to query Attributes the user has in the context of a Relationship with a third party, you can use the <code class="language-plaintext highlighter-rouge">ThirdPartyRelationshipAttributeQuery</code>. An example would be the query for the number of a bonus card managed by another company (like Payback). A ThirdPartyRelationshipAttributeQuery has the following properties:</p>
+<p>If you want to query RelationshipAttributes the Recipient has in the context of a Relationship with a third party, you can use the <code class="language-plaintext highlighter-rouge">ThirdPartyRelationshipAttributeQuery</code>. An example would be the query for the number of a bonus card managed by another company (like Payback). A ThirdPartyRelationshipAttributeQuery has the following properties:</p>
 
 <table>
   <thead>
@@ -2989,27 +2989,27 @@ Internally, for your corresponding third party owned RelationshipAttribute the <
     <tr>
       <td>validFrom</td>
       <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>The start date of the time frame the returned Attribute should be valid in.</td>
+      <td>The start date of the time frame the returned RelationshipAttribute should be valid in.</td>
     </tr>
     <tr>
       <td>validTo</td>
       <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>The end date of the time frame the returned Attribute should be valid in.</td>
+      <td>The end date of the time frame the returned RelationshipAttribute should be valid in.</td>
     </tr>
     <tr>
       <td>key</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The key of the RelationshipAttribute that should be queried.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">key</code> of the RelationshipAttribute that should be queried.</td>
     </tr>
     <tr>
       <td>owner</td>
-      <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The owner of the queried RelationshipAttribute. Can be an empty string (<code class="language-plaintext highlighter-rouge">""</code>), if the owner is unknown or you are querying from multiple thirdParties that could own the Attribute.</td>
+      <td><code class="language-plaintext highlighter-rouge">"recipient"</code> | <code class="language-plaintext highlighter-rouge">"thirdParty"</code> | <code class="language-plaintext highlighter-rouge">""</code></td>
+      <td>The <code class="language-plaintext highlighter-rouge">owner</code> of the queried RelationshipAttribute. Specify the string <code class="language-plaintext highlighter-rouge">"recipient"</code> if the Recipient should be the <code class="language-plaintext highlighter-rouge">owner</code> of the queried RelationshipAttribute. Use the string <code class="language-plaintext highlighter-rouge">"thirdParty"</code> if any of the third parties specified in the array string <code class="language-plaintext highlighter-rouge">thirdParty</code> should be the <code class="language-plaintext highlighter-rouge">owner</code>. If both the Recipient and each of the given third parties may be the <code class="language-plaintext highlighter-rouge">owner</code>, an empty string <code class="language-plaintext highlighter-rouge">""</code> must be specified. Using this option is useful if the <code class="language-plaintext highlighter-rouge">owner</code> of the queried RelationshipAttribute is not known in advance.</td>
     </tr>
     <tr>
       <td>thirdParty</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code></td>
-      <td>The Address of the third parties the RelationshipAttribute should be queried from.</td>
+      <td>The Addresses of the third parties the RelationshipAttribute should be queried from.</td>
     </tr>
   </tbody>
 </table>
@@ -3394,7 +3394,7 @@ For example, an AuthenticationRequestItem can be accepted using the AcceptReques
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-07-03T13:32:36+02:00">July 3, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-07-04T15:52:40+02:00">July 4, 2024</time></p>
 
       </footer>
 
