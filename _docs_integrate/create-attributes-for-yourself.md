@@ -47,7 +47,7 @@ To create a RepositoryAttribute, proceed as described in the [Create a Repositor
       // IdentityAttribute value
       ...
     },
-    "tags": ["<additional information 1>", ..., "<additional information n>"]
+    "tags": ["<tag of IdentityAttribute to be created>", ...]
   }
 }
 ```
