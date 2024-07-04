@@ -185,10 +185,10 @@ A File further has its content, of course. But since this is not a JSON property
 
 ## Identity
 
-| Name      | Type     | Description                                                     | Remarks |
-| --------- | -------- | --------------------------------------------------------------- | ------- |
-| address   | `string` | The unique address of the Identity.                             |         |
-| publicKey | `string` | The public key of the Identity.                                 |         |
+| Name      | Type     | Description                         | Remarks |
+| --------- | -------- | ----------------------------------- | ------- |
+| address   | `string` | The unique address of the Identity. |         |
+| publicKey | `string` | The public key of the Identity.     |         |
 
 ## IdentityDeletionProcess
 
