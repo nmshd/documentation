@@ -241,7 +241,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   The name of the AMQP exchange to publish to.
 
-#### autoAcceptRelationshipCreationChanges <a href="{% link _docs_operate/modules.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationshipcreationchanges}
+#### autoAcceptRelationships <a href="{% link _docs_operate/modules.md %}#autoacceptrelationships"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationships}
 
 It is not recommended to use this Module for production scenarios.
 {: .notice--danger}
@@ -253,9 +253,8 @@ It is not recommended to use this Module for production scenarios.
   // ...
 
   "modules": {
-    "autoAcceptRelationshipCreationChanges": {
-      "enabled": false,
-      "responseContent": {}
+    "autoAcceptRelationships": {
+      "enabled": false
     }
   }
 }
@@ -264,10 +263,6 @@ It is not recommended to use this Module for production scenarios.
 - **enabled** `default: false`
 
   Enable or disable the autoAcceptRelationshipCreationChanges Module.
-
-- **responseContent** `default: {}`
-
-  The content that is used to accept the incoming Relationship Request.
 
 #### coreHttpApi <a href="{% link _docs_operate/modules.md %}#corehttpapi"><i class="fas fa-fw fa-info-circle"/></a> {#corehttpapi}
 
