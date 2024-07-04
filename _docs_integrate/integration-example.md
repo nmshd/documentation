@@ -56,8 +56,8 @@ However, it could be another Connector, as well, e.g. if two companies want to e
 
 The way we will establish the Relationship is via a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
 This is created by the Connector and contains its display name, as well as the data it would like to receive from the other Identity.
-Then, the App user fills out all required information of the RelationshipTemplate and sends the RelationshipRequest to the Connector.
-It in turn accepts the Request, which results in the creation of a new Relationship.
+Then, the App user fills out all required information of the RelationshipTemplate and sends a pending Relationship to the Connector.
+It in turn accepts the Relationship, which results in an active Relationship.
 
 ### Connector: Create an Attribute
 

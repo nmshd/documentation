@@ -262,7 +262,7 @@ It is not recommended to use this Module for production scenarios.
 
 - **enabled** `default: false`
 
-  Enable or disable the autoAcceptRelationshipCreationChanges Module.
+  Enable or disable the autoAcceptRelationships Module.
 
 #### coreHttpApi <a href="{% link _docs_operate/modules.md %}#corehttpapi"><i class="fas fa-fw fa-info-circle"/></a> {#corehttpapi}
 

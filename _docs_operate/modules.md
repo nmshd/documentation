@@ -41,7 +41,7 @@ Compared to [webhooks](#webhooks), this gives you the full feature set of a mess
 - You need persistence for the triggered [events]({% link _docs_integrate/connector-events.md %}).
 - You want to integrate enmeshed into an already existing message broker.
 
-### Auto Accept Relationships <a href="{% link _docs_operate/configuration.md %}#autoacceptrelationships"><i class="fas fa-fw fa-cog"/></a> {#autoacceptrelationshipcreationchanges}
+### Auto Accept Relationships <a href="{% link _docs_operate/configuration.md %}#autoacceptrelationships"><i class="fas fa-fw fa-cog"/></a> {#autoacceptrelationships}
 
 It is not recommended to use this Module for production scenarios.
 {: .notice--danger}

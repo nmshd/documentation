@@ -842,8 +842,7 @@ Theoretically you can send any kind of data in a RelationshipTemplate. However, 
 
 ## RelationshipCreationContent
 
-The naming on this one in combination with its `response` property is a bit confusing. Even though the `RelationshipCreationChangeRequestContent` contains the word "Request", it has a `response` property.
-This is because in the context of Relationships, there are [RelationshipChanges](#relationshipchange), which have a `request` and a `response` property. But caution: these have nothing to do with the Content-types `Request` and `Response`.
+Theoretically you can send any kind of data in a Relationship's creation content. However, if the RelationshipTemplate's content was of type `RelationshipTemplateContent`, the creation content must be of type `RelationshipCreationContent`, containing the Response to the Template's Request on new Relationship.
 
 | Name     | Type                            | Description                                                                                                                                              |
 | -------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
