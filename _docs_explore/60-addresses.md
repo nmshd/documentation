@@ -3,6 +3,8 @@ title: "enmeshed Addresses"
 permalink: /explore/addresses
 ---
 
+<!-- TODO: consider new enmeshed key types  -->
+
 The Address is the primary identifier for an enmeshed Identity. It is public and created out of the Identity’s Signature Public Key. Thus, the Identity’s root signature key and its corresponding Address are interlinked with each other and cannot be changed. Nobody is able to change the public key for a corresponding Address and everybody has the possibility to check, if a given public key matches a given Address without having to trust someone. Both are important security features.
 
 - As Addresses do not contain special characters, copy and pasting via double-click is supported.
@@ -18,7 +20,7 @@ The same Identity (Identity Signature Key Pair) may act within different backbon
 
 ## Syntax
 
-An Address follows the DID syntax and is `did:e:<backbone-base-url>:dids:<public-key-hash><checksum>`. Public-Key-Hash and Checksum are hexadecimal-encoded, 10 bytes for the hash of the Identity’s Signature Public Key, 1 byte for the checksum of the Address.
+An Address follows the DID syntax and is `did:e:<backbone-base-url>:dids:<public-key-hash><checksum>`. Public-Key-Hash and Checksum are lower-case hexadecimal-encoded, 10 bytes for the hash of the Identity’s Signature Public Key, 1 byte for the checksum of the Address.
 
 ## Address Creation
 
