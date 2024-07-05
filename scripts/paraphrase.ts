@@ -1,5 +1,6 @@
 import { exec } from "child_process";
 import * as fs from "fs";
+import * as readline from "readline";
 import * as openai from "./openai";
 
 const path = process.argv[2];
@@ -9,6 +10,20 @@ function validatePath(filePath: string): void {
         console.error("Please provide a file path as a command line argument.");
         process.exit(1);
     }
+}
+
+function CliQuestion(query: string): Promise<boolean> {
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    return new Promise((resolve) =>
+        rl.question(query, (ans) => {
+            rl.close();
+            resolve(ans.toLowerCase() === "y");
+        })
+    );
 }
 
 function formatDocument(filePath: string): void {
@@ -34,14 +49,19 @@ function splitText(fullText: string): string[] {
 }
 
 async function processTextParts(textParts: string[]): Promise<string[]> {
+    const wantsSummary = await CliQuestion("Möchten Sie eine Zusammenfassung? (y/n): ");
     return Promise.all(
         textParts.map(async (textPart, index) => {
             if (checkForSummary(textPart)) {
                 const result = await openai.paraphrase(textPart);
                 return result.message.content as string;
             } else {
-                const result = await openai.summarize(textParts.join("\n"));
-                return result.message.content as string;
+                if (wantsSummary) {
+                    const result = await openai.summarize(textParts.join("\n"));
+                    return result.message.content as string;
+                } else {
+                    return textPart;
+                }
             }
         })
     );
