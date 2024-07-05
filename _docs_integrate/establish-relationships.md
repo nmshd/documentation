@@ -10,7 +10,7 @@ toc: true
 properties:
   - id: SC107
   - category: Relationships between Identities
-  - description: Create RelationshipTemplate (with respective content) Communicate RelationshipTemplate to peer (over side channel) Scan RelationshipTemplate / Press Link Check and accept Request Send RelationshipRequest (including Response to RelationshipTemplate's Request) Receive RelationshipRequest Check RelationshipRequest Accept RelationshipRequest
+  - description: Create RelationshipTemplate (with respective content) Communicate RelationshipTemplate to peer (over side channel) Scan RelationshipTemplate / Press Link Check and accept Request Send pending Relationship (including Response to RelationshipTemplate's Request) Receive pending Relationship Check pending Relationship Accept Relationship
   - customer:
   - component: integrate
   - level:

@@ -1,3 +1,26 @@
+---
+# Start automatic generation
+permalink: integrate/terminate-relationships
+published: false
+title: "Terminate Relationships"
+type: scenario
+toc: true
+properties:
+  - id: SC115
+  - category: Relationships between Identities
+  - description: Terminate Relationship Reactivate Relationship (request, accept, reject, revoke) Decompose Relationship
+  - customer:
+  - component: integrate
+  - level:
+  - implementation status:
+  - documentation status:
+  - published:
+  - link: terminate-relationships
+require:
+required_by:
+# End automatic generation
+---
+
 You can terminate a Relationship to another Identity. Then it's not possible for either side to send messages, but no data is deleted. Either side can request the Reactivation of the Relationship, accepting the reactivation returns the Relationship to the active state.
 
 You can decompose a terminated Relationship to locally delete all messages to/from and data shared with the peer.
