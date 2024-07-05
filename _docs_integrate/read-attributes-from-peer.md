@@ -140,7 +140,7 @@ If the ReadAttributeRequestItem is accepted with an existing Attribute that the 
 Instead of creating a further own shared/peer shared Attribute pair, the `id` of the already existing shared LocalAttributes is returned.
 Note that the `id` of the shared Attribute of the Sender matches the `id` of the corresponding shared Attribute of the Recipient.
 
-Lastly, if the ReadAttributeRequestItem is accepted with an existing Attribute, whose predecessor the Recipient already shared with the Sender, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be generated, given that the own shared predecessor doesn't have `DeletedByPeer` as `deletionInfo.deletionStatus`.
+Lastly, if the ReadAttributeRequestItem is accepted with an existing Attribute of which the Recipient already shared a predecessor with the Sender, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be generated, given that the own shared predecessor doesn't have `DeletedByPeer` as `deletionInfo.deletionStatus`.
 Instead of creating an independent own shared/peer shared Attribute pair, internally an [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) is performed.
 The `id` of the already existing shared LocalAttribute predecessor is returned, as well as the `id` and `content` of the newly created successor.
 When the Sender of the Request receives the AttributeSuccessionAcceptResponseItem, the according succession is automatically performed for them.

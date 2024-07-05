@@ -570,7 +570,7 @@ RequestItems can be sent inside of a Request and specify what should be done whe
 ResponseItems are sent inside of a Response.
 They contain the response data that is sent by the recipient of the Request.
 There are three different kinds of ResponseItems: `AcceptResponseItem`, `RejectResponseItem` and `ErrorResponseItem`.
-Depending on the actual RequestItem and the AcceptRequestItemParameters used, there can be different derivations of these three items.
+Depending on the actual [RequestItem](#requestitems) and the [DecideRequestItemParameters](#deciderequestitemparameters) used, there can be different derivations of these three items.
 For more information, please consult the respective chapter of the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#types-of-requestitems).
 
 #### AcceptResponseItem
@@ -598,7 +598,7 @@ Note that the `id` of the own/peer shared Attribute of the Sender matches the `i
 ##### AttributeSuccessionAcceptResponseItem
 
 An AttributeSuccessionAcceptResponseItem can be received as answer to a [ReadAttributeRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#readattributerequestitem) or [ProposeAttributeRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#proposeattributerequestitem).
-It is generated if the Recipient of the RequestItem responds to it with an existing Attribute that is the successor of an Attribute they already shared with the Sender in case the own shared [LocalAttribute](#localattribute) doesn't have `DeletedByPeer` as `deletionInfo.deletionStatus`.
+It is generated if the Recipient of the RequestItem responds to it with an existing Attribute that is a successor of an Attribute they already shared with the Sender in case the own shared [LocalAttribute](#localattribute) doesn't have `DeletedByPeer` as `deletionInfo.deletionStatus`.
 Instead of creating an independent own shared/peer shared Attribute pair, internally an [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) is performed.
 The `id` of the already existing shared LocalAttribute predecessor is returned, as well as the `id` and `content` of the newly created successor.
 Receiving an AttributeSuccessionAcceptResponseItem, the respective shared LocalAttribute of the Sender of the Request is automatically succeeded accordingly.
