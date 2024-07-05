@@ -56,4 +56,4 @@ Revokes the [Relationship]({% link _docs_integrate/data-model-overview.md %}#rel
 ## On Failure
 
 - The `relationshipId` does not resolve to a pending Relationship
-- You have tried to revoke a Relationship created by the peer
+- You have tried to revoke a Relationship not created by yourself
