@@ -31,7 +31,7 @@ The enmeshed data model can be divided into three parts:
 
 The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail.
 
-<div style="width: 100%; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:100%; height:480px" src="https://lucid.app/documents/embedded/66e3002c-335a-4c22-a352-3a7a50a17d37" id="uPhuT48AMcNp"></iframe></div>
+<div style="width: 100%; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:100%; height:480px" src="https://lucid.app/documents/embedded/f7c98621-98a7-4e31-8c54-c2974031029e" id="uPhuT48AMcNp"></iframe></div>
 (note that you can click on each type in order to navigate to the paragraph with the corresponding description)
 
 At a first glance the amount of types is overwhelming. But in the following chapters all of them are explained in detail.

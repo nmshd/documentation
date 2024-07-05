@@ -121,7 +121,7 @@ After the Templator has created a RelationshipTemplate and made it available to 
 
 Assuming that the Requestor in this section is a Connector, our starting situation is that the Requestor has successfully loaded the [created RelationshipTemplate]({% link _docs_integrate/establish-relationships.md %}#successfully-created-relationshiptemplate) onto itself. The received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) may or may not contain a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) in its `content` property. We now describe separately in both cases how the Requestor can use the RelationshipTemplate to send a pending Relationship to the Templator. An overview of this procedure is given in the following diagram.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/5be09492-9e2c-42b1-bbb1-acd854118e2c" id="Ez1OCKfT1U40"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/bf994ea3-bc3b-414b-8fd8-f55c2d71d9c6" id="Ez1OCKfT1U40"></iframe></div>
 
 #### RelationshipTemplate with RelationshipTemplateContent
 
@@ -167,7 +167,7 @@ Please note that the general procedure is the same if an App user instead of a C
 
 After the Requestor has sent the pending Relationship, the Integrator of the Templator can accept it if they want to establish an active Relationship to the Requestor. We now explain all required steps for establishing an active Relationship, including the necessary synchronization of the Templator and any other Connector that may be involved at certain points in time. Please note that the synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/de35cc09-894e-431f-819a-33bc7363ea30" id="6y2O3PCGpyGD"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/ea70fd21-5157-46f2-8411-d5ca55fbba78" id="6y2O3PCGpyGD"></iframe></div>
 
 ### Receive the pending Relationship
 
@@ -186,7 +186,7 @@ For rejecting the pending Relationship and therefore not establishing an active 
 
 Assuming the Requestor is a Connector, it must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) after the Templator has accepted the Relationship. The synchronization causes the `transport.relationshipChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) to be triggered and the `result` of the response after synchronization shows in particular that the `status` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) has been changed from `"Pending"` to `"Active"`. Now the Requestor is informed that the Templator has accepted the Relationship and therefore an active Relationship has been established between them. If the Requestor is an App user instead, they are informed about the acceptance of the Relationship analogously.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/650bd1ea-e0fd-489e-ab26-e7fe201ef59e" id="~uUgN3n5x3eT"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/601bd687-1c78-45be-8d3c-ae589ab8e54b" id="~uUgN3n5x3eT"></iframe></div>
 
 ## What's next?
 
