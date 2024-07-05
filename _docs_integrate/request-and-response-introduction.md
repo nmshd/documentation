@@ -412,7 +412,6 @@ If the peer decides to accept and to respond to your Request, again a LocalReque
 However, the returned data differ.
 Instead of a ResponseWrapper inside a Message, a Relationship is returned which is in the status `pending` for now.
 It contains the RelationshipTemplate, as well as the Response to the Request.
-Only after you accept the Relationship, the LocalRequest with LocalResponse is created at your side and the peer will receive the information about the status change via a `consumption.incomingRequestStatusChanged` [event]({% link _docs_integrate/connector-events.md %}).
 
 You can find an [example for the Request-Response flow via RelationshipTemplate](#working-with-requestitemgroups) below.
 
