@@ -42,7 +42,7 @@ api_route_regex: ^PUT /api/v2/Relationships/{id}/Reactivate/Reject$
 
 {% include properties_list.html %}
 
-Rejects the reactivation of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+Rejects the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 
 ## Parameters
 
