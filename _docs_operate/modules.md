@@ -41,12 +41,12 @@ Compared to [webhooks](#webhooks), this gives you the full feature set of a mess
 - You need persistence for the triggered [events]({% link _docs_integrate/connector-events.md %}).
 - You want to integrate enmeshed into an already existing message broker.
 
-### Auto Accept Relationships <a href="{% link _docs_operate/configuration.md %}#autoacceptrelationships"><i class="fas fa-fw fa-cog"/></a> {#autoacceptrelationships}
+### Auto Accept Pending Relationships <a href="{% link _docs_operate/configuration.md %}#autoacceptpendingrelationships"><i class="fas fa-fw fa-cog"/></a> {#autoacceptpendingrelationships}
 
 It is not recommended to use this Module for production scenarios.
 {: .notice--danger}
 
-The `autoAcceptRelationships` Module listens to the [events]({% link _docs_integrate/connector-events.md %}) about changed Relationships. It immediately accepts pending Relationships.
+The `autoAcceptPendingRelationships` Module listens to the [events]({% link _docs_integrate/connector-events.md %}) about changed Relationships. It immediately accepts pending Relationships.
 
 Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive changed Relationships. The `sync` Module automates this, but you can also do this manually by calling the `/api/v2/Account/Sync` route.
 

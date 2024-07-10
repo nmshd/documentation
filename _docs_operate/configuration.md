@@ -241,7 +241,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   The name of the AMQP exchange to publish to.
 
-#### autoAcceptRelationships <a href="{% link _docs_operate/modules.md %}#autoacceptrelationships"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationships}
+#### autoAcceptPendingRelationships <a href="{% link _docs_operate/modules.md %}#autoacceptpendingrelationships"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptpendingrelationships}
 
 It is not recommended to use this Module for production scenarios.
 {: .notice--danger}
@@ -253,7 +253,7 @@ It is not recommended to use this Module for production scenarios.
   // ...
 
   "modules": {
-    "autoAcceptRelationships": {
+    "autoAcceptPendingRelationships": {
       "enabled": false
     }
   }
@@ -262,7 +262,7 @@ It is not recommended to use this Module for production scenarios.
 
 - **enabled** `default: false`
 
-  Enable or disable the autoAcceptRelationships Module.
+  Enable or disable the autoAcceptPendingRelationships Module.
 
 #### coreHttpApi <a href="{% link _docs_operate/modules.md %}#corehttpapi"><i class="fas fa-fw fa-info-circle"/></a> {#corehttpapi}
 
