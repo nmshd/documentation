@@ -226,7 +226,7 @@ Data stored on Backbone:
 - creationResponseContent?
 - createdAt
 - status
-- auditLog
+- auditLog[]
   - createdAt
   - createdBy
   - createdByDevice
