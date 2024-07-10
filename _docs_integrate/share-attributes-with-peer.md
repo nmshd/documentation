@@ -178,7 +178,7 @@ The Sender only has the option of sending a Request to the Recipient via a [Mess
 
 ## Accept the Request and get the Attributes
 
-After the Recipient has received the [Request for sharing Attributes]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes), it can accept it to get all or some of the Sender's shared Attributes. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). Also, you need to decide and specify for each ShareAttributeRequestItem and RequestItemGroup contained in the Request for sharing Attributes whether you want to accept or reject it.
+After the Recipient has received the [Request for sharing Attributes]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes), it can accept it to get all or some of the Sender's shared Attributes. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). Also, you need to decide and specify for each ShareAttributeRequestItem contained in the Request for sharing Attributes whether you want to accept or reject it.
 
 If the Recipient does not want to get any of the Sender's shared Attributes and, therefore, does not want to accept the Request for sharing Attributes of the Sender, it can reject it as a whole too. For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
@@ -279,7 +279,7 @@ The Recipient accepts the DisplayName of the Sender and accepts at least one Sha
 }
 ```
 
-Note that it is important to respond to RequestItems and RequestItemGroups in the same order in which they were received.
+Note that it is important to respond to RequestItems, some of which may be contained in a RequestItemGroup, in the same order in which they were received.
 
 ## Receive the Response to the Request
 
