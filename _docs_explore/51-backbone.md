@@ -78,7 +78,7 @@ The following services are available on the runtime:
 
 - Devices Service: Manages the device profiles for authenticating against the different services. Additionally keeps track of the Identity behind devices and the registration of push notification tokens of the respective messaging providers (e.g. Apple Push Notification Service, Firebase Cloud Messaging)
 - Messages Service: Provides an interface for submitting and receiving Messages
-- Relationships Service: Keeps track of Relationships between Identities, their status and possible change requests
+- Relationships Service: Keeps track of Relationships between Identities and their status
 - Files Service: Files or other "static" binaries can be stored via the files service and used as attachments for Messages.
 - Tokens Service: A repository for storing and consuming usually short-lived encrypted information, e.g. for QR code contents.
 - Synchronization Service: Cross device synchronization of local Identity data

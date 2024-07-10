@@ -39,3 +39,23 @@ required_by:
 api_route_regex: ^PUT /api/v2/Relationships/{id}/Reject$
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+Rejects the pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+
+## Parameters
+
+- `relationshipId`, the id of the Relationship
+
+## On Success
+
+- Rejects the pending Relationship
+- Returns the rejected Relationship
+
+## On Failure
+
+- The `relationshipId` does not resolve to a pending Relationship
+- You have tried to reject a Relationship created by yourself
