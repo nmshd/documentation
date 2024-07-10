@@ -42,7 +42,7 @@ api_route_regex: ^PUT /api/v2/Relationships/{id}/Revoke$
 
 {% include properties_list.html %}
 
-Revokes the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+Revokes the pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 
 ## Parameters
 
@@ -50,7 +50,7 @@ Revokes the [Relationship]({% link _docs_integrate/data-model-overview.md %}#rel
 
 ## On Success
 
-- Revokes the Relationship
+- Revokes the pending Relationship
 - Returns the revoked Relationship
 
 ## On Failure

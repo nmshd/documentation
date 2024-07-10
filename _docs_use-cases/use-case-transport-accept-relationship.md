@@ -44,7 +44,7 @@ api_route_regex: ^PUT /api/v2/Relationships/{id}/Accept$
 
 {% include properties_list.html %}
 
-Accepts the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+Accepts the pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 
 ## Parameters
 
@@ -52,7 +52,7 @@ Accepts the [Relationship]({% link _docs_integrate/data-model-overview.md %}#rel
 
 ## On Success
 
-- Accepts the Relationship
+- Accepts the pending Relationship
 - Returns the accepted Relationship
 
 ## On Failure
