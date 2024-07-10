@@ -50,6 +50,6 @@ This use case retrieves all relevant data changes between the current Identity (
 
 ## On Success
 
-- A list of [Relationships]({% link _docs_integrate/data-model-overview.md %}#relationship) that have a new status.
-<!-- - TODO: include relationship reactivation?  -->
+- A list of [Relationships]({% link _docs_integrate/data-model-overview.md %}#relationship) that have a new status. This includes new reactivation requests of terminated Relationships and new responses to those requests (even if that doesn't change the status).
+
 - A list of [Messages]({% link _docs_integrate/data-model-overview.md %}#message) that were retrieved since the last call.

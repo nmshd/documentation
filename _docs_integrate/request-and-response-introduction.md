@@ -29,7 +29,7 @@ Requests are unique between Identities and can only be processed once by a singl
 Each Request can only have a single Response, which responds to the complete Request and contains all the information the requestor needs.
 The Request-Response flow allows to establish transactional behavior between Identities.
 
-<!-- TODO: re-add other data structures with request warning when adding relationship reactivation  -->
+Please note that Relationship reactivation requests have nothing to do with this page, for reactivating Relationships see [Reactivate a terminated Relationship]({% link _docs_integrate/terminate-relationships.md %}#reactivateaterminatedrelationship).
 
 ## Requests
 
