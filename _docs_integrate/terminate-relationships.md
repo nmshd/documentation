@@ -21,9 +21,9 @@ required_by:
 # End automatic generation
 ---
 
-You can terminate an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) to another Identity. Then it's not possible for either side to send messages, but no data is deleted. Either side can request the reactivation of the Relationship, accepting the reactivation returns the Relationship to an active state.
+You can terminate an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) to another Identity. Then communication is blocked for both sides, but no data is deleted. Either side can only request the reactivation of the Relationship, accepting the reactivation returns the Relationship to an active state.
 
-You can decompose a terminated Relationship to delete the Relationship and all data transmitted in the Relationship's duration from the App/Connector.
+You can decompose a terminated Relationship to delete the Relationship and all data transmitted during the Relationship from the App/Connector. Then reactivating the Relationship is impossible - getting to an active Relationship again will have to start from scratch.
 
 <!-- TODO: Add "for app users:" -->
 
@@ -47,15 +47,15 @@ Each use case has the relationshipId as input. Only accepting the reactivation c
 
 Decomposing a Relationship deletes from the App/Connector
 
+<!-- maybe TODO: add good links, the data model is too abstract  -->
+
 - the Relationship
 - the peer's RelationshipTemplates
-- the Relationship's [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationship-template) if it was single use (its `maxNumberOfAllocations` is 1) or owned by the peer
+- the Relationship's [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationship-template) if it was single use (its `maxNumberOfAllocations` is 1) or owned by the peer - for a new Relationship you will have to exchange a Template again
 - shared Attributes, Notifications, Requests (in each case both sent and received)
 - sent and received Messages with one exception: if you have sent a message to multiple recipients, the message is not deleted but the peer's address is replaced with a pseudonym
   <!-- TODO: add the pseudonym displayed in the app -->
 - more obscurely Tokens, AttributeListeners from the peer (if you haven't had an opportunity to learn what those mean, it doesn't matter for you).
 
-After one side has decomposed, reactivating the Relationship is impossible.
-
-The use case is [Decompose Relationship]({% link _docs_use-cases/use-case-transport-decompose-relationship.md %}) and takes the relationshipId as input.
-The peer is notified of the Decomposition (for Connector users: with a RelationshipChangedEvent) and is expected to follow suit once the shared data is no longer needed. For the peer the Relationship is not deleted, but its status now is `DeletionProposed`. Only after both sides decomposed the Relationship, it and data transmitted during it are deleted from the Backbone.
+The use case is [Decompose Relationship]({% link _docs_use-cases/use-case-transport-decompose-relationship.md %}) and takes the relationshipId as input. For the peer the Relationship is not deleted, but its status now is `DeletionProposed`.
+The peer is notified of the Decomposition (for Connector users: with a RelationshipChangedEvent) and is expected to follow suit once the shared data is no longer needed. Only after both sides decomposed the Relationship, it and data transmitted during it are deleted from the Backbone. To get to an active Relationship again after one side has decomposed, the other side must decompose as well and you two start over with [establishing a Relationship]({% link _docs_integrate/establish-relationships.md %}) (reactivating is no longer possible).

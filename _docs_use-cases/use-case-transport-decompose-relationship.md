@@ -50,7 +50,7 @@ Decomposes the terminated [Relationship]({% link _docs_integrate/data-model-over
 
 ## On Success
 
-- Deletes the Relationship and the communication history from the Connector/App
+- Deletes the Relationship and data transmitted during it from the Connector/App
 
 ## On Failure
 
