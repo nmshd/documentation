@@ -23,13 +23,13 @@ required_by:
 
 You can terminate an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) to another Identity. Then it's not possible for either side to send messages, but no data is deleted. Either side can request the reactivation of the Relationship, accepting the reactivation returns the Relationship to an active state.
 
-You can decompose a terminated Relationship to delete the Relationship and all communication history from the App/Connector.
+You can decompose a terminated Relationship to delete the Relationship and all data transmitted in the Relationship's duration from the App/Connector.
 
 <!-- TODO: Add "for app users:" -->
 
 ## Terminate an active Relationship
 
-Terminate an active Relationship with the use case [Terminate Relationship]({% link _docs_use-cases/use-case-transport-terminate-relationship.md %}) with the relationshipId as input. The peer is notified (for Connector users: this happens with a RelationshipChangedEvent) but cannot prevent the termination. Then no Messages can be sent from either side, this includes Requests, Notifications and sharing Attributes. The status of the Relationship is changed to `Terminated`.
+Terminate an active Relationship with the use case [Terminate Relationship]({% link _docs_use-cases/use-case-transport-terminate-relationship.md %}) with the relationshipId as input. The status of the Relationship is changed to `Terminated`. The peer is notified (for Connector users: this happens with a RelationshipChangedEvent) but cannot prevent the termination. Then no Messages can be sent from either side, this includes Requests, Notifications and sharing Attributes.
 
 ## Reactivate a terminated Relationship
 
@@ -41,14 +41,21 @@ If you want to keep the Relationship terminated, you reject the reactivation wit
 
 If you have requested the reactivation and changed your mind, you revoke it with the use case [Revoke Relationship reactivation]({% link _docs_use-cases/use-case-transport-revoke-relationship-reactivation.md %}).
 
-In each case (accept/reject/revoke), your peer is notified of the decision (for Connector users: this happens with the RelationshipReactivationCompletedEvent).
-Each use case has the relationshipId as input. Only accepting the reactivation changes the status of the Relationship (from `Terminated` to `Active`), requesting/rejecting/revoking the reactivation don't change it. However, they still are recorded in the [Relationship's audit log]({% link _docs_integrate/data-model-overview.md %}#auditlogentry).
+Each use case has the relationshipId as input. Only accepting the reactivation changes the status of the Relationship (from `Terminated` to `Active`), requesting/rejecting/revoking the reactivation don't change it. However, they still are recorded in the [Relationship's audit log]({% link _docs_integrate/data-model-overview.md %}#auditlogentry). In each case (accept/reject/revoke), your peer is notified of the decision (for Connector users: this happens with the RelationshipReactivationCompletedEvent).
 
 ## Decompose a Relationship
 
-Decomposing a Relationship deletes the Relationship, all shared attributes, all notifications and all requests to/from the peer from the App/Connector. If the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationship-template) used with the Relationship was single use (its `maxNumberOfAllocations` is 1), it is deleted. If the RelationshipTemplate is not single-use but owned by the peer, it is deleted and you ask for a new Template if you want to create another Relationship. The messages to/from the peer are also deleted with one exception: if you have sent a message to multiple recipients, the message is not deleted but the peer's address is replaced with a pseudonym.
+Decomposing a Relationship deletes from the App/Connector
+
+- the Relationship
+- the peer's RelationshipTemplates
+- the Relationship's [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationship-template) if it was single use (its `maxNumberOfAllocations` is 1) or owned by the peer
+- shared Attributes, Notifications, Requests (in each case both sent and received)
+- sent and received Messages with one exception: if you have sent a message to multiple recipients, the message is not deleted but the peer's address is replaced with a pseudonym
+  <!-- TODO: add the pseudonym displayed in the app -->
+- more obscurely Tokens, AttributeListeners from the peer (if you haven't had an opportunity to learn what those mean, it doesn't matter for you).
 
 After one side has decomposed, reactivating the Relationship is impossible.
 
 The use case is [Decompose Relationship]({% link _docs_use-cases/use-case-transport-decompose-relationship.md %}) and takes the relationshipId as input.
-The peer is notified of the Decomposition (for Connector users: with a RelationshipChangedEvent) and is expected to follow suit once the shared data is no longer needed. Only after both sides decomposed the Relationship, it and its communication history are deleted from the Backbone.
+The peer is notified of the Decomposition (for Connector users: with a RelationshipChangedEvent) and is expected to follow suit once the shared data is no longer needed. For the peer the Relationship is not deleted, but its status now is `DeletionProposed`. Only after both sides decomposed the Relationship, it and data transmitted during it are deleted from the Backbone.
