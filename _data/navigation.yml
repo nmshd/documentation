@@ -133,7 +133,7 @@ docs_integrate:
         url: /integrate/use-cases
   - title: Troubleshooting
     children:
-      - title: "Error Codes"
+      - title: "Error codes"
         url: /integrate/error-codes
       - title: "FAQ"
         url: /integrate/faq
