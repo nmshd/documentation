@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-07-18T12:24:32+02:00">
+  <meta property="article:published_time" content="2024-07-22T13:27:34+02:00">
 
 
 
@@ -338,7 +338,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Create Attributes for peer">
     <meta itemprop="description" content="There are many situations in which an Identity wants to create an IdentityAttribute or a RelationshipAttribute for another Identity, for example:">
-    <meta itemprop="datePublished" content="2024-07-18T12:24:32+02:00">
+    <meta itemprop="datePublished" content="2024-07-22T13:27:34+02:00">
     
 
     <div class="page__inner-wrap">
@@ -458,7 +458,7 @@ this leads to the creation of an Attribute for the Recipient whose Attribute val
 
 <h3 id="example-of-creating-a-relationshipattribute">Example of creating a RelationshipAttribute</h3>
 
-<p>We now consider the case in which the Sender has an active <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> with the Recipient and wants to create a RelationshipAttribute of type <a href="/versions/v5/integrate/attribute-values#proprietarystring">ProprietaryString</a> for this Relationship that is owned by itself. The Sender can request the creation of this RelationshipAttribute by inserting it into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the <a href="/versions/v5/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> included in the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v5/integrate/data-model-overview#request">Request</a> for creating Attributes. In our example, we have chosen to set the value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the CreateAttributeRequestItem to true and the value of the <code class="language-plaintext highlighter-rouge">confidentiality</code> property of the RelationshipAttribute to <code class="language-plaintext highlighter-rouge">"public"</code>.</p>
+<p>We now consider the case in which the Sender has an active <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> with the Recipient and wants to create a RelationshipAttribute of type <a href="/versions/v5/integrate/attribute-values#proprietarystring">ProprietaryString</a> for this Relationship that is owned by itself. The Sender can request the creation of this RelationshipAttribute by inserting it into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the <a href="/versions/v5/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> included in the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v5/integrate/data-model-overview#request">Request</a> for creating Attributes. In our example, we have chosen to set the value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the CreateAttributeRequestItem to <code class="language-plaintext highlighter-rouge">true</code> and the value of the <code class="language-plaintext highlighter-rouge">confidentiality</code> property of the RelationshipAttribute to <code class="language-plaintext highlighter-rouge">"public"</code>.</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
@@ -502,7 +502,7 @@ this leads to the creation of an Attribute for the Recipient whose Attribute val
 
 <h2 id="accept-the-request-and-create-the-attributes">Accept the Request and create the Attributes</h2>
 
-<p>After the Recipient has received the <a href="/versions/v5/integrate/create-attributes-for-peer#request-for-creating-attributes">Request for creating Attributes</a>, it can accept it to create all or some of the Attributes that were offered for creation by the Sender. To do this, proceed as described in the <a href="/versions/v5/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case documentation and specify the <code class="language-plaintext highlighter-rouge">id</code> of the received <a href="/versions/v5/integrate/data-model-overview#request">Request</a>. Also, you need to decide and specify for each CreateAttributeRequestItem and RequestItemGroup contained in the Request for creating Attributes whether you want to accept or reject it.</p>
+<p>After the Recipient has received the <a href="/versions/v5/integrate/create-attributes-for-peer#request-for-creating-attributes">Request for creating Attributes</a>, it can accept it to create all or some of the Attributes that were offered for creation by the Sender. To do this, proceed as described in the <a href="/versions/v5/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case documentation and specify the <code class="language-plaintext highlighter-rouge">id</code> of the received <a href="/versions/v5/integrate/data-model-overview#request">Request</a>. Also, you need to decide and specify for each CreateAttributeRequestItem contained in the Request for creating Attributes whether you want to accept or reject it.</p>
 
 <p class="notice--info">If the Recipient does not want to create any of the Attributes offered by the Sender and, therefore, does not want to accept the Request for creating Attributes of the Sender, it can reject it as a whole as well. For that, follow the instructions of the <a href="/versions/v5/use-case-consumption-reject-incoming-request">Reject incoming Request</a> use case.</p>
 
@@ -537,7 +537,6 @@ this leads to the creation of an Attribute for the Recipient whose Attribute val
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RequestItemGroup"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreateAttributeRequestItem"</span><span class="p">,</span><span class="w">
@@ -572,7 +571,7 @@ this leads to the creation of an Attribute for the Recipient whose Attribute val
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>In our example, the Sender only requires the Recipient to accept the EMailAddress and the BirthDate, which is why the individual <a href="/versions/v5/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItems</a> and the <a href="/versions/v5/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> within the Request have specified corresponding values in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property. We assume that the Recipient wants to accept the Request and all its CreateAttributeRequestItems with the exception of the BirthPlace.</p>
+<p>In our example, the Sender only requires the Recipient to accept the EMailAddress and the BirthDate, which is why the individual <a href="/versions/v5/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItems</a> within the Request have specified corresponding values in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property. We assume that the Recipient wants to accept the Request and all its CreateAttributeRequestItems with the exception of the BirthPlace.</p>
 
 <p class="notice--info">If the Recipient wants to accept the Request for creating Attributes, it must accept all CreateAttributeRequestItems for which the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code>. It is therefore not permitted for the Recipient to refuse to accept the EMailAddress or the BirthDate offered by the Sender.</p>
 
@@ -585,8 +584,6 @@ this leads to the creation of an Attribute for the Recipient whose Attribute val
       </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="c1">// Accept RequestItemGroup</span><span class="w">
-      </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="c1">// Accept BirthDate</span><span class="w">
@@ -602,7 +599,7 @@ this leads to the creation of an Attribute for the Recipient whose Attribute val
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Note that it is important to respond to RequestItems and RequestItemGroups in the same order in which they were received.</p>
+<p>Note that it is important to respond to RequestItems, some of which may be contained in a RequestItemGroup, in the same order in which they were received.</p>
 
 <h2 id="receive-the-response-to-the-request">Receive the Response to the Request</h2>
 
@@ -635,7 +632,7 @@ this leads to the creation of an Attribute for the Recipient whose Attribute val
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-07-18T12:24:32+02:00">July 18, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-07-22T13:27:34+02:00">July 22, 2024</time></p>
 
       </footer>
 

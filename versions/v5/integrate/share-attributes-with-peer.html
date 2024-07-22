@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-07-18T12:24:32+02:00">
+  <meta property="article:published_time" content="2024-07-22T13:27:34+02:00">
 
 
 
@@ -338,7 +338,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Share Attributes with peer">
     <meta itemprop="description" content="There are many situations in which an Identity wants to share an IdentityAttribute or a RelationshipAttribute with another Identity, for example:">
-    <meta itemprop="datePublished" content="2024-07-18T12:24:32+02:00">
+    <meta itemprop="datePublished" content="2024-07-22T13:27:34+02:00">
     
 
     <div class="page__inner-wrap">
@@ -554,7 +554,7 @@
 
 <h2 id="accept-the-request-and-get-the-attributes">Accept the Request and get the Attributes</h2>
 
-<p>After the Recipient has received the <a href="/versions/v5/integrate/share-attributes-with-peer#request-for-sharing-attributes">Request for sharing Attributes</a>, it can accept it to get all or some of the Sender’s shared Attributes. To do this, proceed as described in the <a href="/versions/v5/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case documentation and specify the <code class="language-plaintext highlighter-rouge">id</code> of the received <a href="/versions/v5/integrate/data-model-overview#request">Request</a>. Also, you need to decide and specify for each ShareAttributeRequestItem and RequestItemGroup contained in the Request for sharing Attributes whether you want to accept or reject it.</p>
+<p>After the Recipient has received the <a href="/versions/v5/integrate/share-attributes-with-peer#request-for-sharing-attributes">Request for sharing Attributes</a>, it can accept it to get all or some of the Sender’s shared Attributes. To do this, proceed as described in the <a href="/versions/v5/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case documentation and specify the <code class="language-plaintext highlighter-rouge">id</code> of the received <a href="/versions/v5/integrate/data-model-overview#request">Request</a>. Also, you need to decide and specify for each ShareAttributeRequestItem contained in the Request for sharing Attributes whether you want to accept or reject it.</p>
 
 <p class="notice--info">If the Recipient does not want to get any of the Sender’s shared Attributes and, therefore, does not want to accept the Request for sharing Attributes of the Sender, it can reject it as a whole too. For that, follow the instructions of the <a href="/versions/v5/use-case-consumption-reject-incoming-request">Reject incoming Request</a> use case.</p>
 
@@ -590,7 +590,6 @@
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RequestItemGroup"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ShareAttributeRequestItem"</span><span class="p">,</span><span class="w">
@@ -624,7 +623,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>In our example, the Sender only requires the Recipient to accept the DisplayName and the EMailAddress, which is why the individual <a href="/versions/v5/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItems</a> and the <a href="/versions/v5/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> within the Request have specified corresponding values in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property. We assume that the Recipient wants to accept the Request and all its ShareAttributeRequestItems with the exception of the PhoneNumber.</p>
+<p>In our example, the Sender only requires the Recipient to accept the DisplayName and the EMailAddress, which is why the individual <a href="/versions/v5/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItems</a> within the Request have specified corresponding values in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property. We assume that the Recipient wants to accept the Request and all its ShareAttributeRequestItems with the exception of the PhoneNumber.</p>
 
 <p class="notice--info">If the Recipient wants to accept the Request for sharing Attributes, it must accept all ShareAttributeRequestItems for which the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code>. It is therefore not permitted for the Recipient to refuse to accept the DisplayName or the EMailAddress shared by the Sender.</p>
 
@@ -637,8 +636,6 @@
       </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="c1">// Accept RequestItemGroup</span><span class="w">
-      </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="c1">// Accept EMailAddress</span><span class="w">
@@ -654,7 +651,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Note that it is important to respond to RequestItems and RequestItemGroups in the same order in which they were received.</p>
+<p>Note that it is important to respond to RequestItems, some of which may be contained in a RequestItemGroup, in the same order in which they were received.</p>
 
 <h2 id="receive-the-response-to-the-request">Receive the Response to the Request</h2>
 
@@ -687,7 +684,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-07-18T12:24:32+02:00">July 18, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-07-22T13:27:34+02:00">July 22, 2024</time></p>
 
       </footer>
 
