@@ -73,7 +73,9 @@ This successor stores the `id` of the old version, the predecessor, in its `succ
 The predecessor is updated, too, such that its `succeededBy` property links to the successor.
 Consequently, the different versions of a LocalAttribute created by Attribute successions make up a doubly linked list.
 
-During the succession of a [Complex IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) implicitly all its children will be succeeded, so it isn't possible to succeed a child attribute of a complex attribute on its own.
+**Note:**
+During the succession of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) implicitly all its children will be succeeded, so it isn't possible to succeed a child of a complex IdentityAttribute on its own.
+{: .notice--info}
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/8e81cd6b-240f-4e41-ae08-9eea13b32974" id="zt0-EawwJWIx"></iframe></div>
 

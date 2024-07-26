@@ -6,9 +6,6 @@ toc: true
 
 [enmeshed Runtime GitHub Repository](https://github.com/nmshd/runtime)
 
-**Note:** Some Links to the GitHub Repositories has been changed because the runtime was been changed to a monorepository and the previous repositories has been archived on Feb/Jan of 2024.
-{: .notice--warning}
-
 The Runtime wraps all features of enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser.
 
 Versions, local and remote data, synchronization, communication, and many more items are tracked by the Runtime in order to provide an easy-to-use interface.
