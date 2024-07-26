@@ -131,6 +131,8 @@ docs_integrate:
         url: /integrate/connector-events
       - title: "Use Cases"
         url: /integrate/use-cases
+      - title: "New versions"
+        url: /integrate/new-versions
   - title: Troubleshooting
     children:
       - title: "Error Codes"
