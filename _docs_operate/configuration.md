@@ -607,6 +607,30 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
 You can find type definitions of the event data in the [Connector Events]({% link _docs_integrate/connector-events.md %}) section.
 
+#### server sent event <a href="{% link _docs_operate/modules.md %}#sse"><i class="fas fa-fw fa-info-circle"/></a> {#sse}
+
+**Sample Configuration:**
+
+```jsonc
+{
+  // ...
+
+  "modules": {
+    "sse": {
+      "baseUrlOverride": "https://example.com"
+    }
+  }
+}
+```
+
+- **enabled** `default: false`
+
+  Enable or disable the sse Module.
+
+- **baseUrlOverride** `default: ''`
+
+  The sse module by default uses the backbone base url. This option allows it to be overwritten.
+
 ## Troubleshooting
 
 If you encounter any problems while configuring the Connector, head over to the [Troubleshooting]({% link _docs_operate/troubleshooting-guide.md %}) site.
