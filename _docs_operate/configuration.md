@@ -607,7 +607,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
 You can find type definitions of the event data in the [Connector Events]({% link _docs_integrate/connector-events.md %}) section.
 
-#### server sent event <a href="{% link _docs_operate/modules.md %}#sse"><i class="fas fa-fw fa-info-circle"/></a> {#sse}
+#### sse (sever sent events) <a href="{% link _docs_operate/modules.md %}#sse"><i class="fas fa-fw fa-info-circle"/></a> {#sse}
 
 **Sample Configuration:**
 
@@ -629,7 +629,7 @@ You can find type definitions of the event data in the [Connector Events]({% lin
 
 - **baseUrlOverride** `default: ''`
 
-  The sse module by default uses the backbone base url. This option allows it to be overwritten.
+  The sse Module by default uses the Backbone base url. This option allows it to be overwritten.
 
 ## Troubleshooting
 
