@@ -89,9 +89,9 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
 
 ### sse (sever sent events) <a href="{% link _docs_operate/configuration.md %}#sse"><i class="fas fa-fw fa-cog"/></a> {#sse}
 
-The sse Module allows the Connector to open an one way connection from the Backbone to the Connector.
+The sse Module allows the Connector to to receive event from the Backbone without the need to expose the Connector to the internet.
 This allows the Backbone to communicate needed syncs to the Connector.
-For this the sync Module is not needed anymore and can be deactivated.
+Therefore the sync Module is not needed anymore and can be deactivated.
 
 ### Requesting Modules
 

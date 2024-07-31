@@ -609,6 +609,10 @@ You can find type definitions of the event data in the [Connector Events]({% lin
 
 #### sse (sever sent events) <a href="{% link _docs_operate/modules.md %}#sse"><i class="fas fa-fw fa-info-circle"/></a> {#sse}
 
+This module needs additional configuration on the backbone.
+Ensure that you backbone has the need settings enabled.
+{: .notice--warning}
+
 **Sample Configuration:**
 
 ```jsonc
@@ -617,7 +621,7 @@ You can find type definitions of the event data in the [Connector Events]({% lin
 
   "modules": {
     "sse": {
-      "baseUrlOverride": "https://example.com"
+      "enabled": false
     }
   }
 }
@@ -626,10 +630,6 @@ You can find type definitions of the event data in the [Connector Events]({% lin
 - **enabled** `default: false`
 
   Enable or disable the sse Module.
-
-- **baseUrlOverride** `default: ''`
-
-  The sse Module by default uses the Backbone base url. This option allows it to be overwritten.
 
 ## Troubleshooting
 
