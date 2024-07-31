@@ -609,8 +609,8 @@ You can find type definitions of the event data in the [Connector Events]({% lin
 
 #### sse (sever sent events) <a href="{% link _docs_operate/modules.md %}#sse"><i class="fas fa-fw fa-info-circle"/></a> {#sse}
 
-This module needs additional configuration on the backbone.
-Ensure that you backbone has the need settings enabled.
+This Module requires additional configuration on the Backbone.
+Ensure that your Backbone has the required settings enabled.
 {: .notice--warning}
 
 **Sample Configuration:**
