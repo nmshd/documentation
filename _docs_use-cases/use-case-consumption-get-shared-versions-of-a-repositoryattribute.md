@@ -57,7 +57,7 @@ This use case allows you to retrieve a list of [own shared IdentityAttributes]({
 ## On Success
 
 - A list of own shared IdentityAttribute versions of the RepositoryAttribute given as input is returned.
-- If `peers` were speficied, the list is limited to the entries shared with those peers.
+- If `peers` were specified, the list is limited to the entries shared with those peers.
 - If `onlyLatestVersions` is disabled, all versions will be returned, even if they already have successors.
 
 ## On Failure

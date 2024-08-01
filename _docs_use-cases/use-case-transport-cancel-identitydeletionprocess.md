@@ -15,7 +15,7 @@ properties:
   - facade: IdentityDeletionProcessFacade
   - function: cancelIdentityDeletionProcess
   - description: Cancel an IdentityDeletionProcess that has status 'Approved' within grace period
-  - feature category: Identity Handling
+  - feature category: Identity handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
   - documentation status: DONE
