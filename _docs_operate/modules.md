@@ -67,7 +67,7 @@ Compared to [webhooks](#webhooks), this gives you the full feature set of these 
 
 The `sync` Module regularly fetches changes from the Backbone (e.g. new Messages / new incoming Relationship Requests). This process automatically triggers the events used by other Modules like the `webhooks` Module.
 
-The sync Module and the sse module are not compatible. Only one of them can be active at a time.
+The sync module and the sse module are not compatible. The sync module will be disabled if both are active.
 {: .notice--warning}
 
 ### PubSub Publisher <a href="{% link _docs_operate/configuration.md %}#pubsubpublisher"><i class="fas fa-fw fa-cog"/></a> {#pubsubpublisher}
@@ -94,9 +94,6 @@ Keep in mind that you need to synchronize the state of the Connector with the Ba
 
 The sse Module allows the Connector to receive events from the Backbone without exposing the Connector to the Internet.
 The Connector reacts to these events and ensures automatic synchronization.
-
-The sse Module and the sync module are not compatible. Only one of them can be active at a time.
-{: .notice--warning}
 
 ### Requesting Modules
 
