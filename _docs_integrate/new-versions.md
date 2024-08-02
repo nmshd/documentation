@@ -28,18 +28,18 @@ After merging the PR release/v5 into the main branch of the runtime, there are s
 ## DIDs as addresses
 
 The address format changed from `<3-character realm><32 or 33-character base58-string>` to `did:e:<backbone-base-url>:dids:<22-character lowercase hex string>`.
-This means that the property `realm` of LocalAccount has been removed.
+This means that the property `realm` of LocalAccount was removed.
 
 ## Removal of RelationshipChanges
 
-RelationshipChanges are removed. The only type of RelationshipChange used so far is the CreationChange, its `content` has been moved to a new property of the relationship creation content - the `creationContent`. If this `content` has been created by responding to a [Request]({% link _docs_integrate/data-model-overview.md %}#request) of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate), the [`content`]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) changes as follows:
+RelationshipChanges were removed. The only type of RelationshipChange used so far is the CreationChange, its `content` has been moved to a new property of the relationship creation content - the `creationContent`. If this `content` has been created by responding to a [Request]({% link _docs_integrate/data-model-overview.md %}#request) of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate), the [`content`]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) changes as follows:
 
 | `<relationshipChange>.request.content`                          | `<relationship>.creationContent`                   |
 | --------------------------------------------------------------- | -------------------------------------------------- |
 | value when created from a response to a request:                | value when created from a response to a request:   |
 | `{@type: "RelationshipCreationChangeRequestContent", response}` | `{@type: "RelationshipCreationContent", response}` |
 
-The Connector route for creating the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) is unchanged, the Connector routes using RelationshipChanges (accept, reject RelationshipChange) have been replaced with corresponding routes on the Relationship. No `content` must be sent with any of those operations. The operations are recorded in the new `auditLog` property of the Relationship.
+The Connector route for creating the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) is unchanged, the Connector routes using RelationshipChanges (accept, reject RelationshipChange) were replaced with corresponding routes on the Relationship. No `content` must be sent with any of those operations. The operations are recorded in the new `auditLog` property of the Relationship.
 
 | old Connector route                                                    | new Connector route                                 |
 | ---------------------------------------------------------------------- | --------------------------------------------------- |
@@ -112,7 +112,7 @@ This affects the input of the routes `POST Messages` for sending Messages, `POST
 
 ## Removal of the `mustBeAccepted` property of the RequestItemGroup
 
-A [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) still provide a way of grouping the [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) contained in its `items` property in the UI. However, **the `mustBeAccepted` property of the RequestItemGroup has now been removed**, as it had easily misunderstood interactions with the `mustBeAccepted` property of the RequestItems. More precisely, a certain, complicated dependency of the acceptance of the RequestItems contained in its `items` property could be described via the `mustBeAccepted` property of the RequestItemGroup:
+A [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) still provides a way of grouping the [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) contained in its `items` property in the UI. However, **the `mustBeAccepted` property of the RequestItemGroup has now been removed**, as it had easily misunderstood interactions with the `mustBeAccepted` property of the RequestItems. More precisely, a certain, complicated dependency of the acceptance of the RequestItems contained in its `items` property could be described via the `mustBeAccepted` property of the RequestItemGroup:
 
 - If the value of the `mustBeAccepted` property of the RequestItemGroup was set to `"true"`, all RequestItems contained within its `items` property whose value of their respective `mustBeAccepted` property is `"true"` could be accepted if the entire Request is accepted. Included RequestItems whose value of their respective `mustBeAccepted` property is `"false"` could still be rejected.
 - If the value of the `mustBeAccepted` property of the RequestItemGroup was set to `"false"`, all RequestItems contained in its `items` property could be rejected if the entire Request is accepted. However, if any RequestItem contained was to be accepted, all RequestItems whose `mustBeAccepted` property is `"true"` could also be accepted when the Request is accepted. In this respect, there was a dependency between the individual RequestItems.
@@ -129,11 +129,12 @@ The `mustBeAccepted` property of the RequestItems will be kept.
 
 ## Changed and deleted error codes
 
-The removal of the `mustBeAccepted` property of the [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) also resulted in error `error.consumption.requests.decide.validation.itemAcceptedButParentNotAccepted` was replaced by error `error.consumption.requests.decide.validation.itemAcceptedButRequestNotAccepted` and being used slightly differently in future. This is because the word `Parent` contained in the error code could refer to both the [Request]({% link _docs_integrate/request-and-response-introduction.md %}#requests) as a whole and a RequestItemGroup. As RequestItemGroups are now only used for visual structuring in the UI of [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) and no longer have any effect when accepting RequestItems, the word `Parent` can also be replaced by Request.
-
-The error `error.runtime.MultiAccount.WrongRealm` has been removed because the address format has been changed.
-
-The error `error.consumption.attributes.invalidPropertyValue` has been removed.
+- The removal of the `mustBeAccepted` property of the [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) also resulted in error `"error.consumption.requests.decide.validation.itemAcceptedButParentNotAccepted"` was replaced by error `"error.consumption.requests.decide.validation.itemAcceptedButRequestNotAccepted"` and being used slightly differently in future. This is because the word `Parent` contained in the error code could refer to both the [Request]({% link _docs_integrate/request-and-response-introduction.md %}#requests) as a whole and a RequestItemGroup. As RequestItemGroups are now only used for visual structuring in the UI of [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) and no longer have any effect when accepting RequestItems, the word `Parent` can also be replaced by Request.
+- The error `"error.runtime.MultiAccount.WrongRealm"` and `"error.transport.identity.realmLength"` were removed because the address format has been changed and the property `realm` therefore has been removed.
+- Since the RelationshipChanges has been removed, the corresponding error `"error.transport.relationships.wrongChangeStatus"` was cancelled too. In this context the error `"error.transport.messages.noMatchingRelationship"` was substituted by the more appropriate [`"error.transport.messages.missingOrInactiveRelationship"`]({% link _docs_integrate/error-codes.md %}#error.transport.messages.missingOrInactiveRelationship).
+- The error `"error.consumption.attributes.invalidPropertyValue"` was removed and substituted by the more specific error [`"error.consumption.attributes.wrongOwnerOfRepositoryAttribute"`]({% link _docs_integrate/error-codes.md %}#error.consumption.attributes.wrongOwnerOfRepositoryAttribute).
+- `"inheritedFromItem"` was replaced by [`"error.consumption.validation.inheritedFromItem"`]({% link _docs_integrate/error-codes.md %}#error.consumption.validation.inheritedFromItem) for reasons of consistency. Because of the same reason `"error.transport.secrets.wrongBaseKeyType"` was replaced by [`"error.transport.secrets.wrongSecretType"`]({% link _docs_integrate/error-codes.md %}#error.transport.secrets.wrongSecretType). Further the error `"error.runtime.notifications.cannotSaveSendNotificationFromPeerMessage"` was replaced by `"error.runtime.notifications.cannotSaveSentNotificationFromPeerMessage"` because in this case it is about marking a Notification as sent, rather then sending a Notification.
+- `"error.transport.datawallet.encryptedPayloadIsNoCipher"` and `"error.transport.files.fileContentUndefined"` were eliminated, since they aren't used anymore. But also before the migration they haven't been used.
 
 ## Changed type of the `owner` property of the ThirdPartyRelationshipAttributeQuery
 
