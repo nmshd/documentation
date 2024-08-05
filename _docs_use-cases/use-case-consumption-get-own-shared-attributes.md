@@ -1,19 +1,21 @@
 ---
 # Start automatic generation
-permalink: use-case-consumption-get-attributes-of-peer
+permalink: use-case-consumption-get-own-shared-attributes
+redirect_from:
+  - /use-case-consumption-get-attributes-shared-to-peer
 published: true
-title: "Get Attributes of peer"
+title: "Get own shared Attributes"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA3
+  - id: RA4
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: getPeerSharedAttributes
+  - function: getOwnSharedAttributes
   - description:
   - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
@@ -29,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Attributes/Peer/Shared/Identity
+  - api_route_regex: GET /api/v2/Attributes/Own/Shared/Identity
   - published: default
-  - link: use-case-consumption-get-attributes-of-peer
+  - link: use-case-consumption-get-own-shared-attributes
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Attributes/Peer/Shared/Identity$
+api_route_regex: ^GET /api/v2/Attributes/Own/Shared/Identity$
 # End automatic generation
 ---
 
@@ -42,11 +44,11 @@ api_route_regex: ^GET /api/v2/Attributes/Peer/Shared/Identity$
 
 {% include properties_list.html %}
 
-This use case is intended to retrieve Attributes that a peer has shared with the current Identity as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute). The LocalAttributes can be specified using a complex query.
+This use case is intended to retrieve Attributes that the current Identity shared to a peer as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute). The LocalAttributes can be specified using a complex query.
 
 ## Parameters
 
-- `peer` is the Address of the Identity that shared the LocalAttributes.
+- `peer` is the Address of the Identity that the LocalAttributes are shared with.
 - `query` allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used:
   - `createdAt` describes the time when the LocalAttribute was created.
   - The fields of `content` can be used to describe the queried Attribute (either an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute)
@@ -59,7 +61,7 @@ This use case is intended to retrieve Attributes that a peer has shared with the
 
 ## On Success
 
-- Returns a list of [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute) shared by the peer that match the query.
+- Returns a list of [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute) shared to the peer that matches the query.
 
 ## On Failure
 
