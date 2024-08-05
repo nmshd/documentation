@@ -47,9 +47,15 @@ This use case is intended to retrieve Attributes that a peer has shared with the
 ## Parameters
 
 - `peer` is the Address of the Identity that shared the LocalAttributes.
-- `onlyValid` filters the requested LocalAttributes to only consider currently valid LocalAttributes if set.
-- `query` describes the requested LocalAttributes in detail.
-- `hideTechnical` filters out technical LocalAttributes if set.
+- `query` allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used:
+  - `createdAt` describes the time when the LocalAttribute was created.
+  - The fields of `content` can be used to describe the queried Attribute (either an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute)
+    or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute)).
+  - The fields of the `shareInfo` describe if the LocalAttribute is shared with a peer and specify its [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
+  - The fields of the `deletionInfo` describe the [LocalAttributeDeletionInfo]({% link _docs_integrate/data-model-overview.md %}#localattributedeletioninfo) of a shared LocalAttribute.
+- If `onlyValid` is set to `true`, LocalAttributes that exceed their validity frame defined by `validFrom` and `validTo` will not be returned.
+- If `hideTechnical` is set to `true`, RelationshipAttributes with `isTechnical` `true` will not be returned.
+- Optionally, `onlyLatestVersions` can be disabled, such that in case of [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) all versions will be returned.
 
 ## On Success
 
