@@ -49,7 +49,7 @@ This own shared IdentityAttribute copy, however, in addition has a defined `shar
 It stores information about the `peer` you shared the Attribute with, the `id` of the original RepositoryAttribute in the field `sourceAttribute`, and a reference to the Request used to share the Attribute.
 Note that the own shared IdentityAttribute at your side and the peer shared IdentityAttribute at your peer's side are identical, except for the value in the `shareInfo.peer` field: on your side it will have the peer's Address and on the peer's side it will have your Address.
 Please note further, that this use case is meant to be used to share a version of a RepositoryAttribute for the first time.
-If you have already shared another version of a succeeded Attribute with the peer and you want to let them know about the changes to its `value`, use the [NotifyPeerAboutIdentityAttributeSuccession use-case]({% link _docs_use-cases/use-case-consumption-notify-peer-about-repositoryattribute-succession.md %}).
+If you have already shared another version of a succeeded Attribute with the peer and you want to let them know about the changes to its `value`, use the [NotifyPeerAboutRepositoryAttributeSuccession use-case]({% link _docs_use-cases/use-case-consumption-notify-peer-about-repositoryattribute-succession.md %}).
 
 ## Parameters
 
@@ -63,9 +63,9 @@ If you have already shared another version of a succeeded Attribute with the pee
 
 ## On Failure
 
-- The Request cannot be created, if the `peer` is unknown.
-- The Request cannot be created, if the `attributeId` belongs to a RelationshipAttribute.
-- The Request cannot be created, if the `attributeId` belongs to an IdentityAttribute with a `shareInfo`.
-- The Request cannot be created, if the Attribute has already been shared with the peer.
-- The Request cannot be created, if another version of the Attribute regarding succession has already been shared with the peer.
-- The Request cannot be created, if the parameters are malformed.
+- The Request cannot be created if the `peer` is unknown.
+- The Request cannot be created if the `attributeId` belongs to a RelationshipAttribute.
+- The Request cannot be created if the `attributeId` belongs to an IdentityAttribute with a `shareInfo`.
+- The Request cannot be created if the Attribute has already been shared with the peer and the own shared IdentityAttribute doesn't have `"DeletedByPeer"` or `"ToBeDeletedByPeer"` as `deletionInfo.deletionStatus`.
+- The Request cannot be created if another version of the Attribute regarding succession has already been shared with the peer, unless the latest shared version has `"DeletedByPeer"` or `"ToBeDeletedByPeer"` as `deletionInfo.deletionStatus`.
+- The Request cannot be created if the parameters are malformed.
