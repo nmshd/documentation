@@ -48,8 +48,10 @@ The LocalAttributes can be specified using a complex query.
 
 ## Parameters
 
-- Optionally, `onlyLatestVersions` can be disabled, such that in case of Attribute succession all versions will be returned.
-- Furthermore, a `query` may be specified, describing the requested LocalAttributes in detail.
+- `query` allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used:
+  - `createdAt` describes the time when the LocalAttribute was created.
+  - The fields of `content` can be used to describe the queried IdentityAttribute.
+- Optionally, `onlyLatestVersions` can be disabled, such that in case of [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) all versions will be returned.
 
 ## On Success
 

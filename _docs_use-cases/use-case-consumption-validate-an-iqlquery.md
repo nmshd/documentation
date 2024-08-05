@@ -1,6 +1,6 @@
 ---
 # Start automatic generation
-permalink: use-case-consumption-validate-an-iql-query
+permalink: use-case-consumption-validate-an-iqlquery
 published: true
 title: "Validate an IQLQuery"
 type: use-case
@@ -31,7 +31,7 @@ properties:
   - changed_at:
   - api_route_regex: POST /api/v2/Attributes/ValidateIQLQuery
   - published: default
-  - link: use-case-consumption-validate-an-iql-query
+  - link: use-case-consumption-validate-an-iqlquery
 require:
 required_by:
 api_route_regex: ^POST /api/v2/Attributes/ValidateIQLQuery$

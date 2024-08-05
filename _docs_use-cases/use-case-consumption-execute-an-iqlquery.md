@@ -30,7 +30,7 @@ properties:
   - created_at:
   - changed_at:
   - api_route_regex: POST /api/v2/Attributes/ExecuteIQLQuery
-  - published:
+  - published: default
   - link: use-case-consumption-execute-an-iqlquery
 require:
 required_by:
