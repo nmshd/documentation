@@ -128,7 +128,7 @@ This change enables the Sender of the Request to specify more precisely who the 
 
 ### RevokeRelationship
 
-With Version 5 the Use Case RevokeRelationship has been added. So now it is possible to revoke a RelationshipRequest which is in `status` `"pending"` and was created by yourself.
+With Version 5 the Use Case RevokeRelationship has been added. So now it is possible to revoke a RelationshipRequest which is in status `"Pending"` and was created by yourself.
 
 ### Removal of RelationshipChanges and RelationshipTermination
 
