@@ -154,6 +154,8 @@ Therefore and with the RelationshipTermination now there are the following new U
 - Taking ThirdPartyRelationshipAttributes into account, we wanted to extend the functionality of this use case for [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
 - The use case GetSharedVersionsOfAttribute was already added in v4 and GetSharedVersionsOfRepositoryAttribute was marked as deprecated. With v5 it is deleted.
 
+An overview of the [Use Cases]({% link _docs_integrate/use-cases.md %}) that may occur is given in the corresponding section.
+
 ## Renamed and added Events
 
 There are several Events which has been added. For example regarding the RelationshipTermination the following has been added:
