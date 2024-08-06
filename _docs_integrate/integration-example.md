@@ -237,7 +237,7 @@ Example:
         "id": "RELmJj25x2bZW0VXzAiQ",
         ...
         "status": "Pending",
-        "peer": "did:e:prod.enmeshed.eu:dids:60326ff5075e0d7378990c",
+        "peer": "did:e:_________________",
         "changes": [
           {
             "id": "RCHUwBw7BWlROPlEjb51",
