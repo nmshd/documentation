@@ -173,7 +173,7 @@ var store = [{
         "url": "/versions/v5/integrate/delete-attributes",
         "teaser": null
       },{
-        "title": "Error Codes",
+        "title": "Error codes",
         "excerpt":"Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker. ErrorCode Description error.connector.http.methodNotAllowed This method...","categories": [],
         "tags": [],
         "url": "/versions/v5/integrate/error-codes",
@@ -279,6 +279,12 @@ var store = [{
         "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Load Token by id and key (without having an account) Anonymous Identity AnonymousTokens Runtime Load Token by truncated reference (without having an account) Anonymous Identity AnonymousTokens Runtime Accept incoming Request Consumption Identity Requests Runtime Check if incoming Request can be accepted...","categories": [],
         "tags": [],
         "url": "/versions/v5/integrate/use-cases",
+        "teaser": null
+      },{
+        "title": "Version 5",
+        "excerpt":"DIDs as addresses The address format changed from &lt;3-character realm&gt;&lt;32 or 33-character base58-string&gt; to did:e:&lt;backbone-hostname&gt;:dids:&lt;22-character lowercase hex string&gt;. This means that the property realm of LocalAccount was removed. Removal of RelationshipChanges RelationshipChanges were removed. The only type of RelationshipChange used before was the CreationChange, its content has been moved to...","categories": [],
+        "tags": [],
+        "url": "/versions/v5/integrate/version-5",
         "teaser": null
       },{
         "title": "Operate enmeshed",
@@ -602,7 +608,7 @@ var store = [{
         "title": "Validate an IQLQuery",
         "excerpt":"This use case validates an IQLQuery&#8217;s query string by checking for syntactic errors. Parameters The query field of the IQLQuery as described in IQLQuery. On Success Returns { \"isValid\": true } if the query string is syntactically valid IQL. Otherwise { \"isValid\": false, \"error\": { \"message\": \"...\" }} is returned...","categories": [],
         "tags": [],
-        "url": "/versions/v5/use-case-consumption-validate-an-iql-query",
+        "url": "/versions/v5/use-case-consumption-validate-an-iqlquery",
         "teaser": null
       },{
         "title": "Create Profile with new Identity",
@@ -761,10 +767,10 @@ var store = [{
         "url": "/versions/v5/use-case-transport-create-own-token",
         "teaser": null
       },{
-        "title": null,
+        "title": "Create QR code for File",
         "excerpt":"Creates a QR code for a File that corresponds to the given fileId. Parameters fileId is the id of the File the QR code should be created for. On Success Returns the created QR code encoded as Base64. On Failure fileId does not resolve to a File. expiresAt lies in...","categories": [],
-        "tags": null,
-        "url": "/versions/v5/docs_use-cases/use-case-transport-create-qr-code-for-file",
+        "tags": [],
+        "url": "/versions/v5/use-case-transport-create-qr-code-for-file",
         "teaser": null
       },{
         "title": "Create Relationship with RelationshipTemplate",
@@ -785,10 +791,10 @@ var store = [{
         "url": "/versions/v5/use-case-transport-create-token-for-own-relationshiptemplate",
         "teaser": null
       },{
-        "title": null,
+        "title": "Create Token QR code for File",
         "excerpt":"Creates a QR code for a Token of a File that corresponds to the given fileId. Parameters fileId is the id of the File the Token and its QR code should be created for. Optionally, expiresAt can be specified, which describes the ISODateTime the Token expires at. On Success Returns...","categories": [],
-        "tags": null,
-        "url": "/versions/v5/docs_use-cases/use-case-transport-create-token-qr-code-for-file",
+        "tags": [],
+        "url": "/versions/v5/use-case-transport-create-token-qr-code-for-file",
         "teaser": null
       },{
         "title": "Download File of Attachment",
