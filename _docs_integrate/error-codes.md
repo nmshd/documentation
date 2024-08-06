@@ -4,7 +4,7 @@ permalink: integrate/error-codes
 redirect_from:
   - /integrate/errorCodes
 published: true
-title: "Error Codes"
+title: "Error codes"
 type: scenario
 toc: true
 properties:
