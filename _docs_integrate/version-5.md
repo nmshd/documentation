@@ -124,15 +124,15 @@ However, it was not possible, for example, to query a RelationshipAttribute that
 
 This change enables the Sender of the Request to specify more precisely who the `owner` of a RelationshipAttribute should be when querying it and better reflects real application scenarios.
 
-## Changed and new Use Cases
+## Changed and added Use Cases
 
 ### RevokeRelationship
 
-With Version 5 the Use Case RevokeRelationship has been added. So now it is possible to revoke a RelationshipRequest which has already the `status` `"pending"`.
+With Version 5 the Use Case RevokeRelationship has been added. So now it is possible to revoke a RelationshipRequest which is in `status` `"pending"` and was created by yourself.
 
 ### Removal of RelationshipChanges and RelationshipTermination
 
-The [Removal of RelationshipChanges](#removal-of-relationshipchanges) is the reason why the following Use Cases are removed:
+The [removal of RelationshipChanges](#removal-of-relationshipchanges) is the reason why the following Use Cases are removed:
 
 - AcceptRelationshipChange
 - RevokeRelationshipChange
@@ -154,12 +154,14 @@ Therefore and with the RelationshipTermination now there are the following new U
 - Taking ThirdPartyRelationshipAttributes into account, we wanted to extend the functionality of this use case for [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
 - The use case GetSharedVersionsOfAttribute was already added in v4 and GetSharedVersionsOfRepositoryAttribute was marked as deprecated. With v5 it is deleted.
 
-## New Events
+## Renamed and added Events
 
 There are several Events which has been added. For example regarding the RelationshipTermination the following has been added:
 
 - `"transport.relationshipDecomposedBySelf"`
 - `"transport.relationshipReactivationCompleted"`
 - `"transport.relationshipReactivationRequested"`
+
+The Event `consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted` was renamed to `consumption.outgoingRequestFromRelationshipCreationCreatedAndCompleted` because of the [removal of RelationshipChanges](#removal-of-relationshipchanges).
 
 An overview of the [Connector events]({% link _docs_integrate/connector-events.md %}) that may occur is given in the corresponding section.
