@@ -8,7 +8,7 @@ toc: true
 properties:
   - id: SC115
   - category: Migration Guides
-  - description: Änderungen bzgl. Version 5
+  - description: Changes due to release/v5
   - customer:
   - component: integrate
   - level:
