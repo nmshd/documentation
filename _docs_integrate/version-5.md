@@ -1,38 +1,34 @@
 ---
 # Start automatic generation
-permalink: integrate/new-versions
-published: true
-title: "New versions"
+permalink: integrate/version-5
+published: false
+title: "Version 5"
 type: scenario
 toc: true
 properties:
   - id: SC115
-  - category: Data Model
-  - description:
+  - category: Migration Guides
+  - description: Änderungen bzgl. Version 5
   - customer:
   - component: integrate
   - level:
   - implementation status: DOCS ONLY
   - documentation status:
   - published:
-  - link: new-versions
+  - link: version-5
 require:
 required_by:
 # End automatic generation
 ---
 
-# Migration guide due to release/v5
-
-After merging the PR release/v5 into the main branch of the runtime, there are some backwards incompatible changes about which the Integrators will be informed transparently in the following.
-
 ## DIDs as addresses
 
-The address format changed from `<3-character realm><32 or 33-character base58-string>` to `did:e:<backbone-base-url>:dids:<22-character lowercase hex string>`.
+The address format changed from `<3-character realm><32 or 33-character base58-string>` to `did:e:<backbone-hostname>:dids:<22-character lowercase hex string>`.
 This means that the property `realm` of LocalAccount was removed.
 
 ## Removal of RelationshipChanges
 
-RelationshipChanges were removed. The only type of RelationshipChange used so far is the CreationChange, its `content` has been moved to a new property of the relationship creation content - the `creationContent`. If this `content` has been created by responding to a [Request]({% link _docs_integrate/data-model-overview.md %}#request) of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate), the [`content`]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) changes as follows:
+RelationshipChanges were removed. The only type of RelationshipChange used before was the CreationChange, its `content` has been moved to a new property of the relationship creation content - the `creationContent`. If this `content` has been created by responding to a [Request]({% link _docs_integrate/data-model-overview.md %}#request) of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate), the [`content`]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) changes as follows:
 
 | `<relationshipChange>.request.content`                          | `<relationship>.creationContent`                   |
 | --------------------------------------------------------------- | -------------------------------------------------- |
@@ -76,14 +72,6 @@ The Relationship (which is returned by various Connector routes and events) is h
 
 E. g. the first `auditLogEntry` has the reason `Creation`, no `oldStatus` and `newStatus` `"Pending"` and is created by the one who created the Relationship.
 
-## Default Attributes
-
-- [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) have a new property `isDefault`. This is only used for [RepositoryAttributes]({% link _docs_integrate/attribute-introduction.md %}#repositoryattributes).
-- For each [IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#identityattributes) value type exactly one of the existing Attributes is the default Attribute, i.e. its `isDefault` property is set to `"true"`, while for all others it is undefined.
-- Either it will be automatically set when creating a new [RepositoryAttribute]({% link _docs_integrate/attribute-introduction.md %}#repositoryattributes) that is the first of its value type or it can be set manually via the Use Case ChangeDefaultRepositoryAttribute. However, the desired new default RepositoryAttribute may not already have a successor.
-- If the default RepositoryAttribute is succeeded, the successor will become the new default Attribute. Thus, the `succeededBy` field of the default RepositoryAttribute may never be set.
-- If the default RepositoryAttribute is deleted, the newest RepositoryAttribute of that value type without a successor will automatically become the next default RepositoryAttribute of that value type, if such a RespositoryAttribute exists.
-
 ## Validation of [Requests]({% link _docs_integrate/request-and-response-introduction.md %}#requests)
 
 Validations have been added when sending [Requests]({% link _docs_integrate/request-and-response-introduction.md %}#requests) and [responding to Requests]({% link _docs_integrate/data-model-overview.md %}#deciderequestitemparameters) to ensure the proper functioning of business processes. However, the added validations can also reduce flexibility in the use of Requests, which is why they could cause previously functioning Request flows to fail. Most affected by the changes are Requests where an [Attribute is shared with a peer]({% link _docs_integrate/share-attributes-with-peer.md %}), an [Attribute is proposed to a peer]({% link _docs_integrate/propose-attributes-to-peer.md %}), an [Attribute is read from a peer]({% link _docs_integrate/read-attributes-from-peer.md %}) or an [Attribute is created for a peer]({% link _docs_integrate/create-attributes-for-peer.md %}). In the case of problems with previously functioning Request flows that now fail, it is recommended that the corresponding documented scenarios be consulted. Descriptive error messages are also thrown to help restore the integrity of Request flows.
@@ -101,14 +89,6 @@ Even though reference has already been made to the corresponding scenarios in th
 
 - The new error code `error.consumption.requests.attributeQueryMismatch` has been implemented to mark provided [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) that do not fulfil a certain [AttributeQuery]({% link _docs_integrate/data-model-overview.md %}#attributequeries) accordingly. It is thrown, for example, if the Attribute provided by the Recipient of the Request does not match the AttributeQuery specified in the `query` property of a [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem).
 - If the Sender of a Request that contains a ReadAttributeRequestItem whose `query` is a [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) or a [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery), the Recipient of the Request can only validly answer a RelationshipAttributeQuery with a new Attribute, and a ThirdPartyRelationshipAttributeQuery with an existing Attribute. Otherwise, the [error code `error.consumption.requests.invalidAcceptParameters`]({% link _docs_integrate/error-codes.md %}#error.consumption.requests.invalidAcceptParameters) arises.
-
-## Restriction of the Message, RelationshipTemplate and RelationshipCreation content types ( PR still open)
-
-- The `content` of a [Message]({% link _docs_integrate/data-model-overview.md %}#message) must have one of the content types [Mail]({% link _docs_integrate/data-model-overview.md %}#mail), [ResponseWrapper]({% link _docs_integrate/data-model-overview.md %}#responsewrapper), [Notification]({% link _docs_integrate/data-model-overview.md %}#notification), [Request]({% link _docs_integrate/data-model-overview.md %}#request) or ArbitraryMessageContent - the last one is new and from this form `{ @type: "ArbitraryMessageContent", value: any}`.
-- The [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) `content` must have one of the content types RelationshipTemplateContent or ArbitraryRelationshipTemplateContent - the last one is new and from this form `{ @type: "ArbitraryRelationshipTemplateContent", value: any}`.
-- The [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) `creationContent` must have either of the content types RelationshipCreationContent or ArbitraryRelationshipCreationContent - the last one is new and from this form `{ @type: "ArbitraryRelationshipCreationContent", value: any}`.
-
-This affects the input of the routes `POST Messages` for sending Messages, `POST RelationshipTemplates` for creating RelationshipTemplates and `POST Relationships` for creating Relationships. If you want to send an arbitrary content, you now have the input `{ @type: "Arbitrary...Content", value: yourContent}` instead of yourContent. The input hence always has an `@type` field. Whenever a Connector route returns a Message, a RelationshipTemplate or a Relationship, the `content` then is `{ @type: "Arbitrary...Content", value: yourContent}` instead of previously `{ @type: "JSONWrapper", value: yourContent}`.
 
 ## Removal of the `mustBeAccepted` property of the RequestItemGroup
 
