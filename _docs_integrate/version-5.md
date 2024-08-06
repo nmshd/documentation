@@ -124,7 +124,42 @@ However, it was not possible, for example, to query a RelationshipAttribute that
 
 This change enables the Sender of the Request to specify more precisely who the `owner` of a RelationshipAttribute should be when querying it and better reflects real application scenarios.
 
-## Renaming of the Use Case GetSharedVersionsOfRepositoryAttribute to GetSharedVersionsOfAttribute
+## Changed and new Use Cases
+
+### RevokeRelationship
+
+With Version 5 the Use Case RevokeRelationship has been added. So now it is possible to revoke a RelationshipRequest which has already the `status` `"pending"`.
+
+### Removal of RelationshipChanges and RelationshipTermination
+
+The [Removal of RelationshipChanges](#removal-of-relationshipchanges) is the reason why the following Use Cases are removed:
+
+- AcceptRelationshipChange
+- RevokeRelationshipChange
+- RejectRelationshipChange
+
+Therefore and with the RelationshipTermination now there are the following new Use Cases:
+
+- AcceptRelationship: Accepts the creation of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- AcceptRelationshipReactivation: Accepts the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- DecomposeRelationship: Decomposes the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- RejectRelationship: Rejects the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- RejectRelationshipReactivation: Rejects the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- RequestRelationshipReactivation: Requests the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- RevokeRelationshipReactivation: Revokes the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- TerminateRelationship: Terminates the active Relationship [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+
+### Renaming of the Use Case GetSharedVersionsOfRepositoryAttribute to GetSharedVersionsOfAttribute
 
 - Taking ThirdPartyRelationshipAttributes into account, we wanted to extend the functionality of this use case for [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
 - The use case GetSharedVersionsOfAttribute was already added in v4 and GetSharedVersionsOfRepositoryAttribute was marked as deprecated. With v5 it is deleted.
+
+## New Events
+
+There are several Events which has been added. For example regarding the RelationshipTermination the following has been added:
+
+- `"transport.relationshipDecomposedBySelf"`
+- `"transport.relationshipReactivationCompleted"`
+- `"transport.relationshipReactivationRequested"`
+
+An overview of the [Connector events]({% link _docs_integrate/connector-events.md %}) that may occur is given in the corresponding section.
