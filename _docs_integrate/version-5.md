@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: integrate/version-5
-published: false
+published: true
 title: "Version 5"
 type: scenario
 toc: true
@@ -13,7 +13,7 @@ properties:
   - component: integrate
   - level:
   - implementation status: DOCS ONLY
-  - documentation status:
+  - documentation status: DONE
   - published:
   - link: version-5
 require:
