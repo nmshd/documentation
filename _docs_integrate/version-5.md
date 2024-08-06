@@ -24,7 +24,6 @@ required_by:
 ## DIDs as addresses
 
 The address format changed from `<3-character realm><32 or 33-character base58-string>` to `did:e:<backbone-hostname>:dids:<22-character lowercase hex string>`.
-This means that the property `realm` of LocalAccount was removed.
 
 ## Removal of RelationshipChanges
 
