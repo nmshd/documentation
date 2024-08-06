@@ -282,7 +282,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Version 5",
-        "excerpt":"DIDs as addresses The address format changed from &lt;3-character realm&gt;&lt;32 or 33-character base58-string&gt; to did:e:&lt;backbone-hostname&gt;:dids:&lt;22-character lowercase hex string&gt;. This means that the property realm of LocalAccount was removed. Removal of RelationshipChanges RelationshipChanges were removed. The only type of RelationshipChange used before was the CreationChange, its content has been moved to...","categories": [],
+        "excerpt":"DIDs as addresses The address format changed from &lt;3-character realm&gt;&lt;32 or 33-character base58-string&gt; to did:e:&lt;backbone-hostname&gt;:dids:&lt;22-character lowercase hex string&gt;. Removal of RelationshipChanges RelationshipChanges were removed. The only type of RelationshipChange used before was the CreationChange, its content has been moved to a new property of the relationship - the creationContent. If...","categories": [],
         "tags": [],
         "url": "/versions/v5/integrate/version-5",
         "teaser": null
