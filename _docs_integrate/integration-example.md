@@ -101,7 +101,6 @@ Let's assume the Connector needs to know the given name and surname of its conta
     "items": [
       {
         "@type": "RequestItemGroup",
-        "mustBeAccepted": true,
         "title": "Shared Attributes",
         "items": [
           {
@@ -121,7 +120,6 @@ Let's assume the Connector needs to know the given name and surname of its conta
       },
       {
         "@type": "RequestItemGroup",
-        "mustBeAccepted": true,
         "title": "Requested Attributes",
         "items": [
           {
