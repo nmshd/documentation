@@ -222,13 +222,13 @@ In the response you can see a new Relationship, which looks as follows:
     // ...
   },
   "status": "Active",
-  "peer": "id1...",
+  "peer": "did:e:...",
   // ...
   "changes": [
     {
       "id": "RCH...",
       "request": {
-        "createdBy": "id1...",
+        "createdBy": "did:e:...",
         "createdByDevice": "DVC...",
         "createdAt": "<time of creation>",
         "content": {

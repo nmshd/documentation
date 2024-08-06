@@ -5,22 +5,29 @@
 <h6>Corresponding interactive API docs excerpt:</h6>
 {% endif %}
 <rapi-doc-mini
-    server-url="https://doc-demo.is.enmeshed.eu/"
-    default-api-server="https://doc-demo.is.enmeshed.eu/"
+    server-url="https://doc-demo-v5.is.enmeshed.eu/"
+    default-api-server="https://doc-demo-v5.is.enmeshed.eu/"
     api-key-name="x-api-key"
     api-key-location="header"
     api-key-value="apikey"
     layout="column"
     default-schema-tab="example"
-    spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
+    spec-url="https://doc-demo-v5.is.enmeshed.eu/docs/json"
     paths-expanded="false"
     theme="light"
     bg-color="#f9f9fb"
-    {% if page.api_route_regex="" %}
+    {%
+    if
+    page.api_route_regex=""
+    %}
     match-paths="{{ page.api_route_regex }}"
-    {% else %}
+    {%
+    else
+    %}
     match-paths="{{ include.api_route_regex }}"
-    {% endif %}
+    {%
+    endif
+    %}
     match-type="regex"
 ></rapi-doc-mini>
 <br />

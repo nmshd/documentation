@@ -45,7 +45,7 @@ To retrieve it, the Sender can [query their Relationships]({% link _docs_use-cas
     "id": "REL..",
     "status": "Active",
     // ...
-    "peer": "id1..."
+    "peer": "did:e:..."
   }
 ]
 ```

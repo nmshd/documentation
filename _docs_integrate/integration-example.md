@@ -79,7 +79,8 @@ To do so, execute `POST /api/v2/Attributes` with the following payload:
 }
 ```
 
-You can query the Connector's address via the route `/api/v2/Account/IdentityInfo`. If you are using the Demo Connector of this Tutorial, the address is `id134nJmN7E4Carb6KyRJyePVnXxVHEYQgWD`.
+You can query the Connector's address via the route `/api/v2/Account/IdentityInfo`. If you are using the Demo Connector of this Tutorial, the address is `did:e:stage.enmeshed.eu:dids:54013af2a3bffe9dc8cb99`.
+
 {: .notice--info}
 
 {% include rapidoc api_route_regex="^post /api/v2/Attributes$" %}
@@ -234,7 +235,7 @@ Example:
         "id": "RELmJj25x2bZW0VXzAiQ",
         ...
         "status": "Pending",
-        "peer": "id19Sy75wjCWhQSxsbMiGLn6iSBfWvQmot5b",
+        "peer": "did:e:_________________",
         "changes": [
           {
             "id": "RCHUwBw7BWlROPlEjb51",
@@ -257,7 +258,7 @@ Now the Relationship is in the `Active` state, so we can start to communicate wi
 For this, we will need the address of that Identity.
 It can be found in the Response, when accepting the Relationship.
 
-{% include copy-notice description="Save the `peer` property of the Response (`id1_________________`). You will need it in the next step." %}
+{% include copy-notice description="Save the `peer` property of the Response (`did:e:_________________`). You will need it in the next step." %}
 
 ## Sending and Receiving Messages
 
@@ -273,10 +274,10 @@ Further, the `subject` and `body` properties can be modified with some custom `c
 
 ```json
 {
-  "recipients": ["id_________________________________"],
+  "recipients": ["did:e:_________________________________"],
   "content": {
     "@type": "Mail",
-    "to": ["id_________________________________"],
+    "to": ["did:e:_________________________________"],
     "subject": "Welcome",
     "body": "Hello. We are pleased to welcome you as our customer."
   }
