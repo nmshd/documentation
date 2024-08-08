@@ -89,6 +89,8 @@ docs_integrate:
         url: integrate/establish-relationships
       - title: "Exchange Messages"
         url: /integrate/exchange-messages
+      - title: "Terminate Relationships"
+        url: integrate/terminate-relationships
   - title: Working with Requests
     children:
       - title: "Request and Response introduction"
