@@ -137,7 +137,7 @@ The Sender only has the option of sending a Request to the Recipient via a [Mess
 
 ## Accept the Request and deal with the proposed Attributes
 
-After the Recipient has received the [Request for proposing Attributes]({% link _docs_integrate/propose-attributes-to-peer.md %}#request-for-proposing-attributes), it can accept it to create all or some of the Attributes that were proposed for creation by the Sender. The Recipient also has the option of overwriting the Attribute values beforehand or sending existing Attributes back to the Sender instead of creating new ones. To accept the Request, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). Also, you need to decide and specify for each ProposeAttributeRequestItem and RequestItemGroup contained in the Request for proposing Attributes whether you want to accept or reject it.
+After the Recipient has received the [Request for proposing Attributes]({% link _docs_integrate/propose-attributes-to-peer.md %}#request-for-proposing-attributes), it can accept it to create all or some of the Attributes that were proposed for creation by the Sender. The Recipient also has the option of overwriting the Attribute values beforehand or sending existing Attributes back to the Sender instead of creating new ones. To accept the Request, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). Also, you need to decide and specify for each ProposeAttributeRequestItem contained in the Request for proposing Attributes whether you want to accept or reject it.
 
 If the Recipient does not want to deal with any of the Attributes proposed by the Sender and, therefore, does not want to accept the Request for proposing Attributes of the Sender, it can reject it as a whole as well. For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
@@ -187,7 +187,6 @@ Let's look at an example where the Sender proposes the Recipient's [PersonName](
     },
     {
       "@type": "RequestItemGroup",
-      "mustBeAccepted": true,
       "items": [
         {
           "@type": "ProposeAttributeRequestItem",
@@ -227,7 +226,7 @@ Let's look at an example where the Sender proposes the Recipient's [PersonName](
 }
 ```
 
-In our example, the Sender only requires the Recipient to accept the ProposeAttributeRequestItems belonging to the PersonName and the EMailAddress, which is why the individual [ProposeAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) and the [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) within the Request have specified corresponding values in their `mustBeAccepted` property. We assume that the Recipient wants to accept the Request and all its ProposeAttributeRequestItems with the exception of the PhoneNumber.
+In our example, the Sender only requires the Recipient to accept the ProposeAttributeRequestItems belonging to the PersonName and the EMailAddress, which is why the individual [ProposeAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) within the Request have specified corresponding values in their `mustBeAccepted` property. We assume that the Recipient wants to accept the Request and all its ProposeAttributeRequestItems with the exception of the PhoneNumber.
 
 If the Recipient wants to accept the Request for proposing Attributes, it must accept all ProposeAttributeRequestItems for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted for the Recipient to refuse to accept the ProposeAttributeRequestItem belonging to the PersonName or the EMailAddress.
 {: .notice--info}
@@ -251,8 +250,6 @@ We assume that the Recipient confirms the fittingness of the PersonName proposed
       }
     },
     {
-      // Accept RequestItemGroup
-      "accept": true,
       "items": [
         {
           // Create a corrected version of the proposed EMailAddress
@@ -276,7 +273,7 @@ We assume that the Recipient confirms the fittingness of the PersonName proposed
 }
 ```
 
-Note that it is important to respond to RequestItems and RequestItemGroups in the same order in which they were received.
+Note that it is important to respond to RequestItems, some of which may be contained in a RequestItemGroup, in the same order in which they were received.
 
 ## Receive the Response to the Request
 

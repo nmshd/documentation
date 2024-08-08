@@ -18,8 +18,8 @@ properties:
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE
-  - documentation status:
-  - comments: Accept: image/png
+  - documentation status: DONE
+  - comments: image/png for Accept
   - actor: Identity
   - trigger:
   - precondition:

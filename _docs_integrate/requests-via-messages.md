@@ -158,7 +158,7 @@ In case of the example Request, the payload is the following:
 }
 ```
 
-Note that if you have multiple [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) or [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup), they must be accepted in the exact order they were specified in in the [Request]({% link _docs_integrate/data-model-overview.md %}#request).
+Please note that if there are multiple [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems), some of which may be contained in a [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup), these must be accepted in the exact order in which they were specified in the [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 
 ### Reject
 

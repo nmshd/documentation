@@ -103,7 +103,7 @@ The Connector provides the following configuration parameters:
 
 You can validate the config using our [schema file](https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json). This is possible for example with [VSCode](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) or online tools like [jsonschemavalidator.net](https://www.jsonschemavalidator.net).
 
-### debug `availbable since version 3.3.0` {#debug}
+### debug `available since version 3.3.0` {#debug}
 
 ⚠️ Do not turn on debug mode in production environments.
 {: .notice--danger}
