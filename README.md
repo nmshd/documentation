@@ -25,10 +25,10 @@ JavaScript
 Install:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Remote Containers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- [Dev Containers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 - [Docker](https://code.visualstudio.com/docs/remote/containers)
 
-Then in VS Code, clone the repository with the command _[Remote-Containers: Clone Repository in Container Volume...](https://code.visualstudio.com/docs/remote/containers-advanced#_use-clone-repository-in-container-volume)_
+Then in VS Code, clone the repository with the command _[Dev Containers: Clone Repository in Container Volume...](https://code.visualstudio.com/docs/remote/containers-advanced#_use-clone-repository-in-container-volume)_
 
 This will
 
