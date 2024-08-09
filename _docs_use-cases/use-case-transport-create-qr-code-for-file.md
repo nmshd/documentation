@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: use-case-transport-create-qr-code-for-file
-published: false
+published: true
 title: "Create QR code for File"
 type: use-case
 toc: true
