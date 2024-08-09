@@ -1,8 +1,6 @@
 ---
 # Start automatic generation
 permalink: use-case-consumption-get-shared-versions-of-an-attribute
-redirect_from:
-  - /use-case-consumption-get-shared-versions-of-a-repositoryattribute
 published: true
 title: "Get shared versions of an Attribute"
 type: use-case

@@ -45,13 +45,12 @@ The list below is a non-complete list of use cases within enmeshed:
       - Get Messages
       - Send Message
     - Relationships
-      - Accept Relationship change
+      - Accept Relationship
       - Create Relationship
-      - Create Relationship change
       - Get Relationship
       - Get Relationships
-      - Reject Relationship change
-      - Revoke Relationship change
+      - Reject Relationship
+      - Revoke Relationship
     - RelationshipTemplates
       - Create own RelationshipTemplate
       - Get RelationshipTemplate
