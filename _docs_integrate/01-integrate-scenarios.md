@@ -39,4 +39,4 @@ Understand the [Data Model]({% link _docs_integrate/data-model-overview.md %}) o
 
 ## Troubleshooting
 
-Here you can find the [Error Codes]({% link _docs_integrate/error-codes.md %}) and our [FAQ]({% link _docs_integrate/faq.md %}) page.
+Here you can find the [Error codes]({% link _docs_integrate/error-codes.md %}) and our [FAQ]({% link _docs_integrate/faq.md %}) page.
