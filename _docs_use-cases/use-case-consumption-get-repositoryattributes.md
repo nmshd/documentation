@@ -42,7 +42,8 @@ api_route_regex: ^GET /api/v2/Attributes/Own/Repository$
 
 {% include properties_list.html %}
 
-This use case is intended to return all RepositoryAttributes, i.e. [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) with an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) as `content` you are the `owner` of and whose `shareInfo` is undefined.
+This use case is intended to return all RepositoryAttributes.
+RepositoryAttributes are own [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) with an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) as `content` that are classified by an undefined `shareInfo`.
 In case of [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}), by default only the latest version will be returned.
 The LocalAttributes can be specified using a complex query.
 
