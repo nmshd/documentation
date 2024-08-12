@@ -62,6 +62,7 @@ It triggers the succession of their peer shared RelationshipAttribute in the sam
 
 ## On Failure
 
-- The response cannot be created, if the `predecessorId` doesn't belong to a valid own LocalAttribute with RelationshipAttribute `content`.
-- The response cannot be created, if the LocalAttribute belonging to the `predecessorId` already has a successor.
-- The response cannot be created, if the parameters are malformed.
+- The response cannot be created if the `predecessorId` doesn't belong to a valid own LocalAttribute with RelationshipAttribute `content`.
+- The response cannot be created if the LocalAttribute belonging to the `predecessorId` already has a successor.
+- The response cannot be created if the LocalAttribute belonging to the `predecessorId` has a `deletionInfo` with `deletionStatus` other than `"DeletionRequestRejected"`.
+- The response cannot be created if the parameters are malformed.
