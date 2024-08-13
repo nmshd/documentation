@@ -853,7 +853,7 @@ Theoretically you can send any kind of data in a RelationshipTemplate. However, 
 
 ## RelationshipCreationContent
 
-Theoretically you can send any kind of data in a Relationship's creation content. However, if the RelationshipTemplate's content was of type `RelationshipTemplateContent`, the creation content must be of type `RelationshipCreationContent`, containing the Response to the Template's Request on new Relationship.
+Theoretically you can send any kind of data in a Relationship's `creationContent`. However, if the RelationshipTemplate's `content` was of type `RelationshipTemplateContent`, the `creationContent` must be of type `RelationshipCreationContent`, containing the Response to the Template's Request on a new Relationship.
 
 | Name     | Type                            | Description                                                                                                                                              |
 | -------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
