@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Get support Information - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Get Attributes - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Get support Information">
-<meta property="og:url" content="/use-case-device-get-support-information">
+<meta property="og:title" content="Get Attributes">
+<meta property="og:url" content="/use-case-consumption-get-attributes">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/use-case-device-get-support-information">
+<link rel="canonical" href="/use-case-consumption-get-attributes">
 
 
 
@@ -331,7 +331,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Get support Information">
+    <meta itemprop="headline" content="Get Attributes">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2024-08-13T16:35:55+02:00">
     
@@ -340,7 +340,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/use-case-device-get-support-information" itemprop="url">Get support Information
+            <a href="/use-case-consumption-get-attributes" itemprop="url">Get Attributes
 </a>
           </h1>
           
@@ -354,7 +354,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#parameters">Parameters</a></li><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
             </nav>
           </aside>
         
@@ -363,26 +363,27 @@
     <table>
         
         <tr><td>id</td>
-            <td>CR3</td></tr>
+            <td>RA2</td></tr>
         
         <tr><td>component</td>
-            <td>ConnectorRuntime</td></tr>
+            <td>Runtime</td></tr>
         
         <tr><td>layer</td>
-            <td>Device</td></tr>
+            <td>Consumption</td></tr>
         
         <tr><td>facade</td>
-            <td>ConnectorRuntime</td></tr>
+            <td>AttributesFacade</td></tr>
         
         <tr><td>function</td>
-            <td>getSupportInformation</td></tr>
+            <td>getAttributes</td></tr>
         
         <tr></tr>
         
-        <tr></tr>
+        <tr><td>feature category</td>
+            <td>Normalized Attributes</td></tr>
         
         <tr><td>tech category</td>
-            <td>Monitoring</td></tr>
+            <td>Attributes</td></tr>
         
         <tr><td>status</td>
             <td>DONE</td></tr>
@@ -393,9 +394,10 @@
         <tr></tr>
         
         <tr><td>actor</td>
-            <td>Integrator</td></tr>
+            <td>Identity</td></tr>
         
-        <tr></tr>
+        <tr><td>trigger</td>
+            <td>REST API</td></tr>
         
         <tr></tr>
         
@@ -415,13 +417,13 @@
         <tr></tr>
         
         <tr><td>api_route_regex</td>
-            <td>GET /Monitoring/Support</td></tr>
+            <td>GET /api/v2/Attributes</td></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-device-get-support-information</td></tr>
+            <td>use-case-consumption-get-attributes</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -429,9 +431,37 @@
 </div>
 -->
 
-<p>This use case retrieves support information of the Connector, which can be used to receive support by the community / developers.</p>
+<p>This use case is intended to query <a href="/integrate/data-model-overview#localattribute">LocalAttributes</a>. The LocalAttributes can be specified using a complex query.</p>
 
-<p>It contains the Connector&#8217;s version information, its health, its configuration parameters and its Identity information (address and public key). Although, secrets out of the configuration are blanked out, you should take care to whom this information is shared.</p>
+<h2 id="parameters">Parameters</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">query</code> allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">createdAt</code> describes the time when the LocalAttribute was created.</li>
+      <li><code class="language-plaintext highlighter-rouge">parentId</code> can be used to find the child Attributes of a <a href="/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttribute</a>.</li>
+      <li>The fields of <code class="language-plaintext highlighter-rouge">content</code> can be used to describe the queried Attribute (either an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a>
+or a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>).</li>
+      <li><code class="language-plaintext highlighter-rouge">succeeds</code> and <code class="language-plaintext highlighter-rouge">succeededBy</code> give information about the <a href="/integrate/update-attributes-by-succession">succession state</a> of the LocalAttribute.</li>
+      <li>The fields of the <code class="language-plaintext highlighter-rouge">shareInfo</code> describe if the LocalAttribute is shared with a peer and specify its <a href="/integrate/data-model-overview#localattributeshareinfo">LocalAttributeShareInfo</a>.</li>
+      <li>The fields of the <code class="language-plaintext highlighter-rouge">deletionInfo</code> describe the <a href="/integrate/data-model-overview#localattributedeletioninfo">LocalAttributeDeletionInfo</a> of a shared LocalAttribute.</li>
+    </ul>
+  </li>
+  <li>If <code class="language-plaintext highlighter-rouge">onlyValid</code> is set to <code class="language-plaintext highlighter-rouge">true</code>, LocalAttributes that exceed their validity frame defined by <code class="language-plaintext highlighter-rouge">validFrom</code> and <code class="language-plaintext highlighter-rouge">validTo</code> will not be returned.</li>
+  <li>If <code class="language-plaintext highlighter-rouge">hideTechnical</code> is set to <code class="language-plaintext highlighter-rouge">true</code>, RelationshipAttributes with <code class="language-plaintext highlighter-rouge">isTechnical</code> <code class="language-plaintext highlighter-rouge">true</code> will not be returned.</li>
+</ul>
+
+<h2 id="on-success">On Success</h2>
+
+<ul>
+  <li>Returns a list of <a href="/integrate/data-model-overview#localattribute">LocalAttributes</a> that match the parameters.</li>
+</ul>
+
+<h2 id="on-failure">On Failure</h2>
+
+<ul>
+  <li>The parameters are malformed.</li>
+</ul>
   <h2>How to execute this use case with the Connector?</h2>
 
 The Connector is our first-class citizen, thus we provide you with a detailed API description for every use case.
@@ -452,7 +482,7 @@ This use case can be executed with the REST API of the Connector which you can <
     theme="light"
     bg-color="#f9f9fb"
     
-    match-paths="^GET /Monitoring/Support$"
+    match-paths="^GET /api/v2/Attributes$"
     
     match-type="regex"
 ></rapi-doc-mini>
