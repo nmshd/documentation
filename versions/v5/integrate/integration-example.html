@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-08-13T13:19:26+02:00">
+  <meta property="article:published_time" content="2024-08-13T14:11:23+02:00">
 
 
 
@@ -352,7 +352,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Integration example">
     <meta itemprop="description" content="In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship.This will create a better understanding of these processes, which will help you automating them for your organization.">
-    <meta itemprop="datePublished" content="2024-08-13T13:19:26+02:00">
+    <meta itemprop="datePublished" content="2024-08-13T14:11:23+02:00">
     
 
     <div class="page__inner-wrap">
@@ -387,7 +387,7 @@ The following steps include small interactive pieces of the Connector’s API do
 
 <p><br /></p>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^get /health$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v5.is.enmeshed.eu/" default-api-server="https://doc-demo-v5.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v5.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^get /health$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <p>Nevertheless, you are welcome to use your own Connector, either with a REST client (e.g. Insomnia or Postman) or by using the RapiDoc documentation (/docs/rapidoc) hosted on your Connector.</p>
@@ -440,11 +440,11 @@ To do so, execute <code class="language-plaintext highlighter-rouge">POST /api/v
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p class="notice--info">You can query the Connector’s address via the route <code class="language-plaintext highlighter-rouge">/api/v2/Account/IdentityInfo</code>. If you are using the Demo Connector of this Tutorial, the address is <code class="language-plaintext highlighter-rouge">id134nJmN7E4Carb6KyRJyePVnXxVHEYQgWD</code>.</p>
+<p>You can query the Connector’s address via the route <code class="language-plaintext highlighter-rouge">/api/v2/Account/IdentityInfo</code>. If you are using the Demo Connector of this Tutorial, the address is <code class="language-plaintext highlighter-rouge">did:e:stage.enmeshed.eu:dids:54013af2a3bffe9dc8cb99</code>.</p>
 
-<h6>Corresponding interactive API docs excerpt:</h6>
+<h6 class="notice--info">Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/Attributes$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v5.is.enmeshed.eu/" default-api-server="https://doc-demo-v5.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v5.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/Attributes$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <table style="border: none" class="notice--warning">
@@ -525,7 +525,7 @@ Let’s assume the Connector needs to know the given name and surname of its con
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/Requests/Outgoing/Validate$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v5.is.enmeshed.eu/" default-api-server="https://doc-demo-v5.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v5.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/Requests/Outgoing/Validate$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <p class="notice--info">Even though the Requests are validated during the RelationshipTemplate creation, you should not skip this step, as it gives you additional information in case of validation errors.</p>
@@ -551,7 +551,7 @@ Furthermore, we specify an expiration date, which is located in the future, and 
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/RelationshipTemplates/Own$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v5.is.enmeshed.eu/" default-api-server="https://doc-demo-v5.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v5.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/RelationshipTemplates/Own$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <table style="border: none" class="notice--warning">
@@ -569,7 +569,7 @@ For this, execute the <code class="language-plaintext highlighter-rouge">GET /ap
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^get /api/v2/RelationshipTemplates/{id}$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v5.is.enmeshed.eu/" default-api-server="https://doc-demo-v5.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v5.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^get /api/v2/RelationshipTemplates/{id}$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <h3 id="app-send-a-relationship-request">App: Send a Relationship Request</h3>
@@ -613,7 +613,7 @@ To do so, we <a href="/versions/v5/use-case-transport-synchronize-updates-of-bac
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/Account/Sync$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v5.is.enmeshed.eu/" default-api-server="https://doc-demo-v5.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v5.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/Account/Sync$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <p>In the Response we will receive the created Relationship, which contains the corresponding <a href="/versions/v5/integrate/data-model-overview#relationshipchange">RelationshipCreationChange</a>.</p>
@@ -628,7 +628,7 @@ To do so, we <a href="/versions/v5/use-case-transport-synchronize-updates-of-bac
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RELmJj25x2bZW0VXzAiQ"</span><span class="p">,</span><span class="w">
         </span><span class="c1">...</span><span class="w">
         </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id19Sy75wjCWhQSxsbMiGLn6iSBfWvQmot5b"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:e:_________________"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"changes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RCHUwBw7BWlROPlEjb51"</span><span class="p">,</span><span class="w">
@@ -653,7 +653,7 @@ To do so, we <a href="/versions/v5/use-case-transport-synchronize-updates-of-bac
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^put /api/v2/Relationships/{id}/Changes/{changeId}/Accept$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v5.is.enmeshed.eu/" default-api-server="https://doc-demo-v5.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v5.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^put /api/v2/Relationships/{id}/Changes/{changeId}/Accept$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <p>Now the Relationship is in the <code class="language-plaintext highlighter-rouge">Active</code> state, so we can start to communicate with the opposite Identity, which we will do in the next part of this tutorial.
@@ -663,7 +663,7 @@ It can be found in the Response, when accepting the Relationship.</p>
 <table style="border: none" class="notice--warning">
     <tr>
         <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
-        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">peer</code> property of the Response (<code class="language-plaintext highlighter-rouge">id1_________________</code>). You will need it in the next step.</p>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">peer</code> property of the Response (<code class="language-plaintext highlighter-rouge">did:e:_________________</code>). You will need it in the next step.</p>
 </td>
     </tr>
 </table>
@@ -681,10 +681,10 @@ For this, we need the address of our peer, that we copied in the previous step, 
 Further, the <code class="language-plaintext highlighter-rouge">subject</code> and <code class="language-plaintext highlighter-rouge">body</code> properties can be modified with some custom <code class="language-plaintext highlighter-rouge">content</code>.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"id_________________________________"</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:e:_________________________________"</span><span class="p">],</span><span class="w">
   </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mail"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"id_________________________________"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:e:_________________________________"</span><span class="p">],</span><span class="w">
     </span><span class="nl">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello. We are pleased to welcome you as our customer."</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -693,7 +693,7 @@ Further, the <code class="language-plaintext highlighter-rouge">subject</code> a
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/Messages$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v5.is.enmeshed.eu/" default-api-server="https://doc-demo-v5.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v5.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/Messages$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <p>After having sent the Message, you should receive a push notification on your phone.
@@ -711,7 +711,7 @@ Then, tap on “New Message”, enter a subject and body and tap on “Send”.<
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/Account/Sync$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v5.is.enmeshed.eu/" default-api-server="https://doc-demo-v5.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v5.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/Account/Sync$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <p>The Response should contain a Message with the <code class="language-plaintext highlighter-rouge">content</code> you entered in the App.</p>
@@ -736,7 +736,7 @@ Then, tap on “New Message”, enter a subject and body and tap on “Send”.<
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-13T13:19:26+02:00">August 13, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-13T14:11:23+02:00">August 13, 2024</time></p>
 
       </footer>
 
