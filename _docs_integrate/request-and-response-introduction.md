@@ -29,8 +29,6 @@ Requests are unique between Identities and can only be processed once by a singl
 Each Request can only have a single Response, which responds to the complete Request and contains all the information the requestor needs.
 The Request-Response flow allows to establish transactional behavior between Identities.
 
-<!-- TODO: re-add other data structures with request warning when adding relationship reactivation  -->
-
 ## Requests
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/03ed5248-af12-4a50-bac1-73831f2c3cf9" id="d~qRE5C7Dqig"></iframe></div>
@@ -412,7 +410,7 @@ If the peer decides to accept and to respond to your Request, again a LocalReque
 However, the returned data differ.
 Instead of a ResponseWrapper inside a Message, a Relationship is returned which is in the status `pending` for now.
 It contains the RelationshipTemplate, as well as the Response to the Request.
-
+Only after you accept the Relationship, the LocalRequest with LocalResponse is created at your side and the peer will receive the information about the status change via a `consumption.incomingRequestStatusChanged` [event]({% link _docs_integrate/connector-events.md %}).
 You can find an [example for the Request-Response flow via RelationshipTemplate](#working-with-requestitemgroups) below.
 
 ## Examples
