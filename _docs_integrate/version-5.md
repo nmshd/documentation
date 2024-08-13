@@ -25,7 +25,7 @@ required_by:
 
 The address format changed from `<3-character realm><32 or 33-character base58-string>` to `did:e:<backbone-hostname>:dids:<22-character lowercase hex string>`.
 
-## Removal of RelationshipChanges
+## Removal of RelationshipChanges {#relationshipchanges}
 
 RelationshipChanges were removed. The only type of RelationshipChange used before was the CreationChange, its `content` has been moved to a new property of the relationship - the `creationContent`. If this content has been created by responding to a [Request]({% link _docs_integrate/data-model-overview.md %}#request) of a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate), the [content]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) changes as follows: The `<relationshipChange>.request.content` value was of type `RelationshipCreationChangeRequestContent`, the `<relationship>.creationContent` is now of type `RelationshipCreationContent`.
 
@@ -98,6 +98,69 @@ In addition, in contrast to the RequestItems, a RequestItemGroup did not have to
 
 The `mustBeAccepted` property of the RequestItems will be kept.
 {: .notice--info}
+
+## New mandatory wrappers for non-standard content of RelationshipTemplates, Relationships and Messages
+
+New wrapping types for sending arbitrary content that does not fit to standard enmeshed-content types have been introduced, the [ArbitraryMessageContent]({% link _docs_integrate/data-model-overview.md %}#arbitrarymessagecontent) for Messages with non-standard content, the [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent) for RelationshipTemplates and the [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent) for Relationships (the creationContent itself is [newly introduced here](#relationshipchanges)).
+
+The `content` of a [Message]({% link _docs_integrate/data-model-overview.md %}#message) must either be a [Mail]({% link _docs_integrate/data-model-overview.md %}#mail), [Notification]({% link _docs_integrate/data-model-overview.md %}#notification), [Request]({% link _docs_integrate/data-model-overview.md %}#request), [ResponseWrapper]({% link _docs_integrate/data-model-overview.md %}#responsewrapper) or an [ArbitraryMessageContent]({% link _docs_integrate/data-model-overview.md %}#arbitrarymessagecontent).
+
+The `content` of a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) must either be a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationcontent) or an [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent).
+
+The `creationContent` of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) must either be a [RelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationcontent) or an [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent).
+
+Those new wrappers all have the type
+
+```jsonc
+{
+  "@type": "Arbitrary<...>Content",
+  "value": any,
+}
+```
+
+Thus, when sending a Message with non-standard content via POST `Messages`, instead of sending the parameter `content : <arbitrary-content>`, you send
+
+```jsonc
+content: {
+  "@type": "ArbitraryMessageContent",
+  "value": <arbitrary-content>
+}
+```
+
+Similarly, when creating a RelationshipTemplate with non-standard content via POST `RelationshipTemplates`, you send the parameter
+
+```jsonc
+content: {
+  "@type": "ArbitraryRelationshipTemplateContent",
+  "value": <arbitrary-content>
+}
+```
+
+and the parameter
+
+```jsonc
+creationContent: {
+  "@type": "ArbitraryRelationshipCreationContent",
+  "value": <arbitrary-content>
+}
+```
+
+for creating a Relationship via POST `Relationship`.
+
+Because previously a JSONWrapper was applied to `content: <arbitrary-content>` before actually sending it and the `content` property of the created Relationship resp. RelationshipTemplate then was
+
+```jsonc
+content: {
+  "@type": "JSONWrapper",
+  "value": <arbitrary-content>
+},
+```
+
+no changes are necessary for getting the `value` of the non-standard content from the actual created Message resp. RelationshipTemplate resp. Relationship.
+
+## Backbone-Sync returns 204 (No content)
+
+Previosly, the Backbone-Sync (via the route POST `Account/Sync`) returned a list of Relationships and Messages with the HTTP code 201. This has been changed to the sync returning nothing with the HTTP code 204. This removes the support for the workflow of regularly calling the sync and checking the response since unexpected response values happen if syncs are executed from different spots. We recommend working event-based with the [Message Broker Publisher-Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher), which sends events to a message broker you have set up. We send a variety of events like `incomingRequestReceived`, `incomingRequestStatusChanged`, each of them containing the relevant changed object. See [Connector Events] for the full list. Slightly related, we also recommend using the recently published [server-sent-events Module]{% link _docs_operate/modules.md %}#sse, which listens to events emitted from the Backbone and syncs with the Backbone when an event is received.
 
 ## Changed and deleted error codes
 

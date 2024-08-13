@@ -50,5 +50,4 @@ This use case retrieves all relevant data changes between the current Identity (
 
 ## On Success
 
-- A list of [Relationships]({% link _docs_integrate/data-model-overview.md %}#relationship) that have a new status.
-- A list of [Messages]({% link _docs_integrate/data-model-overview.md %}#message) that were retrieved since the last call.
+No content.
