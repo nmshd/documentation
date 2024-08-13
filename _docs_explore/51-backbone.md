@@ -77,7 +77,7 @@ Currently, the Backbone supports Microsoft SQL Server and PostgreSQL as database
 
 ### BLOB Storage
 
-A BlOB (binary large object) storage is used to store files uploaded by the user.
+A BLOB (binary large object) storage is used to store files uploaded by the user.
 
 A BLOB storage is usually scaled horizontally (more storage). Access performance is not critical for the given use cases.
 
