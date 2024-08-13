@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-08-13T16:35:55+02:00">
+  <meta property="article:published_time" content="2024-08-13T18:17:13+02:00">
 
 
 
@@ -333,7 +333,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Read Attributes from peer">
     <meta itemprop="description" content="There are many situations in which an Identity is interested in an IdentityAttribute or a RelationshipAttribute of another Identity, for example:">
-    <meta itemprop="datePublished" content="2024-08-13T16:35:55+02:00">
+    <meta itemprop="datePublished" content="2024-08-13T18:17:13+02:00">
     
 
     <div class="page__inner-wrap">
@@ -518,7 +518,21 @@
 
 <h3 id="accept-a-readattributerequestitem">Accept a ReadAttributeRequestItem</h3>
 
-<p>If the Recipient agrees to share a requested Attribute with the Sender, it can accept the associated ReadAttributeRequestItem contained in the Request for reading Attributes. In particular, it must then provide the requested Attribute for its Response to the Request. Depending on whether the Recipient wants to share an Attribute that already exists as a <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> or that has to be created first, different parameters for this must be used. These <a href="/integrate/data-model-overview#acceptreadattributerequestitemparameters">AcceptReadAttributeRequestItemParameters</a> are described in the corresponding section of the Data Model Overview. The acceptance of a ReadAttributeRequestItem always leads to the creation of a LocalAttribute with a <a href="/integrate/data-model-overview#localattributeshareinfo">LocalAttributeShareInfo</a> contained within its <code class="language-plaintext highlighter-rouge">shareInfo</code> property, whose underlying <code class="language-plaintext highlighter-rouge">content</code> is given by the shared Attribute. An appropriate AcceptResponseItem of type <a href="/integrate/data-model-overview#readattributeacceptresponseitem">ReadAttributeAcceptResponseItem</a> is generated, which incorporates the <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute with the LocalAttributeShareInfo in its <code class="language-plaintext highlighter-rouge">attributeId</code> property and the shared Attribute in its <code class="language-plaintext highlighter-rouge">attribute</code> property. This ReadAttributeAcceptResponseItem will be included in the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#response">Response</a> to the Request for reading Attributes that will be transferred to the Sender. If a new IdentityAttribute is to be shared, a corresponding LocalAttribute without a LocalAttributeShareInfo is additionally created for the Recipient beforehand.</p>
+<p>If the Recipient agrees to share a requested Attribute with the Sender, it can accept the associated ReadAttributeRequestItem contained in the Request for reading Attributes. In particular, it must then provide the requested Attribute for its Response to the Request. Depending on whether the Recipient wants to share an Attribute that already exists as a <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> or that has to be created first, different parameters for this must be used. These <a href="/integrate/data-model-overview#acceptreadattributerequestitemparameters">AcceptReadAttributeRequestItemParameters</a> are described in the corresponding section of the Data Model Overview.</p>
+
+<p>Accepting a ReadAttributeRequestItem with a new Attribute or an existing, that isn’t shared with the Sender already neither itself nor any of its predecessing versions, leads to the creation of a LocalAttribute with a <a href="/integrate/data-model-overview#localattributeshareinfo">LocalAttributeShareInfo</a> contained within its <code class="language-plaintext highlighter-rouge">shareInfo</code> property, whose underlying <code class="language-plaintext highlighter-rouge">content</code> is given by the shared Attribute. An appropriate AcceptResponseItem of type <a href="/integrate/data-model-overview#readattributeacceptresponseitem">ReadAttributeAcceptResponseItem</a> is generated, which incorporates the <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute with the LocalAttributeShareInfo in its <code class="language-plaintext highlighter-rouge">attributeId</code> property and the shared Attribute in its <code class="language-plaintext highlighter-rouge">attribute</code> property.
+If a new IdentityAttribute is to be shared, a corresponding LocalAttribute without a LocalAttributeShareInfo will additionally be created for the Recipient beforehand.</p>
+
+<p>If the ReadAttributeRequestItem is accepted with an existing Attribute that the Recipient already shared with the Sender, an <a href="/integrate/data-model-overview#attributealreadysharedacceptresponseitem">AttributeAlreadySharedAcceptResponseItem</a> will be generated, given that the own shared <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> doesn’t have <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.
+Instead of creating a further own shared/peer shared Attribute pair, the <code class="language-plaintext highlighter-rouge">id</code> of the already existing shared LocalAttributes is returned.
+Note that the <code class="language-plaintext highlighter-rouge">id</code> of the shared Attribute of the Sender matches the <code class="language-plaintext highlighter-rouge">id</code> of the corresponding shared Attribute of the Recipient.</p>
+
+<p>Lastly, if the ReadAttributeRequestItem is accepted with an existing Attribute of which the Recipient already shared a predecessor with the Sender, an <a href="/integrate/data-model-overview#attributesuccessionacceptresponseitem">AttributeSuccessionAcceptResponseItem</a> will be generated, given that the own shared predecessor doesn’t have <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.
+Instead of creating an independent own shared/peer shared Attribute pair, internally an <a href="/integrate/update-attributes-by-succession">Attribute succession</a> is performed.
+The <code class="language-plaintext highlighter-rouge">id</code> of the already existing shared LocalAttribute predecessor is returned, as well as the <code class="language-plaintext highlighter-rouge">id</code> and <code class="language-plaintext highlighter-rouge">content</code> of the newly created successor.
+When the Sender of the Request receives the AttributeSuccessionAcceptResponseItem, the according succession is automatically performed for them.</p>
+
+<p>In any case, the respective AcceptResponseItem will be included in the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#response">Response</a> to the Request for reading Attributes that will be transferred to the Sender.</p>
 
 <h3 id="reject-a-readattributerequestitem">Reject a ReadAttributeRequestItem</h3>
 
@@ -629,7 +643,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-13T16:35:55+02:00">August 13, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-13T18:17:13+02:00">August 13, 2024</time></p>
 
       </footer>
 
