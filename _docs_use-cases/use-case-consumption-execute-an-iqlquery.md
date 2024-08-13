@@ -18,7 +18,7 @@ properties:
   - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
-  - documentation status:
+  - documentation status: DONE
   - comments:
   - actor: Identity
   - trigger: REST API

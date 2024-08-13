@@ -48,18 +48,15 @@ To get a list of all LocalAttributes that are owned by the Sender, proceed as de
 
 ### Combinations and usage scenarios of ShareAttributeRequestItem
 
-The following table provides an overview of the possible kinds of Attributes that the Sender can share with the Recipient using the ShareAttributeRequestItem. It must be taken into account whether the [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) is an IdentityAttribute or a RelationshipAttribute and which Identity is its `owner`. If the Sender wants to share a RelationshipAttribute with the Recipient, a distinction must be made between which Identities the Relationship in question exists.
+The following table provides an overview of the possible kinds of Attributes that the Sender can share with the Recipient using the ShareAttributeRequestItem. It must be taken into account whether the [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) to be shared is an IdentityAttribute or a RelationshipAttribute and which Identity is its `owner`. Specifying an empty string for the `owner` of the Attribute is equivalent to sharing an Attribute that is owned by the Sender. If the Sender wants to share a RelationshipAttribute with the Recipient, it must exist in the context of a Relationship between the Sender and a third party, because it makes no sense for the Sender to share a RelationshipAttribute that exists in the context of the Relationship between the Sender and the Recipient with the Recipient.
 
-| Attribute Type | Attribute Owner | Possible? | Automation                                                     | Examples/Reason                                                                                                                                                                                                                                                                                        |
-| -------------- | --------------- | :-------: | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Identity       | Sender          |     ✓     | `AUTO ACCEPT`                                                  | Company sends new customer the address of the company.                                                                                                                                                                                                                                                 |
-| Identity       | Recipient       |     ✗     | `N/A`                                                          | It makes no sense to share the Attribute with the Recipient, because he already owns it.                                                                                                                                                                                                               |
-| Identity       | Third Party     |     ✗     | `N/A`                                                          | You cannot share an Attribute of which you are not the owner.                                                                                                                                                                                                                                          |
-| Identity       | `<empty>`       |     ✓     | `AUTO ACCEPT`                                                  | An empty owner defaults to an Attribute with `owner=<Sender>`.                                                                                                                                                                                                                                         |
-| Relationship   | Sender          |     ✓     | `USER DECISION` / `NOT ALLOWED` (depending on confidentiality) | A user can share RelationshipAttributes of any Relationship with any other Relationship (if the confidentiality of the RelationshipAttribute is protected or public).<br>Example: Share customer ID from company A with company B (User is owner of RelationshipAttribute).                            |
-| Relationship   | Recipient       |     ✗     | `N/A`                                                          | It makes no sense to share the Attribute with the Recipient, because he already owns it.                                                                                                                                                                                                               |
-| Relationship   | Third Party     |     ✓     | `USER DECISION` / `NOT ALLOWED` (depending on confidentiality) | A user can share RelationshipAttributes of any Relationship with any other Relationship (if the confidentiality of the RelationshipAttribute is protected or public).<br> Example: Share customer ID from company A with company B (Company A is owner of RelationshipAttribute), e.g. Payback number. |
-| Relationship   | `<empty>`       |     ✓     | `AUTO ACCEPT`                                                  | An empty owner defaults to an Attribute with `owner=<Sender>`.                                                                                                                                                                                                                                         |
+| Type and context                                                                                        | Owner       |                 Possible?                  | Automation      | Remarks, reasons and examples                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------------------------------------------------------------------------------------------------------- | ----------- | :----------------------------------------: | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| IdentityAttribute                                                                                       | Sender      |                     ✓                      | `AUTO_ACCEPT`   | Example: A company sends a new customer the company's address.                                                                                                                                                                                                                                                                                                                                                                         |
+| IdentityAttribute                                                                                       | Recipient   |                     ✗                      | `N/A`           | It makes no sense for the Sender to share an IdentityAttribute that is owned by the Recipient with the Recipient.                                                                                                                                                                                                                                                                                                                      |
+| IdentityAttribute                                                                                       | Third party |                     ✗                      | `N/A`           | The Sender is not allowed to share an IdentityAttribute that is owned by a third party with the Recipient.                                                                                                                                                                                                                                                                                                                             |
+| RelationshipAttribute that exists in the context of a Relationship between the Sender and a third party | Sender      | ✓ or ✗ -<br>depending on `confidentiality` | `AUTO_ACCEPT`   | If their `confidentiality` is not `"private"`, the Sender is allowed to share existing RelationshipAttributes of a Relationship between itself and a third party that are owned by itself.<br>Example: A customer shares their customer ID from one company with another company, with the customer being the `owner` of the corresponding RelationshipAttribute.                                                                      |
+| RelationshipAttribute that exists in the context of a Relationship between the Sender and a third party | Third party | ✓ or ✗ -<br>depending on `confidentiality` | `USER_DECISION` | If their `confidentiality` is not `"private"`, the Sender is allowed to share existing RelationshipAttributes of a Relationship between itself and a third party that are owned by the third party.<br> Example: A customer shares their customer ID from one company with another company, with the company being the `owner` of the corresponding RelationshipAttribute. Consider the Payback number as a possible concrete example. |
 
 ### Example of sharing an IdentityAttribute
 
@@ -181,7 +178,7 @@ The Sender only has the option of sending a Request to the Recipient via a [Mess
 
 ## Accept the Request and get the Attributes
 
-After the Recipient has received the [Request for sharing Attributes]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes), it can accept it to get all or some of the Sender's shared Attributes. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). Also, you need to decide and specify for each ShareAttributeRequestItem and RequestItemGroup contained in the Request for sharing Attributes whether you want to accept or reject it.
+After the Recipient has received the [Request for sharing Attributes]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes), it can accept it to get all or some of the Sender's shared Attributes. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). Also, you need to decide and specify for each ShareAttributeRequestItem contained in the Request for sharing Attributes whether you want to accept or reject it.
 
 If the Recipient does not want to get any of the Sender's shared Attributes and, therefore, does not want to accept the Request for sharing Attributes of the Sender, it can reject it as a whole too. For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
@@ -219,7 +216,6 @@ Let's look at an example where the Sender wants to share its [DisplayName]({% li
     },
     {
       "@type": "RequestItemGroup",
-      "mustBeAccepted": true,
       "items": [
         {
           "@type": "ShareAttributeRequestItem",
@@ -253,7 +249,7 @@ Let's look at an example where the Sender wants to share its [DisplayName]({% li
 }
 ```
 
-In our example, the Sender only requires the Recipient to accept the DisplayName and the EMailAddress, which is why the individual [ShareAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) and the [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) within the Request have specified corresponding values in their `mustBeAccepted` property. We assume that the Recipient wants to accept the Request and all its ShareAttributeRequestItems with the exception of the PhoneNumber.
+In our example, the Sender only requires the Recipient to accept the DisplayName and the EMailAddress, which is why the individual [ShareAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) within the Request have specified corresponding values in their `mustBeAccepted` property. We assume that the Recipient wants to accept the Request and all its ShareAttributeRequestItems with the exception of the PhoneNumber.
 
 If the Recipient wants to accept the Request for sharing Attributes, it must accept all ShareAttributeRequestItems for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted for the Recipient to refuse to accept the DisplayName or the EMailAddress shared by the Sender.
 {: .notice--info}
@@ -268,8 +264,6 @@ The Recipient accepts the DisplayName of the Sender and accepts at least one Sha
       "accept": true
     },
     {
-      // Accept RequestItemGroup
-      "accept": true,
       "items": [
         {
           // Accept EMailAddress
@@ -285,7 +279,7 @@ The Recipient accepts the DisplayName of the Sender and accepts at least one Sha
 }
 ```
 
-Note that it is important to respond to RequestItems and RequestItemGroups in the same order in which they were received.
+Note that it is important to respond to RequestItems, some of which may be contained in a RequestItemGroup, in the same order in which they were received.
 
 ## Receive the Response to the Request
 
@@ -295,8 +289,8 @@ We now assume that the Recipient has accepted the [Request for sharing Attribute
 
 To view the Response to the Request, search for it in the synchronization result or proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
-- If the [Request was sent via a RelationshipTemplate]({% link _docs_integrate/share-attributes-with-peer.md %}#request-over-template): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
-- If the [Request was sent via a Message]({% link _docs_integrate/share-attributes-with-peer.md %}#request-over-message): Specify `<ID of Request>` as the value for the `id` query parameter.
+- If the [Request was sent via a RelationshipTemplate]({% link _docs_integrate/share-attributes-with-peer.md %}#request-via-relationshiptemplate): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
+- If the [Request was sent via a Message]({% link _docs_integrate/share-attributes-with-peer.md %}#request-via-message): Specify `<ID of Request>` as the value for the `id` query parameter.
 
 The Integrator of the Sender can now get the Response of the Recipient from the `response.content` property of the result. In the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) is a [ShareAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#shareattributeacceptresponseitem) for each accepted ShareAttributeRequestItem and a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) for each rejected ShareAttributeRequestItem included. Note that each accepted ShareAttributeRequestItem leads to the creation of an appropriate LocalAttribute with a LocalAttributeShareInfo of the Sender. The `content` of the LocalAttribute is the underlying `attribute` of the ShareAttributeRequestItem.
 
