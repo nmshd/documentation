@@ -29,7 +29,7 @@ required_by:
 
 ### Starting the Connector after a Downtime
 
-Be advised that before starting the Connector after a downtime, you should ensure that the data within the database is on the most up-to-date time. Once the Connector starts its internal synchronization mechanism, it will update the database with the new information from the Backbone and if there are any automatismns set up (e.g. automatically accept relationships) the Connector updates the database with this new information. Thus, if the database is not on the very last point in time, there would be two inconsistent versions split across two databases.
+Be advised that before starting the Connector after a downtime, you should ensure that the data within the database is on the most up-to-date time. Once the Connector starts its internal synchronization mechanism, it will update the database with the new information from the Backbone and if there are any automatismns set up (e.g. automatically accept Relationships) the Connector updates the database with this new information. Thus, if the database is not on the very last point in time, there would be two inconsistent versions split across two databases.
 
 ## Update
 
@@ -92,4 +92,4 @@ As some of the operative tasks should be done on a regular basis, please find a 
 
 ### Check Third-Party Systems
 
-- Every third-party system (e.g. database, event buses, network components) and host system should be regularly checked for available resources (CPU, RAM, HDD) and system updates.
+- Every third party system (e.g. database, event buses, network components) and host system should be regularly checked for available resources (CPU, RAM, HDD) and system updates.

@@ -132,9 +132,9 @@ The debug flag configures if the Connector is set to **production** or **debug**
 
 - **dbName** `default: "default"`
 
-  The `dbName` string is used as the name of the MongoDB database, prefixed with `acc-`. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new enmeshed identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
+  The `dbName` string is used as the name of the MongoDB database, prefixed with `acc-`. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new enmeshed Identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
 
-  If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
+  If you would like to use multiple Connectors with distinct Identities (one Identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
 
   **Note:** If you are using the Connector in combintation with a FerretDB, you have to pay attention to the database name restrictions specified in the [FerretDB documentation](https://docs.ferretdb.io/diff/).
   {: .notice--warning}
@@ -209,6 +209,9 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 Every Module can be enabled or disabled by passing true / false to `enabled`. Read more about the Module by clicking on the <i class="fas fa-fw fa-info-circle"/> icon in each title.
 
 #### amqpPublisher <a href="{% link _docs_operate/modules.md %}#amqppublisher"><i class="fas fa-fw fa-info-circle"/></a> {#amqppublisher}
+
+This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
+{: .notice--danger}
 
 **Sample Configuration:**
 
@@ -306,6 +309,134 @@ It is not recommended to use this Module for production scenarios.
 
   If set to `true` rapidoc persists the API Key in the local storage of the browser.
 
+#### messageBrokerPublisher <a href="{% link _docs_operate/modules.md %}#messagebrokerpublisher"><i class="fas fa-fw fa-info-circle"/></a> {#messagebrokerpublisher}
+
+**Sample Configuration:**
+
+```jsonc
+{
+  // ...
+
+  "modules": {
+    "messageBrokerPublisher": {
+      "enabled": false,
+      "brokers": []
+    }
+  }
+}
+```
+
+- **enabled** `default: false`
+
+  Enable or disable the messageBrokerPublisher Module.
+
+- **brokers** `default: []`
+
+  Here you can define multiple brokers to which the Connector should publish messages.
+
+  Each broker consists of a `type` (string) and a `configuration` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `configuration` object contains the configuration for the broker.
+
+  - type `AMQP`
+
+    **example**
+
+    ```jsonc
+    {
+      "type": "AMQP",
+      "configuration": {
+        "url": "amqp://example.com:5672",
+        "exchange": "myExchange"
+      }
+    }
+    ```
+
+    **configuration**
+
+    - url `string, required` -
+
+      the URL of the AMQP broker
+
+      > the URL must be in the [AMQP url format](https://www.rabbitmq.com/docs/uri-spec)
+
+    - exchange `string` -
+
+      the name of the exchange to publish to
+
+    - timeout `number` -
+
+      the timeout in milliseconds for the broker to respond
+
+  - type `MQTT`
+
+    **example**
+
+    ```jsonc
+    {
+      "type": "MQTT",
+      "configuration": {
+        "url": "mqtt://example.com:1883"
+      }
+    }
+    ```
+
+    **configuration**
+
+    - url `string, required`
+
+      the URL of the MQTT broker
+
+      > the URL can be on the following protocols: `mqtt`, `mqtts`, `tcp`, `tls`, `ws`, `wss`, `wxs` or `alis`
+
+  - type `PubSub`
+
+    **example**
+
+    ```jsonc
+    {
+      "type": "PubSub",
+      "configuration": {
+        "projectId": "myProjectId",
+        "topicName": "myTopicName",
+        "keyFile": "/path/to/keyfile.json"
+      }
+    }
+    ```
+
+    **configuration**
+
+    - projectId `string, required`
+
+      the project id of the Google Cloud project
+
+    - topicName `string, required`
+
+      the name of the PubSub topic to publish to
+
+    - keyFile `string, required`
+
+      the (absolute) path of the key file to authenticate with the Google Cloud project
+
+  - type `Redis`
+
+    **example**
+
+    ```jsonc
+    {
+      "type": "Redis",
+      "configuration": {
+        "url": "redis://example.com:6379"
+      }
+    }
+    ```
+
+    **configuration**
+
+    - url `string, required`
+
+      the URL of the broker
+
+      > the URL must be in the Redis url format: `redis[s]://[[username:]password@]host[:port][/database]`
+
 #### sync <a href="{% link _docs_operate/modules.md %}#sync"><i class="fas fa-fw fa-info-circle"/></a> {#sync}
 
 **Sample Configuration:**
@@ -332,6 +463,9 @@ It is not recommended to use this Module for production scenarios.
   The interval in seconds at which the sync Module will fetch changes from the Backbone.
 
 #### PubSubPublisher <a href="{% link _docs_operate/modules.md %}#pubsubpublisher"><i class="fas fa-fw fa-info-circle"/></a> {#pubsubpublisher}
+
+This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
+{: .notice--danger}
 
 **Sample Configuration:**
 
@@ -364,7 +498,7 @@ It is not recommended to use this Module for production scenarios.
 
 - **keyFile** `required`
 
-  The location of the key file to authenticate with the Google Cloud project.
+  The (absolute) path of the key file to authenticate with the Google Cloud project.
 
 #### webhooks <a href="{% link _docs_operate/modules.md %}#webhooks"><i class="fas fa-fw fa-info-circle"/></a> {#webhooks}
 
@@ -425,6 +559,13 @@ It is not recommended to use this Module for production scenarios.
   }
   ```
 
+- **skipTlsCheck** `default: false`
+
+  Skip the TLS certificate check for https request to all targets.
+
+  This is a security risk and should only be used if you know what you are doing.
+  {: .notice--danger}
+
 - **webhooks** `default: []`
 
   The webhooks that will be called. A webhook consists of one or more [Connector Events]({% link _docs_integrate/connector-events.md %}) on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the `targets` object.
@@ -465,6 +606,30 @@ It is not recommended to use this Module for production scenarios.
 ```
 
 You can find type definitions of the event data in the [Connector Events]({% link _docs_integrate/connector-events.md %}) section.
+
+#### sse (server sent events) <a href="{% link _docs_operate/modules.md %}#sse"><i class="fas fa-fw fa-info-circle"/></a> {#sse}
+
+This Module requires additional configuration on the Backbone.
+Ensure that your Backbone has the required settings enabled.
+{: .notice--warning}
+
+**Sample Configuration:**
+
+```jsonc
+{
+  // ...
+
+  "modules": {
+    "sse": {
+      "enabled": false
+    }
+  }
+}
+```
+
+- **enabled** `default: false`
+
+  Enable or disable the sse Module.
 
 ## Troubleshooting
 

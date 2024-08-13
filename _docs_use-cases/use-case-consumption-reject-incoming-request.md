@@ -6,7 +6,7 @@ title: "Reject incoming Request"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RIR10
@@ -15,7 +15,7 @@ properties:
   - facade: IncomingRequestsFacade
   - function: reject
   - description: Rejects the incoming `Request` with the given `id`.
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE
@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: put /api/v2/Requests/Incoming/{id}/Reject
+  - api_route_regex: PUT /api/v2/Requests/Incoming/{id}/Reject
   - published: default
   - link: use-case-consumption-reject-incoming-request
 require:
 required_by:
-api_route_regex: ^put /api/v2/Requests/Incoming/{id}/Reject$
+api_route_regex: ^PUT /api/v2/Requests/Incoming/{id}/Reject$
 # End automatic generation
 ---
 
@@ -42,9 +42,9 @@ api_route_regex: ^put /api/v2/Requests/Incoming/{id}/Reject$
 
 {% include properties_list.html %}
 
-This use-case attempts to reject an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest).
+This use case attempts to reject an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest).
 
-It is advised to [check if the incoming Request can be accepted](/use-case-consumption-check-if-incoming-request-can-be-rejected) in advance.
+It is advised to [check if the incoming Request can be rejected](/use-case-consumption-check-if-incoming-request-can-be-rejected) in advance.
 
 ## Parameters
 
@@ -54,9 +54,9 @@ It is advised to [check if the incoming Request can be accepted](/use-case-consu
 
 ## On Success
 
-- All RequestItems of the Request are rejected
+- All RequestItems of the Request are rejected.
 - A Message is sent to the requesting peer which contains the Response to the Request.
-- The LocalRequest is returned
+- The LocalRequest is returned.
 
 ## On Failure
 

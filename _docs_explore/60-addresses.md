@@ -1,5 +1,5 @@
 ---
-title: "Enmeshed Addresses"
+title: "enmeshed Addresses"
 permalink: /explore/addresses
 ---
 

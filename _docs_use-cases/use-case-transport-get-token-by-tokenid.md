@@ -6,7 +6,7 @@ title: "Get Token by TokenID"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RK3
@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Tokens/{id}$
 
 {% include properties_list.html %}
 
-This use-case retieves a [Token]({% link _docs_integrate/data-model-overview.md %}#token)
+This use case retieves a [Token]({% link _docs_integrate/data-model-overview.md %}#token)
 by its `id`.
 
 ## Parameters

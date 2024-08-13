@@ -18,7 +18,7 @@ properties:
   - link: delete-identity-from-enmeshed
 require:
 required_by:
-  - integrate/sending-messages
+  - integrate/exchange-messages
 # End automatic generation
 ---
 
@@ -34,4 +34,4 @@ Every Identity has the option of deleting itself from the Backbone. There are th
 
 All peers of the to-be-deleted Identity are informed about this deletion, otherwise they will end up getting Backbone errors that the Identity is no longer available.
 
-Usually Identity deletion takes place with a grace period in which the owner of the Identity can revoke the decision to be deleted. The identity deletion can be triggered by the runtime.
+Usually Identity deletion takes place with a grace period in which the owner of the Identity can revoke the decision to be deleted. The Identity deletion can be triggered by the runtime.

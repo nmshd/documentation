@@ -6,7 +6,7 @@ title: "Accept incoming Request"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RIR8
@@ -15,7 +15,7 @@ properties:
   - facade: IncomingRequestsFacade
   - function: accept
   - description: Accepts the incoming `Request` with the given `id`.
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE
@@ -42,7 +42,7 @@ api_route_regex: ^PUT /api/v2/Requests/Incoming/{id}/Accept$
 
 {% include properties_list.html %}
 
-This use-case attempts to accept an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) with the corresponding parameters.
+This use case attempts to accept an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) with the corresponding parameters.
 
 It is advised to [check if incoming Request can be accepted](/use-case-consumption-check-if-incoming-request-can-be-accepted)
 in advance.

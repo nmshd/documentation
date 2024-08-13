@@ -6,7 +6,7 @@ title: "Check Identity by Address"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RI1
@@ -19,7 +19,7 @@ properties:
   - tech category: Identities
   - status: DONE
   - documentation status:
-  - comments:
+  - comments: Will be deleted with v5 since it isn't used
   - actor: Identity
   - trigger:
   - precondition:

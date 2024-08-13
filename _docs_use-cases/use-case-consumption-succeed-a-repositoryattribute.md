@@ -6,7 +6,7 @@ title: "Succeed a RepositoryAttribute"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA11
@@ -15,13 +15,13 @@ properties:
   - facade: AttributesFacade
   - function: succeedRepositoryAttribute
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
   - comments:
   - actor: Identity
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
   - priority: HIGH
@@ -29,11 +29,12 @@ properties:
   - size: M
   - created_at:
   - changed_at:
-  - api_route_regex:
+  - api_route_regex: POST /api/v2/Attributes/{predecessorId}/Succeed
   - published: default
   - link: use-case-consumption-succeed-a-repositoryattribute
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Attributes/{predecessorId}/Succeed$
 # End automatic generation
 ---
 
@@ -41,8 +42,8 @@ required_by:
 
 {% include properties_list.html %}
 
-If the `value` of a [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) changes, this can be replicated in enmeshed with this use-case.
-It allows you to [update the `content`]({% link _docs_integrate/succeeding-attributes-to-update-their-values.md %}) and keeps a coherent history of all versions by establishing a doubly linked list, using the [LocalAttribute's]({% link _docs_integrate/data-model-overview.md %}#localattribute) parameters `succeeds` and `succeededBy`.
+If the `value` of a [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) changes, this can be replicated in enmeshed with this use case.
+It allows you to [update the `content`]({% link _docs_integrate/update-attributes-by-succession.md %}) and keeps a coherent history of all versions by establishing a doubly linked list, using the [LocalAttribute's]({% link _docs_integrate/data-model-overview.md %}#localattribute) parameters `succeeds` and `succeededBy`.
 Hence, every LocalAttribute may have exactly one predecessor and one successor.
 In case you shared the preceeding version of the RepositoryAttribute, the corresponding own shared IdentityAttribute copy will only be succeeded, if you decide to [notify the peer]({% link _docs_use-cases/use-case-consumption-notify-peer-about-repositoryattribute-succession.md %}) of the respective shared IdentityAttribute about the succession.
 

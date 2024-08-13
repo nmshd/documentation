@@ -113,17 +113,18 @@ function createUseCaseText(useCaseObject: DynamicUseCase): string {
     text += 'title: "' + replaceEach(useCaseObject.Title, ["<", "", ">", "", ":", "", "’", "'"]) + '"\n';
     text += "type: use-case\n";
     text += "toc: true\n";
-    text += 'sidebar:\n  - title: "Integrate Enmeshed"\n    nav: "docs_integrate"\n';
+    text += 'sidebar:\n  - title: "Integrate enmeshed"\n    nav: "docs_integrate"\n';
     text += "properties:\n";
 
     for (const key in useCaseObject) {
         if (key != "Title" && key != "Require" && key != "redirect_from" && key != "required_by" && key != "require")
             if (Object.prototype.hasOwnProperty.call(useCaseObject, key)) {
                 const value = useCaseObject[key];
-                if (value == null) {
-                    text += "  - " + `${key.toLowerCase()}:\n`;
+                text += "  - " + `${key.toLowerCase()}:`;
+                if (value == null || !value.trim()) {
+                    text += "\n";
                 } else {
-                    text += "  - " + `${key.toLowerCase()}: ${value.replaceAll("\n", " ")}\n`;
+                    text += ` ${value.replaceAll("\n", " ")}\n`;
                 }
             }
     }
@@ -142,7 +143,7 @@ function createUseCaseText(useCaseObject: DynamicUseCase): string {
             text += "  - " + requirement + "\n";
         }
     }
-    if (useCaseObject["api_route_regex"]) {
+    if (useCaseObject["api_route_regex"] && useCaseObject["api_route_regex"].trim()) {
         text += "api_route_regex: ^" + useCaseObject["api_route_regex"] + "$\n";
     }
     text += "# End automatic generation";

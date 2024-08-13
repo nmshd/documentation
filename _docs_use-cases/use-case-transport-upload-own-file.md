@@ -6,7 +6,7 @@ title: "Upload own File"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RF1
@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: FilesFacade
   - function: uploadOwnFile
-  - description: Uploads a new own file with metadata.
+  - description: Uploads a new own file with metadata (and tags).
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE
@@ -42,22 +42,23 @@ api_route_regex: ^POST /api/v2/Files/Own$
 
 {% include properties_list.html %}
 
-This use-case uses a given file outside of enmeshed, encrypts and uploads it to the Backbone and creates a [File]({% link _docs_integrate/data-model-overview.md %}#file) with the respective metadata information for the Identity to access it. The File can from now on be shared by references to other Identities.
+This use case uses a given file outside of enmeshed, encrypts and uploads it to the Backbone and creates a [File]({% link _docs_integrate/data-model-overview.md %}#file) with the respective metadata information for the Identity to access it. The File can from now on be shared by references to other Identities.
 
 ## Parameters
 
 - `content` is the to-be-uploaded file content as byte array
 - `filename` is the name of the file from the operating system.
 - `mimetype` of the respective file
-- `expiresAt` is the ISODateTime the File expires.
+- Optionally, `expiresAt` can be specified, which describes the ISODateTime the File expires.
 - `title` of the File
 - Optional `description` of the File.
 
 ## On Success
 
-- An encrypted File is stored on the Backbone and can be shared by its references
-- Only the metadata of the File is stored locally
-- Returns the created File
+- An encrypted File is stored on the Backbone and can be shared by its references.
+- Only the metadata of the File is stored locally.
+- If `expiresAt` wasn't specified, the expiration date of the File will be set to a default value that corresponds to zero o'clock on the 31st of December, 9999.
+- The created File is returned.
 
 ## On Failure
 

@@ -6,7 +6,7 @@ title: "Execute an IdentityAttributeQuery"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA8
@@ -15,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: executeIdentityAttributeQuery
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: post /api/v2/Attributes/ExecuteIdentityAttributeQuery
+  - api_route_regex: POST /api/v2/Attributes/ExecuteIdentityAttributeQuery
   - published: default
   - link: use-case-consumption-execute-an-identityattributequery
 require:
 required_by:
-api_route_regex: ^post /api/v2/Attributes/ExecuteIdentityAttributeQuery$
+api_route_regex: ^POST /api/v2/Attributes/ExecuteIdentityAttributeQuery$
 # End automatic generation
 ---
 
@@ -42,7 +42,7 @@ api_route_regex: ^post /api/v2/Attributes/ExecuteIdentityAttributeQuery$
 
 {% include properties_list.html %}
 
-This use-case is intended to execute an incoming
+This use case is intended to execute an incoming
 [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery) (e.g. of a ReadAttributeRequestItem) which returns a list of matching [Identity Attributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
 
 ## Parameters

@@ -6,7 +6,7 @@ title: "Select Profile/Profile Login/Create Profile Session"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ARS1

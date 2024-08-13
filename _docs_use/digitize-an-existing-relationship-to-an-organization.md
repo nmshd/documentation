@@ -2,12 +2,12 @@
 # Start automatic generation
 permalink: use/digitize-an-existing-relationship-to-an-organization
 published: false
-title: "digitize an existing relationship to an organization"
+title: "Digitize an existing Relationship to an organization"
 type: scenario
 toc: true
 properties:
   - id: SC016
-  - category: Get in touch with other Identities
+  - category: Relationships between Identities
   - description: Nutzer möchte ohne einen Online Account seinen Vertrag auf enmeshed heben
   - customer: All
   - component: use

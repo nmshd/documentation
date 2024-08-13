@@ -6,7 +6,7 @@ title: "Get the Connector health status"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: CR2
@@ -42,4 +42,4 @@ api_route_regex: ^GET /health$
 
 {% include properties_list.html %}
 
-This use-case retrieves the service health information of the Connector.
+This use case retrieves the service health information of the Connector.

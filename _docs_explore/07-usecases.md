@@ -12,14 +12,14 @@ The list below is a non-complete list of use cases within enmeshed:
     - Load peer token anonymous by id and key
     - Load peer token anonymous by truncated reference
     - Get version information
-    - Login to identity
+    - Login to Identity
   - Transport
 
     - Account
       - Disable auto sync
       - Enable auto sync
       - Get device info
-      - Get identity info
+      - Get Identity info
       - Get sync info
       - Sync datawallet
       - Sync everything
@@ -35,34 +35,34 @@ The list below is a non-complete list of use cases within enmeshed:
       - Get file
       - Get files
       - Get token for file
-      - Get token qr-code for file
+      - Get token QR code for file
       - Load peer file
       - Upload own file
     - Messages
       - Download attachment
       - Get attachment metadata
-      - Get message
-      - Get messages
-      - Send message
+      - Get Message
+      - Get Messages
+      - Send Message
     - Relationships
-      - Accept relationship change
-      - Create relationship
-      - Create relationship change
-      - Get relationship
-      - Get relationships
-      - Reject relationship change
-      - Revoke relationship change
-    - Relationship templates
-      - Create own relationship template
-      - Get relationship template
-      - Get relationship templates
-      - Get token for own template
-      - Get token qr-code for own template
-      - Load peer relationship template
+      - Accept Relationship change
+      - Create Relationship
+      - Create Relationship change
+      - Get Relationship
+      - Get Relationships
+      - Reject Relationship change
+      - Revoke Relationship change
+    - RelationshipTemplates
+      - Create own RelationshipTemplate
+      - Get RelationshipTemplate
+      - Get RelationshipTemplates
+      - Get token for own RelationshipTemplate
+      - Get token QR code for own RelationshipTemplate
+      - Load peer RelationshipTemplate
     - Tokens
 
       - Create own token
-      - Get qr-code for token
+      - Get QR code for token
       - Get token
       - Get tokens
       - Load peer token
@@ -71,17 +71,17 @@ The list below is a non-complete list of use cases within enmeshed:
 
       - Attributes
 
-        - Create attribute
-        - Delete attribute
-        - Delete attribute by name
+        - Create Attribute
+        - Delete Attribute
+        - Delete Attribute by name
         - Get all valid
-        - Get attribute
-        - Get attribute by name
-        - Get attributes
-        - Get attributes by name
+        - Get Attribute
+        - Get Attribute by name
+        - Get Attributes
+        - Get Attributes by name
         - Get history by name
-        - Suceed attribute
-        - Update attribute
+        - Suceed Attribute
+        - Update Attribute
 
       - Settings
 

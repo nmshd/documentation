@@ -2,12 +2,12 @@
 # Start automatic generation
 permalink: integrate/request-and-process-attributes-by-messages
 published: false
-title: "Request and process attributes by messages"
+title: "Request and process Attributes by Messages"
 type: scenario
 toc: true
 properties:
   - id: SC052
-  - category: Manage attributes of others
+  - category: Manage Attributes
   - description:
   - customer: All
   - component: integrate
@@ -23,6 +23,6 @@ required_by:
 
 {% include warnings/documentation-is-prerelease %}
 
-The onExistingRelationship field can also be sent with a RelationshipTemplateContent. The request in this field is processed if this template is processed by an identity that already has a relationship with the connector.
+The onExistingRelationship field can also be sent with a RelationshipTemplateContent. The request in this field is processed if this RelationshipTemplate is processed by an Identity that already has a Relationship with the Connector.
 
-This can be used, for example, to be able to log in via qr code.
+This can be used, for example, to be able to log in via QR code.

@@ -6,7 +6,7 @@ title: "Query outgoing Requests"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ROR3
@@ -15,7 +15,7 @@ properties:
   - facade: OutgoingRequestsFacade
   - function: getRequests
   - description: Queries outgoing `Requests`.
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE
@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: get /api/v2/Requests/Outgoing
+  - api_route_regex: GET /api/v2/Requests/Outgoing
   - published: default
   - link: use-case-consumption-query-outgoing-requests
 require:
 required_by:
-api_route_regex: ^get /api/v2/Requests/Outgoing$
+api_route_regex: ^GET /api/v2/Requests/Outgoing$
 # End automatic generation
 ---
 
@@ -42,7 +42,7 @@ api_route_regex: ^get /api/v2/Requests/Outgoing$
 
 {% include properties_list.html %}
 
-This use-case is intended to query outgoing [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest).
+This use case is intended to query outgoing [LocalRequests]({% link _docs_integrate/data-model-overview.md %}#localrequest).
 
 ## Parameters
 

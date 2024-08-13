@@ -56,7 +56,7 @@ However, it could be another Connector, as well, e.g. if two companies want to e
 
 The way we will establish the Relationship is via a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
 This is created by the Connector and contains its display name, as well as the data it would like to receive from the other Identity.
-Then, the App user fills out all required information of the template and sends the Relationship Request to the Connector.
+Then, the App user fills out all required information of the RelationshipTemplate and sends the RelationshipRequest to the Connector.
 It in turn accepts the Request, which results in the creation of a new Relationship.
 
 ### Connector: Create an Attribute
@@ -89,10 +89,10 @@ You can query the Connector's address via the route `/api/v2/Account/IdentityInf
 ### Connector: Test your Request's Validity
 
 Next, we want to create a RelationshipTemplate, that can be used by the App to send a Relationship Request to our Connector.
-The content of the template can be widely configured, but for simplicity we will use a [Request]({% link _docs_integrate/data-model-overview.md %}#request) with just two [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in our example.
-On the one hand, we want to [share an Attribute]({% link _docs_integrate/share-own-attribute-to-peer.md %}) with the App, namely the display name of our Connector we created in the previous step.
+The content of the RelationshipTemplate can be widely configured, but for simplicity we will use a [Request]({% link _docs_integrate/data-model-overview.md %}#request) with just two [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in our example.
+On the one hand, we want to [share an Attribute]({% link _docs_integrate/share-attributes-with-peer.md %}) with the App, namely the display name of our Connector we created in the previous step.
 For this, we use a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem).
-On the other hand, we use [ReadAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) to [receive Attributes]({% link _docs_integrate/read-attribute-from-peer.md %}) from the App.
+On the other hand, we use [ReadAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) to [receive Attributes]({% link _docs_integrate/read-attributes-from-peer.md %}) from the App.
 Let's assume the Connector needs to know the given name and surname of its contact to create a Relationship and, additionally, offers the option to specify an e-mail address for communication.
 
 ```json
@@ -115,7 +115,7 @@ Let's assume the Connector needs to know the given name and surname of its conta
                 "value": "Demo Connector of integration example"
               }
             },
-            "sourceAttributeId": "<the id of the attribute created above>"
+            "sourceAttributeId": "<the ID of the Attribute created above>"
           }
         ]
       },
@@ -155,7 +155,7 @@ Let's assume the Connector needs to know the given name and surname of its conta
 }
 ```
 
-Before we actually create the template, we want to ensure the validity of the Request and its items.
+Before we actually create the RelationshipTemplate, we want to ensure the validity of the Request and its items.
 
 {% include rapidoc api_route_regex="^post /api/v2/Requests/Outgoing/Validate$" %}
 
@@ -186,16 +186,16 @@ Furthermore, we specify an expiration date, which is located in the future, and 
 
 {% include copy-notice description="Save the `id` of the RelationshipTemplate that you can find in the Response. You will need it in the next step." %}
 
-### Connector: Create a QR Code for the RelationshipTemplate
+### Connector: Create a QR code for the RelationshipTemplate
 
-Now, to allow the App to retrieve the RelationshipTemplate, we create a QR Code, that can be scanned by the App.
+Now, to allow the App to retrieve the RelationshipTemplate, we create a QR code, that can be scanned by the App.
 For this, execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Header: `image/png`) and use the `id` of the RelationshipTemplate from the previous step as the value for `id`.
 
 {% include rapidoc api_route_regex="^get /api/v2/RelationshipTemplates/{id}$" %}
 
 ### App: Send a Relationship Request
 
-Open the created QR Code and start the enmeshed App. Depending on what you already did with the App, choose one of the following paths:
+Open the created QR code and start the enmeshed App. Depending on what you already did with the App, choose one of the following paths:
 
 - If this is the first time you use the App:
   - click on "Scan code"
@@ -264,12 +264,12 @@ It can be found in the Response, when accepting the Relationship.
 ## Sending and Receiving Messages
 
 After having established a Relationship with an Identity, we can start to exchange [Messages]({% link _docs_integrate/data-model-overview.md %}#message).
-Enmeshed defines different types of Messages.
+enmeshed defines different types of Messages.
 In this tutorial we will focus on Messages of type [Mail]({% link _docs_integrate/data-model-overview.md %}#mail), which can be compared to a classic e-mail: it is possible to specify one or more recipients, a subject and a body, as well as to add attachments.
 
 ### Sending a Message with a Connector
 
-Firstly, we will [send a Message]({% link _docs_integrate/sending-messages.md %}) from the Connector to the App.
+Firstly, we will [send a Message]({% link _docs_integrate/exchange-messages.md %}) from the Connector to the App.
 For this, we need the address of our peer, that we copied in the previous step, and insert it in the fields `recipient` and `to`.
 Further, the `subject` and `body` properties can be modified with some custom `content`.
 
@@ -308,5 +308,5 @@ The Response should contain a Message with the `content` you entered in the App.
 Now that you have successfully established a Relationship and exchanged Messages, you can further explore the enmeshed API. You can for example:
 
 - explore the [enmeshed data model]({% link _docs_integrate/data-model-overview.md %}) and learn more about the objects you used during this tutorial and the objects you will encounter in the future
-- learn how to send [Requests over Messages]({% link _docs_integrate/requests-over-messages.md %}) with your established Relationship
-- dive deeper into creating and sending [Requests over RelationshipTemplates]({% link _docs_integrate/requests-over-templates.md %})
+- learn how to send [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) with your established Relationship
+- dive deeper into creating and sending [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %})

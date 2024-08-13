@@ -6,10 +6,10 @@ title: "Update Device"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RD6
+  - id: RD9
   - component: Runtime
   - layer: Transport
   - facade: DevicesFacade
@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case updates the `name` or `description` of a Device using its `id`.
+This use case updates the `name` or `description` of a Device using its `id`.
 
 ## Parameters
 

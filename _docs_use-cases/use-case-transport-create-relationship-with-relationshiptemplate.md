@@ -6,7 +6,7 @@ title: "Create Relationship with RelationshipTemplate"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RR1
@@ -14,8 +14,8 @@ properties:
   - layer: Transport
   - facade: RelationshipsFacade
   - function: createRelationship
-  - description: Creates a `Relationship` to the creator of a given relationshipTemplateId. The `RelationshipTemplate` of the given `relationshipTemplateId` must come from another identity and must be loaded by `POST /RelationshipTemplates/Peer` first.
-  - feature category: Mutual peer-to-peer relationships
+  - description: Creates a `Relationship` to the creator of a given relationshipTemplateId. The `RelationshipTemplate` of the given `relationshipTemplateId` must come from another Identity and must be loaded by `POST /RelationshipTemplates/Peer` first.
+  - feature category: Mutual peer-to-peer Relationships
   - tech category: Relationships
   - status: DONE
   - documentation status: DONE
@@ -42,7 +42,7 @@ api_route_regex: ^POST /api/v2/Relationships$
 
 {% include properties_list.html %}
 
-This use-case intends to create a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) based on a received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
+This use case intends to create a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) based on a received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
 
 ## Parameters
 

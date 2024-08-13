@@ -6,7 +6,7 @@ title: "Create and share a RelationshipAttribute"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA21
@@ -15,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: createAndShareRelationshipAttribute
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
@@ -24,9 +24,9 @@ properties:
   - trigger:
   - precondition:
   - result:
-  - priority:
-  - complexity:
-  - size:
+  - priority: n/a
+  - complexity: n/a
+  - size: n/a
   - created_at:
   - changed_at:
   - api_route_regex:

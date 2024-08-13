@@ -2,12 +2,12 @@
 # Start automatic generation
 permalink: use/establish-a-new-digital-relationship-to-an-organization
 published: false
-title: "establish a new digital relationship to an organization"
+title: "Establish a new digital Relationship to an organization"
 type: scenario
 toc: true
 properties:
   - id: SC017
-  - category: Get in touch with other Identities
+  - category: Relationships between Identities
   - description: Nutzer möchte ohne einen Online Account einen neuen Vertrag mit einer Organisation eingehen
   - customer: All
   - component: use

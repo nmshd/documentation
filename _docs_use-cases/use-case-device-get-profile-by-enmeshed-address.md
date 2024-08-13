@@ -2,11 +2,11 @@
 # Start automatic generation
 permalink: use-case-device-get-profile-by-enmeshed-address
 published: true
-title: "Get Profile by Enmeshed Address"
+title: "Get Profile by enmeshed Address"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ARP4
@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case retrieves the LocalAccount with the corresponding enmeshed Address.
+This use case retrieves the LocalAccount with the corresponding enmeshed Address.
 
 ## Parameters
 

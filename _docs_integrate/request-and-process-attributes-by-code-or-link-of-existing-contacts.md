@@ -2,12 +2,12 @@
 # Start automatic generation
 permalink: integrate/request-and-process-attributes-by-code-or-link-of-existing-contacts
 published: false
-title: "Request and process attributes by code or link of existing contacts"
+title: "Request and process Attributes by code or link of existing contacts"
 type: scenario
 toc: true
 properties:
   - id: SC051
-  - category: Manage attributes of others
+  - category: Manage Attributes
   - description:
   - customer: All
   - component: integrate
