@@ -6,7 +6,7 @@ title: "Set-up or change password of Profile"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ARS3
@@ -15,7 +15,7 @@ properties:
   - facade:
   - function:
   - description: A password for a Profile can be set up or changed by the User. Additionally, a password hint can be entered to help the User remembering the password.
-  - feature category: Identity Hardening
+  - feature category: Identity handling
   - tech category: Profile
   - status: IDEA
   - documentation status:

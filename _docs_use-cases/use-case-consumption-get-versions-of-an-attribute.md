@@ -6,7 +6,7 @@ title: "Get versions of an Attribute"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA19
@@ -21,12 +21,12 @@ properties:
   - documentation status: DONE
   - comments:
   - actor: Identity
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
-  - priority:
-  - complexity:
-  - size:
+  - priority: n/a
+  - complexity: n/a
+  - size: n/a
   - created_at:
   - changed_at:
   - api_route_regex: GET /api/v2/Attributes/{id}/Versions

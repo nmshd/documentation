@@ -1,5 +1,5 @@
 ---
-title: "Enmeshed App"
+title: "enmeshed App"
 permalink: /explore/app
 toc: true
 ---

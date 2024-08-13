@@ -132,9 +132,9 @@ The debug flag configures if the Connector is set to **production** or **debug**
 
 - **dbName** `default: "default"`
 
-  The `dbName` string is used as the name of the MongoDB database, prefixed with `acc-`. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new enmeshed identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
+  The `dbName` string is used as the name of the MongoDB database, prefixed with `acc-`. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new enmeshed Identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
 
-  If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
+  If you would like to use multiple Connectors with distinct Identities (one Identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
 
   **Note:** If you are using the Connector in combintation with a FerretDB, you have to pay attention to the database name restrictions specified in the [FerretDB documentation](https://docs.ferretdb.io/diff/).
   {: .notice--warning}
@@ -328,13 +328,13 @@ It is not recommended to use this Module for production scenarios.
 
 - **enabled** `default: false`
 
-  Enable or disable the sync Module.
+  Enable or disable the messageBrokerPublisher Module.
 
 - **brokers** `default: []`
 
   Here you can define multiple brokers to which the Connector should publish messages.
 
-  Each broker consists of a `type` (string) and a `config` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `config` object contains the configuration for the broker.
+  Each broker consists of a `type` (string) and a `configuration` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `configuration` object contains the configuration for the broker.
 
   - type `AMQP`
 
@@ -343,7 +343,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "AMQP",
-      "config": {
+      "configuration": {
         "url": "amqp://example.com:5672",
         "exchange": "myExchange"
       }
@@ -373,7 +373,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "MQTT",
-      "config": {
+      "configuration": {
         "url": "mqtt://example.com:1883"
       }
     }
@@ -394,7 +394,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "PubSub",
-      "config": {
+      "configuration": {
         "projectId": "myProjectId",
         "topicName": "myTopicName",
         "keyFile": "/path/to/keyfile.json"
@@ -423,7 +423,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "Redis",
-      "config": {
+      "configuration": {
         "url": "redis://example.com:6379"
       }
     }
@@ -559,6 +559,13 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
   }
   ```
 
+- **skipTlsCheck** `default: false`
+
+  Skip the TLS certificate check for https request to all targets.
+
+  This is a security risk and should only be used if you know what you are doing.
+  {: .notice--danger}
+
 - **webhooks** `default: []`
 
   The webhooks that will be called. A webhook consists of one or more [Connector Events]({% link _docs_integrate/connector-events.md %}) on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the `targets` object.
@@ -599,6 +606,30 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 ```
 
 You can find type definitions of the event data in the [Connector Events]({% link _docs_integrate/connector-events.md %}) section.
+
+#### sse (server sent events) <a href="{% link _docs_operate/modules.md %}#sse"><i class="fas fa-fw fa-info-circle"/></a> {#sse}
+
+This Module requires additional configuration on the Backbone.
+Ensure that your Backbone has the required settings enabled.
+{: .notice--warning}
+
+**Sample Configuration:**
+
+```jsonc
+{
+  // ...
+
+  "modules": {
+    "sse": {
+      "enabled": false
+    }
+  }
+}
+```
+
+- **enabled** `default: false`
+
+  Enable or disable the sse Module.
 
 ## Troubleshooting
 

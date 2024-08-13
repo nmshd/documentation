@@ -1,5 +1,5 @@
 ---
-title: "Enmeshed Backbone"
+title: "enmeshed Backbone"
 permalink: /explore/backbone
 toc: true
 ---
@@ -61,11 +61,11 @@ With a virtual network, network traffic is encapsulated for every landscape. Ser
 
 ### Service Bus
 
-The service bus is an event bus between all the different services which can be leveraged for cross-service communication and message handling.
+The service bus is an event bus between all the different services which can be leveraged for cross-service communication and Message handling.
 
 ### Push Notifications
 
-To send push notifications to the iOS and Android apps, the Backbone uses [Apple Push Notification Service (APNs)](https://developer.apple.com/documentation/usernotifications/registering-your-app-with-apns) and [Firebase Cloud Messaging (FCM)](https://firebase.google.com/docs/cloud-messaging/). The push notification tokens, which are used as kind of an address for the push notifications, are stored in the Backbone database.
+To send push notifications to the iOS and Android apps, the Backbone uses [Apple Push Notification Service (APNs)](https://developer.apple.com/documentation/usernotifications/registering-your-app-with-apns) and [Firebase Cloud Messaging (FCM)](https://firebase.google.com/docs/cloud-messaging/). The push notification tokens are stored in the Backbone's database and are used to authenticate the Backbone towards the push notification services so that it is allowed to send push notifications ot the owner of the token.
 
 ### Database
 

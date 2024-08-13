@@ -6,7 +6,7 @@ title: "Check if outgoing Request can be created"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ROR1
@@ -15,7 +15,7 @@ properties:
   - facade: OutgoingRequestsFacade
   - function: canCreate
   - description: Validates the given `OutgoingRequest` before creating it
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE
@@ -42,13 +42,13 @@ api_route_regex: ^POST /api/v2/Requests/Outgoing/Validate$
 
 {% include properties_list.html %}
 
-This use case is intended to check if a [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) can be created
-based on a given [Request]({% link _docs_integrate/data-model-overview.md %}#request) for a given `peer`.
+This use case is intended to check if a [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) can be created based on a given [Request]({% link _docs_integrate/data-model-overview.md %}#request) for a given `peer`.
+This use case should be executed before actually attempting to [create the outgoing Request](use-case-consumption-create-outgoing-request), because a more precise error description is provided in the case of a faulty Request.
 
 ## Parameters
 
-- The `content` as a [Request]({% link _docs_integrate/data-model-overview.md %}#request) for the to be created [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest)
-- The `peer` is the address for which the LocalRequest should be created. There can only be one peer per LocalRequest.
+- The `content` as a [Request]({% link _docs_integrate/data-model-overview.md %}#request) for the to be created [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest).
+- The `peer` is the address for which the LocalRequest should be created. There can only be one peer per LocalRequest. Even though the `peer` parameter is optional, it is recommended to specify it whenever possible. This allows additional validation rules to execute. When sending a [Request via a Message]({% link _docs_integrate/requests-via-messages.md %}), the `peer` receiving it is always known.
 
 ## On Success
 
@@ -56,5 +56,4 @@ based on a given [Request]({% link _docs_integrate/data-model-overview.md %}#req
 
 ## On Failure
 
-- The LocalRequest cannot be created if the peer is unknown.
-- The LocalRequest cannot be created if the Request is malformed.
+- The `RequestValidationResult` cannot be created if the Request specified as `content` is malformed.

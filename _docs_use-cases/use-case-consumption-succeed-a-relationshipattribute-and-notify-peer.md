@@ -6,7 +6,7 @@ title: "Succeed a RelationshipAttribute and notify peer"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA17
@@ -15,18 +15,18 @@ properties:
   - facade: AttributesFacade
   - function: succeedRelationshipAttributeAndNotifyPeer
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
   - comments:
   - actor: Identity
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
-  - priority:
-  - complexity:
-  - size:
+  - priority: n/a
+  - complexity: n/a
+  - size: n/a
   - created_at:
   - changed_at:
   - api_route_regex: POST /api/v2/Attributes/{predecessorId}/Succeed
@@ -62,6 +62,7 @@ It triggers the succession of their peer shared RelationshipAttribute in the sam
 
 ## On Failure
 
-- The response cannot be created, if the `predecessorId` doesn't belong to a valid own LocalAttribute with RelationshipAttribute `content`.
-- The response cannot be created, if the LocalAttribute belonging to the `predecessorId` already has a successor.
-- The response cannot be created, if the parameters are malformed.
+- The response cannot be created if the `predecessorId` doesn't belong to a valid own LocalAttribute with RelationshipAttribute `content`.
+- The response cannot be created if the LocalAttribute belonging to the `predecessorId` already has a successor.
+- The response cannot be created if the LocalAttribute belonging to the `predecessorId` has a `deletionInfo` with `deletionStatus` other than `"DeletionRequestRejected"`.
+- The response cannot be created if the parameters are malformed.

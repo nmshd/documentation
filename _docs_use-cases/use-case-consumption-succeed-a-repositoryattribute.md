@@ -6,7 +6,7 @@ title: "Succeed a RepositoryAttribute"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA11
@@ -15,13 +15,13 @@ properties:
   - facade: AttributesFacade
   - function: succeedRepositoryAttribute
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
   - comments:
   - actor: Identity
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
   - priority: HIGH

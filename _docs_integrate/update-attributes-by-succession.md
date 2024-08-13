@@ -42,7 +42,7 @@ Hence, we will look at the process of creating, sharing and succeeding an Identi
 
 ### Creating a RepositoryAttribute
 
-Enmeshed allows you to store data about yourself in the form of IdentityAttributes.
+enmeshed allows you to store data about yourself in the form of IdentityAttributes.
 When [creating an IdentityAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}), it is not necessary to share it immediately with a peer.
 Instead, it will be stored in the `content` property of a LocalAttribute with an undefined `shareInfo`.
 We refer to these unshared LocalAttributes as RepositoryAttributes, since they make up your private repository of Attributes.
@@ -77,7 +77,7 @@ Consequently, the different versions of a LocalAttribute created by Attribute su
 
 ### Notifying a peer about a RepositoryAttribute succession
 
-After succeeding a RepositoryAttribute, you can check [with which of your peers you have previously shared the succeeded Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-a-repositoryattribute.md %}) to choose those, you'd like to [notify about the succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-repositoryattribute-succession.md %}).
+After succeeding a RepositoryAttribute, you can check [with which of your peers you have previously shared the succeeded Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) to choose those, you'd like to [notify about the succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-repositoryattribute-succession.md %}).
 Your own shared IdentityAttributes associated with the peers chosen will be succeeded in the same manner as your RepositoryAttribute before.
 Then, a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification) is sent to the peers, containing a [PeerSharedAttributeSucceededNotificationItem]({% link _docs_integrate/data-model-overview.md %}#peersharedattributesucceedednotificationitem).
 In the `successorContent` property of the latter the updated IdentityAttribute is transmitted and automatically a likewise succession at the peers' side will be triggered, such that their LocalAttribute versions replicate the succession chain at your side.
