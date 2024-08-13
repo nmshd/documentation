@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-08-08T18:01:12+02:00">
+  <meta property="article:published_time" content="2024-08-13T11:59:25+02:00">
 
 
 
@@ -295,7 +295,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="enmeshed Backbone">
     <meta itemprop="description" content="Backbone Building Blocks">
-    <meta itemprop="datePublished" content="2024-08-08T18:01:12+02:00">
+    <meta itemprop="datePublished" content="2024-08-13T11:59:25+02:00">
     
 
     <div class="page__inner-wrap">
@@ -316,7 +316,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#backbone-building-blocks">Backbone Building Blocks</a><ul><li><a href="#backbone-landscapes-runtime">Backbone Landscapes (Runtime)</a></li><li><a href="#backbone-infrastructure-runtime">Backbone Infrastructure (Runtime)</a><ul><li><a href="#gateway">Gateway</a></li><li><a href="#virtual-network">Virtual Network</a></li><li><a href="#key-vault">Key Vault</a></li><li><a href="#service-bus">Service Bus</a></li><li><a href="#notification-hub">Notification Hub</a></li><li><a href="#database">Database</a></li><li><a href="#blob-storage">BLOB Storage</a></li><li><a href="#kubernetes-clusternodes">Kubernetes Cluster/Nodes</a></li></ul></li><li><a href="#backbone-services-runtime">Backbone Services (Runtime)</a></li><li><a href="#backbone-services-and-libraries-designtime">Backbone Services and Libraries (Designtime)</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#backbone-building-blocks">Backbone Building Blocks</a><ul><li><a href="#backbone-components-runtime">Backbone Components (Runtime)</a><ul><li><a href="#admin-ui">Admin UI</a></li><li><a href="#consumer-api">Consumer API</a></li></ul></li><li><a href="#backbone-landscapes-runtime">Backbone Landscapes (Runtime)</a></li><li><a href="#backbone-infrastructure-runtime">Backbone Infrastructure (Runtime)</a><ul><li><a href="#gateway">Gateway</a></li><li><a href="#virtual-network">Virtual Network</a></li><li><a href="#service-bus">Service Bus</a></li><li><a href="#push-notifications">Push Notifications</a></li><li><a href="#database">Database</a></li><li><a href="#blob-storage">BLOB Storage</a></li><li><a href="#kubernetes-clusternodes">Kubernetes Cluster/Nodes</a></li></ul></li></ul></li></ul>
             </nav>
           </aside>
         
@@ -325,6 +325,25 @@
 <p>The enmeshed Backbone embraces all central services required by the enmeshed platform to work. It consists of the underlying infrastructure, its hosted services, and the libraries used within the services. There could be many enmeshed Backbones hosted along the same number of enmeshed Apps. But keep in mind that so far it is not possible for users to communicate across different Backbones.</p>
 
 <p>One enmeshed Backbone is currently hosted and maintained by j&amp;s-soft GmbH.</p>
+
+<h2 id="backbone-components-runtime">Backbone Components (Runtime)</h2>
+
+<p>The Backbone consists of two main components:</p>
+
+<ul>
+  <li>Admin API</li>
+  <li>Consumer API</li>
+</ul>
+
+<p>These components are deployed on a Kubernetes cluster within the Backbone Infrastructure. They implement the enmeshed business logic on top of the infrastructure services provided by the Backbone Infrastructure.</p>
+
+<h3 id="admin-ui">Admin UI</h3>
+
+<p>The Admin API is used for managing the Backbone, e.g. for creating new OAuth clients or configuring quotas. It is only used by the operator of the Backbone, and therefore isn’t publicly accessible. Instead, you need access to the Kubernetes cluster the Admin UI is running in. Further, an API key is required to access the Admin UI. This API key is configured as a Kubernetes secret.</p>
+
+<h3 id="consumer-api">Consumer API</h3>
+
+<p>The Consumer API is what’s used by the enmeshed identities to interact with each other, like sending messages or managing relationships. It is publicly accessible via the gateway. You need an OAuth client to access the Consumer API. This OAuth client is created in the Admin UI.</p>
 
 <h2 id="backbone-landscapes-runtime">Backbone Landscapes (Runtime)</h2>
 
@@ -342,7 +361,7 @@
 
 <h2 id="backbone-infrastructure-runtime">Backbone Infrastructure (Runtime)</h2>
 
-<p>All required infrastructure and infrastructure services, like a database, a load balancer or a file storage are combined within the infrastructure building block. The infrastructure itself is not enmeshed-specific, the composition of services and the overall configuration however is.</p>
+<p>All required infrastructure, like a database, a gateway or a file storage are combined within the infrastructure building block. The infrastructure itself is not enmeshed-specific, the composition of services and the overall configuration however is.</p>
 
 <p>There are different possible cloud providers to host the backbone, the big hyperscalers or smaller ones. Even regional cloud providers would make sense for specific use cases.</p>
 
@@ -360,17 +379,13 @@
 
 <p>With a virtual network, network traffic is encapsulated for every landscape. Servers and services within the virtual network are not reachable from the outside world and are not allowed to talk to external systems. However, the virtual network is not an encrypted network within the cloud provider, as this is technically so far not possible.</p>
 
-<h3 id="key-vault">Key Vault</h3>
-
-<p>Private keys, credentials or other secrets must be securely stored. For this, multiple key vaults are used. Depending on the security level, secrets can even be stored on a hardware security module. In addition to the encryption of the secrets, the key vault manages the authorizations of (admin-)users or services to this secret.</p>
-
 <h3 id="service-bus">Service Bus</h3>
 
 <p>The service bus is an event bus between all the different services which can be leveraged for cross-service communication and Message handling.</p>
 
-<h3 id="notification-hub">Notification Hub</h3>
+<h3 id="push-notifications">Push Notifications</h3>
 
-<p>To manage push notifications to the various push notification providers – like Apple Push Notification Service, Firebase Cloud Messaging, or Windows Notification Service – the notification hub is a service which manages registered devices and a generic interface to send out Messages, no matter which push notification service needs to be addressed.</p>
+<p>To send push notifications to the iOS and Android apps, the Backbone uses <a href="https://developer.apple.com/documentation/usernotifications/registering-your-app-with-apns">Apple Push Notification Service (APNs)</a> and <a href="https://firebase.google.com/docs/cloud-messaging/">Firebase Cloud Messaging (FCM)</a>. The push notification tokens are stored in the Backbone’s database and are used to authenticate the Backbone towards the push notification services so that it is allowed to send push notifications ot the owner of the token.</p>
 
 <h3 id="database">Database</h3>
 
@@ -378,34 +393,18 @@
 
 <p>Nearly every request to a landscape results in a request to the database. Thus, the database also needs to be scaled depending on the number of requests and the complexity of database queries. The database can be scaled vertically (more power) and horizontally (more servers).</p>
 
+<p>Currently, the Backbone supports Microsoft SQL Server and PostgreSQL as database systems.</p>
+
 <h3 id="blob-storage">BLOB Storage</h3>
 
-<p>Data of binary large objects (BLOBs) is not stored on the database, but on a kind of file system. Binary data is usually queried by ids and process in a whole (e.g. by providing a download for an encrypted file).</p>
+<p>A BLOB (binary large object) storage is used to store files uploaded by the user.</p>
 
 <p>A BLOB storage is usually scaled horizontally (more storage). Access performance is not critical for the given use cases.</p>
 
 <h3 id="kubernetes-clusternodes">Kubernetes Cluster/Nodes</h3>
 
-<p>Each request is handled by a service, running on a Kubernetes node within a whole Kubernetes cluster. Nodes can be scaled vertically (more power) and horizontally (more nodes). Depending on the number or complexity of the requests, the nodes are automatically scaled.</p>
-
-<h2 id="backbone-services-runtime">Backbone Services (Runtime)</h2>
-
-<p>(Micro-)Services of the Backbone are deployed on a Kubernetes cluster within the Backbone Infrastructure. These services implement the enmeshed business logic on top of the infrastructure services provided by the Backbone Infrastructure.</p>
-
-<p>The following services are available on the runtime:</p>
-
-<ul>
-  <li>Devices Service: Manages the device profiles for authenticating against the different services. Additionally keeps track of the Identity behind devices and the registration of push notification tokens of the respective messaging providers (e.g. Apple Push Notification Service, Firebase Cloud Messaging)</li>
-  <li>Messages Service: Provides an interface for submitting and receiving Messages</li>
-  <li>Relationships Service: Keeps track of Relationships between Identities, their status and possible change requests</li>
-  <li>Files Service: Files or other “static” binaries can be stored via the files service and used as attachments for Messages.</li>
-  <li>Tokens Service: A repository for storing and consuming usually short-lived encrypted information, e.g. for QR code contents.</li>
-  <li>Synchronization Service: Cross device synchronization of local Identity data</li>
-</ul>
-
-<h2 id="backbone-services-and-libraries-designtime">Backbone Services and Libraries (Designtime)</h2>
-
-<p>The implementation of the enmeshed logic is done via the respective services, libraries are used for common source code. The open sourcing of the Backbone is still in progress.</p>
+<p>Admin UI and Consumer API are running in a Kubernetes cluster. The nodes of this cluster can be scaled vertically (more power) and horizontally (more nodes). Depending on the number or complexity of the requests, the nodes are automatically scaled.
+The Kubernetes cluster is further used to store secrets in the form of Kubernetes secrets. Examples for such secrets are the API key for the Admin UI or connection strings to the database.</p>
 
         
       </section>
@@ -417,7 +416,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-08T18:01:12+02:00">August 8, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-13T11:59:25+02:00">August 13, 2024</time></p>
 
       </footer>
 
