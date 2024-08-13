@@ -767,10 +767,10 @@ var store = [{
         "url": "/use-case-transport-create-own-token",
         "teaser": null
       },{
-        "title": null,
+        "title": "Create QR code for File",
         "excerpt":"Creates a QR code for a File that corresponds to the given fileId. Parameters fileId is the id of the File the QR code should be created for. On Success Returns the created QR code encoded as Base64. On Failure fileId does not resolve to a File. expiresAt lies in...","categories": [],
-        "tags": null,
-        "url": "/docs_use-cases/use-case-transport-create-qr-code-for-file",
+        "tags": [],
+        "url": "/use-case-transport-create-qr-code-for-file",
         "teaser": null
       },{
         "title": "Create Relationship with RelationshipTemplate",
@@ -791,10 +791,10 @@ var store = [{
         "url": "/use-case-transport-create-token-for-own-relationshiptemplate",
         "teaser": null
       },{
-        "title": null,
+        "title": "Create Token QR code for File",
         "excerpt":"Creates a QR code for a Token of a File that corresponds to the given fileId. Parameters fileId is the id of the File the Token and its QR code should be created for. Optionally, expiresAt can be specified, which describes the ISODateTime the Token expires at. On Success Returns...","categories": [],
-        "tags": null,
-        "url": "/docs_use-cases/use-case-transport-create-token-qr-code-for-file",
+        "tags": [],
+        "url": "/use-case-transport-create-token-qr-code-for-file",
         "teaser": null
       },{
         "title": "Download File of Attachment",

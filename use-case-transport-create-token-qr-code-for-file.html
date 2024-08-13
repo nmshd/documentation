@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>GET REST Endpoint - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Create Token QR code for File - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="GET REST Endpoint">
-<meta property="og:url" content="/use-case-device-get_-rest-endpoint">
+<meta property="og:title" content="Create Token QR code for File">
+<meta property="og:url" content="/use-case-transport-create-token-qr-code-for-file">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/use-case-device-get_-rest-endpoint">
+<link rel="canonical" href="/use-case-transport-create-token-qr-code-for-file">
 
 
 
@@ -331,7 +331,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="GET REST Endpoint">
+    <meta itemprop="headline" content="Create Token QR code for File">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2024-08-13T13:18:49+02:00">
     
@@ -340,7 +340,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/use-case-device-get_-rest-endpoint" itemprop="url">GET REST Endpoint
+            <a href="/use-case-transport-create-token-qr-code-for-file" itemprop="url">Create Token QR code for File
 </a>
           </h1>
           
@@ -354,7 +354,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#parameters">Parameters</a></li><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
             </nav>
           </aside>
         
@@ -363,25 +363,27 @@
     <table>
         
         <tr><td>id</td>
-            <td>C05</td></tr>
+            <td>RF8</td></tr>
         
         <tr><td>component</td>
-            <td>Connector</td></tr>
+            <td>Runtime</td></tr>
         
         <tr><td>layer</td>
-            <td>Device</td></tr>
+            <td>Transport</td></tr>
         
         <tr><td>facade</td>
-            <td>Connector</td></tr>
+            <td>FilesFacade</td></tr>
+        
+        <tr><td>function</td>
+            <td>createTokenQRCodeForFile</td></tr>
         
         <tr></tr>
         
-        <tr></tr>
-        
-        <tr></tr>
+        <tr><td>feature category</td>
+            <td>Arbitrary large data support</td></tr>
         
         <tr><td>tech category</td>
-            <td>Integration</td></tr>
+            <td>Files</td></tr>
         
         <tr><td>status</td>
             <td>DONE</td></tr>
@@ -389,10 +391,11 @@
         <tr><td>documentation status</td>
             <td>DONE</td></tr>
         
-        <tr></tr>
+        <tr><td>comments</td>
+            <td>Accept: image/png</td></tr>
         
         <tr><td>actor</td>
-            <td>Integrator</td></tr>
+            <td>Identity</td></tr>
         
         <tr></tr>
         
@@ -413,13 +416,14 @@
         
         <tr></tr>
         
-        <tr></tr>
+        <tr><td>api_route_regex</td>
+            <td>POST /api/v2/Files/{id}/Token</td></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-device-get_-rest-endpoint</td></tr>
+            <td>use-case-transport-create-token-qr-code-for-file</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -427,11 +431,52 @@
 </div>
 -->
 
-<p class="notice--info">Be advised that this is a Connector-specific use case which is triggered by an http-request. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios.</p>
+<p>Creates a QR code for a <a href="/integrate/data-model-overview#token">Token</a> of a <a href="/integrate/data-model-overview#file">File</a> that corresponds to the given <code class="language-plaintext highlighter-rouge">fileId</code>.</p>
 
-<p>This use case broadly describes REST endpoints using the <code class="language-plaintext highlighter-rouge">GET</code> HTTP verb that are exposed by the Connector.</p>
+<h2 id="parameters">Parameters</h2>
 
-<p>Click <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">here</a> to learn more about HTTP request methods.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">fileId</code> is the <code class="language-plaintext highlighter-rouge">id</code> of the File the Token and its QR code should be created for.</li>
+  <li>Optionally, <code class="language-plaintext highlighter-rouge">expiresAt</code> can be specified, which describes the ISODateTime the Token expires at.</li>
+</ul>
+
+<h2 id="on-success">On Success</h2>
+
+<ul>
+  <li>Returns the created QR code encoded as Base64.</li>
+</ul>
+
+<h2 id="on-failure">On Failure</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">fileId</code> does not resolve to a File.</li>
+  <li><code class="language-plaintext highlighter-rouge">expiresAt</code> lies in the past.</li>
+</ul>
+  <h2>How to execute this use case with the Connector?</h2>
+
+The Connector is our first-class citizen, thus we provide you with a detailed API description for every use case.
+This use case can be executed with the REST API of the Connector which you can <a href="/integrate/access-the-connector">Access the Connector</a>.
+ 
+<h6>Corresponding interactive API docs excerpt:</h6>
+
+<rapi-doc-mini
+    server-url="https://doc-demo.is.enmeshed.eu/"
+    default-api-server="https://doc-demo.is.enmeshed.eu/"
+    api-key-name="x-api-key"
+    api-key-location="header"
+    api-key-value="apikey"
+    layout="column"
+    default-schema-tab="example"
+    spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
+    paths-expanded="false"
+    theme="light"
+    bg-color="#f9f9fb"
+    
+    match-paths="^POST /api/v2/Files/{id}/Token$"
+    
+    match-type="regex"
+></rapi-doc-mini>
+<br />
  
 
         
