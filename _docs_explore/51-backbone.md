@@ -10,6 +10,23 @@ The enmeshed Backbone embraces all central services required by the enmeshed pla
 
 One enmeshed Backbone is currently hosted and maintained by j&amp;s-soft GmbH.
 
+## Backbone Components (Runtime)
+
+The Backbone consists of two main components:
+
+- Admin API
+- Consumer API
+
+These components are deployed on a Kubernetes cluster within the Backbone Infrastructure. They implement the enmeshed business logic on top of the infrastructure services provided by the Backbone Infrastructure.
+
+### Admin UI
+
+The Admin API is used for managing the Backbone, e.g. for creating new OAuth clients or configuring quotas. It is only used by the operator of the Backbone, and therefore isn't publicly accessible. Instead, you need access to the Kubernetes cluster the Admin UI is running in. Further, an API key is required to access the Admin UI. This API key is configured as a Kubernetes secret.
+
+### Consumer API
+
+The Consumer API is what's used by the enmeshed identities to interact with each other, like sending messages or managing relationships. It is publicly accessible via the gateway. You need an OAuth client to access the Consumer API. This OAuth client is created in the Admin UI.
+
 ## Backbone Landscapes (Runtime)
 
 Usually there are three Backbone Landscapes hosted in parallel: dev, stage and prod.
@@ -24,7 +41,7 @@ A landscape can be trimmed by different scalability options, depending on the wo
 
 ## Backbone Infrastructure (Runtime)
 
-All required infrastructure and infrastructure services, like a database, a load balancer or a file storage are combined within the infrastructure building block. The infrastructure itself is not enmeshed-specific, the composition of services and the overall configuration however is.
+All required infrastructure, like a database, a gateway or a file storage are combined within the infrastructure building block. The infrastructure itself is not enmeshed-specific, the composition of services and the overall configuration however is.
 
 There are different possible cloud providers to host the backbone, the big hyperscalers or smaller ones. Even regional cloud providers would make sense for specific use cases.
 
@@ -42,17 +59,13 @@ A virtual network is an internal network for custom routing and network separati
 
 With a virtual network, network traffic is encapsulated for every landscape. Servers and services within the virtual network are not reachable from the outside world and are not allowed to talk to external systems. However, the virtual network is not an encrypted network within the cloud provider, as this is technically so far not possible.
 
-### Key Vault
-
-Private keys, credentials or other secrets must be securely stored. For this, multiple key vaults are used. Depending on the security level, secrets can even be stored on a hardware security module. In addition to the encryption of the secrets, the key vault manages the authorizations of (admin-)users or services to this secret.
-
 ### Service Bus
 
 The service bus is an event bus between all the different services which can be leveraged for cross-service communication and Message handling.
 
-### Notification Hub
+### Push Notifications
 
-To manage push notifications to the various push notification providers – like Apple Push Notification Service, Firebase Cloud Messaging, or Windows Notification Service – the notification hub is a service which manages registered devices and a generic interface to send out Messages, no matter which push notification service needs to be addressed.
+To send push notifications to the iOS and Android apps, the Backbone uses [Apple Push Notification Service (APNs)](https://developer.apple.com/documentation/usernotifications/registering-your-app-with-apns) and [Firebase Cloud Messaging (FCM)](https://firebase.google.com/docs/cloud-messaging/). The push notification tokens are stored in the Backbone's database and are used to authenticate the Backbone towards the push notification services so that it is allowed to send push notifications ot the owner of the token.
 
 ### Database
 
@@ -60,29 +73,15 @@ A database is used for columnar data storage and access. It is used to store met
 
 Nearly every request to a landscape results in a request to the database. Thus, the database also needs to be scaled depending on the number of requests and the complexity of database queries. The database can be scaled vertically (more power) and horizontally (more servers).
 
+Currently, the Backbone supports Microsoft SQL Server and PostgreSQL as database systems.
+
 ### BLOB Storage
 
-Data of binary large objects (BLOBs) is not stored on the database, but on a kind of file system. Binary data is usually queried by ids and process in a whole (e.g. by providing a download for an encrypted file).
+A BLOB (binary large object) storage is used to store files uploaded by the user.
 
 A BLOB storage is usually scaled horizontally (more storage). Access performance is not critical for the given use cases.
 
 ### Kubernetes Cluster/Nodes
 
-Each request is handled by a service, running on a Kubernetes node within a whole Kubernetes cluster. Nodes can be scaled vertically (more power) and horizontally (more nodes). Depending on the number or complexity of the requests, the nodes are automatically scaled.
-
-## Backbone Services (Runtime)
-
-(Micro-)Services of the Backbone are deployed on a Kubernetes cluster within the Backbone Infrastructure. These services implement the enmeshed business logic on top of the infrastructure services provided by the Backbone Infrastructure.
-
-The following services are available on the runtime:
-
-- Devices Service: Manages the device profiles for authenticating against the different services. Additionally keeps track of the Identity behind devices and the registration of push notification tokens of the respective messaging providers (e.g. Apple Push Notification Service, Firebase Cloud Messaging)
-- Messages Service: Provides an interface for submitting and receiving Messages
-- Relationships Service: Keeps track of Relationships between Identities, their status and possible change requests
-- Files Service: Files or other "static" binaries can be stored via the files service and used as attachments for Messages.
-- Tokens Service: A repository for storing and consuming usually short-lived encrypted information, e.g. for QR code contents.
-- Synchronization Service: Cross device synchronization of local Identity data
-
-## Backbone Services and Libraries (Designtime)
-
-The implementation of the enmeshed logic is done via the respective services, libraries are used for common source code. The open sourcing of the Backbone is still in progress.
+Admin UI and Consumer API are running in a Kubernetes cluster. The nodes of this cluster can be scaled vertically (more power) and horizontally (more nodes). Depending on the number or complexity of the requests, the nodes are automatically scaled.
+The Kubernetes cluster is further used to store secrets in the form of Kubernetes secrets. Examples for such secrets are the API key for the Admin UI or connection strings to the database.
