@@ -133,6 +133,10 @@ docs_integrate:
         url: /integrate/connector-events
       - title: "Use Cases"
         url: /integrate/use-cases
+  - title: Migration Guides
+    children:
+      - title: "Version 5"
+        url: /integrate/version-5
   - title: Troubleshooting
     children:
       - title: "Error Codes"

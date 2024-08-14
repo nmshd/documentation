@@ -103,7 +103,7 @@ The Connector provides the following configuration parameters:
 
 You can validate the config using our [schema file](https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json). This is possible for example with [VSCode](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) or online tools like [jsonschemavalidator.net](https://www.jsonschemavalidator.net).
 
-### debug `availbable since version 3.3.0` {#debug}
+### debug `available since version 3.3.0` {#debug}
 
 ⚠️ Do not turn on debug mode in production environments.
 {: .notice--danger}
@@ -601,6 +601,30 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 ```
 
 You can find type definitions of the event data in the [Connector Events]({% link _docs_integrate/connector-events.md %}) section.
+
+#### sse (server sent events) <a href="{% link _docs_operate/modules.md %}#sse"><i class="fas fa-fw fa-info-circle"/></a> {#sse}
+
+This Module requires additional configuration on the Backbone.
+Ensure that your Backbone has the required settings enabled.
+{: .notice--warning}
+
+**Sample Configuration:**
+
+```jsonc
+{
+  // ...
+
+  "modules": {
+    "sse": {
+      "enabled": false
+    }
+  }
+}
+```
+
+- **enabled** `default: false`
+
+  Enable or disable the sse Module.
 
 ## Troubleshooting
 

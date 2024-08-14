@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: use-case-transport-create-qr-code-for-file
-published: false
+published: true
 title: "Create QR code for File"
 type: use-case
 toc: true
@@ -18,8 +18,8 @@ properties:
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE
-  - documentation status:
-  - comments: Accept: image/png
+  - documentation status: DONE
+  - comments: "Accept: image/png"
   - actor: Identity
   - trigger:
   - precondition:

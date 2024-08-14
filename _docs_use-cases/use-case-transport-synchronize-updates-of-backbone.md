@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: AccountFacade
   - function: syncEverything
-  - description: Syncs the Identity's Messages and Relationships with the Backbone. Checks for new or changed Relationships. Checks for new or updated Messages. Returns all affected Relationships and Messages.
+  - description: Syncs the Identity's Messages and Relationships with the Backbone. Checks for new Relationships as well as incoming changes of existing ones. Checks for new or updated Messages. Returns all affected Relationships and Messages.
   - feature category: Synchronization
   - tech category: Account
   - status: DONE
