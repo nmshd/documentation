@@ -222,7 +222,7 @@ In the response you can see a new Relationship, which looks as follows:
     // ...
   },
   "status": "Pending",
-  "peer": "id1...",
+  "peer": "did:e:...",
   "creationContent": {
     "@type": "RelationshipCreationContent",
     "response": {

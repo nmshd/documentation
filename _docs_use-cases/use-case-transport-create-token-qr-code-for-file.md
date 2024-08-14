@@ -19,7 +19,7 @@ properties:
   - tech category: Files
   - status: DONE
   - documentation status: DONE
-  - comments: image/png for Accept
+  - comments: "Accept: image/png"
   - actor: Identity
   - trigger:
   - precondition:
