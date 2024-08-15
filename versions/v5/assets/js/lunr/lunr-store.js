@@ -509,16 +509,10 @@ var store = [{
         "url": "/versions/v5/use-case-consumption-get-attributelistener",
         "teaser": null
       },{
-        "title": "Get Attributes of peer",
-        "excerpt":"This use case is intended to retrieve Attributes that a peer has shared with the current Identity as LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters peer is the Address of the Identity that shared the LocalAttributes. onlyValid filters the requested LocalAttributes to only consider currently valid...","categories": [],
+        "title": "Get Attributes",
+        "excerpt":"This use case is intended to query LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters query allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used: createdAt describes the time when the LocalAttribute was created. parentId can be used to...","categories": [],
         "tags": [],
-        "url": "/versions/v5/use-case-consumption-get-attributes-of-peer",
-        "teaser": null
-      },{
-        "title": "Get Attributes shared to peer",
-        "excerpt":"This use case is intended to retrieve Attributes that the current Idenity shared to a peer as LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters peer is the Address of the Identity that shared the LocalAttributes. onlyValid filters the requested LocalAttributes to only consider currently valid LocalAttributes...","categories": [],
-        "tags": [],
-        "url": "/versions/v5/use-case-consumption-get-attributes-shared-to-peer",
+        "url": "/versions/v5/use-case-consumption-get-attributes",
         "teaser": null
       },{
         "title": "Get incoming Request",
@@ -533,8 +527,20 @@ var store = [{
         "url": "/versions/v5/use-case-consumption-get-outgoing-request",
         "teaser": null
       },{
+        "title": "Get own shared Attributes",
+        "excerpt":"This use case is intended to retrieve Attributes that the current Identity shared to a peer as LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters peer is the Address of the Identity that the LocalAttributes are shared with. query allows to specify the conditions for the returned...","categories": [],
+        "tags": [],
+        "url": "/versions/v5/use-case-consumption-get-own-shared-attributes",
+        "teaser": null
+      },{
+        "title": "Get peer shared Attributes",
+        "excerpt":"This use case is intended to retrieve Attributes that a peer has shared with the current Identity as LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters peer is the Address of the Identity that shared the LocalAttributes. query allows to specify the conditions for the returned LocalAttributes....","categories": [],
+        "tags": [],
+        "url": "/versions/v5/use-case-consumption-get-peer-shared-attributes",
+        "teaser": null
+      },{
         "title": "Get RepositoryAttributes",
-        "excerpt":"This use case is intended to return all RepositoryAttributes, i.e. LocalAttributes with an IdentityAttribute as content you are the owner of and whose shareInfo is undefined. In case of Attribute succession, by default only the latest version will be returned. The LocalAttributes can be specified using a complex query. Parameters...","categories": [],
+        "excerpt":"This use case is intended to return all RepositoryAttributes. RepositoryAttributes are own LocalAttributes with an IdentityAttribute as content that are classified by an undefined shareInfo. In case of Attribute succession, by default only the latest version will be returned. The LocalAttributes can be specified using a complex query. Parameters query...","categories": [],
         "tags": [],
         "url": "/versions/v5/use-case-consumption-get-repositoryattributes",
         "teaser": null
@@ -561,12 +567,6 @@ var store = [{
         "excerpt":"This use case is intended to query all Attribute Listeners based on a query. Parameter The query optionally describes the searched Attribute Listeners. If no query is given all Attribute Listeners are returned. On Success Returns a list of LocalAttributeListeners that match the query. On Failure The parameters are malformed....","categories": [],
         "tags": [],
         "url": "/versions/v5/use-case-consumption-query-attributelisteners",
-        "teaser": null
-      },{
-        "title": "Query Attributes",
-        "excerpt":"This use case is intended to query LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters The createdAt parameter describes the time when the LocalAttribute was created. The content describes the searched Attribute (either a IdentityAttribute or a RelationshipAttribute. succeeds and succeededBy give information about succession state of...","categories": [],
-        "tags": [],
-        "url": "/versions/v5/use-case-consumption-query-attributes",
         "teaser": null
       },{
         "title": "Query incoming Requests",

@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Device External UseCase - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Get own shared Attributes - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Device External UseCase">
-<meta property="og:url" content="/versions/v5/use-case-human-device_-external-usecase">
+<meta property="og:title" content="Get own shared Attributes">
+<meta property="og:url" content="/versions/v5/use-case-consumption-get-own-shared-attributes">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/versions/v5/use-case-human-device_-external-usecase">
+<link rel="canonical" href="/versions/v5/use-case-consumption-get-own-shared-attributes">
 
 
 
@@ -350,7 +350,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Device External UseCase">
+    <meta itemprop="headline" content="Get own shared Attributes">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2024-08-15T09:44:47+02:00">
     
@@ -359,7 +359,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/versions/v5/use-case-human-device_-external-usecase" itemprop="url">Device External UseCase
+            <a href="/versions/v5/use-case-consumption-get-own-shared-attributes" itemprop="url">Get own shared Attributes
 </a>
           </h1>
           
@@ -373,7 +373,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#parameters">Parameters</a></li><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
             </nav>
           </aside>
         
@@ -382,26 +382,27 @@
     <table>
         
         <tr><td>id</td>
-            <td>A15</td></tr>
+            <td>RA4</td></tr>
         
         <tr><td>component</td>
-            <td>App</td></tr>
+            <td>Runtime</td></tr>
         
         <tr><td>layer</td>
-            <td>Human</td></tr>
+            <td>Consumption</td></tr>
         
         <tr><td>facade</td>
-            <td>Screen</td></tr>
+            <td>AttributesFacade</td></tr>
+        
+        <tr><td>function</td>
+            <td>getOwnSharedAttributes</td></tr>
         
         <tr></tr>
         
-        <tr><td>description</td>
-            <td>The user processes an external use case on the device, e.g. share something by another app or select a file to upload.</td></tr>
-        
-        <tr></tr>
+        <tr><td>feature category</td>
+            <td>Cross-Identity Attribute sharing</td></tr>
         
         <tr><td>tech category</td>
-            <td>User Action</td></tr>
+            <td>Attributes</td></tr>
         
         <tr><td>status</td>
             <td>DONE</td></tr>
@@ -412,9 +413,10 @@
         <tr></tr>
         
         <tr><td>actor</td>
-            <td>User</td></tr>
+            <td>Identity</td></tr>
         
-        <tr></tr>
+        <tr><td>trigger</td>
+            <td>REST API</td></tr>
         
         <tr></tr>
         
@@ -433,13 +435,14 @@
         
         <tr></tr>
         
-        <tr></tr>
+        <tr><td>api_route_regex</td>
+            <td>GET /api/v2/Attributes/Own/Shared/Identity</td></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-human-device_-external-usecase</td></tr>
+            <td>use-case-consumption-get-own-shared-attributes</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -447,17 +450,62 @@
 </div>
 -->
 
-<p class="notice--info">Be advised that this is an App-specific use case which is triggered by a manual user interaction. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios.</p>
+<p>This use case is intended to retrieve Attributes that the current Identity shared to a peer as <a href="/versions/v5/integrate/data-model-overview#LocalAttribute">LocalAttributes</a>. The LocalAttributes can be specified using a complex query.</p>
 
-<p>This use case describes any required manual user interaction on the Device, which might be required in order to to use the App.</p>
-
-<p>Examples:</p>
+<h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li>Selecting a file with the native filesystem picker</li>
-  <li>Allow the App to use Camera, Push Notification, or equivalent</li>
-  <li>Copy and paste information across apps</li>
+  <li><code class="language-plaintext highlighter-rouge">peer</code> is the Address of the Identity that the LocalAttributes are shared with.</li>
+  <li><code class="language-plaintext highlighter-rouge">query</code> allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">createdAt</code> describes the time when the LocalAttribute was created.</li>
+      <li>The fields of <code class="language-plaintext highlighter-rouge">content</code> can be used to describe the queried Attribute (either an <a href="/versions/v5/integrate/data-model-overview#identityattribute">IdentityAttribute</a>
+or a <a href="/versions/v5/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>).</li>
+      <li>The fields of the <code class="language-plaintext highlighter-rouge">shareInfo</code> describe if the LocalAttribute is shared with a peer and specify its <a href="/versions/v5/integrate/data-model-overview#localattributeshareinfo">LocalAttributeShareInfo</a>.</li>
+      <li>The fields of the <code class="language-plaintext highlighter-rouge">deletionInfo</code> describe the <a href="/versions/v5/integrate/data-model-overview#localattributedeletioninfo">LocalAttributeDeletionInfo</a> of a shared LocalAttribute.</li>
+    </ul>
+  </li>
+  <li>If <code class="language-plaintext highlighter-rouge">onlyValid</code> is set to <code class="language-plaintext highlighter-rouge">true</code>, LocalAttributes that exceed their validity frame defined by <code class="language-plaintext highlighter-rouge">validFrom</code> and <code class="language-plaintext highlighter-rouge">validTo</code> will not be returned.</li>
+  <li>If <code class="language-plaintext highlighter-rouge">hideTechnical</code> is set to <code class="language-plaintext highlighter-rouge">true</code>, RelationshipAttributes with <code class="language-plaintext highlighter-rouge">isTechnical</code> <code class="language-plaintext highlighter-rouge">true</code> will not be returned.</li>
+  <li>Optionally, <code class="language-plaintext highlighter-rouge">onlyLatestVersions</code> can be disabled, such that in case of <a href="/versions/v5/integrate/update-attributes-by-succession">Attribute succession</a> all versions will be returned.</li>
 </ul>
+
+<h2 id="on-success">On Success</h2>
+
+<ul>
+  <li>Returns a list of <a href="/versions/v5/integrate/data-model-overview#LocalAttribute">LocalAttributes</a> shared to the peer that matches the query.</li>
+</ul>
+
+<h2 id="on-failure">On Failure</h2>
+
+<ul>
+  <li>The parameters are malformed.</li>
+</ul>
+  <h2>How to execute this use case with the Connector?</h2>
+
+The Connector is our first-class citizen, thus we provide you with a detailed API description for every use case.
+This use case can be executed with the REST API of the Connector which you can <a href="/integrate/access-the-connector">Access the Connector</a>.
+ 
+<h6>Corresponding interactive API docs excerpt:</h6>
+
+<rapi-doc-mini
+    server-url="https://doc-demo-v5.is.enmeshed.eu/"
+    default-api-server="https://doc-demo-v5.is.enmeshed.eu/"
+    api-key-name="x-api-key"
+    api-key-location="header"
+    api-key-value="apikey"
+    layout="column"
+    default-schema-tab="example"
+    spec-url="https://doc-demo-v5.is.enmeshed.eu/docs/json"
+    paths-expanded="false"
+    theme="light"
+    bg-color="#f9f9fb"
+    
+    match-paths="^GET /api/v2/Attributes/Own/Shared/Identity$"
+    
+    match-type="regex"
+></rapi-doc-mini>
+<br />
  
 
         

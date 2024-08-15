@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-08-13T14:11:23+02:00">
+  <meta property="article:published_time" content="2024-08-15T09:44:47+02:00">
 
 
 
@@ -352,7 +352,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Share Attributes with peer">
     <meta itemprop="description" content="There are many situations in which an Identity wants to share an IdentityAttribute or a RelationshipAttribute with another Identity, for example:">
-    <meta itemprop="datePublished" content="2024-08-13T14:11:23+02:00">
+    <meta itemprop="datePublished" content="2024-08-15T09:44:47+02:00">
     
 
     <div class="page__inner-wrap">
@@ -397,7 +397,7 @@
 
 <p>For sharing a single Attribute, the Sender needs to insert a single RequestItem of type <a href="/versions/v5/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a> into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v5/integrate/data-model-overview#request">Request</a>. The Sender can only share an Attribute that already exists as a <a href="/versions/v5/integrate/data-model-overview#localattribute">LocalAttribute</a> and, in the case of IdentityAttributes, is owned by it. The latter means that the Address of the Sender is contained in the <code class="language-plaintext highlighter-rouge">content.owner</code> property of the corresponding LocalAttribute. The <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute must be inserted into the <code class="language-plaintext highlighter-rouge">sourceAttributeId</code> property and the <code class="language-plaintext highlighter-rouge">content</code> of the LocalAttribute into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the ShareAttributeRequestItem.</p>
 
-<p class="notice--info">To get a list of all LocalAttributes that are owned by the Sender, proceed as described in the <a href="/versions/v5/use-case-consumption-query-attributes">Query Attributes</a> use case documentation and use <code class="language-plaintext highlighter-rouge">content.owner=&lt;Address of Sender&gt;</code> as query parameter. Please note that the <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> notation is used as a placeholder for the actual data as usual. If the <code class="language-plaintext highlighter-rouge">id</code> of a LocalAttribute is known, the underlying IdentityAttribute or RelationshipAttribute within its <code class="language-plaintext highlighter-rouge">content</code> property can be displayed by consulting the <a href="/versions/v5/use-case-consumption-get-attribute">Get Attribute</a> use case description and specifying the <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute.</p>
+<p class="notice--info">To get a list of all LocalAttributes that are owned by the Sender, proceed as described in the <a href="/versions/v5/use-case-consumption-get-attributes">Get Attributes</a> use case documentation and use <code class="language-plaintext highlighter-rouge">content.owner=&lt;Address of Sender&gt;</code> as query parameter. Please note that the <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> notation is used as a placeholder for the actual data as usual. If the <code class="language-plaintext highlighter-rouge">id</code> of a LocalAttribute is known, the underlying IdentityAttribute or RelationshipAttribute within its <code class="language-plaintext highlighter-rouge">content</code> property can be displayed by consulting the <a href="/versions/v5/use-case-consumption-get-attribute">Get Attribute</a> use case description and specifying the <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute.</p>
 
 <h3 id="combinations-and-usage-scenarios-of-shareattributerequestitem">Combinations and usage scenarios of ShareAttributeRequestItem</h3>
 
@@ -698,7 +698,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-13T14:11:23+02:00">August 13, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-15T09:44:47+02:00">August 15, 2024</time></p>
 
       </footer>
 

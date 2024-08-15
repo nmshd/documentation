@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-08-13T14:11:23+02:00">
+  <meta property="article:published_time" content="2024-08-15T09:44:47+02:00">
 
 
 
@@ -352,7 +352,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Propose Attributes to peer">
     <meta itemprop="description" content="An Identity may have received information about a peer in the past that it needs to process a transaction at a later time. To ensure the accuracy of the available information, the Identity can propose Attributes to the peer for creation. Depending on whether the peer confirms the fittingness of a proposed Attribute, it can agree to its creation or correct the Attribute value beforehand. Proposing Attributes to a peer can be useful in these and many other situations, such as:">
-    <meta itemprop="datePublished" content="2024-08-13T14:11:23+02:00">
+    <meta itemprop="datePublished" content="2024-08-15T09:44:47+02:00">
     
 
     <div class="page__inner-wrap">
@@ -533,7 +533,24 @@
 
 <h3 id="accept-a-proposeattributerequestitem">Accept a ProposeAttributeRequestItem</h3>
 
-<p>The Recipient can accept a ProposeAttributeRequestItem contained in the Request for proposing Attributes using an appropriate <a href="/versions/v5/integrate/data-model-overview#acceptproposeattributerequestitemparameters">AcceptProposeAttributeRequestItemParameter</a>. Depending on whether the Recipient confirms the fittingness of the associated proposed Attribute, it can agree to its creation and send it back to the Sender unchanged or correct the Attribute value beforehand. To do this, the Recipient needs to specify the proposed Attribute or an Attribute that differs from the proposed Attribute only by the Attribute value as the value for the <code class="language-plaintext highlighter-rouge">attribute</code> parameter of the AcceptProposeAttributeRequestItemParameters. If the Recipient does not want to create a new Attribute, it can alternatively send an existing Attribute back to the Sender. The AcceptProposeAttributeRequestItemParameter <code class="language-plaintext highlighter-rouge">attributeId</code> must be used for that. The existing Attribute may only differ from the proposed Attribute by the Attribute value. As it makes no sense for the Sender to request a RelationshipAttribute from the Recipient that already exists in the context of their Relationship to each other, a RelationshipAttributeQuery that is potentially specified in the <code class="language-plaintext highlighter-rouge">query</code> property of the ProposeAttributeRequestItem can only be validly answered by the Recipient with a new Attribute.</p>
+<p>The Recipient can accept a ProposeAttributeRequestItem contained in the Request for proposing Attributes using an appropriate <a href="/versions/v5/integrate/data-model-overview#acceptproposeattributerequestitemparameters">AcceptProposeAttributeRequestItemParameter</a>. Depending on whether the Recipient confirms the fittingness of the associated proposed Attribute, it can agree to its creation and send it back to the Sender unchanged or correct the Attribute Value beforehand. To do this, the Recipient needs to specify the proposed Attribute or an Attribute that differs from the proposed Attribute only by the Attribute value as the value for the <code class="language-plaintext highlighter-rouge">attribute</code> parameter of the AcceptProposeAttributeRequestItemParameters. As it makes no sense for the Sender to request a RelationshipAttribute from the Recipient that already exists in the context of their Relationship to each other, a RelationshipAttributeQuery that is potentially specified in the <code class="language-plaintext highlighter-rouge">query</code> property of the ProposeAttributeRequestItem can only be validly answered by the Recipient with a new Attribute.</p>
+
+<p>If the Recipient does not want to create a new Attribute, it can alternatively send an existing Attribute back to the Sender. The <code class="language-plaintext highlighter-rouge">attributeId</code> parameter of the AcceptProposeAttributeRequestItemParameters must be used for that. The existing Attribute may only differ from the proposed Attribute by its Attribute value. The acceptance of a ProposeAttributeRequestItem leads to the creation of a corresponding <a href="/versions/v5/integrate/data-model-overview#localattribute">LocalAttribute</a> with a <a href="/versions/v5/integrate/data-model-overview#localattributeshareinfo">LocalAttributeShareInfo</a> contained within its <code class="language-plaintext highlighter-rouge">shareInfo</code> property. The <code class="language-plaintext highlighter-rouge">content</code> of the LocalAttribute is the Attribute that the Recipient wants to send back to the Sender. Depending on whether the Recipient confirms the fittingness of the proposed Attribute, it is therefore the proposed Attribute itself or a corrected version of it.</p>
+
+<p>If the Recipient accepts with a new Attribute or an existing one that isn’t shared with the peer already neither itself nor any of its predecessing versions, an appropriate AcceptResponseItem of type <a href="/versions/v5/integrate/data-model-overview#proposeattributeacceptresponseitem">ProposeAttributeAcceptResponseItem</a> will be generated.
+It incorporates the <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute with the LocalAttributeShareInfo in its <code class="language-plaintext highlighter-rouge">attributeId</code> property and the Attribute that the Recipient wants to send back to the Sender in its <code class="language-plaintext highlighter-rouge">attribute</code> property.
+If a new IdentityAttribute is to be created and sent back to the Sender, a corresponding LocalAttribute without a LocalAttributeShareInfo is additionally created for the Recipient beforehand.</p>
+
+<p>If the ProposeAttributeRequestItem is accepted with an existing Attribute that the Recipient already shared with the Sender, an <a href="/versions/v5/integrate/data-model-overview#attributealreadysharedacceptresponseitem">AttributeAlreadySharedAcceptResponseItem</a> will be generated, given that the own shared <a href="/versions/v5/integrate/data-model-overview#localattribute">LocalAttribute</a> doesn’t have <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.
+Instead of creating a further own shared/peer shared Attribute pair, the <code class="language-plaintext highlighter-rouge">id</code> of the already existing shared LocalAttributes is returned.
+Note that the <code class="language-plaintext highlighter-rouge">id</code> of the shared Attribute of the Sender matches the <code class="language-plaintext highlighter-rouge">id</code> of the corresponding shared Attribute of the Recipient.</p>
+
+<p>Lastly, if the ProposeAttributeRequestItem is accepted with an existing Attribute of which the Recipient already shared a predecessor with the Sender, an <a href="/versions/v5/integrate/data-model-overview#attributesuccessionacceptresponseitem">AttributeSuccessionAcceptResponseItem</a> will be generated, given that the own shared predecessor doesn’t have <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.
+Instead of creating an independent own shared/peer shared Attribute pair, internally an <a href="/versions/v5/integrate/update-attributes-by-succession">Attribute succession</a> is performed.
+The <code class="language-plaintext highlighter-rouge">id</code> of the already existing shared LocalAttribute predecessor is returned, as well as the <code class="language-plaintext highlighter-rouge">id</code> and <code class="language-plaintext highlighter-rouge">content</code> of the newly created successor.
+When the Sender of the Request receives the AttributeSuccessionAcceptResponseItem, the according succession is automatically performed for them.</p>
+
+<p>In any case, the respective AcceptResponseItem will be included in the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v5/integrate/data-model-overview#response">Response</a> to the Request for proposing Attributes that will be transferred to the Sender.</p>
 
 <p class="notice--info">Otherwise, the <a href="/versions/v5/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.consumption.requests.invalidAcceptParameters</code> arises. Furthermore, an error with the code <code class="language-plaintext highlighter-rouge">error.consumption.requests.attributeQueryMismatch</code> is thrown if the Attribute provided by the Recipient does not match the <a href="/versions/v5/integrate/data-model-overview#attributequeries">AttributeQuery</a> specified in the <code class="language-plaintext highlighter-rouge">query</code> property of the ProposeAttributeRequestItem.</p>
 
@@ -688,7 +705,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-13T14:11:23+02:00">August 13, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-15T09:44:47+02:00">August 15, 2024</time></p>
 
       </footer>
 
