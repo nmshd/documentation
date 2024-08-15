@@ -185,7 +185,7 @@ This change enables the Sender of the Request to specify more precisely who the 
 
 With Version 5 the Use Case RevokeRelationship has been added. So now it is possible to revoke a RelationshipRequest which is in status `"Pending"` and was created by yourself.
 
-### Removal of RelationshipChanges and RelationshipTermination
+### Removal of RelationshipChanges
 
 The [removal of RelationshipChanges](#removal-of-relationshipchanges) is the reason why the following Use Cases are removed:
 
@@ -193,16 +193,23 @@ The [removal of RelationshipChanges](#removal-of-relationshipchanges) is the rea
 - RevokeRelationshipChange
 - RejectRelationshipChange
 
-Therefore and with the RelationshipTermination now there are the following new Use Cases:
+Therefore now there are the following new Use Cases:
 
-- AcceptRelationship: Accepts the creation of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
-- AcceptRelationshipReactivation: Accepts the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
-- DecomposeRelationship: Decomposes the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
-- RejectRelationship: Rejects the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
-- RejectRelationshipReactivation: Rejects the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
-- RequestRelationshipReactivation: Requests the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
-- RevokeRelationshipReactivation: Revokes the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- AcceptRelationship: Accepts the Pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- RejectRelationship: Rejects the Pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- RevokeRelationship: Revokes the Pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+
+### RelationshipTermination
+
 - TerminateRelationship: Terminates the active Relationship [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- DecomposeRelationship: Decomposes the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+
+### RelationshipReactivation
+
+- RequestRelationshipReactivation: Requests the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- AcceptRelationshipReactivation: Accepts the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- RejectRelationshipReactivation: Rejects the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- RevokeRelationshipReactivation: Revokes the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 
 ### Renaming of the Use Case GetSharedVersionsOfRepositoryAttribute to GetSharedVersionsOfAttribute
 
