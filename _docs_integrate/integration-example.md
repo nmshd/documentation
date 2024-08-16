@@ -192,7 +192,7 @@ For this, execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Hea
 
 {% include rapidoc api_route_regex="^get /api/v2/RelationshipTemplates/{id}$" %}
 
-### App: Send a Pending Relationship
+### App: Initiate a Relationship
 
 Open the created QR code and start the enmeshed App. Depending on what you already did with the App, choose one of the following paths:
 
@@ -213,7 +213,7 @@ All three paths should result in a screen similar to the one below, where you ca
 
 !["Add contact" screen]( {{ '/assets/images/add-contact-screen.jpg' | relative_url }} )
 
-Finally, fill out the required fields and click on "Add contact" to send the Relationship. This will create a new Relationship between the App and the Connector. This Relationship has the status `Pending` for now.
+Finally, fill out the required fields and click on "Add contact" to send the Relationship. This will initiate a Relationship between the App and the Connector. This Relationship has the status `Pending` for now.
 
 ### Connector: Accept the Relationship
 
@@ -222,7 +222,7 @@ To do so, we [synchronize updates of the Backbone]({% link _docs_use-cases/use-c
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
-In the Response we will receive the created Relationship.
+In the Response we will receive the Relationship.
 
 Example:
 
