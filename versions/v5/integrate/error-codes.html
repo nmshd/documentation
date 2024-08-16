@@ -11,7 +11,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Error codes - enmeshed</title>
-<meta name="description" content="Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker.">
+<meta name="description" content="Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker. The error codes are categorized according to the libraries in which they occur, which is indicated at the beginning of each code.">
 
 
   <meta name="author" content="enmeshed Team">
@@ -27,7 +27,7 @@
 <meta property="og:url" content="/versions/v5/integrate/error-codes">
 
 
-  <meta property="og:description" content="Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker.">
+  <meta property="og:description" content="Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker. The error codes are categorized according to the libraries in which they occur, which is indicated at the beginning of each code.">
 
 
 
@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-08-15T16:32:31+02:00">
+  <meta property="article:published_time" content="2024-08-16T15:35:04+02:00">
 
 
 
@@ -328,7 +328,7 @@
           
           <ul>
             
-              <li><a href="/versions/v5/integrate/error-codes" class="active">Error Codes</a></li>
+              <li><a href="/versions/v5/integrate/error-codes" class="active">Error codes</a></li>
             
               <li><a href="/versions/v5/integrate/faq">FAQ</a></li>
             
@@ -351,8 +351,8 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Error codes">
-    <meta itemprop="description" content="Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker.">
-    <meta itemprop="datePublished" content="2024-08-15T16:32:31+02:00">
+    <meta itemprop="description" content="Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker.The error codes are categorized according to the libraries in which they occur, which is indicated at the beginning of each code.">
+    <meta itemprop="datePublished" content="2024-08-16T15:35:04+02:00">
     
 
     <div class="page__inner-wrap">
@@ -373,11 +373,14 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#table-of-error-codes">Table of error codes</a></li></ul>
             </nav>
           </aside>
         
-        <p>Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the <a href="https://github.com/nmshd/feedback/issues">enmeshed Issue Tracker</a>.</p>
+        <p>Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the <a href="https://github.com/nmshd/feedback/issues">enmeshed Issue Tracker</a>.
+The error codes are categorized according to the libraries in which they occur, which is indicated at the beginning of each code.</p>
+
+<h1 id="table-of-error-codes">Table of error codes</h1>
 
 <table>
   <thead>
@@ -387,6 +390,10 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>error.connector.errorInErrorHandler <a name="error.connector.errorInErrorHandler"></a></td>
+      <td>The error handler ran into an error. Check the error message and the stack trace and <a href="https://github.com/nmshd/feedback/issues">report this to a Connector developer</a>, because this should not happen.</td>
+    </tr>
     <tr>
       <td>error.connector.http.methodNotAllowed <a name="error.connector.http.methodNotAllowed"></a></td>
       <td>This method is not supported for the requested resource.</td>
@@ -401,59 +408,251 @@
     </tr>
     <tr>
       <td>error.connector.unauthorized <a name="error.connector.unauthorized"></a></td>
-      <td>Unauthorized.</td>
+      <td>The Connector is unauthorized, because the <a href="/versions/v5/integrate/access-the-connector">API key</a> is not set or incorrect.</td>
+    </tr>
+    <tr>
+      <td>error.connector.unexpected <a name="error.connector.unexpected"></a></td>
+      <td>An unexpected error occurred.</td>
     </tr>
     <tr>
       <td>error.connector.validation.invalidJsonInPayload <a name="error.connector.validation.invalidJsonInPayload"></a></td>
-      <td>The given payload is not a valid json object.</td>
+      <td>The given payload is not a valid JSON object.</td>
     </tr>
     <tr>
-      <td>error.connector.attributes.cannotCreateNotSelfOwnedRepositoryAttribute <a name="error.connector.attributes.cannotCreateNotSelfOwnedRepositoryAttribute"></a></td>
-      <td>When creating a RepositoryAttribute the owner must not be someone else.</td>
+      <td>error.consumption.attributes.cannotSetDeletionInfoOfRepositoryAttributes <a name="error.consumption.attributes.cannotSetDeletionInfoOfRepositoryAttributes"></a></td>
+      <td><a href="/versions/v5/integrate/data-model-overview#localattribute">RepositoryAttributes</a> cannot have a <code class="language-plaintext highlighter-rouge">deletionInfo</code>, since they are not shared with a peer and can be deleted directly.</td>
     </tr>
     <tr>
-      <td>error.consumption.attributes.cannotSucceedAttributesWithAParent <a name="error.consumption.attributes.cannotSucceedAttributesWithAParent"></a></td>
-      <td>The Attribute you want to succeed has a parent. You cannot succeed Attributes with a parent. Instead, succeed the parent, which will implicitly succeed all its children. For example, if you want to change a HouseNumber, you should succeed the Address it is part of.</td>
+      <td>error.consumption.attributes.cannotSucceedAttributesWithASuccessor <a name="error.consumption.attributes.cannotSucceedAttributesWithASuccessor"></a></td>
+      <td>It isn’t possible to <a href="/versions/v5/integrate/update-attributes-by-succession">succeed Attributes</a> which have already a successor. Instead, the successor has to be succeeded.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.cannotSucceedAttributesWithDeletionInfo <a name="error.consumption.attributes.cannotSucceedAttributesWithDeletionInfo"></a></td>
+      <td>Attributes with a <code class="language-plaintext highlighter-rouge">deletionInfo</code> cannot be <a href="/versions/v5/integrate/update-attributes-by-succession">succeeded</a>, since the peer may have already deleted it or marked it for deletion.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.cannotSucceedChildOfComplexAttribute <a name="error.consumption.attributes.cannotSucceedChildOfComplexAttribute"></a></td>
+      <td>The Attribute is a child Attribute of a <a href="/versions/v5/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttribute</a> and cannot be succeeded on its own. Instead, succeed the parent which will implicitly succeed all its children.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.invalidDeletionInfoOfOwnSharedAttribute <a name="error.consumption.attributes.invalidDeletionInfoOfOwnSharedAttribute"></a></td>
+      <td>The only valid values of the property <a href="/versions/v5/integrate/delete-attributes#delete-own-shared-attributes"><code class="language-plaintext highlighter-rouge">deletionStatus</code> for own shared Attributes</a> are <code class="language-plaintext highlighter-rouge">"DeletionRequestSent"</code>, <code class="language-plaintext highlighter-rouge">"DeletionRequestRejected"</code>, <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.invalidDeletionInfoOfPeerSharedAttribute <a name="error.consumption.attributes.invalidDeletionInfoOfPeerSharedAttribute"></a></td>
+      <td>The only valid values of the property <a href="/versions/v5/integrate/delete-attributes#delete-peer-shared-attributes"><code class="language-plaintext highlighter-rouge">deletionStatus</code> for peer shared Attributes</a> are <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.<br />invalidDeletionInfoOfThirdPartyOwnedRelationshipAttribute <a name="error.consumption.attributes.&lt;br&gt;invalidDeletionInfoOfThirdPartyOwnedRelationshipAttribute"></a></td>
+      <td>The only valid <code class="language-plaintext highlighter-rouge">deletionStatus</code> for third party owned <a href="/versions/v5/integrate/data-model-overview#relationshipattribute">RelationshipAttributes</a> is <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code>, see <a href="/versions/v5/use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer">‘Delete a third party owned RelationshipAttribute’</a> for more details.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.invalidParentSuccessor <a name="error.consumption.attributes.invalidParentSuccessor"></a></td>
+      <td>The <a href="/versions/v5/integrate/update-attributes-by-succession#succeeding-a-repositoryattribute">complex parent successor of this Attribute</a> does not exist.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.isNotOwnSharedAttribute <a name="error.consumption.attributes.isNotOwnSharedAttribute"></a></td>
+      <td>The Attribute is not an <a href="/versions/v5/integrate/data-model-overview#localattribute">own shared Attribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.isNotPeerSharedAttribute <a name="error.consumption.attributes.isNotPeerSharedAttribute"></a></td>
+      <td>The Attribute is not a <a href="/versions/v5/integrate/data-model-overview#localattribute">peer shared Attribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.isNotRepositoryAttribute <a name="error.consumption.attributes.isNotRepositoryAttribute"></a></td>
+      <td>The given Attribute is not a <a href="/versions/v5/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.isNotSharedAttribute <a name="error.consumption.attributes.isNotSharedAttribute"></a></td>
+      <td>The Attribute is not a shared <a href="/versions/v5/integrate/data-model-overview#localattribute">Attribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.isNotThirdPartyOwnedRelationshipAttribute <a name="error.consumption.attributes.isNotThirdPartyOwnedRelationshipAttribute"></a></td>
+      <td>The Attribute is not a <a href="/versions/v5/integrate/data-model-overview#localattribute">third party owned RelationshipAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.predecessorDoesNotExist <a name="error.consumption.attributes.predecessorDoesNotExist"></a></td>
+      <td>The predecessor does not exist.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.predecessorIsNotOwnSharedIdentityAttribute <a name="error.consumption.attributes.predecessorIsNotOwnSharedIdentityAttribute"></a></td>
+      <td>The predecessor is not an <a href="/versions/v5/integrate/data-model-overview#localattribute">own shared IdentityAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.predecessorIsNotOwnSharedRelationshipAttribute <a name="error.consumption.attributes.predecessorIsNotOwnSharedRelationshipAttribute"></a></td>
+      <td>The predecessor is not an <a href="/versions/v5/integrate/data-model-overview#localattribute">own shared RelationshipAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.predecessorIsNotPeerSharedIdentityAttribute <a name="error.consumption.attributes.predecessorIsNotPeerSharedIdentityAttribute"></a></td>
+      <td>The predecessor is not a <a href="/versions/v5/integrate/data-model-overview#localattribute">peer shared IdentityAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.predecessorIsNotPeerSharedRelationshipAttribute <a name="error.consumption.attributes.predecessorIsNotPeerSharedRelationshipAttribute"></a></td>
+      <td>The predecessor is not a <a href="/versions/v5/integrate/data-model-overview#localattribute">peer shared RelationshipAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.predecessorIsNotRepositoryAttribute <a name="error.consumption.attributes.predecessorIsNotRepositoryAttribute"></a></td>
+      <td>The predecessor is not a <a href="/versions/v5/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.<br />predecessorIsNotThirdPartyOwnedRelationshipAttribute <a name="error.consumption.attributes.&lt;br&gt;predecessorIsNotThirdPartyOwnedRelationshipAttribute"></a></td>
+      <td>The predecessor is not a <a href="/versions/v5/integrate/data-model-overview#localattribute">third party owned RelationshipAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.predecessorSourceAttributeIsNotRepositoryAttribute <a name="error.consumption.attributes.predecessorSourceAttributeIsNotRepositoryAttribute"></a></td>
+      <td>The predecessor sourceAttribute is not a <a href="/versions/v5/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.predecessorSourceContentIsNotEqualToCopyContent <a name="error.consumption.attributes.predecessorSourceContentIsNotEqualToCopyContent"></a></td>
+      <td>The predecessor sourceAttribute <code class="language-plaintext highlighter-rouge">content</code> doesn’t match the <code class="language-plaintext highlighter-rouge">content</code> of the predecessor <a href="/versions/v5/integrate/update-attributes-by-succession#sharing-a-repositoryattribute">shared Attribute copy</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.senderIsNotPeerOfSharedAttribute <a name="error.consumption.attributes.senderIsNotPeerOfSharedAttribute"></a></td>
+      <td>The Sender of the <a href="/versions/v5/integrate/data-model-overview#notification">Notification</a> is not the peer you shared the Attribute with.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.setPredecessorIdDoesNotMatchActualPredecessorId <a name="error.consumption.attributes.setPredecessorIdDoesNotMatchActualPredecessorId"></a></td>
+      <td>The predecessor’s <code class="language-plaintext highlighter-rouge">id</code> and the explicitly set value for the successor’s <code class="language-plaintext highlighter-rouge">succeeds</code> field don’t match.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successionMustNotChangeContentType <a name="error.consumption.attributes.successionMustNotChangeContentType"></a></td>
+      <td>The successor Attribute’s <code class="language-plaintext highlighter-rouge">content</code> type does not match that of the predecessor. An <a href="/versions/v5/integrate/update-attributes-by-succession">Attribute succession</a> must not change the Attribute’s <code class="language-plaintext highlighter-rouge">content</code> type, i.e. an <a href="/versions/v5/integrate/data-model-overview#relationshipattribute">IdentityAttribute</a> must not be succeeded by a <a href="/versions/v5/integrate/data-model-overview#identityattribute">RelationshipAttribute</a> and v.v.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successionMustNotChangeKey <a name="error.consumption.attributes.successionMustNotChangeKey"></a></td>
+      <td>The predecessor <a href="/versions/v5/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>’s <code class="language-plaintext highlighter-rouge">key</code> does not match that of the successor. The <a href="/versions/v5/integrate/update-attributes-by-succession#succeeding-a-relationshipattribute-and-notifying-the-peer">succession of a RelationshipAttribute</a> must not change the <code class="language-plaintext highlighter-rouge">key</code>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successionPeerIsNotOwner <a name="error.consumption.attributes.successionPeerIsNotOwner"></a></td>
+      <td>The peer of the succeeded Attribute is not its <code class="language-plaintext highlighter-rouge">owner</code>. This may be an attempt of spoofing.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successionMustNotChangeOwner <a name="error.consumption.attributes.successionMustNotChangeOwner"></a></td>
+      <td>The successor Attribute’s <code class="language-plaintext highlighter-rouge">owner</code> does not match that of the predecessor. An <a href="/versions/v5/integrate/update-attributes-by-succession">Attribute succession</a> must not change the Attribute’s <code class="language-plaintext highlighter-rouge">owner</code>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successionMustNotChangePeer <a name="error.consumption.attributes.successionMustNotChangePeer"></a></td>
+      <td>The peer of the <a href="/versions/v5/integrate/update-attributes-by-succession#sharing-a-repositoryattribute">shared Attribute</a> must not change.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successionMustNotChangeValueType <a name="error.consumption.attributes.successionMustNotChangeValueType"></a></td>
+      <td>The successor Attribute’s <code class="language-plaintext highlighter-rouge">value</code> type does not match that of the predecessor. An <a href="/versions/v5/integrate/update-attributes-by-succession">Attribute succession</a> must not change the Attribute’s <code class="language-plaintext highlighter-rouge">value</code> type.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successorDoesNotExist <a name="error.consumption.attributes.successorDoesNotExist"></a></td>
+      <td>The successor does not exist.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successorIsNotAValidAttribute <a name="error.consumption.attributes.successorIsNotAValidAttribute"></a></td>
+      <td>During the <a href="/versions/v5/integrate/update-attributes-by-succession#succeeding-a-repositoryattribute">creation of the successor</a> the validation failed.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successorIsNotOwnSharedIdentityAttribute <a name="error.consumption.attributes.successorIsNotOwnSharedIdentityAttribute"></a></td>
+      <td>The successor is not an <a href="/versions/v5/integrate/data-model-overview#localattribute">own shared IdentityAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successorIsNotOwnSharedRelationshipAttribute <a name="error.consumption.attributes.successorIsNotOwnSharedRelationshipAttribute"></a></td>
+      <td>The successor is not an <a href="/versions/v5/integrate/data-model-overview#localattribute">own shared RelationshipAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successorIsNotPeerSharedIdentityAttribute <a name="error.consumption.attributes.successorIsNotPeerSharedIdentityAttribute"></a></td>
+      <td>The successor is not a <a href="/versions/v5/integrate/data-model-overview#localattribute">peer shared IdentityAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successorIsNotPeerSharedRelationshipAttribute <a name="error.consumption.attributes.successorIsNotPeerSharedRelationshipAttribute"></a></td>
+      <td>The successor is not a <a href="/versions/v5/integrate/data-model-overview#localattribute">peer shared RelationshipAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successorIsNotRepositoryAttribute <a name="error.consumption.attributes.successorIsNotRepositoryAttribute"></a></td>
+      <td>The successor is not a <a href="/versions/v5/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successorIsNotThirdPartyOwnedRelationshipAttribute <a name="error.consumption.attributes.successorIsNotThirdPartyOwnedRelationshipAttribute"></a></td>
+      <td>The successor is not a <a href="/versions/v5/integrate/data-model-overview#localattribute">third party owned RelationshipAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successorMustNotHaveASuccessor <a name="error.consumption.attributes.successorMustNotHaveASuccessor"></a></td>
+      <td>The successor must not have a successor itself. That means the property <code class="language-plaintext highlighter-rouge">succeededBy</code> must be undefined.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successorMustNotYetExist <a name="error.consumption.attributes.successorMustNotYetExist"></a></td>
+      <td>The predecessor Attribute’s successor must not exist. It will be created by the succession handlers and must not be created manually.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successorSourceAttributeDoesNotExist <a name="error.consumption.attributes.successorSourceAttributeDoesNotExist"></a></td>
+      <td>The successor <code class="language-plaintext highlighter-rouge">sourceAttribute</code> does not exist.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successorSourceAttributeIsNotRepositoryAttribute <a name="error.consumption.attributes.successorSourceAttributeIsNotRepositoryAttribute"></a></td>
+      <td>The successor <code class="language-plaintext highlighter-rouge">sourceAttribute</code> is not a <a href="/versions/v5/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successorSourceAttributeIsNotSpecified <a name="error.consumption.attributes.successorSourceAttributeIsNotSpecified"></a></td>
+      <td>The <a href="/versions/v5/integrate/update-attributes-by-succession"><code class="language-plaintext highlighter-rouge">sourceAttribute</code></a> of the successor must be specified.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successorSourceDoesNotSucceedPredecessorSource <a name="error.consumption.attributes.successorSourceDoesNotSucceedPredecessorSource"></a></td>
+      <td>The predecessor <a href="/versions/v5/integrate/update-attributes-by-succession"><code class="language-plaintext highlighter-rouge">sourceAttribute</code></a> is not succeeded by the successor sourceAttribute.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.successorSourceContentIsNotEqualToCopyContent <a name="error.consumption.attributes.successorSourceContentIsNotEqualToCopyContent"></a></td>
+      <td>The successor <a href="/versions/v5/integrate/update-attributes-by-succession"><code class="language-plaintext highlighter-rouge">sourceAttribute</code></a> <code class="language-plaintext highlighter-rouge">content</code> doesn’t match the <code class="language-plaintext highlighter-rouge">content</code> of the successor <a href="/versions/v5/integrate/update-attributes-by-succession#sharing-a-repositoryattribute">shared Attribute copy</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.attributes.wrongOwnerOfRepositoryAttribute <a name="error.consumption.attributes.wrongOwnerOfRepositoryAttribute"></a></td>
+      <td>A wrong <code class="language-plaintext highlighter-rouge">owner</code> was provided wanting to create a <a href="/versions/v5/integrate/data-model-overview#localattribute">RepositoryAttribute</a>. You can only create RepositoryAttributes for yourself.</td>
     </tr>
     <tr>
       <td>error.consumption.requests.attributeQueryMismatch <a name="error.consumption.requests.attributeQueryMismatch"></a></td>
       <td>The provided Attribute does not match the AttributeQuery.</td>
     </tr>
     <tr>
-      <td>error.consumption.requests.invalidAcceptParameters <a name="error.consumption.requests.invalidAcceptParameters"></a></td>
-      <td>An attempt was made to accept the RequestItem with invalid AcceptRequestItemParameters.</td>
-    </tr>
-    <tr>
       <td>error.consumption.requests.decide.validation.invalidNumberOfItems <a name="error.consumption.requests.decide.validation.invalidNumberOfItems"></a></td>
-      <td>The Request and the Response item count is different.</td>
+      <td>The <a href="/versions/v5/integrate/request-and-response-introduction">Request- and the ResponseItem count</a> is different.</td>
     </tr>
     <tr>
       <td>error.consumption.requests.decide.validation.itemAcceptedButRequestNotAccepted <a name="error.consumption.requests.decide.validation.itemAcceptedButRequestNotAccepted"></a></td>
-      <td>You accepted a RequestItem of a Request, but you rejected the Request. If you accept a RequestItem, you need to accept the Request as well.</td>
+      <td>You accepted a <a href="/versions/v5/integrate/data-model-overview#requestitems">RequestItem</a> of a <a href="/versions/v5/integrate/data-model-overview#request">Request</a>, but you rejected the Request. If you accept a RequestItem, you need to accept the Request as well.</td>
     </tr>
     <tr>
       <td>error.consumption.requests.decide.validation.mustBeAcceptedItemNotAccepted <a name="error.consumption.requests.decide.validation.mustBeAcceptedItemNotAccepted"></a></td>
-      <td>The Request was accepted but a RequestItem that was flagged as ‘mustBeAccepted’ was not accepted.</td>
+      <td>The <a href="/versions/v5/integrate/data-model-overview#request">Request</a> was accepted, but a <a href="/versions/v5/integrate/request-and-response-introduction#working-with-required-and-optional-requestitems">RequestItem that was flagged as <code class="language-plaintext highlighter-rouge">mustBeAccepted</code></a> was not accepted.</td>
     </tr>
     <tr>
-      <td>error.consumption.requests.decide.validation.requestItemAnsweredAsRequestItemGroup <a name="error.consumption.requests.decide.validation.requestItemAnsweredAsRequestItemGroup"></a></td>
-      <td>You answered a RequestItem as a RequestItemGroup.</td>
+      <td>error.consumption.requests.decide.validation.<br />requestItemAnsweredAsRequestItemGroup <a name="error.consumption.requests.decide.validation.&lt;br&gt;requestItemAnsweredAsRequestItemGroup"></a></td>
+      <td>The <a href="/versions/v5/integrate/data-model-overview#requestitems">RequestItem</a> was answered as a <a href="/versions/v5/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a>, consider <a href="/versions/v5/integrate/request-and-response-introduction">‘Request and response introduction’</a>.</td>
     </tr>
     <tr>
-      <td>error.consumption.requests.decide.validation.requestItemGroupAnsweredAsRequestItem <a name="error.consumption.requests.decide.validation.requestItemGroupAnsweredAsRequestItem"></a></td>
-      <td>You answered a RequestItemGroup as a RequestItem.</td>
+      <td>error.consumption.requests.decide.validation.<br />requestItemGroupAnsweredAsRequestItem <a name="error.consumption.requests.decide.validation.&lt;br&gt;requestItemGroupAnsweredAsRequestItem"></a></td>
+      <td>The <a href="/versions/v5/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> was answered as a <a href="/versions/v5/integrate/data-model-overview#requestitems">RequestItem</a>, consider <a href="/versions/v5/integrate/request-and-response-introduction">‘Request and response introduction’</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.requests.invalidAcceptParameters <a name="error.consumption.requests.invalidAcceptParameters"></a></td>
+      <td>An attempt was made to accept the <a href="/versions/v5/integrate/data-model-overview#requestitems">RequestItem</a> with invalid <a href="/versions/v5/integrate/data-model-overview#acceptrequestitemparameters">AcceptRequestItemParameters</a>.</td>
     </tr>
     <tr>
       <td>error.consumption.requests.invalidRequestItem <a name="error.consumption.requests.invalidRequestItem"></a></td>
-      <td>The given RequestItem is invalid.</td>
+      <td>The given <a href="/versions/v5/integrate/data-model-overview#requestitems">RequestItem</a> is invalid. Check the error message or the stack trace to learn more.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.requests.missingRelationship <a name="error.consumption.requests.missingRelationship"></a></td>
+      <td>You need a <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> to send/decide that <a href="/versions/v5/integrate/data-model-overview#request">Request</a>.</td>
     </tr>
     <tr>
       <td>error.consumption.requests.servalErrorDuringRequestItemProcessing <a name="error.consumption.requests.servalErrorDuringRequestItemProcessing"></a></td>
-      <td>A serialization / validation error occurred during the RequestItem processing. Check the type definitions of your used types.</td>
+      <td>A serialization / validation error occurred during the <a href="/versions/v5/integrate/data-model-overview#requestitems">RequestItem</a> processing. Check the type definitions of your used types.</td>
     </tr>
     <tr>
       <td>error.consumption.requests.unexpectedErrorDuringRequestItemProcessing <a name="error.consumption.requests.unexpectedErrorDuringRequestItemProcessing"></a></td>
-      <td>An unknown error occurred during the RequestItem processing.</td>
+      <td>An unexpected error occurred during the <a href="/versions/v5/integrate/data-model-overview#requestitems">RequestItem</a> processing.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.requests.wrongRelationshipStatus <a name="error.consumption.requests.wrongRelationshipStatus"></a></td>
+      <td>The <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> needs to be in a different <code class="language-plaintext highlighter-rouge">status</code> (e.g. <code class="language-plaintext highlighter-rouge">"Active"</code>) to send/decide that <a href="/versions/v5/integrate/data-model-overview#request">Request</a>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.validation.inheritedFromItem <a name="error.consumption.validation.inheritedFromItem"></a></td>
+      <td>Some child items have errors. If this error occurred during the specification of a <a href="/versions/v5/integrate/data-model-overview#request">Request</a>, <a href="/versions/v5/use-case-consumption-check-if-outgoing-request-can-be-created">call ‘validate’ to get more information</a>.</td>
     </tr>
     <tr>
       <td>error.runtime.alreadyInitialized <a name="error.runtime.alreadyInitialized"></a></td>
@@ -464,28 +663,84 @@
       <td>The runtime is already started. You should stop it first for a restart.</td>
     </tr>
     <tr>
-      <td>error.runtime.cacheEmpty <a name="error.runtime.cacheEmpty"></a></td>
-      <td>The cache of the requested entity is empty.</td>
+      <td>error.runtime.attributes.cannotSeparatelyDeleteChildOfComplexAttribute <a name="error.runtime.attributes.cannotSeparatelyDeleteChildOfComplexAttribute"></a></td>
+      <td>The given Attribute is a child of a <a href="/versions/v5/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttribute</a>. If you want to delete it, you must delete its parent.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.attributes.hasSuccessor <a name="error.runtime.attributes.hasSuccessor"></a></td>
+      <td>The given Attribute already has a successor.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.attributes.isNotOwnSharedAttribute <a name="error.runtime.attributes.isNotOwnSharedAttribute"></a></td>
+      <td>The given Attribute is not an <a href="/versions/v5/integrate/data-model-overview#localattribute">own shared Attribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.attributes.isNotPeerSharedAttribute <a name="error.runtime.attributes.isNotPeerSharedAttribute"></a></td>
+      <td>The given Attribute is not a <a href="/versions/v5/integrate/data-model-overview#localattribute">peer shared Attribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.attributes.isNotRepositoryAttribute <a name="error.runtime.attributes.isNotRepositoryAttribute"></a></td>
+      <td>The given Attribute is not a <a href="/versions/v5/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.attributes.isNotThirdPartyOwnedRelationshipAttribute <a name="error.runtime.attributes.isNotThirdPartyOwnedRelationshipAttribute"></a></td>
+      <td>The given Attribute is not a third party owned <a href="/versions/v5/integrate/data-model-overview#localattribute">RelationshipAttribute</a>.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.attributes.<br />noPreviousVersionOfRepositoryAttributeHasBeenSharedWithPeerBefore <a name="error.runtime.attributes.&lt;br&gt;noPreviousVersionOfRepositoryAttributeHasBeenSharedWithPeerBefore"></a></td>
+      <td>No previous version of the given <a href="/versions/v5/integrate/data-model-overview#localattribute">RepositoryAttribute</a> has been shared with this peer before. If you wish to execute an initial sharing of this Attribute, <a href="/versions/v5/integrate/share-attributes-with-peer">use ‘ShareRepositoryAttribute’</a>.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.attributes.repositoryAttributeHasAlreadyBeenSharedWithPeer <a name="error.runtime.attributes.repositoryAttributeHasAlreadyBeenSharedWithPeer"></a></td>
+      <td>The given <a href="/versions/v5/integrate/data-model-overview#localattribute">RepositoryAttribute</a> has already been shared with this peer.</td>
     </tr>
     <tr>
       <td>error.runtime.challenges.invalidChallenge <a name="error.runtime.challenges.invalidChallenge"></a></td>
-      <td>The challengeString is invalid.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">challengeString</code> is invalid.</td>
     </tr>
     <tr>
       <td>error.runtime.challenges.invalidSignature <a name="error.runtime.challenges.invalidSignature"></a></td>
-      <td>The signature is invalid.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">signature</code> is invalid.</td>
     </tr>
     <tr>
       <td>error.runtime.files.invalidReference <a name="error.runtime.files.invalidReference"></a></td>
-      <td>The given reference is not valid. The reference for a file must start with ‘VE9L’ or ‘RklM’.</td>
+      <td>The given <code class="language-plaintext highlighter-rouge">truncatedReference</code> is not valid. The <code class="language-plaintext highlighter-rouge">truncatedReference</code> for a <a href="/versions/v5/integrate/data-model-overview#file">File</a> must start with ‘RklM’ or with ‘VE9L’ in case of a Token.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess <a name="error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess"></a></td>
+      <td>No active <a href="/versions/v5/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> was found.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.identityDeletionProcess.activeIdentityDeletionProcessAlreadyExists <a name="error.runtime.identityDeletionProcess.activeIdentityDeletionProcessAlreadyExists"></a></td>
+      <td>There is already an active <a href="/versions/v5/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a>. You cannot start another, as there may only be one active IdentityDeletionProcess per <a href="/versions/v5/integrate/data-model-overview#identity">Identity</a>.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.identityDeletionProcess.noApprovedIdentityDeletionProcess <a name="error.runtime.identityDeletionProcess.noApprovedIdentityDeletionProcess"></a></td>
+      <td><a href="/versions/v5/use-case-transport-get-active-identitydeletionprocess">No approved IdentityDeletionProcess was found</a>.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.identityDeletionProcess.noWaitingForApprovalIdentityDeletionProcess <a name="error.runtime.identityDeletionProcess.noWaitingForApprovalIdentityDeletionProcess"></a></td>
+      <td>No <a href="/versions/v5/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> waiting for decision was found.</td>
     </tr>
     <tr>
       <td>error.runtime.invalidTokenContent <a name="error.runtime.invalidTokenContent"></a></td>
-      <td>The given token has an invalid content for this route.</td>
+      <td>The given <a href="/versions/v5/integrate/data-model-overview#token">Token</a> has an invalid <code class="language-plaintext highlighter-rouge">content</code> for this <a href="/versions/v5/use-case-transport-create-own-token">route</a>.</td>
     </tr>
     <tr>
       <td>error.runtime.messages.fileNotFoundInMessage <a name="error.runtime.messages.fileNotFoundInMessage"></a></td>
-      <td>The requested file was not found in the given Message.</td>
+      <td>The requested <a href="/versions/v5/integrate/data-model-overview#file">File</a> was not found in the given <a href="/versions/v5/integrate/data-model-overview#message">Message</a>.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.notifications.cannotReceiveNotificationFromOwnMessage <a name="error.runtime.notifications.cannotReceiveNotificationFromOwnMessage"></a></td>
+      <td>It is not possible to receive a <a href="/versions/v5/integrate/data-model-overview#notification">Notification</a> from an own <a href="/versions/v5/integrate/data-model-overview#message">Message</a>.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.notifications.cannotSaveSentNotificationFromPeerMessage <a name="error.runtime.notifications.cannotSaveSentNotificationFromPeerMessage"></a></td>
+      <td>The given <a href="/versions/v5/integrate/data-model-overview#message">Message</a> was received from a peer, but an own Message is expected here to save its <a href="/versions/v5/integrate/data-model-overview#notification">Notification</a> <code class="language-plaintext highlighter-rouge">content</code>.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.notifications.messageDoesNotContainNotification <a name="error.runtime.notifications.messageDoesNotContainNotification"></a></td>
+      <td>The given <a href="/versions/v5/integrate/data-model-overview#message">Message</a> does not contain a <a href="/versions/v5/integrate/data-model-overview#notification">Notification</a>.</td>
     </tr>
     <tr>
       <td>error.runtime.notInitialized <a name="error.runtime.notInitialized"></a></td>
@@ -501,19 +756,27 @@
     </tr>
     <tr>
       <td>error.runtime.recordNotFound <a name="error.runtime.recordNotFound"></a></td>
-      <td>The requested Record was not found. Make sure the ID exists and the record is not expired.</td>
+      <td>The requested record was not found. Make sure the <code class="language-plaintext highlighter-rouge">id</code> exists and the record is not expired.</td>
     </tr>
     <tr>
-      <td>error.runtime.relationshipTemplates.cannotCreateQRCodeForPeerTemplate <a name="error.runtime.relationshipTemplates.cannotCreateQRCodeForPeerTemplate"></a></td>
-      <td>You cannot create a QR code for a RelationshipTemplate of a peer.</td>
+      <td>error.runtime.relationships.isNeitherRejectedNorRevoked <a name="error.runtime.relationships.isNeitherRejectedNorRevoked"></a></td>
+      <td>The status of the <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> is neither <code class="language-plaintext highlighter-rouge">"Rejected"</code> nor <code class="language-plaintext highlighter-rouge">"Revoked"</code>.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.relationships.wrongRelationshipStatus <a name="error.runtime.relationships.wrongRelationshipStatus"></a></td>
+      <td>The given <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> has the wrong status to run this operation.</td>
     </tr>
     <tr>
       <td>error.runtime.relationshipTemplates.cannotCreateTokenForPeerTemplate <a name="error.runtime.relationshipTemplates.cannotCreateTokenForPeerTemplate"></a></td>
-      <td>You cannot create a token for a RelationshipTemplate of a peer.</td>
+      <td>You cannot <a href="/versions/v5/use-case-transport-create-token-for-own-relationshiptemplate">create a Token for a RelationshipTemplate</a> of a peer.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.relationshipTemplates.cannotCreateQRCodeForPeerTemplate <a name="error.runtime.relationshipTemplates.cannotCreateQRCodeForPeerTemplate"></a></td>
+      <td>You cannot <a href="/versions/v5/use-case-transport-get-relationshiptemplate">create a QR code for a RelationshipTemplate</a> of a peer.</td>
     </tr>
     <tr>
       <td>error.runtime.relationshipTemplates.invalidReference <a name="error.runtime.relationshipTemplates.invalidReference"></a></td>
-      <td>The given reference is not valid. The reference for a RelationshipTemplate must start with ‘VE9L’ or ‘VE9L’.</td>
+      <td>The given <code class="language-plaintext highlighter-rouge">truncatedReference</code> is not valid. The <code class="language-plaintext highlighter-rouge">truncatedReference</code> for a <a href="/versions/v5/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> must start with ‘UkxU’.</td>
     </tr>
     <tr>
       <td>error.runtime.requestDeserialization <a name="error.runtime.requestDeserialization"></a></td>
@@ -541,7 +804,7 @@
     </tr>
     <tr>
       <td>error.runtime.unknownType <a name="error.runtime.unknownType"></a></td>
-      <td>The given ‘@type’ could not be found during the deserialization.</td>
+      <td>The given <code class="language-plaintext highlighter-rouge">@type</code> could not be found during the deserialization.</td>
     </tr>
     <tr>
       <td>error.runtime.validation.invalidPayload <a name="error.runtime.validation.invalidPayload"></a></td>
@@ -552,88 +815,76 @@
       <td>A property of the given payload is invalid.</td>
     </tr>
     <tr>
-      <td>error.transport.challenges.challengeTypeRequiresRelationship <a name="error.transport.challenges.challengeTypeRequiresRelationship"></a></td>
-      <td>The challenge type ‘Relationship’ requires a Relationship for the challenge creation.</td>
+      <td>error.transport.challenges.challengeTypeRequiresActiveRelationship <a name="error.transport.challenges.challengeTypeRequiresActiveRelationship"></a></td>
+      <td>The challengeType <code class="language-plaintext highlighter-rouge">"Relationship"</code> requires an active <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a>.</td>
     </tr>
     <tr>
       <td>error.transport.datawallet.currentBiggerThanTarget <a name="error.transport.datawallet.currentBiggerThanTarget"></a></td>
       <td>The current datawallet version is bigger than the target version.</td>
     </tr>
     <tr>
-      <td>error.transport.datawallet.encryptedPayloadIsNoCipher <a name="error.transport.datawallet.encryptedPayloadIsNoCipher"></a></td>
-      <td>The given encrypted payload is no cipher.</td>
-    </tr>
-    <tr>
       <td>error.transport.datawallet.insufficientSupportedDatawalletVersion <a name="error.transport.datawallet.insufficientSupportedDatawalletVersion"></a></td>
-      <td>The current SupportedDatawalletVersion is too low to perform the requested operation.</td>
+      <td>The current SupportedDatawalletVersion is too low to perform the requested operation. This means that the datawallet of the <a href="/versions/v5/integrate/data-model-overview#identity">Identity</a> was upgraded by another device with a higher version. It is necessary to update the current device.</td>
     </tr>
     <tr>
       <td>error.transport.datawallet.unsupportedModification <a name="error.transport.datawallet.unsupportedModification"></a></td>
-      <td>A collection was recieved in a CacheChanged datawallet modification but is not supported in the current version of the library.</td>
-    </tr>
-    <tr>
-      <td>error.transport.devices.alreadyOnboarded <a name="error.transport.devices.alreadyOnboarded"></a></td>
-      <td>The device that you try to create an onboarding code for has already been onboarded.</td>
+      <td>The following collections were received in CacheChanged datawallet modifications but are not supported by the current version of this library.</td>
     </tr>
     <tr>
       <td>error.transport.files.cipherMismatch <a name="error.transport.files.cipherMismatch"></a></td>
       <td>The actual hash of the cipher does not match the given cipherHash. Something went wrong while storing/transmitting the file.</td>
     </tr>
     <tr>
-      <td>error.transport.files.fileContentUndefined <a name="error.transport.files.fileContentUndefined"></a></td>
-      <td>The given files content is undefined.</td>
-    </tr>
-    <tr>
       <td>error.transport.files.invalidMetadata <a name="error.transport.files.invalidMetadata"></a></td>
-      <td>The metadata of the file is invalid.</td>
+      <td>The metadata of the <a href="/versions/v5/integrate/data-model-overview#file">File</a> is invalid.</td>
     </tr>
     <tr>
       <td>error.transport.files.invalidTruncatedReference <a name="error.transport.files.invalidTruncatedReference"></a></td>
-      <td>The given truncated reference is invalid.</td>
+      <td>The given <code class="language-plaintext highlighter-rouge">truncatedReference</code> of the <a href="/versions/v5/integrate/data-model-overview#file">File</a> is invalid.</td>
     </tr>
     <tr>
       <td>error.transport.files.maxFileSizeExceeded <a name="error.transport.files.maxFileSizeExceeded"></a></td>
-      <td>The given file content size exceeds the max file size the backbone accepts.</td>
+      <td>The given <a href="/versions/v5/integrate/data-model-overview#file">File</a> content size exceeds the max file size the Backbone accepts.</td>
     </tr>
     <tr>
       <td>error.transport.files.plaintextHashMismatch <a name="error.transport.files.plaintextHashMismatch"></a></td>
-      <td>The actual hash of the plaintext does not match the given plaintextHash. Something went wrong while encrypting/decrypting the file.</td>
+      <td>The actual hash of the plaintext does not match the given plaintextHash. Something went wrong while encrypting/decrypting the <a href="/versions/v5/integrate/data-model-overview#file">File</a>.</td>
     </tr>
     <tr>
       <td>error.transport.general.baseUrlNotSet <a name="error.transport.general.baseUrlNotSet"></a></td>
-      <td>The baseUrl was not set.</td>
+      <td><a href="/versions/v5/operate/configuration#configuration-options">The <code class="language-plaintext highlighter-rouge">baseUrl</code> was not set.</a>.</td>
     </tr>
     <tr>
       <td>error.transport.general.platformClientIdNotSet <a name="error.transport.general.platformClientIdNotSet"></a></td>
-      <td>The platform clientId was not set.</td>
+      <td><a href="/versions/v5/operate/configuration#configuration-options">The <code class="language-plaintext highlighter-rouge">platformClientId</code> was not set.</a>.</td>
     </tr>
     <tr>
       <td>error.transport.general.platformClientInvalid <a name="error.transport.general.platformClientInvalid"></a></td>
-      <td>The combination of platform clientId and clientSecret is invalid.</td>
+      <td><a href="/versions/v5/operate/configuration#configuration-options">The combination of <code class="language-plaintext highlighter-rouge">platformClientId</code> and <code class="language-plaintext highlighter-rouge">platformClientSecret</code> is invalid.</a></td>
     </tr>
     <tr>
       <td>error.transport.general.platformClientSecretNotSet <a name="error.transport.general.platformClientSecretNotSet"></a></td>
-      <td>The platform clientSecret was not set.</td>
+      <td><a href="/versions/v5/operate/configuration#configuration-options">The <code class="language-plaintext highlighter-rouge">platformClientSecret</code> was not set.</a></td>
     </tr>
     <tr>
-      <td>error.transport.messages.noMatchingRelationship <a name="error.transport.messages.noMatchingRelationship"></a></td>
-      <td>A Relationship with the given address does not exist.</td>
+      <td>error.transport.messages.missingOrInactiveRelationship <a name="error.transport.messages.missingOrInactiveRelationship"></a></td>
+      <td>An active <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> with the given <code class="language-plaintext highlighter-rouge">address</code> does not exist, consider <a href="/versions/v5/use-case-transport-get-relationship-by-address">‘Get Relationship’</a>.</td>
     </tr>
     <tr>
       <td>error.transport.messages.ownAddressNotInList <a name="error.transport.messages.ownAddressNotInList"></a></td>
-      <td>The recipients list of a Message didn’t contain an entry for the own address. This Message should not have been received.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">recipients</code> list of a <a href="/versions/v5/integrate/data-model-overview#message">Message</a> didn’t contain an entry for the own <code class="language-plaintext highlighter-rouge">address</code>. This Message should not have been received.</td>
     </tr>
     <tr>
       <td>error.transport.messages.plaintextMismatch <a name="error.transport.messages.plaintextMismatch"></a></td>
-      <td>The own address was not named as a recipient within the signed MessagePlaintext. For example this can be caused by a replay attack.</td>
+      <td>The own <code class="language-plaintext highlighter-rouge">address</code> was not named as a <code class="language-plaintext highlighter-rouge">recipient</code> within the signed MessagePlaintext. For example this can be caused by a replay attack.</td>
     </tr>
     <tr>
       <td>error.transport.messages.signatureListMismatch <a name="error.transport.messages.signatureListMismatch"></a></td>
-      <td>The signature list didn’t contain an entry for a given address.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">signature</code> list didn’t contain an entry for a given <code class="language-plaintext highlighter-rouge">address</code>.</td>
     </tr>
     <tr>
       <td>error.transport.messages.signatureNotValid <a name="error.transport.messages.signatureNotValid"></a></td>
-      <td>The digital signature on a Message for a peer key is invalid. An impersonination attack might be the cause of this.</td>
+      <td>The digital signature on a <a href="/versions/v5/integrate/data-model-overview#message">Message</a> for a peer <code class="language-plaintext highlighter-rouge">key</code> is invalid. An impersonation attack might be the cause of this.</td>
     </tr>
     <tr>
       <td>error.transport.notSupported <a name="error.transport.notSupported"></a></td>
@@ -644,24 +895,40 @@
       <td>The requested record was not found.</td>
     </tr>
     <tr>
-      <td>error.transport.relationships.wrongChangeStatus <a name="error.transport.relationships.wrongChangeStatus"></a></td>
-      <td>The Relationship change has the wrong status to run the requested operation.</td>
+      <td>error.transport.relationships.<br />activeIdentityDeletionProcessOfOwnerOfRelationshipTemplate <a name="error.transport.relationships.&lt;br&gt;activeIdentityDeletionProcessOfOwnerOfRelationshipTemplate"></a></td>
+      <td>The <a href="/versions/v5/integrate/data-model-overview#identity">Identity</a> who created the <a href="/versions/v5/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> is currently in the process of deleting itself. Thus, it is not possible to establish a <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> to it.</td>
+    </tr>
+    <tr>
+      <td>error.transport.relationships.operationOnlyAllowedForPeer <a name="error.transport.relationships.operationOnlyAllowedForPeer"></a></td>
+      <td>Only your peer may run the requested operation.</td>
+    </tr>
+    <tr>
+      <td>error.transport.relationships.reactivationAlreadyRequested <a name="error.transport.relationships.reactivationAlreadyRequested"></a></td>
+      <td>The reactivation of the <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> was requested already.</td>
+    </tr>
+    <tr>
+      <td>error.transport.relationships.reactivationNotRequested <a name="error.transport.relationships.reactivationNotRequested"></a></td>
+      <td>There’s no <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> reactivation <a href="/versions/v5/integrate/data-model-overview#request">Request</a> to respond to.</td>
+    </tr>
+    <tr>
+      <td>error.transport.relationships.wrongRelationshipStatus <a name="error.transport.relationships.wrongRelationshipStatus"></a></td>
+      <td>The <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> has the wrong <code class="language-plaintext highlighter-rouge">status</code> to run the requested operation.</td>
     </tr>
     <tr>
       <td>error.transport.secrets.secretNotFound <a name="error.transport.secrets.secretNotFound"></a></td>
       <td>No secret was found for a specific type.</td>
     </tr>
     <tr>
-      <td>error.transport.secrets.wrongBaseKeyType <a name="error.transport.secrets.wrongBaseKeyType"></a></td>
-      <td>The given secret type is not supported!</td>
+      <td>error.transport.secrets.wrongSecretType <a name="error.transport.secrets.wrongSecretType"></a></td>
+      <td>The given secret type is not supported.</td>
     </tr>
     <tr>
       <td>error.transport.signatureNotValid <a name="error.transport.signatureNotValid"></a></td>
-      <td>A signature is invalid.</td>
+      <td>A <code class="language-plaintext highlighter-rouge">signature</code> is invalid.</td>
     </tr>
     <tr>
       <td>error.transport.tokens.invalidTokenContent <a name="error.transport.tokens.invalidTokenContent"></a></td>
-      <td>The given token content is invalid.</td>
+      <td>The given <a href="/versions/v5/integrate/data-model-overview#token">Token</a> <code class="language-plaintext highlighter-rouge">content</code> is not of type TokenContent.</td>
     </tr>
   </tbody>
 </table>
@@ -676,7 +943,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-15T16:32:31+02:00">August 15, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-16T15:35:04+02:00">August 16, 2024</time></p>
 
       </footer>
 
