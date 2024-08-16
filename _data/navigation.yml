@@ -137,7 +137,7 @@ docs_integrate:
         url: /integrate/version-5
   - title: Troubleshooting
     children:
-      - title: "Error Codes"
+      - title: "Error codes"
         url: /integrate/error-codes
       - title: "FAQ"
         url: /integrate/faq
