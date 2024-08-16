@@ -185,11 +185,10 @@ A File further has its content, of course. But since this is not a JSON property
 
 ## Identity
 
-| Name      | Type     | Description                                                     | Remarks |
-| --------- | -------- | --------------------------------------------------------------- | ------- |
-| address   | `string` | The unique address of the Identity.                             |         |
-| publicKey | `string` | The public key of the Identity.                                 |         |
-| realm     | `string` | The realm identitfies which Backbone the Identity is hosted on. |         |
+| Name      | Type     | Description                         | Remarks |
+| --------- | -------- | ----------------------------------- | ------- |
+| address   | `string` | The unique address of the Identity. |         |
+| publicKey | `string` | The public key of the Identity.     |         |
 
 ## IdentityDeletionProcess
 
@@ -566,14 +565,49 @@ RequestItems can be sent inside of a [Request](#request) and specify what should
 
 ### ResponseItems
 
-Response Items are sent inside of a Response. They contain the response data that is sent by the recipient of the Request. There are three different kinds of Response Items: `AcceptResponseItem`, `RejectResponseItem` and `ErrorResponseItem`. Depending on the actual RequestItem, there can be different derivations of these three items. For example, in case of a [`CreateAttributeRequestItem`](#createattributerequestitem), there is a special [`CreateAttributeAcceptResponseItem`](#createattributeacceptresponseitem), while for an [`AuthenticationRequestItem`](#authenticationrequestitem), the [`AcceptResponseItem`](#acceptresponseitem) can be used, because there is no additional information necessary next to whether it was accepted or rejected.
+ResponseItems are sent inside of a Response.
+They contain the response data that is sent by the recipient of the Request.
+There are three different kinds of ResponseItems: `AcceptResponseItem`, `RejectResponseItem` and `ErrorResponseItem`.
+Depending on the actual [RequestItem](#requestitems) and the [DecideRequestItemParameters](#deciderequestitemparameters) used, there can be different derivations of these three items.
+For more information, please consult the respective chapter of the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#types-of-requestitems).
 
 #### AcceptResponseItem
+
+An AcceptResponseItem can be received as answer to an [AuthenticationRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#authenticationrequestitem) or [ConsentRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#consentrequestitem).
 
 | Name   | Type                   | Description                                              |
 | ------ | ---------------------- | -------------------------------------------------------- |
 | @type  | `"AcceptResponseItem"` | The type of the ResponseItem.                            |
 | result | `"Accepted"`           | The only possible value here is the string `"Accepted"`. |
+
+##### AttributeAlreadySharedAcceptResponseItem
+
+An AttributeAlreadySharedAcceptResponseItem can be received as answer to a [ReadAttributeRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#readattributerequestitem) or [ProposeAttributeRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#proposeattributerequestitem).
+It is generated if the Recipient of the RequestItem responds to it with an existing Attribute they already shared with the Sender in case the own shared [LocalAttribute](#localattribute) doesn't have `"DeletedByPeer"` or `"ToBeDeletedByPeer"` as `deletionInfo.deletionStatus`.
+Instead of creating a further own shared/peer shared Attribute pair, the `id` of the already existing shared LocalAttributes is returned.
+Note that the `id` of the own/peer shared Attribute of the Sender matches the `id` of the corresponding peer/own shared Attribute of the Recipient.
+
+| Name        | Type                                         | Description                                              |
+| ----------- | -------------------------------------------- | -------------------------------------------------------- |
+| @type       | `"AttributeAlreadySharedAcceptResponseItem"` | The type of the ResponseItem.                            |
+| result      | `"Accepted"`                                 | The only possible value here is the string `"Accepted"`. |
+| attributeId | `string`                                     | The `id` of the already existing shared LocalAttributes. |
+
+##### AttributeSuccessionAcceptResponseItem
+
+An AttributeSuccessionAcceptResponseItem can be received as answer to a [ReadAttributeRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#readattributerequestitem) or [ProposeAttributeRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#proposeattributerequestitem).
+It is generated if the Recipient of the RequestItem responds to it with an existing Attribute that is a successor of an Attribute they already shared with the Sender in case the own shared [LocalAttribute](#localattribute) doesn't have `"DeletedByPeer"` or `"ToBeDeletedByPeer"` as `deletionInfo.deletionStatus`.
+Instead of creating an independent own shared/peer shared Attribute pair, internally an [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) is performed.
+The `id` of the already existing shared LocalAttribute predecessor is returned, as well as the `id` and `content` of the newly created successor.
+Receiving an AttributeSuccessionAcceptResponseItem, the respective shared LocalAttribute of the Sender of the Request is automatically succeeded accordingly.
+
+| Name             | Type                                                                                                                                                                                             | Description                                                                 |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
+| @type            | `"AttributeSuccessionAcceptResponseItem"`                                                                                                                                                        | The type of the ResponseItem.                                               |
+| result           | `"Accepted"`                                                                                                                                                                                     | The only possible value here is the string `"Accepted"`.                    |
+| predecessorId    | `string`                                                                                                                                                                                         | The `id` of the already existing shared LocalAttribute predecessor.         |
+| successorId      | `string`                                                                                                                                                                                         | The `id` of the shared LocalAttribute successor that is newly created.      |
+| successorContent | [`IdentityAttribute`]({% link _docs_integrate/data-model-overview.md %}#identityattribute) \| [`RelationshipAttribute`]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) | The `content` of the shared LocalAttribute successor that is newly created. |
 
 ##### CreateAttributeAcceptResponseItem
 
