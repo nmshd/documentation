@@ -14,7 +14,7 @@ properties:
   - level:
   - implementation status: DOCS ONLY
   - documentation status: DONE
-  - published: true 
+  - published: true
   - link: version-5
 require:
 required_by:
