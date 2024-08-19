@@ -51,7 +51,7 @@ The Identity's public key which acts as the primary form of verifying data signe
 
 With the Identity's public key, the Identity's address is calculated.
 
-Usually, you receive another Identity's signature public key while making the first contact (e.g. from the RelationshipTemplate or the pending Relationship followed upon it).
+Usually, you receive another Identity's signature public key while making the first contact (e.g. from the RelationshipTemplate or the created Relationship followed upon it).
 
 ### Synchronization Base Secret Key
 
@@ -90,7 +90,7 @@ For files only: In addition to the payload, metadata (like filename or mimetype)
 With each Relationship, there are Relationship keys automatically generated. These keys are used for signing and encrypting the communication with the Relationship on a technical level.
 
 - Relationship own exchange keypair: A pair of Relationship own exchange private key (PrivOwnX) and corresponding Relationship own exchange public key (PubOwnX). The Relationship own exchange private key is used to derive the masterRelationship secret keys (transmit and receive). The Relationship own exchange public key is communicated within the Relationship's creationContent or creationResponseContent. The creationResponseContent is generated without user input upon relationship acceptance, only contains the key, and is not stored after its decryption.
-- Relationship own signature keypair: A pair of Relationship signature private key (PrivOwn) and corresponding Relationship signature public key (PubOwn). The signature own private key is used for signing the communication with this Relationship. It is synchronized across all devices and signed by the device signature private key of the device which creates the pending Relationship or the RelationshipTemplate. The signature own public key is used for verifying the signatures of all communications with this Relationship.
+- Relationship own signature keypair: A pair of Relationship signature private key (PrivOwn) and corresponding Relationship signature public key (PubOwn). The signature own private key is used for signing the communication with this Relationship. It is synchronized across all devices and signed by the device signature private key of the device which creates the Relationship or the RelationshipTemplate. The signature own public key is used for verifying the signatures of all communications with this Relationship.
 - Relationship peer exchange public key: The peer's exchange public key (PubPeerX) which is used to derive the master Relationship secret keys (transmit and receive).
 - Relationship peer signature public key: The peer's signature public key which is used to verify communication sent by the peer.
 - Relationship receive derived secret key (SecPeer'): A derived symmetric key of the master, which is actually used for decryption.

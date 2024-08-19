@@ -1,8 +1,6 @@
 ---
 # Start automatic generation
 permalink: integrate/version-5
-redirect_from:
-  - /integrate/version-5
 published: true
 title: "Version 5"
 type: scenario
@@ -16,7 +14,7 @@ properties:
   - level:
   - implementation status: DOCS ONLY
   - documentation status: DONE
-  - published: true
+  - published: true 
   - link: version-5
 require:
 required_by:

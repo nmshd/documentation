@@ -94,7 +94,7 @@ The Module is responsible for:
 - taking action when the User decides (accepts or rejects) a Request
   - when the Request came from a RelationshipTemplate the Module creates a Relationship with the contents of the User's Response if the User accepted the Request (rejection is currently not handled)
   - when the Request came from a Message the Module sends back a Message containing the User's Response (accept and reject)
-- listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent in the Relationship's creation content
+- listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent in the Relationship's `creationContent`
 
 ### Decider Module
 
