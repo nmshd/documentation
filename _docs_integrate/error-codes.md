@@ -6,7 +6,7 @@ redirect_from:
 published: true
 title: "Error codes"
 type: scenario
-toc: true
+toc: false
 properties:
   - id: SC089
   - category: Troubleshooting
@@ -24,9 +24,6 @@ required_by:
 ---
 
 Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the [enmeshed Issue Tracker](https://github.com/nmshd/feedback/issues).
-The error codes are categorized according to the libraries in which they occur, which is indicated at the beginning of each code.
-
-# Table of error codes
 
 | ErrorCode                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
