@@ -56,8 +56,8 @@ However, it could be another Connector, as well, e.g. if two companies want to e
 
 The way we will establish the Relationship is via a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
 This is created by the Connector and contains its display name, as well as the data it would like to receive from the other Identity.
-Then, the App user fills out all required information of the RelationshipTemplate and sends the RelationshipRequest to the Connector.
-It in turn accepts the Request, which results in the creation of a new Relationship.
+Then, the App user fills out all required information of the RelationshipTemplate and sends a pending Relationship to the Connector.
+It in turn accepts the Relationship, which results in an active Relationship.
 
 ### Connector: Create an Attribute
 
@@ -89,7 +89,7 @@ You can query the Connector's address via the route `/api/v2/Account/IdentityInf
 
 ### Connector: Test your Request's Validity
 
-Next, we want to create a RelationshipTemplate, that can be used by the App to send a Relationship Request to our Connector.
+Next, we want to create a RelationshipTemplate, that can be used by the App to send a pending Relationship to our Connector.
 The content of the RelationshipTemplate can be widely configured, but for simplicity we will use a [Request]({% link _docs_integrate/data-model-overview.md %}#request) with just two [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) in our example.
 On the one hand, we want to [share an Attribute]({% link _docs_integrate/share-attributes-with-peer.md %}) with the App, namely the display name of our Connector we created in the previous step.
 For this, we use a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem).
@@ -192,7 +192,7 @@ For this, execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Hea
 
 {% include rapidoc api_route_regex="^get /api/v2/RelationshipTemplates/{id}$" %}
 
-### App: Send a Relationship Request
+### App: Initiate a Relationship
 
 Open the created QR code and start the enmeshed App. Depending on what you already did with the App, choose one of the following paths:
 
@@ -213,16 +213,16 @@ All three paths should result in a screen similar to the one below, where you ca
 
 !["Add contact" screen]( {{ '/assets/images/add-contact-screen.jpg' | relative_url }} )
 
-Finally, fill out the required fields and click on "Add contact" to send the Relationship Request. This will create a new Relationship between the App and the Connector. This Relationship has the status `Pending` for now.
+Finally, fill out the required fields and click on "Add contact" to send the Relationship. This will initiate a Relationship between the App and the Connector. This Relationship has the status `Pending` for now.
 
-### Connector: Accept the Relationship Request
+### Connector: Accept the Relationship
 
-In order to move the Relationship into the `Active` state, we now need to [accept the Relationship Request]({% link _docs_use-cases/use-case-transport-accept-relationshipchange.md %}) with the Connector.
+In order to move the Relationship into the `Active` state, we now need to [accept the Relationship]({% link _docs_use-cases/use-case-transport-accept-relationship.md %}) with the Connector.
 To do so, we [synchronize updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), which will fetch all changes that occurred since the last time this endpoint was executed.
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
-In the Response we will receive the created Relationship, which contains the corresponding [RelationshipCreationChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange).
+In the Response we will receive the Relationship.
 
 Example:
 
@@ -235,24 +235,16 @@ Example:
         "id": "RELmJj25x2bZW0VXzAiQ",
         ...
         "status": "Pending",
-        "peer": "did:e:_________________",
-        "changes": [
-          {
-            "id": "RCHUwBw7BWlROPlEjb51",
-            ...
-            "status": "Pending",
-            "type": "Creation"
-          }
-        ]
+        "peer": "did:e:_________________"
       }
     ]
   }
 }
 ```
 
-{% include copy-notice description="Save the `id` of the Relationship (`REL_________________`), as well as the `id` of the first RelationshipChange (`RCH_________________`) in the `changes` array and use them as input to the `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept` route. You can leave that Request body as it is." %}
+{% include copy-notice description="Save the `id` of the Relationship (`REL_________________`) and use it as input to the `PUT /api/v2/Relationships/{id}/Accept` route. You can leave that Request body as it is." %}
 
-{% include rapidoc api_route_regex="^put /api/v2/Relationships/{id}/Changes/{changeId}/Accept$" %}
+{% include rapidoc api_route_regex="^put /api/v2/Relationships/{id}/Accept$" %}
 
 Now the Relationship is in the `Active` state, so we can start to communicate with the opposite Identity, which we will do in the next part of this tutorial.
 For this, we will need the address of that Identity.
