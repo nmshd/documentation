@@ -222,23 +222,22 @@ To do so, we [synchronize updates of the Backbone]({% link _docs_use-cases/use-c
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
-In the Response we will receive the Relationship.
+We can now [get the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}).
+
+{% include rapidoc api_route_regex="^get /api/v2/Relationships$" %}
 
 Example:
 
 ```jsonc
 {
-  "result": {
-    "messages": [],
-    "relationships": [
-      {
-        "id": "RELmJj25x2bZW0VXzAiQ",
-        ...
-        "status": "Pending",
-        "peer": "did:e:_________________"
-      }
-    ]
-  }
+  "result": [
+    {
+      "id": "RELmJj25x2bZW0VXzAiQ",
+      ...
+      "status": "Pending",
+      "peer": "did:e:_________________"
+    }
+  ]
 }
 ```
 
