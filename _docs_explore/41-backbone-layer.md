@@ -222,30 +222,23 @@ Data stored on Backbone:
 - relationshipTemplateId
 - from
 - to
-- changes[]
-
-  - id
-  - relationshipId
-  - request
-    - createdBy
-    - createdByDevice
-    - createdAt
-    - content?
-  - response?: BackboneGetRelationshipsChangesSingleChangeResponse
-    - createdBy
-    - createdByDevice
-    - createdAt
-    - content?
-  - status: RelationshipChangeStatus
-  - type: RelationshipChangeType
-
+- creationContent?
+- creationResponseContent?
 - createdAt
 - status
+- auditLog[]
+  - createdAt
+  - createdBy
+  - createdByDevice
+  - reason
+  - oldStatus?
+  - newStatus
 
 Data submitted to Backbone:
 
 - relationshipTemplateId
-- relationshipChangeContent
+- creationContent
+- creationResponseContent
 
 ## RelationshipTemplates
 
