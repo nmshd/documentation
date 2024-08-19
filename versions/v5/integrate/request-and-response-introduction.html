@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-08-19T09:48:27+02:00">
+  <meta property="article:published_time" content="2024-08-19T15:46:20+02:00">
 
 
 
@@ -352,7 +352,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Request and Response introduction">
     <meta itemprop="description" content="Requests are the main instrument in enmeshed to interact with other Identities.They enable various business processes, e.g. creating, sharing or receiving Attributes, asking a peer for authentication or consent, and much more.Also, parts of a vaster business process can be implemented with them, like querying all personal information of a user to fill out a tax form.">
-    <meta itemprop="datePublished" content="2024-08-19T09:48:27+02:00">
+    <meta itemprop="datePublished" content="2024-08-19T15:46:20+02:00">
     
 
     <div class="page__inner-wrap">
@@ -384,8 +384,6 @@ Also, parts of a vaster business process can be implemented with them, like quer
 <p>Requests are unique between Identities and can only be processed once by a single Identity, even across multiple devices associated with them.
 Each Request can only have a single Response, which responds to the complete Request and contains all the information the requestor needs.
 The Request-Response flow allows to establish transactional behavior between Identities.</p>
-
-<p>Please note that there are some data structures used in the context of enmeshed, that also use the terms “Request” and “Response” in their name, but do not correspond to the objects described on this page, e.g. <a href="/versions/v5/integrate/data-model-overview#relationshipchangerequest">RelationshipChangeRequest</a> and <a href="/versions/v5/integrate/data-model-overview#relationshipchangeresponse">RelationshipChangeResponse</a>.</p>
 
 <h2 id="requests">Requests</h2>
 
@@ -802,10 +800,9 @@ Also, the LocalResponse is stored directly within the LocalRequest, so that the 
 If the peer decides to accept and to respond to your Request, again a LocalRequest and LocalResponse will be created at their side.
 However, the returned data differ.
 Instead of a ResponseWrapper inside a Message, a Relationship is returned which is in the status <code class="language-plaintext highlighter-rouge">pending</code> for now.
-It contains the RelationshipTemplate, as well as the changes the peer made to it, i.e. the created Request and Response.
-Only after you accept the RelationshipCreationChangeRequest (not the kind of Request discussed on this page), the LocalRequest with LocalResponse is created at your side and the peer will receive the information about the status change via a <code class="language-plaintext highlighter-rouge">consumption.incomingRequestStatusChanged</code> <a href="/versions/v5/integrate/connector-events">event</a>.</p>
-
-<p>You can find an <a href="#working-with-requestitemgroups">example for the Request-Response flow via RelationshipTemplate</a> below.</p>
+It contains the RelationshipTemplate, as well as the Response to the Request.
+Only after you accept the Relationship, the LocalRequest with LocalResponse is created at your side and the peer will receive the information about the status change via a <code class="language-plaintext highlighter-rouge">consumption.incomingRequestStatusChanged</code> <a href="/versions/v5/integrate/connector-events">event</a>.
+You can find an <a href="#working-with-requestitemgroups">example for the Request-Response flow via RelationshipTemplate</a> below.</p>
 
 <h2 id="examples">Examples</h2>
 
@@ -831,7 +828,7 @@ In its <code class="language-plaintext highlighter-rouge">content.onNewRelations
 One of them contains Attributes the company shares with the peer, e.g. the company name.
 The other contains Attributes it would like to query from the peer.
 In this example they are the given and surname and optionally an e-mail address, following the <a href="/versions/v5/integrate/integration-example">Integration example</a>.
-Now, an interested person can scan the QR code, provide their information and send their Response inside a RelationshipCreationChangeRequest.
+Now, an interested person can scan the QR code, provide their information and send their Response inside a Relationship’s creation content.
 Once the company accepts the new Relationship, they can exchange Messages or other data using enmeshed.</p>
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/4ac53380-b21a-4e33-982a-aa9167c471f3" id="iDvN-GT-yvbN"></iframe></div>
@@ -846,7 +843,7 @@ Once the company accepts the new Relationship, they can exchange Messages or oth
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-19T09:48:27+02:00">August 19, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-19T15:46:20+02:00">August 19, 2024</time></p>
 
       </footer>
 

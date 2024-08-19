@@ -545,6 +545,12 @@ var store = [{
         "url": "/versions/v5/use-case-consumption-get-repositoryattributes",
         "teaser": null
       },{
+        "title": "Get shared versions of a RepositoryAttribute",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/versions/v5/use-case-consumption-get-shared-versions-of-a-repositoryattribute",
+        "teaser": null
+      },{
         "title": "Get shared versions of an Attribute",
         "excerpt":"This use case allows you to retrieve a list of shared LocalAttributes for a given source Attribute. In case of IdentityAttributes a list comprising of own shared IdentityAttributes for the specified RepositoryAttribute is returned. In case of RelationshipAttributes the list contains ThirdPartyRelationshipAttributes you re-shared based on the specified RelationshipAttribute. Parameters...","categories": [],
         "tags": [],
@@ -737,10 +743,16 @@ var store = [{
         "url": "/versions/v5/use-case-human-select_-item-on-screen",
         "teaser": null
       },{
-        "title": "Accept RelationshipChange",
-        "excerpt":"Accepts a RelationshipChange with the given changeId. Parameters relationshipId the Relationship&#8217;s id which should be changed by the RelationshipChange changeId the RelationshipChange&#8217;s id content a possible answer to the respective RelationshipChange which the peer can fetch On Success The RelationshipChange is accepted and the given content made available for the...","categories": [],
+        "title": "Accept Relationship reactivation",
+        "excerpt":" ","categories": [],
         "tags": [],
-        "url": "/versions/v5/use-case-transport-accept-relationshipchange",
+        "url": "/versions/v5/use-case-transport-accept-relationship-reactivation",
+        "teaser": null
+      },{
+        "title": "Accept Relationship",
+        "excerpt":"   Accepts the pending Relationship with the given id.   Parameters      relationshipId, the id of the Relationship   On Success      Accepts the pending Relationship   Returns the accepted Relationship   On Failure      The relationshipId does not resolve to a pending Relationship   You have tried to accept a Relationship created by yourself  ","categories": [],
+        "tags": [],
+        "url": "/versions/v5/use-case-transport-accept-relationship",
         "teaser": null
       },{
         "title": "Approve IdentityDeletionProcess",
@@ -774,7 +786,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create Relationship with RelationshipTemplate",
-        "excerpt":"This use case intends to create a Relationship based on a received RelationshipTemplate. Parameters templateId references the RelationshipTemplate that was received from a party. content can be used as a response with arbitrary data to the peer. This response is usually related to the data received by the RelationshipTemplate, e.g....","categories": [],
+        "excerpt":"This use case intends to create a Relationship based on a received RelationshipTemplate. Parameters templateId references the RelationshipTemplate that was received from a party. creationContent can be used as a response with arbitrary data to the peer. This response is usually related to the data received by the RelationshipTemplate, e.g....","categories": [],
         "tags": [],
         "url": "/versions/v5/use-case-transport-create-relationship-with-relationshiptemplate",
         "teaser": null
@@ -795,6 +807,12 @@ var store = [{
         "excerpt":"Creates a QR code for a Token of a File that corresponds to the given fileId. Parameters fileId is the id of the File the Token and its QR code should be created for. Optionally, expiresAt can be specified, which describes the ISODateTime the Token expires at. On Success Returns...","categories": [],
         "tags": [],
         "url": "/versions/v5/use-case-transport-create-token-qr-code-for-file",
+        "teaser": null
+      },{
+        "title": "Decompose Relationship",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/versions/v5/use-case-transport-decompose-relationship",
         "teaser": null
       },{
         "title": "Download File of Attachment",
@@ -983,10 +1001,34 @@ var store = [{
         "url": "/versions/v5/use-case-transport-reject-identitydeletionprocess",
         "teaser": null
       },{
-        "title": "Reject RelationshipChange",
-        "excerpt":"Rejects a RelationshipChange with the given changeId. Parameters relationshipId the Relationship&#8217;s id which should be changed by the RelationshipChange changeId the RelationshipChange&#8217;s id content a possible answer to the respective RelationshipChange which the peer can fetch On Success The RelationshipChange is rejected and the given content made available for the...","categories": [],
+        "title": "Reject Relationship reactivation",
+        "excerpt":" ","categories": [],
         "tags": [],
-        "url": "/versions/v5/use-case-transport-reject-relationshipchange",
+        "url": "/versions/v5/use-case-transport-reject-relationship-reactivation",
+        "teaser": null
+      },{
+        "title": "Reject Relationship",
+        "excerpt":"   Rejects the pending Relationship with the given id.   Parameters      relationshipId, the id of the Relationship   On Success      Rejects the pending Relationship   Returns the rejected Relationship   On Failure      The relationshipId does not resolve to a pending Relationship   You have tried to reject a Relationship created by yourself  ","categories": [],
+        "tags": [],
+        "url": "/versions/v5/use-case-transport-reject-relationship",
+        "teaser": null
+      },{
+        "title": "Request Relationship reactivation",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/versions/v5/use-case-transport-request-relationship-reactivation",
+        "teaser": null
+      },{
+        "title": "Revoke Relationship reactivation",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/versions/v5/use-case-transport-revoke-relationship-reactivation",
+        "teaser": null
+      },{
+        "title": "Revoke Relationship",
+        "excerpt":"   Revokes the pending Relationship with the given id.   Parameters      relationshipId, the id of the Relationship   On Success      Revokes the pending Relationship   Returns the revoked Relationship   On Failure      The relationshipId does not resolve to a pending Relationship   You have tried to revoke a Relationship not created by yourself  ","categories": [],
+        "tags": [],
+        "url": "/versions/v5/use-case-transport-revoke-relationship",
         "teaser": null
       },{
         "title": "Send Message to Recipient(s)",
@@ -999,6 +1041,12 @@ var store = [{
         "excerpt":"Be advised that calling this use case to sync the Identity/Device on a regular basis is discouraged, as it could lead to wrong return values if multiple endpoints trigger this use case. Please configure the SyncModule and use eventing instead. This use case retrieves all relevant data changes between the...","categories": [],
         "tags": [],
         "url": "/versions/v5/use-case-transport-synchronize-updates-of-backbone",
+        "teaser": null
+      },{
+        "title": "Terminate Relationship",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/versions/v5/use-case-transport-terminate-relationship",
         "teaser": null
       },{
         "title": "Update Device",

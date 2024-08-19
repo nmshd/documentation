@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-08-19T09:48:27+02:00">
+  <meta property="article:published_time" content="2024-08-19T15:46:20+02:00">
 
 
 
@@ -352,7 +352,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Integration example">
     <meta itemprop="description" content="In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship.This will create a better understanding of these processes, which will help you automating them for your organization.">
-    <meta itemprop="datePublished" content="2024-08-19T09:48:27+02:00">
+    <meta itemprop="datePublished" content="2024-08-19T15:46:20+02:00">
     
 
     <div class="page__inner-wrap">
@@ -373,7 +373,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#establishing-relationships">Establishing Relationships</a><ul><li><a href="#connector-create-an-attribute">Connector: Create an Attribute</a></li><li><a href="#connector-test-your-requests-validity">Connector: Test your Request’s Validity</a></li><li><a href="#connector-create-a-relationshiptemplate">Connector: Create a RelationshipTemplate</a></li><li><a href="#connector-create-a-qr-code-for-the-relationshiptemplate">Connector: Create a QR code for the RelationshipTemplate</a></li><li><a href="#app-send-a-relationship-request">App: Send a Relationship Request</a></li><li><a href="#connector-accept-the-relationship-request">Connector: Accept the Relationship Request</a></li></ul></li><li><a href="#sending-and-receiving-messages">Sending and Receiving Messages</a><ul><li><a href="#sending-a-message-with-a-connector">Sending a Message with a Connector</a></li><li><a href="#receiving-a-message-with-a-connector">Receiving a Message with a Connector</a></li></ul></li><li><a href="#whats-next">What’s next?</a></li></ul>
+              <ul class="toc__menu"><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#establishing-relationships">Establishing Relationships</a><ul><li><a href="#connector-create-an-attribute">Connector: Create an Attribute</a></li><li><a href="#connector-test-your-requests-validity">Connector: Test your Request’s Validity</a></li><li><a href="#connector-create-a-relationshiptemplate">Connector: Create a RelationshipTemplate</a></li><li><a href="#connector-create-a-qr-code-for-the-relationshiptemplate">Connector: Create a QR code for the RelationshipTemplate</a></li><li><a href="#app-initiate-a-relationship">App: Initiate a Relationship</a></li><li><a href="#connector-accept-the-relationship">Connector: Accept the Relationship</a></li></ul></li><li><a href="#sending-and-receiving-messages">Sending and Receiving Messages</a><ul><li><a href="#sending-a-message-with-a-connector">Sending a Message with a Connector</a></li><li><a href="#receiving-a-message-with-a-connector">Receiving a Message with a Connector</a></li></ul></li><li><a href="#whats-next">What’s next?</a></li></ul>
             </nav>
           </aside>
         
@@ -418,8 +418,8 @@ However, it could be another Connector, as well, e.g. if two companies want to e
 
 <p>The way we will establish the Relationship is via a <a href="/versions/v5/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>.
 This is created by the Connector and contains its display name, as well as the data it would like to receive from the other Identity.
-Then, the App user fills out all required information of the RelationshipTemplate and sends the RelationshipRequest to the Connector.
-It in turn accepts the Request, which results in the creation of a new Relationship.</p>
+Then, the App user fills out all required information of the RelationshipTemplate and sends a pending Relationship to the Connector.
+It in turn accepts the Relationship, which results in an active Relationship.</p>
 
 <h3 id="connector-create-an-attribute">Connector: Create an Attribute</h3>
 
@@ -457,7 +457,7 @@ To do so, execute <code class="language-plaintext highlighter-rouge">POST /api/v
 
 <h3 id="connector-test-your-requests-validity">Connector: Test your Request’s Validity</h3>
 
-<p>Next, we want to create a RelationshipTemplate, that can be used by the App to send a Relationship Request to our Connector.
+<p>Next, we want to create a RelationshipTemplate, that can be used by the App to send a pending Relationship to our Connector.
 The content of the RelationshipTemplate can be widely configured, but for simplicity we will use a <a href="/versions/v5/integrate/data-model-overview#request">Request</a> with just two <a href="/versions/v5/integrate/data-model-overview#requestitemgroup">RequestItemGroups</a> in our example.
 On the one hand, we want to <a href="/versions/v5/integrate/share-attributes-with-peer">share an Attribute</a> with the App, namely the display name of our Connector we created in the previous step.
 For this, we use a <a href="/versions/v5/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a>.
@@ -572,7 +572,7 @@ For this, execute the <code class="language-plaintext highlighter-rouge">GET /ap
 <rapi-doc-mini server-url="https://doc-demo-v5.is.enmeshed.eu/" default-api-server="https://doc-demo-v5.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v5.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^get /api/v2/RelationshipTemplates/{id}$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
-<h3 id="app-send-a-relationship-request">App: Send a Relationship Request</h3>
+<h3 id="app-initiate-a-relationship">App: Initiate a Relationship</h3>
 
 <p>Open the created QR code and start the enmeshed App. Depending on what you already did with the App, choose one of the following paths:</p>
 
@@ -604,11 +604,11 @@ For this, execute the <code class="language-plaintext highlighter-rouge">GET /ap
 
 <p><img src="/versions/v5/assets/images/add-contact-screen.jpg" alt="&quot;Add contact&quot; screen" /></p>
 
-<p>Finally, fill out the required fields and click on “Add contact” to send the Relationship Request. This will create a new Relationship between the App and the Connector. This Relationship has the status <code class="language-plaintext highlighter-rouge">Pending</code> for now.</p>
+<p>Finally, fill out the required fields and click on “Add contact” to send the Relationship. This will initiate a Relationship between the App and the Connector. This Relationship has the status <code class="language-plaintext highlighter-rouge">Pending</code> for now.</p>
 
-<h3 id="connector-accept-the-relationship-request">Connector: Accept the Relationship Request</h3>
+<h3 id="connector-accept-the-relationship">Connector: Accept the Relationship</h3>
 
-<p>In order to move the Relationship into the <code class="language-plaintext highlighter-rouge">Active</code> state, we now need to <a href="/versions/v5/use-case-transport-accept-relationshipchange">accept the Relationship Request</a> with the Connector.
+<p>In order to move the Relationship into the <code class="language-plaintext highlighter-rouge">Active</code> state, we now need to <a href="/versions/v5/use-case-transport-accept-relationship">accept the Relationship</a> with the Connector.
 To do so, we <a href="/versions/v5/use-case-transport-synchronize-updates-of-backbone">synchronize updates of the Backbone</a>, which will fetch all changes that occurred since the last time this endpoint was executed.</p>
 
 <h6>Corresponding interactive API docs excerpt:</h6>
@@ -616,7 +616,7 @@ To do so, we <a href="/versions/v5/use-case-transport-synchronize-updates-of-bac
 <rapi-doc-mini server-url="https://doc-demo-v5.is.enmeshed.eu/" default-api-server="https://doc-demo-v5.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v5.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/Account/Sync$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
-<p>In the Response we will receive the created Relationship, which contains the corresponding <a href="/versions/v5/integrate/data-model-overview#relationshipchange">RelationshipCreationChange</a>.</p>
+<p>In the Response we will receive the Relationship.</p>
 
 <p>Example:</p>
 
@@ -628,15 +628,7 @@ To do so, we <a href="/versions/v5/use-case-transport-synchronize-updates-of-bac
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RELmJj25x2bZW0VXzAiQ"</span><span class="p">,</span><span class="w">
         </span><span class="c1">...</span><span class="w">
         </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:e:_________________"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"changes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RCHUwBw7BWlROPlEjb51"</span><span class="p">,</span><span class="w">
-            </span><span class="c1">...</span><span class="w">
-            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creation"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:e:_________________"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -646,14 +638,14 @@ To do so, we <a href="/versions/v5/use-case-transport-synchronize-updates-of-bac
 <table style="border: none" class="notice--warning">
     <tr>
         <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
-        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship (<code class="language-plaintext highlighter-rouge">REL_________________</code>), as well as the <code class="language-plaintext highlighter-rouge">id</code> of the first RelationshipChange (<code class="language-plaintext highlighter-rouge">RCH_________________</code>) in the <code class="language-plaintext highlighter-rouge">changes</code> array and use them as input to the <code class="language-plaintext highlighter-rouge">PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept</code> route. You can leave that Request body as it is.</p>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship (<code class="language-plaintext highlighter-rouge">REL_________________</code>) and use it as input to the <code class="language-plaintext highlighter-rouge">PUT /api/v2/Relationships/{id}/Accept</code> route. You can leave that Request body as it is.</p>
 </td>
     </tr>
 </table>
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo-v5.is.enmeshed.eu/" default-api-server="https://doc-demo-v5.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v5.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^put /api/v2/Relationships/{id}/Changes/{changeId}/Accept$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo-v5.is.enmeshed.eu/" default-api-server="https://doc-demo-v5.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v5.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^put /api/v2/Relationships/{id}/Accept$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <p>Now the Relationship is in the <code class="language-plaintext highlighter-rouge">Active</code> state, so we can start to communicate with the opposite Identity, which we will do in the next part of this tutorial.
@@ -736,7 +728,7 @@ Then, tap on “New Message”, enter a subject and body and tap on “Send”.<
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-19T09:48:27+02:00">August 19, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-19T15:46:20+02:00">August 19, 2024</time></p>
 
       </footer>
 
