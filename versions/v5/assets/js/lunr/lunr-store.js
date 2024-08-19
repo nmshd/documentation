@@ -174,7 +174,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Error codes",
-        "excerpt":"Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker. The error codes are categorized...","categories": [],
+        "excerpt":"Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker. ErrorCode Description error.connector.errorInErrorHandler The error...","categories": [],
         "tags": [],
         "url": "/versions/v5/integrate/error-codes",
         "teaser": null
