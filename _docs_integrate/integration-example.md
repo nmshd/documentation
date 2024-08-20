@@ -42,7 +42,7 @@ You need to replace them with values before you send the Requests.
 
 - If you want to use your own Connector for executing the examples:
   - [Install the Connector](https://enmeshed.eu/integrate/connector-installation)
-  - Make sure the [Sync Module is disabled]({% link _docs_operate/configuration.md %}#sync) (because in this tutorial we will synchronize manually via the HTTP endpoint)
+  - Make sure the [Sync Module]({% link _docs_operate/configuration.md %}#sync) and [Server-Sent Events Module]({% link _docs_operate/configuration.md %}#sse) are disabled (because in this tutorial we will synchronize manually via the HTTP endpoint). We are also not utilizing the recommended integration with message brokers.
   - Make sure the [docs are enabled]({% link _docs_operate/configuration.md %}#corehttpapi) for the documentation route to work
   - Get the API key that was configured during installation of the Connector (it needs to be sent in the `X-API-KEY` header of every HTTP Request)
 - You need the [enmeshed App]({% link _docs_use/install-the-app.md %}) installed on your mobile device.
@@ -222,7 +222,7 @@ To do so, we [synchronize updates of the Backbone]({% link _docs_use-cases/use-c
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
-We can now [get the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}).
+We can now [get the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}). Should you be repeating this tutorial, you could e. g. filter by the `id` of the RelationshipTemplate from earlier via GET `/api/v2/Relationships?template.id=<id>` if you use a different Template.
 
 {% include rapidoc api_route_regex="^get /api/v2/Relationships$" %}
 

@@ -147,16 +147,7 @@ creationContent: {
 
 for creating a Relationship via POST `Relationship`.
 
-Because previously a JSONWrapper was applied to `content: <arbitrary-content>` before actually sending it and the `content` property of the created Message resp. RelationshipTemplate then was
-
-```jsonc
-content: {
-  "@type": "JSONWrapper",
-  "value": <arbitrary-content>
-},
-```
-
-no changes are necessary for getting the `value` of the non-standard content from the actual created Message resp. RelationshipTemplate.
+When reading the value from the RelationshipTemplate resp. Message, the relevant property is thus changed from `content` to `content.value`.
 
 ## Backbone-Sync returns 204 (No content)
 
