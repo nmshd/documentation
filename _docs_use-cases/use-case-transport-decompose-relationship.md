@@ -29,12 +29,12 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - api_route_regex: PUT /api/v2/Relationships/{id}/Decompose
+  - api_route_regex: DELETE /api/v2/Relationships/{id}
   - published: default
   - link: use-case-transport-decompose-relationship
 require:
 required_by:
-api_route_regex: ^PUT /api/v2/Relationships/{id}/Decompose$
+api_route_regex: ^DELETE /api/v2/Relationships/{id}$
 # End automatic generation
 ---
 
@@ -50,7 +50,7 @@ Decomposes the terminated [Relationship]({% link _docs_integrate/data-model-over
 
 ## On Success
 
-- Deletes the Relationship and data transmitted during it from the Connector/App
+- Deletes the Relationship and data transmitted during it from the Connector
 
 ## On Failure
 
