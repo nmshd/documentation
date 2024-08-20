@@ -67,7 +67,7 @@ A Token has the following properties:
 
 A RelationshipTemplate serves two purposes:
 
-1. It represents the permission to establish a Relationship. When creating a pending Relationship, the ID of a valid RelationshipTemplate must be attached. Otherwise the Backbone blocks the Relationship. And since the IDs are randomly generated, you can only obtain such an ID from the Template's owner.
+1. It represents the permission to establish a Relationship. When initiating a Relationship, the ID of a valid RelationshipTemplate must be attached. Otherwise the Backbone blocks the Relationship. And since the IDs are randomly generated, you can only obtain such an ID from the Template's owner.
 2. It can contain data which is of interest for the one who uses the RelationshipTemplate. The enmeshed App for example expects a RelationshipTemplate content which contains a `Request` which contains e.g. Attributes about the creator of the RelationshipTemplate as well as queries for Attributes that the RelationshipTemplate creator wants to receive together with the Relationship.
 
 | Name                   | Type                                                                       | Description                                                                                                                                                                                                                                                                                                                                                                   | Remarks                                       |

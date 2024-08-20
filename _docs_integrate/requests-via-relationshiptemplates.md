@@ -210,7 +210,7 @@ However, if there is no active Relationship between the Connectors yet, a Relati
 Its creation content is of type [RelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationcontent) and contains the Response to the Request.
 This Relationship is sent back to the Sender via a Message.
 Then, the Request is set to `status` `"Completed"` and you can [query the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) using the query parameter `template.id=<ID of RelationshipTemplate>`.
-As long as the Relationship is pending, no new Request is created by [loading the RelationshipTemplate](#receive-the-request-by-loading-the-relationshiptemplate).
+As long as the Relationship is `"Pending"`, no new Request is created by [loading the RelationshipTemplate](#receive-the-request-by-loading-the-relationshiptemplate).
 
 The Sender can fetch the Relationship by [synchronizing the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 In the response you can see a new Relationship, which looks as follows:
