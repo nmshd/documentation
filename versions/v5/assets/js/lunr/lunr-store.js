@@ -545,12 +545,6 @@ var store = [{
         "url": "/versions/v5/use-case-consumption-get-repositoryattributes",
         "teaser": null
       },{
-        "title": "Get shared versions of a RepositoryAttribute",
-        "excerpt":" ","categories": [],
-        "tags": [],
-        "url": "/versions/v5/use-case-consumption-get-shared-versions-of-a-repositoryattribute",
-        "teaser": null
-      },{
         "title": "Get shared versions of an Attribute",
         "excerpt":"This use case allows you to retrieve a list of shared LocalAttributes for a given source Attribute. In case of IdentityAttributes a list comprising of own shared IdentityAttributes for the specified RepositoryAttribute is returned. In case of RelationshipAttributes the list contains ThirdPartyRelationshipAttributes you re-shared based on the specified RelationshipAttribute. Parameters...","categories": [],
         "tags": [],
