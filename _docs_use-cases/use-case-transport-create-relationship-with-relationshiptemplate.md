@@ -42,12 +42,12 @@ api_route_regex: ^POST /api/v2/Relationships$
 
 {% include properties_list.html %}
 
-This use case intends to create a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) based on a received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate). The Relationship will be with the Template's creator.
+This use case intends to create a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) based on a received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) where its `content` is an [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent). The Relationship will be with the Template's creator.
 
 ## Parameters
 
 - `templateId` references the RelationshipTemplate that was received from a party.
-- `creationContent` is stored inside the Relationship. It's a [RelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationcontent) if the received Template contained a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent), otherwise it is an [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent). It can be used by the Template's creator to decide whether to accept the Relationship.
+- `creationContent` is an [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent) and will be stored inside the Relationship. It can be used by the Template's creator to decide whether to accept the Relationship.
 
 ## On Success
 

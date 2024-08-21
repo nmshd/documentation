@@ -222,7 +222,7 @@ To do so, we [synchronize updates of the Backbone]({% link _docs_use-cases/use-c
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
-We can now [get the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}). Should you be repeating this tutorial, you could e. g. filter by the `id` of the RelationshipTemplate from earlier via GET `/api/v2/Relationships?template.id=<id>` if you use a different Template.
+We can now [get the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) via `GET /api/v2/Relationships`. Should you be repeating this tutorial, you could e. g. filter by the `id` of the RelationshipTemplate from earlier via `GET /api/v2/Relationships?template.id=<id>` if you use a different Template.
 
 {% include rapidoc api_route_regex="^get /api/v2/Relationships$" %}
 
