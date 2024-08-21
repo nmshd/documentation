@@ -139,17 +139,19 @@ Note that it is of course also possible to reject the incoming Request, if the R
 
 #### RelationshipTemplate without RelationshipTemplateContent
 
-We now consider the situation in which the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) loaded onto the Requestor does not contain a RelationshipTemplateContent in its `content` property. In this case, the Requestor does not receive an incoming Request. Nevertheless, it can initiate a Relationship with the Templator by explicitly creating a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` based on the RelationshipTemplate. To do this, follow the instructions of the [Create Relationship with RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) use case and provide as input:
+We now consider the situation in which the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) loaded onto the Requestor does not contain a RelationshipTemplateContent in its `content` property. In this case, the Requestor does not receive an incoming Request. Nevertheless, it can initiate a Relationship with the Templator by explicitly creating a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` based on the RelationshipTemplate. To do this, follow the instructions of the [Create Relationship with RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) use case and provide
 
 ```jsonc
 {
   "templateId": "<ID of RelationshipTemplate>",
   "creationContent": {
-    // Customized content
+    // ArbitraryRelationshipCreationContent
     ...
   }
 }
 ```
+
+as input with an [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent) as `creationContent`.
 
 In case of success, the `transport.relationshipChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) will be triggered and you will receive a `result` as response, which contains the created data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship). The `creationContent` is contained within the `creationContent` property of the Relationship.
 
