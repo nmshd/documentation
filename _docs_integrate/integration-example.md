@@ -69,8 +69,6 @@ To do so, execute `POST /api/v2/Attributes` with the following payload:
 ```json
 {
   "content": {
-    "@type": "IdentityAttribute",
-    "owner": "<your Connector's address>",
     "value": {
       "@type": "DisplayName",
       "value": "Demo Connector of integration example"
@@ -78,10 +76,6 @@ To do so, execute `POST /api/v2/Attributes` with the following payload:
   }
 }
 ```
-
-You can query the Connector's address via the route `/api/v2/Account/IdentityInfo`. If you are using the Demo Connector of this Tutorial, the address is `did:e:stage.enmeshed.eu:dids:54013af2a3bffe9dc8cb99`.
-
-{: .notice--info}
 
 {% include rapidoc api_route_regex="^post /api/v2/Attributes$" %}
 
