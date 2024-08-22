@@ -148,7 +148,7 @@ Let's assume the Connector needs to know the given name and surname of its conta
 }
 ```
 
-Before we actually create the RelationshipTemplate, we want to ensure the validity of the Request and its items.
+Before we actually create the RelationshipTemplate, we want to ensure the validity of the Request and its items. To do so, execute `POST /api/v2/Requests/Outgoing/Validate` with the Request.
 
 {% include rapidoc api_route_regex="^post /api/v2/Requests/Outgoing/Validate$" %}
 
