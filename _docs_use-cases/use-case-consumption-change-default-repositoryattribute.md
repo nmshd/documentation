@@ -36,3 +36,26 @@ require:
 required_by:
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+For every [IdentityAttribute value type]({% link _docs_integrate/attribute-values.md %}#identity-attributes) exactly one [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) has the property `isDefault` set, given that at least one RepositoryAttribute of that value type exists.
+By default, this is the first RepositoryAttribute of that value type that was created.
+However, if the default RepositoryAttribute is [succeeded]({% link _docs_integrate/update-attributes-by-succession.md %}), its successor will become the new default RepositoryAttribute.
+This use case allows you to change the default RepositoryAttribute.
+
+## Parameters
+
+- The `attributeId` of the RepositoryAttribute that is to be the new default RepositoryAttribute.
+
+## On Success
+
+- The RepositoryAttribute belonging to the input `attributeId` has `isDefault` set and is returned. Further, the former default RepositoryAttribute has `isDefault` unset.
+
+## On Failure
+
+- The default RepositoryAttribute can't be changed if the provided `attributeId` doesn't correlate to a RepositoryAttribute.
+- The default RepositoryAttribute can't be changed if the provided `attributeId` correlates to a RepositoryAttribute with a successor.
+- The default RepositoryAttribute can't be changed if the parameters are malformed.
