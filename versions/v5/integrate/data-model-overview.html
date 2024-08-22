@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-08-22T13:01:40+02:00">
+  <meta property="article:published_time" content="2024-08-22T18:14:37+02:00">
 
 
 
@@ -352,7 +352,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2024-08-22T13:01:40+02:00">
+    <meta itemprop="datePublished" content="2024-08-22T18:14:37+02:00">
     
 
     <div class="page__inner-wrap">
@@ -1353,6 +1353,11 @@ In the <a href="/versions/v5/integrate/attribute-introduction">Attribute introdu
       <td>deletionInfo</td>
       <td><a href="#localattributedeletioninfo"><code class="language-plaintext highlighter-rouge">LocalAttributeDeletionInfo</code></a> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>Information about whether the counterpart of a shared Attribute is to be deleted or was deleted by the peer of the Relationship, as well as the point in time of that deletion.</td>
+    </tr>
+    <tr>
+      <td>isDefault</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>States whether the LocalAttribute is the default RepositoryAttribute for its Attribute value type. For every IdentityAttribute value type exactly one RepositoryAttribute has <code class="language-plaintext highlighter-rouge">isDefault</code> set, given that at least one RepositoryAttribute of that value type exists. This property is only used for the App, e.g. to mark the Attribute that should be used by default, if multiple Attributes of the same value type exist. Thus, for a Connector it will always be <code class="language-plaintext highlighter-rouge">undefined</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -3413,7 +3418,7 @@ For example, an AuthenticationRequestItem can be accepted using the AcceptReques
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-22T13:01:40+02:00">August 22, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-22T18:14:37+02:00">August 22, 2024</time></p>
 
       </footer>
 
