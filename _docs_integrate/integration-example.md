@@ -80,7 +80,6 @@ To do so, execute `POST /api/v2/Attributes` with the following payload:
 ```
 
 You can query the Connector's address via the route `/api/v2/Account/IdentityInfo`. If you are using the Demo Connector of this Tutorial, the address is `did:e:pilot.enmeshed.eu:dids:9364c879fcc41c87c6ecbd`.
-
 {: .notice--info}
 
 {% include rapidoc api_route_regex="^post /api/v2/Attributes$" %}
