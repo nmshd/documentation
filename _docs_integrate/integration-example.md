@@ -45,7 +45,7 @@ You need to replace them with values before you send the Requests.
   - Make sure the [Sync Module]({% link _docs_operate/configuration.md %}#sync) and [Server-Sent Events Module]({% link _docs_operate/configuration.md %}#sse) are disabled (because in this tutorial we will synchronize manually via the HTTP endpoint). We are also not utilizing the recommended integration with message brokers.
   - Make sure the [docs are enabled]({% link _docs_operate/configuration.md %}#corehttpapi) for the documentation route to work
   - Get the API key that was configured during installation of the Connector (it needs to be sent in the `X-API-KEY` header of every HTTP Request)
-- You need the [enmeshed App]({% link _docs_use/install-the-app.md %}) installed on your mobile device.
+- You need the [enmeshed App]({% link _docs_use/install-the-app.md %}) with a minimum version of `4.0.0` installed on your mobile device.
 
 ## Establishing Relationships
 

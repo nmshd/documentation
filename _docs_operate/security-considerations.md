@@ -63,7 +63,7 @@ It is best practice to block unnecessary access from and to software components 
 
 ### Outbound External Connection: Internet
 
-The Connector uses an TLS-secured Internet connection to the enmeshed Backbone which runs on the domain `https://prod.enmeshed.eu`. Your firewall must not block access to this domain, otherwise the Connector won't work.
+The Connector uses an TLS-secured Internet connection to the enmeshed Backbone (specified in the [Connector configuration's baseUrl]({% link _docs_operate/configuration.md %}#transportlibrary)). Your firewall must not block access to this domain, otherwise the Connector won't work.
 
 To access the latest updates, other routes might need to be opened within the firewall settings.
 

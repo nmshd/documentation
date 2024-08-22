@@ -88,7 +88,7 @@ The Connector provides the following configuration parameters:
 {
     "debug": false,
     "transportLibrary": {
-        "baseUrl": "https://prod.enmeshed.eu",
+        "baseUrl": "BASE_URL",
         "platformClientId": "CLIENT_ID",
         "platformClientSecret": "CLIENT_SECRET"
     },
@@ -112,7 +112,7 @@ The debug flag configures if the Connector is set to **production** or **debug**
 
 ### transportLibrary
 
-- **baseUrl** `default: "https://prod.enmeshed.eu"`
+- **baseUrl** `required`
 
   The base url is used to communicate with the enmeshed platform. It can be changed to use a custom enmeshed Backbone.
 
