@@ -29,8 +29,6 @@ Requests are unique between Identities and can only be processed once by a singl
 Each Request can only have a single Response, which responds to the complete Request and contains all the information the requestor needs.
 The Request-Response flow allows to establish transactional behavior between Identities.
 
-Please note that there are some data structures used in the context of enmeshed, that also use the terms "Request" and "Response" in their name, but do not correspond to the objects described on this page, e.g. [RelationshipChangeRequest]({% link _docs_integrate/data-model-overview.md %}#relationshipchangerequest) and [RelationshipChangeResponse]({% link _docs_integrate/data-model-overview.md %}#relationshipchangeresponse).
-
 ## Requests
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/03ed5248-af12-4a50-bac1-73831f2c3cf9" id="d~qRE5C7Dqig"></iframe></div>
@@ -415,9 +413,8 @@ In case you don't have a Relationship with the peer yet, opening the Relationshi
 If the peer decides to accept and to respond to your Request, again a LocalRequest and LocalResponse will be created at their side.
 However, the returned data differ.
 Instead of a ResponseWrapper inside a Message, a Relationship is returned which is in the status `pending` for now.
-It contains the RelationshipTemplate, as well as the changes the peer made to it, i.e. the created Request and Response.
-Only after you accept the RelationshipCreationChangeRequest (not the kind of Request discussed on this page), the LocalRequest with LocalResponse is created at your side and the peer will receive the information about the status change via a `consumption.incomingRequestStatusChanged` [event]({% link _docs_integrate/connector-events.md %}).
-
+It contains the RelationshipTemplate, as well as the Response to the Request.
+Only after you accept the Relationship, the LocalRequest with LocalResponse is created at your side and the peer will receive the information about the status change via a `consumption.incomingRequestStatusChanged` [event]({% link _docs_integrate/connector-events.md %}).
 You can find an [example for the Request-Response flow via RelationshipTemplate](#working-with-requestitemgroups) below.
 
 ## Examples
@@ -444,7 +441,7 @@ In its `content.onNewRelationship` property it holds a Request with two RequestI
 One of them contains Attributes the company shares with the peer, e.g. the company name.
 The other contains Attributes it would like to query from the peer.
 In this example they are the given and surname and optionally an e-mail address, following the [Integration example]({% link _docs_integrate/integration-example.md %}).
-Now, an interested person can scan the QR code, provide their information and send their Response inside a RelationshipCreationChangeRequest.
+Now, an interested person can scan the QR code, provide their information and send their Response inside a Relationship's creation content.
 Once the company accepts the new Relationship, they can exchange Messages or other data using enmeshed.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/4ac53380-b21a-4e33-982a-aa9167c471f3" id="iDvN-GT-yvbN"></iframe></div>

@@ -88,7 +88,7 @@ The Connector provides the following configuration parameters:
 {
     "debug": false,
     "transportLibrary": {
-        "baseUrl": "https://prod.enmeshed.eu",
+        "baseUrl": "BASE_URL",
         "platformClientId": "CLIENT_ID",
         "platformClientSecret": "CLIENT_SECRET"
     },
@@ -112,7 +112,7 @@ The debug flag configures if the Connector is set to **production** or **debug**
 
 ### transportLibrary
 
-- **baseUrl** `default: "https://prod.enmeshed.eu"`
+- **baseUrl** `required`
 
   The base url is used to communicate with the enmeshed platform. It can be changed to use a custom enmeshed Backbone.
 
@@ -241,7 +241,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   The name of the AMQP exchange to publish to.
 
-#### autoAcceptRelationshipCreationChanges <a href="{% link _docs_operate/modules.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationshipcreationchanges}
+#### autoAcceptPendingRelationships <a href="{% link _docs_operate/modules.md %}#autoacceptpendingrelationships"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptpendingrelationships}
 
 It is not recommended to use this Module for production scenarios.
 {: .notice--danger}
@@ -253,9 +253,8 @@ It is not recommended to use this Module for production scenarios.
   // ...
 
   "modules": {
-    "autoAcceptRelationshipCreationChanges": {
-      "enabled": false,
-      "responseContent": {}
+    "autoAcceptPendingRelationships": {
+      "enabled": false
     }
   }
 }
@@ -263,11 +262,7 @@ It is not recommended to use this Module for production scenarios.
 
 - **enabled** `default: false`
 
-  Enable or disable the autoAcceptRelationshipCreationChanges Module.
-
-- **responseContent** `default: {}`
-
-  The content that is used to accept the incoming Relationship Request.
+  Enable or disable the autoAcceptPendingRelationships Module.
 
 #### coreHttpApi <a href="{% link _docs_operate/modules.md %}#corehttpapi"><i class="fas fa-fw fa-info-circle"/></a> {#corehttpapi}
 
