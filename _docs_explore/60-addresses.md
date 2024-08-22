@@ -12,9 +12,7 @@ Enmeshed uses [Decentralized Identifiers](https://www.w3.org/TR/did-core/), also
 
 ## Addresses are Backbone-specific
 
-An Address is fixed to a certain backbone. A currently running backbone is `prod.enmeshed.eu`, the main productive network, and its Addresses are of the form `did:e:prod.enmeshed.eu:...`.
-
-The same Identity (Identity Signature Key Pair) may act within different backbones, but will have different Addresses. Additionally, there are many open questions with regards to using multiple backbones, e.g. which one is in charge for the synchronization.
+An Address is fixed to a certain backbone. The same Identity (Identity Signature Key Pair) may act within different backbones, but will have different Addresses. Additionally, there are many open questions with regards to using multiple backbones, e.g. which one is in charge for the synchronization.
 
 ## Syntax
 
@@ -41,10 +39,10 @@ createAddress(PublicKey) {
 Hash := SHA256(SHA512(PublicKey)) // 32 bytes
 HashedPublicKey := Hash[0-9] // 10 bytes
 EnmeshedSpecificPart := "did:e:"
-BackboneSpecificPart := "<backbone-base-url>:dids:" // e. g. "prod.enmeshed.eu:dids:"
+BackboneSpecificPart := "<backbone-base-url>:dids:" // e. g. "example.com:dids:"
 IdentitySpecificPart := HEX(HashedPublicKey) // 10 bytes (20 characters), e.g. "eadae3b3d814ebb0c0d6"
 Checksum := HEX(SHA256(EnmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart)[0]) // 1 byte, e.g. "de"
-Address = EnmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart + Checksum // e.g. did:e:prod.enmeshed.eu:dids:eadae3b3d814ebb0c0d6de
+Address = EnmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart + Checksum // e.g. did:e:example.com:dids:eadae3b3d814ebb0c0d6de
 }
 ```
 
@@ -53,43 +51,19 @@ Address = EnmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart + C
 Below there are a few examples for valid enmeshed Addresses.
 
 ```text
-backboneBaseUrl: "prod.enmeshed.eu",
-publicKey: "fj0o9eOiPRswTZL6j9lE9TRvpDDnPRMF0gJeahz/W2c=",
-address: "did:e:prod.enmeshed.eu:dids:fef1992c5e529adc413288"
+backboneHostname: "example.com"
+publicKey: "fj0o9eOiPRswTZL6j9lE9TRvpDDnPRMF0gJeahz/W2c="
+address: "did:e:example.com:dids:fef1992c5e529adc41328d"
 
-backboneBaseUrl: "prod.enmeshed.eu",
-publicKey: "jRxGfZtQ8a90TmKCGk+dhuX1CBjgoXuldhNPwrjpWsw=",
-address: "did:e:prod.enmeshed.eu:dids:b9d25bd0a2bbd3aa48437c"
+backboneHostname: "example.com",
+publicKey: "jRxGfZtQ8a90TmKCGk+dhuX1CBjgoXuldhNPwrjpWsw="
+address: "did:e:example.com:dids:b9d25bd0a2bbd3aa4843ed"
 
-backboneBaseUrl: "prod.enmeshed.eu",
-publicKey: "PEODpwvi7KxIVa4qeUXia9apMFvPMktdDHiDitlfbjE=",
-address: "did:e:prod.enmeshed.eu:dids:d459ff2144f0eac7aff554"
+backboneHostname: "example.com",
+publicKey: "PEODpwvi7KxIVa4qeUXia9apMFvPMktdDHiDitlfbjE="
+address: "did:e:example.com:dids:d459ff2144f0eac7aff5f7"
 
-backboneBaseUrl: "prod.enmeshed.eu",
-publicKey: "mJGmNbxiVZAPToRuk9O3NvdfsWl6V+7wzIc+/57bU08=",
-address: "did:e:prod.enmeshed.eu:dids:e2208784ee2769c5d9684d"
-
-backboneBaseUrl: "prod.enmeshed.eu",
-publicKey: "l68K/zdNp1VLoswcHAqN6QUFwCMU6Yvzf7XiW2m1hRY=",
-address: "did:e:prod.enmeshed.eu:dids:5845cf29fbda2897892a9a"
-
-backboneBaseUrl: "prod.enmeshed.eu",
-publicKey: "Gl8XTo8qFuUM+ksXixwp4g/jf3H/hU1F8ETuYaHCM5I=",
-address: "did:e:prod.enmeshed.eu:dids:01f4bab09d757578bb4994"
-
-backboneBaseUrl: "prod.enmeshed.eu",
-publicKey: "rIS4kAzHXT7GgCA6Qm1ANlwM3x12QMSkeprHb6tjPyc=",
-address: "did:e:prod.enmeshed.eu:dids:ee5966a158f1dc4de5bd5c"
-
-backboneBaseUrl: "prod.enmeshed.eu",
-publicKey: "hg/cbeBvfNrMiJ0dW1AtWC4IQwG4gkuhzG2+z6bAoRU=",
-address: "did:e:prod.enmeshed.eu:dids:ab7475ba4070f29ce286fd"
-
-backboneBaseUrl: "prod.enmeshed.eu",
-publicKey: "kId+qWen/lKeTdyxcIQhkzvvvTU8wIJECfWUWbmRQRY=",
-address: "did:e:prod.enmeshed.eu:dids:4664f42d7ca6480db07fdb"
-
-backboneBaseUrl: "prod.enmeshed.eu",
-publicKey: "NcqlzTEpSlKX9gmNBv41EjPRHpaNYwt0bxqh1bgyJzA=",
-address: "did:e:prod.enmeshed.eu:dids:60326ff5075e0d7378990c"
+backboneHostname: "example.com",
+publicKey: "mJGmNbxiVZAPToRuk9O3NvdfsWl6V+7wzIc+/57bU08="
+address: "did:e:example.com:dids:e2208784ee2769c5d9686a"
 ```
