@@ -79,7 +79,7 @@ To do so, execute `POST /api/v2/Attributes` with the following payload:
 
 {% include rapidoc api_route_regex="^post /api/v2/Attributes$" %}
 
-{% include copy-notice description="Save the `id` of the Attribute that you can find in the Response. You will need it in the next step." %}
+{% include copy-notice description="Save the `id` and the `owner` of the Attribute that you can find in the Response. You will need it in the next step." %}
 
 ### Connector: Test your Request's Validity
 
@@ -103,7 +103,7 @@ Let's assume the Connector needs to know the given name and surname of its conta
             "mustBeAccepted": true,
             "attribute": {
               "@type": "IdentityAttribute",
-              "owner": "",
+              "owner": "<your Connector's address>",
               "value": {
                 "@type": "DisplayName",
                 "value": "Demo Connector of integration example"
@@ -157,8 +157,8 @@ Even though the Requests are validated during the RelationshipTemplate creation,
 
 ### Connector: Create a RelationshipTemplate
 
-If the Response is successful, we can create the RelationshipTemplate.
-To do so, we use the `content` we just validated.
+If the response successfully confirms all attributes, we can create the RelationshipTemplate.
+To do so, we use the `content` we just validated in `POST /api/v2/RelationshipTemplates/Own`.
 Furthermore, we specify an expiration date, which is located in the future, and restrict the access to a single allocation.
 
 ```jsonc
