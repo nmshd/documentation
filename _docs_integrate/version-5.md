@@ -118,7 +118,7 @@ Those new wrappers all have the type
 }
 ```
 
-Thus, when sending a Message with non-standard content via POST `Messages`, instead of sending the parameter `content : <arbitrary-content>`, you send
+Thus, when sending a Message with non-standard content via `POST /api/v2/Messages`, instead of sending the parameter `content : <arbitrary-content>`, you send
 
 ```jsonc
 content: {
@@ -127,7 +127,7 @@ content: {
 }
 ```
 
-Similarly, when creating a RelationshipTemplate with non-standard content via POST `RelationshipTemplates`, you send the parameter
+Similarly, when creating a RelationshipTemplate with non-standard content via `POST /api/v2/RelationshipTemplates/Own`, you send the parameter
 
 ```jsonc
 content: {
@@ -145,13 +145,13 @@ creationContent: {
 }
 ```
 
-for creating a Relationship via POST `Relationship`.
+for creating a Relationship via `POST /api/v2/Relationships`.
 
 When reading the value from the RelationshipTemplate resp. Message, the relevant property is thus changed from `content` to `content.value`.
 
 ## Backbone-Sync returns 204 (No content)
 
-Previosly, the Backbone-Sync (via the route POST `Account/Sync`) returned a list of Relationships and Messages with the HTTP code 201. This has been changed to the sync returning nothing with the HTTP code 204. This removes the support for the workflow of regularly calling the sync and checking the response since unexpected response values happen if syncs are executed from different spots. We recommend working event-based with the [Message Broker Publisher-Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher), which sends events to a message broker you have set up. We send a variety of events like `incomingRequestReceived`, `incomingRequestStatusChanged`, each of them containing the relevant changed object. See [Connector Events] for the full list. Slightly related, we also recommend using the recently published [server-sent-events Module]{% link _docs_operate/modules.md %}#sse, which listens to events emitted from the Backbone and syncs with the Backbone when an event is received.
+Previously, the Backbone-Sync (via the route POST `Account/Sync`) returned a list of Relationships and Messages with the HTTP code 201. This has been changed to the sync returning nothing with the HTTP code 204. This removes the support for the workflow of regularly calling the sync and checking the response since unexpected response values happen if syncs are executed from different spots. We recommend working event-based with the [Message Broker Publisher-Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher), which sends events to a message broker you have set up. We send a variety of events like `incomingRequestReceived`, `incomingRequestStatusChanged`, each of them containing the relevant changed object. See [Connector Events] for the full list. Slightly related, we also recommend using the recently published [server-sent-events Module]({% link _docs_operate/modules.md %}#sse), which listens to events emitted from the Backbone and syncs with the Backbone when an event is received.
 
 ## Changed and deleted error codes
 
