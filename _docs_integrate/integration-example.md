@@ -188,24 +188,11 @@ For this, execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Hea
 
 ### App: Initiate a Relationship
 
-Open the created QR code and start the enmeshed App. Depending on what you already did with the App, choose one of the following paths:
+When the app is opened and no profile has been created yet, the user must create one. From the profile overview, the user can add a new contact using the "Add Contact" option. A QR code must be scanned to complete the process.
 
-- If this is the first time you use the App:
-  - click on "Scan code"
-  - hold the camera in front of the QR code
-- If you want to use a new profile:
-  - click on the "+ New profile" button
-  - click on "Scan code"
-  - hold the camera in front of the QR code
-- If you want to use an existing profile:
-  - select the existing profile
-  - navigate to "Contacts"
-  - click on "Add contact"
-  - hold the camera in front of the QR code
+Scanning the qr code should result in a screen similar to the one below, where you can see the information that you added as `content` to the RelationshipTemplate.
 
-All three paths should result in a screen similar to the one below, where you can see the information that you added as `content` to the RelationshipTemplate.
-
-!["Add contact" screen]( {{ '/assets/images/add-contact-screen.jpg' | relative_url }} )
+![Add contact screen](/assets/images/add-contact-screen.jpg){: width="40%"}
 
 Finally, fill out the required fields and click on "Add contact" to send the Relationship. This will initiate a Relationship between the App and the Connector. This Relationship has the status `Pending` for now.
 
