@@ -79,7 +79,7 @@ To do so, execute `POST /api/v2/Attributes` with the following payload:
 
 {% include rapidoc api_route_regex="^post /api/v2/Attributes$" %}
 
-{% include copy-notice description="Save the `id` and the `owner` of the Attribute that you can find in the Response. You will need it in the next step." %}
+{% include copy-notice description="Save the `id` and the `owner` of the Attribute that you can find in the response. You will need it in the next step." %}
 
 ### Connector: Test your Request's Validity
 
@@ -157,7 +157,7 @@ Even though the Requests are validated during the RelationshipTemplate creation,
 
 ### Connector: Create a RelationshipTemplate
 
-If the response successfully confirms all attributes, we can create the RelationshipTemplate.
+If the Connector states your Request as valid, we can create the RelationshipTemplate.
 To do so, we use the `content` we just validated in `POST /api/v2/RelationshipTemplates/Own`.
 Furthermore, we specify an expiration date, which is located in the future, and restrict the access to a single allocation.
 
@@ -188,11 +188,11 @@ For this, execute the `GET /api/v2/RelationshipTemplates/{id}` route (Accept Hea
 
 ### App: Initiate a Relationship
 
-When the app is opened and no profile has been created yet, the user must create one. From the profile overview, the user can add a new contact using the "Add Contact" option. A QR code must be scanned to complete the process.
+When the App is opened and no profile has been created yet, the user must create one. From the profile overview, the user can add a new contact using the "Add Contact" option. A QR code must be scanned to complete the process.
 
-Scanning the qr code should result in a screen similar to the one below, where you can see the information that you added as `content` to the RelationshipTemplate.
+Scanning the QR code should result in a screen similar to the one below, where you can see the information that you added as `content` to the RelationshipTemplate.
 
-![Add contact screen](/assets/images/add-contact-screen.jpg){: width="40%"}
+![Add contact screen]({{ '/assets/images/add-contact-screen.jpg' | relative_url }}){: width="40%"}
 
 Finally, fill out the required fields and click on "Add contact" to send the Relationship. This will initiate a Relationship between the App and the Connector. This Relationship has the status `Pending` for now.
 
@@ -273,11 +273,11 @@ In order to fetch the Message, we need to synchronize the Connector with the Bac
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
-After syncing, all messages can be displayed with the `GET /api/v2/Messages` route.
+After syncing, all Messages can be displayed with the `GET /api/v2/Messages` route.
 
-{% include rapidoc api_route_regex="^post /api/v2/Messages$" %}
+{% include rapidoc api_route_regex="^get /api/v2/Messages$" %}
 
-The Response should contain a Message with the `content` you entered in the App.
+The response should contain a Message with the `content` you entered in the App.
 
 ## What's next?
 
