@@ -272,6 +272,11 @@ Then, tap on "New Message", enter a subject and body and tap on "Send".
 In order to fetch the Message, we need to synchronize the Connector with the Backbone again.
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
+
+After syncing, all messages can be displayed with the `GET /api/v2/Messages` route.
+
+{% include rapidoc api_route_regex="^post /api/v2/Messages$" %}
+
 The Response should contain a Message with the `content` you entered in the App.
 
 ## What's next?
