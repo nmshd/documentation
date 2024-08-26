@@ -103,7 +103,7 @@ Let's assume the Connector needs to know the given name and surname of its conta
             "mustBeAccepted": true,
             "attribute": {
               "@type": "IdentityAttribute",
-              "owner": "<your Connector's address>",
+              "owner": "<the owner of the Attribute created above>",
               "value": {
                 "@type": "DisplayName",
                 "value": "Demo Connector of integration example"
