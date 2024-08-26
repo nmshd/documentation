@@ -50,4 +50,4 @@ This use case retrieves all relevant data changes between the current Identity (
 
 ## On Success
 
-No content.
+- Relevant data changes are received internally, but no response body associated with the data changes is returned.
