@@ -99,17 +99,17 @@ In addition, in contrast to the RequestItems, a RequestItemGroup did not have to
 The `mustBeAccepted` property of the RequestItems will be kept.
 {: .notice--info}
 
-## New mandatory wrappers for non-standard content of RelationshipTemplates, Relationships and Messages
+## New mandatory wrappers for non-standard content of Messages, RelationshipTemplates and Relationships
 
-New wrapping types for sending arbitrary content that does not fit to standard enmeshed-content types have been introduced, the [ArbitraryMessageContent]({% link _docs_integrate/data-model-overview.md %}#arbitrarymessagecontent) for Messages with non-standard content, the [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent) for RelationshipTemplates and the [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent) for Relationships (the creationContent itself is [newly introduced here](#removal-of-relationshipchanges)).
+New wrapping types have been introduced for sending arbitrary content that does not fit the standard content types of enmeshed, the [ArbitraryMessageContent]({% link _docs_integrate/data-model-overview.md %}#arbitrarymessagecontent) for [Messages]({% link _docs_integrate/data-model-overview.md %}#message) with non-standard `content`, the [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent) for [RelationshipTemplates]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) with non-standard `content` and the [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent) for [Relationships]({% link _docs_integrate/data-model-overview.md %}#relationship) with non-standard `creationContent`. Please note that the `creationContent` of the Relationship itself is newly introduced in the section about the [Removal of RelationshipChanges](#removal-of-relationshipchanges).
 
-The `content` of a [Message]({% link _docs_integrate/data-model-overview.md %}#message) must either be a [Mail]({% link _docs_integrate/data-model-overview.md %}#mail), [Notification]({% link _docs_integrate/data-model-overview.md %}#notification), [Request]({% link _docs_integrate/data-model-overview.md %}#request), [ResponseWrapper]({% link _docs_integrate/data-model-overview.md %}#responsewrapper) or an [ArbitraryMessageContent]({% link _docs_integrate/data-model-overview.md %}#arbitrarymessagecontent).
+- The `content` of a [Message]({% link _docs_integrate/data-model-overview.md %}#message) must either be a [Mail]({% link _docs_integrate/data-model-overview.md %}#mail), a [Request]({% link _docs_integrate/data-model-overview.md %}#request), a [ResponseWrapper]({% link _docs_integrate/data-model-overview.md %}#responsewrapper), a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification) or an [ArbitraryMessageContent]({% link _docs_integrate/data-model-overview.md %}#arbitrarymessagecontent).
 
-The `content` of a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) must either be a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationcontent) or an [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent).
+- The `content` of a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) must either be a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) or an [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent).
 
-The `creationContent` of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) must either be a [RelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationcontent) or an [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent).
+- The `creationContent` of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) must either be a [RelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationcontent) or an [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent).
 
-Those new wrappers all have the type
+These new wrappers are all of the following form, whereby the `<...>` notation indicates a placeholder for one of the transport types Message, RelationshipTemplate or Relationship:
 
 ```jsonc
 {
@@ -118,34 +118,32 @@ Those new wrappers all have the type
 }
 ```
 
-Thus, when sending a Message with non-standard content via `POST /api/v2/Messages`, instead of sending the parameter `content : <arbitrary-content>`, you send
+Thus, when [sending a Message]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) with non-standard `content` via `POST /api/v2/Messages`, instead of using the parameter `content : <arbitrary content of Message>`, it must be used:
 
 ```jsonc
 content: {
   "@type": "ArbitraryMessageContent",
-  "value": <arbitrary-content>
+  "value": <arbitrary content of Message>
 }
 ```
 
-Similarly, when creating a RelationshipTemplate with non-standard content via `POST /api/v2/RelationshipTemplates/Own`, you send the parameter
+Similarly, when [creating an own RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-own-relationshiptemplate.md %}) with non-standard `content` via `POST /api/v2/RelationshipTemplates/Own`, it must be used the parameter:
 
 ```jsonc
 content: {
   "@type": "ArbitraryRelationshipTemplateContent",
-  "value": <arbitrary-content>
+  "value": <arbitrary content of RelationshipTemplate>
 }
 ```
 
-and the parameter
+Last but not least, when [creating a Relationship]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) with non-standard `creationContent` via `POST /api/v2/Relationships`, it must be used:
 
 ```jsonc
 creationContent: {
   "@type": "ArbitraryRelationshipCreationContent",
-  "value": <arbitrary-content>
+  "value": <arbitrary content for creation of Relationship>
 }
 ```
-
-for creating a Relationship via `POST /api/v2/Relationships`.
 
 When reading the value from the RelationshipTemplate resp. Message, the relevant property is thus changed from `content` to `content.value`.
 
