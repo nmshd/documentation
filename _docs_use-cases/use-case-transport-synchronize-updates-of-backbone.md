@@ -43,11 +43,11 @@ api_route_regex: ^POST /api/v2/Account/Sync$
 {% include properties_list.html %}
 
 Be advised that calling this use case to sync the Identity/Device on a regular basis is discouraged.
-Please configure the [Server-sent Events Module]({% link _docs_operate/modules.md %}#sse) or [SyncModule]({% link _docs_operate/modules.md %}#sync) to automate the synchronization.
+Please configure the [Server-Sent Events Module]({% link _docs_operate/modules.md %}#sse) or [Sync Module]({% link _docs_operate/modules.md %}#sync) to automate the synchronization.
 {: .notice--warning}
 
 This use case retrieves all relevant data changes between the current Identity (and Device) and the Backbone since the last synchronization. The relevant data so far are new Messages, new/changed Relationships and new/changed IdentityDeletionProcesses.
 
 ## On Success
 
-No content.
+- Relevant data changes are received internally, but no response body associated with the data changes is returned.

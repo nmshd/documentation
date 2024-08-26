@@ -90,9 +90,9 @@ For this, the Connector supports the configuration of webhooks which are called 
 
 Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The `sync` Module automates this, but you can also do this manually by calling the `/api/v2/Account/Sync` route.
 
-### sse (server sent events) <a href="{% link _docs_operate/configuration.md %}#sse"><i class="fas fa-fw fa-cog"/></a> {#sse}
+### sse (Server-Sent Events) <a href="{% link _docs_operate/configuration.md %}#sse"><i class="fas fa-fw fa-cog"/></a> {#sse}
 
-The sse Module allows the Connector to receive events from the Backbone without exposing the Connector to the Internet.
+The `sse` Module allows the Connector to receive events from the Backbone without exposing the Connector to the Internet.
 The Connector reacts to these events and ensures automatic synchronization.
 
 ### Requesting Modules
