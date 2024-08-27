@@ -273,7 +273,7 @@ In order to fetch the Message, we need to synchronize the Connector with the Bac
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
-After syncing, all Messages can be displayed with the `GET /api/v2/Messages` route. Additionally, the [Event]({% link _docs_integrate/connector-events.md %}) "transport.messageReceived" is triggered after a message is received. If you use the [Message Broker Publisher]({% link _docs_operate/modules.md %}#messagebrokerpublisher) module or the [Webhooks]({% link _docs_operate/modules.md %}#webhooks) module to subscribe to this event, you will receive the information whenever a new message arrives.
+After syncing, all Messages can be displayed with the `GET /api/v2/Messages` route. Additionally, the [Event]({% link _docs_integrate/connector-events.md %}) `transport.messageReceived` is triggered after a Message is received. If you use the [Message Broker Publisher Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher) or the [Webhooks Module]({% link _docs_operate/modules.md %}#webhooks) to subscribe to this event, you will receive the information whenever a new Message arrives.
 
 {% include rapidoc api_route_regex="^get /api/v2/Messages$" %}
 

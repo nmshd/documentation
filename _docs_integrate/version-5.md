@@ -121,16 +121,16 @@ These new wrappers are all of the following form, whereby the `<...>` notation i
 Thus, when [sending a Message]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) with non-standard `content` via `POST /api/v2/Messages`, instead of using the parameter `content : <arbitrary content of Message>`, it must be used:
 
 ```jsonc
-content: {
+"content": {
   "@type": "ArbitraryMessageContent",
   "value": <arbitrary content of Message>
 }
 ```
 
-Similarly, when [creating an own RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-own-relationshiptemplate.md %}) with non-standard `content` via `POST /api/v2/RelationshipTemplates/Own`, it must be used the parameter:
+Similarly, when [creating an own RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-own-relationshiptemplate.md %}) with non-standard `content` via `POST /api/v2/RelationshipTemplates/Own`, it must be used:
 
 ```jsonc
-content: {
+"content": {
   "@type": "ArbitraryRelationshipTemplateContent",
   "value": <arbitrary content of RelationshipTemplate>
 }
@@ -139,17 +139,18 @@ content: {
 Last but not least, when [creating a Relationship]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) with non-standard `creationContent` via `POST /api/v2/Relationships`, it must be used:
 
 ```jsonc
-creationContent: {
+"creationContent": {
   "@type": "ArbitraryRelationshipCreationContent",
   "value": <arbitrary content for creation of Relationship>
 }
 ```
 
-When reading the value from the RelationshipTemplate resp. Message, the relevant property is thus changed from `content` to `content.value`.
+When reading the value from a Message or a RelationshipTemplate with non-standard `content`, the relevant property is thus changed from `content` to `content.value`.
+Similarly, when reading the value of a Relationship with non-standard `creationContent`, attention must be paid to the `creationContent.value` property.
 
-## Backbone-Sync returns 204 (No content)
+## Synchronization with Backbone returns no content anymore
 
-Previously, the Backbone-Sync (via the route POST `Account/Sync`) returned a list of Relationships and Messages with the HTTP code 201. This has been changed to the sync returning nothing with the HTTP code 204. This removes the support for the workflow of regularly calling the sync and checking the response since unexpected response values happen if syncs are executed from different spots. We recommend working event-based with the [Message Broker Publisher-Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher), which sends events to a message broker you have set up. We send a variety of events like `incomingRequestReceived`, `incomingRequestStatusChanged`, each of them containing the relevant changed object. See [Connector Events] for the full list. Slightly related, we also recommend using the recently published [Server-Sent Events Module]({% link _docs_operate/modules.md %}#sse), which listens to events emitted from the Backbone and syncs with the Backbone when an event is received.
+Previously, the [synchronization with the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) via the route `POST /api/v2/Account/Sync` returned a list of Relationships and Messages with the HTTP code 201. This has been changed to the sync returning nothing with the HTTP code 204. This removes the support for the workflow of regularly calling the sync and checking the response since unexpected response values happen if syncs are executed from different spots. We recommend working event-based with the [Message Broker Publisher Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher), which sends events to a message broker you have set up. We send a variety of events like `consumption.incomingRequestReceived` or `consumption.incomingRequestStatusChanged`, each of them containing the relevant changed object. See [Connector Events]({% link _docs_integrate/connector-events.md %}) for the full list. Slightly related, we also recommend using the recently published [Server-Sent Events Module]({% link _docs_operate/modules.md %}#sse), which listens to events emitted from the Backbone and syncs with the Backbone when an event is received.
 
 ## Changed and deleted error codes
 
