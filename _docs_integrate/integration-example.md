@@ -103,7 +103,7 @@ Let's assume the Connector needs to know the given name and surname of its conta
             "mustBeAccepted": true,
             "attribute": {
               "@type": "IdentityAttribute",
-              "owner": "<the owner of the Attribute created above>",
+              "owner": "<the owner property of the Attribute created above>",
               "value": {
                 "@type": "DisplayName",
                 "value": "Demo Connector of integration example"
@@ -273,7 +273,7 @@ In order to fetch the Message, we need to synchronize the Connector with the Bac
 
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
-After syncing, all Messages can be displayed with the `GET /api/v2/Messages` route.
+After syncing, all Messages can be displayed with the `GET /api/v2/Messages` route. Additionally, the [Event]({% link _docs_integrate/connector-events.md %}) "transport.messageReceived" is triggered after a message is received. If you use the [Message Broker Publisher]({% link _docs_operate/modules.md %}#messagebrokerpublisher) module or the [Webhooks]({% link _docs_operate/modules.md %}#webhooks) module to subscribe to this event, you will receive the information whenever a new message arrives.
 
 {% include rapidoc api_route_regex="^get /api/v2/Messages$" %}
 
