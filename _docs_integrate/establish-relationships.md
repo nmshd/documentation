@@ -39,13 +39,13 @@ To create a RelationshipTemplate on the Templator, you need to follow the instru
   "maxNumberOfAllocations": <maximum number of allocations>,
   "expiresAt": "<expiration date of RelationshipTemplate>",
   "content": {
-    // Content of RelationshipTemplate
+    // RelationshipTemplateContent or ArbitraryRelationshipTemplateContent
     ...
   }
 }
 ```
 
-You need to replace the placeholders marked with `<...>` appropriately as usual. The `maxNumberOfAllocations` property is optional, so you can omit it. If you need help filling the `content` property or the `maxNumberOfAllocations` property with appropriate values, see the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) description in the Data Model Overview. It is important to note that if you intend to use the RelationshipTemplate to establish a Relationship between the Templator and an App user, you must use a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) as the value of the `content` property. In this case, the input must be as follows:
+You need to replace the placeholders marked with `<...>` appropriately as usual. The `maxNumberOfAllocations` property is optional, so you can omit it. If you need help filling the `content` property or the `maxNumberOfAllocations` property with appropriate values, see the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) description in the Data Model Overview. It is important to note that if you intend to use the RelationshipTemplate to establish a Relationship between the Templator and an App user, you must use a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) as the value of the `content` property. The input must then be as follows:
 
 ```jsonc
 {
@@ -72,6 +72,8 @@ The properties `content.title`, `content.metadata` and `content.onExistingRelati
 
 How to send a Request via a RelationshipTemplate is explained in detail in the [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) guide.
 {: .notice--info}
+
+If the RelationshipTemplate is intended to establish a Relationship between the Templator and another Connector, an [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent) can be used instead of a RelationshipTemplateContent as the value of the [RelationshipTemplate's]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) `content`. An ArbitraryRelationshipTemplateContent has a single `value` property with no type restriction and is appropriate if the standard way is insufficient.
 
 ### Successfully created RelationshipTemplate
 
@@ -137,21 +139,21 @@ It is not necessary, but you can query this Relationship by proceeding as descri
 Note that it is of course also possible to reject the incoming Request, if the Requestor does not wish to establish an active Relationship to the Templator under the given conditions. In order to do this, make use of the documentation of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case. More detailed information about how to [reject]({% link _docs_integrate/requests-via-relationshiptemplates.md %}#reject) as well as how to [accept]({% link _docs_integrate/requests-via-relationshiptemplates.md %}#accept) an incoming Request can also be found in the [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) guide.
 {: .notice--info}
 
-#### RelationshipTemplate without RelationshipTemplateContent
+#### RelationshipTemplate with ArbitraryRelationshipTemplateContent
 
-We now consider the situation in which the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) loaded onto the Requestor does not contain a RelationshipTemplateContent in its `content` property. In this case, the Requestor does not receive an incoming Request. Nevertheless, it can initiate a Relationship with the Templator by explicitly creating a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` based on the RelationshipTemplate. To do this, follow the instructions of the [Create Relationship with RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) use case and provide as input:
+We now consider the situation in which the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) loaded onto the Requestor contains an [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent) in its `content` property instead of a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent). In this case, the Requestor does not receive an incoming Request. Nevertheless, it can initiate a Relationship with the Templator by explicitly creating a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` based on the RelationshipTemplate. To do this, follow the instructions of the [Create Relationship with RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) use case, use an [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent) as `creationContent` and provide as input:
 
 ```jsonc
 {
   "templateId": "<ID of RelationshipTemplate>",
   "creationContent": {
-    // Customized content
+    // ArbitraryRelationshipCreationContent
     ...
   }
 }
 ```
 
-In case of success, the `transport.relationshipChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) will be triggered and you will receive a `result` as response, which contains the created data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship). The `creationContent` is contained within the `creationContent` property of the Relationship.
+In case of success, the `transport.relationshipChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) will be triggered and you will receive a `result` as response, which contains the created data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship). The specified ArbitraryRelationshipCreationContent is contained within the `creationContent` property of the Relationship.
 
 Saving the `id` of the Relationship is useful if you want to return to the created Relationship later in order to retrace changes to the Relationship.
 {: .notice--info}

@@ -62,7 +62,7 @@ The Relationship (which is returned by various Connector routes and events) is h
 | oldStatus?      | `"Pending"` \| `"Active"` \| `"Rejected"` \| `"Revoked"` \| `"DeletionProposed"`                                                                                                                                                                                    | The `status` the Relationship had before.                                                                                         | `"DeletionProposed"` has been added because of the RelationshipTermination and therefore the oldStatus can have also other values than only `"Pending"` like before.                                                                          |
 | newStatus       | `"Pending"` \| `"Active"` \| `"Rejected"` \| `"Revoked"` \|`"Terminated"` \| `"DeletionProposed"`                                                                                                                                                                   | The `status` the Relationship has now.                                                                                            | `"Terminated"` and `"DeletionProposed"` has been added because of the RelationshipTermination.                                                                                                                                                |
 
-E. g. the first `auditLogEntry` has the reason `Creation`, no `oldStatus` and `newStatus` `"Pending"` and is created by the one who created the Relationship.
+E.g. the first `auditLogEntry` has the reason `Creation`, no `oldStatus` and `newStatus` `"Pending"` and is created by the one who created the Relationship.
 
 ## Validation of [Requests]({% link _docs_integrate/request-and-response-introduction.md %}#requests)
 
@@ -98,6 +98,59 @@ In addition, in contrast to the RequestItems, a RequestItemGroup did not have to
 
 The `mustBeAccepted` property of the RequestItems will be kept.
 {: .notice--info}
+
+## New mandatory wrappers for non-standard content of Messages, RelationshipTemplates and Relationships
+
+New wrapping types have been introduced for sending arbitrary content that does not fit the standard content types of enmeshed, the [ArbitraryMessageContent]({% link _docs_integrate/data-model-overview.md %}#arbitrarymessagecontent) for [Messages]({% link _docs_integrate/data-model-overview.md %}#message) with non-standard `content`, the [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent) for [RelationshipTemplates]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) with non-standard `content` and the [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent) for [Relationships]({% link _docs_integrate/data-model-overview.md %}#relationship) with non-standard `creationContent`. Please note that the `creationContent` of the Relationship itself is newly introduced in the section about the [Removal of RelationshipChanges](#removal-of-relationshipchanges).
+
+- The `content` of a [Message]({% link _docs_integrate/data-model-overview.md %}#message) must either be a [Mail]({% link _docs_integrate/data-model-overview.md %}#mail), a [Request]({% link _docs_integrate/data-model-overview.md %}#request), a [ResponseWrapper]({% link _docs_integrate/data-model-overview.md %}#responsewrapper), a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification) or an [ArbitraryMessageContent]({% link _docs_integrate/data-model-overview.md %}#arbitrarymessagecontent).
+
+- The `content` of a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) must either be a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) or an [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent).
+
+- The `creationContent` of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) must either be a [RelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationcontent) or an [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent).
+
+These new wrappers are all of the following form, whereby the `<...>` notation indicates a placeholder for one of the transport types Message, RelationshipTemplate or Relationship:
+
+```jsonc
+{
+  "@type": "Arbitrary<...>Content",
+  "value": any,
+}
+```
+
+Thus, when [sending a Message]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) with non-standard `content` via `POST /api/v2/Messages`, instead of using the parameter `content : <arbitrary content of Message>`, it must be used:
+
+```jsonc
+"content": {
+  "@type": "ArbitraryMessageContent",
+  "value": <arbitrary content of Message>
+}
+```
+
+Similarly, when [creating an own RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-own-relationshiptemplate.md %}) with non-standard `content` via `POST /api/v2/RelationshipTemplates/Own`, it must be used:
+
+```jsonc
+"content": {
+  "@type": "ArbitraryRelationshipTemplateContent",
+  "value": <arbitrary content of RelationshipTemplate>
+}
+```
+
+Last but not least, when [creating a Relationship]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) with non-standard `creationContent` via `POST /api/v2/Relationships`, it must be used:
+
+```jsonc
+"creationContent": {
+  "@type": "ArbitraryRelationshipCreationContent",
+  "value": <arbitrary content for creation of Relationship>
+}
+```
+
+When reading the value from a Message or a RelationshipTemplate with non-standard `content`, the relevant property is thus changed from `content` to `content.value`.
+Similarly, when reading the value of a Relationship with non-standard `creationContent`, attention must be paid to the `creationContent.value` property.
+
+## Synchronization with Backbone returns no content anymore
+
+Previously, the [synchronization with the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) via the route `POST /api/v2/Account/Sync` returned a list of Relationships and Messages with the HTTP code 201. This has been changed to the sync returning nothing with the HTTP code 204. This removes the support for the workflow of regularly calling the sync and checking the response since unexpected response values happen if syncs are executed from different spots. We recommend working event-based with the [Message Broker Publisher Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher), which sends events to a message broker you have set up. We send a variety of events like `consumption.incomingRequestReceived` or `consumption.incomingRequestStatusChanged`, each of them containing the relevant changed object. See [Connector Events]({% link _docs_integrate/connector-events.md %}) for the full list. Slightly related, we also recommend using the recently published [Server-Sent Events Module]({% link _docs_operate/modules.md %}#sse), which listens to events emitted from the Backbone and syncs with the Backbone when an event is received.
 
 ## Changed and deleted error codes
 
