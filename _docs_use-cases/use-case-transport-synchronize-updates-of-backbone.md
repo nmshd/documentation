@@ -50,4 +50,5 @@ This use case retrieves all relevant data changes between the current Identity (
 For example, this also includes the receipt of new reactivation requests of terminated Relationships and new responses to those requests, even if they do not change the `status` of the Relationship.
 
 ## On Success
+
 - Relevant data changes are received internally, but no response body associated with the data changes is returned.
