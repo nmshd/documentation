@@ -780,7 +780,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create Relationship with RelationshipTemplate",
-        "excerpt":"This use case intends to create a Relationship based on a received RelationshipTemplate. Parameters templateId references the RelationshipTemplate that was received from a party. creationContent can be used as a response with arbitrary data to the peer. This response is usually related to the data received by the RelationshipTemplate, e.g....","categories": [],
+        "excerpt":"This use case intends to create a Relationship based on a received RelationshipTemplate where its content is an ArbitraryRelationshipTemplateContent. The Relationship will be established with the RelationshipTemplate&#8217;s creator. For information on how to establish a Relationship based on a RelationshipTemplate with RelationshipTemplateContent, refer to the corresponding scenario documentation. Parameters templateId...","categories": [],
         "tags": [],
         "url": "/versions/v5/use-case-transport-create-relationship-with-relationshiptemplate",
         "teaser": null
@@ -1032,7 +1032,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Synchronize updates of Backbone",
-        "excerpt":"Be advised that calling this use case to sync the Identity/Device on a regular basis is discouraged, as it could lead to wrong return values if multiple endpoints trigger this use case. Please configure the SyncModule and use eventing instead. This use case retrieves all relevant data changes between the...","categories": [],
+        "excerpt":"Be advised that calling this use case to sync the Identity/Device on a regular basis is discouraged. Please configure the Server-Sent Events Module or Sync Module to automate the synchronization. This use case retrieves all relevant data changes between the current Identity (and Device) and the Backbone since the last...","categories": [],
         "tags": [],
         "url": "/versions/v5/use-case-transport-synchronize-updates-of-backbone",
         "teaser": null
