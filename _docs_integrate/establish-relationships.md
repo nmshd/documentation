@@ -192,4 +192,4 @@ Assuming the Requestor is a Connector, it must [synchronize the updates of the B
 
 ## What's next?
 
-After an active Relationship between the two Identities is established, they are able to share information with each other. For example, they can exchange Messages. A possible scenario that demonstrates how a Connector can send a Message to another Identity with which it has an active Relationship is described in the [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) scenario documentation.
+After an active Relationship between the two Identities is established, they are able to share information with each other. For example, they can exchange Messages. A possible scenario that demonstrates how a Connector can send a Message to another Identity with which it has an active Relationship is described in the [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) scenario documentation. It is also possible for both Identities involved in the Relationship to [terminate the Relationship]({% link _docs_integrate/terminate-relationships.md %}) as soon as it is no longer wanted.

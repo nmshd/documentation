@@ -23,7 +23,7 @@ required_by:
 
 You can terminate an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) to another Identity. Then communication is blocked for both sides, but no data is deleted. Either side can only request the reactivation of the Relationship, accepting the reactivation returns the Relationship to an active state.
 
-You can decompose a terminated Relationship to delete the Relationship and all data transmitted during the Relationship from the App/Connector. Then reactivating the Relationship is impossible - getting to an active Relationship again will have to start from scratch.
+You can decompose a terminated Relationship to delete the Relationship and all data transmitted during the Relationship from the App/Connector. Then reactivating the Relationship is impossible - [getting to an active Relationship again]({% link _docs_integrate/establish-relationships.md %}) will have to start from scratch.
 
 ## Terminate an active Relationship
 
