@@ -42,7 +42,7 @@ api_route_regex: ^PUT /api/v2/Relationships/{id}/Terminate$
 
 {% include properties_list.html %}
 
-Terminates the active Relationship [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+Terminates the active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 
 ## Parameters
 

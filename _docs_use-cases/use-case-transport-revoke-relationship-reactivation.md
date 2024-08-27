@@ -51,7 +51,7 @@ Revokes the reactivation of the terminated [Relationship]({% link _docs_integrat
 ## On Success
 
 - Revokes the reactivation of the Relationship you have requested
-- Returns the Relationship the reactivation was revoked of
+- Returns the Relationship for which the reactivation was revoked
 
 ## On Failure
 

@@ -51,7 +51,7 @@ Rejects the reactivation of the terminated [Relationship]({% link _docs_integrat
 ## On Success
 
 - Rejects the reactivation of the Relationship requested by the peer
-- Returns the Relationship the reactivation was rejected of
+- Returns the Relationship for which the reactivation was rejected
 
 ## On Failure
 

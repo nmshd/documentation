@@ -50,8 +50,8 @@ Requests the reactivation of the terminated [Relationship]({% link _docs_integra
 
 ## On Success
 
-- Requests the reactivation of the relationship from the peer
-- Returns the Relationship the reactivation was requested of
+- Requests the reactivation of the Relationship from the peer
+- Returns the Relationship for which the reactivation was requested
 
 ## On Failure
 
