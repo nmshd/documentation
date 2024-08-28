@@ -54,4 +54,4 @@ Decomposes the terminated [Relationship]({% link _docs_integrate/data-model-over
 
 ## On Failure
 
-- The `relationshipId` does not resolve to a terminated Relationship
+- The `relationshipId` does not resolve to a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Terminated"` or `"DeletionProposed"` as `status`
