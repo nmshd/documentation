@@ -222,14 +222,12 @@ With Version 5 the Use Case RevokeRelationship has been added. So now it is poss
 The [removal of RelationshipChanges](#removal-of-relationshipchanges) is the reason why the following Use Cases are removed:
 
 - AcceptRelationshipChange
-- RevokeRelationshipChange
 - RejectRelationshipChange
 
 Therefore now there are the following new Use Cases:
 
 - AcceptRelationship: Accepts the Pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 - RejectRelationship: Rejects the Pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
-- RevokeRelationship: Revokes the Pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 
 #### RelationshipTermination
 
