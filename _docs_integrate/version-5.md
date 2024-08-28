@@ -21,6 +21,16 @@ required_by:
 # End automatic generation
 ---
 
+The [Runtime](https://github.com/nmshd/runtime) of enmeshed has recently been updated from version 4 to version 5, which also resulted in some breaking changes. To support existing systems when migrating to the new version, the breaking changes made are listed and explained below. The [step-by-step instructions]({% link _docs_integrate/version-5.md %}#step-by-step-instructions) can be consulted to start the migration directly. More detailed explanations can be found in the following sections.
+
+## Step-by-Step Instructions
+
+- ...
+- ...
+- ...
+- ...
+- ...
+
 ## DIDs as addresses
 
 The address format changed from `<3-character realm><32 or 33-character base58-string>` to `did:e:<backbone-hostname>:dids:<22-character lowercase hex string>`.
