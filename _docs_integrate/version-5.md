@@ -36,7 +36,7 @@ More [detailed explanations]({% link _docs_integrate/version-5.md %}#detailed-ex
 - ...
 - ...
 - Some changes must be made to the [configuration]({% link _docs_operate/configuration.md %}) of the Connector.
-  - The AutoAcceptRelationshipCreationChangesModule must be renamed to the [AutoAcceptPendingRelationshipsModule]({% link _docs_operate/configuration.md %}#autoacceptpendingrelationships), because the [RelationshipChanges have been removed]({% link _docs_integrate/version-5.md %}#removal-of-relationshipchanges).
+  - The AutoAcceptRelationshipCreationChangesModule must be renamed to the [AutoAcceptPendingRelationshipsModule]({% link _docs_operate/configuration.md %}#autoacceptpendingrelationships), because the [RelationshipChanges have been removed]({% link _docs_integrate/version-5.md %}#removal-of-relationshipchanges). In addition, the `responseContent` property of the Module must be removed in its configuration.
   - The WebhooksV2Module must be renamed to the [WebhooksModule]({% link _docs_operate/configuration.md %}#webhooks).
 
 ## Detailed Explanations
@@ -246,5 +246,5 @@ An overview of the [Connector events]({% link _docs_integrate/connector-events.m
 
 Some [Modules]({% link _docs_operate/modules.md %}) of the Connector have been renamed.
 
-- The AutoAcceptRelationshipCreationChangesModule has been renamed to the [AutoAcceptPendingRelationshipsModule]({% link _docs_operate/modules.md %}#autoacceptpendingrelationships), because the [RelationshipChanges have been removed]({% link _docs_integrate/version-5.md %}#removal-of-relationshipchanges).
+- The AutoAcceptRelationshipCreationChangesModule has been renamed to the [AutoAcceptPendingRelationshipsModule]({% link _docs_operate/modules.md %}#autoacceptpendingrelationships), because the [RelationshipChanges have been removed]({% link _docs_integrate/version-5.md %}#removal-of-relationshipchanges). In addition, the Module no longer has a `creationContent` property in its [configuration]({% link _docs_operate/configuration.md %}#autoacceptpendingrelationships).
 - The WebhooksV2Module has been renamed to the [WebhooksModule]({% link _docs_operate/modules.md %}#webhooks).
