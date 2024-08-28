@@ -269,6 +269,12 @@ var store = [{
         "url": "/versions/v5/integrate/support",
         "teaser": null
       },{
+        "title": "Terminate Relationships",
+        "excerpt":"In order for two Identities to communicate with each other and exchange data, they must establish a Relationship between them. If an active Relationship to another Identity is no longer wanted, it can be terminated. Terminating an active Relationship initially blocks regular communication for both Identities, but does not yet...","categories": [],
+        "tags": [],
+        "url": "/versions/v5/integrate/terminate-relationships",
+        "teaser": null
+      },{
         "title": "Update Attributes by succession",
         "excerpt":"The way enmeshed handles updates to your personal data is by succeeding old Attributes with new ones. Instead of simply replacing old data, a completely new Attribute is created which succeeds its predecessor. Thus, you and your peers are provided with a coherent history of all past versions. How the...","categories": [],
         "tags": [],
@@ -738,7 +744,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Accept Relationship reactivation",
-        "excerpt":" ","categories": [],
+        "excerpt":"Accepts the reactivation of the terminated Relationship with the given Relationship&#8217;s id. Parameters relationshipId, the id of the Relationship On Success Accepts the reactivation of the Relationship requested by the peer Returns the reactivated Relationship On Failure The relationshipId does not resolve to a terminated Relationship The peer has not...","categories": [],
         "tags": [],
         "url": "/versions/v5/use-case-transport-accept-relationship-reactivation",
         "teaser": null
@@ -804,7 +810,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Decompose Relationship",
-        "excerpt":" ","categories": [],
+        "excerpt":"   Decomposes the terminated Relationship with the given Relationship&#8217;s id.   Parameters      relationshipId, the id of the Relationship   On Success      Deletes the Relationship and data transmitted during it from the Connector   On Failure      The relationshipId does not resolve to a Relationship with \"Terminated\" or \"DeletionProposed\" as status  ","categories": [],
         "tags": [],
         "url": "/versions/v5/use-case-transport-decompose-relationship",
         "teaser": null
@@ -996,7 +1002,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Reject Relationship reactivation",
-        "excerpt":" ","categories": [],
+        "excerpt":"Rejects the reactivation of the terminated Relationship with the given Relationship&#8217;s id. Parameters relationshipId, the id of the Relationship On Success Rejects the reactivation of the Relationship requested by the peer Returns the Relationship for which the reactivation was rejected On Failure The relationshipId does not resolve to a terminated...","categories": [],
         "tags": [],
         "url": "/versions/v5/use-case-transport-reject-relationship-reactivation",
         "teaser": null
@@ -1008,13 +1014,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Request Relationship reactivation",
-        "excerpt":" ","categories": [],
+        "excerpt":"Requests the reactivation of the terminated Relationship with the given Relationship&#8217;s id. Parameters relationshipId, the id of the Relationship On Success Requests the reactivation of the Relationship from the peer Returns the Relationship for which the reactivation was requested On Failure The relationshipId does not resolve to a terminated Relationship...","categories": [],
         "tags": [],
         "url": "/versions/v5/use-case-transport-request-relationship-reactivation",
         "teaser": null
       },{
         "title": "Revoke Relationship reactivation",
-        "excerpt":" ","categories": [],
+        "excerpt":"Revokes the reactivation of the terminated Relationship with the given Relationship&#8217;s id. Parameters relationshipId, the id of the Relationship On Success Revokes the reactivation of the Relationship you have requested Returns the Relationship for which the reactivation was revoked On Failure The relationshipId does not resolve to a terminated Relationship...","categories": [],
         "tags": [],
         "url": "/versions/v5/use-case-transport-revoke-relationship-reactivation",
         "teaser": null
@@ -1038,7 +1044,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Terminate Relationship",
-        "excerpt":" ","categories": [],
+        "excerpt":"   Terminates the active Relationship with the given Relationship&#8217;s id.   Parameters      relationshipId, the id of the Relationship   On Success      Terminates the active Relationship   Returns the terminated Relationship   On Failure      The relationshipId does not resolve to an active Relationship  ","categories": [],
         "tags": [],
         "url": "/versions/v5/use-case-transport-terminate-relationship",
         "teaser": null

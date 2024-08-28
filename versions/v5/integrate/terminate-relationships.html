@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>FAQ - enmeshed</title>
-<meta name="description" content="Welcome to our FAQ page! Here, you’ll find answers to the most common questions about enmeshed. If you’re looking for quick and straightforward information, you’ve come to the right place.">
+<!-- begin _includes/seo.html --><title>Terminate Relationships - enmeshed</title>
+<meta name="description" content="In order for two Identities to communicate with each other and exchange data, they must establish a Relationship between them. If an active Relationship to another Identity is no longer wanted, it can be terminated.">
 
 
   <meta name="author" content="enmeshed Team">
@@ -23,11 +23,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="FAQ">
-<meta property="og:url" content="/versions/v5/integrate/faq">
+<meta property="og:title" content="Terminate Relationships">
+<meta property="og:url" content="/versions/v5/integrate/terminate-relationships">
 
 
-  <meta property="og:description" content="Welcome to our FAQ page! Here, you’ll find answers to the most common questions about enmeshed. If you’re looking for quick and straightforward information, you’ve come to the right place.">
+  <meta property="og:description" content="In order for two Identities to communicate with each other and exchange data, they must establish a Relationship between them. If an active Relationship to another Identity is no longer wanted, it can be terminated.">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/versions/v5/integrate/faq">
+<link rel="canonical" href="/versions/v5/integrate/terminate-relationships">
 
 
 
@@ -332,7 +332,7 @@
             
               <li><a href="/versions/v5/integrate/error-codes">Error codes</a></li>
             
-              <li><a href="/versions/v5/integrate/faq" class="active">FAQ</a></li>
+              <li><a href="/versions/v5/integrate/faq">FAQ</a></li>
             
               <li><a href="/versions/v5/integrate/support">Support</a></li>
             
@@ -352,8 +352,8 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="FAQ">
-    <meta itemprop="description" content="Welcome to our FAQ page! Here, you’ll find answers to the most common questions about enmeshed. If you’re looking for quick and straightforward information, you’ve come to the right place.">
+    <meta itemprop="headline" content="Terminate Relationships">
+    <meta itemprop="description" content="In order for two Identities to communicate with each other and exchange data, they must establish a Relationship between them. If an active Relationship to another Identity is no longer wanted, it can be terminated.">
     <meta itemprop="datePublished" content="2024-08-28T17:38:40+02:00">
     
 
@@ -361,7 +361,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/versions/v5/integrate/faq" itemprop="url">FAQ
+            <a href="/versions/v5/integrate/terminate-relationships" itemprop="url">Terminate Relationships
 </a>
           </h1>
           
@@ -375,23 +375,51 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#common-questions">Common questions</a><ul><li><a href="#what-is-enmeshed">What is enmeshed?</a></li></ul></li><li><a href="#technical-questions">Technical questions</a><ul><li><a href="#when-i-scan-the-qr-code-why-do-i-get-the-error-errorrelationshiptemplateprocessedmodulerelationshiptemplatenotsupported">When I scan the QR code, why do I get the error “error.relationshipTemplateProcessedModule.relationshipTemplateNotSupported”?</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#terminate-an-active-relationship">Terminate an active Relationship</a></li><li><a href="#reactivate-a-terminated-relationship">Reactivate a terminated Relationship</a></li><li><a href="#decompose-a-relationship">Decompose a Relationship</a></li></ul>
             </nav>
           </aside>
         
-        <p>Welcome to our FAQ page! Here, you’ll find answers to the most common questions about enmeshed. If you’re looking for quick and straightforward information, you’ve come to the right place.</p>
+        <p>In order for two Identities to communicate with each other and exchange data, they must <a href="/versions/v5/integrate/establish-relationships">establish a Relationship</a> between them. If an active <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> to another Identity is no longer wanted, it can be terminated.</p>
 
-<h1 id="common-questions">Common questions</h1>
+<p><a href="/versions/v5/integrate/terminate-relationships#terminate-an-active-relationship">Terminating an active Relationship</a> initially blocks regular communication for both Identities, but does not yet delete any Relationship data.
+The only possible communication between them is to request the <a href="/versions/v5/integrate/terminate-relationships#reactivate-a-terminated-relationship">reactivation of the terminated Relationship</a>, which can be done by both Identities.
+Accepting the reactivation request returns the Relationship to an active status.</p>
 
-<h2 id="what-is-enmeshed">What is enmeshed?</h2>
+<p>An already <a href="/versions/v5/integrate/terminate-relationships#decompose-a-relationship">terminated Relationship can be decomposed</a> to delete the Relationship and all data transmitted during the Relationship from the Connector or the App, respectively.
+It is then no longer possible to reactivate the Relationship.
+<a href="/versions/v5/integrate/establish-relationships">Getting to an active Relationship again</a> means starting from scratch.</p>
 
-<p>A description of enmeshed can be found on the <a href="/versions/v5/#what-is-enmeshed">main page</a>.</p>
+<h2 id="terminate-an-active-relationship">Terminate an active Relationship</h2>
 
-<h1 id="technical-questions">Technical questions</h1>
+<p>Terminate an active Relationship with the use case <a href="/versions/v5/use-case-transport-terminate-relationship">Terminate Relationship</a> with the <code class="language-plaintext highlighter-rouge">relationshipId</code> as input. The <code class="language-plaintext highlighter-rouge">status</code> of the Relationship is changed to <code class="language-plaintext highlighter-rouge">"Terminated"</code>. You receive a <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> <a href="/versions/v5/integrate/connector-events">event</a>, and the peer as well if they use a Connector. Then no Messages can be sent from either side, this includes Requests, Notifications and sharing Attributes. The peer cannot prevent the termination.</p>
 
-<h2 id="when-i-scan-the-qr-code-why-do-i-get-the-error-errorrelationshiptemplateprocessedmodulerelationshiptemplatenotsupported">When I scan the QR code, why do I get the error “error.relationshipTemplateProcessedModule.relationshipTemplateNotSupported”?</h2>
+<h2 id="reactivate-a-terminated-relationship">Reactivate a terminated Relationship</h2>
 
-<p>It seems the wrapper <a href="/versions/v5/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a> around the RequestItems in the RelationshipTemplate is missing. If the RelationshipTemplate is intended for a User of the enmeshed App (which is the primary use-case), the wrapper RelationshipTemplateContent has to be used.</p>
+<p>At any time, you or your peer can request the reactivation of the terminated Relationship with the use case <a href="/versions/v5/use-case-transport-request-relationship-reactivation">Request Relationship reactivation</a>.</p>
+
+<p>If your peer requests the reactivation, you will receive a <code class="language-plaintext highlighter-rouge">transport.relationshipReactivationRequested</code> <a href="/versions/v5/integrate/connector-events">event</a> in addition to a <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> event, which the peer also receives if they use a Connector.
+If you then wish to return the Relationship to an active status, you accept the reactivation with the use case <a href="/versions/v5/use-case-transport-accept-relationship-reactivation">Accept Relationship reactivation</a>.
+If you want to keep the Relationship terminated, you reject the reactivation with the use case <a href="/versions/v5/use-case-transport-reject-relationship-reactivation">Reject Relationship reactivation</a>.</p>
+
+<p>If you have requested the reactivation and changed your mind, you revoke it with the use case <a href="/versions/v5/use-case-transport-revoke-relationship-reactivation">Revoke Relationship reactivation</a>.</p>
+
+<p>Each use case has the <code class="language-plaintext highlighter-rouge">relationshipId</code> as input. Only accepting the reactivation changes the <code class="language-plaintext highlighter-rouge">status</code> of the Relationship, namely from <code class="language-plaintext highlighter-rouge">"Terminated"</code> to <code class="language-plaintext highlighter-rouge">"Active"</code>. Requesting, rejecting or revoking the reactivation don’t change its <code class="language-plaintext highlighter-rouge">status</code>. However, they still are recorded as an <a href="/versions/v5/integrate/data-model-overview#auditlogentry">AuditLogEntry</a> in the <code class="language-plaintext highlighter-rouge">auditLog</code> of the Relationship. Regardless of whether the reactivation is accepted, rejected or revoked, you receive a <code class="language-plaintext highlighter-rouge">transport.relationshipReactivationCompleted</code> <a href="/versions/v5/integrate/connector-events">event</a> in addition to a <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> event and the peer as well if they use a Connector.</p>
+
+<h2 id="decompose-a-relationship">Decompose a Relationship</h2>
+
+<p>Decomposing a Relationship deletes from your Connector</p>
+
+<ul>
+  <li>the Relationship</li>
+  <li>the peer’s RelationshipTemplates</li>
+  <li>the Relationship’s <a href="/versions/v5/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> if it was single use (its <code class="language-plaintext highlighter-rouge">maxNumberOfAllocations</code> is 1) or owned by the peer - for a new Relationship you will have to exchange a RelationshipTemplate again</li>
+  <li>shared <a href="/versions/v5/integrate/data-model-overview#attributes">Attributes</a>, <a href="/versions/v5/integrate/data-model-overview#notification">Notifications</a>, <a href="/versions/v5/integrate/data-model-overview#request">Requests</a> (in each case both sent and received)</li>
+  <li>sent and received <a href="/versions/v5/integrate/data-model-overview#message">Messages</a> with one exception: If you have sent a Message to multiple recipients, the Message is not deleted but the peer’s address is replaced with a pseudonym. The pseudonym is the same for every peer.</li>
+  <li>furthermore, <a href="/versions/v5/integrate/data-model-overview#token">Tokens</a> and <a href="/versions/v5/integrate/data-model-overview#localattributelistener">AttributeListeners</a>.</li>
+</ul>
+
+<p>The use case is <a href="/versions/v5/use-case-transport-decompose-relationship">Decompose Relationship</a>, which takes the <code class="language-plaintext highlighter-rouge">relationshipId</code> as input. For the peer, the Relationship is not deleted, but its <code class="language-plaintext highlighter-rouge">status</code> now is <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code>.
+If the peer uses a Connector, they receive a <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> <a href="/versions/v5/integrate/connector-events">event</a>. You receive a <code class="language-plaintext highlighter-rouge">transport.relationshipDecomposedBySelf</code> event. The peer is expected to follow suit once the shared data is no longer needed. Only after both Identities involved in the Relationship have decomposed it, the Relationship itself and data transmitted during it are deleted from the Backbone. To get to an active Relationship again after one involved Identity has decomposed, the other Identity must decompose as well. After that, the two have to start from scratch to <a href="/versions/v5/integrate/establish-relationships">establish a Relationship</a>, as reactivation of the former Relationship is no longer possible.</p>
 
         
       </section>

@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-08-27T15:37:04+02:00">
+  <meta property="article:published_time" content="2024-08-28T17:38:40+02:00">
 
 
 
@@ -220,6 +220,8 @@
             
               <li><a href="/versions/v5/integrate/exchange-messages">Exchange Messages</a></li>
             
+              <li><a href="/versions/v5/integrate/terminate-relationships">Terminate Relationships</a></li>
+            
           </ul>
           
         </li>
@@ -352,7 +354,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2024-08-27T15:37:04+02:00">
+    <meta itemprop="datePublished" content="2024-08-28T17:38:40+02:00">
     
 
     <div class="page__inner-wrap">
@@ -586,8 +588,8 @@
     </tr>
     <tr>
       <td>status</td>
-      <td><code class="language-plaintext highlighter-rouge">"Pending"</code> | <code class="language-plaintext highlighter-rouge">"Active"</code> | <code class="language-plaintext highlighter-rouge">"Rejected"</code> | <code class="language-plaintext highlighter-rouge">"Revoked"</code></td>
-      <td>The status of this Relationship. <br /><ul><li>Pending: the Relationship was initiated, but not yet accepted the recipient. In this state you cannot send Messages yet.</li><li>Active: this means that the Relationship is active. As long as it is active, both participants can exchange Messages.</li><li>Rejected: the Relationship was rejected by the recipient.</li><li>Revoked: the Relationship was revoked by the sender.</li></ul></td>
+      <td><code class="language-plaintext highlighter-rouge">"Pending"</code> | <code class="language-plaintext highlighter-rouge">"Active"</code> | <code class="language-plaintext highlighter-rouge">"Rejected"</code> | <code class="language-plaintext highlighter-rouge">"Revoked"</code> | <code class="language-plaintext highlighter-rouge">"Terminated"</code> | <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code></td>
+      <td>The status of this Relationship. <br /><ul><li>Pending: the Relationship was created, but not yet accepted by the recipient. In this state you cannot send Messages yet.</li><li>Active: this means that the Relationship is active. As long as it is active, both participants can exchange Messages.</li><li>Rejected: the Relationship was rejected by the recipient.</li><li>Revoked: the Relationship was revoked by the sender.</li><li>Terminated: No Messages can be sent. Either side can request reactivation from the peer.</li><li>Deletion Proposed: Your peer has decomposed the Relationship, i. e. locally deleted the Relationship and data transmitted during it.</li></ul></td>
       <td> </td>
     </tr>
     <tr>
@@ -645,19 +647,19 @@
     </tr>
     <tr>
       <td>reason</td>
-      <td><code class="language-plaintext highlighter-rouge">"Creation"</code> | <code class="language-plaintext highlighter-rouge">"AcceptanceOfCreation"</code> | <code class="language-plaintext highlighter-rouge">"RejectionOfCreation"</code> | <code class="language-plaintext highlighter-rouge">"RevocationOfCreation"</code></td>
-      <td>The type of the Relationship operation. <br /><ul><li>Creation: creation of the pending Relationship.</li><li>AcceptanceOfCreation: acceptance of the pending Relationship.</li><li>RejectionOfCreation: rejection of the pending Relationship.</li><li>RevocationOfCreation: revocation of the pending Relationship.</li></ul></td>
+      <td><code class="language-plaintext highlighter-rouge">"Creation"</code> | <code class="language-plaintext highlighter-rouge">"AcceptanceOfCreation"</code> | <code class="language-plaintext highlighter-rouge">"RejectionOfCreation"</code> | <code class="language-plaintext highlighter-rouge">"RevocationOfCreation"</code> | <code class="language-plaintext highlighter-rouge">"Termination"</code> | <code class="language-plaintext highlighter-rouge">"ReactivationRequested"</code> | <code class="language-plaintext highlighter-rouge">"AcceptanceOfReactivation"</code> | <code class="language-plaintext highlighter-rouge">"RejectionOfReactivation"</code> | <code class="language-plaintext highlighter-rouge">"RevocationOfReactivation"</code> | <code class="language-plaintext highlighter-rouge">"Decomposition"</code></td>
+      <td>The type of the Relationship operation. <br /><ul><li>Creation: creation of the pending Relationship.</li><li>AcceptanceOfCreation: acceptance of the pending Relationship.</li><li>RejectionOfCreation: rejection of the pending Relationship.</li><li>RevocationOfCreation: revocation of the pending Relationship.</li><li>Termination: termination of the active Relationship.</li><li>ReactivationRequested: request for the reactivation of the terminated Relationship.</li><li>AcceptanceOfReactivation: acceptance of the reactivation of the terminated Relationship.</li><li>RejectionOfReactivation: rejection of the reactivation of the terminated Relationship.</li><li>RevocationOfReactivation: revocation of the reactivation of the terminated Relationship.</li><li>Decomposition: decomposition of the terminated Relationship.</li></ul></ul></td>
       <td> </td>
     </tr>
     <tr>
       <td>oldStatus</td>
-      <td><code class="language-plaintext highlighter-rouge">"Pending"</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"Pending"</code> | <code class="language-plaintext highlighter-rouge">"Active"</code> | <code class="language-plaintext highlighter-rouge">"Terminated"</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>The status of the Relationship before the operation, it’s <code class="language-plaintext highlighter-rouge">undefined</code> if the operation is the Relationship’s creation.</td>
       <td> </td>
     </tr>
     <tr>
       <td>newStatus</td>
-      <td><code class="language-plaintext highlighter-rouge">"Pending"</code> | <code class="language-plaintext highlighter-rouge">"Active"</code> | <code class="language-plaintext highlighter-rouge">"Rejected"</code> | <code class="language-plaintext highlighter-rouge">"Revoked"</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"Pending"</code> | <code class="language-plaintext highlighter-rouge">"Active"</code> | <code class="language-plaintext highlighter-rouge">"Rejected"</code> | <code class="language-plaintext highlighter-rouge">"Revoked"</code> | <code class="language-plaintext highlighter-rouge">"Terminated"</code> | <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code></td>
       <td>The status of the Relationship after the operation.</td>
       <td> </td>
     </tr>
@@ -3496,7 +3498,7 @@ For example, an AuthenticationRequestItem can be accepted using the AcceptReques
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-27T15:37:04+02:00">August 27, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-28T17:38:40+02:00">August 28, 2024</time></p>
 
       </footer>
 
