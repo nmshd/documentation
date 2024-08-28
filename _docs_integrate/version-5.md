@@ -213,9 +213,10 @@ This change enables the Sender of the Request to specify more precisely who the 
 
 ### Removed, Changed and Added Use Cases
 
-#### RevokeRelationship
+#### Revocation of Relationships
 
-With Version 5 the Use Case RevokeRelationship has been added. So now it is possible to revoke a RelationshipRequest which is in status `"Pending"` and was created by yourself.
+With version 5 the use case [Revoke Relationship]({% link _docs_use-cases/use-case-transport-revoke-relationship.md %}) has been added.
+It is now possible to revoke a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` if it was created by yourself.
 
 #### Removal of RelationshipChanges
 
