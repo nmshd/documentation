@@ -21,9 +21,10 @@ required_by:
 # End automatic generation
 ---
 
-The [Runtime](https://github.com/nmshd/runtime) of enmeshed has recently been updated from version 4 to version 5, which resulted in some breaking changes.
-Accordingly, a new version of the [Connector](https://github.com/nmshd/connector) has also been released to make the updated Runtime available to Integrators.
-To support existing systems when migrating to the new version, the breaking changes made are listed and explained in this migration guide.
+The [Runtime](https://github.com/nmshd/runtime) of enmeshed has recently been updated from version 4 to version 5.
+Accordingly, a new version of the [Connector](https://github.com/nmshd/connector) has also been released to make the updated Runtime available to Integrators of Connectors.
+The version update has resulted in some breaking changes.
+To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.
 
 ## Step-by-Step Instructions
 
