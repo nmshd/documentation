@@ -42,11 +42,11 @@ api_route_regex: ^DELETE /api/v2/Relationships/{id}$
 
 {% include properties_list.html %}
 
-Decomposes the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+[Decomposes the terminated Relationship]({% link _docs_integrate/terminate-relationships.md %}#decompose-a-relationship) with the given [Relationship's]({% link _docs_integrate/data-model-overview.md %}#relationship) `id`.
 
 ## Parameters
 
-- `relationshipId`, the id of the Relationship
+- `relationshipId`, the `id` of the Relationship
 
 ## On Success
 
