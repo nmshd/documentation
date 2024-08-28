@@ -37,3 +37,24 @@ required_by:
 api_route_regex: ^PUT /api/v2/Relationships/{id}/Reactivate$
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+Requests the [reactivation of the terminated Relationship]({% link _docs_integrate/terminate-relationships.md %}#reactivate-a-terminated-relationship) with the given [Relationship's]({% link _docs_integrate/data-model-overview.md %}#relationship) `id`.
+
+## Parameters
+
+- `relationshipId`, the `id` of the Relationship
+
+## On Success
+
+- Requests the reactivation of the Relationship from the peer
+- Returns the Relationship for which the reactivation was requested
+
+## On Failure
+
+- The `relationshipId` does not resolve to a terminated Relationship
+- You have already requested the reactivation
+- The peer has already requested the reactivation

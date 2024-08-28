@@ -175,9 +175,7 @@ Relationships are usually used as the technical term, whereas contact is used as
 
 ## Relationship Audit Log
 
-<!-- TODO: Update with relationship reactivation -->
-
-Any time either side changes the status of the Relationship, it is recorded in the audit log.
+Any time either side changes the status of the Relationship, it is recorded in the audit log. Reactivation requests of a terminated Relationship and responses to those requests are also recorded.
 The very first recorded operation is the creation of the then pending Relationship, a second operation could be the acceptance resulting in an active Relationship.
 
 ### Relationship Creation Content

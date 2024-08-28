@@ -29,11 +29,29 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - api_route_regex: PUT /api/v2/Relationships/{id}/Decompose
+  - api_route_regex: DELETE /api/v2/Relationships/{id}
   - published: default
   - link: use-case-transport-decompose-relationship
 require:
 required_by:
-api_route_regex: ^PUT /api/v2/Relationships/{id}/Decompose$
+api_route_regex: ^DELETE /api/v2/Relationships/{id}$
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+[Decomposes the terminated Relationship]({% link _docs_integrate/terminate-relationships.md %}#decompose-a-relationship) with the given [Relationship's]({% link _docs_integrate/data-model-overview.md %}#relationship) `id`.
+
+## Parameters
+
+- `relationshipId`, the `id` of the Relationship
+
+## On Success
+
+- Deletes the Relationship and data transmitted during it from the Connector
+
+## On Failure
+
+- The `relationshipId` does not resolve to a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Terminated"` or `"DeletionProposed"` as `status`

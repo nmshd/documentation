@@ -37,3 +37,22 @@ required_by:
 api_route_regex: ^PUT /api/v2/Relationships/{id}/Terminate$
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+[Terminates the active Relationship]({% link _docs_integrate/terminate-relationships.md %}#terminate-an-active-relationship) with the given [Relationship's]({% link _docs_integrate/data-model-overview.md %}#relationship) `id`.
+
+## Parameters
+
+- `relationshipId`, the `id` of the Relationship
+
+## On Success
+
+- Terminates the active Relationship
+- Returns the terminated Relationship
+
+## On Failure
+
+- The `relationshipId` does not resolve to an active Relationship
