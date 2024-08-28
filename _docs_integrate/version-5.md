@@ -21,21 +21,30 @@ required_by:
 # End automatic generation
 ---
 
-The [Runtime](https://github.com/nmshd/runtime) of enmeshed has recently been updated from version 4 to version 5, which also resulted in some breaking changes. To support existing systems when migrating to the new version, the breaking changes made are listed and explained below. The [step-by-step instructions]({% link _docs_integrate/version-5.md %}#step-by-step-instructions) can be consulted to start the migration directly. More detailed explanations can be found in the following sections.
+The [Runtime](https://github.com/nmshd/runtime) of enmeshed has recently been updated from version 4 to version 5, which resulted in some breaking changes.
+Accordingly, a new version of the [Connector](https://github.com/nmshd/connector) has also been released to make the updated Runtime available to Integrators.
+To support existing systems when migrating to the new version, the breaking changes made are listed and explained in this migration guide.
 
 ## Step-by-Step Instructions
 
+The step-by-step instructions can be consulted to start the migration to version 5 directly.
+More [detailed explanations]({% link _docs_integrate/version-5.md %}#detailed-explanations) can be found below.
+
 - ...
 - ...
 - ...
 - ...
 - ...
 
-## DIDs as addresses
+## Detailed Explanations
+
+The aspects to be taken into account when migrating to version 5, which were briefly described in the [step-by-step instructions]({% link _docs_integrate/version-5.md %}#step-by-step-instructions), are explained in more detail in the following.
+
+### DIDs as addresses
 
 The address format changed from `<3-character realm><32 or 33-character base58-string>` to `did:e:<backbone-hostname>:dids:<22-character lowercase hex string>`.
 
-## Removal of RelationshipChanges
+### Removal of RelationshipChanges
 
 RelationshipChanges were removed. The only type of RelationshipChange used before was the CreationChange, its `content` has been moved to a new property of the relationship - the `creationContent`. If this content has been created by responding to a [Request]({% link _docs_integrate/data-model-overview.md %}#request) of a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate), the [content]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) changes as follows: The `<relationshipChange>.request.content` value was of type `RelationshipCreationChangeRequestContent`, the `<relationship>.creationContent` is now of type `RelationshipCreationContent`.
 
@@ -48,7 +57,7 @@ The Connector route for creating the [Relationship]({% link _docs_integrate/data
 
 The Relationship (which is returned by various Connector routes and events) is hence in total changed like this
 
-### Relationship
+#### Relationship
 
 | Name                | Type                                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Changes                                                                                        |
 | ------------------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
@@ -61,7 +70,7 @@ The Relationship (which is returned by various Connector routes and events) is h
 | **creationContent** | `any`                                                                                             | The `creationContent` regarding this Relationship.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | **new**                                                                                        |
 | **auditLog**        | `RelationshipAuditLogEntry[]`                                                                     | The history of changes made to this Relationship.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | **new**                                                                                        |
 
-### RelationshipAuditLogEntry
+#### RelationshipAuditLogEntry
 
 | Name            | Type                                                                                                                                                                                                                                                                | Description                                                                                                                       | Remarks                                                                                                                                                                                                                                       |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -74,25 +83,25 @@ The Relationship (which is returned by various Connector routes and events) is h
 
 E.g. the first `auditLogEntry` has the reason `Creation`, no `oldStatus` and `newStatus` `"Pending"` and is created by the one who created the Relationship.
 
-## Validation of [Requests]({% link _docs_integrate/request-and-response-introduction.md %}#requests)
+### Validation of [Requests]({% link _docs_integrate/request-and-response-introduction.md %}#requests)
 
 Validations have been added when sending [Requests]({% link _docs_integrate/request-and-response-introduction.md %}#requests) and [responding to Requests]({% link _docs_integrate/data-model-overview.md %}#deciderequestitemparameters) to ensure the proper functioning of business processes. However, the added validations can also reduce flexibility in the use of Requests, which is why they could cause previously functioning Request flows to fail. Most affected by the changes are Requests where an [Attribute is shared with a peer]({% link _docs_integrate/share-attributes-with-peer.md %}), an [Attribute is proposed to a peer]({% link _docs_integrate/propose-attributes-to-peer.md %}), an [Attribute is read from a peer]({% link _docs_integrate/read-attributes-from-peer.md %}) or an [Attribute is created for a peer]({% link _docs_integrate/create-attributes-for-peer.md %}). In the case of problems with previously functioning Request flows that now fail, it is recommended that the corresponding documented scenarios be consulted. Descriptive error messages are also thrown to help restore the integrity of Request flows.
 
-### Sending of Requests
+#### Sending of Requests
 
 Even though reference has already been made to the corresponding scenarios in the documentation, a few examples of the added validation for sending Requests are given in the following.
 
 - The new error code `error.consumption.requests.attributeQueryMismatch` has been implemented to mark provided [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) that do not fulfil a certain [AttributeQuery]({% link _docs_integrate/data-model-overview.md %}#attributequeries) accordingly. It is thrown, for example, if the Sender of the Request, which contains a [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) within its `items` property, specifies an `attribute` and a `query` that are incompatible.
 - If the Sender of a Request wants to share an [IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#identityattributes) that is owned by itself with the Recipient of the Request by using a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem), the Sender must specify its associated [RepositoryAttribute]({% link _docs_integrate/attribute-introduction.md %}#repositoryattributes) in the `attribute` property of the ShareAttributeRequestItem. It is no longer permitted to specify shared copies ([own shared IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute)) instead.
 
-### Responding to Requests
+#### Responding to Requests
 
 Even though reference has already been made to the corresponding scenarios in the documentation, a few examples of the added validation for responding to Requests are given following.
 
 - The new error code `error.consumption.requests.attributeQueryMismatch` has been implemented to mark provided [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) that do not fulfil a certain [AttributeQuery]({% link _docs_integrate/data-model-overview.md %}#attributequeries) accordingly. It is thrown, for example, if the Attribute provided by the Recipient of the Request does not match the AttributeQuery specified in the `query` property of a [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem).
 - If the Sender of a Request that contains a ReadAttributeRequestItem whose `query` is a [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) or a [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery), the Recipient of the Request can only validly answer a RelationshipAttributeQuery with a new Attribute, and a ThirdPartyRelationshipAttributeQuery with an existing Attribute. Otherwise, the [error code `error.consumption.requests.invalidAcceptParameters`]({% link _docs_integrate/error-codes.md %}#error.consumption.requests.invalidAcceptParameters) arises.
 
-## Removal of the `mustBeAccepted` property of the RequestItemGroup
+### Removal of the `mustBeAccepted` property of the RequestItemGroup
 
 A [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) still provides a way of grouping the [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) contained in its `items` property in the UI. However, **the `mustBeAccepted` property of the RequestItemGroup has now been removed**, as it had easily misunderstood interactions with the `mustBeAccepted` property of the RequestItems. More precisely, a certain, complicated dependency of the acceptance of the RequestItems contained in its `items` property could be described via the `mustBeAccepted` property of the RequestItemGroup:
 
@@ -109,7 +118,7 @@ In addition, in contrast to the RequestItems, a RequestItemGroup did not have to
 The `mustBeAccepted` property of the RequestItems will be kept.
 {: .notice--info}
 
-## New mandatory wrappers for non-standard content of Messages, RelationshipTemplates and Relationships
+### New mandatory wrappers for non-standard content of Messages, RelationshipTemplates and Relationships
 
 New wrapping types have been introduced for sending arbitrary content that does not fit the standard content types of enmeshed, the [ArbitraryMessageContent]({% link _docs_integrate/data-model-overview.md %}#arbitrarymessagecontent) for [Messages]({% link _docs_integrate/data-model-overview.md %}#message) with non-standard `content`, the [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent) for [RelationshipTemplates]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) with non-standard `content` and the [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent) for [Relationships]({% link _docs_integrate/data-model-overview.md %}#relationship) with non-standard `creationContent`. Please note that the `creationContent` of the Relationship itself is newly introduced in the section about the [Removal of RelationshipChanges](#removal-of-relationshipchanges).
 
@@ -158,11 +167,11 @@ Last but not least, when [creating a Relationship]({% link _docs_use-cases/use-c
 When reading the value from a Message or a RelationshipTemplate with non-standard `content`, the relevant property is thus changed from `content` to `content.value`.
 Similarly, when reading the value of a Relationship with non-standard `creationContent`, attention must be paid to the `creationContent.value` property.
 
-## Synchronization with Backbone returns no content anymore
+### Synchronization with Backbone returns no content anymore
 
 Previously, the [synchronization with the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) via the route `POST /api/v2/Account/Sync` returned a list of Relationships and Messages with the HTTP code 201. This has been changed to the sync returning nothing with the HTTP code 204. This removes the support for the workflow of regularly calling the sync and checking the response since unexpected response values happen if syncs are executed from different spots. We recommend working event-based with the [Message Broker Publisher Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher), which sends events to a message broker you have set up. We send a variety of events like `consumption.incomingRequestReceived` or `consumption.incomingRequestStatusChanged`, each of them containing the relevant changed object. See [Connector Events]({% link _docs_integrate/connector-events.md %}) for the full list. Slightly related, we also recommend using the recently published [Server-Sent Events Module]({% link _docs_operate/modules.md %}#sse), which listens to events emitted from the Backbone and syncs with the Backbone when an event is received.
 
-## Changed and deleted error codes
+### Changed and deleted error codes
 
 - The removal of the `mustBeAccepted` property of the [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) also resulted in error `"error.consumption.requests.decide.validation.itemAcceptedButParentNotAccepted"` was replaced by error `"error.consumption.requests.decide.validation.itemAcceptedButRequestNotAccepted"` and being used slightly differently in future. This is because the word `Parent` contained in the error code could refer to both the [Request]({% link _docs_integrate/request-and-response-introduction.md %}#requests) as a whole and a RequestItemGroup. As RequestItemGroups are now only used for visual structuring in the UI of [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) and no longer have any effect when accepting RequestItems, the word `Parent` can also be replaced by Request.
 - The error `"error.runtime.MultiAccount.WrongRealm"` and `"error.transport.identity.realmLength"` were removed because the address format has been changed and the property `realm` therefore has been removed.
@@ -171,7 +180,7 @@ Previously, the [synchronization with the Backbone]({% link _docs_use-cases/use-
 - `"inheritedFromItem"` was replaced by [`"error.consumption.validation.inheritedFromItem"`]({% link _docs_integrate/error-codes.md %}#error.consumption.validation.inheritedFromItem) for reasons of consistency. Because of the same reason `"error.transport.secrets.wrongBaseKeyType"` was replaced by [`"error.transport.secrets.wrongSecretType"`]({% link _docs_integrate/error-codes.md %}#error.transport.secrets.wrongSecretType). Further the error `"error.runtime.notifications.cannotSaveSendNotificationFromPeerMessage"` was replaced by `"error.runtime.notifications.cannotSaveSentNotificationFromPeerMessage"` because in this case it is about marking a Notification as sent, rather then sending a Notification.
 - `"error.transport.datawallet.encryptedPayloadIsNoCipher"` and `"error.transport.files.fileContentUndefined"` were eliminated, since they aren't used anymore. But also before the migration they haven't been used.
 
-## Changed type of the `owner` property of the ThirdPartyRelationshipAttributeQuery
+### Changed type of the `owner` property of the ThirdPartyRelationshipAttributeQuery
 
 The [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery) is usually used within the `query` property of a [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), which in turn appears in the `items` property of a Request, to query an existing [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), which exists within a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between the Recipient of the Request and a third party, as the Sender of the Request. The `owner` property of the ThirdPartyRelationshipAttributeQuery determines the `owner` of the queried RelationshipAttribute. Previously, it was possible within the `owner` property of the ThirdPartyRelationshipAttributeQuery to specify a concrete address for the `owner` of the queried RelationshipAttribute or an empty string as a placeholder instead.
 
@@ -179,13 +188,13 @@ However, it was not possible, for example, to query a RelationshipAttribute that
 
 This change enables the Sender of the Request to specify more precisely who the `owner` of a RelationshipAttribute should be when querying it and better reflects real application scenarios.
 
-## Changed and added Use Cases
+### Changed and added Use Cases
 
-### RevokeRelationship
+#### RevokeRelationship
 
 With Version 5 the Use Case RevokeRelationship has been added. So now it is possible to revoke a RelationshipRequest which is in status `"Pending"` and was created by yourself.
 
-### Removal of RelationshipChanges
+#### Removal of RelationshipChanges
 
 The [removal of RelationshipChanges](#removal-of-relationshipchanges) is the reason why the following Use Cases are removed:
 
@@ -199,26 +208,26 @@ Therefore now there are the following new Use Cases:
 - RejectRelationship: Rejects the Pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 - RevokeRelationship: Revokes the Pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 
-### RelationshipTermination
+#### RelationshipTermination
 
 - TerminateRelationship: Terminates the active Relationship [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 - DecomposeRelationship: Decomposes the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 
-### RelationshipReactivation
+#### RelationshipReactivation
 
 - RequestRelationshipReactivation: Requests the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 - AcceptRelationshipReactivation: Accepts the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 - RejectRelationshipReactivation: Rejects the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 - RevokeRelationshipReactivation: Revokes the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 
-### Renaming of the Use Case GetSharedVersionsOfRepositoryAttribute to GetSharedVersionsOfAttribute
+#### Renaming of the Use Case GetSharedVersionsOfRepositoryAttribute to GetSharedVersionsOfAttribute
 
 - Taking ThirdPartyRelationshipAttributes into account, we wanted to extend the functionality of this use case for [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
 - The use case GetSharedVersionsOfAttribute was already added in v4 and GetSharedVersionsOfRepositoryAttribute was marked as deprecated. With v5 it is deleted.
 
 An overview of the [Use Cases]({% link _docs_integrate/use-cases.md %}) that may occur is given in the corresponding section.
 
-## Renamed and added Events
+### Renamed and added Events
 
 There are several Events which has been added. For example regarding the RelationshipTermination the following has been added:
 
