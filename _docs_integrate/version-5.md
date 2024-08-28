@@ -215,32 +215,31 @@ This change enables the Sender of the Request to specify more precisely who the 
 
 #### Revocation of Relationships
 
-With version 5 the use case [Revoke Relationship]({% link _docs_use-cases/use-case-transport-revoke-relationship.md %}) has been added.
+The [Revoke Relationship]({% link _docs_use-cases/use-case-transport-revoke-relationship.md %}) use case has been added.
 It is now possible to revoke a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` if it was created by yourself.
 
 #### Removal of RelationshipChanges
 
-The [removal of RelationshipChanges](#removal-of-relationshipchanges) is the reason why the following Use Cases are removed:
+The [removal of RelationshipChanges](#removal-of-relationshipchanges) is the reason why the following use cases are removed:
 
-- AcceptRelationshipChange
-- RejectRelationshipChange
+- Accept RelationshipChange
+- Reject RelationshipChange
 
-Therefore now there are the following new Use Cases:
+Therefore, the following new use cases had to be added, which now provide these functionalities:
 
-- AcceptRelationship: Accepts the Pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
-- RejectRelationship: Rejects the Pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- [Accept Relationship]({% link _docs_use-cases/use-case-transport-accept-relationship.md %})
+- [Reject Relationship]({% link _docs_use-cases/use-case-transport-reject-relationship.md %})
 
-#### RelationshipTermination
+#### Termination of Relationships
 
-- TerminateRelationship: Terminates the active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
-- DecomposeRelationship: Decomposes the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+Based on the restructuring of the Relationship by [removing the RelationshipChanges](#removal-of-relationshipchanges), the new functionality of [terminating Relationships]({% link _docs_integrate/terminate-relationships.md %}) was implemented. In connection with this feature, the following use cases have been added:
 
-#### RelationshipReactivation
-
-- RequestRelationshipReactivation: Requests the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
-- AcceptRelationshipReactivation: Accepts the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
-- RejectRelationshipReactivation: Rejects the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
-- RevokeRelationshipReactivation: Revokes the reactivation of the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- [Terminate Relationship]({% link _docs_use-cases/use-case-transport-terminate-relationship.md %})
+- [Decompose Relationship]({% link _docs_use-cases/use-case-transport-decompose-relationship.md %})
+- [Request Relationship reactivation]({% link _docs_use-cases/use-case-transport-request-relationship-reactivation.md %})
+- [Accept Relationship reactivation]({% link _docs_use-cases/use-case-transport-accept-relationship-reactivation.md %})
+- [Reject Relationship reactivation]({% link _docs_use-cases/use-case-transport-reject-relationship-reactivation.md %})
+- [Revoke Relationship reactivation]({% link _docs_use-cases/use-case-transport-revoke-relationship-reactivation.md %})
 
 #### Renaming of the Use Case GetSharedVersionsOfRepositoryAttribute to GetSharedVersionsOfAttribute
 
