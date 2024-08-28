@@ -31,11 +31,13 @@ To support the migration of existing systems to the new version, the breaking ch
 The step-by-step instructions can be consulted to start the migration to version 5 directly.
 More [detailed explanations]({% link _docs_integrate/version-5.md %}#detailed-explanations) can be found below.
 
+### Connector Setup
+
 - ...
 - ...
-- ...
-- ...
-- ...
+- Some changes must be made to the [configuration]({% link _docs_operate/configuration.md %}) of the Connector.
+  - The AutoAcceptRelationshipCreationChangesModule must be renamed to the [AutoAcceptPendingRelationshipsModule]({% link _docs_operate/configuration.md %}#autoacceptpendingrelationships), because the [RelationshipChanges have been removed]({% link _docs_integrate/version-5.md %}#removal-of-relationshipchanges).
+  - The WebhooksV2Module must be renamed to the [WebhooksModule]({% link _docs_operate/configuration.md %}#webhooks).
 
 ## Detailed Explanations
 
@@ -239,3 +241,10 @@ There are several Events which has been added. For example regarding the Relatio
 The Event `consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted` was renamed to `consumption.outgoingRequestFromRelationshipCreationCreatedAndCompleted` because of the [removal of RelationshipChanges](#removal-of-relationshipchanges).
 
 An overview of the [Connector events]({% link _docs_integrate/connector-events.md %}) that may occur is given in the corresponding section.
+
+### Renamed Modules
+
+Some [Modules]({% link _docs_operate/modules.md %}) of the Connector have been renamed.
+
+- The AutoAcceptRelationshipCreationChangesModule has been renamed to the [AutoAcceptPendingRelationshipsModule]({% link _docs_operate/modules.md %}#autoacceptpendingrelationships), because the [RelationshipChanges have been removed]({% link _docs_integrate/version-5.md %}#removal-of-relationshipchanges).
+- The WebhooksV2Module has been renamed to the [WebhooksModule]({% link _docs_operate/modules.md %}#webhooks).
