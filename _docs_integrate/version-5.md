@@ -44,7 +44,7 @@ More [detailed explanations]({% link _docs_integrate/version-5.md %}#detailed-ex
 
 - The [RelationshipChanges have been removed]({% link _docs_integrate/version-5.md %}#removal-of-relationshipchanges).
   - This has led to the removal of the `changes` property of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) and the addition of the `creationContent` and `auditLog` properties to the Relationship.
-  - In particular, the use cases for accepting and rejecting RelationshipChanges had to be removed. With the use cases [Accept Relationship]({% link _docs_use-cases/use-case-transport-accept-relationship.md %}) and [Reject Relationship]({% link _docs_use-cases/use-case-transport-reject-relationship.md %}), two [new use cases]({% link _docs_integrate/version-5.md %}#removed-changed-and-added-use-cases) have been added that now provide these functionalities.
+  - In particular, the use cases for accepting and rejecting RelationshipChanges had to be removed. With the use cases [Accept Relationship]({% link _docs_use-cases/use-case-transport-accept-relationship.md %}) and [Reject Relationship]({% link _docs_use-cases/use-case-transport-reject-relationship.md %}), two [new use cases]({% link _docs_integrate/version-5.md %}#removal-of-relationshipchanges-1) have been added that now provide these functionalities.
   - For this reason, the route `PUT /api/v2/Relationships/{id}/Accept` must be executed instead of the route `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept` and the route `PUT /api/v2/Relationships/{id}/Reject` must be executed instead of the route `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Reject` when using the Connector.
 - ...
 - ...
@@ -65,7 +65,7 @@ The aspects to be taken into account when migrating to version 5, which were bri
 
 ### DIDs as Addresses
 
-The address format changed from `<3-character realm><32 or 33-character base58-string>` to `did:e:<backbone-hostname>:dids:<22-character lowercase hex string>`.
+The address format changed from `<3-character realm><32- or 33-character base58-string>` to `did:e:<backbone-hostname>:dids:<22-character lowercase hex string>`.
 
 ### Removal of RelationshipChanges
 
@@ -126,7 +126,7 @@ Even though reference has already been made to the corresponding scenarios in th
 
 ### Removal of the `mustBeAccepted` Property of the RequestItemGroup
 
-A [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) still provides a way of grouping the [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) contained in its `items` property in the UI. However, **the `mustBeAccepted` property of the RequestItemGroup has now been removed**, as it had easily misunderstood interactions with the `mustBeAccepted` property of the RequestItems. More precisely, a certain, complicated dependency of the acceptance of the RequestItems contained in its `items` property could be described via the `mustBeAccepted` property of the RequestItemGroup:
+A [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) still provides a way of grouping the [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) contained in its `items` property in the UI. However, the `mustBeAccepted` property of the RequestItemGroup has now been removed, as it had easily misunderstood interactions with the `mustBeAccepted` property of the RequestItems. More precisely, a certain, complicated dependency of the acceptance of the RequestItems contained in its `items` property could be described via the `mustBeAccepted` property of the RequestItemGroup:
 
 - If the value of the `mustBeAccepted` property of the RequestItemGroup was set to `"true"`, all RequestItems contained within its `items` property whose value of their respective `mustBeAccepted` property is `"true"` could be accepted if the entire Request is accepted. Included RequestItems whose value of their respective `mustBeAccepted` property is `"false"` could still be rejected.
 - If the value of the `mustBeAccepted` property of the RequestItemGroup was set to `"false"`, all RequestItems contained in its `items` property could be rejected if the entire Request is accepted. However, if any RequestItem contained was to be accepted, all RequestItems whose `mustBeAccepted` property is `"true"` could also be accepted when the Request is accepted. In this respect, there was a dependency between the individual RequestItems.
@@ -194,7 +194,9 @@ Similarly, when reading the value of a Relationship with non-standard `creationC
 
 Previously, the [synchronization with the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) via the route `POST /api/v2/Account/Sync` returned a list of Relationships and Messages with the HTTP code 201. This has been changed to the sync returning nothing with the HTTP code 204. This removes the support for the workflow of regularly calling the sync and checking the response since unexpected response values happen if syncs are executed from different spots. We recommend working event-based with the [Message Broker Publisher Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher), which sends events to a message broker you have set up. We send a variety of events like `consumption.incomingRequestReceived` or `consumption.incomingRequestStatusChanged`, each of them containing the relevant changed object. See [Connector Events]({% link _docs_integrate/connector-events.md %}) for the full list. Slightly related, we also recommend using the recently published [Server-Sent Events Module]({% link _docs_operate/modules.md %}#sse), which listens to events emitted from the Backbone and syncs with the Backbone when an event is received.
 
-### Changed and Deleted Error Codes
+### Removed and Changed Error Codes
+
+An overview of the [Error codes]({% link _docs_integrate/error-codes.md %}) that may occur is given on the corresponding documentation page. The most important changes regarding the error codes due to the update from version 4 to version 5 are:
 
 - The removal of the `mustBeAccepted` property of the [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) also resulted in error `"error.consumption.requests.decide.validation.itemAcceptedButParentNotAccepted"` was replaced by error `"error.consumption.requests.decide.validation.itemAcceptedButRequestNotAccepted"` and being used slightly differently in future. This is because the word `Parent` contained in the error code could refer to both the [Request]({% link _docs_integrate/request-and-response-introduction.md %}#requests) as a whole and a RequestItemGroup. As RequestItemGroups are now only used for visual structuring in the UI of [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) and no longer have any effect when accepting RequestItems, the word `Parent` can also be replaced by Request.
 - The error `"error.runtime.MultiAccount.WrongRealm"` and `"error.transport.identity.realmLength"` were removed because the address format has been changed and the property `realm` therefore has been removed.
@@ -212,6 +214,8 @@ However, it was not possible, for example, to query a RelationshipAttribute that
 This change enables the Sender of the Request to specify more precisely who the `owner` of a RelationshipAttribute should be when querying it and better reflects real application scenarios.
 
 ### Removed, Changed and Added Use Cases
+
+An overview of the [Use Cases]({% link _docs_integrate/use-cases.md %}) that may occur is given on the corresponding documentation page. The most important changes regarding the use cases due to the update from version 4 to version 5 are summarized in the following subsections.
 
 #### Revocation of Relationships
 
@@ -235,34 +239,38 @@ Therefore, the following new use cases had to be added, which now provide these 
 Based on the restructuring of the Relationship by [removing the RelationshipChanges](#removal-of-relationshipchanges), the new functionality of [terminating Relationships]({% link _docs_integrate/terminate-relationships.md %}) was implemented. In connection with this feature, the following use cases have been added:
 
 - [Terminate Relationship]({% link _docs_use-cases/use-case-transport-terminate-relationship.md %})
-- [Decompose Relationship]({% link _docs_use-cases/use-case-transport-decompose-relationship.md %})
 - [Request Relationship reactivation]({% link _docs_use-cases/use-case-transport-request-relationship-reactivation.md %})
 - [Accept Relationship reactivation]({% link _docs_use-cases/use-case-transport-accept-relationship-reactivation.md %})
 - [Reject Relationship reactivation]({% link _docs_use-cases/use-case-transport-reject-relationship-reactivation.md %})
 - [Revoke Relationship reactivation]({% link _docs_use-cases/use-case-transport-revoke-relationship-reactivation.md %})
+- [Decompose Relationship]({% link _docs_use-cases/use-case-transport-decompose-relationship.md %})
 
 #### Renaming of the Use Case GetSharedVersionsOfRepositoryAttribute to GetSharedVersionsOfAttribute
 
-- Taking ThirdPartyRelationshipAttributes into account, we wanted to extend the functionality of this use case for [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
-- The use case GetSharedVersionsOfAttribute was already added in version 4 and GetSharedVersionsOfRepositoryAttribute was marked as deprecated. With version 5 it is deleted.
+Taking [ThirdPartyRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) into account, we wanted to extend the functionality of the use case of getting shared versions of a [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) to [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
 
-An overview of the [Use Cases]({% link _docs_integrate/use-cases.md %}) that may occur is given in the corresponding section.
+For this reason, the [Get shared versions of an Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) use case was already added in version 4 and the use case of getting shared versions of a RepositoryAttribute was marked as deprecated.
+It has now been deleted with the update to version 5.
 
 ### Renamed and Added Events
 
-There are several Events which has been added. For example regarding the RelationshipTermination the following has been added:
+There are several [Connector events]({% link _docs_integrate/connector-events.md %}) which have been added. Regarding the [termination of Relationships]({% link _docs_integrate/terminate-relationships.md %}), for example, the following have been added:
 
-- `"transport.relationshipDecomposedBySelf"`
-- `"transport.relationshipReactivationCompleted"`
-- `"transport.relationshipReactivationRequested"`
+- `transport.relationshipReactivationRequested`
+- `transport.relationshipReactivationCompleted`
+- `transport.relationshipDecomposedBySelf`
 
-The Event `consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted` was renamed to `consumption.outgoingRequestFromRelationshipCreationCreatedAndCompleted` because of the [removal of RelationshipChanges](#removal-of-relationshipchanges).
+The [event]({% link _docs_integrate/connector-events.md %}) `consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted` was renamed to `consumption.outgoingRequestFromRelationshipCreationCreatedAndCompleted` due to the [removal of RelationshipChanges](#removal-of-relationshipchanges).
 
-An overview of the [Connector events]({% link _docs_integrate/connector-events.md %}) that may occur is given in the corresponding section.
+An overview of the [Connector Events]({% link _docs_integrate/connector-events.md %}) that may occur is given on the corresponding documentation page.
+{: .notice --info}
 
 ### Renamed Modules
 
-Some [Modules]({% link _docs_operate/modules.md %}) of the Connector have been renamed.
+Some [Modules]({% link _docs_operate/modules.md %}) of the Connector have been renamed:
 
 - The AutoAcceptRelationshipCreationChangesModule has been renamed to the [AutoAcceptPendingRelationshipsModule]({% link _docs_operate/modules.md %}#autoacceptpendingrelationships), because the [RelationshipChanges have been removed]({% link _docs_integrate/version-5.md %}#removal-of-relationshipchanges). In addition, the Module no longer has a `creationContent` property in its [configuration]({% link _docs_operate/configuration.md %}#autoacceptpendingrelationships).
 - The WebhooksV2Module has been renamed to the [WebhooksModule]({% link _docs_operate/modules.md %}#webhooks).
+
+An overview of the [Connector Modules]({% link _docs_operate/modules.md %}) that may occur is given on the corresponding documentation page.
+{: .notice --info}
