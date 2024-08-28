@@ -42,7 +42,10 @@ More [detailed explanations]({% link _docs_integrate/version-5.md %}#detailed-ex
 
 ### Removed and Changed Data Structures
 
-- ...
+- The [RelationshipChanges have been removed]({% link _docs_integrate/version-5.md %}#removal-of-relationshipchanges).
+  - This has led to the removal of the `changes` property of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) and the addition of the `creationContent` and `auditLog` properties to the Relationship.
+  - In particular, the use cases for accepting and rejecting RelationshipChanges had to be removed. With the use cases [Accept Relationship]({% link _docs_use-cases/use-case-transport-accept-relationship.md %}) and [Reject Relationship]({% link _docs_use-cases/use-case-transport-reject-relationship.md %}), two [new use cases]({% link _docs_integrate/version-5.md %}#removed-changed-and-added-use-cases) have been added that now provide these functionalities.
+  - For this reason, the route `PUT /api/v2/Relationships/{id}/Accept` must be executed instead of the route `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept` and the route `PUT /api/v2/Relationships/{id}/Reject` must be executed instead of the route `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Reject` when using the Connector.
 - ...
 - ...
 - ...
@@ -208,7 +211,7 @@ However, it was not possible, for example, to query a RelationshipAttribute that
 
 This change enables the Sender of the Request to specify more precisely who the `owner` of a RelationshipAttribute should be when querying it and better reflects real application scenarios.
 
-### Changed and added Use Cases
+### Removed, Changed and Added Use Cases
 
 #### RevokeRelationship
 
