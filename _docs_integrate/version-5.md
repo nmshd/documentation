@@ -232,7 +232,7 @@ Therefore now there are the following new Use Cases:
 
 #### RelationshipTermination
 
-- TerminateRelationship: Terminates the active Relationship [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+- TerminateRelationship: Terminates the active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 - DecomposeRelationship: Decomposes the terminated [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
 
 #### RelationshipReactivation

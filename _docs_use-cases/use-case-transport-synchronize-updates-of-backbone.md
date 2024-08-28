@@ -47,6 +47,7 @@ Please configure the [Server-Sent Events Module]({% link _docs_operate/modules.m
 {: .notice--warning}
 
 This use case retrieves all relevant data changes between the current Identity (and Device) and the Backbone since the last synchronization. The relevant data so far are new Messages, new/changed Relationships and new/changed IdentityDeletionProcesses.
+For example, this also includes the receipt of new reactivation requests of terminated Relationships and new responses to those requests, even if they do not change the `status` of the Relationship.
 
 ## On Success
 
