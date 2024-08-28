@@ -33,7 +33,7 @@ More [detailed explanations]({% link _docs_integrate/version-5.md %}#detailed-ex
 
 ### Connector Setup
 
-- ...
+- The data from the database that was used by the Connector of the former version is outdated. This is because the [format of addresses has changed to DIDs]({% link _docs_integrate/version-5.md %}#dids-as-addresses), for example. For this reason, the old data must be deleted. Alternatively, the database can be deleted as a whole and [set up again]({% link _docs_operate/setup-with-docker-compose.md %}).
 - ...
 - Some changes must be made to the [configuration]({% link _docs_operate/configuration.md %}) of the Connector.
   - The AutoAcceptRelationshipCreationChangesModule must be renamed to the [AutoAcceptPendingRelationshipsModule]({% link _docs_operate/configuration.md %}#autoacceptpendingrelationships), because the [RelationshipChanges have been removed]({% link _docs_integrate/version-5.md %}#removal-of-relationshipchanges). In addition, the `responseContent` property of the Module must be removed in its configuration.
