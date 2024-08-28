@@ -73,10 +73,10 @@ RelationshipChanges were removed. The only type of RelationshipChange used befor
 
 The Connector route for creating the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) is unchanged, the Connector routes using RelationshipChanges (accept, reject RelationshipChange) were replaced with corresponding routes on the Relationship. No `content` must be sent with any of those operations. The operations are recorded in the new `auditLog` property of the Relationship.
 
-| old Connector route                                                    | new Connector route                                 |
-| ---------------------------------------------------------------------- | --------------------------------------------------- |
-| PUT `Relationships/relationshipId/Changes/changeId/Accept` (with body) | PUT `Relationships/relationshipId/Accept` (no body) |
-| PUT `Relationships/relationshipId/Changes/changeId/Reject` (with body) | PUT `Relationships/relationshipId/Reject` (no body) |
+| Old Connector route                                                                | New Connector route                                           |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Accept` (with body) | `PUT /api/v2/Relationships/{relationshipId}/Accept` (no body) |
+| `PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Reject` (with body) | `PUT /api/v2/Relationships/{relationshipId}/Reject` (no body) |
 
 The Relationship (which is returned by various Connector routes and events) is hence in total changed like this
 
