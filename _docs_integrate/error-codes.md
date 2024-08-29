@@ -6,7 +6,7 @@ redirect_from:
 published: true
 title: "Error codes"
 type: scenario
-toc: true
+toc: false
 properties:
   - id: SC089
   - category: Troubleshooting
