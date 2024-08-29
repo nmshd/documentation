@@ -1,8 +1,8 @@
 ---
 # Start automatic generation
-permalink: integrate/version-5
+permalink: integrate/version-5-migration-guide
 published: true
-title: "Version 5"
+title: "Version 5 Migration Guide"
 type: scenario
 toc: true
 properties:

@@ -136,7 +136,7 @@ docs_integrate:
   - title: Migration Guides
     children:
       - title: "Version 5"
-        url: /integrate/version-5
+        url: /integrate/version-5-migration-guide
   - title: Troubleshooting
     children:
       - title: "Error codes"
