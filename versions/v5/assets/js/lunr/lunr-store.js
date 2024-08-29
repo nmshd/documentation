@@ -215,6 +215,12 @@ var store = [{
         "url": "/versions/v5/integrate/iql-syntax",
         "teaser": null
       },{
+        "title": "Migration From v4 to v5",
+        "excerpt":"The Runtime of enmeshed has recently been updated from version 4 to version 5. Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors. The version update has resulted in some breaking changes. To support the migration of existing...","categories": [],
+        "tags": [],
+        "url": "/versions/v5/integrate/migration-from-v4-to-v5",
+        "teaser": null
+      },{
         "title": "Propose Attributes to peer",
         "excerpt":"An Identity may have received information about a peer in the past that it needs to process a transaction at a later time. To ensure the accuracy of the available information, the Identity can propose Attributes to the peer for creation. Depending on whether the peer confirms the fittingness of...","categories": [],
         "tags": [],
@@ -285,12 +291,6 @@ var store = [{
         "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Load Token by id and key (without having an account) Anonymous Identity AnonymousTokens Runtime Load Token by truncated reference (without having an account) Anonymous Identity AnonymousTokens Runtime Accept incoming Request Consumption Identity Requests Runtime Check if incoming Request can be accepted...","categories": [],
         "tags": [],
         "url": "/versions/v5/integrate/use-cases",
-        "teaser": null
-      },{
-        "title": "Version 5",
-        "excerpt":"DIDs as addresses The address format changed from &lt;3-character realm&gt;&lt;32 or 33-character base58-string&gt; to did:e:&lt;backbone-hostname&gt;:dids:&lt;22-character lowercase hex string&gt;. Removal of RelationshipChanges RelationshipChanges were removed. The only type of RelationshipChange used before was the CreationChange, its content has been moved to a new property of the relationship - the creationContent. If...","categories": [],
-        "tags": [],
-        "url": "/versions/v5/integrate/version-5",
         "teaser": null
       },{
         "title": "Operate enmeshed",

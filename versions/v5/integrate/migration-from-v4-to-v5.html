@@ -1,0 +1,805 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Migration From v4 to v5 - enmeshed</title>
+<meta name="description" content="The Runtime of enmeshed has recently been updated from version 4 to version 5. Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors. The version update has resulted in some breaking changes. To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Migration From v4 to v5">
+<meta property="og:url" content="/versions/v5/integrate/migration-from-v4-to-v5">
+
+
+  <meta property="og:description" content="The Runtime of enmeshed has recently been updated from version 4 to version 5. Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors. The version update has resulted in some breaking changes. To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-08-29T15:29:36+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/v5/integrate/migration-from-v4-to-v5">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/v5/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/v5/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/v5/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/v5/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/versions/v5/use"
+                
+                
+              >Use</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v5/explore"
+                
+                
+              >Explore</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v5/integrate"
+                
+                
+              >Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v5/operate"
+                
+                
+              >Operate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v5/contribute"
+                
+                
+              >Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v5/blog"
+                
+                
+              >Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate enmeshed</h3>
+      
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Getting Started</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v5/integrate/access-the-connector">Access the Connector</a></li>
+            
+              <li><a href="/versions/v5/integrate/integration-example">Integration example</a></li>
+            
+              <li><a href="/versions/v5/integrate/event-introduction">Event introduction</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Relationships between Identities</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v5/integrate/establish-relationships">Establish Relationships</a></li>
+            
+              <li><a href="/versions/v5/integrate/exchange-messages">Exchange Messages</a></li>
+            
+              <li><a href="/versions/v5/integrate/terminate-relationships">Terminate Relationships</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Working with Requests</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v5/integrate/request-and-response-introduction">Request and Response introduction</a></li>
+            
+              <li><a href="/versions/v5/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a></li>
+            
+              <li><a href="/versions/v5/integrate/requests-via-messages">Requests via Messages</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Manage Attributes</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v5/integrate/attribute-introduction">Attribute introduction</a></li>
+            
+              <li><a href="/versions/v5/integrate/create-attributes-for-yourself">Create Attributes for yourself</a></li>
+            
+              <li><a href="/versions/v5/integrate/share-attributes-with-peer">Share Attributes with peer</a></li>
+            
+              <li><a href="/versions/v5/integrate/read-attributes-from-peer">Read Attributes from peer</a></li>
+            
+              <li><a href="/versions/v5/integrate/create-attributes-for-peer">Create Attributes for peer</a></li>
+            
+              <li><a href="/versions/v5/integrate/propose-attributes-to-peer">Propose Attributes to peer</a></li>
+            
+              <li><a href="/versions/v5/integrate/update-attributes-by-succession">Update Attributes by succession</a></li>
+            
+              <li><a href="/versions/v5/integrate/delete-attributes">Delete Attributes</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Request consent</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v5/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
+            
+              <li><a href="/versions/v5/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Data Model</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v5/integrate/data-model-overview">Data Model Overview</a></li>
+            
+              <li><a href="/versions/v5/integrate/attribute-values">Attribute Values</a></li>
+            
+              <li><a href="/versions/v5/integrate/connector-events">Connector Events</a></li>
+            
+              <li><a href="/versions/v5/integrate/use-cases">Use Cases</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Migration Guides</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v5/integrate/migration-from-v4-to-v5" class="active">Migration From v4 to v5</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Troubleshooting</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v5/integrate/error-codes">Error codes</a></li>
+            
+              <li><a href="/versions/v5/integrate/faq">FAQ</a></li>
+            
+              <li><a href="/versions/v5/integrate/support">Support</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Migration From v4 to v5">
+    <meta itemprop="description" content="The Runtime of enmeshed has recently been updated from version 4 to version 5.Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors.The version update has resulted in some breaking changes.To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
+    <meta itemprop="datePublished" content="2024-08-29T15:29:36+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/versions/v5/integrate/migration-from-v4-to-v5" itemprop="url">Migration From v4 to v5
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#step-by-step-instructions">Step-by-Step Instructions</a><ul><li><a href="#connector-setup">Connector Setup</a></li><li><a href="#removed-and-changed-data-structures">Removed and Changed Data Structures</a></li><li><a href="#changed-behavior-of-known-features">Changed Behavior of Known Features</a></li><li><a href="#changes-to-error-codes-use-cases-and-events">Changes to Error Codes, Use Cases and Events</a></li></ul></li><li><a href="#detailed-explanations">Detailed Explanations</a><ul><li><a href="#dids-as-addresses">DIDs as Addresses</a></li><li><a href="#removal-of-relationshipchanges">Removal of RelationshipChanges</a><ul><li><a href="#modifications-to-relationship">Modifications to Relationship</a></li><li><a href="#definition-of-relationshipauditlogentry">Definition of RelationshipAuditLogEntry</a></li></ul></li><li><a href="#new-mandatory-wrappers-for-non-standard-content-of-messages-relationshiptemplates-and-relationships">New Mandatory Wrappers for Non-Standard Content of Messages, RelationshipTemplates and Relationships</a></li><li><a href="#removal-of-the-mustbeaccepted-property-of-the-requestitemgroup">Removal of the mustBeAccepted Property of the RequestItemGroup</a></li><li><a href="#changed-type-of-the-owner-property-of-the-thirdpartyrelationshipattributequery">Changed Type of the owner Property of the ThirdPartyRelationshipAttributeQuery</a></li><li><a href="#synchronization-with-backbone-returns-no-content-anymore">Synchronization With Backbone Returns No Content Anymore</a></li><li><a href="#validation-of-requests">Validation of Requests</a><ul><li><a href="#sending-of-requests">Sending of Requests</a></li><li><a href="#responding-to-requests">Responding to Requests</a></li></ul></li><li><a href="#removed-and-changed-error-codes">Removed and Changed Error Codes</a></li><li><a href="#removed-changed-and-added-use-cases">Removed, Changed and Added Use Cases</a><ul><li><a href="#revocation-of-relationships">Revocation of Relationships</a></li><li><a href="#removal-of-relationshipchanges-1">Removal of RelationshipChanges</a></li><li><a href="#termination-of-relationships">Termination of Relationships</a></li><li><a href="#renaming-of-the-use-case-getsharedversionsofrepositoryattribute-to-getsharedversionsofattribute">Renaming of the Use Case GetSharedVersionsOfRepositoryAttribute to GetSharedVersionsOfAttribute</a></li></ul></li><li><a href="#renamed-and-added-events">Renamed and Added Events</a></li><li><a href="#renamed-modules">Renamed Modules</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <p>The <a href="https://github.com/nmshd/runtime">Runtime</a> of enmeshed has recently been updated from version 4 to version 5.
+Accordingly, a new version of the <a href="https://github.com/nmshd/connector">Connector</a> has also been released to make the updated Runtime available to Integrators of Connectors.
+The version update has resulted in some breaking changes.
+To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.</p>
+
+<h2 id="step-by-step-instructions">Step-by-Step Instructions</h2>
+
+<p>The step-by-step instructions can be consulted to start the migration to version 5 directly.
+More <a href="/versions/v5/integrate/migration-from-v4-to-v5#detailed-explanations">detailed explanations</a> can be found below.</p>
+
+<h3 id="connector-setup">Connector Setup</h3>
+
+<ul>
+  <li>The data from the database that was used by the Connector of the former version is outdated. This is because the <a href="/versions/v5/integrate/migration-from-v4-to-v5#dids-as-addresses">format of addresses has changed to DIDs</a>, for example. For this reason, the old data must be deleted. Alternatively, the database can be deleted as a whole and <a href="/versions/v5/operate/setup-with-docker-compose">set up again</a>.</li>
+  <li>The <a href="https://github.com/nmshd/connector?tab=readme-ov-file#connector">image</a> used to run the Connector must be updated to version 5.</li>
+  <li>Some changes must be made to the <a href="/versions/v5/operate/configuration">configuration</a> of the Connector.
+    <ul>
+      <li>It must be ensured that a <a href="https://github.com/nmshd/backbone/tags">Backbone</a> is used which is compatible with version 5 of the Connector. This means that a Backbone of version 6 must be used. Therefore, specify appropriate <a href="/versions/v5/operate/configuration#transportlibrary">Backbone credentials</a> in the configuration. To check the version of the Backbone, the URL <code class="language-plaintext highlighter-rouge">&lt;baseUrl of Backbone&gt;/api/v1/version</code> can be accessed.</li>
+      <li>The AutoAcceptRelationshipCreationChangesModule must be renamed to the <a href="/versions/v5/operate/configuration#autoacceptpendingrelationships">AutoAcceptPendingRelationshipsModule</a>, because the <a href="/versions/v5/integrate/migration-from-v4-to-v5#removal-of-relationshipchanges">RelationshipChanges have been removed</a>. In addition, the <code class="language-plaintext highlighter-rouge">responseContent</code> property of the Module must be removed in its configuration.</li>
+      <li>The WebhooksV2Module module has already been renamed to the <a href="/versions/v5/operate/configuration#webhooks">WebhooksModule</a> in version 4. However, backwards compatibility was ensured. With the migration to version 5, the field <code class="language-plaintext highlighter-rouge">modules.webhooksV2</code> must be renamed to <code class="language-plaintext highlighter-rouge">modules.webhooks</code> in the configuration if <code class="language-plaintext highlighter-rouge">modules.webhooksV2</code> was previously specified and the migration to <code class="language-plaintext highlighter-rouge">modules.webhooks</code> has not yet taken place.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="removed-and-changed-data-structures">Removed and Changed Data Structures</h3>
+
+<ul>
+  <li>The <a href="/versions/v5/integrate/migration-from-v4-to-v5#removal-of-relationshipchanges">RelationshipChanges have been removed</a>.
+    <ul>
+      <li>This has led to the removal of the <code class="language-plaintext highlighter-rouge">changes</code> property of the <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> and the addition of the <code class="language-plaintext highlighter-rouge">creationContent</code> and <code class="language-plaintext highlighter-rouge">auditLog</code> properties to the Relationship.</li>
+      <li>In particular, the use cases for accepting and rejecting RelationshipChanges had to be removed. With the use cases <a href="/versions/v5/use-case-transport-accept-relationship">Accept Relationship</a> and <a href="/versions/v5/use-case-transport-reject-relationship">Reject Relationship</a>, two <a href="/versions/v5/integrate/migration-from-v4-to-v5#removal-of-relationshipchanges-1">new use cases</a> have been added that now provide these functionalities.</li>
+      <li>For this reason, the route <code class="language-plaintext highlighter-rouge">PUT /api/v2/Relationships/{id}/Accept</code> must be executed instead of the route <code class="language-plaintext highlighter-rouge">PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept</code> and the route <code class="language-plaintext highlighter-rouge">PUT /api/v2/Relationships/{id}/Reject</code> must be executed instead of the route <code class="language-plaintext highlighter-rouge">PUT /api/v2/Relationships/{id}/Changes/{changeId}/Reject</code> when using the Connector. In contrast to the old routes, a request body no longer needs to be provided when using the new routes.</li>
+    </ul>
+  </li>
+  <li>Non-standard <code class="language-plaintext highlighter-rouge">content</code> of a <a href="/versions/v5/integrate/data-model-overview#message">Message</a>, non-standard <code class="language-plaintext highlighter-rouge">content</code> of a <a href="/versions/v5/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> and non-standard <code class="language-plaintext highlighter-rouge">creationContent</code> of a <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> is now typed. The <a href="/versions/v5/integrate/migration-from-v4-to-v5#new-mandatory-wrappers-for-non-standard-content-of-messages-relationshiptemplates-and-relationships">new mandatory wrappers</a> are <a href="/versions/v5/integrate/data-model-overview#arbitrarymessagecontent">ArbitraryMessageContent</a>, <a href="/versions/v5/integrate/data-model-overview#arbitraryrelationshiptemplatecontent">ArbitraryRelationshipTemplateContent</a> and <a href="/versions/v5/integrate/data-model-overview#arbitraryrelationshipcreationcontent">ArbitraryRelationshipCreationContent</a>, respectively, which must now be used.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the <a href="/versions/v5/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> has been removed, which is why this <a href="/versions/v5/integrate/migration-from-v4-to-v5#removal-of-the-mustbeaccepted-property-of-the-requestitemgroup">property must be removed if RequestItemGroups were used</a>.</li>
+  <li>The type of the <code class="language-plaintext highlighter-rouge">owner</code> property of the <a href="/versions/v5/integrate/data-model-overview#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a> has changed. The <a href="/versions/v5/integrate/migration-from-v4-to-v5#changed-type-of-the-owner-property-of-the-thirdpartyrelationshipattributequery">values specified for this property must therefore be adjusted if ThirdPartyRelationshipAttributeQueries were used</a>.</li>
+</ul>
+
+<h3 id="changed-behavior-of-known-features">Changed Behavior of Known Features</h3>
+
+<ul>
+  <li>The <a href="/versions/v5/use-case-transport-synchronize-updates-of-backbone">Synchronize updates of Backbone</a> use case no longer returns any content. Previously, new Messages or changes to Relationships were shown in the response after the use case was executed. As the <a href="/versions/v5/integrate/migration-from-v4-to-v5#synchronization-with-backbone-returns-no-content-anymore">synchronization with the Backbone no longer returns anything</a>, the corresponding <a href="/versions/v5/integrate/connector-events">events</a> must be listened to instead in order to be informed about new Messages or changes to Relationships.</li>
+  <li>Stricter <a href="/versions/v5/integrate/migration-from-v4-to-v5#validation-of-requests">validation of Requests</a> has been added. Therefore, changes will probably have to be made to existing Request flows. Both <a href="/versions/v5/integrate/migration-from-v4-to-v5#sending-of-requests">sending Requests</a> and <a href="/versions/v5/integrate/migration-from-v4-to-v5#responding-to-requests">responding to Requests</a> are affected.</li>
+</ul>
+
+<h3 id="changes-to-error-codes-use-cases-and-events">Changes to Error Codes, Use Cases and Events</h3>
+
+<p>Changes have been made to the <a href="/versions/v5/integrate/error-codes">error codes</a>, <a href="/versions/v5/integrate/use-cases">use cases</a> and <a href="/versions/v5/integrate/connector-events">events</a>, which may lead to unexpected behavior when updating from version 4 to version 5. In this case, it is worth taking a look at the following lists:</p>
+
+<ul>
+  <li>An overview of the <a href="/versions/v5/integrate/migration-from-v4-to-v5#removed-and-changed-error-codes">removed and changed error codes</a> can be found below.</li>
+  <li>An overview of the <a href="/versions/v5/integrate/migration-from-v4-to-v5#removed-changed-and-added-use-cases">removed, changed and added use cases</a> can be found below.
+    <ul>
+      <li>In particular, it must be noted that the <a href="/versions/v5/integrate/migration-from-v4-to-v5#renaming-of-the-use-case-getsharedversionsofrepositoryattribute-to-getsharedversionsofattribute">use case of getting shared versions of a RepositoryAttribute has been renamed</a>. The <a href="/versions/v5/use-case-consumption-get-shared-versions-of-an-attribute">Get shared versions of an Attribute</a> use case must now be executed instead.</li>
+    </ul>
+  </li>
+  <li>An overview of the <a href="/versions/v5/integrate/migration-from-v4-to-v5#renamed-and-added-events">renamed and added events</a> can be found below.</li>
+</ul>
+
+<h2 id="detailed-explanations">Detailed Explanations</h2>
+
+<p>The aspects to be taken into account when migrating to version 5, which were briefly described in the <a href="/versions/v5/integrate/migration-from-v4-to-v5#step-by-step-instructions">step-by-step instructions</a>, are explained in more detail in the following.</p>
+
+<h3 id="dids-as-addresses">DIDs as Addresses</h3>
+
+<p>The address format changed from <code class="language-plaintext highlighter-rouge">&lt;3-character realm&gt;&lt;32- or 33-character base58-string&gt;</code> to <code class="language-plaintext highlighter-rouge">did:e:&lt;backbone-hostname&gt;:dids:&lt;22-character lowercase hex string&gt;</code>.</p>
+
+<h3 id="removal-of-relationshipchanges">Removal of RelationshipChanges</h3>
+
+<p>RelationshipChanges were removed. The only type of RelationshipChange used before was the CreationChange, its <code class="language-plaintext highlighter-rouge">content</code> has been moved to a new property of the Relationship - the <code class="language-plaintext highlighter-rouge">creationContent</code>. If this content has been created by responding to a <a href="/versions/v5/integrate/data-model-overview#request">Request</a> of a <a href="/versions/v5/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>, the <a href="/versions/v5/integrate/data-model-overview#relationshiptemplatecontent">content</a> changes as follows: The <code class="language-plaintext highlighter-rouge">&lt;relationshipChange&gt;.request.content</code> value was of type RelationshipCreationChangeRequestContent, the <code class="language-plaintext highlighter-rouge">&lt;relationship&gt;.creationContent</code> is now of type <a href="/versions/v5/integrate/data-model-overview#relationshipcreationcontent">RelationshipCreationContent</a>.</p>
+
+<p>The Connector route for creating the <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> is unchanged, the Connector routes using RelationshipChanges (accept RelationshipChange and reject RelationshipChange) were replaced with corresponding routes on the Relationship. No <code class="language-plaintext highlighter-rouge">content</code> must be sent with any of those operations. The operations are recorded in the new <code class="language-plaintext highlighter-rouge">auditLog</code> property of the Relationship.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Old Connector route</th>
+      <th>New Connector route</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Accept</code> (with body)</td>
+      <td><code class="language-plaintext highlighter-rouge">PUT /api/v2/Relationships/{relationshipId}/Accept</code> (no body)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Reject</code> (with body)</td>
+      <td><code class="language-plaintext highlighter-rouge">PUT /api/v2/Relationships/{relationshipId}/Reject</code> (no body)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="modifications-to-relationship">Modifications to Relationship</h4>
+
+<p>The <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a>, which is returned by various Connector routes and events, is hence in total changed like this:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Changes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>status</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">"Pending"</code> | <code class="language-plaintext highlighter-rouge">"Active"</code> | <code class="language-plaintext highlighter-rouge">"Rejected"</code> | <code class="language-plaintext highlighter-rouge">"Revoked"</code> |<code class="language-plaintext highlighter-rouge">"Terminated"</code> | <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code></td>
+      <td>The type of the <code class="language-plaintext highlighter-rouge">status</code> property has been <strong>changed</strong>. The two statuses <code class="language-plaintext highlighter-rouge">"Terminated"</code> and <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code> have been added because of the termination of Relationships.<br /><ul><li>Terminated: this means that the Relationship has been terminated.</li><li>DeletionProposed: this means that one part of the Relationship wants to terminate the Relationship.</li></ul></td>
+    </tr>
+    <tr>
+      <td><strong>changes</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">RelationshipChange[]</code></td>
+      <td>The <code class="language-plaintext highlighter-rouge">changes</code> property has been <strong>removed</strong>. The history of changes made to this Relationship is now recorded in the new <code class="language-plaintext highlighter-rouge">auditLog</code> property.</td>
+    </tr>
+    <tr>
+      <td><strong>creationContent</strong></td>
+      <td><a href="/versions/v5/integrate/data-model-overview#relationshipcreationcontent"><code class="language-plaintext highlighter-rouge">RelationshipCreationContent</code></a> | <a href="/versions/v5/integrate/data-model-overview#arbitraryrelationshipcreationcontent"><code class="language-plaintext highlighter-rouge">ArbitraryRelationshipCreationContent</code></a></td>
+      <td>The <code class="language-plaintext highlighter-rouge">creationContent</code> property has been <strong>added</strong>. More information on the type of the <code class="language-plaintext highlighter-rouge">creationContent</code> property can be found in the section on <a href="/versions/v5/integrate/migration-from-v4-to-v5#new-mandatory-wrappers-for-non-standard-content-of-messages-relationshiptemplates-and-relationships">new mandatory wrappers</a>.</td>
+    </tr>
+    <tr>
+      <td><strong>auditLog</strong></td>
+      <td><a href="/versions/v5/integrate/data-model-overview#relationshipauditlogentry"><code class="language-plaintext highlighter-rouge">RelationshipAuditLogEntry</code></a><code class="language-plaintext highlighter-rouge">[]</code></td>
+      <td>The <code class="language-plaintext highlighter-rouge">auditLog</code> property has been <strong>added</strong>. It stores the history of changes made to this Relationship, which was recorded in the former <code class="language-plaintext highlighter-rouge">changes</code> property.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="definition-of-relationshipauditlogentry">Definition of RelationshipAuditLogEntry</h4>
+
+<p>The data object type <a href="/versions/v5/integrate/data-model-overview#relationshipauditlogentry">RelationshipAuditLogEntry</a> was defined, which typifies the new <code class="language-plaintext highlighter-rouge">auditLog</code> property of the <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a>.
+For example, the first <a href="/versions/v5/integrate/data-model-overview#relationshipauditlogentry">RelationshipAuditLogEntry</a> of the <code class="language-plaintext highlighter-rouge">auditLog</code> of the <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> has <code class="language-plaintext highlighter-rouge">"Creation"</code> as <code class="language-plaintext highlighter-rouge">reason</code>, no <code class="language-plaintext highlighter-rouge">oldStatus</code> and <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">newStatus</code> and is created by the Identity that has created the Relationship.</p>
+
+<h3 id="new-mandatory-wrappers-for-non-standard-content-of-messages-relationshiptemplates-and-relationships">New Mandatory Wrappers for Non-Standard Content of Messages, RelationshipTemplates and Relationships</h3>
+
+<p>New wrapping types have been introduced for sending arbitrary content that does not fit the standard content types of enmeshed, the <a href="/versions/v5/integrate/data-model-overview#arbitrarymessagecontent">ArbitraryMessageContent</a> for <a href="/versions/v5/integrate/data-model-overview#message">Messages</a> with non-standard <code class="language-plaintext highlighter-rouge">content</code>, the <a href="/versions/v5/integrate/data-model-overview#arbitraryrelationshiptemplatecontent">ArbitraryRelationshipTemplateContent</a> for <a href="/versions/v5/integrate/data-model-overview#relationshiptemplate">RelationshipTemplates</a> with non-standard <code class="language-plaintext highlighter-rouge">content</code> and the <a href="/versions/v5/integrate/data-model-overview#arbitraryrelationshipcreationcontent">ArbitraryRelationshipCreationContent</a> for <a href="/versions/v5/integrate/data-model-overview#relationship">Relationships</a> with non-standard <code class="language-plaintext highlighter-rouge">creationContent</code>. Please note that the <code class="language-plaintext highlighter-rouge">creationContent</code> of the Relationship itself is newly introduced in the section about the <a href="#removal-of-relationshipchanges">Removal of RelationshipChanges</a>.</p>
+
+<ul>
+  <li>
+    <p>The <code class="language-plaintext highlighter-rouge">content</code> of a <a href="/versions/v5/integrate/data-model-overview#message">Message</a> must either be a <a href="/versions/v5/integrate/data-model-overview#mail">Mail</a>, a <a href="/versions/v5/integrate/data-model-overview#request">Request</a>, a <a href="/versions/v5/integrate/data-model-overview#responsewrapper">ResponseWrapper</a>, a <a href="/versions/v5/integrate/data-model-overview#notification">Notification</a> or an <a href="/versions/v5/integrate/data-model-overview#arbitrarymessagecontent">ArbitraryMessageContent</a>.</p>
+  </li>
+  <li>
+    <p>The <code class="language-plaintext highlighter-rouge">content</code> of a <a href="/versions/v5/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> must either be a <a href="/versions/v5/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a> or an <a href="/versions/v5/integrate/data-model-overview#arbitraryrelationshiptemplatecontent">ArbitraryRelationshipTemplateContent</a>.</p>
+  </li>
+  <li>
+    <p>The <code class="language-plaintext highlighter-rouge">creationContent</code> of a <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> must either be a <a href="/versions/v5/integrate/data-model-overview#relationshipcreationcontent">RelationshipCreationContent</a> or an <a href="/versions/v5/integrate/data-model-overview#arbitraryrelationshipcreationcontent">ArbitraryRelationshipCreationContent</a>.</p>
+  </li>
+</ul>
+
+<p>These new wrappers are all of the following form, whereby the <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> notation indicates a placeholder for one of the transport types Message, RelationshipTemplate or Relationship:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arbitrary&lt;...&gt;Content"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="err">any</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Thus, when <a href="/versions/v5/use-case-transport-send-message-to-recipients">sending a Message</a> with non-standard <code class="language-plaintext highlighter-rouge">content</code> via <code class="language-plaintext highlighter-rouge">POST /api/v2/Messages</code>, instead of using the parameter <code class="language-plaintext highlighter-rouge">content : &lt;arbitrary content of Message&gt;</code>, it must be used:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ArbitraryMessageContent"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;arbitrary</span><span class="w"> </span><span class="err">content</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">Message&gt;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Similarly, when <a href="/versions/v5/use-case-transport-create-own-relationshiptemplate">creating an own RelationshipTemplate</a> with non-standard <code class="language-plaintext highlighter-rouge">content</code> via <code class="language-plaintext highlighter-rouge">POST /api/v2/RelationshipTemplates/Own</code>, it must be used:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ArbitraryRelationshipTemplateContent"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;arbitrary</span><span class="w"> </span><span class="err">content</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">RelationshipTemplate&gt;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Last but not least, when <a href="/versions/v5/use-case-transport-create-relationship-with-relationshiptemplate">creating a Relationship</a> with non-standard <code class="language-plaintext highlighter-rouge">creationContent</code> via <code class="language-plaintext highlighter-rouge">POST /api/v2/Relationships</code>, it must be used:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"creationContent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ArbitraryRelationshipCreationContent"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;arbitrary</span><span class="w"> </span><span class="err">content</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">creation</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">Relationship&gt;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>When reading the value from a Message or a RelationshipTemplate with non-standard <code class="language-plaintext highlighter-rouge">content</code>, the relevant property is thus changed from <code class="language-plaintext highlighter-rouge">content</code> to <code class="language-plaintext highlighter-rouge">content.value</code>.
+Similarly, when reading the value of a Relationship with non-standard <code class="language-plaintext highlighter-rouge">creationContent</code>, attention must be paid to the <code class="language-plaintext highlighter-rouge">creationContent.value</code> property.</p>
+
+<h3 id="removal-of-the-mustbeaccepted-property-of-the-requestitemgroup">Removal of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> Property of the RequestItemGroup</h3>
+
+<p>A <a href="/versions/v5/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> still provides a way of grouping the <a href="/versions/v5/integrate/data-model-overview#requestitems">RequestItems</a> contained in its <code class="language-plaintext highlighter-rouge">items</code> property in the UI. However, the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the RequestItemGroup has now been removed, as it had easily misunderstood interactions with the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the RequestItems. More precisely, a certain, complicated dependency of the acceptance of the RequestItems contained in its <code class="language-plaintext highlighter-rouge">items</code> property could be described via the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the RequestItemGroup:</p>
+
+<ul>
+  <li>If the value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the RequestItemGroup was set to <code class="language-plaintext highlighter-rouge">"true"</code>, all RequestItems contained within its <code class="language-plaintext highlighter-rouge">items</code> property whose value of their respective <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is <code class="language-plaintext highlighter-rouge">"true"</code> could be accepted if the entire Request is accepted. Included RequestItems whose value of their respective <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is <code class="language-plaintext highlighter-rouge">"false"</code> could still be rejected.</li>
+  <li>If the value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the RequestItemGroup was set to <code class="language-plaintext highlighter-rouge">"false"</code>, all RequestItems contained in its <code class="language-plaintext highlighter-rouge">items</code> property could be rejected if the entire Request is accepted. However, if any RequestItem contained was to be accepted, all RequestItems whose <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is <code class="language-plaintext highlighter-rouge">"true"</code> could also be accepted when the Request is accepted. In this respect, there was a dependency between the individual RequestItems.</li>
+</ul>
+
+<p>It was not clear enough from the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the RequestItemGroup which of the RequestItems contained within its <code class="language-plaintext highlighter-rouge">items</code> property are optional or mandatory, depending on how their respective values of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property are set.</p>
+
+<p class="notice--info">Making it necessary to accept certain RequestItems once certain other RequestItems have been accepted is nevertheless a useful feature that will be provided in the future, but will be implemented without the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the RequestItemGroup.</p>
+
+<p>In addition, in contrast to the RequestItems, a RequestItemGroup did not have to be explicitly accepted or rejected when a Request was accepted, which is why it was confusing that both the RequestItemGroups and the RequestItems had a <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property. Overall, it was therefore decided to remove the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the RequestItemGroup.</p>
+
+<p class="notice--info">The <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the RequestItems will be kept.</p>
+
+<h3 id="changed-type-of-the-owner-property-of-the-thirdpartyrelationshipattributequery">Changed Type of the <code class="language-plaintext highlighter-rouge">owner</code> Property of the ThirdPartyRelationshipAttributeQuery</h3>
+
+<p>The <a href="/versions/v5/integrate/data-model-overview#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a> is usually used within the <code class="language-plaintext highlighter-rouge">query</code> property of a <a href="/versions/v5/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>, which in turn appears in the <code class="language-plaintext highlighter-rouge">items</code> property of a Request, to query an existing <a href="/versions/v5/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>, which exists within a <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> between the Recipient of the Request and a third party, as the Sender of the Request. The <code class="language-plaintext highlighter-rouge">owner</code> property of the ThirdPartyRelationshipAttributeQuery determines the <code class="language-plaintext highlighter-rouge">owner</code> of the queried RelationshipAttribute. Previously, it was possible within the <code class="language-plaintext highlighter-rouge">owner</code> property of the ThirdPartyRelationshipAttributeQuery to specify a concrete address for the <code class="language-plaintext highlighter-rouge">owner</code> of the queried RelationshipAttribute or an empty string as a placeholder instead.</p>
+
+<p>However, it was not possible, for example, to query a RelationshipAttribute that belongs to any of the third parties specified within the <code class="language-plaintext highlighter-rouge">thirdParty</code> property of the ThirdPartyRelationshipAttributeQuery, but only to a specific third party (by specifying its address) or that belongs to the specified third parties, but also to the Recipient of the Request (by specifying an empty string). The type of the <code class="language-plaintext highlighter-rouge">owner</code> property of the ThirdPartyRelationshipAttributeQuery has therefore been changed. The values <code class="language-plaintext highlighter-rouge">""</code>, <code class="language-plaintext highlighter-rouge">"recipient"</code> or <code class="language-plaintext highlighter-rouge">"thirdParty"</code> can now be specified for this <code class="language-plaintext highlighter-rouge">owner</code> property. Specify the string <code class="language-plaintext highlighter-rouge">"recipient"</code> if the Recipient should be the <code class="language-plaintext highlighter-rouge">owner</code> of the queried RelationshipAttribute. Use the string <code class="language-plaintext highlighter-rouge">"thirdParty"</code> if any of the third parties specified in the array string <code class="language-plaintext highlighter-rouge">thirdParty</code> should be the <code class="language-plaintext highlighter-rouge">owner</code>. If both the Recipient and each of the given third parties may be the <code class="language-plaintext highlighter-rouge">owner</code>, an empty string <code class="language-plaintext highlighter-rouge">""</code> must be specified. Using this option is useful if the <code class="language-plaintext highlighter-rouge">owner</code> of the queried RelationshipAttribute is not known in advance.</p>
+
+<p>This change enables the Sender of the Request to specify more precisely who the <code class="language-plaintext highlighter-rouge">owner</code> of a RelationshipAttribute should be when querying it and better reflects real application scenarios.</p>
+
+<h3 id="synchronization-with-backbone-returns-no-content-anymore">Synchronization With Backbone Returns No Content Anymore</h3>
+
+<p>Previously, the <a href="/versions/v5/use-case-transport-synchronize-updates-of-backbone">synchronization with the Backbone</a> via the route <code class="language-plaintext highlighter-rouge">POST /api/v2/Account/Sync</code> returned a list of Relationships and Messages with the HTTP code 201. This has been changed to the sync returning nothing with the HTTP code 204. This removes the support for the workflow of regularly calling the sync and checking the response since unexpected response values happen if syncs are executed from different spots. We recommend working event-based with the <a href="/versions/v5/operate/modules#messagebrokerpublisher">Message Broker Publisher Module</a>, which sends events to a message broker you have set up. We send a variety of events like <code class="language-plaintext highlighter-rouge">consumption.incomingRequestReceived</code> or <code class="language-plaintext highlighter-rouge">consumption.incomingRequestStatusChanged</code>, each of them containing the relevant changed object. See <a href="/versions/v5/integrate/connector-events">Connector Events</a> for the full list. Slightly related, we also recommend using the recently published <a href="/versions/v5/operate/modules#sse">Server-Sent Events Module</a>, which listens to events emitted from the Backbone and syncs with the Backbone when an event is received.</p>
+
+<h3 id="validation-of-requests">Validation of Requests</h3>
+
+<p>Validations have been added when sending <a href="/versions/v5/integrate/request-and-response-introduction#requests">Requests</a> and <a href="/versions/v5/integrate/data-model-overview#deciderequestitemparameters">responding to Requests</a> to ensure the proper functioning of business processes. However, the added validations can also reduce flexibility in the use of Requests, which is why they could cause previously functioning Request flows to fail. Most affected by the changes are Requests where an <a href="/versions/v5/integrate/share-attributes-with-peer">Attribute is shared with a peer</a>, an <a href="/versions/v5/integrate/propose-attributes-to-peer">Attribute is proposed to a peer</a>, an <a href="/versions/v5/integrate/read-attributes-from-peer">Attribute is read from a peer</a> or an <a href="/versions/v5/integrate/create-attributes-for-peer">Attribute is created for a peer</a>. In the case of problems with previously functioning Request flows that now fail, it is recommended that the corresponding documented scenarios be consulted. Descriptive error messages are also thrown to help restore the integrity of Request flows.</p>
+
+<h4 id="sending-of-requests">Sending of Requests</h4>
+
+<p>Even though reference has already been made to the corresponding scenarios in the documentation, a few examples of the added validation for sending Requests are given in the following.</p>
+
+<ul>
+  <li>The new error code <code class="language-plaintext highlighter-rouge">error.consumption.requests.attributeQueryMismatch</code> has been implemented to mark provided <a href="/versions/v5/integrate/data-model-overview#attributes">Attributes</a> that do not fulfil a certain <a href="/versions/v5/integrate/data-model-overview#attributequeries">AttributeQuery</a> accordingly. It is thrown, for example, if the Sender of the Request, which contains a <a href="/versions/v5/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a> within its <code class="language-plaintext highlighter-rouge">items</code> property, specifies an <code class="language-plaintext highlighter-rouge">attribute</code> and a <code class="language-plaintext highlighter-rouge">query</code> that are incompatible.</li>
+  <li>If the Sender of a Request wants to share an <a href="/versions/v5/integrate/attribute-introduction#identityattributes">IdentityAttribute</a> that is owned by itself with the Recipient of the Request by using a <a href="/versions/v5/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a>, the Sender must specify its associated <a href="/versions/v5/integrate/attribute-introduction#repositoryattributes">RepositoryAttribute</a> in the <code class="language-plaintext highlighter-rouge">attribute</code> property of the ShareAttributeRequestItem. It is no longer permitted to specify shared copies (<a href="/versions/v5/integrate/data-model-overview#localattribute">own shared IdentityAttributes</a>) instead.</li>
+</ul>
+
+<h4 id="responding-to-requests">Responding to Requests</h4>
+
+<p>Even though reference has already been made to the corresponding scenarios in the documentation, a few examples of the added validation for responding to Requests are given following.</p>
+
+<ul>
+  <li>The new error code <code class="language-plaintext highlighter-rouge">error.consumption.requests.attributeQueryMismatch</code> has been implemented to mark provided <a href="/versions/v5/integrate/data-model-overview#attributes">Attributes</a> that do not fulfil a certain <a href="/versions/v5/integrate/data-model-overview#attributequeries">AttributeQuery</a> accordingly. It is thrown, for example, if the Attribute provided by the Recipient of the Request does not match the AttributeQuery specified in the <code class="language-plaintext highlighter-rouge">query</code> property of a <a href="/versions/v5/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>.</li>
+  <li>If the Sender of a Request that contains a ReadAttributeRequestItem whose <code class="language-plaintext highlighter-rouge">query</code> is a <a href="/versions/v5/integrate/data-model-overview#relationshipattributequery">RelationshipAttributeQuery</a> or a <a href="/versions/v5/integrate/data-model-overview#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a>, the Recipient of the Request can only validly answer a RelationshipAttributeQuery with a new Attribute, and a ThirdPartyRelationshipAttributeQuery with an existing Attribute. Otherwise, the <a href="/versions/v5/integrate/error-codes#error.consumption.requests.invalidAcceptParameters">error code <code class="language-plaintext highlighter-rouge">error.consumption.requests.invalidAcceptParameters</code></a> arises.</li>
+</ul>
+
+<h3 id="removed-and-changed-error-codes">Removed and Changed Error Codes</h3>
+
+<p>An overview of the <a href="/versions/v5/integrate/error-codes">Error codes</a> that may occur is given on the corresponding documentation page. The most important changes regarding the error codes due to the update from version 4 to version 5 are:</p>
+
+<ul>
+  <li>The removal of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the <a href="/versions/v5/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> also resulted in error <code class="language-plaintext highlighter-rouge">"error.consumption.requests.decide.validation.itemAcceptedButParentNotAccepted"</code> was replaced by error <code class="language-plaintext highlighter-rouge">"error.consumption.requests.decide.validation.itemAcceptedButRequestNotAccepted"</code> and being used slightly differently in future. This is because the word <code class="language-plaintext highlighter-rouge">Parent</code> contained in the error code could refer to both the <a href="/versions/v5/integrate/request-and-response-introduction#requests">Request</a> as a whole and a RequestItemGroup. As RequestItemGroups are now only used for visual structuring in the UI of <a href="/versions/v5/integrate/data-model-overview#requestitems">RequestItems</a> and no longer have any effect when accepting RequestItems, the word <code class="language-plaintext highlighter-rouge">Parent</code> can also be replaced by Request.</li>
+  <li>The error <code class="language-plaintext highlighter-rouge">"error.runtime.MultiAccount.WrongRealm"</code> and <code class="language-plaintext highlighter-rouge">"error.transport.identity.realmLength"</code> were removed because the address format has been changed and the property <code class="language-plaintext highlighter-rouge">realm</code> therefore has been removed.</li>
+  <li>Since the RelationshipChanges has been removed, the corresponding error <code class="language-plaintext highlighter-rouge">"error.transport.relationships.wrongChangeStatus"</code> was cancelled too. In this context the error <code class="language-plaintext highlighter-rouge">"error.transport.messages.noMatchingRelationship"</code> was substituted by the more appropriate <a href="/versions/v5/integrate/error-codes#error.transport.messages.missingOrInactiveRelationship"><code class="language-plaintext highlighter-rouge">"error.transport.messages.missingOrInactiveRelationship"</code></a>.</li>
+  <li>The error <code class="language-plaintext highlighter-rouge">"error.consumption.attributes.invalidPropertyValue"</code> was removed and substituted by the more specific error <a href="/versions/v5/integrate/error-codes#error.consumption.attributes.wrongOwnerOfRepositoryAttribute"><code class="language-plaintext highlighter-rouge">"error.consumption.attributes.wrongOwnerOfRepositoryAttribute"</code></a>.</li>
+  <li><code class="language-plaintext highlighter-rouge">"inheritedFromItem"</code> was replaced by <a href="/versions/v5/integrate/error-codes#error.consumption.validation.inheritedFromItem"><code class="language-plaintext highlighter-rouge">"error.consumption.validation.inheritedFromItem"</code></a> for reasons of consistency. Because of the same reason <code class="language-plaintext highlighter-rouge">"error.transport.secrets.wrongBaseKeyType"</code> was replaced by <a href="/versions/v5/integrate/error-codes#error.transport.secrets.wrongSecretType"><code class="language-plaintext highlighter-rouge">"error.transport.secrets.wrongSecretType"</code></a>. Further the error <code class="language-plaintext highlighter-rouge">"error.runtime.notifications.cannotSaveSendNotificationFromPeerMessage"</code> was replaced by <code class="language-plaintext highlighter-rouge">"error.runtime.notifications.cannotSaveSentNotificationFromPeerMessage"</code> because in this case it is about marking a Notification as sent, rather then sending a Notification.</li>
+  <li><code class="language-plaintext highlighter-rouge">"error.transport.datawallet.encryptedPayloadIsNoCipher"</code> and <code class="language-plaintext highlighter-rouge">"error.transport.files.fileContentUndefined"</code> were eliminated, since they aren’t used anymore. But also before the migration they haven’t been used.</li>
+</ul>
+
+<h3 id="removed-changed-and-added-use-cases">Removed, Changed and Added Use Cases</h3>
+
+<p>An overview of the <a href="/versions/v5/integrate/use-cases">Use Cases</a> that may occur is given on the corresponding documentation page. The most important changes regarding the use cases due to the update from version 4 to version 5 are summarized in the following subsections.</p>
+
+<h4 id="revocation-of-relationships">Revocation of Relationships</h4>
+
+<p>The <a href="/versions/v5/use-case-transport-revoke-relationship">Revoke Relationship</a> use case has been added.
+It is now possible to revoke a <a href="/versions/v5/integrate/data-model-overview#relationship">Relationship</a> with <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code> if it was created by yourself.</p>
+
+<h4 id="removal-of-relationshipchanges-1">Removal of RelationshipChanges</h4>
+
+<p>The <a href="#removal-of-relationshipchanges">removal of RelationshipChanges</a> is the reason why the following use cases are removed:</p>
+
+<ul>
+  <li>Accept RelationshipChange</li>
+  <li>Reject RelationshipChange</li>
+</ul>
+
+<p>Therefore, the following new use cases had to be added, which now provide these functionalities:</p>
+
+<ul>
+  <li><a href="/versions/v5/use-case-transport-accept-relationship">Accept Relationship</a></li>
+  <li><a href="/versions/v5/use-case-transport-reject-relationship">Reject Relationship</a></li>
+</ul>
+
+<h4 id="termination-of-relationships">Termination of Relationships</h4>
+
+<p>Based on the restructuring of the Relationship by <a href="#removal-of-relationshipchanges">removing the RelationshipChanges</a>, the new functionality of <a href="/versions/v5/integrate/terminate-relationships">terminating Relationships</a> was implemented. In connection with this feature, the following use cases have been added:</p>
+
+<ul>
+  <li><a href="/versions/v5/use-case-transport-terminate-relationship">Terminate Relationship</a></li>
+  <li><a href="/versions/v5/use-case-transport-request-relationship-reactivation">Request Relationship reactivation</a></li>
+  <li><a href="/versions/v5/use-case-transport-accept-relationship-reactivation">Accept Relationship reactivation</a></li>
+  <li><a href="/versions/v5/use-case-transport-reject-relationship-reactivation">Reject Relationship reactivation</a></li>
+  <li><a href="/versions/v5/use-case-transport-revoke-relationship-reactivation">Revoke Relationship reactivation</a></li>
+  <li><a href="/versions/v5/use-case-transport-decompose-relationship">Decompose Relationship</a></li>
+</ul>
+
+<h4 id="renaming-of-the-use-case-getsharedversionsofrepositoryattribute-to-getsharedversionsofattribute">Renaming of the Use Case GetSharedVersionsOfRepositoryAttribute to GetSharedVersionsOfAttribute</h4>
+
+<p>Taking <a href="/versions/v5/integrate/data-model-overview#localattribute">ThirdPartyRelationshipAttributes</a> into account, we wanted to extend the functionality of the use case of getting shared versions of a <a href="/versions/v5/integrate/data-model-overview#localattribute">RepositoryAttribute</a> to <a href="/versions/v5/integrate/data-model-overview#relationshipattribute">RelationshipAttributes</a>.</p>
+
+<p>For this reason, the <a href="/versions/v5/use-case-consumption-get-shared-versions-of-an-attribute">Get shared versions of an Attribute</a> use case was already added in version 4 and the use case of getting shared versions of a RepositoryAttribute was marked as deprecated.
+It has now been deleted with the update to version 5.</p>
+
+<h3 id="renamed-and-added-events">Renamed and Added Events</h3>
+
+<p>There are several <a href="/versions/v5/integrate/connector-events">Connector events</a> which have been added. Regarding the <a href="/versions/v5/integrate/terminate-relationships">termination of Relationships</a>, for example, the following have been added:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">transport.relationshipReactivationRequested</code></li>
+  <li><code class="language-plaintext highlighter-rouge">transport.relationshipReactivationCompleted</code></li>
+  <li><code class="language-plaintext highlighter-rouge">transport.relationshipDecomposedBySelf</code></li>
+</ul>
+
+<p>The <a href="/versions/v5/integrate/connector-events">event</a> <code class="language-plaintext highlighter-rouge">consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted</code> was renamed to <code class="language-plaintext highlighter-rouge">consumption.outgoingRequestFromRelationshipCreationCreatedAndCompleted</code> due to the <a href="#removal-of-relationshipchanges">removal of RelationshipChanges</a>.</p>
+
+<p class="notice">An overview of the <a href="/versions/v5/integrate/connector-events">Connector Events</a> that may occur is given on the corresponding documentation page.</p>
+
+<h3 id="renamed-modules">Renamed Modules</h3>
+
+<p>Some <a href="/versions/v5/operate/modules">Modules</a> of the Connector have been renamed:</p>
+
+<ul>
+  <li>The AutoAcceptRelationshipCreationChangesModule has been renamed to the <a href="/versions/v5/operate/modules#autoacceptpendingrelationships">AutoAcceptPendingRelationshipsModule</a>, because the <a href="/versions/v5/integrate/migration-from-v4-to-v5#removal-of-relationshipchanges">RelationshipChanges have been removed</a>. In addition, the Module no longer has a <code class="language-plaintext highlighter-rouge">creationContent</code> property in its <a href="/versions/v5/operate/configuration#autoacceptpendingrelationships">configuration</a>.</li>
+  <li>The WebhooksV2Module module has already been renamed to the <a href="/versions/v5/operate/modules#webhooks">WebhooksModule</a> in version 4. However, backwards compatibility was ensured. With the migration to version 5, the field <code class="language-plaintext highlighter-rouge">modules.webhooksV2</code> must be renamed to <code class="language-plaintext highlighter-rouge">modules.webhooks</code> in the <a href="/versions/v5/operate/configuration#webhooks">configuration</a> if <code class="language-plaintext highlighter-rouge">modules.webhooksV2</code> was previously specified and the migration to <code class="language-plaintext highlighter-rouge">modules.webhooks</code> has not yet taken place.</li>
+</ul>
+
+<p class="notice">An overview of the <a href="/versions/v5/operate/modules">Connector Modules</a> that may occur is given on the corresponding documentation page.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-29T15:29:36+02:00">August 29, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+           
+        <li>
+            <a href="/versions/v5/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2024
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/v5/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/v5/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/v5/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/v5/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
