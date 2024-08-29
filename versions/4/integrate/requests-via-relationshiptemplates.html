@@ -1,0 +1,709 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Requests via RelationshipTemplates - enmeshed</title>
+<meta name="description" content="This guide explains the end-to-end flow of sending a Request via a RelationshipTemplate and responding to it. Usually, this flow happens between a Connector and the App, but for simplicity and more transparency, two Connectors are used here. To try out the examples in this guide on your own, you therefore need two Connectors.">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Requests via RelationshipTemplates">
+<meta property="og:url" content="/versions/4/integrate/requests-via-relationshiptemplates">
+
+
+  <meta property="og:description" content="This guide explains the end-to-end flow of sending a Request via a RelationshipTemplate and responding to it. Usually, this flow happens between a Connector and the App, but for simplicity and more transparency, two Connectors are used here. To try out the examples in this guide on your own, you therefore need two Connectors.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-08-29T08:46:21+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/4/integrate/requests-via-relationshiptemplates">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/4/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/4/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/4/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/4/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/versions/4/use"
+                
+                
+              >Use</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/4/explore"
+                
+                
+              >Explore</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/4/integrate"
+                
+                
+              >Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/4/operate"
+                
+                
+              >Operate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/4/contribute"
+                
+                
+              >Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/4/blog"
+                
+                
+              >Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate enmeshed</h3>
+      
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Getting Started</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/access-the-connector">Access the Connector</a></li>
+            
+              <li><a href="/versions/4/integrate/integration-example">Integration example</a></li>
+            
+              <li><a href="/versions/4/integrate/event-introduction">Event introduction</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Relationships between Identities</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/establish-relationships">Establish Relationships</a></li>
+            
+              <li><a href="/versions/4/integrate/exchange-messages">Exchange Messages</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Working with Requests</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/request-and-response-introduction">Request and Response introduction</a></li>
+            
+              <li><a href="/versions/4/integrate/requests-via-relationshiptemplates" class="active">Requests via RelationshipTemplates</a></li>
+            
+              <li><a href="/versions/4/integrate/requests-via-messages">Requests via Messages</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Manage Attributes</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/attribute-introduction">Attribute introduction</a></li>
+            
+              <li><a href="/versions/4/integrate/create-attributes-for-yourself">Create Attributes for yourself</a></li>
+            
+              <li><a href="/versions/4/integrate/share-attributes-with-peer">Share Attributes with peer</a></li>
+            
+              <li><a href="/versions/4/integrate/read-attributes-from-peer">Read Attributes from peer</a></li>
+            
+              <li><a href="/versions/4/integrate/create-attributes-for-peer">Create Attributes for peer</a></li>
+            
+              <li><a href="/versions/4/integrate/propose-attributes-to-peer">Propose Attributes to peer</a></li>
+            
+              <li><a href="/versions/4/integrate/update-attributes-by-succession">Update Attributes by succession</a></li>
+            
+              <li><a href="/versions/4/integrate/delete-attributes">Delete Attributes</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Request consent</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
+            
+              <li><a href="/versions/4/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Data Model</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/data-model-overview">Data Model Overview</a></li>
+            
+              <li><a href="/versions/4/integrate/attribute-values">Attribute Values</a></li>
+            
+              <li><a href="/versions/4/integrate/connector-events">Connector Events</a></li>
+            
+              <li><a href="/versions/4/integrate/use-cases">Use Cases</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Troubleshooting</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/error-codes">Error Codes</a></li>
+            
+              <li><a href="/versions/4/integrate/faq">FAQ</a></li>
+            
+              <li><a href="/versions/4/integrate/support">Support</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Requests via RelationshipTemplates">
+    <meta itemprop="description" content="This guide explains the end-to-end flow of sending a Request via a RelationshipTemplate and responding to it.Usually, this flow happens between a Connector and the App, but for simplicity and more transparency, two Connectors are used here.To try out the examples in this guide on your own, you therefore need two Connectors.">
+    <meta itemprop="datePublished" content="2024-08-29T08:46:21+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/versions/4/integrate/requests-via-relationshiptemplates" itemprop="url">Requests via RelationshipTemplates
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#check-the-requests-validity">Check the Request’s validity</a></li><li><a href="#create-the-relationshiptemplate">Create the RelationshipTemplate</a></li><li><a href="#receive-the-request-by-loading-the-relationshiptemplate">Receive the Request by loading the RelationshipTemplate</a></li><li><a href="#respond-to-the-request">Respond to the Request</a><ul><li><a href="#reject">Reject</a></li><li><a href="#accept">Accept</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <p>This guide explains the end-to-end flow of sending a <a href="/versions/4/integrate/data-model-overview#request">Request</a> via a <a href="/versions/4/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> and responding to it.
+Usually, this flow happens between a <a href="/versions/4/explore/connector">Connector</a> and the <a href="/versions/4/explore/app">App</a>, but for simplicity and more transparency, two Connectors are used here.
+To try out the examples in this guide on your own, you therefore need two Connectors.</p>
+
+<p class="notice--info">You can use the <a href="/versions/4/operate/setup-with-docker-compose">Connector Setup</a> guide if you need help installing the Connectors. Since understanding the process of sending a Request via a RelationshipTemplate requires knowledge about <a href="/versions/4/integrate/data-model-overview#request">Requests</a> in general, you should also take a look at our <a href="/versions/4/integrate/request-and-response-introduction">Request and Response introduction</a>.</p>
+
+<p>On the first Connector, which is referred to as the Sender, you construct the Request and <a href="#create-the-relationshiptemplate">create the RelationshipTemplate</a> that contains the Request.
+The second Connector, which is referred to as the Recipient, <a href="#receive-the-request-by-loading-the-relationshiptemplate">receives the Request by loading the RelationshipTemplate</a>. The Recipient then <a href="#respond-to-the-request">responds to the Request</a>.
+Note that the Sender and the Recipient may or may not have already established a <a href="/versions/4/integrate/data-model-overview#relationship">Relationship</a> at the beginning.</p>
+
+<p class="notice--info">A RelationshipTemplate is generally used to establish a Relationship between two Identities. A Request can be sent in this process of establishing a Relationship.
+Nevertheless, a RelationshipTemplate can also be used to exchange Requests between Identities that have already established a Relationship.
+For more information on how to establish Relationships, refer to the <a href="/versions/4/integrate/establish-relationships">Establish Relationships</a> scenario documentation.</p>
+
+<h2 id="check-the-requests-validity">Check the Request’s validity</h2>
+
+<p>The Sender wants to construct a Request that it can send to the Recipient by inserting it into a RelationshipTemplate.
+Before the <a href="#create-the-relationshiptemplate">RelationshipTemplate is created</a>, the Sender should first check the Request’s validity by proceeding as described in the documentation of the <a href="/versions/4/use-case-consumption-check-if-outgoing-request-can-be-created">Check if outgoing Request can be created</a> use case.
+To do this, the Request must be specified in the <code class="language-plaintext highlighter-rouge">content</code> property of the payload.
+In this guide, an example <a href="/versions/4/integrate/data-model-overview#request">Request</a> is given that contains only a single <a href="/versions/4/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> within its <code class="language-plaintext highlighter-rouge">items</code> property. However, you can use any Request that suits you.</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="c1">// Specification of a Request</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example of a Request"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AuthenticationRequestItem"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Sender is asking for an authentication"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p class="notice--info">If a Request is contained within a RelationshipTemplate, its validity is automatically checked when the <a href="#create-the-relationshiptemplate">RelationshipTemplate is created</a>. The RelationshipTemplate cannot be created if the Request is faulty.
+Nevertheless, the Request’s validity should be checked before attempting to create the RelationshipTemplate in order to obtain additional information about the reasons for the error in the case of a faulty Request.</p>
+
+<h2 id="create-the-relationshiptemplate">Create the RelationshipTemplate</h2>
+
+<p>Next, the Sender wants to create the RelationshipTemplate, which contains the Request it wants to send to the Recipient. To specify a Request within a RelationshipTemplate, a data object of type <a href="/versions/4/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a> must be used within the <code class="language-plaintext highlighter-rouge">content</code> property of the <a href="/versions/4/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>.
+A Request can be specified in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property or the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property of the RelationshipTemplateContent.
+If no Relationship has yet been established between the Sender and the Recipient, the Recipient will receive the Request specified in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property when loading the RelationshipTemplate.
+However, if an active Relationship already exists, the Recipient will receive the Request specified in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property, if such is specified. The specification of a Request in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property is mandatory in contrast to the specification of a Request in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property.</p>
+
+<p class="notice--info">Note that the same Request can be specified in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property as in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property, but a different Request can also be used.
+These customization options are useful as the Recipient that loads the RelationshipTemplate may not be known in advance.
+It is therefore possible that a Relationship between the Sender and the Recipient already exists or not.
+In addition, it is possible to configure the RelationshipTemplate in such a way that it can be loaded by multiple Identities.
+The creator of the RelationshipTemplate may have a Relationship to some of these Identities and none to others.</p>
+
+<p>To create a RelationshipTemplate, the instructions of the <a href="/versions/4/use-case-transport-create-own-relationshiptemplate">Create own RelationshipTemplate</a> use case documentation must be followed.
+A RelationshipTemplateContent needs to be specified in the <code class="language-plaintext highlighter-rouge">content</code> of the payload because the Sender wants to send the Recipient a Request via the RelationshipTemplate.
+In the payload example below, the <a href="#check-the-requests-validity">Request whose validity was already checked</a> is contained both within the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property and within the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property of the <a href="/versions/4/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a>. The same Request should therefore be sent regardless of whether a Relationship to the Recipient already exists or not.</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"maxNumberOfAllocations"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expiresAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-01-01T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="c1">// RelationshipTemplateContent</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RelationshipTemplateContent"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"onNewRelationship"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="c1">// Specification of the Request whose validity was checked in the previous step.</span><span class="w">
+      </span><span class="c1">// This Request is used if no active Relationship yet exists.</span><span class="w">
+      </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example of a Request"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AuthenticationRequestItem"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Sender is asking for an authentication"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"onExistingRelationship"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="c1">// Specification of the Request whose validity was checked in the previous step.</span><span class="w">
+      </span><span class="c1">// This Request is used if an active Relationship already exists.</span><span class="w">
+      </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example of a Request"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AuthenticationRequestItem"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Sender is asking for an authentication"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>If the <a href="/versions/4/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> has been successfully created, the Sender receives a success response from which its <code class="language-plaintext highlighter-rouge">id</code> and <code class="language-plaintext highlighter-rouge">truncatedReference</code> can be read. Note that the creation of a RelationshipTemplate which contains a Request does not yet lead to the creation of a corresponding <a href="/versions/4/integrate/data-model-overview#localrequest">LocalRequest</a>. This is only created after the Recipient of the Request has responded to it.</p>
+
+<table style="border: none" class="notice--warning">
+    <tr>
+        <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> and the <code class="language-plaintext highlighter-rouge">truncatedReference</code> of the RelationshipTemplate because these values are needed in the next steps.</p>
+</td>
+    </tr>
+</table>
+
+<h2 id="receive-the-request-by-loading-the-relationshiptemplate">Receive the Request by loading the RelationshipTemplate</h2>
+
+<p>To receive a Request that is contained within a RelationshipTemplate, the Recipient has to <a href="/versions/4/use-case-transport-load-relationshiptemplate-created-by-others">load the RelationshipTemplate created by the Sender</a> using the following payload, whereby the <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> notation is used as a placeholder for the actual data as usual:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;truncated reference of RelationshipTemplate&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Loading the RelationshipTemplate triggers a process in the <a href="/versions/4/explore/runtime">enmeshed Runtime</a> that creates a new incoming Request for the Recipient. Depending on whether a Relationship has already been established between the Sender and the Recipient, the Recipient receives the Request specified in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property or in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property of the <a href="/versions/4/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a>.</p>
+
+<p class="notice--info">If a Relationship has already been established between the Sender and the Recipient and no Request has been specified in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property, the Recipient will not receive an incoming Request when the RelationshipTemplate is loaded.</p>
+
+<p>By proceeding as described in the <a href="/versions/4/use-case-consumption-query-incoming-requests">Query incoming Requests</a> use case documentation and specifying <code class="language-plaintext highlighter-rouge">source.reference=&lt;ID of RelationshipTemplate&gt;</code> and <code class="language-plaintext highlighter-rouge">status=ManualDecisionRequired</code> as query parameters, the new incoming Request can be queried. The <code class="language-plaintext highlighter-rouge">result</code> contains the corresponding <a href="/versions/4/integrate/data-model-overview#localrequest">LocalRequest</a>, from which you can read the <code class="language-plaintext highlighter-rouge">id</code> of the Request.</p>
+
+<table style="border: none" class="notice--warning">
+    <tr>
+        <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> of the incoming Request so that you can accept or reject it.</p>
+</td>
+    </tr>
+</table>
+
+<p>In a productive environment, however, we recommend using the <a href="/versions/4/operate/modules#sync">Sync Module</a> and waiting for a <code class="language-plaintext highlighter-rouge">consumption.incomingRequestReceived</code> <a href="/versions/4/integrate/connector-events">Connector Event</a>.
+To learn more about events, how to use them in the context of enmeshed and which <a href="/versions/4/operate/modules">Modules</a> are supported by enmeshed to help you automating your business processes, check out our <a href="/versions/4/integrate/event-introduction">Event introduction</a>.</p>
+
+<h2 id="respond-to-the-request">Respond to the Request</h2>
+
+<p>After the Request has been received, the Recipient can <a href="#reject">reject</a> or <a href="#accept">accept</a> it.
+If you want to test the full flow, we recommend to reject the Request first.
+Afterwards, you can create a new one by <a href="#receive-the-request-by-loading-the-relationshiptemplate">loading the RelationshipTemplate</a> again and accept it.</p>
+
+<h3 id="reject">Reject</h3>
+
+<p>Let’s consider the case the Recipient wants to <a href="/versions/4/use-case-consumption-reject-incoming-request">reject the Request</a>.
+For this, use the <code class="language-plaintext highlighter-rouge">id</code> of the Request you saved in the previous step.
+In the payload you have to reject all RequestItems.
+An <a href="/versions/4/integrate/request-and-response-introduction#authenticationrequestitem">AuthenticationRequestItem</a> can be rejected by using the <a href="/versions/4/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a>.
+In the case of the above example Request, the payload is therefore as follows:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In the response you can see that the Request has moved to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Decided"</code>.
+This is where the enmeshed Runtime steps in and handles the Request based on your decision.
+It creates a <a href="/versions/4/integrate/data-model-overview#response">Response</a> with the appropriate <a href="/versions/4/integrate/data-model-overview#rejectresponseitem">RejectResponseItems</a> and returns it to the Sender of the Request.
+Then, it moves the Request to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Completed"</code>.
+This can be observed by <a href="/versions/4/use-case-consumption-get-incoming-request">querying the Request</a> again after a few seconds.</p>
+
+<h3 id="accept">Accept</h3>
+
+<p>If you tried out the rejection before this step, make sure to create a new Request by <a href="#receive-the-request-by-loading-the-relationshiptemplate">loading the RelationshipTemplate</a> again with the same <code class="language-plaintext highlighter-rouge">truncatedReference</code>.</p>
+
+<p>To <a href="/versions/4/use-case-consumption-accept-incoming-request">accept the Request</a>, you need its <code class="language-plaintext highlighter-rouge">id</code> that you saved in a previous step.
+In the payload you have to accept at least all RequestItems where the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code>.
+An <a href="/versions/4/integrate/request-and-response-introduction#authenticationrequestitem">AuthenticationRequestItem</a> can be accepted by using the <a href="/versions/4/integrate/data-model-overview#acceptrequestitemparameters">AcceptRequestItemParameters</a>.
+In the case of the above example Request, the payload is therefore as follows:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"accept"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In the response you can see the Request has moved to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Decided"</code>.
+This behavior can be observed by <a href="/versions/4/use-case-consumption-get-incoming-request">querying the Request</a> again after a few seconds.
+Now, the enmeshed Runtime steps in and handles the Request based on your decision.
+The Response is created with the appropriate ResponseItems.</p>
+
+<p>If there is already an active Relationship between the Connectors, the Response will be sent back to the Sender via a <a href="/versions/4/integrate/data-model-overview#message">Message</a> and the Request will move to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Completed"</code>.
+The Sender, then, can fetch it by <a href="/versions/4/use-case-transport-synchronize-updates-of-backbone">synchronizing the updates of the Backbone</a>.</p>
+
+<p>However, if there is no active Relationship between the Connectors, yet, a Relationship will be created, which has the <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Pending"</code> for now.
+It contains a <a href="/versions/4/integrate/data-model-overview#relationshipchangerequest">RelationshipChangeRequest</a> with a <code class="language-plaintext highlighter-rouge">content</code> of type <a href="/versions/4/integrate/data-model-overview#relationshipcreationchangerequestcontent">RelationshipCreationChangeRequestContent</a>, that in turn contains the Response to the Request.
+This Relationship is sent back to the Sender via a Message.
+Then, the Request is set to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Completed"</code> and you can <a href="/versions/4/use-case-transport-query-relationships">query the Relationship</a> using the query parameter <code class="language-plaintext highlighter-rouge">template.id=&lt;ID of RelationshipTemplate&gt;</code>.
+Until the RelationshipChangeRequest is answered, no new Request is created by <a href="#receive-the-request-by-loading-the-relationshiptemplate">loading the RelationshipTemplate</a>.</p>
+
+<p>The Sender can fetch the Relationship by <a href="/versions/4/use-case-transport-synchronize-updates-of-backbone">synchronizing the updates of the Backbone</a>.
+In the response you can see a new Relationship, which looks as follows:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REL..."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"template"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="c1">// ...</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1..."</span><span class="p">,</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+  </span><span class="nl">"changes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RCH..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"createdBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1..."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdByDevice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DVC..."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;time of creation&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RelationshipCreationChangeRequestContent"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptResponseItem"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"requestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ..."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creation"</span><span class="w">
+      </span><span class="c1">// ...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table style="border: none" class="notice--warning">
+    <tr>
+        <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship and of the RelationshipChange to accept the RelationshipChange.</p>
+</td>
+    </tr>
+</table>
+
+<p>Now you can <a href="/versions/4/use-case-transport-accept-relationshipchange">accept the RelationshipChange</a> on the Sender Connector with the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship and the <code class="language-plaintext highlighter-rouge">id</code> of the RelationshipChange.</p>
+
+<p>When you <a href="/versions/4/use-case-transport-synchronize-updates-of-backbone">synchronize the Recipient Connector</a>, you can see that the Relationship now has the <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Active"</code> on both Connectors.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-29T08:46:21+02:00">August 29, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+           
+        <li>
+            <a href="/versions/4/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2024
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/4/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/4/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/4/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/4/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

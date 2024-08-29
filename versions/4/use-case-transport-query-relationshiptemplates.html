@@ -1,0 +1,596 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Query RelationshipTemplates - enmeshed</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Query RelationshipTemplates">
+<meta property="og:url" content="/versions/4/use-case-transport-query-relationshiptemplates">
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-08-29T08:46:21+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/4/use-case-transport-query-relationshiptemplates">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/4/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/4/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/4/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--usecase" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/4/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/versions/4/use"
+                
+                
+              >Use</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/4/explore"
+                
+                
+              >Explore</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/4/integrate"
+                
+                
+              >Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/4/operate"
+                
+                
+              >Operate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/4/contribute"
+                
+                
+              >Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/4/blog"
+                
+                
+              >Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate enmeshed</h3>
+      
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Getting Started</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/access-the-connector">Access the Connector</a></li>
+            
+              <li><a href="/versions/4/integrate/integration-example">Integration example</a></li>
+            
+              <li><a href="/versions/4/integrate/event-introduction">Event introduction</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Relationships between Identities</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/establish-relationships">Establish Relationships</a></li>
+            
+              <li><a href="/versions/4/integrate/exchange-messages">Exchange Messages</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Working with Requests</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/request-and-response-introduction">Request and Response introduction</a></li>
+            
+              <li><a href="/versions/4/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a></li>
+            
+              <li><a href="/versions/4/integrate/requests-via-messages">Requests via Messages</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Manage Attributes</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/attribute-introduction">Attribute introduction</a></li>
+            
+              <li><a href="/versions/4/integrate/create-attributes-for-yourself">Create Attributes for yourself</a></li>
+            
+              <li><a href="/versions/4/integrate/share-attributes-with-peer">Share Attributes with peer</a></li>
+            
+              <li><a href="/versions/4/integrate/read-attributes-from-peer">Read Attributes from peer</a></li>
+            
+              <li><a href="/versions/4/integrate/create-attributes-for-peer">Create Attributes for peer</a></li>
+            
+              <li><a href="/versions/4/integrate/propose-attributes-to-peer">Propose Attributes to peer</a></li>
+            
+              <li><a href="/versions/4/integrate/update-attributes-by-succession">Update Attributes by succession</a></li>
+            
+              <li><a href="/versions/4/integrate/delete-attributes">Delete Attributes</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Request consent</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
+            
+              <li><a href="/versions/4/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Data Model</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/data-model-overview">Data Model Overview</a></li>
+            
+              <li><a href="/versions/4/integrate/attribute-values">Attribute Values</a></li>
+            
+              <li><a href="/versions/4/integrate/connector-events">Connector Events</a></li>
+            
+              <li><a href="/versions/4/integrate/use-cases">Use Cases</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Troubleshooting</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/error-codes">Error Codes</a></li>
+            
+              <li><a href="/versions/4/integrate/faq">FAQ</a></li>
+            
+              <li><a href="/versions/4/integrate/support">Support</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Query RelationshipTemplates">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2024-08-29T08:46:21+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/versions/4/use-case-transport-query-relationshiptemplates" itemprop="url">Query RelationshipTemplates
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#parameters">Parameters</a></li><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
+            </nav>
+          </aside>
+        
+        
+<!--<div>
+    <table>
+        
+        <tr><td>id</td>
+            <td>RT3</td></tr>
+        
+        <tr><td>component</td>
+            <td>Runtime</td></tr>
+        
+        <tr><td>layer</td>
+            <td>Transport</td></tr>
+        
+        <tr><td>facade</td>
+            <td>RelationshipTemplatesFacade</td></tr>
+        
+        <tr><td>function</td>
+            <td>getRelationshipTemplates</td></tr>
+        
+        <tr></tr>
+        
+        <tr><td>feature category</td>
+            <td>Consent required before any data is shared</td></tr>
+        
+        <tr><td>tech category</td>
+            <td>RelationshipTemplates</td></tr>
+        
+        <tr><td>status</td>
+            <td>DONE</td></tr>
+        
+        <tr><td>documentation status</td>
+            <td>DONE</td></tr>
+        
+        <tr></tr>
+        
+        <tr><td>actor</td>
+            <td>Identity</td></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr><td>priority</td>
+            <td>n/a</td></tr>
+        
+        <tr><td>complexity</td>
+            <td>n/a</td></tr>
+        
+        <tr><td>size</td>
+            <td>n/a</td></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr><td>api_route_regex</td>
+            <td>GET /api/v2/RelationshipTemplates</td></tr>
+        
+        <tr><td>published</td>
+            <td>default</td></tr>
+        
+        <tr><td>link</td>
+            <td>use-case-transport-query-relationshiptemplates</td></tr>
+        
+        <tr></tr>
+        <tr></tr>
+    </table>
+</div>
+-->
+
+<p>This use case queries <a href="/versions/4/integrate/data-model-overview#relationshiptemplate">RelationshipTemplates</a>
+of the Identity.</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<p>All parameters are optional. If no parameter is given, all RelationshipTemplates are returned.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">isOwn</code> indicates if the RelationshipTemplate was created by the current Identity.</li>
+  <li><code class="language-plaintext highlighter-rouge">createdAt</code> is the ISODateTime the RelationshipTemplate was created at.</li>
+  <li><code class="language-plaintext highlighter-rouge">expiresAt</code> is the ISODateTime the RelationshipTemplate expires.</li>
+  <li><code class="language-plaintext highlighter-rouge">createdBy</code> is the enmeshed Address of the Identity that created the RelationshipTemplate.</li>
+  <li><code class="language-plaintext highlighter-rouge">createdByDevice</code> is the <code class="language-plaintext highlighter-rouge">id</code> of the Device that created the RelationshipTemplate.</li>
+  <li><code class="language-plaintext highlighter-rouge">maxNumberOfAllocations</code> is the number of times the RelationshipTemplate can be accessed by different Identities to initiate a Relationship. The Backbone returns an error, if one accesses a RelationshipTemplate with no allocations left. Accessing the same RelationshipTemplate with the same Identity multiple times doesn&#8217;t affect the number of allocations. The allocation counts, even if the Identity does not accept the RelationshipTemplate by discarding it.</li>
+</ul>
+
+<h2 id="on-success">On Success</h2>
+
+<ul>
+  <li>Returns all <a href="/versions/4/integrate/data-model-overview#relationshiptemplate">RelationshipTemplates</a> that match the <code class="language-plaintext highlighter-rouge">query</code>.</li>
+</ul>
+
+<h2 id="on-failure">On Failure</h2>
+
+<ul>
+  <li>The parameters are malformed.</li>
+</ul>
+  <h2>How to execute this use case with the Connector?</h2>
+
+The Connector is our first-class citizen, thus we provide you with a detailed API description for every use case.
+This use case can be executed with the REST API of the Connector which you can <a href="/integrate/access-the-connector">Access the Connector</a>.
+ 
+<h6>Corresponding interactive API docs excerpt:</h6>
+
+<rapi-doc-mini
+    server-url="https://doc-demo.is.enmeshed.eu/"
+    default-api-server="https://doc-demo.is.enmeshed.eu/"
+    api-key-name="x-api-key"
+    api-key-location="header"
+    api-key-value="apikey"
+    layout="column"
+    default-schema-tab="example"
+    spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
+    paths-expanded="false"
+    theme="light"
+    bg-color="#f9f9fb"
+    
+    match-paths="^GET /api/v2/RelationshipTemplates$"
+    
+    match-type="regex"
+></rapi-doc-mini>
+<br />
+ 
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-29T08:46:21+02:00">August 29, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+           
+        <li>
+            <a href="/versions/4/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2024
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/4/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/4/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/4/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/4/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

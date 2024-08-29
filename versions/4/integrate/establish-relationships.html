@@ -1,0 +1,648 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Establish Relationships - enmeshed</title>
+<meta name="description" content="Communication and sharing of information between two Identities requires the existence of a Relationship between them. This guide describes how a Connector can establish an active Relationship to another Identity. Firstly, we explain how to create a RelationshipTemplate on a Connector, the so-called Templator, and how to make the RelationshipTemplate available to the other Identity. The RelationshipTemplate can then be used by the other Identity, the so-called Requestor, to send a RelationshipRequest to the Templator. This RelationshipRequest can finally be accepted by the Templator in order to establish an active Relationship between them.">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Establish Relationships">
+<meta property="og:url" content="/versions/4/integrate/establish-relationships">
+
+
+  <meta property="og:description" content="Communication and sharing of information between two Identities requires the existence of a Relationship between them. This guide describes how a Connector can establish an active Relationship to another Identity. Firstly, we explain how to create a RelationshipTemplate on a Connector, the so-called Templator, and how to make the RelationshipTemplate available to the other Identity. The RelationshipTemplate can then be used by the other Identity, the so-called Requestor, to send a RelationshipRequest to the Templator. This RelationshipRequest can finally be accepted by the Templator in order to establish an active Relationship between them.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-08-29T08:46:21+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/4/integrate/establish-relationships">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/4/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/4/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/4/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/4/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/versions/4/use"
+                
+                
+              >Use</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/4/explore"
+                
+                
+              >Explore</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/4/integrate"
+                
+                
+              >Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/4/operate"
+                
+                
+              >Operate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/4/contribute"
+                
+                
+              >Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/4/blog"
+                
+                
+              >Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate enmeshed</h3>
+      
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Getting Started</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/access-the-connector">Access the Connector</a></li>
+            
+              <li><a href="/versions/4/integrate/integration-example">Integration example</a></li>
+            
+              <li><a href="/versions/4/integrate/event-introduction">Event introduction</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Relationships between Identities</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/establish-relationships">Establish Relationships</a></li>
+            
+              <li><a href="/versions/4/integrate/exchange-messages">Exchange Messages</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Working with Requests</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/request-and-response-introduction">Request and Response introduction</a></li>
+            
+              <li><a href="/versions/4/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a></li>
+            
+              <li><a href="/versions/4/integrate/requests-via-messages">Requests via Messages</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Manage Attributes</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/attribute-introduction">Attribute introduction</a></li>
+            
+              <li><a href="/versions/4/integrate/create-attributes-for-yourself">Create Attributes for yourself</a></li>
+            
+              <li><a href="/versions/4/integrate/share-attributes-with-peer">Share Attributes with peer</a></li>
+            
+              <li><a href="/versions/4/integrate/read-attributes-from-peer">Read Attributes from peer</a></li>
+            
+              <li><a href="/versions/4/integrate/create-attributes-for-peer">Create Attributes for peer</a></li>
+            
+              <li><a href="/versions/4/integrate/propose-attributes-to-peer">Propose Attributes to peer</a></li>
+            
+              <li><a href="/versions/4/integrate/update-attributes-by-succession">Update Attributes by succession</a></li>
+            
+              <li><a href="/versions/4/integrate/delete-attributes">Delete Attributes</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Request consent</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
+            
+              <li><a href="/versions/4/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Data Model</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/data-model-overview">Data Model Overview</a></li>
+            
+              <li><a href="/versions/4/integrate/attribute-values">Attribute Values</a></li>
+            
+              <li><a href="/versions/4/integrate/connector-events">Connector Events</a></li>
+            
+              <li><a href="/versions/4/integrate/use-cases">Use Cases</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Troubleshooting</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/4/integrate/error-codes">Error Codes</a></li>
+            
+              <li><a href="/versions/4/integrate/faq">FAQ</a></li>
+            
+              <li><a href="/versions/4/integrate/support">Support</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Establish Relationships">
+    <meta itemprop="description" content="Communication and sharing of information between two Identities requires the existence of a Relationship between them. This guide describes how a Connector can establish an active Relationship to another Identity. Firstly, we explain how to create a RelationshipTemplate on a Connector, the so-called Templator, and how to make the RelationshipTemplate available to the other Identity. The RelationshipTemplate can then be used by the other Identity, the so-called Requestor, to send a RelationshipRequest to the Templator. This RelationshipRequest can finally be accepted by the Templator in order to establish an active Relationship between them.">
+    <meta itemprop="datePublished" content="2024-08-29T08:46:21+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/versions/4/integrate/establish-relationships" itemprop="url">Establish Relationships
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#create-a-relationshiptemplate">Create a RelationshipTemplate</a><ul><li><a href="#input-for-creating-a-relationshiptemplate">Input for creating a RelationshipTemplate</a></li><li><a href="#successfully-created-relationshiptemplate">Successfully created RelationshipTemplate</a></li></ul></li><li><a href="#make-the-relationshiptemplate-available">Make the RelationshipTemplate available</a><ul><li><a href="#make-it-available-to-a-connector">Make it available to a Connector</a></li><li><a href="#make-it-available-to-an-app-user">Make it available to an App user</a></li></ul></li><li><a href="#send-a-relationshiprequest">Send a RelationshipRequest</a><ul><li><a href="#send-it-as-a-connector">Send it as a Connector</a><ul><li><a href="#relationshiptemplate-with-relationshiptemplatecontent">RelationshipTemplate with RelationshipTemplateContent</a></li><li><a href="#relationshiptemplate-without-relationshiptemplatecontent">RelationshipTemplate without RelationshipTemplateContent</a></li></ul></li><li><a href="#send-it-as-an-app-user">Send it as an App user</a></li></ul></li><li><a href="#establish-an-active-relationship">Establish an active Relationship</a><ul><li><a href="#receive-the-relationshiprequest">Receive the RelationshipRequest</a></li><li><a href="#accept-the-relationshiprequest">Accept the RelationshipRequest</a></li><li><a href="#get-informed-about-the-acceptance-of-the-relationshiprequest">Get informed about the acceptance of the RelationshipRequest</a></li></ul></li><li><a href="#whats-next">What’s next?</a></li></ul>
+            </nav>
+          </aside>
+        
+        <p>Communication and sharing of information between two Identities requires the existence of a <a href="/versions/4/integrate/data-model-overview#relationship">Relationship</a> between them. This guide describes how a Connector can establish an active Relationship to another Identity. Firstly, we explain how to <a href="/versions/4/integrate/establish-relationships#create-a-relationshiptemplate">create a RelationshipTemplate</a> on a Connector, the so-called Templator, and how to <a href="/versions/4/integrate/establish-relationships#make-the-relationshiptemplate-available">make the RelationshipTemplate available</a> to the other Identity. The RelationshipTemplate can then be used by the other Identity, the so-called Requestor, to <a href="/versions/4/integrate/establish-relationships#send-a-relationship-request">send a RelationshipRequest</a> to the Templator. This RelationshipRequest can finally be accepted by the Templator in order to <a href="/versions/4/integrate/establish-relationships#establish-an-active-relationship">establish an active Relationship</a> between them.</p>
+
+<h2 id="create-a-relationshiptemplate">Create a RelationshipTemplate</h2>
+
+<p>The creation of a <a href="/versions/4/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> on the Templator is the first required step in the process of establishing a Relationship.
+A RelationshipTemplate is a formal description of the aspects of a Relationship that can be established between two Identities. In particular, it can specify a <a href="/versions/4/integrate/data-model-overview#request">Request</a> sent from the Templator to the Requestor, which must be accepted by the Requestor as a prerequisite for the establishment of the Relationship.</p>
+
+<h3 id="input-for-creating-a-relationshiptemplate">Input for creating a RelationshipTemplate</h3>
+
+<p>To create a RelationshipTemplate on the Templator, you need to follow the instructions described in the <a href="/versions/4/use-case-transport-create-own-relationshiptemplate">Create own RelationshipTemplate</a> use case documentation using the following JSON payload as input:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"maxNumberOfAllocations"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;maximum</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">allocations&gt;</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expiresAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;expiration date of RelationshipTemplate&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="c1">// Content of RelationshipTemplate</span><span class="w">
+    </span><span class="c1">...</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>You need to replace the placeholders marked with <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> appropriately as usual. The <code class="language-plaintext highlighter-rouge">maxNumberOfAllocations</code> property is optional, so you can omit it. If you need help filling the <code class="language-plaintext highlighter-rouge">content</code> property or the <code class="language-plaintext highlighter-rouge">maxNumberOfAllocations</code> property with appropriate values, see the <a href="/versions/4/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> description in the Data Model Overview. It is important to note that if you intend to use the RelationshipTemplate to establish a Relationship between the Templator and an App user, you must use a <a href="/versions/4/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a> as the value of the <code class="language-plaintext highlighter-rouge">content</code> property. In this case, the input must be as follows:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"maxNumberOfAllocations"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;maximum</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">allocations&gt;</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expiresAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;expiration date of RelationshipTemplate&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="c1">// RelationshipTemplateContent</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RelationshipTemplateContent"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;title of RelationshipTemplate&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;custom</span><span class="w"> </span><span class="err">metadata&gt;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"onNewRelationship"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="c1">// Specification of a Request</span><span class="w">
+      </span><span class="c1">...</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"onExistingRelationship"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="c1">// Specification of another Request</span><span class="w">
+      </span><span class="c1">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The properties <code class="language-plaintext highlighter-rouge">content.title</code>, <code class="language-plaintext highlighter-rouge">content.metadata</code> and <code class="language-plaintext highlighter-rouge">content.onExistingRelationship</code> are optional, so you can omit them. In case the <code class="language-plaintext highlighter-rouge">content</code> property of the RelationshipTemplate contains a RelationshipTemplateContent and therefore in particular at least one <a href="/versions/4/integrate/data-model-overview#request">Request</a>, you should <a href="/versions/4/integrate/requests-via-relationshiptemplates#check-the-requests-validity">check the Requests’ validity</a> before you create the RelationshipTemplate. An Identity to which the RelationshipTemplate will be made available and which does not yet have a Relationship to the Templator will receive the Request specified in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property of the <a href="/versions/4/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a>. However, if a Relationship already exists between them and a Request has been specified in the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property of the RelationshipTemplateContent, the Identity will receive this Request instead.</p>
+
+<p class="notice--info">How to send a Request via a RelationshipTemplate is explained in detail in the <a href="/versions/4/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a> guide.</p>
+
+<h3 id="successfully-created-relationshiptemplate">Successfully created RelationshipTemplate</h3>
+
+<p>If you have successfully created the <a href="/versions/4/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> on the Templator, you will receive a success response from which you can read its <code class="language-plaintext highlighter-rouge">id</code>. As the Templator is the creator of the RelationshipTemplate, the <code class="language-plaintext highlighter-rouge">createdBy</code> property contains the Address of the Templator. For this reason, the value of the <code class="language-plaintext highlighter-rouge">isOwn</code> property is set to <code class="language-plaintext highlighter-rouge">true</code> in this context.</p>
+
+<table style="border: none" class="notice--warning">
+    <tr>
+        <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> of the RelationshipTemplate so that you can refer to it and make it available to other Identities later. For the same reason, save the values of the properties <code class="language-plaintext highlighter-rouge">truncatedReference</code> and <code class="language-plaintext highlighter-rouge">secretKey</code>.</p>
+</td>
+    </tr>
+</table>
+
+<h2 id="make-the-relationshiptemplate-available">Make the RelationshipTemplate available</h2>
+
+<p>Before an Identity can establish a Relationship to the Templator, it must send a RelationshipRequest using a valid <a href="/versions/4/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> which is owned by the Templator. Depending on whether the Identity is a Connector or an App user, a different approach must be used to make the RelationshipTemplate available to the Identity:</p>
+
+<ul>
+  <li><a href="/versions/4/integrate/establish-relationships#make-it-available-to-a-connector">Make it available to a Connector</a>: Load the RelationshipTemplate onto it.</li>
+  <li><a href="/versions/4/integrate/establish-relationships#make-it-available-to-an-app-user">Make it available to an App user</a>: Scan the QR code of the RelationshipTemplate.</li>
+</ul>
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/d03afadd-af30-4b08-abd6-c8f3d05d42db" id="rW5NlwcVLvBH"></iframe></div>
+
+<h3 id="make-it-available-to-a-connector">Make it available to a Connector</h3>
+
+<p>If a Connector wants to send a RelationshipRequest to the Templator, it must first load a RelationshipTemplate, which is owned by the Templator, onto itself. This can be done by following the <a href="/versions/4/use-case-transport-load-relationshiptemplate-created-by-others">Load RelationshipTemplate created by others</a> use case description and providing the input:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;truncated reference of RelationshipTemplate&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In doing so, it is necessary to insert the value of the <code class="language-plaintext highlighter-rouge">truncatedReference</code> property read from the <a href="/versions/4/integrate/establish-relationships#successfully-created-relationshiptemplate">created RelationshipTemplate</a> into the <code class="language-plaintext highlighter-rouge">reference</code> property. Alternatively, it is possible to specify the <code class="language-plaintext highlighter-rouge">id</code> and the <code class="language-plaintext highlighter-rouge">secretKey</code> of the <a href="/versions/4/integrate/establish-relationships#successfully-created-relationshiptemplate">created RelationshipTemplate</a> and use the following input:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID of RelationshipTemplate&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"secretKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;secret key of RelationshipTemplate&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>When the RelationshipTemplate of the Templator is successfully loaded onto the Connector, the <code class="language-plaintext highlighter-rouge">transport.peerRelationshipTemplateLoaded</code> <a href="/versions/4/integrate/connector-events">Connector event</a> is triggered and a success response is sent. This success response looks like the success response you receive when you have <a href="/versions/4/integrate/establish-relationships#successfully-created-relationshiptemplate">successfully created a RelationshipTemplate</a> on the Templator, except that the value of the property <code class="language-plaintext highlighter-rouge">isOwn</code> is now <code class="language-plaintext highlighter-rouge">false</code> instead of <code class="language-plaintext highlighter-rouge">true</code>. Assuming that there is no Relationship between the Connector and the Templator yet and that the <a href="/versions/4/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> contains a <a href="/versions/4/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a> in its <code class="language-plaintext highlighter-rouge">content</code> property, the Connector will additionally receive a new incoming Request. The Integrator of the Connector can <a href="/versions/4/use-case-consumption-accept-incoming-request">accept</a> it if they want to <a href="/versions/4/integrate/establish-relationships#send-it-as-a-connector">send a RelationshipRequest</a> to the Templator.</p>
+
+<h3 id="make-it-available-to-an-app-user">Make it available to an App user</h3>
+
+<p>If an App user wants to send a RelationshipRequest to the Templator, the App user must first scan a QR code that contains the reference to a RelationshipTemplate which is owned by the Templator. To create this QR code on the Templator, proceed as described in the documentation of the <a href="/versions/4/use-case-transport-get-relationshiptemplate">Get RelationshipTemplate</a> use case, use the <code class="language-plaintext highlighter-rouge">id</code> of the <a href="/versions/4/integrate/establish-relationships#successfully-created-relationshiptemplate">created RelationshipTemplate</a> and specify the value <code class="language-plaintext highlighter-rouge">image/png</code> in the <code class="language-plaintext highlighter-rouge">Accept</code> header field. After scanning the QR code, the App user receives the conditions for establishing a Relationship to the Templator as specified in the RelationshipTemplate. If these are accepted, the App user can now <a href="/versions/4/integrate/establish-relationships#send-it-as-an-app-user">send a RelationshipRequest</a> to the Templator.</p>
+
+<h2 id="send-a-relationshiprequest">Send a RelationshipRequest</h2>
+
+<p>After the Templator has created a RelationshipTemplate and made it available to another Identity, this Identity can use it to send a RelationshipRequest to the Templator. For this reason, this other Identity is also referred to below as the Requestor.</p>
+
+<h3 id="send-it-as-a-connector">Send it as a Connector</h3>
+
+<p>Assuming that the Requestor in this section is a Connector, our starting situation is that the Requestor has successfully loaded the <a href="/versions/4/integrate/establish-relationships#successfully-created-relationshiptemplate">created RelationshipTemplate</a> onto itself. The received <a href="/versions/4/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> may or may not contain a <a href="/versions/4/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a> in its <code class="language-plaintext highlighter-rouge">content</code> property. We now describe separately in both cases how the Requestor can use the RelationshipTemplate to send a RelationshipRequest to the Templator. An overview of this procedure is given in the following diagram.</p>
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/5be09492-9e2c-42b1-bbb1-acd854118e2c" id="Ez1OCKfT1U40"></iframe></div>
+
+<h4 id="relationshiptemplate-with-relationshiptemplatecontent">RelationshipTemplate with RelationshipTemplateContent</h4>
+
+<p>We assume that there is no <a href="/versions/4/integrate/data-model-overview#relationship">Relationship</a> between the Requestor and the Templator yet and that a RelationshipTemplateContent is used within the <a href="/versions/4/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>. In this case, the Requestor receives a new incoming Request after loading the RelationshipTemplate and the <code class="language-plaintext highlighter-rouge">consumption.incomingRequestReceived</code> <a href="/versions/4/integrate/connector-events">Connector event</a> is triggered. By proceeding as described in the <a href="/versions/4/use-case-consumption-query-incoming-requests">Query incoming Requests</a> use case documentation and specifying <code class="language-plaintext highlighter-rouge">source.reference=&lt;ID of RelationshipTemplate&gt;</code> as a query parameter, this Request can be queried on the Requestor. The <code class="language-plaintext highlighter-rouge">result</code> contains the corresponding <a href="/versions/4/integrate/data-model-overview#localrequest">LocalRequest</a>, from which you can read the <code class="language-plaintext highlighter-rouge">id</code> of the Request.</p>
+
+<table style="border: none" class="notice--warning">
+    <tr>
+        <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> of the incoming Request so that you can accept or reject it.</p>
+</td>
+    </tr>
+</table>
+
+<p>The <code class="language-plaintext highlighter-rouge">content</code> of the LocalRequest is the Request specified in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property of the <a href="/versions/4/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a>. This Request defines the conditions for establishing an active Relationship between the Requestor and the Templator. If the Requestor agrees to them, it can send a RelationshipRequest to the Templator by accepting the Request. This is done by following the instructions of the <a href="/versions/4/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case and providing the <code class="language-plaintext highlighter-rouge">id</code> of the Request as well as an appropriate input to build the <a href="/versions/4/integrate/data-model-overview#response">Response</a> of the Requestor to the Request. In case of success, the <code class="language-plaintext highlighter-rouge">status</code> of the LocalRequest will change from <code class="language-plaintext highlighter-rouge">"ManualDecisionRequired"</code> to <code class="language-plaintext highlighter-rouge">"Decided"</code> and the <code class="language-plaintext highlighter-rouge">consumption.incomingRequestStatusChanged</code> <a href="/versions/4/integrate/connector-events">Connector event</a> will be triggered. The Response of the Requestor to the Request will be contained within the <code class="language-plaintext highlighter-rouge">response.content</code> property of the LocalRequest. By accepting the Request, a data object of type <a href="/versions/4/integrate/data-model-overview#relationship">Relationship</a> with <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code> is created additionally and the <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> <a href="/versions/4/integrate/connector-events">Connector event</a> is triggered. An associated <a href="/versions/4/integrate/data-model-overview#relationshipchange">RelationshipChange</a>, which has <code class="language-plaintext highlighter-rouge">"Creation"</code> as <code class="language-plaintext highlighter-rouge">type</code> and <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code>, can be found within the <code class="language-plaintext highlighter-rouge">changes</code> property of the Relationship. The <code class="language-plaintext highlighter-rouge">request.content.response</code> property of the RelationshipChange contains the Response of the Requestor to the Request.</p>
+
+<p class="notice--info">It is not necessary, but you can query this Relationship by proceeding as described in the <a href="/versions/4/use-case-transport-query-relationships">Query Relationships</a> use case documentation, using the query parameter <code class="language-plaintext highlighter-rouge">template.id=&lt;ID of RelationshipTemplate&gt;</code>. If you decide to do this, you will receive a <code class="language-plaintext highlighter-rouge">result</code> as response from which you can read the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship and the <code class="language-plaintext highlighter-rouge">id</code> of the associated RelationshipChange.</p>
+
+<p class="notice--info">Note that it is of course also possible to reject the incoming Request, if the Requestor does not wish to establish an active Relationship to the Templator under the given conditions. In order to do this, make use of the documentation of the <a href="/versions/4/use-case-consumption-reject-incoming-request">Reject incoming Request</a> use case. More detailed information about how to <a href="/versions/4/integrate/requests-via-relationshiptemplates#reject">reject</a> as well as how to <a href="/versions/4/integrate/requests-via-relationshiptemplates#accept">accept</a> an incoming Request can also be found in the <a href="/versions/4/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a> guide.</p>
+
+<h4 id="relationshiptemplate-without-relationshiptemplatecontent">RelationshipTemplate without RelationshipTemplateContent</h4>
+
+<p>We now consider the situation in which the <a href="/versions/4/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> loaded onto the Requestor does not contain a RelationshipTemplateContent in its <code class="language-plaintext highlighter-rouge">content</code> property. In this case, the Requestor does not receive an incoming Request. Nevertheless, it can send a RelationshipRequest to the Templator by explicitly creating a data object of type <a href="/versions/4/integrate/data-model-overview#relationship">Relationship</a> with <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code> based on the RelationshipTemplate. To do this, follow the instructions of the <a href="/versions/4/use-case-transport-create-relationship-with-relationshiptemplate">Create Relationship with RelationshipTemplate</a> use case and provide as input:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"templateId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID of RelationshipTemplate&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="c1">// Customized content</span><span class="w">
+    </span><span class="c1">...</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Note that the <code class="language-plaintext highlighter-rouge">content</code> property is optional and can therefore be omitted. In case of success, the <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> <a href="/versions/4/integrate/connector-events">Connector event</a> will be triggered and you will receive a <code class="language-plaintext highlighter-rouge">result</code> as response, which contains the created data object of type <a href="/versions/4/integrate/data-model-overview#relationship">Relationship</a> and in particular an associated <a href="/versions/4/integrate/data-model-overview#relationshipchange">RelationshipChange</a>. The RelationshipChange has <code class="language-plaintext highlighter-rouge">"Creation"</code> as <code class="language-plaintext highlighter-rouge">type</code> and <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code>. If you have specified a customized content within the <code class="language-plaintext highlighter-rouge">content</code> property of the input, it is contained within the <code class="language-plaintext highlighter-rouge">request.content</code> property of the RelationshipChange.</p>
+
+<p class="notice--info">Saving the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship and the <code class="language-plaintext highlighter-rouge">id</code> of the associated RelationshipChange is useful if you want to return to the created Relationship later in order to retrace changes to the Relationship.</p>
+
+<h3 id="send-it-as-an-app-user">Send it as an App user</h3>
+
+<p>As already mentioned in the description of the <a href="/versions/4/integrate/establish-relationships#input-for-creating-a-relationshiptemplate">input for creating a RelationshipTemplate</a>, a RelationshipTemplateContent must be used as the value of the <code class="language-plaintext highlighter-rouge">content</code> property of the <a href="/versions/4/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> if you intend to use the RelationshipTemplate to establish a Relationship between the Templator and an App user. Assuming that there is no Relationship between them yet, the App user receives the Request specified in the <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property of the <a href="/versions/4/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a> after scanning the QR code associated with the RelationshipTemplate. The App user has the option of accepting or rejecting the Request. If they accept the Request appropriately, a RelationshipRequest is sent to the Templator. Internally, this corresponds to the creation of a data object of type <a href="/versions/4/integrate/data-model-overview#relationship">Relationship</a> with <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code> and an associated RelationshipChange within its <code class="language-plaintext highlighter-rouge">changes</code> property. The <a href="/versions/4/integrate/data-model-overview#relationshipchange">RelationshipChange</a> has <code class="language-plaintext highlighter-rouge">"Creation"</code> as <code class="language-plaintext highlighter-rouge">type</code> and <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code>. The Response of the App user to the Request is contained within the <code class="language-plaintext highlighter-rouge">request.content.response</code> property of the RelationshipChange.</p>
+
+<p class="notice--info">Please note that the general procedure is the same if an App user instead of a Connector wants to send a RelationshipRequest to the Templator. The difference is that the <a href="/versions/4/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> does not need to contain a RelationshipTemplateContent in its <code class="language-plaintext highlighter-rouge">content</code> property if it is intended to be used by a Connector.</p>
+
+<h2 id="establish-an-active-relationship">Establish an active Relationship</h2>
+
+<p>After the Requestor has sent the RelationshipRequest, the Integrator of the Templator can accept it if they want to establish an active Relationship to the Requestor. We now explain all required steps for establishing an active Relationship, including the necessary synchronization of the Templator and any other Connector that may be involved at certain points in time. Please note that the synchronization can also be automated by using the <a href="/versions/4/operate/modules#sync">Sync Module</a>.</p>
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/de35cc09-894e-431f-819a-33bc7363ea30" id="6y2O3PCGpyGD"></iframe></div>
+
+<h3 id="receive-the-relationshiprequest">Receive the RelationshipRequest</h3>
+
+<p>The Templator must first <a href="/versions/4/use-case-transport-synchronize-updates-of-backbone">synchronize the updates of the Backbone</a> in order to receive the data object of type <a href="/versions/4/integrate/data-model-overview#relationship">Relationship</a> with <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code> previously created by the Requestor and therefore the RelationshipRequest. The synchronization causes the <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> <a href="/versions/4/integrate/connector-events">Connector event</a> to be triggered and the <code class="language-plaintext highlighter-rouge">result</code> of the response after synchronization contains the information about the created Relationship. In particular, the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship and the <code class="language-plaintext highlighter-rouge">id</code> of the associated <a href="/versions/4/integrate/data-model-overview#relationshipchange">RelationshipChange</a> with <code class="language-plaintext highlighter-rouge">"Creation"</code> as <code class="language-plaintext highlighter-rouge">type</code> and <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code> can be read from it.</p>
+
+<table style="border: none" class="notice--warning">
+    <tr>
+        <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
+        <td style="border: none"><p>Read the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship from the <code class="language-plaintext highlighter-rouge">relationships.id</code> property and the <code class="language-plaintext highlighter-rouge">id</code> of the RelationshipChange from the <code class="language-plaintext highlighter-rouge">relationships.changes.id</code> property of the synchronization <code class="language-plaintext highlighter-rouge">result</code> for the next step.</p>
+</td>
+    </tr>
+</table>
+
+<h3 id="accept-the-relationshiprequest">Accept the RelationshipRequest</h3>
+
+<p>If the Templator accepts the RelationshipRequest, the <code class="language-plaintext highlighter-rouge">status</code> of the data object of type <a href="/versions/4/integrate/data-model-overview#relationship">Relationship</a> will change from <code class="language-plaintext highlighter-rouge">"Pending"</code> to <code class="language-plaintext highlighter-rouge">"Active"</code> and therefore an active Relationship between the Templator and the Requestor will be established. In addition, the <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> <a href="/versions/4/integrate/connector-events">Connector event</a> will be triggered. To accept the RelationshipRequest, consult the <a href="/versions/4/use-case-transport-accept-relationshipchange">Accept RelationshipChange</a> use case description and specify the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship and the <code class="language-plaintext highlighter-rouge">id</code> of the associated RelationshipChange.</p>
+
+<p class="notice--info">For rejecting the RelationshipRequest and therefore not establishing an active Relationship between the Templator and the Requestor, take a look at the documentation of the <a href="/versions/4/use-case-transport-reject-relationshipchange">Reject RelationshipChange</a> use case.</p>
+
+<h3 id="get-informed-about-the-acceptance-of-the-relationshiprequest">Get informed about the acceptance of the RelationshipRequest</h3>
+
+<p>Assuming the Requestor is a Connector, it must <a href="/versions/4/use-case-transport-synchronize-updates-of-backbone">synchronize the updates of the Backbone</a> after the Templator has accepted the RelationshipRequest. The synchronization causes the <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> <a href="/versions/4/integrate/connector-events">Connector event</a> to be triggered and the <code class="language-plaintext highlighter-rouge">result</code> of the response after synchronization shows in particular that the <code class="language-plaintext highlighter-rouge">status</code> of the <a href="/versions/4/integrate/data-model-overview#relationship">Relationship</a> has been changed from <code class="language-plaintext highlighter-rouge">"Pending"</code> to <code class="language-plaintext highlighter-rouge">"Active"</code> and that the <code class="language-plaintext highlighter-rouge">status</code> of the associated <a href="/versions/4/integrate/data-model-overview#relationshipchange">RelationshipChange</a> with <code class="language-plaintext highlighter-rouge">"Creation"</code> as <code class="language-plaintext highlighter-rouge">type</code> has been changed from <code class="language-plaintext highlighter-rouge">"Pending"</code> to <code class="language-plaintext highlighter-rouge">"Accepted"</code>. Now the Requestor is informed that the Templator has accepted the RelationshipRequest and therefore an active Relationship has been established between them. If the Requestor is an App user instead, they are informed about the acceptance of the RelationshipRequest analogously.</p>
+
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/650bd1ea-e0fd-489e-ab26-e7fe201ef59e" id="~uUgN3n5x3eT"></iframe></div>
+
+<h2 id="whats-next">What’s next?</h2>
+
+<p>After an active Relationship between the two Identities is established, they are able to share information with each other. For example, they can exchange Messages. A possible scenario that demonstrates how a Connector can send a Message to another Identity with which it has an active Relationship is described in the <a href="/versions/4/integrate/requests-via-messages">Requests via Messages</a> scenario documentation.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-29T08:46:21+02:00">August 29, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+           
+        <li>
+            <a href="/legal" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-info" aria-hidden="true"></i> Legal Disclosure</a>
+        </li>
+          
+        <li>
+            <a href="/privacy" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-user-shield" aria-hidden="true"></i> Privacy Statement</a>
+        </li>
+          
+        <li>
+            <a href="https://www.enmeshed.eu" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a>
+        </li>
+          
+        <li>
+            <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>
+        </li>
+          
+        <li>
+            <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-npm" aria-hidden="true"></i> NPM</a>
+        </li>
+           
+        <li>
+            <a href="/versions/4/feed.xml"
+                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a
+            >
+        </li>
+        
+    </ul>
+</div>
+
+<div class="page__footer-copyright">
+    &copy; 2024
+    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. Powered by
+    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/4/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/4/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/4/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/4/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
