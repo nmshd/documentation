@@ -135,8 +135,8 @@ docs_integrate:
         url: /integrate/use-cases
   - title: Migration Guides
     children:
-      - title: "Version 5"
-        url: /integrate/version-5
+      - title: "Migration From v4 to v5"
+        url: /integrate/migration-from-v4-to-v5
   - title: Troubleshooting
     children:
       - title: "Error codes"
