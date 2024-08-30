@@ -206,11 +206,11 @@ The Response is created with the appropriate ResponseItems.
 If there is already an active Relationship between the Connectors, the Response will be sent back to the Sender via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) and the Request will move to `status` `"Completed"`.
 The Sender, then, can fetch it by [synchronizing the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 
-However, if there is no active Relationship between the Connectors, yet, a Relationship will be created, which has the `status` `"Pending"` for now.
-It contains a [RelationshipChangeRequest]({% link _docs_integrate/data-model-overview.md %}#relationshipchangerequest) with a `content` of type [RelationshipCreationChangeRequestContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationchangerequestcontent), that in turn contains the Response to the Request.
+However, if there is no active Relationship between the Connectors yet, a Relationship will be created, which has the `status` `"Pending"` for now.
+Its creation content is of type [RelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationcontent) and contains the Response to the Request.
 This Relationship is sent back to the Sender via a Message.
 Then, the Request is set to `status` `"Completed"` and you can [query the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) using the query parameter `template.id=<ID of RelationshipTemplate>`.
-Until the RelationshipChangeRequest is answered, no new Request is created by [loading the RelationshipTemplate](#receive-the-request-by-loading-the-relationshiptemplate).
+As long as the Relationship is `"Pending"`, no new Request is created by [loading the RelationshipTemplate](#receive-the-request-by-loading-the-relationshiptemplate).
 
 The Sender can fetch the Relationship by [synchronizing the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 In the response you can see a new Relationship, which looks as follows:
@@ -221,40 +221,26 @@ In the response you can see a new Relationship, which looks as follows:
   "template": {
     // ...
   },
-  "status": "Active",
-  "peer": "id1...",
-  // ...
-  "changes": [
-    {
-      "id": "RCH...",
-      "request": {
-        "createdBy": "id1...",
-        "createdByDevice": "DVC...",
-        "createdAt": "<time of creation>",
-        "content": {
-          "@type": "RelationshipCreationChangeRequestContent",
-          "response": {
-            "items": [
-              {
-                "@type": "AcceptResponseItem",
-                "result": "Accepted"
-              }
-            ],
-            "requestId": "REQ...",
-            "result": "Accepted"
-          }
+  "status": "Pending",
+  "peer": "did:e:...",
+  "creationContent": {
+    "@type": "RelationshipCreationContent",
+    "response": {
+      "items": [
+        {
+          "@type": "AcceptResponseItem",
+          "result": "Accepted"
         }
-      },
-      "status": "Accepted",
-      "type": "Creation"
-      // ...
+      ],
+      "requestId": "REQ...",
+      "result": "Accepted"
     }
-  ]
+  }
 }
 ```
 
-{% include copy-notice description="Save the `id` of the Relationship and of the RelationshipChange to accept the RelationshipChange." %}
+{% include copy-notice description="Save the `id` of the Relationship to accept the Relationship." %}
 
-Now you can [accept the RelationshipChange]({% link _docs_use-cases/use-case-transport-accept-relationshipchange.md %}) on the Sender Connector with the `id` of the Relationship and the `id` of the RelationshipChange.
+Now you can [accept the Relationship]({% link _docs_use-cases/use-case-transport-accept-relationship.md %}) on the Sender Connector with the `id` of the Relationship.
 
 When you [synchronize the Recipient Connector]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}), you can see that the Relationship now has the `status` `"Active"` on both Connectors.

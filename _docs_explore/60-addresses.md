@@ -6,18 +6,17 @@ permalink: /explore/addresses
 The Address is the primary identifier for an enmeshed Identity. It is public and created out of the Identity’s Signature Public Key. Thus, the Identity’s root signature key and its corresponding Address are interlinked with each other and cannot be changed. Nobody is able to change the public key for a corresponding Address and everybody has the possibility to check, if a given public key matches a given Address without having to trust someone. Both are important security features.
 
 - As Addresses do not contain special characters, copy and pasting via double-click is supported.
-- As they also do not contain any characters which might be visually mixed up by humans (I (uppercase i), l (lowercase L), 0 (zero) and O (uppercase o)) reading them is easier than with other encodings - but still quite cumbersome, because of their length.
 - As they do have a checksum included, syntactically wrong Addresses can be checked by a computer program locally.
 
-## Realms/Environments
+Enmeshed uses [Decentralized Identifiers](https://www.w3.org/TR/did-core/), also called DIDs, which are specified by the W3C and commonly used with W3C's [Verifiable Credentials](https://www.w3.org/TR/vc-overview/). Enmeshed plans to launch its own DID method `did:e`, and already uses those DIDs for Addresses even though the method is not yet constructed.
 
-An Address is fixed to a certain realm/environment. So far, there is only one realm supported which is `id1`, the main productive network.
+## Addresses are Backbone-specific
 
-The same Identity (Identity Signature Key Pair) may act within different realms, but will have different Addresses. Additionally, there are many open questions with regards to using multiple realms, e.g. which realm is in charge for the synchronization.
+An Address is fixed to a certain backbone. The same Identity (Identity Signature Key Pair) may act within different backbones, but will have different Addresses. Additionally, there are many open questions with regards to using multiple backbones, e.g. which one is in charge for the synchronization.
 
 ## Syntax
 
-An Address consists of a three character alphanumeric realm prefix and seemingly random characters afterwards. These random characters are a [Base58](https://en.bitcoinwiki.org/wiki/Base58) encoded 24 byte sequence: The first 20 bytes are a hash of the Identity’s Signature Public Key. The last 4 bytes of the sequence represent a checksum of the Address.
+An Address follows the DID syntax and is `did:e:<backbone-hostname>:dids:<public-key-hash><checksum>`. Public-Key-Hash and Checksum are lower-case hexadecimal-encoded, 10 bytes for the hash of the Identity’s Signature Public Key, 1 byte for the checksum of the Address.
 
 ## Address Creation
 
@@ -25,26 +24,25 @@ An Address consists of a three character alphanumeric realm prefix and seemingly
 - Only use Identity Signature Public Key → PublicKey
 - SHA-512 hash the PublicKey
 - SHA-256 hash the SHA-512 Hash
-- Take the first 20 bytes of the SHA-256 Hash → HashedPublicKey
-- Prepend the given 3 character realm (as UTF-8 bytes) to the front of the created HashedPublicKey → ChecksumSource
-- SHA-512 Hash the ChecksumSource
-- SHA-256 Hash the SHA-512 Hash
-- Take the first 4 bytes of the SHA-256 Hash → Checksum
-- Concatenate HashedPublicKey and Checksum → Concatenation
-- Base58 the Concatenation → B58Concatenation
-- Concatenate 3 character realm (string) with B58Concatenation → Address
+- Convert the SHA-256 hash into hexadecimal (lower case)
+- Take the first 10 bytes/20 characters of the hexadecimal (as UTF-8 bytes) → HashedPublicKey
+- Prepend `did:e:<backbone-hostname>:dids:` (as UTF-8 bytes) to the front of the created HashedPublicKey → ChecksumSource
+- SHA-256 Hash the ChecksumSource
+- Convert the SHA-256 hash into hexadecimal (lower case)
+- Take the first byte/two characters of the hexadecimal → Checksum
+- Concatenate ChecksumSource and Checksum → Address
 
 ## Pseudocode
 
 ```text
-createAddress(PublicKey, RealmAsThreeCharUtf8) {
-  Hash := SHA256(SHA512(PublicKey))
-  HashedPublicKey := Hash[0-19]
-  ChecksumSource := realm.toBuffer()  + HashedPublicKey
-  ChecksumHash := SHA256(SHA512(ChecksumSource))
-  Checksum := ChecksumHash[0-3]
-  Concatenation := HashedPublicKey + Checksum
-  Address := Realm + Base58(Concatenation)
+createAddress(PublicKey) {
+Hash := SHA256(SHA512(PublicKey)) // 32 bytes
+HashedPublicKey := Hash[0-9] // 10 bytes
+EnmeshedSpecificPart := "did:e:"
+BackboneSpecificPart := "<backbone-hostname>:dids:" // e. g. "example.com:dids:"
+IdentitySpecificPart := HEX(HashedPublicKey) // 10 bytes (20 characters), e.g. "eadae3b3d814ebb0c0d6"
+Checksum := HEX(SHA256(EnmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart)[0]) // 1 byte, e.g. "de"
+Address = EnmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart + Checksum // e.g. did:e:example.com:dids:eadae3b3d814ebb0c0d6de
 }
 ```
 
@@ -53,43 +51,19 @@ createAddress(PublicKey, RealmAsThreeCharUtf8) {
 Below there are a few examples for valid enmeshed Addresses.
 
 ```text
-Realm: id1
-PublicKey: fj0o9eOiPRswTZL6j9lE9TRvpDDnPRMF0gJeahz/W2c=
-Address: id1QF24Gk2DfqCywRS7NpeH5iu7D4xvu6qv1
+backboneHostname: "example.com"
+publicKey: "fj0o9eOiPRswTZL6j9lE9TRvpDDnPRMF0gJeahz/W2c="
+address: "did:e:example.com:dids:fef1992c5e529adc41328d"
 
-Realm: id1
-PublicKey: jRxGfZtQ8a90TmKCGk+dhuX1CBjgoXuldhNPwrjpWsw=
-Address: id1HwY1TuyVBp3CmY3h18yTt1CKyu5qwB9wj
+backboneHostname: "example.com",
+publicKey: "jRxGfZtQ8a90TmKCGk+dhuX1CBjgoXuldhNPwrjpWsw="
+address: "did:e:example.com:dids:b9d25bd0a2bbd3aa4843ed"
 
-Realm: id1
-PublicKey: PEODpwvi7KxIVa4qeUXia9apMFvPMktdDHiDitlfbjE=
-Address: id1LMp4k1XwxZ3WFXdAn9y12tv1ofe5so4kM
+backboneHostname: "example.com",
+publicKey: "PEODpwvi7KxIVa4qeUXia9apMFvPMktdDHiDitlfbjE="
+address: "did:e:example.com:dids:d459ff2144f0eac7aff5f7"
 
-Realm: id1
-PublicKey: mJGmNbxiVZAPToRuk9O3NvdfsWl6V+7wzIc+/57bU08=
-Address: id1McegXycvRoiJppS2LG25phn3jNveckFUL
-
-Realm: id1
-PublicKey: l68K/zdNp1VLoswcHAqN6QUFwCMU6Yvzf7XiW2m1hRY=
-Address: id193k6K5cJr94WJEWYb6Kei8zp5CGPyrQLS
-
-Realm: id1
-PublicKey: Gl8XTo8qFuUM+ksXixwp4g/jf3H/hU1F8ETuYaHCM5I=
-Address: id1BLrHAgDpimtLcGJGssMSm7bJHsvVe7CN
-
-Realm: id1
-PublicKey: rIS4kAzHXT7GgCA6Qm1ANlwM3x12QMSkeprHb6tjPyc=
-Address: id1NjGvLfWPrQ34PXWRBNiTfXv9DFiDQHExx
-
-Realm: id1
-PublicKey: hg/cbeBvfNrMiJ0dW1AtWC4IQwG4gkuhzG2+z6bAoRU=
-Address: id1Gda4aTXiBX9Pyc8UnmLaG44cX46umjnea
-
-Realm: id1
-PublicKey: kId+qWen/lKeTdyxcIQhkzvvvTU8wIJECfWUWbmRQRY=
-Address: id17RDEphijMPFGLbhqLWWgJfatBANMruC8f
-
-Realm: id1
-PublicKey: NcqlzTEpSlKX9gmNBv41EjPRHpaNYwt0bxqh1bgyJzA=
-Address: id19meHs4Di7JYNXoRPx9bFD6FUcpHFo3mBi
+backboneHostname: "example.com",
+publicKey: "mJGmNbxiVZAPToRuk9O3NvdfsWl6V+7wzIc+/57bU08="
+address: "did:e:example.com:dids:e2208784ee2769c5d9686a"
 ```

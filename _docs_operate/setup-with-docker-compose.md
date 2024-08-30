@@ -53,7 +53,7 @@ Depending on the usage scenario, higher hardware requirements might be necessary
 
 ### Internet Connectivity
 
-A reliable and fast internet connection is mandatory for running the Connector. However, the Connector is only communicating with the Backbone so the corresponding domain (e.g. `https://prod.enmeshed.eu`) can be whitelisted and the associated certificate can be additionally pinned.
+A reliable and fast internet connection is mandatory for running the Connector. However, the Connector is only communicating with the Backbone so the corresponding domain (specified in the [Connector configuration's baseUrl]({% link _docs_operate/configuration.md %}#transportlibrary)) can be whitelisted and the associated certificate can be additionally pinned.
 
 ### List docker image tags
 

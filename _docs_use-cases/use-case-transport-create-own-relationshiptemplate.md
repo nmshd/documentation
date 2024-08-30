@@ -49,7 +49,7 @@ A [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relat
 ## Parameters
 
 - `expiresAt` is the ISODateTime the RelationshipTemplate expires at. This should be set as small as possible and cannot be in the past.
-- `content` describes the structure of the RelationshipTemplate. Whereas the enmeshed App requires a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) as structure, the content of the RelationshipTemplate is arbitrary data.
+- `content` describes the structure of the RelationshipTemplate. If an enmeshed App user shall receive this RelationshipTemplate, a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) is required as structure, otherwise an [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent) containing any data can be used.
 - `maxNumberOfAllocations` is the number of times the RelationshipTemplate can be accessed by different Identities to initiate a Relationship. The Backbone returns an error, if one accesses a RelationshipTemplate with no allocations left. Accessing the same RelationshipTemplate with the same Identity multiple times doesn't affect the number of allocations. The allocation counts, even if the Identity does not accept the RelationshipTemplate by discarding it.
 
 ## On Success

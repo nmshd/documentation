@@ -89,6 +89,8 @@ docs_integrate:
         url: integrate/establish-relationships
       - title: "Exchange Messages"
         url: /integrate/exchange-messages
+      - title: "Terminate Relationships"
+        url: integrate/terminate-relationships
   - title: Working with Requests
     children:
       - title: "Request and Response introduction"
@@ -131,9 +133,13 @@ docs_integrate:
         url: /integrate/connector-events
       - title: "Use Cases"
         url: /integrate/use-cases
+  - title: Migration Guides
+    children:
+      - title: "Migration From v4 to v5"
+        url: /integrate/migration-from-v4-to-v5
   - title: Troubleshooting
     children:
-      - title: "Error Codes"
+      - title: "Error codes"
         url: /integrate/error-codes
       - title: "FAQ"
         url: /integrate/faq
