@@ -57,12 +57,12 @@ More [detailed explanations]({% link _docs_integrate/migration-from-v4-to-v5.md 
 - The [Synchronize updates of Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) use case, which corresponds to the Connector route `POST /api/v2/Account/Sync`, no longer returns any content. Previously, new Messages or changes to Relationships were shown in the response after the use case was executed. As the [synchronization with the Backbone no longer returns anything]({% link _docs_integrate/migration-from-v4-to-v5.md %}#synchronization-with-backbone-returns-no-content-anymore), the corresponding [events]({% link _docs_integrate/connector-events.md %}) must be listened to instead in order to be informed about new Messages or changes to Relationships.
 - Stricter [validation of Requests]({% link _docs_integrate/migration-from-v4-to-v5.md %}#validation-of-requests) has been added. Therefore, changes will probably have to be made to existing Request flows. Both [sending Requests]({% link _docs_integrate/migration-from-v4-to-v5.md %}#sending-of-requests) and [responding to Requests]({% link _docs_integrate/migration-from-v4-to-v5.md %}#responding-to-requests) are affected.
 
-### Changes to Error Codes, Use Cases and Events
+### Changes to Error Codes, Connector Routes and Events
 
-Changes have been made to the [error codes]({% link _docs_integrate/error-codes.md %}), [use cases]({% link _docs_integrate/use-cases.md %}) and [events]({% link _docs_integrate/connector-events.md %}), which may lead to unexpected behavior when updating from version 4 to version 5. In this case, it is worth taking a look at the following lists:
+Changes have been made to the [error codes]({% link _docs_integrate/error-codes.md %}), [use cases]({% link _docs_integrate/use-cases.md %}) and [events]({% link _docs_integrate/connector-events.md %}). Naturally, the Connector routes associated with the changed use cases of the Runtime are often affected as well. All these changes may lead to unexpected behavior when updating from version 4 to version 5. In this case, it is worth taking a look at the following lists:
 
 - An overview of the [removed and changed error codes]({% link _docs_integrate/migration-from-v4-to-v5.md %}#removed-and-changed-error-codes) can be found below.
-- An overview of the [removed, changed and added use cases]({% link _docs_integrate/migration-from-v4-to-v5.md %}#removed-changed-and-added-use-cases) can be found below.
+- An overview of the [removed, changed and added use cases]({% link _docs_integrate/migration-from-v4-to-v5.md %}#removed-changed-and-added-use-cases) with regard to their impact on the Connector routes can be found below.
   - In particular, it must be noted that the [use case of getting shared versions of a RepositoryAttribute has been renamed]({% link _docs_integrate/migration-from-v4-to-v5.md %}#renaming-of-the-use-case-getsharedversionsofrepositoryattribute-to-getsharedversionsofattribute). The [Get shared versions of an Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) use case must now be executed instead. Please note, however, that the associated Connector route `GET /api/v2/Attributes/{id}/Versions/Shared` has not changed.
   - With the execution of the Connector route `POST /api/v2/Attributes`, which corresponds to the execution of the associated [Create a RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-create-a-repositoryattribute.md %}) use case, an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) can be created for yourself. When executing this Connector route, the fields `content.@type` and `content.owner` may no longer be specified as input. This is due to the fact that previously only the IdentityAttribute as `@type` and the own address as the value of the `owner` property of the [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) to be created for yourself came into question anyway. Therefore, [less input needs to be provided when executing the use case to create a RepositoryAttribute]({% link _docs_integrate/migration-from-v4-to-v5.md %}#less-input-needed-for-the-use-case-createrepositoryattribute).
 - An overview of the [renamed and added events]({% link _docs_integrate/migration-from-v4-to-v5.md %}#renamed-and-added-events) can be found below.
@@ -211,28 +211,28 @@ An overview of the [Error codes]({% link _docs_integrate/error-codes.md %}) that
 
 ### Removed, Changed and Added Use Cases
 
-An overview of the [Use Cases]({% link _docs_integrate/use-cases.md %}) that may occur is given on the corresponding documentation page. The most important changes regarding the use cases due to the update from version 4 to version 5 are summarized in the following subsections.
+An overview of the [Use Cases]({% link _docs_integrate/use-cases.md %}) that may occur is given on the corresponding documentation page. The most important changes regarding the use cases due to the update from version 4 to version 5 are summarized in the following subsections. The effects of these changes on the Connector routes are also described.
 
 #### Revocation of Relationships
 
 The [Revoke Relationship]({% link _docs_use-cases/use-case-transport-revoke-relationship.md %}) use case has been added.
-It is now possible to revoke a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` if it was created by yourself.
+It is now possible to revoke a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` if it was created by yourself. To execute this use case, the Connector route `PUT /api/v2/Relationships/{id}/Revoke` can be used.
 
 #### Removal of RelationshipChanges
 
 The [removal of RelationshipChanges](#removal-of-relationshipchanges) is the reason why the following use cases are removed:
 
-- Accept RelationshipChange
-- Reject RelationshipChange
+- The use case for accepting RelationshipChanges along with the associated Connector route `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept`.
+- The use case for rejecting RelationshipChanges along with the associated Connector route `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Reject`.
 
 Therefore, the following new use cases had to be added, which now provide these functionalities:
 
-- [Accept Relationship]({% link _docs_use-cases/use-case-transport-accept-relationship.md %})
-- [Reject Relationship]({% link _docs_use-cases/use-case-transport-reject-relationship.md %})
+- The [Accept Relationship]({% link _docs_use-cases/use-case-transport-accept-relationship.md %}) use case along with the `PUT /api/v2/Relationships/{id}/Accept` Connector route.
+- The [Reject Relationship]({% link _docs_use-cases/use-case-transport-reject-relationship.md %}) use case along with the `PUT /api/v2/Relationships/{id}/Reject` Connector route.
 
 #### Termination of Relationships
 
-Based on the restructuring of the Relationship by [removing the RelationshipChanges](#removal-of-relationshipchanges), the new functionality of [terminating Relationships]({% link _docs_integrate/terminate-relationships.md %}) was implemented. In connection with this feature, the following use cases have been added:
+Based on the restructuring of the Relationship by [removing the RelationshipChanges](#removal-of-relationshipchanges), the new functionality of [terminating Relationships]({% link _docs_integrate/terminate-relationships.md %}) was implemented. In connection with this feature, the following use cases have been added, whereby the corresponding added Connector routes can be found on the documentation pages of the respective use cases:
 
 - [Terminate Relationship]({% link _docs_use-cases/use-case-transport-terminate-relationship.md %})
 - [Request Relationship reactivation]({% link _docs_use-cases/use-case-transport-request-relationship-reactivation.md %})
