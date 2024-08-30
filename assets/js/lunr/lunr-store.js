@@ -173,8 +173,8 @@ var store = [{
         "url": "/integrate/delete-attributes",
         "teaser": null
       },{
-        "title": "Error Codes",
-        "excerpt":"Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker. ErrorCode Description error.connector.http.methodNotAllowed This method...","categories": [],
+        "title": "Error codes",
+        "excerpt":"Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker. ErrorCode Description error.connector.errorInErrorHandler The error...","categories": [],
         "tags": [],
         "url": "/integrate/error-codes",
         "teaser": null
@@ -213,6 +213,12 @@ var store = [{
         "excerpt":"The enmeshed Identity Query Language (IQL) is a domain-specific language to query IdentityAttributes using a concise and simple syntax. The IQL is tailored towards usage by non-technical users and integrators. The IQL is complete, i.e. it’s expressive enough to query arbitrary subsets of IdentityAttributes and can thus serve as a...","categories": [],
         "tags": [],
         "url": "/integrate/iql-syntax",
+        "teaser": null
+      },{
+        "title": "Migration From v4 to v5",
+        "excerpt":"The Runtime of enmeshed has recently been updated from version 4 to version 5. Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors. The version update has resulted in some breaking changes. To support the migration of existing...","categories": [],
+        "tags": [],
+        "url": "/integrate/migration-from-v4-to-v5",
         "teaser": null
       },{
         "title": "Propose Attributes to peer",
@@ -267,6 +273,12 @@ var store = [{
         "excerpt":"For assisted support with the Connector or the Backbone provided by the j&amp;s-soft GmbH contact us via support[at]enmeshed.eu. Community support is a great way to get help and even contribute to the projects. Open bug reports and feature requests in the enmeshed issue tracker or share your feedback with the...","categories": [],
         "tags": [],
         "url": "/integrate/support",
+        "teaser": null
+      },{
+        "title": "Terminate Relationships",
+        "excerpt":"In order for two Identities to communicate with each other and exchange data, they must establish a Relationship between them. If an active Relationship to another Identity is no longer wanted, it can be terminated. Terminating an active Relationship initially blocks regular communication for both Identities, but does not yet...","categories": [],
+        "tags": [],
+        "url": "/integrate/terminate-relationships",
         "teaser": null
       },{
         "title": "Update Attributes by succession",
@@ -539,12 +551,6 @@ var store = [{
         "url": "/use-case-consumption-get-repositoryattributes",
         "teaser": null
       },{
-        "title": "Get shared versions of a RepositoryAttribute",
-        "excerpt":"This use case is deprecated and will be removed with the upcoming major release. Please use Get shared versions of an Attribute instead. This use case allows you to retrieve a list of own shared IdentityAttributes for a specified RepositoryAttribute. Parameters The attributeId belonging to a RepositoryAttribute you would like...","categories": [],
-        "tags": [],
-        "url": "/use-case-consumption-get-shared-versions-of-a-repositoryattribute",
-        "teaser": null
-      },{
         "title": "Get shared versions of an Attribute",
         "excerpt":"This use case allows you to retrieve a list of shared LocalAttributes for a given source Attribute. In case of IdentityAttributes a list comprising of own shared IdentityAttributes for the specified RepositoryAttribute is returned. In case of RelationshipAttributes the list contains ThirdPartyRelationshipAttributes you re-shared based on the specified RelationshipAttribute. Parameters...","categories": [],
         "tags": [],
@@ -737,10 +743,16 @@ var store = [{
         "url": "/use-case-human-select_-item-on-screen",
         "teaser": null
       },{
-        "title": "Accept RelationshipChange",
-        "excerpt":"Accepts a RelationshipChange with the given changeId. Parameters relationshipId the Relationship&#8217;s id which should be changed by the RelationshipChange changeId the RelationshipChange&#8217;s id content a possible answer to the respective RelationshipChange which the peer can fetch On Success The RelationshipChange is accepted and the given content made available for the...","categories": [],
+        "title": "Accept Relationship reactivation",
+        "excerpt":"Accepts the reactivation of the terminated Relationship with the given Relationship&#8217;s id. Parameters relationshipId, the id of the Relationship On Success Accepts the reactivation of the Relationship requested by the peer Returns the reactivated Relationship On Failure The relationshipId does not resolve to a terminated Relationship The peer has not...","categories": [],
         "tags": [],
-        "url": "/use-case-transport-accept-relationshipchange",
+        "url": "/use-case-transport-accept-relationship-reactivation",
+        "teaser": null
+      },{
+        "title": "Accept Relationship",
+        "excerpt":"   Accepts the pending Relationship with the given id.   Parameters      relationshipId, the id of the Relationship   On Success      Accepts the pending Relationship   Returns the accepted Relationship   On Failure      The relationshipId does not resolve to a pending Relationship   You have tried to accept a Relationship created by yourself  ","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-accept-relationship",
         "teaser": null
       },{
         "title": "Approve IdentityDeletionProcess",
@@ -774,7 +786,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create Relationship with RelationshipTemplate",
-        "excerpt":"This use case intends to create a Relationship based on a received RelationshipTemplate. Parameters templateId references the RelationshipTemplate that was received from a party. content can be used as a response with arbitrary data to the peer. This response is usually related to the data received by the RelationshipTemplate, e.g....","categories": [],
+        "excerpt":"This use case intends to create a Relationship based on a received RelationshipTemplate where its content is an ArbitraryRelationshipTemplateContent. The Relationship will be established with the RelationshipTemplate&#8217;s creator. For information on how to establish a Relationship based on a RelationshipTemplate with RelationshipTemplateContent, refer to the corresponding scenario documentation. Parameters templateId...","categories": [],
         "tags": [],
         "url": "/use-case-transport-create-relationship-with-relationshiptemplate",
         "teaser": null
@@ -795,6 +807,12 @@ var store = [{
         "excerpt":"Creates a QR code for a Token of a File that corresponds to the given fileId. Parameters fileId is the id of the File the Token and its QR code should be created for. Optionally, expiresAt can be specified, which describes the ISODateTime the Token expires at. On Success Returns...","categories": [],
         "tags": [],
         "url": "/use-case-transport-create-token-qr-code-for-file",
+        "teaser": null
+      },{
+        "title": "Decompose Relationship",
+        "excerpt":"   Decomposes the terminated Relationship with the given Relationship&#8217;s id.   Parameters      relationshipId, the id of the Relationship   On Success      Deletes the Relationship and data transmitted during it from the Connector   On Failure      The relationshipId does not resolve to a Relationship with \"Terminated\" or \"DeletionProposed\" as status  ","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-decompose-relationship",
         "teaser": null
       },{
         "title": "Download File of Attachment",
@@ -983,10 +1001,34 @@ var store = [{
         "url": "/use-case-transport-reject-identitydeletionprocess",
         "teaser": null
       },{
-        "title": "Reject RelationshipChange",
-        "excerpt":"Rejects a RelationshipChange with the given changeId. Parameters relationshipId the Relationship&#8217;s id which should be changed by the RelationshipChange changeId the RelationshipChange&#8217;s id content a possible answer to the respective RelationshipChange which the peer can fetch On Success The RelationshipChange is rejected and the given content made available for the...","categories": [],
+        "title": "Reject Relationship reactivation",
+        "excerpt":"Rejects the reactivation of the terminated Relationship with the given Relationship&#8217;s id. Parameters relationshipId, the id of the Relationship On Success Rejects the reactivation of the Relationship requested by the peer Returns the Relationship for which the reactivation was rejected On Failure The relationshipId does not resolve to a terminated...","categories": [],
         "tags": [],
-        "url": "/use-case-transport-reject-relationshipchange",
+        "url": "/use-case-transport-reject-relationship-reactivation",
+        "teaser": null
+      },{
+        "title": "Reject Relationship",
+        "excerpt":"   Rejects the pending Relationship with the given id.   Parameters      relationshipId, the id of the Relationship   On Success      Rejects the pending Relationship   Returns the rejected Relationship   On Failure      The relationshipId does not resolve to a pending Relationship   You have tried to reject a Relationship created by yourself  ","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-reject-relationship",
+        "teaser": null
+      },{
+        "title": "Request Relationship reactivation",
+        "excerpt":"Requests the reactivation of the terminated Relationship with the given Relationship&#8217;s id. Parameters relationshipId, the id of the Relationship On Success Requests the reactivation of the Relationship from the peer Returns the Relationship for which the reactivation was requested On Failure The relationshipId does not resolve to a terminated Relationship...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-request-relationship-reactivation",
+        "teaser": null
+      },{
+        "title": "Revoke Relationship reactivation",
+        "excerpt":"Revokes the reactivation of the terminated Relationship with the given Relationship&#8217;s id. Parameters relationshipId, the id of the Relationship On Success Revokes the reactivation of the Relationship you have requested Returns the Relationship for which the reactivation was revoked On Failure The relationshipId does not resolve to a terminated Relationship...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-revoke-relationship-reactivation",
+        "teaser": null
+      },{
+        "title": "Revoke Relationship",
+        "excerpt":"   Revokes the pending Relationship with the given id.   Parameters      relationshipId, the id of the Relationship   On Success      Revokes the pending Relationship   Returns the revoked Relationship   On Failure      The relationshipId does not resolve to a pending Relationship   You have tried to revoke a Relationship not created by yourself  ","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-revoke-relationship",
         "teaser": null
       },{
         "title": "Send Message to Recipient(s)",
@@ -996,9 +1038,15 @@ var store = [{
         "teaser": null
       },{
         "title": "Synchronize updates of Backbone",
-        "excerpt":"Be advised that calling this use case to sync the Identity/Device on a regular basis is discouraged, as it could lead to wrong return values if multiple endpoints trigger this use case. Please configure the SyncModule and use eventing instead. This use case retrieves all relevant data changes between the...","categories": [],
+        "excerpt":"Be advised that calling this use case to sync the Identity/Device on a regular basis is discouraged. Please configure the Server-Sent Events Module or Sync Module to automate the synchronization. This use case retrieves all relevant data changes between the current Identity (and Device) and the Backbone since the last...","categories": [],
         "tags": [],
         "url": "/use-case-transport-synchronize-updates-of-backbone",
+        "teaser": null
+      },{
+        "title": "Terminate Relationship",
+        "excerpt":"   Terminates the active Relationship with the given Relationship&#8217;s id.   Parameters      relationshipId, the id of the Relationship   On Success      Terminates the active Relationship   Returns the terminated Relationship   On Failure      The relationshipId does not resolve to an active Relationship  ","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-terminate-relationship",
         "teaser": null
       },{
         "title": "Update Device",

@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-08-13T18:17:13+02:00">
+  <meta property="article:published_time" content="2024-08-30T10:16:58+02:00">
 
 
 
@@ -62,7 +62,7 @@
   <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script type="text/javascript">
+<script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
   
 </script>
@@ -215,6 +215,8 @@
             
               <li><a href="/integrate/exchange-messages">Exchange Messages</a></li>
             
+              <li><a href="/integrate/terminate-relationships">Terminate Relationships</a></li>
+            
           </ul>
           
         </li>
@@ -303,13 +305,27 @@
       
         <li>
           
+            <span class="nav__sub-title">Migration Guides</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/integrate/migration-from-v4-to-v5">Migration From v4 to v5</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
             <span class="nav__sub-title">Troubleshooting</span>
           
 
           
           <ul>
             
-              <li><a href="/integrate/error-codes">Error Codes</a></li>
+              <li><a href="/integrate/error-codes">Error codes</a></li>
             
               <li><a href="/integrate/faq">FAQ</a></li>
             
@@ -333,7 +349,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Synchronize updates of Backbone">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2024-08-13T18:17:13+02:00">
+    <meta itemprop="datePublished" content="2024-08-30T10:16:58+02:00">
     
 
     <div class="page__inner-wrap">
@@ -431,16 +447,16 @@
 </div>
 -->
 
-<p class="notice--warning">Be advised that calling this use case to sync the Identity/Device on a regular basis is discouraged, as it could lead to wrong return values if multiple endpoints trigger this use case.
-Please configure the <a href="/operate/modules#sync">SyncModule</a> and use eventing instead.</p>
+<p class="notice--warning">Be advised that calling this use case to sync the Identity/Device on a regular basis is discouraged.
+Please configure the <a href="/operate/modules#sse">Server-Sent Events Module</a> or <a href="/operate/modules#sync">Sync Module</a> to automate the synchronization.</p>
 
-<p>This use case retrieves all relevant data changes between the current Identity (and Device) and the Backbone since the last synchronization. The relevant data are so far new RelationshipChanges and Messages.</p>
+<p>This use case retrieves all relevant data changes between the current Identity (and Device) and the Backbone since the last synchronization. The relevant data so far are new Messages, new/changed Relationships and new/changed IdentityDeletionProcesses.
+For example, this also includes the receipt of new reactivation requests of terminated Relationships and new responses to those requests, even if they do not change the <code class="language-plaintext highlighter-rouge">status</code> of the Relationship.</p>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>A list of <a href="/integrate/data-model-overview#relationship">Relationships</a> that have a new status.</li>
-  <li>A list of <a href="/integrate/data-model-overview#message">Messages</a> that were retrieved since the last call.</li>
+  <li>Relevant data changes are received internally, but no response body associated with the data changes is returned.</li>
 </ul>
   <h2>How to execute this use case with the Connector?</h2>
 
@@ -479,7 +495,7 @@ This use case can be executed with the REST API of the Connector which you can <
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-13T18:17:13+02:00">August 13, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-30T10:16:58+02:00">August 30, 2024</time></p>
 
       </footer>
 

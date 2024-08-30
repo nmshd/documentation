@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-08-13T18:17:13+02:00">
+  <meta property="article:published_time" content="2024-08-30T10:16:58+02:00">
 
 
 
@@ -62,7 +62,7 @@
   <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script type="text/javascript">
+<script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
   
 </script>
@@ -215,6 +215,8 @@
             
               <li><a href="/integrate/exchange-messages">Exchange Messages</a></li>
             
+              <li><a href="/integrate/terminate-relationships">Terminate Relationships</a></li>
+            
           </ul>
           
         </li>
@@ -303,13 +305,27 @@
       
         <li>
           
+            <span class="nav__sub-title">Migration Guides</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/integrate/migration-from-v4-to-v5">Migration From v4 to v5</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
             <span class="nav__sub-title">Troubleshooting</span>
           
 
           
           <ul>
             
-              <li><a href="/integrate/error-codes">Error Codes</a></li>
+              <li><a href="/integrate/error-codes">Error codes</a></li>
             
               <li><a href="/integrate/faq">FAQ</a></li>
             
@@ -333,7 +349,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Integration example">
     <meta itemprop="description" content="In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship.This will create a better understanding of these processes, which will help you automating them for your organization.">
-    <meta itemprop="datePublished" content="2024-08-13T18:17:13+02:00">
+    <meta itemprop="datePublished" content="2024-08-30T10:16:58+02:00">
     
 
     <div class="page__inner-wrap">
@@ -354,7 +370,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#establishing-relationships">Establishing Relationships</a><ul><li><a href="#connector-create-an-attribute">Connector: Create an Attribute</a></li><li><a href="#connector-test-your-requests-validity">Connector: Test your Request’s Validity</a></li><li><a href="#connector-create-a-relationshiptemplate">Connector: Create a RelationshipTemplate</a></li><li><a href="#connector-create-a-qr-code-for-the-relationshiptemplate">Connector: Create a QR code for the RelationshipTemplate</a></li><li><a href="#app-send-a-relationship-request">App: Send a Relationship Request</a></li><li><a href="#connector-accept-the-relationship-request">Connector: Accept the Relationship Request</a></li></ul></li><li><a href="#sending-and-receiving-messages">Sending and Receiving Messages</a><ul><li><a href="#sending-a-message-with-a-connector">Sending a Message with a Connector</a></li><li><a href="#receiving-a-message-with-a-connector">Receiving a Message with a Connector</a></li></ul></li><li><a href="#whats-next">What’s next?</a></li></ul>
+              <ul class="toc__menu"><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#establishing-relationships">Establishing Relationships</a><ul><li><a href="#connector-create-an-attribute">Connector: Create an Attribute</a></li><li><a href="#connector-test-your-requests-validity">Connector: Test your Request’s Validity</a></li><li><a href="#connector-create-a-relationshiptemplate">Connector: Create a RelationshipTemplate</a></li><li><a href="#connector-create-a-qr-code-for-the-relationshiptemplate">Connector: Create a QR code for the RelationshipTemplate</a></li><li><a href="#app-initiate-a-relationship">App: Initiate a Relationship</a></li><li><a href="#connector-accept-the-relationship">Connector: Accept the Relationship</a></li></ul></li><li><a href="#sending-and-receiving-messages">Sending and Receiving Messages</a><ul><li><a href="#sending-a-message-with-a-connector">Sending a Message with a Connector</a></li><li><a href="#receiving-a-message-with-a-connector">Receiving a Message with a Connector</a></li></ul></li><li><a href="#whats-next">What’s next?</a></li></ul>
             </nav>
           </aside>
         
@@ -382,12 +398,12 @@ You need to replace them with values before you send the Requests.</p>
   <li>If you want to use your own Connector for executing the examples:
     <ul>
       <li><a href="https://enmeshed.eu/integrate/connector-installation">Install the Connector</a></li>
-      <li>Make sure the <a href="/operate/configuration#sync">Sync Module is disabled</a> (because in this tutorial we will synchronize manually via the HTTP endpoint)</li>
+      <li>Make sure the <a href="/operate/modules#sync">Sync Module</a> and the <a href="/operate/modules#sse">Server-Sent Events Module</a> are disabled (because in this tutorial we will synchronize manually via the HTTP endpoint). We are also neither utilizing the <a href="/operate/modules#webhooks">Webhooks Module</a> nor the <a href="/operate/modules#messagebrokerpublisher">Message Broker Publisher Module</a>, even though using one of them is recommended in productive use.</li>
       <li>Make sure the <a href="/operate/configuration#corehttpapi">docs are enabled</a> for the documentation route to work</li>
       <li>Get the API key that was configured during installation of the Connector (it needs to be sent in the <code class="language-plaintext highlighter-rouge">X-API-KEY</code> header of every HTTP Request)</li>
     </ul>
   </li>
-  <li>You need the <a href="/use/install-the-app">enmeshed App</a> installed on your mobile device.</li>
+  <li>You need the <a href="/use/install-the-app">enmeshed App</a> with a minimum version of <code class="language-plaintext highlighter-rouge">4.0.0</code> installed on your mobile device.</li>
 </ul>
 
 <h2 id="establishing-relationships">Establishing Relationships</h2>
@@ -399,8 +415,8 @@ However, it could be another Connector, as well, e.g. if two companies want to e
 
 <p>The way we will establish the Relationship is via a <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>.
 This is created by the Connector and contains its display name, as well as the data it would like to receive from the other Identity.
-Then, the App user fills out all required information of the RelationshipTemplate and sends the RelationshipRequest to the Connector.
-It in turn accepts the Request, which results in the creation of a new Relationship.</p>
+Then, the App user fills out all required information of the RelationshipTemplate and sends a pending Relationship to the Connector.
+It in turn accepts the Relationship, which results in an active Relationship.</p>
 
 <h3 id="connector-create-an-attribute">Connector: Create an Attribute</h3>
 
@@ -411,8 +427,6 @@ To do so, execute <code class="language-plaintext highlighter-rouge">POST /api/v
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;your Connector's address&gt;"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DisplayName"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Demo Connector of integration example"</span><span class="w">
@@ -420,8 +434,6 @@ To do so, execute <code class="language-plaintext highlighter-rouge">POST /api/v
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<p class="notice--info">You can query the Connector’s address via the route <code class="language-plaintext highlighter-rouge">/api/v2/Account/IdentityInfo</code>. If you are using the Demo Connector of this Tutorial, the address is <code class="language-plaintext highlighter-rouge">id134nJmN7E4Carb6KyRJyePVnXxVHEYQgWD</code>.</p>
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
@@ -431,14 +443,14 @@ To do so, execute <code class="language-plaintext highlighter-rouge">POST /api/v
 <table style="border: none" class="notice--warning">
     <tr>
         <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
-        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> of the Attribute that you can find in the Response. You will need it in the next step.</p>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> and the <code class="language-plaintext highlighter-rouge">owner</code> of the Attribute that you can find in the response. You will need it in the next step.</p>
 </td>
     </tr>
 </table>
 
 <h3 id="connector-test-your-requests-validity">Connector: Test your Request’s Validity</h3>
 
-<p>Next, we want to create a RelationshipTemplate, that can be used by the App to send a Relationship Request to our Connector.
+<p>Next, we want to create a RelationshipTemplate, that can be used by the App to send a pending Relationship to our Connector.
 The content of the RelationshipTemplate can be widely configured, but for simplicity we will use a <a href="/integrate/data-model-overview#request">Request</a> with just two <a href="/integrate/data-model-overview#requestitemgroup">RequestItemGroups</a> in our example.
 On the one hand, we want to <a href="/integrate/share-attributes-with-peer">share an Attribute</a> with the App, namely the display name of our Connector we created in the previous step.
 For this, we use a <a href="/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a>.
@@ -450,7 +462,6 @@ Let’s assume the Connector needs to know the given name and surname of its con
     </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RequestItemGroup"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shared Attributes"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
@@ -458,7 +469,7 @@ Let’s assume the Connector needs to know the given name and surname of its con
             </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttribute"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;the owner property of the Attribute created above&gt;"</span><span class="p">,</span><span class="w">
               </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DisplayName"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Demo Connector of integration example"</span><span class="w">
@@ -470,7 +481,6 @@ Let’s assume the Connector needs to know the given name and surname of its con
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RequestItemGroup"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Requested Attributes"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
@@ -504,7 +514,7 @@ Let’s assume the Connector needs to know the given name and surname of its con
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Before we actually create the RelationshipTemplate, we want to ensure the validity of the Request and its items.</p>
+<p>Before we actually create the RelationshipTemplate, we want to ensure the validity of the Request and its items. To do so, execute <code class="language-plaintext highlighter-rouge">POST /api/v2/Requests/Outgoing/Validate</code> with the Request.</p>
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
@@ -515,8 +525,8 @@ Let’s assume the Connector needs to know the given name and surname of its con
 
 <h3 id="connector-create-a-relationshiptemplate">Connector: Create a RelationshipTemplate</h3>
 
-<p>If the Response is successful, we can create the RelationshipTemplate.
-To do so, we use the <code class="language-plaintext highlighter-rouge">content</code> we just validated.
+<p>If the Connector states your Request as valid, we can create the RelationshipTemplate.
+To do so, we use the <code class="language-plaintext highlighter-rouge">content</code> we just validated in <code class="language-plaintext highlighter-rouge">POST /api/v2/RelationshipTemplates/Own</code>.
 Furthermore, we specify an expiration date, which is located in the future, and restrict the access to a single allocation.</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -555,43 +565,19 @@ For this, execute the <code class="language-plaintext highlighter-rouge">GET /ap
 <rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^get /api/v2/RelationshipTemplates/{id}$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
-<h3 id="app-send-a-relationship-request">App: Send a Relationship Request</h3>
+<h3 id="app-initiate-a-relationship">App: Initiate a Relationship</h3>
 
-<p>Open the created QR code and start the enmeshed App. Depending on what you already did with the App, choose one of the following paths:</p>
+<p>When the App is opened and no profile has been created yet, the user must create one. From the profile overview, the user can add a new contact using the “Add Contact” option. A QR code must be scanned to complete the process.</p>
 
-<ul>
-  <li>If this is the first time you use the App:
-    <ul>
-      <li>click on “Scan code”</li>
-      <li>hold the camera in front of the QR code</li>
-    </ul>
-  </li>
-  <li>If you want to use a new profile:
-    <ul>
-      <li>click on the “+ New profile” button</li>
-      <li>click on “Scan code”</li>
-      <li>hold the camera in front of the QR code</li>
-    </ul>
-  </li>
-  <li>If you want to use an existing profile:
-    <ul>
-      <li>select the existing profile</li>
-      <li>navigate to “Contacts”</li>
-      <li>click on “Add contact”</li>
-      <li>hold the camera in front of the QR code</li>
-    </ul>
-  </li>
-</ul>
+<p>Scanning the QR code should result in a screen similar to the one below, where you can see the information that you added as <code class="language-plaintext highlighter-rouge">content</code> to the RelationshipTemplate.</p>
 
-<p>All three paths should result in a screen similar to the one below, where you can see the information that you added as <code class="language-plaintext highlighter-rouge">content</code> to the RelationshipTemplate.</p>
+<p><img src="/assets/images/add-contact-screen.jpg" alt="Add contact screen" width="40%" /></p>
 
-<p><img src="/assets/images/add-contact-screen.jpg" alt="&quot;Add contact&quot; screen" /></p>
+<p>Finally, fill out the required fields and click on “Add contact” to send the Relationship. This will initiate a Relationship between the App and the Connector. This Relationship has the status <code class="language-plaintext highlighter-rouge">Pending</code> for now.</p>
 
-<p>Finally, fill out the required fields and click on “Add contact” to send the Relationship Request. This will create a new Relationship between the App and the Connector. This Relationship has the status <code class="language-plaintext highlighter-rouge">Pending</code> for now.</p>
+<h3 id="connector-accept-the-relationship">Connector: Accept the Relationship</h3>
 
-<h3 id="connector-accept-the-relationship-request">Connector: Accept the Relationship Request</h3>
-
-<p>In order to move the Relationship into the <code class="language-plaintext highlighter-rouge">Active</code> state, we now need to <a href="/use-case-transport-accept-relationshipchange">accept the Relationship Request</a> with the Connector.
+<p>In order to move the Relationship into the <code class="language-plaintext highlighter-rouge">Active</code> state, we now need to <a href="/use-case-transport-accept-relationship">accept the Relationship</a> with the Connector.
 To do so, we <a href="/use-case-transport-synchronize-updates-of-backbone">synchronize updates of the Backbone</a>, which will fetch all changes that occurred since the last time this endpoint was executed.</p>
 
 <h6>Corresponding interactive API docs excerpt:</h6>
@@ -599,44 +585,39 @@ To do so, we <a href="/use-case-transport-synchronize-updates-of-backbone">synch
 <rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/Account/Sync$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
-<p>In the Response we will receive the created Relationship, which contains the corresponding <a href="/integrate/data-model-overview#relationshipchange">RelationshipCreationChange</a>.</p>
+<p>The synchronization causes the <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> <a href="/integrate/connector-events">Connector event</a> to be triggered, which should be listened to in order to get the Relationship in status <code class="language-plaintext highlighter-rouge">Pending</code>.
+We can also <a href="/use-case-transport-query-relationships">get the Relationship</a> via <code class="language-plaintext highlighter-rouge">GET /api/v2/Relationships</code>. Should you be repeating this tutorial, you could e.g. filter by the <code class="language-plaintext highlighter-rouge">id</code> of the RelationshipTemplate from earlier via <code class="language-plaintext highlighter-rouge">GET /api/v2/Relationships?template.id=&lt;id&gt;</code> if you use a different RelationshipTemplate.</p>
+
+<h6>Corresponding interactive API docs excerpt:</h6>
+
+<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^get /api/v2/Relationships$" match-type="regex"></rapi-doc-mini>
+<p><br /></p>
 
 <p>Example:</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RELmJj25x2bZW0VXzAiQ"</span><span class="p">,</span><span class="w">
-        </span><span class="c1">...</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id19Sy75wjCWhQSxsbMiGLn6iSBfWvQmot5b"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"changes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RCHUwBw7BWlROPlEjb51"</span><span class="p">,</span><span class="w">
-            </span><span class="c1">...</span><span class="w">
-            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creation"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RELmJj25x2bZW0VXzAiQ"</span><span class="p">,</span><span class="w">
+      </span><span class="c1">...</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:e:_________________"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <table style="border: none" class="notice--warning">
     <tr>
         <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
-        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship (<code class="language-plaintext highlighter-rouge">REL_________________</code>), as well as the <code class="language-plaintext highlighter-rouge">id</code> of the first RelationshipChange (<code class="language-plaintext highlighter-rouge">RCH_________________</code>) in the <code class="language-plaintext highlighter-rouge">changes</code> array and use them as input to the <code class="language-plaintext highlighter-rouge">PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept</code> route. You can leave that Request body as it is.</p>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship (<code class="language-plaintext highlighter-rouge">REL_________________</code>) and use it as input to the <code class="language-plaintext highlighter-rouge">PUT /api/v2/Relationships/{id}/Accept</code> route. You can leave that Request body as it is.</p>
 </td>
     </tr>
 </table>
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
-<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^put /api/v2/Relationships/{id}/Changes/{changeId}/Accept$" match-type="regex"></rapi-doc-mini>
+<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^put /api/v2/Relationships/{id}/Accept$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
 <p>Now the Relationship is in the <code class="language-plaintext highlighter-rouge">Active</code> state, so we can start to communicate with the opposite Identity, which we will do in the next part of this tutorial.
@@ -646,7 +627,7 @@ It can be found in the Response, when accepting the Relationship.</p>
 <table style="border: none" class="notice--warning">
     <tr>
         <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
-        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">peer</code> property of the Response (<code class="language-plaintext highlighter-rouge">id1_________________</code>). You will need it in the next step.</p>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">peer</code> property of the Response (<code class="language-plaintext highlighter-rouge">did:e:_________________</code>). You will need it in the next step.</p>
 </td>
     </tr>
 </table>
@@ -664,10 +645,10 @@ For this, we need the address of our peer, that we copied in the previous step, 
 Further, the <code class="language-plaintext highlighter-rouge">subject</code> and <code class="language-plaintext highlighter-rouge">body</code> properties can be modified with some custom <code class="language-plaintext highlighter-rouge">content</code>.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"id_________________________________"</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:e:_________________________________"</span><span class="p">],</span><span class="w">
   </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mail"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"id_________________________________"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"to"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"did:e:_________________________________"</span><span class="p">],</span><span class="w">
     </span><span class="nl">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello. We are pleased to welcome you as our customer."</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -697,7 +678,14 @@ Then, tap on “New Message”, enter a subject and body and tap on “Send”.<
 <rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/v2/Account/Sync$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
-<p>The Response should contain a Message with the <code class="language-plaintext highlighter-rouge">content</code> you entered in the App.</p>
+<p>After syncing, all Messages can be displayed with the <code class="language-plaintext highlighter-rouge">GET /api/v2/Messages</code> route. Additionally, the <a href="/integrate/connector-events">Event</a> <code class="language-plaintext highlighter-rouge">transport.messageReceived</code> is triggered after a Message is received. If you use the <a href="/operate/modules#messagebrokerpublisher">Message Broker Publisher Module</a> or the <a href="/operate/modules#webhooks">Webhooks Module</a> to subscribe to this event, you will receive the information whenever a new Message arrives.</p>
+
+<h6>Corresponding interactive API docs excerpt:</h6>
+
+<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^get /api/v2/Messages$" match-type="regex"></rapi-doc-mini>
+<p><br /></p>
+
+<p>The response should contain a Message with the <code class="language-plaintext highlighter-rouge">content</code> you entered in the App.</p>
 
 <h2 id="whats-next">What’s next?</h2>
 
@@ -719,7 +707,7 @@ Then, tap on “New Message”, enter a subject and body and tap on “Send”.<
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-13T18:17:13+02:00">August 13, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-30T10:16:58+02:00">August 30, 2024</time></p>
 
       </footer>
 

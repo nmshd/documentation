@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-08-13T18:17:13+02:00">
+  <meta property="article:published_time" content="2024-08-30T10:16:58+02:00">
 
 
 
@@ -62,7 +62,7 @@
   <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script type="text/javascript">
+<script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
   
 </script>
@@ -215,6 +215,8 @@
             
               <li><a href="/integrate/exchange-messages">Exchange Messages</a></li>
             
+              <li><a href="/integrate/terminate-relationships">Terminate Relationships</a></li>
+            
           </ul>
           
         </li>
@@ -303,13 +305,27 @@
       
         <li>
           
+            <span class="nav__sub-title">Migration Guides</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/integrate/migration-from-v4-to-v5">Migration From v4 to v5</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
             <span class="nav__sub-title">Troubleshooting</span>
           
 
           
           <ul>
             
-              <li><a href="/integrate/error-codes">Error Codes</a></li>
+              <li><a href="/integrate/error-codes">Error codes</a></li>
             
               <li><a href="/integrate/faq">FAQ</a></li>
             
@@ -333,7 +349,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Requests via RelationshipTemplates">
     <meta itemprop="description" content="This guide explains the end-to-end flow of sending a Request via a RelationshipTemplate and responding to it.Usually, this flow happens between a Connector and the App, but for simplicity and more transparency, two Connectors are used here.To try out the examples in this guide on your own, you therefore need two Connectors.">
-    <meta itemprop="datePublished" content="2024-08-13T18:17:13+02:00">
+    <meta itemprop="datePublished" content="2024-08-30T10:16:58+02:00">
     
 
     <div class="page__inner-wrap">
@@ -539,11 +555,11 @@ The Response is created with the appropriate ResponseItems.</p>
 <p>If there is already an active Relationship between the Connectors, the Response will be sent back to the Sender via a <a href="/integrate/data-model-overview#message">Message</a> and the Request will move to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Completed"</code>.
 The Sender, then, can fetch it by <a href="/use-case-transport-synchronize-updates-of-backbone">synchronizing the updates of the Backbone</a>.</p>
 
-<p>However, if there is no active Relationship between the Connectors, yet, a Relationship will be created, which has the <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Pending"</code> for now.
-It contains a <a href="/integrate/data-model-overview#relationshipchangerequest">RelationshipChangeRequest</a> with a <code class="language-plaintext highlighter-rouge">content</code> of type <a href="/integrate/data-model-overview#relationshipcreationchangerequestcontent">RelationshipCreationChangeRequestContent</a>, that in turn contains the Response to the Request.
+<p>However, if there is no active Relationship between the Connectors yet, a Relationship will be created, which has the <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Pending"</code> for now.
+Its creation content is of type <a href="/integrate/data-model-overview#relationshipcreationcontent">RelationshipCreationContent</a> and contains the Response to the Request.
 This Relationship is sent back to the Sender via a Message.
 Then, the Request is set to <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Completed"</code> and you can <a href="/use-case-transport-query-relationships">query the Relationship</a> using the query parameter <code class="language-plaintext highlighter-rouge">template.id=&lt;ID of RelationshipTemplate&gt;</code>.
-Until the RelationshipChangeRequest is answered, no new Request is created by <a href="#receive-the-request-by-loading-the-relationshiptemplate">loading the RelationshipTemplate</a>.</p>
+As long as the Relationship is <code class="language-plaintext highlighter-rouge">"Pending"</code>, no new Request is created by <a href="#receive-the-request-by-loading-the-relationshiptemplate">loading the RelationshipTemplate</a>.</p>
 
 <p>The Sender can fetch the Relationship by <a href="/use-case-transport-synchronize-updates-of-backbone">synchronizing the updates of the Backbone</a>.
 In the response you can see a new Relationship, which looks as follows:</p>
@@ -553,47 +569,33 @@ In the response you can see a new Relationship, which looks as follows:</p>
   </span><span class="nl">"template"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="c1">// ...</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1..."</span><span class="p">,</span><span class="w">
-  </span><span class="c1">// ...</span><span class="w">
-  </span><span class="nl">"changes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RCH..."</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"createdBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1..."</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"createdByDevice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DVC..."</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;time of creation&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RelationshipCreationChangeRequestContent"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptResponseItem"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nl">"requestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ..."</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:e:..."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"creationContent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RelationshipCreationContent"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptResponseItem"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="w">
         </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Creation"</span><span class="w">
-      </span><span class="c1">// ...</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"requestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <table style="border: none" class="notice--warning">
     <tr>
         <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
-        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship and of the RelationshipChange to accept the RelationshipChange.</p>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship to accept the Relationship.</p>
 </td>
     </tr>
 </table>
 
-<p>Now you can <a href="/use-case-transport-accept-relationshipchange">accept the RelationshipChange</a> on the Sender Connector with the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship and the <code class="language-plaintext highlighter-rouge">id</code> of the RelationshipChange.</p>
+<p>Now you can <a href="/use-case-transport-accept-relationship">accept the Relationship</a> on the Sender Connector with the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship.</p>
 
 <p>When you <a href="/use-case-transport-synchronize-updates-of-backbone">synchronize the Recipient Connector</a>, you can see that the Relationship now has the <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Active"</code> on both Connectors.</p>
 
@@ -607,7 +609,7 @@ In the response you can see a new Relationship, which looks as follows:</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-13T18:17:13+02:00">August 13, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-30T10:16:58+02:00">August 30, 2024</time></p>
 
       </footer>
 

@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>enmeshed Runtime - enmeshed</title>
+<!-- begin _includes/seo.html --><title>enmeshed Runtime</title>
 <meta name="description" content="enmeshed Runtime GitHub Repository">
 
 
@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-08-13T18:17:13+02:00">
+  <meta property="article:published_time" content="2024-08-30T10:16:58+02:00">
 
 
 
@@ -62,7 +62,7 @@
   <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script type="text/javascript">
+<script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
   
 </script>
@@ -295,7 +295,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="enmeshed Runtime">
     <meta itemprop="description" content="enmeshed Runtime GitHub Repository">
-    <meta itemprop="datePublished" content="2024-08-13T18:17:13+02:00">
+    <meta itemprop="datePublished" content="2024-08-30T10:16:58+02:00">
     
 
     <div class="page__inner-wrap">
@@ -320,7 +320,7 @@
             </nav>
           </aside>
         
-        <p><a href="https://github.com/nmshd/cns-runtime">enmeshed Runtime GitHub Repository</a></p>
+        <p><a href="https://github.com/nmshd/runtime">enmeshed Runtime GitHub Repository</a></p>
 
 <p>The Runtime wraps all features of enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser.</p>
 
@@ -337,13 +337,13 @@
 
 <h2 id="runtime-building-blocks">Runtime Building Blocks</h2>
 
-<h3 id="crypto-library">Crypto Library <a href="https://github.com/nmshd/cns-crypto"><i class="fab fa-fw fa-github"></i></a></h3>
+<h3 id="crypto-library">Crypto Library <a href="https://github.com/nmshd/ts-crypto"><i class="fab fa-fw fa-github"></i></a></h3>
 
 <p>To separate the cryptographic interfaces from the used cryptographic library (e.g. libsodium), the crypto library acts as a wrapper. Additionally, cryptographically-related source code is bundled within this library.</p>
 
 <p>This approach allows us to implement features for cryptographic classes, for example the serialization of keys. Additionally, security audits could focus on this library.</p>
 
-<h3 id="transport-library">Transport Library <a href="https://github.com/nmshd/cns-transport"><i class="fab fa-fw fa-github"></i></a></h3>
+<h3 id="transport-library">Transport Library <a href="https://github.com/nmshd/runtime/tree/main/packages/transport"><i class="fab fa-fw fa-github"></i></a></h3>
 
 <p>The implementation of the transport layer is the transport library. It combines the features of different third party libraries and the crypto library to support the following features:</p>
 
@@ -356,7 +356,7 @@
   <li>Cross-device synchronization of the datawallet</li>
 </ul>
 
-<h3 id="content-library">Content Library <a href="https://github.com/nmshd/cns-content"><i class="fab fa-fw fa-github"></i></a></h3>
+<h3 id="content-library">Content Library <a href="https://github.com/nmshd/runtime/tree/main/packages/content"><i class="fab fa-fw fa-github"></i></a></h3>
 
 <p>To separate the actual payload of Messages from the Message structure and envelope, the content library was set up. It is a repository of interfaces and types which are used as the payload of communication between Identities.</p>
 
@@ -368,7 +368,7 @@
   <li>Transactional formats like Requests</li>
 </ul>
 
-<h3 id="consumption-library">Consumption Library <a href="https://github.com/nmshd/cns-consumption"><i class="fab fa-fw fa-github"></i></a></h3>
+<h3 id="consumption-library">Consumption Library <a href="https://github.com/nmshd/runtime/tree/main/packages/consumption"><i class="fab fa-fw fa-github"></i></a></h3>
 
 <p>Due to the fact that the Backbone cannot implement business logic to process content sent over the wire just like any other central service, the business logic needs to reside on the respective clients.</p>
 
@@ -420,7 +420,7 @@
       <li>when the Request came from a Message the Module sends back a Message containing the User’s Response (accept and reject)</li>
     </ul>
   </li>
-  <li>listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent with the RelationshipCreationChange</li>
+  <li>listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent in the Relationship’s <code class="language-plaintext highlighter-rouge">creationContent</code></li>
 </ul>
 
 <h3 id="decider-module">Decider Module</h3>
@@ -453,7 +453,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-13T18:17:13+02:00">August 13, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-30T10:16:58+02:00">August 30, 2024</time></p>
 
       </footer>
 
