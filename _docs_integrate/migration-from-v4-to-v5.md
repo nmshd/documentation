@@ -64,6 +64,7 @@ Changes have been made to the [error codes]({% link _docs_integrate/error-codes.
 - An overview of the [removed and changed error codes]({% link _docs_integrate/migration-from-v4-to-v5.md %}#removed-and-changed-error-codes) can be found below.
 - An overview of the [removed, changed and added use cases]({% link _docs_integrate/migration-from-v4-to-v5.md %}#removed-changed-and-added-use-cases) can be found below.
   - In particular, it must be noted that the [use case of getting shared versions of a RepositoryAttribute has been renamed]({% link _docs_integrate/migration-from-v4-to-v5.md %}#renaming-of-the-use-case-getsharedversionsofrepositoryattribute-to-getsharedversionsofattribute). The [Get shared versions of an Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) use case must now be executed instead.
+  - With the execution of the Connector route `POST /api/v2/Attributes`, which corresponds to the execution of the associated [Create a RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-create-a-repositoryattribute.md %}) use case, an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) can be created for yourself. When executing this Connector route, the fields `content.@type` and `content.owner` may no longer be specified as input. This is due to the fact that previously only the IdentityAttribute as `@type` and the own address as the value of the `owner` property of the [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) to be created for yourself came into question anyway. Therefore, [less input needs to be provided when executing the use case to create a RepositoryAttribute]({% link _docs_integrate/migration-from-v4-to-v5.md %}#less-input-needed-for-the-use-case-createrepositoryattribute).
 - An overview of the [renamed and added events]({% link _docs_integrate/migration-from-v4-to-v5.md %}#renamed-and-added-events) can be found below.
 
 ## Detailed Explanations
@@ -246,6 +247,16 @@ Taking [ThirdPartyRelationshipAttributes]({% link _docs_integrate/data-model-ove
 
 For this reason, the [Get shared versions of an Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) use case was already added in version 4 and the use case of getting shared versions of a RepositoryAttribute was marked as deprecated.
 It has now been deleted with the update to version 5.
+
+#### Less Input Needed for the Use Case CreateRepositoryAttribute
+
+In version 4, there was already a use case for creating Attributes for yourself that could be executed by Connector route `POST /api/v2/Attributes`.
+An Attribute created for yourself is automatically an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) which is owned by yourself.
+Technically, this corresponds exactly to the creation of a [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
+Therefore, the use case for creating Attributes for yourself is named the [Create a RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-create-a-repositoryattribute.md %}) use case.
+
+When [creating Attributes for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}), it is therefore apparently not valuable to have to explicitly specify that an IdentityAttribute should be created instead of a RelationshipAttribute and that the IdentityAttribute should be owned by yourself instead of another Identity.
+For this reason, when executing the Connector route `POST /api/v2/Attributes`, which corresponds to the execution of the associated [Create a RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-create-a-repositoryattribute.md %}) use case, less input must now be provided, since the `@type` and the `owner` of the [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) to be created may no longer be specified.
 
 ### Renamed and Added Events
 
