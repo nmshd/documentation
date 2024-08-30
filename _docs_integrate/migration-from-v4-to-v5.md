@@ -54,7 +54,7 @@ More [detailed explanations]({% link _docs_integrate/migration-from-v4-to-v5.md 
 
 ### Changed Behavior of Known Features
 
-- The [Synchronize updates of Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) use case no longer returns any content. Previously, new Messages or changes to Relationships were shown in the response after the use case was executed. As the [synchronization with the Backbone no longer returns anything]({% link _docs_integrate/migration-from-v4-to-v5.md %}#synchronization-with-backbone-returns-no-content-anymore), the corresponding [events]({% link _docs_integrate/connector-events.md %}) must be listened to instead in order to be informed about new Messages or changes to Relationships.
+- The [Synchronize updates of Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) use case, which corresponds to the Connector route `POST /api/v2/Account/Sync`, no longer returns any content. Previously, new Messages or changes to Relationships were shown in the response after the use case was executed. As the [synchronization with the Backbone no longer returns anything]({% link _docs_integrate/migration-from-v4-to-v5.md %}#synchronization-with-backbone-returns-no-content-anymore), the corresponding [events]({% link _docs_integrate/connector-events.md %}) must be listened to instead in order to be informed about new Messages or changes to Relationships.
 - Stricter [validation of Requests]({% link _docs_integrate/migration-from-v4-to-v5.md %}#validation-of-requests) has been added. Therefore, changes will probably have to be made to existing Request flows. Both [sending Requests]({% link _docs_integrate/migration-from-v4-to-v5.md %}#sending-of-requests) and [responding to Requests]({% link _docs_integrate/migration-from-v4-to-v5.md %}#responding-to-requests) are affected.
 
 ### Changes to Error Codes, Use Cases and Events
@@ -247,6 +247,9 @@ Taking [ThirdPartyRelationshipAttributes]({% link _docs_integrate/data-model-ove
 
 For this reason, the [Get shared versions of an Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) use case was already added in version 4 and the use case of getting shared versions of a RepositoryAttribute was marked as deprecated.
 It has now been deleted with the update to version 5.
+
+Please note, however, that the Connector route `GET /api/v2/Attributes/{id}/Versions/Shared` that belonged to the use case of getting shared versions of a RepositoryAttribute can still be used. If the Connector route `GET /api/v2/Attributes/{id}/Versions/Shared` is executed, the [Get shared versions of an Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) use case is now executed instead.
+As the functionality has only been extended, there is no breaking change with regard to the Connector route.
 
 #### Less Input Needed for the Use Case CreateRepositoryAttribute
 
