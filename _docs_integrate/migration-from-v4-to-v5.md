@@ -73,7 +73,7 @@ The aspects to be taken into account when migrating to version 5, which were bri
 
 ### DIDs as Addresses
 
-The address format changed from `<3-character realm><32- or 33-character base58-string>` to `did:e:<backbone-hostname>:dids:<22-character lowercase hex string>`.
+Each [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) within enmeshed has a unique `address` for identification. The format of this `address` has changed from `<3-character realm><32- or 33-character Base58-encoded string>` to `did:e:<hostname of Backbone>:dids:<22-character lowercase hexadecimal string>`. Accordingly, the `realm` property of the Identity was removed as well.
 
 ### Removal of RelationshipChanges
 

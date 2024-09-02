@@ -16,7 +16,7 @@ An Address is fixed to a certain backbone. The same Identity (Identity Signature
 
 ## Syntax
 
-An Address follows the DID syntax and is `did:e:<backbone-hostname>:dids:<public-key-hash><checksum>`. Public-Key-Hash and Checksum are lower-case hexadecimal-encoded, 10 bytes for the hash of the Identity’s Signature Public Key, 1 byte for the checksum of the Address.
+An Address follows the DID syntax and is `did:e:<hostname of Backbone>:dids:<public-key-hash><checksum>`. Public-Key-Hash and Checksum are lowercase hexadecimal-encoded, 10 bytes for the hash of the Identity’s Signature Public Key, 1 byte for the checksum of the Address.
 
 ## Address Creation
 
@@ -26,7 +26,7 @@ An Address follows the DID syntax and is `did:e:<backbone-hostname>:dids:<public
 - SHA-256 hash the SHA-512 Hash
 - Convert the SHA-256 hash into hexadecimal (lower case)
 - Take the first 10 bytes/20 characters of the hexadecimal (as UTF-8 bytes) → HashedPublicKey
-- Prepend `did:e:<backbone-hostname>:dids:` (as UTF-8 bytes) to the front of the created HashedPublicKey → ChecksumSource
+- Prepend `did:e:<hostname of Backbone>:dids:` (as UTF-8 bytes) to the front of the created HashedPublicKey → ChecksumSource
 - SHA-256 Hash the ChecksumSource
 - Convert the SHA-256 hash into hexadecimal (lower case)
 - Take the first byte/two characters of the hexadecimal → Checksum
@@ -39,7 +39,7 @@ createAddress(PublicKey) {
 Hash := SHA256(SHA512(PublicKey)) // 32 bytes
 HashedPublicKey := Hash[0-9] // 10 bytes
 EnmeshedSpecificPart := "did:e:"
-BackboneSpecificPart := "<backbone-hostname>:dids:" // e. g. "example.com:dids:"
+BackboneSpecificPart := "<hostname of Backbone>:dids:" // e. g. "example.com:dids:"
 IdentitySpecificPart := HEX(HashedPublicKey) // 10 bytes (20 characters), e.g. "eadae3b3d814ebb0c0d6"
 Checksum := HEX(SHA256(EnmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart)[0]) // 1 byte, e.g. "de"
 Address = EnmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart + Checksum // e.g. did:e:example.com:dids:eadae3b3d814ebb0c0d6de
