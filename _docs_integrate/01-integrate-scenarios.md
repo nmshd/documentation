@@ -37,6 +37,10 @@ Discover how to request [persistent consent]({% link _docs_integrate/request-per
 
 Understand the [Data Model]({% link _docs_integrate/data-model-overview.md %}) of enmeshed and how it fits into your integration. Also get an overview of the [Attribute Values]({% link _docs_integrate/attribute-values.md %}), the [Connector Events]({% link _docs_integrate/connector-events.md %}) and our [Use Cases]({% link _docs_integrate/use-cases.md %}).
 
+## Migration Guides
+
+Get support for the migration of an existing system to a new version, for example when [migrating from version 4 to version 5]({% link _docs_integrate/migration-from-v4-to-v5.md %}) of the enmeshed Runtime and Connector, respectively.
+
 ## Troubleshooting
 
 Here you can find the [Error codes]({% link _docs_integrate/error-codes.md %}) and our [FAQ]({% link _docs_integrate/faq.md %}) page.
