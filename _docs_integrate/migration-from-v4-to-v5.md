@@ -73,7 +73,7 @@ The aspects to be taken into account when migrating to version 5, which were bri
 
 ### DIDs as Addresses
 
-Each [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) within enmeshed has a unique `address` for identification. The format of this [address]({% link _docs_explore/60-addresses.md %}) has changed from `<3-character realm><32- or 33-character Base58-encoded string>` to `did:e:<hostname of Backbone>:dids:<22-character lowercase hexadecimal string>`. Accordingly, the `realm` property of the Identity was removed as well. Furthermore, the two error codes `error.runtime.MultiAccount.WrongRealm` and `error.transport.identity.realmLength` have been removed.
+Each [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) within enmeshed has a unique `address` for identification. The format of this [address]({% link _docs_explore/60-addresses.md %}) has changed from `<3-character realm><32- or 33-character base58-encoded string>` to `did:e:<hostname of Backbone>:dids:<22-character lowercase hexadecimal string>`. Accordingly, the `realm` property of the Identity was removed as well. Furthermore, the two error codes `error.runtime.MultiAccount.WrongRealm` and `error.transport.identity.realmLength` have been removed.
 
 ### Removal of RelationshipChanges
 
