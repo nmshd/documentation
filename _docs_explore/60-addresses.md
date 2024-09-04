@@ -16,7 +16,7 @@ An Address is fixed to a certain backbone. The same Identity (Identity Signature
 
 ## Syntax
 
-An Address follows the DID syntax and is `did:e:<backbone-hostname>:dids:<public-key-hash><checksum>`. Public-Key-Hash and Checksum are lower-case hexadecimal-encoded, 10 bytes for the hash of the Identity’s Signature Public Key, 1 byte for the checksum of the Address.
+An Address follows the DID syntax and is `did:e:<backbone-hostname>:dids:<public-key-hash><checksum>`. Public-Key-Hash and Checksum are lowercase hexadecimal-encoded, 10 bytes for the hash of the Identity’s Signature Public Key, 1 byte for the checksum of the Address.
 
 ## Address Creation
 
