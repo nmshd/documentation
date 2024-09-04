@@ -38,7 +38,7 @@ More [detailed explanations]({% link _docs_integrate/migration-from-v4-to-v5.md 
 - The data from the database that was used by the Connector of the former version is outdated. This is because the [format of addresses has changed to DIDs]({% link _docs_integrate/migration-from-v4-to-v5.md %}#dids-as-addresses), for example. For this reason, the old data must be deleted. Alternatively, the database can be deleted as a whole and [set up again]({% link _docs_operate/setup-with-docker-compose.md %}).
 - The [image](https://github.com/nmshd/connector?tab=readme-ov-file#connector) used to run the Connector must be updated to version 5.
 - Some changes must be made to the [configuration]({% link _docs_operate/configuration.md %}) of the Connector.
-  - It must be ensured that a [Backbone](https://github.com/nmshd/backbone/tags) is used which is compatible with version 5 of the Connector. This means that a Backbone of version 6 must be used. Therefore, specify appropriate Backbone credentials in the fields `transportLibrary.baseUrl`, `transportLibrary.platformClientId` and `transportLibrary.platformClientSecret` of the [configuration]({% link _docs_operate/configuration.md %}#transportlibrary). The URL `<baseUrl of Backbone>/api/v1/version` can be accessed to check the version of the Backbone.
+  - It must be ensured that a [Backbone](https://github.com/nmshd/backbone/tags) is used which is compatible with version 5 of the Connector. This means that a Backbone of version 6 must be used. Therefore, specify appropriate Backbone credentials in the fields `transportLibrary.baseUrl`, `transportLibrary.platformClientId` and `transportLibrary.platformClientSecret` of the [configuration]({% link _docs_operate/configuration.md %}#transportlibrary). The URL `<baseUrl of Backbone>/api/v1/version` can be accessed to validate the version of the Backbone.
   - The AutoAcceptRelationshipCreationChangesModule has been renamed to the [AutoAcceptPendingRelationshipsModule]({% link _docs_operate/modules.md %}#autoacceptpendingrelationships), because the [RelationshipChanges have been removed]({% link _docs_integrate/migration-from-v4-to-v5.md %}#removal-of-relationshipchanges). For this reason, the `modules.autoAcceptRelationshipCreationChanges` field must be renamed to `modules.autoAcceptPendingRelationships` in the [configuration]({% link _docs_operate/configuration.md %}#autoacceptpendingrelationships) if it was previously specified. In addition, it must be made sure that the `modules.autoAcceptRelationshipCreationChanges.responseContent` field is removed.
   - In version 4, the WebhooksV2Module module has already been renamed to the [WebhooksModule]({% link _docs_operate/modules.md %}#webhooks). However, backwards compatibility was ensured. With the migration to version 5, the `modules.webhooksV2` field must be renamed to `modules.webhooks` in the [configuration]({% link _docs_operate/configuration.md %}#webhooks) if it was previously specified and the migration to the WebhooksModule has not yet taken place.
 
@@ -73,7 +73,7 @@ The aspects to be taken into account when migrating to version 5, which were bri
 
 ### DIDs as Addresses
 
-Each [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) within enmeshed has a unique `address` for identification. The format of this `address` has changed from `<3-character realm><32- or 33-character Base58-encoded string>` to `did:e:<hostname of Backbone>:dids:<22-character lowercase hexadecimal string>`. Accordingly, the `realm` property of the Identity was removed as well. Furthermore, the two error codes `error.runtime.MultiAccount.WrongRealm` and `error.transport.identity.realmLength` have been removed.
+Each [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) within enmeshed has a unique `address` for identification. The format of this [address]({% link _docs_explore/60-addresses.md %}) has changed from `<3-character realm><32- or 33-character Base58-encoded string>` to `did:e:<hostname of Backbone>:dids:<22-character lowercase hexadecimal string>`. Accordingly, the `realm` property of the Identity was removed as well. Furthermore, the two error codes `error.runtime.MultiAccount.WrongRealm` and `error.transport.identity.realmLength` have been removed.
 
 ### Removal of RelationshipChanges
 
@@ -102,8 +102,6 @@ The former, more generic Connector routes using RelationshipChanges could also h
 | ---------------------------------------------------------------------------------- | ------------------------------------------------------------- |
 | `PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Accept` (with body) | `PUT /api/v2/Relationships/{relationshipId}/Accept` (no body) |
 | `PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Reject` (with body) | `PUT /api/v2/Relationships/{relationshipId}/Reject` (no body) |
-
-However, please note that the Connector route `POST /api/v2/Relationships` for [creating a Relationship with a RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) is unchanged.
 
 #### Modifications to Relationship
 
