@@ -8,7 +8,7 @@ This website is hosted by a German company, thus the legally required texts are 
 
 # Verantwortliche Organisation
 
-Angaben gemäß §5 TMG:
+Angaben gemäß §5 DDG:
 
 j&amp;s-soft GmbH\\
 Max-Jarecki-Straße 21\\
