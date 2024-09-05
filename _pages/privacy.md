@@ -54,9 +54,9 @@ Es erfolgt kein Tracking und wir haben auf diese Daten keinen direkten Zugriff, 
 
 Wir setzen für die Zurverfügungstellung unserer Website folgenden Hoster ein:
 
-GitHub Inc.<br>
-88 Colin P Kelly Jr St<br>
-San Francisco, CA 94107<br>
+GitHub Inc.\\
+88 Colin P Kelly Jr St\\
+San Francisco, CA 94107\\
 United States
 
 Dieser ist Empfänger Ihrer personenbezogenen Daten. Dies entspricht unserem berechtigten Interesse im Sinne des Art. 6 Abs. 1 S. 1 lit. f DSGVO, selbst keinen Server in unseren Räumlichkeiten vorhalten zu müssen. Serverstandort ist USA.
@@ -89,11 +89,11 @@ Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kom
 
 Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
 
-j&s-soft GmbH<br>
-Max-Jarecki-Straße 21<br>
+j&s-soft GmbH\\
+Max-Jarecki-Straße 21\\
 69115 Heidelberg
 
-Telefon: +49 (6221) 43121-0<br>
+Telefon: +49 (6221) 43121-0\\
 E-Mail: `info@js-soft.com`
 
 Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.
@@ -112,7 +112,7 @@ Wir haben für unser Unternehmen einen Datenschutzbeauftragten bestellt.
 
 Christian Meder, j&s-soft GmbH, Max-Jarecki-Straße 21, 69115 Heidelberg.
 
-Telefon: +496221-43121-0<br>
+Telefon: +496221-43121-0\\
 E-Mail: `datenschutz@js-soft.com`
 
 ### Hinweis zur Datenweitergabe in die USA und sonstige Drittstaaten
