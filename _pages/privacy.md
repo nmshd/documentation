@@ -14,7 +14,7 @@ Max-Jarecki-Straße 21\\
 
 Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail oder wenden Sie sich direkt an die für den Datenschutz verantwortliche Person in unserer Organisation.
 
-**Unseren Datenschutzbeauftragten erreichen sie unter:**  
+**Unseren Datenschutzbeauftragten erreichen Sie unter:**  
 j&amp;s-soft GmbH\\
 Datenschutz\\
 Max-Jarecki-Straße 21\\
