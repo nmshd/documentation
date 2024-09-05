@@ -94,7 +94,7 @@ Max-Jarecki-Straße 21<br>
 69115 Heidelberg
 
 Telefon: +49 (6221) 43121-0<br>
-E-Mail: info@js-soft.com
+E-Mail: `info@js-soft.com`
 
 Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.
 
@@ -113,7 +113,7 @@ Wir haben für unser Unternehmen einen Datenschutzbeauftragten bestellt.
 Christian Meder, j&s-soft GmbH, Max-Jarecki-Straße 21, 69115 Heidelberg.
 
 Telefon: +496221-43121-0<br>
-E-Mail: datenschutz@js-soft.com
+E-Mail: `datenschutz@js-soft.com`
 
 ### Hinweis zur Datenweitergabe in die USA und sonstige Drittstaaten
 
