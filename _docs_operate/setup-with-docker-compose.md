@@ -169,6 +169,15 @@ To use the api platform hosted on the Connector you need to make the following c
 
 <video class="elementor-video" src="https://enmeshed.de/app/uploads/2024/05/Connector-aufsetzen_mit-Untertitel.mp4" controls="" preload="metadata" controlslist="nodownload" poster="https://enmeshed.de/app/uploads/2024/05/Thumbnail-1.png" style="width:100%;"></video>
 
+### Links Mentioned in Video
+
+- [Link#1: Setup with Docker Compose](https://enmeshed.eu/operate/setup-with-docker-compose)
+- [Link#2: Configuration](https://enmeshed.eu/operate/configuration)
+- [Link#3: Docker Compose](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/docker-compose-with-mongodb.yml)
+- [Link#4: Config.json](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/example.config.json)
+- [Link#5: Request Backbone client credentials](https://js-soft.atlassian.net/servicedesk/customer/portal/13/group/42/create/166)
+- [Link#6: Integration Example](https://enmeshed.eu/integrate/integration-example)
+
 ## Troubleshooting
 
 If you encounter any problems while setting up the Connector, head over to the [Troubleshooting]({% link _docs_operate/troubleshooting-guide.md %}) site.
