@@ -165,6 +165,20 @@ As already mentioned in the description of the [input for creating a Relationshi
 Please note that the general procedure is the same if an App user instead of a Connector wants to initiate a Relationship with the Templator. The difference is that the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) does not need to contain a RelationshipTemplateContent in its `content` property if it is intended to be used by a Connector.
 {: .notice--info}
 
+### Undo the Initiation of a Relationship
+
+The [initiation of a Relationship]({% link _docs_integrate/establish-relationships.md %}#initiate-a-relationship) by the Requestor leads to the creation of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status`.
+After that, the Templator has the option of [establishing an active Relationship]({% link _docs_integrate/establish-relationships.md %}#establish-an-active-relationship) by [accepting the pending Relationship]({% link _docs_integrate/establish-relationships.md %}#accept-the-pending-relationship).
+Before the Templator has accepted the pending Relationship, the Integrator of the Requestor may change their mind and no longer want to establish an active Relationship.
+In this case, the Requestor can revoke the pending Relationship by executing the [Revoke Relationship]({% link _docs_use-cases/use-case-transport-revoke-relationship.md %}) use case.
+As a result, the `status` of the Relationship changes from `"Pending"` to `"Revoked"`.
+This revoked Relationship can then no longer be accepted by the Templator in order to establish an active Relationship.
+
+If the Requestor [initiates another Relationship]({% link _docs_integrate/establish-relationships.md %}#initiate-a-relationship) at a later point in time, a new [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) is created with `"Pending"` as `status`.
+The `status` of the previous Relationship is not changed from `"Revoked"` to `"Pending"`.
+This means that previous attempts to establish an active Relationship, which were then revoked by the Requestor, can still be viewed by executing the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case using the `status=Revoked` query parameter.
+{: .notice--info}
+
 ## Establish an Active Relationship
 
 After the Requestor has initiated the Relationship, the Integrator of the Templator can accept it if they want to establish an active Relationship to the Requestor. We now explain all required steps for establishing an active Relationship, including the necessary synchronization of the Templator and any other Connector that may be involved at certain points in time. Please note that the synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
