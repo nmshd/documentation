@@ -180,7 +180,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Establish Relationships",
-        "excerpt":"Communication and sharing of information between two Identities requires the existence of a Relationship between them. This guide describes how a Connector can establish an active Relationship to another Identity. Firstly, we explain how to create a RelationshipTemplate on a Connector, the so-called Templator, and how to make the RelationshipTemplate...","categories": [],
+        "excerpt":"Communication and sharing of information between two Identities requires the existence of a Relationship between them. This guide describes how a Connector can establish an active Relationship to another Identity. Firstly, we explain how to create a RelationshipTemplate on a Connector, the so-called templator, and how to make the RelationshipTemplate...","categories": [],
         "tags": [],
         "url": "/integrate/establish-relationships",
         "teaser": null
@@ -750,7 +750,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Accept Relationship",
-        "excerpt":"   Accepts the pending Relationship with the given id.   Parameters      relationshipId, the id of the Relationship   On Success      Accepts the pending Relationship   Returns the accepted Relationship   On Failure      The relationshipId does not resolve to a pending Relationship   You have tried to accept a Relationship created by yourself  ","categories": [],
+        "excerpt":"Initiating a Relationship leads to the creation of a Relationship with \"Pending\" as status. With this use case, the other involved Identity can accept the pending Relationship with the given Relationship&#8217;s id. As a result, the status of the Relationship changes from \"Pending\" to \"Active\". Parameters relationshipId, the id of...","categories": [],
         "tags": [],
         "url": "/use-case-transport-accept-relationship",
         "teaser": null
@@ -1008,7 +1008,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Reject Relationship",
-        "excerpt":"   Rejects the pending Relationship with the given id.   Parameters      relationshipId, the id of the Relationship   On Success      Rejects the pending Relationship   Returns the rejected Relationship   On Failure      The relationshipId does not resolve to a pending Relationship   You have tried to reject a Relationship created by yourself  ","categories": [],
+        "excerpt":"Initiating a Relationship leads to the creation of a Relationship with \"Pending\" as status. With this use case, the other involved Identity can reject the pending Relationship with the given Relationship&#8217;s id. As a result, the status of the Relationship changes from \"Pending\" to \"Rejected\". Parameters relationshipId, the id of...","categories": [],
         "tags": [],
         "url": "/use-case-transport-reject-relationship",
         "teaser": null
@@ -1026,7 +1026,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Revoke Relationship",
-        "excerpt":"   Revokes the pending Relationship with the given id.   Parameters      relationshipId, the id of the Relationship   On Success      Revokes the pending Relationship   Returns the revoked Relationship   On Failure      The relationshipId does not resolve to a pending Relationship   You have tried to revoke a Relationship not created by yourself  ","categories": [],
+        "excerpt":"Initiating a Relationship leads to the creation of a Relationship with \"Pending\" as status. With this use case, the initiator of the Relationship can revoke the pending Relationship with the given Relationship&#8217;s id. As a result, the status of the Relationship changes from \"Pending\" to \"Revoked\". Parameters relationshipId, the id...","categories": [],
         "tags": [],
         "url": "/use-case-transport-revoke-relationship",
         "teaser": null
