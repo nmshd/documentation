@@ -44,11 +44,11 @@ api_route_regex: ^PUT /api/v2/Relationships/{id}/Reject$
 
 {% include properties_list.html %}
 
-Rejects the pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given id.
+Rejects the pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given `id`.
 
 ## Parameters
 
-- `relationshipId`, the id of the Relationship
+- `relationshipId`, the `id` of the Relationship
 
 ## On Success
 
