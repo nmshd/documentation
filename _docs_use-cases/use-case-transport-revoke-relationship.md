@@ -42,7 +42,9 @@ api_route_regex: ^PUT /api/v2/Relationships/{id}/Revoke$
 
 {% include properties_list.html %}
 
-Revokes the pending [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the given `id`.
+[Initiating a Relationship]({% link _docs_integrate/establish-relationships.md %}#initiate-a-relationship) leads to the creation of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status`.
+With this use case, the initiator of the Relationship can revoke the pending Relationship with the given [Relationship's]({% link _docs_integrate/data-model-overview.md %}#relationship) `id`.
+As a result, the `status` of the Relationship changes from `"Pending"` to `"Revoked"`.
 
 ## Parameters
 
