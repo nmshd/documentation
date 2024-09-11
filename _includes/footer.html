@@ -1,23 +1,69 @@
-<div class="page__footer-follow">
-    <ul class="social-icons">
-        {% if site.data.ui-text[site.locale].follow_label %}
-        <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
-        {% endif %} {% if site.footer.links %} {% for link in site.footer.links %} {% if link.label and link.url %}
-        <li>
-            <a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a>
-        </li>
-        {% endif %} {% endfor %} {% endif %} {% unless site.atom_feed.hide %}
-        <li>
-            <a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"
-                ><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a
+<!-- FOOTER NEW -->
+ <div class="footer-new">
+  <div class="footer-row">
+    <div class="footer-col footer-col-25">
+      <h5 class="footer-headline">enmeshed</h5>
+      <p class="footer-content">
+        enmeshed ist eine Open Source Wallet, die einen Ende-zu-Ende verschlüsselten, digitalen Datenaustausch zwischen Bildungseinrichtungen und Lernenden sicherstellt.
+        <br>
+        <br>
+        <small>enmeshed wurde von der j&s-soft GmbH entwickelt.</small>
+      </p>
+      <div class="footer-socials">
+        <a class="footer-icon footer-social-icon footer-social-icon-twitter" href="https://twitter.com/enmeshed_jssoft" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a class="footer-icon footer-social-icon footer-social-icon-github" href="https://github.com/nmshd" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a class="footer-icon footer-social-icon footer-social-icon-linkedin" href="https://www.linkedin.com/showcase/enmeshed/" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col footer-col-25">
+      <h5 class="footer-headline">Kontakt</h5>
+      <p class="footer-content">
+        j&s-soft GmbH
+        <br>
+        Max-Jarecki-Straße 21
+        <br>
+        69115 Heidelberg
+        <br>
+        <br>
+        <small><a href="tel:00496221431210"></a><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-phone-alt"></i></span>+49 (6221) 43121-0</a></small>
+        <br>
+        <small><a href="mailto:enmeshed@js-soft.com"><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-envelope"></i></span>enmeshed@js-soft.com</a></small>
+      </p>
+    </div>
+    <div class="footer-col footer-col-25">
+      <h5 class="footer-headline">Direkt zu</h5>
+      <p class="footer-content">
+        <ul class="footer-menu">
+          {% if site.data.ui-text[site.locale].follow_label %}
+          <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
+          {% endif %} {% if site.footer.links %} {% for link in site.footer.links %}
+          {% if link.label and link.url %}
+          <li>
+            <a href="{{ link.url }}" rel="nofollow noopener noreferrer" target="_blank"
+              >
+              {{ link.label }}</a
             >
-        </li>
-        {% endunless %}
-    </ul>
-</div>
-
-<div class="page__footer-copyright">
-    &copy; {{ site.time | date: '%Y' }}
-    <a href="https://www.js-soft.com">j&amp;s-soft GmbH</a>. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }}
-    <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
-</div>
+          </li>
+          {% endif %} {% endfor %} {% endif %}
+        </ul>
+      </p>
+    </div>
+    <div class="footer-col footer-col-25">
+      <h5 class="footer-headline">App Downloaden</h5>
+      <p class="footer-downloads footer-content">
+        <a href="https://apps.apple.com/de/app/enmeshed/id1576693742" target="_blank">
+          <img src="/assets/images/appstore.svg" class="logo-app logo-app__appstore">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=eu.enmeshed.app&hl=de&gl=US" target="_blank">
+          <img src="/assets/images/gplay.svg" class="logo-app logo-app__gplaystore">
+        </a>
+      </p>
+    </div>
+  </div>
+ </div>

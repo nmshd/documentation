@@ -28,7 +28,7 @@ The integration layer enables an automated synchronization with the Backbone bas
 
 ## Webhooks to external systems
 
-Whenever a synchronization with the Backbone takes place, new Messages or new/changed Relationships could be received. The webhooks enable an automated routing of these events to external systems and thus a process automation with incoming Messages or Relationships.
+Whenever a synchronization with the Backbone takes place, new Messages or Relationship changes could be received. The webhooks enable an automated routing of these events to external systems and thus a process automation with incoming Messages or Relationship changes.
 
 ## Monitoring and Logging Capabilities
 

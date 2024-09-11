@@ -88,7 +88,7 @@ The Connector provides the following configuration parameters:
 {
     "debug": false,
     "transportLibrary": {
-        "baseUrl": "BASE_URL",
+        "baseUrl": "https://prod.enmeshed.eu",
         "platformClientId": "CLIENT_ID",
         "platformClientSecret": "CLIENT_SECRET"
     },
@@ -103,7 +103,7 @@ The Connector provides the following configuration parameters:
 
 You can validate the config using our [schema file](https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json). This is possible for example with [VSCode](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) or online tools like [jsonschemavalidator.net](https://www.jsonschemavalidator.net).
 
-### debug `available since version 3.3.0` {#debug}
+### debug `availbable since version 3.3.0` {#debug}
 
 ⚠️ Do not turn on debug mode in production environments.
 {: .notice--danger}
@@ -112,7 +112,7 @@ The debug flag configures if the Connector is set to **production** or **debug**
 
 ### transportLibrary
 
-- **baseUrl** `required`
+- **baseUrl** `default: "https://prod.enmeshed.eu"`
 
   The base url is used to communicate with the enmeshed platform. It can be changed to use a custom enmeshed Backbone.
 
@@ -241,7 +241,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   The name of the AMQP exchange to publish to.
 
-#### autoAcceptPendingRelationships <a href="{% link _docs_operate/modules.md %}#autoacceptpendingrelationships"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptpendingrelationships}
+#### autoAcceptRelationshipCreationChanges <a href="{% link _docs_operate/modules.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationshipcreationchanges}
 
 It is not recommended to use this Module for production scenarios.
 {: .notice--danger}
@@ -253,8 +253,9 @@ It is not recommended to use this Module for production scenarios.
   // ...
 
   "modules": {
-    "autoAcceptPendingRelationships": {
-      "enabled": false
+    "autoAcceptRelationshipCreationChanges": {
+      "enabled": false,
+      "responseContent": {}
     }
   }
 }
@@ -262,7 +263,11 @@ It is not recommended to use this Module for production scenarios.
 
 - **enabled** `default: false`
 
-  Enable or disable the autoAcceptPendingRelationships Module.
+  Enable or disable the autoAcceptRelationshipCreationChanges Module.
+
+- **responseContent** `default: {}`
+
+  The content that is used to accept the incoming Relationship Request.
 
 #### coreHttpApi <a href="{% link _docs_operate/modules.md %}#corehttpapi"><i class="fas fa-fw fa-info-circle"/></a> {#corehttpapi}
 
@@ -602,7 +607,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
 You can find type definitions of the event data in the [Connector Events]({% link _docs_integrate/connector-events.md %}) section.
 
-#### sse (Server-Sent Events) <a href="{% link _docs_operate/modules.md %}#sse"><i class="fas fa-fw fa-info-circle"/></a> {#sse}
+#### sse (server sent events) <a href="{% link _docs_operate/modules.md %}#sse"><i class="fas fa-fw fa-info-circle"/></a> {#sse}
 
 This Module requires additional configuration on the Backbone.
 Ensure that your Backbone has the required settings enabled.

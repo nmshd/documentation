@@ -12,7 +12,7 @@ properties:
   - id: RY1
   - component: Runtime
   - layer: Anonymous
-  - facade: AnonymousTokensFacade
+  - facade: AnonymousFacade
   - function: loadPeerTokenByTruncatedReference
   - description:
   - feature category: Share information over side-channel

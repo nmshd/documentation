@@ -1,182 +1,168 @@
 main:
   - title: "Use"
-    url: /use
+    url: /use.html
   - title: "Explore"
-    url: /explore
+    url: /explore.html
   - title: "Integrate"
-    url: /integrate
+    url: /integrate.html
   - title: "Operate"
-    url: /operate
+    url: /operate.html
   - title: "Contribute"
-    url: /contribute
+    url: /contribute.html
   - title: "Blog"
-    url: /blog
+    url: /blog.html
 
 docs_explore:
   - title: First things first
     children:
       - title: "How does enmeshed work?"
-        url: /explore/how_does_enmeshed_work
+        url: /explore/how_does_enmeshed_work.html
       - title: "Example Scenarios"
-        url: /explore/example-scenarios
+        url: /explore/example-scenarios.html
       # - title: "Screens"
       #   url: /explore/screens
       - title: "Frequently Asked Questions"
-        url: /explore/faq
+        url: /explore/faq.html
 
   - title: How we think
     children:
       - title: "Integration Considerations"
-        url: /explore/integration
+        url: /explore/integration.html
       - title: "Security Considerations"
-        url: /explore/security
+        url: /explore/security.html
       - title: "Privacy Considerations"
-        url: /explore/privacy
+        url: /explore/privacy.html
 
   - title: Our Layers
     children:
       - title: "Backbone Layer"
-        url: /explore/layers/backbone
+        url: /explore/layers/backbone.html
       - title: "Transport Layer"
-        url: /explore/layers/transport
+        url: /explore/layers/transport.html
       - title: "Consumption Layer"
-        url: /explore/layers/consumption
+        url: /explore/layers/consumption.html
       - title: "Integration Layer"
-        url: /explore/layers/integration
+        url: /explore/layers/integration.html
       - title: "User-Experience Layer"
-        url: /explore/layers/user-experience
+        url: /explore/layers/user-experience.html
 
   - title: Components in-detail
     children:
       - title: "App"
-        url: /explore/app
+        url: /explore/app.html
       - title: "Backbone"
-        url: /explore/backbone
+        url: /explore/backbone.html
       - title: "Connector"
-        url: /explore/connector
+        url: /explore/connector.html
 
   - title: Expert Corner
     children:
       - title: "Addresses"
-        url: /explore/addresses
+        url: /explore/addresses.html
       - title: "Runtime"
-        url: /explore/runtime
+        url: /explore/runtime.html
       - title: "Cryptography"
-        url: /explore/cryptography
+        url: /explore/cryptography.html
       - title: "Why no blockchain?"
-        url: /explore/blockchain
+        url: /explore/blockchain.html
 
-docs_use:
-  - title: Getting Started
-    children:
-      - title: "Install the App"
-        url: /use/install-the-app
-      - title: "Secure device setup"
-        url: /use/secure-device-setup
-
-docs_integrate:
+1docs_integrate:
   - title: Getting Started
     children:
       - title: "Access the Connector"
-        url: /integrate/access-the-connector
+        url: /integrate/access-the-connector.html
       - title: "Integration example"
-        url: /integrate/integration-example
+        url: /integrate/integration-example.html
       - title: "Event introduction"
-        url: /integrate/event-introduction
+        url: /integrate/event-introduction.html
   - title: Relationships between Identities
     children:
       - title: "Establish Relationships"
-        url: integrate/establish-relationships
+        url: integrate/establish-relationships.html
       - title: "Exchange Messages"
-        url: /integrate/exchange-messages
-      - title: "Terminate Relationships"
-        url: integrate/terminate-relationships
+        url: /integrate/exchange-messages.html
   - title: Working with Requests
     children:
       - title: "Request and Response introduction"
-        url: /integrate/request-and-response-introduction
+        url: /integrate/request-and-response-introduction.html
       - title: "Requests via RelationshipTemplates"
-        url: /integrate/requests-via-relationshiptemplates
+        url: /integrate/requests-via-relationshiptemplates.html
       - title: "Requests via Messages"
-        url: /integrate/requests-via-messages
+        url: /integrate/requests-via-messages.html
   - title: Manage Attributes
     children:
       - title: "Attribute introduction"
-        url: /integrate/attribute-introduction
+        url: /integrate/attribute-introduction.html
       - title: "Create Attributes for yourself"
-        url: /integrate/create-attributes-for-yourself
+        url: /integrate/create-attributes-for-yourself.html
       - title: "Share Attributes with peer"
-        url: /integrate/share-attributes-with-peer
+        url: /integrate/share-attributes-with-peer.html
       - title: "Read Attributes from peer"
-        url: /integrate/read-attributes-from-peer
+        url: /integrate/read-attributes-from-peer.html
       - title: "Create Attributes for peer"
-        url: /integrate/create-attributes-for-peer
+        url: /integrate/create-attributes-for-peer.html
       - title: "Propose Attributes to peer"
-        url: /integrate/propose-attributes-to-peer
+        url: /integrate/propose-attributes-to-peer.html
       - title: "Update Attributes by succession"
-        url: /integrate/update-attributes-by-succession
+        url: /integrate/update-attributes-by-succession.html
       - title: "Delete Attributes"
-        url: /integrate/delete-attributes
+        url: /integrate/delete-attributes.html
   - title: Request consent
     children:
       - title: "Request persistent consent of peer"
-        url: /integrate/request-persistent-consent-of-peer
+        url: /integrate/request-persistent-consent-of-peer.html
       - title: "Request one-time consent of peer"
-        url: /integrate/request-one-time-consent-of-peer
+        url: /integrate/request-one-time-consent-of-peer.html
   - title: Data Model
     children:
       - title: "Data Model Overview"
-        url: /integrate/data-model-overview
+        url: /integrate/data-model-overview.html
       - title: "Attribute Values"
-        url: /integrate/attribute-values
+        url: /integrate/attribute-values.html
       - title: "Connector Events"
-        url: /integrate/connector-events
+        url: /integrate/connector-events.html
       - title: "Use Cases"
-        url: /integrate/use-cases
-  - title: Migration Guides
-    children:
-      - title: "Migration From v4 to v5"
-        url: /integrate/migration-from-v4-to-v5
+        url: /integrate/use-cases.html
   - title: Troubleshooting
     children:
-      - title: "Error codes"
-        url: /integrate/error-codes
+      - title: "Error Codes"
+        url: /integrate/error-codes.html
       - title: "FAQ"
-        url: /integrate/faq
+        url: /integrate/faq.html
       - title: "Support"
-        url: /integrate/support
+        url: /integrate/support.html
 
 docs_operate:
   - title: Connector Setup
     children:
       - title: "Setup with Docker Compose"
-        url: /operate/setup-with-docker-compose
+        url: /operate/setup-with-docker-compose.html
       - title: "Setup with Helm Charts"
-        url: /operate/setup-with-helm-charts
+        url: /operate/setup-with-helm-charts.html
       - title: "Configuration"
-        url: /operate/configuration
+        url: /operate/configuration.html
       - title: "Modules"
-        url: /operate/modules
+        url: /operate/modules.html
 
   - title: Connector Operations
     children:
       - title: "Overview of Connector operations"
-        url: /operate/overview-of-connector-operations
+        url: /operate/overview-of-connector-operations.html
       - title: "Security Considerations"
-        url: /operate/security-considerations
+        url: /operate/security-considerations.html
       - title: "Privacy Considerations"
-        url: /operate/privacy-considerations
+        url: /operate/privacy-considerations.html
       - title: "Performance Considerations"
-        url: /operate/performance-considerations
+        url: /operate/performance-considerations.html
   - title: Backbone Operations
     children:
       - title: "Log Event IDs"
-        url: /operate/log-event-ids
+        url: /operate/log-event-ids.html
   - title: Troubleshooting
     children:
       - title: "Troubleshooting Guide"
-        url: /operate/troubleshooting-guide
+        url: /operate/troubleshooting-guide.html
       #- title: "FAQ"
       #  url: /operate/faq
       - title: "Support"
-        url: /operate/support
+        url: /operate/support.html

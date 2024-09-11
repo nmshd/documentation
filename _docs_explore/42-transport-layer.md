@@ -162,25 +162,32 @@ Relationships are usually used as the technical term, whereas contact is used as
 - RelationshipTemplate
 - status
 - peer
-- creationContent
-- auditLog
-  - createdAt
-  - createdBy
-  - createdByDevice
-  - reason
-  - oldStatus
-  - newStatus
+- changes
+  - id
+  - type
+  - status
+  - request
+    - createdBy
+    - createdByDevice
+    - createdAt
+    - content
+  - response
+    - createdBy
+    - createdByDevice
+    - createdAt
+    - content
 - lastMessageSentAt
 - lastMessageReceivedAt
 
-## Relationship Audit Log
+## Relationship Changes
 
-Any time either side changes the status of the Relationship, it is recorded in the audit log. Reactivation requests of a terminated Relationship and responses to those requests are also recorded.
-The very first recorded operation is the creation of the then pending Relationship, a second operation could be the acceptance resulting in an active Relationship.
+Relationships are agreements between two Identities. Thus, to change a Relationship both parties have to accept on the new "terms". This is done by requesting a change which the other party can accept or reject. The requestor could also revoke a requested change, as long as the other party did not react to the change yet.
 
-### Relationship Creation Content
+The very first agreement between both parties is to actually create the Relationship, the "Relationship request". Technically, the term "Relationship creation change request" would be more correct but is seldom used in the documentation because of readability.
 
-The Relationship creation content usually contains:
+### Relationship Creation Change Requests
+
+The Relationship request - next to the required technical information - usually contains:
 
 - Requested information from the requestor
   - Required/optional Attributes
@@ -214,7 +221,7 @@ In addition to technical information like public keys, certificates or signature
   - Data privacy guidelines
   - EULAs
 
-A RelationshipTemplate needs to be created in order to receive pending Relationships and ultimately create an active Relationship between two Identities. The RelationshipTemplate is then usually shared with the user via a token.
+A RelationshipTemplate needs to be created in order to receive Relationship requests and ultimately create an active Relationship between two Identities. The RelationshipTemplate is then usually shared with the user via a token.
 
 RelationshipTemplates can be both: Identity-specific (RelationshipTemplate is personalized for one specific Identity - which might not exist yet) or Identity-agnostic (RelationshipTemplate is open for multiple Identities).
 
