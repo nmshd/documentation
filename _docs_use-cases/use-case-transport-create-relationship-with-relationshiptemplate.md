@@ -42,12 +42,12 @@ api_route_regex: ^POST /api/v2/Relationships$
 
 {% include properties_list.html %}
 
-This use case intends to create a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) based on a received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) where its `content` is an [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent). The Relationship will be established with the RelationshipTemplate's creator. For information on how to [establish a Relationship]({% link _docs_integrate/establish-relationships.md %}) based on a [RelationshipTemplate with RelationshipTemplateContent]({% link _docs_integrate/establish-relationships.md %}#relationshiptemplate-with-relationshiptemplatecontent), refer to the corresponding scenario documentation.
+This use case intends to create a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) based on a received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
 
 ## Parameters
 
 - `templateId` references the RelationshipTemplate that was received from a party.
-- `creationContent` is an [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent) and will be stored inside the Relationship. It can be analyzed by the RelationshipTemplate's creator to decide whether to accept the Relationship.
+- `content` can be used as a response with arbitrary data to the peer. This response is usually related to the data received by the RelationshipTemplate, e.g. the RelationshipTemplate contains [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and the content here contains the respective [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request.
 
 ## On Success
 

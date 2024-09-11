@@ -12,7 +12,7 @@ properties:
   - id: RY2
   - component: Runtime
   - layer: Anonymous
-  - facade: AnonymousTokensFacade
+  - facade: AnonymousFacade
   - function: loadPeerTokenByIdAndKey
   - description:
   - feature category: Share information over side-channel

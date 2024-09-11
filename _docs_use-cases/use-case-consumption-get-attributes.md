@@ -56,7 +56,6 @@ This use case is intended to query [LocalAttributes]({% link _docs_integrate/dat
   - `succeeds` and `succeededBy` give information about the [succession state]({% link _docs_integrate/update-attributes-by-succession.md %}) of the LocalAttribute.
   - The fields of the `shareInfo` describe if the LocalAttribute is shared with a peer and specify its [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
   - The fields of the `deletionInfo` describe the [LocalAttributeDeletionInfo]({% link _docs_integrate/data-model-overview.md %}#localattributedeletioninfo) of a shared LocalAttribute.
-  - `isDefault` states whether a RepositoryAttribute is the default for its value type.
 - If `onlyValid` is set to `true`, LocalAttributes that exceed their validity frame defined by `validFrom` and `validTo` will not be returned.
 - If `hideTechnical` is set to `true`, RelationshipAttributes with `isTechnical` `true` will not be returned.
 
