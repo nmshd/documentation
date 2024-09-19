@@ -138,15 +138,27 @@ The term ThirdPartyRelationshipAttribute is always descriptive for a third party
 
 ## Attribute management options
 
-The IdentityAttributes and RelationshipAttributes were previously introduced. Regardless of whether an Attribute is an IdentityAttribute or a RelationshipAttribute, various operations can be performed with Attributes. These are described on separate documentation pages. In the following, the most important Attribute management options are briefly described.
+The IdentityAttributes and RelationshipAttributes were previously introduced. Regardless of whether an Attribute is an IdentityAttribute or a RelationshipAttribute, various operations can be performed with Attributes. These are described on separate documentation pages. In the following, the Attribute management options are briefly described.
 
 ### Create Attributes for yourself
 
 Obviously, it is not possible to work with Attributes that have not yet been created. Therefore, the most important feature is the [creation of Attributes for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}).
 
-### Exchange Attributes with peers
+### Share Attributes with peer
 
-Attributes can not only be managed locally, but can also be exchanged with peers. There is the option of [sharing Attributes with peers]({% link _docs_integrate/share-attributes-with-peer.md %}), [reading Attributes from peers]({% link _docs_integrate/read-attributes-from-peer.md %}), [creating Attributes for peers]({% link _docs_integrate/create-attributes-for-peer.md %}) and [proposing Attributes to peers]({% link _docs_integrate/propose-attributes-to-peer.md %}).
+It is possible to [share Attributes with peers]({% link _docs_integrate/share-attributes-with-peer.md %}). The Identity can share own Attributes and also RelationshipAttributes that exist in the context of a Relationship between it and a third party.
+
+### Read Attributes from peer
+
+The Identity doesn't know an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) of another Identity and wants to query it, so it has to use the option of [reading Attributes from peers]({% link _docs_integrate/read-attributes-from-peer.md %}).
+
+### Create Attributes for peer
+
+When an Identity wants to [create an Attribute for another Identity]({% link _docs_integrate/create-attributes-for-peer.md %}), for example a school sends the students their certificates, then it has to use [Requests for creating Attributes]({% link _docs_integrate/create-attributes-for-peer.md %}#request-for-creating-attributes).
+
+### Propose Attributes to peer
+
+An Identity already has informations about a peer and wants them to use and to be confirmed, so the Identity can [propose Attributes to the peer for creation]({% link _docs_integrate/propose-attributes-to-peer.md %}) using the informations it already has. The owner of these Attributes will then be the peer.
 
 ### Update Attributes by succession
 
