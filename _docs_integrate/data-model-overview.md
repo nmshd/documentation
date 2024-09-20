@@ -415,7 +415,7 @@ A Request allows you to ask another Identity to do something. What this "somethi
 
 ### RequestItems
 
-RequestItems can be sent inside of a [Request](#request) and specify what should be done when the [Request is accepted]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}). More information on how to use the individual [types of RequestItems]({% link _docs_integrate/request-and-response-introduction.md %}#types-of-requestitems) for your purposes can be found in the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}). If you are interested in a short overview of the various operations which can be performed with Attributes, [Attribute management options]({% link _docs_integrate/attribute-introduction.md %}#attribute-management-options) should also be helpful.
+RequestItems can be sent inside of a [Request](#request) and specify what should be done when the [Request is accepted]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}). More information on how to use the individual [types of RequestItems]({% link _docs_integrate/request-and-response-introduction.md %}#types-of-requestitems) for your purposes can be found in the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}). If you are interested in a brief overview of the various operations which can be performed with Attributes, take a look at our [Attribute management options]({% link _docs_integrate/attribute-introduction.md %}#attribute-management-options).
 
 #### [AuthenticationRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#authenticationrequestitem)
 

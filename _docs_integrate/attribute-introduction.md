@@ -154,12 +154,12 @@ If an Identity is interested in Attributes from another Identity and wants to qu
 
 ### Create Attributes for peer
 
-Furthermore, it is possible to [create Attributes for another Identity]({% link _docs_integrate/create-attributes-for-peer.md %}). In this case, the sender of the Request determines the value of the Attributes. For example a school sends the students their certificates, then it has to use [Requests for creating Attributes]({% link _docs_integrate/create-attributes-for-peer.md %}#request-for-creating-attributes).
+Furthermore, it is possible to [create Attributes for another Identity]({% link _docs_integrate/create-attributes-for-peer.md %}). In this case, the sender of the Request determines the value of the Attributes. For example if a school sends the students their certificates, then it is necessary to use [Requests for creating Attributes]({% link _docs_integrate/create-attributes-for-peer.md %}#request-for-creating-attributes).
 
 ### Propose Attributes to peer
 
 Lastly, if an Identity wants to [propose an Attribute to a peer]({% link _docs_integrate/propose-attributes-to-peer.md %}), it can send a Request that looks similar to the case where it wants to create an Attribute for the peer. However, the recipient of the Request has the possibility to answer with an Attribute whose content is determined by itself, similar to the case where the sender requests to read an Attribute from the peer.
-The difference to the ReadAttributeRequestItem is that an Identity already has informations about a peer and wants them to use and to be confirmed, for example when a company supports an Identity in setting up an enmeshed account by proposing Attributes to it that was derived from the organization’s knowledge about the Identity.
+The difference to the ReadAttributeRequestItem is that an Identity already has information about a peer and wants them to be confirmed in order to use them. For example, a company may want to support a customer in setting up an enmeshed account by proposing Attributes derived from the company’s knowledge of the costumer.
 
 ### Update Attributes by succession
 
