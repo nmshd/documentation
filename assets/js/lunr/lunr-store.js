@@ -221,6 +221,12 @@ var store = [{
         "url": "/integrate/migration-from-v4-to-v5",
         "teaser": null
       },{
+        "title": "Migration From v5 to v6",
+        "excerpt":"The Runtime of enmeshed has recently been updated from version 5 to version 6. Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors. The version update has resulted in some breaking changes. To support the migration of existing...","categories": [],
+        "tags": [],
+        "url": "/integrate/migration-from-v5-to-v6",
+        "teaser": null
+      },{
         "title": "Propose Attributes to peer",
         "excerpt":"An Identity may have received information about a peer in the past that it needs to process a transaction at a later time. To ensure the accuracy of the available information, the Identity can propose Attributes to the peer for creation. Depending on whether the peer confirms the fittingness of...","categories": [],
         "tags": [],
@@ -288,7 +294,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Use Cases",
-        "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Load Token by id and key (without having an account) Anonymous Identity AnonymousTokens Runtime Load Token by truncated reference (without having an account) Anonymous Identity AnonymousTokens Runtime Accept incoming Request Consumption Identity Requests Runtime Check if incoming Request can be accepted...","categories": [],
+        "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Load Token by truncated reference (without having an account) Anonymous Identity AnonymousTokens Runtime Accept incoming Request Consumption Identity Requests Runtime Check if incoming Request can be accepted Consumption Identity Requests Runtime Check if incoming Request can be rejected Consumption Identity Requests...","categories": [],
         "tags": [],
         "url": "/integrate/use-cases",
         "teaser": null
@@ -381,12 +387,6 @@ var store = [{
         "excerpt":"We’ve summarized some tips for end-user device usage on this site. A great resource for more in-depth information about those tips is the website of the Federal Office for Information Security (BSI, Bundesamt für Sicherheit in der Informationstechnik). We do not know every security guideline and tip out there, so...","categories": [],
         "tags": [],
         "url": "/use/secure-device-setup",
-        "teaser": null
-      },{
-        "title": "Load Token by id and key (without having an account)",
-        "excerpt":"This use case attempts to retrieve a Token by its id and secretKey without having an account on the Backbone, thus without an authentication. This can be used to fetch Tokens for Device Onboarding or Recovery. Parameters The id of the Token. The secretKey the Token was encrypted with, Base64URL...","categories": [],
-        "tags": [],
-        "url": "/use-case-anonymous-load-token-by-id-and-key-without-having-an-account",
         "teaser": null
       },{
         "title": "Load Token by truncated reference (without having an account)",
@@ -948,13 +948,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Load RelationshipTemplate created by others",
-        "excerpt":"This use case loads a peer&#8217;s RelatonshipTemplate from the Backbone by a given reference to the RelationshipTemplate. Parameters There are three different options to use this use case, depending on the actual information received by the peer: by knowing an id and the secretKey of the peer&#8217;s RelationshipTemplate (RelationshipTemplateReference) id...","categories": [],
+        "excerpt":"This use case loads a peer&#8217;s RelatonshipTemplate from the Backbone by a given reference to the RelationshipTemplate. Parameters There are three different options to use this use case, depending on the actual information received by the peer: by knowing a truncatedReference of the peer&#8217;s RelationshipTemplate (RelationshipTemplateReferenceTruncated) reference as string by...","categories": [],
         "tags": [],
         "url": "/use-case-transport-load-relationshiptemplate-created-by-others",
         "teaser": null
       },{
         "title": "Load Token created by others",
-        "excerpt":"This use case intends to load a peer&#8217;s Token from the Backbone by a given reference to the Token. Parameters There are two possible options to load the Token: by knowing the reference of the peer&#8217;s Token reference that identifies the Token. ephemeral to indicate that the Token should be...","categories": [],
+        "excerpt":"This use case intends to load a peer&#8217;s Token from the Backbone by a given reference to the Token. Parameters There are two possible options to load the Token: by knowing the truncatedReference of the peer&#8217;s Token reference that identifies the Token. ephemeral to indicate that the Token should be...","categories": [],
         "tags": [],
         "url": "/use-case-transport-load-token-created-by-others",
         "teaser": null

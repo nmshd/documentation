@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Get Device Onboarding Token - enmeshed</title>
-<meta name="description" content="">
+<!-- begin _includes/seo.html --><title>Migration From v5 to v6 - enmeshed</title>
+<meta name="description" content="The Runtime of enmeshed has recently been updated from version 5 to version 6.">
 
 
   <meta name="author" content="enmeshed Team">
@@ -23,11 +23,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Get Device Onboarding Token">
-<meta property="og:url" content="/use-case-transport-get-device-onboarding-token">
+<meta property="og:title" content="Migration From v5 to v6">
+<meta property="og:url" content="/integrate/migration-from-v5-to-v6">
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="The Runtime of enmeshed has recently been updated from version 5 to version 6.">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/use-case-transport-get-device-onboarding-token">
+<link rel="canonical" href="/integrate/migration-from-v5-to-v6">
 
 
 
@@ -87,7 +87,7 @@
 
   </head>
 
-  <body class="layout--usecase" dir="ltr">
+  <body class="layout--single" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -313,7 +313,7 @@
             
               <li><a href="/integrate/migration-from-v4-to-v5">Migration From v4 to v5</a></li>
             
-              <li><a href="/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
+              <li><a href="/integrate/migration-from-v5-to-v6" class="active">Migration From v5 to v6</a></li>
             
           </ul>
           
@@ -349,8 +349,8 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Get Device Onboarding Token">
-    <meta itemprop="description" content="">
+    <meta itemprop="headline" content="Migration From v5 to v6">
+    <meta itemprop="description" content="The Runtime of enmeshed has recently been updated from version 5 to version 6.">
     <meta itemprop="datePublished" content="2024-09-24T16:17:47+02:00">
     
 
@@ -358,7 +358,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/use-case-transport-get-device-onboarding-token" itemprop="url">Get Device Onboarding Token
+            <a href="/integrate/migration-from-v5-to-v6" itemprop="url">Migration From v5 to v6
 </a>
           </h1>
           
@@ -372,104 +372,39 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#parameters">Parameters</a></li><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
+              <ul class="toc__menu"><li><a href="#removal-of-routes-for-loading-peer-objects-by-id-and-key">Removal of Routes for loading peer objects by id and key</a></li><li><a href="#removal-of-secretkey-from-objects">Removal of secretKey from objects</a></li></ul>
             </nav>
           </aside>
         
-        
-<!--<div>
-    <table>
-        
-        <tr><td>id</td>
-            <td>RD5</td></tr>
-        
-        <tr><td>component</td>
-            <td>Runtime</td></tr>
-        
-        <tr><td>layer</td>
-            <td>Transport</td></tr>
-        
-        <tr><td>facade</td>
-            <td>DevicesFacade</td></tr>
-        
-        <tr><td>function</td>
-            <td>getdeviceOnboardingToken</td></tr>
-        
-        <tr></tr>
-        
-        <tr><td>feature category</td>
-            <td>Multi-device</td></tr>
-        
-        <tr><td>tech category</td>
-            <td>Devices</td></tr>
-        
-        <tr><td>status</td>
-            <td>DONE</td></tr>
-        
-        <tr><td>documentation status</td>
-            <td>DONE</td></tr>
-        
-        <tr></tr>
-        
-        <tr><td>actor</td>
-            <td>Identity</td></tr>
-        
-        <tr><td>trigger</td>
-            <td>Runtime</td></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr><td>priority</td>
-            <td>n/a</td></tr>
-        
-        <tr><td>complexity</td>
-            <td>n/a</td></tr>
-        
-        <tr><td>size</td>
-            <td>n/a</td></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr><td>published</td>
-            <td>default</td></tr>
-        
-        <tr><td>link</td>
-            <td>use-case-transport-get-device-onboarding-token</td></tr>
-        
-        <tr></tr>
-        <tr></tr>
-    </table>
-</div>
--->
+        <p>The <a href="https://github.com/nmshd/runtime">Runtime</a> of enmeshed has recently been updated from version 5 to version 6.</p>
 
-<p>This use case retrieves the <a href="/integrate/data-model-overview#token">Token</a>
-of a so far not-onboarded Device that corresponds to the given Device <code class="language-plaintext highlighter-rouge">id</code> in order to onboard the Device to the Identity.</p>
+<p>Accordingly, a new version of the <a href="https://github.com/nmshd/connector">Connector</a> has also been released to make the updated Runtime available to Integrators of Connectors.</p>
 
-<h2 id="parameters">Parameters</h2>
+<p>The version update has resulted in some breaking changes.
+To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.</p>
 
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">id</code> of the Device.</li>
-  <li><code class="language-plaintext highlighter-rouge">expiresAt</code> is the ISODateTime the Token expires at.</li>
-</ul>
+<h2 id="removal-of-routes-for-loading-peer-objects-by-id-and-key">Removal of Routes for loading peer objects by id and key</h2>
 
-<h2 id="on-success">On Success</h2>
+<p>The routes <code class="language-plaintext highlighter-rouge">POST /api/v2/Files/Peer</code>, <code class="language-plaintext highlighter-rouge">POST /api/v2/RelationshipTemplates/Peer</code>, <code class="language-plaintext highlighter-rouge">POST /api/v2/Tokens/Peer</code> all had the possibility to load peer objects with two different payloads:</p>
 
-<ul>
-  <li>Returns the Token of the Device to onboard.</li>
-</ul>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the id of the peer object"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"secretKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the secret key to decrypt the peer object"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-<h2 id="on-failure">On Failure</h2>
+<p>and</p>
 
-<ul>
-  <li>The Device was already onboarded.</li>
-</ul>
- 
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the truncated reference containing all the information to load the peer object"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In preperation for upcoming features loading peer objects by id and key has been removed.</p>
+
+<h2 id="removal-of-secretkey-from-objects">Removal of <code class="language-plaintext highlighter-rouge">secretKey</code> from objects</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">secretKey</code> field has been removed from all objects. As it is not possible to load peer objects by id and key anymore, the <code class="language-plaintext highlighter-rouge">secretKey</code> field became redundant.</p>
 
         
       </section>
