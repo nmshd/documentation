@@ -2,10 +2,10 @@
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Work Sans';
+    font-family: "Work Sans";
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/work-sans/work-sans-v19-latin-regular.woff2') format('woff2');
+    src: url("../fonts/work-sans/work-sans-v19-latin-regular.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -13,10 +13,10 @@
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Work Sans';
+    font-family: "Work Sans";
     font-style: italic;
     font-weight: 400;
-    src: url('../fonts/work-sans/work-sans-v19-latin-italic.woff2') format('woff2');
+    src: url("../fonts/work-sans/work-sans-v19-latin-italic.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -24,10 +24,10 @@
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Work Sans';
+    font-family: "Work Sans";
     font-style: normal;
     font-weight: 500;
-    src: url('../fonts/work-sans/work-sans-v19-latin-500.woff2') format('woff2');
+    src: url("../fonts/work-sans/work-sans-v19-latin-500.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -35,10 +35,10 @@
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Work Sans';
+    font-family: "Work Sans";
     font-style: italic;
     font-weight: 500;
-    src: url('../fonts/work-sans/work-sans-v19-latin-500italic.woff2') format('woff2');
+    src: url("../fonts/work-sans/work-sans-v19-latin-500italic.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -46,10 +46,10 @@
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Work Sans';
+    font-family: "Work Sans";
     font-style: normal;
     font-weight: 600;
-    src: url('../fonts/work-sans/work-sans-v19-latin-600.woff2') format('woff2');
+    src: url("../fonts/work-sans/work-sans-v19-latin-600.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -57,10 +57,10 @@
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Work Sans';
+    font-family: "Work Sans";
     font-style: italic;
     font-weight: 600;
-    src: url('../fonts/work-sans/work-sans-v19-latin-600italic.woff2') format('woff2');
+    src: url("../fonts/work-sans/work-sans-v19-latin-600italic.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -68,10 +68,10 @@
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Work Sans';
+    font-family: "Work Sans";
     font-style: normal;
     font-weight: 700;
-    src: url('../fonts/work-sans/work-sans-v19-latin-700.woff2') format('woff2');
+    src: url("../fonts/work-sans/work-sans-v19-latin-700.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -79,10 +79,10 @@
 @font-face {
     font-display: swap;
     /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Work Sans';
+    font-family: "Work Sans";
     font-style: italic;
     font-weight: 700;
-    src: url('../fonts/work-sans/work-sans-v19-latin-700italic.woff2') format('woff2');
+    src: url("../fonts/work-sans/work-sans-v19-latin-700italic.woff2") format("woff2");
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
@@ -110,8 +110,8 @@ strong {
 }
 
 p,
-.page__content p, 
-.page__content li, 
+.page__content p,
+.page__content li,
 .page__content dl {
     font-size: 18px !important;
 }
