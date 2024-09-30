@@ -138,15 +138,28 @@ The term ThirdPartyRelationshipAttribute is always descriptive for a third party
 
 ## Attribute management options
 
-The IdentityAttributes and RelationshipAttributes were previously introduced. Regardless of whether an Attribute is an IdentityAttribute or a RelationshipAttribute, various operations can be performed with Attributes. These are described on separate documentation pages. In the following, the most important Attribute management options are briefly described.
+The IdentityAttributes and RelationshipAttributes were previously introduced. Regardless of whether an Attribute is an IdentityAttribute or a RelationshipAttribute, various operations can be performed with Attributes. These are described on separate documentation pages. In the following, the Attribute management options are briefly described.
 
 ### Create Attributes for yourself
 
 Obviously, it is not possible to work with Attributes that have not yet been created. Therefore, the most important feature is the [creation of Attributes for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}).
 
-### Exchange Attributes with peers
+### Share Attributes with peer
 
-Attributes can not only be managed locally, but can also be exchanged with peers. There is the option of [sharing Attributes with peers]({% link _docs_integrate/share-attributes-with-peer.md %}), [reading Attributes from peers]({% link _docs_integrate/read-attributes-from-peer.md %}), [creating Attributes for peers]({% link _docs_integrate/create-attributes-for-peer.md %}) and [proposing Attributes to peers]({% link _docs_integrate/propose-attributes-to-peer.md %}).
+Attributes can not only be managed locally, but can also be [shared with peers]({% link _docs_integrate/share-attributes-with-peer.md %}). The Identity can either share [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) about itself or [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) from a Relationship with another peer, [provided the `confidentiality` allows for it]({% link _docs_integrate/share-attributes-with-peer.md %}#combinations-and-usage-scenarios-of-shareattributerequestitem).
+
+### Read Attributes from peer
+
+If an Identity is interested in Attributes from another Identity and wants to query them, it can send a Request to [read Attributes from the peer]({% link _docs_integrate/read-attributes-from-peer.md %}). In this case the recipient of the Request can determine the values of the requested Attributes. An example of a use case would be if a company needs additional information about a customer that it does not have yet.
+
+### Create Attributes for peer
+
+Furthermore, it is possible to [create Attributes for another Identity]({% link _docs_integrate/create-attributes-for-peer.md %}). In this case, the sender of the Request determines the value of the Attributes. For example if a school sends the students their certificates, then it is necessary to use [Requests for creating Attributes]({% link _docs_integrate/create-attributes-for-peer.md %}#request-for-creating-attributes).
+
+### Propose Attributes to peer
+
+Lastly, if an Identity wants to [propose an Attribute to a peer]({% link _docs_integrate/propose-attributes-to-peer.md %}), it can send a Request that looks similar to the case where it wants to create an Attribute for the peer. However, the recipient of the Request has the possibility to answer with an Attribute whose content is determined by itself, similar to the case where the sender requests to read an Attribute from the peer.
+The difference to the ReadAttributeRequestItem is that an Identity already has information about a peer and wants them to be confirmed in order to use them. For example, a company may want to support a customer in setting up an enmeshed account by proposing Attributes derived from the company’s knowledge of the costumer.
 
 ### Update Attributes by succession
 
