@@ -3,13 +3,13 @@ title: "enmeshed"
 layout: splash
 header:
   overlay_color: "#000"
-  overlay_filter: "0.5"
-  overlay_image: /assets/images/background.jpg
+  overlay_filter: "0"
+  overlay_image: /assets/images/enmeshed-banner-neu.jpg
   actions:
     - label: "Get Started"
       url: "/use"
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
-excerpt: "Digitalization on a whole new level"
+excerpt: "Secure education in a digital world"
 feature_row:
   - image_path: /assets/images/use.jpg
     alt: "placeholder image 1"

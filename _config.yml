@@ -35,6 +35,10 @@ timezone: Europe/Berlin # https://en.wikipedia.org/wiki/List_of_tz_database_time
 include:
   - _pages
 
+sass:
+  sass_dir: _sass
+  style: compressed
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
@@ -104,21 +108,27 @@ author:
 
 footer:
   links:
+    - label: "j&s-soft Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://js-soft.com"
+    - label: "enmeshed Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://www.enmeshed.de"
+    - label: "enmeshed on GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/nmshd"
     - label: "Legal Disclosure"
       icon: "fas fa-fw fa-info"
       url: "/legal"
     - label: "Privacy Statement"
       icon: "fas fa-fw fa-user-shield"
       url: "/privacy"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://www.enmeshed.eu"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/nmshd"
     - label: "NPM"
-      icon: "fab fa-fw fa-npm"
+      icon: "fas fa-fw fa-user-shield"
       url: "https://www.npmjs.com/search?q=%40nmshd"
+    - label: "RSS Feed"
+      icon: "fas fa-fw fa-user-shield"
+      url: "https://enmeshed.eu/feed.xml"
 
 defaults:
   # _posts
