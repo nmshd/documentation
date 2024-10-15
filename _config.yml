@@ -109,25 +109,18 @@ author:
 footer:
   links:
     - label: "j&s-soft Website"
-      icon: "fas fa-fw fa-link"
       url: "https://js-soft.com"
     - label: "enmeshed Website"
-      icon: "fas fa-fw fa-link"
       url: "https://www.enmeshed.de"
     - label: "enmeshed on GitHub"
-      icon: "fab fa-fw fa-github"
       url: "https://github.com/nmshd"
     - label: "Legal Disclosure"
-      icon: "fas fa-fw fa-info"
       url: "/legal"
     - label: "Privacy Statement"
-      icon: "fas fa-fw fa-user-shield"
       url: "/privacy"
     - label: "NPM"
-      icon: "fas fa-fw fa-user-shield"
       url: "https://www.npmjs.com/search?q=%40nmshd"
     - label: "RSS Feed"
-      icon: "fas fa-fw fa-user-shield"
       url: "https://enmeshed.eu/feed.xml"
 
 defaults:
