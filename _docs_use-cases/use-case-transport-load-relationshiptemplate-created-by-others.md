@@ -48,7 +48,7 @@ This use case loads a peer's [RelatonshipTemplate]({% link _docs_integrate/data-
 
 ## Parameters
 
-There are three different options to use this use case, depending on the actual information received by the peer:
+There are two different options to use this use case, depending on the actual information received by the peer:
 
 - by knowing a `truncatedReference` of the peer's RelationshipTemplate (RelationshipTemplateReferenceTruncated)
   - `reference` as string
