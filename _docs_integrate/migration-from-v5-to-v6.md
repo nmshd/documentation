@@ -6,7 +6,7 @@ title: "Migration From v5 to v6"
 type: scenario
 toc: true
 properties:
-  - id: SC115
+  - id: SC424242
   - category: Migration Guides
   - description: Changes due to release/v6
   - customer:
@@ -15,7 +15,7 @@ properties:
   - implementation status: DOCS ONLY
   - documentation status: DONE
   - published: true
-  - link: migration-from-v4-to-v5
+  - link: migration-from-v5-to-v6
 require:
 required_by:
 # End automatic generation
