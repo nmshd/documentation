@@ -17,9 +17,9 @@ properties:
   - description: Create a signed challenge.
   - feature category:
   - tech category: Challenges
-  - status: PRERELEASE
-  - documentation status:
-  - comments: Internal
+  - status: DONE
+  - documentation status: OPEN
+  - comments:
   - actor: Identity
   - trigger: REST API
   - precondition:
