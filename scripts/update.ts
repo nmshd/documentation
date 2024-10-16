@@ -48,7 +48,10 @@ function createScenarioText(scenarioObject: DynamicUseCase): string {
     }
     text += 'title: "' + replaceEach(scenarioObject.Title, ["<", "", ">", "", ":", "", "’", "'"]) + '"\n';
     text += "type: scenario\n";
-    text += "toc: true\n";
+
+    const scenariosWithoutToc = ["Error Codes"];
+    text += scenariosWithoutToc.includes(scenarioObject["Title"]) ? "toc: false\n" : "toc: true\n";
+
     text += "properties:\n";
 
     for (const key in scenarioObject) {
