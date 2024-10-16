@@ -954,13 +954,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Load RelationshipTemplate created by others",
-        "excerpt":"This use case loads a peer&#8217;s RelatonshipTemplate from the Backbone by a given reference to the RelationshipTemplate. Parameters There are three different options to use this use case, depending on the actual information received by the peer: by knowing a truncatedReference of the peer&#8217;s RelationshipTemplate (RelationshipTemplateReferenceTruncated) reference as string by...","categories": [],
+        "excerpt":"This use case loads a peer&#8217;s RelatonshipTemplate from the Backbone by a given reference to the RelationshipTemplate. Parameters There are two different options to use this use case, depending on the actual information received by the peer: by knowing a truncatedReference of the peer&#8217;s RelationshipTemplate (RelationshipTemplateReferenceTruncated) reference as string by...","categories": [],
         "tags": [],
         "url": "/use-case-transport-load-relationshiptemplate-created-by-others",
         "teaser": null
       },{
         "title": "Load Token created by others",
-        "excerpt":"This use case intends to load a peer&#8217;s Token from the Backbone by a given reference to the Token. Parameters There are two possible options to load the Token: by knowing the truncatedReference of the peer&#8217;s Token reference that identifies the Token. ephemeral to indicate that the Token should be...","categories": [],
+        "excerpt":"This use case intends to load a peer&#8217;s Token from the Backbone by a given reference to the Token. Parameters You can execute this use case if you know the truncatedReference of the peer&#8217;s Token reference that identifies the Token. ephemeral to indicate that the Token should be stored locally....","categories": [],
         "tags": [],
         "url": "/use-case-transport-load-token-created-by-others",
         "teaser": null
