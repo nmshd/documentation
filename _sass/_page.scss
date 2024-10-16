@@ -143,7 +143,7 @@ table {
             border-bottom: 3px solid $color-light-grey;
         }
 
-        &>li ul li {
+        & > li ul li {
             a {
                 color: $color-mid-grey;
 
@@ -184,7 +184,6 @@ table {
 }
 
 @media (prefers-color-scheme: dark) {
-
     /* CSS Code wenn Dark Mode aktiv */
     html {
         background-color: #212121;
@@ -216,18 +215,18 @@ table {
     }
 
     @media (prefers-color-scheme: dark) {
+        .notice--warning {
+            background-color: #533b14;
+            color: #d4bd9f !important;
+            border-left: 6px solid #8c6117;
+        }
+
         .notice--danger {
             margin-top: 0 !important;
             background-color: #541729;
-            color: #D6A5AE !important;
-            border-left: 6px solid #8C1742;
+            color: #d6a5ae !important;
+            border-left: 6px solid #8c1742;
         }
-    }
-
-    .notice--warning {
-        background-color: #533b14;
-        color: #d4bd9f !important;
-        border-left: 6px solid #8c6117;
     }
 
     .notice--info {
@@ -238,7 +237,7 @@ table {
 
     .sidebar {
         .nav__items {
-            &>li ul li {
+            & > li ul li {
                 a {
                     color: #d5d5d5;
                 }
@@ -249,7 +248,6 @@ table {
 
 .layout--posts,
 .layout--use {
-
     #main,
     #main2 {
         max-width: 1064px;
@@ -264,7 +262,6 @@ table {
 
     @media (prefers-color-scheme: dark) {
         .taxonomy__index {
-
             a,
             .taxonomy__count {
                 color: #999999;
@@ -276,12 +273,24 @@ table {
                 color: #aaaaaa;
             }
 
+            .archive__item-title {
+                a {
+                    &:hover {
+                        color: $color-mid-blue;
+                    }
+                }
+            }
+
             .page__meta {
-                color: #444;
+                color: #999;
             }
 
             .back-to-top {
-                color: $color-orange;
+                color: $color-mid-blue;
+
+                &:hover {
+                    color: $color-mid-blue-hover;
+                }
             }
         }
     }
