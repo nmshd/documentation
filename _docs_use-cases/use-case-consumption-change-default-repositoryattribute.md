@@ -1,7 +1,7 @@
 ---
 # Start automatic generation
 permalink: use-case-consumption-change-default-repositoryattribute
-published: false
+published: true
 title: "Change default RepositoryAttribute"
 type: use-case
 toc: true
@@ -18,7 +18,7 @@ properties:
   - feature category: Normalized Attributes
   - tech category: Attributes
   - status: DONE
-  - documentation status:
+  - documentation status: DONE
   - comments:
   - actor: Identity
   - trigger: REST API
@@ -30,7 +30,7 @@ properties:
   - created_at:
   - changed_at:
   - api_route_regex:
-  - published:
+  - published: default
   - link: use-case-consumption-change-default-repositoryattribute
 require:
 required_by:
@@ -41,7 +41,11 @@ required_by:
 
 {% include properties_list.html %}
 
-For every [IdentityAttribute value type]({% link _docs_integrate/attribute-values.md %}#identity-attributes) exactly one [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) has the property `isDefault` set, given that at least one RepositoryAttribute of that value type exists.
+This use case is only accessible if setting default RepositoryAttributes is enabled in the Runtime configuration.
+By default, this is only the case for the App and not for the Connector.
+{: .notice--info}
+
+If setting default RepositoryAttributes is enabled, for every [IdentityAttribute value type]({% link _docs_integrate/attribute-values.md %}#identity-attributes) exactly one [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) will have the property `isDefault` set, given that at least one RepositoryAttribute of that value type exists.
 By default, this is the first RepositoryAttribute of that value type that was created.
 However, if the default RepositoryAttribute is [succeeded]({% link _docs_integrate/update-attributes-by-succession.md %}), its successor will become the new default RepositoryAttribute.
 This use case allows you to change the default RepositoryAttribute.
