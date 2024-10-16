@@ -18,7 +18,7 @@ properties:
   - feature category: Normalized Attributes
   - tech category: Attributes
   - status: DONE
-  - documentation status:
+  - documentation status: DONE
   - comments:
   - actor: Identity
   - trigger: REST API
@@ -30,7 +30,7 @@ properties:
   - created_at:
   - changed_at:
   - api_route_regex:
-  - published:
+  - published: default
   - link: use-case-consumption-change-default-repositoryattribute
 require:
 required_by:
