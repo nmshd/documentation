@@ -294,7 +294,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Use Cases",
-        "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Load Token by truncated reference (without having an account) Anonymous Identity AnonymousTokens Runtime Accept incoming Request Consumption Identity Requests Runtime Check if incoming Request can be accepted Consumption Identity Requests Runtime Check if incoming Request can be rejected Consumption Identity Requests...","categories": [],
+        "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Load Token by truncated reference (without having an account) Anonymous Identity AnonymousTokens Runtime Accept incoming Request Consumption Identity Requests Runtime Change default RepositoryAttribute Consumption Identity Attributes Runtime Check if incoming Request can be accepted Consumption Identity Requests Runtime Check if incoming...","categories": [],
         "tags": [],
         "url": "/integrate/use-cases",
         "teaser": null
@@ -399,6 +399,12 @@ var store = [{
         "excerpt":"This use case attempts to accept an incoming LocalRequest with the corresponding parameters. It is advised to check if incoming Request can be accepted in advance. Parameters The id of the incoming Request. The decision for each individual RequestItem expressed as the appropriate Parameters defined in the Data Model. On...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-accept-incoming-request",
+        "teaser": null
+      },{
+        "title": "Change default RepositoryAttribute",
+        "excerpt":"This use case is only accessible if setting default RepositoryAttributes is enabled in the Runtime configuration. By default, this is only the case for the App and not for the Connector. If setting default RepositoryAttributes is enabled, for every IdentityAttribute value type exactly one RepositoryAttribute will have the property isDefault...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-change-default-repositoryattribute",
         "teaser": null
       },{
         "title": "Check if incoming Request can be accepted",

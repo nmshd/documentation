@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Create and share a RelationshipAttribute - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Change default RepositoryAttribute - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Create and share a RelationshipAttribute">
-<meta property="og:url" content="/use-case-consumption-create-and-share-a-relationshipattribute">
+<meta property="og:title" content="Change default RepositoryAttribute">
+<meta property="og:url" content="/use-case-consumption-change-default-repositoryattribute">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/use-case-consumption-create-and-share-a-relationshipattribute">
+<link rel="canonical" href="/use-case-consumption-change-default-repositoryattribute">
 
 
 
@@ -349,7 +349,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Create and share a RelationshipAttribute">
+    <meta itemprop="headline" content="Change default RepositoryAttribute">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2024-10-16T11:05:05+02:00">
     
@@ -358,7 +358,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/use-case-consumption-create-and-share-a-relationshipattribute" itemprop="url">Create and share a RelationshipAttribute
+            <a href="/use-case-consumption-change-default-repositoryattribute" itemprop="url">Change default RepositoryAttribute
 </a>
           </h1>
           
@@ -381,7 +381,7 @@
     <table>
         
         <tr><td>id</td>
-            <td>RA21</td></tr>
+            <td>RA28</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
@@ -393,12 +393,12 @@
             <td>AttributesFacade</td></tr>
         
         <tr><td>function</td>
-            <td>createAndShareRelationshipAttribute</td></tr>
+            <td>changeDefaultRepositoryAttribute</td></tr>
         
         <tr></tr>
         
         <tr><td>feature category</td>
-            <td>Cross-Identity Attribute sharing</td></tr>
+            <td>Normalized Attributes</td></tr>
         
         <tr><td>tech category</td>
             <td>Attributes</td></tr>
@@ -414,7 +414,8 @@
         <tr><td>actor</td>
             <td>Identity</td></tr>
         
-        <tr></tr>
+        <tr><td>trigger</td>
+            <td>REST API</td></tr>
         
         <tr></tr>
         
@@ -439,7 +440,7 @@
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-consumption-create-and-share-a-relationshipattribute</td></tr>
+            <td>use-case-consumption-change-default-repositoryattribute</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -447,32 +448,32 @@
 </div>
 -->
 
-<p><a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttributes</a> are always associated with a <a href="/integrate/data-model-overview#relationship">Relationship</a> between two Identities.
-Consequently, in contrast to <a href="/integrate/data-model-overview#identityattribute">IdentityAttributes</a>, there cannot be unshared RelationshipAttributes.
-Instead, you and your peer will always each have a <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> with the same RelationshipAttribute as <code class="language-plaintext highlighter-rouge">content</code> and which only differs in the <code class="language-plaintext highlighter-rouge">shareInfo.peer</code> property.
-Thus, wanting to create a new RelationshipAttribute, a <a href="/integrate/data-model-overview#request">Request</a> is sent to the peer via <a href="/integrate/data-model-overview#message">Message</a>.
-Only if the peer accepts this Request, the RelationshipAttribute will be created at their side.
-Once you receive the <a href="/integrate/data-model-overview#response">Response</a>, a LocalAttribute with the same <code class="language-plaintext highlighter-rouge">content</code> will be created at your side.</p>
+<p class="notice--info">This use case is only accessible if setting default RepositoryAttributes is enabled in the Runtime configuration.
+By default, this is only the case for the App and not for the Connector.</p>
+
+<p>If setting default RepositoryAttributes is enabled, for every <a href="/integrate/attribute-values#identity-attributes">IdentityAttribute value type</a> exactly one <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a> will have the property <code class="language-plaintext highlighter-rouge">isDefault</code> set, given that at least one RepositoryAttribute of that value type exists.
+By default, this is the first RepositoryAttribute of that value type that was created.
+However, if the default RepositoryAttribute is <a href="/integrate/update-attributes-by-succession">succeeded</a>, its successor will become the new default RepositoryAttribute.
+This use case allows you to change the default RepositoryAttribute.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li>The <code class="language-plaintext highlighter-rouge">content</code> of the RelationshipAttribute you want to create, following the description from the <a href="/integrate/data-model-overview#relationshipattribute">data model</a>, except for the <code class="language-plaintext highlighter-rouge">owner</code>, which is automatically set to your Address</li>
-  <li>The Address of the <code class="language-plaintext highlighter-rouge">peer</code></li>
-  <li>Optionally <code class="language-plaintext highlighter-rouge">requestMetadata</code> as described in the <a href="/integrate/data-model-overview#request">data model</a>, except for the <code class="language-plaintext highlighter-rouge">id</code> and <code class="language-plaintext highlighter-rouge">items</code>, which are handled automatically.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">attributeId</code> of the RepositoryAttribute that is to be the new default RepositoryAttribute.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>A Request is sent via Message to the peer, containing a <a href="/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> with the RelationshipAttribute you want to create and share with the peer. Furthermore, the Request is returned.</li>
+  <li>The RepositoryAttribute belonging to the input <code class="language-plaintext highlighter-rouge">attributeId</code> has <code class="language-plaintext highlighter-rouge">isDefault</code> set and is returned. Further, the former default RepositoryAttribute has <code class="language-plaintext highlighter-rouge">isDefault</code> unset.</li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>The Request cannot be created, if the <code class="language-plaintext highlighter-rouge">peer</code> is unknown.</li>
-  <li>The Request cannot be created, if the parameters are malformed.</li>
+  <li>The default RepositoryAttribute can&#8217;t be changed if the provided <code class="language-plaintext highlighter-rouge">attributeId</code> doesn&#8217;t correlate to a RepositoryAttribute.</li>
+  <li>The default RepositoryAttribute can&#8217;t be changed if the provided <code class="language-plaintext highlighter-rouge">attributeId</code> correlates to a RepositoryAttribute with a successor.</li>
+  <li>The default RepositoryAttribute can&#8217;t be changed if the parameters are malformed.</li>
 </ul>
  
 
