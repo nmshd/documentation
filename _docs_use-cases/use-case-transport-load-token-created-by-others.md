@@ -46,11 +46,10 @@ This use case intends to load a peer's [Token]({% link _docs_integrate/data-mode
 
 ## Parameters
 
-There are two possible options to load the Token:
+You can execute this use case if you know the `truncatedReference` of the peer's Token
 
-- by knowing the `truncatedReference` of the peer's Token
-  - `reference` that identifies the Token.
-  - `ephemeral` to indicate that the Token should be stored locally.
+- `reference` that identifies the Token.
+- `ephemeral` to indicate that the Token should be stored locally.
 
 ## On Success
 
