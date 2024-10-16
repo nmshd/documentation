@@ -16,7 +16,7 @@ properties:
   - level:
   - implementation status: DOCS ONLY
   - documentation status: DONE
-  - published: true 
+  - published: true
   - link: migration-from-v4-to-v5
 require:
 required_by:
