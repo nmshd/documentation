@@ -153,15 +153,6 @@ table {
             }
         }
     }
-
-    transition: none;
-    opacity: 1;
-}
-
-.sidebar > nav > ul > li > ul > li {
-    &:hover {
-        opacity: 0.75;
-    }
 }
 
 .page__date {
