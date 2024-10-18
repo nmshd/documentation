@@ -34,22 +34,22 @@
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    .greedy-nav {
-        .site-title {
-            color: #fff !important;
+// @media (prefers-color-scheme: dark) {
+//     .greedy-nav {
+//         .site-title {
+//             color: #fff !important;
 
-            &::after {
-                color: #fff;
-            }
-        }
+//             &::after {
+//                 color: #fff;
+//             }
+//         }
 
-        .visible-links {
-            .masthead__menu-item {
-                a {
-                    color: #fff;
-                }
-            }
-        }
-    }
-}
+//         .visible-links {
+//             .masthead__menu-item {
+//                 a {
+//                     color: #fff;
+//                 }
+//             }
+//         }
+//     }
+// }

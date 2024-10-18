@@ -53,11 +53,11 @@
         background-size: 100%;
     }
 
-    @media (prefers-color-scheme: dark) {
-        &:before {
-            background-image: url("/assets/images/wave_dark.svg");
-        }
-    }
+    // @media (prefers-color-scheme: dark) {
+    //     &:before {
+    //         background-image: url("/assets/images/wave_dark.svg");
+    //     }
+    // }
 }
 
 #main2 {
@@ -183,68 +183,66 @@ table {
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    /* CSS Code wenn Dark Mode aktiv */
-    html {
-        background-color: #212121;
+// @media (prefers-color-scheme: dark) {
+//     /* CSS Code wenn Dark Mode aktiv */
+//     html {
+//         background-color: #212121;
 
-        p,
-        .page__content p,
-        .page__content li,
-        .page__content dl,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        td,
-        a {
-            color: #fff;
-        }
+//         p,
+//         .page__content p,
+//         .page__content li,
+//         .page__content dl,
+//         h1,
+//         h2,
+//         h3,
+//         h4,
+//         h5,
+//         h6,
+//         td,
+//         a {
+//             color: #fff;
+//         }
 
-        code {
-            background-color: #595959 !important;
-        }
+//         code {
+//             background-color: #595959 !important;
+//         }
 
-        .highlight {
-            code {
-                background-color: transparent !important;
-            }
-        }
-    }
+//         .highlight {
+//             code {
+//                 background-color: transparent !important;
+//             }
+//         }
+//     }
 
-    @media (prefers-color-scheme: dark) {
-        .notice--warning {
-            background-color: #533b14;
-            color: #d4bd9f !important;
-            border-left: 6px solid #8c6117;
-        }
+//     .notice--warning {
+//         background-color: #533b14;
+//         color: #d4bd9f !important;
+//         border-left: 6px solid #8c6117;
+//     }
 
-        .notice--danger {
-            margin-top: 0 !important;
-            background-color: #541729;
-            color: #d6a5ae !important;
-            border-left: 6px solid #8c1742;
-        }
-    }
+//     .notice--danger {
+//         margin-top: 0 !important;
+//         background-color: #541729;
+//         color: #d6a5ae !important;
+//         border-left: 6px solid #8c1742;
+//     }
 
-    .notice--info {
-        background-color: #204c7c;
-        color: #b5caf1 !important;
-        border-left: 6px solid #1a80d9;
-    }
+//     .notice--info {
+//         background-color: #204c7c;
+//         color: #b5caf1 !important;
+//         border-left: 6px solid #1a80d9;
+//     }
 
-    .sidebar {
-        .nav__items {
-            & > li ul li {
-                a {
-                    color: #d5d5d5;
-                }
-            }
-        }
-    }
-}
+//     .sidebar {
+//         .nav__items {
+//             & > li ul li {
+//                 a {
+//                     color: #d5d5d5;
+//                 }
+//             }
+//         }
+//     }
+// }
 
 .layout--posts,
 .layout--use {
@@ -260,38 +258,38 @@ table {
         float: left;
     }
 
-    @media (prefers-color-scheme: dark) {
-        .taxonomy__index {
-            a,
-            .taxonomy__count {
-                color: #999999;
-            }
-        }
+    // @media (prefers-color-scheme: dark) {
+    //     .taxonomy__index {
+    //         a,
+    //         .taxonomy__count {
+    //             color: #999999;
+    //         }
+    //     }
 
-        .taxonomy__section {
-            .archive__subtitle {
-                color: #aaaaaa;
-            }
+    //     .taxonomy__section {
+    //         .archive__subtitle {
+    //             color: #aaaaaa;
+    //         }
 
-            .archive__item-title {
-                a {
-                    &:hover {
-                        color: $color-mid-blue;
-                    }
-                }
-            }
+    //         .archive__item-title {
+    //             a {
+    //                 &:hover {
+    //                     color: $color-mid-blue;
+    //                 }
+    //             }
+    //         }
 
-            .page__meta {
-                color: #999;
-            }
+    //         .page__meta {
+    //             color: #999;
+    //         }
 
-            .back-to-top {
-                color: $color-mid-blue;
+    //         .back-to-top {
+    //             color: $color-mid-blue;
 
-                &:hover {
-                    color: $color-mid-blue-hover;
-                }
-            }
-        }
-    }
+    //             &:hover {
+    //                 color: $color-mid-blue-hover;
+    //             }
+    //         }
+    //     }
+    // }
 }
