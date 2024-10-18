@@ -60,13 +60,13 @@
     // }
 }
 
+#main,
 #main2 {
     clear: both;
     margin-inline: auto;
     padding-inline: 1em;
     -webkit-animation: intro 0.3s both;
     animation: intro 0.3s both;
-    max-width: 100%;
     -webkit-animation-delay: 0.15s;
     animation-delay: 0.15s;
     max-width: 1280px;
@@ -175,9 +175,6 @@ table {
 
 @media screen and (min-width: $breakpoint-md-up) {
     #main {
-        padding-top: 200px;
-        padding-bottom: 200px;
-
         h1:not(:first-of-type) {
             margin-top: 64px;
         }
@@ -257,7 +254,7 @@ table {
 .layout--use {
     #main,
     #main2 {
-        max-width: 1064px;
+        max-width: 1280px;
     }
 
     .page,
