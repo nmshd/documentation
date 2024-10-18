@@ -175,6 +175,9 @@ table {
 
 @media screen and (min-width: $breakpoint-md-up) {
     #main {
+        padding-top: 200px;
+        padding-bottom: 200px;
+
         h1:not(:first-of-type) {
             margin-top: 64px;
         }
