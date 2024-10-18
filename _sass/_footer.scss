@@ -76,11 +76,11 @@
         }
     }
 
-    @media (prefers-color-scheme: dark) {
-        &:before {
-            background-image: url("/assets/images/wave_dark.svg");
-        }
-    }
+    // @media (prefers-color-scheme: dark) {
+    //     &:before {
+    //         background-image: url("/assets/images/wave_dark.svg");
+    //     }
+    // }
 }
 
 @media screen and (min-width: $breakpoint-md-up) {
