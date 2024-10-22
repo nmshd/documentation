@@ -24,8 +24,6 @@ required_by:
 # End automatic generation
 ---
 
-{% include warnings/feature-work-in-progress %}
-
 # Flow
 
 Every Identity has the option of deleting itself from the Backbone. There are three options to delete the Identity:
