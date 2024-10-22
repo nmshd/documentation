@@ -32,6 +32,11 @@ Usually Identity deletion takes place with a grace period in which the owner of 
 ## IdentityDeletionProcesses
 
 From a technical perspective, the process of Identity deletion is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess).
+An IdentityDeletionProcess can be uniquely identified by its `id`.
+If its `id` is known, the IdentityDeletionProcess can be viewed by calling the [Get IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocess.md %}) use case.
+Otherwise, it is also possible to view all IdentityDeletionProcesses of the Identity by utilizing the [Get IdentityDeletionProcesses]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocesses.md %}) use case.
+IdentityDeletionProcesses with `"Cancelled"` or `"Rejected"` as `status` are included in particular.
+If a currently active IdentityDeletionProcess exists, in other words an IdentityDeletionProcess with `"WaitingForApproval"` or `"Approved"` as `status`, the [Get active IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-active-identitydeletionprocess.md %}) use case can be used alternatively to show only the currently active IdentityDeletionProcess.
 
 ## Identity Deletion Options
 
