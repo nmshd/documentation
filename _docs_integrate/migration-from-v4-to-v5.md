@@ -8,7 +8,7 @@ title: "Migration From v4 to v5"
 type: scenario
 toc: true
 properties:
-  - id: SC115
+  - id: SC116
   - category: Migration Guides
   - description: Changes due to release/v5
   - customer:

@@ -6,7 +6,7 @@ title: "Migration From v5 to v6"
 type: scenario
 toc: true
 properties:
-  - id: SC116
+  - id: SC117
   - category: Migration Guides
   - description: Changes due to release/v6
   - customer:
