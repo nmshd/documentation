@@ -1,21 +1,21 @@
 ---
 # Start automatic generation
-permalink: integrate/delete-identity-from-enmeshed
-published: false
-title: "Delete Identity from enmeshed"
+permalink: integrate/delete-identities
+published: true
+title: "Delete Identities"
 type: scenario
 toc: true
 properties:
   - id: SC061
-  - category: Identity Basics
+  - category: Identities and Relationships
   - description:
   - customer: All
   - component: integrate
   - level: Beginner
-  - implementation status: OPEN
-  - documentation status: OPEN
-  - published:
-  - link: delete-identity-from-enmeshed
+  - implementation status: DONE
+  - documentation status: DONE
+  - published: true
+  - link: delete-identities
 require:
 required_by:
   - integrate/exchange-messages
