@@ -1,6 +1,8 @@
 ---
 # Start automatic generation
 permalink: integrate/delete-identities
+redirect_from:
+  - /integrate/delete-identity-from-enmeshed
 published: true
 title: "Delete Identities"
 type: scenario
