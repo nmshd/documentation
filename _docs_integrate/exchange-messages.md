@@ -10,7 +10,7 @@ type: scenario
 toc: true
 properties:
   - id: SC058
-  - category: Relationships between Identities
+  - category: Identities and Relationships
   - description:
   - customer: All
   - component: integrate
@@ -20,7 +20,7 @@ properties:
   - published: true
   - link: exchange-messages
 require:
-  - integrate/delete-identity-from-enmeshed
+  - integrate/delete-identities
 required_by:
 # End automatic generation
 ---

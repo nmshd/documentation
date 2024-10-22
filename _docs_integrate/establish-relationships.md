@@ -9,7 +9,7 @@ type: scenario
 toc: true
 properties:
   - id: SC107
-  - category: Relationships between Identities
+  - category: Identities and Relationships
   - description: Create RelationshipTemplate (with respective content) Communicate RelationshipTemplate to peer (over side channel) Scan RelationshipTemplate / Press Link Check and accept Request Send RelationshipRequest (including Response to RelationshipTemplate's Request) Receive RelationshipRequest Check RelationshipRequest Accept RelationshipRequest
   - customer:
   - component: integrate
