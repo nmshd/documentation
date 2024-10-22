@@ -91,6 +91,8 @@ docs_integrate:
         url: /integrate/exchange-messages
       - title: "Terminate Relationships"
         url: integrate/terminate-relationships
+      - title: "Delete Identities"
+        url: integrate/delete-identities
   - title: Working with Requests
     children:
       - title: "Request and Response introduction"
