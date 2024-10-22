@@ -83,7 +83,7 @@ docs_integrate:
         url: /integrate/integration-example
       - title: "Event introduction"
         url: /integrate/event-introduction
-  - title: Relationships between Identities
+  - title: Identities and Relationships
     children:
       - title: "Establish Relationships"
         url: integrate/establish-relationships
@@ -93,7 +93,7 @@ docs_integrate:
         url: integrate/terminate-relationships
       - title: "Delete Identities"
         url: integrate/delete-identities
-  - title: Working with Requests
+  - title: Working With Requests
     children:
       - title: "Request and Response introduction"
         url: /integrate/request-and-response-introduction
@@ -119,7 +119,7 @@ docs_integrate:
         url: /integrate/update-attributes-by-succession
       - title: "Delete Attributes"
         url: /integrate/delete-attributes
-  - title: Request consent
+  - title: Request Consent
     children:
       - title: "Request persistent consent of peer"
         url: /integrate/request-persistent-consent-of-peer
