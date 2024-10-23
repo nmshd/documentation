@@ -24,10 +24,13 @@ required_by:
 # End automatic generation
 ---
 
+It is not yet possible to utilize the use cases regarding the [IdentityDeletionProcesses]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) mentioned below as an Integrator of a Connector. Instead, these functionalities are currently only offered to App users in order to be able to delete their [Identity]({% link _docs_integrate/data-model-overview.md %}#identity). Even if some use cases still have to be provided to the Integrators of Connectors for deleting their Identity, they benefit from the description of the process of Identity deletion given in this guide. Indeed, if an App user with whom a Connector has established a Relationship deletes their Identity, it is affected by [side effects on this Relationship]({% link _docs_integrate/delete-identities.md %}#side-effects-of-identity-deletion-on-relationships).
+{: .notice--warning}
+
 Every [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) has the option of deleting itself from the Backbone.
 It does not matter whether this Identity is an App user or a Connector.
 
-Usually Identity deletion takes place with a grace period in which the owner of the Identity can revoke the decision to be deleted. The Identity deletion can be triggered by the runtime.
+Usually Identity deletion takes place with a grace period in which the owner of the Identity can revoke the decision to be deleted.
 
 ## IdentityDeletionProcesses
 
@@ -38,7 +41,7 @@ Otherwise, it is also possible to view all IdentityDeletionProcesses of the Iden
 IdentityDeletionProcesses with `"Cancelled"` or `"Rejected"` as `status` are included in particular.
 If a currently active IdentityDeletionProcess exists, in other words an IdentityDeletionProcess with `"WaitingForApproval"` or `"Approved"` as `status`, the [Get active IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-active-identitydeletionprocess.md %}) use case can be used alternatively to show only the currently active IdentityDeletionProcess.
 
-## Identity Deletion Options
+## Options for Identity Deletion
 
 An Identity can be deleted in two different ways:
 
@@ -64,7 +67,9 @@ As there is the need of a push notification channel for this, the Connector does
 Approval is done by using the [Approve IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-approve-identitydeletionprocess.md %}) use case.
 However, the Identity can also [reject the IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}) if it has changed its mind after triggering the process of Identity deletion via the support channel.
 
-As with the [self-initiated Identity deletion]({% link _docs_integrate/delete-identities.md %}#self-initiated-identity-deletion), the [Cancel IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}) use case can be called if it is no longer wanted to delete the Identity.
+After the IdentityDeletionProcess has changed its `status` from `"WaitingForApproval"` to `"Approved"` as a result of the approval, it describes that the Identity will be deleted after the grace period ends.
+
+As with the [self-initiated Identity deletion]({% link _docs_integrate/delete-identities.md %}#self-initiated-identity-deletion), the [Cancel IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}) use case can be called by the Identity within the grace period if it is no longer wanted to delete the Identity.
 
 ## Side Effects of Identity Deletion on Relationships
 
