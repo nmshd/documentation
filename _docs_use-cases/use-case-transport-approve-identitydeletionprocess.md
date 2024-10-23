@@ -45,7 +45,6 @@ The process of [Identity deletion]({% link _docs_integrate/delete-identities.md 
 In the case of [Identity deletion via a support channel]({% link _docs_integrate/delete-identities.md %}#identity-deletion-via-a-support-channel), an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) with `"WaitingForApproval"` as `status` for your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) is created via the Backbone Admin UI.
 This use case can be utilized to approve this IdentityDeletionProcess.
 Alternatively, the [IdentityDeletionProcess can also be rejected]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}).
-After the IdentityDeletionProcess has changed its `status` from `"WaitingForApproval"` to `"Approved"` as a result of the approval, it describes that the Identity will be deleted after the grace period ends unless the [IdentityDeletionProcess is cancelled]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}) by the Identity by then.
 
 ## On Success
 
