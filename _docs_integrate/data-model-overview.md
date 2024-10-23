@@ -100,10 +100,10 @@ A Relationship between two Identities is the prerequisite for them to exchange M
 The [deletion of an Identity]({% link _docs_integrate/delete-identities.md %}) and even the triggering of the deletion of an [Identity](#identity) logically has [side effects for the peers of their Relationships]({% link _docs_integrate/delete-identities.md %}#side-effects-of-identity-deletion-on-relationships).
 Whether the Identity with which you have a Relationship is to be deleted or has already been deleted is therefore recorded in the `peerDeletionInfo` property of the [Relationship](#relationship) by a data object of type PeerDeletionInfo.
 
-| Name           | Type                           | Description                                                                                                       |
-| -------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| deletionStatus | `"ToBeDeleted"` \| `"Deleted"` | Describes whether the Identity with which you have the Relationship is to be deleted or has already been deleted. |
-| deletionDate   | `string`                       | The point in time the Identity with which you have the Relationship is to be deleted or was deleted.              |
+| Name           | Type                           | Description                                                                                                                     | Remarks |
+| -------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| deletionStatus | `"ToBeDeleted"` \| `"Deleted"` | A status that describes whether the Identity with which you have the Relationship is to be deleted or has already been deleted. |         |
+| deletionDate   | `string`                       | The point in time the Identity with which you have the Relationship is to be deleted or was deleted.                            |         |
 
 ### RelationshipAuditLogEntry
 
