@@ -42,7 +42,7 @@ required_by:
 {% include properties_list.html %}
 
 From a technical perspective, the process of [Identity deletion]({% link _docs_integrate/delete-identities.md %}) is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess).
-This use case will return all IdentityDeletionProcesses for your own [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
+This use case will return all IdentityDeletionProcesses for your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
 
 ## On Success
 
