@@ -41,6 +41,8 @@ Otherwise, it is also possible to view all IdentityDeletionProcesses of the Iden
 IdentityDeletionProcesses with `"Cancelled"` or `"Rejected"` as `status` are included in particular.
 If a currently active IdentityDeletionProcess exists, in other words an IdentityDeletionProcess with `"WaitingForApproval"` or `"Approved"` as `status`, the [Get active IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-active-identitydeletionprocess.md %}) use case can be used alternatively to show only the currently active IdentityDeletionProcess.
 
+Every time a new IdentityDeletionProcess was self-initiated, triggered by the Backbone Admin UI or the `status` of an existing IdentityDeletionProcess has changed, a `transport.identityDeletionProcessStatusChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) is raised. In addition, an external `IdentityDeletionProcessStarted` event can be received when a new IdentityDeletionProcess is triggered by the Backbone Admin UI.
+
 ## Options for Identity Deletion
 
 An Identity can be deleted in two different ways:
