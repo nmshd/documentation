@@ -27,10 +27,9 @@ required_by:
 It is not yet possible to utilize the use cases regarding the [IdentityDeletionProcesses]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) mentioned below as an Integrator of a Connector. Instead, these functionalities are currently only offered to App users in order to be able to delete their [Identity]({% link _docs_integrate/data-model-overview.md %}#identity). Even if some use cases still have to be provided to the Integrators of Connectors for deleting their Identity, they benefit from the description of the process of Identity deletion given in this guide. Indeed, if an App user with whom a Connector has established a Relationship deletes their Identity, it is affected by [side effects on this Relationship]({% link _docs_integrate/delete-identities.md %}#side-effects-of-identity-deletion-on-relationships).
 {: .notice--warning}
 
-Every [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) has the option of deleting itself from the Backbone.
-It does not matter whether this Identity is an App user or a Connector.
-
-Usually Identity deletion takes place with a grace period in which the owner of the Identity can revoke the decision to be deleted.
+Regardless of whether an [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) is an App user or a Connector, it is stored on the Backbone.
+This guide describes the different [options for Identity deletion]({% link _docs_integrate/delete-identities.md %}#options-for-identity-deletion) from the Backbone.
+There is usually a predefined grace period in each process of Identity deletion, during which the Identity can cancel its deletion if it no longer wants to be deleted.
 
 ## IdentityDeletionProcesses
 
@@ -76,7 +75,9 @@ However, depending on the Backbone environment, it is also conceivable to set up
 Actively trigger the deletion process by use of the App or the Connector by calling the [Initiate IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-initiate-identitydeletionprocess.md %}) use case.
 There is no further approval of the Identity required with this option.
 
-The [Cancel IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}) use case can be called if it is no longer wanted to delete the Identity.
+The [Cancel IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}) use case can be called by the Identity within the grace period if it no longer wants to be deleted.
+The end of the associated grace period of the IdentityDeletionProcess is specified within its `gracePeriodEndsAt` property.
+If the IdentityDeletionProcess is not cancelled by then, the Identity will be irreversibly deleted from the Backbone.
 
 ### Identity Deletion Triggered by the Backbone Admin UI
 
@@ -84,12 +85,15 @@ Actively trigger the deletion process by use of support tickets/e-mails to the B
 An active approval of the Identity is required with this option, as the Backbone must ensure, that the support ticket creator is the owner of the Identity.
 As there is the need of a push notification channel for this, the Connector does not have the ability to trigger the Identity deletion over the Backbone.
 
+If an Identity deletion was triggered by the Backbone Admin UI, it creates an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) with `"WaitingForApproval"` as `status` for the Identity.
 Approval is done by using the [Approve IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-approve-identitydeletionprocess.md %}) use case.
 However, the Identity can also [reject the IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}) if it has changed its mind after the process of Identity deletion was triggered by the Backbone Admin UI.
+Approving or rejecting an IdentityDeletionProcess with `"WaitingForApproval"` as `status` is only possible until the date specified within the `approvalPeriodEndsAt` property has not been exceeded.
+If it is neither approved nor rejected by then, it automatically changes its `status` to `"Cancelled"` and the Identity is not deleted.
 
 After the IdentityDeletionProcess has changed its `status` from `"WaitingForApproval"` to `"Approved"` as a result of the approval, it describes that the Identity will be deleted after the grace period ends.
-
-As with the [self-initiated Identity deletion]({% link _docs_integrate/delete-identities.md %}#self-initiated-identity-deletion), the [Cancel IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}) use case can be called by the Identity within the grace period if it is no longer wanted to delete the Identity.
+As with the [self-initiated Identity deletion]({% link _docs_integrate/delete-identities.md %}#self-initiated-identity-deletion), the [Cancel IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}) use case can be called by the Identity within the grace period if it no longer wants to be deleted.
+If it is not cancelled by then, the Identity will be irreversibly deleted from the Backbone.
 
 ## Side Effects of Identity Deletion on Relationships
 
