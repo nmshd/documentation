@@ -34,15 +34,18 @@ Usually Identity deletion takes place with a grace period in which the owner of 
 
 ## IdentityDeletionProcesses
 
-From a technical perspective, the process of Identity deletion is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess).
+From a technical perspective, the process of Identity deletion is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess). It can be uniquely identified by its `id`.
+An IdentityDeletionProcess can have `"WaitingForApproval"`, `"Rejected"`, `"Approved"` or `"Cancelled"` as its `status`.
+If it has `"WaitingForApproval"` or `"Approved"` as `status`, it is also referred to as an **active IdentityDeletionProcess**.
+There can be at most one active IdentityDeletionProcess per Identity.
 
 ### Getters
 
-An IdentityDeletionProcess can be uniquely identified by its `id`.
-If its `id` is known, the IdentityDeletionProcess can be viewed by calling the [Get IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocess.md %}) use case.
-Otherwise, it is also possible to view all IdentityDeletionProcesses of the Identity by utilizing the [Get IdentityDeletionProcesses]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocesses.md %}) use case.
-IdentityDeletionProcesses with `"Cancelled"` or `"Rejected"` as `status` are included in particular.
-If a currently active IdentityDeletionProcess exists, in other words an IdentityDeletionProcess with `"WaitingForApproval"` or `"Approved"` as `status`, the [Get active IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-active-identitydeletionprocess.md %}) use case can be used alternatively to show only the currently active IdentityDeletionProcess.
+There are three [use cases]({% link _docs_integrate/use-cases.md %}) for getting one or more [IdentityDeletionProcesses]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess):
+
+- If the `id` of an IdentityDeletionProcess is known, it can be viewed by calling the [Get IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocess.md %}) use case.
+- All IdentityDeletionProcesses of an Identity can be viewed by utilizing the [Get IdentityDeletionProcesses]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocesses.md %}) use case. This includes IdentityDeletionProcesses with `"Cancelled"` or `"Rejected"` as `status` in particular.
+- The [Get active IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-active-identitydeletionprocess.md %}) use case can be used to view the currently active IdentityDeletionProcess if one exists.
 
 ### Events
 
