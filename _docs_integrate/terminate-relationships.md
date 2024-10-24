@@ -7,14 +7,14 @@ type: scenario
 toc: true
 properties:
   - id: SC115
-  - category: Relationships between Identities
-  - description: Terminate Relationship Reactivate Relationship (request, accept, reject, revoke) Decompose Relationship
+  - category: Identities and Relationships
+  - description: Terminate, reactivate (request, accept, reject, revoke) and decompose Relationship
   - customer:
   - component: integrate
   - level:
-  - implementation status:
+  - implementation status: DONE
   - documentation status: DONE
-  - published:
+  - published: true
   - link: terminate-relationships
 require:
 required_by:

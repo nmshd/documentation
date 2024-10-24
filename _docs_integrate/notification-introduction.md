@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC106
-  - category: Working with Notifications
+  - category: Working With Notifications
   - description:
   - customer: All
   - component: integrate
