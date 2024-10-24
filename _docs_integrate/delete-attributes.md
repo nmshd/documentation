@@ -32,6 +32,8 @@ Doing so, also a LocalAttribute with the same `content` and a respective `shareI
 In the case of RelationshipAttributes we have own shared and peer shared RelationshipAttributes analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with RepositoryAttributes.
 These different kinds of Attributes have different demands that need to be taken into account, wanting to delete them.
 
+<!-- TODO: adjust LucidChart -->
+
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/04c48548-90a3-4e9e-839a-4bb9a5dddcfb" id="9hZD~iRvE8aL"></iframe></div>
 
 In general, you can only delete data from your own wallet and never from the peer's.
