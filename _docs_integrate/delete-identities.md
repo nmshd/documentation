@@ -35,13 +35,28 @@ Usually Identity deletion takes place with a grace period in which the owner of 
 ## IdentityDeletionProcesses
 
 From a technical perspective, the process of Identity deletion is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess).
+
+### Getters
+
 An IdentityDeletionProcess can be uniquely identified by its `id`.
 If its `id` is known, the IdentityDeletionProcess can be viewed by calling the [Get IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocess.md %}) use case.
 Otherwise, it is also possible to view all IdentityDeletionProcesses of the Identity by utilizing the [Get IdentityDeletionProcesses]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocesses.md %}) use case.
 IdentityDeletionProcesses with `"Cancelled"` or `"Rejected"` as `status` are included in particular.
 If a currently active IdentityDeletionProcess exists, in other words an IdentityDeletionProcess with `"WaitingForApproval"` or `"Approved"` as `status`, the [Get active IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-active-identitydeletionprocess.md %}) use case can be used alternatively to show only the currently active IdentityDeletionProcess.
 
-Every time a new IdentityDeletionProcess was self-initiated, triggered by the Backbone Admin UI or the `status` of an existing IdentityDeletionProcess has changed, a `transport.identityDeletionProcessStatusChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) is raised. In addition, an external `IdentityDeletionProcessStarted` event can be received when a new IdentityDeletionProcess is triggered by the Backbone Admin UI.
+### Events
+
+Whenever a new [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) has been created due to a [self-initiated Identity deletion]({% link _docs_integrate/delete-identities.md %}#self-initiated-identity-deletion) or by the Backbone Admin UI after requesting the [Identity deletion via a support channel]({% link _docs_integrate/delete-identities.md %}#identity-deletion-via-a-support-channel) or the `status` of an existing IdentityDeletionProcess has changed, a `transport.identityDeletionProcessStatusChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) is raised. In addition, an external `IdentityDeletionProcessStarted` event can be received when a new IdentityDeletionProcess is created by the Backbone Admin UI.
+
+### Error Codes
+
+The following [error codes]({% link _docs_integrate/error-codes.md %}) can occur in connection with IdentityDeletionProcesses and the use of their use cases:
+
+- `error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess`
+- `error.runtime.identityDeletionProcess.activeIdentityDeletionProcessAlreadyExists`
+- `error.runtime.identityDeletionProcess.noApprovedIdentityDeletionProcess`
+- `error.runtime.identityDeletionProcess.noWaitingForApprovalIdentityDeletionProcess`
+- `error.transport.relationships.activeIdentityDeletionProcessOfOwnerOfRelationshipTemplate`
 
 ## Options for Identity Deletion
 
@@ -78,3 +93,5 @@ As with the [self-initiated Identity deletion]({% link _docs_integrate/delete-id
 The deletion and even the triggering of the deletion of an Identity logically has an impact on the peers who have [established a Relationship]({% link _docs_integrate/establish-relationships.md %}) with it.
 All peers of the Identity that is currently in deletion are informed that the deletion of the Identity has been triggered.
 Otherwise, they would receive a Backbone error that the Identity is no longer available as soon as they try to perform actions within the Relationship, such as [sending a Message]({% link _docs_integrate/exchange-messages.md %}).
+
+The [error code]({% link _docs_integrate/error-codes.md %}) `error.transport.relationships.activeIdentityDeletionProcessOfOwnerOfRelationshipTemplate` arises if the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) who created the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) is currently in the process of deleting itself. Thus, it is not possible to establish a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) to it.
