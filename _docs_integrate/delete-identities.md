@@ -45,13 +45,12 @@ There are three [use cases]({% link _docs_integrate/use-cases.md %}) for getting
 
 ## Options for Identity Deletion
 
-An Identity can be deleted in two different ways:
+In principle, there are several options for deleting an Identity from the Backbone.
+For example, depending on the Backbone environment, it is conceivable to set up automatic Identity deletion after a long period of Identity inactivity.
+More essential are the two options for actively deciding to delete an Identity from the Backbone:
 
-- Initiating the process of Identity deletion yourself.
-- The Backbone Admin UI triggers the process of Identity deletion and the Identity subsequently approves the triggered Identity deletion.
-
-However, depending on the Backbone environment, it is also conceivable to set up automatic Identity deletion after a long period of Identity inactivity.
-{: .notice--info}
+- Initiation of the process of Identity deletion by the Identity itself.
+- The Backbone Admin UI triggers the process of Identity deletion and the Identity subsequently approves the triggered deletion of its Identity.
 
 Whenever a new [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) has been created due to a [self-initiated Identity deletion]({% link _docs_integrate/delete-identities.md %}#self-initiated-identity-deletion) or an [Identity deletion triggered by the Backbone Admin UI]({% link _docs_integrate/delete-identities.md %}#identity-deletion-triggered-by-the-backbone-admin-ui) or the `status` of an existing IdentityDeletionProcess has changed, the [Connector event]({% link _docs_integrate/connector-events.md %}) `transport.identityDeletionProcessStatusChanged` is raised. In addition, an external `IdentityDeletionProcessStarted` event can be received when an Identity deletion is triggered by the Backbone Admin UI.
 
@@ -94,3 +93,5 @@ All peers of the Identity that is currently in deletion are informed that the de
 Otherwise, they would receive a Backbone error that the Identity is no longer available as soon as they try to perform actions within the Relationship, such as [sending a Message]({% link _docs_integrate/exchange-messages.md %}).
 
 The [error code]({% link _docs_integrate/error-codes.md %}) `error.transport.relationships.activeIdentityDeletionProcessOfOwnerOfRelationshipTemplate` arises if the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) who created the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) is currently in the process of deleting itself. Thus, it is not possible to establish a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) to it.
+
+An Identity can never trigger the process of deletion of another Identity.
