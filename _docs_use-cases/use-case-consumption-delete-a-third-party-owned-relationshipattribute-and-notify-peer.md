@@ -42,6 +42,9 @@ api_route_regex: ^DELETE /api/v2/Attributes/ThirdParty/{id}$
 
 {% include properties_list.html %}
 
+This use case is deprecated and will be removed in the next major version. Please use the use case [Delete a ThirdPartyRelationshipAttribute and notify peer](use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer) instead.
+{: .notice--warning}
+
 This use case allows you to delete a ThirdPartyRelationshipAttribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) that has the property `shareInfo.thirdPartyAddress` set.
 
 ## Parameters
