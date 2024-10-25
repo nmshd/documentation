@@ -30,6 +30,7 @@ It is not yet possible to utilize the use cases regarding the [IdentityDeletionP
 Regardless of whether an [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) is an App user or a Connector, it is stored on the Backbone.
 This guide describes the different [options for Identity deletion]({% link _docs_integrate/delete-identities.md %}#options-for-identity-deletion) from the Backbone.
 There is usually a predefined grace period in each process of Identity deletion, during which the Identity can cancel its deletion if it no longer wants to be deleted.
+Please note that an Identity can never trigger the process of deletion of another Identity.
 
 ## IdentityDeletionProcesses
 
@@ -90,8 +91,36 @@ If it is not cancelled by then, the Identity will be irreversibly deleted from t
 
 The deletion and even the triggering of the deletion of an Identity logically has an impact on the peers who have [established a Relationship]({% link _docs_integrate/establish-relationships.md %}) with it.
 All peers of the Identity that is currently in deletion are informed that the deletion of the Identity has been triggered.
-Otherwise, they would receive a Backbone error that the Identity is no longer available as soon as they try to perform actions within the Relationship, such as [sending a Message]({% link _docs_integrate/exchange-messages.md %}).
+This is done via the `transport.peerToBeDeleted` [Connector event]({% link _docs_integrate/connector-events.md %}).
+In addition, it is stored within the `peerDeletionInfo` property of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) that the Identity currently has `"ToBeDeleted"` as `deletionStatus`.
+If the Identity is finally deleted, the `deletionStatus` changes to `"Deleted"` and the `transport.peerDeleted` Connector event can be received.
+Otherwise, if the Identity decides against its deletion within the grace period, the `peerDeletionInfo` of the Relationship is set back to `undefined` and the `transport.peerDeletionCancelledEvent` Connector event is triggered.
+The deletion of an Identity has effects on [creating a new Relationship]({% link _docs_integrate/delete-identities.md %}#creation-of-new-relationships) to it, [sending Messages]({% link _docs_integrate/delete-identities.md %}#sending-messages) to it, [sending Requests to it and responding to Requests]({% link _docs_integrate/delete-identities.md %}#sending-and-responding-to-requests) from it.
 
-The [error code]({% link _docs_integrate/error-codes.md %}) `error.transport.relationships.activeIdentityDeletionProcessOfOwnerOfRelationshipTemplate` arises if the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) who created the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) is currently in the process of deleting itself. Thus, it is not possible to establish a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) to it.
+### Creation of New Relationships
 
-An Identity can never trigger the process of deletion of another Identity.
+To [establish a Relationship]({% link _docs_integrate/establish-relationships.md %}), an Identity must first create a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate), which is then used by its peer to create a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status`.
+However, if the creator of the RelationshipTemplate is meanwhile in deletion or has even deleted itself beforehand, the peer receives an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.transport.relationships.activeIdentityDeletionProcessOfOwnerOfRelationshipTemplate` when trying to create a new Relationship using the RelationshipTemplate.
+
+<!-- TODO: Does this also apply if the creator of the RelationshipTemplate tries to accept the Relationship with `"Pending"` as `status`? In other words, does it apply to the entire Relationship establishment flow? -->
+
+### Sending Messages
+
+- Error code `error.transport.messages.peerIsToBeDeleted`.
+- Error code `error.transport.messages.peerIsDeleted`.
+
+An Identity is not permitted to [send a Message]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) to a peer with which a Relationship has been established and which has already been deleted.
+As long as the `content` of a [Message]({% link _docs_integrate/data-model-overview.md %}#message) is not a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification), this also applies to a peer in deletion.
+If the Identity tries to send a Message anyway to such a peer, an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.transport.messages.peerIsToBeDeleted` or `error.transport.messages.peerIsDeleted` is thrown.
+Sent Messages whose `content` is a Notification cannot be received by a peer which is in deletion, but they are queued in case the peer cancels its deletion. After the peer has cancelled its deletion, it receives the queued Notifications.
+
+<!-- TODO: What happens if the sender of the queued Notification is now in deletion or has even deleted itself? -->
+
+### Sending and Responding to Requests
+
+- Error code `error.consumption.requests.peerIsToBeDeleted`.
+- Error code `error.consumption.requests.peerIsDeleted`.
+
+An incoming [Request]({% link _docs_integrate/data-model-overview.md %}#request) sent by an Identity with which a Relationship has been established and which is in deletion or has already been deleted cannot be responded to.
+If an attempt is nevertheless made to [accept]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) or [reject]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) the incoming Request, an error with [code]({% link _docs_integrate/error-codes.md %}) `error.consumption.requests.peerIsToBeDeleted` or `error.consumption.requests.peerIsDeleted`, respectively, is thrown.
+Similarly, it is not possible to [create an outgoing Request]({% link _docs_use-cases/use-case-consumption-create-outgoing-request.md %}) to be sent to an Identity with which a Relationship has been established and which is in deletion or has already been deleted.
