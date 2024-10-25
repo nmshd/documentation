@@ -115,9 +115,7 @@ As it originates from another own shared RelationshipAttribute that exists in th
 This is the case as long as the own shared RelationshipAttribute used as the source has not been [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-own-shared-attributes).
 Furthermore, in the `shareInfo.thirdPartyAddress` the `address` of the peer of the source RelationshipAttribute is stored.
 
-<!-- TODO: adjust LucidChart -->
-
-<div style="width: 640px; height: 720px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:720px" src="https://lucid.app/documents/embedded/68fbda7f-30c1-40d1-853a-fd94a91988e8" id="oSgEzd9YW_TQ"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/5c9fc0f6-b5e4-4bfd-90b9-a046447ad47e" id="SsblHmOED0qR"></iframe></div>
 
 In the wallet of the peer with whom the underlying RelationshipAttribute of the source RelationshipAttribute was shared, a so-called received ThirdPartyRelationshipAttribute is created.
 It is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) similar to a peer shared RelationshipAttribute that can be interpreted as the counterpart of an emitted ThirdPartyRelationshipAttribute.
