@@ -41,7 +41,7 @@ There are three [use cases]({% link _docs_integrate/use-cases.md %}) for getting
 
 - If the `id` of an IdentityDeletionProcess is known, it can be viewed by calling the [Get IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocess.md %}) use case.
 - All IdentityDeletionProcesses of an Identity can be viewed by utilizing the [Get IdentityDeletionProcesses]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocesses.md %}) use case. This includes IdentityDeletionProcesses with `"Cancelled"` or `"Rejected"` as `status` in particular.
-- The [Get active IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-active-identitydeletionprocess.md %}) use case can be used to view the currently active IdentityDeletionProcess if one exists. If none exists, the [error code]({% link _docs_integrate/error-codes.md %}) `error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess` arises.
+- The [Get active IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-active-identitydeletionprocess.md %}) use case can be executed to view the currently active IdentityDeletionProcess if one exists. If none exists, the [error code]({% link _docs_integrate/error-codes.md %}) `error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess` arises if an attempt is made to apply the use case anyway.
 
 ## Options for Identity Deletion
 
