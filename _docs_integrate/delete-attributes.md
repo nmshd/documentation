@@ -116,8 +116,8 @@ In case the owner already [deleted their own shared Attribute](#delete-own-share
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/2385af4a-4bfa-43f4-a119-afb51273194d" id="HNEl2zIWWLxc"></iframe></div>
 
-If you want to [delete a RelationshipAttribute that is owned by a third party]({% link _docs_use-cases/use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer.md %}), i.e. neither you nor the peer you have the according Relationship with, the process will work analogously.
-In this case, a [ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem]({% link _docs_integrate/data-model-overview.md %}#thirdpartyownedrelationshipattributedeletedbypeernotificationitem) will be sent.
+If you want to [delete a ThirdPartyRelationshipAttribute]({% link _docs_use-cases/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer.md %}), the process will work analogously.
+In this case, a [ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributedeletedbypeernotificationitem) will be sent.
 {: .notice--info}
 
 ## Delete own shared Attributes
