@@ -106,9 +106,6 @@ However, if the creator of the RelationshipTemplate is meanwhile in deletion or 
 
 ### Sending Messages
 
-- Error code `error.transport.messages.peerIsToBeDeleted`.
-- Error code `error.transport.messages.peerIsDeleted`.
-
 An Identity is not permitted to [send a Message]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) to a peer with which a Relationship has been established and which has already been deleted.
 As long as the `content` of a [Message]({% link _docs_integrate/data-model-overview.md %}#message) is not a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification), this also applies to a peer in deletion.
 If the Identity tries to send a Message anyway to such a peer, an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.transport.messages.peerIsToBeDeleted` or `error.transport.messages.peerIsDeleted` is thrown.
@@ -117,9 +114,6 @@ Sent Messages whose `content` is a Notification cannot be received by a peer whi
 <!-- TODO: What happens if the sender of the queued Notification is now in deletion or has even deleted itself? -->
 
 ### Sending and Responding to Requests
-
-- Error code `error.consumption.requests.peerIsToBeDeleted`.
-- Error code `error.consumption.requests.peerIsDeleted`.
 
 An incoming [Request]({% link _docs_integrate/data-model-overview.md %}#request) sent by an Identity with which a Relationship has been established and which is in deletion or has already been deleted cannot be responded to.
 If an attempt is nevertheless made to [accept]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) or [reject]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) the incoming Request, an error with [code]({% link _docs_integrate/error-codes.md %}) `error.consumption.requests.peerIsToBeDeleted` or `error.consumption.requests.peerIsDeleted`, respectively, is thrown.
