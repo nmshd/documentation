@@ -101,11 +101,11 @@ However, if the creator of the RelationshipTemplate is meanwhile in deletion or 
 
 An Identity is not permitted to [send a Message]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) to a peer with which a Relationship has been established and which has already been deleted.
 As long as the `content` of a [Message]({% link _docs_integrate/data-model-overview.md %}#message) is not a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification), this also applies to a peer in deletion.
-If the Identity tries to send a Message anyway to such a peer, an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.transport.messages.peerIsToBeDeleted` or `error.transport.messages.peerIsDeleted` is thrown.
+If the Identity tries to send a Message anyway to such a peer, an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.transport.messages.peerIsInDeletion` or `error.transport.messages.peerIsDeleted` is thrown.
 Sent Messages whose `content` is a Notification cannot be received by a peer which is in deletion, but they are queued in case the peer cancels its deletion. After the peer has cancelled its deletion, it receives the queued Notifications.
 
 ### Sending and Responding to Requests
 
 An incoming [Request]({% link _docs_integrate/data-model-overview.md %}#request) sent by an Identity with which a Relationship has been established and which is in deletion or has already been deleted cannot be responded to.
-If an attempt is nevertheless made to [accept]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) or [reject]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) the incoming Request, an error with [code]({% link _docs_integrate/error-codes.md %}) `error.consumption.requests.peerIsToBeDeleted` or `error.consumption.requests.peerIsDeleted`, respectively, is thrown.
+If an attempt is nevertheless made to [accept]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) or [reject]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) the incoming Request, an error with [code]({% link _docs_integrate/error-codes.md %}) `error.consumption.requests.peerIsInDeletion` or `error.consumption.requests.peerIsDeleted`, respectively, is thrown.
 Similarly, it is not possible to [create an outgoing Request]({% link _docs_use-cases/use-case-consumption-create-outgoing-request.md %}) to be sent to an Identity with which a Relationship has been established and which is in deletion or has already been deleted.
