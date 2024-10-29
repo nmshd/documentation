@@ -85,7 +85,7 @@ Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kom
 
 Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
 
-j&s-soft GmbH\\
+j&s-soft AG\\
 Max-Jarecki-Straße 21\\
 69115 Heidelberg
 
@@ -106,7 +106,7 @@ Sofern Sie in die Datenverarbeitung eingewilligt haben, verarbeiten wir Ihre per
 
 Wir haben für unser Unternehmen einen Datenschutzbeauftragten bestellt.
 
-Christian Meder, j&s-soft GmbH, Max-Jarecki-Straße 21, 69115 Heidelberg.
+Christian Meder, j&s-soft AG, Max-Jarecki-Straße 21, 69115 Heidelberg.
 
 Telefon: +496221-43121-0\\
 E-Mail: `datenschutz@js-soft.com`
