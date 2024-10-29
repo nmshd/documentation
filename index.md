@@ -77,4 +77,4 @@ You know what we mean? Have a look at the next chapter for a quick introduction 
 
 The idea of enmeshed is based on the work of many others in the area of open source software, encryption, decentralized Identities, decentralized ledgers, and so on. These approaches were combined by a group of people who envisioned a great digital experience for everybody.
 
-So far, the primary implementation work has been done by j&amp;s-soft GmbH in Heidelberg, Germany.
+So far, the primary implementation work has been done by j&amp;s-soft AG in Heidelberg, Germany.
