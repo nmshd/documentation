@@ -8,7 +8,7 @@ toc: true
 
 ## Platform-dependant App Binaries
 
-For each of the various platforms, each version of the app is packaged into a platform-dependant binary. This binary is then executable / installable for the users. The binaries of the enmeshed App are created, maintained and published by j&amp;s-soft GmbH and are available free for use within the respective stores.
+For each of the various platforms, each version of the app is packaged into a platform-dependant binary. This binary is then executable / installable for the users. The binaries of the enmeshed App are created, maintained and published by j&amp;s-soft AG and are available free for use within the respective stores.
 
 Following binaries are currently created:
 

@@ -13,7 +13,7 @@ The Connector is usually deployed with a Docker image. The Docker images can be 
 **Note:** You have to be logged in using a GitHub account to list available tags.
 {: .notice--warning}
 
-The Docker images are created, maintained and published by j&s-soft GmbH.
+The Docker images are created, maintained and published by j&s-soft AG.
 
 ## Connector Runtime
 
