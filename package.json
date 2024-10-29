@@ -5,7 +5,7 @@
     "description": "The overarching enmeshed documentation",
     "homepage": "https://enmeshed.eu",
     "license": "MIT",
-    "author": "j&s-soft GmbH",
+    "author": "j&s-soft AG",
     "scripts": {
         "start": "bundle exec jekyll serve",
         "excel": "npx ts-node ./scripts/update.ts"

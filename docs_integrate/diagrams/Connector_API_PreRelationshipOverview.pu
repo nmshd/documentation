@@ -5,7 +5,7 @@
 title Connector: Pre-Relationship Overview
 
 footer Page %page% of %lastpage%
-caption Copyright 2021, j&s-soft GmbH
+caption Copyright 2021, j&s-soft AG
 
 box "Organizations's Infrastructure"
 participant "Enmeshed\nApp" as app

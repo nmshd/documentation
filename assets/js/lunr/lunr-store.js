@@ -78,7 +78,7 @@ var store = [{
         "teaser": null
       },{
         "title": "enmeshed App",
-        "excerpt":"App Building Blocks Platform-dependant App Binaries For each of the various platforms, each version of the app is packaged into a platform-dependant binary. This binary is then executable / installable for the users. The binaries of the enmeshed App are created, maintained and published by j&amp;s-soft GmbH and are available...","categories": [],
+        "excerpt":"App Building Blocks Platform-dependant App Binaries For each of the various platforms, each version of the app is packaged into a platform-dependant binary. This binary is then executable / installable for the users. The binaries of the enmeshed App are created, maintained and published by j&amp;s-soft AG and are available...","categories": [],
         "tags": [],
         "url": "/explore/app",
         "teaser": null
@@ -276,7 +276,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Support",
-        "excerpt":"For assisted support with the Connector or the Backbone provided by the j&amp;s-soft GmbH contact us via support[at]enmeshed.eu. Community support is a great way to get help and even contribute to the projects. Open bug reports and feature requests in the enmeshed issue tracker or share your feedback with the...","categories": [],
+        "excerpt":"For assisted support with the Connector or the Backbone provided by the j&amp;s-soft AG contact us via support[at]enmeshed.eu. Community support is a great way to get help and even contribute to the projects. Open bug reports and feature requests in the enmeshed issue tracker or share your feedback with the...","categories": [],
         "tags": [],
         "url": "/integrate/support",
         "teaser": null
@@ -360,7 +360,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Support",
-        "excerpt":"Support For assisted support with the Connector or the Backbone provided by the j&amp;s-soft GmbH contact us via support[at]enmeshed.eu. Community support is a great way to get help and even contribute to the projects. Open bug reports and feature requests in the enmeshed issue tracker or share your feedback with...","categories": [],
+        "excerpt":"Support For assisted support with the Connector or the Backbone provided by the j&amp;s-soft AG contact us via support[at]enmeshed.eu. Community support is a great way to get help and even contribute to the projects. Open bug reports and feature requests in the enmeshed issue tracker or share your feedback with...","categories": [],
         "tags": [],
         "url": "/operate/support",
         "teaser": null
