@@ -10,7 +10,7 @@ This website is hosted by a German company, thus the legally required texts are 
 
 Angaben gemäß §5 DDG:
 
-j&amp;s-soft GmbH\\
+j&amp;s-soft AG\\
 Max-Jarecki-Straße 21\\
 69115 Heidelberg
 
