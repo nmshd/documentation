@@ -24,7 +24,7 @@ E-Mail: `info@js-soft.com`
 **Registereintrag**\\
 Sitz der Gesellschaft: Heidelberg\\
 Registergericht: Amtsgericht Mannheim, 68149 Mannheim\\
-Registernummer: HRB 337601
+Registernummer: HRB 752407
 
 **Umsatzsteuer Identifikationsnummer**\\
 DE229831469
