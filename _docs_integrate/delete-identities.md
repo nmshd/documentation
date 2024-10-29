@@ -73,10 +73,6 @@ As required by the General Data Protection Regulation, abbreviated GDPR, it is p
 In order to be able to offer an Identity this option in addition to the possibility of [self-initiated Identity deletion]({% link _docs_integrate/delete-identities.md %}#self-initiated-identity-deletion), it must be possible for the Backbone Operator to trigger the Identity deletion via the Backbone Admin UI.
 Successful triggering leads to the creation of an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) with `"WaitingForApproval"` as `status` for the Identity.
 As the Backbone Operator must ensure that the creator of the support ticket or the writer of the e-mail is actually the Identity whose deletion was requested, the Identity must additionally [approve the IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-approve-identitydeletionprocess.md %}) afterwards.
-
-As there is the need of a push notification channel for this, a Connector does not have the ability to trigger the process of Identity deletion via the Backbone.
-{: .notice--info}
-
 However, the Identity can also [reject the IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}) if it has changed its mind about its deletion after the process of Identity deletion was triggered by the Backbone Admin UI.
 Approving or rejecting an IdentityDeletionProcess with `"WaitingForApproval"` as `status` is only possible until the date specified within the `approvalPeriodEndsAt` property has not been exceeded.
 If it is neither approved nor rejected by then, it automatically changes its `status` to `"Cancelled"` and the Identity will not be deleted.
