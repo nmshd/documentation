@@ -100,16 +100,12 @@ The deletion of an Identity has effects on [creating a new Relationship]({% link
 To [establish a Relationship]({% link _docs_integrate/establish-relationships.md %}), an Identity must first create a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate), which is then used by its peer to create a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status`.
 However, if the creator of the RelationshipTemplate is meanwhile in deletion or has even deleted itself beforehand, the peer receives an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.transport.relationships.activeIdentityDeletionProcessOfOwnerOfRelationshipTemplate` when trying to create a new Relationship using the RelationshipTemplate.
 
-<!-- TODO: Does this also apply if the creator of the RelationshipTemplate tries to accept the Relationship with `"Pending"` as `status`? In other words, does it apply to the entire Relationship establishment flow? -->
-
 ### Sending Messages
 
 An Identity is not permitted to [send a Message]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) to a peer with which a Relationship has been established and which has already been deleted.
 As long as the `content` of a [Message]({% link _docs_integrate/data-model-overview.md %}#message) is not a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification), this also applies to a peer in deletion.
 If the Identity tries to send a Message anyway to such a peer, an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.transport.messages.peerIsToBeDeleted` or `error.transport.messages.peerIsDeleted` is thrown.
 Sent Messages whose `content` is a Notification cannot be received by a peer which is in deletion, but they are queued in case the peer cancels its deletion. After the peer has cancelled its deletion, it receives the queued Notifications.
-
-<!-- TODO: What happens if the sender of the queued Notification is now in deletion or has even deleted itself? -->
 
 ### Sending and Responding to Requests
 
