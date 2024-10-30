@@ -37,3 +37,10 @@ required_by:
 api_route_regex: ^PUT /api/v2/Relationships/CanCreate$
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use case checks whether a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) can be created based on a received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) and a provided `creationContent`.
+The Relationship would be established with the RelationshipTemplate's creator.
