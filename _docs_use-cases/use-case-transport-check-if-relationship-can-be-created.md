@@ -44,3 +44,8 @@ api_route_regex: ^PUT /api/v2/Relationships/CanCreate$
 
 This use case checks whether a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) can be created based on a received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) and a provided `creationContent`.
 The Relationship would be established with the RelationshipTemplate's creator.
+
+## Parameters
+
+- `templateId` references the RelationshipTemplate that was received from a party.
+- `creationContent` is a [RelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationcontent) or an [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent) and would be stored inside the Relationship.
