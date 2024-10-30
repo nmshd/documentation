@@ -44,8 +44,19 @@ api_route_regex: ^PUT /api/v2/Relationships/CanCreate$
 
 This use case checks whether a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) can be created based on a received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) and a provided `creationContent`.
 The Relationship would be established with the RelationshipTemplate's creator.
+If a Relationship can be created to the RelationshipTemplate's creator, this can be realized by executing the [Create Relationship with RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) use case.
 
 ## Parameters
 
-- `templateId` references the RelationshipTemplate that was received from a party.
+- `templateId` references the RelationshipTemplate that was received from another Identity.
 - `creationContent` is a [RelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationcontent) or an [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent) and would be stored inside the Relationship.
+
+## On Success
+
+- Returns a CanCreateRelationshipResponse that indicates if a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) can be created with the given parameters.
+- If the `isSuccess` property of the CanCreateRelationshipResponse has the value `true`, a Relationship can currently be created to the creator of the RelationshipTemplate. This would then initially have `"Pending"` as `status` until the creator of the RelationshipTemplate [accepts the Relationship]({% link _docs_use-cases/use-case-transport-accept-relationship.md %}).
+- If the `isSuccess` property of the CanCreateRelationshipResponse has the value `false`, no Relationship can currently be created to the creator of the RelationshipTemplate. This can have various causes, for example:
+
+  -- The `templateId` does not resolve to a RelationshipTemplate or the associated RelationshipTemplate is malformed.
+
+  -- The provided `creationContent` is not a RelationshipCreationContent or an ArbitraryRelationshipCreationContent.
