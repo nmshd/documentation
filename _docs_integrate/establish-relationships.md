@@ -112,6 +112,13 @@ If an App user wants to initiate a Relationship with the templator, the App user
 
 After the templator has created a RelationshipTemplate and made it available to another Identity, this Identity can use it to initiate a Relationship with the templator. For this reason, this other Identity is also referred to below as the initiator.
 
+### Check the Initiability of a Relationship
+
+There may be several reasons why a RelationshipTemplate has been received but it is not possible to establish a Relationship based on it.
+The RelationshipTemplate could have already expired, for example, or the templator has deleted its Identity in the meantime.
+The [Check if Relationship can be created]({% link _docs_use-cases/use-case-transport-check-if-relationship-can-be-created.md %}) use case can be executed to check whether a Relationship can be initiated based on a given RelationshipTemplate.
+Consult the use case documentation for more details on the various reasons why it may not be possible to initiate a Relationship.
+
 ### Initiate It as a Connector
 
 Assuming that the initiator in this section is a Connector, our starting situation is that the initiator has successfully loaded the [created RelationshipTemplate]({% link _docs_integrate/establish-relationships.md %}#successfully-created-relationshiptemplate) onto itself. The received [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) may or may not contain a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) in its `content` property. We now describe separately in both cases how the initiator can use the RelationshipTemplate to initiate a Relationship with the templator. An overview of this procedure is given in the following diagram.
