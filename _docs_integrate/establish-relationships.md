@@ -116,7 +116,7 @@ After the templator has created a RelationshipTemplate and made it available to 
 
 There may be several reasons why a RelationshipTemplate has been received but it is not possible to establish a Relationship based on it.
 The RelationshipTemplate could have already expired, for example, or the templator has deleted its Identity in the meantime.
-The [Check if Relationship can be created]({% link _docs_use-cases/use-case-transport-check-if-relationship-can-be-created.md %}) use case can be executed to check whether a Relationship can be initiated based on a given RelationshipTemplate.
+The [Check if Relationship can be created]({% link _docs_use-cases/use-case-transport-check-if-relationship-can-be-created.md %}) use case can be executed to check whether a Relationship currently can be initiated based on a given RelationshipTemplate.
 Consult the use case documentation for more details on the various reasons why it may not be possible to initiate a Relationship.
 
 ### Initiate It as a Connector
