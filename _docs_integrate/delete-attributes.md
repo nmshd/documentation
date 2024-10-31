@@ -114,8 +114,8 @@ In case the owner already [deleted their own shared Attribute](#delete-own-share
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/2385af4a-4bfa-43f4-a119-afb51273194d" id="HNEl2zIWWLxc"></iframe></div>
 
-If you want to [delete a RelationshipAttribute that is owned by a third party]({% link _docs_use-cases/use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer.md %}), i.e. neither you nor the peer you have the according Relationship with, the process will work analogously.
-In this case, a [ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem]({% link _docs_integrate/data-model-overview.md %}#thirdpartyownedrelationshipattributedeletedbypeernotificationitem) will be sent.
+If you want to [delete a ThirdPartyRelationshipAttribute]({% link _docs_use-cases/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer.md %}), the process will work analogously.
+In this case, a [ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributedeletedbypeernotificationitem) will be sent.
 {: .notice--info}
 
 ## Delete own shared Attributes
@@ -140,6 +140,7 @@ Its `deletionStatus` will be set to `"DeletedByOwner"` and the `deletionDate` wi
 Lastly, you can also [delete RepositoryAttributes]({% link _docs_use-cases/use-case-consumption-delete-a-repositoryattribute.md %}), i.e. LocalAttributes that are owned by yourself and whose `shareInfo` property is undefined.
 Analogously to the cases above, also all predecessors of the RepositoryAttribute with specified `attributeId` will be deleted.
 Additionally, the `succeeds` property of the successor will be removed in case of [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}).
+If the RepositoryAttribute has [child Attributes]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), the same will hold true for all its children.
 
 Furthermore, if there are any shared copies of the RepositoryAttribute, their `shareInfo` will be updated such that `sourceAttribute` doesn't link to the deleted RepositoryAttribute anymore.
 As a consequence, the [get shared versions of an Attribute use case]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) will no longer return those shared versions.
