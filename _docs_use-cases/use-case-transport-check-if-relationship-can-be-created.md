@@ -60,3 +60,7 @@ If a Relationship can be created to the RelationshipTemplate's creator, this can
   -- The `templateId` does not resolve to a RelationshipTemplate or the associated RelationshipTemplate is malformed.
 
   -- The provided `creationContent` is not a RelationshipCreationContent or an ArbitraryRelationshipCreationContent.
+
+## On Failure
+
+- The parameters are malformed.
