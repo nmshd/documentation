@@ -1,25 +1,25 @@
 ---
 # Start automatic generation
-permalink: use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer
+permalink: use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer
 published: true
-title: "Delete a third party owned RelationshipAttribute and notify peer"
+title: "Delete a ThirdPartyRelationshipAttribute and notify peer"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA25
+  - id: RA29
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: deleteThirdPartyOwnedRelationshipAttributeAndNotifyPeer
+  - function: deleteThirdPartyRelationshipAttributeAndNotifyPeer
   - description:
   - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
-  - comments: deprecated use /use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer instead
+  - comments: add redirect from /use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer as soon as that use case is deleted
   - actor: Identity
   - trigger: REST API
   - precondition:
@@ -31,7 +31,7 @@ properties:
   - changed_at:
   - api_route_regex: DELETE /api/v2/Attributes/ThirdParty/{id}
   - published: default
-  - link: use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer
+  - link: use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer
 require:
 required_by:
 api_route_regex: ^DELETE /api/v2/Attributes/ThirdParty/{id}$
@@ -41,9 +41,6 @@ api_route_regex: ^DELETE /api/v2/Attributes/ThirdParty/{id}$
 {{properties.description}}
 
 {% include properties_list.html %}
-
-This use case is deprecated and will be removed in the next major version. Please use the use case [Delete a ThirdPartyRelationshipAttribute and notify peer](use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer) instead.
-{: .notice--warning}
 
 This use case allows you to delete a ThirdPartyRelationshipAttribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) that has the property `shareInfo.thirdPartyAddress` set.
 
