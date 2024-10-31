@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Succeed a RelationshipAttribute and notify peer - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Delete a ThirdPartyRelationshipAttribute and notify peer - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Succeed a RelationshipAttribute and notify peer">
-<meta property="og:url" content="/use-case-consumption-succeed-a-relationshipattribute-and-notify-peer">
+<meta property="og:title" content="Delete a ThirdPartyRelationshipAttribute and notify peer">
+<meta property="og:url" content="/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/use-case-consumption-succeed-a-relationshipattribute-and-notify-peer">
+<link rel="canonical" href="/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer">
 
 
 
@@ -350,7 +350,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Succeed a RelationshipAttribute and notify peer">
+    <meta itemprop="headline" content="Delete a ThirdPartyRelationshipAttribute and notify peer">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2024-10-31T13:54:16+01:00">
     
@@ -359,7 +359,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/use-case-consumption-succeed-a-relationshipattribute-and-notify-peer" itemprop="url">Succeed a RelationshipAttribute and notify peer
+            <a href="/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer" itemprop="url">Delete a ThirdPartyRelationshipAttribute and notify peer
 </a>
           </h1>
           
@@ -382,7 +382,7 @@
     <table>
         
         <tr><td>id</td>
-            <td>RA17</td></tr>
+            <td>RA29</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
@@ -394,7 +394,7 @@
             <td>AttributesFacade</td></tr>
         
         <tr><td>function</td>
-            <td>succeedRelationshipAttributeAndNotifyPeer</td></tr>
+            <td>deleteThirdPartyRelationshipAttributeAndNotifyPeer</td></tr>
         
         <tr></tr>
         
@@ -410,7 +410,8 @@
         <tr><td>documentation status</td>
             <td>DONE</td></tr>
         
-        <tr></tr>
+        <tr><td>comments</td>
+            <td>add redirect from /use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer as soon as that use case is deleted</td></tr>
         
         <tr><td>actor</td>
             <td>Identity</td></tr>
@@ -436,13 +437,13 @@
         <tr></tr>
         
         <tr><td>api_route_regex</td>
-            <td>POST /api/v2/Attributes/{predecessorId}/Succeed</td></tr>
+            <td>DELETE /api/v2/Attributes/ThirdParty/{id}</td></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-consumption-succeed-a-relationshipattribute-and-notify-peer</td></tr>
+            <td>use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -450,35 +451,29 @@
 </div>
 -->
 
-<p>This use case allows the owner to update a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>, while automatically handling the coherent versioning at both your and your peer&#8217;s side.
-<a href="/integrate/update-attributes-by-succession#succeeding-own-relationshipattributes">Succeeding an own RelationshipAttribute</a>, a new <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> with the updated <code class="language-plaintext highlighter-rouge">content</code> will be created at your side.
-In its <code class="language-plaintext highlighter-rouge">succeeds</code> property it links to the predecessing version, which in turn is also updated and links to the newly created version in its <code class="language-plaintext highlighter-rouge">succeededBy</code> property.
-Thus, a doubly linked list is established, ensuring every version to have not more that one predecessor or successor.
-Once the succession at your side is completed, a <a href="/integrate/data-model-overview#notification">Notification</a> is sent automatically to your peer.
-It triggers the succession of their peer shared RelationshipAttribute in the same manner as described above, such that both your succession chains match.</p>
+<p>This use case allows you to delete a ThirdPartyRelationshipAttribute, i.e. a <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> that has the property <code class="language-plaintext highlighter-rouge">shareInfo.thirdPartyAddress</code> set.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">predecessorId</code>: the <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute with the RelationshipAttribute <code class="language-plaintext highlighter-rouge">content</code> you want to succeed</li>
-  <li>The updated <code class="language-plaintext highlighter-rouge">successorContent</code> limited to the <code class="language-plaintext highlighter-rouge">value</code>, <code class="language-plaintext highlighter-rouge">validFrom</code> and <code class="language-plaintext highlighter-rouge">validTo</code> properties of a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> that may be changed by a succession</li>
+  <li>The <code class="language-plaintext highlighter-rouge">attributeId</code> of the ThirdPartyRelationshipAttribute you want to delete.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>The response returns a <code class="language-plaintext highlighter-rouge">predecessor</code> and a <code class="language-plaintext highlighter-rouge">successor</code> LocalAttribute, as well as the <code class="language-plaintext highlighter-rouge">notificationId</code> of the Notification sent to the peer.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">predecessor</code> is an updated version of the own shared RelationshipAttribute, having the <code class="language-plaintext highlighter-rouge">succeededBy</code> field set to the <code class="language-plaintext highlighter-rouge">successor</code>&#8217;s <code class="language-plaintext highlighter-rouge">id</code>.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">successor</code> is a new own shared RelationshipAttribute version with the specified <code class="language-plaintext highlighter-rouge">successorContent</code>. Its <code class="language-plaintext highlighter-rouge">succeeds</code> property links to the <code class="language-plaintext highlighter-rouge">predecessor</code>.</li>
+  <li>The ThirdPartyRelationshipAttribute will be deleted.</li>
+  <li>All predecessors of the ThirdPartyRelationshipAttribute will be deleted.</li>
+  <li>If the ThirdPartyRelationshipAttribute was succeeded, the <code class="language-plaintext highlighter-rouge">succeeds</code> property of the successor will be set to undefined.</li>
+  <li>A <a href="/integrate/data-model-overview#notification">Notification</a> with a <a href="/integrate/data-model-overview#thirdpartyrelationshipattributedeletedbypeernotificationitem">ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem</a> is sent to the peer of the Attribute, informing them that you deleted the Attribute. Technically, the Attribute of the peer and all predecessors will get a <code class="language-plaintext highlighter-rouge">deletionInfo</code> with <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code> and the time of receiving the Notification as <code class="language-plaintext highlighter-rouge">deletionDate</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">notificationId</code> is returned.</li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>The response cannot be created if the <code class="language-plaintext highlighter-rouge">predecessorId</code> doesn&#8217;t belong to a valid own LocalAttribute with RelationshipAttribute <code class="language-plaintext highlighter-rouge">content</code>.</li>
-  <li>The response cannot be created if the LocalAttribute belonging to the <code class="language-plaintext highlighter-rouge">predecessorId</code> already has a successor.</li>
-  <li>The response cannot be created if the LocalAttribute belonging to the <code class="language-plaintext highlighter-rouge">predecessorId</code> has a <code class="language-plaintext highlighter-rouge">deletionInfo</code> with <code class="language-plaintext highlighter-rouge">deletionStatus</code> other than <code class="language-plaintext highlighter-rouge">"DeletionRequestRejected"</code>.</li>
-  <li>The response cannot be created if the parameters are malformed.</li>
+  <li>No Attribute can be deleted if you don&#8217;t have a LocalAttribute with given <code class="language-plaintext highlighter-rouge">attributeId</code>.</li>
+  <li>No Attribute can be deleted if the Attribute with given <code class="language-plaintext highlighter-rouge">attributeId</code> is not a ThirdPartyRelationshipAttribute.</li>
 </ul>
   <h2>How to execute this use case with the Connector?</h2>
 
@@ -500,7 +495,7 @@ This use case can be executed with the REST API of the Connector which you can <
     theme="light"
     bg-color="#f9f9fb"
     
-    match-paths="^POST /api/v2/Attributes/{predecessorId}/Succeed$"
+    match-paths="^DELETE /api/v2/Attributes/ThirdParty/{id}$"
     
     match-type="regex"
 ></rapi-doc-mini>

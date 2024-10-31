@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-10-29T13:49:29+01:00">
+  <meta property="article:published_time" content="2024-10-31T13:54:16+01:00">
 
 
 
@@ -352,7 +352,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Error Codes">
     <meta itemprop="description" content="Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker.">
-    <meta itemprop="datePublished" content="2024-10-29T13:49:29+01:00">
+    <meta itemprop="datePublished" content="2024-10-31T13:54:16+01:00">
     
 
     <div class="page__inner-wrap">
@@ -433,8 +433,8 @@
       <td>The only valid values of the property <a href="/integrate/delete-attributes#delete-peer-shared-attributes"><code class="language-plaintext highlighter-rouge">deletionStatus</code> for peer shared Attributes</a> are <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> or <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code>.</td>
     </tr>
     <tr>
-      <td>error.consumption.attributes.<br />invalidDeletionInfoOfThirdPartyOwnedRelationshipAttribute <a name="error.consumption.attributes.&lt;br&gt;invalidDeletionInfoOfThirdPartyOwnedRelationshipAttribute"></a></td>
-      <td>The only valid <code class="language-plaintext highlighter-rouge">deletionStatus</code> for third party owned <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttributes</a> is <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code>, see <a href="/use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer">‘Delete a third party owned RelationshipAttribute’</a> for more details.</td>
+      <td>error.consumption.attributes.<br />invalidDeletionInfoOfThirdPartyRelationshipAttribute <a name="error.consumption.attributes.&lt;br&gt;invalidDeletionInfoOfThirdPartyRelationshipAttribute"></a></td>
+      <td>The only valid <code class="language-plaintext highlighter-rouge">deletionStatus</code> for <a href="/integrate/data-model-overview#relationshipattribute">ThirdPartyRelationshipAttributes</a> is <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code>, see <a href="/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer">‘Delete a ThirdPartyRelationshipAttribute’</a> for more details.</td>
     </tr>
     <tr>
       <td>error.consumption.attributes.invalidParentSuccessor <a name="error.consumption.attributes.invalidParentSuccessor"></a></td>
@@ -457,8 +457,8 @@
       <td>The Attribute is not a shared <a href="/integrate/data-model-overview#localattribute">Attribute</a>.</td>
     </tr>
     <tr>
-      <td>error.consumption.attributes.isNotThirdPartyOwnedRelationshipAttribute <a name="error.consumption.attributes.isNotThirdPartyOwnedRelationshipAttribute"></a></td>
-      <td>The Attribute is not a <a href="/integrate/data-model-overview#localattribute">third party owned RelationshipAttribute</a>.</td>
+      <td>error.consumption.attributes.isNotThirdPartyRelationshipAttribute <a name="error.consumption.attributes.isNotThirdPartyRelationshipAttribute"></a></td>
+      <td>The Attribute is not a <a href="/integrate/data-model-overview#localattribute">ThirdPartyRelationshipAttribute</a>.</td>
     </tr>
     <tr>
       <td>error.consumption.attributes.predecessorDoesNotExist <a name="error.consumption.attributes.predecessorDoesNotExist"></a></td>
@@ -485,8 +485,8 @@
       <td>The predecessor is not a <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.</td>
     </tr>
     <tr>
-      <td>error.consumption.attributes.<br />predecessorIsNotThirdPartyOwnedRelationshipAttribute <a name="error.consumption.attributes.&lt;br&gt;predecessorIsNotThirdPartyOwnedRelationshipAttribute"></a></td>
-      <td>The predecessor is not a <a href="/integrate/data-model-overview#localattribute">third party owned RelationshipAttribute</a>.</td>
+      <td>error.consumption.attributes.<br />predecessorIsNotThirdPartyRelationshipAttribute <a name="error.consumption.attributes.&lt;br&gt;predecessorIsNotThirdPartyRelationshipAttribute"></a></td>
+      <td>The predecessor is not a <a href="/integrate/data-model-overview#localattribute">ThirdPartyRelationshipAttribute</a>.</td>
     </tr>
     <tr>
       <td>error.consumption.attributes.predecessorSourceAttributeIsNotRepositoryAttribute <a name="error.consumption.attributes.predecessorSourceAttributeIsNotRepositoryAttribute"></a></td>
@@ -529,6 +529,10 @@
       <td>The peer of the <a href="/integrate/update-attributes-by-succession#sharing-a-repositoryattribute">shared Attribute</a> must not change.</td>
     </tr>
     <tr>
+      <td>error.consumption.attributes.successionMustNotChangeThirdParty <a name="error.consumption.attributes.successionMustNotChangeThirdParty"></a></td>
+      <td>The <code class="language-plaintext highlighter-rouge">thirdPartyAddress</code> of the <a href="/integrate/update-attributes-by-succession#sharing-a-repositoryattribute">shared Attribute</a> must not change.</td>
+    </tr>
+    <tr>
       <td>error.consumption.attributes.successionMustNotChangeValueType <a name="error.consumption.attributes.successionMustNotChangeValueType"></a></td>
       <td>The successor Attribute’s <code class="language-plaintext highlighter-rouge">value</code> type does not match that of the predecessor. An <a href="/integrate/update-attributes-by-succession">Attribute succession</a> must not change the Attribute’s <code class="language-plaintext highlighter-rouge">value</code> type.</td>
     </tr>
@@ -561,8 +565,8 @@
       <td>The successor is not a <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.</td>
     </tr>
     <tr>
-      <td>error.consumption.attributes.successorIsNotThirdPartyOwnedRelationshipAttribute <a name="error.consumption.attributes.successorIsNotThirdPartyOwnedRelationshipAttribute"></a></td>
-      <td>The successor is not a <a href="/integrate/data-model-overview#localattribute">third party owned RelationshipAttribute</a>.</td>
+      <td>error.consumption.attributes.successorIsNotThirdPartyRelationshipAttribute <a name="error.consumption.attributes.successorIsNotThirdPartyRelationshipAttribute"></a></td>
+      <td>The successor is not a <a href="/integrate/data-model-overview#localattribute">ThirdPartyRelationshipAttribute</a>.</td>
     </tr>
     <tr>
       <td>error.consumption.attributes.successorMustNotHaveASuccessor <a name="error.consumption.attributes.successorMustNotHaveASuccessor"></a></td>
@@ -677,8 +681,8 @@
       <td>The given Attribute is not a <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.</td>
     </tr>
     <tr>
-      <td>error.runtime.attributes.isNotThirdPartyOwnedRelationshipAttribute <a name="error.runtime.attributes.isNotThirdPartyOwnedRelationshipAttribute"></a></td>
-      <td>The given Attribute is not a third party owned <a href="/integrate/data-model-overview#localattribute">RelationshipAttribute</a>.</td>
+      <td>error.runtime.attributes.isNotThirdPartyRelationshipAttribute <a name="error.runtime.attributes.isNotThirdPartyRelationshipAttribute"></a></td>
+      <td>The given Attribute is not a <a href="/integrate/data-model-overview#localattribute">ThirdPartyRelationshipAttribute</a>.</td>
     </tr>
     <tr>
       <td>error.runtime.attributes.<br />noPreviousVersionOfRepositoryAttributeHasBeenSharedWithPeerBefore <a name="error.runtime.attributes.&lt;br&gt;noPreviousVersionOfRepositoryAttributeHasBeenSharedWithPeerBefore"></a></td>
@@ -941,7 +945,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-10-29T13:49:29+01:00">October 29, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-10-31T13:54:16+01:00">October 31, 2024</time></p>
 
       </footer>
 

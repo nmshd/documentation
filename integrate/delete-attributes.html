@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-10-29T13:49:29+01:00">
+  <meta property="article:published_time" content="2024-10-31T13:54:16+01:00">
 
 
 
@@ -352,7 +352,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Delete Attributes">
     <meta itemprop="description" content="The exact process of deleting an Attribute depends on the kind of Attribute at hand.Creating an Attribute, we must distinguish between IdentityAttributes and RelationshipAttributes.In the former case, a so-called RepositoryAttribute is created, which is a LocalAttribute without shareInfo, that you are the owner of.Afterwards, you may share it with a peer, which yields the creation of an own shared IdentityAttribute.This is a LocalAttribute with the copied content of the RepositoryAttribute, but an additional shareInfo property.Doing so, also a LocalAttribute with the same content and a respective shareInfo is created for the peer, which is referred to as peer shared Attribute.In the case of RelationshipAttributes we have own shared and peer shared RelationshipAttributes analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with RepositoryAttributes.These different kinds of Attributes have different demands that need to be taken into account, wanting to delete them.">
-    <meta itemprop="datePublished" content="2024-10-29T13:49:29+01:00">
+    <meta itemprop="datePublished" content="2024-10-31T13:54:16+01:00">
     
 
     <div class="page__inner-wrap">
@@ -464,8 +464,8 @@ In case the owner already <a href="#delete-own-shared-attributes">deleted their 
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/2385af4a-4bfa-43f4-a119-afb51273194d" id="HNEl2zIWWLxc"></iframe></div>
 
-<p class="notice--info">If you want to <a href="/use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer">delete a RelationshipAttribute that is owned by a third party</a>, i.e. neither you nor the peer you have the according Relationship with, the process will work analogously.
-In this case, a <a href="/integrate/data-model-overview#thirdpartyownedrelationshipattributedeletedbypeernotificationitem">ThirdPartyOwnedRelationshipAttributeDeletedByPeerNotificationItem</a> will be sent.</p>
+<p class="notice--info">If you want to <a href="/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer">delete a ThirdPartyRelationshipAttribute</a>, the process will work analogously.
+In this case, a <a href="/integrate/data-model-overview#thirdpartyrelationshipattributedeletedbypeernotificationitem">ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem</a> will be sent.</p>
 
 <h2 id="delete-own-shared-attributes">Delete own shared Attributes</h2>
 
@@ -488,7 +488,8 @@ Its <code class="language-plaintext highlighter-rouge">deletionStatus</code> wil
 
 <p>Lastly, you can also <a href="/use-case-consumption-delete-a-repositoryattribute">delete RepositoryAttributes</a>, i.e. LocalAttributes that are owned by yourself and whose <code class="language-plaintext highlighter-rouge">shareInfo</code> property is undefined.
 Analogously to the cases above, also all predecessors of the RepositoryAttribute with specified <code class="language-plaintext highlighter-rouge">attributeId</code> will be deleted.
-Additionally, the <code class="language-plaintext highlighter-rouge">succeeds</code> property of the successor will be removed in case of <a href="/integrate/update-attributes-by-succession">Attribute succession</a>.</p>
+Additionally, the <code class="language-plaintext highlighter-rouge">succeeds</code> property of the successor will be removed in case of <a href="/integrate/update-attributes-by-succession">Attribute succession</a>.
+If the RepositoryAttribute has <a href="/integrate/attribute-introduction#complex-identityattributes">child Attributes</a>, the same will hold true for all its children.</p>
 
 <p>Furthermore, if there are any shared copies of the RepositoryAttribute, their <code class="language-plaintext highlighter-rouge">shareInfo</code> will be updated such that <code class="language-plaintext highlighter-rouge">sourceAttribute</code> doesn’t link to the deleted RepositoryAttribute anymore.
 As a consequence, the <a href="/use-case-consumption-get-shared-versions-of-an-attribute">get shared versions of an Attribute use case</a> will no longer return those shared versions.
@@ -505,7 +506,7 @@ Instead, if you want to inform them about a newer version of this RepositoryAttr
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-10-29T13:49:29+01:00">October 29, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-10-31T13:54:16+01:00">October 31, 2024</time></p>
 
       </footer>
 

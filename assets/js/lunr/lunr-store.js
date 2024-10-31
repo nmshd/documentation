@@ -468,9 +468,15 @@ var store = [{
         "teaser": null
       },{
         "title": "Delete a third party owned RelationshipAttribute and notify peer",
-        "excerpt":"This use case allows you to delete a third party owned RelationshipAttribute, i.e. a LocalAttribute that exists in a Relationship with a peer, but is not owned by you or this peer but by a third party. Parameters The attributeId of the third party owned RelationshipAttribute you want to delete....","categories": [],
+        "excerpt":"This use case is deprecated and will be removed in the next major version. Please use the use case Delete a ThirdPartyRelationshipAttribute and notify peer instead. This use case allows you to delete a ThirdPartyRelationshipAttribute, i.e. a LocalAttribute that has the property shareInfo.thirdPartyAddress set. Parameters The attributeId of the ThirdPartyRelationshipAttribute...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer",
+        "teaser": null
+      },{
+        "title": "Delete a ThirdPartyRelationshipAttribute and notify peer",
+        "excerpt":"This use case allows you to delete a ThirdPartyRelationshipAttribute, i.e. a LocalAttribute that has the property shareInfo.thirdPartyAddress set. Parameters The attributeId of the ThirdPartyRelationshipAttribute you want to delete. On Success The ThirdPartyRelationshipAttribute will be deleted. All predecessors of the ThirdPartyRelationshipAttribute will be deleted. If the ThirdPartyRelationshipAttribute was succeeded, the succeeds...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer",
         "teaser": null
       },{
         "title": "Delete an own shared Attribute and notify peer",
@@ -492,7 +498,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Execute a ThirdPartyRelationshipAttributeQuery",
-        "excerpt":"This use case is intended to execute an incoming ThirdPartyRelationshipAttributeQuery (e.g. received by a ReadAttributeRequestItem) which returns a list of matching Relationship Attributes of another peer. Parameters The query for the RelationshipAttributes as described in the ThirdPartyRelationshipAttributeQuery. On Success Returns the RelationshipAttributes as LocalAttributes that match the given query. On...","categories": [],
+        "excerpt":"This use case is intended to execute an incoming ThirdPartyRelationshipAttributeQuery, e.g. received by a ReadAttributeRequestItem. It returns a list of matching RelationshipAttributes that exist in the context of a Relationship with another peer. Parameters The query for the RelationshipAttributes as described in the ThirdPartyRelationshipAttributeQuery. On Success Returns the RelationshipAttributes as...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-execute-a-thirdpartyrelationshipattributequery",
         "teaser": null
