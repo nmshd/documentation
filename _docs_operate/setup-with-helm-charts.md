@@ -133,12 +133,12 @@ pod:
   connector:
     environment:
       - name: transportLibrary__baseUrl
-        alueFrom:
+        valueFrom:
           secretKeyRef:
             name: base-url
             key: VALUE
       - name: transportLibrary__platformClientId
-        alueFrom:
+        valueFrom:
           secretKeyRef:
             name: platform-client-id
             key: VALUE
