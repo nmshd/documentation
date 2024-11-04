@@ -1,5 +1,6 @@
 {
     "transportLibrary": {
+        "baseUrl": "<baseUrl => https://enmeshed.eu/integrate/connector-configuration#transportlibrary>",
         "platformClientId": "<clientId => https://enmeshed.eu/integrate/connector-configuration#transportlibrary>",
         "platformClientSecret": "<clientSecret => https://enmeshed.eu/integrate/connector-configuration#transportlibrary>"
     },
