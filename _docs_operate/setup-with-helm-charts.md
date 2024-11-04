@@ -83,6 +83,8 @@ pod:
             name: db-connection-string
             key: VALUE
 
+      - name: transportLibrary__baseUrl
+        value: https://backbone.example.com
       - name: transportLibrary__platformClientId
         value: test
       - name: transportLibrary__platformClientSecret
@@ -130,6 +132,11 @@ config:
 pod:
   connector:
     environment:
+      - name: transportLibrary__baseUrl
+        alueFrom:
+          secretKeyRef:
+            name: base-url
+            key: VALUE
       - name: transportLibrary__platformClientId
         alueFrom:
           secretKeyRef:
