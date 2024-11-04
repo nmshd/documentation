@@ -52,7 +52,7 @@ For information on how to [establish a Relationship]({% link _docs_integrate/est
 ## Parameters
 
 - `templateId` references the RelationshipTemplate that was received from its creator.
-- `creationContent` is usually an [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent) when the use case is applied manually and a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) when the [Request Module]({% link _docs_explore/61-runtime.md %}#request-module) automatically takes care of the execution of the use case. It will be stored inside the Relationship and can be analyzed by the creator of the RelationshipTemplate to decide whether to accept the Relationship.
+- `creationContent` is usually an [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent) when the RelationshipTemplate's `content` is an ArbitraryRelationshipTemplateContent and the use case is applied manually and a [RelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationcontent) when the RelationshipTemplate's `content` is a RelationshipTemplateContent and the [Request Module]({% link _docs_explore/61-runtime.md %}#request-module) automatically takes care of the execution of the use case. It will be stored inside the Relationship and can be analyzed by the creator of the RelationshipTemplate to decide whether to [accept the Relationship]({% link _docs_use-cases/use-case-transport-accept-relationship.md %}).
 
 ## On Success
 
