@@ -115,9 +115,9 @@ After the templator has created a RelationshipTemplate and made it available to 
 ### Check the Initiability of a Relationship
 
 There may be several reasons why a RelationshipTemplate has been received but it is not possible to establish a Relationship based on it.
-The RelationshipTemplate could have already expired, for example, or the templator has deleted its Identity in the meantime.
+The RelationshipTemplate could have already expired, for example, or the templator has deleted its [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) in the meantime.
 The [Check if Relationship can be created]({% link _docs_use-cases/use-case-transport-check-if-relationship-can-be-created.md %}) use case can be executed to check whether a Relationship currently can be initiated based on a given RelationshipTemplate.
-Consult the use case documentation for more details on the various reasons why it may not be possible to initiate a Relationship.
+Consult the use case documentation for more details on the various reasons why it may not be possible to [initiate a Relationship]({% link _docs_integrate/establish-relationships.md %}#initiate-a-relationship).
 
 ### Initiate It as a Connector
 
@@ -133,7 +133,7 @@ We assume that there is no [Relationship]({% link _docs_integrate/data-model-ove
 
 The `content` of the LocalRequest is the Request specified in the `onNewRelationship` property of the [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent). This Request defines the conditions for establishing an active Relationship between the initiator and the templator. If the initiator agrees to them, it can initiate a Relationship with the templator by accepting the Request.
 
-The [Request Module]({% link _docs_explore/61-runtime.md %}#request-module) enabled by default ensures that the initiator receives a new incoming Request when the RelationshipTemplate is loaded and that a Relationship is initiated by accepting the incoming Request. If an Integrator of a Connector does not enable the Request Module, they must trigger these and other processes manually, which is not described in this guide. Please note, however, that App users cannot deactivate the Request Module, which is why their processes are more standardized.
+The [Request Module]({% link _docs_explore/61-runtime.md %}#request-module) enabled by default ensures that the initiator receives a new incoming Request when the RelationshipTemplate is loaded and that a Relationship is initiated by accepting the incoming Request. If an Integrator of a Connector has disabled the Request Module, they must trigger these and other processes manually, which is not described in this guide. Please note, however, that App users cannot deactivate the Request Module, which is why their processes are more standardized.
 {: .notice--warning}
 
 Accepting the Request is done by following the instructions of the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case and providing the `id` of the Request as well as an appropriate input to build the [Response]({% link _docs_integrate/data-model-overview.md %}#response) of the initiator to the Request. In case of success, the `status` of the LocalRequest will change from `"ManualDecisionRequired"` to `"Decided"` and the `consumption.incomingRequestStatusChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) will be triggered. The Response of the initiator to the Request will be contained within the `response.content` property of the LocalRequest. By accepting the Request, a data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` is created and the `transport.relationshipChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) is triggered. The Relationship's `creationContent.response` property contains the initiator's Response to the Request.
