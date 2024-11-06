@@ -63,7 +63,7 @@ If the [Request Module]({% link _docs_explore/61-runtime.md %}#request-module) i
   -- The [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) has already expired, which means that the timestamp specified in its `expiresAt` property has been exceeded.<br>
   -- The potential initiator has already [decomposed the former Relationship]({% link _docs_integrate/terminate-relationships.md %}#decompose-a-relationship) to the creator of the RelationshipTemplate, but the RelationshipTemplate's creator has not yet decomposed it.<br>
   -- The [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) of the creator of the RelationshipTemplate is in deletion or has already been deleted.<br>
-  -- The `creationContent` is not a [RelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationcontent) or an [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent).
+  -- The `creationContent`, if specified, is not a [RelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationcontent) or an [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent).
 
 ## On Failure
 
