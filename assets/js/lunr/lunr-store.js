@@ -779,6 +779,12 @@ var store = [{
         "url": "/use-case-transport-cancel-identitydeletionprocess",
         "teaser": null
       },{
+        "title": "Check if Relationship can be created",
+        "excerpt":"This use case checks whether a Relationship can be created based on a received RelationshipTemplate to the RelationshipTemplate&#8217;s creator without actually creating it. It makes sense to promptly execute this use case in order to prevent the data required to initiate a Relationship from being provided when this is currently...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-check-if-relationship-can-be-created",
+        "teaser": null
+      },{
         "title": "Create own RelationshipTemplate",
         "excerpt":"Creates a RelationshipTemplate with the given parameters and submits it to the Backbone for other Identites to use. A RelationshipTemplate can be used by any party to either initiate a Relationship with the current Identity or retrieve a Request from an existing Relationship by a side-channel. Parameters expiresAt is the...","categories": [],
         "tags": [],
@@ -798,7 +804,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create Relationship with RelationshipTemplate",
-        "excerpt":"This use case intends to create a Relationship based on a received RelationshipTemplate where its content is an ArbitraryRelationshipTemplateContent. The Relationship will be established with the RelationshipTemplate&#8217;s creator. For information on how to establish a Relationship based on a RelationshipTemplate with RelationshipTemplateContent, refer to the corresponding scenario documentation. Parameters templateId...","categories": [],
+        "excerpt":"This use case intends to create a Relationship based on a RelationshipTemplate, which was previously received. The Relationship will be established with the RelationshipTemplate&#8217;s creator. This use case must always be applied if the content of the RelationshipTemplate is an ArbitraryRelationshipTemplateContent. However, if it is a RelationshipTemplateContent, it usually does...","categories": [],
         "tags": [],
         "url": "/use-case-transport-create-relationship-with-relationshiptemplate",
         "teaser": null

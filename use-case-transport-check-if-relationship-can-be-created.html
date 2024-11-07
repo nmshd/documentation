@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Revoke Relationship - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Check if Relationship can be created - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Revoke Relationship">
-<meta property="og:url" content="/use-case-transport-revoke-relationship">
+<meta property="og:title" content="Check if Relationship can be created">
+<meta property="og:url" content="/use-case-transport-check-if-relationship-can-be-created">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/use-case-transport-revoke-relationship">
+<link rel="canonical" href="/use-case-transport-check-if-relationship-can-be-created">
 
 
 
@@ -350,7 +350,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Revoke Relationship">
+    <meta itemprop="headline" content="Check if Relationship can be created">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2024-11-07T16:59:21+01:00">
     
@@ -359,7 +359,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/use-case-transport-revoke-relationship" itemprop="url">Revoke Relationship
+            <a href="/use-case-transport-check-if-relationship-can-be-created" itemprop="url">Check if Relationship can be created
 </a>
           </h1>
           
@@ -382,7 +382,7 @@
     <table>
         
         <tr><td>id</td>
-            <td>RR8</td></tr>
+            <td>RR16</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
@@ -394,10 +394,10 @@
             <td>RelationshipsFacade</td></tr>
         
         <tr><td>function</td>
-            <td>revokeRelationship</td></tr>
+            <td>canCreateRelationship</td></tr>
         
         <tr><td>description</td>
-            <td>Revokes the Relationship with the given `relationshipId`.</td></tr>
+            <td>Checks if a Relationship with the given `templateId` and `creationContent` can be created.</td></tr>
         
         <tr><td>feature category</td>
             <td>Mutual peer-to-peer Relationships</td></tr>
@@ -422,24 +422,27 @@
         
         <tr></tr>
         
-        <tr></tr>
+        <tr><td>priority</td>
+            <td>n/a</td></tr>
         
-        <tr></tr>
+        <tr><td>complexity</td>
+            <td>n/a</td></tr>
         
-        <tr></tr>
+        <tr><td>size</td>
+            <td>n/a</td></tr>
         
         <tr></tr>
         
         <tr></tr>
         
         <tr><td>api_route_regex</td>
-            <td>PUT /api/v2/Relationships/{id}/Revoke</td></tr>
+            <td>PUT /api/v2/Relationships/CanCreate</td></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-transport-revoke-relationship</td></tr>
+            <td>use-case-transport-check-if-relationship-can-be-created</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -447,28 +450,35 @@
 </div>
 -->
 
-<p><a href="/integrate/establish-relationships#initiate-a-relationship">Initiating a Relationship</a> leads to the creation of a <a href="/integrate/data-model-overview#relationship">Relationship</a> with <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code>.
-With this use case, the initiator of the Relationship can revoke the pending Relationship with the given Relationship&#8217;s <code class="language-plaintext highlighter-rouge">id</code>.
-As a result, the <code class="language-plaintext highlighter-rouge">status</code> of the Relationship changes from <code class="language-plaintext highlighter-rouge">"Pending"</code> to <code class="language-plaintext highlighter-rouge">"Revoked"</code>.</p>
+<p>This use case checks whether a <a href="/integrate/data-model-overview#relationship">Relationship</a> can be created based on a received <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> to the RelationshipTemplate&#8217;s creator without actually creating it.
+It makes sense to promptly execute this use case in order to prevent the data required to <a href="/integrate/establish-relationships#initiate-a-relationship">initiate a Relationship</a> from being provided when this is currently not technically possible anyway.
+If a Relationship can be created, this can be achieved by executing the <a href="/use-case-transport-create-relationship-with-relationshiptemplate">Create Relationship with RelationshipTemplate</a> use case.
+If the <a href="/explore/runtime#request-module">Request Module</a> is enabled and a <a href="/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a> has been specified as the <code class="language-plaintext highlighter-rouge">content</code> of the RelationshipTemplate, the <a href="/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case should be utilized to <a href="/integrate/establish-relationships#relationshiptemplate-with-relationshiptemplatecontent">initiate a Relationship</a>.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">relationshipId</code>, the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship</li>
+  <li><code class="language-plaintext highlighter-rouge">templateId</code> references the <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> received from its creator.</li>
+  <li>Optionally, <code class="language-plaintext highlighter-rouge">creationContent</code> can be provided. It is a <a href="/integrate/data-model-overview#relationshipcreationcontent">RelationshipCreationContent</a> or an <a href="/integrate/data-model-overview#arbitraryrelationshipcreationcontent">ArbitraryRelationshipCreationContent</a> depending on whether the RelationshipTemplate&#8217;s <code class="language-plaintext highlighter-rouge">content</code> is a <a href="/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a> or an <a href="/integrate/data-model-overview#arbitraryrelationshiptemplatecontent">ArbitraryRelationshipTemplateContent</a>. Specify this parameter if additional validations are wanted for the <code class="language-plaintext highlighter-rouge">creationContent</code> that would be used to create the <a href="/integrate/data-model-overview#relationship">Relationship</a>.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>Revokes the pending Relationship</li>
-  <li>Returns the revoked Relationship</li>
+  <li>Returns a CanCreateRelationshipResponse that indicates if a <a href="/integrate/data-model-overview#relationship">Relationship</a> can be created with the given parameters.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">isSuccess</code> property of the CanCreateRelationshipResponse has the value <code class="language-plaintext highlighter-rouge">true</code>, a <a href="/integrate/data-model-overview#relationship">Relationship</a> can currently be created to the creator of the RelationshipTemplate. This would then initially have <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code> until the creator of the RelationshipTemplate <a href="/use-case-transport-accept-relationship">accepts the Relationship</a>.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">isSuccess</code> property of the CanCreateRelationshipResponse has the value <code class="language-plaintext highlighter-rouge">false</code>, no <a href="/integrate/data-model-overview#relationship">Relationship</a> can currently be created to the creator of the RelationshipTemplate. This can have various causes, for example:<br />
+&#8211; The <code class="language-plaintext highlighter-rouge">templateId</code> does not resolve to a <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> or the associated RelationshipTemplate was not cached correctly.<br />
+&#8211; The <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> has already expired, which means that the timestamp specified in its <code class="language-plaintext highlighter-rouge">expiresAt</code> property has been exceeded.<br />
+&#8211; A <a href="/integrate/data-model-overview#relationship">Relationship</a> with <code class="language-plaintext highlighter-rouge">"Pending"</code>, <code class="language-plaintext highlighter-rouge">"Active"</code>, <code class="language-plaintext highlighter-rouge">"Terminated"</code> or <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code> as <code class="language-plaintext highlighter-rouge">status</code> already exists to the creator of the RelationshipTemplate. In particular, the initiation of a new Relationship is prevented if the potential initiator has already <a href="/integrate/terminate-relationships#decompose-a-relationship">decomposed the former Relationship</a> to the RelationshipTemplate&#8217;s creator, but the creator of the RelationshipTemplate has not yet decomposed it and still has the former Relationship with <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code> as <code class="language-plaintext highlighter-rouge">status</code>.<br />
+&#8211; The <a href="/integrate/data-model-overview#identity">Identity</a> of the creator of the RelationshipTemplate is in deletion or has already been deleted.<br />
+&#8211; The <code class="language-plaintext highlighter-rouge">creationContent</code>, if specified, is not a <a href="/integrate/data-model-overview#relationshipcreationcontent">RelationshipCreationContent</a> or an <a href="/integrate/data-model-overview#arbitraryrelationshipcreationcontent">ArbitraryRelationshipCreationContent</a>.</li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>The <code class="language-plaintext highlighter-rouge">relationshipId</code> does not resolve to a pending Relationship</li>
-  <li>You have tried to revoke a Relationship not created by yourself</li>
+  <li>The parameters are malformed.</li>
 </ul>
   <h2>How to execute this use case with the Connector?</h2>
 
@@ -490,7 +500,7 @@ This use case can be executed with the REST API of the Connector which you can <
     theme="light"
     bg-color="#f9f9fb"
     
-    match-paths="^PUT /api/v2/Relationships/{id}/Revoke$"
+    match-paths="^PUT /api/v2/Relationships/CanCreate$"
     
     match-type="regex"
 ></rapi-doc-mini>
