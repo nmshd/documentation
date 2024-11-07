@@ -112,7 +112,7 @@ If an App user wants to initiate a Relationship with the templator, the App user
 
 After the templator has created a RelationshipTemplate and made it available to another Identity, this Identity can use it to initiate a Relationship with the templator. For this reason, this other Identity is also referred to below as the initiator.
 
-### Check the Possibility of a Relationship Initiation
+### Check the Feasibility of a Relationship Initiation
 
 There may be several reasons why a RelationshipTemplate has been received but it is not possible to establish a Relationship based on it.
 The RelationshipTemplate could have already expired, for example, or the templator has deleted its [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) in the meantime.
