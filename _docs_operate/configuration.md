@@ -130,7 +130,7 @@ openssl x509 -noout -in cert.pem -fingerprint -sha256
 rm cert.pem
 ```
 
-this will output something similar to:
+This will output something similar to:
 
 ```text
 Connecting to <ip>
