@@ -114,9 +114,9 @@ The debug flag configures if the Connector is set to **production** or **debug**
 
 ### enforceCertificatePinning `available since version 6.5.0` {#enforceCertificatePinning}
 
-The `enforceCertificatePinning` flag configures if the Connector should enforce certificate pinning. Defaults to `false`.
+The `enforceCertificatePinning` flag configures whether the Connector should enforce certificate pinning. Defaults to `false`.
 
-If enabled the Connector will only accept TLS certificates that match the SHA256 fingerprints specified in the `pinnedTLSCertificateSHA256Fingerprints` object. Hostname not configured at all can not be accessed by the connector anymore.
+If enabled, the Connector will only accept TLS certificates that match the SHA256 fingerprints specified in the `pinnedTLSCertificateSHA256Fingerprints` object. If a Hostname is not configured at all, it cannot be accessed by the Connector anymore.
 
 ### pinnedTLSCertificateSHA256Fingerprints `available since version 6.5.0` {#pinnedTLSCertificateSHA256Fingerprints}
 
@@ -141,7 +141,7 @@ sha256 Fingerprint=AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:A
 
 You can simply copy the fingerprint after `sha256 Fingerprint=` and use it.
 
-If you use another way to acquire the fingerprint the connector understands multiple formats like `AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA`, `AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`, `aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa` and `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`.
+If you use another way to acquire the fingerprint, the Connector understands multiple formats like `AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA`, `AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`, `aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa` and `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`.
 
 **Sample Configuration:**
 
@@ -235,7 +235,7 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
   The API-Key protects your Connector from unauthorized access and should therefore be kept secret.
 
-- **helmetOptions** `default: depending on the connector mode`
+- **helmetOptions** `default: depending on the Connector mode`
 
   Configure the [helmet](https://helmetjs.github.io/) middleware.
 

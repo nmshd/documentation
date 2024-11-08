@@ -83,7 +83,7 @@ Depending on the integration setup, access to the Connector from the internal ne
 
 To make the Connector resistant against man-in-the-middle attacks, it is recommended to use [TLS certificate pinning](https://www.ssl.com/blogs/what-is-certificate-pinning/). This means that the Connector only accepts a specific certificate for the connection to the Backbone. This certificate [should be pinned in the Connector configuration]({% link _docs_operate/configuration.md %}#pinnedTLSCertificateSHA256Fingerprints).
 
-As an additional security mechanism, we recommend to [enforce certificate pinning]({% link _docs_operate/configuration.md %}#enforceCertificatePinning) to make sure that the Connector does not accesses any other https domain other than the ones specified in the configuration.
+As an additional security mechanism, we recommend to [enforce certificate pinning]({% link _docs_operate/configuration.md %}#enforceCertificatePinning) to make sure that the Connector does not access any other HTTPS domain other than the ones specified in the configuration.
 
 ## Authentication and User Management
 
