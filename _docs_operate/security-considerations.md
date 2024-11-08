@@ -79,6 +79,12 @@ The Connector does need to access its database. Access to other networks or syst
 
 Depending on the integration setup, access to the Connector from the internal network could be blocked for the majority of requests. Usually, only requests from the integration systems, the developers or administrators need to be allowed.
 
+### TLS Certificate Pinning
+
+To make the Connector resistant against man-in-the-middle attacks, it is recommended to use [TLS certificate pinning](https://www.ssl.com/blogs/what-is-certificate-pinning/). This means that the Connector only accepts a specific certificate for the connection to the Backbone. This certificate [should be pinned in the Connector configuration]({% link _docs_operate/configuration.md %}#pinnedTLSCertificateSHA256Fingerprints).
+
+As an additional security mechanism, we recommend to [enforce certificate pinning]({% link _docs_operate/configuration.md %}#enforceCertificatePinning) to make sure that the Connector does not accesses any other https domain other than the ones specified in the configuration.
+
 ## Authentication and User Management
 
 So far, the Connector supports API-Key authentication to securely authenticate technical users. These API-Keys are random character strings with a high entropy and should be kept confidential at all times. Each internal system communicating with the Connector should receive its own API-Key.
