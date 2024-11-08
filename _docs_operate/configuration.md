@@ -87,6 +87,8 @@ The Connector provides the following configuration parameters:
 ```jsonc
 {
     "debug": false,
+    "enforceCertificatePinning": false,
+    "pinnedTLSCertificateSHA256Fingerprints": {},
     "transportLibrary": {
         "baseUrl": "BASE_URL",
         "platformClientId": "CLIENT_ID",
@@ -109,6 +111,56 @@ You can validate the config using our [schema file](https://raw.githubuserconten
 {: .notice--danger}
 
 The debug flag configures if the Connector is set to **production** or **debug** mode. Defaults to `false`. Can also be configured using the environment variable `DEBUG`.
+
+### enforceCertificatePinning `available since version 6.5.0` {#enforceCertificatePinning}
+
+The `enforceCertificatePinning` flag configures if the Connector should enforce certificate pinning. Defaults to `false`.
+
+If enabled the Connector will only accept TLS certificates that match the SHA256 fingerprints specified in the `pinnedTLSCertificateSHA256Fingerprints` object. Hostname not configured at all can not be accessed by the connector anymore.
+
+### pinnedTLSCertificateSHA256Fingerprints `available since version 6.5.0` {#pinnedTLSCertificateSHA256Fingerprints}
+
+The `pinnedTLSCertificateSHA256Fingerprints` object contains the SHA256 fingerprints of the TLS certificates that the Connector should accept. The fingerprints must be in the format `SHA256:<fingerprint>`. The Connector will only accept TLS certificates that match the fingerprints specified in this object.
+
+**Getting the SHA256 fingerprint of a certificate:**
+
+```bash
+echo -n | openssl s_client -connect <hostname>:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > cert.pem
+openssl x509 -noout -in cert.pem -fingerprint -sha256
+rm cert.pem
+```
+
+this will output something similar to:
+
+```text
+Connecting to <ip>
+...
+DONE
+sha256 Fingerprint=AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA
+```
+
+You can simply copy the fingerprint after `sha256 Fingerprint=` and use it.
+
+If you use another way to acquire the fingerprint the connector understands multiple formats like `AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA`, `AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`, `aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa` and `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`.
+
+**Sample Configuration:**
+
+```jsonc
+{
+  // ...
+
+  "pinnedTLSCertificateSHA256Fingerprints": {
+    "example.com": [
+      "AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA",
+      "BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB"
+    ],
+    "subdomain.example.com": [
+      "AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA",
+      "CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC"
+    ]
+  }
+}
+```
 
 ### transportLibrary
 
