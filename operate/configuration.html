@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-11-07T16:59:21+01:00">
+  <meta property="article:published_time" content="2024-11-11T11:21:03+01:00">
 
 
 
@@ -270,7 +270,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Configuration">
     <meta itemprop="description" content="Mounting a config file">
-    <meta itemprop="datePublished" content="2024-11-07T16:59:21+01:00">
+    <meta itemprop="datePublished" content="2024-11-11T11:21:03+01:00">
     
 
     <div class="page__inner-wrap">
@@ -291,7 +291,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#mounting-a-config-file">Mounting a config file</a></li><li><a href="#environment-variables">Environment variables</a><ul><li><a href="#parsing-rules">Parsing rules</a></li><li><a href="#example">Example</a></li></ul></li><li><a href="#configuration-options">Configuration options</a><ul><li><a href="#debug">debug available since version 3.3.0</a></li><li><a href="#transportlibrary">transportLibrary</a></li><li><a href="#database">database</a></li><li><a href="#infrastructure">infrastructure</a><ul><li><a href="#httpserver">httpServer</a></li></ul></li><li><a href="#modules">modules</a><ul><li><a href="#amqppublisher">amqpPublisher </a></li><li><a href="#autoacceptpendingrelationships">autoAcceptPendingRelationships </a></li><li><a href="#corehttpapi">coreHttpApi </a></li><li><a href="#messagebrokerpublisher">messageBrokerPublisher </a></li><li><a href="#sync">sync </a></li><li><a href="#pubsubpublisher">PubSubPublisher </a></li><li><a href="#webhooks">webhooks </a><ul><li><a href="#payload">Payload</a></li></ul></li><li><a href="#sse">sse (Server-Sent Events) </a></li></ul></li></ul></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
+              <ul class="toc__menu"><li><a href="#mounting-a-config-file">Mounting a config file</a></li><li><a href="#environment-variables">Environment variables</a><ul><li><a href="#parsing-rules">Parsing rules</a></li><li><a href="#example">Example</a></li></ul></li><li><a href="#configuration-options">Configuration options</a><ul><li><a href="#debug">debug available since version 3.3.0</a></li><li><a href="#enforceCertificatePinning">enforceCertificatePinning available since version 6.5.0</a></li><li><a href="#pinnedTLSCertificateSHA256Fingerprints">pinnedTLSCertificateSHA256Fingerprints available since version 6.5.0</a></li><li><a href="#transportlibrary">transportLibrary</a></li><li><a href="#database">database</a></li><li><a href="#infrastructure">infrastructure</a><ul><li><a href="#httpserver">httpServer</a></li></ul></li><li><a href="#modules">modules</a><ul><li><a href="#amqppublisher">amqpPublisher </a></li><li><a href="#autoacceptpendingrelationships">autoAcceptPendingRelationships </a></li><li><a href="#corehttpapi">coreHttpApi </a></li><li><a href="#messagebrokerpublisher">messageBrokerPublisher </a></li><li><a href="#sync">sync </a></li><li><a href="#pubsubpublisher">PubSubPublisher </a></li><li><a href="#webhooks">webhooks </a><ul><li><a href="#payload">Payload</a></li></ul></li><li><a href="#sse">sse (Server-Sent Events) </a></li></ul></li></ul></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
             </nav>
           </aside>
         
@@ -363,6 +363,8 @@
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"debug"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"enforceCertificatePinning"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pinnedTLSCertificateSHA256Fingerprints"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
     </span><span class="nl">"transportLibrary"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"baseUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BASE_URL"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"platformClientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT_ID"</span><span class="p">,</span><span class="w">
@@ -384,6 +386,63 @@
 <p class="notice--danger">⚠️ Do not turn on debug mode in production environments.</p>
 
 <p>The debug flag configures if the Connector is set to <strong>production</strong> or <strong>debug</strong> mode. Defaults to <code class="language-plaintext highlighter-rouge">false</code>. Can also be configured using the environment variable <code class="language-plaintext highlighter-rouge">DEBUG</code>.</p>
+
+<h3 id="enforceCertificatePinning">enforceCertificatePinning <code class="language-plaintext highlighter-rouge">available since version 6.5.0</code></h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">enforceCertificatePinning</code> flag configures whether the Connector should enforce certificate pinning. Defaults to <code class="language-plaintext highlighter-rouge">false</code>.</p>
+
+<p>If enabled, the Connector will only accept TLS certificates that match the SHA256 fingerprints for endpoints of outgoing requests specified in the <a href="#pinnedTLSCertificateSHA256Fingerprints"><code class="language-plaintext highlighter-rouge">pinnedTLSCertificateSHA256Fingerprints</code></a> object. If a hostname is not configured at all, it cannot be accessed by the Connector anymore.</p>
+
+<h3 id="pinnedTLSCertificateSHA256Fingerprints">pinnedTLSCertificateSHA256Fingerprints <code class="language-plaintext highlighter-rouge">available since version 6.5.0</code></h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">pinnedTLSCertificateSHA256Fingerprints</code> object maps hostnames to TLS certificate SHA256 fingerprints of the respective hostname. If a hostname is found, the Connector only accepts a TLS connection if the server responds with a certificate of one of the given fingerprints. The fingerprints must be in a hexadecimal format and are internally stripped of separators and characters not valid for hexadecimal formats. To reduce attack vectors, wildcard domains like “*.enmeshed.eu” are not valid hostnames, you need to fill this map with every subdomain.</p>
+
+<p>To increase security, please consider setting <a href="#enforceCertificatePinning"><code class="language-plaintext highlighter-rouge">enforceCertificatePinning</code></a> to true.</p>
+
+<p class="notice--warning">TLS certificates are rotated multiple times in a year for each hostname. Therefore, setting multiple fingerprints per hostname is possible. However, the config and fingerprints need to be updated regularly with the new fingerprints, otherwise the Connector will reject outgoing requests for expired certificates and cease to function.</p>
+
+<p><strong>Getting the SHA256 fingerprint of a certificate:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="nt">-n</span> | openssl s_client <span class="nt">-connect</span> &lt;<span class="nb">hostname</span><span class="o">&gt;</span>:443 | <span class="nb">sed</span> <span class="nt">-ne</span> <span class="s1">'/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'</span> <span class="o">&gt;</span> cert.pem
+openssl x509 <span class="nt">-noout</span> <span class="nt">-in</span> cert.pem <span class="nt">-fingerprint</span> <span class="nt">-sha256</span>
+<span class="nb">rm </span>cert.pem
+</code></pre></div></div>
+
+<p>This will output something similar to:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Connecting to &lt;ip&gt;
+...
+DONE
+sha256 Fingerprint=AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA
+</code></pre></div></div>
+
+<p>You can simply copy the fingerprint after <code class="language-plaintext highlighter-rouge">sha256 Fingerprint=</code> and use it.</p>
+
+<p>If you use another way to acquire the fingerprint, the Connector understands multiple formats like</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+</code></pre></div></div>
+
+<p><strong>Sample Configuration:</strong></p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+
+  </span><span class="nl">"pinnedTLSCertificateSHA256Fingerprints"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"example.com"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"subdomain.example.com"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h3 id="transportlibrary">transportLibrary</h3>
 
@@ -472,7 +531,7 @@
     <p>The API-Key protects your Connector from unauthorized access and should therefore be kept secret.</p>
   </li>
   <li>
-    <p><strong>helmetOptions</strong> <code class="language-plaintext highlighter-rouge">default: depending on the connector mode</code></p>
+    <p><strong>helmetOptions</strong> <code class="language-plaintext highlighter-rouge">default: depending on the Connector mode</code></p>
 
     <p>Configure the <a href="https://helmetjs.github.io/">helmet</a> middleware.</p>
 
@@ -985,7 +1044,7 @@ Ensure that your Backbone has the required settings enabled.</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-11-07T16:59:21+01:00">November 7, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-11-11T11:21:03+01:00">November 11, 2024</time></p>
 
       </footer>
 

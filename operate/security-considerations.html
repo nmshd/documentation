@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-11-07T16:59:21+01:00">
+  <meta property="article:published_time" content="2024-11-11T11:21:03+01:00">
 
 
 
@@ -270,7 +270,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Security Considerations">
     <meta itemprop="description" content="The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Connector and its data.">
-    <meta itemprop="datePublished" content="2024-11-07T16:59:21+01:00">
+    <meta itemprop="datePublished" content="2024-11-11T11:21:03+01:00">
     
 
     <div class="page__inner-wrap">
@@ -291,7 +291,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#updates">Updates</a></li><li><a href="#trust">Trust</a></li><li><a href="#virus-scans">Virus Scans</a></li><li><a href="#networking">Networking</a><ul><li><a href="#outbound-external-connection-internet">Outbound External Connection: Internet</a></li><li><a href="#no-inbound-external-connections">No Inbound External Connections</a></li><li><a href="#oubound-communication-to-internal-networks">Oubound Communication to Internal Networks</a></li><li><a href="#inbound-communication-from-internal-networks">Inbound Communication from Internal Networks</a></li></ul></li><li><a href="#authentication-and-user-management">Authentication and User Management</a></li><li><a href="#kernel-dumps">Kernel Dumps</a></li><li><a href="#api-key-rotation">API key rotation</a></li><li><a href="#docker-compose-file-security-considerations">Docker Compose File Security Considerations</a></li><li><a href="#setup-firewall">Setup Firewall</a></li><li><a href="#database-security">Database Security</a></li></ul>
+              <ul class="toc__menu"><li><a href="#updates">Updates</a></li><li><a href="#trust">Trust</a></li><li><a href="#virus-scans">Virus Scans</a></li><li><a href="#networking">Networking</a><ul><li><a href="#outbound-external-connection-internet">Outbound External Connection: Internet</a></li><li><a href="#no-inbound-external-connections">No Inbound External Connections</a></li><li><a href="#oubound-communication-to-internal-networks">Oubound Communication to Internal Networks</a></li><li><a href="#inbound-communication-from-internal-networks">Inbound Communication from Internal Networks</a></li><li><a href="#tls-certificate-pinning">TLS Certificate Pinning</a></li></ul></li><li><a href="#authentication-and-user-management">Authentication and User Management</a></li><li><a href="#kernel-dumps">Kernel Dumps</a></li><li><a href="#api-key-rotation">API key rotation</a></li><li><a href="#docker-compose-file-security-considerations">Docker Compose File Security Considerations</a></li><li><a href="#setup-firewall">Setup Firewall</a></li><li><a href="#database-security">Database Security</a></li></ul>
             </nav>
           </aside>
         
@@ -352,6 +352,14 @@
 <h3 id="inbound-communication-from-internal-networks">Inbound Communication from Internal Networks</h3>
 
 <p>Depending on the integration setup, access to the Connector from the internal network could be blocked for the majority of requests. Usually, only requests from the integration systems, the developers or administrators need to be allowed.</p>
+
+<h3 id="tls-certificate-pinning">TLS Certificate Pinning</h3>
+
+<p>To make the Connector resistant against man-in-the-middle attacks, it is recommended to use <a href="https://www.ssl.com/blogs/what-is-certificate-pinning/">TLS certificate pinning</a>. This means that the Connector only accepts a specific certificate for the connection to the Backbone. This certificate <a href="/operate/configuration#pinnedTLSCertificateSHA256Fingerprints">should be pinned in the Connector configuration</a>.</p>
+
+<p>As an additional security mechanism, we recommend to <a href="/operate/configuration#enforceCertificatePinning">enforce certificate pinning</a> to make sure that the Connector does not access any other HTTPS domain other than the ones specified in the configuration.</p>
+
+<p class="notice--warning">Certificate pinning adds additional effort to the Connector administrators, as for every hostname and TLS certificate, the fingerprints must be regularly updated over the config. Be aware that the Connector might reject TLS connections and cease to function if this configuration is not maintained.<br />Be also aware that the Connector might reject TLS connections seemingly at random, if on the server infrastructure, multiple TLS certificates or redirection is used.<br />As TLS certificates are maintained by the domain owner of the hostname, establishing a communication channel between Connector administrator and TLS server administrator is recommended.</p>
 
 <h2 id="authentication-and-user-management">Authentication and User Management</h2>
 
@@ -432,7 +440,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-11-07T16:59:21+01:00">November 7, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-11-11T11:21:03+01:00">November 11, 2024</time></p>
 
       </footer>
 
