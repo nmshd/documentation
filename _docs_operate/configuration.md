@@ -87,6 +87,8 @@ The Connector provides the following configuration parameters:
 ```jsonc
 {
     "debug": false,
+    "enforceCertificatePinning": false,
+    "pinnedTLSCertificateSHA256Fingerprints": {},
     "transportLibrary": {
         "baseUrl": "BASE_URL",
         "platformClientId": "CLIENT_ID",
@@ -109,6 +111,68 @@ You can validate the config using our [schema file](https://raw.githubuserconten
 {: .notice--danger}
 
 The debug flag configures if the Connector is set to **production** or **debug** mode. Defaults to `false`. Can also be configured using the environment variable `DEBUG`.
+
+### enforceCertificatePinning `available since version 6.5.0` {#enforceCertificatePinning}
+
+The `enforceCertificatePinning` flag configures whether the Connector should enforce certificate pinning. Defaults to `false`.
+
+If enabled, the Connector will only accept TLS certificates that match the SHA256 fingerprints for endpoints of outgoing requests specified in the [`pinnedTLSCertificateSHA256Fingerprints`](#pinnedTLSCertificateSHA256Fingerprints) object. If a hostname is not configured at all, it cannot be accessed by the Connector anymore.
+
+### pinnedTLSCertificateSHA256Fingerprints `available since version 6.5.0` {#pinnedTLSCertificateSHA256Fingerprints}
+
+The `pinnedTLSCertificateSHA256Fingerprints` object maps hostnames to TLS certificate SHA256 fingerprints of the respective hostname. If a hostname is found, the Connector only accepts a TLS connection if the server responds with a certificate of one of the given fingerprints. The fingerprints must be in a hexadecimal format and are internally stripped of separators and characters not valid for hexadecimal formats. To reduce attack vectors, wildcard domains like "\*.enmeshed.eu" are not valid hostnames, you need to fill this map with every subdomain.
+
+To increase security, please consider setting [`enforceCertificatePinning`](#enforceCertificatePinning) to true.
+
+TLS certificates are rotated multiple times in a year for each hostname. Therefore, setting multiple fingerprints per hostname is possible. However, the config and fingerprints need to be updated regularly with the new fingerprints, otherwise the Connector will reject outgoing requests for expired certificates and cease to function.
+{: .notice--warning}
+
+**Getting the SHA256 fingerprint of a certificate:**
+
+```bash
+echo -n | openssl s_client -connect <hostname>:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > cert.pem
+openssl x509 -noout -in cert.pem -fingerprint -sha256
+rm cert.pem
+```
+
+This will output something similar to:
+
+```text
+Connecting to <ip>
+...
+DONE
+sha256 Fingerprint=AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA
+```
+
+You can simply copy the fingerprint after `sha256 Fingerprint=` and use it.
+
+If you use another way to acquire the fingerprint, the Connector understands multiple formats like
+
+```text
+AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+```
+
+**Sample Configuration:**
+
+```jsonc
+{
+  // ...
+
+  "pinnedTLSCertificateSHA256Fingerprints": {
+    "example.com": [
+      "AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA",
+      "BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB"
+    ],
+    "subdomain.example.com": [
+      "AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA",
+      "CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC"
+    ]
+  }
+}
+```
 
 ### transportLibrary
 
@@ -183,7 +247,7 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
   The API-Key protects your Connector from unauthorized access and should therefore be kept secret.
 
-- **helmetOptions** `default: depending on the connector mode`
+- **helmetOptions** `default: depending on the Connector mode`
 
   Configure the [helmet](https://helmetjs.github.io/) middleware.
 

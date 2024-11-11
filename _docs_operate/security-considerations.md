@@ -79,6 +79,15 @@ The Connector does need to access its database. Access to other networks or syst
 
 Depending on the integration setup, access to the Connector from the internal network could be blocked for the majority of requests. Usually, only requests from the integration systems, the developers or administrators need to be allowed.
 
+### TLS Certificate Pinning
+
+To make the Connector resistant against man-in-the-middle attacks, it is recommended to use [TLS certificate pinning](https://www.ssl.com/blogs/what-is-certificate-pinning/). This means that the Connector only accepts a specific certificate for the connection to the Backbone. This certificate [should be pinned in the Connector configuration]({% link _docs_operate/configuration.md %}#pinnedTLSCertificateSHA256Fingerprints).
+
+As an additional security mechanism, we recommend to [enforce certificate pinning]({% link _docs_operate/configuration.md %}#enforceCertificatePinning) to make sure that the Connector does not access any other HTTPS domain other than the ones specified in the configuration.
+
+Certificate pinning adds additional effort to the Connector administrators, as for every hostname and TLS certificate, the fingerprints must be regularly updated over the config. Be aware that the Connector might reject TLS connections and cease to function if this configuration is not maintained.<br>Be also aware that the Connector might reject TLS connections seemingly at random, if on the server infrastructure, multiple TLS certificates or redirection is used.<br>As TLS certificates are maintained by the domain owner of the hostname, establishing a communication channel between Connector administrator and TLS server administrator is recommended.
+{: .notice--warning}
+
 ## Authentication and User Management
 
 So far, the Connector supports API-Key authentication to securely authenticate technical users. These API-Keys are random character strings with a high entropy and should be kept confidential at all times. Each internal system communicating with the Connector should receive its own API-Key.
