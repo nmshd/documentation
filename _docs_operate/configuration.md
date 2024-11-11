@@ -116,11 +116,16 @@ The debug flag configures if the Connector is set to **production** or **debug**
 
 The `enforceCertificatePinning` flag configures whether the Connector should enforce certificate pinning. Defaults to `false`.
 
-If enabled, the Connector will only accept TLS certificates that match the SHA256 fingerprints specified in the `pinnedTLSCertificateSHA256Fingerprints` object. If a Hostname is not configured at all, it cannot be accessed by the Connector anymore.
+If enabled, the Connector will only accept TLS certificates that match the SHA256 fingerprints for endpoints of outgoing requests specified in the [`pinnedTLSCertificateSHA256Fingerprints`](#pinnedTLSCertificateSHA256Fingerprints) object. If a hostname is not configured at all, it cannot be accessed by the Connector anymore.
 
 ### pinnedTLSCertificateSHA256Fingerprints `available since version 6.5.0` {#pinnedTLSCertificateSHA256Fingerprints}
 
-The `pinnedTLSCertificateSHA256Fingerprints` object contains the SHA256 fingerprints of the TLS certificates that the Connector should accept. The fingerprints must be in the format `SHA256:<fingerprint>`. The Connector will only accept TLS certificates that match the fingerprints specified in this object.
+The `pinnedTLSCertificateSHA256Fingerprints` object maps hostnames to TLS certificate SHA256 fingerprints of the respective hostname. If a hostname is found, the Connector only accepts a TLS connection if the server responds with a certificate of one of the given fingerprints. The fingerprints must be in a hexadecimal format and are internally stripped of separators and characters not valid for hexadecimal formats. To reduce attack vectors, wildcard domains like "\*.enmeshed.eu" are not valid hostnames, you need to fill this map with every subdomain.
+
+To increase security, please consider setting [`enforceCertificatePinning`](#enforceCertificatePinning) to true.
+
+TLS certificates are rotated multiple times in a year for each hostname. Therefore, setting multiple fingerprints per hostname is possible. However, the config and fingerprints need to be updated regularly with the new fingerprints, otherwise the Connector will reject outgoing requests for expired certificates and cease to function.
+{: .notice--warning}
 
 **Getting the SHA256 fingerprint of a certificate:**
 
