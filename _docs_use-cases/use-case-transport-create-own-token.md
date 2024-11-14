@@ -49,6 +49,7 @@ Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) that 
 - `content` an arbitrary JSON structure of the data to share via the Token.
 - `expiresAt` is the ISODateTime the Token expires at.
 - `ephemeral` indicates if the Token should be ephemeral and thus not be stored and cached on the local database. This is especially useful for Tokens which are created regularly, e.g. for RelationshipTemplates and doesn't need to be stored.
+- `forIdentity` can be set to an enmeshed Address. If set, only the Identity with that Address can load the Token from the Backbone.
 
 ## On Success
 

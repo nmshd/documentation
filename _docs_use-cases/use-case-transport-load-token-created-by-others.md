@@ -60,3 +60,4 @@ You can execute this use case if you know the `truncatedReference` of the peer's
 - The parameters are malformed.
 - The Token does not exist.
 - The Token is expired.
+- The Token is personalized to a different Identity (via the property `forIdentity` of the Token)

@@ -81,6 +81,20 @@ If you have successfully created the [RelationshipTemplate]({% link _docs_integr
 
 {% include copy-notice description="Save the `id` of the RelationshipTemplate so that you can refer to it and make it available to other Identities later. For the same reason, save the value of the property `truncatedReference`." %}
 
+### Personalize the RelationshipTemplate
+
+If the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) is only for creating a Relationship with a single known Identity, you can set that Identity's Address in the RelationshipTemplate:
+
+```jsonc
+{
+  ...,
+  "content": {...},
+  "forIdentity": "<Address that the RelationshipTemplate is intended for>"
+}
+```
+
+Only that Identity will be able to continue with establishing a Relationship. This also protects sensitive data of that Identity contained in the RelationshipTemplate from outside access.
+
 ## Make the RelationshipTemplate Available
 
 For an Identity to initiate a Relationship with the templator, it must use a valid [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) which is owned by the templator. Depending on whether the Identity is a Connector or an App user, a different approach must be used to make the RelationshipTemplate available to the Identity:

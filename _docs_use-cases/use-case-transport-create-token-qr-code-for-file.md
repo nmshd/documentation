@@ -48,6 +48,7 @@ Creates a QR code for a [Token]({% link _docs_integrate/data-model-overview.md %
 
 - `fileId` is the `id` of the File the Token and its QR code should be created for.
 - Optionally, `expiresAt` can be specified, which describes the ISODateTime the Token expires at.
+- Optionally, `forIdentity` can be specified, which names the Address of the only Identity that will be able to load the Token from the Backbone.
 
 ## On Success
 
