@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC031
-  - category: Request consent
+  - category: Request Consent
   - description:
   - customer: All
   - component: integrate
