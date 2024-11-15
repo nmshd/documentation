@@ -44,7 +44,7 @@ api_route_regex: ^POST /api/v2/RelationshipTemplates/Peer$
 
 {% include properties_list.html %}
 
-This use case loads a peer's [RelatonshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) from the Backbone by a given reference to the RelationshipTemplate.
+This use case loads a peer's [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) from the Backbone by a given reference to the RelationshipTemplate.
 
 ## Parameters
 
@@ -65,3 +65,4 @@ There are two different options to use this use case, depending on the actual in
 - The RelationshipTemplate does not exist.
 - The RelationshipTemplate is expired.
 - The `maxNumberOfAllocations` of the RelationshipTemplate are depleted.
+- The RelationshipTemplate is personalized to a different [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) via the property `forIdentity` of the RelationshipTemplate.
