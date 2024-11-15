@@ -42,19 +42,19 @@ api_route_regex: ^POST /api/v2/RelationshipTemplates/Own/{id}/Token$
 
 {% include properties_list.html %}
 
-Creates a QR code for a [Token]({% link _docs_integrate/data-model-overview.md %}#token) of a given [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate)
+Creates a QR code for a [Token]({% link _docs_integrate/data-model-overview.md %}#token) of a given [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
 
 ## Parameters
 
-- `templateId` is the id of the RelationshipTemplate the Token and its QR code should be created for.
+- `templateId` is the `id` of the RelationshipTemplate the Token and its QR code should be created for.
 - `expiresAt` is the ISODateTime the Token expires at.
-- `forIdentity` can be set to an enmeshed Address. If set, only the Identity with that Address can load the Token from the Backbone.
+- `forIdentity` can be set to an enmeshed address. If set, only the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) with that `address` can load the Token from the Backbone.
 
 ## On Success
 
-- Returns the created QR code encoded as Base64.
+- Returns the created QR code, whose content is Base64-encoded.
 
 ## On Failure
 
 - `templateId` does not resolve to a RelationshipTemplate.
-- `expiresAt` lies in the past
+- `expiresAt` lies in the past.
