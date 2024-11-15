@@ -60,4 +60,4 @@ A [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relat
 ## On Failure
 
 - The `content` is malformed.
-- `expiresAt` lies in the past
+- `expiresAt` lies in the past.

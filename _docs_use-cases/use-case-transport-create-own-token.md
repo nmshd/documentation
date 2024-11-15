@@ -58,4 +58,4 @@ Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) that 
 ## On Failure
 
 - The `content` is malformed.
-- `expiresAt` lies in the past
+- `expiresAt` lies in the past.

@@ -44,7 +44,7 @@ api_route_regex: ^POST /api/v2/RelationshipTemplates/Own/{id}/Token$
 
 {% include properties_list.html %}
 
-Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for a given [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate)
+Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for a given [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
 
 ## Parameters
 
