@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Check if incoming Request can be accepted - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Create Token QR code for own RelationshipTemplate - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Check if incoming Request can be accepted">
-<meta property="og:url" content="/use-case-consumption-check-if-incoming-request-can-be-accepted">
+<meta property="og:title" content="Create Token QR code for own RelationshipTemplate">
+<meta property="og:url" content="/use-case-transport-create-token-qr-code-for-own-relationshiptemplate">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/use-case-consumption-check-if-incoming-request-can-be-accepted">
+<link rel="canonical" href="/use-case-transport-create-token-qr-code-for-own-relationshiptemplate">
 
 
 
@@ -350,7 +350,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Check if incoming Request can be accepted">
+    <meta itemprop="headline" content="Create Token QR code for own RelationshipTemplate">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2024-11-15T12:37:19+01:00">
     
@@ -359,7 +359,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/use-case-consumption-check-if-incoming-request-can-be-accepted" itemprop="url">Check if incoming Request can be accepted
+            <a href="/use-case-transport-create-token-qr-code-for-own-relationshiptemplate" itemprop="url">Create Token QR code for own RelationshipTemplate
 </a>
           </h1>
           
@@ -382,28 +382,27 @@
     <table>
         
         <tr><td>id</td>
-            <td>RIR7</td></tr>
+            <td>RT6</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
         
         <tr><td>layer</td>
-            <td>Consumption</td></tr>
+            <td>Transport</td></tr>
         
         <tr><td>facade</td>
-            <td>IncomingRequestsFacade</td></tr>
+            <td>RelationshipTemplatesFacade</td></tr>
         
         <tr><td>function</td>
-            <td>canAccept</td></tr>
+            <td>createTokenQRCodeForOwnTemplate</td></tr>
         
-        <tr><td>description</td>
-            <td>Checks if the `Request` with the given `id` can be accepted.</td></tr>
+        <tr></tr>
         
         <tr><td>feature category</td>
-            <td>Normalized Requests/Responses to and from users</td></tr>
+            <td>Consent required before any data is shared</td></tr>
         
         <tr><td>tech category</td>
-            <td>Requests</td></tr>
+            <td>RelationshipTemplates</td></tr>
         
         <tr><td>status</td>
             <td>DONE</td></tr>
@@ -411,13 +410,13 @@
         <tr><td>documentation status</td>
             <td>DONE</td></tr>
         
-        <tr></tr>
+        <tr><td>comments</td>
+            <td>Accept: image/png</td></tr>
         
         <tr><td>actor</td>
             <td>Identity</td></tr>
         
-        <tr><td>trigger</td>
-            <td>REST API</td></tr>
+        <tr></tr>
         
         <tr></tr>
         
@@ -437,13 +436,13 @@
         <tr></tr>
         
         <tr><td>api_route_regex</td>
-            <td>PUT /api/v2/Requests/Incoming/{id}/CanAccept</td></tr>
+            <td>POST /api/v2/RelationshipTemplates/Own/{id}/Token</td></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-consumption-check-if-incoming-request-can-be-accepted</td></tr>
+            <td>use-case-transport-create-token-qr-code-for-own-relationshiptemplate</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -451,31 +450,27 @@
 </div>
 -->
 
-<p>This use case tests if an incoming <a href="/integrate/data-model-overview#localrequest">LocalRequest</a>
-can be accepted with the given parameters without actually accepting it.</p>
-
-<p>This is great for checking if all required information of a Request was filled out in order to accept it, e.g. to update a user interface with the respective errors (and render an &#8220;Accept Button&#8221; as disabled) as long as there are errors.</p>
+<p>Creates a QR code for a <a href="/integrate/data-model-overview#token">Token</a> of a given <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li>The <code class="language-plaintext highlighter-rouge">id</code> of the incoming Request.</li>
-  <li>The decision for each individual <a href="/integrate/data-model-overview#requestitems">RequestItem</a>
-expressed as the appropriate <a href="/integrate/data-model-overview#deciderequestitemparameters">Parameters defined in the Data Model</a>.</li>
+  <li><code class="language-plaintext highlighter-rouge">templateId</code> is the <code class="language-plaintext highlighter-rouge">id</code> of the RelationshipTemplate the Token and its QR code should be created for.</li>
+  <li><code class="language-plaintext highlighter-rouge">expiresAt</code> is the ISODateTime the Token expires at.</li>
+  <li><code class="language-plaintext highlighter-rouge">forIdentity</code> can be set to an enmeshed address. If set, only the <a href="/integrate/data-model-overview#identity">Identity</a> with that <code class="language-plaintext highlighter-rouge">address</code> can load the Token from the Backbone.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>Returns a <code class="language-plaintext highlighter-rouge">RequestValidationResult</code> that indicates if the Request can be accepted with the given parameters.</li>
+  <li>Returns the created QR code, whose content is Base64-encoded.</li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>The decisions do not match the RequestItems.</li>
-  <li>The decisions and values of respective RequestItems do not match the requested or required values, e.g. an E-Mail Address is wrong.</li>
-  <li>An item that has the mustBeAccepted field set was not accepted or left blank.</li>
+  <li><code class="language-plaintext highlighter-rouge">templateId</code> does not resolve to a RelationshipTemplate.</li>
+  <li><code class="language-plaintext highlighter-rouge">expiresAt</code> lies in the past.</li>
 </ul>
   <h2>How to execute this use case with the Connector?</h2>
 
@@ -497,7 +492,7 @@ This use case can be executed with the REST API of the Connector which you can <
     theme="light"
     bg-color="#f9f9fb"
     
-    match-paths="^PUT /api/v2/Requests/Incoming/{id}/CanAccept$"
+    match-paths="^POST /api/v2/RelationshipTemplates/Own/{id}/Token$"
     
     match-type="regex"
 ></rapi-doc-mini>

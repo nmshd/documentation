@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-11-14T16:39:23+01:00">
+  <meta property="article:published_time" content="2024-11-15T12:37:19+01:00">
 
 
 
@@ -352,7 +352,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2024-11-14T16:39:23+01:00">
+    <meta itemprop="datePublished" content="2024-11-15T12:37:19+01:00">
     
 
     <div class="page__inner-wrap">
@@ -456,6 +456,12 @@
       <td> </td>
     </tr>
     <tr>
+      <td>forIdentity</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Can be set to an enmeshed address. If set, then only the <a href="/integrate/data-model-overview#identity">Identity</a> with that <code class="language-plaintext highlighter-rouge">address</code> can retrieve the Token from the Backbone.</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>truncatedReference</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>A base64 encoded string containing all information necessary for another Identity to load the Token. You can use it to share the Token with someone else.</td>
@@ -535,6 +541,12 @@
       <td>maxNumberOfAllocations</td>
       <td><code class="language-plaintext highlighter-rouge">number</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>Can be set to limit the number of allocations of this RelationshipTemplate. A RelationshipTemplate is allocated by another Identity when it is first retrieved by it from the Backbone. After this value is reached, the Backbone rejects each request of any new Identity that wants to retrieve it. Identities that already allocated it will still be able to retrieve it.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>forIdentity</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Can be set to an enmeshed address. If set, then only the <a href="/integrate/data-model-overview#identity">Identity</a> with that <code class="language-plaintext highlighter-rouge">address</code> can retrieve the RelationshipTemplate from the Backbone.</td>
       <td> </td>
     </tr>
     <tr>
@@ -3507,7 +3519,7 @@ For example, an AuthenticationRequestItem can be accepted using the AcceptReques
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-11-14T16:39:23+01:00">November 14, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-11-15T12:37:19+01:00">November 15, 2024</time></p>
 
       </footer>
 

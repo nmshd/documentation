@@ -786,7 +786,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create own RelationshipTemplate",
-        "excerpt":"Creates a RelationshipTemplate with the given parameters and submits it to the Backbone for other Identites to use. A RelationshipTemplate can be used by any party to either initiate a Relationship with the current Identity or retrieve a Request from an existing Relationship by a side-channel. Parameters expiresAt is the...","categories": [],
+        "excerpt":"Creates a RelationshipTemplate with the given parameters and submits it to the Backbone for other Identities to use. A RelationshipTemplate can be used by any party to either initiate a Relationship with the current Identity or retrieve a Request from an existing Relationship by a side-channel. Parameters expiresAt is the...","categories": [],
         "tags": [],
         "url": "/use-case-transport-create-own-relationshiptemplate",
         "teaser": null
@@ -816,15 +816,21 @@ var store = [{
         "teaser": null
       },{
         "title": "Create Token for own RelationshipTemplate",
-        "excerpt":"Creates a Token for a given RelationshipTemplate Parameters fileId is the id of the File the Token should be created for. expiresAt is the ISODateTime the Token expires at. ephemeral indicates if the Token should be ephemeral and thus not be stored and cached on the local database. This is...","categories": [],
+        "excerpt":"Creates a Token for a given RelationshipTemplate. Parameters templateId is the id of the RelationshipTemplate the Token should be created for. expiresAt is the ISODateTime the Token expires at. ephemeral indicates if the Token should be ephemeral and thus not be stored and cached on the local database. This is...","categories": [],
         "tags": [],
         "url": "/use-case-transport-create-token-for-own-relationshiptemplate",
         "teaser": null
       },{
         "title": "Create Token QR code for File",
-        "excerpt":"Creates a QR code for a Token of a File that corresponds to the given fileId. Parameters fileId is the id of the File the Token and its QR code should be created for. Optionally, expiresAt can be specified, which describes the ISODateTime the Token expires at. On Success Returns...","categories": [],
+        "excerpt":"Creates a QR code for a Token of a File that corresponds to the given fileId. Parameters fileId is the id of the File the Token and its QR code should be created for. Optionally, expiresAt can be specified, which describes the ISODateTime the Token expires at. Optionally, forIdentity can...","categories": [],
         "tags": [],
         "url": "/use-case-transport-create-token-qr-code-for-file",
+        "teaser": null
+      },{
+        "title": "Create Token QR code for own RelationshipTemplate",
+        "excerpt":"Creates a QR code for a Token of a given RelationshipTemplate. Parameters templateId is the id of the RelationshipTemplate the Token and its QR code should be created for. expiresAt is the ISODateTime the Token expires at. forIdentity can be set to an enmeshed address. If set, only the Identity...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-create-token-qr-code-for-own-relationshiptemplate",
         "teaser": null
       },{
         "title": "Decompose Relationship",
@@ -966,7 +972,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Load RelationshipTemplate created by others",
-        "excerpt":"This use case loads a peer&#8217;s RelatonshipTemplate from the Backbone by a given reference to the RelationshipTemplate. Parameters There are two different options to use this use case, depending on the actual information received by the peer: by knowing a truncatedReference of the peer&#8217;s RelationshipTemplate (RelationshipTemplateReferenceTruncated) reference as string by...","categories": [],
+        "excerpt":"This use case loads a peer&#8217;s RelationshipTemplate from the Backbone by a given reference to the RelationshipTemplate. Parameters There are two different options to use this use case, depending on the actual information received by the peer: by knowing a truncatedReference of the peer&#8217;s RelationshipTemplate (RelationshipTemplateReferenceTruncated) reference as string by...","categories": [],
         "tags": [],
         "url": "/use-case-transport-load-relationshiptemplate-created-by-others",
         "teaser": null
