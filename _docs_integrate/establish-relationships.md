@@ -75,6 +75,22 @@ How to send a Request via a RelationshipTemplate is explained in detail in the [
 
 If the RelationshipTemplate is intended to establish a Relationship between the templator and another Connector, an [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent) can be used instead of a RelationshipTemplateContent as the value of the [RelationshipTemplate's]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) `content`. An ArbitraryRelationshipTemplateContent has a single `value` property with no type restriction and is appropriate if the standard way is insufficient.
 
+### Personalize the RelationshipTemplate
+
+If the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) is only for creating a Relationship with a single known [Identity]({% link _docs_integrate/data-model-overview.md %}#identity), you can set that Identity's `address` in the RelationshipTemplate:
+
+```jsonc
+{
+  // ...
+  "content": {
+    // ...
+  },
+  "forIdentity": "<address that the RelationshipTemplate is intended for>"
+}
+```
+
+Only that Identity will be able to continue with establishing a Relationship. This also protects sensitive data of that Identity contained in the RelationshipTemplate from outside access.
+
 ### Successfully Created RelationshipTemplate
 
 If you have successfully created the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) on the templator, you will receive a success response from which you can read its `id`. As the templator is the creator of the RelationshipTemplate, the `createdBy` property contains the Address of the templator. For this reason, the value of the `isOwn` property is set to `true` in this context.

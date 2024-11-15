@@ -44,13 +44,14 @@ api_route_regex: ^POST /api/v2/RelationshipTemplates/Own/{id}/Token$
 
 {% include properties_list.html %}
 
-Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for a given [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate)
+Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for a given [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate).
 
 ## Parameters
 
-- `fileId` is the id of the File the Token should be created for.
+- `templateId` is the `id` of the RelationshipTemplate the Token should be created for.
 - `expiresAt` is the ISODateTime the Token expires at.
 - `ephemeral` indicates if the Token should be ephemeral and thus not be stored and cached on the local database. This is especially useful for Tokens which are created regularly, e.g. for RelationshipTemplates and doesn't need to be stored.
+- `forIdentity` can be set to an enmeshed address. If set, only the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) with that `address` can load the Token from the Backbone.
 
 ## On Success
 
@@ -59,4 +60,4 @@ Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for a
 ## On Failure
 
 - `templateId` does not resolve to a RelationshipTemplate.
-- `expiresAt` lies in the past
+- `expiresAt` lies in the past.
