@@ -327,9 +327,6 @@ A IdentityFileReference is a link to an enmeshed [`File`]({% link _docs_integrat
 
 The Given Name, also called first name or forename, is the name given to a person at birth which differentiates it from other family, tribe or community members.
 
-It is not recommended to send a GivenName to another Identity by its own. Instead, send a [`PersonName`](#personname) with the `givenName` property set.
-{: .notice--warning}
-
 **Properties**
 
 | Name    | Type          | Required | Validation       |
@@ -341,9 +338,6 @@ It is not recommended to send a GivenName to another Identity by its own. Instea
 
 The honorific prefix of a person, e.g. 'Sir'.
 
-It is not recommended to send a HonorificPrefix to another Identity by its own. Instead, send a [`PersonName`](#personname) with the `honorificPrefix` property set.
-{: .notice--warning}
-
 **Properties**
 
 | Name    | Type                | Required | Validation       |
@@ -354,9 +348,6 @@ It is not recommended to send a HonorificPrefix to another Identity by its own. 
 ## HonorificSuffix
 
 The honorific suffix of a person, e.g. 'PhD'
-
-It is not recommended to send a HonorificSuffix to another Identity by its own. Instead, send a [`PersonName`](#personname) with the `honorificSuffix` property set.
-{: .notice--warning}
 
 **Properties**
 
@@ -393,9 +384,6 @@ A short phrase that describes the position an employee has within an organizatio
 ## MiddleName
 
 In various cultures, a middle name is a portion of a personal name that is written between the person's first given name and their surname.
-
-It is not recommended to send a MiddleName to another Identity by its own. Instead, send a [`PersonName`](#personname) with the `middleName` property set.
-{: .notice--warning}
 
 **Properties**
 
@@ -663,9 +651,6 @@ A complex Attribute Value defining the components of a "normal" address.
 ## Surname
 
 The Surname, also called family name or last name, is the portion of the personal name that indicates the family, tribe or community.
-
-It is not recommended to send a Surname to another Identity by its own. Instead, send a [`PersonName`](#personname) with the `surname` property set.
-{: .notice--warning}
 
 **Properties**
 
