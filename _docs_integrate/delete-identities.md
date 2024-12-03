@@ -90,7 +90,7 @@ This is done via the `transport.peerToBeDeleted` [Connector event]({% link _docs
 In addition, it is stored within the `peerDeletionInfo` property of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) that the Identity currently has `"ToBeDeleted"` as `deletionStatus`.
 If the Identity is finally deleted, the `deletionStatus` changes to `"Deleted"` and the `transport.peerDeleted` Connector event can be received.
 Otherwise, if the Identity decides against its deletion within the grace period, the `peerDeletionInfo` of the Relationship is set back to `undefined` and the `transport.peerDeletionCancelledEvent` Connector event is triggered.
-The deletion of an Identity has effects on [creating a new Relationship]({% link _docs_integrate/delete-identities.md %}#creation-of-new-relationships) to it, [sending Messages]({% link _docs_integrate/delete-identities.md %}#sending-messages) to it, [sending Requests to it and responding to Requests]({% link _docs_integrate/delete-identities.md %}#sending-and-responding-to-requests) from it.
+The deletion of an Identity has effects on [creating a new Relationship]({% link _docs_integrate/delete-identities.md %}#creation-of-new-relationships) to it, [sending Messages]({% link _docs_integrate/delete-identities.md %}#sending-messages) to it, [sending Requests to it and responding to Requests from it]({% link _docs_integrate/delete-identities.md %}#sending-and-responding-to-requests).
 
 ### Creation of New Relationships
 
@@ -101,7 +101,7 @@ However, if the creator of the RelationshipTemplate is meanwhile in deletion or 
 
 An Identity is not permitted to [send a Message]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) to a peer with which a Relationship has been established and which has already been deleted.
 As long as the `content` of a [Message]({% link _docs_integrate/data-model-overview.md %}#message) is not a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification), this also applies to a peer in deletion.
-If the Identity tries to send a Message anyway to such a peer, an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.transport.messages.peerIsInDeletion` or `error.transport.messages.peerIsDeleted` is thrown.
+If the Identity tries to send a Message anyway to such a peer, an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.runtime.messages.peerIsInDeletion` or `error.transport.messages.peerIsDeleted` is thrown.
 Sent Messages whose `content` is a Notification cannot be received by a peer which is in deletion, but they are queued in case the peer cancels its deletion. After the peer has cancelled its deletion, it receives the queued Notifications.
 
 ### Sending and Responding to Requests
