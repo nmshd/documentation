@@ -88,7 +88,9 @@ The deletion and even the triggering of the deletion of an Identity logically ha
 All peers of the Identity that is currently in deletion are informed that the deletion of the Identity has been triggered.
 This is done via the `transport.peerToBeDeleted` [Connector event]({% link _docs_integrate/connector-events.md %}).
 In addition, it is stored within the `peerDeletionInfo` property of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) that the Identity currently has `"ToBeDeleted"` as `deletionStatus`.
+The `status` of the Relationship remains `"Active"` for the moment.
 If the Identity is finally deleted, the `deletionStatus` changes to `"Deleted"` and the `transport.peerDeleted` Connector event can be received.
+Since the deletion of an Identity leads to the [decomposition of its Relationships]({% link _docs_integrate/terminate-relationships.md %}#decompose-a-relationship), the `status` of the Relationship is changed to `"DeletionProposed"` and `"DecompositionDueToIdentityDeletion"` is specified as the `reason` of the associated [RelationshipAuditLogEntry]({% link _docs_integrate/data-model-overview.md %}#relationshipauditlogentry).
 Otherwise, if the Identity decides against its deletion within the grace period, the `peerDeletionInfo` of the Relationship is set back to `undefined` and the `transport.peerDeletionCancelledEvent` Connector event is triggered.
 The deletion of an Identity has effects on [creating a new Relationship]({% link _docs_integrate/delete-identities.md %}#creation-of-new-relationships) to it, [sending Messages]({% link _docs_integrate/delete-identities.md %}#sending-messages) to it, [sending Requests to it and responding to Requests from it]({% link _docs_integrate/delete-identities.md %}#sending-and-responding-to-requests).
 
