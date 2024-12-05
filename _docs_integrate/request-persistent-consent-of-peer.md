@@ -79,7 +79,7 @@ As already indicated, the Request contains a [CreateAttributeRequestItem]({% lin
       }
     ]
   },
-  "peer": "<Address of Recipient>"
+  "peer": "<address of Recipient>"
 }
 ```
 
@@ -92,7 +92,7 @@ After the Request has been created, the Sender can send it to the Recipient. To 
 
 ```jsonc
 {
-  "recipients": ["<Address of Recipient>"],
+  "recipients": ["<address of Recipient>"],
   "content": {
     "@type": "Request",
     "id": "<ID of Request>",

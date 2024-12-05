@@ -60,7 +60,7 @@ The following table provides an overview of the possible kinds of Attributes tha
 
 ### Example of creating an IdentityAttribute
 
-We assume that the Integrator of the Sender wants to create an IdentityAttribute of type [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) for the Recipient. To request the creation of this IdentityAttribute, the Sender needs to insert it into the `attribute` property of the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for creating Attributes. As the IdentityAttribute should be owned by the Recipient, an empty string is specified for its `owner` property. If the Sender sends the corresponding [Request via a Message]({% link _docs_integrate/create-attributes-for-peer.md %}#request-via-message), the Address of the Recipient could alternatively be specified explicitly. In our example, we have chosen to set the value of the `mustBeAccepted` property of the CreateAttributeRequestItem to `true`. Please note that the `<...>` notation is used as a placeholder for the actual data as usual.
+We assume that the Integrator of the Sender wants to create an IdentityAttribute of type [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) for the Recipient. To request the creation of this IdentityAttribute, the Sender needs to insert it into the `attribute` property of the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for creating Attributes. As the IdentityAttribute should be owned by the Recipient, an empty string is specified for its `owner` property. If the Sender sends the corresponding [Request via a Message]({% link _docs_integrate/create-attributes-for-peer.md %}#request-via-message), the address of the Recipient could alternatively be specified explicitly. In our example, we have chosen to set the value of the `mustBeAccepted` property of the CreateAttributeRequestItem to `true`. Please note that the `<...>` notation is used as a placeholder for the actual data as usual.
 
 ```jsonc
 {
@@ -95,7 +95,7 @@ We now consider the case in which the Sender has an active [Relationship]({% lin
       "mustBeAccepted": true,
       "attribute": {
         "@type": "RelationshipAttribute",
-        "owner": "<Address of Sender>",
+        "owner": "<address of Sender>",
         "key": "<key of RelationshipAttribute>",
         "confidentiality": "public",
         "value": {

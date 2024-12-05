@@ -3,7 +3,7 @@ title: "enmeshed Addresses"
 permalink: /explore/addresses
 ---
 
-The Address is the primary identifier for an enmeshed Identity. It is public and created out of the Identity’s Signature Public Key. Thus, the Identity’s root signature key and its corresponding Address are interlinked with each other and cannot be changed. Nobody is able to change the public key for a corresponding Address and everybody has the possibility to check, if a given public key matches a given Address without having to trust someone. Both are important security features.
+The enmeshed Address is the primary identifier for an enmeshed Identity and stored within the `address` property of the data object of type [Identity]({% link _docs_integrate/data-model-overview.md %}#identity). It is public and created out of the Identity’s Signature Public Key. Thus, the Identity’s root signature key and its corresponding Address are interlinked with each other and cannot be changed. Nobody is able to change the public key for a corresponding Address and everybody has the possibility to check, if a given public key matches a given Address without having to trust someone. Both are important security features.
 
 - As Addresses do not contain special characters, copy and pasting via double-click is supported.
 - As they do have a checksum included, syntactically wrong Addresses can be checked by a computer program locally.

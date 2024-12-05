@@ -35,7 +35,7 @@ We'll go through the steps of validating and creating the Request, sending and r
 This guide assumes that you already have an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between the two Connectors, e.g. from following the [Integration Example]({% link _docs_integrate/integration-example.md %}) or the scenario page [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}).
 If that is not the case, either take a look at those guides first or follow the instructions of how to [establish a Relationship]({% link _docs_integrate/establish-relationships.md %}) to another Identity.
 
-In order to send a Message to the Recipient, it is required to know their enmeshed Address.
+In order to send a Message to the Recipient, it is required to know their enmeshed address.
 To retrieve it, the Sender can [query their Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) and look for the right one.
 
 ```jsonc
@@ -73,7 +73,7 @@ If you are sending a Request via Message, you'll always know the peer, as it is 
       }
     ]
   },
-  "peer": "<Address of Recipient>"
+  "peer": "<address of Recipient>"
 }
 ```
 
@@ -91,7 +91,7 @@ Also, note that the `content` was extented by the `@type` property and a generat
 {
   "id": "REQ...",
   "isOwn": true,
-  "peer": "<Address of Recipient>",
+  "peer": "<address of Recipient>",
   "createdAt": "<time of creation>",
   "content": {
     "@type": "Request",
@@ -118,7 +118,7 @@ This is important for the Request to be processed correctly, since it is possibl
 
 ```jsonc
 {
-  "recipients": ["<Address of Recipient>"],
+  "recipients": ["<address of Recipient>"],
   "content": {
     // the content you copied from the response in the step before
   }

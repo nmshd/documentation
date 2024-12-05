@@ -93,7 +93,7 @@ Only that Identity will be able to continue with establishing a Relationship. Th
 
 ### Successfully Created RelationshipTemplate
 
-If you have successfully created the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) on the templator, you will receive a success response from which you can read its `id`. As the templator is the creator of the RelationshipTemplate, the `createdBy` property contains the Address of the templator. For this reason, the value of the `isOwn` property is set to `true` in this context.
+If you have successfully created the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) on the templator, you will receive a success response from which you can read its `id`. As the templator is the creator of the RelationshipTemplate, the `createdBy` property contains the address of the templator. For this reason, the value of the `isOwn` property is set to `true` in this context.
 
 {% include copy-notice description="Save the `id` of the RelationshipTemplate so that you can refer to it and make it available to other Identities later. For the same reason, save the value of the property `truncatedReference`." %}
 

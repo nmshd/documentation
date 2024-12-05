@@ -46,7 +46,7 @@ This use case queries [Tokens]({% link _docs_integrate/data-model-overview.md %}
 ## Parameters
 
 - `createdAt` is the ISODateTime the Token was created at.
-- `createdBy` is the enmeshed Address of the Identity that created the Token.
+- `createdBy` is the enmeshed `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that created the Token.
 - `createdByDevice` is the `id` of the Device that created the Token.
 - `expiresAt` is the ISODateTime the Token expires.
 

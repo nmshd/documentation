@@ -1,1 +1,1 @@
-The Address of the Identity that created the {{ include.class }}.
+The `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that created the {{ include.class }}.
