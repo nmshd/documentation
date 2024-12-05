@@ -41,8 +41,8 @@ required_by:
 
 {% include properties_list.html %}
 
-The process of [Identity deletion]({% link _docs_integrate/delete-identities.md %}) can either be self-initiated or triggered by the Backbone Admin UI.
-In the case of [Identity deletion triggered by the Backbone Admin UI]({% link _docs_integrate/delete-identities.md %}#identity-deletion-triggered-by-the-backbone-admin-ui), an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) with `"WaitingForApproval"` as `status` is created for your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) via the Backbone Admin UI.
+The process of [Identity deletion]({% link _docs_integrate/delete-identities.md %}) can either be self-initiated or triggered via the Backbone Admin UI.
+In the case of [Identity deletion triggered via the Backbone Admin UI]({% link _docs_integrate/delete-identities.md %}#identity-deletion-triggered-via-the-backbone-admin-ui), an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) with `"WaitingForApproval"` as `status` is created for your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) via the Backbone Admin UI.
 This use case can be utilized to approve this IdentityDeletionProcess.
 Alternatively, the [IdentityDeletionProcess can be rejected]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}).
 

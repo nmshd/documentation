@@ -51,15 +51,15 @@ For example, depending on the Backbone environment, it is conceivable to set up 
 More essential are the two options for actively deciding to delete an Identity from the Backbone:
 
 - Initiation of the process of Identity deletion by the Identity itself.
-- The Backbone Admin UI triggers the process of Identity deletion and the Identity subsequently approves the triggered deletion of its Identity.
+- The Backbone administrator triggers the process of Identity deletion via the Backbone Admin UI and the Identity subsequently approves the triggered deletion of its Identity.
 
-Whenever a new [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) has been created due to a [self-initiated Identity deletion]({% link _docs_integrate/delete-identities.md %}#self-initiated-identity-deletion) or an [Identity deletion triggered by the Backbone Admin UI]({% link _docs_integrate/delete-identities.md %}#identity-deletion-triggered-by-the-backbone-admin-ui) or the `status` of an existing IdentityDeletionProcess has changed, the [Connector event]({% link _docs_integrate/connector-events.md %}) `transport.identityDeletionProcessStatusChanged` is raised. In addition, an external `IdentityDeletionProcessStarted` event can be received when an Identity deletion is triggered by the Backbone Admin UI.
+Whenever a new [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) has been created due to a [self-initiated Identity deletion]({% link _docs_integrate/delete-identities.md %}#self-initiated-identity-deletion) or an [Identity deletion triggered via the Backbone Admin UI]({% link _docs_integrate/delete-identities.md %}#identity-deletion-triggered-via-the-backbone-admin-ui) or the `status` of an existing IdentityDeletionProcess has changed, the [Connector event]({% link _docs_integrate/connector-events.md %}) `transport.identityDeletionProcessStatusChanged` is raised. In addition, an external `IdentityDeletionProcessStarted` event can be received when an Identity deletion is triggered via the Backbone Admin UI.
 
 ### Self-Initiated Identity Deletion
 
 An Identity can actively trigger its own process of deletion by executing the [Initiate IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-initiate-identitydeletionprocess.md %}) use case.
 Successful execution leads to the creation of an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) with `"Approved"` as `status`.
-In contrast to the [Identity deletion triggered by the Backbone Admin UI]({% link _docs_integrate/delete-identities.md %}#identity-deletion-triggered-by-the-backbone-admin-ui), no further approval of the Identity is therefore required.
+In contrast to the [Identity deletion triggered via the Backbone Admin UI]({% link _docs_integrate/delete-identities.md %}#identity-deletion-triggered-via-the-backbone-admin-ui), no further approval of the Identity is therefore required.
 Instead, the Identity is immediately in deletion and will be irreversibly deleted from the Backbone once the end of the associated grace period of the IdentityDeletionProcess specified within its `gracePeriodEndsAt` property has been exceeded.
 Within the grace period, the [Cancel IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}) use case can be applied by the Identity if it no longer wants to be deleted.
 In this case, the `status` of the IdentityDeletionProcess changes to `"Cancelled"`.
@@ -67,13 +67,13 @@ Trying to cancel an IdentityDeletionProcess that does not have `"Approved"` as `
 Furthermore, please note that the use of the [Initiate IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-initiate-identitydeletionprocess.md %}) use case is not permitted if there is already an active IdentityDeletionProcess.
 The corresponding [error code]({% link _docs_integrate/error-codes.md %}) is given by `error.runtime.identityDeletionProcess.activeIdentityDeletionProcessAlreadyExists`.
 
-### Identity Deletion Triggered by the Backbone Admin UI
+### Identity Deletion Triggered via the Backbone Admin UI
 
 As required by the General Data Protection Regulation, abbreviated GDPR, it is possible for an Identity to actively trigger its process of deletion by using support tickets or writing e-mails to the Operator of the Backbone.
 In order to be able to offer an Identity this option in addition to the possibility of [self-initiated Identity deletion]({% link _docs_integrate/delete-identities.md %}#self-initiated-identity-deletion), it must be possible for the Backbone Operator to trigger the Identity deletion via the Backbone Admin UI.
 Successful triggering leads to the creation of an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) with `"WaitingForApproval"` as `status` for the Identity.
 As the Backbone Operator must ensure that the creator of the support ticket or the writer of the e-mail is actually the Identity whose deletion was requested, the Identity must additionally [approve the IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-approve-identitydeletionprocess.md %}) afterwards.
-However, the Identity can also [reject the IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}) if it has changed its mind about its deletion after the process of Identity deletion was triggered by the Backbone Admin UI.
+However, the Identity can also [reject the IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}) if it has changed its mind about its deletion after the process of Identity deletion was triggered via the Backbone Admin UI.
 Approving or rejecting an IdentityDeletionProcess with `"WaitingForApproval"` as `status` is only possible until the date specified within the `approvalPeriodEndsAt` property has not been exceeded.
 If it is neither approved nor rejected by then, it automatically changes its `status` to `"Cancelled"` and the Identity will not be deleted.
 Moreover, please note that the use cases for approving or rejecting an IdentityDeletionProcess cannot be executed by the Identity if there is no IdentityDeletionProcess with `"WaitingForApproval"` as `status`.
