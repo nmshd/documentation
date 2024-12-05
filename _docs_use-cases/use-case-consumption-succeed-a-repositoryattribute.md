@@ -50,7 +50,7 @@ In case you shared the preceeding version of the RepositoryAttribute, the corres
 ## Parameters
 
 - `predecessorId`: the `id` of the RepositoryAttribute you want to succeed
-- The `successorContent` according to the parameters of an IdentityAttribute as described in the [data model]({% link _docs_integrate/data-model-overview.md %}#identityattribute), except for the `owner`, which is automatically set to your Address
+- The `successorContent` according to the parameters of an IdentityAttribute as described in the [data model]({% link _docs_integrate/data-model-overview.md %}#identityattribute), except for the `owner`, which is automatically set to the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
 
 ## On Success
 

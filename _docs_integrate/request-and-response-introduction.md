@@ -440,7 +440,7 @@ For this, they provide a QR code, linking to a RelationshipTemplate.
 In its `content.onNewRelationship` property it holds a Request with two RequestItemGroups.
 One of them contains Attributes the company shares with the peer, e.g. the company name.
 The other contains Attributes it would like to query from the peer.
-In this example they are the given and surname and optionally an e-mail address, following the [Integration example]({% link _docs_integrate/integration-example.md %}).
+In this example they are the given and surname and optionally an email address, following the [Integration example]({% link _docs_integrate/integration-example.md %}).
 Now, an interested person can scan the QR code, provide their information and send their Response inside a Relationship's creation content.
 Once the company accepts the new Relationship, they can exchange Messages or other data using enmeshed.
 

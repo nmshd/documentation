@@ -228,7 +228,7 @@ Example:
 {% include rapidoc api_route_regex="^put /api/v2/Relationships/{id}/Accept$" %}
 
 Now the Relationship is in the `Active` state, so we can start to communicate with the opposite Identity, which we will do in the next part of this tutorial.
-For this, we will need the address of that Identity.
+For this, we will need the `address` of that [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
 It can be found in the Response, when accepting the Relationship.
 
 {% include copy-notice description="Save the `peer` property of the Response (`did:e:_________________`). You will need it in the next step." %}

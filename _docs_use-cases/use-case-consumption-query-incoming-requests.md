@@ -47,7 +47,7 @@ This use case is intended to query incoming [LocalRequests]({% link _docs_integr
 ## Parameters
 
 - The `id` of the LocalRequest.
-- The `peer` is the Address of the Identity that sent the LocalRequest.
+- The `peer` is the `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that sent the LocalRequest.
 - `createdAt` indicates the date of LocalRequest creation.
 - The `status` of the LocalRequest.
 - The `content` describes the [Request]({% link _docs_integrate/data-model-overview.md %}#request) wrapped by the LocalRequest.

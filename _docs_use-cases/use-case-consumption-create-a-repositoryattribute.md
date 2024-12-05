@@ -49,8 +49,7 @@ based on a given [IdentityAttribute]({% link _docs_integrate/data-model-overview
 
 ## Parameters
 
-- The `content` for the LocalAttribute that ought to be created as IdentityAttribute without the `owner`
-  property, since it is automatically set to your Address
+- The `content` for the LocalAttribute that ought to be created as IdentityAttribute without the `owner` property, since it is automatically set to the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
 
 ## On Success
 

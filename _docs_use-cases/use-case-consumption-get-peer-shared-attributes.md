@@ -48,7 +48,7 @@ This use case is intended to retrieve Attributes that a peer has shared with the
 
 ## Parameters
 
-- `peer` is the Address of the Identity that shared the LocalAttributes.
+- `peer` is the `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that shared the LocalAttributes.
 - `query` allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used:
   - `createdAt` describes the time when the LocalAttribute was created.
   - The fields of `content` can be used to describe the queried Attribute (either an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute)

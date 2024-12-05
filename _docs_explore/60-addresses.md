@@ -3,20 +3,20 @@ title: "enmeshed Addresses"
 permalink: /explore/addresses
 ---
 
-The Address is the primary identifier for an enmeshed Identity. It is public and created out of the Identity’s Signature Public Key. Thus, the Identity’s root signature key and its corresponding Address are interlinked with each other and cannot be changed. Nobody is able to change the public key for a corresponding Address and everybody has the possibility to check, if a given public key matches a given Address without having to trust someone. Both are important security features.
+The `address` is the primary identifier for an enmeshed [Identity]({% link _docs_integrate/data-model-overview.md %}#identity). It is public and created out of the Identity’s Signature Public Key. Thus, the Identity’s root signature key and its corresponding address are interlinked with each other and cannot be changed. Nobody is able to change the public key for a corresponding address and everybody has the possibility to check, if a given public key matches a given address without having to trust someone. Both are important security features.
 
-- As Addresses do not contain special characters, copy and pasting via double-click is supported.
-- As they do have a checksum included, syntactically wrong Addresses can be checked by a computer program locally.
+- As addresses do not contain special characters, copy and pasting via double-click is supported.
+- As they do have a checksum included, syntactically wrong addresses can be checked by a computer program locally.
 
-Enmeshed uses [Decentralized Identifiers](https://www.w3.org/TR/did-core/), also called DIDs, which are specified by the W3C and commonly used with W3C's [Verifiable Credentials](https://www.w3.org/TR/vc-overview/). Enmeshed plans to launch its own DID method `did:e`, and already uses those DIDs for Addresses even though the method is not yet constructed.
+Enmeshed uses [Decentralized Identifiers](https://www.w3.org/TR/did-core/), also called DIDs, which are specified by the W3C and commonly used with W3C's [Verifiable Credentials](https://www.w3.org/TR/vc-overview/). Enmeshed plans to launch its own DID method `did:e`, and already uses those DIDs for addresses even though the method is not yet constructed.
 
 ## Addresses are Backbone-specific
 
-An Address is fixed to a certain backbone. The same Identity (Identity Signature Key Pair) may act within different backbones, but will have different Addresses. Additionally, there are many open questions with regards to using multiple backbones, e.g. which one is in charge for the synchronization.
+An address is fixed to a certain backbone. The same Identity (Identity Signature Key Pair) may act within different backbones, but will have different addresses. Additionally, there are many open questions with regards to using multiple backbones, e.g. which one is in charge for the synchronization.
 
 ## Syntax
 
-An Address follows the DID syntax and is `did:e:<backbone-hostname>:dids:<public-key-hash><checksum>`. Public-Key-Hash and Checksum are lowercase hexadecimal-encoded, 10 bytes for the hash of the Identity’s Signature Public Key, 1 byte for the checksum of the Address.
+An address follows the DID syntax and is `did:e:<backbone-hostname>:dids:<public-key-hash><checksum>`. Public-Key-Hash and Checksum are lowercase hexadecimal-encoded, 10 bytes for the hash of the Identity’s Signature Public Key, 1 byte for the checksum of the address.
 
 ## Address Creation
 
@@ -48,7 +48,7 @@ Address = EnmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart + C
 
 ## Examples
 
-Below there are a few examples for valid enmeshed Addresses.
+Below there are a few examples for valid enmeshed addresses.
 
 ```text
 backboneHostname: "example.com"
