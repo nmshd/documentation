@@ -41,11 +41,11 @@ required_by:
 
 {% include properties_list.html %}
 
-This use case retrieves the LocalAccount with the corresponding enmeshed Address.
+This use case retrieves the LocalAccount with the corresponding enmeshed address.
 
 ## Parameters
 
-- The `address` of the corresponding Identity of the LocalAccount.
+- The `address` of the corresponding [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) of the LocalAccount.
 
 ## On Success
 

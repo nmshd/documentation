@@ -57,9 +57,9 @@ In the following examples, the `createdAt` and `deletionInfo` properties of all 
 Now, in order to [share a RepositoryAttribute]({% link _docs_integrate/share-attributes-with-peer.md %}), you need to send an according [Request]({% link _docs_integrate/data-model-overview.md %}#request) to the peer you want to share it with.
 If they [accept your Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}), a new LocalAttribute will be created at the peer's side.
 This peer shared IdentityAttribute has the same `content` like your RepositoryAttribute and, in addition, a defined `shareInfo` property.
-It stores the Address of the `peer` who shared the Attribute with them, i.e. your Address, and a reference to the Request that was used to share the Attribute.
+It stores the address of the `peer` who shared the Attribute with them, i.e. the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity), and a reference to the Request that was used to share the Attribute.
 Receiving the [Response]({% link _docs_integrate/data-model-overview.md %}#response), an own shared IdentityAttribute with equal `content` will be created at your side.
-Its `shareInfo` stores the same `requestReference` and the peer's Address, as well as the `id` of the RepositoryAttribute, whose `content` was copied, in the field `sourceAttribute`.
+Its `shareInfo` stores the same `requestReference` and the peer's address, as well as the `id` of the RepositoryAttribute, whose `content` was copied, in the field `sourceAttribute`.
 
 Concluding, sharing an IdentityAttribute will create an own shared IdentityAttribute copy for every peer you shared the Attribute with at your side and a peer shared IdentityAttribute copy for each peer at their side.
 

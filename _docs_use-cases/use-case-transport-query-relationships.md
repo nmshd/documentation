@@ -46,7 +46,7 @@ This use case queries [Relationships]({% link _docs_integrate/data-model-overvie
 
 ## Parameters
 
-- `peer` is the enmeshed Address of the peer.
+- `peer` is the enmeshed address of the peer.
 - `status` is the status of the Relationship.
 - `template.id` is the id of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) that was used to initiate the Relationship.
 

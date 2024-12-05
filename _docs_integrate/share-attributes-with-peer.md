@@ -41,9 +41,9 @@ The Sender wants to share an Attribute with the Recipient. To do this, the Sende
 
 ### Role of ShareAttributeRequestItem
 
-For sharing a single Attribute, the Sender needs to insert a single RequestItem of type [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request). The Sender can only share an Attribute that already exists as a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) and, in the case of IdentityAttributes, is owned by it. The latter means that the Address of the Sender is contained in the `content.owner` property of the corresponding LocalAttribute. The `id` of the LocalAttribute must be inserted into the `sourceAttributeId` property and the `content` of the LocalAttribute into the `attribute` property of the ShareAttributeRequestItem.
+For sharing a single Attribute, the Sender needs to insert a single RequestItem of type [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request). The Sender can only share an Attribute that already exists as a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) and, in the case of IdentityAttributes, is owned by it. The latter means that the address of the Sender is contained in the `content.owner` property of the corresponding LocalAttribute. The `id` of the LocalAttribute must be inserted into the `sourceAttributeId` property and the `content` of the LocalAttribute into the `attribute` property of the ShareAttributeRequestItem.
 
-To get a list of all LocalAttributes that are owned by the Sender, proceed as described in the [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}) use case documentation and use `content.owner=<Address of Sender>` as query parameter. Please note that the `<...>` notation is used as a placeholder for the actual data as usual. If the `id` of a LocalAttribute is known, the underlying IdentityAttribute or RelationshipAttribute within its `content` property can be displayed by consulting the [Get Attribute]({% link _docs_use-cases/use-case-consumption-get-attribute.md %}) use case description and specifying the `id` of the LocalAttribute.
+To get a list of all LocalAttributes that are owned by the Sender, proceed as described in the [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}) use case documentation and use `content.owner=<address of Sender>` as query parameter. Please note that the `<...>` notation is used as a placeholder for the actual data as usual. If the `id` of a LocalAttribute is known, the underlying IdentityAttribute or RelationshipAttribute within its `content` property can be displayed by consulting the [Get Attribute]({% link _docs_use-cases/use-case-consumption-get-attribute.md %}) use case description and specifying the `id` of the LocalAttribute.
 {: .notice--info}
 
 ### Combinations and usage scenarios of ShareAttributeRequestItem
@@ -69,7 +69,7 @@ We assume that the Integrator of the Sender has created an IdentityAttribute of 
   "createdAt": "<creation date of LocalAttribute>",
   "content": {
     "@type": "IdentityAttribute",
-    "owner": "<Address of Sender>",
+    "owner": "<address of Sender>",
     "value": {
       "@type": "BirthDate",
       "day": <day of birth date>,
@@ -91,7 +91,7 @@ In our example, the Sender wants to share the IdentityAttribute with the Recipie
       "mustBeAccepted": true,
       "attribute": {
         "@type": "IdentityAttribute",
-        "owner": "<Address of Sender>",
+        "owner": "<address of Sender>",
         "value": {
           "@type": "BirthDate",
           "day": <day of birth date>,
@@ -116,7 +116,7 @@ We now consider the case in which the Sender has an active [Relationship]({% lin
   "createdAt": "<creation date of LocalAttribute>",
   "content": {
     "@type": "RelationshipAttribute",
-    "owner": "<Address of Sender>",
+    "owner": "<address of Sender>",
     "key": "<key of RelationshipAttribute>",
     "confidentiality": "public",
     "value": {
@@ -126,7 +126,7 @@ We now consider the case in which the Sender has an active [Relationship]({% lin
     }
   },
   "shareInfo": {
-    "peer": "<Address of third party>",
+    "peer": "<address of third party>",
     "requestReference": "<ID of Request used for creating RelationshipAttribute>"
   }
 }
@@ -143,7 +143,7 @@ To share the RelationshipAttribute with the Recipient, the Sender needs to inser
       "mustBeAccepted": true,
       "attribute": {
         "@type": "RelationshipAttribute",
-        "owner": "<Address of Sender>",
+        "owner": "<address of Sender>",
         "key": "<key of RelationshipAttribute>",
         "confidentiality": "public",
         "value": {
@@ -206,7 +206,7 @@ Let's look at an example where the Sender wants to share its [DisplayName]({% li
       "mustBeAccepted": true,
       "attribute": {
         "@type": "IdentityAttribute",
-        "owner": "<Address of Sender>",
+        "owner": "<address of Sender>",
         "value": {
           "@type": "DisplayName",
           "value": "<display name that the Sender wants to share>"
@@ -222,7 +222,7 @@ Let's look at an example where the Sender wants to share its [DisplayName]({% li
           "mustBeAccepted": true,
           "attribute": {
             "@type": "IdentityAttribute",
-            "owner": "<Address of Sender>",
+            "owner": "<address of Sender>",
             "value": {
               "@type": "EMailAddress",
               "value": "<email address that the Sender wants to share>"
@@ -235,7 +235,7 @@ Let's look at an example where the Sender wants to share its [DisplayName]({% li
           "mustBeAccepted": false,
           "attribute": {
             "@type": "IdentityAttribute",
-            "owner": "<Address of Sender>",
+            "owner": "<address of Sender>",
             "value": {
               "@type": "PhoneNumber",
               "value": "<phone number that the Sender wants to share>"

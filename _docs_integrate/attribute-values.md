@@ -521,11 +521,11 @@ It is not recommended to send a DigitalIdentityDescriptor to another Identity by
 
 **Properties**
 
-| Name         | Type                          | Required | Validation                                           |
-| ------------ | ----------------------------- | :------: | ---------------------------------------------------- |
-| `@type`      | `"DigitalIdentityDescriptor"` |    ✓     |                                                      |
-| `address`    | `string`                      |    ✓     | The Address of the Identity that owns the statement. |
-| `attributes` | `string []`                   |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
+| Name         | Type                          | Required | Validation                                                                                                           |
+| ------------ | ----------------------------- | :------: | -------------------------------------------------------------------------------------------------------------------- |
+| `@type`      | `"DigitalIdentityDescriptor"` |    ✓     |                                                                                                                      |
+| `address`    | `string`                      |    ✓     | The `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that owns the statement. |
+| `attributes` | `string []`                   |    ✗     | see [`Identity Attributes`](#identity-attributes)                                                                    |
 
 ## StatementAuthorityType
 
@@ -582,11 +582,11 @@ It is not recommended to send a object to another Identity by its own. Instead, 
 
 **Properties**
 
-| Name         | Type                | Required | Validation                                           |
-| ------------ | ------------------- | :------: | ---------------------------------------------------- |
-| `@type`      | `"StatementObject"` |    ✓     |                                                      |
-| `address`    | `string`            |    ✓     | The Address of the Identity that owns the statement. |
-| `attributes` | `string []`         |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
+| Name         | Type                | Required | Validation                                                                                                           |
+| ------------ | ------------------- | :------: | -------------------------------------------------------------------------------------------------------------------- |
+| `@type`      | `"StatementObject"` |    ✓     |                                                                                                                      |
+| `address`    | `string`            |    ✓     | The `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that owns the statement. |
+| `attributes` | `string []`         |    ✗     | see [`Identity Attributes`](#identity-attributes)                                                                    |
 
 ## StatementPredicate
 
@@ -611,11 +611,11 @@ It is not recommended to send a subject to another Identity by its own. Instead,
 
 **Properties**
 
-| Name         | Type                 | Required | Validation                                           |
-| ------------ | -------------------- | :------: | ---------------------------------------------------- |
-| `@type`      | `"StatementSubject"` |    ✓     |                                                      |
-| `address`    | `string`             |    ✓     | The Address of the Identity that owns the statement. |
-| `attributes` | `string []`          |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
+| Name         | Type                 | Required | Validation                                                                                                           |
+| ------------ | -------------------- | :------: | -------------------------------------------------------------------------------------------------------------------- |
+| `@type`      | `"StatementSubject"` |    ✓     |                                                                                                                      |
+| `address`    | `string`             |    ✓     | The `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that owns the statement. |
+| `attributes` | `string []`          |    ✗     | see [`Identity Attributes`](#identity-attributes)                                                                    |
 
 ## Street
 

@@ -60,5 +60,5 @@ This is great for checking if all required information of a Request was filled o
 ## On Failure
 
 - The decisions do not match the RequestItems.
-- The decisions and values of respective RequestItems do not match the requested or required values, e.g. an E-Mail Address is wrong.
+- The decisions and values of respective RequestItems do not match the requested or required values, e.g. an email address is wrong.
 - An item that has the mustBeAccepted field set was not accepted or left blank.
