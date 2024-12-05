@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-11-22T14:10:43+01:00">
+  <meta property="article:published_time" content="2024-12-05T15:52:42+01:00">
 
 
 
@@ -352,7 +352,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Update Attributes by succession">
     <meta itemprop="description" content="The way enmeshed handles updates to your personal data is by succeeding old Attributes with new ones.Instead of simply replacing old data, a completely new Attribute is created which succeeds its predecessor.Thus, you and your peers are provided with a coherent history of all past versions.How the Attribute succession works in detail depends on the type of Attribute.">
-    <meta itemprop="datePublished" content="2024-11-22T14:10:43+01:00">
+    <meta itemprop="datePublished" content="2024-12-05T15:52:42+01:00">
     
 
     <div class="page__inner-wrap">
@@ -411,9 +411,9 @@ We refer to these unshared LocalAttributes as RepositoryAttributes, since they m
 <p>Now, in order to <a href="/integrate/share-attributes-with-peer">share a RepositoryAttribute</a>, you need to send an according <a href="/integrate/data-model-overview#request">Request</a> to the peer you want to share it with.
 If they <a href="/use-case-consumption-accept-incoming-request">accept your Request</a>, a new LocalAttribute will be created at the peer’s side.
 This peer shared IdentityAttribute has the same <code class="language-plaintext highlighter-rouge">content</code> like your RepositoryAttribute and, in addition, a defined <code class="language-plaintext highlighter-rouge">shareInfo</code> property.
-It stores the Address of the <code class="language-plaintext highlighter-rouge">peer</code> who shared the Attribute with them, i.e. your Address, and a reference to the Request that was used to share the Attribute.
+It stores the address of the <code class="language-plaintext highlighter-rouge">peer</code> who shared the Attribute with them, i.e. the <code class="language-plaintext highlighter-rouge">address</code> of your <a href="/integrate/data-model-overview#identity">Identity</a>, and a reference to the Request that was used to share the Attribute.
 Receiving the <a href="/integrate/data-model-overview#response">Response</a>, an own shared IdentityAttribute with equal <code class="language-plaintext highlighter-rouge">content</code> will be created at your side.
-Its <code class="language-plaintext highlighter-rouge">shareInfo</code> stores the same <code class="language-plaintext highlighter-rouge">requestReference</code> and the peer’s Address, as well as the <code class="language-plaintext highlighter-rouge">id</code> of the RepositoryAttribute, whose <code class="language-plaintext highlighter-rouge">content</code> was copied, in the field <code class="language-plaintext highlighter-rouge">sourceAttribute</code>.</p>
+Its <code class="language-plaintext highlighter-rouge">shareInfo</code> stores the same <code class="language-plaintext highlighter-rouge">requestReference</code> and the peer’s address, as well as the <code class="language-plaintext highlighter-rouge">id</code> of the RepositoryAttribute, whose <code class="language-plaintext highlighter-rouge">content</code> was copied, in the field <code class="language-plaintext highlighter-rouge">sourceAttribute</code>.</p>
 
 <p>Concluding, sharing an IdentityAttribute will create an own shared IdentityAttribute copy for every peer you shared the Attribute with at your side and a peer shared IdentityAttribute copy for each peer at their side.</p>
 
@@ -482,7 +482,7 @@ To do so, proceed as described in the guide on <a href="/integrate/delete-attrib
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-11-22T14:10:43+01:00">November 22, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-12-05T15:52:42+01:00">December 5, 2024</time></p>
 
       </footer>
 

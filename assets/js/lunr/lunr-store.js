@@ -96,7 +96,7 @@ var store = [{
         "teaser": null
       },{
         "title": "enmeshed Addresses",
-        "excerpt":"The Address is the primary identifier for an enmeshed Identity. It is public and created out of the Identity’s Signature Public Key. Thus, the Identity’s root signature key and its corresponding Address are interlinked with each other and cannot be changed. Nobody is able to change the public key for...","categories": [],
+        "excerpt":"The enmeshed Address is the primary identifier for an enmeshed Identity and stored within the address property of the data object of type Identity. It is public and created out of the Identity’s Signature Public Key. Thus, the Identity’s root signature key and its corresponding Address are interlinked with each...","categories": [],
         "tags": [],
         "url": "/explore/addresses",
         "teaser": null
@@ -426,7 +426,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create a RepositoryAttribute",
-        "excerpt":"This use case is intended to create a RepositoryAttribute, i.e. an unshared LocalAttribute based on a given IdentityAttribute. Parameters The content for the LocalAttribute that ought to be created as IdentityAttribute without the owner property, since it is automatically set to your Address On Success A LocalAttribute is created according...","categories": [],
+        "excerpt":"This use case is intended to create a RepositoryAttribute, i.e. an unshared LocalAttribute based on a given IdentityAttribute. Parameters The content for the LocalAttribute that ought to be created as IdentityAttribute without the owner property, since it is automatically set to the address of your Identity. On Success A LocalAttribute...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-create-a-repositoryattribute",
         "teaser": null
@@ -546,13 +546,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Get own shared Attributes",
-        "excerpt":"This use case is intended to retrieve Attributes that the current Identity shared to a peer as LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters peer is the Address of the Identity that the LocalAttributes are shared with. query allows to specify the conditions for the returned...","categories": [],
+        "excerpt":"This use case is intended to retrieve Attributes that the current Identity shared to a peer as LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters peer is the address of the Identity that the LocalAttributes are shared with. query allows to specify the conditions for the returned...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-own-shared-attributes",
         "teaser": null
       },{
         "title": "Get peer shared Attributes",
-        "excerpt":"This use case is intended to retrieve Attributes that a peer has shared with the current Identity as LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters peer is the Address of the Identity that shared the LocalAttributes. query allows to specify the conditions for the returned LocalAttributes....","categories": [],
+        "excerpt":"This use case is intended to retrieve Attributes that a peer has shared with the current Identity as LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters peer is the address of the Identity that shared the LocalAttributes. query allows to specify the conditions for the returned LocalAttributes....","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-peer-shared-attributes",
         "teaser": null
@@ -588,13 +588,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Query incoming Requests",
-        "excerpt":"This use case is intended to query incoming LocalRequests. Parameters The id of the LocalRequest. The peer is the Address of the Identity that sent the LocalRequest. createdAt indicates the date of LocalRequest creation. The status of the LocalRequest. The content describes the Request wrapped by the LocalRequest. The source...","categories": [],
+        "excerpt":"This use case is intended to query incoming LocalRequests. Parameters The id of the LocalRequest. The peer is the address of the Identity that sent the LocalRequest. createdAt indicates the date of LocalRequest creation. The status of the LocalRequest. The content describes the Request wrapped by the LocalRequest. The source...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-query-incoming-requests",
         "teaser": null
       },{
         "title": "Query outgoing Requests",
-        "excerpt":"This use case is intended to query outgoing LocalRequests. Parameters The id of the LocalRequest. The peer is the Address of the Identity that the LocalRequest was sent to. createdAt indicates the date of LocalRequest creation. The status of the LocalRequest. The content describes the Request wrapped by the LocalRequest....","categories": [],
+        "excerpt":"This use case is intended to query outgoing LocalRequests. Parameters The id of the LocalRequest. The peer is the address of the Identity that the LocalRequest was sent to. createdAt indicates the date of LocalRequest creation. The status of the LocalRequest. The content describes the Request wrapped by the LocalRequest....","categories": [],
         "tags": [],
         "url": "/use-case-consumption-query-outgoing-requests",
         "teaser": null
@@ -642,7 +642,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Get Profile by enmeshed Address",
-        "excerpt":"   This use case retrieves the LocalAccount with the corresponding enmeshed Address.   Parameters      The address of the corresponding Identity of the LocalAccount.   On Success      Returns the LocalAccount of the Identity.   On Failure      There is no such LocalAccount.  ","categories": [],
+        "excerpt":"   This use case retrieves the LocalAccount with the corresponding enmeshed address.   Parameters      The address of the corresponding Identity of the LocalAccount.   On Success      Returns the LocalAccount of the Identity.   On Failure      There is no such LocalAccount.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-get-profile-by-enmeshed-address",
         "teaser": null
@@ -930,7 +930,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Get Relationship by Address",
-        "excerpt":"   This use case retrieves a Relationship by the Address of a peer.   Parameters      address of the peer.   On Success      The Relationship that was inititated with the address.   On Failure      There is no Relationship linked to the given address.  ","categories": [],
+        "excerpt":"   This use case retrieves a Relationship by the address of a peer.   Parameters      address of the peer.   On Success      The Relationship that was inititated with the address.   On Failure      There is no Relationship linked to the given address.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-relationship-by-address",
         "teaser": null
@@ -990,19 +990,19 @@ var store = [{
         "teaser": null
       },{
         "title": "Query Files",
-        "excerpt":"This use case queries Files of the Identity. Parameters All parameters are optional. If no parameter is given, all Files are returned. createdAt is the ISODateTime the File was created at. createdBy is the enmeshed Address of the Identity that created the File. createdByDevice is the id of the Device...","categories": [],
+        "excerpt":"This use case queries Files of the Identity. Parameters All parameters are optional. If no parameter is given, all Files are returned. createdAt is the ISODateTime the File was created at. createdBy is the enmeshed address of the Identity that created the File. createdByDevice is the id of the Device...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-files",
         "teaser": null
       },{
         "title": "Query Messages",
-        "excerpt":"This use case queries Messages of the Identity. Parameters All parameters are optional. If no parameter is given, all Messages are returned. createdBy is the enmeshed Address of the Identity that created the Messsage. createdByDevice is the id of the Device that created the File. createdAt is the ISODateTime the...","categories": [],
+        "excerpt":"This use case queries Messages of the Identity. Parameters All parameters are optional. If no parameter is given, all Messages are returned. createdBy is the enmeshed address of the Identity that created the Messsage. createdByDevice is the id of the Device that created the File. createdAt is the ISODateTime the...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-messages",
         "teaser": null
       },{
         "title": "Query Relationships",
-        "excerpt":"This use case queries Relationships of the Identity. Parameters peer is the enmeshed Address of the peer. status is the status of the Relationship. template.id is the id of the RelationshipTemplate that was used to initiate the Relationship. On Success Returns all Relationships that match the query. On Failure The...","categories": [],
+        "excerpt":"This use case queries Relationships of the Identity. Parameters peer is the enmeshed address of the peer. status is the status of the Relationship. template.id is the id of the RelationshipTemplate that was used to initiate the Relationship. On Success Returns all Relationships that match the query. On Failure The...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-relationships",
         "teaser": null
@@ -1014,7 +1014,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Query Tokens by parameters",
-        "excerpt":"This use case queries Tokens of the Identity. Parameters createdAt is the ISODateTime the Token was created at. createdBy is the enmeshed Address of the Identity that created the Token. createdByDevice is the id of the Device that created the Token. expiresAt is the ISODateTime the Token expires. On Success...","categories": [],
+        "excerpt":"This use case queries Tokens of the Identity. Parameters createdAt is the ISODateTime the Token was created at. createdBy is the enmeshed address of the Identity that created the Token. createdByDevice is the id of the Device that created the Token. expiresAt is the ISODateTime the Token expires. On Success...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-tokens-by-parameters",
         "teaser": null
@@ -1056,7 +1056,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Send Message to Recipient(s)",
-        "excerpt":"This use case sends a Message to the given recipient(s). Parameters recipients is a list of the enmeshed Addresses which should receive the Message. content the structured content of the Message. Usually a Mail when communicating with a user. attachments is a list of File ids which should be attached...","categories": [],
+        "excerpt":"This use case sends a Message to the given recipient(s). Parameters recipients is a list of the enmeshed addresses which should receive the Message. content the structured content of the Message. Usually a Mail when communicating with a user. attachments is a list of File ids which should be attached...","categories": [],
         "tags": [],
         "url": "/use-case-transport-send-message-to-recipients",
         "teaser": null

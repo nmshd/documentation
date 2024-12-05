@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-11-22T14:10:43+01:00">
+  <meta property="article:published_time" content="2024-12-05T15:52:42+01:00">
 
 
 
@@ -352,7 +352,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Share a RepositoryAttribute">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2024-11-22T14:10:43+01:00">
+    <meta itemprop="datePublished" content="2024-12-05T15:52:42+01:00">
     
 
     <div class="page__inner-wrap">
@@ -451,16 +451,16 @@ Assuming your peer accepts the Request, at their side a peer shared IdentityAttr
 The corresponding <a href="/integrate/data-model-overview#response">Response</a> informs you about their acceptance and creates a <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> with a copy of the RepositoryAttribute&#8217;s <code class="language-plaintext highlighter-rouge">content</code> you shared.
 This own shared IdentityAttribute copy, however, in addition has a defined <code class="language-plaintext highlighter-rouge">shareInfo</code> property.
 It stores information about the <code class="language-plaintext highlighter-rouge">peer</code> you shared the Attribute with, the <code class="language-plaintext highlighter-rouge">id</code> of the original RepositoryAttribute in the field <code class="language-plaintext highlighter-rouge">sourceAttribute</code>, and a reference to the Request used to share the Attribute.
-Note that the own shared IdentityAttribute at your side and the peer shared IdentityAttribute at your peer&#8217;s side are identical, except for the value in the <code class="language-plaintext highlighter-rouge">shareInfo.peer</code> field: on your side it will have the peer&#8217;s Address and on the peer&#8217;s side it will have your Address.
+Note that the own shared IdentityAttribute at your side and the peer shared IdentityAttribute at your peer&#8217;s side are identical, except for the value in the <code class="language-plaintext highlighter-rouge">shareInfo.peer</code> field: on your side it will have the peer&#8217;s address and on the peer&#8217;s side it will have the <code class="language-plaintext highlighter-rouge">address</code> of your <a href="/integrate/data-model-overview#identity">Identity</a>.
 Please note further, that this use case is meant to be used to share a version of a RepositoryAttribute for the first time.
 If you have already shared another version of a succeeded Attribute with the peer and you want to let them know about the changes to its <code class="language-plaintext highlighter-rouge">value</code>, use the <a href="/use-case-consumption-notify-peer-about-repositoryattribute-succession">NotifyPeerAboutRepositoryAttributeSuccession use-case</a>.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li>The <code class="language-plaintext highlighter-rouge">attributeId</code> of your RepositoryAttribute</li>
-  <li>The address of the <code class="language-plaintext highlighter-rouge">peer</code></li>
-  <li>Optionally <code class="language-plaintext highlighter-rouge">requestMetadata</code> as described in the <a href="/integrate/data-model-overview#request">data model</a>, except for the <code class="language-plaintext highlighter-rouge">id</code> and <code class="language-plaintext highlighter-rouge">items</code>, which are handled automatically</li>
+  <li>The <code class="language-plaintext highlighter-rouge">attributeId</code> of your RepositoryAttribute.</li>
+  <li>The address of the <code class="language-plaintext highlighter-rouge">peer</code>.</li>
+  <li>Optionally <code class="language-plaintext highlighter-rouge">requestMetadata</code> as described in the <a href="/integrate/data-model-overview#request">data model</a>, except for the <code class="language-plaintext highlighter-rouge">id</code> and <code class="language-plaintext highlighter-rouge">items</code>, which are handled automatically.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
@@ -491,7 +491,7 @@ If you have already shared another version of a succeeded Attribute with the pee
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-11-22T14:10:43+01:00">November 22, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-12-05T15:52:42+01:00">December 5, 2024</time></p>
 
       </footer>
 

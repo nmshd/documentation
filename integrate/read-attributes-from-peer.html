@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-11-22T14:10:43+01:00">
+  <meta property="article:published_time" content="2024-12-05T15:52:42+01:00">
 
 
 
@@ -352,7 +352,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Read Attributes from peer">
     <meta itemprop="description" content="There are many situations in which an Identity is interested in an IdentityAttribute or a RelationshipAttribute of another Identity, for example:">
-    <meta itemprop="datePublished" content="2024-11-22T14:10:43+01:00">
+    <meta itemprop="datePublished" content="2024-12-05T15:52:42+01:00">
     
 
     <div class="page__inner-wrap">
@@ -400,7 +400,7 @@
 
 <p class="notice--info">The Sender can use a ReadAttributeRequestItem to create a RelationshipAttribute in the context of a Relationship between itself and the Recipient if it wants the <a href="/integrate/attribute-values#relationship-attributes">RelationshipAttributeValue</a> to be set by the Recipient. Even if it seems misleading to use a ReadAttributeRequestItem to create a RelationshipAttribute, this terminology makes sense insofar as the RelationshipAttributeValue should be read from the Recipient in order to be able to create it.</p>
 
-<p>Note that the Sender cannot explicitly specify the Recipient’s Address as the value for the <code class="language-plaintext highlighter-rouge">owner</code> property of the RelationshipAttributeQuery because the Address does not have to be known beforehand. This is the case if the <a href="/integrate/read-attributes-from-peer#request-via-relationshiptemplate">Request is sent via a RelationshipTemplate</a> and not via a Message. Therefore, an empty string must be specified as the <code class="language-plaintext highlighter-rouge">owner</code> instead if the Sender wants the RelationshipAttribute to be owned by the Recipient. If the Sender is interested in a RelationshipAttribute that the Recipient has in the context of a Relationship with a third party, a <a href="/integrate/data-model-overview#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a> can be used. In addition, it is also permitted to specify an <a href="/integrate/data-model-overview#iqlquery">IQLQuery</a> for the <code class="language-plaintext highlighter-rouge">query</code> property of the ReadAttributeRequestItem.</p>
+<p>Note that the Sender cannot explicitly specify the Recipient’s address as the value for the <code class="language-plaintext highlighter-rouge">owner</code> property of the RelationshipAttributeQuery because the address does not have to be known beforehand. This is the case if the <a href="/integrate/read-attributes-from-peer#request-via-relationshiptemplate">Request is sent via a RelationshipTemplate</a> and not via a Message. Therefore, an empty string must be specified as the <code class="language-plaintext highlighter-rouge">owner</code> instead if the Sender wants the RelationshipAttribute to be owned by the Recipient. If the Sender is interested in a RelationshipAttribute that the Recipient has in the context of a Relationship with a third party, a <a href="/integrate/data-model-overview#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a> can be used. In addition, it is also permitted to specify an <a href="/integrate/data-model-overview#iqlquery">IQLQuery</a> for the <code class="language-plaintext highlighter-rouge">query</code> property of the ReadAttributeRequestItem.</p>
 
 <h3 id="combinations-and-usage-scenarios-of-readattributerequestitem">Combinations and usage scenarios of ReadAttributeRequestItem</h3>
 
@@ -529,7 +529,7 @@
         </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ThirdPartyRelationshipAttributeQuery"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;key of RelationshipAttribute&gt;"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"recipient"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"thirdParty"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;Address of third party&gt;"</span><span class="p">]</span><span class="w">
+        </span><span class="nl">"thirdParty"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;address of third party&gt;"</span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -688,7 +688,7 @@ When the Sender of the Request receives the AttributeSuccessionAcceptResponseIte
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-11-22T14:10:43+01:00">November 22, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-12-05T15:52:42+01:00">December 5, 2024</time></p>
 
       </footer>
 

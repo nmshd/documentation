@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-11-22T14:10:43+01:00">
+  <meta property="article:published_time" content="2024-12-05T15:52:42+01:00">
 
 
 
@@ -352,7 +352,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2024-11-22T14:10:43+01:00">
+    <meta itemprop="datePublished" content="2024-12-05T15:52:42+01:00">
     
 
     <div class="page__inner-wrap">
@@ -428,7 +428,7 @@
     <tr>
       <td>createdBy</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The Address of the Identity that created the Token.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">address</code> of the <a href="/integrate/data-model-overview#identity">Identity</a> that created the Token.</td>
       <td> </td>
     </tr>
     <tr>
@@ -510,7 +510,7 @@
     <tr>
       <td>createdBy</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The Address of the Identity that created the RelationshipTemplate.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">address</code> of the <a href="/integrate/data-model-overview#identity">Identity</a> that created the RelationshipTemplate.</td>
       <td> </td>
     </tr>
     <tr>
@@ -599,7 +599,7 @@
     <tr>
       <td>peer</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The Address of the Identity with which you have this Relationship.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">address</code> of the <a href="#identity">Identity</a> with which you have this Relationship.</td>
       <td>saved only locally</td>
     </tr>
     <tr>
@@ -634,7 +634,7 @@
     <tr>
       <td>createdBy</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The Address of the Identity that executed the Relationship operation.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">address</code> of the <a href="#identity">Identity</a> that executed the Relationship operation.</td>
       <td> </td>
     </tr>
     <tr>
@@ -704,7 +704,7 @@
     <tr>
       <td>createdBy</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The Address of the Identity that created the Message.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">address</code> of the <a href="/integrate/data-model-overview#identity">Identity</a> that created the Message.</td>
       <td> </td>
     </tr>
     <tr>
@@ -761,7 +761,7 @@
     <tr>
       <td>address</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The Address of the recipient of the Message.</td>
+      <td>The address of the recipient of the Message.</td>
       <td> </td>
     </tr>
     <tr>
@@ -814,7 +814,7 @@
     <tr>
       <td>createdBy</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The Address of the Identity that created the File.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">address</code> of the <a href="/integrate/data-model-overview#identity">Identity</a> that created the File.</td>
       <td> </td>
     </tr>
     <tr>
@@ -1378,7 +1378,7 @@ RelationshipAttributes can only be shared with third parties if their <code clas
     <tr>
       <td>peer</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The Address of the Identity the LocalAttribute was received from/shared with.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">address</code> of the <a href="#identity">Identity</a> the LocalAttribute was received from/shared with.</td>
     </tr>
     <tr>
       <td>requestReference</td>
@@ -1465,7 +1465,7 @@ This will be the case, if the peer already accepted the DeleteAttributeRequestIt
     <tr>
       <td>peer</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The Address of the peer that requested the Attribute Listener.</td>
+      <td>The address of the peer that requested the Attribute Listener.</td>
     </tr>
   </tbody>
 </table>
@@ -3257,12 +3257,12 @@ Internally, for your corresponding ThirdPartyRelationshipAttribute the <code cla
     <tr>
       <td>to</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code></td>
-      <td>The enmeshed Addresses of the main recipients of this Mail.</td>
+      <td>The enmeshed addresses of the main recipients of this Mail.</td>
     </tr>
     <tr>
       <td>cc</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>The enmeshed Addresses that should receive a copy of this Mail, additionally to the ones specified in <code class="language-plaintext highlighter-rouge">to</code>.</td>
+      <td>The enmeshed addresses that should receive a copy of this Mail, additionally to the ones specified in <code class="language-plaintext highlighter-rouge">to</code>.</td>
     </tr>
     <tr>
       <td>subject</td>
@@ -3519,7 +3519,7 @@ For example, an AuthenticationRequestItem can be accepted using the AcceptReques
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-11-22T14:10:43+01:00">November 22, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-12-05T15:52:42+01:00">December 5, 2024</time></p>
 
       </footer>
 
