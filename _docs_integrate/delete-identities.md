@@ -51,7 +51,7 @@ For example, depending on the Backbone environment, it is conceivable to set up 
 More essential are the two options for actively deciding to delete an Identity from the Backbone:
 
 - Initiation of the process of Identity deletion by the Identity itself.
-- The Backbone administrator triggers the process of Identity deletion via the Backbone Admin UI and the Identity subsequently approves the triggered deletion of its Identity.
+- The Backbone administrator triggers the process of Identity deletion and the Identity subsequently approves the triggered deletion of its Identity.
 
 Whenever a new [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) has been created due to a [self-initiated Identity deletion]({% link _docs_integrate/delete-identities.md %}#self-initiated-identity-deletion) or an [Identity deletion triggered via the Backbone Admin UI]({% link _docs_integrate/delete-identities.md %}#identity-deletion-triggered-via-the-backbone-admin-ui) or the `status` of an existing IdentityDeletionProcess has changed, the [Connector event]({% link _docs_integrate/connector-events.md %}) `transport.identityDeletionProcessStatusChanged` is raised. In addition, an external `IdentityDeletionProcessStarted` event can be received when an Identity deletion is triggered via the Backbone Admin UI.
 
