@@ -10,7 +10,7 @@ permalink: /explore/blockchain
 Having full control over data, authorizations, or the hard- and software one can use for using the data is called self-sovereignty. A self-sovereign Identity is a digital Identity which anybody can set up, without the power of somebody else to deny access, spy on or change the data.
 
 **Example:**
-The common scenario in the Internet is, to create a user profile on a website, enter all the required information including username, password, e-mail address, and many more personal information. This data is stored on one central solution provider which has the complete authority over your account. This authority can be used for tracing or blocking users. A user would not be able to login or use all the features anymore - a common topic with social login providers.
+The common scenario in the Internet is, to create a user profile on a website, enter all the required information including username, password, email address, and many more personal information. This data is stored on one central solution provider which has the complete authority over your account. This authority can be used for tracing or blocking users. A user would not be able to login or use all the features anymore - a common topic with social login providers.
 
 A self-sovereign Identity wouldn't work it that way: The user will always have the full control over this Identity – only the usage for a specific service (e.g. a specific social network) could be blocked by the network. But the Identity itself could still be used for any other tasks.
 

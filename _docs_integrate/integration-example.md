@@ -88,7 +88,7 @@ The content of the RelationshipTemplate can be widely configured, but for simpli
 On the one hand, we want to [share an Attribute]({% link _docs_integrate/share-attributes-with-peer.md %}) with the App, namely the display name of our Connector we created in the previous step.
 For this, we use a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem).
 On the other hand, we use [ReadAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) to [receive Attributes]({% link _docs_integrate/read-attributes-from-peer.md %}) from the App.
-Let's assume the Connector needs to know the given name and surname of its contact to create a Relationship and, additionally, offers the option to specify an e-mail address for communication.
+Let's assume the Connector needs to know the given name and surname of its contact to create a Relationship and, additionally, offers the option to specify an email address for communication.
 
 ```json
 {
@@ -237,7 +237,7 @@ It can be found in the Response, when accepting the Relationship.
 
 After having established a Relationship with an Identity, we can start to exchange [Messages]({% link _docs_integrate/data-model-overview.md %}#message).
 enmeshed defines different types of Messages.
-In this tutorial we will focus on Messages of type [Mail]({% link _docs_integrate/data-model-overview.md %}#mail), which can be compared to a classic e-mail: it is possible to specify one or more recipients, a subject and a body, as well as to add attachments.
+In this tutorial we will focus on Messages of type [Mail]({% link _docs_integrate/data-model-overview.md %}#mail), which can be compared to a classic email: it is possible to specify one or more recipients, a subject and a body, as well as to add attachments.
 
 ### Sending a Message with a Connector
 

@@ -63,7 +63,7 @@ Below you can find the major changes of the new Attribute handling:
   - No longer only string value support
   - Attribute values can be documented much easier
   - Complex Attributes now work out of the box, like `Person` or `Address`
-  - Semantic validation of Attribute values is now possible (e.g. phone numbers, e-mail addresses or tax ids)
+  - Semantic validation of Attribute values is now possible (e.g. phone numbers, email addresses or tax ids)
   - Binary content is now possible, i.e. storing and querying Files as Attributes of Identities
 - The Attribute value type is replacing the Attribute name most of the time
   - With typed Attribute values introduced above, we no longer require a specific Attribute name to be set. The normalized type `GivenName` replaces the old Attribute name `Person.givenName` and so on.
