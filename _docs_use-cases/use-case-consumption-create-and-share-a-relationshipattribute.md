@@ -50,7 +50,7 @@ Once you receive the [Response]({% link _docs_integrate/data-model-overview.md %
 
 ## Parameters
 
-- The `content` of the RelationshipAttribute you want to create, following the description from the [data model]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), except for the `owner`, which is automatically set to your address.
+- The `content` of the RelationshipAttribute you want to create, following the description from the [data model]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), except for the `owner`, which is automatically set to the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
 - The address of the `peer`.
 - Optionally `requestMetadata` as described in the [data model]({% link _docs_integrate/data-model-overview.md %}#request), except for the `id` and `items`, which are handled automatically.
 
