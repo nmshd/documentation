@@ -43,7 +43,8 @@ required_by:
 
 The process of [Identity deletion]({% link _docs_integrate/delete-identities.md %}) can either be self-initiated or triggered via the Backbone Admin UI and subsequently [approved]({% link _docs_use-cases/use-case-transport-approve-identitydeletionprocess.md %}) by the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
 In both cases, the created [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) with `"Approved"` as `status` can be cancelled if the Identity no longer wants to be deleted.
-This use case allows you to cancel an approved IdentityDeletionProcess for your Identity.
+This is only possible until the end of the associated grace period of the IdentityDeletionProcess specified within its `gracePeriodEndsAt` property has not been exceeded.
+This use case allows you to cancel an approved IdentityDeletionProcess for your Identity within the grace period.
 
 ## On Success
 

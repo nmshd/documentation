@@ -84,8 +84,8 @@ If it is not cancelled by then, the Identity will be irreversibly deleted from t
 
 ## Side Effects of Identity Deletion on Relationships
 
-The deletion and even the triggering of the deletion of an Identity logically has an impact on the peers who have [established a Relationship]({% link _docs_integrate/establish-relationships.md %}) with it.
-All peers of the Identity that is currently in deletion are informed that the deletion of the Identity has been triggered.
+The instigation of the deletion of an Identity as well as the actual deletion logically have an impact on the peers who have [established a Relationship]({% link _docs_integrate/establish-relationships.md %}) with it.
+All peers of the Identity that is currently in deletion are informed that the deletion of the Identity has been instigated.
 This is done via the `transport.peerToBeDeleted` [Connector event]({% link _docs_integrate/connector-events.md %}).
 In addition, it is stored within the `peerDeletionInfo` property of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) that the Identity currently has `"ToBeDeleted"` as `deletionStatus`.
 The `status` of the Relationship remains `"Active"` for the moment.

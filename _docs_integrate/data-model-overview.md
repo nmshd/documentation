@@ -99,7 +99,7 @@ A Relationship between two Identities is the prerequisite for them to exchange M
 
 ### PeerDeletionInfo
 
-The [deletion of an Identity]({% link _docs_integrate/delete-identities.md %}) and even the triggering of the deletion of an [Identity](#identity) logically has [side effects for the peers of their Relationships]({% link _docs_integrate/delete-identities.md %}#side-effects-of-identity-deletion-on-relationships).
+The instigation of the [deletion of an Identity]({% link _docs_integrate/delete-identities.md %}) as well as the actual deletion of an [Identity](#identity) logically have [side effects for the peers of their Relationships]({% link _docs_integrate/delete-identities.md %}#side-effects-of-identity-deletion-on-relationships).
 Whether the Identity with which you have a Relationship is to be deleted or has already been deleted is therefore recorded in the `peerDeletionInfo` property of the [Relationship](#relationship) by a data object of type PeerDeletionInfo.
 
 | Name           | Type                           | Description                                                                                                                     | Remarks |
