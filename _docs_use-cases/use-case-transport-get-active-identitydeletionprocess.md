@@ -41,13 +41,14 @@ required_by:
 
 {% include properties_list.html %}
 
-This use case will return the active [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your own Identity if one exists.
-An IdentityDeletionProcess is active if it is in `status` `"WaitingForApproval"` or `"Approved"`.
+From a technical perspective, the process of [Identity deletion]({% link _docs_integrate/delete-identities.md %}) is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess).
+An IdentityDeletionProcess is active if it has `"WaitingForApproval"` or `"Approved"` as `status`.
+This use case returns the active IdentityDeletionProcess for your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) if one exists.
 At all times, there can only be at most one active IdentityDeletionProcess per Identity.
 
 ## On Success
 
-- Returns the active IdentityDeletionProcess
+- Returns the active IdentityDeletionProcess.
 
 ## On Failure
 
