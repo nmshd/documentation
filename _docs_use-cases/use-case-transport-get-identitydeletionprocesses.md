@@ -41,8 +41,9 @@ required_by:
 
 {% include properties_list.html %}
 
-This use case will return all [IdentityDeletionProcesses]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your own Identity.
+From a technical perspective, the process of [Identity deletion]({% link _docs_integrate/delete-identities.md %}) is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess).
+This use case will return all IdentityDeletionProcesses for your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
 
 ## On Success
 
-- Returns a list with all IdentityDeletionProcesses of your Identity
+- Returns a list with all IdentityDeletionProcesses of your Identity.
