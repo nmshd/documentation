@@ -184,7 +184,7 @@ A File further has its content, of course. But since this is not a JSON property
 
 ## IdentityDeletionProcess
 
-Please note that the feature of triggering the deletion of an Identity via the Backbone Admin UI is currently disabled. For this reason, an IdentityDeletionProcess cannot currently have `"WaitingForApproval"` as `status`. In addition, the use cases for [approving]({% link _docs_use-cases/use-case-transport-approve-identitydeletionprocess.md %}) and [rejecting]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}) IdentityDeletionProcesses are no longer needed for the time being.
+Please note that the feature of triggering the deletion of an Identity via the Backbone Admin UI is currently disabled. For this reason, an IdentityDeletionProcess currently cannot have `"WaitingForApproval"` as `status`. In addition, the use cases for [approving]({% link _docs_use-cases/use-case-transport-approve-identitydeletionprocess.md %}) and [rejecting]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}) IdentityDeletionProcesses are not needed for the time being.
 {: .notice--warning}
 
 If you want to [delete your Identity]({% link _docs_integrate/delete-identities.md %}), the actual deletion of all data associated with that [Identity](#identity) will only take place after a certain grace period has ended.

@@ -37,7 +37,7 @@ Please note that an Identity can never trigger the process of deletion of anothe
 From a technical perspective, the process of Identity deletion is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess). It can be uniquely identified by its `id`.
 An IdentityDeletionProcess can have `"WaitingForApproval"`, `"Rejected"`, `"Approved"` or `"Cancelled"` as its `status`.
 
-Please note that the feature of triggering the deletion of an Identity via the Backbone Admin UI is currently disabled. For this reason, an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) cannot currently have `"WaitingForApproval"` as `status`. In addition, the use cases for [approving]({% link _docs_use-cases/use-case-transport-approve-identitydeletionprocess.md %}) and [rejecting]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}) IdentityDeletionProcesses are no longer needed for the time being.
+Please note that the feature of triggering the deletion of an Identity via the Backbone Admin UI is currently disabled. For this reason, an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) currently cannot have `"WaitingForApproval"` as `status`. In addition, the use cases for [approving]({% link _docs_use-cases/use-case-transport-approve-identitydeletionprocess.md %}) and [rejecting]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}) IdentityDeletionProcesses are not needed for the time being.
 {: .notice--warning}
 
 If an IdentityDeletionProcess has `"WaitingForApproval"` or `"Approved"` as `status`, it is also referred to as an **active IdentityDeletionProcess**.
@@ -52,7 +52,7 @@ There are three [use cases]({% link _docs_integrate/use-cases.md %}) for getting
 
 In principle, there are several options for deleting an Identity from the Backbone.
 For example, depending on the Backbone environment, it is conceivable to set up automatic Identity deletion after a long period of Identity inactivity.
-More essential is the option of [actively initiate the process of Identity deletion from the Backbone by the Identity itself](#self-initiated-identity-deletion).
+More essential is the option of [actively initiating the process of Identity deletion from the Backbone by the Identity itself](#self-initiated-identity-deletion).
 Whenever a new [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) has been created or the `status` of an existing IdentityDeletionProcess has changed, the [Connector event]({% link _docs_integrate/connector-events.md %}) `transport.identityDeletionProcessStatusChanged` is raised.
 
 ### Self-Initiated Identity Deletion
