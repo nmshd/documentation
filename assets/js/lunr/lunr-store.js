@@ -173,6 +173,12 @@ var store = [{
         "url": "/integrate/delete-attributes",
         "teaser": null
       },{
+        "title": "Delete Identities",
+        "excerpt":"It is not yet possible to utilize the use cases regarding the IdentityDeletionProcesses mentioned below as an Integrator of a Connector. Instead, these functionalities are currently only offered to App users in order to be able to delete their Identity. Even if some use cases still have to be provided...","categories": [],
+        "tags": [],
+        "url": "/integrate/delete-identities",
+        "teaser": null
+      },{
         "title": "Error Codes",
         "excerpt":"Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker. ErrorCode Description error.connector.errorInErrorHandler The error...","categories": [],
         "tags": [],
@@ -654,7 +660,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Get Profiles",
-        "excerpt":"   This use case retrieves all LocalAccounts available on this Device.   Parameters     On Success      A list of LocalAccounts.  ","categories": [],
+        "excerpt":"   This use case retrieves all LocalAccounts available on this Device.   On Success      A list of LocalAccounts.  ","categories": [],
         "tags": [],
         "url": "/use-case-device-get-profiles",
         "teaser": null
@@ -768,13 +774,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Approve IdentityDeletionProcess",
-        "excerpt":"This use case allows you to approve an IdentityDeletionProcess that was started via the Backbone Admin UI for your Identity. The respective IdentityDeletionProcess has the status \"WaitingForApproval\" and can either be approved or rejected. On Success Changes the status of the IdentityDeletionProcess from \"WaitingForApproval\" to \"Approved\" Returns the approved IdentityDeletionProcess...","categories": [],
+        "excerpt":"Please note that the feature of triggering the deletion of an Identity via the Backbone Admin UI is currently disabled. For this reason, an IdentityDeletionProcess currently cannot have \"WaitingForApproval\" as status. In addition, this use case for approving and the use case for rejecting IdentityDeletionProcesses are not needed for the...","categories": [],
         "tags": [],
         "url": "/use-case-transport-approve-identitydeletionprocess",
         "teaser": null
       },{
         "title": "Cancel IdentityDeletionProcess",
-        "excerpt":"   This use case allows you to cancel an approved IdentityDeletionProcess for your own Identity.   On Success      Changes the status of the IdentityDeletionProcess from \"Approved\" to \"Cancelled\"   Returns the cancelled IdentityDeletionProcess   On Failure      No IdentityDeletionProcess can be cancelled if none was in status \"Approved\" for this Identity.  ","categories": [],
+        "excerpt":"The process of Identity deletion leads to the creation of an IdentityDeletionProcess with \"Approved\" as status. It can be cancelled if the Identity no longer wants to be deleted. This is only possible as long as the end of the associated grace period of the IdentityDeletionProcess specified within its gracePeriodEndsAt...","categories": [],
         "tags": [],
         "url": "/use-case-transport-cancel-identitydeletionprocess",
         "teaser": null
@@ -852,7 +858,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Get active IdentityDeletionProcess",
-        "excerpt":"This use case will return the active IdentityDeletionProcess for your own Identity if one exists. An IdentityDeletionProcess is active if it is in status \"WaitingForApproval\" or \"Approved\". At all times, there can only be at most one active IdentityDeletionProcess per Identity. On Success Returns the active IdentityDeletionProcess On Failure No...","categories": [],
+        "excerpt":"From a technical perspective, the process of Identity deletion is described by a data object of type IdentityDeletionProcess. An IdentityDeletionProcess is active if it has \"WaitingForApproval\" or \"Approved\" as status. This use case returns the active IdentityDeletionProcess for your Identity if one exists. At all times, there can only be...","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-active-identitydeletionprocess",
         "teaser": null
@@ -900,13 +906,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Get IdentityDeletionProcess",
-        "excerpt":"   This use case allows you to query an IdentityDeletionProcess for your own Identity by its id.   Parameters      id of the IdentityDeletionProcess   On Success      Returns the IdentityDeletionProcess corresponding to the provided id   On Failure      No IdentityDeletionProcess can be returned if none exists with the given id for this Identity.  ","categories": [],
+        "excerpt":"From a technical perspective, the process of Identity deletion is described by a data object of type IdentityDeletionProcess. An IdentityDeletionProcess can be uniquely identified by its id. This use case allows you to query an IdentityDeletionProcess for your Identity by its id. Parameters id of the IdentityDeletionProcess. On Success Returns...","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-identitydeletionprocess",
         "teaser": null
       },{
         "title": "Get IdentityDeletionProcesses",
-        "excerpt":"   This use case will return all IdentityDeletionProcesses for your own Identity.   On Success      Returns a list with all IdentityDeletionProcesses of your Identity  ","categories": [],
+        "excerpt":"   From a technical perspective, the process of Identity deletion is described by a data object of type IdentityDeletionProcess. This use case will return all IdentityDeletionProcesses for your Identity.   On Success      Returns a list with all IdentityDeletionProcesses of your Identity.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-identitydeletionprocesses",
         "teaser": null
@@ -960,7 +966,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Initiate IdentityDeletionProcess",
-        "excerpt":"   This use case is intended to initiate an IdentityDeletionProcess for your Identity.   On Success      Creates an IdentityDeletionProcess with status \"Approved\"   Returns the initiated IdentityDeletionProcess   On Failure      No IdentityDeletionProcess can be initiated if there is already an active IdentityDeletionProcess, i.e. an IdentityDeletionProcess in status \"Approved\" or \"WaitingForApproval\", for this Identity.  ","categories": [],
+        "excerpt":"Regarding self-initiated Identity deletion, this use case can be utilized to initiate an IdentityDeletionProcess for your Identity. The generated IdentityDeletionProcess immediately has \"Approved\" as its status and describes that the Identity will be deleted after the grace period ends unless the IdentityDeletionProcess is cancelled by the Identity by then. On...","categories": [],
         "tags": [],
         "url": "/use-case-transport-initiate-identitydeletionprocess",
         "teaser": null
@@ -1020,7 +1026,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Reject IdentityDeletionProcess",
-        "excerpt":"This use case allows you to reject an IdentityDeletionProcess that was started via the Backbone Admin UI for your own Identity. The respective IdentityDeletionProcess has the status \"WaitingForApproval\" and can either be approved or rejected. On Success Changes the status of the IdentityDeletionProcess from \"WaitingForApproval\" to \"Rejected\" Returns the rejected...","categories": [],
+        "excerpt":"Please note that the feature of triggering the deletion of an Identity via the Backbone Admin UI is currently disabled. For this reason, an IdentityDeletionProcess currently cannot have \"WaitingForApproval\" as status. In addition, this use case for rejecting and the use case for approving IdentityDeletionProcesses are not needed for the...","categories": [],
         "tags": [],
         "url": "/use-case-transport-reject-identitydeletionprocess",
         "teaser": null

@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-12-05T15:52:42+01:00">
+  <meta property="article:published_time" content="2024-12-12T13:07:04+01:00">
 
 
 
@@ -206,7 +206,7 @@
       
         <li>
           
-            <span class="nav__sub-title">Relationships between Identities</span>
+            <span class="nav__sub-title">Identities and Relationships</span>
           
 
           
@@ -218,13 +218,15 @@
             
               <li><a href="/integrate/terminate-relationships">Terminate Relationships</a></li>
             
+              <li><a href="/integrate/delete-identities">Delete Identities</a></li>
+            
           </ul>
           
         </li>
       
         <li>
           
-            <span class="nav__sub-title">Working with Requests</span>
+            <span class="nav__sub-title">Working With Requests</span>
           
 
           
@@ -270,7 +272,7 @@
       
         <li>
           
-            <span class="nav__sub-title">Request consent</span>
+            <span class="nav__sub-title">Request Consent</span>
           
 
           
@@ -352,7 +354,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Cancel IdentityDeletionProcess">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2024-12-05T15:52:42+01:00">
+    <meta itemprop="datePublished" content="2024-12-12T13:07:04+01:00">
     
 
     <div class="page__inner-wrap">
@@ -449,19 +451,22 @@
 </div>
 -->
 
-<p>This use case allows you to cancel an approved <a href="/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> for your own Identity.</p>
+<p>The process of <a href="/integrate/delete-identities">Identity deletion</a> leads to the creation of an <a href="/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> with <code class="language-plaintext highlighter-rouge">"Approved"</code> as <code class="language-plaintext highlighter-rouge">status</code>.
+It can be cancelled if the Identity no longer wants to be deleted.
+This is only possible as long as the end of the associated grace period of the IdentityDeletionProcess specified within its <code class="language-plaintext highlighter-rouge">gracePeriodEndsAt</code> property has not yet been reached.
+This use case allows you to cancel an approved IdentityDeletionProcess for your Identity within the grace period.</p>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>Changes the <code class="language-plaintext highlighter-rouge">status</code> of the IdentityDeletionProcess from <code class="language-plaintext highlighter-rouge">"Approved"</code> to <code class="language-plaintext highlighter-rouge">"Cancelled"</code></li>
-  <li>Returns the cancelled IdentityDeletionProcess</li>
+  <li>Changes the <code class="language-plaintext highlighter-rouge">status</code> of the IdentityDeletionProcess from <code class="language-plaintext highlighter-rouge">"Approved"</code> to <code class="language-plaintext highlighter-rouge">"Cancelled"</code>.</li>
+  <li>Returns the cancelled IdentityDeletionProcess.</li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>No IdentityDeletionProcess can be cancelled if none was in <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"Approved"</code> for this Identity.</li>
+  <li>No IdentityDeletionProcess can be cancelled if none has <code class="language-plaintext highlighter-rouge">"Approved"</code> as <code class="language-plaintext highlighter-rouge">status</code> for this Identity.</li>
 </ul>
  
 
@@ -475,7 +480,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-12-05T15:52:42+01:00">December 5, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-12-12T13:07:04+01:00">December 12, 2024</time></p>
 
       </footer>
 

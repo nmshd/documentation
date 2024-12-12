@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-12-05T15:52:42+01:00">
+  <meta property="article:published_time" content="2024-12-12T13:07:04+01:00">
 
 
 
@@ -206,7 +206,7 @@
       
         <li>
           
-            <span class="nav__sub-title">Relationships between Identities</span>
+            <span class="nav__sub-title">Identities and Relationships</span>
           
 
           
@@ -218,13 +218,15 @@
             
               <li><a href="/integrate/terminate-relationships">Terminate Relationships</a></li>
             
+              <li><a href="/integrate/delete-identities">Delete Identities</a></li>
+            
           </ul>
           
         </li>
       
         <li>
           
-            <span class="nav__sub-title">Working with Requests</span>
+            <span class="nav__sub-title">Working With Requests</span>
           
 
           
@@ -270,7 +272,7 @@
       
         <li>
           
-            <span class="nav__sub-title">Request consent</span>
+            <span class="nav__sub-title">Request Consent</span>
           
 
           
@@ -352,7 +354,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Reject IdentityDeletionProcess">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2024-12-05T15:52:42+01:00">
+    <meta itemprop="datePublished" content="2024-12-12T13:07:04+01:00">
     
 
     <div class="page__inner-wrap">
@@ -449,20 +451,23 @@
 </div>
 -->
 
-<p>This use case allows you to reject an <a href="/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> that was started via the Backbone Admin UI for your own Identity.
-The respective IdentityDeletionProcess has the <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code> and can either be <a href="/use-case-transport-approve-identitydeletionprocess">approved</a> or rejected.</p>
+<p class="notice--warning">Please note that the feature of triggering the deletion of an Identity via the Backbone Admin UI is currently disabled. For this reason, an <a href="/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> currently cannot have <code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code> as <code class="language-plaintext highlighter-rouge">status</code>. In addition, this use case for rejecting and the use case for <a href="/use-case-transport-approve-identitydeletionprocess">approving IdentityDeletionProcesses</a> are not needed for the time being.</p>
+
+<p>In the case of <a href="/integrate/delete-identities">Identity deletion</a> triggered via the Backbone Admin UI, an <a href="/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> with <code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code> as <code class="language-plaintext highlighter-rouge">status</code> for your <a href="/integrate/data-model-overview#identity">Identity</a> is created via the Backbone Admin UI.
+This use case allows you to reject this IdentityDeletionProcess.
+Alternatively, the <a href="/use-case-transport-approve-identitydeletionprocess">IdentityDeletionProcess can be approved</a>.</p>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>Changes the <code class="language-plaintext highlighter-rouge">status</code> of the IdentityDeletionProcess from <code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code> to <code class="language-plaintext highlighter-rouge">"Rejected"</code></li>
-  <li>Returns the rejected IdentityDeletionProcess</li>
+  <li>Changes the <code class="language-plaintext highlighter-rouge">status</code> of the IdentityDeletionProcess from <code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code> to <code class="language-plaintext highlighter-rouge">"Rejected"</code>.</li>
+  <li>Returns the rejected IdentityDeletionProcess.</li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>No IdentityDeletionProcess can be rejected if none was started via the Backbone Admin UI, i.e. no IdentityDeletionProcess in <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code> exists for this Identity.</li>
+  <li>No IdentityDeletionProcess can be rejected if none was started via the Backbone Admin UI, i.e. no IdentityDeletionProcess with <code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code> as <code class="language-plaintext highlighter-rouge">status</code> exists for this Identity.</li>
 </ul>
  
 
@@ -476,7 +481,7 @@ The respective IdentityDeletionProcess has the <code class="language-plaintext h
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-12-05T15:52:42+01:00">December 5, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-12-12T13:07:04+01:00">December 12, 2024</time></p>
 
       </footer>
 

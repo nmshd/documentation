@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-12-05T15:52:42+01:00">
+  <meta property="article:published_time" content="2024-12-12T13:07:04+01:00">
 
 
 
@@ -206,7 +206,7 @@
       
         <li>
           
-            <span class="nav__sub-title">Relationships between Identities</span>
+            <span class="nav__sub-title">Identities and Relationships</span>
           
 
           
@@ -218,13 +218,15 @@
             
               <li><a href="/integrate/terminate-relationships">Terminate Relationships</a></li>
             
+              <li><a href="/integrate/delete-identities">Delete Identities</a></li>
+            
           </ul>
           
         </li>
       
         <li>
           
-            <span class="nav__sub-title">Working with Requests</span>
+            <span class="nav__sub-title">Working With Requests</span>
           
 
           
@@ -270,7 +272,7 @@
       
         <li>
           
-            <span class="nav__sub-title">Request consent</span>
+            <span class="nav__sub-title">Request Consent</span>
           
 
           
@@ -352,7 +354,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Error Codes">
     <meta itemprop="description" content="Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker.">
-    <meta itemprop="datePublished" content="2024-12-05T15:52:42+01:00">
+    <meta itemprop="datePublished" content="2024-12-12T13:07:04+01:00">
     
 
     <div class="page__inner-wrap">
@@ -637,6 +639,14 @@
       <td>You need a <a href="/integrate/data-model-overview#relationship">Relationship</a> to send/decide that <a href="/integrate/data-model-overview#request">Request</a>.</td>
     </tr>
     <tr>
+      <td>error.consumption.requests.peerIsInDeletion <a name="error.consumption.requests.peerIsInDeletion"></a></td>
+      <td>The <a href="/integrate/data-model-overview#request">Request</a> cannot be created or decided, because the <code class="language-plaintext highlighter-rouge">peer</code> of the <a href="/integrate/data-model-overview#relationship">Relationship</a> to which the Request belongs has <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> as <code class="language-plaintext highlighter-rouge">peerDeletionInfo.deletionStatus</code>.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.requests.peerIsDeleted <a name="error.consumption.requests.peerIsDeleted"></a></td>
+      <td>The <a href="/integrate/data-model-overview#request">Request</a> cannot be created or decided, because the <code class="language-plaintext highlighter-rouge">peer</code> of the <a href="/integrate/data-model-overview#relationship">Relationship</a> to which the Request belongs has <code class="language-plaintext highlighter-rouge">"Deleted"</code> as <code class="language-plaintext highlighter-rouge">peerDeletionInfo.deletionStatus</code>.</td>
+    </tr>
+    <tr>
       <td>error.consumption.requests.servalErrorDuringRequestItemProcessing <a name="error.consumption.requests.servalErrorDuringRequestItemProcessing"></a></td>
       <td>A serialization / validation error occurred during the <a href="/integrate/data-model-overview#requestitems">RequestItem</a> processing. Check the type definitions of your used types.</td>
     </tr>
@@ -727,6 +737,14 @@
     <tr>
       <td>error.runtime.invalidTokenContent <a name="error.runtime.invalidTokenContent"></a></td>
       <td>The given <a href="/integrate/data-model-overview#token">Token</a> has an invalid <code class="language-plaintext highlighter-rouge">content</code> for this <a href="/use-case-transport-create-own-token">route</a>.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.messages.hasNoActiveRelationship <a name="error.runtime.messages.hasNoActiveRelationship"></a></td>
+      <td>The <a href="/integrate/data-model-overview#message">Message</a> cannot be sent, because there is no active <a href="/integrate/data-model-overview#relationship">Relationship</a> to one or more of its <code class="language-plaintext highlighter-rouge">recipients</code>. However, please note that Messages whose <code class="language-plaintext highlighter-rouge">content</code> is a <a href="/integrate/data-model-overview#notification">Notification</a> can still be sent on terminated Relationships.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.messages.peerIsInDeletion <a name="error.runtime.messages.peerIsInDeletion"></a></td>
+      <td>The <a href="/integrate/data-model-overview#message">Message</a> cannot be sent, because one or more of its <code class="language-plaintext highlighter-rouge">recipients</code> to which <a href="/integrate/data-model-overview#relationship">Relationships</a> exist have <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> as <code class="language-plaintext highlighter-rouge">peerDeletionInfo.deletionStatus</code> and the <code class="language-plaintext highlighter-rouge">content</code> of the Message is not a <a href="/integrate/data-model-overview#notification">Notification</a>.</td>
     </tr>
     <tr>
       <td>error.runtime.messages.fileNotFoundInMessage <a name="error.runtime.messages.fileNotFoundInMessage"></a></td>
@@ -869,8 +887,12 @@
       <td><a href="/operate/configuration#configuration-options">The <code class="language-plaintext highlighter-rouge">platformClientSecret</code> was not set.</a></td>
     </tr>
     <tr>
-      <td>error.transport.messages.missingOrInactiveRelationship <a name="error.transport.messages.missingOrInactiveRelationship"></a></td>
-      <td>An active <a href="/integrate/data-model-overview#relationship">Relationship</a> with the given <code class="language-plaintext highlighter-rouge">address</code> does not exist, consider <a href="/use-case-transport-get-relationship-by-address">‘Get Relationship’</a>.</td>
+      <td>error.transport.messages.hasNeitherActiveNorTerminatedRelationship <a name="error.transport.messages.hasNeitherActiveNorTerminatedRelationship"></a></td>
+      <td>The <a href="/integrate/data-model-overview#message">Message</a> cannot be sent, because there is neither an active nor a terminated <a href="/integrate/data-model-overview#relationship">Relationship</a> to one or more of its <code class="language-plaintext highlighter-rouge">recipients</code>.</td>
+    </tr>
+    <tr>
+      <td>error.transport.messages.peerIsDeleted <a name="error.transport.messages.peerIsDeleted"></a></td>
+      <td>The <a href="/integrate/data-model-overview#message">Message</a> cannot be sent, because one or more of its <code class="language-plaintext highlighter-rouge">recipients</code> to which <a href="/integrate/data-model-overview#relationship">Relationships</a> exist have <code class="language-plaintext highlighter-rouge">"Deleted"</code> as <code class="language-plaintext highlighter-rouge">peerDeletionInfo.deletionStatus</code>.</td>
     </tr>
     <tr>
       <td>error.transport.messages.ownAddressNotInList <a name="error.transport.messages.ownAddressNotInList"></a></td>
@@ -898,7 +920,11 @@
     </tr>
     <tr>
       <td>error.transport.relationships.<br />activeIdentityDeletionProcessOfOwnerOfRelationshipTemplate <a name="error.transport.relationships.&lt;br&gt;activeIdentityDeletionProcessOfOwnerOfRelationshipTemplate"></a></td>
-      <td>The <a href="/integrate/data-model-overview#identity">Identity</a> who created the <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> is currently in the process of deleting itself. Thus, it is not possible to establish a <a href="/integrate/data-model-overview#relationship">Relationship</a> to it.</td>
+      <td>The <a href="/integrate/data-model-overview#identity">Identity</a> that created the <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> is currently in the process of deleting itself. Thus, it is not possible to establish a <a href="/integrate/data-model-overview#relationship">Relationship</a> to it.</td>
+    </tr>
+    <tr>
+      <td>error.transport.relationships.deletedOwnerOfRelationshipTemplate <a name="error.transport.relationships.deletedOwnerOfRelationshipTemplate"></a></td>
+      <td>The <a href="/integrate/data-model-overview#identity">Identity</a> that created the <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> has been deleted in the meantime. Thus, it is not possible to establish a <a href="/integrate/data-model-overview#relationship">Relationship</a> to it.</td>
     </tr>
     <tr>
       <td>error.transport.relationships.operationOnlyAllowedForPeer <a name="error.transport.relationships.operationOnlyAllowedForPeer"></a></td>
@@ -945,7 +971,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-12-05T15:52:42+01:00">December 5, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-12-12T13:07:04+01:00">December 12, 2024</time></p>
 
       </footer>
 
