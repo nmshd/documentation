@@ -82,7 +82,7 @@ The deletion of an Identity has effects on [creating a new Relationship](#creati
 ### Creation of New Relationships
 
 To [establish a Relationship]({% link _docs_integrate/establish-relationships.md %}), an Identity must first create a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate), which is then used by its peer to create a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status`.
-However, if the creator of the RelationshipTemplate is meanwhile in deletion or has already deleted itself, the peer will receive an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.transport.relationships.activeIdentityDeletionProcessOfOwnerOfRelationshipTemplate` or `error.platform.recordNotFound`, respectively, when trying to create a new Relationship using the RelationshipTemplate.
+However, if the creator of the RelationshipTemplate is meanwhile in deletion or has already deleted itself, the peer will receive an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.transport.relationships.activeIdentityDeletionProcessOfOwnerOfRelationshipTemplate` or `error.transport.relationships.deletedOwnerOfRelationshipTemplate`, respectively, when trying to create a new Relationship using the RelationshipTemplate.
 
 ### Sending Messages
 
