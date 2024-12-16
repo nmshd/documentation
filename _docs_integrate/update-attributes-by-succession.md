@@ -85,8 +85,10 @@ After succeeding a RepositoryAttribute, you can check [with which of your peers 
 Your own shared IdentityAttributes associated with the peers chosen will be succeeded in the same manner as your RepositoryAttribute before.
 Then, a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification) is sent to the peers, containing a [PeerSharedAttributeSucceededNotificationItem]({% link _docs_integrate/data-model-overview.md %}#peersharedattributesucceedednotificationitem).
 In the `successorContent` property of the latter the updated IdentityAttribute is transmitted and automatically a likewise succession at the peers' side will be triggered, such that their LocalAttribute versions replicate the succession chain at your side.
-Please note that the Notification is queued if the [Relationship is currently terminated]({% link _docs_integrate/terminate-relationships.md %}#terminate-an-active-relationship).
-It can then only be received and processed once the [Relationship has been reactivated]({% link _docs_integrate/terminate-relationships.md %}#reactivate-a-terminated-relationship).
+Please note that the Notification is queued if the [Relationship is currently terminated]({% link _docs_integrate/terminate-relationships.md %}#terminate-an-active-relationship) but not yet decomposed.
+It can then only be received and processed if the [Relationship has been reactivated]({% link _docs_integrate/terminate-relationships.md %}#reactivate-a-terminated-relationship).
+The Notification is also queued if the [peer is currently in deletion]({% link _docs_integrate/delete-identities.md %}#effects-of-identity-deletion-on-relationships) but not yet deleted.
+It can then only be received and processed if the peer has [cancelled its deletion]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}).
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/079d7602-95af-4ddf-8fd5-cca5294038d9" id="Fv0-x9lenepV"></iframe></div>
 
@@ -112,8 +114,10 @@ Equally to IdentityAttributes, again only the `owner` can [succeed a Relationshi
 Doing so, a new version of the own shared RelationshipAttribute will be created at your side.
 The `succeeds` property of this LocalAttribute links to the old version, whose `succeededBy` property in turn is updated to the `id` of the newly created successor.
 Then, a Notification is sent automatically to the peer, which triggers the creation of a new peer shared RelationshipAttribute at their side, such that their LocalAttribute versions replicate the succession chain at your side.
-Please note that the Notification is queued if the [Relationship is currently terminated]({% link _docs_integrate/terminate-relationships.md %}#terminate-an-active-relationship).
-It can then only be received and processed once the [Relationship has been reactivated]({% link _docs_integrate/terminate-relationships.md %}#reactivate-a-terminated-relationship).
+Please note that the Notification is queued if the [Relationship is currently terminated]({% link _docs_integrate/terminate-relationships.md %}#terminate-an-active-relationship) but not yet decomposed.
+It can then only be received and processed if the [Relationship has been reactivated]({% link _docs_integrate/terminate-relationships.md %}#reactivate-a-terminated-relationship).
+Furthermore, the Notification is also queued if the [peer is currently in deletion]({% link _docs_integrate/delete-identities.md %}#effects-of-identity-deletion-on-relationships) but not yet deleted.
+It can then only be received and processed if the peer has [cancelled its deletion]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}).
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/67c46978-696b-4adf-b04a-cf27d0438f53" id="ww0-.JinZtEX"></iframe></div>
 
