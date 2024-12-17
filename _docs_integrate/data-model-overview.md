@@ -67,6 +67,7 @@ A Token has the following properties:
 ### Object for Password Protection of Token
 
 A [Token](#token) can be protected by a password to ensure that it is protected from unauthorized access.
+Indeed, in order for an Identity to [load the Token]({% link _docs_use-cases/use-case-transport-load-token-created-by-others.md %}), it must enter the correct password.
 Information about the password protection of a Token is recorded within its optional `passwordProtection` property.
 
 | Name          | Type                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                               | Remarks |
