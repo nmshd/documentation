@@ -75,21 +75,48 @@ How to send a Request via a RelationshipTemplate is explained in detail in the [
 
 If the RelationshipTemplate is intended to establish a Relationship between the templator and another Connector, an [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent) can be used instead of a RelationshipTemplateContent as the value of the [RelationshipTemplate's]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) `content`. An ArbitraryRelationshipTemplateContent has a single `value` property with no type restriction and is appropriate if the standard way is insufficient.
 
-### Personalize the RelationshipTemplate
+#### Personalization of a RelationshipTemplate
 
-If the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) is only for creating a Relationship with a single known [Identity]({% link _docs_integrate/data-model-overview.md %}#identity), you can set that Identity's `address` in the RelationshipTemplate:
+The optional property `forIdentity` of a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) can be added to the [input for creating a RelationshipTemplate]({% link _docs_integrate/establish-relationships.md %}#input-for-creating-a-relationshiptemplate) in order to personalize it.
+If the RelationshipTemplate is only for creating a Relationship with a single known [Identity]({% link _docs_integrate/data-model-overview.md %}#identity), you can set that Identity's `address` in the RelationshipTemplate:
 
 ```jsonc
 {
   // ...
   "content": {
-    // ...
+    // RelationshipTemplateContent or ArbitraryRelationshipTemplateContent
+    ...
   },
-  "forIdentity": "<address that the RelationshipTemplate is intended for>"
+  "forIdentity": "<address of Identity designated for RelationshipTemplate>"
 }
 ```
 
 Only that Identity will be able to continue with establishing a Relationship. This also protects sensitive data of that Identity contained in the RelationshipTemplate from outside access.
+
+#### Password Protection of a RelationshipTemplate
+
+The optional property `passwordProtection` of a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) can be added to the [input for creating a RelationshipTemplate]({% link _docs_integrate/establish-relationships.md %}#input-for-creating-a-relationshiptemplate) to provide password protection.
+If the RelationshipTemplate is to be protected by a password, the corresponding password must be specified within its `passwordProtection.password` property.
+Only the Identities that know the password of the RelationshipTemplate will be able to continue with establishing a Relationship.
+This allows the RelationshipTemplate to be protected from unauthorized access.
+
+```jsonc
+{
+  // ...
+  "content": {
+    // RelationshipTemplateContent or ArbitraryRelationshipTemplateContent
+    ...
+  },
+  "passwordProtection": {
+    "password": "<password of RelationshipTemplate>",
+    "passwordIsPin": <can be set to true if the password is a pin>
+  }
+}
+```
+
+To specialize the input field for password entry in the UI of the App, the value of the optional field `passwordProtection.passwordIsPin` can be set to `true` if the password consists of 4 to 16 digits.
+In this case, the password is interpreted as a pin and a corresponding input field is displayed when the pin needs to be entered.
+However, if the value is `undefined`, a regular input field for entering the password is displayed regardless of whether it could also be interpreted as a pin.
 
 ### Successfully Created RelationshipTemplate
 
