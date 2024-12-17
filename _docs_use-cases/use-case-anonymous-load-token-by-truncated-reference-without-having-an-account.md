@@ -49,6 +49,7 @@ This can be used to fetch `Tokens` for Device Onboarding or Recovery.
 ## Parameters
 
 - The `reference` that contains all information to load a Token.
+- `password` to enter the password if the Token is protected by a password via its `passwordProtection` property.
 
 ## On Success
 
@@ -57,3 +58,5 @@ This can be used to fetch `Tokens` for Device Onboarding or Recovery.
 ## On Failure
 
 - There is no `Token` that matches the `reference`.
+- The Token is personalized to an [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) via the property `forIdentity` of the Token.
+- No `password` or an incorrect `password` was entered in case of a password protected Token.

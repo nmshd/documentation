@@ -51,7 +51,8 @@ Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for a
 - `templateId` is the `id` of the RelationshipTemplate the Token should be created for.
 - `expiresAt` is the ISODateTime the Token expires at.
 - `ephemeral` indicates if the Token should be ephemeral and thus not be stored and cached on the local database. This is especially useful for Tokens which are created regularly, e.g. for RelationshipTemplates and doesn't need to be stored.
-- `forIdentity` can be set to an enmeshed address. If set, only the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) with that `address` can load the Token from the Backbone.
+- `forIdentity` can be set to an enmeshed address. If set, only the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) with that `address` can load the Token from the Backbone. If the RelationshipTemplate is already personalized via its `forIdentity` property, the Token created from it must have the same personalization.
+- Optionally, `passwordProtection` can be specified as an [object for password protection of a Token]({% link _docs_integrate/data-model-overview.md %}#object-for-password-protection-of-token). If set, only the Identities that know the password specified within the `passwordProtection.password` property of the Token can load it from the Backbone. In addition, the optional property `passwordProtection.passwordIsPin` can be used to specialize the UI of the App in case the password is a pin. If the RelationshipTemplate is already password protected via its `passwordProtection` property, the Token created from it must have the same password protection.
 
 ## On Success
 
@@ -60,4 +61,8 @@ Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for a
 ## On Failure
 
 - `templateId` does not resolve to a RelationshipTemplate.
+- The RelationshipTemplate is owned by another Identity, which means that the value of its `isOwn` property is `false`.
 - `expiresAt` lies in the past.
+- The RelationshipTemplate is personalized via its `forIdentity` property and the Token has not the same personalization via its `forIdentity` property.
+- The RelationshipTemplate is password protected via its `passwordProtection` property and the Token has not the same password protection via its `passwordProtection` property.
+- In case of password protection of the Token, a `passwordProtection.password` that does not consist of 4 to 16 digits was specified, but the value of `passwordProtection.passwordIsPin` was nevertheless set to `true`.

@@ -50,6 +50,7 @@ You can execute this use case if you know the `truncatedReference` of the peer's
 
 - `reference` that identifies the Token.
 - `ephemeral` to indicate that the Token should be stored locally.
+- `password` to enter the password if the Token is protected by a password via its `passwordProtection` property.
 
 ## On Success
 
@@ -61,3 +62,4 @@ You can execute this use case if you know the `truncatedReference` of the peer's
 - The Token does not exist.
 - The Token is expired.
 - The Token is personalized to a different [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) via the property `forIdentity` of the Token.
+- No `password` or an incorrect `password` was entered in case of a password protected Token.

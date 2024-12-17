@@ -52,8 +52,10 @@ There are two different options to use this use case, depending on the actual in
 
 - by knowing a `truncatedReference` of the peer's RelationshipTemplate (RelationshipTemplateReferenceTruncated)
   - `reference` as string
-- by knowing a `truncatedReference` of the peer's Token, which references to the peer's RelationshipTemplate TokenReferenceTruncated
+- by knowing a `truncatedReference` of the peer's [Token]({% link _docs_integrate/data-model-overview.md %}#token), which references to the peer's RelationshipTemplate (TokenReferenceTruncated)
   - `reference` as string
+
+If the RelationshipTemplate or the Token, if there is one, is protected by a password via the `passwordProtection` property, it must be entered with the `password` parameter of this use case in order to be authorized to load the RelationshipTemplate.
 
 ## On Success
 
@@ -66,3 +68,4 @@ There are two different options to use this use case, depending on the actual in
 - The RelationshipTemplate is expired.
 - The `maxNumberOfAllocations` of the RelationshipTemplate are depleted.
 - The RelationshipTemplate is personalized to a different [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) via the property `forIdentity` of the RelationshipTemplate.
+- No `password` or an incorrect `password` was entered in case of a password protected RelationshipTemplate or a password protected Token, if there is one.

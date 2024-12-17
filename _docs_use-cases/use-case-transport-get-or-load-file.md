@@ -44,9 +44,10 @@ api_route_regex: ^GET /api/v2/Files/{idOrReference}$
 
 This use case retrieves a [File]({% link _docs_integrate/data-model-overview.md %}#file) by an `id` or the `reference`. This is usually the case, when a reference to a File was received by a peer (over a Message or by any side channel).
 
-## Paramers
+## Parameters
 
 - `id` or `reference` that identify the File.
+- `password` to enter the password if the File is to be loaded from a `reference` to a via its `passwordProtection` property password protected [Token]({% link _docs_integrate/data-model-overview.md %}#token).
 
 ## On Success
 
@@ -55,3 +56,4 @@ This use case retrieves a [File]({% link _docs_integrate/data-model-overview.md 
 ## On Failure
 
 - The given `id` or `reference` does not resolve to a File.
+- No `password` or an incorrect `password` was entered in case of a File that is to be loaded from a `reference` to a password protected Token.
