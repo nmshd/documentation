@@ -56,4 +56,5 @@ This use case retrieves a [File]({% link _docs_integrate/data-model-overview.md 
 ## On Failure
 
 - The given `id` or `reference` does not resolve to a File.
+- The File is to be loaded from a `reference` to a via its `forIdentity` property to a different [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) personalized Token.
 - No `password` or an incorrect `password` was entered in case of a File that is to be loaded from a `reference` to a password protected Token.
