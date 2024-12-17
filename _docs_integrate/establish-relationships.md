@@ -96,9 +96,9 @@ Only that Identity will be able to continue with establishing a Relationship. Th
 #### Password Protection of a RelationshipTemplate
 
 The optional property `passwordProtection` of a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) can be added to the [input for creating a RelationshipTemplate]({% link _docs_integrate/establish-relationships.md %}#input-for-creating-a-relationshiptemplate) to provide password protection.
-If the RelationshipTemplate is to be protected by a password, the corresponding password must be specified within its `passwordProtection.password` property.
-Only the Identities that know the password of the RelationshipTemplate will be able to continue with establishing a Relationship.
 This allows the RelationshipTemplate to be protected from unauthorized access.
+Only the Identities that know the password of the RelationshipTemplate will be able to continue with establishing a Relationship.
+If the RelationshipTemplate is to be protected by a password, the corresponding password must be specified within its `passwordProtection.password` property.
 
 ```jsonc
 {
