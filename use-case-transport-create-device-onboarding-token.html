@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Succeed a RepositoryAttribute - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Create Device Onboarding Token - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Succeed a RepositoryAttribute">
-<meta property="og:url" content="/use-case-consumption-succeed-a-repositoryattribute">
+<meta property="og:title" content="Create Device Onboarding Token">
+<meta property="og:url" content="/use-case-transport-create-device-onboarding-token">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/use-case-consumption-succeed-a-repositoryattribute">
+<link rel="canonical" href="/use-case-transport-create-device-onboarding-token">
 
 
 
@@ -352,7 +352,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Succeed a RepositoryAttribute">
+    <meta itemprop="headline" content="Create Device Onboarding Token">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2024-12-18T17:47:44+01:00">
     
@@ -361,7 +361,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/use-case-consumption-succeed-a-repositoryattribute" itemprop="url">Succeed a RepositoryAttribute
+            <a href="/use-case-transport-create-device-onboarding-token" itemprop="url">Create Device Onboarding Token
 </a>
           </h1>
           
@@ -384,27 +384,27 @@
     <table>
         
         <tr><td>id</td>
-            <td>RA11</td></tr>
+            <td>RD5</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
         
         <tr><td>layer</td>
-            <td>Consumption</td></tr>
+            <td>Transport</td></tr>
         
         <tr><td>facade</td>
-            <td>AttributesFacade</td></tr>
+            <td>DevicesFacade</td></tr>
         
         <tr><td>function</td>
-            <td>succeedRepositoryAttribute</td></tr>
+            <td>createDeviceOnboardingToken</td></tr>
         
         <tr></tr>
         
         <tr><td>feature category</td>
-            <td>Cross-Identity Attribute sharing</td></tr>
+            <td>Multi-device</td></tr>
         
         <tr><td>tech category</td>
-            <td>Attributes</td></tr>
+            <td>Devices</td></tr>
         
         <tr><td>status</td>
             <td>DONE</td></tr>
@@ -418,33 +418,32 @@
             <td>Identity</td></tr>
         
         <tr><td>trigger</td>
-            <td>REST API</td></tr>
+            <td>Runtime</td></tr>
         
         <tr></tr>
         
         <tr></tr>
         
         <tr><td>priority</td>
-            <td>HIGH</td></tr>
+            <td>n/a</td></tr>
         
         <tr><td>complexity</td>
-            <td>MEDIUM</td></tr>
+            <td>n/a</td></tr>
         
         <tr><td>size</td>
-            <td>M</td></tr>
+            <td>n/a</td></tr>
         
         <tr></tr>
         
         <tr></tr>
         
-        <tr><td>api_route_regex</td>
-            <td>POST /api/v2/Attributes/{predecessorId}/Succeed</td></tr>
+        <tr></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-consumption-succeed-a-repositoryattribute</td></tr>
+            <td>use-case-transport-create-device-onboarding-token</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -452,60 +451,27 @@
 </div>
 -->
 
-<p>If the <code class="language-plaintext highlighter-rouge">value</code> of a <a href="/integrate/data-model-overview#identityattribute">RepositoryAttribute</a> changes, this can be replicated in enmeshed with this use case.
-It allows you to <a href="/integrate/update-attributes-by-succession">update the <code class="language-plaintext highlighter-rouge">content</code></a> and keeps a coherent history of all versions by establishing a doubly linked list, using the <a href="/integrate/data-model-overview#localattribute">LocalAttribute&#8217;s</a> parameters <code class="language-plaintext highlighter-rouge">succeeds</code> and <code class="language-plaintext highlighter-rouge">succeededBy</code>.
-Hence, every LocalAttribute may have exactly one predecessor and one successor.
-In case you shared the preceeding version of the RepositoryAttribute, the corresponding own shared IdentityAttribute copy will only be succeeded, if you decide to <a href="/use-case-consumption-notify-peer-about-repositoryattribute-succession">notify the peer</a> of the respective shared IdentityAttribute about the succession.</p>
+<p>This use case retrieves the <a href="/integrate/data-model-overview#token">Token</a>
+of a so far not-onboarded Device that corresponds to the given Device <code class="language-plaintext highlighter-rouge">id</code> in order to onboard the Device to the Identity.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">predecessorId</code>: the <code class="language-plaintext highlighter-rouge">id</code> of the RepositoryAttribute you want to succeed</li>
-  <li>The <code class="language-plaintext highlighter-rouge">successorContent</code> according to the parameters of an IdentityAttribute as described in the <a href="/integrate/data-model-overview#identityattribute">data model</a>, except for the <code class="language-plaintext highlighter-rouge">owner</code>, which is automatically set to the <code class="language-plaintext highlighter-rouge">address</code> of your <a href="/integrate/data-model-overview#identity">Identity</a>.</li>
+  <li><code class="language-plaintext highlighter-rouge">id</code> of the Device.</li>
+  <li><code class="language-plaintext highlighter-rouge">expiresAt</code> is the ISODateTime the Token expires at.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>The response returns a <code class="language-plaintext highlighter-rouge">predecessor</code> and a <code class="language-plaintext highlighter-rouge">successor</code> LocalAttribute.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">predecessor</code> is an updated version of the RepositoryAttribute belonging to <code class="language-plaintext highlighter-rouge">predecessorId</code>, having the <code class="language-plaintext highlighter-rouge">succeededBy</code> field set to the <code class="language-plaintext highlighter-rouge">successor</code>&#8217;s <code class="language-plaintext highlighter-rouge">id</code>.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">successor</code> is a new RepositoryAttribute with the updated <code class="language-plaintext highlighter-rouge">successorContent</code>. Its <code class="language-plaintext highlighter-rouge">succeeds</code> property links to the <code class="language-plaintext highlighter-rouge">predecessor</code>.</li>
+  <li>Returns the Token of the Device to onboard.</li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>The response cannot be created, if the <code class="language-plaintext highlighter-rouge">predecessorId</code> belongs to a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>.</li>
-  <li>The response cannot be created, if the <code class="language-plaintext highlighter-rouge">predecessorId</code> belongs to an IdentityAttribute with a <code class="language-plaintext highlighter-rouge">shareInfo</code>.</li>
-  <li>The response cannot be created, if the LocalAttribute already has a successor.</li>
-  <li>The response cannot be created, if the <code class="language-plaintext highlighter-rouge">successorContent</code> contains invalid changes, e.g. of the value type.</li>
-  <li>The response cannot be created, if the parameters are malformed.</li>
+  <li>The Device was already onboarded.</li>
 </ul>
-  <h2>How to execute this use case with the Connector?</h2>
-
-The Connector is our first-class citizen, thus we provide you with a detailed API description for every use case.
-This use case can be executed with the REST API of the Connector which you can <a href="/integrate/access-the-connector">Access the Connector</a>.
- 
-<h6>Corresponding interactive API docs excerpt:</h6>
-
-<rapi-doc-mini
-    server-url="https://doc-demo.is.enmeshed.eu/"
-    default-api-server="https://doc-demo.is.enmeshed.eu/"
-    api-key-name="x-api-key"
-    api-key-location="header"
-    api-key-value="apikey"
-    layout="column"
-    default-schema-tab="example"
-    spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
-    paths-expanded="false"
-    theme="light"
-    bg-color="#f9f9fb"
-    
-    match-paths="^POST /api/v2/Attributes/{predecessorId}/Succeed$"
-    
-    match-type="regex"
-></rapi-doc-mini>
-<br />
  
 
         

@@ -791,6 +791,12 @@ var store = [{
         "url": "/use-case-transport-check-if-relationship-can-be-created",
         "teaser": null
       },{
+        "title": "Create Device Onboarding Token",
+        "excerpt":"This use case retrieves the Token of a so far not-onboarded Device that corresponds to the given Device id in order to onboard the Device to the Identity. Parameters id of the Device. expiresAt is the ISODateTime the Token expires at. On Success Returns the Token of the Device to...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-create-device-onboarding-token",
+        "teaser": null
+      },{
         "title": "Create own RelationshipTemplate",
         "excerpt":"Creates a RelationshipTemplate with the given parameters and submits it to the Backbone for other Identities to use. A RelationshipTemplate can be used by any party to either initiate a Relationship with the current Identity or retrieve a Request from an existing Relationship by a side-channel. Parameters expiresAt is the...","categories": [],
         "tags": [],
@@ -887,12 +893,6 @@ var store = [{
         "url": "/use-case-transport-get-device-onboarding-info",
         "teaser": null
       },{
-        "title": "Get Device Onboarding Token",
-        "excerpt":"This use case retrieves the Token of a so far not-onboarded Device that corresponds to the given Device id in order to onboard the Device to the Identity. Parameters id of the Device. expiresAt is the ISODateTime the Token expires at. On Success Returns the Token of the Device to...","categories": [],
-        "tags": [],
-        "url": "/use-case-transport-get-device-onboarding-token",
-        "teaser": null
-      },{
         "title": "Get Device",
         "excerpt":"   This use case retrieves the Device with the given id.   Parameters      id of the Device.   On Success      The Device that corresponds to the id.   On Failure      No Device corresponds to the id.  ","categories": [],
         "tags": [],
@@ -972,7 +972,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Load item from truncated reference",
-        "excerpt":"This use case intends to load an entity by its reference received by peer. It is internally using the specific use cases of each entity: If the reference references a Token, fetches the Token just like Load Token created by others. If the reference references a RelationshipTemplate, fetches the RelationshipTemplate...","categories": [],
+        "excerpt":"This use case intends to load an entity by its reference received by peer. It is internally using the specific use cases of each entity: If the reference references a Token, fetches the Token just like the Load Token created by others use case. For example, if the content of...","categories": [],
         "tags": [],
         "url": "/use-case-transport-load-item-from-truncated-reference",
         "teaser": null
