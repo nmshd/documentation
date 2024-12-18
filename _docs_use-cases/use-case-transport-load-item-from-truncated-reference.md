@@ -43,7 +43,7 @@ required_by:
 
 This use case intends to load an entity by its `reference` received by peer. It is internally using the specific use cases of each entity:
 
-- If the `reference` references a Token, fetches the Token just like [Load Token created by others](use-case-transport-load-token-created-by-others.md).
-- If the `reference` references a RelationshipTemplate, fetches the RelationshipTemplate just like [Load RelationshipTemplate created by others](use-case-transport-load-relationshiptemplate-created-by-others.md).
-- If the `reference` references a File, fetches the File just like [Get or load File](use-case-transport-get-or-load-file.md).
-- If the `reference` references a DeviceOnboardingInformation, fetches the DeviceOnboardingInformation just like [Create Device Onboarding Token](use-case-transport-create-device-onboarding-token.md).
+- If the `reference` references a Token, fetches the Token just like [Load Token created by others]({% link _docs_use-cases/use-case-transport-load-token-created-by-others.md %}).
+- If the `reference` references a RelationshipTemplate, fetches the RelationshipTemplate just like [Load RelationshipTemplate created by others]({% link _docs_use-cases/use-case-transport-load-relationshiptemplate-created-by-others.md %}).
+- If the `reference` references a File, fetches the File just like [Get or load File]({% link _docs_use-cases/use-case-transport-get-or-load-file.md %}).
+- If the `reference` references a DeviceOnboardingInformation, fetches the DeviceOnboardingInformation just like [Create Device Onboarding Token]({% link _docs_use-cases/use-case-transport-create-device-onboarding-token.md %}).
