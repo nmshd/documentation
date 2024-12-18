@@ -10,9 +10,6 @@ repository:
   delete_branch_on_merge: true
 
 labels:
-  - name: breaking-change
-    color: "#16060F"
-    description: A breaking change
   - name: bug
     color: "#d73a4a"
     description: Something isn't working
@@ -25,18 +22,12 @@ labels:
   - name: dependencies
     color: "#0366d6"
     description: Pull requests that update dependencies
-  - name: documentation
-    color: "#0075ca"
-    description: Improvements or additions to documentation
   - name: enhancement
     color: "#a2eeef"
     description: New feature or request
   - name: refactoring
     color: "#880361"
     description: Refactoring of code
-  - name: test
-    color: "#20D89D"
-    description: This pull request contains only new or changed tests
   - name: wip
     color: "#32BF4C"
     description: Work in Progress (blocks mergify from auto update the branch)
