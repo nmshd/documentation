@@ -49,6 +49,8 @@ This use case queries [Tokens]({% link _docs_integrate/data-model-overview.md %}
 - `createdBy` is the enmeshed `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that created the Token.
 - `createdByDevice` is the `id` of the Device that created the Token.
 - `expiresAt` is the ISODateTime the Token expires.
+- `forIdentity` is the enmeshed `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) for which the Token is intended.
+- `passwordProtection` is an [object for password protection of a Token]({% link _docs_integrate/data-model-overview.md %}#object-for-password-protection-of-token).
 
 ## On Success
 
