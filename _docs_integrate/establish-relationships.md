@@ -87,7 +87,7 @@ If the RelationshipTemplate is only for creating a Relationship with a single kn
     // RelationshipTemplateContent or ArbitraryRelationshipTemplateContent
     ...
   },
-  "forIdentity": "<address of Identity the RelationshipTemplate is for>"
+  "forIdentity": "<address of Identity the RelationshipTemplate is intended for>"
 }
 ```
 
