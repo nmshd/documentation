@@ -396,7 +396,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Load Token by truncated reference (without having an account)",
-        "excerpt":"This use case attempts to retrieve a Token by its truncatedReference without having an account on the Backbone, thus without an authentication. This can be used to fetch Tokens for Device Onboarding or Recovery. Parameters The reference that contains all information to load a Token. On Success Returns the corresponding...","categories": [],
+        "excerpt":"This use case attempts to retrieve a Token by its truncatedReference without having an account on the Backbone, thus without an authentication. This can be used to fetch Tokens for Device Onboarding or Recovery. Parameters The reference that contains all information to load a Token. The password if the Token...","categories": [],
         "tags": [],
         "url": "/use-case-anonymous-load-token-by-truncated-reference-without-having-an-account",
         "teaser": null
@@ -792,7 +792,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create Device Onboarding Token",
-        "excerpt":"This use case retrieves the Token of a so far not-onboarded Device that corresponds to the given Device id in order to onboard the Device to the Identity. Parameters id of the Device. expiresAt is the ISODateTime the Token expires at. On Success Returns the Token of the Device to...","categories": [],
+        "excerpt":"This use case retrieves the Token of a not yet onboarded Device that corresponds to the given Device id in order to onboard the Device to the Identity. Parameters id of the Device. expiresAt is the ISODateTime the Token expires at. passwordProtection can be specified as an object for PasswordProtection...","categories": [],
         "tags": [],
         "url": "/use-case-transport-create-device-onboarding-token",
         "teaser": null
@@ -924,7 +924,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Get or load File",
-        "excerpt":"This use case retrieves a File by an id or the reference. This is usually the case, when a reference to a File was received by a peer (over a Message or by any side channel). Paramers id or reference that identify the File. On Success The File that corresponds...","categories": [],
+        "excerpt":"This use case retrieves a File by an id or the reference. This is usually the case, when a reference to a File was received by a peer (over a Message or by any side channel). Parameters id or reference that identify the File. The password if the File is...","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-or-load-file",
         "teaser": null
@@ -984,7 +984,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Load Token created by others",
-        "excerpt":"This use case intends to load a peer&#8217;s Token from the Backbone by a given reference to the Token. Parameters You can execute this use case if you know the truncatedReference of the peer&#8217;s Token reference that identifies the Token. ephemeral to indicate that the Token should be stored locally....","categories": [],
+        "excerpt":"This use case intends to load a peer&#8217;s Token from the Backbone by a given reference to the Token. Parameters You can execute this use case if you know the truncatedReference of the peer&#8217;s Token. reference that identifies the Token. ephemeral to indicate that the Token should be stored locally....","categories": [],
         "tags": [],
         "url": "/use-case-transport-load-token-created-by-others",
         "teaser": null
@@ -1020,7 +1020,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Query Tokens by parameters",
-        "excerpt":"This use case queries Tokens of the Identity. Parameters createdAt is the ISODateTime the Token was created at. createdBy is the enmeshed address of the Identity that created the Token. createdByDevice is the id of the Device that created the Token. expiresAt is the ISODateTime the Token expires. On Success...","categories": [],
+        "excerpt":"This use case queries Tokens of the Identity. Parameters createdAt is the ISODateTime the Token was created at. createdBy is the enmeshed address of the Identity that created the Token. createdByDevice is the id of the Device that created the Token. expiresAt is the ISODateTime the Token expires. forIdentity is...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-tokens-by-parameters",
         "teaser": null

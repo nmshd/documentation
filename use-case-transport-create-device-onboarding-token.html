@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-12-18T17:47:44+01:00">
+  <meta property="article:published_time" content="2024-12-19T17:29:06+01:00">
 
 
 
@@ -354,7 +354,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Create Device Onboarding Token">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2024-12-18T17:47:44+01:00">
+    <meta itemprop="datePublished" content="2024-12-19T17:29:06+01:00">
     
 
     <div class="page__inner-wrap">
@@ -451,14 +451,14 @@
 </div>
 -->
 
-<p>This use case retrieves the <a href="/integrate/data-model-overview#token">Token</a>
-of a so far not-onboarded Device that corresponds to the given Device <code class="language-plaintext highlighter-rouge">id</code> in order to onboard the Device to the Identity.</p>
+<p>This use case retrieves the <a href="/integrate/data-model-overview#token">Token</a> of a not yet onboarded Device that corresponds to the given Device <code class="language-plaintext highlighter-rouge">id</code> in order to onboard the Device to the Identity.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">id</code> of the Device.</li>
   <li><code class="language-plaintext highlighter-rouge">expiresAt</code> is the ISODateTime the Token expires at.</li>
+  <li><code class="language-plaintext highlighter-rouge">passwordProtection</code> can be specified as an object for <a href="/integrate/data-model-overview#passwordprotection">PasswordProtection</a> of a Token. If set, only the Identities that know the password specified within the <code class="language-plaintext highlighter-rouge">passwordProtection.password</code> property of the Token can load it from the Backbone. In addition, the optional property <code class="language-plaintext highlighter-rouge">passwordProtection.passwordIsPin</code> can be used to configure the UI of the App in case the password is a pin.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
@@ -471,6 +471,7 @@ of a so far not-onboarded Device that corresponds to the given Device <code clas
 
 <ul>
   <li>The Device was already onboarded.</li>
+  <li>In case of password protection of the Token, a <code class="language-plaintext highlighter-rouge">passwordProtection.password</code> that does not consist of 4 to 16 digits was specified, but the value of <code class="language-plaintext highlighter-rouge">passwordProtection.passwordIsPin</code> was nevertheless set to <code class="language-plaintext highlighter-rouge">true</code>.</li>
 </ul>
  
 
@@ -484,7 +485,7 @@ of a so far not-onboarded Device that corresponds to the given Device <code clas
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-12-18T17:47:44+01:00">December 18, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-12-19T17:29:06+01:00">December 19, 2024</time></p>
 
       </footer>
 
