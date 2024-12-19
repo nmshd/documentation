@@ -1,8 +1,8 @@
 ---
 # Start automatic generation
-permalink: use-case-transport-get-device-onboarding-token
+permalink: use-case-transport-create-device-onboarding-token
 published: true
-title: "Get Device Onboarding Token"
+title: "Create Device Onboarding Token"
 type: use-case
 toc: true
 sidebar:
@@ -13,7 +13,7 @@ properties:
   - component: Runtime
   - layer: Transport
   - facade: DevicesFacade
-  - function: getdeviceOnboardingToken
+  - function: createDeviceOnboardingToken
   - description:
   - feature category: Multi-device
   - tech category: Devices
@@ -31,7 +31,7 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: use-case-transport-get-device-onboarding-token
+  - link: use-case-transport-create-device-onboarding-token
 require:
 required_by:
 # End automatic generation
