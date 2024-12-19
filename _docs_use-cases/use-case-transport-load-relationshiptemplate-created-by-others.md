@@ -67,5 +67,5 @@ If the RelationshipTemplate or the Token, if there is one, is protected by a pas
 - The RelationshipTemplate does not exist.
 - The RelationshipTemplate is expired.
 - The `maxNumberOfAllocations` of the RelationshipTemplate are depleted.
-- The RelationshipTemplate is personalized to a different [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) via the property `forIdentity` of the RelationshipTemplate.
+- The RelationshipTemplate is personalized for a different [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) via the property `forIdentity` of the RelationshipTemplate.
 - No `password` or an incorrect `password` was entered in case of a password protected RelationshipTemplate or a password protected Token, if there is one.

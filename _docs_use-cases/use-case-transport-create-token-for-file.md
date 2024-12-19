@@ -50,7 +50,7 @@ Creates a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for a
 - Optionally, `expiresAt` can be specified, which describes the ISODateTime the Token expires at.
 - Optionally, `ephemeral` can be specified, which indicates if the Token should be ephemeral and thus not be stored and cached on the local database. This is especially useful for Tokens which are created regularly, e.g. for [RelationshipTemplates]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) and don't need to be stored.
 - Optionally, `forIdentity` can be specified, which names the `address` of the only [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that will be able to load the Token from the Backbone.
-- Optionally, `passwordProtection` can be specified as an [object for password protection of a Token]({% link _docs_integrate/data-model-overview.md %}#object-for-password-protection-of-token). If set, only the Identities that know the password specified within the `passwordProtection.password` property of the Token can load it from the Backbone. In addition, the optional property `passwordProtection.passwordIsPin` can be used to specialize the UI of the App in case the password is a pin.
+- Optionally, `passwordProtection` can be specified as an [object for password protection of a Token]({% link _docs_integrate/data-model-overview.md %}#object-for-password-protection-of-token). If set, only the Identities that know the password specified within the `passwordProtection.password` property of the Token can load it from the Backbone. In addition, the optional property `passwordProtection.passwordIsPin` can be used to configure the UI of the App in case the password is a pin.
 
 ## On Success
 

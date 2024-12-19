@@ -87,7 +87,7 @@ If the RelationshipTemplate is only for creating a Relationship with a single kn
     // RelationshipTemplateContent or ArbitraryRelationshipTemplateContent
     ...
   },
-  "forIdentity": "<address of Identity designated for RelationshipTemplate>"
+  "forIdentity": "<address of Identity the RelationshipTemplate is for>"
 }
 ```
 
@@ -114,7 +114,7 @@ If the RelationshipTemplate is to be protected by a password, the corresponding 
 }
 ```
 
-To specialize the input field for password entry in the UI of the App, the value of the optional field `passwordProtection.passwordIsPin` can be set to `true` if the password consists of 4 to 16 digits.
+To configure the input field for password entry in the UI of the App, the value of the optional field `passwordProtection.passwordIsPin` can be set to `true` if the password consists of 4 to 16 digits.
 In this case, the password is interpreted as a pin and a corresponding input field is displayed when the pin needs to be entered.
 However, if the value is `undefined`, a regular input field for entering the password is displayed regardless of whether it could also be interpreted as a pin.
 
