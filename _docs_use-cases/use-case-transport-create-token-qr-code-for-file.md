@@ -49,6 +49,7 @@ Creates a QR code for a [Token]({% link _docs_integrate/data-model-overview.md %
 - `fileId` is the `id` of the File the Token and its QR code should be created for.
 - Optionally, `expiresAt` can be specified, which describes the ISODateTime the Token expires at.
 - Optionally, `forIdentity` can be specified, which names the `address` of the only [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that will be able to load the Token from the Backbone.
+- Optionally, `passwordProtection` can be specified as an object for [PasswordProtection]({% link _docs_integrate/data-model-overview.md %}#passwordprotection) of a Token. If set, only the Identities that know the password specified within the `passwordProtection.password` property of the Token can load it from the Backbone. In addition, the optional property `passwordProtection.passwordIsPin` can be used to configure the UI of the App in case the password is a pin.
 
 ## On Success
 
@@ -58,3 +59,4 @@ Creates a QR code for a [Token]({% link _docs_integrate/data-model-overview.md %
 
 - `fileId` does not resolve to a File.
 - `expiresAt` lies in the past.
+- In case of password protection of the Token, a `passwordProtection.password` that does not consist of 4 to 16 digits was specified, but the value of `passwordProtection.passwordIsPin` was nevertheless set to `true`.

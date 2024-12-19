@@ -41,13 +41,13 @@ required_by:
 
 {% include properties_list.html %}
 
-This use case retrieves the [Token]({% link _docs_integrate/data-model-overview.md %}#token)
-of a so far not-onboarded Device that corresponds to the given Device `id` in order to onboard the Device to the Identity.
+This use case retrieves the [Token]({% link _docs_integrate/data-model-overview.md %}#token) of a not yet onboarded Device that corresponds to the given Device `id` in order to onboard the Device to the Identity.
 
 ## Parameters
 
 - `id` of the Device.
 - `expiresAt` is the ISODateTime the Token expires at.
+- `passwordProtection` can be specified as an object for [PasswordProtection]({% link _docs_integrate/data-model-overview.md %}#passwordprotection) of a Token. If set, only the Identities that know the password specified within the `passwordProtection.password` property of the Token can load it from the Backbone. In addition, the optional property `passwordProtection.passwordIsPin` can be used to configure the UI of the App in case the password is a pin.
 
 ## On Success
 
@@ -56,3 +56,4 @@ of a so far not-onboarded Device that corresponds to the given Device `id` in or
 ## On Failure
 
 - The Device was already onboarded.
+- In case of password protection of the Token, a `passwordProtection.password` that does not consist of 4 to 16 digits was specified, but the value of `passwordProtection.passwordIsPin` was nevertheless set to `true`.
