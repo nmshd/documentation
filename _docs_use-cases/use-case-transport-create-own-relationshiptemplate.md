@@ -52,6 +52,7 @@ A [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relat
 - `content` describes the structure of the RelationshipTemplate. If an enmeshed App user shall receive this RelationshipTemplate, a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) is required as structure, otherwise an [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent) containing any data can be used.
 - `maxNumberOfAllocations` is the number of times the RelationshipTemplate can be accessed by different Identities to initiate a Relationship. The Backbone returns an error, if one accesses a RelationshipTemplate with no allocations left. Accessing the same RelationshipTemplate with the same Identity multiple times doesn't affect the number of allocations. The allocation counts, even if the Identity does not accept the RelationshipTemplate by discarding it.
 - `forIdentity` can be set to an enmeshed address. If set, only the Identity with that `address` can access the RelationshipTemplate.
+- `passwordProtection` can be specified as an object for [PasswordProtection]({% link _docs_integrate/data-model-overview.md %}#passwordprotection) of a RelationshipTemplate. If set, only the Identities that know the password specified within the `passwordProtection.password` property of the RelationshipTemplate can access it. In addition, the optional property `passwordProtection.passwordIsPin` can be used to configure the UI of the App in case the password is a pin.
 
 ## On Success
 
@@ -61,3 +62,4 @@ A [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relat
 
 - The `content` is malformed.
 - `expiresAt` lies in the past.
+- In case of password protection of the RelationshipTemplate, a `passwordProtection.password` that does not consist of 4 to 16 digits was specified, but the value of `passwordProtection.passwordIsPin` was nevertheless set to `true`.

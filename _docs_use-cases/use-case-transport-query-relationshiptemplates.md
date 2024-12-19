@@ -44,8 +44,7 @@ api_route_regex: ^GET /api/v2/RelationshipTemplates$
 
 {% include properties_list.html %}
 
-This use case queries [RelationshipTemplates]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate)
-of the Identity.
+This use case queries [RelationshipTemplates]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) of the Identity.
 
 ## Parameters
 
@@ -56,7 +55,9 @@ All parameters are optional. If no parameter is given, all RelationshipTemplates
 - `expiresAt` is the ISODateTime the RelationshipTemplate expires.
 - `createdBy` is the enmeshed `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that created the RelationshipTemplate.
 - `createdByDevice` is the `id` of the Device that created the RelationshipTemplate.
-- `maxNumberOfAllocations` is the number of times the RelationshipTemplate can be accessed by different Identities to initiate a Relationship. The Backbone returns an error, if one accesses a RelationshipTemplate with no allocations left. Accessing the same RelationshipTemplate with the same Identity multiple times doesn't affect the number of allocations. The allocation counts, even if the Identity does not accept the RelationshipTemplate by discarding it.
+- `maxNumberOfAllocations` is the number of times the RelationshipTemplate can be accessed by different Identities to initiate a Relationship. The Backbone returns an error if one accesses a RelationshipTemplate with no allocations left. Accessing the same RelationshipTemplate with the same Identity multiple times doesn't affect the number of allocations. The allocation counts, even if the Identity does not accept the RelationshipTemplate by discarding it.
+- `forIdentity` is the enmeshed `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) for which the RelationshipTemplate is intended.
+- `passwordProtection` is an object for [PasswordProtection]({% link _docs_integrate/data-model-overview.md %}#passwordprotection) of a RelationshipTemplate.
 
 ## On Success
 
