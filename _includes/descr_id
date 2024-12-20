@@ -1,1 +1,1 @@
-Unique identifier of this object. <br>*Remark: the ID of each {{ include.class }} starts with the letters "{{ include.prefix }}". This way you can tell apart a {{ include.class }} ID from any other ID just by looking at the prefix.*
+Unique identifier of this object. <br>*Remark: The ID of each {{ include.class }} starts with the letters `"{{ include.prefix }}"`. This way you can tell apart such an ID from any other ID just by looking at the prefix.*

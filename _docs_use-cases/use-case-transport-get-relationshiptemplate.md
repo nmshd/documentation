@@ -49,7 +49,7 @@ by its `id`.
 
 ## Parameters
 
-- `id`of the RelationshipTemplate.
+- `id` of the RelationshipTemplate.
 
 ## On Success
 
