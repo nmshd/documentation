@@ -37,3 +37,24 @@ required_by:
 api_route_regex: ^GET /api/v2/IdentityMetadata$
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+[IdentityMetadata]({% link _docs_integrate/data-model-overview.md %}#identitymetadata) is used to store arbitrary auxiliary metadata related to an [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) within the Connector.
+This use case retrieves the IdentityMetadata for a given `reference` or a given combination of `reference` and `key` if the IdentityMetadata is equipped with the optional additional `key` identifier.
+As there is at most one IdentityMetadata per `reference` and `key` combination, the return value of this use case is uniquely determined.
+
+## Parameters
+
+- `reference` is the `address` of the Identity about which the IdentityMetadata is to be retrieved.
+- `key` is the optional additional identifier of the IdentityMetadata to be retrieved.
+
+## On Success
+
+- Returns the IdentityMetadata for the specified combination of `reference` and `key`.
+
+## On Failure
+
+- There is no stored IdentityMetadata for the specified combination of `reference` and `key`.
