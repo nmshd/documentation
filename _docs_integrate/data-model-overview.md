@@ -1061,9 +1061,9 @@ An Integrator of a Connector should be able to store arbitrary auxiliary metadat
 The usual CRUD operations for handling IdentityMetadata are provided by different [use cases]({% link _docs_integrate/use-cases.md %}).
 To be more precise, there is the [Upsert IdentityMetadata]({% link _docs_use-cases/use-case-consumption-upsert-identitymetadata.md %}) use case for creating and updating IdentityMetadata, as well as the [Get IdentityMetadata]({% link _docs_use-cases/use-case-consumption-get-identitymetadata.md %}) use case and the [Delete IdentityMetadata]({% link _docs_use-cases/use-case-consumption-delete-identitymetadata.md %}) use case.
 
-| Name      | Type                    | Description                                                  | Remarks            |
-| --------- | ----------------------- | ------------------------------------------------------------ | ------------------ |
-| id        | `string`                | {% include descr_id class="IdentityMetadata" prefix="IDM" %} |                    |
-| reference | `string`                | Reference of IdentityMetadata.                               | saved only locally |
-| key       | `string` \| `undefined` | Optional key of IdentityMetadata.                            | saved only locally |
-| value     | `string`                | Value of IdentityMetadata.                                   | saved only locally |
+| Name      | Type                    | Description                                                                                                                                                                                  | Remarks            |
+| --------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| id        | `string`                | {% include descr_id class="IdentityMetadata" prefix="IDM" %}                                                                                                                                 |                    |
+| reference | `string`                | The `address` of the [Identity](#identity) for which metadata is stored.                                                                                                                     | saved only locally |
+| key       | `string` \| `undefined` | An optional additional identifier to store and distinguish multiple IdentityMetadata for the same Identity. There can be at most one IdentityMetadata per `reference` and `key` combination. | saved only locally |
+| value     | `unknown`               | Feel free to insert whatever you want or need.                                                                                                                                               | saved only locally |
