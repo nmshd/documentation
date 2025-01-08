@@ -57,6 +57,4 @@ As there is at most one IdentityMetadata per `reference` and `key` combination, 
 
 ## On Failure
 
-- The parameters are malformed.
-
-<!-- TODO: Should a validation be added for case "There is no stored IdentityMetadata for the specified combination of `reference` and `key`."? -->
+- There is no stored IdentityMetadata for the specified combination of `reference` and `key`.

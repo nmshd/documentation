@@ -58,7 +58,7 @@ Each use case has the `relationshipId` as input. Only accepting the reactivation
 
 ## Decompose a Relationship
 
-Decomposing a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) deletes all data associated with the peer that was transmitted during the Relationship:
+Decomposing a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) deletes all data associated with the peer that was transmitted during the Relationship which includes:
 
 - The Relationship itself.
 - The [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) used to establish the Relationship if it was for single use, which means that the value of its `maxNumberOfAllocations` property is one, or is owned by the peer. A RelationshipTemplate must be exchanged again to establish a new Relationship.
