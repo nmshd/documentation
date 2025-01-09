@@ -44,7 +44,7 @@ api_route_regex: ^PUT /api/v2/IdentityMetadata$
 
 [IdentityMetadata]({% link _docs_integrate/data-model-overview.md %}#identitymetadata) is used to store arbitrary auxiliary metadata related to an [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) within the Connector.
 This use case creates or updates an IdentityMetadata that relates to the Identity whose `address` is specified within the `reference` property of the IdentityMetadata.
-IdentityMetadata may only be created or updated for a `peer` of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) or the own Identity, in other words sufficiently familiar Identities.
+IdentityMetadata may only be created or updated for a `peer` of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) or the own Identity, or in other words, sufficiently familiar Identities.
 If there is no IdentityMetadata for a given `reference` and `key` combination, a new IdentityMetadata is created.
 Otherwise, the existing IdentityMetadata is updated with the new `value` provided.
 Therefore, there can be at most one IdentityMetadata per `reference` and `key` combination.
