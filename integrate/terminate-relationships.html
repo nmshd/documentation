@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-12-19T17:29:06+01:00">
+  <meta property="article:published_time" content="2025-01-10T12:17:22+01:00">
 
 
 
@@ -354,7 +354,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Terminate Relationships">
     <meta itemprop="description" content="In order for two Identities to communicate with each other and exchange data, they must establish a Relationship between them. If an active Relationship to another Identity is no longer wanted, it can be terminated.">
-    <meta itemprop="datePublished" content="2024-12-19T17:29:06+01:00">
+    <meta itemprop="datePublished" content="2025-01-10T12:17:22+01:00">
     
 
     <div class="page__inner-wrap">
@@ -416,15 +416,16 @@ If you want to keep the Relationship terminated, you reject the reactivation wit
 
 <h2 id="decompose-a-relationship">Decompose a Relationship</h2>
 
-<p>Decomposing a Relationship deletes from your Connector</p>
+<p>Decomposing a <a href="/integrate/data-model-overview#relationship">Relationship</a> deletes all data associated with the peer that was transmitted during the Relationship which includes:</p>
 
 <ul>
-  <li>the Relationship</li>
-  <li>the peer’s RelationshipTemplates</li>
-  <li>the Relationship’s <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> if it was single use (its <code class="language-plaintext highlighter-rouge">maxNumberOfAllocations</code> is 1) or owned by the peer - for a new Relationship you will have to exchange a RelationshipTemplate again</li>
-  <li>shared <a href="/integrate/data-model-overview#attributes">Attributes</a>, <a href="/integrate/data-model-overview#notification">Notifications</a>, <a href="/integrate/data-model-overview#request">Requests</a> (in each case both sent and received)</li>
-  <li>sent and received <a href="/integrate/data-model-overview#message">Messages</a> with one exception: If you have sent a Message to multiple recipients, the Message is not deleted but the peer’s address is replaced with a pseudonym. The pseudonym is the same for every peer.</li>
-  <li>furthermore, <a href="/integrate/data-model-overview#token">Tokens</a> and <a href="/integrate/data-model-overview#localattributelistener">AttributeListeners</a>.</li>
+  <li>The Relationship itself.</li>
+  <li>The <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> used to establish the Relationship if it was for single use, which means that the value of its <code class="language-plaintext highlighter-rouge">maxNumberOfAllocations</code> property is one, or is owned by the peer. A RelationshipTemplate must be exchanged again to establish a new Relationship.</li>
+  <li>In any case, all RelationshipTemplates of the peer. During a Relationship, several RelationshipTemplates may have been exchanged, as <a href="/integrate/requests-via-relationshiptemplates#create-the-relationshiptemplate">Requests can be sent via RelationshipTemplates</a> both when establishing new Relationships and for existing Relationships.</li>
+  <li>Both the sent and the received shared <a href="/integrate/data-model-overview#attributes">Attributes</a>, <a href="/integrate/data-model-overview#notification">Notifications</a> and <a href="/integrate/data-model-overview#request">Requests</a>.</li>
+  <li>Sent and received <a href="/integrate/data-model-overview#message">Messages</a> with one exception: If a Message has been sent to multiple <code class="language-plaintext highlighter-rouge">recipients</code>, the Message is not deleted but the peer’s address is replaced with a pseudonym. The pseudonym is the same for every peer whose Relationship was decomposed.</li>
+  <li>The <a href="/integrate/data-model-overview#identitymetadata">IdentityMetadata</a> that have the peer as their <code class="language-plaintext highlighter-rouge">reference</code>.</li>
+  <li>Furthermore, the corresponding <a href="/integrate/data-model-overview#token">Tokens</a> and <a href="/integrate/data-model-overview#localattributelistener">AttributeListeners</a>.</li>
 </ul>
 
 <p>The use case is <a href="/use-case-transport-decompose-relationship">Decompose Relationship</a>, which takes the <code class="language-plaintext highlighter-rouge">relationshipId</code> as input. For the peer, the Relationship is not deleted, but its <code class="language-plaintext highlighter-rouge">status</code> now is <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code>.
@@ -440,7 +441,7 @@ If the peer uses a Connector, they receive a <code class="language-plaintext hig
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-12-19T17:29:06+01:00">December 19, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-01-10T12:17:22+01:00">January 10, 2025</time></p>
 
       </footer>
 

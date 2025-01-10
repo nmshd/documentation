@@ -491,6 +491,12 @@ var store = [{
         "url": "/use-case-consumption-delete-an-own-shared-attribute-and-notify-peer",
         "teaser": null
       },{
+        "title": "Delete IdentityMetadata",
+        "excerpt":"IdentityMetadata is used to store arbitrary auxiliary metadata related to an Identity within the Connector. This use case deletes the IdentityMetadata for a given reference or a given combination of reference and key if the IdentityMetadata is equipped with the additional key identifier. As there is at most one IdentityMetadata...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-delete-identitymetadata",
+        "teaser": null
+      },{
         "title": "Discards outgoing Request",
         "excerpt":"This use case is intended to discard an outgoing LocalRequest that has not been sent to the peer yet and is thus still in status Draft. Parameters id references the outgoing LocalRequest that is to be discarded. On Success The LocalRequest is deleted and returned. On Failure The LocalRequest could...","categories": [],
         "tags": [],
@@ -537,6 +543,12 @@ var store = [{
         "excerpt":"This use case is intended to query LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters query allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used: createdAt describes the time when the LocalAttribute was created. parentId can be used to...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-get-attributes",
+        "teaser": null
+      },{
+        "title": "Get IdentityMetadata",
+        "excerpt":"IdentityMetadata is used to store arbitrary auxiliary metadata related to an Identity within the Connector. This use case retrieves the IdentityMetadata for a given reference or a given combination of reference and key if the IdentityMetadata is equipped with the additional key identifier. As there is at most one IdentityMetadata...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-get-identitymetadata",
         "teaser": null
       },{
         "title": "Get incoming Request",
@@ -627,6 +639,12 @@ var store = [{
         "excerpt":"If the value of a RepositoryAttribute changes, this can be replicated in enmeshed with this use case. It allows you to update the content and keeps a coherent history of all versions by establishing a doubly linked list, using the LocalAttribute&#8217;s parameters succeeds and succeededBy. Hence, every LocalAttribute may have...","categories": [],
         "tags": [],
         "url": "/use-case-consumption-succeed-a-repositoryattribute",
+        "teaser": null
+      },{
+        "title": "Upsert IdentityMetadata",
+        "excerpt":"IdentityMetadata is used to store arbitrary auxiliary metadata related to an Identity within the Connector. This use case creates or updates an IdentityMetadata that relates to the Identity whose address is specified within the reference property of the IdentityMetadata. IdentityMetadata may only be created or updated for a peer of...","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-upsert-identitymetadata",
         "teaser": null
       },{
         "title": "Validate an IQLQuery",
@@ -948,7 +966,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Get RelationshipTemplate",
-        "excerpt":"   This use case retrieves a RelationshipTemplate by its id.   Parameters      idof the RelationshipTemplate.   On Success      The RelationshipTemplate that corresponds to the id.   On Failure      The id doesn&#8217;t resolve to a RelationshipTemplate.  ","categories": [],
+        "excerpt":"   This use case retrieves a RelationshipTemplate by its id.   Parameters      id of the RelationshipTemplate.   On Success      The RelationshipTemplate that corresponds to the id.   On Failure      The id doesn&#8217;t resolve to a RelationshipTemplate.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-relationshiptemplate",
         "teaser": null
