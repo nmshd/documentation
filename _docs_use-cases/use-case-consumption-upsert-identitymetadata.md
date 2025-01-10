@@ -54,7 +54,7 @@ In particular, there can be at most one IdentityMetadata without a `key` for eac
 
 - `reference` is the `address` of the Identity about which metadata is to be created or updated.
 - Optionally, a `key` can be specified as an additional identifier to store and distinguish multiple IdentityMetadata for the same Identity.
-- `value` as an arbitrary JSON object that contains the metadata to be stored about the Identity.
+- `value` is the arbitrary metadata to be stored about the Identity. It must be compatible with the JSON data types `string`, `number`, `boolean`, `object`, `array` and `null`.
 
 ## On Success
 
