@@ -9,7 +9,7 @@ header:
     - label: "Get Started"
       url: "/use"
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
-excerpt: "Secure education in a digital world"
+excerpt: "Secure data exchange in a digital world"
 feature_row:
   - image_path: /assets/images/use.jpg
     alt: "placeholder image 1"
