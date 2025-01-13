@@ -89,6 +89,8 @@ docs_integrate:
         url: integrate/establish-relationships
       - title: "Exchange Messages"
         url: /integrate/exchange-messages
+      - title: "Manage IdentityMetadata"
+        url: integrate/manage-identitymetadata
       - title: "Terminate Relationships"
         url: integrate/terminate-relationships
       - title: "Delete Identities"
