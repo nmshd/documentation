@@ -38,14 +38,14 @@ If the referenced Identity is neither the own Identity nor a `peer` of a [Relati
 The optional `key` property can be used as an additional identifier to store multiple IdentityMetadata about an Identity.
 There can be at most one IdentityMetadata per `reference` and `key` combination.
 In particular, there can be at most one IdentityMetadata without a `key` for each Identity.
-Therefore, IdentityMetadata can be queried by specifying a `reference` or a combination of `reference` and `key` using the [Get IdentityMetadata]({% link _docs_use-cases/use-case-consumption-get-identitymetadata.md %}) use case.
+For this reason, IdentityMetadata can be queried by specifying a combination of `reference` and `key` using the [Get IdentityMetadata]({% link _docs_use-cases/use-case-consumption-get-identitymetadata.md %}) use case.
 If no matching IdentityMetadata can be found for the specified parameters, an error with error code `error.runtime.identityMetadata.notFound` is thrown.
 
 # Removal of IdentityMetadata
 
-- [Delete IdentityMetadata]({% link _docs_use-cases/use-case-consumption-delete-identitymetadata.md %}) use case. In case of an error, `error.runtime.identityMetadata.notFound` can occur.
-
-When [decomposing a Relationship]({% link _docs_integrate/terminate-relationships.md %}#decompose-a-relationship), all IdentityMetadata that have the `peer` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) as their `reference` is deleted.
+If an Integrator of a Connector wants to delete IdentityMetadata manually, they must utilize the [Delete IdentityMetadata]({% link _docs_use-cases/use-case-consumption-delete-identitymetadata.md %}) use case providing the combination of `reference` and `key` of the IdentityMetadata to be deleted.
+An error with [error code]({% link _docs_integrate/error-codes.md %}) `error.runtime.identityMetadata.notFound` is thrown if no matching IdentityMetadata can be found for the specified parameters.
+When [decomposing a Relationship]({% link _docs_integrate/terminate-relationships.md %}#decompose-a-relationship), all IdentityMetadata that have the `peer` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) as their `reference` is deleted automatically.
 
 # Differentiation from IdentityAttributes
 
