@@ -21,7 +21,9 @@ required_by:
 # End automatic generation
 ---
 
-An Integrator of a Connector should be able to store arbitrary auxiliary metadata related to an [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) within the Connector.
+An organization needs the option to easily store arbitrary auxiliary metadata about familiar persons for its self-administration.
+This metadata must be [differentiated from the IdentityAttributes]({% link _docs_integrate/manage-identitymetadata.md %}#differentiation-from-identityattributes) provided by enmeshed, which are created for the purpose of exchanging with other [Identities]({% link _docs_integrate/data-model-overview.md %}#identity).
+From a technical point of view, an Integrator of a Connector should be able to store metadata related to an Identity within the Connector.
 The Identity about which metadata is to be stored must be sufficiently familiar to them, which means that it must be a `peer` of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) or their own Identity.
 
 For information on how to establish Relationships, refer to the [Establish Relationships]({% link _docs_integrate/establish-relationships.md %}) scenario documentation.
