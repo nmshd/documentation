@@ -68,4 +68,5 @@ The following table provides an overview of the differences and similarities bet
 
 # What's next?
 
-As already mentioned in the section on the [differentiation from IdentityAttributes]({% link _docs_integrate/manage-identitymetadata.md %}#differentiation-from-identityattributes), [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) are the classic means of choice provided by enmeshed to describe an [Identity]({% link _docs_integrate/data-model-overview.md %}#identity). To find out more about IdentityAttributes and the options for managing them, the [IdentityAttribute introduction]({% link _docs_integrate/attribute-introduction.md %}#identityattributes) can be consulted.
+As already mentioned in the section on the [differentiation from IdentityAttributes]({% link _docs_integrate/manage-identitymetadata.md %}#differentiation-from-identityattributes), [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) are the classic means of choice provided by enmeshed to describe an [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
+To find out more about IdentityAttributes and the options for managing them, the [IdentityAttribute introduction]({% link _docs_integrate/attribute-introduction.md %}#identityattributes) can be consulted.
