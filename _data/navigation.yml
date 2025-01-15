@@ -93,6 +93,8 @@ docs_integrate:
         url: integrate/terminate-relationships
       - title: "Delete Identities"
         url: integrate/delete-identities
+      - title: "Manage IdentityMetadata"
+        url: integrate/manage-identitymetadata
   - title: Working With Requests
     children:
       - title: "Request and Response introduction"

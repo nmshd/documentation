@@ -1057,10 +1057,9 @@ The parameters to accept a ReadAttributeRequestItem with a new Attribute.
 
 ## IdentityMetadata
 
-An Integrator of a Connector should be able to store arbitrary auxiliary metadata related to an [Identity](#identity) within the Connector.
-This Identity must be sufficiently familiar to them, which means that it must be a `peer` of a [Relationship](#relationship) or their own Identity.
+An Integrator of a Connector should be able to store arbitrary auxiliary metadata related to an [Identity](#identity) within the Connector and to [manage such IdentityMetadata]({% link _docs_integrate/manage-identitymetadata.md %}).
 The common CRUD operations for handling IdentityMetadata are provided by different [use cases]({% link _docs_integrate/use-cases.md %}).
-To be more precise, there is the [Upsert IdentityMetadata]({% link _docs_use-cases/use-case-consumption-upsert-identitymetadata.md %}) use case for creating and updating IdentityMetadata, as well as the [Get IdentityMetadata]({% link _docs_use-cases/use-case-consumption-get-identitymetadata.md %}) use case and the [Delete IdentityMetadata]({% link _docs_use-cases/use-case-consumption-delete-identitymetadata.md %}) use case.
+There is the [Upsert IdentityMetadata]({% link _docs_use-cases/use-case-consumption-upsert-identitymetadata.md %}) use case for creating and updating IdentityMetadata, as well as the [Get IdentityMetadata]({% link _docs_use-cases/use-case-consumption-get-identitymetadata.md %}) use case and the [Delete IdentityMetadata]({% link _docs_use-cases/use-case-consumption-delete-identitymetadata.md %}) use case.
 
 | Name      | Type                    | Description                                                                                                                                                                         | Remarks            |
 | --------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
