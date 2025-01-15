@@ -19,7 +19,7 @@ Begin your integration journey by familiarizing yourself with the [Connector RES
 
 ## Identities and Relationships
 
-Learn how to [establish a Relationship]({% link _docs_integrate/establish-relationships.md %}) to another Identity in order to be able to communicate and exchange information with it. Explore how to [exchange Messages]({% link _docs_integrate/exchange-messages.md %}) using enmeshed to communicate simply and securely with your peers. Furthermore, discover how to [terminate Relationships]({% link _docs_integrate/terminate-relationships.md %}) and [delete Identities]({% link _docs_integrate/delete-identities.md %}).
+Learn how to [establish a Relationship]({% link _docs_integrate/establish-relationships.md %}) to another Identity in order to be able to communicate and exchange information with it. Explore how to [exchange Messages]({% link _docs_integrate/exchange-messages.md %}) using enmeshed to communicate simply and securely with your peers. Furthermore, discover how to [terminate Relationships]({% link _docs_integrate/terminate-relationships.md %}), [delete Identities]({% link _docs_integrate/delete-identities.md %}) and [manage IdentityMetadata]({% link _docs_integrate/manage-identitymetadata.md %}).
 
 ## Working With Requests
 
