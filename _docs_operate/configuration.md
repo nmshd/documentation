@@ -205,7 +205,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 - **dbNamePrefix** `default: "acc-"`
 
-  The `dbNamePrefix` string is used as a prefix for the MongoDB database name. It will be **prepended** to the `dbName` string.
+  The `dbNamePrefix` string is used as a prefix for the MongoDB database name. It will be **prepended** to the string configured by the `dbName` property.
 
   If you don't want your database name to be prefixed, you can set this value to an empty string.
 
