@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Access the Connector - enmeshed</title>
-<meta name="description" content="The primary integration capability of the Connector is the REST API. In order to use it, you should have received an API-Key for the respective Connector. An API-Key so far has all authorizations for accessing the API.">
+<!-- begin _includes/seo.html --><title>Manage IdentityMetadata - enmeshed</title>
+<meta name="description" content="An organization needs the option to easily store arbitrary auxiliary metadata about familiar persons for its self-administration. This metadata must be differentiated from the IdentityAttributes provided by enmeshed, which are created for the purpose of exchanging with other Identities. From a technical point of view, an Integrator of a Connector should be able to store metadata related to an Identity within the Connector. The Identity about which metadata is to be stored must be sufficiently familiar to them, which means that it must be a peer of a Relationship or their own Identity.">
 
 
   <meta name="author" content="enmeshed Team">
@@ -23,11 +23,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Access the Connector">
-<meta property="og:url" content="/integrate/access-the-connector">
+<meta property="og:title" content="Manage IdentityMetadata">
+<meta property="og:url" content="/integrate/manage-identitymetadata">
 
 
-  <meta property="og:description" content="The primary integration capability of the Connector is the REST API. In order to use it, you should have received an API-Key for the respective Connector. An API-Key so far has all authorizations for accessing the API.">
+  <meta property="og:description" content="An organization needs the option to easily store arbitrary auxiliary metadata about familiar persons for its self-administration. This metadata must be differentiated from the IdentityAttributes provided by enmeshed, which are created for the purpose of exchanging with other Identities. From a technical point of view, an Integrator of a Connector should be able to store metadata related to an Identity within the Connector. The Identity about which metadata is to be stored must be sufficiently familiar to them, which means that it must be a peer of a Relationship or their own Identity.">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/integrate/access-the-connector">
+<link rel="canonical" href="/integrate/manage-identitymetadata">
 
 
 
@@ -194,7 +194,7 @@
           
           <ul>
             
-              <li><a href="/integrate/access-the-connector" class="active">Access the Connector</a></li>
+              <li><a href="/integrate/access-the-connector">Access the Connector</a></li>
             
               <li><a href="/integrate/integration-example">Integration example</a></li>
             
@@ -354,8 +354,8 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Access the Connector">
-    <meta itemprop="description" content="The primary integration capability of the Connector is the REST API. In order to use it, you should have received an API-Key for the respective Connector. An API-Key so far has all authorizations for accessing the API.">
+    <meta itemprop="headline" content="Manage IdentityMetadata">
+    <meta itemprop="description" content="An organization needs the option to easily store arbitrary auxiliary metadata about familiar persons for its self-administration.This metadata must be differentiated from the IdentityAttributes provided by enmeshed, which are created for the purpose of exchanging with other Identities.From a technical point of view, an Integrator of a Connector should be able to store metadata related to an Identity within the Connector.The Identity about which metadata is to be stored must be sufficiently familiar to them, which means that it must be a peer of a Relationship or their own Identity.">
     <meta itemprop="datePublished" content="2025-01-15T12:12:29+01:00">
     
 
@@ -363,7 +363,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/integrate/access-the-connector" itemprop="url">Access the Connector
+            <a href="/integrate/manage-identitymetadata" itemprop="url">Manage IdentityMetadata
 </a>
           </h1>
           
@@ -377,54 +377,97 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#hosted-api-tooling-by-the-development-connector">Hosted API tooling by the (development) Connector</a><ul><li><a href="#swagger">Swagger</a></li><li><a href="#rapidoc">Rapidoc</a></li><li><a href="#accessing-the-connector-with-external-api-tools-eg-postman-or-insomnia">Accessing the Connector with external API tools (e.g. Postman or Insomnia)</a></li></ul></li><li><a href="#accessing-the-connector-by-software-development-kits-sdk">Accessing the Connector by Software Development Kits (SDK)</a><ul><li><a href="#typescript-sdk">TypeScript SDK</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#storage-of-identitymetadata">Storage of IdentityMetadata</a></li><li><a href="#removal-of-identitymetadata">Removal of IdentityMetadata</a></li><li><a href="#differentiation-from-identityattributes">Differentiation from IdentityAttributes</a></li><li><a href="#whats-next">What’s next?</a></li></ul>
             </nav>
           </aside>
         
-        <p>The primary integration capability of the Connector is the REST API. In order to use it, you should have received an API-Key for the respective Connector. An API-Key so far has all authorizations for accessing the API.</p>
+        <p>An organization needs the option to easily store arbitrary auxiliary metadata about familiar persons for its self-administration.
+This metadata must be <a href="/integrate/manage-identitymetadata#differentiation-from-identityattributes">differentiated from the IdentityAttributes</a> provided by enmeshed, which are created for the purpose of exchanging with other <a href="/integrate/data-model-overview#identity">Identities</a>.
+From a technical point of view, an Integrator of a Connector should be able to store metadata related to an Identity within the Connector.
+The Identity about which metadata is to be stored must be sufficiently familiar to them, which means that it must be a <code class="language-plaintext highlighter-rouge">peer</code> of a <a href="/integrate/data-model-overview#relationship">Relationship</a> or their own Identity.</p>
 
-<h1 id="hosted-api-tooling-by-the-development-connector">Hosted API tooling by the (development) Connector</h1>
+<p class="notice--info">For information on how to establish Relationships, refer to the <a href="/integrate/establish-relationships">Establish Relationships</a> scenario documentation.</p>
 
-<p class="notice--warning">In order to use the hosted api tooling, it must be activated in the <a href="/operate/setup-with-docker-compose#hosted-api-tooling-by-the-development-connector">Connector configuration</a>.</p>
+<h1 id="storage-of-identitymetadata">Storage of IdentityMetadata</h1>
 
-<p>You can access the REST API documentation through the Connector’s designated HTTP endpoints. Swagger and Rapidoc serve as interactive platforms hosted on the Connector, enabling you to explore and experiment with the various APIs interactively.</p>
+<p>Metadata about an <a href="/integrate/data-model-overview#identity">Identity</a> is stored in a data object of type <a href="/integrate/data-model-overview#identitymetadata">IdentityMetadata</a>.
+It has the properties <code class="language-plaintext highlighter-rouge">id</code>, <code class="language-plaintext highlighter-rouge">reference</code>, <code class="language-plaintext highlighter-rouge">key</code> and <code class="language-plaintext highlighter-rouge">value</code>.
+It is possible to create or update IdentityMetadata about an Identity by proceeding as described in the <a href="/use-case-consumption-upsert-identitymetadata">Upsert IdentityMetadata</a> use case documentation and specifying its address as <code class="language-plaintext highlighter-rouge">reference</code> and the metadata to be stored as <code class="language-plaintext highlighter-rouge">value</code>.
+If the referenced Identity is neither the own Identity nor a <code class="language-plaintext highlighter-rouge">peer</code> of a <a href="/integrate/data-model-overview#relationship">Relationship</a> and is therefore not sufficiently familiar, an error with <a href="/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.runtime.identityMetadata.unfamiliarReferencedIdentity</code> is thrown.
+The optional <code class="language-plaintext highlighter-rouge">key</code> property can be used as an additional identifier to store multiple IdentityMetadata about a single Identity.
+If there is no IdentityMetadata for a given <code class="language-plaintext highlighter-rouge">reference</code> and <code class="language-plaintext highlighter-rouge">key</code> combination, a new IdentityMetadata will be created by the use case.
+Otherwise, the existing IdentityMetadata is updated inplace with the new <code class="language-plaintext highlighter-rouge">value</code> provided.
+Therefore, there can be at most one IdentityMetadata per <code class="language-plaintext highlighter-rouge">reference</code> and <code class="language-plaintext highlighter-rouge">key</code> combination.
+In particular, there can be at most one IdentityMetadata without a <code class="language-plaintext highlighter-rouge">key</code> for each Identity.
+For this reason, IdentityMetadata can be queried by specifying a combination of <code class="language-plaintext highlighter-rouge">reference</code> and <code class="language-plaintext highlighter-rouge">key</code> using the <a href="/use-case-consumption-get-identitymetadata">Get IdentityMetadata</a> use case with a uniquely determined return value.
+If no matching IdentityMetadata can be found for the specified parameters, an error with error code <code class="language-plaintext highlighter-rouge">error.runtime.identityMetadata.notFound</code> is thrown.</p>
 
-<h2 id="swagger">Swagger</h2>
+<h1 id="removal-of-identitymetadata">Removal of IdentityMetadata</h1>
 
-<ul>
-  <li>/docs/swagger : The Swagger UI of the Connector’s OpenAPI specification</li>
-</ul>
+<p>If an Integrator of a Connector wants to delete IdentityMetadata manually, they must utilize the <a href="/use-case-consumption-delete-identitymetadata">Delete IdentityMetadata</a> use case providing the combination of <code class="language-plaintext highlighter-rouge">reference</code> and <code class="language-plaintext highlighter-rouge">key</code> of the IdentityMetadata to be deleted.
+An error with <a href="/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.runtime.identityMetadata.notFound</code> is thrown if no matching IdentityMetadata can be found for the specified parameters.
+When <a href="/integrate/terminate-relationships#decompose-a-relationship">decomposing a Relationship</a>, all IdentityMetadata that have the <code class="language-plaintext highlighter-rouge">peer</code> of the <a href="/integrate/data-model-overview#relationship">Relationship</a> as their <code class="language-plaintext highlighter-rouge">reference</code> is deleted automatically.</p>
 
-<p class="notice--info"><strong>Note:</strong> For Swagger the authorization is on the top right (Authorize button with a lock symbol).</p>
+<h1 id="differentiation-from-identityattributes">Differentiation from IdentityAttributes</h1>
 
-<h2 id="rapidoc">Rapidoc</h2>
+<p>In addition to the <a href="/integrate/data-model-overview#identitymetadata">IdentityMetadata</a> presented in this guide, enmeshed provides <a href="/integrate/data-model-overview#identityattribute">IdentityAttributes</a> for storing data of an <a href="/integrate/data-model-overview#identity">Identity</a>.
+These two types of data objects are different from each other and are used for entirely different purposes.
+In contrast to IdentityAttributes, IdentityMetadata can only be managed by Integrators of Connectors and not by App users.
+This is because IdentityMetadata is intended as a separate option for Integrators of Connectors to store arbitrary auxiliary metadata of their peers.
+IdentityAttributes are strongly interwoven into enmeshed and its features and the <code class="language-plaintext highlighter-rouge">value</code> of an IdentityAttribute is therefore more strictly typed.
+The following table provides an overview of the differences between IdentityAttributes and IdentityMetadata.</p>
 
-<ul>
-  <li>/docs/rapidoc : The Rapidoc UI of the Connector’s OpenAPI specification</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Aspect</th>
+      <th>IdentityAttribute</th>
+      <th>IdentityMetadata</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Managing Identity</td>
+      <td>It can be managed by both an Integrator of a Connector or an App user.</td>
+      <td>It can only be managed by an Integrator of a Connector.</td>
+    </tr>
+    <tr>
+      <td>Possible types of <code class="language-plaintext highlighter-rouge">value</code></td>
+      <td>There is a predefined list of permitted <a href="/integrate/attribute-values#identity-attributes">IdentityAttribute value types</a>.</td>
+      <td>It must only be compatible with the JSON data types <code class="language-plaintext highlighter-rouge">string</code>, <code class="language-plaintext highlighter-rouge">number</code>, <code class="language-plaintext highlighter-rouge">boolean</code>, <code class="language-plaintext highlighter-rouge">object</code>, <code class="language-plaintext highlighter-rouge">array</code> and <code class="language-plaintext highlighter-rouge">null</code>.</td>
+    </tr>
+    <tr>
+      <td>Kind of storage</td>
+      <td>Local storage within the <code class="language-plaintext highlighter-rouge">content</code> property of a <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a>. The LocalAttribute can be identified by its <code class="language-plaintext highlighter-rouge">id</code>, which has <code class="language-plaintext highlighter-rouge">ATT</code> as prefix.</td>
+      <td>Local storage within an <a href="/integrate/data-model-overview#identitymetadata">IdentityMetadata</a> data object. It can be identified by its <code class="language-plaintext highlighter-rouge">id</code>, which has <code class="language-plaintext highlighter-rouge">IDM</code> as prefix, or alternatively by its combination of <code class="language-plaintext highlighter-rouge">reference</code> and <code class="language-plaintext highlighter-rouge">key</code>.</td>
+    </tr>
+    <tr>
+      <td>Storability for own Identity</td>
+      <td>Stored as a <a href="/integrate/attribute-introduction#repositoryattributes">RepositoryAttribute</a>. When <a href="/use-case-consumption-share-a-repositoryattribute">sharing a RepositoryAttribute</a>, an <a href="/integrate/attribute-introduction#own-shared-and-peer-shared-identityattributes">own shared IdentityAttribute</a> is created as a copy.</td>
+      <td>Stored as an <a href="/integrate/data-model-overview#identitymetadata">IdentityMetadata</a> that has the <code class="language-plaintext highlighter-rouge">address</code> of the own <a href="/integrate/data-model-overview#identity">Identity</a> as its <code class="language-plaintext highlighter-rouge">reference</code>.</td>
+    </tr>
+    <tr>
+      <td>Storability for <code class="language-plaintext highlighter-rouge">peer</code> of <a href="/integrate/data-model-overview#relationship">Relationship</a></td>
+      <td>Stored as a <a href="/integrate/attribute-introduction#own-shared-and-peer-shared-identityattributes">peer shared IdentityAttribute</a>. Cannot be created manually, but is created automatically if the <code class="language-plaintext highlighter-rouge">peer</code> of the <a href="/integrate/data-model-overview#relationship">Relationship</a> has <a href="/use-case-consumption-share-a-repositoryattribute">shared their RepositoryAttribute</a>.</td>
+      <td>Stored as an <a href="/integrate/data-model-overview#identitymetadata">IdentityMetadata</a> that has the <code class="language-plaintext highlighter-rouge">peer</code> of the <a href="/integrate/data-model-overview#relationship">Relationship</a> as its <code class="language-plaintext highlighter-rouge">reference</code>.</td>
+    </tr>
+    <tr>
+      <td>Set of features</td>
+      <td>Comprehensive feature set which, in addition to <a href="/integrate/create-attributes-for-yourself#create-an-identityattribute-for-yourself">creating</a>, <a href="/integrate/update-attributes-by-succession#succeeding-own-identityattributes">updating</a>, <a href="/use-case-consumption-get-attribute">getting</a> and <a href="/integrate/delete-attributes">deleting</a> an IdentityAttribute, also includes <a href="/integrate/share-attributes-with-peer">sharing with peer</a>, <a href="/integrate/read-attributes-from-peer">reading from peer</a>, <a href="/integrate/create-attributes-for-peer">creating for peer</a> and <a href="/integrate/propose-attributes-to-peer">proposing to peer</a>.</td>
+      <td>Minimal feature set that includes <a href="/use-case-consumption-upsert-identitymetadata">creating and updating</a>, <a href="/use-case-consumption-get-identitymetadata">getting</a> and <a href="/use-case-consumption-delete-identitymetadata">deleting</a> IdentityMetadata.</td>
+    </tr>
+    <tr>
+      <td>Kind of update of <code class="language-plaintext highlighter-rouge">value</code></td>
+      <td>The <code class="language-plaintext highlighter-rouge">value</code> is <a href="/integrate/update-attributes-by-succession#succeeding-own-identityattributes">updated by succession</a> and the history of changes is preserved.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">value</code> is <a href="/use-case-consumption-upsert-identitymetadata">updated inplace</a> and the history of changes is lost.</td>
+    </tr>
+  </tbody>
+</table>
 
-<p class="notice--info"><strong>Note:</strong> For Rapidoc the authorization is usually the third heading called “Authentication” and can also be found on the left navigation.</p>
+<h1 id="whats-next">What’s next?</h1>
 
-<h2 id="accessing-the-connector-with-external-api-tools-eg-postman-or-insomnia">Accessing the Connector with external API tools (e.g. Postman or Insomnia)</h2>
-
-<p>To fetch the Open API documentation of the Connector’s REST API, visit the following URIs:</p>
-
-<ul>
-  <li>/docs/yaml : The Connector’s OpenAPI specification in YAML format</li>
-  <li>/docs/json : The Connector’s OpenAPI specification in JSON format</li>
-</ul>
-
-<p>You can view these files with the <a href="https://editor.swagger.io/">Swagger Editor</a> or automatically import them within your favorite API Clients (e.g. Postman or Insomnia).</p>
-
-<h1 id="accessing-the-connector-by-software-development-kits-sdk">Accessing the Connector by Software Development Kits (SDK)</h1>
-
-<p>To achieve a better developer experience and type safety, preferably a Software Development Kit (SDK) should be used. The following SDKs are available for this purpose:</p>
-
-<p class="notice--info">We work on keeping this list as updated as possible. Please let us know, if some SDKs are outdated or new SDKs are available for the community.</p>
-
-<h2 id="typescript-sdk">TypeScript SDK</h2>
-
-<p>We offer an SDK developed in TypeScript that facilitates communication with your Connector from your TypeScript or JavaScript application. You can find it readily available on <a href="https://www.npmjs.com/package/@nmshd/connector-sdk">npmjs</a>.</p>
+<p>As already mentioned in the section on the <a href="/integrate/manage-identitymetadata#differentiation-from-identityattributes">differentiation from IdentityAttributes</a>, <a href="/integrate/data-model-overview#identityattribute">IdentityAttributes</a> are the classic means of choice provided by enmeshed to describe an <a href="/integrate/data-model-overview#identity">Identity</a>.
+To find out more about IdentityAttributes and the options for managing them, the <a href="/integrate/attribute-introduction#identityattributes">IdentityAttribute introduction</a> can be consulted.</p>
 
         
       </section>

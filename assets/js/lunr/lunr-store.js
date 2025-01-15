@@ -221,6 +221,12 @@ var store = [{
         "url": "/integrate/iql-syntax",
         "teaser": null
       },{
+        "title": "Manage IdentityMetadata",
+        "excerpt":"An organization needs the option to easily store arbitrary auxiliary metadata about familiar persons for its self-administration. This metadata must be differentiated from the IdentityAttributes provided by enmeshed, which are created for the purpose of exchanging with other Identities. From a technical point of view, an Integrator of a Connector...","categories": [],
+        "tags": [],
+        "url": "/integrate/manage-identitymetadata",
+        "teaser": null
+      },{
         "title": "Migration From v4 to v5",
         "excerpt":"The Runtime of enmeshed has recently been updated from version 4 to version 5. Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors. The version update has resulted in some breaking changes. To support the migration of existing...","categories": [],
         "tags": [],
