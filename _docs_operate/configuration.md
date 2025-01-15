@@ -203,6 +203,12 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   **Note:** If you are using the Connector in combintation with a FerretDB, you have to pay attention to the database name restrictions specified in the [FerretDB documentation](https://docs.ferretdb.io/diff/).
   {: .notice--warning}
 
+- **dbNamePrefix** `default: "acc-"`
+
+  The `dbNamePrefix` string is used as a prefix for the MongoDB database name. It will be **prepended** to the string configured by the `dbName` property.
+
+  If you don't want your database name to be prefixed, you can set this value to an empty string.
+
 ### infrastructure
 
 Each infrastructure can be enabled or disabled by passing true / false to `enabled`.
