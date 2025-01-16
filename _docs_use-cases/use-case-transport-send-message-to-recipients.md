@@ -59,4 +59,5 @@ This use case sends a [Message]({% link _docs_integrate/data-model-overview.md %
 
 - One of the `recipients` is not an active Relationship
 - The `attachments` are not valid File ids.
+- The `content` of the Message is a [Request]({% link _docs_integrate/data-model-overview.md %}#request) that is already expired. Please create a new Request and try again.
 - The `content` is malformed.
