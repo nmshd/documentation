@@ -178,7 +178,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 - **baseUrl** `required`
 
-  The base url is used to communicate with the enmeshed platform. It can be changed to use a custom enmeshed Backbone. The base url may not contain a vertical bar.
+  The base url is used to communicate with the enmeshed platform. It can be changed to use a custom enmeshed Backbone. The base url may not contain a vertical bar `|`.
 
 - **platformClientId** `required`
 
