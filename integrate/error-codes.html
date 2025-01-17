@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-01-15T12:19:42+01:00">
+  <meta property="article:published_time" content="2025-01-17T11:39:46+01:00">
 
 
 
@@ -356,7 +356,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Error Codes">
     <meta itemprop="description" content="Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker.">
-    <meta itemprop="datePublished" content="2025-01-15T12:19:42+01:00">
+    <meta itemprop="datePublished" content="2025-01-17T11:39:46+01:00">
     
 
     <div class="page__inner-wrap">
@@ -538,7 +538,7 @@
     </tr>
     <tr>
       <td>error.consumption.attributes.successionMustNotChangeValueType <a name="error.consumption.attributes.successionMustNotChangeValueType"></a></td>
-      <td>The successor Attribute’s <code class="language-plaintext highlighter-rouge">value</code> type does not match that of the predecessor. An <a href="/integrate/update-attributes-by-succession">Attribute succession</a> must not change the Attribute’s <code class="language-plaintext highlighter-rouge">value</code> type.</td>
+      <td>The successor Attribute’s <code class="language-plaintext highlighter-rouge">value.@type</code> does not match that of the predecessor. An <a href="/integrate/update-attributes-by-succession">Attribute succession</a> must not change the Attribute’s <code class="language-plaintext highlighter-rouge">value.@type</code>.</td>
     </tr>
     <tr>
       <td>error.consumption.attributes.successorDoesNotExist <a name="error.consumption.attributes.successorDoesNotExist"></a></td>
@@ -609,6 +609,14 @@
       <td>The provided Attribute does not match the AttributeQuery.</td>
     </tr>
     <tr>
+      <td>error.consumption.requests.cannotCreateRequestWithExpirationDateInPast <a name="error.consumption.requests.cannotCreateRequestWithExpirationDateInPast"></a></td>
+      <td>A <a href="/integrate/data-model-overview#request">Request</a> with an expiration date that is in the past cannot be created.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.requests.cannotShareRequestWithYourself <a name="error.consumption.requests.cannotShareRequestWithYourself"></a></td>
+      <td>It is not possible to share a <a href="/integrate/data-model-overview#request">Request</a> with yourself.</td>
+    </tr>
+    <tr>
       <td>error.consumption.requests.decide.validation.invalidNumberOfItems <a name="error.consumption.requests.decide.validation.invalidNumberOfItems"></a></td>
       <td>The <a href="/integrate/request-and-response-introduction">Request- and the ResponseItem count</a> is different.</td>
     </tr>
@@ -661,6 +669,10 @@
       <td>Some child items have errors. If this error occurred during the specification of a <a href="/integrate/data-model-overview#request">Request</a>, <a href="/use-case-consumption-check-if-outgoing-request-can-be-created">call ‘validate’ to get more information</a>.</td>
     </tr>
     <tr>
+      <td>error.consumption.requests.violatedKeyUniquenessOfRelationshipAttributes <a name="error.consumption.requests.violatedKeyUniquenessOfRelationshipAttributes"></a></td>
+      <td>For a given combination of <code class="language-plaintext highlighter-rouge">key</code>, <code class="language-plaintext highlighter-rouge">owner</code> and <code class="language-plaintext highlighter-rouge">value.@type</code>, there may only be at most one <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> in the context of a given <a href="/integrate/data-model-overview#relationship">Relationship</a>, whose corresponding <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> has an undefined <code class="language-plaintext highlighter-rouge">succeededBy</code> property.</td>
+    </tr>
+    <tr>
       <td>error.consumption.requests.wrongRelationshipStatus <a name="error.consumption.requests.wrongRelationshipStatus"></a></td>
       <td>The <a href="/integrate/data-model-overview#relationship">Relationship</a> needs to be in a different <code class="language-plaintext highlighter-rouge">status</code> (e.g. <code class="language-plaintext highlighter-rouge">"Active"</code>) to send/decide that <a href="/integrate/data-model-overview#request">Request</a>.</td>
     </tr>
@@ -671,6 +683,10 @@
     <tr>
       <td>error.runtime.alreadyStarted <a name="error.runtime.alreadyStarted"></a></td>
       <td>The runtime is already started. You should stop it first for a restart.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.attributes.cannotCreateDuplicateRepositoryAttribute <a name="error.runtime.attributes.cannotCreateDuplicateRepositoryAttribute"></a></td>
+      <td>The <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a> cannot be created because it has the exact same <code class="language-plaintext highlighter-rouge">content.value</code> as an already existing RepositoryAttribute whose <code class="language-plaintext highlighter-rouge">succeededBy</code> property is undefined.</td>
     </tr>
     <tr>
       <td>error.runtime.attributes.cannotSeparatelyDeleteChildOfComplexAttribute <a name="error.runtime.attributes.cannotSeparatelyDeleteChildOfComplexAttribute"></a></td>
@@ -749,6 +765,10 @@
       <td>The given <a href="/integrate/data-model-overview#token">Token</a> has an invalid <code class="language-plaintext highlighter-rouge">content</code> for this <a href="/use-case-transport-create-own-token">route</a>.</td>
     </tr>
     <tr>
+      <td>error.runtime.messages.cannotSendMessageWithExpiredRequest <a name="error.runtime.messages.cannotSendMessageWithExpiredRequest"></a></td>
+      <td>The <a href="/integrate/data-model-overview#message">Message</a> cannot be sent as the contained <a href="/integrate/data-model-overview#request">Request</a> is already expired. Please create a new Request and try again.</td>
+    </tr>
+    <tr>
       <td>error.runtime.messages.hasNoActiveRelationship <a name="error.runtime.messages.hasNoActiveRelationship"></a></td>
       <td>The <a href="/integrate/data-model-overview#message">Message</a> cannot be sent, because there is no active <a href="/integrate/data-model-overview#relationship">Relationship</a> to one or more of its <code class="language-plaintext highlighter-rouge">recipients</code>. However, please note that Messages whose <code class="language-plaintext highlighter-rouge">content</code> is a <a href="/integrate/data-model-overview#notification">Notification</a> can still be sent on terminated Relationships.</td>
     </tr>
@@ -815,6 +835,10 @@
     <tr>
       <td>error.runtime.relationshipTemplates.passwordProtectionMustBeInherited <a name="error.runtime.relationshipTemplates.passwordProtectionMustBeInherited"></a></td>
       <td>If a <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> has password protection, <a href="/integrate/data-model-overview#token">Tokens</a> created from it must have the same password protection.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.relationshipTemplates.requestCannotExpireAfterRelationshipTemplate <a name="error.runtime.relationshipTemplates.requestCannotExpireAfterRelationshipTemplate"></a></td>
+      <td>If the <code class="language-plaintext highlighter-rouge">content</code> of a <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> is a <a href="/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a>, the expiration date of the <a href="/integrate/data-model-overview#request">Request</a> within its <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property must be set such that the expiration date of the RelationshipTemplate is not exceeded.</td>
     </tr>
     <tr>
       <td>error.runtime.requestDeserialization <a name="error.runtime.requestDeserialization"></a></td>
@@ -890,19 +914,27 @@
     </tr>
     <tr>
       <td>error.transport.general.baseUrlNotSet <a name="error.transport.general.baseUrlNotSet"></a></td>
-      <td><a href="/operate/configuration#configuration-options">The <code class="language-plaintext highlighter-rouge">baseUrl</code> was not set.</a>.</td>
+      <td>The <a href="/operate/configuration#transportlibrary"><code class="language-plaintext highlighter-rouge">baseUrl</code> of the <code class="language-plaintext highlighter-rouge">transportLibrary</code></a> was not set.</td>
+    </tr>
+    <tr>
+      <td>error.transport.general.invalidBaseUrl <a name="error.transport.general.invalidBaseUrl"></a></td>
+      <td>The <a href="/operate/configuration#transportlibrary"><code class="language-plaintext highlighter-rouge">baseUrl</code> of the <code class="language-plaintext highlighter-rouge">transportLibrary</code></a> is invalid since it contains a vertical bar <code>&#124;</code>.</td>
+    </tr>
+    <tr>
+      <td>error.transport.general.notIntendedForYou <a name="error.transport.general.notIntendedForYou"></a></td>
+      <td>If a <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> or a <a href="/integrate/data-model-overview#token">Token</a> is personalized, it may only be loaded by the <a href="/integrate/data-model-overview#identity">Identity</a> for which it is intended.</td>
     </tr>
     <tr>
       <td>error.transport.general.platformClientIdNotSet <a name="error.transport.general.platformClientIdNotSet"></a></td>
-      <td><a href="/operate/configuration#configuration-options">The <code class="language-plaintext highlighter-rouge">platformClientId</code> was not set.</a>.</td>
+      <td>The <a href="/operate/configuration#transportlibrary"><code class="language-plaintext highlighter-rouge">platformClientId</code> of the <code class="language-plaintext highlighter-rouge">transportLibrary</code></a> was not set.</td>
     </tr>
     <tr>
       <td>error.transport.general.platformClientInvalid <a name="error.transport.general.platformClientInvalid"></a></td>
-      <td><a href="/operate/configuration#configuration-options">The combination of <code class="language-plaintext highlighter-rouge">platformClientId</code> and <code class="language-plaintext highlighter-rouge">platformClientSecret</code> is invalid.</a></td>
+      <td>The combination of <a href="/operate/configuration#transportlibrary"><code class="language-plaintext highlighter-rouge">platformClientId</code> and <code class="language-plaintext highlighter-rouge">platformClientSecret</code> of the <code class="language-plaintext highlighter-rouge">transportLibrary</code></a> is invalid.</td>
     </tr>
     <tr>
       <td>error.transport.general.platformClientSecretNotSet <a name="error.transport.general.platformClientSecretNotSet"></a></td>
-      <td><a href="/operate/configuration#configuration-options">The <code class="language-plaintext highlighter-rouge">platformClientSecret</code> was not set.</a></td>
+      <td>The <a href="/operate/configuration#transportlibrary"><code class="language-plaintext highlighter-rouge">platformClientSecret</code> of the <code class="language-plaintext highlighter-rouge">transportLibrary</code></a> was not set.</td>
     </tr>
     <tr>
       <td>error.transport.messages.hasNeitherActiveNorTerminatedRelationship <a name="error.transport.messages.hasNeitherActiveNorTerminatedRelationship"></a></td>
@@ -961,6 +993,18 @@
       <td>There’s no <a href="/integrate/data-model-overview#relationship">Relationship</a> reactivation <a href="/integrate/data-model-overview#request">Request</a> to respond to.</td>
     </tr>
     <tr>
+      <td>error.transport.relationships.relationshipCurrentlyExists <a name="error.transport.relationships.relationshipCurrentlyExists"></a></td>
+      <td>No new <a href="/integrate/data-model-overview#relationship">Relationship</a> to the <code class="language-plaintext highlighter-rouge">peer</code> can be created as a Relationship with <code class="language-plaintext highlighter-rouge">"Pending"</code>, <code class="language-plaintext highlighter-rouge">"Active"</code>, <code class="language-plaintext highlighter-rouge">"Terminated"</code> or <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code> as <code class="language-plaintext highlighter-rouge">status</code> already exists.</td>
+    </tr>
+    <tr>
+      <td>error.transport.relationships.relationshipNotYetDecomposedByPeer <a name="error.transport.relationships.relationshipNotYetDecomposedByPeer"></a></td>
+      <td>No new <a href="/integrate/data-model-overview#relationship">Relationship</a> can be created as the former Relationship is not yet decomposed by the <code class="language-plaintext highlighter-rouge">peer</code>.</td>
+    </tr>
+    <tr>
+      <td>error.transport.relationships.relationshipTemplateIsExpired <a name="error.transport.relationships.relationshipTemplateIsExpired"></a></td>
+      <td>The <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> is already expired and therefore cannot be used to create a <a href="/integrate/data-model-overview#relationship">Relationship</a>.</td>
+    </tr>
+    <tr>
       <td>error.transport.relationships.wrongRelationshipStatus <a name="error.transport.relationships.wrongRelationshipStatus"></a></td>
       <td>The <a href="/integrate/data-model-overview#relationship">Relationship</a> has the wrong <code class="language-plaintext highlighter-rouge">status</code> to run the requested operation.</td>
     </tr>
@@ -993,7 +1037,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-01-15T12:19:42+01:00">January 15, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-01-17T11:39:46+01:00">January 17, 2025</time></p>
 
       </footer>
 

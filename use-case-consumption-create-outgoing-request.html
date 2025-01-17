@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-01-15T12:19:42+01:00">
+  <meta property="article:published_time" content="2025-01-17T11:39:46+01:00">
 
 
 
@@ -356,7 +356,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Create outgoing Request">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2025-01-15T12:19:42+01:00">
+    <meta itemprop="datePublished" content="2025-01-17T11:39:46+01:00">
     
 
     <div class="page__inner-wrap">
@@ -474,8 +474,11 @@ One can and should <a href="use-case-consumption-check-if-outgoing-request-can-b
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>The LocalRequest cannot be created if the <code class="language-plaintext highlighter-rouge">peer</code> is unknown.</li>
+  <li>The LocalRequest cannot be created if the <code class="language-plaintext highlighter-rouge">peer</code> is the creator itself.</li>
+  <li>The LocalRequest cannot be created if the expiration date of the Request contained within its <code class="language-plaintext highlighter-rouge">content</code> property is in the past.</li>
+  <li>The LocalRequest cannot be created if no <a href="/integrate/data-model-overview#relationship">Relationship</a> to the <code class="language-plaintext highlighter-rouge">peer</code> exists.</li>
   <li>The LocalRequest cannot be created if the Request specified as <code class="language-plaintext highlighter-rouge">content</code> is malformed.</li>
+  <li>The LocalRequest cannot be created if its acceptance would lead to the creation of more than one <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> in the context of the Relationship to the <code class="language-plaintext highlighter-rouge">peer</code> with the same <code class="language-plaintext highlighter-rouge">key</code>, <code class="language-plaintext highlighter-rouge">owner</code> and <code class="language-plaintext highlighter-rouge">value.@type</code>.</li>
 </ul>
 
 <p class="notice--info">For more details on the failure to create a LocalRequest, execute the <a href="use-case-consumption-check-if-outgoing-request-can-be-created">Check if outgoing Request can be created</a> use case.</p>
@@ -516,7 +519,7 @@ This use case can be executed with the REST API of the Connector which you can <
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-01-15T12:19:42+01:00">January 15, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-01-17T11:39:46+01:00">January 17, 2025</time></p>
 
       </footer>
 
