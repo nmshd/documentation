@@ -57,4 +57,4 @@ based on a given [IdentityAttribute]({% link _docs_integrate/data-model-overview
 
 ## On Failure
 
-- The LocalAttribute cannot be created if the parameter is malformed.
+- The LocalAttribute cannot be created if there is already an existing RepositoryAttribute whose `succeededBy` property is undefined that has the exact same `content.value`.

@@ -62,4 +62,5 @@ A [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relat
 
 - The `content` is malformed.
 - `expiresAt` lies in the past.
+- In case a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) is used for the `content` of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate), the expiration date of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) within its `onNewRelationship` property was set such that the expiration date of the RelationshipTemplate was exceeded.
 - In case of password protection of the RelationshipTemplate, a `passwordProtection.password` that does not consist of 4 to 16 digits was specified, but the value of `passwordProtection.passwordIsPin` was nevertheless set to `true`.
