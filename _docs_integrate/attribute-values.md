@@ -314,7 +314,7 @@ The telephone number which can be used to reach the Identity via fax systems.
 
 ## IdentityFileReference
 
-A IdentityFileReference is a link to an enmeshed [`File`]({% link _docs_integrate/data-model-overview.md %}#files) and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.
+An IdentityFileReference is a link to an enmeshed [`File`]({% link _docs_integrate/data-model-overview.md %}#files) and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.
 
 **Properties**
 
