@@ -188,7 +188,7 @@ The Backbone allows you to upload files, which are saved as - you guessed it - `
 | isOwn              | `boolean`               | {% include descr_isOwn class="File" %}                                                                                | saved only locally                            |
 | truncatedReference | `string`                | {% include descr_truncatedReference class="File" %}                                                                   | saved only locally                            |
 
-A File further has its content, of course. But since this is not a JSON property, it is not included in this table. You can download the content of the File separately.
+A File further has its content, of course. But since this is not a JSON property, it is not included in this table. You can download the content of the File separately by executing the [Get or load File]({% link _docs_use-cases/use-case-transport-get-or-load-file.md %}) use case.
 
 ## Identity
 
