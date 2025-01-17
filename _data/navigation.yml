@@ -117,6 +117,8 @@ docs_integrate:
         url: /integrate/create-attributes-for-peer
       - title: "Propose Attributes to peer"
         url: /integrate/propose-attributes-to-peer
+      - title: "Exchange Files by using Attributes"
+        url: /integrate/exchange-files-by-using-attributes
       - title: "Update Attributes by succession"
         url: /integrate/update-attributes-by-succession
       - title: "Delete Attributes"
