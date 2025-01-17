@@ -48,6 +48,7 @@ This use case must always be applied if the `content` of the RelationshipTemplat
 However, if it is a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent), it usually does not have to be executed manually anymore.
 Instead, the [Request Module]({% link _docs_explore/61-runtime.md %}#request-module), which is enabled by default, takes care of this automatically.
 For information on how to [establish a Relationship]({% link _docs_integrate/establish-relationships.md %}) based on a [RelationshipTemplate with RelationshipTemplateContent]({% link _docs_integrate/establish-relationships.md %}#relationshiptemplate-with-relationshiptemplatecontent) and an enabled Request Module, refer to the corresponding scenario documentation.
+To check whether a Relationship can be created without actually creating it, the [Check if Relationship can be created]({% link _docs_use-cases/use-case-transport-check-if-relationship-can-be-created.md %}) use case can be executed.
 
 ## Parameters
 
