@@ -44,7 +44,7 @@ All Identities that know its value can load the File from the Backbone and decry
 After [uploading a File](#upload-a-file), a certain kind of [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) can be used to share the value of the `truncatedReference` property of the [File]({% link _docs_integrate/data-model-overview.md %}#file) with other Identities.
 To be more precise, this is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type`.
 An IdentityFileReference stores the value of the `truncatedReference` property of the File within its `value` property.
-By [sending a suitable Request]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes), this IdentityAttribute can be shared with a `peer` of an already existing [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) or in the process of establishing a new Relationship.
+By [sending a suitable Request]({% link _docs_integrate/share-attributes-with-peer.md %}#send-and-receive-the-request), this IdentityAttribute can be shared with a `peer` of an already existing [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) or in the process of establishing a new Relationship.
 
 For information on how to establish Relationships, refer to the [Establish Relationships]({% link _docs_integrate/establish-relationships.md %}) scenario documentation.
 {: .notice--info}
@@ -58,7 +58,7 @@ Other than with Connector Integrators, this IdentityAttribute is automatically c
 
 ## Share IdentityFileReference
 
-To share a File, share the [created IdentityAttribute](#create-identityfilereference) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` by [sending a suitable Request]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes).
+To share a File, share the [created IdentityAttribute](#create-identityfilereference) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` by sending a [suitable Request]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes).
 Details on how to share Attributes can be found in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) scenario documentation.
 The recipient of the IdentityAttribute of IdentityFileReference `value.@type` can provide the `value` of the IdentityFileReference when utilizing the [Get or load File]({% link _docs_use-cases/use-case-transport-get-or-load-file.md %}) use case to load the File.
 
