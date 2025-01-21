@@ -9,12 +9,12 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RF7
+  - id: RF9
   - component: Runtime
   - layer: Transport
   - facade: FilesFacade
   - function: createQRCodeForFile
-  - description:
+  - description: Creates a QR code for the File with the given `id`.
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE

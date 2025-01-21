@@ -9,12 +9,12 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RF2
+  - id: RF3
   - component: Runtime
   - layer: Transport
   - facade: FilesFacade
   - function: getFiles
-  - description: Queries metadata of files owned by this Connector.
+  - description: Queries metadata of Files.
   - feature category:
   - tech category: Files
   - status: DONE

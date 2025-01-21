@@ -9,12 +9,12 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RF5
+  - id: RF7
   - component: Runtime
   - layer: Transport
   - facade: FilesFacade
   - function: downloadFile
-  - description: Downloads the file with the given `id`.
+  - description: Downloads the File with the given `id`.
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE

@@ -9,12 +9,12 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RF6
+  - id: RF8
   - component: Runtime
   - layer: Transport
   - facade: FilesFacade
   - function: createTokenForFile
-  - description: Creates a `Token` for the `File` with the given `id`.
+  - description: Creates a Token for the File with the given `id`. It can be personalized or password-protected.
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE

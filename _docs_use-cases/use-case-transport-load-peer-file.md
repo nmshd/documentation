@@ -1,20 +1,22 @@
 ---
 # Start automatic generation
-permalink: use-case-transport-get-or-load-file
+permalink: use-case-transport-load-peer-file
+redirect_from:
+  - use-case-transport-get-or-load-file
 published: true
-title: "Get or load File"
+title: "Load peer File"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RF4
+  - id: RF6
   - component: Runtime
   - layer: Transport
   - facade: FilesFacade
   - function: getOrLoadFile
-  - description: Loads a file of another Identity. After it is loaded once, you can retrieve it without the need for the secret key by calling one of the GET-routes.
+  - description: Loads a File of another Identity with the given `reference` of the File or of a Token of the File. After it is loaded once, you can retrieve it by calling one of the GET routes.
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE
@@ -29,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Files/{idOrReference}
+  - api_route_regex: POST /api/v2/Files/Peer
   - published: default
-  - link: use-case-transport-get-or-load-file
+  - link: use-case-transport-load-peer-file
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Files/{idOrReference}$
+api_route_regex: ^POST /api/v2/Files/Peer$
 # End automatic generation
 ---
 
