@@ -28,7 +28,7 @@ Communication between Identities involves exchanging [uploaded Files](#upload-a-
 - An applicant wants to send their curriculum vitae to a company.
 
 This guide describes how an Integrator of a Connector can use a certain kind of [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) to [share a File with a peer](#share-a-file-with-a-peer).
-An understanding of this kind of Attribute is also necessary to [request the reading of a File from a peer](#read-a-file-from-a-peer).
+Furthermore, an understanding of this kind of Attribute is also necessary to make use of [further options for exchanging Files](#further-options-for-exchanging-files), such as requesting the reading of a [File]({% link _docs_integrate/data-model-overview.md %}#file) from a peer.
 
 # Upload a File
 
@@ -51,7 +51,7 @@ For information on how to establish Relationships, refer to the [Establish Relat
 
 ## Create IdentityFileReference
 
-Create the IdentityAttribute that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` by proceeding as described in the documentation on [creating an IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself).
+Create the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` by proceeding as described in the documentation on [creating an IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself).
 
 Other than with Connector Integrators, this IdentityAttribute is automatically created when an App user [uploads a File](#upload-a-file) so that it is directly available for sharing.
 {: .notice--info}
@@ -63,9 +63,12 @@ Details on how to share Attributes can be found in the [Share Attributes with pe
 
 ## Load the Referenced File
 
-The recipient of the IdentityAttribute of IdentityFileReference `value.@type` can provide the `value` of the IdentityFileReference when utilizing the [Load peer File]({% link _docs_use-cases/use-case-transport-load-peer-file.md %}) use case to load the File.
+The recipient of the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) `value.@type` can provide the `value` of the IdentityFileReference when utilizing the [Load peer File]({% link _docs_use-cases/use-case-transport-load-peer-file.md %}) use case to load the File.
 After the peer File has been loaded, it is possible to [download]({% link _docs_use-cases/use-case-transport-download-file.md %}) its actual binary content.
 
-# Read a File From a Peer
+# Further Options for Exchanging Files
 
-Refer to the [Read Attributes from peer]({% link _docs_integrate/read-attributes-from-peer.md %}) scenario documentation.
+As for all other kinds of [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes), the [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) `value.@type` can be [read from the peer]({% link _docs_integrate/read-attributes-from-peer.md %}), [created for the peer]({% link _docs_integrate/create-attributes-for-peer.md %}) and [proposed to the peer]({% link _docs_integrate/propose-attributes-to-peer.md %}) by proceeding as described in the corresponding scenario documentation.
+In addition, there is the option of [updating by succession]({% link _docs_integrate/update-attributes-by-succession.md %}) and [deletion]({% link _docs_integrate/delete-attributes.md %}).
+However, the deletion of an IdentityAttribute that has IdentityFileReference as its `value.@type` does not additionally lead to the deletion of the associated uploaded encrypted File on the Backbone.
+This must be done separately if required.
