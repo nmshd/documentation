@@ -267,7 +267,7 @@ Tokens can be accessed by everyone (having a correct token id and the respective
 
 ### Token References
 
-The token id and the generated secret key are then the only two properties which need to be submitted to another user. Both properties are usually encoded into a base64url-encoded format which is called token reference. This token reference is usually transferred to another user in the shape of a link or a QR code.
+The token id and the generated secret key are then the only two properties which need to be submitted to another user. Both properties are usually encoded into a Base64URL-encoded format which is called token reference. This token reference is usually transferred to another user in the shape of a link or a QR code.
 
 ### Token Structure
 
