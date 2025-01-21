@@ -44,19 +44,22 @@ api_route_regex: ^POST /api/v2/Files/Peer$
 
 {% include properties_list.html %}
 
-This use case retrieves a [File]({% link _docs_integrate/data-model-overview.md %}#file) by an `id` or the `reference`. This is usually the case, when a reference to a File was received by a peer (over a Message or by any side channel).
+This use case loads the metadata information of a peer [File]({% link _docs_integrate/data-model-overview.md %}#file) by a `reference` to it.
+This can be the `truncatedReference` of the File itself, which can be obtained from the [File uploader]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}), for example, when [exchanging Files by using Attributes]({% link _docs_integrate/exchange-files-by-using-attributes.md %}), or the `truncatedReference` of a [Token]({% link _docs_integrate/data-model-overview.md %}#token).
+In the latter case, the [Token for the File was previously created]({% link _docs_use-cases/use-case-transport-create-token-for-file.md %}) by the File uploader.
+Loading a peer File is necessary in order to be able to download the actual binary content of the File using the [Download File]({% link _docs_use-cases/use-case-transport-download-file.md %}) use case.
 
 ## Parameters
 
-- `id` or `reference` that identify the File.
+- `reference` to the File.
 - The `password` if the File is to be loaded from a `reference` to a [Token]({% link _docs_integrate/data-model-overview.md %}#token) that is password protected via its `passwordProtection` property.
 
 ## On Success
 
-- The File that corresponds to the `id` or the `reference`.
+- The File that corresponds to the `reference`.
 
 ## On Failure
 
-- The given `id` or `reference` does not resolve to a File.
+- The given `reference` does not resolve to a File.
 - The File is to be loaded from a `reference` to a Token that is personalized for a different [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) via its `forIdentity` property.
 - No `password` or an incorrect `password` was entered in case of a File that is to be loaded from a `reference` to a password protected Token.

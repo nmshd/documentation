@@ -42,16 +42,29 @@ api_route_regex: ^GET /api/v2/Files/Own$
 
 {% include properties_list.html %}
 
-This use case retrieves an own File.
+This use case queries [uploaded own Files]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}).
+In contrast, the [Query peer Files]({% link _docs_use-cases/use-case-transport-query-peer-files.md %}) use case can be executed to query [loaded peer Files]({% link _docs_use-cases/use-case-transport-load-peer-file.md %}).
+To avoid limiting the output quantity in advance, the [Query Files]({% link _docs_use-cases/use-case-transport-query-files.md %}) use case can be applied.
 
 ## Parameters
 
-- `id` of the File which should be retrieved.
+All parameters are optional. If no parameter is given, all own [Files]({% link _docs_integrate/data-model-overview.md %}#file) are returned.
+
+- `createdAt` is the ISODateTime the File was created at.
+- `createdBy` is the enmeshed `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that created the File.
+- `createdByDevice` is the `id` of the Device that created the File.
+- `description` of the File.
+- `expiresAt` is the ISODateTime the File expires.
+- `filename` is the name of the actual file from the operating system.
+- `filesize` is the size of the respective file in bytes.
+- `mimetype` of the respective file.
+- `title` of the File.
+- `isOwn` indicates if the File is owned by you.
 
 ## On Success
 
-- The metadata of the [File]({% link _docs_integrate/data-model-overview.md %}#file) that match the `id`.
+- Returns all own Files that match the `query`.
 
 ## On Failure
 
-- No File corresponds to the `id`.
+- The parameters are malformed.

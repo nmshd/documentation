@@ -42,7 +42,8 @@ api_route_regex: ^GET /api/v2/Files$
 
 {% include properties_list.html %}
 
-This use case queries [Files]({% link _docs_integrate/data-model-overview.md %}#file) of the Identity.
+This use case queries [Files]({% link _docs_integrate/data-model-overview.md %}#file) of the Identity regardless of whether it is an [uploaded own File]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}) or a [loaded peer File]({% link _docs_use-cases/use-case-transport-load-peer-file.md %}).
+To limit the output quantity accordingly in advance, the [Query own Files]({% link _docs_use-cases/use-case-transport-query-own-files.md %}) use case or [Query peer Files]({% link _docs_use-cases/use-case-transport-query-peer-files.md %}) use case can be applied instead.
 
 ## Parameters
 
@@ -54,14 +55,14 @@ All parameters are optional. If no parameter is given, all Files are returned.
 - `description` of the File.
 - `expiresAt` is the ISODateTime the File expires.
 - `filename` is the name of the actual file from the operating system.
-- `filesize` is the size of the respective file in bytes
-- `mimetype` of the respective file
-- `title` of the File
+- `filesize` is the size of the respective file in bytes.
+- `mimetype` of the respective file.
+- `title` of the File.
 - `isOwn` indicates if the File is owned by you.
 
 ## On Success
 
-- Returns all [Files]({% link _docs_integrate/data-model-overview.md %}#file) that match the `query`.
+- Returns all Files that match the `query`.
 
 ## On Failure
 

@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: FilesFacade
   - function: createTokenQRCodeForFile
-  - description: Creates a Token QR code for the File with the given `id`. This Token can be personalized or password-protected.
+  - description: Creates a Token QR code for the File with the given `id`. This Token can be personalized or password protected.
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE
