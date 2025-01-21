@@ -60,7 +60,7 @@ Other than with Connector Integrators, this IdentityAttribute is automatically c
 
 To share a File, share the [created IdentityAttribute](#create-identityfilereference) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` by sending a [suitable Request]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes).
 Details on how to share Attributes can be found in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) scenario documentation.
-The recipient of the IdentityAttribute of IdentityFileReference `value.@type` can provide the `value` of the IdentityFileReference when utilizing the [Get or load File]({% link _docs_use-cases/use-case-transport-get-or-load-file.md %}) use case to load the File.
+The recipient of the IdentityAttribute of IdentityFileReference `value.@type` can provide the `value` of the IdentityFileReference when utilizing the [Load peer File]({% link _docs_use-cases/use-case-transport-load-peer-file.md %}) use case to load the File.
 
 # Read a File from a peer
 
