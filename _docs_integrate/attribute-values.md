@@ -466,7 +466,7 @@ SchematizedXML can be used to exchange files in XML format. The exchange of XML 
 | ----------- | ------------------ | :------: | ---------------------------------------------------------- |
 | `@type`     | `"SchematizedXML"` |    ✓     |                                                            |
 | `value`     | `string`           |    ✓     | max. length: 50000 <br>must be a valid XML encoded string  |
-| `schemaURL` | `string`           |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+| `schemaURL` | `string`           |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
 
 ## Sex
 
