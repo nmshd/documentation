@@ -39,7 +39,7 @@ This `id` can, for example, be specified as a parameter when executing the [Get 
 In the context of exchanging Files, particular attention should be paid to the `truncatedReference` property of the File.
 All Identities that know its value can load the File from the Backbone and decrypt it.
 
-# Share a File with a peer
+# Share a File With a Peer
 
 After [uploading a File](#upload-a-file), a certain kind of [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) can be used to share the value of the `truncatedReference` property of the [File]({% link _docs_integrate/data-model-overview.md %}#file) with other Identities.
 To be more precise, this is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type`.
@@ -60,8 +60,12 @@ Other than with Connector Integrators, this IdentityAttribute is automatically c
 
 To share a File, share the [created IdentityAttribute](#create-identityfilereference) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` by sending a [suitable Request]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes).
 Details on how to share Attributes can be found in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) scenario documentation.
-The recipient of the IdentityAttribute of IdentityFileReference `value.@type` can provide the `value` of the IdentityFileReference when utilizing the [Load peer File]({% link _docs_use-cases/use-case-transport-load-peer-file.md %}) use case to load the File.
 
-# Read a File from a peer
+## Load the Referenced File
+
+The recipient of the IdentityAttribute of IdentityFileReference `value.@type` can provide the `value` of the IdentityFileReference when utilizing the [Load peer File]({% link _docs_use-cases/use-case-transport-load-peer-file.md %}) use case to load the File.
+After the peer File has been loaded, it is possible to [download]({% link _docs_use-cases/use-case-transport-download-file.md %}) its actual binary content.
+
+# Read a File From a Peer
 
 Refer to the [Read Attributes from peer]({% link _docs_integrate/read-attributes-from-peer.md %}) scenario documentation.
