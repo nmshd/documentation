@@ -35,7 +35,7 @@ An understanding of this kind of Attribute is also necessary to [request the rea
 In order to be able to [share a File with a peer](#share-a-file-with-a-peer), the [File]({% link _docs_integrate/data-model-overview.md %}#file) must first be uploaded to the Backbone in encrypted form.
 To do this, consult the documentation of the [Upload own File]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}) use case.
 By uploading the File, it has been assigned an `id` with which it can be identified from now on.
-This `id` can, for example, be specified as a parameter when executing the [Get own File]({% link _docs_use-cases/use-case-transport-get-own-file.md %}) use case in order to display the metadata information of the File.
+This `id` can, for example, be specified as a parameter when executing the [Get File]({% link _docs_use-cases/use-case-transport-get-file.md %}) use case in order to display the metadata information of the File.
 In the context of exchanging Files, particular attention should be paid to the `truncatedReference` property of the File.
 All Identities that know its value can load the File from the Backbone and decrypt it.
 
