@@ -1,10 +1,10 @@
 ---
 # Start automatic generation
-permalink: use-case-transport-load-peer-file
+permalink: use-case-transport-load-file
 redirect_from:
   - use-case-transport-get-or-load-file
 published: true
-title: "Load peer File"
+title: "Load File"
 type: use-case
 toc: true
 sidebar:
@@ -16,7 +16,7 @@ properties:
   - layer: Transport
   - facade: FilesFacade
   - function: getOrLoadFile
-  - description: Loads a File of another Identity with the given `reference` of the File or of a Token of the File. After it is loaded once, you can retrieve it by calling one of the GET routes.
+  - description: Loads a File of an Identity with the given `reference` of the File or of a Token of the File. After it is loaded once, you can retrieve it by calling one of the GET routes.
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE
@@ -33,7 +33,7 @@ properties:
   - changed_at:
   - api_route_regex: POST /api/v2/Files/Peer
   - published: default
-  - link: use-case-transport-load-peer-file
+  - link: use-case-transport-load-file
 require:
 required_by:
 api_route_regex: ^POST /api/v2/Files/Peer$
@@ -44,10 +44,11 @@ api_route_regex: ^POST /api/v2/Files/Peer$
 
 {% include properties_list.html %}
 
-This use case loads the metadata information of a peer [File]({% link _docs_integrate/data-model-overview.md %}#file) by a `reference` to it.
+This use case loads the metadata information of a [File]({% link _docs_integrate/data-model-overview.md %}#file) by a `reference` to it.
 This can be the `truncatedReference` of the File itself, which can be obtained from the [File uploader]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}), for example, when [exchanging Files by using Attributes]({% link _docs_integrate/exchange-files-by-using-attributes.md %}), or the `truncatedReference` of a [Token]({% link _docs_integrate/data-model-overview.md %}#token).
 In the latter case, the [Token for the File was previously created]({% link _docs_use-cases/use-case-transport-create-token-for-file.md %}).
-Loading a peer File is necessary in order to be able to download the actual binary content of the File using the [Download File]({% link _docs_use-cases/use-case-transport-download-file.md %}) use case.
+Loading a File that is owned by another Identity is necessary in order to be able to download the actual binary content of the File using the [Download File]({% link _docs_use-cases/use-case-transport-download-file.md %}) use case.
+If a File that has already been loaded is loaded again or its uploader loads it, this use case, like the [Get File]({% link _docs_use-cases/use-case-transport-get-file.md %}) use case, simply returns the metadata information of the File.
 
 ## Parameters
 

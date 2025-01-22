@@ -64,7 +64,7 @@ Details on how to share Attributes can be found in the [Share Attributes with pe
 
 ## Load the Referenced File
 
-The recipient of the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) `value.@type` can provide the `value` of the IdentityFileReference when utilizing the [Load peer File]({% link _docs_use-cases/use-case-transport-load-peer-file.md %}) use case to load the File.
+The recipient of the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) `value.@type` can provide the `value` of the IdentityFileReference when utilizing the [Load File]({% link _docs_use-cases/use-case-transport-load-file.md %}) use case to load the File.
 After the peer File has been loaded, it is possible to [download]({% link _docs_use-cases/use-case-transport-download-file.md %}) its actual decrypted binary content from the Backbone.
 
 # Further Options for Exchanging Files

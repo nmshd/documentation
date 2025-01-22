@@ -43,7 +43,7 @@ api_route_regex: ^GET /api/v2/Files/Own$
 {% include properties_list.html %}
 
 This use case queries [uploaded own Files]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}).
-In contrast, the [Query peer Files]({% link _docs_use-cases/use-case-transport-query-peer-files.md %}) use case can be executed to query [loaded peer Files]({% link _docs_use-cases/use-case-transport-load-peer-file.md %}).
+In contrast, the [Query peer Files]({% link _docs_use-cases/use-case-transport-query-peer-files.md %}) use case can be executed to query [loaded peer Files]({% link _docs_use-cases/use-case-transport-load-file.md %}).
 To avoid limiting the output quantity in advance, the [Query Files]({% link _docs_use-cases/use-case-transport-query-files.md %}) use case can be applied.
 
 ## Parameters

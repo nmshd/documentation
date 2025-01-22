@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Files$
 
 {% include properties_list.html %}
 
-This use case queries [Files]({% link _docs_integrate/data-model-overview.md %}#file) of the Identity regardless of whether it is an [uploaded own File]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}) or a [loaded peer File]({% link _docs_use-cases/use-case-transport-load-peer-file.md %}).
+This use case queries [Files]({% link _docs_integrate/data-model-overview.md %}#file) of the Identity regardless of whether it is an [uploaded own File]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}) or a [loaded peer File]({% link _docs_use-cases/use-case-transport-load-file.md %}).
 To limit the output quantity accordingly in advance, the [Query own Files]({% link _docs_use-cases/use-case-transport-query-own-files.md %}) use case or [Query peer Files]({% link _docs_use-cases/use-case-transport-query-peer-files.md %}) use case can be applied instead.
 
 ## Parameters
