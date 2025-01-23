@@ -43,7 +43,7 @@ api_route_regex: ^GET /api/v2/Files/{idOrReference}$
 {% include properties_list.html %}
 
 This use case retrieves the metadata information of a [File]({% link _docs_integrate/data-model-overview.md %}#file).
-If it is not the metadata information of the File that is of interest, but its actual binary content, the [File must be downloaded]({% link _docs_use-cases/use-case-transport-download-file.md %}) instead.
+If it is not the metadata information of the File that is of interest, but its actual content, the [File must be downloaded]({% link _docs_use-cases/use-case-transport-download-file.md %}) instead.
 
 ## Parameters
 

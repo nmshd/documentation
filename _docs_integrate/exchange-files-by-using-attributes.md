@@ -69,7 +69,7 @@ More details on how to share [Attributes]({% link _docs_integrate/data-model-ove
 ## Load the Referenced File
 
 Once the shared [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` has been obtained, its recipient has knowledge of its `value.value` and thus also of the `truncatedReference` of the [File]({% link _docs_integrate/data-model-overview.md %}#file) to be shared.
-In order for the recipient to be authorized to [download]({% link _docs_use-cases/use-case-transport-download-file.md %}) the actual binary content of the File from the Backbone and decrypt it, they must first load the metadata information of the File.
+In order for the recipient to be authorized to [download]({% link _docs_use-cases/use-case-transport-download-file.md %}) the encrypted content of the File from the Backbone and decrypt it, they must first load the metadata information of the File.
 This is done by executing the [Load File]({% link _docs_use-cases/use-case-transport-load-file.md %}) use case and specifying the `truncatedReference` of the File as the required `reference`.
 
 Please note that it is also possible to store the `truncatedReference` of a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for the File within the `value.value` property of the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) `value.@type` instead of the `truncatedReference` of the [File]({% link _docs_integrate/data-model-overview.md %}#file) itself.
