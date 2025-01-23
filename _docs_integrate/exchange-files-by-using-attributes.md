@@ -61,13 +61,14 @@ Other than with Connector Integrators, this IdentityAttribute is automatically c
 
 ## Share IdentityFileReference
 
-To share a File, share the [created IdentityAttribute](#create-identityfilereference) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` by sending a [suitable Request]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes).
+To share a File, share the created IdentityAttribute that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` by sending a [suitable Request]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes).
 Details on how to share Attributes can be found in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) scenario documentation.
 
 ## Load the Referenced File
 
-The recipient of the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) `value.@type` can provide the `value` of the IdentityFileReference when utilizing the [Load File]({% link _docs_use-cases/use-case-transport-load-file.md %}) use case to load the File.
-After the peer File has been loaded, it is possible to [download]({% link _docs_use-cases/use-case-transport-download-file.md %}) its actual decrypted binary content from the Backbone.
+After the shared [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` has been received, its recipient has knowledge of its `value.value` and thus also of the `truncatedReference` of the [File]({% link _docs_integrate/data-model-overview.md %}#file) to be shared.
+In order for the recipient to be authorized to [download]({% link _docs_use-cases/use-case-transport-download-file.md %}) the actual binary content of the File from the Backbone and decrypt it, they must first load the metadata information of the File.
+This is done by executing the [Load File]({% link _docs_use-cases/use-case-transport-load-file.md %}) use case and specifying the `truncatedReference` of the File as the required `reference`.
 
 # Further Options for Exchanging Files
 
