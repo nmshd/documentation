@@ -48,7 +48,7 @@ This use case loads the metadata information of a [File]({% link _docs_integrate
 This can be the `truncatedReference` of the File itself, which can be obtained from the [File uploader]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}), for example, when [exchanging Files by using Attributes]({% link _docs_integrate/exchange-files-by-using-attributes.md %}), or the `truncatedReference` of a [Token]({% link _docs_integrate/data-model-overview.md %}#token).
 In the latter case, the [Token for the File was previously created]({% link _docs_use-cases/use-case-transport-create-token-for-file.md %}).
 Loading a File that is owned by another Identity is necessary in order to be able to download the actual content of the File using the [Download File]({% link _docs_use-cases/use-case-transport-download-file.md %}) use case.
-If a File that has already been loaded is loaded again or its uploader loads it, this use case, like the [Get File]({% link _docs_use-cases/use-case-transport-get-file.md %}) use case, simply returns the metadata information of the File.
+If a File that has already been loaded is loaded again or its uploader loads it, this use case, like the [Get File metadata]({% link _docs_use-cases/use-case-transport-get-file-metadata.md %}) use case, simply returns the metadata information of the File.
 
 ## Parameters
 
