@@ -51,7 +51,6 @@ To avoid limiting the output quantity in advance, the [Query Files]({% link _doc
 All parameters are optional. If no parameter is given, all own [Files]({% link _docs_integrate/data-model-overview.md %}#file) are returned.
 
 - `createdAt` is the ISODateTime the File was created at.
-- `createdBy` is the enmeshed `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that created the File.
 - `createdByDevice` is the `id` of the Device that created the File.
 - `description` of the File.
 - `expiresAt` is the ISODateTime the File expires.
@@ -59,7 +58,6 @@ All parameters are optional. If no parameter is given, all own [Files]({% link _
 - `filesize` is the size of the respective file in bytes.
 - `mimetype` of the respective file.
 - `title` of the File.
-- `isOwn` indicates if the File is owned by you.
 
 ## On Success
 
