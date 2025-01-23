@@ -53,7 +53,8 @@ By [sending a suitable Request]({% link _docs_integrate/share-attributes-with-pe
 Create the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` by proceeding as described in the documentation on [creating an IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself).
 Provide the value of the `truncatedReference` property of the [uploaded File](#upload-a-file) as the `value` of the IdentityFileReference.
 
-Other than with Connector Integrators, this IdentityAttribute is automatically created when an App user [uploads a File](#upload-a-file). For this reason, it is directly available to the App user for sharing.
+Other than with Connector Integrators, this IdentityAttribute is automatically created when an App user [uploads a File](#upload-a-file).
+For this reason, it is directly available to the App user for sharing.
 {: .notice--info}
 
 ## Share IdentityFileReference
@@ -67,7 +68,11 @@ After the shared [IdentityAttribute]({% link _docs_integrate/data-model-overview
 In order for the recipient to be authorized to [download]({% link _docs_use-cases/use-case-transport-download-file.md %}) the actual binary content of the File from the Backbone and decrypt it, they must first load the metadata information of the File.
 This is done by executing the [Load File]({% link _docs_use-cases/use-case-transport-load-file.md %}) use case and specifying the `truncatedReference` of the File as the required `reference`.
 
-Please note that it is also possible to store the `truncatedReference` of a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for the File within the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) `value.@type` instead of the `truncatedReference` of the [File]({% link _docs_integrate/data-model-overview.md %}#file) itself. In this case, the [Token for the File must be created]({% link _docs_use-cases/use-case-transport-create-token-for-file.md %}) beforehand. The advantage of using Tokens is that they can be personalized or password protected. When executing the [Load File]({% link _docs_use-cases/use-case-transport-load-file.md %}) use case, the `truncatedReference` of the Token can be specified as the `reference`. If the Token is password protected, the `password` must also be entered for loading.
+Please note that it is also possible to store the `truncatedReference` of a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for the File within the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) `value.@type` instead of the `truncatedReference` of the [File]({% link _docs_integrate/data-model-overview.md %}#file) itself.
+In this case, the [Token for the File must be created]({% link _docs_use-cases/use-case-transport-create-token-for-file.md %}) beforehand.
+The advantage of using Tokens is that they can be personalized or password protected.
+When executing the [Load File]({% link _docs_use-cases/use-case-transport-load-file.md %}) use case, the `truncatedReference` of the Token can be specified as the `reference`.
+If the Token is password protected, the `password` must also be entered for loading.
 {: .notice--info}
 
 # Further Options for Exchanging Files
