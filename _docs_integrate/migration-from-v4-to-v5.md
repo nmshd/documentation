@@ -285,7 +285,7 @@ There are several [Connector events]({% link _docs_integrate/connector-events.md
 The [event]({% link _docs_integrate/connector-events.md %}) `consumption.outgoingRequestFromRelationshipCreationChangeCreatedAndCompleted` was renamed to `consumption.outgoingRequestFromRelationshipCreationCreatedAndCompleted` due to the [removal of RelationshipChanges](#removal-of-relationshipchanges).
 
 An overview of the [Connector Events]({% link _docs_integrate/connector-events.md %}) that may occur is given on the corresponding documentation page.
-{: .notice --info}
+{: .notice--info}
 
 ### Renamed Modules
 
@@ -295,4 +295,4 @@ Some [Modules]({% link _docs_operate/modules.md %}) of the Connector have been r
 - The WebhooksV2Module module has already been renamed to the [WebhooksModule]({% link _docs_operate/modules.md %}#webhooks) in version 4. However, backwards compatibility was ensured. With the migration to version 5, the `modules.webhooksV2` field must be renamed to `modules.webhooks` in the [configuration]({% link _docs_operate/configuration.md %}#webhooks) if it was previously specified and the migration to the WebhooksModule has not yet taken place.
 
 An overview of the [Connector Modules]({% link _docs_operate/modules.md %}) that may occur is given on the corresponding documentation page.
-{: .notice --info}
+{: .notice--info}
