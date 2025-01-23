@@ -30,6 +30,10 @@ Communication between Identities involves exchanging [uploaded Files](#upload-a-
 This guide describes how an Integrator of a Connector can use a certain kind of [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) to [share a File with a peer](#share-a-file-with-a-peer).
 Furthermore, an understanding of this kind of Attribute is also necessary to make use of [further options for exchanging Files](#further-options-for-exchanging-files), such as requesting the reading of a [File]({% link _docs_integrate/data-model-overview.md %}#file) from a peer.
 
+The peer with whom a File is exchanged by using Attributes can be an Integrator of another Connector or an App user.
+The File exchange flow described in this guide remains the same, even if some steps are performed automatically in the App.
+{: .notice--info}
+
 # Upload a File
 
 In order to be able to [share a File with a peer](#share-a-file-with-a-peer), the [File]({% link _docs_integrate/data-model-overview.md %}#file) must first be uploaded to the Backbone in encrypted form.
