@@ -41,7 +41,7 @@ To do this, consult the documentation of the [Upload own File]({% link _docs_use
 By uploading the [File]({% link _docs_integrate/data-model-overview.md %}#file), it has been assigned an `id` and a `truncatedReference` with which it can be identified from now on.
 Both can be specified as a parameter when executing the [Get File]({% link _docs_use-cases/use-case-transport-get-file.md %}) use case in order to display the metadata information of the File.
 In the context of exchanging Files, particular attention should be paid to the `truncatedReference` property of the File.
-All Identities that know its value can download the content of the File from the Backbone and decrypt it.
+All Identities that know its value can download the encrypted content of the File from the Backbone and decrypt it.
 
 # Share a File With a Peer
 
@@ -81,7 +81,7 @@ If the Token is password protected, the `password` must additionally be entered 
 
 # Further Options for Exchanging Files
 
-As for all other kinds of [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes), the [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) `value.@type` can be [read from the peer]({% link _docs_integrate/read-attributes-from-peer.md %}), [created for the peer]({% link _docs_integrate/create-attributes-for-peer.md %}) and [proposed to the peer]({% link _docs_integrate/propose-attributes-to-peer.md %}) by proceeding as described in the corresponding scenario documentation.
+As for all other kinds of [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes), the [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) `value.@type` can be [read from a peer]({% link _docs_integrate/read-attributes-from-peer.md %}), [created for a peer]({% link _docs_integrate/create-attributes-for-peer.md %}) and [proposed to a peer]({% link _docs_integrate/propose-attributes-to-peer.md %}) by proceeding as described in the corresponding scenario documentation.
 In addition, there is the option of [updating by succession]({% link _docs_integrate/update-attributes-by-succession.md %}) and [deletion]({% link _docs_integrate/delete-attributes.md %}).
-However, the deletion of an IdentityAttribute that has IdentityFileReference as its `value.@type` does not additionally lead to the deletion of the associated uploaded encrypted File on the Backbone.
+However, the deletion of an IdentityAttribute that has IdentityFileReference as its `value.@type` does not additionally lead to the deletion of the associated uploaded encrypted content of the File on the Backbone.
 This must be done separately if required.
