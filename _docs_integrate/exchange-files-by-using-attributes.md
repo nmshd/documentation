@@ -36,12 +36,12 @@ The File exchange flow described in this guide remains the same, even if some st
 
 # Upload a File
 
-In order to be able to [share a File with a peer](#share-a-file-with-a-peer), the [File]({% link _docs_integrate/data-model-overview.md %}#file) must first be uploaded to the Backbone in encrypted form.
+In order to be able to [share a File with a peer](#share-a-file-with-a-peer), its content must first be uploaded to the Backbone in encrypted form.
 To do this, consult the documentation of the [Upload own File]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}) use case.
-By uploading the File, it has been assigned an `id` and a `truncatedReference` with which it can be identified from now on.
+By uploading the [File]({% link _docs_integrate/data-model-overview.md %}#file), it has been assigned an `id` and a `truncatedReference` with which it can be identified from now on.
 Both can be specified as a parameter when executing the [Get File]({% link _docs_use-cases/use-case-transport-get-file.md %}) use case in order to display the metadata information of the File.
 In the context of exchanging Files, particular attention should be paid to the `truncatedReference` property of the File.
-All Identities that know its value can load the File from the Backbone and decrypt it.
+All Identities that know its value can download the content of the File from the Backbone and decrypt it.
 
 # Share a File With a Peer
 
