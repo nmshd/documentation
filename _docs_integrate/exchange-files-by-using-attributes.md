@@ -55,6 +55,21 @@ By [sending a suitable Request]({% link _docs_integrate/share-attributes-with-pe
 ## Create IdentityFileReference
 
 After [uploading the File](#upload-a-file), an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` and the `truncatedReference` of the uploaded [File]({% link _docs_integrate/data-model-overview.md %}#file) as its `value.value` can be created by proceeding as described in the documentation on how to [create an IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself).
+The following `content` can be used during the creation process, with its properties `validFrom`, `validTo` and `tags` being optional:
+
+```jsonc
+{
+  "content": {
+    "validFrom": "<start of IdentityFileReference's validity>",
+    "validTo": "<end of IdentityFileReference's validity>",
+    "value": {
+      "@type": "IdentityFileReference",
+      "value": "<truncatedReference of File>"
+    },
+    "tags": ["<tag of IdentityFileReference to be created>", ...]
+  }
+}
+```
 
 If an App user [uploads a File](#upload-a-file), such an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` and the `truncatedReference` of the uploaded [File]({% link _docs_integrate/data-model-overview.md %}#file) as its `value.value` is created automatically in the background.
 For this reason, it is directly available to the App user for sharing.
