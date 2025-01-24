@@ -747,7 +747,8 @@ An email address.
 
 ## ProprietaryFileReference
 
-A FileReference is a link to an enmeshed [`File`]({% link _docs_integrate/data-model-overview.md %}#files) and can be used to add a File as an Attribute of a Relationship.
+A ProprietaryFileReference is a link to an enmeshed [File]({% link _docs_integrate/data-model-overview.md %}#file) and can be used to add a File as an Attribute of a Relationship.
+Similar to an [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference), a ProprietaryFileReference can be used to [exchange Files by using Attributes]({% link _docs_integrate/exchange-files-by-using-attributes.md %}#utilization-of-proprietaryfilereference).
 
 **Properties**
 
