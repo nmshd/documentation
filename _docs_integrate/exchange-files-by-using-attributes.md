@@ -85,3 +85,9 @@ As for all other kinds of [Attributes]({% link _docs_integrate/data-model-overvi
 In addition, there is the option of [updating by succession]({% link _docs_integrate/update-attributes-by-succession.md %}) and [deletion]({% link _docs_integrate/delete-attributes.md %}).
 However, the deletion of an IdentityAttribute that has IdentityFileReference as its `value.@type` does not additionally lead to the deletion of the associated uploaded encrypted content of the File on the Backbone.
 This must be done separately if required.
+
+## Utilization of ProprietaryFileReference
+
+Furthermore, it is possible to represent [uploaded Files](#upload-a-file) within a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) utilizing a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) that has [ProprietaryFileReference]({% link _docs_integrate/attribute-values.md %}#proprietaryfilereference) as its `value.@type` and the `truncatedReference` of the [File]({% link _docs_integrate/data-model-overview.md %}#file) as `value.value`.
+It is advantageous to use such a RelationshipAttribute instead of an IdentityAttribute of [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) `value.@type` if the File fits more into the context of the Relationship and is less attributable to a single Identity.
+An overview of the available options for [creating a RelationshipAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-a-relationshipattribute) can be found in the corresponding scenario documentation.
