@@ -53,7 +53,7 @@ In the latter case, the [Token for the File must be created]({% link _docs_use-c
 - `filename` is the name of the file from the operating system.
 - `mimetype` of the respective file.
 - Optionally, `expiresAt` can be specified, which describes the ISODateTime the File expires.
-- `title` of the File.
+- Optionally, a `title` can be provided for the File.
 - Optional `description` of the File.
 
 ## On Success
@@ -61,6 +61,7 @@ In the latter case, the [Token for the File must be created]({% link _docs_use-c
 - An encrypted File is stored on the Backbone and can be shared by its references.
 - Only the metadata of the File is stored locally.
 - If `expiresAt` wasn't specified, the expiration date of the File will be set to a default value that corresponds to zero o'clock on the 31st of December, 9999.
+- If `title` wasn't provided, it will be set to an empty string `""` as default value.
 - The created File is returned.
 
 ## On Failure
