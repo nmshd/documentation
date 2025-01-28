@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: FilesFacade
   - function: getFile
-  - description: Gets the File with the given `id` or `reference`.
+  - description: Gets the File metadata with the given `id` or `reference`.
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE
