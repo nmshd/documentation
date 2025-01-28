@@ -316,7 +316,7 @@ The telephone number which can be used to reach the Identity via fax systems.
 
 An IdentityFileReference is a link to an enmeshed [File]({% link _docs_integrate/data-model-overview.md %}#file) and can be used to add a File as an Attribute of an Identity.
 One example for a use case is some kind of certificate.
-How an IdentityFileReference can be used to [exchange Files by using Attributes]({% link _docs_integrate/exchange-files-by-using-attributes.md %}) is described in the corresponding scenario documentation.
+How an IdentityFileReference can be used to [exchange Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}) is described in the corresponding scenario documentation.
 
 **Properties**
 
@@ -748,7 +748,7 @@ An email address.
 ## ProprietaryFileReference
 
 A ProprietaryFileReference is a link to an enmeshed [File]({% link _docs_integrate/data-model-overview.md %}#file) and can be used to add a File as an Attribute of a Relationship.
-Similar to an [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference), a ProprietaryFileReference can be used to [exchange Files by using Attributes]({% link _docs_integrate/exchange-files-by-using-attributes.md %}#utilization-of-proprietaryfilereference).
+Similar to an [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference), a ProprietaryFileReference can be used to [exchange Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}#utilization-of-proprietaryfilereference).
 
 **Properties**
 

@@ -121,8 +121,8 @@ docs_integrate:
         url: /integrate/update-attributes-by-succession
       - title: "Delete Attributes"
         url: /integrate/delete-attributes
-      - title: "Exchange Files by using Attributes"
-        url: /integrate/exchange-files-by-using-attributes
+      - title: "Exchange Files using Attributes"
+        url: /integrate/exchange-files-using-attributes
   - title: Request Consent
     children:
       - title: "Request persistent consent of peer"

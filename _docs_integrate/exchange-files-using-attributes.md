@@ -1,8 +1,8 @@
 ---
 # Start automatic generation
-permalink: integrate/exchange-files-by-using-attributes
+permalink: integrate/exchange-files-using-attributes
 published: true
-title: "Exchange Files by using Attributes"
+title: "Exchange Files using Attributes"
 type: scenario
 toc: true
 properties:
@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: DONE
   - published: true
-  - link: exchange-files-by-using-attributes
+  - link: exchange-files-using-attributes
 require:
 required_by:
 # End automatic generation
@@ -30,7 +30,7 @@ Communication between Identities involves exchanging [uploaded Files](#upload-a-
 This guide describes how an Integrator of a Connector can use a certain kind of [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) to [share a File with a peer](#share-a-file-with-a-peer).
 Furthermore, an understanding of this kind of Attribute is also necessary to make use of [further options for exchanging Files](#further-options-for-exchanging-files), such as requesting the reading of a [File]({% link _docs_integrate/data-model-overview.md %}#file) from a peer.
 
-The peer with whom a [File is exchanged by using Attributes]({% link _docs_integrate/exchange-files-by-using-attributes.md %}) can be an Integrator of another Connector or an App user.
+The peer with whom a [File is exchanged using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}) can be an Integrator of another Connector or an App user.
 The [File]({% link _docs_integrate/data-model-overview.md %}#file) exchange flow described in this guide remains the same, even if some steps are performed automatically in the App.
 {: .notice--info}
 
@@ -73,7 +73,7 @@ The following `content` can be used during the creation process, with its proper
 
 If an App user [uploads a File](#upload-a-file), such an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` and the `truncatedReference` of the uploaded [File]({% link _docs_integrate/data-model-overview.md %}#file) as its `value.value` is created automatically in the background.
 For this reason, it is directly available to the App user for sharing.
-Furthermore, knowledge of this automation in the App should motivate Integrators of Connectors to strive to [exchange Files by using Attributes]({% link _docs_integrate/exchange-files-by-using-attributes.md %}) in order to achieve File management compatibility between them and App users.
+Furthermore, knowledge of this automation in the App should motivate Integrators of Connectors to strive to [exchange Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}) in order to achieve File management compatibility between them and App users.
 {: .notice--info}
 
 ## Share IdentityFileReference
