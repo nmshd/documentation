@@ -55,4 +55,4 @@ If it is not the metadata information of the File that is of interest, but its a
 
 ## On Failure
 
-- No File corresponds to the `id` or `truncatedReference`, respectively.
+- No File corresponds to the `id` or `truncatedReference`.

@@ -48,16 +48,17 @@ To avoid limiting the output quantity in advance, the [Query metadata of Files](
 
 ## Parameters
 
-All parameters are optional. If no parameter is given, all peer [Files]({% link _docs_integrate/data-model-overview.md %}#file) are returned.
+All parameters are optional. If no parameter is used, all peer [Files]({% link _docs_integrate/data-model-overview.md %}#file) are returned.
 
-- `createdAt` is the ISODateTime the File was created at.
-- `createdBy` is the enmeshed `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that created the File.
-- `description` of the File.
-- `expiresAt` is the ISODateTime the File expires.
-- `filename` is the name of the actual file from the operating system.
-- `filesize` is the size of the respective file in bytes.
-- `mimetype` of the respective file.
-- `title` of the File.
+- `query` allows to specify the conditions for the returned peer Files. In detail, the following keys may be used:
+  - `createdAt` is the ISODateTime the File was created at.
+  - `createdBy` is the enmeshed `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that created the File.
+  - `description` of the File.
+  - `expiresAt` is the ISODateTime the File expires.
+  - `filename` is the name of the actual file from the operating system.
+  - `filesize` is the size of the respective file in bytes.
+  - `mimetype` of the respective file.
+  - `title` of the File.
 
 ## On Success
 

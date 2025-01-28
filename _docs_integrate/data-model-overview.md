@@ -171,7 +171,7 @@ But if you are communicating with another Connector, you can use the [`Arbitrary
 
 ## File
 
-The Backbone allows you to [upload files]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}) in encrypted form.
+The Backbone allows you to [upload a file]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}) in encrypted form.
 Its metadata information is stored in a data object of type File.
 A File further has its content, of course. But since this is not a JSON property, it is not included in the following table.
 The content of the File can be downloaded separately by executing the [Download File]({% link _docs_use-cases/use-case-transport-download-file.md %}) use case.

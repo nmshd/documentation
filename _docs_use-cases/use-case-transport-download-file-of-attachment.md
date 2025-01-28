@@ -43,4 +43,4 @@ required_by:
 
 This use case downloads the content of a [File]({% link _docs_integrate/data-model-overview.md %}#file) that was sent by a [Message]({% link _docs_integrate/data-model-overview.md %}#message) as one of its `attachments`.
 
-Internally uses the [Download File](/use-case-transport-download-file) use case.
+Internally, it uses the [Download File](/use-case-transport-download-file) use case.

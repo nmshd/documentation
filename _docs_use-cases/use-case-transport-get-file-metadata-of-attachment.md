@@ -43,4 +43,4 @@ required_by:
 
 This use case retrieves the metadata information of a [File]({% link _docs_integrate/data-model-overview.md %}#file) that was sent by a [Message]({% link _docs_integrate/data-model-overview.md %}#message) as one of its `attachments`.
 
-Internally uses the [Load File](/use-case-transport-load-file) use case.
+Internally, it uses the [Load File](/use-case-transport-load-file) use case.

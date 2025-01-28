@@ -52,7 +52,7 @@ By [sending a suitable Request]({% link _docs_integrate/share-attributes-with-pe
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/849a579c-15c6-4b9a-a652-ea51c31bb622" id="bJaM.8pgwNP3"></iframe></div>
 
-## Create IdentityFileReference
+## Create an IdentityFileReference
 
 After [uploading the File](#upload-a-file), an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` and the `truncatedReference` of the uploaded [File]({% link _docs_integrate/data-model-overview.md %}#file) as its `value.value` can be created by proceeding as described in the documentation on how to [create an IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself).
 The following `content` can be used during the creation process, with its properties `validFrom`, `validTo` and `tags` being optional:
@@ -76,12 +76,12 @@ For this reason, it is directly available to the App user for sharing.
 Furthermore, knowledge of this automation in the App should motivate Integrators of Connectors to strive to [exchange Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}) in order to achieve File management compatibility between them and App users.
 {: .notice--info}
 
-## Share IdentityFileReference
+## Share an IdentityFileReference
 
-After the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` and the `truncatedReference` of the uploaded [File]({% link _docs_integrate/data-model-overview.md %}#file) as its `value.value` has been created, the Integrator of the Connector must sent a [suitable Request]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes) to share it.
+After the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` and the `truncatedReference` of the uploaded [File]({% link _docs_integrate/data-model-overview.md %}#file) as its `value.value` has been created, the Integrator of the Connector must send a [suitable Request]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes) to share it.
 More details on how to share [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) can be found in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) scenario documentation.
 
-## Load the Referenced File
+## Load a Referenced File
 
 Once the shared [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` has been obtained, its recipient has knowledge of its `value.value` and thus also of the `truncatedReference` of the [File]({% link _docs_integrate/data-model-overview.md %}#file) to be shared.
 In order for the recipient to be authorized to [download]({% link _docs_use-cases/use-case-transport-download-file.md %}) the encrypted content of the File from the Backbone and decrypt it, they must first load the metadata information of the File.
@@ -101,7 +101,7 @@ In addition, there is the option of [updating by succession]({% link _docs_integ
 However, the deletion of an IdentityAttribute that has IdentityFileReference as its `value.@type` does not additionally lead to the deletion of the associated uploaded encrypted content of the File on the Backbone.
 This must be done separately if required.
 
-## Utilization of ProprietaryFileReference
+## Utilization of a ProprietaryFileReference
 
 Furthermore, it is possible to represent [uploaded Files](#upload-a-file) within a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) utilizing a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) that has [ProprietaryFileReference]({% link _docs_integrate/attribute-values.md %}#proprietaryfilereference) as its `value.@type` and the `truncatedReference` of the [File]({% link _docs_integrate/data-model-overview.md %}#file) as `value.value`.
 It is advantageous to use such a RelationshipAttribute instead of an IdentityAttribute of [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) `value.@type` if the File fits more into the context of the Relationship and is less attributable to a single Identity.

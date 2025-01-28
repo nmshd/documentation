@@ -48,16 +48,17 @@ To avoid limiting the output quantity in advance, the [Query metadata of Files](
 
 ## Parameters
 
-All parameters are optional. If no parameter is given, all own [Files]({% link _docs_integrate/data-model-overview.md %}#file) are returned.
+All parameters are optional. If no parameter is used, all own [Files]({% link _docs_integrate/data-model-overview.md %}#file) are returned.
 
-- `createdAt` is the ISODateTime the File was created at.
-- `createdByDevice` is the `id` of the Device that created the File.
-- `description` of the File.
-- `expiresAt` is the ISODateTime the File expires.
-- `filename` is the name of the actual file from the operating system.
-- `filesize` is the size of the respective file in bytes.
-- `mimetype` of the respective file.
-- `title` of the File.
+- `query` allows to specify the conditions for the returned own Files. In detail, the following keys may be used:
+  - `createdAt` is the ISODateTime the File was created at.
+  - `createdByDevice` is the `id` of the Device that created the File.
+  - `description` of the File.
+  - `expiresAt` is the ISODateTime the File expires.
+  - `filename` is the name of the actual file from the operating system.
+  - `filesize` is the size of the respective file in bytes.
+  - `mimetype` of the respective file.
+  - `title` of the File.
 
 ## On Success
 
