@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use case intends to load an entity by its `reference` received by a peer. Internally, it is using the specific use cases of each entity:
+This use case intends to load an entity by its `reference` received by a peer. Internally, it uses the specific use cases of each entity:
 
 - If the `reference` refers to a [Token]({% link _docs_integrate/data-model-overview.md %}#token), it fetches the Token just like the [Load Token created by others]({% link _docs_use-cases/use-case-transport-load-token-created-by-others.md %}) use case. For example, if the `content` of the Token is a TokenContentDeviceSharedSecret, a DeviceOnboardingInfo is returned after the successful execution of the use case. A TokenContentDeviceSharedSecret is created by the [Create Device Onboarding Token]({% link _docs_use-cases/use-case-transport-create-device-onboarding-token.md %}) use case.
 - If the `reference` refers to a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate), it fetches the RelationshipTemplate just like the [Load RelationshipTemplate created by others]({% link _docs_use-cases/use-case-transport-load-relationshiptemplate-created-by-others.md %}) use case.
