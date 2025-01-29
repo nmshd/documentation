@@ -171,7 +171,10 @@ But if you are communicating with another Connector, you can use the [`Arbitrary
 
 ## File
 
-The Backbone allows you to upload files, which are saved as - you guessed it - `Files`.
+The Backbone allows you to [upload a file]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}) in encrypted form.
+Its metadata information is stored in a data object of type File.
+A File further has its content, of course. But since this is not a JSON property, it is not included in the following table.
+The content of the File can be downloaded separately by executing the [Download File]({% link _docs_use-cases/use-case-transport-download-file.md %}) use case.
 
 | Name               | Type                    | Description                                                                                                           | Remarks                                       |
 | ------------------ | ----------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
@@ -187,8 +190,6 @@ The Backbone allows you to upload files, which are saved as - you guessed it - `
 | description        | `string` \| `undefined` | A human readable description of the file, which can be defined when uploading the File.                               | will be encrypted before sent to the Backbone |
 | isOwn              | `boolean`               | {% include descr_isOwn class="File" %}                                                                                | saved only locally                            |
 | truncatedReference | `string`                | {% include descr_truncatedReference class="File" %}                                                                   | saved only locally                            |
-
-A File further has its content, of course. But since this is not a JSON property, it is not included in this table. You can download the content of the File separately.
 
 ## Identity
 

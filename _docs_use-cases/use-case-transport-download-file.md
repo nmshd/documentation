@@ -9,12 +9,12 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RF5
+  - id: RF7
   - component: Runtime
   - layer: Transport
   - facade: FilesFacade
   - function: downloadFile
-  - description: Downloads the file with the given `id`.
+  - description: Downloads the File with the given `id`.
   - feature category: Arbitrary large data support
   - tech category: Files
   - status: DONE
@@ -42,7 +42,10 @@ api_route_regex: ^GET /api/v2/Files/{id}/Download$
 
 {% include properties_list.html %}
 
-Download the File's binary content that corresponds to the `fileId`. As the File is not stored/cached within the Connector, the encrypted File is downloaded from the Backbone, decrypted and returned every time this use case is called.
+This use case allows to download the [File's]({% link _docs_integrate/data-model-overview.md %}#file) binary content that corresponds to the `fileId`.
+As the File is not stored or cached within the Connector, the encrypted File is downloaded from the Backbone, decrypted and returned every time this use case is called.
+An [uploaded own File]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}) can be downloaded by this use case in any case.
+However, a File from a peer must first be [loaded]({% link _docs_use-cases/use-case-transport-load-file.md %}) before its actual content can be downloaded.
 
 ## Parameters
 
