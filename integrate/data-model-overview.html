@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-01-21T15:26:33+01:00">
+  <meta property="article:published_time" content="2025-01-29T13:50:21+01:00">
 
 
 
@@ -268,6 +268,8 @@
             
               <li><a href="/integrate/delete-attributes">Delete Attributes</a></li>
             
+              <li><a href="/integrate/exchange-files-using-attributes">Exchange Files using Attributes</a></li>
+            
           </ul>
           
         </li>
@@ -356,7 +358,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2025-01-21T15:26:33+01:00">
+    <meta itemprop="datePublished" content="2025-01-29T13:50:21+01:00">
     
 
     <div class="page__inner-wrap">
@@ -474,7 +476,7 @@
     <tr>
       <td>truncatedReference</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>A base64 encoded string containing all information necessary for another Identity to load the Token. You can use it to share the Token with someone else.</td>
+      <td>A Base64 encoded string containing all information necessary for another Identity to load the Token. You can use it to share the Token with someone else.</td>
       <td>saved only locally</td>
     </tr>
     <tr>
@@ -600,7 +602,7 @@ Information about the password protection of a Token or a RelationshipTemplate i
     <tr>
       <td>truncatedReference</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>A base64 encoded string containing all information necessary for another Identity to load the RelationshipTemplate. You can use it to share the RelationshipTemplate with someone else.</td>
+      <td>A Base64 encoded string containing all information necessary for another Identity to load the RelationshipTemplate. You can use it to share the RelationshipTemplate with someone else.</td>
       <td>saved only locally</td>
     </tr>
   </tbody>
@@ -877,7 +879,10 @@ Whether the Identity with which you have a Relationship is to be deleted or has 
 
 <h2 id="file">File</h2>
 
-<p>The Backbone allows you to upload files, which are saved as - you guessed it - <code class="language-plaintext highlighter-rouge">Files</code>.</p>
+<p>The Backbone allows you to <a href="/use-case-transport-upload-own-file">upload a file</a> in encrypted form.
+Its metadata information is stored in a data object of type File.
+A File further has its content, of course. But since this is not a JSON property, it is not included in the following table.
+The content of the File can be downloaded separately by executing the <a href="/use-case-transport-download-file">Download File</a> use case.</p>
 
 <table>
   <thead>
@@ -958,13 +963,11 @@ Whether the Identity with which you have a Relationship is to be deleted or has 
     <tr>
       <td>truncatedReference</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>A base64 encoded string containing all information necessary for another Identity to load the File. You can use it to share the File with someone else.</td>
+      <td>A Base64 encoded string containing all information necessary for another Identity to load the File. You can use it to share the File with someone else.</td>
       <td>saved only locally</td>
     </tr>
   </tbody>
 </table>
-
-<p>A File further has its content, of course. But since this is not a JSON property, it is not included in this table. You can download the content of the File separately.</p>
 
 <h2 id="identity">Identity</h2>
 
@@ -3654,7 +3657,7 @@ There is the <a href="/use-case-consumption-upsert-identitymetadata">Upsert Iden
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-01-21T15:26:33+01:00">January 21, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-01-29T13:50:21+01:00">January 29, 2025</time></p>
 
       </footer>
 

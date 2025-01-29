@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-01-21T15:26:33+01:00">
+  <meta property="article:published_time" content="2025-01-29T13:50:21+01:00">
 
 
 
@@ -268,6 +268,8 @@
             
               <li><a href="/integrate/delete-attributes">Delete Attributes</a></li>
             
+              <li><a href="/integrate/exchange-files-using-attributes">Exchange Files using Attributes</a></li>
+            
           </ul>
           
         </li>
@@ -356,7 +358,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Load item from truncated reference">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2025-01-21T15:26:33+01:00">
+    <meta itemprop="datePublished" content="2025-01-29T13:50:21+01:00">
     
 
     <div class="page__inner-wrap">
@@ -453,12 +455,12 @@
 </div>
 -->
 
-<p>This use case intends to load an entity by its <code class="language-plaintext highlighter-rouge">reference</code> received by peer. It is internally using the specific use cases of each entity:</p>
+<p>This use case intends to load an entity by its <code class="language-plaintext highlighter-rouge">reference</code> received by a peer. Internally, it uses the specific use cases of each entity:</p>
 
 <ul>
-  <li>If the <code class="language-plaintext highlighter-rouge">reference</code> references a <a href="/integrate/data-model-overview#token">Token</a>, fetches the Token just like the <a href="/use-case-transport-load-token-created-by-others">Load Token created by others</a> use case. For example, if the <code class="language-plaintext highlighter-rouge">content</code> of the Token is a TokenContentDeviceSharedSecret, a DeviceOnboardingInfo is returned after successful execution of the use case. A TokenContentDeviceSharedSecret is created by the <a href="/use-case-transport-create-device-onboarding-token">Create Device Onboarding Token</a> use case.</li>
-  <li>If the <code class="language-plaintext highlighter-rouge">reference</code> references a <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>, fetches the RelationshipTemplate just like the <a href="/use-case-transport-load-relationshiptemplate-created-by-others">Load RelationshipTemplate created by others</a> use case.</li>
-  <li>If the <code class="language-plaintext highlighter-rouge">reference</code> references a <a href="/integrate/data-model-overview#file">File</a>, fetches the File just like the <a href="/use-case-transport-get-or-load-file">Get or load File</a> use case.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">reference</code> refers to a <a href="/integrate/data-model-overview#token">Token</a>, it fetches the Token just like the <a href="/use-case-transport-load-token-created-by-others">Load Token created by others</a> use case. For example, if the <code class="language-plaintext highlighter-rouge">content</code> of the Token is a TokenContentDeviceSharedSecret, a DeviceOnboardingInfo is returned after the successful execution of the use case. A TokenContentDeviceSharedSecret is created by the <a href="/use-case-transport-create-device-onboarding-token">Create Device Onboarding Token</a> use case.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">reference</code> refers to a <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>, it fetches the RelationshipTemplate just like the <a href="/use-case-transport-load-relationshiptemplate-created-by-others">Load RelationshipTemplate created by others</a> use case.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">reference</code> refers to a <a href="/integrate/data-model-overview#file">File</a>, it fetches the File just like the <a href="/use-case-transport-load-file">Load File</a> use case.</li>
 </ul>
  
 
@@ -472,7 +474,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-01-21T15:26:33+01:00">January 21, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-01-29T13:50:21+01:00">January 29, 2025</time></p>
 
       </footer>
 

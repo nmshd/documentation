@@ -197,6 +197,12 @@ var store = [{
         "url": "/integrate/event-introduction",
         "teaser": null
       },{
+        "title": "Exchange Files using Attributes",
+        "excerpt":"Communication between Identities involves exchanging uploaded Files with each other, for example: A language school wants to send a student their language certificate. A university wants to send a student their certificate of enrollment. An applicant wants to send their curriculum vitae to a company. This guide describes how an...","categories": [],
+        "tags": [],
+        "url": "/integrate/exchange-files-using-attributes",
+        "teaser": null
+      },{
         "title": "Exchange Messages",
         "excerpt":"The Connector can send and receive Messages with attachments using REST requests and file IDs, which are first uploaded and encrypted on the Platform. Messages can be queried and downloaded, and the Connector pulls for new Messages periodically. In order to send Messages to recipients, a REST request can be...","categories": [],
         "tags": [],
@@ -876,13 +882,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Download File of Attachment",
-        "excerpt":"   This use case downloads a file that was sent by a Message as an attachment.   Internally uses the Download File Use-Case  ","categories": [],
+        "excerpt":"   This use case downloads the content of a File that was sent by a Message as one of its attachments.   Internally, it uses the Download File use case.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-download-file-of-attachment",
         "teaser": null
       },{
         "title": "Download File",
-        "excerpt":"Download the File&#8217;s binary content that corresponds to the fileId. As the File is not stored/cached within the Connector, the encrypted File is downloaded from the Backbone, decrypted and returned every time this use case is called. Parameters id of the File. On Success Downloads the binary content of the...","categories": [],
+        "excerpt":"This use case allows to download the File&#8217;s binary content that corresponds to the fileId. As the File is not stored or cached within the Connector, the encrypted File is downloaded from the Backbone, decrypted and returned every time this use case is called. An uploaded own File can be...","categories": [],
         "tags": [],
         "url": "/use-case-transport-download-file",
         "teaser": null
@@ -924,9 +930,15 @@ var store = [{
         "teaser": null
       },{
         "title": "Get File Metadata of Attachment",
-        "excerpt":"   This use case retrieves the metadata of a File that was sent by a Message as an attachment.   Internally uses the get or load file use case.  ","categories": [],
+        "excerpt":"   This use case retrieves the metadata information of a File that was sent by a Message as one of its attachments.   Internally, it uses the Load File use case.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-file-metadata-of-attachment",
+        "teaser": null
+      },{
+        "title": "Get File metadata",
+        "excerpt":"This use case retrieves the metadata information of a File. If it is not the metadata information of the File that is of interest, but its actual content, the File must be downloaded instead. Parameters id or truncatedReference of the File whose metadata should be retrieved. On Success The metadata...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-get-file-metadata",
         "teaser": null
       },{
         "title": "Get IdentityDeletionProcess",
@@ -945,18 +957,6 @@ var store = [{
         "excerpt":"   This use case retrieves a Message by its id.   Parameters      id of the Message.   On Success      Returns the Message that corresponds to the id.   On Failure      id does not resolve to a Message.  ","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-message-by-messageid",
-        "teaser": null
-      },{
-        "title": "Get or load File",
-        "excerpt":"This use case retrieves a File by an id or the reference. This is usually the case, when a reference to a File was received by a peer (over a Message or by any side channel). Parameters id or reference that identify the File. The password if the File is...","categories": [],
-        "tags": [],
-        "url": "/use-case-transport-get-or-load-file",
-        "teaser": null
-      },{
-        "title": "Get own File",
-        "excerpt":"   This use case retrieves an own File.   Parameters      id of the File which should be retrieved.   On Success      The metadata of the File that match the id.   On Failure      No File corresponds to the id.  ","categories": [],
-        "tags": [],
-        "url": "/use-case-transport-get-own-file",
         "teaser": null
       },{
         "title": "Get Relationship by Address",
@@ -995,8 +995,14 @@ var store = [{
         "url": "/use-case-transport-initiate-identitydeletionprocess",
         "teaser": null
       },{
+        "title": "Load File",
+        "excerpt":"This use case loads the metadata information of a File by a reference to it. This can be the truncatedReference of the File itself, which can be obtained from the File uploader, for example, when exchanging Files using Attributes, or the truncatedReference of a Token. In the latter case, the...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-load-file",
+        "teaser": null
+      },{
         "title": "Load item from truncated reference",
-        "excerpt":"This use case intends to load an entity by its reference received by peer. It is internally using the specific use cases of each entity: If the reference references a Token, fetches the Token just like the Load Token created by others use case. For example, if the content of...","categories": [],
+        "excerpt":"This use case intends to load an entity by its reference received by a peer. Internally, it uses the specific use cases of each entity: If the reference refers to a Token, it fetches the Token just like the Load Token created by others use case. For example, if the...","categories": [],
         "tags": [],
         "url": "/use-case-transport-load-item-from-truncated-reference",
         "teaser": null
@@ -1019,16 +1025,28 @@ var store = [{
         "url": "/use-case-transport-query-devices",
         "teaser": null
       },{
-        "title": "Query Files",
-        "excerpt":"This use case queries Files of the Identity. Parameters All parameters are optional. If no parameter is given, all Files are returned. createdAt is the ISODateTime the File was created at. createdBy is the enmeshed address of the Identity that created the File. createdByDevice is the id of the Device...","categories": [],
-        "tags": [],
-        "url": "/use-case-transport-query-files",
-        "teaser": null
-      },{
         "title": "Query Messages",
         "excerpt":"This use case queries Messages of the Identity. Parameters All parameters are optional. If no parameter is given, all Messages are returned. createdBy is the enmeshed address of the Identity that created the Messsage. createdByDevice is the id of the Device that created the File. createdAt is the ISODateTime the...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-messages",
+        "teaser": null
+      },{
+        "title": "Query metadata of Files",
+        "excerpt":"This use case queries Files of the Identity regardless of whether it is an uploaded own File or a loaded peer File. To limit the output quantity accordingly in advance, the Query metadata of own Files use case or Query metadata of peer Files use case can be applied instead....","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-query-metadata-of-files",
+        "teaser": null
+      },{
+        "title": "Query metadata of own Files",
+        "excerpt":"This use case queries uploaded own Files. In contrast, the Query metadata of peer Files use case can be executed to query loaded peer Files. To avoid limiting the output quantity in advance, the Query metadata of Files use case can be applied. Parameters All parameters are optional. If no...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-query-metadata-of-own-files",
+        "teaser": null
+      },{
+        "title": "Query metadata of peer Files",
+        "excerpt":"This use case queries loaded peer Files. In contrast, the Query metadata of own Files use case can be executed to query uploaded own Files. To avoid limiting the output quantity in advance, the Query metadata of Files use case can be applied. Parameters All parameters are optional. If no...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-query-metadata-of-peer-files",
         "teaser": null
       },{
         "title": "Query Relationships",
@@ -1110,7 +1128,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Upload own File",
-        "excerpt":"This use case uses a given file outside of enmeshed, encrypts and uploads it to the Backbone and creates a File with the respective metadata information for the Identity to access it. The File can from now on be shared by references to other Identities. Parameters content is the to-be-uploaded...","categories": [],
+        "excerpt":"This use case takes a given file outside of enmeshed, encrypts and uploads it to the Backbone and creates a File with the respective metadata information for the Identity to access it. The File can from now on be shared by references to other Identities. This can be the truncatedReference...","categories": [],
         "tags": [],
         "url": "/use-case-transport-upload-own-file",
         "teaser": null
