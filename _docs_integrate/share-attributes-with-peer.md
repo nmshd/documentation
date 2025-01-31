@@ -158,7 +158,7 @@ To share the RelationshipAttribute with the Recipient, the Sender needs to inser
 }
 ```
 
-The table of the [Combinations and usage scenarios of the ShareAttributeRequestItem]({% link _docs_integrate/share-attributes-with-peer.md %}#combinations-and-usage-scenarios-of-shareattributerequestitem) contains further information on sharing RelationshipAttributes in different application scenarios.
+The table of the [combinations and usage scenarios of the ShareAttributeRequestItem]({% link _docs_integrate/share-attributes-with-peer.md %}#combinations-and-usage-scenarios-of-shareattributerequestitem) contains further information on sharing RelationshipAttributes in different application scenarios.
 
 ### Share multiple Attributes
 
