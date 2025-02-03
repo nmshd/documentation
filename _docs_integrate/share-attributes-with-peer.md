@@ -202,7 +202,7 @@ The [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md
 The acceptance of a ShareAttributeRequestItem leads to the creation of a corresponding LocalAttribute with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property.
 Depending on whether an IdentityAttribute or a RelationshipAttribute has been shared by the Sender, it is referred to as either a [peer shared IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-identityattributes) or a [received ThirdPartyRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes).
 The `content` of the LocalAttribute corresponds to the underlying `attribute` of the ShareAttributeRequestItem.
-Based on this, an appropriate AcceptResponseItem of type [ShareAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#shareattributeacceptresponseitem) is generated, which incorporates the `id` of the created LocalAttribute with the LocalAttributeShareInfo in its `attributeId` property.
+Based on this, an appropriate AcceptResponseItem of type [ShareAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#shareattributeacceptresponseitem) is generated, which incorporates the `id` of the created LocalAttribute in its `attributeId` property.
 This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for sharing Attributes that will be transferred to the Sender.
 
 ### Reject a ShareAttributeRequestItem
