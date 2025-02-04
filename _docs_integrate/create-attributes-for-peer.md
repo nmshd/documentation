@@ -135,7 +135,7 @@ After the Recipient has received the [Request for creating Attributes]({% link _
 If the Recipient does not want to create any of the Attributes offered by the Sender and, therefore, does not want to accept the Request for creating Attributes of the Sender, it can reject it as a whole as well. For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/c2e1db15-8377-43bc-9ada-42623e5e938f" id="RROTOBMS1a-2"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/970e4551-ac83-4130-bdc4-67e92a8aa033" id="H.NPTJ1Oxg-P"></iframe></div>
 
 ### Accept a CreateAttributeRequestItem
 
@@ -243,7 +243,7 @@ Note that it is important to respond to RequestItems, some of which may be conta
 
 We now assume that the Recipient has accepted the [Request for creating Attributes]({% link _docs_integrate/create-attributes-for-peer.md %}#request-for-creating-attributes) of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/49329630-b44c-4aa7-9e27-69f4d1d01aaa" id=".VPTa-Da-0ir"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/7b9d7d3f-796a-44fe-877a-520e952f672b" id="f~NPBql6VM9h"></iframe></div>
 
 To view the Response to the Request, search for it in the synchronization result or proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
