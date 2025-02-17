@@ -49,7 +49,7 @@ Allowing for potentially insecure protocols such as HTTP may expose sensitive in
 
 To mitigate this risk, it is recommended that the Backbone restricts the supported protocols to HTTPS, which is a secure protocol that encrypts information in transit. This will help prevent sensitive information from being exposed to malicious parties. Additionally, any feature that allows developers to override the protocol check should be explicitly enabled and documented to ensure that it is used judiciously and with caution.
 
-When configuring the allowlist for the Backbone, it is important to include all necessary URLs while keeping the list as minimal as possible. See [Networking](#networking) for more information.
+When configuring the allowlist for the Backbone, it is important to include all necessary URLs while keeping the list as minimal as possible.
 
 However, it is also important to consider other URLs that may need to be included in the allowlist, such as URLs for Docker Hub, GitHub Container Registry, Linux update environments, and other sources. These URLs may be necessary for the proper functioning of the system and should be carefully evaluated and included in the allowlist if deemed necessary.
 
@@ -59,7 +59,7 @@ The following chapters provide a detailed overview of the networking requirement
 
 ### Outbound External Connection: Internet
 
-The Backbone uses a TLS-secured Internet connection to the push notification services Firebase Cloud Messaging (FCM) and Apple Push Notification service (APNs). Your firewall must not block access to them. See https://firebase.google.com/docs/cloud-messaging/concept-options#messaging-ports-and-your-firewall and https://support.apple.com/en-us/HT203609 for more information.
+The Backbone uses a TLS-secured Internet connection to the push notification services Firebase Cloud Messaging (FCM) and Apple Push Notification service (APNs). Your firewall must not block access to them. See the official documentation of [FCM](https://firebase.google.com/docs/cloud-messaging/concept-options#messaging-ports-and-your-firewall) and [APNs](https://support.apple.com/en-us/HT203609) for more information.
 
 ### Inbound External Connections
 
@@ -119,7 +119,7 @@ It is important to ensure that API keys are secure and cannot be easily compromi
 - **Transport layer encryption** should be enabled if communication is routed via an **untrusted network**..
 - **Regular updates and maintenance** should be performed to keep the database up-to-date and secure.
 - Due to enmeshed's end-to-end encryption, any sensitive data is already encrypted by the clients, so **encryption of data on the database is not necessary**.
-- For more information regarding security best practices for SQL Server, see https://learn.microsoft.com/en-us/sql/relational-databases/security/sql-server-security-best-practices. For PostgreSQL, see for example https://www.upguard.com/blog/10-ways-to-bolster-postgresql-security.
+- For more information regarding security best practices for SQL Server, see [https://learn.microsoft.com/en-us/sql/relational-databases/security/](https://learn.microsoft.com/en-us/sql/relational-databases/security/) sql-server-security-best-practices. For PostgreSQL, see for example [https://www.upguard.com/blog/10-ways-to-bolster-postgresql-security](https://www.upguard.com/blog/10-ways-to-bolster-postgresql-security).
 
 ### Event Bus
 
