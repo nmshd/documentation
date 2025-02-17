@@ -1,3 +1,26 @@
+---
+# Start automatic generation
+permalink: operate/backbone-security-considerations
+published: true
+title: "Backbone Security Considerations"
+type: scenario
+toc: true
+properties:
+  - id: SC120
+  - category: Backbone Operations
+  - description:
+  - customer:
+  - component: operate
+  - level: Advanced
+  - implementation status: DOCS ONLY
+  - documentation status: DONE
+  - published: true
+  - link: backbone-security-considerations
+require:
+required_by:
+# End automatic generation
+---
+
 The most important thing you have to keep in mind that the Backbone is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Backbone and its data.
 
 And as the Backbone is handling very sensitive data (please see chapter Privacy), it should be treated as any other business system - with the same requirements in terms of privacy, security, access or network setup.

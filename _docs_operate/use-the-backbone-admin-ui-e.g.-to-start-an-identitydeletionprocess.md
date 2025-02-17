@@ -6,7 +6,7 @@ title: "Use the Backbone Admin UI (e.g. to start an IdentityDeletionProcess)"
 type: scenario
 toc: true
 properties:
-  - id: SC105
+  - id: SC121
   - category: Backbone Operations
   - description:
   - customer:
