@@ -323,6 +323,12 @@ var store = [{
         "url": "/operate",
         "teaser": null
       },{
+        "title": "Backbone Security Considerations",
+        "excerpt":"The most important thing you have to keep in mind that the Backbone is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Backbone and its data. And as the Backbone is handling very sensitive data (please see...","categories": [],
+        "tags": [],
+        "url": "/operate/backbone-security-considerations",
+        "teaser": null
+      },{
         "title": "Configuration",
         "excerpt":"Mounting a config file Create a config file in JSON format in a folder of your choice. Fill the config file with your desired configuration (it’s sufficient to add values you want to change; the Connector will merge your config file with the default configuration) Example: { \"infrastructure\": { \"httpServer\":...","categories": [],
         "tags": [],
