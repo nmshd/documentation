@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC017
-  - category: Relationships between Identities
+  - category: Identities and Relationships
   - description: Nutzer möchte ohne einen Online Account einen neuen Vertrag mit einer Organisation eingehen
   - customer: All
   - component: use

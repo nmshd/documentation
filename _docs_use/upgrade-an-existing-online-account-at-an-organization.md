@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC014
-  - category: Relationships between Identities
+  - category: Identities and Relationships
   - description: Nutzer möchte vorhanden Online Account/Login auf enmeshed heben Bei bestimmten Service Providern Einloggen, QR Code einscannen, Kontakt eingehen, Website wird neu geladen, Nutzer ist mit enmeshed verbunden
   - customer: All
   - component: use
