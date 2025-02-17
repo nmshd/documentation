@@ -62,7 +62,7 @@ The Consumer API has a built-in identity provider. Creating accounts/identities 
 
 So far, the Admin API only supports API-Key authentication to securely authenticate technical users. These API-Keys are random character strings with a high entropy and should be kept confidential at all times.
 
-There is no authorization set up. So if you have the API-Key, you can access endpoint of the Admin API.
+There is no authorization set up. So if you have the API-Key, you can access all endpoints of the Admin API.
 
 ## Rate limiting of the Consumer API
 
