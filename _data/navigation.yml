@@ -178,6 +178,8 @@ docs_operate:
         url: /operate/performance-considerations
   - title: Backbone Operations
     children:
+      - title: "Backbone Security Considerations"
+        url: /operate/backbone-security-considerations
       - title: "Log Event IDs"
         url: /operate/log-event-ids
   - title: Troubleshooting
