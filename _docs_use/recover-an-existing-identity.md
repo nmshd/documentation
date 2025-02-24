@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC006
-  - category: Identity Basics
+  - category: Identities and Relationships
   - description:
   - customer: All
   - component: use

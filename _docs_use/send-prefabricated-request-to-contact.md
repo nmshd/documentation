@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC073
-  - category: Manage Requests
+  - category: Working With Requests
   - description:
   - customer: All
   - component: use

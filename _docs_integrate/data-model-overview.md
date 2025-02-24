@@ -1046,10 +1046,11 @@ The parameters to accept a ProposeAttributeRequestItem with a new Attribute.
 
 The parameters to accept a ReadAttributeRequestItem with an existing Attribute.
 
-| Name                | Type     | Description                                        |
-| ------------------- | -------- | -------------------------------------------------- |
-| accept              | `"true"` | The only possible value here is the string "true". |
-| existingAttributeId | `string` | The `id` of the existing LocalAttribute.           |
+| Name                | Type                      | Description                                                                                                                  |
+| ------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| accept              | `"true"`                  | The only possible value here is the string "true".                                                                           |
+| existingAttributeId | `string`                  | The `id` of the existing LocalAttribute.                                                                                     |
+| tags                | `string[]` \| `undefined` | If additional `tags` are requested, that the exsiting Attibute doesn't have, yet, they can be specified using this property. |
 
 The parameters to accept a ReadAttributeRequestItem with a new Attribute.
 
