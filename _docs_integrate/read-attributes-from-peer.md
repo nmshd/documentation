@@ -157,7 +157,7 @@ After the Recipient has received the [Request for reading Attributes]({% link _d
 If the Recipient does not want the Sender to read any of its Attributes and, therefore, does not want to accept the Request for reading Attributes of the Sender, it can reject it as a whole as well. For this, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/57c9e02d-cf47-4777-b5d1-4d40c10a7593" id="eaAPLfDc5muI"></iframe></div>
+<div style="width: 640px; height: 720px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:720px" src="https://lucid.app/documents/embedded/57c9e02d-cf47-4777-b5d1-4d40c10a7593" id="eaAPLfDc5muI"></iframe></div>
 
 ### Accept a ReadAttributeRequestItem
 
