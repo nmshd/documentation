@@ -266,7 +266,7 @@ We now assume that the Recipient has accepted the [Request for reading Attribute
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/eacdb246-9a8f-4361-965b-a9c21edacc45" id="EaAPpEXMzk_7"></iframe></div>
 
-To view the Response to the Request, search for it in the synchronization result or proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
+To view the Response to the Request, proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
 - If the [Request was sent via a RelationshipTemplate]({% link _docs_integrate/read-attributes-from-peer.md %}#request-via-relationshiptemplate): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
 - If the [Request was sent via a Message]({% link _docs_integrate/read-attributes-from-peer.md %}#request-via-message): Specify `<ID of Request>` as the value for the `id` query parameter.

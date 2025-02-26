@@ -301,7 +301,7 @@ We now assume that the Recipient has accepted the [Request for proposing Attribu
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/91eaacd7-42db-48f9-80fc-72352d47dfc5" id="_XPVA7pau0KH"></iframe></div>
 s
-To view the Response to the Request, search for it in the synchronization result or proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
+To view the Response to the Request, proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
 - If the [Request was sent via a RelationshipTemplate]({% link _docs_integrate/propose-attributes-to-peer.md %}#request-via-relationshiptemplate): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
 - If the [Request was sent via a Message]({% link _docs_integrate/propose-attributes-to-peer.md %}#request-via-message): Specify `<ID of Request>` as the value for the `id` query parameter.
