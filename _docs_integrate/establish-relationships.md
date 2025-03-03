@@ -235,9 +235,9 @@ After the initiator has initiated the Relationship, the Integrator of the templa
 
 ### Receive the Pending Relationship
 
-The templator must first [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) in order to receive the data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` previously created by the initiator. The synchronization causes the `transport.relationshipChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) to be triggered and the `result` of the response after synchronization contains the information about the created Relationship. In particular, the `id` of the Relationship can be read from it.
+The templator must first [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) in order to receive the data object of type [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` previously created by the initiator. The synchronization causes the `transport.relationshipChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) to be triggered. To view the created Relationship, proceed as described in the [Query Relationships]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) use case documentation and specify `<ID of RelationshipTemplate>` as the value for the `template.id` query parameter. In particular, the `id` of the Relationship can be read from the `result`.
 
-{% include copy-notice description="Read the `id` of the Relationship from the `relationships.id` property for the next step." %}
+{% include copy-notice description="Read the `id` of the Relationship from the `result` for the next step." %}
 
 ### Accept the Pending Relationship
 
@@ -250,7 +250,7 @@ This means that previous attempts to establish an active Relationship, which wer
 
 ### Get Informed About the Acceptance of the Relationship
 
-Assuming the initiator is a Connector, it must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) after the templator has accepted the Relationship. The synchronization causes the `transport.relationshipChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) to be triggered and the `result` of the response after synchronization shows in particular that the `status` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) has been changed from `"Pending"` to `"Active"`. Now the initiator is informed that the templator has accepted the Relationship and therefore an active Relationship has been established between them. If the initiator is an App user instead, they are informed about the acceptance of the Relationship analogously.
+Assuming the initiator is a Connector, it must [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) after the templator has accepted the Relationship. The synchronization causes the `transport.relationshipChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) to be triggered as the `status` of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) has been changed from `"Pending"` to `"Active"`. Now the initiator is informed that the templator has accepted the Relationship and therefore an active Relationship has been established between them. If the initiator is an App user instead, they are informed about the acceptance of the Relationship analogously.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/601bd687-1c78-45be-8d3c-ae589ab8e54b" id="~uUgN3n5x3eT"></iframe></div>
 
