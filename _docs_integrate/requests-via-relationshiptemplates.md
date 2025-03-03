@@ -213,7 +213,7 @@ Then, the Request is set to `status` `"Completed"` and you can [query the Relati
 As long as the Relationship is `"Pending"`, no new Request is created by [loading the RelationshipTemplate](#receive-the-request-by-loading-the-relationshiptemplate).
 
 The Sender can fetch the Relationship by [synchronizing the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
-In the response you can see a new Relationship, which looks as follows:
+The new Relationship looks as follows:
 
 ```jsonc
 {
