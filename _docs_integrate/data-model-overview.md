@@ -435,7 +435,12 @@ Content Types can be seen as a data contract between Identities. The medium thro
 
 ## Request
 
-A Request allows you to ask another Identity to do something. What this "something" is depends on which of the so called [RequestItems](#requestitems) were added to the Request (e.g. [`CreateAttributeRequestItem`](}#createattributerequestitem), [`ReadAttributeRequestItem`](#readattributerequestitem), ...). The Request is then sent to the peer via Message or RelationshipTemplate. The peer can then review the Request and decide whether they want to accept or reject it. And if they accept it, they can even choose which of the Items they want to accept. You can also put multiple Items into a [RequestItemGroup](#requestitemgroup) in order to display them visually as a unit.
+A Request allows you to ask another Identity to do something.
+What this "something" is depends on which of the so called [RequestItems](#requestitems) were added to the Request (e.g. [`CreateAttributeRequestItem`](#createattributerequestitem), [`ReadAttributeRequestItem`](#readattributerequestitem), ...).
+The Request is then sent to the peer via Message or RelationshipTemplate.
+The peer can then review the Request and decide whether they want to accept or reject it.
+And if they accept it, they can even choose which of the Items they want to accept.
+You can also put multiple Items into a [RequestItemGroup](#requestitemgroup) in order to display them visually as a unit.
 
 | Name        | Type                                        | Description                                                                                                                                                                                                                                                                          |
 | ----------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
