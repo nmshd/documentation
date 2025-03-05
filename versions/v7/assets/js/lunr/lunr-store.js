@@ -1056,7 +1056,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Query Relationships",
-        "excerpt":"This use case queries Relationships of the Identity. Parameters peer is the enmeshed address of the peer. status is the status of the Relationship. template.id is the id of the RelationshipTemplate that was used to initiate the Relationship. On Success Returns all Relationships that match the query. On Failure The...","categories": [],
+        "excerpt":"This use case queries Relationships of the Identity. Parameters peer is the enmeshed address of the peer. status is the status of the Relationship. templateId is the id of the RelationshipTemplate that was used to initiate the Relationship. On Success Returns all Relationships that match the query. On Failure The...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-transport-query-relationships",
         "teaser": null
