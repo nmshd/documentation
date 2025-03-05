@@ -1,0 +1,611 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>enmeshed Runtime</title>
+<meta name="description" content="enmeshed Runtime GitHub Repository">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="enmeshed Runtime">
+<meta property="og:url" content="/versions/v7/explore/runtime">
+
+
+  <meta property="og:description" content="enmeshed Runtime GitHub Repository">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-03-05T11:11:14+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/v7/explore/runtime">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/v7/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/v7/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/v7/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+<link href="/versions/v7/assets/css/enmeshed.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc@9.2.0/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/v7/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/use"
+                
+                
+              >Use</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/explore"
+                
+                
+              >Explore</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/integrate"
+                
+                
+              >Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/operate"
+                
+                
+              >Operate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/contribute"
+                
+                
+              >Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/blog"
+                
+                
+              >Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Explore enmeshed</h3>
+      
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">First things first</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/explore/how_does_enmeshed_work">How does enmeshed work?</a></li>
+            
+              <li><a href="/versions/v7/explore/example-scenarios">Example Scenarios</a></li>
+            
+              <li><a href="/versions/v7/explore/faq">Frequently Asked Questions</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">How we think</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/explore/integration">Integration Considerations</a></li>
+            
+              <li><a href="/versions/v7/explore/security">Security Considerations</a></li>
+            
+              <li><a href="/versions/v7/explore/privacy">Privacy Considerations</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Our Layers</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/explore/layers/backbone">Backbone Layer</a></li>
+            
+              <li><a href="/versions/v7/explore/layers/transport">Transport Layer</a></li>
+            
+              <li><a href="/versions/v7/explore/layers/consumption">Consumption Layer</a></li>
+            
+              <li><a href="/versions/v7/explore/layers/integration">Integration Layer</a></li>
+            
+              <li><a href="/versions/v7/explore/layers/user-experience">User-Experience Layer</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Components in-detail</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/explore/app">App</a></li>
+            
+              <li><a href="/versions/v7/explore/backbone">Backbone</a></li>
+            
+              <li><a href="/versions/v7/explore/connector">Connector</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Expert Corner</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/explore/addresses">Addresses</a></li>
+            
+              <li><a href="/versions/v7/explore/runtime" class="active">Runtime</a></li>
+            
+              <li><a href="/versions/v7/explore/cryptography">Cryptography</a></li>
+            
+              <li><a href="/versions/v7/explore/blockchain">Why no blockchain?</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="enmeshed Runtime">
+    <meta itemprop="description" content="enmeshed Runtime GitHub Repository">
+    <meta itemprop="datePublished" content="2025-03-05T11:11:14+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/versions/v7/explore/runtime" itemprop="url">enmeshed Runtime
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#runtime-flavors">Runtime Flavors</a></li><li><a href="#runtime-building-blocks">Runtime Building Blocks</a><ul><li><a href="#crypto-library">Crypto Library </a></li><li><a href="#transport-library">Transport Library </a></li><li><a href="#content-library">Content Library </a></li><li><a href="#consumption-library">Consumption Library </a></li></ul></li><li><a href="#runtime-modules">Runtime Modules</a><ul><li><a href="#request-module">Request Module</a></li><li><a href="#decider-module">Decider Module</a></li><li><a href="#message-module">Message Module</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <p><a href="https://github.com/nmshd/runtime">enmeshed Runtime GitHub Repository</a></p>
+
+<p>The Runtime wraps all features of enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser.</p>
+
+<p>Versions, local and remote data, synchronization, communication, and many more items are tracked by the Runtime in order to provide an easy-to-use interface.</p>
+
+<h2 id="runtime-flavors">Runtime Flavors</h2>
+
+<p>Although the Runtime could be used by its own, it comes with two flavors:</p>
+
+<ul>
+  <li>The AppRuntime with a focus of using it with a user interface as an application on a user’s device, which is used within the enmeshed App</li>
+  <li>The ConnectorRuntime with a focus on integration capabilities based on dedicated databases and virtualization, which is used for the enmeshed Connector</li>
+</ul>
+
+<h2 id="runtime-building-blocks">Runtime Building Blocks</h2>
+
+<h3 id="crypto-library">Crypto Library <a href="https://github.com/nmshd/ts-crypto"><i class="fab fa-fw fa-github"></i></a></h3>
+
+<p>To separate the cryptographic interfaces from the used cryptographic library (e.g. libsodium), the crypto library acts as a wrapper. Additionally, cryptographically-related source code is bundled within this library.</p>
+
+<p>This approach allows us to implement features for cryptographic classes, for example the serialization of keys. Additionally, security audits could focus on this library.</p>
+
+<h3 id="transport-library">Transport Library <a href="https://github.com/nmshd/runtime/tree/main/packages/transport"><i class="fab fa-fw fa-github"></i></a></h3>
+
+<p>The implementation of the transport layer is the transport library. It combines the features of different third party libraries and the crypto library to support the following features:</p>
+
+<ul>
+  <li>Communication with the Backbone</li>
+  <li>Synchronization with the Backbone</li>
+  <li>Encrypting and decrypting communication with other Identities</li>
+  <li>Managing Identities and devices</li>
+  <li>Managing cryptographic artifacts</li>
+  <li>Cross-device synchronization of the datawallet</li>
+</ul>
+
+<h3 id="content-library">Content Library <a href="https://github.com/nmshd/runtime/tree/main/packages/content"><i class="fab fa-fw fa-github"></i></a></h3>
+
+<p>To separate the actual payload of Messages from the Message structure and envelope, the content library was set up. It is a repository of interfaces and types which are used as the payload of communication between Identities.</p>
+
+<p>Whereas the transport library implements the foundation of communication between Identities and the actual secure tunnel between Identities, the content library defines the payload on top of this tunnel. You can see it as the definition of a contract between all Identities.</p>
+
+<ul>
+  <li>Attributes and AttributeValues</li>
+  <li>Message formats like Mails, RequestMails, or technical messages</li>
+  <li>Transactional formats like Requests</li>
+</ul>
+
+<h3 id="consumption-library">Consumption Library <a href="https://github.com/nmshd/runtime/tree/main/packages/consumption"><i class="fab fa-fw fa-github"></i></a></h3>
+
+<p>Due to the fact that the Backbone cannot implement business logic to process content sent over the wire just like any other central service, the business logic needs to reside on the respective clients.</p>
+
+<p>The consumption library implements this business logic and additionally introduces some local data structures for keeping track of the sent and received payload.</p>
+
+<ul>
+  <li>Processors implementing logic what should be done if a RequestItem is accepted</li>
+  <li>Local metadata structures on top of the data of the content library</li>
+  <li>Local data structures</li>
+</ul>
+
+<h2 id="runtime-modules">Runtime Modules</h2>
+
+<p>The Runtime is built with the focus to be as modular as possible. Therefore, it is possible to write own Modules for it.</p>
+
+<p>The Runtime provides its own builtin Modules. These Modules are available by default, but can be configured by the User of the Runtime. They can be configured using the <code class="language-plaintext highlighter-rouge">@nmshd/runtime:</code> prefix (e.g. <code class="language-plaintext highlighter-rouge">@nmshd/runtime:&lt;module-name&gt;</code>) as the location field in the Modules part of the Runtime configuration.</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+  </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"decider"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Decider Module"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DeciderModule"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@nmshd/runtime:DeciderModule"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Find a description of the available Modules in the following sections.</p>
+
+<h3 id="request-module">Request Module</h3>
+
+<p class="notice--warning"><strong>Note:</strong> This Module is responsible for important logic in the enmeshed ecosystem and is therefore enabled by default in every official enmeshed Application.</p>
+
+<p>This Module makes heavy use of Requests, LocalRequests and Response. Head over to the description of our <a href="/versions/v7/integrate/data-model-overview">data model</a>, where you can find a detailed description of them.</p>
+
+<p>The Module is responsible for:</p>
+
+<ul>
+  <li>creating an incoming LocalRequest when a peer RelationshipTemplate is loaded</li>
+  <li>scanning for Requests in received Messages to store it as incoming LocalRequests in the database</li>
+  <li>scanning for Responses in received Messages to close outgoing LocalRequests in the database</li>
+  <li>scanning for Requests in outgoing Messages to store it as outgoing LocalRequests in the database</li>
+  <li>taking action when the User decides (accepts or rejects) a Request
+    <ul>
+      <li>when the Request came from a RelationshipTemplate the Module creates a Relationship with the contents of the User’s Response if the User accepted the Request (rejection is currently not handled)</li>
+      <li>when the Request came from a Message the Module sends back a Message containing the User’s Response (accept and reject)</li>
+    </ul>
+  </li>
+  <li>listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent in the Relationship’s <code class="language-plaintext highlighter-rouge">creationContent</code></li>
+</ul>
+
+<h3 id="decider-module">Decider Module</h3>
+
+<p class="notice--warning"><strong>Note:</strong> This Module is responsible for important logic in the enmeshed ecosystem and is therefore enabled by default in every official enmeshed Application.</p>
+
+<p>Currently this Module is only responsible for moving a Request from the status <code class="language-plaintext highlighter-rouge">DecisionRequired</code> to the status <code class="language-plaintext highlighter-rouge">ManualDecisionRequired</code> in which e.g. the enmeshed App can prompt the User to manually review the Request.</p>
+
+<p>In the future, it will be possible to configure the Decider Module so it automatically accepts certain Requests without any User interaction.</p>
+
+<h3 id="message-module">Message Module</h3>
+
+<p>For an overview about the mentioned events in this section please refer to the <a href="/versions/v7/integrate/connector-events">Events</a> docs.</p>
+
+<p>The Message Module is responsible for processing <code class="language-plaintext highlighter-rouge">transport.MessageReceived</code> events and re-publish them as events that are able to handle and consume in different situations.</p>
+
+<p>In every case the MessageModule will publish a <code class="language-plaintext highlighter-rouge">consumption.relationshipEvent.&lt;Relationship-ID-between-the-sender-and-you&gt;</code> for e.g. reloading the Relationship including its newest Messages in an UI.</p>
+
+<p>When the Message is a <a href="/versions/v7/integrate/data-model-overview#Mail">Mail</a> a <code class="language-plaintext highlighter-rouge">consumption.mailReceived</code> event will be published. This is useful if you only want to refresh your UI that is rendering structured Mails.</p>
+
+<p>If you are interested in these events you need to enable this module, because it is not enabled by default.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-05T11:11:14+01:00">March 5, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="footer-new">
+    <div class="footer-row">
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">enmeshed</h5>
+            <p class="footer-content">
+                enmeshed is an open source wallet that ensures end-to-end encrypted digital data exchange between organizations and individuals.
+                <br />
+                <br />
+                <small>enmeshed was developed by j&s-soft AG.</small>
+            </p>
+            <div class="footer-socials">
+                <a class="footer-icon footer-social-icon footer-social-icon-twitter" href="https://twitter.com/enmeshed_jssoft" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-github" href="https://github.com/nmshd" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-linkedin" href="https://www.linkedin.com/showcase/enmeshed/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Contact</h5>
+            <p class="footer-content">
+                j&s-soft AG
+                <br />
+                Max-Jarecki-Straße 21
+                <br />
+                69115 Heidelberg
+                <br />
+                <br />
+                <small
+                    ><a href="tel:00496221431210"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-phone-alt"></i></span>+49 (6221) 43121-0</a
+                    ></small
+                >
+                <br />
+                <small
+                    ><a href="mailto:enmeshed.support@js-soft.com"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-envelope"></i></span>enmeshed.support@js-soft.com</a
+                    ></small
+                >
+            </p>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Quick Links</h5>
+            <ul class="footer-menu">
+                   
+                <li>
+                    <a href="https://js-soft.com" rel="nofollow noopener noreferrer" target="_blank"> j&s-soft Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.enmeshed.de" rel="nofollow noopener noreferrer" target="_blank"> enmeshed Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer" target="_blank"> enmeshed on GitHub</a>
+                </li>
+                  
+                <li>
+                    <a href="/legal" rel="nofollow noopener noreferrer" target="_blank"> Legal Disclosure</a>
+                </li>
+                  
+                <li>
+                    <a href="/privacy" rel="nofollow noopener noreferrer" target="_blank"> Privacy Statement</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer" target="_blank"> NPM</a>
+                </li>
+                  
+                <li>
+                    <a href="https://enmeshed.eu/feed.xml" rel="nofollow noopener noreferrer" target="_blank"> RSS Feed</a>
+                </li>
+                  
+            </ul>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Download the App</h5>
+            <p class="footer-downloads footer-content">
+                <a href="https://apps.apple.com/de/app/enmeshed/id1576693742" target="_blank">
+                    <img src="/assets/images/appstore.svg" class="logo-app logo-app__appstore" />
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=eu.enmeshed.app&hl=de&gl=US" target="_blank">
+                    <img src="/assets/images/gplay.svg" class="logo-app logo-app__gplaystore" />
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/v7/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/v7/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

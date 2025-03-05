@@ -1,0 +1,1210 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Configuration - enmeshed</title>
+<meta name="description" content="Mounting a config file">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Configuration">
+<meta property="og:url" content="/versions/v7/operate/configuration">
+
+
+  <meta property="og:description" content="Mounting a config file">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-03-05T11:11:14+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/v7/operate/configuration">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/v7/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/v7/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/v7/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+<link href="/versions/v7/assets/css/enmeshed.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc@9.2.0/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/v7/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/use"
+                
+                
+              >Use</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/explore"
+                
+                
+              >Explore</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/integrate"
+                
+                
+              >Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/operate"
+                
+                
+              >Operate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/contribute"
+                
+                
+              >Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/blog"
+                
+                
+              >Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Operate enmeshed</h3>
+      
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Connector Setup</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/operate/setup-with-docker-compose">Setup with Docker Compose</a></li>
+            
+              <li><a href="/versions/v7/operate/setup-with-helm-charts">Setup with Helm Charts</a></li>
+            
+              <li><a href="/versions/v7/operate/configuration" class="active">Configuration</a></li>
+            
+              <li><a href="/versions/v7/operate/modules">Modules</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Connector Operations</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/operate/overview-of-connector-operations">Overview of Connector operations</a></li>
+            
+              <li><a href="/versions/v7/operate/security-considerations">Security Considerations</a></li>
+            
+              <li><a href="/versions/v7/operate/privacy-considerations">Privacy Considerations</a></li>
+            
+              <li><a href="/versions/v7/operate/performance-considerations">Performance Considerations</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Backbone Operations</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/operate/backbone-security-considerations">Backbone Security Considerations</a></li>
+            
+              <li><a href="/versions/v7/operate/log-event-ids">Log Event IDs</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Troubleshooting</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/operate/troubleshooting-guide">Troubleshooting Guide</a></li>
+            
+              <li><a href="/versions/v7/operate/support">Support</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Configuration">
+    <meta itemprop="description" content="Mounting a config file">
+    <meta itemprop="datePublished" content="2025-03-05T11:11:14+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/versions/v7/operate/configuration" itemprop="url">Configuration
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#mounting-a-config-file">Mounting a config file</a></li><li><a href="#environment-variables">Environment variables</a><ul><li><a href="#parsing-rules">Parsing rules</a></li><li><a href="#example">Example</a></li></ul></li><li><a href="#configuration-options">Configuration options</a><ul><li><a href="#debug">debug available since version 3.3.0</a></li><li><a href="#enforceCertificatePinning">enforceCertificatePinning available since version 6.5.0</a></li><li><a href="#pinnedTLSCertificateSHA256Fingerprints">pinnedTLSCertificateSHA256Fingerprints available since version 6.5.0</a></li><li><a href="#transportlibrary">transportLibrary</a></li><li><a href="#database">database</a></li><li><a href="#infrastructure">infrastructure</a><ul><li><a href="#httpserver">httpServer</a></li></ul></li><li><a href="#modules">modules</a><ul><li><a href="#amqppublisher">amqpPublisher </a></li><li><a href="#autoacceptpendingrelationships">autoAcceptPendingRelationships </a></li><li><a href="#corehttpapi">coreHttpApi </a></li><li><a href="#messagebrokerpublisher">messageBrokerPublisher </a></li><li><a href="#sync">sync </a></li><li><a href="#pubsubpublisher">PubSubPublisher </a></li><li><a href="#webhooks">webhooks </a><ul><li><a href="#payload">Payload</a></li></ul></li><li><a href="#sse">sse (Server-Sent Events) </a></li></ul></li></ul></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h2 id="mounting-a-config-file">Mounting a config file</h2>
+
+<ol>
+  <li>Create a config file in JSON format in a folder of your choice.</li>
+  <li>
+    <p>Fill the config file with your desired configuration (it’s sufficient to add values you want to change; the Connector will merge your config file with the default configuration) Example:</p>
+
+    <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"infrastructure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"httpServer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"apiKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"an-api-key"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>Mount the created config file into the Docker container (e.g. to <code class="language-plaintext highlighter-rouge">/config.json</code>). See the official <a href="https://docs.docker.com/storage/bind-mounts/">documentation</a> for more information on how to mount files into a Docker container. This is also possible using <a href="https://docs.docker.com/compose/compose-file/compose-file-v3/#volumes">docker compose</a>.</li>
+  <li>Set the environment variable <code class="language-plaintext highlighter-rouge">CUSTOM_CONFIG_LOCATION</code> to the path you mounted your config file to (e.g. <code class="language-plaintext highlighter-rouge">CUSTOM_CONFIG_LOCATION="/config.json"</code>).</li>
+</ol>
+
+<p>There is also an <a href="https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/example.config.json">example config file</a> available. It sets some default values, please only use the fields you require</p>
+
+<h2 id="environment-variables">Environment variables</h2>
+
+<p>The configuration can also be done using environment variables. This feature is included in the Connector since version <code class="language-plaintext highlighter-rouge">2.2.1</code>.</p>
+
+<h3 id="parsing-rules">Parsing rules</h3>
+
+<ol>
+  <li>
+    <p>Nested fields can be represented using a colon (<code class="language-plaintext highlighter-rouge">:</code>) as a separator.</p>
+
+    <p class="notice--warning">The <code class="language-plaintext highlighter-rouge">:</code> separator doesn’t work with environment variable hierarchical keys on all platforms. The double underscore (<code class="language-plaintext highlighter-rouge">__</code>) is supported on all platforms (e.g. bash does not support the <code class="language-plaintext highlighter-rouge">:</code> separator but it supports <code class="language-plaintext highlighter-rouge">__</code> ). The Connector will therefore convert <code class="language-plaintext highlighter-rouge">__</code> to <code class="language-plaintext highlighter-rouge">:</code> so you can use it on that systems.</p>
+  </li>
+  <li>The parameter casing must be the same as the config file casing.</li>
+  <li>The strings “true” and “false” are converted to the respective boolean values.</li>
+  <li>Number strings (<code class="language-plaintext highlighter-rouge">"1"</code> / <code class="language-plaintext highlighter-rouge">"1.1"</code>) will be converted to the respective number types.</li>
+  <li>Complex structures (arrays, objects) are not supported. (=&gt; <code class="language-plaintext highlighter-rouge">modules:aModule:aKey='{"a": "x", "b": "y"}'</code> or <code class="language-plaintext highlighter-rouge">modules:aModule:aKey='["a", "b"]'</code> is not valid)</li>
+</ol>
+
+<h3 id="example">Example</h3>
+
+<p>You want to configure the following values:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"infrastructure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"httpServer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"apiKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"an-api-key"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>The first value can be configured using the variable <code class="language-plaintext highlighter-rouge">infrastructure:httpServer:enabled="true"</code>. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its boolean representation.</li>
+  <li>The second value can be configured using the variable <code class="language-plaintext highlighter-rouge">infrastructure:httpServer:port="8080"</code>. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its number representation.</li>
+  <li>The third value can be configured using the variable <code class="language-plaintext highlighter-rouge">infrastructure:httpServer:apiKey="an-api-key"</code>.</li>
+</ul>
+
+<h2 id="configuration-options">Configuration options</h2>
+
+<p>The Connector provides the following configuration parameters:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"debug"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"enforceCertificatePinning"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pinnedTLSCertificateSHA256Fingerprints"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nl">"transportLibrary"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"baseUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BASE_URL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"platformClientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT_ID"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"platformClientSecret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT_SECRET"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"database"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"connectionString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dbName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-db-name"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"infrastructure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">...</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">...</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>You can validate the config using our <a href="https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json">schema file</a>. This is possible for example with <a href="https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings">VSCode</a> or online tools like <a href="https://www.jsonschemavalidator.net">jsonschemavalidator.net</a>.</p>
+
+<h3 id="debug">debug <code class="language-plaintext highlighter-rouge">available since version 3.3.0</code></h3>
+
+<p class="notice--danger">⚠️ Do not turn on debug mode in production environments.</p>
+
+<p>The debug flag configures if the Connector is set to <strong>production</strong> or <strong>debug</strong> mode. Defaults to <code class="language-plaintext highlighter-rouge">false</code>. Can also be configured using the environment variable <code class="language-plaintext highlighter-rouge">DEBUG</code>.</p>
+
+<h3 id="enforceCertificatePinning">enforceCertificatePinning <code class="language-plaintext highlighter-rouge">available since version 6.5.0</code></h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">enforceCertificatePinning</code> flag configures whether the Connector should enforce certificate pinning. Defaults to <code class="language-plaintext highlighter-rouge">false</code>.</p>
+
+<p>If enabled, the Connector will only accept TLS certificates that match the SHA256 fingerprints for endpoints of outgoing requests specified in the <a href="#pinnedTLSCertificateSHA256Fingerprints"><code class="language-plaintext highlighter-rouge">pinnedTLSCertificateSHA256Fingerprints</code></a> object. If a hostname is not configured at all, it cannot be accessed by the Connector anymore.</p>
+
+<h3 id="pinnedTLSCertificateSHA256Fingerprints">pinnedTLSCertificateSHA256Fingerprints <code class="language-plaintext highlighter-rouge">available since version 6.5.0</code></h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">pinnedTLSCertificateSHA256Fingerprints</code> object maps hostnames to TLS certificate SHA256 fingerprints of the respective hostname. If a hostname is found, the Connector only accepts a TLS connection if the server responds with a certificate of one of the given fingerprints. The fingerprints must be in a hexadecimal format and are internally stripped of separators and characters not valid for hexadecimal formats. To reduce attack vectors, wildcard domains like “*.enmeshed.eu” are not valid hostnames, you need to fill this map with every subdomain.</p>
+
+<p>To increase security, please consider setting <a href="#enforceCertificatePinning"><code class="language-plaintext highlighter-rouge">enforceCertificatePinning</code></a> to true.</p>
+
+<p class="notice--warning">TLS certificates are rotated multiple times in a year for each hostname. Therefore, setting multiple fingerprints per hostname is possible. However, the config and fingerprints need to be updated regularly with the new fingerprints, otherwise the Connector will reject outgoing requests for expired certificates and cease to function.</p>
+
+<p><strong>Getting the SHA256 fingerprint of a certificate:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="nt">-n</span> | openssl s_client <span class="nt">-connect</span> &lt;<span class="nb">hostname</span><span class="o">&gt;</span>:443 | <span class="nb">sed</span> <span class="nt">-ne</span> <span class="s1">'/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'</span> <span class="o">&gt;</span> cert.pem
+openssl x509 <span class="nt">-noout</span> <span class="nt">-in</span> cert.pem <span class="nt">-fingerprint</span> <span class="nt">-sha256</span>
+<span class="nb">rm </span>cert.pem
+</code></pre></div></div>
+
+<p>This will output something similar to:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Connecting to &lt;ip&gt;
+...
+DONE
+sha256 Fingerprint=AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA
+</code></pre></div></div>
+
+<p>You can simply copy the fingerprint after <code class="language-plaintext highlighter-rouge">sha256 Fingerprint=</code> and use it.</p>
+
+<p>If you use another way to acquire the fingerprint, the Connector understands multiple formats like</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+</code></pre></div></div>
+
+<p><strong>Sample Configuration:</strong></p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+
+  </span><span class="nl">"pinnedTLSCertificateSHA256Fingerprints"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"example.com"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"subdomain.example.com"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="transportlibrary">transportLibrary</h3>
+
+<ul>
+  <li>
+    <p><strong>baseUrl</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
+
+    <p>The base url is used to communicate with the enmeshed platform. It can be changed to use a custom enmeshed Backbone. The base url may not contain a vertical bar <code class="language-plaintext highlighter-rouge">|</code>.</p>
+  </li>
+  <li>
+    <p><strong>platformClientId</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
+
+    <p>The client id is required to communicate with the enmeshed platform. It can be acquired from the <a href="/versions/v7/operate/support">enmeshed Support</a>.</p>
+  </li>
+  <li>
+    <p><strong>platformClientSecret</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
+
+    <p>The client secret is required to communicate with the enmeshed platform. It can be acquired from the <a href="/versions/v7/operate/support">enmeshed Support</a>.</p>
+  </li>
+</ul>
+
+<h3 id="database">database</h3>
+
+<ul>
+  <li>
+    <p><strong>connectionString</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
+
+    <p>At this point the connection to the database can be configured. The connection string must follow the MongoDB <a href="https://docs.mongodb.com/manual/reference/connection-string/">Connection String URI Format</a>.</p>
+  </li>
+  <li>
+    <p><strong>dbName</strong> <code class="language-plaintext highlighter-rouge">default: "default"</code></p>
+
+    <p>The <code class="language-plaintext highlighter-rouge">dbName</code> string is used as the name of the MongoDB database, prefixed with <code class="language-plaintext highlighter-rouge">acc-</code>. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new enmeshed Identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the <code class="language-plaintext highlighter-rouge">dbName</code> back to its original value.</p>
+
+    <p>If you would like to use multiple Connectors with distinct Identities (one Identity per Connector) running on the same database, you have to specify a unique <code class="language-plaintext highlighter-rouge">dbName</code> for each of them.</p>
+
+    <p class="notice--warning"><strong>Note:</strong> If you are using the Connector in combintation with a FerretDB, you have to pay attention to the database name restrictions specified in the <a href="https://docs.ferretdb.io/diff/">FerretDB documentation</a>.</p>
+  </li>
+  <li>
+    <p><strong>dbNamePrefix</strong> <code class="language-plaintext highlighter-rouge">default: "acc-"</code></p>
+
+    <p>The <code class="language-plaintext highlighter-rouge">dbNamePrefix</code> string is used as a prefix for the MongoDB database name. It will be <strong>prepended</strong> to the string configured by the <code class="language-plaintext highlighter-rouge">dbName</code> property.</p>
+
+    <p>If you don’t want your database name to be prefixed, you can set this value to an empty string.</p>
+  </li>
+</ul>
+
+<h3 id="infrastructure">infrastructure</h3>
+
+<p>Each infrastructure can be enabled or disabled by passing true / false to <code class="language-plaintext highlighter-rouge">enabled</code>.</p>
+
+<h4 id="httpserver">httpServer</h4>
+
+<p>The HTTP server is the base for the <code class="language-plaintext highlighter-rouge">coreHttpApi</code> Module. It opens an express HTTP server where Modules can register endpoints.</p>
+
+<p><strong>Sample Configuration:</strong></p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+
+  </span><span class="nl">"infrastructure"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"httpServer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"origin"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"apiKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"an-api-key"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: true</code></p>
+
+    <p>Enable or disable the HTTP server.</p>
+  </li>
+  <li>
+    <p><strong>cors</strong> <code class="language-plaintext highlighter-rouge">default: { "origin": false }</code></p>
+
+    <p>configure the CORS middleware. Valid options can be found <a href="https://github.com/expressjs/cors#configuration-options">here</a>.</p>
+  </li>
+  <li>
+    <p><strong>apiKey</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
+
+    <p>Define the API-Key the Connector should use to authenticate requests.</p>
+
+    <p>The API-Key can be chosen arbitrarily and has to be sent with every request in the <code class="language-plaintext highlighter-rouge">X-API-KEY</code> HTTP-Header.</p>
+
+    <p>There are no limitations regarding the allowed characters. We recommend using an API-Key that is at least 20 characters long.</p>
+
+    <p>The API-Key protects your Connector from unauthorized access and should therefore be kept secret.</p>
+  </li>
+  <li>
+    <p><strong>helmetOptions</strong> <code class="language-plaintext highlighter-rouge">default: depending on the Connector mode</code></p>
+
+    <p>Configure the <a href="https://helmetjs.github.io/">helmet</a> middleware.</p>
+
+    <p>Defaults to <code class="language-plaintext highlighter-rouge">{}</code> in <code class="language-plaintext highlighter-rouge">production</code> mode. In <code class="language-plaintext highlighter-rouge">debug</code> mode the following options are used:</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"contentSecurityPolicy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"directives"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"defaultSrc"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nl">"scriptSrc"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"'self'"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"styleSrc"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"'self'"</span><span class="p">,</span><span class="w"> </span><span class="s2">"'unsafe-inline'"</span><span class="p">,</span><span class="w"> </span><span class="s2">"https://fonts.googleapis.com"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"imgSrc"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"'self'"</span><span class="p">,</span><span class="w"> </span><span class="s2">"https://enmeshed.eu"</span><span class="p">,</span><span class="w"> </span><span class="s2">"data:"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"connectSrc"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"'self'"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"upgradeInsecureRequests"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="modules">modules</h3>
+
+<p>Every Module can be enabled or disabled by passing true / false to <code class="language-plaintext highlighter-rouge">enabled</code>. Read more about the Module by clicking on the <i class="fas fa-fw fa-info-circle"></i> icon in each title.</p>
+
+<h4 id="amqppublisher">amqpPublisher <a href="/versions/v7/operate/modules#amqppublisher"><i class="fas fa-fw fa-info-circle"></i></a></h4>
+
+<p class="notice--danger">This module is deprecated in favor of the <a href="#messagebrokerpublisher">Message Broker Publisher</a> Module.</p>
+
+<p><strong>Sample Configuration:</strong></p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+
+  </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"amqpPublisher"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"amqp://example.com:5672"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myExchange"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p>Enable or disable the AMQP Publisher Module.</p>
+  </li>
+  <li>
+    <p><strong>url</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
+
+    <p>The URL of the AMQP server.</p>
+  </li>
+  <li>
+    <p><strong>exchange</strong> <code class="language-plaintext highlighter-rouge">default: ""</code></p>
+
+    <p>The name of the AMQP exchange to publish to.</p>
+  </li>
+</ul>
+
+<h4 id="autoacceptpendingrelationships">autoAcceptPendingRelationships <a href="/versions/v7/operate/modules#autoacceptpendingrelationships"><i class="fas fa-fw fa-info-circle"></i></a></h4>
+
+<p class="notice--danger">It is not recommended to use this Module for production scenarios.</p>
+
+<p><strong>Sample Configuration:</strong></p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+
+  </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"autoAcceptPendingRelationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p>Enable or disable the autoAcceptPendingRelationships Module.</p>
+  </li>
+</ul>
+
+<h4 id="corehttpapi">coreHttpApi <a href="/versions/v7/operate/modules#corehttpapi"><i class="fas fa-fw fa-info-circle"></i></a></h4>
+
+<p><strong>Sample Configuration:</strong></p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+
+  </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"coreHttpApi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"docs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rapidoc"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"persistAuth"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: true</code></p>
+
+    <p>Enable or disable the coreHttpApi Module.</p>
+  </li>
+  <li>
+    <p><strong>docs:enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p class="notice--info">It is not possible to enable the docs in <a href="#debug">production mode</a>.</p>
+
+    <p>Enable / disable the <code class="language-plaintext highlighter-rouge">/docs/json</code> and <code class="language-plaintext highlighter-rouge">/docs/yaml</code> routes and the rendered swagger / rapidoc documentations.</p>
+  </li>
+  <li>
+    <p><strong>docs:rapidoc:persistAuth</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p class="notice--danger">Authentication persistence can be a security risk. Use it with caution.</p>
+
+    <p>If set to <code class="language-plaintext highlighter-rouge">true</code> rapidoc persists the API Key in the local storage of the browser.</p>
+  </li>
+</ul>
+
+<h4 id="messagebrokerpublisher">messageBrokerPublisher <a href="/versions/v7/operate/modules#messagebrokerpublisher"><i class="fas fa-fw fa-info-circle"></i></a></h4>
+
+<p><strong>Sample Configuration:</strong></p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+
+  </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"messageBrokerPublisher"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"brokers"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p>Enable or disable the messageBrokerPublisher Module.</p>
+  </li>
+  <li>
+    <p><strong>brokers</strong> <code class="language-plaintext highlighter-rouge">default: []</code></p>
+
+    <p>Here you can define multiple brokers to which the Connector should publish messages.</p>
+
+    <p>Each broker consists of a <code class="language-plaintext highlighter-rouge">type</code> (string) and a <code class="language-plaintext highlighter-rouge">configuration</code> object. The <code class="language-plaintext highlighter-rouge">type</code> specifies the type of the broker (e.g. <code class="language-plaintext highlighter-rouge">AMQP</code> or <code class="language-plaintext highlighter-rouge">PubSub</code>) and the <code class="language-plaintext highlighter-rouge">configuration</code> object contains the configuration for the broker.</p>
+
+    <ul>
+      <li>
+        <p>type <code class="language-plaintext highlighter-rouge">AMQP</code></p>
+
+        <p><strong>example</strong></p>
+
+        <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMQP"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"configuration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"amqp://example.com:5672"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myExchange"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+
+        <p><strong>configuration</strong></p>
+
+        <ul>
+          <li>
+            <p>url <code class="language-plaintext highlighter-rouge">string, required</code> -</p>
+
+            <p>the URL of the AMQP broker</p>
+
+            <blockquote>
+              <p>the URL must be in the <a href="https://www.rabbitmq.com/docs/uri-spec">AMQP url format</a></p>
+            </blockquote>
+          </li>
+          <li>
+            <p>exchange <code class="language-plaintext highlighter-rouge">string</code> -</p>
+
+            <p>the name of the exchange to publish to</p>
+          </li>
+          <li>
+            <p>timeout <code class="language-plaintext highlighter-rouge">number</code> -</p>
+
+            <p>the timeout in milliseconds for the broker to respond</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>type <code class="language-plaintext highlighter-rouge">MQTT</code></p>
+
+        <p><strong>example</strong></p>
+
+        <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MQTT"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"configuration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mqtt://example.com:1883"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+
+        <p><strong>configuration</strong></p>
+
+        <ul>
+          <li>
+            <p>url <code class="language-plaintext highlighter-rouge">string, required</code></p>
+
+            <p>the URL of the MQTT broker</p>
+
+            <blockquote>
+              <p>the URL can be on the following protocols: <code class="language-plaintext highlighter-rouge">mqtt</code>, <code class="language-plaintext highlighter-rouge">mqtts</code>, <code class="language-plaintext highlighter-rouge">tcp</code>, <code class="language-plaintext highlighter-rouge">tls</code>, <code class="language-plaintext highlighter-rouge">ws</code>, <code class="language-plaintext highlighter-rouge">wss</code>, <code class="language-plaintext highlighter-rouge">wxs</code> or <code class="language-plaintext highlighter-rouge">alis</code></p>
+            </blockquote>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>type <code class="language-plaintext highlighter-rouge">PubSub</code></p>
+
+        <p><strong>example</strong></p>
+
+        <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PubSub"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"configuration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"projectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myProjectId"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"topicName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myTopicName"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"keyFile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/path/to/keyfile.json"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+
+        <p><strong>configuration</strong></p>
+
+        <ul>
+          <li>
+            <p>projectId <code class="language-plaintext highlighter-rouge">string, required</code></p>
+
+            <p>the project id of the Google Cloud project</p>
+          </li>
+          <li>
+            <p>topicName <code class="language-plaintext highlighter-rouge">string, required</code></p>
+
+            <p>the name of the PubSub topic to publish to</p>
+          </li>
+          <li>
+            <p>keyFile <code class="language-plaintext highlighter-rouge">string, required</code></p>
+
+            <p>the (absolute) path of the key file to authenticate with the Google Cloud project</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>type <code class="language-plaintext highlighter-rouge">Redis</code></p>
+
+        <p><strong>example</strong></p>
+
+        <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Redis"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"configuration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"redis://example.com:6379"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+
+        <p><strong>configuration</strong></p>
+
+        <ul>
+          <li>
+            <p>url <code class="language-plaintext highlighter-rouge">string, required</code></p>
+
+            <p>the URL of the broker</p>
+
+            <blockquote>
+              <p>the URL must be in the Redis url format: <code class="language-plaintext highlighter-rouge">redis[s]://[[username:]password@]host[:port][/database]</code></p>
+            </blockquote>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="sync">sync <a href="/versions/v7/operate/modules#sync"><i class="fas fa-fw fa-info-circle"></i></a></h4>
+
+<p><strong>Sample Configuration:</strong></p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+
+  </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"sync"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p>Enable or disable the sync Module.</p>
+  </li>
+  <li>
+    <p><strong>interval</strong> <code class="language-plaintext highlighter-rouge">default: 60</code></p>
+
+    <p>The interval in seconds at which the sync Module will fetch changes from the Backbone.</p>
+  </li>
+</ul>
+
+<h4 id="pubsubpublisher">PubSubPublisher <a href="/versions/v7/operate/modules#pubsubpublisher"><i class="fas fa-fw fa-info-circle"></i></a></h4>
+
+<p class="notice--danger">This module is deprecated in favor of the <a href="#messagebrokerpublisher">Message Broker Publisher</a> Module.</p>
+
+<p><strong>Sample Configuration:</strong></p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+
+  </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"PubSubPublisher"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"projectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"keyFile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p>Enable or disable the PubSub Publisher Module.</p>
+  </li>
+  <li>
+    <p><strong>projectId</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
+
+    <p>The project id of the Google Cloud project.</p>
+  </li>
+  <li>
+    <p><strong>topic</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
+
+    <p>The name of the PubSub topic to publish to.</p>
+  </li>
+  <li>
+    <p><strong>keyFile</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
+
+    <p>The (absolute) path of the key file to authenticate with the Google Cloud project.</p>
+  </li>
+</ul>
+
+<h4 id="webhooks">webhooks <a href="/versions/v7/operate/modules#webhooks"><i class="fas fa-fw fa-info-circle"></i></a></h4>
+
+<p><strong>Sample Configuration:</strong></p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+
+  </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"webhooks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"targets"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nl">"webhooks"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p>Enable or disable the webhooks Module.</p>
+  </li>
+  <li>
+    <p><strong>targets</strong> <code class="language-plaintext highlighter-rouge">default: {}</code></p>
+
+    <p>Here you can predefine targets so you can reuse them for multiple webhooks.</p>
+
+    <p>A target consists of a URL as well as optional arbitrary headers, which the Connector should send as part of the request. Optionally, your URL can contain the placeholder <code class="language-plaintext highlighter-rouge">{{trigger}}</code>, which at runtime will be replaced with the event name that triggered the webhook (e.g. transport.messageReceived). This way, you can reuse the same target for multiple webhooks and still have different URLs for different events. See the code below for an example.</p>
+
+    <p>The server under the URL must respond to the request with a status code between 200 and 299. Otherwise the Connector will log a warning.</p>
+
+    <p><br /></p>
+
+    <p><strong>Example</strong></p>
+
+    <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// a target with headers</span><span class="w">
+  </span><span class="nl">"target1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/enmeshed/webhook2"</span><span class="p">,</span><span class="w">
+
+    </span><span class="c1">// the following headers will be sent as part of the webhook</span><span class="w">
+    </span><span class="nl">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"a-header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-value"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"another-header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"another-value"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+
+  </span><span class="c1">// a target without headers</span><span class="w">
+  </span><span class="nl">"target2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/enmeshed/webhook"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+
+  </span><span class="c1">// a target with the {{trigger}} placeholder as part of the URL</span><span class="w">
+  </span><span class="nl">"target3"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/enmeshed/webhook/{{trigger}}"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>skipTlsCheck</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p>Skip the TLS certificate check for https request to all targets.</p>
+
+    <p class="notice--danger">This is a security risk and should only be used if you know what you are doing.</p>
+  </li>
+  <li>
+    <p><strong>webhooks</strong> <code class="language-plaintext highlighter-rouge">default: []</code></p>
+
+    <p>The webhooks that will be called. A webhook consists of one or more <a href="/versions/v7/integrate/connector-events">Connector Events</a> on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the <code class="language-plaintext highlighter-rouge">targets</code> object.</p>
+
+    <p><br /></p>
+
+    <p><strong>Example</strong></p>
+
+    <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"transport.messageReceived"</span><span class="p">],</span><span class="w">
+
+    </span><span class="c1">// inline declaration of a target</span><span class="w">
+    </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="c1">// see the targets section for a description of how to configure a target</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"triggers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"transport.messageReceived"</span><span class="p">],</span><span class="w">
+
+    </span><span class="c1">// a reference to a target defined in the 'targets' object</span><span class="w">
+    </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"target1"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h5 id="payload">Payload</h5>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// the event name (e.g. transport.messageReceived) that triggered the webhook</span><span class="w">
+  </span><span class="nl">"trigger"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transport.messageReceived"</span><span class="p">,</span><span class="w">
+
+  </span><span class="c1">// the data of the event</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>You can find type definitions of the event data in the <a href="/versions/v7/integrate/connector-events">Connector Events</a> section.</p>
+
+<h4 id="sse">sse (Server-Sent Events) <a href="/versions/v7/operate/modules#sse"><i class="fas fa-fw fa-info-circle"></i></a></h4>
+
+<p class="notice--warning">This Module requires additional configuration on the Backbone.
+Ensure that your Backbone has the required settings enabled.</p>
+
+<p><strong>Sample Configuration:</strong></p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// ...</span><span class="w">
+
+  </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"sse"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
+
+    <p>Enable or disable the sse Module.</p>
+  </li>
+</ul>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>If you encounter any problems while configuring the Connector, head over to the <a href="/versions/v7/operate/troubleshooting-guide">Troubleshooting</a> site.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-05T11:11:14+01:00">March 5, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="footer-new">
+    <div class="footer-row">
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">enmeshed</h5>
+            <p class="footer-content">
+                enmeshed is an open source wallet that ensures end-to-end encrypted digital data exchange between organizations and individuals.
+                <br />
+                <br />
+                <small>enmeshed was developed by j&s-soft AG.</small>
+            </p>
+            <div class="footer-socials">
+                <a class="footer-icon footer-social-icon footer-social-icon-twitter" href="https://twitter.com/enmeshed_jssoft" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-github" href="https://github.com/nmshd" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-linkedin" href="https://www.linkedin.com/showcase/enmeshed/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Contact</h5>
+            <p class="footer-content">
+                j&s-soft AG
+                <br />
+                Max-Jarecki-Straße 21
+                <br />
+                69115 Heidelberg
+                <br />
+                <br />
+                <small
+                    ><a href="tel:00496221431210"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-phone-alt"></i></span>+49 (6221) 43121-0</a
+                    ></small
+                >
+                <br />
+                <small
+                    ><a href="mailto:enmeshed.support@js-soft.com"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-envelope"></i></span>enmeshed.support@js-soft.com</a
+                    ></small
+                >
+            </p>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Quick Links</h5>
+            <ul class="footer-menu">
+                   
+                <li>
+                    <a href="https://js-soft.com" rel="nofollow noopener noreferrer" target="_blank"> j&s-soft Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.enmeshed.de" rel="nofollow noopener noreferrer" target="_blank"> enmeshed Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer" target="_blank"> enmeshed on GitHub</a>
+                </li>
+                  
+                <li>
+                    <a href="/legal" rel="nofollow noopener noreferrer" target="_blank"> Legal Disclosure</a>
+                </li>
+                  
+                <li>
+                    <a href="/privacy" rel="nofollow noopener noreferrer" target="_blank"> Privacy Statement</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer" target="_blank"> NPM</a>
+                </li>
+                  
+                <li>
+                    <a href="https://enmeshed.eu/feed.xml" rel="nofollow noopener noreferrer" target="_blank"> RSS Feed</a>
+                </li>
+                  
+            </ul>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Download the App</h5>
+            <p class="footer-downloads footer-content">
+                <a href="https://apps.apple.com/de/app/enmeshed/id1576693742" target="_blank">
+                    <img src="/assets/images/appstore.svg" class="logo-app logo-app__appstore" />
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=eu.enmeshed.app&hl=de&gl=US" target="_blank">
+                    <img src="/assets/images/gplay.svg" class="logo-app logo-app__gplaystore" />
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/v7/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/v7/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

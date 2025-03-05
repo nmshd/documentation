@@ -1,0 +1,617 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Backbone Security Considerations - enmeshed</title>
+<meta name="description" content="The most important thing you have to keep in mind that the Backbone is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Backbone and its data.">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Backbone Security Considerations">
+<meta property="og:url" content="/versions/v7/operate/backbone-security-considerations">
+
+
+  <meta property="og:description" content="The most important thing you have to keep in mind that the Backbone is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Backbone and its data.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-03-05T11:11:14+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/v7/operate/backbone-security-considerations">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/v7/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/v7/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/v7/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+<link href="/versions/v7/assets/css/enmeshed.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc@9.2.0/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/v7/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/use"
+                
+                
+              >Use</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/explore"
+                
+                
+              >Explore</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/integrate"
+                
+                
+              >Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/operate"
+                
+                
+              >Operate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/contribute"
+                
+                
+              >Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/blog"
+                
+                
+              >Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Operate enmeshed</h3>
+      
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Connector Setup</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/operate/setup-with-docker-compose">Setup with Docker Compose</a></li>
+            
+              <li><a href="/versions/v7/operate/setup-with-helm-charts">Setup with Helm Charts</a></li>
+            
+              <li><a href="/versions/v7/operate/configuration">Configuration</a></li>
+            
+              <li><a href="/versions/v7/operate/modules">Modules</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Connector Operations</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/operate/overview-of-connector-operations">Overview of Connector operations</a></li>
+            
+              <li><a href="/versions/v7/operate/security-considerations">Security Considerations</a></li>
+            
+              <li><a href="/versions/v7/operate/privacy-considerations">Privacy Considerations</a></li>
+            
+              <li><a href="/versions/v7/operate/performance-considerations">Performance Considerations</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Backbone Operations</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/operate/backbone-security-considerations" class="active">Backbone Security Considerations</a></li>
+            
+              <li><a href="/versions/v7/operate/log-event-ids">Log Event IDs</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Troubleshooting</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/operate/troubleshooting-guide">Troubleshooting Guide</a></li>
+            
+              <li><a href="/versions/v7/operate/support">Support</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Backbone Security Considerations">
+    <meta itemprop="description" content="The most important thing you have to keep in mind that the Backbone is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Backbone and its data.">
+    <meta itemprop="datePublished" content="2025-03-05T11:11:14+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/versions/v7/operate/backbone-security-considerations" itemprop="url">Backbone Security Considerations
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#updates">Updates</a></li><li><a href="#firewallnetworking">Firewall/Networking</a><ul><li><a href="#outbound-external-connection-internet">Outbound External Connection: Internet</a></li><li><a href="#inbound-external-connections">Inbound External Connections</a></li><li><a href="#outbound-communication-to-infrastructure-services">Outbound Communication to infrastructure services</a></li></ul></li><li><a href="#authentication-and-user-management">Authentication and User Management</a><ul><li><a href="#consumer-api">Consumer API</a></li><li><a href="#admin-api">Admin API</a></li></ul></li><li><a href="#rate-limiting-of-the-consumer-api">Rate limiting of the Consumer API</a></li><li><a href="#kernel-dumps">Kernel Dumps</a></li><li><a href="#api-key-rotation">API key rotation</a></li><li><a href="#infrastructure">Infrastructure</a><ul><li><a href="#database">Database</a></li><li><a href="#event-bus">Event Bus</a></li><li><a href="#blob-storage">Blob Storage</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <p>The most important thing you have to keep in mind that the Backbone is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Backbone and its data.</p>
+
+<p>And as the Backbone is handling very sensitive data (please see chapter Privacy), it should be treated as any other business system - with the same requirements in terms of privacy, security, access or network setup.</p>
+
+<h2 id="updates">Updates</h2>
+
+<p>As with every software, it is important that you update the Backbone regularly from the official Docker repositories. We do our best to keep the whole enmeshed project (of course including the Backbone) as up-to-date as possible, having multiple checks with regards to security and the open-source-software lifecycle.</p>
+
+<p>Additionally, any software component the Backbone or its data touches should be updated regularly.</p>
+
+<p>Examples are:</p>
+
+<ul>
+  <li>the Docker host system (Kubernetes cluster, operating system, virtual machine, …)</li>
+  <li>the Docker Runtime</li>
+  <li>the database (SQL Server/PostgreSQL)</li>
+  <li>the firewall</li>
+  <li>the virus scanner</li>
+  <li>the firmwares of any (network) component</li>
+  <li>possible integration platforms and modules</li>
+</ul>
+
+<h2 id="firewallnetworking">Firewall/Networking</h2>
+
+<p>A firewall is a security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules. By implementing a firewall, you can block unauthorized access to your network and prevent malicious traffic from entering your system.</p>
+
+<p>Allowing for potentially insecure protocols such as HTTP may expose sensitive information in transit to malicious parties, putting the system and its users at risk of data theft or other cyber attacks. Furthermore, the use of unsupported protocols may result in unintended side effects that could compromise system functionality or stability.</p>
+
+<p>To mitigate this risk, it is recommended that the Backbone restricts the supported protocols to HTTPS, which is a secure protocol that encrypts information in transit. This will help prevent sensitive information from being exposed to malicious parties. Additionally, any feature that allows developers to override the protocol check should be explicitly enabled and documented to ensure that it is used judiciously and with caution.</p>
+
+<p>When configuring the allowlist for the Backbone, it is important to include all necessary URLs while keeping the list as minimal as possible.</p>
+
+<p>However, it is also important to consider other URLs that may need to be included in the allowlist, such as URLs for Docker Hub, GitHub Container Registry, Linux update environments, and other sources. These URLs may be necessary for the proper functioning of the system and should be carefully evaluated and included in the allowlist if deemed necessary.</p>
+
+<p>To ensure the security and integrity of the system, it is recommended to regularly review and update the allowlist as necessary. This includes removing any URLs that are no longer needed and adding new URLs that may be required.</p>
+
+<p>The following chapters provide a detailed overview of the networking requirements for the Backbone.</p>
+
+<h3 id="outbound-external-connection-internet">Outbound External Connection: Internet</h3>
+
+<p>The Backbone uses a TLS-secured Internet connection to the push notification services Firebase Cloud Messaging (FCM) and Apple Push Notification service (APNs). Your firewall must not block access to them. See the official documentation of <a href="https://firebase.google.com/docs/cloud-messaging/concept-options#messaging-ports-and-your-firewall">FCM</a> and <a href="https://support.apple.com/en-us/HT203609">APNs</a> for more information.</p>
+
+<h3 id="inbound-external-connections">Inbound External Connections</h3>
+
+<p>Since the Backbone contains services that are accessed by enmeshed Runtimes on various devices and networks, it needs to allow inbound HTTPS connections from the Internet.</p>
+
+<h3 id="outbound-communication-to-infrastructure-services">Outbound Communication to infrastructure services</h3>
+
+<p>The Backbone needs to access the following infrastructure services:</p>
+
+<ul>
+  <li>database (SQL Server/PostgreSQL)</li>
+  <li>blob storage (Azure Storage Account/Google Cloud Storage/S3 Bucket)</li>
+  <li>event bus (Azure Service Bus/Google Cloud PubSub/RabbitMQ)</li>
+</ul>
+
+<p>These services must be provided to the Backbone during deployment. They must be accessible from the Backbone. Keep in mind to restrict access to these services to the Backbone only, in order to avoid unauthorized access.</p>
+
+<h2 id="authentication-and-user-management">Authentication and User Management</h2>
+
+<h3 id="consumer-api">Consumer API</h3>
+
+<p>The Consumer API has a built-in identity provider. Creating accounts/identities can be done via the Consumer API. After creating an account, the user can obtain a JWT by providing its credentials. This JWT can then be used to access any route of the Consumer API. No authorization is implemented.</p>
+
+<h3 id="admin-api">Admin API</h3>
+
+<p>So far, the Admin API only supports API-Key authentication to securely authenticate technical users. These API-Keys are random character strings with a high entropy and should be kept confidential at all times.</p>
+
+<p>There is no authorization set up. So if you have the API-Key, you can access all endpoints of the Admin API.</p>
+
+<h2 id="rate-limiting-of-the-consumer-api">Rate limiting of the Consumer API</h2>
+
+<p>The Consumer API supports configuring quotas on different write-actions to limit how often a user can execute those. These quotas can be defined per identity. However, there are some endpoints that allow anonymous access and that therefore cannot be rate limited by quotas. These endpoints currently are:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">POST /api/v1/Challenges</code></li>
+  <li><code class="language-plaintext highlighter-rouge">POST /api/v1/Identities</code></li>
+</ul>
+
+<p>When operating the Backbone’s Consumer API, you should make sure that the endpoints mentioned above are not abused by malicious users by implementing rate limiting on the network level.</p>
+
+<h2 id="kernel-dumps">Kernel Dumps</h2>
+
+<p>Kernel dumps can be a useful tool for diagnosing and troubleshooting system issues. However, they can also be a security risk if they contain sensitive information such as encryption keys. If an attacker gains access to a kernel dump file, they may be able to extract this information and use it to compromise the security of your system.</p>
+
+<p>As the Backbone does not have access to the host system, it cannot directly control whether or not kernel dumps are enabled. Therefore, the administrator of the host system makes a decision on whether or not to disable kernel dumps based on their own security policies and risk tolerance.</p>
+
+<p>The recommended course of action is to disable kernel dumps on the host system, outside a development environment, where the Backbone is running.</p>
+
+<p>This can typically be done by modifying the kernel parameters or configuration settings.</p>
+
+<h2 id="api-key-rotation">API key rotation</h2>
+
+<p>It is important to ensure that API keys are secure and cannot be easily compromised. One of the key aspects of API key security is regular rotation and expiration. If an API key is not rotated or expired, it can potentially be used by an attacker who has obtained the key through unauthorized means.</p>
+
+<h2 id="infrastructure">Infrastructure</h2>
+
+<h3 id="database">Database</h3>
+
+<ul>
+  <li>Implement <strong>network access restrictions</strong> to ensure that the database is only accessible through the Backbone and not directly over the public network.</li>
+  <li>Use <strong>strong credentials</strong> to secure access.</li>
+  <li><strong>Transport layer encryption</strong> should be enabled if communication is routed via an <strong>untrusted network</strong>..</li>
+  <li><strong>Regular updates and maintenance</strong> should be performed to keep the database up-to-date and secure.</li>
+  <li>Due to enmeshed’s end-to-end encryption, any sensitive data is already encrypted by the clients, so <strong>encryption of data on the database is not necessary</strong>.</li>
+  <li>For more information regarding security best practices for SQL Server, see <a href="https://learn.microsoft.com/en-us/sql/relational-databases/security/">https://learn.microsoft.com/en-us/sql/relational-databases/security/</a> sql-server-security-best-practices. For PostgreSQL, see for example <a href="https://www.upguard.com/blog/10-ways-to-bolster-postgresql-security">https://www.upguard.com/blog/10-ways-to-bolster-postgresql-security</a>.</li>
+</ul>
+
+<h3 id="event-bus">Event Bus</h3>
+
+<ul>
+  <li>Implement <strong>network access restrictions</strong> to ensure that the event bus is only accessible through the Backbone and not directly over the public network.</li>
+  <li>Use <strong>strong credentials</strong> to secure access.</li>
+  <li><strong>Transport layer encryption</strong> should be enabled if communication is routed via an <strong>untrusted network</strong>.</li>
+  <li><strong>Regular updates and maintenance</strong> should be performed to ensure the event bus remains secure.</li>
+  <li>The user for the Backbone should only have the necessary permissions. What exactly these are depends on the event bus used:
+    <ul>
+      <li>In the case of RabbitMQ, the Backbone needs permission to perform the following operations:
+        <ul>
+          <li>exchange.declare (passive=true)</li>
+          <li>queue.declare (passive=true)</li>
+          <li>queue.bind</li>
+          <li>basic.publish</li>
+          <li>basic.consume</li>
+        </ul>
+      </li>
+      <li>In the case of Azure Service Bus, the Backbone needs permission to do the following:
+        <ul>
+          <li>Manage</li>
+          <li>Send</li>
+          <li>Listen</li>
+        </ul>
+      </li>
+      <li>In the case of Google Cloud Pub/Sub, the Backbone needs permission to do the following:
+        <ul>
+          <li>Publish</li>
+          <li>Subscribe</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="blob-storage">Blob Storage</h3>
+
+<ul>
+  <li>Implement <strong>network access restrictions</strong> to ensure that the blob storage is only accessible through the Backbone and not directly over the public network.</li>
+  <li>Use <strong>strong credentials</strong> to secure access.</li>
+  <li><strong>Transport layer encryption</strong> should be enabled if communication is routed via an <strong>untrusted network</strong>.</li>
+  <li><strong>Regular updates and maintenance</strong> should be performed to keep the storage secure.</li>
+  <li>The user for the Backbone should <strong>only have the necessary permissions</strong> on the Blob storage, which include <em>Create</em>, <em>Read</em>, and <em>Delete</em>. <em>Update</em> is currently not necessary.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-05T11:11:14+01:00">March 5, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="footer-new">
+    <div class="footer-row">
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">enmeshed</h5>
+            <p class="footer-content">
+                enmeshed is an open source wallet that ensures end-to-end encrypted digital data exchange between organizations and individuals.
+                <br />
+                <br />
+                <small>enmeshed was developed by j&s-soft AG.</small>
+            </p>
+            <div class="footer-socials">
+                <a class="footer-icon footer-social-icon footer-social-icon-twitter" href="https://twitter.com/enmeshed_jssoft" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-github" href="https://github.com/nmshd" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-linkedin" href="https://www.linkedin.com/showcase/enmeshed/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Contact</h5>
+            <p class="footer-content">
+                j&s-soft AG
+                <br />
+                Max-Jarecki-Straße 21
+                <br />
+                69115 Heidelberg
+                <br />
+                <br />
+                <small
+                    ><a href="tel:00496221431210"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-phone-alt"></i></span>+49 (6221) 43121-0</a
+                    ></small
+                >
+                <br />
+                <small
+                    ><a href="mailto:enmeshed.support@js-soft.com"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-envelope"></i></span>enmeshed.support@js-soft.com</a
+                    ></small
+                >
+            </p>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Quick Links</h5>
+            <ul class="footer-menu">
+                   
+                <li>
+                    <a href="https://js-soft.com" rel="nofollow noopener noreferrer" target="_blank"> j&s-soft Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.enmeshed.de" rel="nofollow noopener noreferrer" target="_blank"> enmeshed Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer" target="_blank"> enmeshed on GitHub</a>
+                </li>
+                  
+                <li>
+                    <a href="/legal" rel="nofollow noopener noreferrer" target="_blank"> Legal Disclosure</a>
+                </li>
+                  
+                <li>
+                    <a href="/privacy" rel="nofollow noopener noreferrer" target="_blank"> Privacy Statement</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer" target="_blank"> NPM</a>
+                </li>
+                  
+                <li>
+                    <a href="https://enmeshed.eu/feed.xml" rel="nofollow noopener noreferrer" target="_blank"> RSS Feed</a>
+                </li>
+                  
+            </ul>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Download the App</h5>
+            <p class="footer-downloads footer-content">
+                <a href="https://apps.apple.com/de/app/enmeshed/id1576693742" target="_blank">
+                    <img src="/assets/images/appstore.svg" class="logo-app logo-app__appstore" />
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=eu.enmeshed.app&hl=de&gl=US" target="_blank">
+                    <img src="/assets/images/gplay.svg" class="logo-app logo-app__gplaystore" />
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/v7/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/v7/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

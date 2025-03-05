@@ -1,0 +1,38 @@
+@startuml Connector_CreateTemplate
+!include ../../assets/plantuml/styles.iuml
+
+title Connector: Create Template
+caption Copyright 2021, j&s-soft AG
+
+box "Organizations's Infrastructure"
+participant "Business\nSystem" as backend
+participant "Enmeshed\nConnector" as connector
+end box
+participant "Enmeshed\nBackbone" as backbone
+
+== Prerequisites ==
+backbone <-> connector: Verified enmeshed Organization Identity
+
+
+== Create Template ==
+
+-> backend ++: Start\n(with User)
+backend -> backend: Create template content\nfor User
+backend -> connector ++: POST /RelationshipTemplates\n- content\n- expiresAt\n- maxNumberOfAllocations
+connector -> connector: Validate input
+connector -> connector: Encrypt template content\nwith random key
+connector -> backbone ++: Create template\n- templateCipher\n- expiresAt\n- maxNumberOfAllocations
+backbone -> backbone: Store template
+backbone --> connector --: Returns templateId
+connector --> backend --: Returns template
+backend --> connector ++: POST /RelationshipTemplates/\n{templateId}/Token
+connector -> connector: Create token content
+connector -> connector: Encrypt token content with\nrandom key
+connector -> backbone ++: Create token\n- tokenCipher\n- expiresAt
+backbone -> backbone: Store token
+backbone --> connector --: tokenId
+connector -> connector: Create tokenReference
+connector --> backend: Returns token, tokenReference
+<-- backend --: Stop\n(with template & \ntoken for User)
+
+@enduml

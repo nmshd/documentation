@@ -1,0 +1,660 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Request persistent consent of peer - enmeshed</title>
+<meta name="description" content="This guide explains how an Identity can obtain the persistent consent of one of its peers on a particular issue. Technically, this form of consent is stored by a RelationshipAttribute with Consent as value.@type, that exists in the context of their Relationship and that is usually owned by the peer.">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Request persistent consent of peer">
+<meta property="og:url" content="/versions/v7/integrate/request-persistent-consent-of-peer">
+
+
+  <meta property="og:description" content="This guide explains how an Identity can obtain the persistent consent of one of its peers on a particular issue. Technically, this form of consent is stored by a RelationshipAttribute with Consent as value.@type, that exists in the context of their Relationship and that is usually owned by the peer.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-03-05T11:11:14+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/v7/integrate/request-persistent-consent-of-peer">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/v7/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/v7/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/v7/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+<link href="/versions/v7/assets/css/enmeshed.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc@9.2.0/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/v7/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/use"
+                
+                
+              >Use</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/explore"
+                
+                
+              >Explore</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/integrate"
+                
+                
+              >Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/operate"
+                
+                
+              >Operate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/contribute"
+                
+                
+              >Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/blog"
+                
+                
+              >Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate enmeshed</h3>
+      
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Getting Started</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/access-the-connector">Access the Connector</a></li>
+            
+              <li><a href="/versions/v7/integrate/integration-example">Integration example</a></li>
+            
+              <li><a href="/versions/v7/integrate/event-introduction">Event introduction</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Identities and Relationships</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/establish-relationships">Establish Relationships</a></li>
+            
+              <li><a href="/versions/v7/integrate/exchange-messages">Exchange Messages</a></li>
+            
+              <li><a href="/versions/v7/integrate/terminate-relationships">Terminate Relationships</a></li>
+            
+              <li><a href="/versions/v7/integrate/delete-identities">Delete Identities</a></li>
+            
+              <li><a href="/versions/v7/integrate/manage-identitymetadata">Manage IdentityMetadata</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Working With Requests</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/request-and-response-introduction">Request and Response introduction</a></li>
+            
+              <li><a href="/versions/v7/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a></li>
+            
+              <li><a href="/versions/v7/integrate/requests-via-messages">Requests via Messages</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Manage Attributes</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/attribute-introduction">Attribute introduction</a></li>
+            
+              <li><a href="/versions/v7/integrate/create-attributes-for-yourself">Create Attributes for yourself</a></li>
+            
+              <li><a href="/versions/v7/integrate/share-attributes-with-peer">Share Attributes with peer</a></li>
+            
+              <li><a href="/versions/v7/integrate/read-attributes-from-peer">Read Attributes from peer</a></li>
+            
+              <li><a href="/versions/v7/integrate/create-attributes-for-peer">Create Attributes for peer</a></li>
+            
+              <li><a href="/versions/v7/integrate/propose-attributes-to-peer">Propose Attributes to peer</a></li>
+            
+              <li><a href="/versions/v7/integrate/update-attributes-by-succession">Update Attributes by succession</a></li>
+            
+              <li><a href="/versions/v7/integrate/delete-attributes">Delete Attributes</a></li>
+            
+              <li><a href="/versions/v7/integrate/exchange-files-using-attributes">Exchange Files using Attributes</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Request Consent</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/request-persistent-consent-of-peer" class="active">Request persistent consent of peer</a></li>
+            
+              <li><a href="/versions/v7/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Data Model</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/data-model-overview">Data Model Overview</a></li>
+            
+              <li><a href="/versions/v7/integrate/attribute-values">Attribute Values</a></li>
+            
+              <li><a href="/versions/v7/integrate/connector-events">Connector Events</a></li>
+            
+              <li><a href="/versions/v7/integrate/use-cases">Use Cases</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Migration Guides</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/migration-from-v4-to-v5">Migration From v4 to v5</a></li>
+            
+              <li><a href="/versions/v7/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Troubleshooting</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/error-codes">Error codes</a></li>
+            
+              <li><a href="/versions/v7/integrate/faq">FAQ</a></li>
+            
+              <li><a href="/versions/v7/integrate/support">Support</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Request persistent consent of peer">
+    <meta itemprop="description" content="This guide explains how an Identity can obtain the persistent consent of one of its peers on a particular issue. Technically, this form of consent is stored by a RelationshipAttribute with Consent as value.@type, that exists in the context of their Relationship and that is usually owned by the peer.">
+    <meta itemprop="datePublished" content="2025-03-05T11:11:14+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/versions/v7/integrate/request-persistent-consent-of-peer" itemprop="url">Request persistent consent of peer
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#examples-of-consents">Examples of consents</a></li><li><a href="#request-for-persistent-consent">Request for persistent consent</a><ul><li><a href="#create-the-request">Create the Request</a></li><li><a href="#send-the-request">Send the Request</a></li><li><a href="#receive-and-accept-the-request">Receive and accept the Request</a></li><li><a href="#receive-the-response-to-the-request">Receive the Response to the Request</a></li></ul></li><li><a href="#whats-next">What’s next?</a></li></ul>
+            </nav>
+          </aside>
+        
+        <p>This guide explains how an Identity can obtain the persistent consent of one of its peers on a particular issue. Technically, this form of consent is stored by a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> with <a href="/versions/v7/integrate/attribute-values#consent">Consent</a> as <code class="language-plaintext highlighter-rouge">value.@type</code>, that exists in the context of their <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> and that is usually owned by the peer.</p>
+
+<p class="notice--info">For information on how to establish Relationships, refer to the <a href="/versions/v7/integrate/establish-relationships">Establish Relationships</a> scenario documentation.</p>
+
+<p>If an Identity wants to obtain the persistent consent of one of its peers and thus <a href="/versions/v7/integrate/create-attributes-for-yourself#create-a-relationshipattribute">create a RelationshipAttribute</a> with Consent as <code class="language-plaintext highlighter-rouge">value.@type</code> for their Relationship, it has several options on how to do this. These have in common that the Identity must send a <a href="/versions/v7/integrate/data-model-overview#request">Request</a> to create such a RelationshipAttribute to its peer, which must be accepted by the peer. The Identity usually wants to define the values for the properties of the <a href="/versions/v7/integrate/attribute-values#consent">Consent</a> itself. This applies in particular to its <code class="language-plaintext highlighter-rouge">consent</code> property, in which the text is specified to which the peer should persistently agree. The peer should not be able to change this text or the other values for the properties of the Consent. For this purpose, it makes the most sense for the Identity to send a <a href="/versions/v7/integrate/data-model-overview#request">Request</a> to the peer that contains a <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> within its <code class="language-plaintext highlighter-rouge">items</code> property. The RelationshipAttribute to be created must then be inserted into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the CreateAttributeRequestItem. Further information on using the CreateAttributeRequestItem can be found in the <a href="/versions/v7/integrate/create-attributes-for-peer">Create Attributes for peer</a> guide.</p>
+
+<h2 id="examples-of-consents">Examples of consents</h2>
+
+<p>There are many situations in which an Identity needs or wants the persistent consent of one of its peers. The corresponding text that the peer should agree to is contained within the <code class="language-plaintext highlighter-rouge">consent</code> property of a <a href="/versions/v7/integrate/attribute-values#consent">Consent</a>, for example:</p>
+
+<ul>
+  <li>“I hereby confirm that I have read and agree to the privacy terms of this cloud service.”</li>
+  <li>“The provided EULA has been read and agreed to.”</li>
+  <li>“Yes, I have backed up all of my data on this computer and you can wipe it.”</li>
+  <li>“Yes, I want to opt-in to the newsletter.”</li>
+</ul>
+
+<p>The <code class="language-plaintext highlighter-rouge">consent</code> property of a Consent is not intended to be used by an Identity to send a lot of text to the peer. Instead, it should contain a brief summary of the issue, which the peer should agree to. Longer texts should be placed on external websites. A link to such a website can be specified in the optional <code class="language-plaintext highlighter-rouge">link</code> property of the Consent. Also note that the Consent should not be used for contractual agreements.</p>
+
+<h2 id="request-for-persistent-consent">Request for persistent consent</h2>
+
+<p>In the following, we describe how a Connector, hereinafter referred to as the Sender, can create a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> with <a href="/versions/v7/integrate/attribute-values#consent">Consent</a> as <code class="language-plaintext highlighter-rouge">value.@type</code> for a Relationship to another Connector, the so-called Recipient, by sending an appropriate <a href="/versions/v7/integrate/data-model-overview#request">Request</a>.</p>
+
+<p class="notice--info">The general procedure is the same if the Connector wants to obtain the persistent consent of an App user instead of another Connector. For reasons of clarity, this guide focuses on the process with two Connectors.</p>
+
+<p>As there is already a Relationship between the Sender and the Recipient, the Sender can send the <a href="/versions/v7/integrate/requests-via-messages">Request via a Message</a> to the Recipient. Even if the Relationship has already been established, the Sender could also send the <a href="/versions/v7/integrate/requests-via-relationshiptemplates">Request via a RelationshipTemplate</a> to the Recipient, but this is not discussed further here.</p>
+
+<p class="notice--info">Please note that if there is no active Relationship between the Sender and the Recipient, the Request for persistent consent must be sent via a <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> instead of a <a href="/versions/v7/integrate/data-model-overview#message">Message</a>. The process of <a href="/versions/v7/integrate/establish-relationships">establishing a Relationship</a> is then initiated at the same time.</p>
+
+<h3 id="create-the-request">Create the Request</h3>
+
+<p>As already indicated, the Request contains a <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> within its <code class="language-plaintext highlighter-rouge">items</code> property. The RelationshipAttribute to be created must be inserted into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the CreateAttributeRequestItem. The RelationshipAttribute should be owned by the Recipient, which is why an empty string is specified as the value for its <code class="language-plaintext highlighter-rouge">owner</code> property. The Recipient then automatically becomes the <code class="language-plaintext highlighter-rouge">owner</code> later on. To create the Request, the Sender must proceed as described in the <a href="/versions/v7/use-case-consumption-create-outgoing-request">Create outgoing Request</a> use case, specifying a suitable payload as given in the example below. In this example, the <code class="language-plaintext highlighter-rouge">confidentiality</code> of the RelationshipAttribute is set to <code class="language-plaintext highlighter-rouge">"private"</code> and the value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the CreateAttributeRequestItem is set to <code class="language-plaintext highlighter-rouge">true</code>. Please note that the <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> notation is used as a placeholder for the actual data as usual and that the <code class="language-plaintext highlighter-rouge">link</code> property of the <a href="/versions/v7/integrate/attribute-values#consent">Consent</a> is optional and can therefore also be omitted.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreateAttributeRequestItem"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RelationshipAttribute"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;key of RelationshipAttribute&gt;"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"confidentiality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consent"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"consent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;issue that the Sender wants the Recipient to agree to&gt;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;link to external website with more information on the issue&gt;"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"peer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;address of Recipient&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p class="notice--info">Before creating the Request, the Sender should check whether it is valid. This can be done by proceeding as described in the documentation of the <a href="/versions/v7/use-case-consumption-check-if-outgoing-request-can-be-created">Check if outgoing Request can be created</a> use case. The advantage of checking the validity of the Request first before attempting to create it is that the Sender will receive a more precise <a href="/versions/v7/integrate/error-codes">error</a> description in the case of a faulty Request.</p>
+
+<h3 id="send-the-request">Send the Request</h3>
+
+<p>After the Request has been created, the Sender can send it to the Recipient. To send the <a href="/versions/v7/integrate/requests-via-messages">Request via a Message</a>, the Sender has to follow the instructions of the <a href="/versions/v7/use-case-transport-send-message-to-recipients">Send a Message to the Recipient</a> use case documentation. To continue the example, the following payload must be used by the Sender to send the <a href="/versions/v7/integrate/request-persistent-consent-of-peer#create-the-request">created Request</a> to the Recipient via a Message. It is essential that the <code class="language-plaintext highlighter-rouge">id</code> of the Request is specified, which was generated after the Request was created by the Sender with the <a href="/versions/v7/use-case-consumption-create-outgoing-request">Create outgoing Request</a> use case. This enables the Request to be processed correctly by the Recipient.</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;address of Recipient&gt;"</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID of Request&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreateAttributeRequestItem"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RelationshipAttribute"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;key of RelationshipAttribute&gt;"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"confidentiality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"private"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consent"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"consent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;issue that the Sender wants the Recipient to agree to&gt;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;link to external website with more information on the issue&gt;"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="receive-and-accept-the-request">Receive and accept the Request</h3>
+
+<p>In order to receive the <a href="/versions/v7/integrate/data-model-overview#message">Message</a> that contains the <a href="/versions/v7/integrate/request-persistent-consent-of-peer#request-for-persistent-consent">Request for persistent consent</a> as <code class="language-plaintext highlighter-rouge">content</code>, the Recipient must <a href="/versions/v7/use-case-transport-synchronize-updates-of-backbone">synchronize the updates of the Backbone</a>. If the Recipient wants to accept the Request and in particular all its <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItems</a> for which the value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code>, it must proceed as described in the documentation of the <a href="/versions/v7/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case. In doing so, the <a href="/versions/v7/integrate/data-model-overview#acceptrequestitemparameters">AcceptRequestItemParameters</a> must be used to accept a CreateAttributeRequestItem, which is used in this context to request the creation of a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> with <a href="/versions/v7/integrate/attribute-values#consent">Consent</a> as <code class="language-plaintext highlighter-rouge">value.@type</code>, if the Recipient persistently consents to the corresponding issue originating from the Sender.</p>
+
+<p class="notice--info">If the Recipient does not want to agree to the issue that the Sender wants the Recipient to agree to, it can of course also reject the corresponding <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> by using the <a href="/versions/v7/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a>, as long as its value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">false</code>, or <a href="/versions/v7/use-case-consumption-reject-incoming-request">reject the incoming Request</a> as a whole.</p>
+
+<p>Accepting the CreateAttributeRequestItem leads to the creation of the <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> with Consent as <code class="language-plaintext highlighter-rouge">value.@type</code>. Technically, this is stored as the <code class="language-plaintext highlighter-rouge">content</code> of a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a>. As the Recipient is the <code class="language-plaintext highlighter-rouge">owner</code> of the underlying RelationshipAttribute in the example studied, the LocalAttribute is also referred to as own shared RelationshipAttribute. Based on this, an appropriate AcceptResponseItem of type <a href="/versions/v7/integrate/data-model-overview#createattributeacceptresponseitem">CreateAttributeAcceptResponseItem</a> is generated, which incorporates the <code class="language-plaintext highlighter-rouge">id</code> of the created own shared RelationshipAttribute in its <code class="language-plaintext highlighter-rouge">attributeId</code> property. This will be contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#response">Response</a> to the Request for persistent consent that will be transferred to the Sender.</p>
+
+<h3 id="receive-the-response-to-the-request">Receive the Response to the Request</h3>
+
+<p>We now assume that the Recipient has accepted the <a href="/versions/v7/integrate/request-persistent-consent-of-peer#request-for-persistent-consent">Request for persistent consent</a> of the Sender and in particular the <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a>, whose value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code> and which is used in the example studied to request the creation of a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> with Consent as <code class="language-plaintext highlighter-rouge">value.@type</code>. In order for the Sender to receive the Recipient’s Response to the Request, it needs to <a href="/versions/v7/use-case-transport-synchronize-updates-of-backbone">synchronize the updates of the Backbone</a>.</p>
+
+<p class="notice--info">Please note that the required synchronization of both Identities can also be automated by using the <a href="/versions/v7/operate/modules#sync">Sync Module</a>.</p>
+
+<p>The accepted CreateAttributeRequestItem leads to the creation of a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> for the Sender, a so-called peer shared RelationshipAttribute. Its <code class="language-plaintext highlighter-rouge">content</code> is given by the <code class="language-plaintext highlighter-rouge">attribute</code> specified within the <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a>, in other words by the <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> with Consent as <code class="language-plaintext highlighter-rouge">value.@type</code>, which is owned by the Recipient. It represents the necessary counterpart to the Recipient’s own shared RelationshipAttribute.</p>
+
+<h2 id="whats-next">What’s next?</h2>
+
+<p>If an Identity asks for a one-time consent instead of a persistent consent of one of its peers, the <a href="/versions/v7/integrate/data-model-overview#consentrequestitem">ConsentRequestItem</a> can be used. It must be inserted into the <code class="language-plaintext highlighter-rouge">items</code> property of an appropriate <a href="/versions/v7/integrate/data-model-overview#request">Request</a>. Processing the ConsentRequestItem does not lead to the creation of a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> with Consent as <code class="language-plaintext highlighter-rouge">value.@type</code>. For more details, the documentation of the <a href="/versions/v7/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a> scenario can be consulted.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-05T11:11:14+01:00">March 5, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="footer-new">
+    <div class="footer-row">
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">enmeshed</h5>
+            <p class="footer-content">
+                enmeshed is an open source wallet that ensures end-to-end encrypted digital data exchange between organizations and individuals.
+                <br />
+                <br />
+                <small>enmeshed was developed by j&s-soft AG.</small>
+            </p>
+            <div class="footer-socials">
+                <a class="footer-icon footer-social-icon footer-social-icon-twitter" href="https://twitter.com/enmeshed_jssoft" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-github" href="https://github.com/nmshd" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-linkedin" href="https://www.linkedin.com/showcase/enmeshed/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Contact</h5>
+            <p class="footer-content">
+                j&s-soft AG
+                <br />
+                Max-Jarecki-Straße 21
+                <br />
+                69115 Heidelberg
+                <br />
+                <br />
+                <small
+                    ><a href="tel:00496221431210"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-phone-alt"></i></span>+49 (6221) 43121-0</a
+                    ></small
+                >
+                <br />
+                <small
+                    ><a href="mailto:enmeshed.support@js-soft.com"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-envelope"></i></span>enmeshed.support@js-soft.com</a
+                    ></small
+                >
+            </p>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Quick Links</h5>
+            <ul class="footer-menu">
+                   
+                <li>
+                    <a href="https://js-soft.com" rel="nofollow noopener noreferrer" target="_blank"> j&s-soft Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.enmeshed.de" rel="nofollow noopener noreferrer" target="_blank"> enmeshed Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer" target="_blank"> enmeshed on GitHub</a>
+                </li>
+                  
+                <li>
+                    <a href="/legal" rel="nofollow noopener noreferrer" target="_blank"> Legal Disclosure</a>
+                </li>
+                  
+                <li>
+                    <a href="/privacy" rel="nofollow noopener noreferrer" target="_blank"> Privacy Statement</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer" target="_blank"> NPM</a>
+                </li>
+                  
+                <li>
+                    <a href="https://enmeshed.eu/feed.xml" rel="nofollow noopener noreferrer" target="_blank"> RSS Feed</a>
+                </li>
+                  
+            </ul>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Download the App</h5>
+            <p class="footer-downloads footer-content">
+                <a href="https://apps.apple.com/de/app/enmeshed/id1576693742" target="_blank">
+                    <img src="/assets/images/appstore.svg" class="logo-app logo-app__appstore" />
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=eu.enmeshed.app&hl=de&gl=US" target="_blank">
+                    <img src="/assets/images/gplay.svg" class="logo-app logo-app__gplaystore" />
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/v7/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/v7/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

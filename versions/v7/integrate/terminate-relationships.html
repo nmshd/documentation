@@ -1,0 +1,602 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Terminate Relationships - enmeshed</title>
+<meta name="description" content="In order for two Identities to communicate with each other and exchange data, they must establish a Relationship between them. If an active Relationship to another Identity is no longer wanted, it can be terminated.">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Terminate Relationships">
+<meta property="og:url" content="/versions/v7/integrate/terminate-relationships">
+
+
+  <meta property="og:description" content="In order for two Identities to communicate with each other and exchange data, they must establish a Relationship between them. If an active Relationship to another Identity is no longer wanted, it can be terminated.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-03-05T11:11:14+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/v7/integrate/terminate-relationships">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/v7/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/v7/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/v7/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+<link href="/versions/v7/assets/css/enmeshed.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc@9.2.0/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/v7/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/use"
+                
+                
+              >Use</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/explore"
+                
+                
+              >Explore</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/integrate"
+                
+                
+              >Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/operate"
+                
+                
+              >Operate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/contribute"
+                
+                
+              >Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/blog"
+                
+                
+              >Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate enmeshed</h3>
+      
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Getting Started</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/access-the-connector">Access the Connector</a></li>
+            
+              <li><a href="/versions/v7/integrate/integration-example">Integration example</a></li>
+            
+              <li><a href="/versions/v7/integrate/event-introduction">Event introduction</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Identities and Relationships</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/establish-relationships">Establish Relationships</a></li>
+            
+              <li><a href="/versions/v7/integrate/exchange-messages">Exchange Messages</a></li>
+            
+              <li><a href="/versions/v7/integrate/terminate-relationships">Terminate Relationships</a></li>
+            
+              <li><a href="/versions/v7/integrate/delete-identities">Delete Identities</a></li>
+            
+              <li><a href="/versions/v7/integrate/manage-identitymetadata">Manage IdentityMetadata</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Working With Requests</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/request-and-response-introduction">Request and Response introduction</a></li>
+            
+              <li><a href="/versions/v7/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a></li>
+            
+              <li><a href="/versions/v7/integrate/requests-via-messages">Requests via Messages</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Manage Attributes</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/attribute-introduction">Attribute introduction</a></li>
+            
+              <li><a href="/versions/v7/integrate/create-attributes-for-yourself">Create Attributes for yourself</a></li>
+            
+              <li><a href="/versions/v7/integrate/share-attributes-with-peer">Share Attributes with peer</a></li>
+            
+              <li><a href="/versions/v7/integrate/read-attributes-from-peer">Read Attributes from peer</a></li>
+            
+              <li><a href="/versions/v7/integrate/create-attributes-for-peer">Create Attributes for peer</a></li>
+            
+              <li><a href="/versions/v7/integrate/propose-attributes-to-peer">Propose Attributes to peer</a></li>
+            
+              <li><a href="/versions/v7/integrate/update-attributes-by-succession">Update Attributes by succession</a></li>
+            
+              <li><a href="/versions/v7/integrate/delete-attributes">Delete Attributes</a></li>
+            
+              <li><a href="/versions/v7/integrate/exchange-files-using-attributes">Exchange Files using Attributes</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Request Consent</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
+            
+              <li><a href="/versions/v7/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Data Model</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/data-model-overview">Data Model Overview</a></li>
+            
+              <li><a href="/versions/v7/integrate/attribute-values">Attribute Values</a></li>
+            
+              <li><a href="/versions/v7/integrate/connector-events">Connector Events</a></li>
+            
+              <li><a href="/versions/v7/integrate/use-cases">Use Cases</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Migration Guides</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/migration-from-v4-to-v5">Migration From v4 to v5</a></li>
+            
+              <li><a href="/versions/v7/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Troubleshooting</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/error-codes">Error codes</a></li>
+            
+              <li><a href="/versions/v7/integrate/faq">FAQ</a></li>
+            
+              <li><a href="/versions/v7/integrate/support">Support</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Terminate Relationships">
+    <meta itemprop="description" content="In order for two Identities to communicate with each other and exchange data, they must establish a Relationship between them. If an active Relationship to another Identity is no longer wanted, it can be terminated.">
+    <meta itemprop="datePublished" content="2025-03-05T11:11:14+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/versions/v7/integrate/terminate-relationships" itemprop="url">Terminate Relationships
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#terminate-an-active-relationship">Terminate an active Relationship</a></li><li><a href="#reactivate-a-terminated-relationship">Reactivate a terminated Relationship</a></li><li><a href="#decompose-a-relationship">Decompose a Relationship</a></li></ul>
+            </nav>
+          </aside>
+        
+        <p>In order for two Identities to communicate with each other and exchange data, they must <a href="/versions/v7/integrate/establish-relationships">establish a Relationship</a> between them. If an active <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> to another Identity is no longer wanted, it can be terminated.</p>
+
+<p><a href="/versions/v7/integrate/terminate-relationships#terminate-an-active-relationship">Terminating an active Relationship</a> initially blocks regular communication for both Identities, but does not yet delete any Relationship data.
+The only possible communication between them is to request the <a href="/versions/v7/integrate/terminate-relationships#reactivate-a-terminated-relationship">reactivation of the terminated Relationship</a>, which can be done by both Identities.
+Accepting the reactivation request returns the Relationship to an active status.</p>
+
+<p>An already <a href="/versions/v7/integrate/terminate-relationships#decompose-a-relationship">terminated Relationship can be decomposed</a> to delete the Relationship and all data transmitted during the Relationship from the Connector or the App, respectively.
+It is then no longer possible to reactivate the Relationship.
+<a href="/versions/v7/integrate/establish-relationships">Getting to an active Relationship again</a> means starting from scratch.</p>
+
+<h2 id="terminate-an-active-relationship">Terminate an active Relationship</h2>
+
+<p>An active Relationship can be terminated by executing the use case <a href="/versions/v7/use-case-transport-terminate-relationship">Terminate Relationship</a> providing the <code class="language-plaintext highlighter-rouge">relationshipId</code> as input.
+The termination of the Relationship does not require the permission of the peer.
+After the Relationship has been terminated, its <code class="language-plaintext highlighter-rouge">status</code> changes to <code class="language-plaintext highlighter-rouge">"Terminated"</code>.
+The Identity which terminated the Relationship and its peer receive a <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> <a href="/versions/v7/integrate/connector-events">event</a>.
+Then no <a href="/versions/v7/integrate/data-model-overview#message">Messages</a> can be sent from either side. This includes <a href="/versions/v7/integrate/requests-via-messages">sending or responding to Requests</a> and <a href="/versions/v7/integrate/attribute-introduction#attribute-management-options">exchanging Attributes</a>.
+However, please note that Messages whose <code class="language-plaintext highlighter-rouge">content</code> is a <a href="/versions/v7/integrate/data-model-overview#notification">Notification</a> are still sent on terminated Relationships.
+Such Notifications cannot be received directly, but they are queued in case the Relationship is <a href="#reactivate-a-terminated-relationship">reactivated</a>.
+For example, if certain <a href="/versions/v7/integrate/attribute-introduction#delete-attributes">Attributes were deleted</a> or <a href="/versions/v7/integrate/attribute-introduction#update-attributes-by-succession">Attributes were updated by succession</a> while the Relationship was terminated, the associated Notifications are transmitted after the reactivation.
+Therefore, the loss of relevant information is prevented.</p>
+
+<h2 id="reactivate-a-terminated-relationship">Reactivate a terminated Relationship</h2>
+
+<p>At any time, you or your peer can request the reactivation of the terminated Relationship with the use case <a href="/versions/v7/use-case-transport-request-relationship-reactivation">Request Relationship reactivation</a>.</p>
+
+<p>If your peer requests the reactivation, you will receive a <code class="language-plaintext highlighter-rouge">transport.relationshipReactivationRequested</code> <a href="/versions/v7/integrate/connector-events">event</a> in addition to a <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> event, which the peer also receives if they use a Connector.
+If you then wish to return the Relationship to an active status, you accept the reactivation with the use case <a href="/versions/v7/use-case-transport-accept-relationship-reactivation">Accept Relationship reactivation</a>.
+In this case, all Notifications that were sent while the Relationship was terminated are transmitted.
+If you want to keep the Relationship terminated, you reject the reactivation with the use case <a href="/versions/v7/use-case-transport-reject-relationship-reactivation">Reject Relationship reactivation</a>.</p>
+
+<p>If you have requested the reactivation and changed your mind, you revoke it with the use case <a href="/versions/v7/use-case-transport-revoke-relationship-reactivation">Revoke Relationship reactivation</a>.</p>
+
+<p>Each use case has the <code class="language-plaintext highlighter-rouge">relationshipId</code> as input. Only accepting the reactivation changes the <code class="language-plaintext highlighter-rouge">status</code> of the Relationship, namely from <code class="language-plaintext highlighter-rouge">"Terminated"</code> to <code class="language-plaintext highlighter-rouge">"Active"</code>. Requesting, rejecting or revoking the reactivation don’t change its <code class="language-plaintext highlighter-rouge">status</code>. However, they still are recorded as an <a href="/versions/v7/integrate/data-model-overview#auditlogentry">AuditLogEntry</a> in the <code class="language-plaintext highlighter-rouge">auditLog</code> of the Relationship. Regardless of whether the reactivation is accepted, rejected or revoked, you receive a <code class="language-plaintext highlighter-rouge">transport.relationshipReactivationCompleted</code> <a href="/versions/v7/integrate/connector-events">event</a> in addition to a <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> event and the peer as well if they use a Connector.</p>
+
+<h2 id="decompose-a-relationship">Decompose a Relationship</h2>
+
+<p>Decomposing a <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> deletes all data associated with the peer that was transmitted during the Relationship which includes:</p>
+
+<ul>
+  <li>The Relationship itself.</li>
+  <li>The <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> used to establish the Relationship if it was for single use, which means that the value of its <code class="language-plaintext highlighter-rouge">maxNumberOfAllocations</code> property is one, or is owned by the peer. A RelationshipTemplate must be exchanged again to establish a new Relationship.</li>
+  <li>In any case, all RelationshipTemplates of the peer. During a Relationship, several RelationshipTemplates may have been exchanged, as <a href="/versions/v7/integrate/requests-via-relationshiptemplates#create-the-relationshiptemplate">Requests can be sent via RelationshipTemplates</a> both when establishing new Relationships and for existing Relationships.</li>
+  <li>Both the sent and the received shared <a href="/versions/v7/integrate/data-model-overview#attributes">Attributes</a>, <a href="/versions/v7/integrate/data-model-overview#notification">Notifications</a> and <a href="/versions/v7/integrate/data-model-overview#request">Requests</a>.</li>
+  <li>Sent and received <a href="/versions/v7/integrate/data-model-overview#message">Messages</a> with one exception: If a Message has been sent to multiple <code class="language-plaintext highlighter-rouge">recipients</code>, the Message is not deleted but the peer’s address is replaced with a pseudonym. The pseudonym is the same for every peer whose Relationship was decomposed.</li>
+  <li>The <a href="/versions/v7/integrate/data-model-overview#identitymetadata">IdentityMetadata</a> that have the peer as their <code class="language-plaintext highlighter-rouge">reference</code>.</li>
+  <li>Furthermore, the corresponding <a href="/versions/v7/integrate/data-model-overview#token">Tokens</a> and <a href="/versions/v7/integrate/data-model-overview#localattributelistener">AttributeListeners</a>.</li>
+</ul>
+
+<p>The use case is <a href="/versions/v7/use-case-transport-decompose-relationship">Decompose Relationship</a>, which takes the <code class="language-plaintext highlighter-rouge">relationshipId</code> as input. For the peer, the Relationship is not deleted, but its <code class="language-plaintext highlighter-rouge">status</code> now is <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code>.
+If the peer uses a Connector, they receive a <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> <a href="/versions/v7/integrate/connector-events">event</a>. You receive a <code class="language-plaintext highlighter-rouge">transport.relationshipDecomposedBySelf</code> event. The peer is expected to follow suit once the shared data is no longer needed. Only after both Identities involved in the Relationship have decomposed it, the Relationship itself and data transmitted during it are deleted from the Backbone. To get to an active Relationship again after one involved Identity has decomposed, the other Identity must decompose as well. After that, the two have to start from scratch to <a href="/versions/v7/integrate/establish-relationships">establish a Relationship</a>, as reactivation of the former Relationship is no longer possible.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-05T11:11:14+01:00">March 5, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="footer-new">
+    <div class="footer-row">
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">enmeshed</h5>
+            <p class="footer-content">
+                enmeshed is an open source wallet that ensures end-to-end encrypted digital data exchange between organizations and individuals.
+                <br />
+                <br />
+                <small>enmeshed was developed by j&s-soft AG.</small>
+            </p>
+            <div class="footer-socials">
+                <a class="footer-icon footer-social-icon footer-social-icon-twitter" href="https://twitter.com/enmeshed_jssoft" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-github" href="https://github.com/nmshd" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-linkedin" href="https://www.linkedin.com/showcase/enmeshed/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Contact</h5>
+            <p class="footer-content">
+                j&s-soft AG
+                <br />
+                Max-Jarecki-Straße 21
+                <br />
+                69115 Heidelberg
+                <br />
+                <br />
+                <small
+                    ><a href="tel:00496221431210"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-phone-alt"></i></span>+49 (6221) 43121-0</a
+                    ></small
+                >
+                <br />
+                <small
+                    ><a href="mailto:enmeshed.support@js-soft.com"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-envelope"></i></span>enmeshed.support@js-soft.com</a
+                    ></small
+                >
+            </p>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Quick Links</h5>
+            <ul class="footer-menu">
+                   
+                <li>
+                    <a href="https://js-soft.com" rel="nofollow noopener noreferrer" target="_blank"> j&s-soft Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.enmeshed.de" rel="nofollow noopener noreferrer" target="_blank"> enmeshed Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer" target="_blank"> enmeshed on GitHub</a>
+                </li>
+                  
+                <li>
+                    <a href="/legal" rel="nofollow noopener noreferrer" target="_blank"> Legal Disclosure</a>
+                </li>
+                  
+                <li>
+                    <a href="/privacy" rel="nofollow noopener noreferrer" target="_blank"> Privacy Statement</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer" target="_blank"> NPM</a>
+                </li>
+                  
+                <li>
+                    <a href="https://enmeshed.eu/feed.xml" rel="nofollow noopener noreferrer" target="_blank"> RSS Feed</a>
+                </li>
+                  
+            </ul>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Download the App</h5>
+            <p class="footer-downloads footer-content">
+                <a href="https://apps.apple.com/de/app/enmeshed/id1576693742" target="_blank">
+                    <img src="/assets/images/appstore.svg" class="logo-app logo-app__appstore" />
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=eu.enmeshed.app&hl=de&gl=US" target="_blank">
+                    <img src="/assets/images/gplay.svg" class="logo-app logo-app__gplaystore" />
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/v7/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/v7/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

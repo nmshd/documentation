@@ -1,0 +1,623 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Delete Identities - enmeshed</title>
+<meta name="description" content="It is not yet possible to utilize the use cases regarding the IdentityDeletionProcesses mentioned below as an Integrator of a Connector. Instead, these functionalities are currently only offered to App users in order to be able to delete their Identity. Even if some use cases still have to be provided to the Integrators of Connectors for deleting their Identity, they benefit from the description of the process of Identity deletion given in this guide. Indeed, if an App user with whom a Connector has established a Relationship deletes their Identity, it is affected by side effects on this Relationship.">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Delete Identities">
+<meta property="og:url" content="/versions/v7/integrate/delete-identities">
+
+
+  <meta property="og:description" content="It is not yet possible to utilize the use cases regarding the IdentityDeletionProcesses mentioned below as an Integrator of a Connector. Instead, these functionalities are currently only offered to App users in order to be able to delete their Identity. Even if some use cases still have to be provided to the Integrators of Connectors for deleting their Identity, they benefit from the description of the process of Identity deletion given in this guide. Indeed, if an App user with whom a Connector has established a Relationship deletes their Identity, it is affected by side effects on this Relationship.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-03-05T11:11:14+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/v7/integrate/delete-identities">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/v7/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/v7/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/v7/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+<link href="/versions/v7/assets/css/enmeshed.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc@9.2.0/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/v7/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/use"
+                
+                
+              >Use</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/explore"
+                
+                
+              >Explore</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/integrate"
+                
+                
+              >Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/operate"
+                
+                
+              >Operate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/contribute"
+                
+                
+              >Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/blog"
+                
+                
+              >Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Integrate enmeshed</h3>
+      
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Getting Started</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/access-the-connector">Access the Connector</a></li>
+            
+              <li><a href="/versions/v7/integrate/integration-example">Integration example</a></li>
+            
+              <li><a href="/versions/v7/integrate/event-introduction">Event introduction</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Identities and Relationships</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/establish-relationships">Establish Relationships</a></li>
+            
+              <li><a href="/versions/v7/integrate/exchange-messages">Exchange Messages</a></li>
+            
+              <li><a href="/versions/v7/integrate/terminate-relationships">Terminate Relationships</a></li>
+            
+              <li><a href="/versions/v7/integrate/delete-identities">Delete Identities</a></li>
+            
+              <li><a href="/versions/v7/integrate/manage-identitymetadata">Manage IdentityMetadata</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Working With Requests</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/request-and-response-introduction">Request and Response introduction</a></li>
+            
+              <li><a href="/versions/v7/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a></li>
+            
+              <li><a href="/versions/v7/integrate/requests-via-messages">Requests via Messages</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Manage Attributes</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/attribute-introduction">Attribute introduction</a></li>
+            
+              <li><a href="/versions/v7/integrate/create-attributes-for-yourself">Create Attributes for yourself</a></li>
+            
+              <li><a href="/versions/v7/integrate/share-attributes-with-peer">Share Attributes with peer</a></li>
+            
+              <li><a href="/versions/v7/integrate/read-attributes-from-peer">Read Attributes from peer</a></li>
+            
+              <li><a href="/versions/v7/integrate/create-attributes-for-peer">Create Attributes for peer</a></li>
+            
+              <li><a href="/versions/v7/integrate/propose-attributes-to-peer">Propose Attributes to peer</a></li>
+            
+              <li><a href="/versions/v7/integrate/update-attributes-by-succession">Update Attributes by succession</a></li>
+            
+              <li><a href="/versions/v7/integrate/delete-attributes">Delete Attributes</a></li>
+            
+              <li><a href="/versions/v7/integrate/exchange-files-using-attributes">Exchange Files using Attributes</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Request Consent</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
+            
+              <li><a href="/versions/v7/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Data Model</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/data-model-overview">Data Model Overview</a></li>
+            
+              <li><a href="/versions/v7/integrate/attribute-values">Attribute Values</a></li>
+            
+              <li><a href="/versions/v7/integrate/connector-events">Connector Events</a></li>
+            
+              <li><a href="/versions/v7/integrate/use-cases">Use Cases</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Migration Guides</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/migration-from-v4-to-v5">Migration From v4 to v5</a></li>
+            
+              <li><a href="/versions/v7/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Troubleshooting</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/integrate/error-codes">Error codes</a></li>
+            
+              <li><a href="/versions/v7/integrate/faq">FAQ</a></li>
+            
+              <li><a href="/versions/v7/integrate/support">Support</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Delete Identities">
+    <meta itemprop="description" content="It is not yet possible to utilize the use cases regarding the IdentityDeletionProcesses mentioned below as an Integrator of a Connector. Instead, these functionalities are currently only offered to App users in order to be able to delete their Identity. Even if some use cases still have to be provided to the Integrators of Connectors for deleting their Identity, they benefit from the description of the process of Identity deletion given in this guide. Indeed, if an App user with whom a Connector has established a Relationship deletes their Identity, it is affected by side effects on this Relationship.">
+    <meta itemprop="datePublished" content="2025-03-05T11:11:14+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/versions/v7/integrate/delete-identities" itemprop="url">Delete Identities
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#identitydeletionprocesses">IdentityDeletionProcesses</a></li><li><a href="#options-for-identity-deletion">Options for Identity Deletion</a><ul><li><a href="#self-initiated-identity-deletion">Self-Initiated Identity Deletion</a></li></ul></li><li><a href="#effects-of-identity-deletion-on-relationships">Effects of Identity Deletion on Relationships</a><ul><li><a href="#creation-of-new-relationships">Creation of New Relationships</a></li><li><a href="#sending-messages">Sending Messages</a></li><li><a href="#sending-and-responding-to-requests">Sending and Responding to Requests</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <p class="notice--warning">It is not yet possible to utilize the use cases regarding the <a href="/versions/v7/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcesses</a> mentioned below as an Integrator of a Connector. Instead, these functionalities are currently only offered to App users in order to be able to delete their <a href="/versions/v7/integrate/data-model-overview#identity">Identity</a>. Even if some use cases still have to be provided to the Integrators of Connectors for deleting their Identity, they benefit from the description of the process of Identity deletion given in this guide. Indeed, if an App user with whom a Connector has established a Relationship deletes their Identity, it is affected by <a href="#effects-of-identity-deletion-on-relationships">side effects on this Relationship</a>.</p>
+
+<p>Regardless of whether an <a href="/versions/v7/integrate/data-model-overview#identity">Identity</a> is an App user or a Connector, it is stored on the Backbone.
+This guide describes the different <a href="#options-for-identity-deletion">options for Identity deletion</a> from the Backbone.
+There is usually a predefined grace period in each process of Identity deletion, during which the Identity can cancel its deletion if it no longer wants to be deleted.
+Please note that an Identity can never trigger the process of deletion of another Identity.</p>
+
+<h2 id="identitydeletionprocesses">IdentityDeletionProcesses</h2>
+
+<p>From a technical perspective, the process of Identity deletion is described by a data object of type <a href="/versions/v7/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a>. It can be uniquely identified by its <code class="language-plaintext highlighter-rouge">id</code>.
+An IdentityDeletionProcess can have <code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code>, <code class="language-plaintext highlighter-rouge">"Rejected"</code>, <code class="language-plaintext highlighter-rouge">"Approved"</code> or <code class="language-plaintext highlighter-rouge">"Cancelled"</code> as its <code class="language-plaintext highlighter-rouge">status</code>.</p>
+
+<p class="notice--warning">Please note that the feature of triggering the deletion of an Identity via the Backbone Admin UI is currently disabled. For this reason, an <a href="/versions/v7/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> currently cannot have <code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code> as <code class="language-plaintext highlighter-rouge">status</code>. In addition, the use cases for <a href="/versions/v7/use-case-transport-approve-identitydeletionprocess">approving</a> and <a href="/versions/v7/use-case-transport-reject-identitydeletionprocess">rejecting</a> IdentityDeletionProcesses are not needed for the time being.</p>
+
+<p>If an IdentityDeletionProcess has <code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code> or <code class="language-plaintext highlighter-rouge">"Approved"</code> as <code class="language-plaintext highlighter-rouge">status</code>, it is also referred to as an <strong>active IdentityDeletionProcess</strong>.
+There can be at most one active IdentityDeletionProcess per Identity.
+There are three <a href="/versions/v7/integrate/use-cases">use cases</a> for getting one or more already existing <a href="/versions/v7/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcesses</a>:</p>
+
+<ul>
+  <li>If the <code class="language-plaintext highlighter-rouge">id</code> of an IdentityDeletionProcess is known, it can be viewed by calling the <a href="/versions/v7/use-case-transport-get-identitydeletionprocess">Get IdentityDeletionProcess</a> use case.</li>
+  <li>All IdentityDeletionProcesses of an Identity can be viewed by utilizing the <a href="/versions/v7/use-case-transport-get-identitydeletionprocesses">Get IdentityDeletionProcesses</a> use case. This includes IdentityDeletionProcesses with <code class="language-plaintext highlighter-rouge">"Cancelled"</code> or <code class="language-plaintext highlighter-rouge">"Rejected"</code> as <code class="language-plaintext highlighter-rouge">status</code> in particular.</li>
+  <li>The <a href="/versions/v7/use-case-transport-get-active-identitydeletionprocess">Get active IdentityDeletionProcess</a> use case can be executed to view the currently active IdentityDeletionProcess if one exists. If none exists, the <a href="/versions/v7/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess</code> will arise if an attempt is made to apply the use case anyway.</li>
+</ul>
+
+<h2 id="options-for-identity-deletion">Options for Identity Deletion</h2>
+
+<p>In principle, there are several options for deleting an Identity from the Backbone.
+For example, depending on the Backbone environment, it is conceivable to set up automatic Identity deletion after a long period of Identity inactivity.
+More essential is the option of <a href="#self-initiated-identity-deletion">actively initiating the process of Identity deletion from the Backbone by the Identity itself</a>.
+Whenever a new <a href="/versions/v7/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> has been created or the <code class="language-plaintext highlighter-rouge">status</code> of an existing IdentityDeletionProcess has changed, the <a href="/versions/v7/integrate/connector-events">Connector event</a> <code class="language-plaintext highlighter-rouge">transport.identityDeletionProcessStatusChanged</code> is raised.</p>
+
+<h3 id="self-initiated-identity-deletion">Self-Initiated Identity Deletion</h3>
+
+<p>An Identity can actively trigger its own process of deletion by executing the <a href="/versions/v7/use-case-transport-initiate-identitydeletionprocess">Initiate IdentityDeletionProcess</a> use case.
+Successful execution leads to the creation of an <a href="/versions/v7/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> with <code class="language-plaintext highlighter-rouge">"Approved"</code> as <code class="language-plaintext highlighter-rouge">status</code>.
+No further approval of the Identity is required.
+Instead, the Identity is immediately in deletion and will be irreversibly deleted from the Backbone once the end of the associated grace period of the IdentityDeletionProcess specified within its <code class="language-plaintext highlighter-rouge">gracePeriodEndsAt</code> property has been reached.
+Within the grace period, the <a href="/versions/v7/use-case-transport-cancel-identitydeletionprocess">Cancel IdentityDeletionProcess</a> use case can be applied by the Identity if it no longer wants to be deleted.
+In this case, the <code class="language-plaintext highlighter-rouge">status</code> of the IdentityDeletionProcess changes to <code class="language-plaintext highlighter-rouge">"Cancelled"</code>.
+Trying to cancel an IdentityDeletionProcess that does not have <code class="language-plaintext highlighter-rouge">"Approved"</code> as <code class="language-plaintext highlighter-rouge">status</code> causes an error with <code class="language-plaintext highlighter-rouge">error.runtime.identityDeletionProcess.noApprovedIdentityDeletionProcess</code> as <a href="/versions/v7/integrate/error-codes">error code</a> to be thrown.
+Furthermore, please note that the use of the <a href="/versions/v7/use-case-transport-initiate-identitydeletionprocess">Initiate IdentityDeletionProcess</a> use case is not permitted if there is already an active IdentityDeletionProcess.
+The corresponding <a href="/versions/v7/integrate/error-codes">error code</a> is given by <code class="language-plaintext highlighter-rouge">error.runtime.identityDeletionProcess.activeIdentityDeletionProcessAlreadyExists</code>.</p>
+
+<h2 id="effects-of-identity-deletion-on-relationships">Effects of Identity Deletion on Relationships</h2>
+
+<p>The initiation of the deletion of an Identity as well as the actual deletion logically have an impact on the peers who have <a href="/versions/v7/integrate/establish-relationships">established a Relationship</a> with it.
+All peers of the Identity that is currently in deletion are informed that the deletion of the Identity has been initiated.
+This is done via the <code class="language-plaintext highlighter-rouge">transport.peerToBeDeleted</code> <a href="/versions/v7/integrate/connector-events">Connector event</a>.
+In addition, it is stored within the <code class="language-plaintext highlighter-rouge">peerDeletionInfo</code> property of the <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> that the Identity currently has <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> as <code class="language-plaintext highlighter-rouge">deletionStatus</code>.
+The <code class="language-plaintext highlighter-rouge">status</code> of the Relationship remains <code class="language-plaintext highlighter-rouge">"Active"</code> for the time being.
+If the Identity is finally deleted, the <code class="language-plaintext highlighter-rouge">deletionStatus</code> will change to <code class="language-plaintext highlighter-rouge">"Deleted"</code> and the Connector event <code class="language-plaintext highlighter-rouge">transport.peerDeleted</code> can be received.
+Since the deletion of an Identity leads to the <a href="/versions/v7/integrate/terminate-relationships#decompose-a-relationship">decomposition of its Relationships</a>, the <code class="language-plaintext highlighter-rouge">status</code> of the Relationship is changed to <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code> and <code class="language-plaintext highlighter-rouge">"DecompositionDueToIdentityDeletion"</code> is specified as the <code class="language-plaintext highlighter-rouge">reason</code> of the associated <a href="/versions/v7/integrate/data-model-overview#relationshipauditlogentry">RelationshipAuditLogEntry</a>.
+Otherwise, if the Identity decides against its deletion within the grace period, the <code class="language-plaintext highlighter-rouge">peerDeletionInfo</code> of the Relationship is set back to <code class="language-plaintext highlighter-rouge">undefined</code> and the <code class="language-plaintext highlighter-rouge">transport.peerDeletionCancelled</code> Connector event is triggered.
+The deletion of an Identity has effects on <a href="#creation-of-new-relationships">creating a new Relationship</a> to it, <a href="#sending-messages">sending Messages</a> to it, <a href="#sending-and-responding-to-requests">sending Requests to it and responding to Requests from it</a>.</p>
+
+<h3 id="creation-of-new-relationships">Creation of New Relationships</h3>
+
+<p>To <a href="/versions/v7/integrate/establish-relationships">establish a Relationship</a>, an Identity must first create a <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>, which is then used by its peer to create a <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> with <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code>.
+However, if the creator of the RelationshipTemplate is meanwhile in deletion or has already deleted itself, the peer will receive an error with <a href="/versions/v7/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.transport.relationships.activeIdentityDeletionProcessOfOwnerOfRelationshipTemplate</code> or <code class="language-plaintext highlighter-rouge">error.transport.relationships.deletedOwnerOfRelationshipTemplate</code>, respectively, when trying to create a new Relationship using the RelationshipTemplate.</p>
+
+<h3 id="sending-messages">Sending Messages</h3>
+
+<p>An Identity is not permitted to <a href="/versions/v7/use-case-transport-send-message-to-recipients">send a Message</a> to a peer with which a Relationship has been established if the peer has already been deleted.
+As long as the <code class="language-plaintext highlighter-rouge">content</code> of a <a href="/versions/v7/integrate/data-model-overview#message">Message</a> is not a <a href="/versions/v7/integrate/data-model-overview#notification">Notification</a>, this also applies to a peer in deletion.
+If the Identity tries to send a Message anyway to such a peer, an error with <a href="/versions/v7/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.runtime.messages.peerIsInDeletion</code> or <code class="language-plaintext highlighter-rouge">error.transport.messages.peerIsDeleted</code> is thrown.
+Sent Messages whose <code class="language-plaintext highlighter-rouge">content</code> is a Notification cannot be received by a peer which is in deletion, but they are queued in case the peer cancels its deletion. After the peer has cancelled its deletion, it receives the queued Notifications.</p>
+
+<h3 id="sending-and-responding-to-requests">Sending and Responding to Requests</h3>
+
+<p>An incoming <a href="/versions/v7/integrate/data-model-overview#request">Request</a> sent by an Identity with which a Relationship has been established cannot be responded to if the Identity is in deletion or has already been deleted.
+If an attempt is nevertheless made to <a href="/versions/v7/use-case-consumption-accept-incoming-request">accept</a> or <a href="/versions/v7/use-case-consumption-reject-incoming-request">reject</a> the incoming Request, an error with <a href="/versions/v7/integrate/error-codes">code</a> <code class="language-plaintext highlighter-rouge">error.consumption.requests.peerIsInDeletion</code> or <code class="language-plaintext highlighter-rouge">error.consumption.requests.peerIsDeleted</code>, respectively, is thrown.
+Similarly, it is not possible to <a href="/versions/v7/use-case-consumption-create-outgoing-request">create an outgoing Request</a> to be sent to an Identity with which a Relationship has been established and which is in deletion or has already been deleted.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-05T11:11:14+01:00">March 5, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="footer-new">
+    <div class="footer-row">
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">enmeshed</h5>
+            <p class="footer-content">
+                enmeshed is an open source wallet that ensures end-to-end encrypted digital data exchange between organizations and individuals.
+                <br />
+                <br />
+                <small>enmeshed was developed by j&s-soft AG.</small>
+            </p>
+            <div class="footer-socials">
+                <a class="footer-icon footer-social-icon footer-social-icon-twitter" href="https://twitter.com/enmeshed_jssoft" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-github" href="https://github.com/nmshd" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-linkedin" href="https://www.linkedin.com/showcase/enmeshed/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Contact</h5>
+            <p class="footer-content">
+                j&s-soft AG
+                <br />
+                Max-Jarecki-Straße 21
+                <br />
+                69115 Heidelberg
+                <br />
+                <br />
+                <small
+                    ><a href="tel:00496221431210"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-phone-alt"></i></span>+49 (6221) 43121-0</a
+                    ></small
+                >
+                <br />
+                <small
+                    ><a href="mailto:enmeshed.support@js-soft.com"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-envelope"></i></span>enmeshed.support@js-soft.com</a
+                    ></small
+                >
+            </p>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Quick Links</h5>
+            <ul class="footer-menu">
+                   
+                <li>
+                    <a href="https://js-soft.com" rel="nofollow noopener noreferrer" target="_blank"> j&s-soft Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.enmeshed.de" rel="nofollow noopener noreferrer" target="_blank"> enmeshed Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer" target="_blank"> enmeshed on GitHub</a>
+                </li>
+                  
+                <li>
+                    <a href="/legal" rel="nofollow noopener noreferrer" target="_blank"> Legal Disclosure</a>
+                </li>
+                  
+                <li>
+                    <a href="/privacy" rel="nofollow noopener noreferrer" target="_blank"> Privacy Statement</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer" target="_blank"> NPM</a>
+                </li>
+                  
+                <li>
+                    <a href="https://enmeshed.eu/feed.xml" rel="nofollow noopener noreferrer" target="_blank"> RSS Feed</a>
+                </li>
+                  
+            </ul>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Download the App</h5>
+            <p class="footer-downloads footer-content">
+                <a href="https://apps.apple.com/de/app/enmeshed/id1576693742" target="_blank">
+                    <img src="/assets/images/appstore.svg" class="logo-app logo-app__appstore" />
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=eu.enmeshed.app&hl=de&gl=US" target="_blank">
+                    <img src="/assets/images/gplay.svg" class="logo-app logo-app__gplaystore" />
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/v7/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/v7/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

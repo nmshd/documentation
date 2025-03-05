@@ -1,0 +1,20 @@
+@media (min-width: 64em) {
+    .sidebar__right {
+        position: sticky;
+        float: inline-end;
+        top: 2rem;
+    }
+}
+
+@media (min-width: 64em) {
+    .toc__menu {
+        overflow-y: auto;
+        overflow-x: clip;
+        /*Full hight - the hight of the global header, top margin and padding and the toc header*/
+        max-height: calc(100vh - 8rem - 34.5px);
+    }
+}
+
+.toc__menu a {
+    overflow-wrap: break-word;
+}

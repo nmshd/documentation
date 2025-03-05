@@ -1,0 +1,534 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Why we do not use a blockchain - enmeshed</title>
+<meta name="description" content="The new world of Identities">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Why we do not use a blockchain">
+<meta property="og:url" content="/versions/v7/explore/blockchain">
+
+
+  <meta property="og:description" content="The new world of Identities">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-03-05T11:11:14+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/v7/explore/blockchain">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/v7/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/v7/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/v7/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+<link href="/versions/v7/assets/css/enmeshed.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc@9.2.0/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/v7/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/use"
+                
+                
+              >Use</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/explore"
+                
+                
+              >Explore</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/integrate"
+                
+                
+              >Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/operate"
+                
+                
+              >Operate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/contribute"
+                
+                
+              >Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/blog"
+                
+                
+              >Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Explore enmeshed</h3>
+      
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">First things first</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/explore/how_does_enmeshed_work">How does enmeshed work?</a></li>
+            
+              <li><a href="/versions/v7/explore/example-scenarios">Example Scenarios</a></li>
+            
+              <li><a href="/versions/v7/explore/faq">Frequently Asked Questions</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">How we think</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/explore/integration">Integration Considerations</a></li>
+            
+              <li><a href="/versions/v7/explore/security">Security Considerations</a></li>
+            
+              <li><a href="/versions/v7/explore/privacy">Privacy Considerations</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Our Layers</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/explore/layers/backbone">Backbone Layer</a></li>
+            
+              <li><a href="/versions/v7/explore/layers/transport">Transport Layer</a></li>
+            
+              <li><a href="/versions/v7/explore/layers/consumption">Consumption Layer</a></li>
+            
+              <li><a href="/versions/v7/explore/layers/integration">Integration Layer</a></li>
+            
+              <li><a href="/versions/v7/explore/layers/user-experience">User-Experience Layer</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Components in-detail</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/explore/app">App</a></li>
+            
+              <li><a href="/versions/v7/explore/backbone">Backbone</a></li>
+            
+              <li><a href="/versions/v7/explore/connector">Connector</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Expert Corner</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/explore/addresses">Addresses</a></li>
+            
+              <li><a href="/versions/v7/explore/runtime">Runtime</a></li>
+            
+              <li><a href="/versions/v7/explore/cryptography">Cryptography</a></li>
+            
+              <li><a href="/versions/v7/explore/blockchain" class="active">Why no blockchain?</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Why we do not use a blockchain">
+    <meta itemprop="description" content="The new world of Identities">
+    <meta itemprop="datePublished" content="2025-03-05T11:11:14+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/versions/v7/explore/blockchain" itemprop="url">Why we do not use a blockchain
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="the-new-world-of-identities">The new world of Identities</h1>
+
+<h2 id="self-sovereignty-and-self-sovereign-identities">Self-Sovereignty and Self-Sovereign Identities</h2>
+
+<p>Having full control over data, authorizations, or the hard- and software one can use for using the data is called self-sovereignty. A self-sovereign Identity is a digital Identity which anybody can set up, without the power of somebody else to deny access, spy on or change the data.</p>
+
+<p><strong>Example:</strong>
+The common scenario in the Internet is, to create a user profile on a website, enter all the required information including username, password, email address, and many more personal information. This data is stored on one central solution provider which has the complete authority over your account. This authority can be used for tracing or blocking users. A user would not be able to login or use all the features anymore - a common topic with social login providers.</p>
+
+<p>A self-sovereign Identity wouldn’t work it that way: The user will always have the full control over this Identity – only the usage for a specific service (e.g. a specific social network) could be blocked by the network. But the Identity itself could still be used for any other tasks.</p>
+
+<h2 id="decentralization">Decentralization</h2>
+
+<p>Self-sovereignty is heavily linked with the technical term Decentralization, which is primarily describing the move to decentralized data-stores and computational power, away from the common centralized approaches commonly found on the Internet.</p>
+
+<p><strong>Example:</strong>
+One can use cloud-storage on a central solution provider like Amazon Drive, Dropbox, GoogleDrive, Microsoft OneDrive, and tons of other central solution providers. You pay (monthly) for the service to this provider, but – depending on the provider and the plan booked – the provider could have a look into the data for analytics, law enforcement could try to check the data, or somebody blocks the access to the data because of diplomatic conflicts.</p>
+
+<p>On the other hand, a decentralized approach would be to store the data on a decentral solution like the Interplanetary File System (IPFS). Many different computers over the world achieve the data storage by a peer-to-peer protocol.</p>
+
+<h2 id="blockchain">Blockchain</h2>
+
+<p>Speaking about decentralization, one term may not be left out: Blockchain. A blockchain is an immutable sequence of data blocks on a decentralized network. There is only one single truth within the whole network, nobody can change the truth, and everybody agrees to the truth. In a central environment this is not worth mentioning, however in a decentral environment, blockchains solve many underestimated problems and enable a new era of data-storage.</p>
+
+<h1 id="-and-why-we-think-differently">… and why we think differently</h1>
+
+<p>Yes, within enmeshed we think differently about decentralization. And we do not want to throw decades of computer science research away just because some technologies or solutions are hyped. On the other hand, there are many good aspects within all these solutions – and enough obstacles in the old world. In the end, what we do is bring both worlds together.</p>
+
+<h1 id="the-enmeshed-approach">The enmeshed Approach</h1>
+
+<h2 id="be-central">Be central!</h2>
+
+<p>Yes, we decided against blockchain and a decentral approach. There are many reasons for it.</p>
+
+<p>First an foremost, a central architecture, hosted by a single third party is quite simple. There is only one party responsible for hosting the service. There is only one party which has to set something up. There is only one party with which contracts or agreements might be set up. There is only one party which will receive the blame if something does not work. But also there is only one party which does the operation and supports the solution.</p>
+
+<p>A centrally hosted service can be scaled up and down in a very fast and effective way. Thus saving costs, energy and manpower. In addition, the overall throughput is very high.</p>
+
+<p>Speaking of energy: We love our planet. We envisioned a technology / architecture where it is not needed to spend a hell of a lot of energy to solve stupid puzzles only to decide who next is allowed to forge a new block on a blockchain. Those technologies might make sense for certain kinds of scenarios and usecases. But they cannot act as a main pillar for digitalizing whole economies and countries.</p>
+
+<p>We acknowledge, that there are decentralized technologies out there, which do not run on proof-of-work principles, primarily those which are based on a round-robin or proof-of-stake principles. Those are however usually linked with another central asset, a management/government layer which needs to be set up on top of the consortium.</p>
+
+<p>There are some overarching decentralization “problems” which also apply to them which are handled in the next chapter.</p>
+
+<h2 id="is-there-really-a-decentral-platform">Is there really a decentral platform?</h2>
+
+<p>Thinking about major “decentral” platforms, there is still a mismatch about the complete decentralization of the platform and the way these platforms are organized.</p>
+
+<p>If there needs to be a central organizational component which governs, administers or manages the parties within the platform - or worse there are different roles within the network with more or less rights - why does one need a decentral technology in the end?</p>
+
+<p>Once there is a single player in the game, and even if this single player is a “management board” which is voted by the various parties within the network, why can’t this management board just host a central solution? Who stops this management board from blocking attempts of competitors to take part in the decentral network?</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-05T11:11:14+01:00">March 5, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="footer-new">
+    <div class="footer-row">
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">enmeshed</h5>
+            <p class="footer-content">
+                enmeshed is an open source wallet that ensures end-to-end encrypted digital data exchange between organizations and individuals.
+                <br />
+                <br />
+                <small>enmeshed was developed by j&s-soft AG.</small>
+            </p>
+            <div class="footer-socials">
+                <a class="footer-icon footer-social-icon footer-social-icon-twitter" href="https://twitter.com/enmeshed_jssoft" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-github" href="https://github.com/nmshd" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-linkedin" href="https://www.linkedin.com/showcase/enmeshed/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Contact</h5>
+            <p class="footer-content">
+                j&s-soft AG
+                <br />
+                Max-Jarecki-Straße 21
+                <br />
+                69115 Heidelberg
+                <br />
+                <br />
+                <small
+                    ><a href="tel:00496221431210"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-phone-alt"></i></span>+49 (6221) 43121-0</a
+                    ></small
+                >
+                <br />
+                <small
+                    ><a href="mailto:enmeshed.support@js-soft.com"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-envelope"></i></span>enmeshed.support@js-soft.com</a
+                    ></small
+                >
+            </p>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Quick Links</h5>
+            <ul class="footer-menu">
+                   
+                <li>
+                    <a href="https://js-soft.com" rel="nofollow noopener noreferrer" target="_blank"> j&s-soft Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.enmeshed.de" rel="nofollow noopener noreferrer" target="_blank"> enmeshed Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer" target="_blank"> enmeshed on GitHub</a>
+                </li>
+                  
+                <li>
+                    <a href="/legal" rel="nofollow noopener noreferrer" target="_blank"> Legal Disclosure</a>
+                </li>
+                  
+                <li>
+                    <a href="/privacy" rel="nofollow noopener noreferrer" target="_blank"> Privacy Statement</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer" target="_blank"> NPM</a>
+                </li>
+                  
+                <li>
+                    <a href="https://enmeshed.eu/feed.xml" rel="nofollow noopener noreferrer" target="_blank"> RSS Feed</a>
+                </li>
+                  
+            </ul>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Download the App</h5>
+            <p class="footer-downloads footer-content">
+                <a href="https://apps.apple.com/de/app/enmeshed/id1576693742" target="_blank">
+                    <img src="/assets/images/appstore.svg" class="logo-app logo-app__appstore" />
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=eu.enmeshed.app&hl=de&gl=US" target="_blank">
+                    <img src="/assets/images/gplay.svg" class="logo-app logo-app__gplaystore" />
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/v7/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/v7/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

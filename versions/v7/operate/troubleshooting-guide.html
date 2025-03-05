@@ -1,0 +1,511 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Troubleshooting Guide - enmeshed</title>
+<meta name="description" content="Troubleshooting Guide">
+
+
+  <meta name="author" content="enmeshed Team">
+  
+  <meta property="article:author" content="enmeshed Team">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="enmeshed">
+<meta property="og:title" content="Troubleshooting Guide">
+<meta property="og:url" content="/versions/v7/operate/troubleshooting-guide">
+
+
+  <meta property="og:description" content="Troubleshooting Guide">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-03-05T11:11:14+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="/versions/v7/operate/troubleshooting-guide">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/versions/v7/feed.xml" type="application/atom+xml" rel="alternate" title="enmeshed Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/versions/v7/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <link href="/versions/v7/assets/css/overwrite.css" rel="stylesheet" type="text/css" />
+<link href="/versions/v7/assets/css/enmeshed.css" rel="stylesheet" type="text/css" />
+
+<!-- The following lines are needed because otherwise Prism (the syntax highlighter RapiDoc uses) breaks Rouge (the syntax highlighter we use) -->
+<script>
+    window.Prism = window.Prism || {};
+    Prism.manual = true;
+</script>
+<script type="module" src="https://unpkg.com/rapidoc@9.2.0/dist/rapidoc-min.js"></script>
+
+
+<div id="banner">
+    This is the documentation for an unreleased version of enmeshed, which is currently in a non-stable beta status. Not what you are looking for?
+    <a href="/">Head over to the current version.</a>
+</div>
+
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/versions/v7/">
+          enmeshed
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/use"
+                
+                
+              >Use</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/explore"
+                
+                
+              >Explore</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/integrate"
+                
+                
+              >Integrate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/operate"
+                
+                
+              >Operate</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/contribute"
+                
+                
+              >Contribute</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/versions/v7/blog"
+                
+                
+              >Blog</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      <h3>Operate enmeshed</h3>
+      
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Connector Setup</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/operate/setup-with-docker-compose">Setup with Docker Compose</a></li>
+            
+              <li><a href="/versions/v7/operate/setup-with-helm-charts">Setup with Helm Charts</a></li>
+            
+              <li><a href="/versions/v7/operate/configuration">Configuration</a></li>
+            
+              <li><a href="/versions/v7/operate/modules">Modules</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Connector Operations</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/operate/overview-of-connector-operations">Overview of Connector operations</a></li>
+            
+              <li><a href="/versions/v7/operate/security-considerations">Security Considerations</a></li>
+            
+              <li><a href="/versions/v7/operate/privacy-considerations">Privacy Considerations</a></li>
+            
+              <li><a href="/versions/v7/operate/performance-considerations">Performance Considerations</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Backbone Operations</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/operate/backbone-security-considerations">Backbone Security Considerations</a></li>
+            
+              <li><a href="/versions/v7/operate/log-event-ids">Log Event IDs</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Troubleshooting</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/versions/v7/operate/troubleshooting-guide" class="active">Troubleshooting Guide</a></li>
+            
+              <li><a href="/versions/v7/operate/support">Support</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Troubleshooting Guide">
+    <meta itemprop="description" content="Troubleshooting Guide">
+    <meta itemprop="datePublished" content="2025-03-05T11:11:14+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/versions/v7/operate/troubleshooting-guide" itemprop="url">Troubleshooting Guide
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#troubleshooting-guide">Troubleshooting Guide</a></li><li><a href="#common-errors">Common Errors</a><ul><li><a href="#config-file-mounting-eisdir--invalid-mode-ro">Config file mounting (EISDIR | invalid mode: RO)</a></li><li><a href="#database-authorization-error">Database Authorization Error</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h2 id="troubleshooting-guide">Troubleshooting Guide</h2>
+
+<p>For any issues with the Connector make sure you checked the logs and the <code class="language-plaintext highlighter-rouge">/Monitoring/*</code> routes. The <code class="language-plaintext highlighter-rouge">/Monitoring/Support</code> route provides a lot of information about the current state of the Connector and you can for example detect misconfigurations.</p>
+
+<p><br /></p>
+
+<rapi-doc-mini server-url="https://doc-demo.is.enmeshed.eu/" default-api-server="https://doc-demo.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="/Monitoring/Support$" match-type="regex"></rapi-doc-mini>
+<p><br /></p>
+
+<h2 id="common-errors">Common Errors</h2>
+
+<h3 id="config-file-mounting-eisdir--invalid-mode-ro">Config file mounting (<code class="language-plaintext highlighter-rouge">EISDIR</code> | <code class="language-plaintext highlighter-rouge">invalid mode: RO</code>)</h3>
+
+<p><strong>Symptoms</strong></p>
+
+<p>One of the following errors are logged during the startup of the Connector:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Error parsing your configuration file: [/config.json]: EISDIR: illegal operation on a directory, read</code></li>
+  <li><code class="language-plaintext highlighter-rouge">ERROR: for connector Cannot create container for service connector: invalid mode: RO</code></li>
+</ul>
+
+<p><strong>How to fix?</strong></p>
+
+<p>Given the following filesystem structure:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>home/
+└── connector/
+    ├── config.json
+    └── docker-compose.yml
+</code></pre></div></div>
+
+<p>If you mount <code class="language-plaintext highlighter-rouge">/home/connector:/config.json:ro</code>, the created <code class="language-plaintext highlighter-rouge">/config.json</code> in the container will be a directory. To fix this the mount has to be <code class="language-plaintext highlighter-rouge">/home/connector/config.json:/config.json:ro</code> or <code class="language-plaintext highlighter-rouge">./config.json:/config.json:ro</code> (docker compose translates relative links to absolute links).</p>
+
+<h3 id="database-authorization-error">Database Authorization Error</h3>
+
+<p><strong>Symptoms</strong></p>
+
+<p>During the startup of the Connector, the following error is logged:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ERROR] ConnectorRuntime - Could not connect to the configured database. Try to check the connection string and the database status. Root error:  MongoServerError: Authentication failed.
+</code></pre></div></div>
+
+<p><strong>How to fix?</strong></p>
+
+<p>This error can show up when you misuse the environment variables <code class="language-plaintext highlighter-rouge">MONGO_INITDB_ROOT_USERNAME</code> and/or <code class="language-plaintext highlighter-rouge">MONGO_INITDB_ROOT_PASSWORD</code> of the MongoDB Docker image. Even though their name is self-explanatory, you can easily read over the “INITDB” part in them. This means that the username and password you specify here are only used to <strong>initially</strong> create a database user. When you change them and then restart the container, <strong>the root username is not changed</strong>. If you want to change the root user’s name or password, look into the MongoDB documentation.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-05T11:11:14+01:00">March 5, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="footer-new">
+    <div class="footer-row">
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">enmeshed</h5>
+            <p class="footer-content">
+                enmeshed is an open source wallet that ensures end-to-end encrypted digital data exchange between organizations and individuals.
+                <br />
+                <br />
+                <small>enmeshed was developed by j&s-soft AG.</small>
+            </p>
+            <div class="footer-socials">
+                <a class="footer-icon footer-social-icon footer-social-icon-twitter" href="https://twitter.com/enmeshed_jssoft" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-github" href="https://github.com/nmshd" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a class="footer-icon footer-social-icon footer-social-icon-linkedin" href="https://www.linkedin.com/showcase/enmeshed/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Contact</h5>
+            <p class="footer-content">
+                j&s-soft AG
+                <br />
+                Max-Jarecki-Straße 21
+                <br />
+                69115 Heidelberg
+                <br />
+                <br />
+                <small
+                    ><a href="tel:00496221431210"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-phone-alt"></i></span>+49 (6221) 43121-0</a
+                    ></small
+                >
+                <br />
+                <small
+                    ><a href="mailto:enmeshed.support@js-soft.com"
+                        ><span class="footer-contact-icon"><i aria-hidden="true" class="fas fa-envelope"></i></span>enmeshed.support@js-soft.com</a
+                    ></small
+                >
+            </p>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Quick Links</h5>
+            <ul class="footer-menu">
+                   
+                <li>
+                    <a href="https://js-soft.com" rel="nofollow noopener noreferrer" target="_blank"> j&s-soft Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.enmeshed.de" rel="nofollow noopener noreferrer" target="_blank"> enmeshed Website</a>
+                </li>
+                  
+                <li>
+                    <a href="https://github.com/nmshd" rel="nofollow noopener noreferrer" target="_blank"> enmeshed on GitHub</a>
+                </li>
+                  
+                <li>
+                    <a href="/legal" rel="nofollow noopener noreferrer" target="_blank"> Legal Disclosure</a>
+                </li>
+                  
+                <li>
+                    <a href="/privacy" rel="nofollow noopener noreferrer" target="_blank"> Privacy Statement</a>
+                </li>
+                  
+                <li>
+                    <a href="https://www.npmjs.com/search?q=%40nmshd" rel="nofollow noopener noreferrer" target="_blank"> NPM</a>
+                </li>
+                  
+                <li>
+                    <a href="https://enmeshed.eu/feed.xml" rel="nofollow noopener noreferrer" target="_blank"> RSS Feed</a>
+                </li>
+                  
+            </ul>
+        </div>
+        <div class="footer-col footer-col-25">
+            <h5 class="footer-headline">Download the App</h5>
+            <p class="footer-downloads footer-content">
+                <a href="https://apps.apple.com/de/app/enmeshed/id1576693742" target="_blank">
+                    <img src="/assets/images/appstore.svg" class="logo-app logo-app__appstore" />
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=eu.enmeshed.app&hl=de&gl=US" target="_blank">
+                    <img src="/assets/images/gplay.svg" class="logo-app logo-app__gplaystore" />
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/versions/v7/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/versions/v7/assets/js/lunr/lunr.min.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-store.js"></script>
+<script src="/versions/v7/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
