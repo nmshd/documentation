@@ -229,9 +229,7 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
           "@type": "Surname",
           "value": "<surname created for the App user by the Sender>"
         },
-        "tags": ["<tag of surname to be created>"],
-        "validFrom": "<start of IdentityAttribute's validity>",
-        "validTo": "<end of IdentityAttribute's validity>"
+        "tags": ["<tag of surname to be created>"]
       }
     },
     {
@@ -253,9 +251,7 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
           "@type": "GivenName",
           "value": "<given name proposed by the Sender>"
         },
-        "tags": ["<tag of proposed given name>"],
-        "validFrom": "<start of IdentityAttribute's validity>",
-        "validTo": "<end of IdentityAttribute's validity>"
+        "tags": ["<tag of proposed given name>"]
       },
       "query": {
         "@type": "IdentityAttributeQuery",
@@ -270,9 +266,7 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
       "query": {
         "@type": "IdentityAttributeQuery",
         "valueType": "BirthDate",
-        "tags": ["<tag of date of birth to be read>"],
-        "validFrom": "<start of IdentityAttribute's validity>",
-        "validTo": "<end of IdentityAttribute's validity>"
+        "tags": ["<tag of date of birth to be read>"]
       }
     },
     {
@@ -283,9 +277,7 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
       "query": {
         "@type": "IdentityAttributeQuery",
         "valueType": "StreetAddress",
-        "tags": ["<tag of street address for which the registration was made>"],
-        "validFrom": "<start of IdentityAttribute's validity>",
-        "validTo": "<end of IdentityAttribute's validity>"
+        "tags": ["<tag of street address for which the registration was made>"]
       }
     },
     {
@@ -300,9 +292,7 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
           "@type": "DisplayName",
           "value": "<display name shared by the Sender>"
         },
-        "tags": ["<tag of shared display name>"],
-        "validFrom": "<start of IdentityAttribute's validity>",
-        "validTo": "<end of IdentityAttribute's validity>"
+        "tags": ["<tag of shared display name>"]
       },
       "sourceAttributeId": "<ID of source RepositoryAttribute>"
     }
