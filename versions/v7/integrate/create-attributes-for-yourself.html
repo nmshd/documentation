@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-03-06T13:51:25+01:00">
+  <meta property="article:published_time" content="2025-03-06T17:31:35+01:00">
 
 
 
@@ -363,7 +363,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Create Attributes for yourself">
     <meta itemprop="description" content="This guide explains the end-to-end flow of creating an Attribute for your own Connector as its Integrator. As there are two types of Attributes, IdentityAttributes and RelationshipAttributes, a distinction must be made between them when creating an Attribute for yourself.">
-    <meta itemprop="datePublished" content="2025-03-06T13:51:25+01:00">
+    <meta itemprop="datePublished" content="2025-03-06T17:31:35+01:00">
     
 
     <div class="page__inner-wrap">
@@ -402,8 +402,6 @@
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"validFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;start of IdentityAttribute's validity&gt;"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"validTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;end of IdentityAttribute's validity&gt;"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="c1">// IdentityAttribute value</span><span class="w">
       </span><span class="c1">...</span><span class="w">
@@ -414,7 +412,7 @@
 </span></code></pre></div></div>
 
 <p>You need to replace the placeholders marked with <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> appropriately.
-Note that the properties <code class="language-plaintext highlighter-rouge">validFrom</code>, <code class="language-plaintext highlighter-rouge">validTo</code> and <code class="language-plaintext highlighter-rouge">tags</code> are optional, so you can omit them.
+Note that the property <code class="language-plaintext highlighter-rouge">tags</code> is optional, so you can omit it.
 It is necessary that you insert one of the available <a href="/versions/v7/integrate/attribute-values#identity-attributes">IdentityAttributeValues</a> into the <code class="language-plaintext highlighter-rouge">value</code> property.
 If there is already an existing RepositoryAttribute with an undefined <code class="language-plaintext highlighter-rouge">succeededBy</code> property and which therefore represents the latest version, whose <code class="language-plaintext highlighter-rouge">content.value</code> exactly matches the specified <code class="language-plaintext highlighter-rouge">value</code> in the payload for creating a new RepositoryAttribute, an error with <a href="/versions/v7/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.runtime.attributes.cannotCreateDuplicateRepositoryAttribute</code> is thrown.
 This is to prevent several latest RepositoryAttributes with the same <code class="language-plaintext highlighter-rouge">content.value</code> from existing in parallel.</p>
@@ -496,7 +494,7 @@ In terms of nomenclature, this pair of LocalAttributes consists of one own share
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-06T13:51:25+01:00">March 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-06T17:31:35+01:00">March 6, 2025</time></p>
 
       </footer>
 
