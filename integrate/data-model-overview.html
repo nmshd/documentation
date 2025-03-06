@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-03-05T09:20:15+01:00">
+  <meta property="article:published_time" content="2025-03-06T13:50:47+01:00">
 
 
 
@@ -358,7 +358,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2025-03-05T09:20:15+01:00">
+    <meta itemprop="datePublished" content="2025-03-06T13:50:47+01:00">
     
 
     <div class="page__inner-wrap">
@@ -1493,7 +1493,7 @@ RelationshipAttributes can only be shared with third parties if their <code clas
     <tr>
       <td>thirdPartyAddress</td>
       <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>If the <a href="#localattribute">LocalAttribute</a> is a ThirdPartyRelationshipAttribute, this property will contain the <code class="language-plaintext highlighter-rouge">address</code> of the Identity with whom the emitter has the Relationship in which context the source RelationshipAttribute exists.</td>
+      <td>If the <a href="#localattribute">LocalAttribute</a> is a ThirdPartyRelationshipAttribute, this property will contain the <code class="language-plaintext highlighter-rouge">address</code> of the <a href="#identity">Identity</a> with whom the emitter has the Relationship in which context the source RelationshipAttribute exists.</td>
     </tr>
   </tbody>
 </table>
@@ -2058,12 +2058,17 @@ This will be the case, if the peer already accepted the DeleteAttributeRequestIt
     <tr>
       <td>attribute</td>
       <td><a href="/integrate/data-model-overview#identityattribute"><code class="language-plaintext highlighter-rouge">IdentityAttribute</code></a> | <a href="/integrate/data-model-overview#relationshipattribute"><code class="language-plaintext highlighter-rouge">RelationshipAttribute</code></a></td>
-      <td>The IdentityAttribute or RelationshipAttribute to share. This is not the LocalAttribute but the content data structure of the Attribute. <br />The owner of the Attribute which should be shared can only be the sender Identity.</td>
+      <td>The <a href="#attributes">Attribute</a> to be shared can be an IdentityAttribute or a RelationshipAttribute. It is therefore not a <a href="#localattribute">LocalAttribute</a> itself, but its <code class="language-plaintext highlighter-rouge">content</code>. An overview of the possible kinds of Attributes that can be shared is provided by the table of the <a href="/integrate/share-attributes-with-peer#combinations-and-usage-scenarios-of-shareattributerequestitem">combinations and usage scenarios of the ShareAttributeRequestItem</a>.</td>
     </tr>
     <tr>
       <td>sourceAttributeId</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>The <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute which is the source of the shared Attribute. This will be used later to reference the sourceAttribute from its shared copy.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">id</code> of the <a href="#localattribute">LocalAttribute</a> which is the source of the shared <a href="#attributes">Attribute</a>. This will be used later to reference the <code class="language-plaintext highlighter-rouge">sourceAttribute</code> from its shared copy.</td>
+    </tr>
+    <tr>
+      <td>thirdPartyAddress</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>If the Attribute to be shared is a <a href="#relationshipattribute">RelationshipAttribute</a>, this property must contain the address of the <code class="language-plaintext highlighter-rouge">peer</code> with whom the sender of the Attribute has the <a href="#relationship">Relationship</a> in which context the RelationshipAttribute exists.</td>
     </tr>
     <tr>
       <td>title</td>
@@ -2430,6 +2435,11 @@ Receiving an AttributeSuccessionAcceptResponseItem, the respective shared LocalA
       <td>attribute</td>
       <td><a href="/integrate/data-model-overview#identityattribute"><code class="language-plaintext highlighter-rouge">IdentityAttribute</code></a> | <a href="/integrate/data-model-overview#relationshipattribute"><code class="language-plaintext highlighter-rouge">RelationshipAttribute</code></a></td>
       <td>The IdentityAttribute or RelationshipAttribute that will be shared to the peer.</td>
+    </tr>
+    <tr>
+      <td>thirdPartyAddress</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>If the Attribute to be shared is an already existing <a href="#relationshipattribute">RelationshipAttribute</a> of another <a href="#relationship">Relationship</a>, this property must contain the address of the <code class="language-plaintext highlighter-rouge">peer</code> with whom the sender of the Attribute has the Relationship in which context the RelationshipAttribute exists.</td>
     </tr>
   </tbody>
 </table>
@@ -3662,7 +3672,7 @@ There is the <a href="/use-case-consumption-upsert-identitymetadata">Upsert Iden
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-05T09:20:15+01:00">March 5, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-06T13:50:47+01:00">March 6, 2025</time></p>
 
       </footer>
 
