@@ -6,7 +6,7 @@ title: "Get the Connector version information"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: C01
@@ -42,4 +42,4 @@ api_route_regex: ^GET /Monitoring/Version$
 
 {% include properties_list.html %}
 
-This use-case retrieves the version information of the Connector, including the `build` number, underlying git `commit`, the Connector's semantic `version` and its release `date`.
+This use case retrieves the version information of the Connector, including the `build` number, underlying git `commit`, the Connector's semantic `version` and its release `date`.

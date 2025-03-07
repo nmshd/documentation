@@ -1,5 +1,5 @@
 ---
-title: "Enmeshed Connector"
+title: "enmeshed Connector"
 permalink: /explore/connector
 toc: true
 ---
@@ -13,7 +13,7 @@ The Connector is usually deployed with a Docker image. The Docker images can be 
 **Note:** You have to be logged in using a GitHub account to list available tags.
 {: .notice--warning}
 
-The Docker images are created, maintained and published by j&s-soft GmbH.
+The Docker images are created, maintained and published by j&s-soft AG.
 
 ## Connector Runtime
 
@@ -39,11 +39,11 @@ Going a bit more technical, the Connector uses NodeJS with Express to host an HT
 
 ## Why does my organization need a Connector?
 
-Enmeshed consists of different layers, each of which provide a different set of functionality and abstractions. The very low levels introduce a common set of communication and encryption contracts, which are required for all the upper levels. Just like you do not want to implement your own network stack, you usually do not want to implement the contracts by yourself.
+enmeshed consists of different layers, each of which provide a different set of functionality and abstractions. The very low levels introduce a common set of communication and encryption contracts, which are required for all the upper levels. Just like you do not want to implement your own network stack, you usually do not want to implement the contracts by yourself.
 
 The Connector stores required enmeshed metadata on a central point within the organization network, making it possible for existing system to access all the features of the Connector. With this approach, it is not necessary to implement the whole stack of enmeshed in each and every system, like user key management and encryption capabilities.
 
-Additionally, the Connector should be run within the organizations network, as it acts as the digital identity of the organization itself, as well as a secure gateway to enmeshed. Although it could be hosted by a third-party as a software-as-a-service, we discourage this approach for production environments. The hosting provider would be able to impersonate the actual organization within the enmeshed ecosystem and would be able to access the plaintext data of users, messages, files, an so on.
+Additionally, the Connector should be run within the organizations network, as it acts as the digital Identity of the organization itself, as well as a secure gateway to enmeshed. Although it could be hosted by a third party as a software-as-a-service, we discourage this approach for production environments. The hosting provider would be able to impersonate the actual organization within the enmeshed ecosystem and would be able to access the plaintext data of users, messages, files, an so on.
 
 If you ask yourself now "Why does enmeshed itself host Connectors then?" - good catch! We do host Connectors but only for development, test or demo reasons.
 
@@ -53,4 +53,4 @@ Unfortunately, there is no button with which you can switch on the digitalizatio
 
 We propose to set up a first test Connector by your IT department or let us do the hosting. Then you can decide how far enmeshed and its supported features and processes work for you.
 
-If you like to try on your own: There is a Connector Tutorial in the next chapter which is a good starting point to set up the Connector on a try out basis. More details are available in the "Setting up the Connector" and integration sections. If you like to dig deeper, there are operation tutorials which might answer some questions with regards to overall security and privacy.
+If you like to try it on your own: There is an [Integration example]({% link _docs_integrate/integration-example.md %}) which is a good starting point to set up the Connector on a try out basis. More details are available in the [Connector Setup]({% link _docs_operate/setup-with-docker-compose.md %}) and [Integration]({% link _docs_integrate/01-integrate-scenarios.md %}) sections. If you like to dig deeper, there are operation tutorials which might answer some questions with regards to overall [security]({% link _docs_operate/security-considerations.md %}) and [privacy]({% link _docs_operate/privacy-considerations.md %}).

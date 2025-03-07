@@ -6,7 +6,7 @@ title: "Create Challenge"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RC1
@@ -17,9 +17,9 @@ properties:
   - description: Create a signed challenge.
   - feature category:
   - tech category: Challenges
-  - status: PRERELEASE
-  - documentation status:
-  - comments: Internal
+  - status: DONE
+  - documentation status: OPEN
+  - comments:
   - actor: Identity
   - trigger: REST API
   - precondition:

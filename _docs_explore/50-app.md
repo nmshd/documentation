@@ -1,5 +1,5 @@
 ---
-title: "Enmeshed App"
+title: "enmeshed App"
 permalink: /explore/app
 toc: true
 ---
@@ -8,26 +8,16 @@ toc: true
 
 ## Platform-dependant App Binaries
 
-For each of the various platforms, each version of the app is packaged into a platform-dependant binary. This binary is then executable / installable for the users. The binaries of the enmeshed App are created, maintained and published by j&amp;s-soft GmbH and are available free for use within the respective stores.
+For each of the various platforms, each version of the app is packaged into a platform-dependant binary. This binary is then executable / installable for the users. The binaries of the enmeshed App are created, maintained and published by j&amp;s-soft AG and are available free for use within the respective stores.
 
 Following binaries are currently created:
 
 - iOS App for the Apple AppStore
 - Android App Bundle for the Google PlayStore
 
-An Electron App for Microsoft Windows is currently planned.
-
-## Platform-dependant App Sourcecode and Build environment
-
-Alongside the platform-independant code, platform-dependant source code is sometimes necessary. Also the build-steps and processes vary across the different platforms.
-
-- Cordova Environment for building iOS and Android apps
-- Electron Environment for building Windows applications
-- Web Environment for developing the app
-
 ## App User Interface
 
-The user interface of the enmeshed App is platform-independently built with [OpenUI5](https://openui5.org/), a JavaScript framework for user interfaces primarily used for business applications.
+The user interface of the enmeshed App is platform-independently built with [Flutter](https://flutter.dev), a UI toolkit for building natively compiled multi-platform applications.
 
 ## App Runtime
 

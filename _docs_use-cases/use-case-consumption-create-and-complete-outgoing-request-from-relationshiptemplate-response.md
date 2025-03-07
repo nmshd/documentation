@@ -8,7 +8,7 @@ title: "Create and complete outgoing Request from RelationshipTemplate Response"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ROR5
@@ -17,7 +17,7 @@ properties:
   - facade: OutgoingRequestsFacade
   - function: createAndCompleteFromRelationshipTemplateResponse
   - description:
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE
@@ -43,16 +43,16 @@ required_by:
 
 {% include properties_list.html %}
 
-Be advised that this is a Runtime-internal use-case which is automatically used by the module system. You should not call this use-case without having good reason.
+Be advised that this is a Runtime-internal use case which is automatically used by the module system. You should not call this use case without having good reason.
 {: .notice--warning}
 
-This use-case is intended to create and instantly complete an outgoing Request which was shared by a RelationshipTemplate and the Response has been received by an incoming RelationshipCreationChange.
+This use case is intended to create and instantly complete an outgoing Request which was shared by a RelationshipTemplate and the Response has been received by an incoming pending Relationship.
 
 ## Parameters
 
 - `templateId` identifies the RelationshipTemplate the response originates from.
 - `responseSourceId` references the response either a [message]({% link _docs_integrate/data-model-overview.md %}#Message)
-  or a [RelationshipChange]({% link _docs_integrate/data-model-overview.md %}#relationshipchange).
+  or a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship).
 - `response` is the content of the response.
 
 ## On Success
@@ -62,5 +62,5 @@ This use-case is intended to create and instantly complete an outgoing Request w
 
 ## On Failure
 
-- The template could not be found.
+- The RelationshipTemplate could not be found.
 - The response source could not be found.

@@ -29,7 +29,7 @@ Each [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) c
 - how it is validated (the pattern of an email address and a maximum length)
 - information about how it can be rendered on the UI
 
-Enmeshed defines a standard set of possible Attribute Value types for Identities within the enmeshed ecosystem and its meaning for the Identities. And every Identity can understand/use/fill/query these Attribute Value types of other Identities.
+enmeshed defines a standard set of possible Attribute Value types for Identities within the enmeshed ecosystem and its meaning for the Identities. And every Identity can understand/use/fill/query these Attribute Value types of other Identities.
 
 Most Attribute Value types are atomic, which means that they have only one property called `value` (e.g. [`EMailAddress`](#emailaddress), [`DisplayName`](#displayname), [`PhoneNumber`](#phonenumber)). But there are also more complex Attribute Value types which consist of multiple properties with a strong correlation (e.g. [`StreetAddress`](#streetaddress), [`PersonName`](#personname)). These properties can (but don't have to) contain other Attribute Values.
 
@@ -43,12 +43,12 @@ A complex Attribute Value type which defines the affiliation of a person to an o
 
 **Properties**
 
-| Name         | Type            | Required | Validation                                                |
-| ------------ | --------------- | :------: | --------------------------------------------------------- |
-| `@type`      | `"Affiliation"` |    ✓     |                                                           |
-| role         | `string`        |    ✗     | see [`AffiliationRole`](#affiliationrole)                 |
-| organization | `string`        |    ✓     | see [`AffiliationOrganization`](#affiliationorganization) |
-| unit         | `string`        |    ✗     | see [`AffiliationUnit`](#affiliationunit)                 |
+| Name           | Type            | Required | Validation                                                |
+| -------------- | --------------- | :------: | --------------------------------------------------------- |
+| `@type`        | `"Affiliation"` |    ✓     |                                                           |
+| `role`         | `string`        |    ✗     | see [`AffiliationRole`](#affiliationrole)                 |
+| `organization` | `string`        |    ✓     | see [`AffiliationOrganization`](#affiliationorganization) |
+| `unit`         | `string`        |    ✗     | see [`AffiliationUnit`](#affiliationunit)                 |
 
 ## AffiliationOrganization
 
@@ -314,7 +314,9 @@ The telephone number which can be used to reach the Identity via fax systems.
 
 ## IdentityFileReference
 
-A IdentityFileReference is a link to an enmeshed [`File`]({% link _docs_integrate/data-model-overview.md %}#files) and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.
+An IdentityFileReference is a link to an enmeshed [File]({% link _docs_integrate/data-model-overview.md %}#file) and can be used to add a File as an Attribute of an Identity.
+One example for a use case is some kind of certificate.
+How an IdentityFileReference can be used to [exchange Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}) is described in the corresponding scenario documentation.
 
 **Properties**
 
@@ -327,9 +329,6 @@ A IdentityFileReference is a link to an enmeshed [`File`]({% link _docs_integrat
 
 The Given Name, also called first name or forename, is the name given to a person at birth which differentiates it from other family, tribe or community members.
 
-It is not recommended to send a GivenName to another Identity by its own. Instead, send a [`PersonName`](#personname) with the `givenName` property set.
-{: .notice--warning}
-
 **Properties**
 
 | Name    | Type          | Required | Validation       |
@@ -341,9 +340,6 @@ It is not recommended to send a GivenName to another Identity by its own. Instea
 
 The honorific prefix of a person, e.g. 'Sir'.
 
-It is not recommended to send a HonorificPrefix to another Identity by its own. Instead, send a [`PersonName`](#personname) with the `honorificPrefix` property set.
-{: .notice--warning}
-
 **Properties**
 
 | Name    | Type                | Required | Validation       |
@@ -354,9 +350,6 @@ It is not recommended to send a HonorificPrefix to another Identity by its own. 
 ## HonorificSuffix
 
 The honorific suffix of a person, e.g. 'PhD'
-
-It is not recommended to send a HonorificSuffix to another Identity by its own. Instead, send a [`PersonName`](#personname) with the `honorificSuffix` property set.
-{: .notice--warning}
 
 **Properties**
 
@@ -393,9 +386,6 @@ A short phrase that describes the position an employee has within an organizatio
 ## MiddleName
 
 In various cultures, a middle name is a portion of a personal name that is written between the person's first given name and their surname.
-
-It is not recommended to send a MiddleName to another Identity by its own. Instead, send a [`PersonName`](#personname) with the `middleName` property set.
-{: .notice--warning}
 
 **Properties**
 
@@ -470,7 +460,7 @@ The officially registered pseudonym of a person.
 
 ## SchematizedXML
 
-SchematizedXML can be used to exchange files in XML format. The exchange of XML files is also possible via [`IdentityFileReference`](#identityfilereference), but SchematizedXML has the advantage that it is possible to validate the XML and display the attributes in the wallet.
+SchematizedXML can be used to exchange files in XML format. The exchange of XML files is also possible via [`IdentityFileReference`](#identityfilereference), but SchematizedXML has the advantage that it is possible to validate the XML and display the Attributes in the wallet.
 
 **Properties**
 
@@ -478,7 +468,7 @@ SchematizedXML can be used to exchange files in XML format. The exchange of XML 
 | ----------- | ------------------ | :------: | ---------------------------------------------------------- |
 | `@type`     | `"SchematizedXML"` |    ✓     |                                                            |
 | `value`     | `string`           |    ✓     | max. length: 50000 <br>must be a valid XML encoded string  |
-| `schemaURL` | `string`           |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+| `schemaURL` | `string`           |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
 
 ## Sex
 
@@ -533,11 +523,11 @@ It is not recommended to send a DigitalIdentityDescriptor to another Identity by
 
 **Properties**
 
-| Name         | Type                          | Required | Validation                                           |
-| ------------ | ----------------------------- | :------: | ---------------------------------------------------- |
-| `@type`      | `"DigitalIdentityDescriptor"` |    ✓     |                                                      |
-| `address`    | `string`                      |    ✓     | The address of the identity that owns the statement. |
-| `attributes` | `string []`                   |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
+| Name         | Type                          | Required | Validation                                                                                                           |
+| ------------ | ----------------------------- | :------: | -------------------------------------------------------------------------------------------------------------------- |
+| `@type`      | `"DigitalIdentityDescriptor"` |    ✓     |                                                                                                                      |
+| `address`    | `string`                      |    ✓     | The `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that owns the statement. |
+| `attributes` | `string []`                   |    ✗     | see [`Identity Attributes`](#identity-attributes)                                                                    |
 
 ## StatementAuthorityType
 
@@ -594,11 +584,11 @@ It is not recommended to send a object to another Identity by its own. Instead, 
 
 **Properties**
 
-| Name         | Type                | Required | Validation                                           |
-| ------------ | ------------------- | :------: | ---------------------------------------------------- |
-| `@type`      | `"StatementObject"` |    ✓     |                                                      |
-| `address`    | `string`            |    ✓     | The address of the identity that owns the statement. |
-| `attributes` | `string []`         |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
+| Name         | Type                | Required | Validation                                                                                                           |
+| ------------ | ------------------- | :------: | -------------------------------------------------------------------------------------------------------------------- |
+| `@type`      | `"StatementObject"` |    ✓     |                                                                                                                      |
+| `address`    | `string`            |    ✓     | The `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that owns the statement. |
+| `attributes` | `string []`         |    ✗     | see [`Identity Attributes`](#identity-attributes)                                                                    |
 
 ## StatementPredicate
 
@@ -623,11 +613,11 @@ It is not recommended to send a subject to another Identity by its own. Instead,
 
 **Properties**
 
-| Name         | Type                 | Required | Validation                                           |
-| ------------ | -------------------- | :------: | ---------------------------------------------------- |
-| `@type`      | `"StatementSubject"` |    ✓     |                                                      |
-| `address`    | `string`             |    ✓     | The address of the identity that owns the statement. |
-| `attributes` | `string []`          |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
+| Name         | Type                 | Required | Validation                                                                                                           |
+| ------------ | -------------------- | :------: | -------------------------------------------------------------------------------------------------------------------- |
+| `@type`      | `"StatementSubject"` |    ✓     |                                                                                                                      |
+| `address`    | `string`             |    ✓     | The `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that owns the statement. |
+| `attributes` | `string []`          |    ✗     | see [`Identity Attributes`](#identity-attributes)                                                                    |
 
 ## Street
 
@@ -663,9 +653,6 @@ A complex Attribute Value defining the components of a "normal" address.
 ## Surname
 
 The Surname, also called family name or last name, is the portion of the personal name that indicates the family, tribe or community.
-
-It is not recommended to send a Surname to another Identity by its own. Instead, send a [`PersonName`](#personname) with the `surname` property set.
-{: .notice--warning}
 
 **Properties**
 
@@ -760,7 +747,8 @@ An email address.
 
 ## ProprietaryFileReference
 
-A FileReference is a link to an enmeshed [`File`]({% link _docs_integrate/data-model-overview.md %}#files) and can be used to add a File as an Attribute of a Relationship.
+A ProprietaryFileReference is a link to an enmeshed [File]({% link _docs_integrate/data-model-overview.md %}#file) and can be used to add a File as an Attribute of a Relationship.
+Similar to an [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference), a ProprietaryFileReference can be used to [exchange Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}#utilization-of-a-proprietaryfilereference).
 
 **Properties**
 

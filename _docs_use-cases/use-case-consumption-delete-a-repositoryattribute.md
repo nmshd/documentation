@@ -6,7 +6,7 @@ title: "Delete a RepositoryAttribute"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA7
@@ -15,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: deleteRepositoryAttribute
   - description:
-  - feature category: Normalized attributes
+  - feature category: Normalized Attributes
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
@@ -29,11 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex:
+  - api_route_regex: DELETE /api/v2/Attributes/{id}
   - published: default
   - link: use-case-consumption-delete-a-repositoryattribute
 require:
 required_by:
+api_route_regex: ^DELETE /api/v2/Attributes/{id}$
 # End automatic generation
 ---
 
@@ -41,7 +42,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case allows you to delete a RepositoryAttribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) that is owned by yourself and whose `shareInfo` property is undefined.
+This use case allows you to delete a RepositoryAttribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) that is owned by yourself and whose `shareInfo` property is undefined.
 
 ## Parameters
 

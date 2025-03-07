@@ -9,6 +9,7 @@
                 "kind": "test",
                 "isDefault": true
             },
+            "options": { "shell": { "args": [] } },
             "isBackground": true
         },
         {

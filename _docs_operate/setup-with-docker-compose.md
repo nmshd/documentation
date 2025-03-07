@@ -53,7 +53,7 @@ Depending on the usage scenario, higher hardware requirements might be necessary
 
 ### Internet Connectivity
 
-A reliable and fast internet connection is mandatory for running the Connector. However, the Connector is only communicating with the Backbone so the corresponding domain (e.g. `https://prod.enmeshed.eu`) can be whitelisted and the associated certificate can be additionally pinned.
+A reliable and fast internet connection is mandatory for running the Connector. However, the Connector is only communicating with the Backbone so the corresponding domain (specified in the [Connector configuration's baseUrl]({% link _docs_operate/configuration.md %}#transportlibrary)) can be whitelisted and the associated certificate can be additionally pinned.
 
 ### List docker image tags
 
@@ -164,6 +164,19 @@ To use the api platform hosted on the Connector you need to make the following c
      "debug": true
    }
    ```
+
+## Video
+
+<video class="elementor-video" src="https://enmeshed.de/app/uploads/2024/05/Connector-aufsetzen_mit-Untertitel.mp4" controls="" preload="metadata" controlslist="nodownload" poster="https://enmeshed.de/app/uploads/2024/05/Thumbnail-1.png" style="width:100%;"></video>
+
+### Links Mentioned in Video
+
+- [Link#1: Setup with Docker Compose](https://enmeshed.eu/operate/setup-with-docker-compose)
+- [Link#2: Configuration](https://enmeshed.eu/operate/configuration)
+- [Link#3: Docker Compose](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/docker-compose-with-mongodb.yml)
+- [Link#4: Config.json](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/example.config.json)
+- [Link#5: Request Backbone client credentials](https://js-soft.atlassian.net/servicedesk/customer/portal/13/group/42/create/166)
+- [Link#6: Integration Example](https://enmeshed.eu/integrate/integration-example)
 
 ## Troubleshooting
 

@@ -6,7 +6,7 @@ title: "Create Profile with new Identity"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ARP1
@@ -41,4 +41,4 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case triggers the creation of a new Identity by the App or Connector.
+This use case triggers the creation of a new Identity by the App or Connector.

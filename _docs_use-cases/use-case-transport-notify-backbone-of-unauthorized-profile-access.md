@@ -6,7 +6,7 @@ title: "Notify Backbone of unauthorized Profile access"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: ARS2
@@ -15,7 +15,7 @@ properties:
   - facade:
   - function:
   - description: Possible other Devices of the Identity should be notified, if the pin or password has been wrongly entered multiple times. This notification could happen by the use of the Backbone, in addition to a possible central tracking of failed login attempts on Devices.
-  - feature category: Identity Hardening
+  - feature category: Identity handling
   - tech category: Profiles
   - status: IDEA
   - documentation status:

@@ -6,7 +6,7 @@ title: "Send Message to Recipient(s)"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RM1
@@ -42,11 +42,11 @@ api_route_regex: ^POST /api/v2/Messages$
 
 {% include properties_list.html %}
 
-This use-case sends a [Message]({% link _docs_integrate/data-model-overview.md %}#message) to the given recipient(s).
+This use case sends a [Message]({% link _docs_integrate/data-model-overview.md %}#message) to the given recipient(s).
 
 ## Parameters
 
-- `recipients` is a list of the enmeshed Addresses which should receive the Message.
+- `recipients` is a list of the enmeshed addresses which should receive the Message.
 - `content` the structured content of the Message. Usually a [Mail]({% link _docs_integrate/data-model-overview.md %}#mail) when communicating with a user.
 - `attachments` is a list of [File]({% link _docs_integrate/data-model-overview.md %}#file) ids which should be attached to the Message.
 
@@ -59,4 +59,5 @@ This use-case sends a [Message]({% link _docs_integrate/data-model-overview.md %
 
 - One of the `recipients` is not an active Relationship
 - The `attachments` are not valid File ids.
+- The `content` of the Message is a [Request]({% link _docs_integrate/data-model-overview.md %}#request) that is already expired. Please create a new Request and try again.
 - The `content` is malformed.

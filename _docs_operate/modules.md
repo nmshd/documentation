@@ -41,14 +41,14 @@ Compared to [webhooks](#webhooks), this gives you the full feature set of a mess
 - You need persistence for the triggered [events]({% link _docs_integrate/connector-events.md %}).
 - You want to integrate enmeshed into an already existing message broker.
 
-### Auto Accept Relationship Creation Changes <a href="{% link _docs_operate/configuration.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-cog"/></a> {#autoacceptrelationshipcreationchanges}
+### Auto Accept Pending Relationships <a href="{% link _docs_operate/configuration.md %}#autoacceptpendingrelationships"><i class="fas fa-fw fa-cog"/></a> {#autoacceptpendingrelationships}
 
 It is not recommended to use this Module for production scenarios.
 {: .notice--danger}
 
-The `autoAcceptRelationshipCreationChanges` Module listens to the [events]({% link _docs_integrate/connector-events.md %}) about incoming Relationship Change Requests. It immediately accepts the Requests, using the configured `responseContent`.
+The `autoAcceptPendingRelationships` Module listens to the [events]({% link _docs_integrate/connector-events.md %}) about changed Relationships. It immediately accepts pending Relationships.
 
-Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive incoming Relationship Requests. The `sync` Module automates this, but you can also do this manually by calling the `/api/v2/Account/Sync` route.
+Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive changed Relationships. The `sync` Module automates this, but you can also do this manually by calling the `/api/v2/Account/Sync` route.
 
 ### Core HTTP API <a href="{% link _docs_operate/configuration.md %}#corehttpapi"><i class="fas fa-fw fa-cog"/></a> {#corehttpapi}
 
@@ -65,7 +65,10 @@ Compared to [webhooks](#webhooks), this gives you the full feature set of these 
 
 ### Sync <a href="{% link _docs_operate/configuration.md %}#sync"><i class="fas fa-fw fa-cog"/></a> {#sync}
 
-The `sync` Module regularly fetches changes from the Backbone (e.g. new Messages / new incoming Relationship Requests). This process automatically triggers the events used by other Modules like the `webhooks` Module.
+The `sync` Module regularly fetches changes from the Backbone (e.g. new Messages / new or changed Relationships). This process automatically triggers the events used by other Modules like the [webhooks Module](#webhooks).
+
+The sync Module and the [sse Module](#sse) are not compatible. The sync Module will be disabled if both are active.
+{: .notice--warning}
 
 ### PubSub Publisher <a href="{% link _docs_operate/configuration.md %}#pubsubpublisher"><i class="fas fa-fw fa-cog"/></a> {#pubsubpublisher}
 
@@ -86,6 +89,11 @@ With the REST API, pull mechanisms are supported. However, as there are many bid
 For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Event]({% link _docs_integrate/connector-events.md %}) is triggered (e.g. a new Message has been received => `transport.messageReceived`).
 
 Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The `sync` Module automates this, but you can also do this manually by calling the `/api/v2/Account/Sync` route.
+
+### sse (Server-Sent Events) <a href="{% link _docs_operate/configuration.md %}#sse"><i class="fas fa-fw fa-cog"/></a> {#sse}
+
+The `sse` Module allows the Connector to receive events from the Backbone without exposing the Connector to the Internet.
+The Connector reacts to these events and ensures automatic synchronization.
 
 ### Requesting Modules
 

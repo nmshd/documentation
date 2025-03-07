@@ -6,7 +6,7 @@ title: "Create a shared Attribute copy"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA6
@@ -15,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: createSharedAttributeCopy
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
@@ -41,16 +41,16 @@ required_by:
 
 {% include properties_list.html %}
 
-Be advised that this is a Runtime-internal use-case which is automatically used by the module system. You should not call this use-case without having good reason.
+Be advised that this is a Runtime-internal use case which is automatically used by the module system. You should not call this use case without having good reason.
 {: .notice--warning}
 
-This use-case is intended to create a copy of a LocalAttribute with the intent to share it. The copy references the original [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
+This use case is intended to create a copy of a LocalAttribute with the intent to share it. The copy references the original [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
 
 ## Parameters
 
-- `attributeId` is the id of the attribute that the copy is made of.
+- `attributeId` is the ID of the Attribute that the copy is made of.
 - `peer` is the address of the peer the copy will be sent to.
-- `requestReference` is a reference to the request the copy will be sent with.
+- `requestReference` is a reference to the Request the copy will be sent with.
 
 ## On Success
 

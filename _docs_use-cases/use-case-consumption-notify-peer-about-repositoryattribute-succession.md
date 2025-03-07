@@ -6,7 +6,7 @@ title: "Notify peer about RepositoryAttribute succession"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA18
@@ -15,25 +15,26 @@ properties:
   - facade: AttributesFacade
   - function: notifyPeerAboutRepositoryAttributeSuccession
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
   - comments:
   - actor: Identity
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
-  - priority:
-  - complexity:
-  - size:
+  - priority: n/a
+  - complexity: n/a
+  - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex:
+  - api_route_regex: POST /api/v2/Attributes/{attributeId}/NotifyPeer
   - published: default
   - link: use-case-consumption-notify-peer-about-repositoryattribute-succession
 require:
 required_by:
+api_route_regex: ^POST /api/v2/Attributes/{attributeId}/NotifyPeer$
 # End automatic generation
 ---
 
@@ -50,8 +51,8 @@ Moreover, it is also possible to notify a peer about the succession of an Identi
 
 ## Parameters
 
-- `attributeId` of the succeeded RepositoryAttribute
-- The Address of the `peer`
+- `attributeId` of the succeeded RepositoryAttribute.
+- The address of the `peer`.
 
 ## On Success
 
@@ -61,9 +62,11 @@ Moreover, it is also possible to notify a peer about the succession of an Identi
 
 ## On Failure
 
-- The response cannot be created, if the `peer` is unknown.
-- The response cannot be created, if the `attributeId` belongs to a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
-- The response cannot be created, if the `attributeId` belongs to an IdentityAttribute with a `shareInfo`.
-- The response cannot be created, if you already notified the peer about the succession of the Attribute.
-- The response cannot be created, if you haven't shared a version of the Attribute with the peer before. To initially share an IdentityAttribute, use the [ShareIdentityAttribute use-case]({% link _docs_use-cases/use-case-consumption-share-a-repositoryattribute.md %}).
-- The response cannot be created, if the parameters are malformed.
+- The response cannot be created if the `peer` is unknown.
+- The response cannot be created if the `attributeId` belongs to a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
+- The response cannot be created if the `attributeId` belongs to an IdentityAttribute with a `shareInfo`.
+- The response cannot be created if you already notified the peer about the succession of the Attribute.
+- The response cannot be created if you already shared this or a newer version of the RepositoryAttribute with the peer.
+- The response cannot be created if you haven't shared a version of the Attribute with the peer before. To initially share a RepositoryAttribute, use the [ShareRepositoryAttribute use-case]({% link _docs_use-cases/use-case-consumption-share-a-repositoryattribute.md %}).
+- The response cannot be created if the latest previous version you shared has a `deletionInfo` with `deletionStatus` other than `"DeletionRequestRejected"`.
+- The response cannot be created if the parameters are malformed.

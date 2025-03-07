@@ -6,7 +6,7 @@ title: "Create Device"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RD1
@@ -19,7 +19,7 @@ properties:
   - tech category: Devices
   - status: DONE
   - documentation status:
-  - comments:
+  - comments: Internal
   - actor: Identity
   - trigger: Runtime
   - precondition:

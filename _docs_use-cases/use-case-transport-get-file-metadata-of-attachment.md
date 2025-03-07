@@ -6,7 +6,7 @@ title: "Get File Metadata of Attachment"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RM4
@@ -41,7 +41,6 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case retrieves the metadata of a [File]({% link _docs_integrate/data-model-overview.md %}#file) that was sent by a [Message]({% link _docs_integrate/data-model-overview.md %}#message)
-as an attachment.
+This use case retrieves the metadata information of a [File]({% link _docs_integrate/data-model-overview.md %}#file) that was sent by a [Message]({% link _docs_integrate/data-model-overview.md %}#message) as one of its `attachments`.
 
-Internally uses the [get or load file](/use-case-transport-get-or-load-file) use-case.
+Internally, it uses the [Load File](/use-case-transport-load-file) use case.

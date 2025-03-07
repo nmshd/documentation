@@ -6,7 +6,7 @@ title: "Query Tokens by parameters"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RK4
@@ -41,14 +41,16 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case queries [Tokens]({% link _docs_integrate/data-model-overview.md %}#token) of the Identity.
+This use case queries [Tokens]({% link _docs_integrate/data-model-overview.md %}#token) of the Identity.
 
 ## Parameters
 
 - `createdAt` is the ISODateTime the Token was created at.
-- `createdBy` is the enmeshed Address of the Identity that created the Token.
+- `createdBy` is the enmeshed `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that created the Token.
 - `createdByDevice` is the `id` of the Device that created the Token.
 - `expiresAt` is the ISODateTime the Token expires.
+- `forIdentity` is the enmeshed `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) for which the Token is intended.
+- `passwordProtection` is an object for [PasswordProtection]({% link _docs_integrate/data-model-overview.md %}#passwordprotection) of a Token.
 
 ## On Success
 

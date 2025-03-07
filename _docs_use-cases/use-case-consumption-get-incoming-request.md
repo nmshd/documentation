@@ -6,7 +6,7 @@ title: "Get incoming Request"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RIR2
@@ -15,7 +15,7 @@ properties:
   - facade: IncomingRequestsFacade
   - function: getRequest
   - description: Fetches the incoming `Request` with the given `id`.
-  - feature category: Normalized requests/responses to and from users
+  - feature category: Normalized Requests/Responses to and from users
   - tech category: Requests
   - status: DONE
   - documentation status: DONE
@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: get /api/v2/Requests/Incoming/{id}
+  - api_route_regex: GET /api/v2/Requests/Incoming/{id}
   - published: default
   - link: use-case-consumption-get-incoming-request
 require:
 required_by:
-api_route_regex: ^get /api/v2/Requests/Incoming/{id}$
+api_route_regex: ^GET /api/v2/Requests/Incoming/{id}$
 # End automatic generation
 ---
 
@@ -42,7 +42,7 @@ api_route_regex: ^get /api/v2/Requests/Incoming/{id}$
 
 {% include properties_list.html %}
 
-This use-case is intended to retrieve an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) by its id. The differences of outgoing and incoming Requests are defined [here]({% link _docs_integrate/data-model-overview.md %}#localrequeststatus).
+This use case is intended to retrieve an incoming [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest) by its id. The differences of outgoing and incoming Requests are defined [here]({% link _docs_integrate/data-model-overview.md %}#localrequeststatus).
 
 ## Parameters
 

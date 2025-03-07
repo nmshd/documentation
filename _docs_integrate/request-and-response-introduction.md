@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC036
-  - category: Working with Requests
+  - category: Working With Requests
   - description:
   - customer: All
   - component: integrate
@@ -29,8 +29,6 @@ Requests are unique between Identities and can only be processed once by a singl
 Each Request can only have a single Response, which responds to the complete Request and contains all the information the requestor needs.
 The Request-Response flow allows to establish transactional behavior between Identities.
 
-Please note that there are some data structures used in the context of enmeshed, that also use the terms "Request" and "Response" in their name, but do not correspond to the objects described on this page, e.g. [RelationshipChangeRequest]({% link _docs_integrate/data-model-overview.md %}#relationshipchangerequest) and [RelationshipChangeResponse]({% link _docs_integrate/data-model-overview.md %}#relationshipchangeresponse).
-
 ## Requests
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/03ed5248-af12-4a50-bac1-73831f2c3cf9" id="d~qRE5C7Dqig"></iframe></div>
@@ -40,7 +38,7 @@ Please note that there are some data structures used in the context of enmeshed,
 A [Request]({% link _docs_integrate/data-model-overview.md %}#request) can be created by an Identity and sent to a peer to exchange information with them.
 Specifying the exact demands to the peer, [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) are the core of the Request.
 In case multiple RequestItems should be answered jointly, e.g. to enhance the structure for the user, they can be combined to a [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup).
-After creating the Request, it can be transmitted either via a Template (see [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %})) or via a Message (see [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %})).
+After creating the Request, it can be transmitted either via a RelationshipTemplate (see [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %})) or via a Message (see [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %})).
 
 ### Types of RequestItems
 
@@ -66,18 +64,10 @@ After the Recipient has responded to the AuthenticationRequestItem, a suitable [
 
 #### ConsentRequestItem
 
-With the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) it is possible to request a consent of the peer to an arbitrary text and thus reach agreement on a certain non machine-processable context.
+With the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) it is possible to request the one-time consent of a peer to an arbitrary text and thus reach agreement on a certain non-machine-processable context. All details on how to use the ConsentRequestItem and examples of use cases for it can be found in the [Request one-time consent of peer]({% link _docs_integrate/request-one-time-consent-of-peer.md %}) guide.
 
-Please do not use the ConsentRequestItem to submit tons of text to the peer Identity. It is meant to be a short consent or summary the user agrees to. Please move longer text to external websites.
-The ConsentRequestItem is also not meant for contractual agreements.
+Note that the ConsentRequestItem cannot be used if intending to [request persistent consent from a peer]({% link _docs_integrate/request-persistent-consent-of-peer.md %}).
 {: .notice--info}
-
-Possible examples are:
-
-- "I hereby confirm that I have read the privacy terms of this cloud service and agree to them."
-- "The provided EULA has been read and agreed to."
-- "Yes, I have backed up all of my data of this PC and you can wipe it."
-- "I opt in to the newsletter."
 
 Depending on whether the ConsentRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
 
@@ -146,7 +136,9 @@ Depending on whether the ProposeAttributeRequestItem is to be accepted or reject
 
 After the Recipient has responded to the ProposeAttributeRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
 
-- After accepting this RequestItem, a [ProposeAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributeacceptresponseitem) will be transferred.
+- After accepting this RequestItem with a new Attribute or an existing one that isn't shared with the peer already neither itself nor any of its predecessing versions, a [ProposeAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributeacceptresponseitem) will be transferred.
+- After accepting this RequestItem with an existing Attribute that was shared with the peer already, an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) will be transferred, given that the own shared LocalAttribute doesn't have `"DeletedByPeer"` or `"ToBeDeletedByPeer"` as `deletionInfo.deletionStatus`.
+- After accepting this RequestItem with an existing Attribute of which a predecessor was shared with the peer already, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be transferred, given that the own shared predecessor doesn't have `"DeletedByPeer"` or `"ToBeDeletedByPeer"` as `deletionInfo.deletionStatus`.
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
@@ -161,7 +153,9 @@ Depending on whether the ReadAttributeRequestItem is to be accepted or rejected,
 
 After the Recipient has responded to the ReadAttributeRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
 
-- After accepting this RequestItem, a [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem) will be transferred.
+- After accepting this RequestItem with a new Attribute or an existing one that isn't shared with the peer already neither itself nor any of its predecessing versions, a [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem) will be transferred.
+- After accepting this RequestItem with an existing Attribute that was shared with the peer already, an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) will be transferred, given that the own shared LocalAttribute doesn't have `DeletedByPeer` as `deletionInfo.deletionStatus`.
+- After accepting this RequestItem with an existing Attribute of which a predecessor was shared with the peer already, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be transferred, given that the own shared predecessor doesn't have `"DeletedByPeer"` or `"ToBeDeletedByPeer"` as `deletionInfo.deletionStatus`.
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
@@ -196,6 +190,159 @@ After the Recipient has responded to the ShareAttributeRequestItem, a suitable [
 - After accepting this RequestItem, a [ShareAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#shareattributeacceptresponseitem) will be transferred.
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+
+### Rendering of RequestItems
+
+Please note that the rendering of the [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) in the App is currently being revised. As soon as the changes to the App have been made, the example here will also be adapted.
+{: .notice--warning}
+
+This section gives an example of a [Request]({% link _docs_integrate/data-model-overview.md %}#request) that contains various [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems), namely an [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem), a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem), a [FreeTextRequestItem]({% link _docs_integrate/data-model-overview.md %}#freetextrequestitem), a [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem), a [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), a [RegisterAttributeListenerRequestItem]({% link _docs_integrate/data-model-overview.md %}#registerattributelistenerrequestitem) and a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem), within its `items` property. This Request can be sent from a Sender to an App user. A screenshot from the App showing how the Request is displayed to the App user is provided afterwards.
+
+```json
+{
+  "title": "<title of Request>",
+  "description": "<description of Request>",
+  "items": [
+    {
+      "@type": "AuthenticationRequestItem",
+      "mustBeAccepted": true,
+      "title": "<title of AuthenticationRequestItem>",
+      "description": "<description of AuthenticationRequestItem>"
+    },
+    {
+      "@type": "ConsentRequestItem",
+      "mustBeAccepted": true,
+      "title": "<title of ConsentRequestItem>",
+      "description": "<description of ConsentRequestItem>",
+      "consent": "<consent issue originating from the Sender>",
+      "link": "<link to external website with more information on the issue>"
+    },
+    {
+      "@type": "CreateAttributeRequestItem",
+      "mustBeAccepted": true,
+      "title": "<title of CreateAttributeRequestItem>",
+      "description": "<description of CreateAttributeRequestItem>",
+      "attribute": {
+        "@type": "IdentityAttribute",
+        "owner": "",
+        "value": {
+          "@type": "Surname",
+          "value": "<surname created for the App user by the Sender>"
+        },
+        "tags": ["<tag of surname to be created>"],
+        "validFrom": "<start of IdentityAttribute's validity>",
+        "validTo": "<end of IdentityAttribute's validity>"
+      }
+    },
+    {
+      "@type": "FreeTextRequestItem",
+      "mustBeAccepted": false,
+      "title": "<title of FreeTextRequestItem>",
+      "description": "<description of FreeTextRequestItem>",
+      "freeText": "<free text written by the Sender>"
+    },
+    {
+      "@type": "ProposeAttributeRequestItem",
+      "mustBeAccepted": false,
+      "title": "<title of ProposeAttributeRequestItem>",
+      "description": "<description of ProposeAttributeRequestItem>",
+      "attribute": {
+        "@type": "IdentityAttribute",
+        "owner": "",
+        "value": {
+          "@type": "GivenName",
+          "value": "<given name proposed by the Sender>"
+        },
+        "tags": ["<tag of proposed given name>"],
+        "validFrom": "<start of IdentityAttribute's validity>",
+        "validTo": "<end of IdentityAttribute's validity>"
+      },
+      "query": {
+        "@type": "IdentityAttributeQuery",
+        "valueType": "GivenName"
+      }
+    },
+    {
+      "@type": "ReadAttributeRequestItem",
+      "mustBeAccepted": false,
+      "title": "<title of ReadAttributeRequestItem>",
+      "description": "<description of ReadAttributeRequestItem>",
+      "query": {
+        "@type": "IdentityAttributeQuery",
+        "valueType": "BirthDate",
+        "tags": ["<tag of date of birth to be read>"],
+        "validFrom": "<start of IdentityAttribute's validity>",
+        "validTo": "<end of IdentityAttribute's validity>"
+      }
+    },
+    {
+      "@type": "RegisterAttributeListenerRequestItem",
+      "mustBeAccepted": false,
+      "title": "<title of RegisterAttributeListenerRequestItem>",
+      "description": "<description of RegisterAttributeListenerRequestItem>",
+      "query": {
+        "@type": "IdentityAttributeQuery",
+        "valueType": "StreetAddress",
+        "tags": ["<tag of street address for which the registration was made>"],
+        "validFrom": "<start of IdentityAttribute's validity>",
+        "validTo": "<end of IdentityAttribute's validity>"
+      }
+    },
+    {
+      "@type": "ShareAttributeRequestItem",
+      "mustBeAccepted": true,
+      "title": "<title of ShareAttributeRequestItem>",
+      "description": "<description of ShareAttributeRequestItem>",
+      "attribute": {
+        "@type": "IdentityAttribute",
+        "owner": "<address of Sender>",
+        "value": {
+          "@type": "DisplayName",
+          "value": "<display name shared by the Sender>"
+        },
+        "tags": ["<tag of shared display name>"],
+        "validFrom": "<start of IdentityAttribute's validity>",
+        "validTo": "<end of IdentityAttribute's validity>"
+      },
+      "sourceAttributeId": "<ID of source RepositoryAttribute>"
+    }
+  ]
+}
+```
+
+The `<...>` notation is used as a placeholder for the actual data as usual. Also note that in the example Request, the [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) have been used for test purposes instead of the [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) for those RequestItems that relate to [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes). For an overview of the different types of Attributes, consult the [Attribute introduction]({% link _docs_integrate/attribute-introduction.md %}).
+{: .notice--info}
+
+After the Sender has created the Request and sent it to the App user [via a Message]({% link _docs_integrate/requests-via-messages.md %}) or [via a RelationshipTemplate]({% link _docs_integrate/requests-via-relationshiptemplates.md %}), the Request is displayed to the App user.
+The following screenshot shows the rendering of the example Request in the App.
+The order in which the RequestItems are rendered corresponds to the order in which they appear in the example Request.
+
+<div style="width: 640px; height: 600px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:600px" src="https://lucid.app/documents/embedded/847ca447-3c5b-461b-a9f8-206a2384475b" id="bN9IW2Drzrx."></iframe></div>
+
+At the bottom of the App screen, there is a "Reject" button to [reject the Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) and an "Accept" button to [accept the Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}). If no Relationship has been established between the Sender and the App user, and the Request was sent [via a RelationshipTemplate]({% link _docs_integrate/requests-via-relationshiptemplates.md %}), the "Accept" button is labeled "Add Contact" instead.
+{: .notice--info}
+
+The screenshot demonstrates that the rendering of the individual kinds of [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) differs from one another.
+However, the display of a RequestItem in the App depends not only on its properties, but also on which [DecideRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#deciderequestitemparameters) must be used to accept it.
+
+For instance, when accepting a ProposeAttributeRequestItem, the [AcceptProposeAttributeRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptproposeattributerequestitemparameters) must be utilized. These parameters enable acceptance of the ProposeAttributeRequestItem with either an existing Attribute or a new one, which could be the Attribute proposed by the Sender.
+In the App, a small arrow icon is displayed to the right of the ProposeAttributeRequestItem, which leads the App user to a list of existing Attributes that would be suitable for accepting the ProposeAttributeRequestItem, too.
+In addition, further new Attributes suitable for accepting the ProposeAttributeRequestItem can be created there.
+{: .notice--info}
+
+In principle, a RequestItem can not only be accepted, but also rejected, for which the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) are used.
+The App user can reject a RequestItem by unticking the checkbox to its left, and accept it by ticking the checkbox.
+However, any RequestItem whose value of the property `mustBeAccepted` is set to `true` must be accepted and cannot be rejected.
+In the App, this is shown by a ticked and greyed-out checkbox, indicating that the RequestItem cannot be rejected.
+In our example Request, this is the case for the [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem), the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) and the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem).
+If you do not agree to accept a RequestItem whose value of its `mustBeAccepted` property is set to `true`, you are forced to reject the Request as a whole.
+
+Some RequestItems exhibit particular characteristics.
+For the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), for example, a `link` to an external website with more information on the `consent` issue originating from the Sender can optionally be specified.
+Specifying a `link` causes an icon to appear to the right of the ConsentRequestItem.
+Clicking on this icon redirects to the corresponding website.
+The ConsentRequestItem from our example Request provides a `link`. For this reason, the mentioned icon can be found in the screenshot of the App.
+{: .notice--info}
 
 ## Responses
 
@@ -266,9 +413,8 @@ In case you don't have a Relationship with the peer yet, opening the Relationshi
 If the peer decides to accept and to respond to your Request, again a LocalRequest and LocalResponse will be created at their side.
 However, the returned data differ.
 Instead of a ResponseWrapper inside a Message, a Relationship is returned which is in the status `pending` for now.
-It contains the RelationshipTemplate, as well as the changes the peer made to it, i.e. the created Request and Response.
-Only after you accept the RelationshipCreationChangeRequest (not the kind of Request discussed on this page), the LocalRequest with LocalResponse is created at your side and the peer will receive the information about the status change via a `consumption.incomingRequestStatusChanged` [event]({% link _docs_integrate/connector-events.md %}).
-
+It contains the RelationshipTemplate, as well as the Response to the Request.
+Only after you accept the Relationship, the LocalRequest with LocalResponse is created at your side and the peer will receive the information about the status change via a `consumption.incomingRequestStatusChanged` [event]({% link _docs_integrate/connector-events.md %}).
 You can find an [example for the Request-Response flow via RelationshipTemplate](#working-with-requestitemgroups) below.
 
 ## Examples
@@ -290,12 +436,12 @@ For simplicity some properties are omitted.
 ### Working with RequestItemGroups
 
 At a job fair a company wants to offer a convenient way to get in touch with interested jobseekers.
-For this, they provide a QR-code, linking to a RelationshipTemplate.
+For this, they provide a QR code, linking to a RelationshipTemplate.
 In its `content.onNewRelationship` property it holds a Request with two RequestItemGroups.
 One of them contains Attributes the company shares with the peer, e.g. the company name.
 The other contains Attributes it would like to query from the peer.
-In this example they are the given and surname and optionally an e-mail address, following the [Integration example]({% link _docs_integrate/integration-example.md %}).
-Now, an interested person can scan the QR-code, provide their information and send their Response inside a RelationshipCreationChangeRequest.
-Once the company accepts the new Relationship, they can exchange messages or other data using enmeshed.
+In this example they are the given and surname and optionally an email address, following the [Integration example]({% link _docs_integrate/integration-example.md %}).
+Now, an interested person can scan the QR code, provide their information and send their Response inside a Relationship's creation content.
+Once the company accepts the new Relationship, they can exchange Messages or other data using enmeshed.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/4ac53380-b21a-4e33-982a-aa9167c471f3" id="iDvN-GT-yvbN"></iframe></div>

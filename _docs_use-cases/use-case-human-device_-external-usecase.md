@@ -6,7 +6,7 @@ title: "Device External UseCase"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: A15
@@ -41,10 +41,10 @@ required_by:
 
 {% include properties_list.html %}
 
-Be advised that this is an App-specific use-case which is triggered by a manual user interaction. Although it is a very generic use-case which one would normally not describe, we introduced it because we require it in our overarching scenarios.
+Be advised that this is an App-specific use case which is triggered by a manual user interaction. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios.
 {: .notice--info}
 
-This use-case describes any required manual user interaction on the Device, which might be required in order to to use the App.
+This use case describes any required manual user interaction on the Device, which might be required in order to to use the App.
 
 Examples:
 

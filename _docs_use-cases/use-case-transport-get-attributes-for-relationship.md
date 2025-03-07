@@ -6,7 +6,7 @@ title: "Get Attributes for Relationship"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RR5
@@ -14,8 +14,8 @@ properties:
   - layer: Transport
   - facade: RelationshipsFacade
   - function: getAttributesForRelationship
-  - description: Queries attributes that are related to the given relationship.
-  - feature category: Mutual peer-to-peer relationships
+  - description: Queries Attributes that are related to the given Relationship.
+  - feature category: Mutual peer-to-peer Relationships
   - tech category: Relationships
   - status: DONE
   - documentation status: DONE

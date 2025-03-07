@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC027
-  - category: Request consent
+  - category: Request Consent
   - description:
   - customer: All
   - component: integrate
@@ -25,10 +25,10 @@ required_by:
 
 This guide explains how an Identity can obtain the persistent consent of one of its peers on a particular issue. Technically, this form of consent is stored by a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with [Consent]({% link _docs_integrate/attribute-values.md %}#consent) as `value.@type`, that exists in the context of their [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) and that is usually owned by the peer.
 
-For more information on how to establish Relationships, refer to the [Establish Relationships]({% link _docs_integrate/establish-relationships.md %}) scenario documentation.
+For information on how to establish Relationships, refer to the [Establish Relationships]({% link _docs_integrate/establish-relationships.md %}) scenario documentation.
 {: .notice--info}
 
-If an Identity wants to obtain the persistent consent of one of its peers and thus [create a RelationshipAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-a-relationshipattribute-for-yourself) with Consent as `value.@type` for their Relationship, it has several options on how to do this. These have in common that the Identity must send a [Request]({% link _docs_integrate/data-model-overview.md %}#request) to create such a RelationshipAttribute to its peer, which must be accepted by the peer. The Identity usually wants to define the values for the properties of the [Consent]({% link _docs_integrate/attribute-values.md %}#consent) itself. This applies in particular to its `consent` property, in which the text is specified to which the peer should persistently agree. The peer should not be able to change this text or the other values for the properties of the Consent. For this purpose, it makes the most sense for the Identity to send a [Request]({% link _docs_integrate/data-model-overview.md %}#request) to the peer that contains a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) within its `items` property. The RelationshipAttribute to be created must then be inserted into the `attribute` property of the CreateAttributeRequestItem. Further information on using the CreateAttributeRequestItem can be found in the [Create Attributes for peer]({% link _docs_integrate/create-attributes-for-peer.md %}) guide.
+If an Identity wants to obtain the persistent consent of one of its peers and thus [create a RelationshipAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-a-relationshipattribute) with Consent as `value.@type` for their Relationship, it has several options on how to do this. These have in common that the Identity must send a [Request]({% link _docs_integrate/data-model-overview.md %}#request) to create such a RelationshipAttribute to its peer, which must be accepted by the peer. The Identity usually wants to define the values for the properties of the [Consent]({% link _docs_integrate/attribute-values.md %}#consent) itself. This applies in particular to its `consent` property, in which the text is specified to which the peer should persistently agree. The peer should not be able to change this text or the other values for the properties of the Consent. For this purpose, it makes the most sense for the Identity to send a [Request]({% link _docs_integrate/data-model-overview.md %}#request) to the peer that contains a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) within its `items` property. The RelationshipAttribute to be created must then be inserted into the `attribute` property of the CreateAttributeRequestItem. Further information on using the CreateAttributeRequestItem can be found in the [Create Attributes for peer]({% link _docs_integrate/create-attributes-for-peer.md %}) guide.
 
 ## Examples of consents
 
@@ -39,11 +39,19 @@ There are many situations in which an Identity needs or wants the persistent con
 - "Yes, I have backed up all of my data on this computer and you can wipe it."
 - "Yes, I want to opt-in to the newsletter."
 
-The `consent` property of a Consent is not intended to be used by an Identity to send tons of text to the peer. Instead, it should contain a brief summary of the issue, which the peer should agree to. Longer texts should be placed on external websites. A link to such a website can be specified in the optional `link` property of the Consent. Also note that the Consent should not be used for contractual agreements.
+The `consent` property of a Consent is not intended to be used by an Identity to send a lot of text to the peer. Instead, it should contain a brief summary of the issue, which the peer should agree to. Longer texts should be placed on external websites. A link to such a website can be specified in the optional `link` property of the Consent. Also note that the Consent should not be used for contractual agreements.
 
 ## Request for persistent consent
 
-In the following, we describe how a Connector, hereinafter referred to as the Sender, can create a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with [Consent]({% link _docs_integrate/attribute-values.md %}#consent) as `value.@type` for a Relationship to another Connector, the so-called Recipient, by sending a [Request]({% link _docs_integrate/data-model-overview.md %}#request). As there is already a Relationship between the Sender and the Recipient, the Sender can send the [Request via a Message]({% link _docs_integrate/requests-via-messages.md %}) to the Recipient. Note that the Sender could also send the [Request via a RelationshipTemplate]({% link _docs_integrate/requests-via-relationshiptemplates.md %}), but this is not discussed further below.
+In the following, we describe how a Connector, hereinafter referred to as the Sender, can create a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with [Consent]({% link _docs_integrate/attribute-values.md %}#consent) as `value.@type` for a Relationship to another Connector, the so-called Recipient, by sending an appropriate [Request]({% link _docs_integrate/data-model-overview.md %}#request).
+
+The general procedure is the same if the Connector wants to obtain the persistent consent of an App user instead of another Connector. For reasons of clarity, this guide focuses on the process with two Connectors.
+{: .notice--info}
+
+As there is already a Relationship between the Sender and the Recipient, the Sender can send the [Request via a Message]({% link _docs_integrate/requests-via-messages.md %}) to the Recipient. Even if the Relationship has already been established, the Sender could also send the [Request via a RelationshipTemplate]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) to the Recipient, but this is not discussed further here.
+
+Please note that if there is no active Relationship between the Sender and the Recipient, the Request for persistent consent must be sent via a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) instead of a [Message]({% link _docs_integrate/data-model-overview.md %}#message). The process of [establishing a Relationship]({% link _docs_integrate/establish-relationships.md %}) is then initiated at the same time.
+{: .notice--info}
 
 ### Create the Request
 
@@ -71,20 +79,20 @@ As already indicated, the Request contains a [CreateAttributeRequestItem]({% lin
       }
     ]
   },
-  "peer": "<Address of Recipient>"
+  "peer": "<address of Recipient>"
 }
 ```
 
-Before creating the Request, the Sender should check whether it is valid. This can be done by proceeding as described in the documentation of the [Check if outgoing Request can be created]({% link _docs_use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}) use case. The advantage of checking the validity of the Request first before attempting to create it is that the Sender would receive a more precise [error]({% link _docs_integrate/error-codes.md %}) description in the case of a faulty Request.
+Before creating the Request, the Sender should check whether it is valid. This can be done by proceeding as described in the documentation of the [Check if outgoing Request can be created]({% link _docs_use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}) use case. The advantage of checking the validity of the Request first before attempting to create it is that the Sender will receive a more precise [error]({% link _docs_integrate/error-codes.md %}) description in the case of a faulty Request.
 {: .notice--info}
 
 ### Send the Request
 
-After the Request is created, the Sender can send it to the Recipient. To send the [Request via a Message]({% link _docs_integrate/requests-via-messages.md %}), the Sender have to follow the instructions of the [Send a Message to the Recipient]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) use case documentation. To continue the example, the following payload must be used by the Sender to send the [created Request]({% link _docs_integrate/request-persistent-consent-of-peer.md %}#create-the-request) to the Recipient via a Message. It is essential that the `id` of the Request is specified, which was generated after the Request was created by the Sender with the [Create outgoing Request]({% link _docs_use-cases/use-case-consumption-create-outgoing-request.md %}) use case. This enables the Request to be processed correctly by the Recipient.
+After the Request has been created, the Sender can send it to the Recipient. To send the [Request via a Message]({% link _docs_integrate/requests-via-messages.md %}), the Sender has to follow the instructions of the [Send a Message to the Recipient]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) use case documentation. To continue the example, the following payload must be used by the Sender to send the [created Request]({% link _docs_integrate/request-persistent-consent-of-peer.md %}#create-the-request) to the Recipient via a Message. It is essential that the `id` of the Request is specified, which was generated after the Request was created by the Sender with the [Create outgoing Request]({% link _docs_use-cases/use-case-consumption-create-outgoing-request.md %}) use case. This enables the Request to be processed correctly by the Recipient.
 
 ```jsonc
 {
-  "recipients": ["<Address of Recipient>"],
+  "recipients": ["<address of Recipient>"],
   "content": {
     "@type": "Request",
     "id": "<ID of Request>",
@@ -129,4 +137,4 @@ The accepted CreateAttributeRequestItem leads to the creation of a [LocalAttribu
 
 ## What's next?
 
-If an Identity asks for a one-time consent instead of a persistent consent of one of its peers, the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) can be used. It must be inserted into the `items` property of an appropriate [Request]({% link _docs_integrate/data-model-overview.md %}#request). Processing the ConsentRequestItem does not lead to the creation of a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with Consent as `value.@type` in the background. For more details, the documentation of the [Request one-time consent of peer]({% link _docs_integrate/request-one-time-consent-of-peer.md %}) scenario can be consulted.
+If an Identity asks for a one-time consent instead of a persistent consent of one of its peers, the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) can be used. It must be inserted into the `items` property of an appropriate [Request]({% link _docs_integrate/data-model-overview.md %}#request). Processing the ConsentRequestItem does not lead to the creation of a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with Consent as `value.@type`. For more details, the documentation of the [Request one-time consent of peer]({% link _docs_integrate/request-one-time-consent-of-peer.md %}) scenario can be consulted.

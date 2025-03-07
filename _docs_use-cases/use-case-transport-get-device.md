@@ -6,7 +6,7 @@ title: "Get Device"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RD3
@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case retrieves the Device with the given `id`.
+This use case retrieves the Device with the given `id`.
 
 ## Parameters
 

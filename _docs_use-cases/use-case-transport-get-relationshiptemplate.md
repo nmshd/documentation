@@ -8,7 +8,7 @@ title: "Get RelationshipTemplate"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RT4
@@ -44,12 +44,12 @@ api_route_regex: ^GET /api/v2/RelationshipTemplates/{id}$
 
 {% include properties_list.html %}
 
-This use-case retrieves a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate)
+This use case retrieves a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate)
 by its `id`.
 
 ## Parameters
 
-- `id`of the RelationshipTemplate.
+- `id` of the RelationshipTemplate.
 
 ## On Success
 

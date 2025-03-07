@@ -41,24 +41,30 @@ The Sender wants to read an Attribute of the Recipient. To do this, the Sender m
 
 ### Role of ReadAttributeRequestItem
 
-For reading a single Attribute, the Sender needs to insert a single RequestItem of type [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request). The input it has to provide for the `query` property of the ReadAttributeRequestItem depends on what type of Attribute it wants to get. If the Sender wants to read an IdentityAttribute, it can use an appropriate [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery). If it is interested in a RelationshipAttribute of the Recipient, it can insert a [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) or a [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery) at this point. This depends on whether the Sender wants to read a RelationshipAttribute that the Recipient has in the context of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with the Sender or with a third party. It is also permitted to specify an [IQLQuery]({% link _docs_integrate/data-model-overview.md %}#iqlquery) for the `query` property of the ReadAttributeRequestItem.
+For reading a single Attribute, the Sender needs to insert a single RequestItem of type [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request). The input it has to provide for the `query` property of the ReadAttributeRequestItem depends on what type of Attribute it wants to get. If the Sender wants to read an IdentityAttribute, it can use an appropriate [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery). Only IdentityAttributes that are owned by the Recipient can be requested by the Sender. It makes no sense for the Sender to request a RelationshipAttribute from the Recipient that already exists in the context of their [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) to each other. However, the Sender may want to create a RelationshipAttribute for this Relationship whose `value` is set by the Recipient. This can be done by using a [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery).
+
+The Sender can use a ReadAttributeRequestItem to create a RelationshipAttribute in the context of a Relationship between itself and the Recipient if it wants the [RelationshipAttributeValue]({% link _docs_integrate/attribute-values.md %}#relationship-attributes) to be set by the Recipient. Even if it seems misleading to use a ReadAttributeRequestItem to create a RelationshipAttribute, this terminology makes sense insofar as the RelationshipAttributeValue should be read from the Recipient in order to be able to create it.
+{: .notice--info}
+
+Note that the Sender cannot explicitly specify the Recipient's address as the value for the `owner` property of the RelationshipAttributeQuery because the address does not have to be known beforehand. This is the case if the [Request is sent via a RelationshipTemplate]({% link _docs_integrate/read-attributes-from-peer.md %}#request-via-relationshiptemplate) and not via a Message. Therefore, an empty string must be specified as the `owner` instead if the Sender wants the RelationshipAttribute to be owned by the Recipient. If the Sender is interested in a RelationshipAttribute that the Recipient has in the context of a Relationship with a third party, a [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery) can be used. In addition, it is also permitted to specify an [IQLQuery]({% link _docs_integrate/data-model-overview.md %}#iqlquery) for the `query` property of the ReadAttributeRequestItem.
 
 ### Combinations and usage scenarios of ReadAttributeRequestItem
 
 The following table provides an overview of the possible kinds of Attributes that the Sender can read from the Recipient using the ReadAttributeRequestItem. It must be taken into account whether the [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) is an IdentityAttribute or a RelationshipAttribute and which Identity is its `owner`. If the Sender wants to read a RelationshipAttribute from the Recipient, a distinction must be made between which Identities the Relationship in question exists.
 
-| Attribute Type | Attribute Owner | Third Party | Possible? | Automation                                                   | Examples/Reason                                                                                                                                                                                                                                                                                    |
-| -------------- | --------------- | ----------- | :-------: | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Identity       | Sender          |             |     ✗     | `N/A`                                                        | It makes no sense to read own IdentityAttributes.                                                                                                                                                                                                                                                  |
-| Identity       | Recipient       |             |     ✓     | `USER_DECISION`                                              | Company asks customer for its delivery address.                                                                                                                                                                                                                                                    |
-| Relationship   | Sender          |             |     ✓     | `USER_DECISION`                                              | With this combination the **Sender gives the Recipient the one-time permission** to write a RelationshipAttribute once.<br>Example: Electricity provider asks new customers for electricity meter number.                                                                                          |
-| Relationship   | Recipient       |             |     ✓     | `USER_DECISION`                                              | With this combination the **Sender asks the Recipient for the one-time permission** to write a RelationshipAttribute.<br>Example: Company asks new customer to subscribe to the newsletter.                                                                                                        |
-| Relationship   | Recipient       | Third Party |     ✓     | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **Sender requests a RelationshipAttribute from a Relationship between the Recipient and a third party that is owned by the Recipient.**<br> Example: A social network asks for Facebook privacy settings of a user to get senseful defaults of its own privacy settings. |
-| Relationship   | Third Party     | Third Party |     ✓     | `USER DECISION / NOT ALLOWED` - depending on confidentiality | With this combination the **Sender requests a RelationshipAttribute from a Relationship between the Recipient and a third party that is owned by the third party.**<br> Example: An online shop asks for the Payback customer ID of a user to book the order on their account.                     |
+| Type and context                                                                                           | Owner       |                 Possible?                  | Automation      | Remarks, reasons and examples                                                                                                                                                                                                                                                                                                                                          |
+| ---------------------------------------------------------------------------------------------------------- | ----------- | :----------------------------------------: | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| IdentityAttribute                                                                                          | Sender      |                     ✗                      | `N/A`           | It makes no sense for the Sender to read IdentityAttributes that are owned by itself. Instead, it can [create IdentityAttributes for itself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself).                                                                                                                   |
+| IdentityAttribute                                                                                          | Recipient   |                     ✓                      | `USER_DECISION` | Example: A company asks a customer for their delivery address.                                                                                                                                                                                                                                                                                                         |
+| IdentityAttribute                                                                                          | Third party |                     ✗                      | `N/A`           | An IdentityAttribute that is owned by a third party cannot be shared by the Recipient.                                                                                                                                                                                                                                                                                 |
+| RelationshipAttribute that exists in the context of the Relationship between the Sender and the Recipient  | Sender      |                     ✓                      | `USER_DECISION` | With this combination, the Sender gives the Recipient the **one-time permission to create a RelationshipAttribute** that exists in the context of their Relationship and that is owned by the Sender.<br>Example: An electricity provider asks a new customer for their electricity meter number.                                                                      |
+| RelationshipAttribute that exists in the context of the Relationship between the Sender and the Recipient  | Recipient   |                     ✓                      | `USER_DECISION` | With this combination, the Sender gives the Recipient the **one-time permission to create a RelationshipAttribute** that exists in the context of their Relationship and that is owned by the Recipient.<br>Example: A company asks a customer if they want to subscribe to its newsletter.                                                                            |
+| RelationshipAttribute that exists in the context of a Relationship between the Recipient and a third party | Recipient   | ✓ or ✗ -<br>depending on `confidentiality` | `USER_DECISION` | If its `confidentiality` is not `"private"`, the Sender is able to request to **read an existing RelationshipAttribute** that exists in a Relationship between the Recipient and a third party and that is owned by the Recipient.<br>Example: A social network asks for the Facebook privacy settings of a user to get senseful defaults of its own privacy settings. |
+| RelationshipAttribute that exists in the context of a Relationship between the Recipient and a third party | Third party | ✓ or ✗ -<br>depending on `confidentiality` | `USER_DECISION` | If its `confidentiality` is not `"private"`, the Sender is able to request to **read an existing RelationshipAttribute** that exists in a Relationship between the Recipient and a third party and that is owned by the third party.<br>Example: An online shop asks for the Payback customer ID of a user to book the order on their account.                         |
 
 ### Example of reading an IdentityAttribute
 
-We assume that the Sender wants to read an IdentityAttribute of type [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) of the Recipient. To do this, it inserts the corresponding IdentityAttributeQuery into the `query` property of the [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), which is contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes. In our example, we have chosen to set the value of the `mustBeAccepted` property of the ReadAttributeRequestItem to `true`.
+We assume that the Sender wants to read an IdentityAttribute of type [EMailAddress]({% link _docs_integrate/attribute-values.md %}#emailaddress) of the Recipient. To do this, it inserts the corresponding [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery) into the `query` property of the [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), which is contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes. In our example, we have chosen to set the value of the `mustBeAccepted` property of the ReadAttributeRequestItem to `true`.
 
 ```jsonc
 {
@@ -76,9 +82,9 @@ We assume that the Sender wants to read an IdentityAttribute of type [EMailAddre
 }
 ```
 
-### Example of reading a RelationshipAttribute
+### Example of reading a RelationshipAttribute without a third party involved
 
-We now consider the case that the Sender has an active Relationship established with the Recipient and that the Sender wants to request a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) of this Relationship whose `value` is set by the Recipient. Then the associated [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), which is contained in the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes created by the Sender, must contain an appropriate RelationshipAttributeQuery in its `query` property. For example, if the Sender wants to request a RelationshipAttribute of type [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring) that is owned by the Recipient and whose `confidentiality` is `"public"`, the Request could look like this:
+We now consider the case that the Sender has an active Relationship established with the Recipient and that it wants to create a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) for this Relationship whose `value` is read from the Recipient. Then the associated [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), which is contained in the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes created by the Sender, must contain an appropriate RelationshipAttributeQuery in its `query` property. For example, if the Sender wants to request a RelationshipAttribute of type [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring) that is owned by the Recipient and whose `confidentiality` is `"public"`, the Request could look like this:
 
 ```jsonc
 {
@@ -90,7 +96,7 @@ We now consider the case that the Sender has an active Relationship established 
       "query": {
         "@type": "RelationshipAttributeQuery",
         "key": "<key of RelationshipAttribute>",
-        "owner": "<Address of Recipient>",
+        "owner": "",
         "attributeCreationHints": {
           "title": "<title of RelationshipAttribute>",
           "valueType": "ProprietaryString",
@@ -102,7 +108,31 @@ We now consider the case that the Sender has an active Relationship established 
 }
 ```
 
-Note that the `<...>` notation is used as a placeholder for the actual data as usual. Further details on the purposes for which you can use a RelationshipAttributeQuery can be found in the table of the [Combinations and usage scenarios of the ReadAttributeRequestItem]({% link _docs_integrate/read-attributes-from-peer.md %}#combinations-and-usage-scenarios-of-readattributerequestitem). For information on using the ThirdPartyRelationshipAttributeQuery, you should also refer to this table.
+Note that an empty string must be specified as the value for the `owner` property of the [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) if the Sender wants the requested RelationshipAttribute to be owned by the Recipient and that the `<...>` notation is used as a placeholder for the actual data as usual.
+
+### Example of reading a RelationshipAttribute with a third party involved
+
+If the Sender has established an active Relationship with the Recipient and the Recipient has also established an active Relationship with a third party, the Sender can request to read [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) that exist in the context of the Relationship between the Recipient and the third party. To do this, a corresponding [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery) must be used. The Sender inserts it into the `query` property of the [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), which is contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for reading Attributes. For example, if the Sender wants to request a RelationshipAttribute that is owned by the Recipient and that exists in the context of the Relationship between the Recipient and a specific third party, the Request could look like this:
+
+```jsonc
+{
+  "@type": "Request",
+  "items": [
+    {
+      "@type": "ReadAttributeRequestItem",
+      "mustBeAccepted": true,
+      "query": {
+        "@type": "ThirdPartyRelationshipAttributeQuery",
+        "key": "<key of RelationshipAttribute>",
+        "owner": "recipient",
+        "thirdParty": ["<address of third party>"]
+      }
+    }
+  ]
+}
+```
+
+Note that the string `"recipient"` must be specified as the value for the `owner` property of the ThirdPartyRelationshipAttributeQuery if the Sender wants the requested RelationshipAttribute to be owned by the Recipient. RelationshipAttributes that exist in the context of the Relationship between the Recipient and the third party and whose `confidentitality` is `"private"` cannot be sent by the Recipient to the Sender.
 
 ### Read multiple Attributes
 
@@ -122,16 +152,34 @@ The Sender only has the option of sending a Request to the Recipient via a [Mess
 
 ## Accept the Request
 
-After the Recipient has received the [Request for reading Attributes]({% link _docs_integrate/read-attributes-from-peer.md %}#request-for-reading-attributes), it can accept it to give the Sender read access to all or some of the requested Attributes. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). You must also decide and specify for each ReadAttributeRequestItem and RequestItemGroup contained in the Request for reading Attributes whether you want to accept or reject it.
+After the Recipient has received the [Request for reading Attributes]({% link _docs_integrate/read-attributes-from-peer.md %}#request-for-reading-attributes), it can accept it to give the Sender read access to all or some of the requested Attributes. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). You must also decide and specify for each ReadAttributeRequestItem contained in the Request for reading Attributes whether you want to accept or reject it.
 
 If the Recipient does not want the Sender to read any of its Attributes and, therefore, does not want to accept the Request for reading Attributes of the Sender, it can reject it as a whole as well. For this, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/164e1c68-0997-4a16-832c-c1e53bb55571" id="NypRt8MoA-HR"></iframe></div>
+<div style="width: 640px; height: 720px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:720px" src="https://lucid.app/documents/embedded/57c9e02d-cf47-4777-b5d1-4d40c10a7593" id="eaAPLfDc5muI"></iframe></div>
 
 ### Accept a ReadAttributeRequestItem
 
-If the Recipient agrees to share a requested Attribute with the Sender, it can accept the associated ReadAttributeRequestItem contained in the Request for reading Attributes. In particular, it must then provide the requested Attribute for its Response to the Request. Depending on whether the Recipient wants to share an Attribute that already exists as a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) or that has to be created first, different parameters for this must be used. These [AcceptReadAttributeRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptreadattributerequestitemparameters) are described in the corresponding section of the Data Model Overview. The acceptance of a ReadAttributeRequestItem always leads to the creation of a LocalAttribute with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property, whose underlying `content` is given by the shared Attribute. An appropriate AcceptResponseItem of type [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem) is generated, which incorporates the `id` of the LocalAttribute with the LocalAttributeShareInfo in its `attributeId` property and the shared Attribute in its `attribute` property. This ReadAttributeAcceptResponseItem will be included in the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for reading Attributes that will be transferred to the Sender. If a new IdentityAttribute is to be shared, a corresponding LocalAttribute without a LocalAttributeShareInfo is additionally created for the Recipient beforehand.
+If the Recipient agrees to share a requested Attribute with the Sender, it can accept the associated ReadAttributeRequestItem contained in the Request for reading Attributes. In particular, it must then provide the Attribute requested via the `query` property of the ReadAttributeRequestItem for its Response to the Request. Depending on whether the Recipient wants to share an Attribute that already exists as a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) or that has to be created first, different [AcceptReadAttributeRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptreadattributerequestitemparameters) must be used for this. If the Recipient decides to share an existing Attribute that doesn't contain at least one tag matching the `tags` specified within the `query` of the ReadAttributeRequestItem, they have the possibility to specify additional `tags` within the AcceptReadAttributeRequestItemParameters. As already indicated, a RelationshipAttributeQuery can only be validly answered with a new Attribute, and a ThirdPartyRelationshipAttributeQuery can only be validly answered with an existing Attribute.
+
+Otherwise, the [error code]({% link _docs_integrate/error-codes.md %}) `error.consumption.requests.invalidAcceptParameters` arises. Furthermore, an error with the code `error.consumption.requests.attributeQueryMismatch` will be thrown if the Attribute provided by the Recipient does not match the [AttributeQuery]({% link _docs_integrate/data-model-overview.md %}#attributequeries) specified in the `query` property of the ReadAttributeRequestItem.
+{: .notice--info}
+
+Accepting a ReadAttributeRequestItem with a new Attribute or an existing, that isn't shared with the Sender already neither itself nor any of its predecessing versions, leads to the creation of a LocalAttribute with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property, whose underlying `content` is given by the shared Attribute.
+Depending on whether the Recipient sends back an IdentityAttribute or a RelationshipAttribute, the ownership, and, in the case of RelationshipAttributes, from which Relationship context the RelationshipAttribute originates, it is referred to as either an [own shared IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-identityattributes), an [own shared RelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-relationshipattributes), a [peer shared RelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-relationshipattributes) or an [emitted ThirdPartyRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes).
+An appropriate AcceptResponseItem of type [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem) is generated, which incorporates the `id` of the LocalAttribute in its `attributeId` property and the shared Attribute in its `attribute` property.
+If a new IdentityAttribute is to be shared, a [RepositoryAttribute]({% link _docs_integrate/attribute-introduction.md %}#repositoryattributes) will additionally be created for the Recipient beforehand.
+
+If the ReadAttributeRequestItem is accepted with an existing Attribute that the Recipient already shared with the Sender and the corresponding [own shared IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-identityattributes) or [emitted ThirdPartyRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes) does not have `"DeletedByPeer"` or `"ToBeDeletedByPeer"` as `deletionInfo.deletionStatus`, an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) will be generated.
+Instead of creating a further pair consisting of an [own shared and a peer shared IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-identityattributes) or of an [emitted and a received ThirdPartyRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes), the `id` of the already existing [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute), which represent the sharing of the Attribute, is returned.
+Note that the `id` of the LocalAttribute of the Sender matches the `id` of the corresponding LocalAttribute of the Recipient.
+
+Lastly, if the ReadAttributeRequestItem is accepted with an existing Attribute of which the Recipient already shared a predecessor with the Sender, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be generated, given that it is an [own shared IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-identityattributes) or an [emitted ThirdPartyRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes) that does not have `"DeletedByPeer"` or `"ToBeDeletedByPeer"` as `deletionInfo.deletionStatus`.
+Instead of creating an independent pair consisting of an [own shared and a peer shared IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-identityattributes) or of an [emitted and a received ThirdPartyRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes), internally an [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) is performed.
+The `id` of the already existing [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) predecessor is returned, as well as the `id` and `content` of the newly created LocalAttribute successor.
+
+In any case, the respective AcceptResponseItem will be included in the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for reading Attributes that will be transferred to the Sender.
 
 ### Reject a ReadAttributeRequestItem
 
@@ -155,7 +203,6 @@ Let's look at an example where the Sender is interested in the Recipient's [Birt
     },
     {
       "@type": "RequestItemGroup",
-      "mustBeAccepted": true,
       "items": [
         {
           "@type": "ReadAttributeRequestItem",
@@ -179,7 +226,8 @@ Let's look at an example where the Sender is interested in the Recipient's [Birt
 }
 ```
 
-In our example, the Sender only requires the Recipient to share its EMailAddress, which is why the individual [ReadAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) and the [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) within the Request have specified corresponding values in their `mustBeAccepted` property. We assume that the Recipient wants to accept the Request and only wants to share its EMailAddress, which is already saved as an appropriate LocalAttribute, with the Sender.
+In our example, the Sender only requires the Recipient to share its EMailAddress, which is why the individual [ReadAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) within the Request have specified corresponding values in their `mustBeAccepted` property.
+We assume that the Recipient wants to accept the Request and only wants to share its EMailAddress, which is already saved as an appropriate [RepositoryAttribute]({% link _docs_integrate/attribute-introduction.md %}#repositoryattributes), with the Sender.
 
 If the Recipient wants to accept the Request for reading Attributes, it must accept all ReadAttributeRequestItems for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted, for example, for the Recipient to refuse to share its EMailAddress and instead share its PhoneNumber.
 {: .notice--info}
@@ -194,13 +242,11 @@ The Recipient refuses to share its BirthDate with the Sender and accepts at leas
       "accept": false
     },
     {
-      // Accept RequestItemGroup
-      "accept": true,
       "items": [
         {
           // Accept sharing of existing EMailAddress
           "accept": true,
-          "existingAttributeId": "<ID of LocalAttribute of EMailAddress>"
+          "existingAttributeId": "<ID of RepositoryAttribute of EMailAddress>"
         },
         {
           // Reject sharing of PhoneNumber
@@ -212,20 +258,24 @@ The Recipient refuses to share its BirthDate with the Sender and accepts at leas
 }
 ```
 
-Note that it is important to respond to RequestItems and RequestItemGroups in the same order in which they were received.
+Note that it is important to respond to RequestItems, some of which may be contained in a RequestItemGroup, in the same order in which they were received.
 
 ## Get the Attributes
 
 We now assume that the Recipient has accepted the [Request for reading Attributes]({% link _docs_integrate/read-attributes-from-peer.md %}#request-for-reading-attributes) of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/c8e5575e-ed55-48c2-897e-68e99d5df932" id="jbZRol4VVGZQ"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/eacdb246-9a8f-4361-965b-a9c21edacc45" id="EaAPpEXMzk_7"></iframe></div>
 
-To view the Response to the Request, search for it in the synchronization result or proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
+To view the Response to the Request, proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
-- If the [Request was sent via a Template]({% link _docs_integrate/read-attributes-from-peer.md %}#request-over-template): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
-- If the [Request was sent via a Message]({% link _docs_integrate/read-attributes-from-peer.md %}#request-over-message): Specify `<ID of Request>` as the value for the `id` query parameter.
+- If the [Request was sent via a RelationshipTemplate]({% link _docs_integrate/read-attributes-from-peer.md %}#request-via-relationshiptemplate): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
+- If the [Request was sent via a Message]({% link _docs_integrate/read-attributes-from-peer.md %}#request-via-message): Specify `<ID of Request>` as the value for the `id` query parameter.
 
-The Integrator of the Sender can now get the Response of the Recipient from the `response.content` property of the result. In particular, each requested and shared Attribute that belongs to an accepted ReadAttributeRequestItem can be read from a corresponding ReadAttributeAcceptResponseItem within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response). Internally, the shared `attribute` that can be read from the [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem) is used to create an appropriate LocalAttribute with a LocalAttributeShareInfo of the Sender. On the other hand, there is a corresponding RejectResponseItem in the `items` property of the Response for each rejected ReadAttributeRequestItem.
+The Integrator of the Sender can now get the Response of the Recipient from the `response.content` property of the result.
+In the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) is a [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem), an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) or an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) for each accepted and a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) for each rejected ReadAttributeRequestItem included.
+A shared `attribute` that can be read from a ReadAttributeAcceptResponseItem is used to create an appropriate LocalAttribute with a LocalAttributeShareInfo of the Sender.
+Depending on whether the Recipient has sent back an IdentityAttribute or a RelationshipAttribute to the Sender, the ownership, and, in the case of RelationshipAttributes, from which Relationship context the RelationshipAttribute originates, it is referred to as either a [peer shared IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-identityattributes), an [own shared RelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-relationshipattributes), a [peer shared RelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-relationshipattributes) or a [received ThirdPartyRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes).
+When the Sender of the Request receives an AttributeSuccessionAcceptResponseItem, the according [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) is automatically performed for them.
 
 In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) can also be included in the Response. If the Request for reading Attributes contains a RequestItemGroup in its `items` property, the Response to this Request contains a corresponding [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) in its `items` property.
 {: .notice--info}

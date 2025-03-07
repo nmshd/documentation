@@ -6,7 +6,7 @@ title: "Create and share a RelationshipAttribute"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA21
@@ -15,7 +15,7 @@ properties:
   - facade: AttributesFacade
   - function: createAndShareRelationshipAttribute
   - description:
-  - feature category: Cross-identity attribute sharing
+  - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
@@ -24,9 +24,9 @@ properties:
   - trigger:
   - precondition:
   - result:
-  - priority:
-  - complexity:
-  - size:
+  - priority: n/a
+  - complexity: n/a
+  - size: n/a
   - created_at:
   - changed_at:
   - api_route_regex:
@@ -50,8 +50,8 @@ Once you receive the [Response]({% link _docs_integrate/data-model-overview.md %
 
 ## Parameters
 
-- The `content` of the RelationshipAttribute you want to create, following the description from the [data model]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), except for the `owner`, which is automatically set to your Address
-- The Address of the `peer`
+- The `content` of the RelationshipAttribute you want to create, following the description from the [data model]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), except for the `owner`, which is automatically set to the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
+- The address of the `peer`.
 - Optionally `requestMetadata` as described in the [data model]({% link _docs_integrate/data-model-overview.md %}#request), except for the `id` and `items`, which are handled automatically.
 
 ## On Success

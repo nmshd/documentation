@@ -87,8 +87,10 @@ The Connector provides the following configuration parameters:
 ```jsonc
 {
     "debug": false,
+    "enforceCertificatePinning": false,
+    "pinnedTLSCertificateSHA256Fingerprints": {},
     "transportLibrary": {
-        "baseUrl": "https://prod.enmeshed.eu",
+        "baseUrl": "BASE_URL",
         "platformClientId": "CLIENT_ID",
         "platformClientSecret": "CLIENT_SECRET"
     },
@@ -103,18 +105,80 @@ The Connector provides the following configuration parameters:
 
 You can validate the config using our [schema file](https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json). This is possible for example with [VSCode](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) or online tools like [jsonschemavalidator.net](https://www.jsonschemavalidator.net).
 
-### debug `availbable since version 3.3.0` {#debug}
+### debug `available since version 3.3.0` {#debug}
 
 ⚠️ Do not turn on debug mode in production environments.
 {: .notice--danger}
 
 The debug flag configures if the Connector is set to **production** or **debug** mode. Defaults to `false`. Can also be configured using the environment variable `DEBUG`.
 
+### enforceCertificatePinning `available since version 6.5.0` {#enforceCertificatePinning}
+
+The `enforceCertificatePinning` flag configures whether the Connector should enforce certificate pinning. Defaults to `false`.
+
+If enabled, the Connector will only accept TLS certificates that match the SHA256 fingerprints for endpoints of outgoing requests specified in the [`pinnedTLSCertificateSHA256Fingerprints`](#pinnedTLSCertificateSHA256Fingerprints) object. If a hostname is not configured at all, it cannot be accessed by the Connector anymore.
+
+### pinnedTLSCertificateSHA256Fingerprints `available since version 6.5.0` {#pinnedTLSCertificateSHA256Fingerprints}
+
+The `pinnedTLSCertificateSHA256Fingerprints` object maps hostnames to TLS certificate SHA256 fingerprints of the respective hostname. If a hostname is found, the Connector only accepts a TLS connection if the server responds with a certificate of one of the given fingerprints. The fingerprints must be in a hexadecimal format and are internally stripped of separators and characters not valid for hexadecimal formats. To reduce attack vectors, wildcard domains like "\*.enmeshed.eu" are not valid hostnames, you need to fill this map with every subdomain.
+
+To increase security, please consider setting [`enforceCertificatePinning`](#enforceCertificatePinning) to true.
+
+TLS certificates are rotated multiple times in a year for each hostname. Therefore, setting multiple fingerprints per hostname is possible. However, the config and fingerprints need to be updated regularly with the new fingerprints, otherwise the Connector will reject outgoing requests for expired certificates and cease to function.
+{: .notice--warning}
+
+**Getting the SHA256 fingerprint of a certificate:**
+
+```bash
+echo -n | openssl s_client -connect <hostname>:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > cert.pem
+openssl x509 -noout -in cert.pem -fingerprint -sha256
+rm cert.pem
+```
+
+This will output something similar to:
+
+```text
+Connecting to <ip>
+...
+DONE
+sha256 Fingerprint=AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA
+```
+
+You can simply copy the fingerprint after `sha256 Fingerprint=` and use it.
+
+If you use another way to acquire the fingerprint, the Connector understands multiple formats like
+
+```text
+AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+```
+
+**Sample Configuration:**
+
+```jsonc
+{
+  // ...
+
+  "pinnedTLSCertificateSHA256Fingerprints": {
+    "example.com": [
+      "AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA",
+      "BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB"
+    ],
+    "subdomain.example.com": [
+      "AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA",
+      "CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC"
+    ]
+  }
+}
+```
+
 ### transportLibrary
 
-- **baseUrl** `default: "https://prod.enmeshed.eu"`
+- **baseUrl** `required`
 
-  The base url is used to communicate with the enmeshed platform. It can be changed to use a custom enmeshed Backbone.
+  The base url is used to communicate with the enmeshed platform. It can be changed to use a custom enmeshed Backbone. The base url may not contain a vertical bar `|`.
 
 - **platformClientId** `required`
 
@@ -132,12 +196,18 @@ The debug flag configures if the Connector is set to **production** or **debug**
 
 - **dbName** `default: "default"`
 
-  The `dbName` string is used as the name of the MongoDB database, prefixed with `acc-`. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new enmeshed identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
+  The `dbName` string is used as the name of the MongoDB database, prefixed with `acc-`. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new enmeshed Identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
 
-  If you would like to use multiple Connectors with distinct identities (one identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
+  If you would like to use multiple Connectors with distinct Identities (one Identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
 
   **Note:** If you are using the Connector in combintation with a FerretDB, you have to pay attention to the database name restrictions specified in the [FerretDB documentation](https://docs.ferretdb.io/diff/).
   {: .notice--warning}
+
+- **dbNamePrefix** `default: "acc-"`
+
+  The `dbNamePrefix` string is used as a prefix for the MongoDB database name. It will be **prepended** to the string configured by the `dbName` property.
+
+  If you don't want your database name to be prefixed, you can set this value to an empty string.
 
 ### infrastructure
 
@@ -183,7 +253,7 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
   The API-Key protects your Connector from unauthorized access and should therefore be kept secret.
 
-- **helmetOptions** `default: depending on the connector mode`
+- **helmetOptions** `default: depending on the Connector mode`
 
   Configure the [helmet](https://helmetjs.github.io/) middleware.
 
@@ -241,7 +311,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   The name of the AMQP exchange to publish to.
 
-#### autoAcceptRelationshipCreationChanges <a href="{% link _docs_operate/modules.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationshipcreationchanges}
+#### autoAcceptPendingRelationships <a href="{% link _docs_operate/modules.md %}#autoacceptpendingrelationships"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptpendingrelationships}
 
 It is not recommended to use this Module for production scenarios.
 {: .notice--danger}
@@ -253,9 +323,8 @@ It is not recommended to use this Module for production scenarios.
   // ...
 
   "modules": {
-    "autoAcceptRelationshipCreationChanges": {
-      "enabled": false,
-      "responseContent": {}
+    "autoAcceptPendingRelationships": {
+      "enabled": false
     }
   }
 }
@@ -263,11 +332,7 @@ It is not recommended to use this Module for production scenarios.
 
 - **enabled** `default: false`
 
-  Enable or disable the autoAcceptRelationshipCreationChanges Module.
-
-- **responseContent** `default: {}`
-
-  The content that is used to accept the incoming Relationship Request.
+  Enable or disable the autoAcceptPendingRelationships Module.
 
 #### coreHttpApi <a href="{% link _docs_operate/modules.md %}#corehttpapi"><i class="fas fa-fw fa-info-circle"/></a> {#corehttpapi}
 
@@ -328,13 +393,13 @@ It is not recommended to use this Module for production scenarios.
 
 - **enabled** `default: false`
 
-  Enable or disable the sync Module.
+  Enable or disable the messageBrokerPublisher Module.
 
 - **brokers** `default: []`
 
   Here you can define multiple brokers to which the Connector should publish messages.
 
-  Each broker consists of a `type` (string) and a `config` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `config` object contains the configuration for the broker.
+  Each broker consists of a `type` (string) and a `configuration` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `configuration` object contains the configuration for the broker.
 
   - type `AMQP`
 
@@ -343,7 +408,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "AMQP",
-      "config": {
+      "configuration": {
         "url": "amqp://example.com:5672",
         "exchange": "myExchange"
       }
@@ -373,7 +438,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "MQTT",
-      "config": {
+      "configuration": {
         "url": "mqtt://example.com:1883"
       }
     }
@@ -394,7 +459,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "PubSub",
-      "config": {
+      "configuration": {
         "projectId": "myProjectId",
         "topicName": "myTopicName",
         "keyFile": "/path/to/keyfile.json"
@@ -423,7 +488,7 @@ It is not recommended to use this Module for production scenarios.
     ```jsonc
     {
       "type": "Redis",
-      "config": {
+      "configuration": {
         "url": "redis://example.com:6379"
       }
     }
@@ -559,6 +624,13 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
   }
   ```
 
+- **skipTlsCheck** `default: false`
+
+  Skip the TLS certificate check for https request to all targets.
+
+  This is a security risk and should only be used if you know what you are doing.
+  {: .notice--danger}
+
 - **webhooks** `default: []`
 
   The webhooks that will be called. A webhook consists of one or more [Connector Events]({% link _docs_integrate/connector-events.md %}) on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the `targets` object.
@@ -599,6 +671,30 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 ```
 
 You can find type definitions of the event data in the [Connector Events]({% link _docs_integrate/connector-events.md %}) section.
+
+#### sse (Server-Sent Events) <a href="{% link _docs_operate/modules.md %}#sse"><i class="fas fa-fw fa-info-circle"/></a> {#sse}
+
+This Module requires additional configuration on the Backbone.
+Ensure that your Backbone has the required settings enabled.
+{: .notice--warning}
+
+**Sample Configuration:**
+
+```jsonc
+{
+  // ...
+
+  "modules": {
+    "sse": {
+      "enabled": false
+    }
+  }
+}
+```
+
+- **enabled** `default: false`
+
+  Enable or disable the sse Module.
 
 ## Troubleshooting
 

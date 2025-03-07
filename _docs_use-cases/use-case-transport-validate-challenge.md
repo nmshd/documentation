@@ -6,7 +6,7 @@ title: "Validate Challenge"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RC2
@@ -17,9 +17,9 @@ properties:
   - description: Validate a challenge.
   - feature category:
   - tech category: Challenges
-  - status: PRERELEASE
-  - documentation status:
-  - comments: Internal
+  - status: DONE
+  - documentation status: OPEN
+  - comments:
   - actor: Identity
   - trigger: REST API
   - precondition:

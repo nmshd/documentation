@@ -83,13 +83,19 @@ docs_integrate:
         url: /integrate/integration-example
       - title: "Event introduction"
         url: /integrate/event-introduction
-  - title: Relationships between Identities
+  - title: Identities and Relationships
     children:
       - title: "Establish Relationships"
         url: integrate/establish-relationships
       - title: "Exchange Messages"
         url: /integrate/exchange-messages
-  - title: Working with Requests
+      - title: "Terminate Relationships"
+        url: integrate/terminate-relationships
+      - title: "Delete Identities"
+        url: integrate/delete-identities
+      - title: "Manage IdentityMetadata"
+        url: integrate/manage-identitymetadata
+  - title: Working With Requests
     children:
       - title: "Request and Response introduction"
         url: /integrate/request-and-response-introduction
@@ -99,6 +105,8 @@ docs_integrate:
         url: /integrate/requests-via-messages
   - title: Manage Attributes
     children:
+      - title: "Attribute introduction"
+        url: /integrate/attribute-introduction
       - title: "Create Attributes for yourself"
         url: /integrate/create-attributes-for-yourself
       - title: "Share Attributes with peer"
@@ -113,7 +121,9 @@ docs_integrate:
         url: /integrate/update-attributes-by-succession
       - title: "Delete Attributes"
         url: /integrate/delete-attributes
-  - title: Request consent
+      - title: "Exchange Files using Attributes"
+        url: /integrate/exchange-files-using-attributes
+  - title: Request Consent
     children:
       - title: "Request persistent consent of peer"
         url: /integrate/request-persistent-consent-of-peer
@@ -129,9 +139,15 @@ docs_integrate:
         url: /integrate/connector-events
       - title: "Use Cases"
         url: /integrate/use-cases
+  - title: Migration Guides
+    children:
+      - title: "Migration From v4 to v5"
+        url: /integrate/migration-from-v4-to-v5
+      - title: "Migration From v5 to v6"
+        url: /integrate/migration-from-v5-to-v6
   - title: Troubleshooting
     children:
-      - title: "Error Codes"
+      - title: "Error codes"
         url: /integrate/error-codes
       - title: "FAQ"
         url: /integrate/faq
@@ -162,6 +178,8 @@ docs_operate:
         url: /operate/performance-considerations
   - title: Backbone Operations
     children:
+      - title: "Backbone Security Considerations"
+        url: /operate/backbone-security-considerations
       - title: "Log Event IDs"
         url: /operate/log-event-ids
   - title: Troubleshooting

@@ -2,7 +2,7 @@
 !include ../../assets/plantuml/styles.iuml
 
 title Connector: Get Message
-caption Copyright 2021, j&s-soft GmbH
+caption Copyright 2021, j&s-soft AG
 
 box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend

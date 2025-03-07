@@ -16,7 +16,7 @@
 title: enmeshed
 email: info@enmeshed.eu
 description: >- # this means to ignore newlines until "baseurl:"
-  Enmeshed is a home of various open source components, making the digital life
+  enmeshed is a home of various open source components, making the digital life
   of users and organizations easier.
 github_username: nmshd
 repository: "nmshd/documentation"
@@ -34,6 +34,10 @@ timezone: Europe/Berlin # https://en.wikipedia.org/wiki/List_of_tz_database_time
 
 include:
   - _pages
+
+sass:
+  sass_dir: _sass
+  style: compressed
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -88,9 +92,9 @@ collections:
     permalink: /:collection/:path
 
 author:
-  name: "Enmeshed Team"
+  name: "enmeshed Team"
   avatar: "/assets/images/Logo.svg"
-  bio: "The official enmeshed Team"
+  bio: "The official enmeshed team"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
@@ -104,21 +108,20 @@ author:
 
 footer:
   links:
+    - label: "j&s-soft Website"
+      url: "https://js-soft.com"
+    - label: "enmeshed Website"
+      url: "https://www.enmeshed.de"
+    - label: "enmeshed on GitHub"
+      url: "https://github.com/nmshd"
     - label: "Legal Disclosure"
-      icon: "fas fa-fw fa-info"
       url: "/legal"
     - label: "Privacy Statement"
-      icon: "fas fa-fw fa-user-shield"
       url: "/privacy"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://www.enmeshed.eu"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/nmshd"
     - label: "NPM"
-      icon: "fab fa-fw fa-npm"
       url: "https://www.npmjs.com/search?q=%40nmshd"
+    - label: "RSS Feed"
+      url: "https://enmeshed.eu/feed.xml"
 
 defaults:
   # _posts

@@ -1,0 +1,55 @@
+.greedy-nav {
+    background-color: transparent !important;
+
+    &::before {
+        position: relative;
+        left: 0px;
+        content: "";
+        background-image: url(/assets/images/Logo.svg);
+        background-size: 100% 100%;
+        width: 30px;
+        height: 30px;
+    }
+
+    .site-title {
+        &::after {
+            content: "documentation";
+            color: #212121;
+            font-size: 22px;
+            font-weight: normal;
+            display: inline-block;
+            width: auto;
+        }
+    }
+
+    .visible-links {
+        .masthead__menu-item {
+            font-size: 18px;
+            font-family: $font-family-standard;
+        }
+    }
+
+    .search__toggle {
+        color: $color-dark-grey;
+    }
+}
+
+// @media (prefers-color-scheme: dark) {
+//     .greedy-nav {
+//         .site-title {
+//             color: #fff !important;
+
+//             &::after {
+//                 color: #fff;
+//             }
+//         }
+
+//         .visible-links {
+//             .masthead__menu-item {
+//                 a {
+//                     color: #fff;
+//                 }
+//             }
+//         }
+//     }
+// }

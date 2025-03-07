@@ -6,7 +6,7 @@ title: "Get versions of an Attribute"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RA19
@@ -21,19 +21,20 @@ properties:
   - documentation status: DONE
   - comments:
   - actor: Identity
-  - trigger:
+  - trigger: REST API
   - precondition:
   - result:
-  - priority:
-  - complexity:
-  - size:
+  - priority: n/a
+  - complexity: n/a
+  - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex:
+  - api_route_regex: GET /api/v2/Attributes/{id}/Versions
   - published: default
   - link: use-case-consumption-get-versions-of-an-attribute
 require:
 required_by:
+api_route_regex: ^GET /api/v2/Attributes/{id}/Versions$
 # End automatic generation
 ---
 
@@ -42,7 +43,7 @@ required_by:
 {% include properties_list.html %}
 
 [Succeeding an Attribute]({% link _docs_integrate/update-attributes-by-succession.md %}) allows you to update its `content`, while keeping all versions for a coherent history.
-This use-case allows you to retrieve a list of all those versions of the succession chain for a specified [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
+This use case allows you to retrieve a list of all those versions of the succession chain for a specified [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
 
 ## Parameters
 

@@ -6,13 +6,13 @@ title: "Load Token by truncated reference (without having an account)"
 type: use-case
 toc: true
 sidebar:
-  - title: "Integrate Enmeshed"
+  - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
   - id: RY1
   - component: Runtime
   - layer: Anonymous
-  - facade: AnonymousFacade
+  - facade: AnonymousTokensFacade
   - function: loadPeerTokenByTruncatedReference
   - description:
   - feature category: Share information over side-channel
@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use-case attempts to retrieve a [Token]({% link _docs_integrate/data-model-overview.md %}#token)
+This use case attempts to retrieve a [Token]({% link _docs_integrate/data-model-overview.md %}#token)
 by its `truncatedReference` without having an account on the Backbone, thus without an authentication.
 
 This can be used to fetch `Tokens` for Device Onboarding or Recovery.
@@ -49,6 +49,7 @@ This can be used to fetch `Tokens` for Device Onboarding or Recovery.
 ## Parameters
 
 - The `reference` that contains all information to load a Token.
+- The `password` if the Token is protected by a password via its `passwordProtection` property.
 
 ## On Success
 
@@ -57,3 +58,5 @@ This can be used to fetch `Tokens` for Device Onboarding or Recovery.
 ## On Failure
 
 - There is no `Token` that matches the `reference`.
+- The Token is personalized for another [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) via the property `forIdentity` of the Token.
+- No `password` or an incorrect `password` was entered in case of a password protected Token.
