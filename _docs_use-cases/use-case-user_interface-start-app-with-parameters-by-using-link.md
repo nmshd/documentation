@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use-case-user_interface-start-app-with-parameters-by-using-link
 published: false
-title: "Start app with parameters by using link"
+title: "Start App with parameters by using link"
 type: use-case
 toc: true
 sidebar:

@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use-case-user_interface-get-app-version-information
 published: false
-title: "Get app version information"
+title: "Get App version information"
 type: use-case
 toc: true
 sidebar:

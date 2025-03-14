@@ -14,7 +14,7 @@ properties:
   - layer: User Interface
   - facade:
   - function:
-  - description: The app refreshes the current screen.
+  - description: The App refreshes the current screen.
   - feature category:
   - tech category: App
   - status: DONE

@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use/register-a-new-online-account-with-an-organization
 published: false
-title: "register a new online account with an organization"
+title: "Register a new online account with an organization"
 type: scenario
 toc: true
 properties:
