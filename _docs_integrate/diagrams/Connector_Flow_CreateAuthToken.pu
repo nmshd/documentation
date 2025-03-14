@@ -9,13 +9,13 @@ end box
 participant "enmeshed\nPlatform" as platform
 box "Customer Landscape"
     participant "Website" as website
-    participant "enmeshed\nConnector" as connector
+    participant "enmeshed\nConnector" as Connector
 end box
 
 == Prerequisites ==
 
-app <--> connector: enmeshed Relationship
-website <--> connector: enmeshed Integration
+app <--> Connector: enmeshed Relationship
+website <--> Connector: enmeshed Integration
 
 autonumber
 
@@ -38,11 +38,11 @@ app -> app: Creates login token
 app -> browser ++: Open Browser\nwith login token
 app --
 browser -> website++: Open Website with login token
-website -> connector++: Check login token
-connector -> connector: Verify token\nsignature
-connector -> platform++: Check random id
-platform --> connector --: OK
-connector -> website --: Login OK\nenmeshed Address xyz
+website -> Connector++: Check login token
+Connector -> Connector: Verify token\nsignature
+Connector -> platform++: Check random id
+platform --> Connector --: OK
+Connector -> website --: Login OK\nenmeshed Address xyz
 browser <--> website: Login Session for enmeshed Address xyz
 
 

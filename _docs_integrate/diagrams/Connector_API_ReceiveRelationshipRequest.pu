@@ -6,26 +6,26 @@ caption Copyright 2021, j&s-soft AG
 
 box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
-participant "enmeshed\nConnector" as connector
+participant "enmeshed\nConnector" as Connector
 end box
 participant "enmeshed\nBackbone" as backbone
 
 == Prerequisites ==
-backbone <-> connector: Verified enmeshed Organization Identity
+backbone <-> Connector: Verified enmeshed Organization Identity
 
 
 == Receive Relationship Request ==
 
 backbone <- ++: Incoming request
-backbone -> connector ++: Forward request
-connector --> backbone: Received
+backbone -> Connector ++: Forward request
+Connector --> backbone: Received
 backbone -> --: Request received
 
-connector -> connector: Decrypt request with\ntemplate key
+Connector -> Connector: Decrypt request with\ntemplate key
 
-connector -> connector: Validate request
+Connector -> Connector: Validate request
 
-connector -> backend ++: Forward request
+Connector -> backend ++: Forward request
 connector--
 
 backend -> backend: Validate request

@@ -6,36 +6,36 @@ caption Copyright 2021, j&s-soft AG
 
 box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
-participant "enmeshed\nConnector" as connector
+participant "enmeshed\nConnector" as Connector
 end box
 participant "enmeshed\nBackbone" as backbone
 
 == Prerequisites ==
-backbone <-> connector: Verified enmeshed Organization Identity
+backbone <-> Connector: Verified enmeshed Organization Identity
 
 
 == Get Template ==
 
 -> backend ++: Start\n(with truncatedReference)
-backend -> connector ++: POST /RelationshipTemplates\n- truncatedReference
-connector -> connector: Validate input
-connector -> connector: Extract tokenId and secretKey\nout of reference
-connector -> connector: Validate tokenId and secretKey
-connector -> backbone ++: Get token\n- tokenId
+backend -> Connector ++: POST /RelationshipTemplates\n- truncatedReference
+Connector -> Connector: Validate input
+Connector -> Connector: Extract tokenId and secretKey\nout of reference
+Connector -> Connector: Validate tokenId and secretKey
+Connector -> backbone ++: Get token\n- tokenId
 backbone -> backbone: Retrieve token
-backbone --> connector --: Returns token
+backbone --> Connector --: Returns token
 
-connector -> connector: Decrypt token\nwith secretKey
-connector -> connector: Validate token
-connector -> connector: Extract templateId and templateKey\nout of token
+Connector -> Connector: Decrypt token\nwith secretKey
+Connector -> Connector: Validate token
+Connector -> Connector: Extract templateId and templateKey\nout of token
 
-connector -> backbone ++: Get template\n- templateId
+Connector -> backbone ++: Get template\n- templateId
 backbone -> backbone: Retrieve template
-backbone --> connector --: Returns template
-connector -> connector: Decrypt template\nwith templateKey
-connector -> connector: Validate template
+backbone --> Connector --: Returns template
+Connector -> Connector: Decrypt template\nwith templateKey
+Connector -> Connector: Validate template
 
-connector --> backend: Returns template
+Connector --> backend: Returns template
 <-- backend --: Stop\n(with Template)
 
 @enduml

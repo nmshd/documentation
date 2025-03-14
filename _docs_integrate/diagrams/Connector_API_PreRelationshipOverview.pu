@@ -13,7 +13,7 @@ participant "Browser" as browser
 end box
 box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
-participant "enmeshed\nConnector" as connector
+participant "enmeshed\nConnector" as Connector
 end box
 participant "enmeshed\nBackbone" as backbone
 
@@ -21,7 +21,7 @@ participant "enmeshed\nBackbone" as backbone
 
 
 == Prerequisites ==
-backbone <-> connector: Verified enmeshed Organization Identity
+backbone <-> Connector: Verified enmeshed Organization Identity
 
 
 == Pre-Relationship ==
@@ -34,11 +34,11 @@ browser -> backend ++: \nLogin/Upgrade/Onboard
 
 backend -> backend: Create content\nfor user
 
-backend -> connector ++: \nCreate Template\nwith content & QR-Code
+backend -> Connector ++: \nCreate Template\nwith content & QR-Code
 
-connector -> backbone ++: Submit Template
-backbone --> connector --: templateId
-connector --> backend --: template, QR-Code
+Connector -> backbone ++: Submit Template
+backbone --> Connector --: templateId
+Connector --> backend --: template, QR-Code
 
 
 backend --> browser: Render QR-Code/Link
@@ -59,17 +59,17 @@ app -> app: Bundle user content
 app -> backbone ++: Submit RelationshipRequest with user content
 backbone -> app : RelationshipRequest
 backbone -> connector--: RelationshipRequest
-connector ++
-connector -> backend++: New RelationshipRequest\ncontaining user details
-connector --
+Connector ++
+Connector -> backend++: New RelationshipRequest\ncontaining user details
+Connector --
 backend --> browser: Got request
 backend -> backend: Validate content\n& create response
-backend -> connector ++: Accept Request\nwith response
-connector -> backbone ++: Accept Request\nwith response
-backbone --> connector: Relationship
+backend -> Connector ++: Accept Request\nwith response
+Connector -> backbone ++: Accept Request\nwith response
+backbone --> Connector: Relationship
 
-connector --> backend: Relationship
-connector --
+Connector --> backend: Relationship
+Connector --
 backend --> browser: Got relationship
 backend --
 
@@ -79,6 +79,6 @@ app --
 
 == Outcome ==
 browser <--> backend: Knowledge of\nenmeshed Relationship
-app <--> connector: Trusted, bi-directional enmeshed relationship
+app <--> Connector: Trusted, bi-directional enmeshed relationship
 
 @enduml

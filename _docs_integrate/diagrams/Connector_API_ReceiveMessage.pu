@@ -6,56 +6,56 @@ caption Copyright 2021, j&s-soft AG
 
 box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
-participant "enmeshed\nConnector" as connector
+participant "enmeshed\nConnector" as Connector
 end box
 participant "enmeshed\nBackbone" as backbone
 actor "Sender" as user
 
-activate connector
+activate Connector
 == Prerequisites ==
-backbone <-> connector: Verified enmeshed Organization Identity
-connector <-> user: Existing enmeshed Relationship
+backbone <-> Connector: Verified enmeshed Organization Identity
+Connector <-> user: Existing enmeshed Relationship
 
 
 
 == Receive Message ==
 
 
-connector -> backbone ++: Regularly check for updates
-backbone --> connector --: no updates
+Connector -> backbone ++: Regularly check for updates
+backbone --> Connector --: no updates
 
 ...
 
-backbone <- user ++: Message to connector
+backbone <- user ++: Message to Connector
 backbone --> user --: Random <messageId>
 
 ...
 
-connector -> backbone ++: Regularly check for updates
-backbone --> connector: New message <messageId>
-connector -> backbone: Fetch <messageId>
+Connector -> backbone ++: Regularly check for updates
+backbone --> Connector: New message <messageId>
+Connector -> backbone: Fetch <messageId>
 backbone --> user: <messageId> received\nby Recipient
-backbone --> connector --: message
+backbone --> Connector --: message
 
 
-connector -> connector: Decrypt message
+Connector -> Connector: Decrypt message
 
-connector -> connector: Validate message
+Connector -> Connector: Validate message
 
 alt
-    connector <--> backend: Webhook enabled
-    connector -> backend ++: Forward message via webhook
+    Connector <--> backend: Webhook enabled
+    Connector -> backend ++: Forward message via webhook
     backend -> backend: Process message
     deactivate backend
     |||
 end
 
 alt
-    connector <--> backend: Long-polling enabled
+    Connector <--> backend: Long-polling enabled
     activate backend
     loop
-        backend -> connector: POST /Synchronize
-        connector --> backend: Received changes
+        backend -> Connector: POST /Synchronize
+        Connector --> backend: Received changes
         backend -> backend: Process changes
         deactivate backend
         |||

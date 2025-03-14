@@ -6,15 +6,15 @@
 
 box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
-participant "enmeshed\nConnector" as connector
+participant "enmeshed\nConnector" as Connector
 end box
 participant "enmeshed\nPlatform" as backbone
 participant "enmeshed\nApp" as app
 actor "User" as user
 
 == Prerequisites ==
-backbone <--> connector: Verified enmeshed Corporate Identity
-connector <--> user: Existing enmeshed Relationship
+backbone <--> Connector: Verified enmeshed Corporate Identity
+Connector <--> user: Existing enmeshed Relationship
 
 
 == Template ==

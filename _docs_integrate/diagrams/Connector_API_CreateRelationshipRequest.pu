@@ -6,27 +6,27 @@ caption Copyright 2021, j&s-soft AG
 
 box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
-participant "enmeshed\nConnector" as connector
+participant "enmeshed\nConnector" as Connector
 end box
 participant "enmeshed\nBackbone" as backbone
 
 == Prerequisites ==
-backbone <-> connector: Verified enmeshed Organization Identity
+backbone <-> Connector: Verified enmeshed Organization Identity
 
 
 == Create Relationship Request ==
 
 -> backend ++: Start\n(with requestContent,\ntemplateId)
 backend -> backend: Validate content
-backend -> connector ++: POST /RelationshipRequests\n- requestContent\n- templateId
-connector -> connector: Validate input
-connector -> connector: Prepare request
-connector -> connector: Encrypt request content\nwith template exchange key
-connector -> backbone ++: Create RelationshipRequest\n- requestCipher
+backend -> Connector ++: POST /RelationshipRequests\n- requestContent\n- templateId
+Connector -> Connector: Validate input
+Connector -> Connector: Prepare request
+Connector -> Connector: Encrypt request content\nwith template exchange key
+Connector -> backbone ++: Create RelationshipRequest\n- requestCipher
 backbone -> backbone: Store request
-backbone --> connector: Returns requestId
+backbone --> Connector: Returns requestId
 backbone -> --: Communicate to\nother party
-connector --> backend: Returns request
+Connector --> backend: Returns request
 <-- backend --: Stop\n(with Request)
 
 @enduml
