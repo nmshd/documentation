@@ -8,10 +8,10 @@ box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
 participant "enmeshed\nConnector" as Connector
 end box
-participant "enmeshed\nBackbone" as backbone
+participant "enmeshed\nBackbone" as Backbone
 
 == Prerequisites ==
-backbone <-> Connector: Verified enmeshed Organization Identity
+Backbone <-> Connector: Verified enmeshed Organization Identity
 
 
 == Create Template ==
@@ -21,16 +21,16 @@ backend -> backend: Create template content\nfor User
 backend -> Connector ++: POST /RelationshipTemplates\n- content\n- expiresAt\n- maxNumberOfAllocations
 Connector -> Connector: Validate input
 Connector -> Connector: Encrypt template content\nwith random key
-Connector -> backbone ++: Create template\n- templateCipher\n- expiresAt\n- maxNumberOfAllocations
-backbone -> backbone: Store template
-backbone --> Connector --: Returns templateId
+Connector -> Backbone ++: Create template\n- templateCipher\n- expiresAt\n- maxNumberOfAllocations
+Backbone -> Backbone: Store template
+Backbone --> Connector --: Returns templateId
 Connector --> backend --: Returns template
 backend --> Connector ++: POST /RelationshipTemplates/\n{templateId}/Token
 Connector -> Connector: Create token content
 Connector -> Connector: Encrypt token content with\nrandom key
-Connector -> backbone ++: Create token\n- tokenCipher\n- expiresAt
-backbone -> backbone: Store token
-backbone --> Connector --: tokenId
+Connector -> Backbone ++: Create token\n- tokenCipher\n- expiresAt
+Backbone -> Backbone: Store token
+Backbone --> Connector --: tokenId
 Connector -> Connector: Create tokenReference
 Connector --> backend: Returns token, tokenReference
 <-- backend --: Stop\n(with template & \ntoken for User)

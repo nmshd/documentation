@@ -8,12 +8,12 @@ box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
 participant "enmeshed\nConnector" as Connector
 end box
-participant "enmeshed\nBackbone" as backbone
+participant "enmeshed\nBackbone" as Backbone
 actor "Sender" as user
 
 activate Connector
 == Prerequisites ==
-backbone <-> Connector: Verified enmeshed Organization Identity
+Backbone <-> Connector: Verified enmeshed Organization Identity
 Connector <-> user: Existing enmeshed Relationship
 
 
@@ -21,21 +21,21 @@ Connector <-> user: Existing enmeshed Relationship
 == Receive Message ==
 
 
-Connector -> backbone ++: Regularly check for updates
-backbone --> Connector --: no updates
+Connector -> Backbone ++: Regularly check for updates
+Backbone --> Connector --: no updates
 
 ...
 
-backbone <- user ++: Message to Connector
-backbone --> user --: Random <messageId>
+Backbone <- user ++: Message to Connector
+Backbone --> user --: Random <messageId>
 
 ...
 
-Connector -> backbone ++: Regularly check for updates
-backbone --> Connector: New message <messageId>
-Connector -> backbone: Fetch <messageId>
-backbone --> user: <messageId> received\nby Recipient
-backbone --> Connector --: message
+Connector -> Backbone ++: Regularly check for updates
+Backbone --> Connector: New message <messageId>
+Connector -> Backbone: Fetch <messageId>
+Backbone --> user: <messageId> received\nby Recipient
+Backbone --> Connector --: message
 
 
 Connector -> Connector: Decrypt message

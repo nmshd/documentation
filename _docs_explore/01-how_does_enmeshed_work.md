@@ -32,7 +32,7 @@ The "Zero Knowledge Border" marks the area where data is encrypted or pseudonymi
 
 ## enmeshed App
 
-End-users are able to install the [enmeshed App]({% link _docs_explore/50-app.md %}) from their favorite app stores for free. It is also available to download for various desktop operating systems.
+End-users are able to install the [enmeshed App]({% link _docs_explore/50-app.md %}) from their favorite App stores for free. It is also available to download for various desktop operating systems.
 
 The App provides the user experience for the user's digital Identity. With it, the user can access the features of the transport, content and consumption layers.
 
@@ -40,9 +40,9 @@ It is possible to use multiple Identities with the same App. It is also possible
 
 ## enmeshed Backbone
 
-The [enmeshed Backbone]({% link _docs_explore/51-backbone.md %}) provides the foundation to communicate between the components on the backbone layer. It hosts the central services which are required for a seamless experience across Identities and the devices of one Identity.
+The [enmeshed Backbone]({% link _docs_explore/51-backbone.md %}) provides the foundation to communicate between the components on the Backbone layer. It hosts the central services which are required for a seamless experience across Identities and the devices of one Identity.
 
-It is an encrypted storage layer for all kind of information. Although the Messages, files, tokens, etc. have a certain expiry date, the data is stored on the backbone until this expiry date. Thus, the backbone acts as a data-access, backup and synchronization helper for the Identities.
+It is an encrypted storage layer for all kind of information. Although the Messages, files, tokens, etc. have a certain expiry date, the data is stored on the Backbone until this expiry date. Thus, the Backbone acts as a data-access, backup and synchronization helper for the Identities.
 
 Due to the fact that devices of end-users are not always online, a "technical recipient" needs to be introduced which receives the (encrypted) Messages from senders and stores them. The recipients are notified automatically by push channels.
 

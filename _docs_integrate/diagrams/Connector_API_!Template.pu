@@ -8,12 +8,12 @@ box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
 participant "enmeshed\nConnector" as Connector
 end box
-participant "enmeshed\nPlatform" as backbone
-participant "enmeshed\nApp" as app
+participant "enmeshed\nPlatform" as Backbone
+participant "enmeshed\nApp" as App
 actor "User" as user
 
 == Prerequisites ==
-backbone <--> Connector: Verified enmeshed Corporate Identity
+Backbone <--> Connector: Verified enmeshed Corporate Identity
 Connector <--> user: Existing enmeshed Relationship
 
 

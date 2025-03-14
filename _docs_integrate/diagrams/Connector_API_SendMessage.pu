@@ -8,11 +8,11 @@ box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
 participant "enmeshed\nConnector" as Connector
 end box
-participant "enmeshed\nBackbone" as backbone
+participant "enmeshed\nBackbone" as Backbone
 actor "Recipient" as user
 
 == Prerequisites ==
-backbone <-> Connector: Verified enmeshed Organization Identity
+Backbone <-> Connector: Verified enmeshed Organization Identity
 Connector <-> user: Existing enmeshed Relationship
 
 == Send Message ==
@@ -22,10 +22,10 @@ backend -> backend: Validate input
 backend -> Connector ++: POST /Messages\n- recipients\n- content
 Connector -> Connector: Validate input
 Connector -> Connector: Encrypt message for every recipient
-Connector -> backbone ++: Create Message\n- messageCipher
-backbone -> backbone: Store message
-backbone --> Connector: Returns messageId, timestamp
-backbone -> user--: Forward message
+Connector -> Backbone ++: Create Message\n- messageCipher
+Backbone -> Backbone: Store message
+Backbone --> Connector: Returns messageId, timestamp
+Backbone -> user--: Forward message
 
 Connector --> backend --: Returns message
 <-- backend --: Stop\n(with message)

@@ -8,10 +8,10 @@ box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
 participant "enmeshed\nConnector" as Connector
 end box
-participant "enmeshed\nBackbone" as backbone
+participant "enmeshed\nBackbone" as Backbone
 
 == Prerequisites ==
-backbone <-> Connector: Verified enmeshed Organization Identity
+Backbone <-> Connector: Verified enmeshed Organization Identity
 
 
 == Accept Relationship Request ==
@@ -21,10 +21,10 @@ backend -> backend: Validate content
 backend -> Connector ++: PUT /RelationshipRequests/\n{requestId}/Accept\n- response content
 Connector -> Connector: Validate input
 Connector -> Connector: Encrypt response content\nwith request key
-Connector -> backbone ++: Create RelationshipRequestResponse\n- responseCipher
-backbone -> backbone: Store request response
-backbone --> Connector: Returns relationshipId
-backbone -> --: Forward response
+Connector -> Backbone ++: Create RelationshipRequestResponse\n- responseCipher
+Backbone -> Backbone: Store request response
+Backbone --> Connector: Returns relationshipId
+Backbone -> --: Forward response
 
 Connector --> backend --: Returns relationship
 <-- backend --: Stop\n(with relationship)

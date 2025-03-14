@@ -39,7 +39,7 @@ There are multiple ways how the token reference can be communicated to the user:
 
 ### Receive Relationship Request
 
-Once the user has reviewed the RelationshipTemplate and created the corresponding Relationship request, it is submitted over the backbone (as a cipher only the organization can decrypt) to the organization's Connector. The Connector decrypts the cipher and stores the Relationship request in the database.
+Once the user has reviewed the RelationshipTemplate and created the corresponding Relationship request, it is submitted over the Backbone (as a cipher only the organization can decrypt) to the organization's Connector. The Connector decrypts the cipher and stores the Relationship request in the database.
 
 The Relationship request can be accessed either manually via a REST API (pull) or it can be pushed to a [configurable custom HTTP endpoint]({% link _docs_integrate/11-connector-configuration.md %}).
 
