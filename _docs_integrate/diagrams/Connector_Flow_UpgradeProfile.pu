@@ -7,10 +7,10 @@
 box "Organization's Infrastructure"
 participant "Website" as website
 participant "Business\nSystem" as backend
-participant "Enmeshed\nConnector" as connector
+participant "enmeshed\nConnector" as connector
 end box
-participant "Enmeshed\nBackbone" as backbone
-participant "Enmeshed\nApp" as app
+participant "enmeshed\nBackbone" as backbone
+participant "enmeshed\nApp" as app
 actor "User" as user
 
 == Rahmenbedinungen ==
@@ -18,7 +18,7 @@ backbone <-> connector: enmeshed Connector hat eine\ndigitale Identität der Org
 connector <-> backend: Bestehende Systeme sind\nüber Integrationsmodule\nmit enmeshed Connector verbunden
 
 
-== Enmeshed Onboarding ==
+== enmeshed Onboarding ==
 
 user -> website: Möchte enmeshed Verknüpfung
 activate website

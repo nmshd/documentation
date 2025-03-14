@@ -8,14 +8,14 @@ footer Page %page% of %lastpage%
 caption Copyright 2021, j&s-soft AG
 
 box "Organizations's Infrastructure"
-participant "Enmeshed\nApp" as app
+participant "enmeshed\nApp" as app
 participant "Browser" as browser
 end box
 box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
-participant "Enmeshed\nConnector" as connector
+participant "enmeshed\nConnector" as connector
 end box
-participant "Enmeshed\nBackbone" as backbone
+participant "enmeshed\nBackbone" as backbone
 
 
 

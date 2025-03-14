@@ -6,9 +6,9 @@ caption Copyright 2021, j&s-soft AG
 
 box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
-participant "Enmeshed\nConnector" as connector
+participant "enmeshed\nConnector" as connector
 end box
-participant "Enmeshed\nBackbone" as backbone
+participant "enmeshed\nBackbone" as backbone
 
 == Prerequisites ==
 backbone <-> connector: Verified enmeshed Organization Identity

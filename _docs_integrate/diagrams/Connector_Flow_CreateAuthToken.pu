@@ -3,13 +3,13 @@
 
 actor "User" as user
 box "Consumer Landscape"
-    participant "Enmeshed\nApp" as app
+    participant "enmeshed\nApp" as app
     participant "Browser" as browser
 end box
-participant "Enmeshed\nPlatform" as platform
+participant "enmeshed\nPlatform" as platform
 box "Customer Landscape"
     participant "Website" as website
-    participant "Enmeshed\nConnector" as connector
+    participant "enmeshed\nConnector" as connector
 end box
 
 == Prerequisites ==
