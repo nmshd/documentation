@@ -54,7 +54,8 @@ In the latter case, the [Token for the File must be created]({% link _docs_use-c
 - `mimetype` of the respective file.
 - Optionally, `expiresAt` can be specified, which describes the ISODateTime the File expires.
 - Optionally, a `title` can be provided for the File.
-- Optional `description` of the File.
+- Optionally, a `description` can be provided for the File.
+- Optionally, `tags` can be provided for the File.
 
 ## On Success
 
