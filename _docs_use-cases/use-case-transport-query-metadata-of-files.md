@@ -58,10 +58,11 @@ All parameters are optional. If no parameter is used, all Files are returned.
   - `description` of the File.
   - `expiresAt` is the ISODateTime the File expires.
   - `filename` is the name of the actual file from the operating system.
-- `filesize` is the size of the respective file in bytes.
-- `mimetype` of the respective file.
-- `title` of the File.
-- `isOwn` indicates if the File is owned by you.
+  - `filesize` is the size of the respective file in bytes.
+  - `mimetype` of the respective file.
+  - `title` of the File.
+  - `isOwn` indicates if the File is owned by you.
+  - `tags` of the File.
 
 ## On Success
 
