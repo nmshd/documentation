@@ -55,13 +55,11 @@ By [sending a suitable Request]({% link _docs_integrate/share-attributes-with-pe
 ## Create an IdentityFileReference
 
 After [uploading the File](#upload-a-file), an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` and the `truncatedReference` of the uploaded [File]({% link _docs_integrate/data-model-overview.md %}#file) as its `value.value` can be created by proceeding as described in the documentation on how to [create an IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself).
-The following `content` can be used during the creation process, with its properties `validFrom`, `validTo` and `tags` being optional:
+The following `content` can be used during the creation process, with its property `tags` being optional:
 
 ```jsonc
 {
   "content": {
-    "validFrom": "<start of IdentityFileReference's validity>",
-    "validTo": "<end of IdentityFileReference's validity>",
     "value": {
       "@type": "IdentityFileReference",
       "value": "<truncatedReference of File>"
