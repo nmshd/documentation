@@ -59,6 +59,7 @@ All parameters are optional. If no parameter is used, all own [Files]({% link _d
   - `filesize` is the size of the respective file in bytes.
   - `mimetype` of the respective file.
   - `title` of the File.
+  - `tags` of the File.
 
 ## On Success
 

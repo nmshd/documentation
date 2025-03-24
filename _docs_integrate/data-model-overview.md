@@ -176,20 +176,21 @@ Its metadata information is stored in a data object of type File.
 A File further has its content, of course. But since this is not a JSON property, it is not included in the following table.
 The content of the File can be downloaded separately by executing the [Download File]({% link _docs_use-cases/use-case-transport-download-file.md %}) use case.
 
-| Name               | Type                    | Description                                                                                                           | Remarks                                       |
-| ------------------ | ----------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| id                 | `string`                | {% include descr_id class="File" prefix="FIL" %}                                                                      |                                               |
-| createdAt          | `string`                | {% include descr_createdAt class="File" %}                                                                            |                                               |
-| createdBy          | `string`                | {% include descr_createdBy class="File" %}                                                                            |                                               |
-| createdByDevice    | `string`                | {% include descr_createdByDevice class="File" %}                                                                      |                                               |
-| expiresAt          | `string`                | {% include descr_expiresAt class="File" %}                                                                            |                                               |
-| filename           | `string`                | The name of the file as it was on the device that uploaded it.                                                        | will be encrypted before sent to the Backbone |
-| filesize           | `number`                | The size of the plaintext file in bytes.                                                                              | will be encrypted before sent to the Backbone |
-| mimetype           | `string`                | The [mimetype](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) of the file. | will be encrypted before sent to the Backbone |
-| title              | `string`                | A human readable title of the file, which can be defined when uploading the File.                                     | will be encrypted before sent to the Backbone |
-| description        | `string` \| `undefined` | A human readable description of the file, which can be defined when uploading the File.                               | will be encrypted before sent to the Backbone |
-| isOwn              | `boolean`               | {% include descr_isOwn class="File" %}                                                                                | saved only locally                            |
-| truncatedReference | `string`                | {% include descr_truncatedReference class="File" %}                                                                   | saved only locally                            |
+| Name               | Type                      | Description                                                                                                           | Remarks                                       |
+| ------------------ | ------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| id                 | `string`                  | {% include descr_id class="File" prefix="FIL" %}                                                                      |                                               |
+| createdAt          | `string`                  | {% include descr_createdAt class="File" %}                                                                            |                                               |
+| createdBy          | `string`                  | {% include descr_createdBy class="File" %}                                                                            |                                               |
+| createdByDevice    | `string`                  | {% include descr_createdByDevice class="File" %}                                                                      |                                               |
+| expiresAt          | `string`                  | {% include descr_expiresAt class="File" %}                                                                            |                                               |
+| filename           | `string`                  | The name of the file as it was on the device that uploaded it.                                                        | will be encrypted before sent to the Backbone |
+| filesize           | `number`                  | The size of the plaintext file in bytes.                                                                              | will be encrypted before sent to the Backbone |
+| tags               | `string[]` \| `undefined` | To specify additional information.                                                                                    | will be encrypted before sent to the Backbone |
+| mimetype           | `string`                  | The [mimetype](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) of the file. | will be encrypted before sent to the Backbone |
+| title              | `string`                  | A human readable title of the file, which can be defined when uploading the File.                                     | will be encrypted before sent to the Backbone |
+| description        | `string` \| `undefined`   | A human readable description of the file, which can be defined when uploading the File.                               | will be encrypted before sent to the Backbone |
+| isOwn              | `boolean`                 | {% include descr_isOwn class="File" %}                                                                                | saved only locally                            |
+| truncatedReference | `string`                  | {% include descr_truncatedReference class="File" %}                                                                   | saved only locally                            |
 
 ## Identity
 
