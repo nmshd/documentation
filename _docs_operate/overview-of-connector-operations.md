@@ -71,7 +71,7 @@ New Connector versions are regularly published to the given Docker registry. Dep
 
 ### Check for System and Docker Updates
 
-Please consult the documentation of your operating system about system updates. Additionally, the Docker runtime should be regularly updated as well.
+Please consult the documentation of your operating system about system updates. Additionally, the Docker Runtime should be regularly updated as well.
 We recommend to keep your operating system and Docker as up to date as possible.
 
 ### Check Error Logs

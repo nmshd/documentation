@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use-case-user_interface-start-app-without-parameters
 published: false
-title: "Start app without parameters"
+title: "Start App without parameters"
 type: use-case
 toc: true
 sidebar:

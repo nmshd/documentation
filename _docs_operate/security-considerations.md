@@ -120,13 +120,13 @@ A firewall is a security system that monitors and controls incoming and outgoing
 
 Allowing for potentially insecure protocols such as HTTP may expose sensitive information in transit to malicious parties, putting the system and its users at risk of data theft or other cyber attacks. Furthermore, the use of unsupported protocols may result in unintended side effects that could compromise system functionality or stability.
 
-To mitigate this risk, it is recommended that the connector restricts the supported protocols to HTTPS, which is a secure protocol that encrypts information in transit. This will help prevent sensitive information from being exposed to malicious parties. Additionally, any feature that allows developers to override the protocol check should be explicitly enabled and documented to ensure that it is used judiciously and with caution.
+To mitigate this risk, it is recommended that the Connector restricts the supported protocols to HTTPS, which is a secure protocol that encrypts information in transit. This will help prevent sensitive information from being exposed to malicious parties. Additionally, any feature that allows developers to override the protocol check should be explicitly enabled and documented to ensure that it is used judiciously and with caution.
 
 Furthermore, an allowlist can be used to limit access to the system to only trusted sources, reducing the risk of unauthorized access and potential security vulnerabilities.
 
-When configuring the allowlist for the connector, it is important to include all necessary URLs while keeping the list as minimal as possible.
+When configuring the allowlist for the Connector, it is important to include all necessary URLs while keeping the list as minimal as possible.
 
-One important consideration when configuring the allowlist is the baseUrl of the used Backbone. The baseUrl should be the minimum required for the allowlist to ensure that the connector is fully functional. Including unnecessary URLs in the allowlist can increase the attack surface and create potential security vulnerabilities.
+One important consideration when configuring the allowlist is the baseUrl of the used Backbone. The baseUrl should be the minimum required for the allowlist to ensure that the Connector is fully functional. Including unnecessary URLs in the allowlist can increase the attack surface and create potential security vulnerabilities.
 
 However, it is also important to consider other URLs that may need to be included in the allowlist, such as update URLs for Docker Hub, images, GitHub, Linux update environments, and other sources. These URLs may be necessary for the proper functioning of the system and should be carefully evaluated and included in the allowlist if deemed necessary.
 
@@ -142,7 +142,7 @@ With this page, we address what we consider to be the most important security ti
 
 1. **Data encryption:** Data stored in the database should be encrypted to ensure that even if an attacker gains access to the storage device, they cannot read the data. MongoDB provides built-in [encryption at rest](https://www.mongodb.com/docs/manual/core/security-encryption-at-rest/) features, which can be enabled to secure data. For all databases it is possible to perform data encryption with storage encryption at the file system level or the block level. On Linux, file system encryption options include eCryptfs or EncFS and Block level options include dm-crypt + LUKS.
 
-2. **Network access restrictions:** MongoDB should only be accessible through the connector and should not be directly accessible over the public network. This can be achieved through proper network configuration, such as setting up firewalls to restrict access.
+2. **Network access restrictions:** MongoDB should only be accessible through the Connector and should not be directly accessible over the public network. This can be achieved through proper network configuration, such as setting up firewalls to restrict access.
 
 3. **Strong passwords and connection strings:** All user credentials and connection strings should be strong and complex, to prevent unauthorized access to the database.
 

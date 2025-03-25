@@ -14,7 +14,7 @@ properties:
   - layer: User Interface
   - facade:
   - function:
-  - description: The app navigates to the desired screen by itself.
+  - description: The App navigates to the desired screen by itself.
   - feature category:
   - tech category: App
   - status: DONE
