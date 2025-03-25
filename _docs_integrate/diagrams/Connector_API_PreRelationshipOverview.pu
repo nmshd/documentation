@@ -8,20 +8,20 @@ footer Page %page% of %lastpage%
 caption Copyright 2021, j&s-soft AG
 
 box "Organizations's Infrastructure"
-participant "Enmeshed\nApp" as app
+participant "enmeshed\nApp" as App
 participant "Browser" as browser
 end box
 box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
-participant "Enmeshed\nConnector" as connector
+participant "enmeshed\nConnector" as Connector
 end box
-participant "Enmeshed\nBackbone" as backbone
+participant "enmeshed\nBackbone" as Backbone
 
 
 
 
 == Prerequisites ==
-backbone <-> connector: Verified enmeshed Organization Identity
+Backbone <-> Connector: Verified enmeshed Organization Identity
 
 
 == Pre-Relationship ==
@@ -34,51 +34,51 @@ browser -> backend ++: \nLogin/Upgrade/Onboard
 
 backend -> backend: Create content\nfor user
 
-backend -> connector ++: \nCreate Template\nwith content & QR-Code
+backend -> Connector ++: \nCreate Template\nwith content & QR-Code
 
-connector -> backbone ++: Submit Template
-backbone --> connector --: templateId
-connector --> backend --: template, QR-Code
+Connector -> Backbone ++: Submit Template
+Backbone --> Connector --: templateId
+Connector --> backend --: template, QR-Code
 
 
 backend --> browser: Render QR-Code/Link
 backend --
--> app ++: Open App
+-> App ++: Open App
 
-app -> browser: Scans QR-Code/ \nopens Link
-browser --> app: Content
+App -> browser: Scans QR-Code/ \nopens Link
+browser --> App: Content
 browser --
-app -> backbone++: \nFetch Token & Template
-backbone --> app--: Returns Token & Template
-app -> app: Show template with\npre-filled data
+App -> Backbone++: \nFetch Token & Template
+Backbone --> app--: Returns Token & Template
+App -> App: Show template with\npre-filled data
 
 newpage
 
--> app: \nAccept template
-app -> app: Bundle user content
-app -> backbone ++: Submit RelationshipRequest with user content
-backbone -> app : RelationshipRequest
-backbone -> connector--: RelationshipRequest
-connector ++
-connector -> backend++: New RelationshipRequest\ncontaining user details
-connector --
+-> App: \nAccept template
+App -> App: Bundle user content
+App -> Backbone ++: Submit RelationshipRequest with user content
+Backbone -> App : RelationshipRequest
+Backbone -> connector--: RelationshipRequest
+Connector ++
+Connector -> backend++: New RelationshipRequest\ncontaining user details
+Connector --
 backend --> browser: Got request
 backend -> backend: Validate content\n& create response
-backend -> connector ++: Accept Request\nwith response
-connector -> backbone ++: Accept Request\nwith response
-backbone --> connector: Relationship
+backend -> Connector ++: Accept Request\nwith response
+Connector -> Backbone ++: Accept Request\nwith response
+Backbone --> Connector: Relationship
 
-connector --> backend: Relationship
-connector --
+Connector --> backend: Relationship
+Connector --
 backend --> browser: Got relationship
 backend --
 
-backbone --> app: Relationship
-backbone --
-app --
+Backbone --> App: Relationship
+Backbone --
+App --
 
 == Outcome ==
 browser <--> backend: Knowledge of\nenmeshed Relationship
-app <--> connector: Trusted, bi-directional enmeshed relationship
+App <--> Connector: Trusted, bi-directional enmeshed relationship
 
 @enduml

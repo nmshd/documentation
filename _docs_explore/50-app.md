@@ -8,7 +8,7 @@ toc: true
 
 ## Platform-dependant App Binaries
 
-For each of the various platforms, each version of the app is packaged into a platform-dependant binary. This binary is then executable / installable for the users. The binaries of the enmeshed App are created, maintained and published by j&amp;s-soft AG and are available free for use within the respective stores.
+For each of the various platforms, each version of the App is packaged into a platform-dependant binary. This binary is then executable / installable for the users. The binaries of the enmeshed App are created, maintained and published by j&amp;s-soft AG and are available free for use within the respective stores.
 
 Following binaries are currently created:
 
@@ -21,4 +21,4 @@ The user interface of the enmeshed App is platform-independently built with [Flu
 
 ## App Runtime
 
-The enmeshed business logic for the app is extending the [enmeshed Runtime]({% link _docs_explore/61-runtime.md %}) with app-specific implementations, like multi-profile support, local data handling or automations. You can think of the App Runtime as a more user-interface-friendly way of the enmeshed Runtime.
+The enmeshed business logic for the App is extending the [enmeshed Runtime]({% link _docs_explore/61-runtime.md %}) with app-specific implementations, like multi-profile support, local data handling or automations. You can think of the App Runtime as a more user-interface-friendly way of the enmeshed Runtime.

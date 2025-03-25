@@ -6,27 +6,27 @@ caption Copyright 2021, j&s-soft AG
 
 box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
-participant "Enmeshed\nConnector" as connector
+participant "enmeshed\nConnector" as Connector
 end box
-participant "Enmeshed\nBackbone" as backbone
+participant "enmeshed\nBackbone" as Backbone
 
 == Prerequisites ==
-backbone <-> connector: Verified enmeshed Organization Identity
+Backbone <-> Connector: Verified enmeshed Organization Identity
 
 
 == Get Open Relationship Requests ==
 
 -> backend ++: Start
-backend -> connector ++: GET /RelationshipRequests\n/OpenIncoming
+backend -> Connector ++: GET /RelationshipRequests\n/OpenIncoming
 
-connector -> backbone ++: Get relationship requests
-backbone -> backbone: Retrieve requests
-backbone --> connector --: Returns requests
+Connector -> Backbone ++: Get relationship requests
+Backbone -> Backbone: Retrieve requests
+Backbone --> Connector --: Returns requests
 
-connector -> connector: Decrypt every request
-connector -> connector: Validate every request
+Connector -> Connector: Decrypt every request
+Connector -> Connector: Validate every request
 
-connector --> backend --: Returns requests
+Connector --> backend --: Returns requests
 
 <-- backend --: Stop\n(with Requests)
 

@@ -3,25 +3,25 @@
 
 actor "User" as user
 box "Consumer Landscape"
-    participant "Enmeshed\nApp" as app
+    participant "enmeshed\nApp" as App
     participant "Browser" as browser
 end box
-participant "Enmeshed\nPlatform" as platform
+participant "enmeshed\nPlatform" as platform
 box "Customer Landscape"
     participant "Website" as website
-    participant "Enmeshed\nConnector" as connector
+    participant "enmeshed\nConnector" as Connector
 end box
 
 == Prerequisites ==
 
-app <--> connector: enmeshed Relationship
-website <--> connector: enmeshed Integration
+App <--> Connector: enmeshed Relationship
+website <--> Connector: enmeshed Integration
 
 autonumber
 
 == Login from App ==
-user -> app ++: Open Customer\nWebsite
-app -> platform ++: Get timestamp
+user -> App ++: Open Customer\nWebsite
+App -> platform ++: Get timestamp
 platform --> app--: Returns timestamp and random id
 note right
 We have to ensure that
@@ -33,16 +33,16 @@ Thus, the trusted enmeshed
 platform creates the
 timestamps.
 end note
-app -> app: Signs random id
-app -> app: Creates login token
-app -> browser ++: Open Browser\nwith login token
-app --
+App -> App: Signs random id
+App -> App: Creates login token
+App -> browser ++: Open Browser\nwith login token
+App --
 browser -> website++: Open Website with login token
-website -> connector++: Check login token
-connector -> connector: Verify token\nsignature
-connector -> platform++: Check random id
-platform --> connector --: OK
-connector -> website --: Login OK\nenmeshed Address xyz
+website -> Connector++: Check login token
+Connector -> Connector: Verify token\nsignature
+Connector -> platform++: Check random id
+platform --> Connector --: OK
+Connector -> website --: Login OK\nenmeshed Address xyz
 browser <--> website: Login Session for enmeshed Address xyz
 
 

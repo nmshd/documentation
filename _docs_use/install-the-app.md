@@ -23,12 +23,12 @@ required_by:
 # End automatic generation
 ---
 
-Caution: As enmeshed is open-source and the App is a white-label component, there are several flavors of the enmeshed App in the corresponding app stores.
+Caution: As enmeshed is open-source and the App is a white-label component, there are several flavors of the enmeshed App in the corresponding App stores.
 {: .notice--warning}
 
 # enmeshed App
 
-You can get the enmeshed App over your favorite app stores. Please find the links below:
+You can get the enmeshed App over your favorite App stores. Please find the links below:
 
 - [enmeshed App on Apple AppStore](https://apps.apple.com/us/app/enmeshed/id1576693742#?platform=ipad)
 - [enmeshed App on Google PlayStore](https://play.google.com/store/apps/details?id=eu.enmeshed.app&hl=de&gl=US)

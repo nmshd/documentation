@@ -27,4 +27,4 @@ Features possible with enmeshed:
 - Transparent web authentication without Identity providers, passwords or multi-factor apps
 - Transparent web authorization without Identities
 - Fast onboarding with all required data (getting all the data you need from a client without having the client to enter the same data time and time again)
-- Direct login (press a button out of the app and be authenticated on a website)
+- Direct login (press a button out of the App and be authenticated on a website)
