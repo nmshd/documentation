@@ -48,13 +48,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Backbone Layer",
-        "excerpt":"From a user perspective, the deepest layer is the backbone layer. It handles the “untrusted” communication with the Backbone and the processing of data within the Backbone. Payload sent to and received from the Backbone is encrypted. The Backbone itself requires metadata to work, thus there is also unencrypted data...","categories": [],
+        "excerpt":"From a user perspective, the deepest layer is the Backbone layer. It handles the “untrusted” communication with the Backbone and the processing of data within the Backbone. Payload sent to and received from the Backbone is encrypted. The Backbone itself requires metadata to work, thus there is also unencrypted data...","categories": [],
         "tags": [],
         "url": "/versions/v7/explore/layers/backbone",
         "teaser": null
       },{
         "title": "Transport Layer",
-        "excerpt":"The transport layer is located between the backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is...","categories": [],
+        "excerpt":"The transport layer is located between the Backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is...","categories": [],
         "tags": [],
         "url": "/versions/v7/explore/layers/transport",
         "teaser": null
@@ -78,7 +78,7 @@ var store = [{
         "teaser": null
       },{
         "title": "enmeshed App",
-        "excerpt":"App Building Blocks Platform-dependant App Binaries For each of the various platforms, each version of the app is packaged into a platform-dependant binary. This binary is then executable / installable for the users. The binaries of the enmeshed App are created, maintained and published by j&amp;s-soft AG and are available...","categories": [],
+        "excerpt":"App Building Blocks Platform-dependant App Binaries For each of the various platforms, each version of the App is packaged into a platform-dependant binary. This binary is then executable / installable for the users. The binaries of the enmeshed App are created, maintained and published by j&amp;s-soft AG and are available...","categories": [],
         "tags": [],
         "url": "/versions/v7/explore/app",
         "teaser": null
@@ -396,13 +396,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Use enmeshed",
-        "excerpt":"This page is intended for app users.   Getting Started   Install the app in a secure environment.       ","categories": [],
+        "excerpt":"This page is intended for App users.   Getting Started   Install the App in a secure environment.       ","categories": [],
         "tags": [],
         "url": "/versions/v7/use",
         "teaser": null
       },{
         "title": "Install the App",
-        "excerpt":"Caution: As enmeshed is open-source and the App is a white-label component, there are several flavors of the enmeshed App in the corresponding app stores. enmeshed App You can get the enmeshed App over your favorite app stores. Please find the links below: enmeshed App on Apple AppStore enmeshed App...","categories": [],
+        "excerpt":"Caution: As enmeshed is open-source and the App is a white-label component, there are several flavors of the enmeshed App in the corresponding App stores. enmeshed App You can get the enmeshed App over your favorite App stores. Please find the links below: enmeshed App on Apple AppStore enmeshed App...","categories": [],
         "tags": [],
         "url": "/versions/v7/use/install-the-app",
         "teaser": null

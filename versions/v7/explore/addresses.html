@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-03-25T08:55:20+01:00">
+  <meta property="article:published_time" content="2025-03-25T13:48:49+01:00">
 
 
 
@@ -301,7 +301,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="enmeshed Addresses">
     <meta itemprop="description" content="The enmeshed Address is the primary identifier for an enmeshed Identity and stored within the address property of the data object of type Identity. It is public and created out of the Identity’s Signature Public Key. Thus, the Identity’s root signature key and its corresponding Address are interlinked with each other and cannot be changed. Nobody is able to change the public key for a corresponding Address and everybody has the possibility to check, if a given public key matches a given Address without having to trust someone. Both are important security features.">
-    <meta itemprop="datePublished" content="2025-03-25T08:55:20+01:00">
+    <meta itemprop="datePublished" content="2025-03-25T13:48:49+01:00">
     
 
     <div class="page__inner-wrap">
@@ -326,7 +326,7 @@
   <li>As they do have a checksum included, syntactically wrong Addresses can be checked by a computer program locally.</li>
 </ul>
 
-<p>Enmeshed uses <a href="https://www.w3.org/TR/did-core/">Decentralized Identifiers</a>, also called DIDs, which are specified by the W3C and commonly used with W3C’s <a href="https://www.w3.org/TR/vc-overview/">Verifiable Credentials</a>. Enmeshed plans to launch its own DID method <code class="language-plaintext highlighter-rouge">did:e</code>, and already uses those DIDs for Addresses even though the method is not yet constructed.</p>
+<p><a href="https://www.w3.org/TR/did-core/">Decentralized Identifiers</a>, also called DIDs, are used by enmeshed. These are specified by the W3C and commonly used with W3C’s <a href="https://www.w3.org/TR/vc-overview/">Verifiable Credentials</a>. It is planned by enmeshed to launch its own DID method <code class="language-plaintext highlighter-rouge">did:e</code>, and enmeshed already uses those DIDs for Addresses even though the method is not yet constructed.</p>
 
 <h2 id="addresses-are-backbone-specific">Addresses are Backbone-specific</h2>
 
@@ -357,11 +357,11 @@
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>createAddress(PublicKey) {
 Hash := SHA256(SHA512(PublicKey)) // 32 bytes
 HashedPublicKey := Hash[0-9] // 10 bytes
-EnmeshedSpecificPart := "did:e:"
+enmeshedSpecificPart := "did:e:"
 BackboneSpecificPart := "&lt;backbone-hostname&gt;:dids:" // e. g. "example.com:dids:"
 IdentitySpecificPart := HEX(HashedPublicKey) // 10 bytes (20 characters), e.g. "eadae3b3d814ebb0c0d6"
-Checksum := HEX(SHA256(EnmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart)[0]) // 1 byte, e.g. "de"
-Address = EnmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart + Checksum // e.g. did:e:example.com:dids:eadae3b3d814ebb0c0d6de
+Checksum := HEX(SHA256(enmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart)[0]) // 1 byte, e.g. "de"
+Address = enmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart + Checksum // e.g. did:e:example.com:dids:eadae3b3d814ebb0c0d6de
 }
 </code></pre></div></div>
 
@@ -396,7 +396,7 @@ address: "did:e:example.com:dids:e2208784ee2769c5d9686a"
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-25T08:55:20+01:00">March 25, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-25T13:48:49+01:00">March 25, 2025</time></p>
 
       </footer>
 

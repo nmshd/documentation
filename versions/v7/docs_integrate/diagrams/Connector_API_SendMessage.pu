@@ -6,28 +6,28 @@ caption Copyright 2021, j&s-soft AG
 
 box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
-participant "Enmeshed\nConnector" as connector
+participant "enmeshed\nConnector" as Connector
 end box
-participant "Enmeshed\nBackbone" as backbone
+participant "enmeshed\nBackbone" as Backbone
 actor "Recipient" as user
 
 == Prerequisites ==
-backbone <-> connector: Verified enmeshed Organization Identity
-connector <-> user: Existing enmeshed Relationship
+Backbone <-> Connector: Verified enmeshed Organization Identity
+Connector <-> user: Existing enmeshed Relationship
 
 == Send Message ==
 
 -> backend ++: Start\n(with recipients,\ncontent)
 backend -> backend: Validate input
-backend -> connector ++: POST /Messages\n- recipients\n- content
-connector -> connector: Validate input
-connector -> connector: Encrypt message for every recipient
-connector -> backbone ++: Create Message\n- messageCipher
-backbone -> backbone: Store message
-backbone --> connector: Returns messageId, timestamp
-backbone -> user--: Forward message
+backend -> Connector ++: POST /Messages\n- recipients\n- content
+Connector -> Connector: Validate input
+Connector -> Connector: Encrypt message for every recipient
+Connector -> Backbone ++: Create Message\n- messageCipher
+Backbone -> Backbone: Store message
+Backbone --> Connector: Returns messageId, timestamp
+Backbone -> user--: Forward message
 
-connector --> backend --: Returns message
+Connector --> backend --: Returns message
 <-- backend --: Stop\n(with message)
 
 @enduml
