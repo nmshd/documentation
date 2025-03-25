@@ -41,4 +41,4 @@ required_by:
 
 {% include properties_list.html %}
 
-This use case retrieves the Runtime version of the App.
+This use case retrieves the Runtime version of the app.
