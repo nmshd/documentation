@@ -1,4 +1,4 @@
-# documentation
+# Documentation
 
 This is the source code of the enmeshed documentation hosted at [enmeshed.eu](https://enmeshed.eu).
 
@@ -50,20 +50,20 @@ Alternatively, you can use the predefined VS Code Tasks
 - `Serve` &rarr; see above
 - `Build` &rarr; build the jekyll site
 
-## update dependencies
+## Update dependencies
 
 You can update dependencies using the command `bundle update`.
 
-## regenerate diagrams
+## Regenerate diagrams
 
-execute
+To regenerate diagrams, execute the command
 
 ```shell
 java -jar puml.jar _docs_integrate/diagrams/*.pu -o "$PWD/assets/diagrams/integrate"
 
 ```
 
-## regenerate header
+## Regenerate header
 
 1. add excel file to root directory
 2. execute script

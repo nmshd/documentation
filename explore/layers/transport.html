@@ -11,7 +11,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Transport Layer - enmeshed</title>
-<meta name="description" content="The transport layer is located between the backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is the primary technical building block, containing the transport library, the content library and the crypto library.">
+<meta name="description" content="The transport layer is located between the Backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is the primary technical building block, containing the transport library, the content library and the crypto library.">
 
 
   <meta name="author" content="enmeshed Team">
@@ -27,7 +27,7 @@
 <meta property="og:url" content="/explore/layers/transport">
 
 
-  <meta property="og:description" content="The transport layer is located between the backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is the primary technical building block, containing the transport library, the content library and the crypto library.">
+  <meta property="og:description" content="The transport layer is located between the Backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is the primary technical building block, containing the transport library, the content library and the crypto library.">
 
 
 
@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-03-25T08:54:54+01:00">
+  <meta property="article:published_time" content="2025-03-25T13:48:03+01:00">
 
 
 
@@ -295,8 +295,8 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Transport Layer">
-    <meta itemprop="description" content="The transport layer is located between the backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is the primary technical building block, containing the transport library, the content library and the crypto library.">
-    <meta itemprop="datePublished" content="2025-03-25T08:54:54+01:00">
+    <meta itemprop="description" content="The transport layer is located between the Backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is the primary technical building block, containing the transport library, the content library and the crypto library.">
+    <meta itemprop="datePublished" content="2025-03-25T13:48:03+01:00">
     
 
     <div class="page__inner-wrap">
@@ -321,7 +321,7 @@
             </nav>
           </aside>
         
-        <p>The transport layer is located between the backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the <a href="/explore/connector">Connector</a> or programmatically accessed by the <a href="/explore/app">App</a>. The <a href="/explore/runtime">Runtime</a> is the primary technical building block, containing the transport library, the content library and the crypto library.</p>
+        <p>The transport layer is located between the Backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the <a href="/explore/connector">Connector</a> or programmatically accessed by the <a href="/explore/app">App</a>. The <a href="/explore/runtime">Runtime</a> is the primary technical building block, containing the transport library, the content library and the crypto library.</p>
 
 <p><strong>Components</strong></p>
 
@@ -342,7 +342,7 @@
 
 <h2 id="encryption">Encryption</h2>
 
-<p>All encryption-relevant topics like key handling and signature verification are encapsulated by the transport layer. The transport layer communicates in plaintext to the consumers building on top of the transport layer. All traffic to the backbone layer is encrypted or “least knowledge”.</p>
+<p>All encryption-relevant topics like key handling and signature verification are encapsulated by the transport layer. The transport layer communicates in plaintext to the consumers building on top of the transport layer. All traffic to the Backbone layer is encrypted or “least knowledge”.</p>
 
 <h2 id="key-handling">Key Handling</h2>
 
@@ -350,9 +350,9 @@
 
 <h2 id="cross-device-synchronization">Cross-Device Synchronization</h2>
 
-<p>The synchronization between the devices is completely encrypted and works a bit like the communication with other Identities. When an Identity is created, a random synchronization key is generated and used to encrypt and synchronize all local data to the backbone. This synchronization key is then shared when onboarding a new device, allowing the new device to have access to the complete (encrypted) history of the Identity on the backbone which can then be downloaded and applied.</p>
+<p>The synchronization between the devices is completely encrypted and works a bit like the communication with other Identities. When an Identity is created, a random synchronization key is generated and used to encrypt and synchronize all local data to the backbone. This synchronization key is then shared when onboarding a new device, allowing the new device to have access to the complete (encrypted) history of the Identity on the Backbone which can then be downloaded and applied.</p>
 
-<p>Changes on one device are directly synchronized with the backbone and thus communicated to and reflected on other devices. The synchronization service (we also call it datawallet service) only adds information to the Identity’s history. Therefore, enmeshed would even be able to roll back local changes on user errors, as we have a kind of local data versioning across devices with this approach.</p>
+<p>Changes on one device are directly synchronized with the Backbone and thus communicated to and reflected on other devices. The synchronization service (we also call it datawallet service) only adds information to the Identity’s history. Therefore, enmeshed would even be able to roll back local changes on user errors, as we have a kind of local data versioning across devices with this approach.</p>
 
 <p>We have a blocking mechanism in place that allows only one device to update the Identity’s history on a single point in time.</p>
 
@@ -427,14 +427,14 @@
 
 <p>Abbreviated: FIL</p>
 
-<p>A file is an enmeshed representation of any binary-large object (BLOB). Handling files is similar to handling tokens, the big difference is, that tokens provide a means to share structured content whereas files are uploaded to and downloaded from the backbone by the help of binary transfer methods.</p>
+<p>A file is an enmeshed representation of any binary-large object (BLOB). Handling files is similar to handling tokens, the big difference is, that tokens provide a means to share structured content whereas files are uploaded to and downloaded from the Backbone by the help of binary transfer methods.</p>
 
 <p>The actual file is then shared by a file reference to a recipient. Files can be short-lived or long-lived, depending on the business case - use the expiresAt property to define the expiry of a file.</p>
 
 <h3 id="file-structure">File Structure</h3>
 
 <ul>
-  <li>id: Random file id generated by the backbone once the upload was finished</li>
+  <li>id: Random file id generated by the Backbone once the upload was finished</li>
   <li>title: Human readable file title</li>
   <li>description: Description of the file</li>
   <li>filename: Filename of the original file (used for storing the file on local systems)</li>
@@ -464,7 +464,7 @@ Depending on the content of the Message, a Message could act as a technical Mess
 <h3 id="message-structure">Message Structure</h3>
 
 <ul>
-  <li>id: random Message id generated by the backbone once the Message has been created</li>
+  <li>id: random Message id generated by the Backbone once the Message has been created</li>
   <li>createdAt: ISO String when the Message has been created</li>
   <li>createdBy: Address of the Identity which created the Message</li>
   <li>createdByDevice: Device id of the device which created the Message</li>
@@ -595,7 +595,7 @@ The very first recorded operation is the creation of the then pending Relationsh
 <p>It should also be clear that personalized RelationshipTemplates should expire as soon as possible, depending on the context. The <code class="language-plaintext highlighter-rouge">maxNumberOfAllocations</code> property when creating the RelationshipTemplate should be set to 1, so that the RelationshipTemplate can only be used once. Keep in mind that it could still be scanned multiple times - including the access of the personalized data - as long as it is not expired.</p>
 
 <p><strong>Example 1</strong>
-Horst has an online account of his favorite webshop and is already logged in there. The webshop can create a personalized RelationshipTemplate for Horst which includes Horst’s private address. If Horst scans this RelationshipTemplate, the app can automatically fill Horst’s datawallet with the private address. The personalized RelationshipTemplate might expire after 5 minutes.</p>
+Horst has an online account of his favorite webshop and is already logged in there. The webshop can create a personalized RelationshipTemplate for Horst which includes Horst’s private address. If Horst scans this RelationshipTemplate, the App can automatically fill Horst’s datawallet with the private address. The personalized RelationshipTemplate might expire after 5 minutes.</p>
 
 <p><strong>Example 2</strong>
 A company has no customer system where customers can log in but would still like to submit information digitally to its customers. The company creates a personalized RelationshipTemplate for a customer, e.g. Susan and prints the QR code on a letter. Susan can then scan in the QR code and can establish a secure connection to the company, although there is no online customer system. The personalized RelationshipTemplate might expire after two weeks.</p>
@@ -647,7 +647,7 @@ A company has no customer system where customers can log in but would still like
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-25T08:54:54+01:00">March 25, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-25T13:48:03+01:00">March 25, 2025</time></p>
 
       </footer>
 
