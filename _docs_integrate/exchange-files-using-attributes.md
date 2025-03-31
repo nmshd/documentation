@@ -27,7 +27,7 @@ Communication between Identities involves exchanging [uploaded Files](#upload-a-
 - A university wants to send a student their certificate of enrollment.
 - An applicant wants to send their curriculum vitae to a company.
 
-These examples all represent cases where the [File]({% link _docs_integrate/data-model-overview.md %}#file) should be stored by the recipient for further use.
+These examples all represent cases where the [File]({% link _docs_integrate/data-model-overview.md %}#file) ought to be saved by the recipient for further use.
 To this end, we store the File in the form of an [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes).
 In contrast, it is also possible to send a simple File without an Attribute as an `attachment` of a [Message]({% link _docs_integrate/data-model-overview.md %}#message).
 However, in this case the File cannot be further used by the recipient.
@@ -35,7 +35,7 @@ Thus, we only recommend to do so for Files that contain one-time-information for
 {: .notice--info}
 
 This guide describes how an Integrator of a Connector can use a certain kind of [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes), the [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference), to exchange Files.
-To do so, the repective [File must be uploaded to the Backbone](#upload-a-file) first.
+To do so, the respective [File must be uploaded to the Backbone](#upload-a-file) first.
 Then, an explanation of how to [share an own File with a peer](#share-an-own-file-with-a-peer) follows.
 Also, [further options for exchanging Files](#further-options-for-exchanging-files), such as requesting the reading of a [File]({% link _docs_integrate/data-model-overview.md %}#file) from a peer, are touched upon.
 Lastly, the scenario of [transferring the ownership of a File to a peer](#transfer-the-ownership-of-a-file-to-a-peer) is explained.
@@ -51,7 +51,7 @@ The [File]({% link _docs_integrate/data-model-overview.md %}#file) exchange flow
 In order to be able to [share a File with a peer](#share-an-own-file-with-a-peer) or to [transfer the ownership of a File to a peer](#transfer-the-ownership-of-a-file-to-a-peer), its content must first be uploaded to the Backbone in encrypted form.
 To do this, consult the documentation of the [Upload own File]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}) use case.
 By uploading the [File]({% link _docs_integrate/data-model-overview.md %}#file), it is assigned an `id` and a `truncatedReference` with which it can be identified from now on.
-Either one can be specified as a parameter when executing the [Get File metadata]({% link _docs_use-cases/use-case-transport-get-file-metadata.md %}) use case in order to display the metadata information of the File.
+Either of them can be specified as a parameter when executing the [Get File metadata]({% link _docs_use-cases/use-case-transport-get-file-metadata.md %}) use case in order to display the metadata information of the File.
 In the context of exchanging Files, particular attention should be paid to the `truncatedReference` property of the File.
 All Identities that know its value can download the encrypted content of the File from the Backbone and decrypt it.
 
@@ -62,6 +62,7 @@ To be more precise, this is an [IdentityAttribute]({% link _docs_integrate/data-
 An IdentityFileReference stores the value of the `truncatedReference` property of the File within its `value` property.
 By [sending a suitable Request]({% link _docs_integrate/share-attributes-with-peer.md %}#send-and-receive-the-request), this IdentityAttribute can be shared with a `peer` of an already existing [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) or in the process of [establishing a Relationship]({% link _docs_integrate/establish-relationships.md %}).
 If the peer accepts the Request, a peer shared IdentityAttribute will be created for them and they will gain read access to the underlying File, that was [uploaded to the Backbone](#upload-a-file).
+For the sender an own shared IdentityAttribute will be created.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/849a579c-15c6-4b9a-a652-ea51c31bb622" id="bJaM.8pgwNP3"></iframe></div>
 
@@ -122,4 +123,66 @@ An overview of the available options for [creating a RelationshipAttribute]({% l
 
 # Transfer the Ownership of a File to a Peer
 
+If the sender creates a File for the recipient, simply [sharing the File](#share-an-own-file-with-a-peer) will not be enough.
+That is, because the uploaded File on the Backbone will still belong to the sender.
+Instead, the ownership of the File needs to be transferred to the recipient.
+To this end, firstly the sender needs to [upload the File](#upload-a-file) to the Backbone.
+Then, an appropriate [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem) must be sent to the peer, who shall become the new owner of the File.
+If they accept it, the ownership of the File on the Backbone will be transferred to them.
+Additionally, a [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type` will be created for the recipient.
+Moreover, this RepositoryAttribute will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient and a peer shared IdentityAttribute will be created for the sender.
+
+## Request for Transferring the Ownership of a File
+
+The sender wants to transfer the ownership of a File to the recipient.
+To do so, the sender must first create a suitable Request, which they can then send to the recipient.
+In the following subsections, we describe the general appearance of a Request for transferring the ownership of a File.
+
+### Role of TransferFileOwnershipRequestItem
+
 <!-- TOOD: -->
+
+For transferring the ownership of a single File, the sender needs to insert a single RequestItem of type [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem) into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request).
+The sender can only transfer the ownership of a File that was already [uploaded to the Backbone](#upload-a-file) and is owned by themselves.
+The latter means that the `isOwn` property of the corresponding File is `true`.
+In order to create the TransferFileOwnershipRequestItem, the `truncatedReference` of the File must be inserted into its `fileReference` property.
+
+To get a list of all Files that are owned by the sender, proceed as described in the [Query metadata of own Files]({% link _docs_use-cases/use-case-transport-query-metadata-of-own-files.md %}) use case documentation.
+{: .notice--info}
+
+### Example of Transferring the Ownership of a File
+
+<!-- TODO: -->
+
+### Transfer Ownership of Multiple Files
+
+Transferring the ownership is not limited to just a single File, but it is possible to request the transfer of ownership of multiple Files at the same time.
+For this purpose, several TransferFileOwnershipRequestItems or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for transferring the File ownership.
+If you want to use a RequestItemGroup in order to transfer the ownership of multiple Files to the Recipient at the same time, you must insert corresponding TranferFileOwnershipRequestItems into the `items` property of it.
+
+## Send and Receive the Request
+
+The sender that wants to transfer the ownership of a File may or may not already have a Relationship with the recipient.
+Depending on which is the case, a different method can be used to send the [Request for transferring the ownership of a File](#request-for-transferring-the-ownership-of-a-file).
+There are two ways to send the Request for transferring the ownership of a File to the recipient.
+
+### Request via RelationshipTemplate
+
+If there is currently no Relationship between the sender and the recipient, this approach must be used.
+However, it is also possible for the sender to use a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) to send a Request to the recipient if there is already an active Relationship between them.
+All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the [Requests via RelationshipTemplates]({% link _docs_integrate/requests-via-relationshiptemplates.md %}) guide.
+
+### Request via Message
+
+The sender only has the option of sending a Request to the recipient via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) if there is already an active Relationship between them.
+All information on how to send and receive a Request via a Message can be found in the [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) guide.
+
+## Accept the Request and ...
+
+<!-- TODO: -->
+
+### Accept a TransferFileOwnershipRequestItem
+
+### Reject a TransferFileOwnershipRequestItem
+
+## Receive the Response to the Request
