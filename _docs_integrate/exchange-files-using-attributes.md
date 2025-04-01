@@ -150,7 +150,23 @@ To get a list of all Files that are owned by the sender, proceed as described in
 
 ### Example of Transferring the Ownership of a File
 
-<!-- TODO: -->
+We assume that the Integrator of the sender has [uploaded a File to the Backbone](#upload-a-file), whose ownership they want to transfer to the recipient.
+To do so, they need to insert the `truncatedReference` of the corresponding File into the `fileReference` property of the [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem).
+The value of the `mustBeAccepted` property is set to `true` in this example.
+Then, the RequestItem needs to be put into the `item` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for transferring the ownership of Files.
+
+```jsonc
+{
+  "@type": "Request",
+  "items": [
+    {
+      "@type": "TransferFileOwnershipRequestItem",
+      "mustBeAccepted": true,
+      "fileReference": "<truncatedReference of the File>"
+    }
+  ]
+}
+```
 
 ### Transfer Ownership of Multiple Files
 
@@ -177,6 +193,8 @@ All information on how to send and receive a Request via a Message can be found 
 
 ## Accept the Request
 
+<!-- TODO: insert picture? -->
+
 After the recipient has received the [Request for transferring the ownership of Files](#request-for-transferring-the-ownership-of-a-file), they can accept it to receive the ownership of all or some of the sender's Files.
 To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 Also, you need to decide and specify for each TransferFileOwnershipRequestItem contained in the Request for transferring the ownership of Files whether you want to accept or reject it.
@@ -197,8 +215,6 @@ Based on this, an appropriate AcceptResponseItem of type [TransferFileOwnershipA
 It contains the `id` and the `content` of the created own shared IdentityAttribute in its `attributeId` and `attribute` property, respectively.
 This ResponseItem will appear within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for transferring the ownership of Files, which will be sent back to the sender.
 
-<!-- TODO: -->
-
 Currently, there is no implementation for changing the actual ownership of a File that was uploaded to the Backbone.
 Instead, accepting a TransferFileOwnershipRequestItem downloads the corresponding File and uploads it again to the Backbone, such that the recipient is its owner.
 The created IdentityAttributes with `value.@type` IdentityFileReference reference this newly uploaded File.
@@ -215,4 +231,22 @@ This will be contained within the `items` property of the [Response]({% link _do
 
 ## Receive the Response to the Request
 
-<!-- TODO: -->
+We now assume that the recipient has accepted the [Request for transferring the ownership of Files](#request-for-transferring-the-ownership-of-a-file) of the sender.
+In order for the sender to receive the Response of the recipient, they need to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
+Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
+
+<!-- TODO: insert picture? -->
+
+To view the Response to the Request, proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
+
+- If the [Request was sent via a RelationshipTemplate]({% link _docs_integrate/share-attributes-with-peer.md %}#request-via-relationshiptemplate): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
+- If the [Request was sent via a Message]({% link _docs_integrate/share-attributes-with-peer.md %}#request-via-message): Specify `<ID of Request>` as the value for the `id` query parameter.
+
+The Integrator of the sender can now get the Response of the recipient from the `response.content` property of the result.
+In the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) is a [TransferFileOwnershipAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershipacceptresponseitem) for each accepted TransferFileOwnershipRequestItem and a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) for each rejected TransferFileOwnershipRequestItem included.
+Note that each accepted TransferFileOwnershipRequestItem leads to the creation of an appropriate [peer shared IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) of the sender.
+The `content` and `id` of the LocalAttribute are the underlying `attribute` and `attributeId` of the TransferFileOwnershipAcceptResponseItem, respectively.
+
+In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) can also be included in the Response.
+If the Request for transferring the ownership of Files contains a RequestItemGroup in its `items` property, the Response to this Request contains a corresponding [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) in its `items` property.
+{: .notice--info}
