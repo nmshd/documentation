@@ -129,7 +129,7 @@ Instead, the ownership of the File needs to be transferred to the recipient.
 To this end, firstly the sender needs to [upload the File](#upload-a-file) to the Backbone.
 Then, an appropriate [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem) must be sent to the peer, who shall become the new owner of the File.
 If they accept it, the ownership of the File on the Backbone will be transferred to them.
-Additionally, a [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type` will be created for the recipient.
+Additionally, a [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be created for the recipient, whose `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type`.
 Moreover, this RepositoryAttribute will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient and a peer shared IdentityAttribute will be created for the sender.
 
 ## Request for Transferring the Ownership of a File
@@ -140,12 +140,10 @@ In the following subsections, we describe the general appearance of a Request fo
 
 ### Role of TransferFileOwnershipRequestItem
 
-<!-- TOOD: -->
-
 For transferring the ownership of a single File, the sender needs to insert a single RequestItem of type [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem) into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 The sender can only transfer the ownership of a File that was already [uploaded to the Backbone](#upload-a-file) and is owned by themselves.
 The latter means that the `isOwn` property of the corresponding File is `true`.
-In order to create the TransferFileOwnershipRequestItem, the `truncatedReference` of the File must be inserted into its `fileReference` property.
+To create the TransferFileOwnershipRequestItem, the `truncatedReference` of the File must be inserted into its `fileReference` property.
 
 To get a list of all Files that are owned by the sender, proceed as described in the [Query metadata of own Files]({% link _docs_use-cases/use-case-transport-query-metadata-of-own-files.md %}) use case documentation.
 {: .notice--info}
@@ -158,7 +156,7 @@ To get a list of all Files that are owned by the sender, proceed as described in
 
 Transferring the ownership is not limited to just a single File, but it is possible to request the transfer of ownership of multiple Files at the same time.
 For this purpose, several TransferFileOwnershipRequestItems or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for transferring the File ownership.
-If you want to use a RequestItemGroup in order to transfer the ownership of multiple Files to the Recipient at the same time, you must insert corresponding TranferFileOwnershipRequestItems into the `items` property of it.
+If you want to use a RequestItemGroup in order to transfer the ownership of multiple Files to the recipient at the same time, you must insert corresponding TranferFileOwnershipRequestItems into the `items` property of it.
 
 ## Send and Receive the Request
 
@@ -177,12 +175,44 @@ All details on how to send and receive a Request via a RelationshipTemplate in g
 The sender only has the option of sending a Request to the recipient via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) if there is already an active Relationship between them.
 All information on how to send and receive a Request via a Message can be found in the [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) guide.
 
-## Accept the Request and ...
+## Accept the Request
 
-<!-- TODO: -->
+After the recipient has received the [Request for transferring the ownership of Files](#request-for-transferring-the-ownership-of-a-file), they can accept it to receive the ownership of all or some of the sender's Files.
+To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request).
+Also, you need to decide and specify for each TransferFileOwnershipRequestItem contained in the Request for transferring the ownership of Files whether you want to accept or reject it.
+
+If the recipient does not want to receive the ownership of any of the sender's Files and, therefore, does not want to accept the Request for transferring the ownership of Files of the sender, they can reject it as a whole, too.
+For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
+{: .notice--info}
 
 ### Accept a TransferFileOwnershipRequestItem
 
+If the recipient agrees to receive the ownership of one of the sender's Files, they can accept the associated TransferFileOwnershipRequestItem.
+The [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) must be used for this.
+The acceptance of a TransferFileOwnershipRequestItem leads to the transfer of the ownership of the File on the Backbone.
+Additionally, a [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be created for the recipient, whose `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type`.
+The `value` of the IdentityFileReference is the `truncatedReference` of the File that is now owned by the recipient.
+Also, the newly created RepositoryAttribute of the recipient will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient.
+Based on this, an appropriate AcceptResponseItem of type [TransferFileOwnershipAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershipacceptresponseitem) is generated.
+It contains the `id` and the `content` of the created own shared IdentityAttribute in its `attributeId` and `attribute` property, respectively.
+This ResponseItem will appear within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for transferring the ownership of Files, which will be sent back to the sender.
+
+<!-- TODO: -->
+
+Currently, there is no implementation for changing the actual ownership of a File that was uploaded to the Backbone.
+Instead, accepting a TransferFileOwnershipRequestItem downloads the corresponding File and uploads it again to the Backbone, such that the recipient is its owner.
+The created IdentityAttributes with `value.@type` IdentityFileReference reference this newly uploaded File.
+Consequently, after receiving the Response, the sender can [delete their uploaded File] if they wish to do so, without impacting the File owned by the recipient.
+{: .notice--warning}
+
 ### Reject a TransferFileOwnershipRequestItem
 
+Even if the recipient accepts the Request for transferring the ownership of Files as a whole, it may decide not to accept the ownership of all of the sender's Files.
+To be more precise, the recipient has the option of rejecting [TransferFileOwnershipRequestItems]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem) that have the value `false` specified in their `mustBeAccepted` property.
+To reject a TransferFileOwnershipRequestItem, use the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters).
+The rejection of a TransferFileOwnershipRequestItem leads to the creation of a corresponding ResponseItem of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem).
+This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for transferring the ownership of Files.
+
 ## Receive the Response to the Request
+
+<!-- TODO: -->
