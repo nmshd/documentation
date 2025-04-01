@@ -202,7 +202,7 @@ This ResponseItem will appear within the `items` property of the [Response]({% l
 Currently, there is no implementation for changing the actual ownership of a File that was uploaded to the Backbone.
 Instead, accepting a TransferFileOwnershipRequestItem downloads the corresponding File and uploads it again to the Backbone, such that the recipient is its owner.
 The created IdentityAttributes with `value.@type` IdentityFileReference reference this newly uploaded File.
-Consequently, after receiving the Response, the sender can [delete their uploaded File] if they wish to do so, without impacting the File owned by the recipient.
+Consequently, after receiving the Response, the sender can [delete their uploaded File]({% link _docs_use-cases/use-case-transport-delete-file.md %}) if they wish to do so, without impacting the File owned by the recipient.
 {: .notice--warning}
 
 ### Reject a TransferFileOwnershipRequestItem
