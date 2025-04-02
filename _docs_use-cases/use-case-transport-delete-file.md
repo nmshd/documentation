@@ -1,8 +1,6 @@
 ---
 # Start automatic generation
 permalink: use-case-transport-delete-file
-redirect_from:
-  - use-case-transport-get-or-load-file
 published: true
 title: "Delete File"
 type: use-case

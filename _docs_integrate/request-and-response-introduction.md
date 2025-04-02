@@ -193,7 +193,7 @@ After the Recipient has responded to the ShareAttributeRequestItem, a suitable [
 
 #### TransferFileOwnershipRequestItem
 
-If you want to transfer the ownership of a [File]({% link _docs_integrate/data-model-overview.md %}#file) this is done with the [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem). The File needs to be uploaded to the Backbone beforehand. All details on how to use the TransferFileOwnershipRequestItem and examples of use cases for it can be found in the [Exchange Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}#transfer-the-ownership-of-a-file-to-a-peer) guide.
+If you want to transfer the ownership of a [File]({% link _docs_integrate/data-model-overview.md %}#file), this is done with the [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem). The File needs to be uploaded to the Backbone beforehand. All details on how to use the TransferFileOwnershipRequestItem and examples of use cases for it can be found in the [Exchange Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}#transfer-the-ownership-of-a-file-to-a-peer) guide.
 
 Depending on whether the TransferFileOwnershipRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
 
