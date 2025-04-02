@@ -193,8 +193,6 @@ All information on how to send and receive a Request via a Message can be found 
 
 ## Accept the Request
 
-<!-- TODO: insert picture? -->
-
 After the recipient has received the [Request for transferring the ownership of Files](#request-for-transferring-the-ownership-of-a-file), they can accept it to receive the ownership of all or some of the sender's Files.
 To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 Also, you need to decide and specify for each TransferFileOwnershipRequestItem contained in the Request for transferring the ownership of Files whether you want to accept or reject it.
@@ -234,8 +232,6 @@ This will be contained within the `items` property of the [Response]({% link _do
 We now assume that the recipient has accepted the [Request for transferring the ownership of Files](#request-for-transferring-the-ownership-of-a-file) of the sender.
 In order for the sender to receive the Response of the recipient, they need to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
-
-<!-- TODO: insert picture? -->
 
 To view the Response to the Request, proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
