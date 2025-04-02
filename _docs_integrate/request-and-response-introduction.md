@@ -144,7 +144,7 @@ After the Recipient has responded to the ProposeAttributeRequestItem, a suitable
 
 #### ReadAttributeRequestItem
 
-If you want to query an Identity's Attributes this is done with the [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem). To query Attributes which are not known to the Sender, an Identity uses the ReadAttributeRequestItem. All details on how to use the ReadAttributeRequestItem and examples of use cases for it can be found in the [Read Attributes from peer]({% link _docs_integrate/read-attributes-from-peer.md %}) guide.
+If you want to query an Identity's Attributes, this is done with the [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem). To query Attributes which are not known to the Sender, an Identity uses the ReadAttributeRequestItem. All details on how to use the ReadAttributeRequestItem and examples of use cases for it can be found in the [Read Attributes from peer]({% link _docs_integrate/read-attributes-from-peer.md %}) guide.
 
 Depending on whether the ReadAttributeRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
 
@@ -178,7 +178,7 @@ After the Recipient has responded to the RegisterAttributeListenerRequestItem, a
 
 #### ShareAttributeRequestItem
 
-If you want to share the own DisplayName and possibly other Attributes this is done with the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem). To share own IdentityAttributes (owner = self) an Identity uses the ShareAttributeRequestItem. The Identity needs to create the IdentityAttribute separately before the Attribute can be shared. All details on how to use the ShareAttributeRequestItem and examples of use cases for it can be found in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) guide.
+If you want to share the own DisplayName and possibly other Attributes, this is done with the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem). To share own IdentityAttributes (owner = self) an Identity uses the ShareAttributeRequestItem. The Identity needs to create the IdentityAttribute separately before the Attribute can be shared. All details on how to use the ShareAttributeRequestItem and examples of use cases for it can be found in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) guide.
 
 Depending on whether the ShareAttributeRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
 
