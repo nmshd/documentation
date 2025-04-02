@@ -229,9 +229,7 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
           "@type": "Surname",
           "value": "<surname created for the App user by the Sender>"
         },
-        "tags": ["<tag of surname to be created>"],
-        "validFrom": "<start of IdentityAttribute's validity>",
-        "validTo": "<end of IdentityAttribute's validity>"
+        "tags": ["<tag of surname to be created>"]
       }
     },
     {
@@ -253,9 +251,7 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
           "@type": "GivenName",
           "value": "<given name proposed by the Sender>"
         },
-        "tags": ["<tag of proposed given name>"],
-        "validFrom": "<start of IdentityAttribute's validity>",
-        "validTo": "<end of IdentityAttribute's validity>"
+        "tags": ["<tag of proposed given name>"]
       },
       "query": {
         "@type": "IdentityAttributeQuery",
@@ -270,9 +266,7 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
       "query": {
         "@type": "IdentityAttributeQuery",
         "valueType": "BirthDate",
-        "tags": ["<tag of date of birth to be read>"],
-        "validFrom": "<start of IdentityAttribute's validity>",
-        "validTo": "<end of IdentityAttribute's validity>"
+        "tags": ["<tag of date of birth to be read>"]
       }
     },
     {
@@ -283,9 +277,7 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
       "query": {
         "@type": "IdentityAttributeQuery",
         "valueType": "StreetAddress",
-        "tags": ["<tag of street address for which the registration was made>"],
-        "validFrom": "<start of IdentityAttribute's validity>",
-        "validTo": "<end of IdentityAttribute's validity>"
+        "tags": ["<tag of street address for which the registration was made>"]
       }
     },
     {
@@ -300,9 +292,7 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
           "@type": "DisplayName",
           "value": "<display name shared by the Sender>"
         },
-        "tags": ["<tag of shared display name>"],
-        "validFrom": "<start of IdentityAttribute's validity>",
-        "validTo": "<end of IdentityAttribute's validity>"
+        "tags": ["<tag of shared display name>"]
       },
       "sourceAttributeId": "<ID of source RepositoryAttribute>"
     }
@@ -361,7 +351,7 @@ If a RequestItem is accepted, an [AcceptResponseItem]({% link _docs_integrate/da
 Depending on the kind of RequestItem, it might be a specific AcceptResponseItem, extending the base AcceptResponseItem to answer to RequestItems demanding additional information.
 For example, a ReadAttributeRequestItem is accepted using a [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem), additionally transmitting information about the respective Attribute.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/1d3f3866-4d85-46b5-8523-ecc581052f4b" id="NCvNTKLN71pl"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/fd7932ee-c69a-4c31-9968-b9331ba780ba" id="VccYnn65H3tW"></iframe></div>
 
 If a RequestItem is rejected, however, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) is created.
 Lastly, in case the enmeshed Runtime detects a problem, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) is generated.

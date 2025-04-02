@@ -209,7 +209,7 @@ The Sender, then, can fetch it by [synchronizing the updates of the Backbone]({%
 However, if there is no active Relationship between the Connectors yet, a Relationship will be created, which has the `status` `"Pending"` for now.
 Its creation content is of type [RelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#relationshipcreationcontent) and contains the Response to the Request.
 This Relationship is sent back to the Sender via a Message.
-Then, the Request is set to `status` `"Completed"` and you can [query the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) using the query parameter `template.id=<ID of RelationshipTemplate>`.
+Then, the Request is set to `status` `"Completed"` and you can [query the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) using the query parameter `templateId=<ID of RelationshipTemplate>`.
 As long as the Relationship is `"Pending"`, no new Request is created by [loading the RelationshipTemplate](#receive-the-request-by-loading-the-relationshiptemplate).
 
 The Sender can fetch the Relationship by [synchronizing the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
@@ -218,9 +218,7 @@ The new Relationship looks as follows:
 ```jsonc
 {
   "id": "REL...",
-  "template": {
-    // ...
-  },
+  "templateId": "RLT...",
   "status": "Pending",
   "peer": "did:e:...",
   "creationContent": {
