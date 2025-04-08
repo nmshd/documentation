@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Initiate IdentityDeletionProcess - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Delete File - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Initiate IdentityDeletionProcess">
-<meta property="og:url" content="/use-case-transport-initiate-identitydeletionprocess">
+<meta property="og:title" content="Delete File">
+<meta property="og:url" content="/use-case-transport-delete-file">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/use-case-transport-initiate-identitydeletionprocess">
+<link rel="canonical" href="/use-case-transport-delete-file">
 
 
 
@@ -356,7 +356,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Initiate IdentityDeletionProcess">
+    <meta itemprop="headline" content="Delete File">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2025-04-08T10:38:48+02:00">
     
@@ -365,7 +365,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/use-case-transport-initiate-identitydeletionprocess" itemprop="url">Initiate IdentityDeletionProcess
+            <a href="/use-case-transport-delete-file" itemprop="url">Delete File
 </a>
           </h1>
           
@@ -379,7 +379,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
+              <ul class="toc__menu"><li><a href="#parameters">Parameters</a></li><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
             </nav>
           </aside>
         
@@ -388,7 +388,7 @@
     <table>
         
         <tr><td>id</td>
-            <td>RID1</td></tr>
+            <td>RF11</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
@@ -397,19 +397,19 @@
             <td>Transport</td></tr>
         
         <tr><td>facade</td>
-            <td>IdentityDeletionProcessFacade</td></tr>
+            <td>FilesFacade</td></tr>
         
         <tr><td>function</td>
-            <td>initiateIdentityDeletionProcess</td></tr>
+            <td>deleteFile</td></tr>
         
         <tr><td>description</td>
-            <td>Initiate an IdentityDeletionProcess that has status 'Approved'</td></tr>
+            <td>Deletes the File with the fiven `id`.</td></tr>
         
         <tr><td>feature category</td>
-            <td>Identity handling</td></tr>
+            <td>Arbitrary large data support</td></tr>
         
         <tr><td>tech category</td>
-            <td>IdentityDeletionProcesses</td></tr>
+            <td>Files</td></tr>
         
         <tr><td>status</td>
             <td>DONE</td></tr>
@@ -442,12 +442,14 @@
         
         <tr></tr>
         
-        <tr></tr>
+        <tr><td>api_route_regex</td>
+            <td>DELETE /api/v2/Files/{id}</td></tr>
         
-        <tr></tr>
+        <tr><td>published</td>
+            <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-transport-initiate-identitydeletionprocess</td></tr>
+            <td>use-case-transport-delete-file</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -455,21 +457,51 @@
 </div>
 -->
 
-<p>Regarding <a href="/integrate/delete-identities#self-initiated-identity-deletion">self-initiated Identity deletion</a>, this use case can be utilized to initiate an <a href="/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> for your <a href="/integrate/data-model-overview#identity">Identity</a>.
-The generated IdentityDeletionProcess immediately has <code class="language-plaintext highlighter-rouge">"Approved"</code> as its <code class="language-plaintext highlighter-rouge">status</code> and describes that the Identity will be deleted after the grace period ends unless the <a href="/use-case-transport-cancel-identitydeletionprocess">IdentityDeletionProcess is cancelled</a> by the Identity by then.</p>
+<p>This use case allows you to delete a <a href="/integrate/data-model-overview#file">File</a>.</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">id</code> of the File that should be deleted.</li>
+</ul>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>Creates an IdentityDeletionProcess with <code class="language-plaintext highlighter-rouge">"Approved"</code> as <code class="language-plaintext highlighter-rouge">status</code>.</li>
-  <li>Returns the initiated IdentityDeletionProcess.</li>
+  <li>The File is deleted locally.</li>
+  <li>If <code class="language-plaintext highlighter-rouge">isOwn</code> of the <a href="/integrate/data-model-overview#file">File</a> is <code class="language-plaintext highlighter-rouge">true</code>, the File will be deleted from the Backbone, too.</li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>No IdentityDeletionProcess can be initiated if there is already an active IdentityDeletionProcess, i.e. an IdentityDeletionProcess with <code class="language-plaintext highlighter-rouge">"Approved"</code> or <code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code> as <code class="language-plaintext highlighter-rouge">status</code>, for this Identity. Please note that an IdentityDeletionProcess with <code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code> as <code class="language-plaintext highlighter-rouge">status</code> is never created by the self-initiated Identity deletion, but only by the process of Identity deletion triggered via the Backbone Admin UI. However, the latter feature is currently disabled.</li>
+  <li>No File can be deleted if there is no File that corresponds to the given <code class="language-plaintext highlighter-rouge">id</code>.</li>
 </ul>
+  <h2>How to execute this use case with the Connector?</h2>
+
+The Connector is our first-class citizen, thus we provide you with a detailed API description for every use case.
+This use case can be executed with the REST API of the Connector which you can <a href="/integrate/access-the-connector">Access the Connector</a>.
+ 
+<h6>Corresponding interactive API docs excerpt:</h6>
+
+<rapi-doc-mini
+    server-url="https://doc-demo.is.enmeshed.eu/"
+    default-api-server="https://doc-demo.is.enmeshed.eu/"
+    api-key-name="x-api-key"
+    api-key-location="header"
+    api-key-value="apikey"
+    layout="column"
+    default-schema-tab="example"
+    spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
+    paths-expanded="false"
+    theme="light"
+    bg-color="#f9f9fb"
+    
+    match-paths="^DELETE /api/v2/Files/{id}$"
+    
+    match-type="regex"
+></rapi-doc-mini>
+<br />
  
 
         
