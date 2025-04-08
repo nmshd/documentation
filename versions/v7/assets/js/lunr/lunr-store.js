@@ -198,7 +198,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Exchange Files using Attributes",
-        "excerpt":"Communication between Identities involves exchanging uploaded Files with each other, for example: A language school wants to send a student their language certificate. A university wants to send a student their certificate of enrollment. An applicant wants to send their curriculum vitae to a company. This guide describes how an...","categories": [],
+        "excerpt":"Communication between Identities involves exchanging uploaded Files with each other, for example: A language school wants to send a student their language certificate. A university wants to send a student their certificate of enrollment. An applicant wants to send their curriculum vitae to a company. These examples all represent cases...","categories": [],
         "tags": [],
         "url": "/versions/v7/integrate/exchange-files-using-attributes",
         "teaser": null
@@ -885,6 +885,12 @@ var store = [{
         "excerpt":"   Decomposes the terminated Relationship with the given Relationship&#8217;s id.   Parameters      relationshipId, the id of the Relationship   On Success      Deletes the Relationship and data transmitted during it from the Connector   On Failure      The relationshipId does not resolve to a Relationship with \"Terminated\" or \"DeletionProposed\" as status  ","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-transport-decompose-relationship",
+        "teaser": null
+      },{
+        "title": "Delete File",
+        "excerpt":"This use case allows you to delete a File. Parameters id of the File that should be deleted. On Success The File is deleted locally. If isOwn of the File is true, the File will be deleted from the Backbone, too. On Failure No File can be deleted if there...","categories": [],
+        "tags": [],
+        "url": "/versions/v7/use-case-transport-delete-file",
         "teaser": null
       },{
         "title": "Download File of Attachment",
