@@ -356,7 +356,8 @@ Some RequestItems exhibit particular characteristics.
 For the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), for example, a `link` to an external website with more information on the `consent` issue originating from the Sender can optionally be specified.
 Specifying a `link` causes an icon to appear to the right of the ConsentRequestItem.
 Clicking on this icon redirects to the corresponding website.
-The ConsentRequestItem from our example Request provides a `link`. For this reason, the mentioned icon can be found in the screenshot of the App.
+The ConsentRequestItem from our example Request provides a `link`.
+For this reason, the mentioned icon can be found in the screenshot of the App.
 {: .notice--info}
 
 ## Responses

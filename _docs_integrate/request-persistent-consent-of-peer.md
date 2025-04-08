@@ -55,7 +55,14 @@ Please note that if there is no active Relationship between the Sender and the R
 
 ### Create the Request
 
-As already indicated, the Request contains a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) within its `items` property. The RelationshipAttribute to be created must be inserted into the `attribute` property of the CreateAttributeRequestItem. The RelationshipAttribute should be owned by the Recipient, which is why an empty string is specified as the value for its `owner` property. The Recipient then automatically becomes the `owner` later on. To create the Request, the Sender must proceed as described in the [Create outgoing Request]({% link _docs_use-cases/use-case-consumption-create-outgoing-request.md %}) use case, specifying a suitable payload as given in the example below. In this example, the `confidentiality` of the RelationshipAttribute is set to `"private"` and the value of the `mustBeAccepted` property of the CreateAttributeRequestItem is set to `true`. Please note that the `<...>` notation is used as a placeholder for the actual data as usual and that the `link` property of the [Consent]({% link _docs_integrate/attribute-values.md %}#consent) is optional and can therefore also be omitted.
+As already indicated, the Request contains a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) within its `items` property.
+The RelationshipAttribute to be created must be inserted into the `attribute` property of the CreateAttributeRequestItem.
+The RelationshipAttribute should be owned by the Recipient, which is why an empty string is specified as the value for its `owner` property.
+The Recipient then automatically becomes the `owner` later on.
+To create the Request, the Sender must proceed as described in the [Create outgoing Request]({% link _docs_use-cases/use-case-consumption-create-outgoing-request.md %}) use case, specifying a suitable payload as given in the example below.
+In this example, the `confidentiality` of the RelationshipAttribute is set to `"private"` and the value of the `mustBeAccepted` property of the CreateAttributeRequestItem is set to `true`.
+Please note that the `<...>` notation is used as a placeholder for the actual data as usual and that the `link` property of the [Consent]({% link _docs_integrate/attribute-values.md %}#consent) is optional and can therefore also be omitted.
+In addition to the `link`, a `linkDisplayText` could optionally be specified, which would be displayed in the App's UI instead of the URL of the `link`.
 
 ```json
 {
