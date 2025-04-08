@@ -191,6 +191,21 @@ After the Recipient has responded to the ShareAttributeRequestItem, a suitable [
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
+#### TransferFileOwnershipRequestItem
+
+If you want to transfer the ownership of a [File]({% link _docs_integrate/data-model-overview.md %}#file), this is done with the [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem). The File needs to be uploaded to the Backbone beforehand. All details on how to use the TransferFileOwnershipRequestItem and examples of use cases for it can be found in the [Exchange Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}#transfer-the-ownership-of-a-file-to-a-peer) guide.
+
+Depending on whether the TransferFileOwnershipRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
+
+- To accept this RequestItem, the [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) can be utilized.
+- To reject this RequestItem, the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) can be utilized.
+
+After the Recipient has responded to the TransferFileOwnershipRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
+
+- After accepting this RequestItem, a [TransferFileOwnershipAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershipacceptresponseitem) will be transferred.
+- After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+- In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+
 ### Rendering of RequestItems
 
 Please note that the rendering of the [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) in the App is currently being revised. As soon as the changes to the App have been made, the example here will also be adapted.
