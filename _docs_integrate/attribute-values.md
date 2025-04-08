@@ -696,12 +696,13 @@ Represents the consent of an Identity to a specific topic. To obtain persistent 
 
 **Properties**
 
-| Name                 | Type                                                                                         | Required | Validation                                                 |
-| -------------------- | -------------------------------------------------------------------------------------------- | :------: | ---------------------------------------------------------- |
-| `@type`              | `"Consent"`                                                                                  |    ✓     |                                                            |
-| `consent`            | `string`                                                                                     |    ✓     | max. length: 2000                                          |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                                            |
-| `link`               | `string`                                                                                     |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+| Name                 | Type                                                                                         | Required | Validation                                                                          |
+| -------------------- | -------------------------------------------------------------------------------------------- | :------: | ----------------------------------------------------------------------------------- |
+| `@type`              | `"Consent"`                                                                                  |    ✓     |                                                                                     |
+| `consent`            | `string`                                                                                     |    ✓     | max. length: 2000                                                                   |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                                                                     |
+| `link`               | `string`                                                                                     |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL                          |
+| `linkDisplayText`    | `string`                                                                                     |    ✗     | min. length: 3<br>max. length: 30<br>can only be specified if a `link` is specified |
 
 ## ProprietaryBoolean
 
