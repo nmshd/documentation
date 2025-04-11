@@ -1073,6 +1073,13 @@ For example, an AuthenticationRequestItem can be accepted using the AcceptReques
 | accept   | `"true"` | The only possible value here is the string "true".    |
 | freeText | `string` | The free text that is used to answer the RequestItem. |
 
+#### AcceptFormFieldRequestItemParameters
+
+| Name     | Type                                            | Description                                           |
+| -------- | ----------------------------------------------- | ----------------------------------------------------- |
+| accept   | `"true"`                                        | The only possible value here is the string "true".    |
+| response | `string` \| `number` \| `boolean` \| `string[]` | The response that is used to fill out the form field. |
+
 #### AcceptProposeAttributeRequestItemParameters
 
 The parameters to accept a ProposeAttributeRequestItem with an existing Attribute.
