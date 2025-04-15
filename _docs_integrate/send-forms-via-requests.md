@@ -110,6 +110,50 @@ If there is currently no Relationship between the Sender and the Recipient, this
 
 The Sender only has the option of sending a Request to the Recipient via a [Message]({% link _docs_integrate/data-model-overview.md %}#message) if there is already an active Relationship between them. All information on how to send and receive a Request via a Message can be found in the [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) guide.
 
+## Accept the Request
+
+After the Recipient has received the [Request for forms]({% link _docs_integrate/send-forms-via-requests.md %}#request-for-forms), it can accept it to fill out the form sent by the Sender. To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request). You must also decide and specify for each FormFieldRequestItem contained in the Request for forms whether you want to accept or reject it.
+
+If the Recipient does not want to fill out any form field of the form sent by the Sender and, therefore, does not want to accept the Request for forms of the Sender, it can reject it as a whole as well. For this, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
+{: .notice--info}
+
+<!-- TODO: Insert diagram. -->
+
+### Accept a FormFieldRequestItem
+
+If the Recipient agrees to fill out a form field of the form sent by the Sender, it can accept the associated FormFieldRequestItem contained in the Request for forms.
+
+<!-- TODO: Explain how to accept a FormFieldRequestItem. -->
+
+### Reject a FormFieldRequestItem
+
+Even if the Recipient accepts the Request for forms as a whole, it may decide not to fill out every form field. To be more precise, the Recipient has the option of rejecting [FormFieldRequestItems]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem) that have the value `false` specified in their `mustBeAccepted` property. To reject a FormFieldRequestItem, use the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters). The rejection of a FormFieldRequestItem leads to the creation of a ResponseItem of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem). This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for forms.
+
+### Example of Accepting a RequestItemGroup
+
+<!-- TODO: Add JSON example of Request. -->
+
+<!-- TODO: Add JSON example of Response. -->
+
+## Receive the Response to the Request
+
+We now assume that the Recipient has accepted the [Request for forms]({% link _docs_integrate/send-forms-via-requests.md %}#request-for-forms) of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}). Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
+
+<!-- TODO: Insert diagram. -->
+
+To view the Response to the Request, proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
+
+- If the [Request was sent via a RelationshipTemplate]({% link _docs_integrate/send-forms-via-requests.md %}#request-via-relationshiptemplate): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
+- If the [Request was sent via a Message]({% link _docs_integrate/send-forms-via-requests.md %}#request-via-message): Specify `<ID of Request>` as the value for the `id` query parameter.
+
+The Integrator of the Sender can now get the Response of the Recipient from the `response.content` property of the result.
+In the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) is a [FormFieldAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#formfieldacceptresponseitem) for each accepted and a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) for each rejected FormFieldRequestItem included.
+
+<!-- Add more details about the Response. -->
+
+In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) can also be included in the Response. If the Request for forms contains a RequestItemGroup in its `items` property, the Response to this Request contains a corresponding [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) in its `items` property.
+{: .notice--info}
+
 ## What's Next?
 
 <!-- TODO: Add description of next possible steps. -->
