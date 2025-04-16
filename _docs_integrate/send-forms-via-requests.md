@@ -88,7 +88,7 @@ If the Recipient does not want to fill out any form field of the form sent by th
 For this, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
 
-<!-- TODO: Insert diagram. -->
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/35209f55-89ed-4bff-96e5-61021fb74edf" id="AZa_znY.QyPU"></iframe></div>
 
 ### Accept a FormFieldRequestItem
 
@@ -198,7 +198,7 @@ We now assume that the Recipient has accepted the [Request for forms]({% link _d
 In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 
-<!-- TODO: Insert diagram. -->
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/e4a312b1-0b43-4904-a934-ec4e0bd07cac" id="RZa_5d9Hj-75"></iframe></div>
 
 To view the Response to the Request, proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
