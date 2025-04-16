@@ -599,6 +599,8 @@ The lower limit for the requested rating is always one, whereas the upper limit 
 ##### SelectionFormFieldSettings
 
 If SelectionFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), this results in a selection form field which expects a selection of options provided.
+If multiple selection is not allowed, the selected option is expected as a string.
+Otherwise, a string array of all selected options is expected, which may also contain only one option.
 
 | Name                     | Type                           | Required | Description                                                                                                                                                                                  |
 | ------------------------ | ------------------------------ | :------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1143,6 +1145,10 @@ For example, an AuthenticationRequestItem can be accepted using the AcceptReques
 | freeText | `string` | The free text that is used to answer the RequestItem. |
 
 #### AcceptFormFieldRequestItemParameters
+
+The parameters to accept a FormFieldRequestItem.
+The response parameter must have a type that matches the `settings` of the [FormFieldRequestItem](#formfieldrequestitem).
+For example, when using [BooleanFormFieldSettings](#booleanformfieldsettings), a response of type boolean must be used.
 
 | Name     | Type                                            | Description                                           |
 | -------- | ----------------------------------------------- | ----------------------------------------------------- |
