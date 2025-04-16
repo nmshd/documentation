@@ -92,9 +92,14 @@ For this, follow the instructions of the [Reject incoming Request]({% link _docs
 
 ### Accept a FormFieldRequestItem
 
-If the Recipient agrees to fill out a form field of the form sent by the Sender, it can accept the associated FormFieldRequestItem contained in the Request for forms.
-
-<!-- TODO: Explain how to accept a FormFieldRequestItem. -->
+If the Recipient agrees to fill out a form field of a form sent by the Sender, it can accept the associated FormFieldRequestItem contained in the Request for forms.
+The [AcceptFormFieldRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptformfieldrequestitemparameters) must be used for that.
+The form field represented by the FormFieldRequestItem must be filled out using the `response` parameter.
+The `response` parameter must have a type that matches the `settings` of the [FormFieldRequestItem]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem).
+For example, when using [BooleanFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#booleanformfieldsettings), a `response` of type boolean must be used.
+The expected type of `response` can be found in the descriptions of the different possible `settings`, which are [StringFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#stringformfieldsettings), [IntegerFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#integerformfieldsettings), [DoubleFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#doubleformfieldsettings), [BooleanFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#booleanformfieldsettings), [DateFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#dateformfieldsettings), [RatingFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#ratingformfieldsettings) and [SelectionFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#selectionformfieldsettings), in the data model overview.
+Based on the `response`, an appropriate AcceptResponseItem of type [FormFieldAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#formfieldacceptresponseitem) is generated, which incorporates the provided `response` in its `response` property.
+This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for forms that will be transferred to the Sender.
 
 ### Reject a FormFieldRequestItem
 
@@ -152,7 +157,8 @@ Please note that the `<...>` notation is used as a placeholder for the actual da
 In the example, the Sender only requires the Recipient to fill out the string form field and select one of the different options of the selection form field, which is why the individual [FormFieldRequestItems]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem) within the Request have specified corresponding values in their `mustBeAccepted` property.
 We assume that the Recipient wants to accept the Request and only wants to fill out the string form field and select one of the different options of the selection form field.
 
-If the Recipient wants to accept the Request for forms, it must accept all FormFieldRequestItems for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted, for example, for the Recipient to refuse to fill out the string form field and instead fill out the integer form field.
+If the Recipient wants to accept the Request for forms, it must accept all FormFieldRequestItems for which the `mustBeAccepted` property is set to `true`.
+It is therefore not permitted, for example, for the Recipient to refuse to fill out the string form field and instead fill out the integer form field.
 {: .notice--info}
 
 The Recipient refuses to fill out the integer form field.
