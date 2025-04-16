@@ -203,4 +203,5 @@ If the Request for forms contains a RequestItemGroup in its `items` property, th
 
 ## What's Next?
 
-<!-- TODO: Add description of next possible steps. -->
+As demonstrated, forms enable the collection of unstructured, specific data through a variety of form fields, serving a one-time, purpose-driven function.
+For requesting structured data stored as [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes), begin by taking a look at the [Attribute introduction]({% link _docs_integrate/attribute-introduction.md %}), followed by exploring relevant scenarios such as [reading Atributes from peer]({% link _docs_integrate/read-attributes-from-peer.md %}).
