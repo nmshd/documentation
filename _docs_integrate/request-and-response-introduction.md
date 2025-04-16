@@ -129,7 +129,7 @@ After the Recipient has responded to the FreeTextRequestItem, a suitable [Respon
 
 With the [FormFieldRequestItem]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem) it is possible to define a form field.
 Depending on which `settings` the FormFieldRequestItem is configured with, the type of values with which the form field can be filled out and the UI of the form field in the App change.
-A description of all possible `settings` can be found in the [Send Forms via Requests]({% link _docs_integrate/send-forms-via-requests.md %}) scenario documentation.
+All details on how to use the FormFieldRequestItem and examples of use cases for it can be found in the [Send Forms via Requests]({% link _docs_integrate/send-forms-via-requests.md %}) scenario documentation.
 
 Depending on whether the FormFieldRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
 
