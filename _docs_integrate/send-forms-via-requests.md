@@ -53,14 +53,18 @@ A description of all possible `settings` can be found in the following.
 
 #### StringFormFieldSettings
 
-| Name            | Type                        | Required | Description                                                                                           |
-| --------------- | --------------------------- | :------: | ----------------------------------------------------------------------------------------------------- |
-| `@type`         | `"StringFormFieldSettings"` |    ✓     |                                                                                                       |
-| `allowNewlines` | `true`                      |    ✗     | If this flag is set, the free text form field is displayed in the App's UI as a text area form field. |
-| `min`           | `number`                    |    ✗     | Lower limit for the length of the requested string.                                                   |
-| `max`           | `number`                    |    ✗     | Upper limit for the length of the requested string.                                                   |
+If StringFormFieldSettings are used as `settings` of a FormFieldRequestItem, this results in a string form field which expects a string when it is filled out.
+
+| Name            | Type                        | Required | Description                                                                                                                                |
+| --------------- | --------------------------- | :------: | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `@type`         | `"StringFormFieldSettings"` |    ✓     |                                                                                                                                            |
+| `allowNewlines` | `true`                      |    ✗     | If this flag is set, the string form field is displayed in the App's UI as a text area form field instead of a one-line string form field. |
+| `min`           | `number`                    |    ✗     | Lower limit for the length of the requested string.                                                                                        |
+| `max`           | `number`                    |    ✗     | Upper limit for the length of the requested string.                                                                                        |
 
 #### IntegerFormFieldSettings
+
+If IntegerFormFieldSettings are used as `settings` of a FormFieldRequestItem, this results in an integer form field which expects an integer when it is filled out.
 
 | Name    | Type                         | Required | Description                            |
 | ------- | ---------------------------- | :------: | -------------------------------------- |
@@ -71,6 +75,8 @@ A description of all possible `settings` can be found in the following.
 
 #### DoubleFormFieldSettings
 
+If DoubleFormFieldSettings are used as `settings` of a FormFieldRequestItem, this results in a double form field which expects a double when it is filled out.
+
 | Name    | Type                        | Required | Description                           |
 | ------- | --------------------------- | :------: | ------------------------------------- |
 | `@type` | `"DoubleFormFieldSettings"` |    ✓     |                                       |
@@ -80,11 +86,15 @@ A description of all possible `settings` can be found in the following.
 
 #### BooleanFormFieldSettings
 
+If BooleanFormFieldSettings are used as `settings` of a FormFieldRequestItem, this results in a boolean form field which expects a boolean when it is filled out.
+
 | Name    | Type                         | Required | Description |
 | ------- | ---------------------------- | :------: | ----------- |
 | `@type` | `"BooleanFormFieldSettings"` |    ✓     |             |
 
 #### DateFormFieldSettings
+
+If DateFormFieldSettings are used as `settings` of a FormFieldRequestItem, this results in a date form field which expects a valid date string in ISO 8601 format, such as `"2000-01-01T00:00:00.000+00:00"`, `"1999-12-31T23:59:59.999Z"`, or `"2020-02-29"`, when it is filled out.
 
 | Name    | Type                      | Required | Description |
 | ------- | ------------------------- | :------: | ----------- |
@@ -92,7 +102,8 @@ A description of all possible `settings` can be found in the following.
 
 #### RatingFormFieldSettings
 
-The lower limit for the requested rating is always one.
+If RatingFormFieldSettings are used as `settings` of a FormFieldRequestItem, this results in a rating form field which expects an integer between a lower limit and an upper limit when it is filled out.
+The lower limit for the requested rating is always one, whereas the upper limit can be an integer between five and ten.
 
 | Name        | Type                                    | Required | Description                           |
 | ----------- | --------------------------------------- | :------: | ------------------------------------- |
@@ -100,6 +111,8 @@ The lower limit for the requested rating is always one.
 | `maxRating` | `5` \| `6` \| `7` \| `8` \| `9` \| `10` |    ✓     | Upper limit for the requested rating. |
 
 #### SelectionFormFieldSettings
+
+If SelectionFormFieldSettings are used as `settings` of a FormFieldRequestItem, this results in a selection form field which expects a selection of options provided.
 
 | Name                     | Type                           | Required | Description                                                                                                                                                                                  |
 | ------------------------ | ------------------------------ | :------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
