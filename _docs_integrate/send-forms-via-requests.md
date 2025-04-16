@@ -106,9 +106,85 @@ This will be contained within the `items` property of the [Response]({% link _do
 
 ### Example of Accepting a RequestItemGroup
 
-<!-- TODO: Add JSON example of Request. -->
+Let's look at an example where the Sender needs the Recipient to fill out an integer form field, fill out a string form field, and select one of the different options of a selection form field.
+To ask the Recipient for this data, the Sender creates a [Request]({% link _docs_integrate/data-model-overview.md %}#request) for forms, which contains a FormFieldRequestItem using [IntegerFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#integerformfieldsettings) and a RequestItemGroup belonging to the remaining form fields in its `items` property.
+The [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) itself contains two FormFieldRequestItems in its `items` property, namely one using [StringFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#stringformfieldsettings) and one using [SelectionFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#selectionformfieldsettings).
 
-<!-- TODO: Add JSON example of Response. -->
+```jsonc
+{
+  "@type": "Request",
+  "items": [
+    {
+      "@type": "FormFieldRequestItem",
+      "mustBeAccepted": false,
+      "title": "<title of integer form field>",
+      "settings": {
+        "@type": "IntegerFormFieldSettings"
+      }
+    },
+    {
+      "@type": "RequestItemGroup",
+      "items": [
+        {
+          "@type": "FormFieldRequestItem",
+          "mustBeAccepted": true,
+          "title": "<title of string form field>",
+          "settings": {
+            "@type": "StringFormFieldSettings"
+          }
+        },
+        {
+          "@type": "FormFieldRequestItem",
+          "mustBeAccepted": true,
+          "title": "<title of selection form field>",
+          "settings": {
+            "@type": "SelectionFormFieldSettings",
+            "options": ["<an option>", "<another option>"]
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+Please note that the `<...>` notation is used as a placeholder for the actual data as usual.
+In the example, the Sender only requires the Recipient to fill out the string form field and select one of the different options of the selection form field, which is why the individual [FormFieldRequestItems]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem) within the Request have specified corresponding values in their `mustBeAccepted` property.
+We assume that the Recipient wants to accept the Request and only wants to fill out the string form field and select one of the different options of the selection form field.
+
+If the Recipient wants to accept the Request for forms, it must accept all FormFieldRequestItems for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted, for example, for the Recipient to refuse to fill out the string form field and instead fill out the integer form field.
+{: .notice--info}
+
+The Recipient refuses to fill out the integer form field.
+Also, the Recipient accepts filling out the string form field and selecting one of the different options of the selection form field.
+Thus, it responds to the Request for forms as follows:
+
+```jsonc
+{
+  "items": [
+    {
+      // Reject integer form field
+      "accept": false
+    },
+    {
+      "items": [
+        {
+          // Accept string form field
+          "accept": true,
+          "response": "<a string>"
+        },
+        {
+          // Accept selection form field
+          "accept": true,
+          "response": "<an option>"
+        }
+      ]
+    }
+  ]
+}
+```
+
+Note that it is important to respond to RequestItems, some of which may be contained in a RequestItemGroup, in the same order in which they were received.
 
 ## Receive the Response to the Request
 
