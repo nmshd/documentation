@@ -21,10 +21,8 @@ required_by:
 # End automatic generation
 ---
 
-<!-- TODO: Add motivation and examples -->
-
-In this guide, we explain how a Connector, hereinafter referred to as the Sender, can send a form to another Connector, the so-called Recipient.
-Since understanding this process requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and how to use them in general, you should take a look at our [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) before continuing reading this guide.
+In this guide, we explain how a Connector, hereinafter referred to as the Sender, can send a form with different form fields to another Connector, the so-called Recipient.
+Since understanding this process requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and how to use them in general, the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) should be consulted before continuing reading this guide.
 
 Please note that the general procedure is the same if the Connector wants to send a form to an App user instead of another Connector.
 For reasons of clarity, this guide focuses on the process with two Connectors.
@@ -102,7 +100,7 @@ The lower limit for the requested rating is always one.
 
 Sending a form is not limited to just a single form field, but it is possible to send multiple form fields at the same time.
 Several FormFieldRequestItems or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for forms for this purpose.
-If you want to use a RequestItemGroup in order to send multiple form fields to the Recipient at the same time, you must insert corresponding FormFieldRequestItems into the `items` property of it.
+If a RequestItemGroup is to be used in order to send multiple form fields to the Recipient at the same time, the corresponding FormFieldRequestItems must be inserted into the `items` property of it.
 
 ## Send and Receive the Request
 
@@ -125,7 +123,7 @@ All information on how to send and receive a Request via a Message can be found 
 
 After the Recipient has received the [Request for forms]({% link _docs_integrate/send-forms-via-requests.md %}#request-for-forms), it can accept it to fill out the form sent by the Sender.
 To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request).
-You must also decide and specify for each FormFieldRequestItem contained in the Request for forms whether you want to accept or reject it.
+It must also be decided and specified for each FormFieldRequestItem contained in the Request for forms whether it should be accepted or rejected.
 
 If the Recipient does not want to fill out any form field of the form sent by the Sender and, therefore, does not want to accept the Request for forms of the Sender, it can reject it as a whole as well.
 For this, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
