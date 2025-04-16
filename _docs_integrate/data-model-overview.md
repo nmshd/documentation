@@ -772,11 +772,11 @@ Receiving an AttributeSuccessionAcceptResponseItem, the respective shared LocalA
 
 ##### FormFieldAcceptResponseItem
 
-| Name     | Type                                            | Description                                              |
-| -------- | ----------------------------------------------- | -------------------------------------------------------- |
-| @type    | `"FormFieldAcceptResponseItem"`                 | The type of the ResponseItem.                            |
-| result   | `"Accepted"`                                    | The only possible value here is the string `"Accepted"`. |
-| response | `string` \| `number` \| `boolean` \| `string[]` | The response that is used to fill out the form field.    |
+| Name     | Type                                            | Description                                                                                                                                                                                                          |
+| -------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| @type    | `"FormFieldAcceptResponseItem"`                 | The type of the ResponseItem.                                                                                                                                                                                        |
+| result   | `"Accepted"`                                    | The only possible value here is the string `"Accepted"`.                                                                                                                                                             |
+| response | `string` \| `number` \| `boolean` \| `string[]` | The response that is used to fill out the form field. The expected type of response depends on the `settings` of the [FormFieldRequestItem]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem). |
 
 ##### ProposeAttributeAcceptResponseItem
 
