@@ -21,6 +21,15 @@ required_by:
 # End automatic generation
 ---
 
+Reusable [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) are well-suited for standardized and persistent data exchange.
+However, some information is highly specific, unstructured, and intended for one-time use, making it unsuitable for representation as an Attribute.
+Forms address this need by enabling targeted data collection for a defined purpose, without introducing unnecessary complexity or permanence.
+This is particularly valuable in cases such as:
+
+- A company sends a form to a customer asking for feedback on a product or service to gain insights for improvement.
+- A patient fills out a medical history form detailing their health background and conditions, specific to a healthcare appointment or procedure.
+- A faculty of a university sends a form to a PhD student to collect information for an event, such as conference registration details, workshop preferences, or accommodation needs.
+
 In this guide, we explain how a Connector, hereinafter referred to as the Sender, can send a form with different form fields to another Connector, the so-called Recipient.
 Since understanding this process requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and how to use them in general, the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) should be consulted before continuing reading this guide.
 
