@@ -46,15 +46,17 @@ In the following subsections, we describe the general appearance of a Request fo
 ### Role of FormFieldRequestItem
 
 For creating a single form field, the Sender needs to insert a single RequestItem of type [FormFieldRequestItem]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem) into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request).
-
-<!-- TODO: Describe properties: Required title and settings -->
+As the Recipient must understand what information is to be requested by the form field, each FormFieldRequestItem must be provided with a `title`.
+Different kinds of form fields can be represented by a FormFieldRequestItem.
+The kind of form field can be specified within the `settings` property of the FormFieldRequestItem.
+A description of all possible `settings` can be found in the following.
 
 #### StringFormFieldSettings
 
 | Name            | Type                        | Required | Description                                                                                           |
 | --------------- | --------------------------- | :------: | ----------------------------------------------------------------------------------------------------- |
 | `@type`         | `"StringFormFieldSettings"` |    ✓     |                                                                                                       |
-| `allowNewLines` | `true`                      |    ✗     | If this flag is set, the free text form field is displayed in the App's UI as a text area form field. |
+| `allowNewlines` | `true`                      |    ✗     | If this flag is set, the free text form field is displayed in the App's UI as a text area form field. |
 | `min`           | `number`                    |    ✗     | Lower limit for the length of the requested string.                                                   |
 | `max`           | `number`                    |    ✗     | Upper limit for the length of the requested string.                                                   |
 
@@ -110,6 +112,10 @@ The lower limit for the requested rating is always one.
 Sending a form is not limited to just a single form field, but it is possible to send multiple form fields at the same time.
 Several FormFieldRequestItems or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for forms for this purpose.
 If a RequestItemGroup is to be used in order to send multiple form fields to the Recipient at the same time, the corresponding FormFieldRequestItems must be inserted into the `items` property of it.
+
+Please note that FormFieldRequestItems can be mixed with other [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems).
+A Request can therefore contain both form fields and Attribute related RequestItems, such as for [reading Attributes from a peer]({% link _docs_integrate/read-attributes-from-peer.md %}).
+{: .notice--info}
 
 ## Send and Receive the Request
 
