@@ -213,7 +213,7 @@ In our example, the Sender only requires the Recipient to accept the EMailAddres
 If the Recipient wants to accept the Request for creating Attributes, it must accept all CreateAttributeRequestItems for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted for the Recipient to refuse to accept the EMailAddress or the BirthDate offered by the Sender.
 {: .notice--info}
 
-The Recipient accepts the EMailAddress of the Sender and accepts at least one CreateAttributeRequestItem of the RequestItemGroup. Also, the Recipient accepts the BirthDate and rejects the BirthPlace of the Sender. It therefore responds to the Request for creating Attributes as follows:
+The Recipient accepts the EMailAddress of the Sender. Also, the Recipient accepts the BirthDate and rejects the BirthPlace of the Sender. It therefore responds to the Request for creating Attributes as follows:
 
 ```jsonc
 {
