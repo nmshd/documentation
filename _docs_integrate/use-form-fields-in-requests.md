@@ -1,8 +1,8 @@
 ---
 # Start automatic generation
-permalink: integrate/send-forms-via-requests
+permalink: integrate/use-form-fields-in-requests
 published: true
-title: "Send Forms via Requests"
+title: "Use Form Fields in Requests"
 type: scenario
 toc: true
 properties:
@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: DONE
   - published: true
-  - link: send-forms-via-requests
+  - link: use-form-fields-in-requests
 require:
 required_by:
 # End automatic generation
@@ -64,7 +64,7 @@ A Request can therefore contain both form fields and Attribute related RequestIt
 ## Send and Receive the Request
 
 The Sender that wants to send a form to the Recipient may or may not already have a Relationship with the Recipient.
-Depending on which is the case, a different method can be used to send the [Request for a form]({% link _docs_integrate/send-forms-via-requests.md %}#request-for-a-form).
+Depending on which is the case, a different method can be used to send the [Request for a form]({% link _docs_integrate/use-form-fields-in-requests.md %}#request-for-a-form).
 There are two ways to send the Request for a form created by the Sender to the Recipient.
 
 ### Request via RelationshipTemplate
@@ -80,7 +80,7 @@ All information on how to send and receive a Request via a Message can be found 
 
 ## Accept the Request
 
-After the Recipient has received the [Request for a form]({% link _docs_integrate/send-forms-via-requests.md %}#request-for-a-form), it can accept it to fill out the form sent by the Sender.
+After the Recipient has received the [Request for a form]({% link _docs_integrate/use-form-fields-in-requests.md %}#request-for-a-form), it can accept it to fill out the form sent by the Sender.
 To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 It must also be decided and specified for each FormFieldRequestItem contained in the Request for a form whether it should be accepted or rejected.
 
@@ -194,7 +194,7 @@ Note that it is important to respond to RequestItems, some of which may be conta
 
 ## Receive the Response to the Request
 
-We now assume that the Recipient has accepted the [Request for a form]({% link _docs_integrate/send-forms-via-requests.md %}#request-for-a-form) of the Sender.
+We now assume that the Recipient has accepted the [Request for a form]({% link _docs_integrate/use-form-fields-in-requests.md %}#request-for-a-form) of the Sender.
 In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 
@@ -202,8 +202,8 @@ Please note that this synchronization can also be automated by using the [Sync M
 
 To view the Response to the Request, proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
-- If the [Request was sent via a RelationshipTemplate]({% link _docs_integrate/send-forms-via-requests.md %}#request-via-relationshiptemplate): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
-- If the [Request was sent via a Message]({% link _docs_integrate/send-forms-via-requests.md %}#request-via-message): Specify `<ID of Request>` as the value for the `id` query parameter.
+- If the [Request was sent via a RelationshipTemplate]({% link _docs_integrate/use-form-fields-in-requests.md %}#request-via-relationshiptemplate): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
+- If the [Request was sent via a Message]({% link _docs_integrate/use-form-fields-in-requests.md %}#request-via-message): Specify `<ID of Request>` as the value for the `id` query parameter.
 
 The Integrator of the Sender can now get the Response of the Recipient from the `response.content` property of the result.
 In the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) is a [FormFieldAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#formfieldacceptresponseitem) for each accepted and a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) for each rejected FormFieldRequestItem included.
