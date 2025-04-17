@@ -1,8 +1,8 @@
 ---
 # Start automatic generation
-permalink: integrate/use-form-fields-in-requests
+permalink: integrate/form-fields-within-requests
 published: true
-title: "Use Form Fields in Requests"
+title: "Form Fields Within Requests"
 type: scenario
 toc: true
 properties:
@@ -15,7 +15,7 @@ properties:
   - implementation status: DONE
   - documentation status: DONE
   - published: true
-  - link: use-form-fields-in-requests
+  - link: form-fields-within-requests
 require:
 required_by:
 # End automatic generation
@@ -30,18 +30,18 @@ This is particularly valuable in cases such as:
 - A patient fills out a medical history form detailing their health background and conditions, specific to a healthcare appointment or procedure.
 - A faculty of a university sends a form to a PhD student to collect information for an event, such as conference registration details, workshop preferences, or accommodation needs.
 
-In this guide, we explain how a Connector, hereinafter referred to as the Sender, can send a form with different form fields to another Connector, the so-called Recipient.
+In this guide, we explain how a Connector, hereinafter referred to as the Sender, can send different form fields to another Connector, the so-called Recipient.
 Since understanding this process requires knowledge about [Requests]({% link _docs_integrate/data-model-overview.md %}#request) and how to use them in general, the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}) should be consulted before continuing reading this guide.
 
-Please note that the general procedure is the same if the Connector wants to send a form to an App user instead of another Connector.
+Please note that the general procedure is the same if the Connector wants to send form fields to an App user instead of another Connector.
 For reasons of clarity, this guide focuses on the process with two Connectors.
 {: .notice--info}
 
-## Request for a Form
+## Request Containing Form Fields
 
-The Sender wants to send a form to the Recipient.
+The Sender wants to send form fields to the Recipient.
 To do this, the Sender must first create a suitable Request, which it can then send to the Recipient.
-In the following subsections, we describe the general appearance of a Request for a form.
+In the following subsections, we describe the general appearance of a Request containing form fields.
 
 ### Role of FormFieldRequestItem
 
@@ -54,7 +54,7 @@ The possible settings are [BooleanFormFieldSettings]({% link _docs_integrate/dat
 ### Send Multiple Form Fields
 
 Sending a form is not limited to just a single form field, but it is possible to send multiple form fields at the same time.
-Several FormFieldRequestItems or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for forms for this purpose.
+Several FormFieldRequestItems or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) containing form fields for this purpose.
 If a RequestItemGroup is to be used in order to send multiple form fields to the Recipient at the same time, the corresponding FormFieldRequestItems must be inserted into the `items` property of it.
 
 Please note that FormFieldRequestItems can be mixed with other [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems).
@@ -63,9 +63,9 @@ A Request can therefore contain both form fields and Attribute related RequestIt
 
 ## Send and Receive the Request
 
-The Sender that wants to send a form to the Recipient may or may not already have a Relationship with the Recipient.
-Depending on which is the case, a different method can be used to send the [Request for a form]({% link _docs_integrate/use-form-fields-in-requests.md %}#request-for-a-form).
-There are two ways to send the Request for a form created by the Sender to the Recipient.
+The Sender that wants to send form fields to the Recipient may or may not already have a Relationship with the Recipient.
+Depending on which is the case, a different method can be used to send the [Request containing form fields]({% link _docs_integrate/form-fields-within-requests.md %}#request-containing-form-fields).
+There are two ways to send the Request containing form fields created by the Sender to the Recipient.
 
 ### Request via RelationshipTemplate
 
@@ -80,11 +80,11 @@ All information on how to send and receive a Request via a Message can be found 
 
 ## Accept the Request
 
-After the Recipient has received the [Request for a form]({% link _docs_integrate/use-form-fields-in-requests.md %}#request-for-a-form), it can accept it to fill out the form sent by the Sender.
+After the Recipient has received the [Request containing form fields]({% link _docs_integrate/form-fields-within-requests.md %}#request-containing-form-fields), it can accept it to fill out the form fields sent by the Sender.
 To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request).
-It must also be decided and specified for each FormFieldRequestItem contained in the Request for a form whether it should be accepted or rejected.
+It must also be decided and specified for each FormFieldRequestItem contained in the Request containing form fields whether it should be accepted or rejected.
 
-If the Recipient does not want to fill out any form field of the form sent by the Sender and, therefore, does not want to accept the Request for a form of the Sender, it can reject it as a whole as well.
+If the Recipient does not want to fill out any form field sent by the Sender and, therefore, does not want to accept the Request containing form fields of the Sender, it can reject it as a whole as well.
 For this, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
 
@@ -92,22 +92,22 @@ For this, follow the instructions of the [Reject incoming Request]({% link _docs
 
 ### Accept a FormFieldRequestItem
 
-If the Recipient agrees to fill out a form field of a form sent by the Sender, it can accept the associated FormFieldRequestItem contained in the Request for a form.
+If the Recipient agrees to fill out a form field sent by the Sender, it can accept the associated FormFieldRequestItem contained in the Request containing form fields.
 The [AcceptFormFieldRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptformfieldrequestitemparameters) must be used for that.
 The form field represented by the FormFieldRequestItem must be filled out using the `response` parameter.
 The `response` parameter must have a type that matches the `settings` of the [FormFieldRequestItem]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem).
 For example, when using [BooleanFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#booleanformfieldsettings), a `response` of type boolean must be used.
 The expected type of `response` can be found in the descriptions of the different possible `settings`, which are [BooleanFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#booleanformfieldsettings), [DateFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#dateformfieldsettings), [DoubleFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#doubleformfieldsettings), [IntegerFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#integerformfieldsettings), [RatingFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#ratingformfieldsettings), [SelectionFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#selectionformfieldsettings) and [StringFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#stringformfieldsettings), in the data model overview.
 Based on the `response`, an appropriate AcceptResponseItem of type [FormFieldAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#formfieldacceptresponseitem) is generated, which incorporates the provided `response` in its `response` property.
-This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for a form that will be transferred to the Sender.
+This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request containing form fields that will be transferred to the Sender.
 
 ### Reject a FormFieldRequestItem
 
-Even if the Recipient accepts the Request for a form as a whole, it may decide not to fill out every form field.
+Even if the Recipient accepts the Request containing form fields as a whole, it may decide not to fill out every form field.
 To be more precise, the Recipient has the option of rejecting [FormFieldRequestItems]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem) that have the value `false` specified in their `mustBeAccepted` property.
 To reject a FormFieldRequestItem, use the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters).
 The rejection of a FormFieldRequestItem leads to the creation of a ResponseItem of type [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem).
-This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for a form.
+This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request containing form fields.
 
 ### Example of Accepting a RequestItemGroup
 
@@ -157,13 +157,13 @@ Please note that the `<...>` notation is used as a placeholder for the actual da
 In the example, the Sender only requires the Recipient to fill out the string form field and select one of the different options of the selection form field, which is why the individual [FormFieldRequestItems]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem) within the Request have specified corresponding values in their `mustBeAccepted` property.
 We assume that the Recipient wants to accept the Request and only wants to fill out the string form field and select one of the different options of the selection form field.
 
-If the Recipient wants to accept the Request for a form, it must accept all FormFieldRequestItems for which the `mustBeAccepted` property is set to `true`.
+If the Recipient wants to accept the Request containing form fields, it must accept all FormFieldRequestItems for which the `mustBeAccepted` property is set to `true`.
 It is therefore not permitted, for example, for the Recipient to refuse to fill out the string form field and instead fill out the integer form field.
 {: .notice--info}
 
 The Recipient refuses to fill out the integer form field.
 Also, the Recipient accepts filling out the string form field and selecting one of the different options of the selection form field.
-Thus, it responds to the Request for a form as follows:
+Thus, it responds to the Request containing form fields as follows:
 
 ```jsonc
 {
@@ -194,7 +194,7 @@ Note that it is important to respond to RequestItems, some of which may be conta
 
 ## Receive the Response to the Request
 
-We now assume that the Recipient has accepted the [Request for a form]({% link _docs_integrate/use-form-fields-in-requests.md %}#request-for-a-form) of the Sender.
+We now assume that the Recipient has accepted the [Request containing form fields]({% link _docs_integrate/form-fields-within-requests.md %}#request-containing-form-fields) of the Sender.
 In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 
@@ -202,14 +202,14 @@ Please note that this synchronization can also be automated by using the [Sync M
 
 To view the Response to the Request, proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
-- If the [Request was sent via a RelationshipTemplate]({% link _docs_integrate/use-form-fields-in-requests.md %}#request-via-relationshiptemplate): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
-- If the [Request was sent via a Message]({% link _docs_integrate/use-form-fields-in-requests.md %}#request-via-message): Specify `<ID of Request>` as the value for the `id` query parameter.
+- If the [Request was sent via a RelationshipTemplate]({% link _docs_integrate/form-fields-within-requests.md %}#request-via-relationshiptemplate): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.
+- If the [Request was sent via a Message]({% link _docs_integrate/form-fields-within-requests.md %}#request-via-message): Specify `<ID of Request>` as the value for the `id` query parameter.
 
 The Integrator of the Sender can now get the Response of the Recipient from the `response.content` property of the result.
 In the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) is a [FormFieldAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#formfieldacceptresponseitem) for each accepted and a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) for each rejected FormFieldRequestItem included.
 
 In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) can also be included in the Response.
-If the Request for a form contains a RequestItemGroup in its `items` property, the Response to this Request contains a corresponding [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) in its `items` property.
+If the Request containing form fields contains a RequestItemGroup in its `items` property, the Response to this Request contains a corresponding [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) in its `items` property.
 {: .notice--info}
 
 ## What's Next?
