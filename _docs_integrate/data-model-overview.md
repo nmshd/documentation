@@ -516,45 +516,12 @@ For more information you should check out the section [FormFieldRequestItem of t
 | Name                  | Type                                                                                                                                                                                                                                                                                                                                                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | @type                 | `"FormFieldRequestItem"`                                                                                                                                                                                                                                                                                                                                                                                          | Specifies the type of the RequestItem for internal processing.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| settings              | [`StringFormFieldSettings`](#stringformfieldsettings) \| [`IntegerFormFieldSettings`](#integerformfieldsettings) \| [`DoubleFormFieldSettings`](#doubleformfieldsettings) \| [`BooleanFormFieldSettings`](#booleanformfieldsettings) \| [`DateFormFieldSettings`](#dateformfieldsettings) \| [`RatingFormFieldSettings`](#ratingformfieldsettings) \| [`SelectionFormFieldSettings`](#selectionformfieldsettings) | The settings that determine the kind of form field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| settings              | [`BooleanFormFieldSettings`](#booleanformfieldsettings) \| [`DateFormFieldSettings`](#dateformfieldsettings) \| [`DoubleFormFieldSettings`](#doubleformfieldsettings) \| [`IntegerFormFieldSettings`](#integerformfieldsettings) \| [`RatingFormFieldSettings`](#ratingformfieldsettings) \| [`SelectionFormFieldSettings`](#selectionformfieldsettings) \| [`StringFormFieldSettings`](#stringformfieldsettings) | The settings that determine the kind of form field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | title                 | `string`                                                                                                                                                                                                                                                                                                                                                                                                          | A human readable title for the RequestItem.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | description           | `string` \| `undefined`                                                                                                                                                                                                                                                                                                                                                                                           | An optional, human readable description for the RequestItem.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | metadata              | `object` \| `undefined`                                                                                                                                                                                                                                                                                                                                                                                           | The metadata property can be used to provide arbitrary JSON content by the sender of the Request. The metadata is not processed by enmeshed. It is a great way to use your own process descriptors at the time of sending the Request which helps you identify the correct internal process at the time of receiving the Response.                                                                                                                                                                                                                                                                               |
 | mustBeAccepted        | `boolean`                                                                                                                                                                                                                                                                                                                                                                                                         | The mandatory `mustBeAccepted` property is used to differentiate between required and optional RequestItems within the Request.<br>{::nomarkdown}<ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul>{:/} |
 | requireManualDecision | `boolean` \| `undefined`                                                                                                                                                                                                                                                                                                                                                                                          | To block the automated acceptance of Requests, the requireManualDecision property can be set to true. The default is, that each RequestItem may be automatically processed on the peer side. If the sender would like to have an enforced manual acceptance step, the requireManualDecision property can be set to true.                                                                                                                                                                                                                                                                                         |
-
-##### StringFormFieldSettings
-
-If StringFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), this results in a string form field which expects a string when it is filled out.
-
-| Name            | Type                        | Description                                                                                                                                |
-| --------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `@type`         | `"StringFormFieldSettings"` |                                                                                                                                            |
-| `allowNewlines` | `true` \| `undefined`       | If this flag is set, the string form field is displayed in the App's UI as a text area form field instead of a one-line string form field. |
-| `min`           | `number` \| `undefined`     | Lower limit for the length of the requested string.                                                                                        |
-| `max`           | `number` \| `undefined`     | Upper limit for the length of the requested string.                                                                                        |
-
-##### IntegerFormFieldSettings
-
-If IntegerFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), this results in an integer form field which expects an integer when it is filled out.
-
-| Name    | Type                         | Description                            |
-| ------- | ---------------------------- | -------------------------------------- |
-| `@type` | `"IntegerFormFieldSettings"` |                                        |
-| `unit`  | `string` \| `undefined`      | Unit of the requested integer.         |
-| `min`   | `number` \| `undefined`      | Lower limit for the requested integer. |
-| `max`   | `number` \| `undefined`      | Upper limit for the requested integer. |
-
-##### DoubleFormFieldSettings
-
-If DoubleFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), this results in a double form field which expects a double when it is filled out.
-
-| Name    | Type                        | Description                           |
-| ------- | --------------------------- | ------------------------------------- |
-| `@type` | `"DoubleFormFieldSettings"` |                                       |
-| `unit`  | `string` \| `undefined`     | Unit of the requested double.         |
-| `min`   | `number` \| `undefined`     | Lower limit for the requested double. |
-| `max`   | `number` \| `undefined`     | Upper limit for the requested double. |
 
 ##### BooleanFormFieldSettings
 
@@ -571,6 +538,28 @@ If DateFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#for
 | Name    | Type                      | Description |
 | ------- | ------------------------- | ----------- |
 | `@type` | `"DateFormFieldSettings"` |             |
+
+##### DoubleFormFieldSettings
+
+If DoubleFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), this results in a double form field which expects a double when it is filled out.
+
+| Name    | Type                        | Description                           |
+| ------- | --------------------------- | ------------------------------------- |
+| `@type` | `"DoubleFormFieldSettings"` |                                       |
+| `unit`  | `string` \| `undefined`     | Unit of the requested double.         |
+| `min`   | `number` \| `undefined`     | Lower limit for the requested double. |
+| `max`   | `number` \| `undefined`     | Upper limit for the requested double. |
+
+##### IntegerFormFieldSettings
+
+If IntegerFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), this results in an integer form field which expects an integer when it is filled out.
+
+| Name    | Type                         | Description                                                          |
+| ------- | ---------------------------- | -------------------------------------------------------------------- |
+| `@type` | `"IntegerFormFieldSettings"` |                                                                      |
+| `unit`  | `string` \| `undefined`      | Unit of the requested integer.                                       |
+| `min`   | `number` \| `undefined`      | An integer that serves as the lower limit for the requested integer. |
+| `max`   | `number` \| `undefined`      | An integer that serves as the upper limit for the requested integer. |
 
 ##### RatingFormFieldSettings
 
@@ -593,6 +582,17 @@ Otherwise, a string array of all selected options is expected, which may also co
 | `@type`                  | `"SelectionFormFieldSettings"` |                                                                                                                                                                                              |
 | `options`                | `string[]`                     | Unique options of the selection form field. At least one option must be provided.                                                                                                            |
 | `allowMultipleSelection` | `true` \| `undefined`          | If this flag is set, it is possible to select multiple of the provided options when responding to the selection form field. Otherwise, exactly one of the options provided must be selected. |
+
+##### StringFormFieldSettings
+
+If StringFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), this results in a string form field which expects a string when it is filled out.
+
+| Name            | Type                        | Description                                                                                                                                |
+| --------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `@type`         | `"StringFormFieldSettings"` |                                                                                                                                            |
+| `allowNewlines` | `true` \| `undefined`       | If this flag is set, the string form field is displayed in the App's UI as a text area form field instead of a one-line string form field. |
+| `min`           | `number` \| `undefined`     | A non-negative integer that serves as the lower limit for the length of the requested string.                                              |
+| `max`           | `number` \| `undefined`     | A non-negative integer that serves as the upper limit for the length of the requested string.                                              |
 
 #### FreeTextRequestItem
 
