@@ -80,7 +80,7 @@ All information on how to send and receive a Request via a Message can be found 
 
 ## Accept the Request
 
-After the Recipient has received the [Request containing form fields]({% link _docs_integrate/form-fields-within-requests.md %}#request-containing-form-fields), it can accept it to fill out the form fields sent by the Sender.
+After the Recipient has received the [Request containing form fields]({% link _docs_integrate/form-fields-within-requests.md %}#request-containing-form-fields), it can fill out all or some of the form fields sent by the Sender to accept it.
 To do this, proceed as described in the [Accept incoming Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) use case documentation and specify the `id` of the received [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 It must also be decided and specified for each FormFieldRequestItem contained in the Request containing form fields whether it should be accepted or rejected.
 
@@ -92,7 +92,7 @@ For this, follow the instructions of the [Reject incoming Request]({% link _docs
 
 ### Accept a FormFieldRequestItem
 
-If the Recipient agrees to fill out a form field sent by the Sender, it can accept the associated FormFieldRequestItem contained in the Request containing form fields.
+If the Recipient agrees to fill out a form field sent by the Sender, it can accept the associated FormFieldRequestItem contained in the corresponding Request.
 The [AcceptFormFieldRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptformfieldrequestitemparameters) must be used for that.
 The form field represented by the FormFieldRequestItem must be filled out using the `response` parameter.
 The `response` parameter must have a type that matches the `settings` of the [FormFieldRequestItem]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem).
