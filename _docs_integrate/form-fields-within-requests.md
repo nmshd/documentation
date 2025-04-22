@@ -45,7 +45,7 @@ In the following subsections, we describe the general appearance of a Request co
 
 ### Role of FormFieldRequestItem
 
-For creating a single form field, the Sender needs to insert a single RequestItem of type [FormFieldRequestItem]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem) into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request).
+For creating a form field, the Sender needs to insert a single RequestItem of type [FormFieldRequestItem]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem) into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 As the Recipient must understand what information is to be requested by the form field, each FormFieldRequestItem must be provided with a `title`.
 Different kinds of form fields can be represented by a FormFieldRequestItem.
 The kind of form field can be specified within the `settings` property of the FormFieldRequestItem.
