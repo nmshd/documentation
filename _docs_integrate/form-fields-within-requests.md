@@ -22,7 +22,7 @@ required_by:
 ---
 
 Form fields within Requests provide a way to collect information without the need to create corresponding [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes).
-Using Attributes makes sense when the data is intended to be [updated by succession]({% link _docs_integrate/update-attributes-by-succession.md %}) later on, [shared further]({% link _docs_integrate/share-attributes-with-peer.md %}), or when it aligns with a predefined, standardized format.
+Using Attributes makes sense when the data is intended to be [updated by succession]({% link _docs_integrate/update-attributes-by-succession.md %}) later on, [shared further]({% link _docs_integrate/share-attributes-with-peer.md %}), or when it aligns with a predefined, [standardized format]({% link _docs_integrate/attribute-values.md %}).
 In contrast, form fields are well suited for obtaining context-specific data that is only needed for a particular interaction.
 They are named as such because they serve the purpose typically associated with form fields in forms.
 Using form fields is especially valuable in cases such as:
@@ -54,7 +54,7 @@ The possible settings are [BooleanFormFieldSettings]({% link _docs_integrate/dat
 
 ### Send Multiple Form Fields
 
-Sending a form is not limited to just a single form field, but it is possible to send multiple form fields at the same time.
+It is possible to send multiple form fields at the same time instead of just a single form field.
 Several FormFieldRequestItems or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) containing form fields for this purpose.
 If a RequestItemGroup is to be used in order to send multiple form fields to the Recipient at the same time, the corresponding FormFieldRequestItems must be inserted into the `items` property of it.
 
