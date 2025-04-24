@@ -110,6 +110,23 @@ After the Recipient has responded to the DeleteAttributeRequestItem, a suitable 
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
+#### FormFieldRequestItem
+
+With the [FormFieldRequestItem]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem) it is possible to define a form field.
+Depending on which `settings` the FormFieldRequestItem is configured with, the type of values with which the form field can be filled out and the UI of the form field in the App change.
+All details on how to use the FormFieldRequestItem and examples of use cases for it can be found in the [Form Fields Within Requests]({% link _docs_integrate/form-fields-within-requests.md %}) scenario documentation.
+
+Depending on whether the FormFieldRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
+
+- To accept this RequestItem, the [AcceptFormFieldRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptformfieldrequestitemparameters) can be utilized.
+- To reject this RequestItem, the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) can be utilized.
+
+After the Recipient has responded to the FormFieldRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
+
+- After accepting this RequestItem, a [FormFieldAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#formfieldacceptresponseitem) will be transferred.
+- After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+- In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+
 #### FreeTextRequestItem
 
 With the [FreeTextRequestItem]({% link _docs_integrate/data-model-overview.md %}#freetextrequestitem) it is possible to send a free text to the peer. The peer itself can accept this with a free text as well.
