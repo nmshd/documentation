@@ -525,7 +525,7 @@ For more information you should check out the section [FormFieldRequestItem of t
 
 ##### BooleanFormFieldSettings
 
-If BooleanFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), this will result in a boolean form field which expects a boolean when it is filled out.
+If BooleanFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), it can be [accepted](#acceptformfieldrequestitemparameters) by specifying a boolean.
 
 | Name    | Type                         | Description |
 | ------- | ---------------------------- | ----------- |
@@ -533,7 +533,7 @@ If BooleanFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#
 
 ##### DateFormFieldSettings
 
-If DateFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), this will result in a date form field which expects a valid date string in ISO 8601 format, such as `"2000-01-01T00:00:00.000+00:00"`, `"1999-12-31T23:59:59.999Z"`, or `"2020-02-29"`, when it is filled out.
+If DateFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), it can be [accepted](#acceptformfieldrequestitemparameters) by specifying a valid date string in ISO 8601 format.
 
 | Name    | Type                      | Description |
 | ------- | ------------------------- | ----------- |
@@ -541,7 +541,7 @@ If DateFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#for
 
 ##### DoubleFormFieldSettings
 
-If DoubleFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), this will result in a double form field which expects a double when it is filled out.
+If DoubleFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), it can be [accepted](#acceptformfieldrequestitemparameters) by specifying a double.
 
 | Name    | Type                        | Description                           |
 | ------- | --------------------------- | ------------------------------------- |
@@ -552,7 +552,7 @@ If DoubleFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#f
 
 ##### IntegerFormFieldSettings
 
-If IntegerFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), this will result in an integer form field which expects an integer when it is filled out.
+If IntegerFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), it can be [accepted](#acceptformfieldrequestitemparameters) by specifying an integer.
 
 | Name    | Type                         | Description                                                          |
 | ------- | ---------------------------- | -------------------------------------------------------------------- |
@@ -563,7 +563,7 @@ If IntegerFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#
 
 ##### RatingFormFieldSettings
 
-If RatingFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), this will result in a rating form field which expects an integer between a lower limit and an upper limit when it is filled out.
+If RatingFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), it can be [accepted](#acceptformfieldrequestitemparameters) by specifying an integer from a lower limit to an upper limit as a rating.
 The lower limit for the requested rating is always one, whereas the upper limit can be an integer from five to ten.
 
 | Name        | Type                                    | Description                           |
@@ -573,7 +573,7 @@ The lower limit for the requested rating is always one, whereas the upper limit 
 
 ##### SelectionFormFieldSettings
 
-If SelectionFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), this will result in a selection form field which expects a selection of options provided.
+If SelectionFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), it can be [accepted](#acceptformfieldrequestitemparameters) by specifying a selection of options provided.
 If multiple selection is not allowed, the selected option is expected as a string.
 Otherwise, a string array of all selected options is expected, which may also contain only one option.
 
@@ -585,14 +585,14 @@ Otherwise, a string array of all selected options is expected, which may also co
 
 ##### StringFormFieldSettings
 
-If StringFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), this will result in a string form field which expects a string when it is filled out.
+If StringFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#formfieldrequestitem), it can be [accepted](#acceptformfieldrequestitemparameters) by specifying a string.
 
-| Name            | Type                        | Description                                                                                                                                |
-| --------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `@type`         | `"StringFormFieldSettings"` |                                                                                                                                            |
-| `allowNewlines` | `true` \| `undefined`       | If this flag is set, the string form field will be displayed in the App as a text area form field instead of a one-line string form field. |
-| `min`           | `number` \| `undefined`     | A non-negative integer that serves as the lower limit for the length of the requested string.                                              |
-| `max`           | `number` \| `undefined`     | A non-negative integer that serves as the upper limit for the length of the requested string.                                              |
+| Name            | Type                        | Description                                                                                                                                                                      |
+| --------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@type`         | `"StringFormFieldSettings"` |                                                                                                                                                                                  |
+| `allowNewlines` | `true` \| `undefined`       | If this flag is set, it will be possible to specify a string containing newlines when [accepting](#acceptformfieldrequestitemparameters) the corresponding FormFieldRequestItem. |
+| `min`           | `number` \| `undefined`     | A non-negative integer that serves as the lower limit for the length of the requested string.                                                                                    |
+| `max`           | `number` \| `undefined`     | A non-negative integer that serves as the upper limit for the length of the requested string.                                                                                    |
 
 #### FreeTextRequestItem
 
