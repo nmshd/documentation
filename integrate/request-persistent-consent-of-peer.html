@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-04-24T11:50:41+02:00">
+  <meta property="article:published_time" content="2025-04-24T14:08:14+02:00">
 
 
 
@@ -240,6 +240,8 @@
             
               <li><a href="/integrate/requests-via-messages">Requests via Messages</a></li>
             
+              <li><a href="/integrate/form-fields-within-requests">Form Fields Within Requests</a></li>
+            
           </ul>
           
         </li>
@@ -358,7 +360,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Request persistent consent of peer">
     <meta itemprop="description" content="This guide explains how an Identity can obtain the persistent consent of one of its peers on a particular issue. Technically, this form of consent is stored by a RelationshipAttribute with Consent as value.@type, that exists in the context of their Relationship and that is usually owned by the peer.">
-    <meta itemprop="datePublished" content="2025-04-24T11:50:41+02:00">
+    <meta itemprop="datePublished" content="2025-04-24T14:08:14+02:00">
     
 
     <div class="page__inner-wrap">
@@ -421,7 +423,7 @@ The Recipient then automatically becomes the <code class="language-plaintext hig
 To create the Request, the Sender must proceed as described in the <a href="/use-case-consumption-create-outgoing-request">Create outgoing Request</a> use case, specifying a suitable payload as given in the example below.
 In this example, the <code class="language-plaintext highlighter-rouge">confidentiality</code> of the RelationshipAttribute is set to <code class="language-plaintext highlighter-rouge">"private"</code> and the value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the CreateAttributeRequestItem is set to <code class="language-plaintext highlighter-rouge">true</code>.
 Please note that the <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> notation is used as a placeholder for the actual data as usual and that the <code class="language-plaintext highlighter-rouge">link</code> property of the <a href="/integrate/attribute-values#consent">Consent</a> is optional and can therefore also be omitted.
-In addition to the <code class="language-plaintext highlighter-rouge">link</code>, a <code class="language-plaintext highlighter-rouge">linkDisplayText</code> could optionally be specified, which would be displayed in the App’s UI instead of the URL of the <code class="language-plaintext highlighter-rouge">link</code>.</p>
+In addition to the <code class="language-plaintext highlighter-rouge">link</code>, a <code class="language-plaintext highlighter-rouge">linkDisplayText</code> could optionally be specified, which would be displayed in the App instead of the URL of the <code class="language-plaintext highlighter-rouge">link</code>.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -510,7 +512,7 @@ In addition to the <code class="language-plaintext highlighter-rouge">link</code
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-04-24T11:50:41+02:00">April 24, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-04-24T14:08:14+02:00">April 24, 2025</time></p>
 
       </footer>
 

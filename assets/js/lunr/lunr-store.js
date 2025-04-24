@@ -215,6 +215,12 @@ var store = [{
         "url": "/integrate/faq",
         "teaser": null
       },{
+        "title": "Form Fields Within Requests",
+        "excerpt":"Form fields within Requests provide a way to collect information without the need to create corresponding Attributes. Using Attributes makes sense when the data is intended to be updated by succession later on, shared further, or when it aligns with a predefined, standardized format. In contrast, form fields are well...","categories": [],
+        "tags": [],
+        "url": "/integrate/form-fields-within-requests",
+        "teaser": null
+      },{
         "title": "Integration example",
         "excerpt":"In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship. This will create a better understanding of these processes, which will help you automating them for your organization. It is not mandatory to...","categories": [],
         "tags": [],
