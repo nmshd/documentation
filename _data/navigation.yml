@@ -103,6 +103,8 @@ docs_integrate:
         url: /integrate/requests-via-relationshiptemplates
       - title: "Requests via Messages"
         url: /integrate/requests-via-messages
+      - title: "Form Fields Within Requests"
+        url: /integrate/form-fields-within-requests
   - title: Manage Attributes
     children:
       - title: "Attribute introduction"

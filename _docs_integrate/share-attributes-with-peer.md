@@ -270,7 +270,7 @@ In our example, the Sender only requires the Recipient to accept the DisplayName
 If the Recipient wants to accept the Request for sharing Attributes, it must accept all ShareAttributeRequestItems for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted for the Recipient to refuse to accept the DisplayName or the EMailAddress shared by the Sender.
 {: .notice--info}
 
-The Recipient accepts the DisplayName of the Sender and accepts at least one ShareAttributeRequestItem of the RequestItemGroup. Also, the Recipient accepts the EMailAddress and rejects the PhoneNumber of the Sender. It therefore responds to the Request for sharing Attributes as follows:
+The Recipient accepts the DisplayName of the Sender. Also, the Recipient accepts the EMailAddress and rejects the PhoneNumber of the Sender. It therefore responds to the Request for sharing Attributes as follows:
 
 ```jsonc
 {
