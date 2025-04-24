@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-04-24T11:51:25+02:00">
+  <meta property="article:published_time" content="2025-04-24T14:08:49+02:00">
 
 
 
@@ -245,6 +245,8 @@
             
               <li><a href="/versions/v7/integrate/requests-via-messages">Requests via Messages</a></li>
             
+              <li><a href="/versions/v7/integrate/form-fields-within-requests">Form Fields Within Requests</a></li>
+            
           </ul>
           
         </li>
@@ -363,7 +365,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2025-04-24T11:51:25+02:00">
+    <meta itemprop="datePublished" content="2025-04-24T14:08:49+02:00">
     
 
     <div class="page__inner-wrap">
@@ -384,7 +386,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#transport-types">Transport Types</a><ul><li><a href="#token">Token</a><ul><li><a href="#passwordprotection">PasswordProtection</a></li></ul></li><li><a href="#relationshiptemplate">RelationshipTemplate</a></li><li><a href="#relationship">Relationship</a><ul><li><a href="#peerdeletioninfo">PeerDeletionInfo</a></li><li><a href="#relationshipauditlogentry">RelationshipAuditLogEntry</a></li></ul></li><li><a href="#message">Message</a><ul><li><a href="#recipient">Recipient</a></li></ul></li><li><a href="#file">File</a></li><li><a href="#identity">Identity</a></li><li><a href="#identitydeletionprocess">IdentityDeletionProcess</a></li></ul></li><li><a href="#local-types">Local Types</a><ul><li><a href="#localrequest">LocalRequest</a><ul><li><a href="#localrequeststatus">LocalRequestStatus</a></li><li><a href="#localrequestsource">LocalRequestSource</a></li><li><a href="#localresponse">LocalResponse</a></li><li><a href="#localresponsesource">LocalResponseSource</a></li></ul></li><li><a href="#localnotification">LocalNotification</a><ul><li><a href="#localnotificationstatus">LocalNotificationStatus</a></li><li><a href="#localnotificationsource">LocalNotificationSource</a></li></ul></li><li><a href="#localattribute">LocalAttribute</a><ul><li><a href="#localattributeshareinfo">LocalAttributeShareInfo</a></li><li><a href="#localattributedeletioninfo">LocalAttributeDeletionInfo</a></li></ul></li><li><a href="#localattributelistener">LocalAttributeListener</a></li></ul></li><li><a href="#content-types">Content Types</a><ul><li><a href="#request">Request</a><ul><li><a href="#requestitems">RequestItems</a><ul><li><a href="#authenticationrequestitem">AuthenticationRequestItem</a></li><li><a href="#consentrequestitem">ConsentRequestItem</a></li><li><a href="#createattributerequestitem">CreateAttributeRequestItem</a></li><li><a href="#deleteattributerequestitem">DeleteAttributeRequestItem</a></li><li><a href="#freetextrequestitem">FreeTextRequestItem</a></li><li><a href="#proposeattributerequestitem">ProposeAttributeRequestItem</a></li><li><a href="#readattributerequestitem">ReadAttributeRequestItem</a></li><li><a href="#registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</a></li><li><a href="#shareattributerequestitem">ShareAttributeRequestItem</a></li><li><a href="#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a></li></ul></li><li><a href="#requestitemgroup">RequestItemGroup</a></li></ul></li><li><a href="#response">Response</a><ul><li><a href="#responseitems">ResponseItems</a><ul><li><a href="#acceptresponseitem">AcceptResponseItem</a><ul><li><a href="#attributealreadysharedacceptresponseitem">AttributeAlreadySharedAcceptResponseItem</a></li><li><a href="#attributesuccessionacceptresponseitem">AttributeSuccessionAcceptResponseItem</a></li><li><a href="#createattributeacceptresponseitem">CreateAttributeAcceptResponseItem</a></li><li><a href="#deleteattributeacceptresponseitem">DeleteAttributeAcceptResponseItem</a></li><li><a href="#freetextacceptresponseitem">FreeTextAcceptResponseItem</a></li><li><a href="#proposeattributeacceptresponseitem">ProposeAttributeAcceptResponseItem</a></li><li><a href="#readattributeacceptresponseitem">ReadAttributeAcceptResponseItem</a></li><li><a href="#registerattributelisteneracceptresponseitem">RegisterAttributeListenerAcceptResponseItem</a></li><li><a href="#shareattributeacceptresponseitem">ShareAttributeAcceptResponseItem</a></li><li><a href="#transferfileownershipacceptresponseitem">TransferFileOwnershipAcceptResponseItem</a></li></ul></li><li><a href="#rejectresponseitem">RejectResponseItem</a></li><li><a href="#errorresponseitem">ErrorResponseItem</a></li></ul></li><li><a href="#responseitemgroup">ResponseItemGroup</a></li></ul></li><li><a href="#responsewrapper">ResponseWrapper</a></li><li><a href="#notification">Notification</a><ul><li><a href="#notificationitems">NotificationItems</a><ul><li><a href="#ownsharedattributedeletedbyownernotificationitem">OwnSharedAttributeDeletedByOwnerNotificationItem</a></li><li><a href="#peersharedattributedeletedbypeernotificationitem">PeerSharedAttributeDeletedByPeerNotificationItem</a></li><li><a href="#peersharedattributesucceedednotificationitem">PeerSharedAttributeSucceededNotificationItem</a></li><li><a href="#thirdpartyrelationshipattributedeletedbypeernotificationitem">ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem</a></li></ul></li></ul></li><li><a href="#attributes">Attributes</a><ul><li><a href="#identityattribute">IdentityAttribute</a></li><li><a href="#relationshipattribute">RelationshipAttribute</a></li></ul></li><li><a href="#attributequeries">AttributeQueries</a><ul><li><a href="#identityattributequery">IdentityAttributeQuery</a></li><li><a href="#relationshipattributequery">RelationshipAttributeQuery</a><ul><li><a href="#relationshipattributecreationhints">RelationshipAttributeCreationHints</a></li><li><a href="#valuehints">ValueHints</a></li><li><a href="#valuehintsoverride">ValueHintsOverride</a></li><li><a href="#valuehintsvalue">ValueHintsValue</a></li></ul></li><li><a href="#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a></li><li><a href="#iqlquery">IQLQuery</a><ul><li><a href="#iqlquerycreationhints">IQLQueryCreationHints</a></li></ul></li></ul></li><li><a href="#relationshiptemplatecontent">RelationshipTemplateContent</a><ul><li><a href="#arbitraryrelationshiptemplatecontent">ArbitraryRelationshipTemplateContent</a></li></ul></li><li><a href="#relationshipcreationcontent">RelationshipCreationContent</a><ul><li><a href="#arbitraryrelationshipcreationcontent">ArbitraryRelationshipCreationContent</a></li></ul></li><li><a href="#mail">Mail</a></li><li><a href="#arbitrarymessagecontent">ArbitraryMessageContent</a></li></ul></li><li><a href="#consumption">Consumption</a><ul><li><a href="#deciderequestitemparameters">DecideRequestItemParameters</a><ul><li><a href="#rejectrequestitemparameters">RejectRequestItemParameters</a></li><li><a href="#acceptrequestitemparameters">AcceptRequestItemParameters</a><ul><li><a href="#acceptdeleteattributerequestitemparameters">AcceptDeleteAttributeRequestItemParameters</a></li><li><a href="#acceptfreetextrequestitemparameters">AcceptFreeTextRequestItemParameters</a></li><li><a href="#acceptproposeattributerequestitemparameters">AcceptProposeAttributeRequestItemParameters</a></li><li><a href="#acceptreadattributerequestitemparameters">AcceptReadAttributeRequestItemParameters</a></li></ul></li></ul></li><li><a href="#identitymetadata">IdentityMetadata</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#transport-types">Transport Types</a><ul><li><a href="#token">Token</a><ul><li><a href="#passwordprotection">PasswordProtection</a></li></ul></li><li><a href="#relationshiptemplate">RelationshipTemplate</a></li><li><a href="#relationship">Relationship</a><ul><li><a href="#peerdeletioninfo">PeerDeletionInfo</a></li><li><a href="#relationshipauditlogentry">RelationshipAuditLogEntry</a></li></ul></li><li><a href="#message">Message</a><ul><li><a href="#recipient">Recipient</a></li></ul></li><li><a href="#file">File</a></li><li><a href="#identity">Identity</a></li><li><a href="#identitydeletionprocess">IdentityDeletionProcess</a></li></ul></li><li><a href="#local-types">Local Types</a><ul><li><a href="#localrequest">LocalRequest</a><ul><li><a href="#localrequeststatus">LocalRequestStatus</a></li><li><a href="#localrequestsource">LocalRequestSource</a></li><li><a href="#localresponse">LocalResponse</a></li><li><a href="#localresponsesource">LocalResponseSource</a></li></ul></li><li><a href="#localnotification">LocalNotification</a><ul><li><a href="#localnotificationstatus">LocalNotificationStatus</a></li><li><a href="#localnotificationsource">LocalNotificationSource</a></li></ul></li><li><a href="#localattribute">LocalAttribute</a><ul><li><a href="#localattributeshareinfo">LocalAttributeShareInfo</a></li><li><a href="#localattributedeletioninfo">LocalAttributeDeletionInfo</a></li></ul></li><li><a href="#localattributelistener">LocalAttributeListener</a></li></ul></li><li><a href="#content-types">Content Types</a><ul><li><a href="#request">Request</a><ul><li><a href="#requestitems">RequestItems</a><ul><li><a href="#authenticationrequestitem">AuthenticationRequestItem</a></li><li><a href="#consentrequestitem">ConsentRequestItem</a></li><li><a href="#createattributerequestitem">CreateAttributeRequestItem</a></li><li><a href="#deleteattributerequestitem">DeleteAttributeRequestItem</a></li><li><a href="#formfieldrequestitem">FormFieldRequestItem</a><ul><li><a href="#booleanformfieldsettings">BooleanFormFieldSettings</a></li><li><a href="#dateformfieldsettings">DateFormFieldSettings</a></li><li><a href="#doubleformfieldsettings">DoubleFormFieldSettings</a></li><li><a href="#integerformfieldsettings">IntegerFormFieldSettings</a></li><li><a href="#ratingformfieldsettings">RatingFormFieldSettings</a></li><li><a href="#selectionformfieldsettings">SelectionFormFieldSettings</a></li><li><a href="#stringformfieldsettings">StringFormFieldSettings</a></li></ul></li><li><a href="#freetextrequestitem">FreeTextRequestItem</a></li><li><a href="#proposeattributerequestitem">ProposeAttributeRequestItem</a></li><li><a href="#readattributerequestitem">ReadAttributeRequestItem</a></li><li><a href="#registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</a></li><li><a href="#shareattributerequestitem">ShareAttributeRequestItem</a></li><li><a href="#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a></li></ul></li><li><a href="#requestitemgroup">RequestItemGroup</a></li></ul></li><li><a href="#response">Response</a><ul><li><a href="#responseitems">ResponseItems</a><ul><li><a href="#acceptresponseitem">AcceptResponseItem</a><ul><li><a href="#attributealreadysharedacceptresponseitem">AttributeAlreadySharedAcceptResponseItem</a></li><li><a href="#attributesuccessionacceptresponseitem">AttributeSuccessionAcceptResponseItem</a></li><li><a href="#createattributeacceptresponseitem">CreateAttributeAcceptResponseItem</a></li><li><a href="#deleteattributeacceptresponseitem">DeleteAttributeAcceptResponseItem</a></li><li><a href="#formfieldacceptresponseitem">FormFieldAcceptResponseItem</a></li><li><a href="#freetextacceptresponseitem">FreeTextAcceptResponseItem</a></li><li><a href="#proposeattributeacceptresponseitem">ProposeAttributeAcceptResponseItem</a></li><li><a href="#readattributeacceptresponseitem">ReadAttributeAcceptResponseItem</a></li><li><a href="#registerattributelisteneracceptresponseitem">RegisterAttributeListenerAcceptResponseItem</a></li><li><a href="#shareattributeacceptresponseitem">ShareAttributeAcceptResponseItem</a></li><li><a href="#transferfileownershipacceptresponseitem">TransferFileOwnershipAcceptResponseItem</a></li></ul></li><li><a href="#rejectresponseitem">RejectResponseItem</a></li><li><a href="#errorresponseitem">ErrorResponseItem</a></li></ul></li><li><a href="#responseitemgroup">ResponseItemGroup</a></li></ul></li><li><a href="#responsewrapper">ResponseWrapper</a></li><li><a href="#notification">Notification</a><ul><li><a href="#notificationitems">NotificationItems</a><ul><li><a href="#ownsharedattributedeletedbyownernotificationitem">OwnSharedAttributeDeletedByOwnerNotificationItem</a></li><li><a href="#peersharedattributedeletedbypeernotificationitem">PeerSharedAttributeDeletedByPeerNotificationItem</a></li><li><a href="#peersharedattributesucceedednotificationitem">PeerSharedAttributeSucceededNotificationItem</a></li><li><a href="#thirdpartyrelationshipattributedeletedbypeernotificationitem">ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem</a></li></ul></li></ul></li><li><a href="#attributes">Attributes</a><ul><li><a href="#identityattribute">IdentityAttribute</a></li><li><a href="#relationshipattribute">RelationshipAttribute</a></li></ul></li><li><a href="#attributequeries">AttributeQueries</a><ul><li><a href="#identityattributequery">IdentityAttributeQuery</a></li><li><a href="#relationshipattributequery">RelationshipAttributeQuery</a><ul><li><a href="#relationshipattributecreationhints">RelationshipAttributeCreationHints</a></li><li><a href="#valuehints">ValueHints</a></li><li><a href="#valuehintsoverride">ValueHintsOverride</a></li><li><a href="#valuehintsvalue">ValueHintsValue</a></li></ul></li><li><a href="#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a></li><li><a href="#iqlquery">IQLQuery</a><ul><li><a href="#iqlquerycreationhints">IQLQueryCreationHints</a></li></ul></li></ul></li><li><a href="#relationshiptemplatecontent">RelationshipTemplateContent</a><ul><li><a href="#arbitraryrelationshiptemplatecontent">ArbitraryRelationshipTemplateContent</a></li></ul></li><li><a href="#relationshipcreationcontent">RelationshipCreationContent</a><ul><li><a href="#arbitraryrelationshipcreationcontent">ArbitraryRelationshipCreationContent</a></li></ul></li><li><a href="#mail">Mail</a></li><li><a href="#arbitrarymessagecontent">ArbitraryMessageContent</a></li></ul></li><li><a href="#consumption">Consumption</a><ul><li><a href="#deciderequestitemparameters">DecideRequestItemParameters</a><ul><li><a href="#rejectrequestitemparameters">RejectRequestItemParameters</a></li><li><a href="#acceptrequestitemparameters">AcceptRequestItemParameters</a><ul><li><a href="#acceptdeleteattributerequestitemparameters">AcceptDeleteAttributeRequestItemParameters</a></li><li><a href="#acceptformfieldrequestitemparameters">AcceptFormFieldRequestItemParameters</a></li><li><a href="#acceptfreetextrequestitemparameters">AcceptFreeTextRequestItemParameters</a></li><li><a href="#acceptproposeattributerequestitemparameters">AcceptProposeAttributeRequestItemParameters</a></li><li><a href="#acceptreadattributerequestitemparameters">AcceptReadAttributeRequestItemParameters</a></li></ul></li></ul></li><li><a href="#identitymetadata">IdentityMetadata</a></li></ul></li></ul>
             </nav>
           </aside>
         
@@ -519,7 +521,7 @@ Information about the password protection of a Token or a RelationshipTemplate i
     <tr>
       <td>passwordIsPin</td>
       <td><code class="language-plaintext highlighter-rouge">true</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>If the password consists of 4 to 16 digits, the value of the <code class="language-plaintext highlighter-rouge">passwordIsPin</code> property can be set to <code class="language-plaintext highlighter-rouge">true</code>. In this case, the password is interpreted as a pin and a corresponding input field is displayed in the UI of the App when the pin needs to be entered. However, if the value is <code class="language-plaintext highlighter-rouge">undefined</code>, a regular input field for entering the password is displayed regardless of whether the password could also be interpreted as a pin.</td>
+      <td>If the password consists of 4 to 16 digits, the value of the <code class="language-plaintext highlighter-rouge">passwordIsPin</code> property can be set to <code class="language-plaintext highlighter-rouge">true</code>. In this case, the password is interpreted as a pin and a corresponding input field is displayed in the App when the pin needs to be entered. However, if the value is <code class="language-plaintext highlighter-rouge">undefined</code>, a regular input field for entering the password is displayed regardless of whether the password could also be interpreted as a pin.</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1717,7 +1719,7 @@ You can also put multiple Items into a <a href="#requestitemgroup">RequestItemGr
     <tr>
       <td>linkDisplayText</td>
       <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>If a link is specified, a display text, which is displayed in the UI of the App instead of the link’s URL, can be specified for this link.</td>
+      <td>If a link is specified, a display text, which is displayed in the App instead of the link’s URL, can be specified for this link.</td>
     </tr>
     <tr>
       <td>title</td>
@@ -1845,6 +1847,267 @@ You can also put multiple Items into a <a href="#requestitemgroup">RequestItemGr
       <td>requireManualDecision</td>
       <td><code class="language-plaintext highlighter-rouge">boolean</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>To block the automated acceptance of Requests, the requireManualDecision property can be set to true. The default is, that each RequestItem may be automatically processed on the peer side. If the sender would like to have an enforced manual acceptance step, the requireManualDecision property can be set to true.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="formfieldrequestitem">FormFieldRequestItem</h4>
+
+<p>For more information you should check out the section <a href="/versions/v7/integrate/request-and-response-introduction#formfieldrequestitem">FormFieldRequestItem of the Request and Response introduction</a> or the <a href="/versions/v7/integrate/form-fields-within-requests">Form Fields Within Requests</a> scenario documentation.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@type</td>
+      <td><code class="language-plaintext highlighter-rouge">"FormFieldRequestItem"</code></td>
+      <td>Specifies the type of the RequestItem for internal processing.</td>
+    </tr>
+    <tr>
+      <td>settings</td>
+      <td><a href="#booleanformfieldsettings"><code class="language-plaintext highlighter-rouge">BooleanFormFieldSettings</code></a> | <a href="#dateformfieldsettings"><code class="language-plaintext highlighter-rouge">DateFormFieldSettings</code></a> | <a href="#doubleformfieldsettings"><code class="language-plaintext highlighter-rouge">DoubleFormFieldSettings</code></a> | <a href="#integerformfieldsettings"><code class="language-plaintext highlighter-rouge">IntegerFormFieldSettings</code></a> | <a href="#ratingformfieldsettings"><code class="language-plaintext highlighter-rouge">RatingFormFieldSettings</code></a> | <a href="#selectionformfieldsettings"><code class="language-plaintext highlighter-rouge">SelectionFormFieldSettings</code></a> | <a href="#stringformfieldsettings"><code class="language-plaintext highlighter-rouge">StringFormFieldSettings</code></a></td>
+      <td>The settings that determine the kind of form field.</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>A human readable title for the RequestItem.</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>An optional, human readable description for the RequestItem.</td>
+    </tr>
+    <tr>
+      <td>metadata</td>
+      <td><code class="language-plaintext highlighter-rouge">object</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>The metadata property can be used to provide arbitrary JSON content by the sender of the Request. The metadata is not processed by enmeshed. It is a great way to use your own process descriptors at the time of sending the Request which helps you identify the correct internal process at the time of receiving the Response.</td>
+    </tr>
+    <tr>
+      <td>mustBeAccepted</td>
+      <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
+      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
+    </tr>
+    <tr>
+      <td>requireManualDecision</td>
+      <td><code class="language-plaintext highlighter-rouge">boolean</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>To block the automated acceptance of Requests, the requireManualDecision property can be set to true. The default is, that each RequestItem may be automatically processed on the peer side. If the sender would like to have an enforced manual acceptance step, the requireManualDecision property can be set to true.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="booleanformfieldsettings">BooleanFormFieldSettings</h5>
+
+<p>If BooleanFormFieldSettings are used as <code class="language-plaintext highlighter-rouge">settings</code> of a <a href="#formfieldrequestitem">FormFieldRequestItem</a>, it can be <a href="#acceptformfieldrequestitemparameters">accepted</a> by specifying a boolean.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"BooleanFormFieldSettings"</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="dateformfieldsettings">DateFormFieldSettings</h5>
+
+<p>If DateFormFieldSettings are used as <code class="language-plaintext highlighter-rouge">settings</code> of a <a href="#formfieldrequestitem">FormFieldRequestItem</a>, it can be <a href="#acceptformfieldrequestitemparameters">accepted</a> by specifying a valid date string in ISO 8601 format.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"DateFormFieldSettings"</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="doubleformfieldsettings">DoubleFormFieldSettings</h5>
+
+<p>If DoubleFormFieldSettings are used as <code class="language-plaintext highlighter-rouge">settings</code> of a <a href="#formfieldrequestitem">FormFieldRequestItem</a>, it can be <a href="#acceptformfieldrequestitemparameters">accepted</a> by specifying a double.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"DoubleFormFieldSettings"</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">unit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>Unit of the requested double.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">min</code></td>
+      <td><code class="language-plaintext highlighter-rouge">number</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>Lower limit for the requested double.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">max</code></td>
+      <td><code class="language-plaintext highlighter-rouge">number</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>Upper limit for the requested double.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="integerformfieldsettings">IntegerFormFieldSettings</h5>
+
+<p>If IntegerFormFieldSettings are used as <code class="language-plaintext highlighter-rouge">settings</code> of a <a href="#formfieldrequestitem">FormFieldRequestItem</a>, it can be <a href="#acceptformfieldrequestitemparameters">accepted</a> by specifying an integer.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"IntegerFormFieldSettings"</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">unit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>Unit of the requested integer.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">min</code></td>
+      <td><code class="language-plaintext highlighter-rouge">number</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>An integer that serves as the lower limit for the requested integer.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">max</code></td>
+      <td><code class="language-plaintext highlighter-rouge">number</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>An integer that serves as the upper limit for the requested integer.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="ratingformfieldsettings">RatingFormFieldSettings</h5>
+
+<p>If RatingFormFieldSettings are used as <code class="language-plaintext highlighter-rouge">settings</code> of a <a href="#formfieldrequestitem">FormFieldRequestItem</a>, it can be <a href="#acceptformfieldrequestitemparameters">accepted</a> by specifying an integer from a lower limit to an upper limit as a rating.
+The lower limit for the requested rating is always one, whereas the upper limit can be an integer from five to ten.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"RatingFormFieldSettings"</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">maxRating</code></td>
+      <td><code class="language-plaintext highlighter-rouge">5</code> | <code class="language-plaintext highlighter-rouge">6</code> | <code class="language-plaintext highlighter-rouge">7</code> | <code class="language-plaintext highlighter-rouge">8</code> | <code class="language-plaintext highlighter-rouge">9</code> | <code class="language-plaintext highlighter-rouge">10</code></td>
+      <td>Upper limit for the requested rating.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="selectionformfieldsettings">SelectionFormFieldSettings</h5>
+
+<p>If SelectionFormFieldSettings are used as <code class="language-plaintext highlighter-rouge">settings</code> of a <a href="#formfieldrequestitem">FormFieldRequestItem</a>, it can be <a href="#acceptformfieldrequestitemparameters">accepted</a> by specifying a selection of options provided.
+If multiple selection is not allowed, the selected option is expected as a string.
+Otherwise, a string array of all selected options is expected, which may also contain only one option.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"SelectionFormFieldSettings"</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">options</code></td>
+      <td><code class="language-plaintext highlighter-rouge">string[]</code></td>
+      <td>Unique options of the selection form field. At least one option must be provided.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">allowMultipleSelection</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>If this flag is set, it will be possible to select multiple of the provided options when responding to the selection form field. Otherwise, exactly one of the options provided must be selected in order to <a href="#acceptformfieldrequestitemparameters">accept</a> the corresponding FormFieldRequestItem.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="stringformfieldsettings">StringFormFieldSettings</h5>
+
+<p>If StringFormFieldSettings are used as <code class="language-plaintext highlighter-rouge">settings</code> of a <a href="#formfieldrequestitem">FormFieldRequestItem</a>, it can be <a href="#acceptformfieldrequestitemparameters">accepted</a> by specifying a string.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"StringFormFieldSettings"</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">allowNewlines</code></td>
+      <td><code class="language-plaintext highlighter-rouge">true</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>If this flag is set, it will be possible to specify a string containing newlines when <a href="#acceptformfieldrequestitemparameters">accepting</a> the corresponding FormFieldRequestItem.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">min</code></td>
+      <td><code class="language-plaintext highlighter-rouge">number</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>A non-negative integer that serves as the lower limit for the length of the requested string.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">max</code></td>
+      <td><code class="language-plaintext highlighter-rouge">number</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
+      <td>A non-negative integer that serves as the upper limit for the length of the requested string.</td>
     </tr>
   </tbody>
 </table>
@@ -2410,6 +2673,35 @@ Receiving an AttributeSuccessionAcceptResponseItem, the respective shared LocalA
       <td>deletionDate</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
       <td>The timestamp of when the peer will delete the Attribute.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="formfieldacceptresponseitem">FormFieldAcceptResponseItem</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>@type</td>
+      <td><code class="language-plaintext highlighter-rouge">"FormFieldAcceptResponseItem"</code></td>
+      <td>The type of the ResponseItem.</td>
+    </tr>
+    <tr>
+      <td>result</td>
+      <td><code class="language-plaintext highlighter-rouge">"Accepted"</code></td>
+      <td>The only possible value here is the string <code class="language-plaintext highlighter-rouge">"Accepted"</code>.</td>
+    </tr>
+    <tr>
+      <td>response</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">number</code> | <code class="language-plaintext highlighter-rouge">boolean</code> | <code class="language-plaintext highlighter-rouge">string[]</code></td>
+      <td>The response that is used to fill out the form field. The expected type of response depends on the <code class="language-plaintext highlighter-rouge">settings</code> of the <a href="/versions/v7/integrate/data-model-overview#formfieldrequestitem">FormFieldRequestItem</a>.</td>
     </tr>
   </tbody>
 </table>
@@ -3544,6 +3836,34 @@ For example, an AuthenticationRequestItem can be accepted using the AcceptReques
   </tbody>
 </table>
 
+<h4 id="acceptformfieldrequestitemparameters">AcceptFormFieldRequestItemParameters</h4>
+
+<p>The parameters to accept a FormFieldRequestItem.
+The <code class="language-plaintext highlighter-rouge">response</code> parameter must have a type that matches the <code class="language-plaintext highlighter-rouge">settings</code> of the <a href="#formfieldrequestitem">FormFieldRequestItem</a>.
+For example, when using <a href="#booleanformfieldsettings">BooleanFormFieldSettings</a>, a <code class="language-plaintext highlighter-rouge">response</code> of type boolean must be used.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>accept</td>
+      <td><code class="language-plaintext highlighter-rouge">"true"</code></td>
+      <td>The only possible value here is the string “true”.</td>
+    </tr>
+    <tr>
+      <td>response</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">number</code> | <code class="language-plaintext highlighter-rouge">boolean</code> | <code class="language-plaintext highlighter-rouge">string[]</code></td>
+      <td>The response that is used to fill out the form field.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="acceptfreetextrequestitemparameters">AcceptFreeTextRequestItemParameters</h4>
 
 <table>
@@ -3726,7 +4046,7 @@ There is the <a href="/versions/v7/use-case-consumption-upsert-identitymetadata"
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-04-24T11:51:25+02:00">April 24, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-04-24T14:08:49+02:00">April 24, 2025</time></p>
 
       </footer>
 

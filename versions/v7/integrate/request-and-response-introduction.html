@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-04-24T11:51:25+02:00">
+  <meta property="article:published_time" content="2025-04-24T14:08:49+02:00">
 
 
 
@@ -245,6 +245,8 @@
             
               <li><a href="/versions/v7/integrate/requests-via-messages">Requests via Messages</a></li>
             
+              <li><a href="/versions/v7/integrate/form-fields-within-requests">Form Fields Within Requests</a></li>
+            
           </ul>
           
         </li>
@@ -363,7 +365,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Request and Response introduction">
     <meta itemprop="description" content="Requests are the main instrument in enmeshed to interact with other Identities.They enable various business processes, e.g. creating, sharing or receiving Attributes, asking a peer for authentication or consent, and much more.Also, parts of a vaster business process can be implemented with them, like querying all personal information of a user to fill out a tax form.">
-    <meta itemprop="datePublished" content="2025-04-24T11:51:25+02:00">
+    <meta itemprop="datePublished" content="2025-04-24T14:08:49+02:00">
     
 
     <div class="page__inner-wrap">
@@ -384,7 +386,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#requests">Requests</a><ul><li><a href="#structure-of-requests">Structure of Requests</a></li><li><a href="#types-of-requestitems">Types of RequestItems</a><ul><li><a href="#authenticationrequestitem">AuthenticationRequestItem</a></li><li><a href="#consentrequestitem">ConsentRequestItem</a></li><li><a href="#createattributerequestitem">CreateAttributeRequestItem</a></li><li><a href="#deleteattributerequestitem">DeleteAttributeRequestItem</a></li><li><a href="#freetextrequestitem">FreeTextRequestItem</a></li><li><a href="#proposeattributerequestitem">ProposeAttributeRequestItem</a></li><li><a href="#readattributerequestitem">ReadAttributeRequestItem</a></li><li><a href="#registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</a></li><li><a href="#shareattributerequestitem">ShareAttributeRequestItem</a></li><li><a href="#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a></li></ul></li><li><a href="#rendering-of-requestitems">Rendering of RequestItems</a></li></ul></li><li><a href="#responses">Responses</a><ul><li><a href="#structure-of-responses">Structure of Responses</a></li><li><a href="#types-of-responseitems">Types of ResponseItems</a></li></ul></li><li><a href="#request-response-flow">Request-Response flow</a><ul><li><a href="#localrequests-and-localresponses">LocalRequests and LocalResponses</a></li><li><a href="#sending-requests-via-messages">Sending Requests via Messages</a></li><li><a href="#sending-requests-via-relationshiptemplates">Sending Requests via RelationshipTemplates</a></li></ul></li><li><a href="#examples">Examples</a><ul><li><a href="#working-with-required-and-optional-requestitems">Working with required and optional RequestItems</a></li><li><a href="#working-with-requestitemgroups">Working with RequestItemGroups</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#requests">Requests</a><ul><li><a href="#structure-of-requests">Structure of Requests</a></li><li><a href="#types-of-requestitems">Types of RequestItems</a><ul><li><a href="#authenticationrequestitem">AuthenticationRequestItem</a></li><li><a href="#consentrequestitem">ConsentRequestItem</a></li><li><a href="#createattributerequestitem">CreateAttributeRequestItem</a></li><li><a href="#deleteattributerequestitem">DeleteAttributeRequestItem</a></li><li><a href="#formfieldrequestitem">FormFieldRequestItem</a></li><li><a href="#freetextrequestitem">FreeTextRequestItem</a></li><li><a href="#proposeattributerequestitem">ProposeAttributeRequestItem</a></li><li><a href="#readattributerequestitem">ReadAttributeRequestItem</a></li><li><a href="#registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</a></li><li><a href="#shareattributerequestitem">ShareAttributeRequestItem</a></li><li><a href="#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a></li></ul></li><li><a href="#rendering-of-requestitems">Rendering of RequestItems</a></li></ul></li><li><a href="#responses">Responses</a><ul><li><a href="#structure-of-responses">Structure of Responses</a></li><li><a href="#types-of-responseitems">Types of ResponseItems</a></li></ul></li><li><a href="#request-response-flow">Request-Response flow</a><ul><li><a href="#localrequests-and-localresponses">LocalRequests and LocalResponses</a></li><li><a href="#sending-requests-via-messages">Sending Requests via Messages</a></li><li><a href="#sending-requests-via-relationshiptemplates">Sending Requests via RelationshipTemplates</a></li></ul></li><li><a href="#examples">Examples</a><ul><li><a href="#working-with-required-and-optional-requestitems">Working with required and optional RequestItems</a></li><li><a href="#working-with-requestitemgroups">Working with RequestItemGroups</a></li></ul></li></ul>
             </nav>
           </aside>
         
@@ -490,6 +492,27 @@ After creating the Request, it can be transmitted either via a RelationshipTempl
 
 <ul>
   <li>After accepting this RequestItem, a <a href="/versions/v7/integrate/data-model-overview#deleteattributeacceptresponseitem">DeleteAttributeAcceptResponseItem</a> will be transferred.</li>
+  <li>After rejecting this RequestItem, a <a href="/versions/v7/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
+  <li>In case of an error, an <a href="/versions/v7/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
+</ul>
+
+<h4 id="formfieldrequestitem">FormFieldRequestItem</h4>
+
+<p>With the <a href="/versions/v7/integrate/data-model-overview#formfieldrequestitem">FormFieldRequestItem</a> it is possible to define a form field.
+Depending on which <code class="language-plaintext highlighter-rouge">settings</code> the FormFieldRequestItem is configured with, the type of values with which the form field can be filled out and the UI of the form field in the App change.
+All details on how to use the FormFieldRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/form-fields-within-requests">Form Fields Within Requests</a> scenario documentation.</p>
+
+<p>Depending on whether the FormFieldRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
+
+<ul>
+  <li>To accept this RequestItem, the <a href="/versions/v7/integrate/data-model-overview#acceptformfieldrequestitemparameters">AcceptFormFieldRequestItemParameters</a> can be utilized.</li>
+  <li>To reject this RequestItem, the <a href="/versions/v7/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a> can be utilized.</li>
+</ul>
+
+<p>After the Recipient has responded to the FormFieldRequestItem, a suitable <a href="/versions/v7/integrate/data-model-overview#responseitems">ResponseItem</a> is generated and transferred to the Sender of the Request:</p>
+
+<ul>
+  <li>After accepting this RequestItem, a <a href="/versions/v7/integrate/data-model-overview#formfieldacceptresponseitem">FormFieldAcceptResponseItem</a> will be transferred.</li>
   <li>After rejecting this RequestItem, a <a href="/versions/v7/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
   <li>In case of an error, an <a href="/versions/v7/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
 </ul>
@@ -864,7 +887,7 @@ Once the company accepts the new Relationship, they can exchange Messages or oth
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-04-24T11:51:25+02:00">April 24, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-04-24T14:08:49+02:00">April 24, 2025</time></p>
 
       </footer>
 
