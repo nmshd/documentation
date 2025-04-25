@@ -683,6 +683,24 @@ var store = [{
         "url": "/use-case-device-create-profile-with-new-identity",
         "teaser": null
       },{
+        "title": "Create QR code for File",
+        "excerpt":"Creates a QR code for a File that corresponds to the given fileId. Parameters fileId is the id of the File the QR code should be created for. On Success Returns the created QR code encoded as Base64. On Failure fileId does not resolve to a File. expiresAt lies in...","categories": [],
+        "tags": [],
+        "url": "/use-case-device-create-qr-code-for-file",
+        "teaser": null
+      },{
+        "title": "Create Token QR code for File",
+        "excerpt":"Creates a QR code for a Token of a File that corresponds to the given fileId. Parameters fileId is the id of the File the Token and its QR code should be created for. Optionally, expiresAt can be specified, which describes the ISODateTime the Token expires at. Optionally, forIdentity can...","categories": [],
+        "tags": [],
+        "url": "/use-case-device-create-token-qr-code-for-file",
+        "teaser": null
+      },{
+        "title": "Create Token QR code for own RelationshipTemplate",
+        "excerpt":"Creates a QR code for a Token of a given RelationshipTemplate. Parameters templateId is the id of the RelationshipTemplate the Token and its QR code should be created for. expiresAt is the ISODateTime the Token expires at. forIdentity can be set to an enmeshed address. If set, only the Identity...","categories": [],
+        "tags": [],
+        "url": "/use-case-device-create-token-qr-code-for-own-relationshiptemplate",
+        "teaser": null
+      },{
         "title": "DELETE REST Endpoint",
         "excerpt":"Be advised that this is a Connector-specific use case which is triggered by an http-request. Although it is a very generic use case which one would normally not describe, we introduced it because we require it in our overarching scenarios. This use case broadly describes the REST endpoints using the...","categories": [],
         "tags": [],
@@ -851,12 +869,6 @@ var store = [{
         "url": "/use-case-transport-create-own-token",
         "teaser": null
       },{
-        "title": "Create QR code for File",
-        "excerpt":"Creates a QR code for a File that corresponds to the given fileId. Parameters fileId is the id of the File the QR code should be created for. On Success Returns the created QR code encoded as Base64. On Failure fileId does not resolve to a File. expiresAt lies in...","categories": [],
-        "tags": [],
-        "url": "/use-case-transport-create-qr-code-for-file",
-        "teaser": null
-      },{
         "title": "Create Relationship with RelationshipTemplate",
         "excerpt":"This use case intends to create a Relationship based on a RelationshipTemplate, which was previously received. The Relationship will be established with the RelationshipTemplate&#8217;s creator. This use case must always be applied if the content of the RelationshipTemplate is an ArbitraryRelationshipTemplateContent. However, if it is a RelationshipTemplateContent, it usually does...","categories": [],
         "tags": [],
@@ -873,18 +885,6 @@ var store = [{
         "excerpt":"Creates a Token for a given RelationshipTemplate. Parameters templateId is the id of the RelationshipTemplate the Token should be created for. expiresAt is the ISODateTime the Token expires at. ephemeral indicates if the Token should be ephemeral and thus not be stored and cached on the local database. This is...","categories": [],
         "tags": [],
         "url": "/use-case-transport-create-token-for-own-relationshiptemplate",
-        "teaser": null
-      },{
-        "title": "Create Token QR code for File",
-        "excerpt":"Creates a QR code for a Token of a File that corresponds to the given fileId. Parameters fileId is the id of the File the Token and its QR code should be created for. Optionally, expiresAt can be specified, which describes the ISODateTime the Token expires at. Optionally, forIdentity can...","categories": [],
-        "tags": [],
-        "url": "/use-case-transport-create-token-qr-code-for-file",
-        "teaser": null
-      },{
-        "title": "Create Token QR code for own RelationshipTemplate",
-        "excerpt":"Creates a QR code for a Token of a given RelationshipTemplate. Parameters templateId is the id of the RelationshipTemplate the Token and its QR code should be created for. expiresAt is the ISODateTime the Token expires at. forIdentity can be set to an enmeshed address. If set, only the Identity...","categories": [],
-        "tags": [],
-        "url": "/use-case-transport-create-token-qr-code-for-own-relationshiptemplate",
         "teaser": null
       },{
         "title": "Decompose Relationship",
