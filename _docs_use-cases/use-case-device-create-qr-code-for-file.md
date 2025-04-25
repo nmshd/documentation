@@ -1,6 +1,8 @@
 ---
 # Start automatic generation
-permalink: use-case-transport-create-qr-code-for-file
+permalink: use-case-device-create-qr-code-for-file
+redirect_from:
+  - use-case-transport-create-qr-code-for-file
 published: true
 title: "Create QR code for File"
 type: use-case
@@ -10,10 +12,10 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RF9
-  - component: Runtime
-  - layer: Transport
-  - facade: FilesFacade
-  - function: createQRCodeForFile
+  - component: Connector
+  - layer: Device
+  - facade: Connector
+  - function:
   - description: Creates a QR code for the File with the given `id`.
   - feature category: Arbitrary large data support
   - tech category: Files
@@ -31,7 +33,7 @@ properties:
   - changed_at:
   - api_route_regex: GET /api/v2/Files/{idOrReference}
   - published: default
-  - link: use-case-transport-create-qr-code-for-file
+  - link: use-case-device-create-qr-code-for-file
 require:
 required_by:
 api_route_regex: ^GET /api/v2/Files/{idOrReference}$
