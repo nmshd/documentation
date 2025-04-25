@@ -1,6 +1,8 @@
 ---
 # Start automatic generation
-permalink: use-case-transport-create-token-qr-code-for-own-relationshiptemplate
+permalink: use-case-device-create-token-qr-code-for-own-relationshiptemplate
+redirect_from:
+  - use-case-transport-create-token-qr-code-for-own-relationshiptemplate
 published: true
 title: "Create Token QR code for own RelationshipTemplate"
 type: use-case
@@ -11,9 +13,9 @@ sidebar:
 properties:
   - id: RT6
   - component: Runtime
-  - layer: Transport
-  - facade: RelationshipTemplatesFacade
-  - function: createTokenQRCodeForOwnTemplate
+  - layer: Device
+  - facade: Connector
+  - function:
   - description:
   - feature category: Consent required before any data is shared
   - tech category: RelationshipTemplates
@@ -31,7 +33,7 @@ properties:
   - changed_at:
   - api_route_regex: POST /api/v2/RelationshipTemplates/Own/{id}/Token
   - published: default
-  - link: use-case-transport-create-token-qr-code-for-own-relationshiptemplate
+  - link: use-case-device-create-token-qr-code-for-own-relationshiptemplate
 require:
 required_by:
 api_route_regex: ^POST /api/v2/RelationshipTemplates/Own/{id}/Token$

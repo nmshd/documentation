@@ -1,22 +1,22 @@
 ---
 # Start automatic generation
-permalink: use-case-transport-get-qr-code-for-single-token
+permalink: use-case-device-create-qr-code-for-own-relationshiptemplate
 published: false
-title: "Get QR code for single Token"
+title: "Create QR code for own RelationshipTemplate"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RK5
+  - id: RT5
   - component: Runtime
-  - layer: Transport
-  - facade: TokensFacade
-  - function: getQRCodeForToken
+  - layer: Device
+  - facade: Connector
+  - function:
   - description:
-  - feature category: Share structured information over side-channel
-  - tech category: Tokens
+  - feature category: Consent required before any data is shared
+  - tech category: RelationshipTemplates
   - status: DONE
   - documentation status:
   - comments:
@@ -31,7 +31,7 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: use-case-transport-get-qr-code-for-single-token
+  - link: use-case-device-create-qr-code-for-own-relationshiptemplate
 require:
 required_by:
 # End automatic generation
