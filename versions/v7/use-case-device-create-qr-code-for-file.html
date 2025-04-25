@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Change default RepositoryAttribute - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Create QR code for File - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Change default RepositoryAttribute">
-<meta property="og:url" content="/versions/v7/use-case-consumption-change-default-repositoryattribute">
+<meta property="og:title" content="Create QR code for File">
+<meta property="og:url" content="/versions/v7/use-case-device-create-qr-code-for-file">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/versions/v7/use-case-consumption-change-default-repositoryattribute">
+<link rel="canonical" href="/versions/v7/use-case-device-create-qr-code-for-file">
 
 
 
@@ -363,7 +363,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Change default RepositoryAttribute">
+    <meta itemprop="headline" content="Create QR code for File">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2025-04-25T18:02:49+02:00">
     
@@ -372,7 +372,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/versions/v7/use-case-consumption-change-default-repositoryattribute" itemprop="url">Change default RepositoryAttribute
+            <a href="/versions/v7/use-case-device-create-qr-code-for-file" itemprop="url">Create QR code for File
 </a>
           </h1>
           
@@ -395,27 +395,27 @@
     <table>
         
         <tr><td>id</td>
-            <td>RA28</td></tr>
+            <td>RF9</td></tr>
         
         <tr><td>component</td>
-            <td>Runtime</td></tr>
+            <td>Connector</td></tr>
         
         <tr><td>layer</td>
-            <td>Consumption</td></tr>
+            <td>Device</td></tr>
         
         <tr><td>facade</td>
-            <td>AttributesFacade</td></tr>
-        
-        <tr><td>function</td>
-            <td>changeDefaultRepositoryAttribute</td></tr>
+            <td>Connector</td></tr>
         
         <tr></tr>
         
+        <tr><td>description</td>
+            <td>Creates a QR code for the File with the given `id`.</td></tr>
+        
         <tr><td>feature category</td>
-            <td>Normalized Attributes</td></tr>
+            <td>Arbitrary large data support</td></tr>
         
         <tr><td>tech category</td>
-            <td>Attributes</td></tr>
+            <td>Files</td></tr>
         
         <tr><td>status</td>
             <td>DONE</td></tr>
@@ -423,13 +423,13 @@
         <tr><td>documentation status</td>
             <td>DONE</td></tr>
         
-        <tr></tr>
+        <tr><td>comments</td>
+            <td>Accept: image/png</td></tr>
         
         <tr><td>actor</td>
             <td>Identity</td></tr>
         
-        <tr><td>trigger</td>
-            <td>REST API</td></tr>
+        <tr></tr>
         
         <tr></tr>
         
@@ -448,13 +448,14 @@
         
         <tr></tr>
         
-        <tr></tr>
+        <tr><td>api_route_regex</td>
+            <td>GET /api/v2/Files/{idOrReference}</td></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-consumption-change-default-repositoryattribute</td></tr>
+            <td>use-case-device-create-qr-code-for-file</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -462,33 +463,51 @@
 </div>
 -->
 
-<p class="notice--info">This use case is only accessible if setting default RepositoryAttributes is enabled in the Runtime configuration.
-By default, this is only the case for the App and not for the Connector.</p>
-
-<p>If setting default RepositoryAttributes is enabled, for every <a href="/versions/v7/integrate/attribute-values#identity-attributes">IdentityAttribute value type</a> exactly one <a href="/versions/v7/integrate/data-model-overview#localattribute">RepositoryAttribute</a> will have the property <code class="language-plaintext highlighter-rouge">isDefault</code> set, given that at least one RepositoryAttribute of that value type exists.
-By default, this is the first RepositoryAttribute of that value type that was created.
-However, if the default RepositoryAttribute is <a href="/versions/v7/integrate/update-attributes-by-succession">succeeded</a>, its successor will become the new default RepositoryAttribute.
-This use case allows you to change the default RepositoryAttribute.</p>
+<p>Creates a QR code for a <a href="/versions/v7/integrate/data-model-overview#file">File</a> that corresponds to the given <code class="language-plaintext highlighter-rouge">fileId</code>.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li>The <code class="language-plaintext highlighter-rouge">attributeId</code> of the RepositoryAttribute that is to be the new default RepositoryAttribute.</li>
+  <li><code class="language-plaintext highlighter-rouge">fileId</code> is the <code class="language-plaintext highlighter-rouge">id</code> of the File the QR code should be created for.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>The RepositoryAttribute belonging to the input <code class="language-plaintext highlighter-rouge">attributeId</code> has <code class="language-plaintext highlighter-rouge">isDefault</code> set and is returned. Further, the former default RepositoryAttribute has <code class="language-plaintext highlighter-rouge">isDefault</code> unset.</li>
+  <li>Returns the created QR code encoded as Base64.</li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>The default RepositoryAttribute can&#8217;t be changed if the provided <code class="language-plaintext highlighter-rouge">attributeId</code> doesn&#8217;t correlate to a RepositoryAttribute.</li>
-  <li>The default RepositoryAttribute can&#8217;t be changed if the provided <code class="language-plaintext highlighter-rouge">attributeId</code> correlates to a RepositoryAttribute with a successor.</li>
-  <li>The default RepositoryAttribute can&#8217;t be changed if the parameters are malformed.</li>
+  <li><code class="language-plaintext highlighter-rouge">fileId</code> does not resolve to a File.</li>
+  <li><code class="language-plaintext highlighter-rouge">expiresAt</code> lies in the past.</li>
 </ul>
+  <h2>How to execute this use case with the Connector?</h2>
+
+The Connector is our first-class citizen, thus we provide you with a detailed API description for every use case.
+This use case can be executed with the REST API of the Connector which you can <a href="/integrate/access-the-connector">Access the Connector</a>.
+ 
+<h6>Corresponding interactive API docs excerpt:</h6>
+
+<rapi-doc-mini
+    server-url="https://doc-demo.is.enmeshed.eu/"
+    default-api-server="https://doc-demo.is.enmeshed.eu/"
+    api-key-name="x-api-key"
+    api-key-location="header"
+    api-key-value="apikey"
+    layout="column"
+    default-schema-tab="example"
+    spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
+    paths-expanded="false"
+    theme="light"
+    bg-color="#f9f9fb"
+    
+    match-paths="^GET /api/v2/Files/{idOrReference}$"
+    
+    match-type="regex"
+></rapi-doc-mini>
+<br />
  
 
         
