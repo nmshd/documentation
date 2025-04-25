@@ -10,7 +10,7 @@ sidebar:
     nav: "docs_integrate"
 properties:
   - id: RT5
-  - component: Runtime
+  - component: Connector
   - layer: Device
   - facade: Connector
   - function:
