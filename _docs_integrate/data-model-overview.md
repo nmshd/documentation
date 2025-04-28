@@ -753,14 +753,6 @@ Receiving an AttributeSuccessionAcceptResponseItem, the respective shared LocalA
 | result   | `"Accepted"`                                    | The only possible value here is the string `"Accepted"`.                                                                                                                                                             |
 | response | `string` \| `number` \| `boolean` \| `string[]` | The response that is used to fill out the form field. The expected type of response depends on the `settings` of the [FormFieldRequestItem]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem). |
 
-##### FreeTextAcceptResponseItem
-
-| Name     | Type                           | Description                                              |
-| -------- | ------------------------------ | -------------------------------------------------------- |
-| @type    | `"FreeTextAcceptResponseItem"` | The type of the ResponseItem.                            |
-| result   | `"Accepted"`                   | The only possible value here is the string `"Accepted"`. |
-| freeText | `string`                       | The free text that is used to answer the RequestItem.    |
-
 ##### ProposeAttributeAcceptResponseItem
 
 | Name        | Type                                                                                                                                                                                             | Description                                                                                                                                                                          |
@@ -1087,7 +1079,7 @@ In order to answer a Request, the Response must be formulated appropriately.
 As an easier interface to do so various `DecideRequestItemParameters` are provided.
 If you want to reject any RequestItem, you must use the `RejectRequestItemParameters`.
 If you want to accept a RequestItem, however, depending on its kind you might need different parameters.
-For example, an AuthenticationRequestItem can be accepted using the AcceptRequestItemParameters, but for a FreeTextRequestItem `AcceptFreeTextRequestItemParameters` are required.
+For example, an AuthenticationRequestItem can be accepted using the AcceptRequestItemParameters, but for a FormFieldRequestItem `AcceptFormFieldRequestItemParameters` are required.
 
 ### RejectRequestItemParameters
 
@@ -1120,13 +1112,6 @@ For example, when using [BooleanFormFieldSettings](#booleanformfieldsettings), a
 | -------- | ----------------------------------------------- | ----------------------------------------------------- |
 | accept   | `"true"`                                        | The only possible value here is the string "true".    |
 | response | `string` \| `number` \| `boolean` \| `string[]` | The response that is used to fill out the form field. |
-
-#### AcceptFreeTextRequestItemParameters
-
-| Name     | Type     | Description                                           |
-| -------- | -------- | ----------------------------------------------------- |
-| accept   | `"true"` | The only possible value here is the string "true".    |
-| freeText | `string` | The free text that is used to answer the RequestItem. |
 
 #### AcceptProposeAttributeRequestItemParameters
 
