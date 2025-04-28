@@ -244,7 +244,6 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
     {
       "@type": "ConsentRequestItem",
       "mustBeAccepted": true,
-      "title": "<title of ConsentRequestItem>",
       "description": "<description of ConsentRequestItem>",
       "consent": "<consent issue originating from the Sender>",
       "link": "<link to external website with more information on the issue>"
@@ -252,7 +251,6 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
     {
       "@type": "CreateAttributeRequestItem",
       "mustBeAccepted": true,
-      "title": "<title of CreateAttributeRequestItem>",
       "description": "<description of CreateAttributeRequestItem>",
       "attribute": {
         "@type": "IdentityAttribute",
@@ -267,14 +265,12 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
     {
       "@type": "FreeTextRequestItem",
       "mustBeAccepted": false,
-      "title": "<title of FreeTextRequestItem>",
       "description": "<description of FreeTextRequestItem>",
       "freeText": "<free text written by the Sender>"
     },
     {
       "@type": "ProposeAttributeRequestItem",
       "mustBeAccepted": false,
-      "title": "<title of ProposeAttributeRequestItem>",
       "description": "<description of ProposeAttributeRequestItem>",
       "attribute": {
         "@type": "IdentityAttribute",
@@ -293,7 +289,6 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
     {
       "@type": "ReadAttributeRequestItem",
       "mustBeAccepted": false,
-      "title": "<title of ReadAttributeRequestItem>",
       "description": "<description of ReadAttributeRequestItem>",
       "query": {
         "@type": "IdentityAttributeQuery",
@@ -304,7 +299,6 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
     {
       "@type": "RegisterAttributeListenerRequestItem",
       "mustBeAccepted": false,
-      "title": "<title of RegisterAttributeListenerRequestItem>",
       "description": "<description of RegisterAttributeListenerRequestItem>",
       "query": {
         "@type": "IdentityAttributeQuery",
@@ -315,7 +309,6 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
     {
       "@type": "ShareAttributeRequestItem",
       "mustBeAccepted": true,
-      "title": "<title of ShareAttributeRequestItem>",
       "description": "<description of ShareAttributeRequestItem>",
       "attribute": {
         "@type": "IdentityAttribute",
