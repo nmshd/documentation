@@ -655,7 +655,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
   ]
   ```
 
-- **authenticationProvider** `default: undefined`
+- **authenticationProvider** `default: {}`
 
   Here you can configure different authentication providers for the webhooks. The authentication provider is used to authenticate the request to the webhook. The available authentication providers are: `OAuth2` and `ApiKey`.
 
