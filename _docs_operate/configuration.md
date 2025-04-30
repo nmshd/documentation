@@ -577,8 +577,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
     "webhooks": {
       "enabled": false,
       "targets": {},
-      "webhooks": [],
-      "authenticationProvider": {}
+      "webhooks": []
     }
   }
 }
@@ -595,6 +594,48 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
   A target consists of a URL as well as optional arbitrary headers, which the Connector should send as part of the request. Optionally, your URL can contain the placeholder {% raw %}`{{trigger}}`{% endraw %}, which at runtime will be replaced with the event name that triggered the webhook (e.g. transport.messageReceived). This way, you can reuse the same target for multiple webhooks and still have different URLs for different events. See the code below for an example.
 
   The server under the URL must respond to the request with a status code between 200 and 299. Otherwise the Connector will log a warning.
+
+  Additionally, you can configure an `authenticationProvider` for a target. The authentication provider is used to authenticate the request to the webhook. The available authentication providers are: `OAuth2` and `ApiKey`.
+
+  **OAuth2**
+
+  The OAuth2 authentication provider is used to authenticate the request to the webhook using OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. To configure the OAuth2 authentication provider, you need to provide the following parameters:
+
+  - **type** `"OAuth2", required`
+
+    The type of the authentication provider.
+
+  - **accessTokenUrl** `string, required`
+
+    The URL to get the access token from. This URL must be reachable from the Connector.
+
+  - **clientId** `string, required`
+
+    The client id of the OAuth2 application.
+
+  - **clientSecret** `string, required`
+
+    The client secret of the OAuth2 application.
+
+  - **scope** `string, optional`
+
+    The scope of the OAuth2 application. This is optional and can be omitted if not needed.
+
+  **ApiKey**
+
+  The ApiKey authentication provider is used to authenticate the request to the webhook using an API key. The Connector will send the API key as part of the request using a header. To configure the ApiKey authentication provider, you need to provide the following parameters:
+
+  - **type** `"ApiKey", required`
+
+    The type of the authentication provider.
+
+  - **headerName** `string, default: "x-api-key"`
+
+    The name of the header to send the API key in. If not set, the default value `x-api-key` will be used.
+
+  - **apiKey** `string, required`
+
+    The API key to use for authentication.
 
   **Example**
 
@@ -619,6 +660,28 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
     // a target with the {% raw %}{{trigger}}{% endraw %} placeholder as part of the URL
     "target3": {
       "url": "https://example.com/enmeshed/webhook/{% raw %}{{trigger}}{% endraw %}"
+    },
+
+    // a target with an OAuth2 authentication provider
+    "target4": {
+      "url": "https://example.com/enmeshed/webhook",
+      "authenticationProvider": {
+        "type": "OAuth2",
+        "accessTokenUrl": "https://example.com/oauth2/token",
+        "clientId": "myClientId",
+        "clientSecret": "myClientSecret",
+        "scope": "myScope"
+      }
+    },
+
+    // a target with an ApiKey authentication provider
+    "target5": {
+      "url": "https://example.com/enmeshed/webhook",
+      "authenticationProvider": {
+        "type": "ApiKey",
+        "headerName": "a-header-name",
+        "apiKey": "my-api-key"
+      }
     }
   }
   ```
@@ -653,72 +716,6 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
       "target": "target1"
     }
   ]
-  ```
-
-- **authenticationProvider** `default: {}`
-
-  Here you can configure different authentication providers for the webhooks. The authentication provider is used to authenticate the request to the webhook. The available authentication providers are: `OAuth2` and `ApiKey`.
-
-  ### OAuth2
-
-  The OAuth2 authentication provider is used to authenticate the request to the webhook using OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. To configure the OAuth2 authentication provider, you need to provide the following parameters:
-
-  - **type** `"OAuth2", required`
-
-    The type of the authentication provider.
-
-  - **accessTokenUrl** `string, required`
-
-    The URL to get the access token from. This URL must be reachable from the Connector.
-
-  - **clientId** `string, required`
-
-    The client id of the OAuth2 application.
-
-  - **clientSecret** `string, required`
-
-    The client secret of the OAuth2 application.
-
-  - **scope** `string, optional`
-
-    The scope of the OAuth2 application. This is optional and can be omitted if not needed.
-
-  **Example**
-
-  ```jsonc
-  {
-    "type": "OAuth2",
-    "accessTokenUrl": "https://example.com/oauth2/token",
-    "clientId": "myClientId",
-    "clientSecret": "myClientSecret",
-    "scope": "myScope"
-  }
-  ```
-
-  ### ApiKey
-
-  The ApiKey authentication provider is used to authenticate the request to the webhook using an API key. The Connector will send the API key as part of the request using a header. To configure the ApiKey authentication provider, you need to provide the following parameters:
-
-  - **type** `"ApiKey", required`
-
-    The type of the authentication provider.
-
-  - **headerName** `string, default: "x-api-key"`
-
-    The name of the header to send the API key in. If not set, the default value `x-api-key` will be used.
-
-  - **apiKey** `string, required`
-
-    The API key to use for authentication.
-
-  **Example**
-
-  ```jsonc
-  {
-    "type": "ApiKey",
-    "headerName": "auth-header-name",
-    "apiKey": "my-api-key"
-  }
   ```
 
 ##### Payload
