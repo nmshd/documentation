@@ -655,6 +655,72 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
   ]
   ```
 
+- **authenticationProvider** `default: undefined`
+
+  Here you can configure different authentication providers for the webhooks. The authentication provider is used to authenticate the request to the webhook. The available authentication providers are: `OAuth2` and `ApiKey`.
+
+  ### OAuth2
+
+  The OAuth2 authentication provider is used to authenticate the request to the webhook using OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. To configure the OAuth2 authentication provider, you need to provide the following parameters:
+
+  - **type** `"OAuth2", required`
+
+    The type of the authentication provider.
+
+  - **accessTokenUrl** `string, required`
+
+    The URL to get the access token from. This URL must be reachable from the Connector.
+
+  - **clientId** `string, required`
+
+    The client id of the OAuth2 application.
+
+  - **clientSecret** `string, required`
+
+    The client secret of the OAuth2 application.
+
+  - **scope** `string, optional`
+
+    The scope of the OAuth2 application. This is optional and can be omitted if not needed.
+
+  **Example**
+
+  ```jsonc
+  {
+    "type": "OAuth2",
+    "accessTokenUrl": "https://example.com/oauth2/token",
+    "clientId": "myClientId",
+    "clientSecret": "myClientSecret",
+    "scope": "myScope"
+  }
+  ```
+
+  ### ApiKey
+
+  The ApiKey authentication provider is used to authenticate the request to the webhook using an API key. The Connector will send the API key as part of the request using a header. To configure the ApiKey authentication provider, you need to provide the following parameters:
+
+  - **type** `"ApiKey", required`
+
+    The type of the authentication provider.
+
+  - **headerName** `string, default: "x-api-key"`
+
+    The name of the header to send the API key in. If not set, the default value `x-api-key` will be used.
+
+  - **apiKey** `string, required`
+
+    The API key to use for authentication.
+
+  **Example**
+
+  ```jsonc
+  {
+    "type": "ApiKey",
+    "headerName": "auth-header-name",
+    "apiKey": "my-api-key"
+  }
+  ```
+
 ##### Payload
 
 ```jsonc
