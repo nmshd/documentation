@@ -577,7 +577,8 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
     "webhooks": {
       "enabled": false,
       "targets": {},
-      "webhooks": []
+      "webhooks": [],
+      "authenticationProvider": {}
     }
   }
 }
@@ -594,8 +595,6 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
   A target consists of a URL as well as optional arbitrary headers, which the Connector should send as part of the request. Optionally, your URL can contain the placeholder {% raw %}`{{trigger}}`{% endraw %}, which at runtime will be replaced with the event name that triggered the webhook (e.g. transport.messageReceived). This way, you can reuse the same target for multiple webhooks and still have different URLs for different events. See the code below for an example.
 
   The server under the URL must respond to the request with a status code between 200 and 299. Otherwise the Connector will log a warning.
-
-  <br>
 
   **Example**
 
@@ -634,8 +633,6 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 - **webhooks** `default: []`
 
   The webhooks that will be called. A webhook consists of one or more [Connector Events]({% link _docs_integrate/connector-events.md %}) on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the `targets` object.
-
-  <br>
 
   **Example**
 
