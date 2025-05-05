@@ -595,15 +595,15 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   The server under the URL must respond to the request with a status code between 200 and 299. Otherwise the Connector will log a warning.
 
-  Additionally, you can configure an `authenticationProvider` for a target. The authentication provider is used to authenticate the request to the webhook. The available authentication providers are: `OAuth2` and `ApiKey`.
+  Additionally, you can configure an `authentication` for a target. The authentication is used to authenticate the request to the webhook. The available authentication methods are: `OAuth2` and `ApiKey`.
 
   **OAuth2**
 
-  The OAuth2 authentication provider is used to authenticate the request to the webhook using the client credentials flow of OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. The OAuth2 authentication is configured using the following parameters:
+  The OAuth2 authentication method is used to authenticate the request to the webhook using the client credentials flow of OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. The OAuth2 authentication is configured using the following parameters:
 
   - **type** `"OAuth2", required`
 
-    The type of the authentication provider.
+    The type of the authentication method.
 
   - **accessTokenUrl** `string, required`
 
@@ -623,11 +623,11 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   **ApiKey**
 
-  The ApiKey authentication provider is used to authenticate the request to the webhook using an API key. The Connector will send the API key as part of the request using a header. The ApiKey authentication is configured using the following parameters:
+  The ApiKey authentication method is used to authenticate the request to the webhook using an API key. The Connector will send the API key as part of the request using a header. The ApiKey authentication is configured using the following parameters:
 
   - **type** `"ApiKey", required`
 
-    The type of the authentication provider.
+    The type of the authentication method.
 
   - **headerName** `string, default: "x-api-key"`
 
@@ -662,10 +662,10 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
       "url": "https://example.com/enmeshed/webhook/{% raw %}{{trigger}}{% endraw %}"
     },
 
-    // a target with an OAuth2 authentication provider
+    // a target with an OAuth2 authentication method
     "target4": {
       "url": "https://example.com/enmeshed/webhook",
-      "authenticationProvider": {
+      "authentication": {
         "type": "OAuth2",
         "accessTokenUrl": "https://example.com/oauth2/token",
         "clientId": "myClientId",
@@ -674,10 +674,10 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
       }
     },
 
-    // a target with an ApiKey authentication provider
+    // a target with an ApiKey authentication method
     "target5": {
       "url": "https://example.com/enmeshed/webhook",
-      "authenticationProvider": {
+      "authentication": {
         "type": "ApiKey",
         "headerName": "a-header-name",
         "apiKey": "my-api-key"
