@@ -603,7 +603,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   - **type** `"OAuth2", required`
 
-    The type of the authentication type.
+    The type of the authentication.
 
   - **accessTokenUrl** `string, required`
 
@@ -627,7 +627,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   - **type** `"ApiKey", required`
 
-    The type of the authentication type.
+    The type of the authentication.
 
   - **headerName** `string, default: "x-api-key"`
 
