@@ -611,15 +611,15 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   - **clientId** `string, required`
 
-    The [client id](https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1) of the access request.
+    The [client id](https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1) used to authenticate to the access token server.
 
   - **clientSecret** `string, required`
 
-    The [client secret](https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1) of the access request.
+    The [client secret](https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1) used to authenticate to the access token server.
 
   - **scope** `string, optional`
 
-    The [scope](https://www.rfc-editor.org/rfc/rfc6749#section-3.3) of the access request. This is optional and can be omitted if not needed.
+    The [scope](https://www.rfc-editor.org/rfc/rfc6749#section-3.3) used to authenticate to the access token server. This is optional and can be omitted if not needed.
 
   **ApiKey**
 
