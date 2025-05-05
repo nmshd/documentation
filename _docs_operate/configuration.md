@@ -599,7 +599,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   **OAuth2**
 
-  The OAuth2 authentication provider is used to authenticate the request to the webhook using the client credentials flow of OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. To configure the OAuth2 authentication provider, you need to provide the following parameters:
+  The OAuth2 authentication provider is used to authenticate the request to the webhook using the client credentials flow of OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. The OAuth2 authentication is configured using the following parameters:
 
   - **type** `"OAuth2", required`
 
@@ -623,7 +623,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   **ApiKey**
 
-  The ApiKey authentication provider is used to authenticate the request to the webhook using an API key. The Connector will send the API key as part of the request using a header. To configure the ApiKey authentication provider, you need to provide the following parameters:
+  The ApiKey authentication provider is used to authenticate the request to the webhook using an API key. The Connector will send the API key as part of the request using a header. The ApiKey authentication is configured using the following parameters:
 
   - **type** `"ApiKey", required`
 
