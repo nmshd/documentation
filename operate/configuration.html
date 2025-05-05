@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.27.0 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
   Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-04-25T18:02:05+02:00">
+  <meta property="article:published_time" content="2025-05-05T08:55:11+02:00">
 
 
 
@@ -272,7 +272,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Configuration">
     <meta itemprop="description" content="Mounting a config file">
-    <meta itemprop="datePublished" content="2025-04-25T18:02:05+02:00">
+    <meta itemprop="datePublished" content="2025-05-05T08:55:11+02:00">
     
 
     <div class="page__inner-wrap">
@@ -936,7 +936,61 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
     <p>The server under the URL must respond to the request with a status code between 200 and 299. Otherwise the Connector will log a warning.</p>
 
-    <p><br /></p>
+    <p>If the webhook target is protected by authentication, you can configure the webhook module to authenticate itself. Currently, the available <code class="language-plaintext highlighter-rouge">authentication</code> types are: <code class="language-plaintext highlighter-rouge">OAuth2</code> and <code class="language-plaintext highlighter-rouge">ApiKey</code>.</p>
+
+    <p><strong>OAuth2</strong></p>
+
+    <p>The OAuth2 authentication type is used to authenticate the request to the webhook using the client credentials flow of OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. The OAuth2 authentication is configured using the following parameters:</p>
+
+    <ul>
+      <li>
+        <p><strong>type</strong> <code class="language-plaintext highlighter-rouge">"OAuth2", required</code></p>
+
+        <p>The type of the authentication.</p>
+      </li>
+      <li>
+        <p><strong>accessTokenUrl</strong> <code class="language-plaintext highlighter-rouge">string, required</code></p>
+
+        <p>The URL to get the access token from. This URL must be reachable from the Connector.</p>
+      </li>
+      <li>
+        <p><strong>clientId</strong> <code class="language-plaintext highlighter-rouge">string, required</code></p>
+
+        <p>The <a href="https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1">client id</a> used to authenticate to the access token server.</p>
+      </li>
+      <li>
+        <p><strong>clientSecret</strong> <code class="language-plaintext highlighter-rouge">string, required</code></p>
+
+        <p>The <a href="https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1">client secret</a> used to authenticate to the access token server.</p>
+      </li>
+      <li>
+        <p><strong>scope</strong> <code class="language-plaintext highlighter-rouge">string, optional</code></p>
+
+        <p>The <a href="https://www.rfc-editor.org/rfc/rfc6749#section-3.3">scope</a> of the access request. This is optional and can be omitted if not needed.</p>
+      </li>
+    </ul>
+
+    <p><strong>ApiKey</strong></p>
+
+    <p>The ApiKey authentication type is used to authenticate the request to the webhook using an API key. The Connector will send the API key as part of the request using a header. The ApiKey authentication is configured using the following parameters:</p>
+
+    <ul>
+      <li>
+        <p><strong>type</strong> <code class="language-plaintext highlighter-rouge">"ApiKey", required</code></p>
+
+        <p>The type of the authentication.</p>
+      </li>
+      <li>
+        <p><strong>headerName</strong> <code class="language-plaintext highlighter-rouge">string, default: "x-api-key"</code></p>
+
+        <p>The name of the header to send the API key in. If not set, the default value <code class="language-plaintext highlighter-rouge">x-api-key</code> will be used.</p>
+      </li>
+      <li>
+        <p><strong>apiKey</strong> <code class="language-plaintext highlighter-rouge">string, required</code></p>
+
+        <p>The API key to use for authentication.</p>
+      </li>
+    </ul>
 
     <p><strong>Example</strong></p>
 
@@ -960,6 +1014,28 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   </span><span class="c1">// a target with the {{trigger}} placeholder as part of the URL</span><span class="w">
   </span><span class="nl">"target3"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/enmeshed/webhook/{{trigger}}"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+
+  </span><span class="c1">// a target with an OAuth2 authentication type</span><span class="w">
+  </span><span class="nl">"target4"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/enmeshed/webhook"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"authentication"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OAuth2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"accessTokenUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/oauth2/token"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"clientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myClientId"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"clientSecret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myClientSecret"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myScope"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+
+  </span><span class="c1">// a target with an ApiKey authentication type</span><span class="w">
+  </span><span class="nl">"target5"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/enmeshed/webhook"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"authentication"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ApiKey"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"headerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-header-name"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"apiKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-api-key"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>    </div>
@@ -975,8 +1051,6 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     <p><strong>webhooks</strong> <code class="language-plaintext highlighter-rouge">default: []</code></p>
 
     <p>The webhooks that will be called. A webhook consists of one or more <a href="/integrate/connector-events">Connector Events</a> on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the <code class="language-plaintext highlighter-rouge">targets</code> object.</p>
-
-    <p><br /></p>
 
     <p><strong>Example</strong></p>
 
@@ -1053,7 +1127,7 @@ Ensure that your Backbone has the required settings enabled.</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-04-25T18:02:05+02:00">April 25, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-05T08:55:11+02:00">May 5, 2025</time></p>
 
       </footer>
 
