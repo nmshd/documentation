@@ -599,7 +599,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   **OAuth2**
 
-  The OAuth2 authentication provider is used to authenticate the request to the webhook using OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. To configure the OAuth2 authentication provider, you need to provide the following parameters:
+  The OAuth2 authentication provider is used to authenticate the request to the webhook using the client credentials flow of OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. To configure the OAuth2 authentication provider, you need to provide the following parameters:
 
   - **type** `"OAuth2", required`
 
@@ -611,15 +611,15 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   - **clientId** `string, required`
 
-    The client id of the OAuth2 application.
+    The [client id](https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1) of the access request.
 
   - **clientSecret** `string, required`
 
-    The client secret of the OAuth2 application.
+    The [client secret](https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1) of the access request.
 
   - **scope** `string, optional`
 
-    The scope of the OAuth2 application. This is optional and can be omitted if not needed.
+    The [scope](https://www.rfc-editor.org/rfc/rfc6749#section-3.3) of the access request. This is optional and can be omitted if not needed.
 
   **ApiKey**
 
