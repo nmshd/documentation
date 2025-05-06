@@ -953,7 +953,7 @@ RelationshipAttributes describe an Identity in the context of a Relationship. Wh
 
 ## AttributeQueries
 
-One of the main features of enmeshed is sharing Attributes. For this, an Identity either proactively sends its Attributes to a peer. Or, if let's say a company wants to know the birth date of its customer, it can ask for it. Depending on the exact use case, the latter can be achieved with one of a bunch of RequestItems, like for example a [`ReadAttributeRequestItem`](#readattributerequestitem), or a [`CreateAttributeListenerRequestItem`](#createattributerequestitem). All of them have in common that they define a `query` property, which contains either an [`IdentityAttributeQuery`](#identityattributequery) or a [`RelationshipAttributeQuery`](#relationshipattributequery).
+One of the main features of enmeshed is sharing Attributes. For this, an Identity either proactively sends its Attributes to a peer. Or, if let's say a company wants to know the birth date of its customer, it can ask for it. Depending on the exact use case, the latter can be achieved with one of a bunch of RequestItems, like for example a [`ReadAttributeRequestItem`](#readattributerequestitem), or a [`CreateAttributeRequestItem`](#createattributerequestitem). All of them have in common that they define a `query` property, which contains either an [`IdentityAttributeQuery`](#identityattributequery) or a [`RelationshipAttributeQuery`](#relationshipattributequery).
 
 ### IdentityAttributeQuery
 
