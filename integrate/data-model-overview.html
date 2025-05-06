@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-05-06T11:29:40+02:00">
+  <meta property="article:published_time" content="2025-05-06T13:13:53+02:00">
 
 
 
@@ -360,7 +360,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2025-05-06T11:29:40+02:00">
+    <meta itemprop="datePublished" content="2025-05-06T13:13:53+02:00">
     
 
     <div class="page__inner-wrap">
@@ -460,7 +460,7 @@
     <tr>
       <td>expiresAt</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>A timestamp that describes when the Token expires on the Backbone. An expired Token cannot be fetched from the Backbone anymore. However, the cached version of the Token on Connector and App will still be accesible.</td>
+      <td>A timestamp that describes when the Token expires on the Backbone. An expired Token cannot be fetched from the Backbone anymore. However, the cached version of the Token on Connector and App will still be accessible.</td>
       <td> </td>
     </tr>
     <tr>
@@ -580,7 +580,7 @@ Information about the password protection of a Token or a RelationshipTemplate i
     <tr>
       <td>expiresAt</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>A timestamp that describes when the RelationshipTemplate expires on the Backbone. An expired RelationshipTemplate cannot be fetched from the Backbone anymore. However, the cached version of the RelationshipTemplate on Connector and App will still be accesible.</td>
+      <td>A timestamp that describes when the RelationshipTemplate expires on the Backbone. An expired RelationshipTemplate cannot be fetched from the Backbone anymore. However, the cached version of the RelationshipTemplate on Connector and App will still be accessible.</td>
       <td>will be encrypted before sent to the Backbone</td>
     </tr>
     <tr>
@@ -873,7 +873,7 @@ Whether the Identity with which you have a Relationship is to be deleted or has 
     <tr>
       <td>receivedByDevice</td>
       <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>The ID of the Device that first retrieved the Message. <code class="language-plaintext highlighter-rouge">undefined</code> when the Message wasn’t received yet. This is of no interest for the sender of the Message, but rather for the recipient itself, since they can use it for audit purposes. sender</td>
+      <td>The ID of the Device that first retrieved the Message. <code class="language-plaintext highlighter-rouge">undefined</code> when the Message wasn’t received yet. This is of no interest for the sender of the Message, but rather for the recipient itself, since they can use it for audit purposes.</td>
       <td> </td>
     </tr>
   </tbody>
@@ -923,7 +923,7 @@ The content of the File can be downloaded separately by executing the <a href="/
     <tr>
       <td>expiresAt</td>
       <td><code class="language-plaintext highlighter-rouge">string</code></td>
-      <td>A timestamp that describes when the File expires on the Backbone. An expired File cannot be fetched from the Backbone anymore. However, the cached version of the File on Connector and App will still be accesible.</td>
+      <td>A timestamp that describes when the File expires on the Backbone. An expired File cannot be fetched from the Backbone anymore. However, the cached version of the File on Connector and App will still be accessible.</td>
       <td> </td>
     </tr>
     <tr>
@@ -1613,7 +1613,7 @@ This will be the case, if the peer already accepted the DeleteAttributeRequestIt
     <tr>
       <td>expiresAt</td>
       <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>A timestamp that describes when the Request expires on the Backbone. An expired Request cannot be fetched from the Backbone anymore. However, the cached version of the Request on Connector and App will still be accesible.</td>
+      <td>A timestamp that describes when the Request expires on the Backbone. An expired Request cannot be fetched from the Backbone anymore. However, the cached version of the Request on Connector and App will still be accessible.</td>
     </tr>
     <tr>
       <td>items</td>
@@ -3297,7 +3297,7 @@ Internally, for your corresponding ThirdPartyRelationshipAttribute the <code cla
 
 <h2 id="attributequeries">AttributeQueries</h2>
 
-<p>One of the main features of enmeshed is sharing Attributes. For this, an Identity either proactively sends its Attributes to a peer. Or, if let’s say a company wants to know the birth date of its customer, it can ask for it. Depending on the exact use case, the latter can be achieved with one of a bunch of RequestItems, like for example a <a href="#readattributerequestitem"><code class="language-plaintext highlighter-rouge">ReadAttributeRequestItem</code></a>, or a <a href="#createattributerequestitem"><code class="language-plaintext highlighter-rouge">CreateAttributeListenerRequestItem</code></a>. All of them have in common that they define a <code class="language-plaintext highlighter-rouge">query</code> property, which contains either an <a href="#identityattributequery"><code class="language-plaintext highlighter-rouge">IdentityAttributeQuery</code></a> or a <a href="#relationshipattributequery"><code class="language-plaintext highlighter-rouge">RelationshipAttributeQuery</code></a>.</p>
+<p>One of the main features of enmeshed is sharing Attributes. For this, an Identity either proactively sends its Attributes to a peer. Or, if let’s say a company wants to know the birth date of its customer, it can ask for it. Depending on the exact use case, the latter can be achieved with one of a bunch of RequestItems, like for example a <a href="#readattributerequestitem"><code class="language-plaintext highlighter-rouge">ReadAttributeRequestItem</code></a>, or a <a href="#createattributerequestitem"><code class="language-plaintext highlighter-rouge">CreateAttributeRequestItem</code></a>. All of them have in common that they define a <code class="language-plaintext highlighter-rouge">query</code> property, which contains either an <a href="#identityattributequery"><code class="language-plaintext highlighter-rouge">IdentityAttributeQuery</code></a> or a <a href="#relationshipattributequery"><code class="language-plaintext highlighter-rouge">RelationshipAttributeQuery</code></a>.</p>
 
 <h3 id="identityattributequery">IdentityAttributeQuery</h3>
 
@@ -4088,7 +4088,7 @@ There is the <a href="/use-case-consumption-upsert-identitymetadata">Upsert Iden
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-06T11:29:40+02:00">May 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-06T13:13:53+02:00">May 6, 2025</time></p>
 
       </footer>
 
