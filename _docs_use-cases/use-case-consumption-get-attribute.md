@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/v2/Attributes/{id}$
 
 {% include properties_list.html %}
 
-This use case is intended to retrieve a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute) by its id.
+This use case is intended to retrieve a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) by its id.
 
 ## Parameters
 
@@ -50,7 +50,7 @@ This use case is intended to retrieve a [LocalAttribute]({% link _docs_integrate
 
 ## On Success
 
-- Returns the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute) corresponding to the `id`.
+- Returns the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) corresponding to the `id`.
 
 ## On Failure
 
