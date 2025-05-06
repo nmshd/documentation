@@ -57,7 +57,7 @@ Consequently, users gain a comprehensive overview of their personal data.
 
 ## What is PII for enmeshed?
 
-Due to the broad scope of scenarios encompassed within the public sector, an absolute data privacy **absolute data privacy**. However, a solution like enmeshed depends on the jurisdiction of the operating person(s) or organization(s) especially for the enmeshed Backbone and thus it needs to be decided case by case and for each backbone operating entity, which data within the Backbone is considered PII.
+Due to the broad scope of scenarios encompassed within the public sector, an absolute data privacy **absolute data privacy**. However, a solution like enmeshed depends on the jurisdiction of the operating person(s) or organization(s) especially for the enmeshed Backbone and thus it needs to be decided case by case and for each Backbone operating entity, which data within the Backbone is considered PII.
 
 The developers at enmeshed interpret the data privacy regulations narrowly, which has earned the appreciation of lawyers and data privacy experts for the design of the solution. Notably, the ability to delete all of the following data categories within our solution is pivotal for **absolute data privacy**:
 

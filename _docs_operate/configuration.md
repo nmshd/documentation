@@ -595,7 +595,47 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   The server under the URL must respond to the request with a status code between 200 and 299. Otherwise the Connector will log a warning.
 
-  <br>
+  If the webhook target is protected by authentication, you can configure the webhook module to authenticate itself. Currently, the available `authentication` types are: `OAuth2` and `ApiKey`.
+
+  **OAuth2**
+
+  The OAuth2 authentication type is used to authenticate the request to the webhook using the client credentials flow of OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. The OAuth2 authentication is configured using the following parameters:
+
+  - **type** `"OAuth2", required`
+
+    The type of the authentication.
+
+  - **accessTokenUrl** `string, required`
+
+    The URL to get the access token from. This URL must be reachable from the Connector.
+
+  - **clientId** `string, required`
+
+    The [client id](https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1) used to authenticate to the access token server.
+
+  - **clientSecret** `string, required`
+
+    The [client secret](https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1) used to authenticate to the access token server.
+
+  - **scope** `string, optional`
+
+    The [scope](https://www.rfc-editor.org/rfc/rfc6749#section-3.3) of the access request. This is optional and can be omitted if not needed.
+
+  **ApiKey**
+
+  The ApiKey authentication type is used to authenticate the request to the webhook using an API key. The Connector will send the API key as part of the request using a header. The ApiKey authentication is configured using the following parameters:
+
+  - **type** `"ApiKey", required`
+
+    The type of the authentication.
+
+  - **headerName** `string, default: "x-api-key"`
+
+    The name of the header to send the API key in. If not set, the default value `x-api-key` will be used.
+
+  - **apiKey** `string, required`
+
+    The API key to use for authentication.
 
   **Example**
 
@@ -620,6 +660,28 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
     // a target with the {% raw %}{{trigger}}{% endraw %} placeholder as part of the URL
     "target3": {
       "url": "https://example.com/enmeshed/webhook/{% raw %}{{trigger}}{% endraw %}"
+    },
+
+    // a target with an OAuth2 authentication type
+    "target4": {
+      "url": "https://example.com/enmeshed/webhook",
+      "authentication": {
+        "type": "OAuth2",
+        "accessTokenUrl": "https://example.com/oauth2/token",
+        "clientId": "myClientId",
+        "clientSecret": "myClientSecret",
+        "scope": "myScope"
+      }
+    },
+
+    // a target with an ApiKey authentication type
+    "target5": {
+      "url": "https://example.com/enmeshed/webhook",
+      "authentication": {
+        "type": "ApiKey",
+        "headerName": "a-header-name",
+        "apiKey": "my-api-key"
+      }
     }
   }
   ```
@@ -634,8 +696,6 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 - **webhooks** `default: []`
 
   The webhooks that will be called. A webhook consists of one or more [Connector Events]({% link _docs_integrate/connector-events.md %}) on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the `targets` object.
-
-  <br>
 
   **Example**
 

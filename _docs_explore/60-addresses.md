@@ -8,7 +8,7 @@ The enmeshed Address is the primary identifier for an enmeshed Identity and stor
 - As Addresses do not contain special characters, copy and pasting via double-click is supported.
 - As they do have a checksum included, syntactically wrong Addresses can be checked by a computer program locally.
 
-Enmeshed uses [Decentralized Identifiers](https://www.w3.org/TR/did-core/), also called DIDs, which are specified by the W3C and commonly used with W3C's [Verifiable Credentials](https://www.w3.org/TR/vc-overview/). Enmeshed plans to launch its own DID method `did:e`, and already uses those DIDs for Addresses even though the method is not yet constructed.
+[Decentralized Identifiers](https://www.w3.org/TR/did-core/), also called DIDs, are used by enmeshed. These are specified by the W3C and commonly used with W3C's [Verifiable Credentials](https://www.w3.org/TR/vc-overview/). It is planned by enmeshed to launch its own DID method `did:e`, and enmeshed already uses those DIDs for Addresses even though the method is not yet constructed.
 
 ## Addresses are Backbone-specific
 
@@ -38,11 +38,11 @@ An Address follows the DID syntax and is `did:e:<backbone-hostname>:dids:<public
 createAddress(PublicKey) {
 Hash := SHA256(SHA512(PublicKey)) // 32 bytes
 HashedPublicKey := Hash[0-9] // 10 bytes
-EnmeshedSpecificPart := "did:e:"
+enmeshedSpecificPart := "did:e:"
 BackboneSpecificPart := "<backbone-hostname>:dids:" // e. g. "example.com:dids:"
 IdentitySpecificPart := HEX(HashedPublicKey) // 10 bytes (20 characters), e.g. "eadae3b3d814ebb0c0d6"
-Checksum := HEX(SHA256(EnmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart)[0]) // 1 byte, e.g. "de"
-Address = EnmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart + Checksum // e.g. did:e:example.com:dids:eadae3b3d814ebb0c0d6de
+Checksum := HEX(SHA256(enmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart)[0]) // 1 byte, e.g. "de"
+Address = enmeshedSpecificPart + BackboneSpecificPart + IdentitySpecificPart + Checksum // e.g. did:e:example.com:dids:eadae3b3d814ebb0c0d6de
 }
 ```
 

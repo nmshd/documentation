@@ -2,7 +2,7 @@
 # Start automatic generation
 permalink: use/upgrade-an-existing-online-account-at-an-organization
 published: false
-title: "upgrade an existing online account at an organization"
+title: "Upgrade an existing online account at an organization"
 type: scenario
 toc: true
 properties:

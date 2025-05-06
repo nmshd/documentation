@@ -38,7 +38,7 @@ For any issues with the Connector make sure you checked the logs and the `/Monit
 One of the following errors are logged during the startup of the Connector:
 
 - `Error parsing your configuration file: [/config.json]: EISDIR: illegal operation on a directory, read`
-- `ERROR: for connector Cannot create container for service connector: invalid mode: RO`
+- `ERROR: for Connector Cannot create container for service Connector: invalid mode: RO`
 
 **How to fix?**
 

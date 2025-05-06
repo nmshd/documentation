@@ -3,7 +3,7 @@ title: "Backbone Layer"
 permalink: /explore/layers/backbone
 ---
 
-From a user perspective, the deepest layer is the backbone layer. It handles the "untrusted" communication with the Backbone and the processing of data within the Backbone. Payload sent to and received from the Backbone is encrypted.
+From a user perspective, the deepest layer is the Backbone layer. It handles the "untrusted" communication with the Backbone and the processing of data within the Backbone. Payload sent to and received from the Backbone is encrypted.
 
 The Backbone itself requires metadata to work, thus there is also unencrypted data sent and received between the transport layer and the Backbone. However, this data is non-personal and cannot be linked back to any real-world persons by the Backbone operator.
 
@@ -17,15 +17,15 @@ The Backbone itself requires metadata to work, thus there is also unencrypted da
 
 ## Identity to Backbone Communication
 
-One of the backbone layer's tasks is the communication between the App or Connector and the Backbone. This includes the authentication with the Backbone, the request and response behaviors and data serialization and deserialization.
+One of the Backbone layer's tasks is the communication between the App or Connector and the Backbone. This includes the authentication with the Backbone, the request and response behaviors and data serialization and deserialization.
 
 ## Syntactical validation of encrypted data/metadata
 
-The backbone layer is responsible for validating the data sent to or received from the Backbone.
+The Backbone layer is responsible for validating the data sent to or received from the Backbone.
 
 ## External Events
 
-The backbone layer keeps track of the current synchronization state of Identities and devices and is able to manually synchronize with the Backbone.
+The Backbone layer keeps track of the current synchronization state of Identities and devices and is able to manually synchronize with the Backbone.
 
 # Entities
 

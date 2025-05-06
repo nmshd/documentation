@@ -14,7 +14,7 @@ properties:
   - layer: Human
   - facade: Screen
   - function:
-  - description: The user processes an external use case on the device, e.g. share something by another app or select a file to upload.
+  - description: The user processes an external use case on the device, e.g. share something by another App or select a file to upload.
   - feature category:
   - tech category: User Action
   - status: DONE

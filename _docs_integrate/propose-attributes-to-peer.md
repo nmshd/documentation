@@ -251,7 +251,7 @@ In our example, the Sender only requires the Recipient to accept the ProposeAttr
 If the Recipient wants to accept the Request for proposing Attributes, it must accept all ProposeAttributeRequestItems for which the `mustBeAccepted` property is set to `true`. It is therefore not permitted for the Recipient to refuse to accept the ProposeAttributeRequestItem belonging to the PersonName or the EMailAddress.
 {: .notice--info}
 
-We assume that the Recipient confirms the fittingness of the PersonName proposed by the Sender and that the Sender has proposed an outdated EMailAddress to the Recipient for creation. The Recipient therefore wants to create a corrected version of the EMailAddress and send it back to the Sender. The Recipient accepts at least one ProposeAttributeRequestItem of the RequestItemGroup, rejects the PhoneNumber and accepts the ProposeAttributeRequestItems belonging to the PersonName and the EMailAddress. Consequently, it responds to the Request for proposing Attributes as follows:
+We assume that the Recipient confirms the fittingness of the PersonName proposed by the Sender and that the Sender has proposed an outdated EMailAddress to the Recipient for creation. The Recipient therefore wants to create a corrected version of the EMailAddress and send it back to the Sender. The Recipient rejects the PhoneNumber and accepts the ProposeAttributeRequestItems belonging to the PersonName and the EMailAddress. Consequently, it responds to the Request for proposing Attributes as follows:
 
 ```jsonc
 {
