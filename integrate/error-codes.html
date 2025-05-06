@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-05-06T08:13:07+02:00">
+  <meta property="article:published_time" content="2025-05-06T11:29:40+02:00">
 
 
 
@@ -360,7 +360,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Error Codes">
     <meta itemprop="description" content="Please find a list of enmeshed error codes below. Most often the errors occur on invalid input or actions. If you happen to find unexpected errors while using enmeshed or cannot deduce the reason for your error, please report it in the enmeshed Issue Tracker.">
-    <meta itemprop="datePublished" content="2025-05-06T08:13:07+02:00">
+    <meta itemprop="datePublished" content="2025-05-06T11:29:40+02:00">
     
 
     <div class="page__inner-wrap">
@@ -517,6 +517,10 @@
       <td>Setting default RepositoryAttributes is disabled for this Account.</td>
     </tr>
     <tr>
+      <td>error.consumption.attributes.successionMustChangeContent <a name="error.consumption.attributes.successionMustChangeContent"></a></td>
+      <td>An <a href="/integrate/update-attributes-by-succession">Attribute succession</a> must change the Attribute’s <code class="language-plaintext highlighter-rouge">content</code>.</td>
+    </tr>
+    <tr>
       <td>error.consumption.attributes.successionMustNotChangeContentType <a name="error.consumption.attributes.successionMustNotChangeContentType"></a></td>
       <td>The successor Attribute’s <code class="language-plaintext highlighter-rouge">content</code> type does not match that of the predecessor. An <a href="/integrate/update-attributes-by-succession">Attribute succession</a> must not change the Attribute’s <code class="language-plaintext highlighter-rouge">content</code> type, i.e. an <a href="/integrate/data-model-overview#relationshipattribute">IdentityAttribute</a> must not be succeeded by a <a href="/integrate/data-model-overview#identityattribute">RelationshipAttribute</a> and v.v.</td>
     </tr>
@@ -617,8 +621,16 @@
       <td>A <a href="/integrate/data-model-overview#request">Request</a> with an expiration date that is in the past cannot be created.</td>
     </tr>
     <tr>
+      <td>error.consumption.requests.cannotShareRelationshipAttributeOfPendingRelationship <a name="error.consumption.requests.cannotShareRelationshipAttributeOfPendingRelationship"></a></td>
+      <td>The provided <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> exists in the context of a pending <a href="/integrate/data-model-overview#relationship">Relationship</a> and therefore cannot be shared.</td>
+    </tr>
+    <tr>
       <td>error.consumption.requests.cannotShareRequestWithYourself <a name="error.consumption.requests.cannotShareRequestWithYourself"></a></td>
       <td>It is not possible to share a <a href="/integrate/data-model-overview#request">Request</a> with yourself.</td>
+    </tr>
+    <tr>
+      <td>error.consumption.requests.canOnlyDeleteIncomingRequestThatIsExpired <a name="error.consumption.requests.canOnlyDeleteIncomingRequestThatIsExpired"></a></td>
+      <td>Only incoming <a href="/integrate/data-model-overview#request">Requests</a> that are expired can be deleted.</td>
     </tr>
     <tr>
       <td>error.consumption.requests.decide.validation.invalidNumberOfItems <a name="error.consumption.requests.decide.validation.invalidNumberOfItems"></a></td>
@@ -693,6 +705,10 @@
       <td>The <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a> cannot be created because it has the exact same <code class="language-plaintext highlighter-rouge">content.value</code> as an already existing RepositoryAttribute whose <code class="language-plaintext highlighter-rouge">succeededBy</code> property is undefined.</td>
     </tr>
     <tr>
+      <td>error.runtime.attributes.cannotDeleteSharedAttributeWhileRelationshipIsPending <a name="error.runtime.attributes.cannotDeleteSharedAttributeWhileRelationshipIsPending"></a></td>
+      <td>The shared Attribute cannot be deleted while the <a href="/integrate/data-model-overview#relationship">Relationship</a> to the <code class="language-plaintext highlighter-rouge">peer</code> has <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code>.</td>
+    </tr>
+    <tr>
       <td>error.runtime.attributes.cannotSeparatelyDeleteChildOfComplexAttribute <a name="error.runtime.attributes.cannotSeparatelyDeleteChildOfComplexAttribute"></a></td>
       <td>The given Attribute is a child of a <a href="/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttribute</a>. If you want to delete it, you must delete its parent.</td>
     </tr>
@@ -729,12 +745,20 @@
       <td>The given <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a> has already been shared with this peer.</td>
     </tr>
     <tr>
+      <td>error.runtime.cacheEmpty <a name="error.runtime.cacheEmpty"></a></td>
+      <td>The <code class="language-plaintext highlighter-rouge">cache</code> of a <a href="/integrate/data-model-overview#file">File</a>, an <a href="/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a>, a <a href="/integrate/data-model-overview#message">Message</a>, a <a href="/integrate/data-model-overview#relationship">Relationship</a>, a <a href="/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> or a <a href="/integrate/data-model-overview#token">Token</a> is empty.</td>
+    </tr>
+    <tr>
       <td>error.runtime.challenges.invalidChallenge <a name="error.runtime.challenges.invalidChallenge"></a></td>
       <td>The <code class="language-plaintext highlighter-rouge">challengeString</code> is invalid.</td>
     </tr>
     <tr>
       <td>error.runtime.challenges.invalidSignature <a name="error.runtime.challenges.invalidSignature"></a></td>
       <td>The <code class="language-plaintext highlighter-rouge">signature</code> is invalid.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.decide.requestConfigDoesNotMatchResponseConfig <a name="error.runtime.decide.requestConfigDoesNotMatchResponseConfig"></a></td>
+      <td>The automation configuration specified when using the <a href="/explore/runtime#decider-module">Decider Module</a> is invalid because the <code class="language-plaintext highlighter-rouge">requestConfig</code> does not match the <code class="language-plaintext highlighter-rouge">responseConfig</code>.</td>
     </tr>
     <tr>
       <td>error.runtime.files.invalidReference <a name="error.runtime.files.invalidReference"></a></td>
@@ -763,6 +787,10 @@
     <tr>
       <td>error.runtime.identityMetadata.unfamiliarReferencedIdentity <a name="error.runtime.identityMetadata.unfamiliarReferencedIdentity"></a></td>
       <td>The <code class="language-plaintext highlighter-rouge">reference</code> of the <a href="/integrate/data-model-overview#identitymetadata">IdentityMetadata</a> resolves neither to the <code class="language-plaintext highlighter-rouge">address</code> of a <code class="language-plaintext highlighter-rouge">peer</code> of a <a href="/integrate/data-model-overview#relationship">Relationship</a> nor the <code class="language-plaintext highlighter-rouge">address</code> of the own <a href="/integrate/data-model-overview#identity">Identity</a>.</td>
+    </tr>
+    <tr>
+      <td>error.runtime.identityRecoveryKits.datawalletDisabled <a name="error.runtime.identityRecoveryKits.datawalletDisabled"></a></td>
+      <td>The identity recovery kit feature for App users will only work if the datawallet is enabled.</td>
     </tr>
     <tr>
       <td>error.runtime.invalidTokenContent <a name="error.runtime.invalidTokenContent"></a></td>
@@ -814,7 +842,7 @@
     </tr>
     <tr>
       <td>error.runtime.relationships.isNeitherRejectedNorRevoked <a name="error.runtime.relationships.isNeitherRejectedNorRevoked"></a></td>
-      <td>The status of the <a href="/integrate/data-model-overview#relationship">Relationship</a> is neither <code class="language-plaintext highlighter-rouge">"Rejected"</code> nor <code class="language-plaintext highlighter-rouge">"Revoked"</code>.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">status</code> of the <a href="/integrate/data-model-overview#relationship">Relationship</a> is neither <code class="language-plaintext highlighter-rouge">"Rejected"</code> nor <code class="language-plaintext highlighter-rouge">"Revoked"</code>.</td>
     </tr>
     <tr>
       <td>error.runtime.relationships.noAcceptedIncomingRequest <a name="error.runtime.relationships.noAcceptedIncomingRequest"></a></td>
@@ -885,6 +913,10 @@
       <td>A property of the given payload is invalid.</td>
     </tr>
     <tr>
+      <td>error.transport.accountControllerInitialSyncFailed <a name="error.transport.accountControllerInitialSyncFailed"></a></td>
+      <td>The initial sync of the AccountController has failed for a local account.</td>
+    </tr>
+    <tr>
       <td>error.transport.challenges.challengeTypeRequiresActiveRelationship <a name="error.transport.challenges.challengeTypeRequiresActiveRelationship"></a></td>
       <td>The challengeType <code class="language-plaintext highlighter-rouge">"Relationship"</code> requires an active <a href="/integrate/data-model-overview#relationship">Relationship</a>.</td>
     </tr>
@@ -899,6 +931,14 @@
     <tr>
       <td>error.transport.datawallet.unsupportedModification <a name="error.transport.datawallet.unsupportedModification"></a></td>
       <td>The following collections were received in CacheChanged datawallet modifications but are not supported by the current version of this library.</td>
+    </tr>
+    <tr>
+      <td>error.transport.devices.alreadyOnboarded <a name="error.transport.devices.alreadyOnboarded"></a></td>
+      <td>The device has already been onboarded.</td>
+    </tr>
+    <tr>
+      <td>error.transport.devices.couldNotDeleteDevice <a name="error.transport.devices.couldNotDeleteDevice"></a></td>
+      <td>The device cannot be deleted as the device is already onboarded or the Backbone did not authorize the deletion.</td>
     </tr>
     <tr>
       <td>error.transport.files.cipherMismatch <a name="error.transport.files.cipherMismatch"></a></td>
@@ -1045,7 +1085,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-06T08:13:07+02:00">May 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-06T11:29:40+02:00">May 6, 2025</time></p>
 
       </footer>
 
