@@ -528,7 +528,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Execute a RelationshipAttributeQuery",
-        "excerpt":"{properties.description} This use case is intended to execute an incoming RelationshipAttributeQuery (e.g. received by a ReadAttributeRequestItem) which returns a list of matching Relationship Attributes. Parameters The query for the RelationshipAttributes as described in the RelationshipAttributeQuery. On Success Returns the RelationshipAttributes as LocalAttributes that match the given query. On Failure The...","categories": [],
+        "excerpt":"This use case is intended to execute an incoming RelationshipAttributeQuery (e.g. received by a ReadAttributeRequestItem) which returns a list of matching Relationship Attributes. Parameters The query for the RelationshipAttributes as described in the RelationshipAttributeQuery. On Success Returns the RelationshipAttributes as LocalAttributes that match the given query. On Failure The query...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-consumption-execute-a-relationshipattributequery",
         "teaser": null
