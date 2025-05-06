@@ -162,12 +162,12 @@ But if you are communicating with another Connector, you can use the [`Arbitrary
 
 ### Recipient
 
-| Name             | Type                    | Description                                                                                                                                                                                                                                          | Remarks            |
-| ---------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| address          | `string`                | The address of the recipient of the Message.                                                                                                                                                                                                         |                    |
-| relationshipId   | `string`                | The ID of the Relationship between the recipient and the sender of the Message.                                                                                                                                                                      | saved only locally |
-| receivedAt       | `string` \| `undefined` | A timestamp that describes when the recipient retrieved the Message from the Backbone. `undefined` when the Message wasn't received yet. Caution: "received" does not mean that it was read, so don't mix this up with a read receipt.               |                    |
-| receivedByDevice | `string` \| `undefined` | The ID of the Device that first retrieved the Message. `undefined` when the Message wasn't received yet. This is of no interest for the sender of the Message, but rather for the recipient itself, since they can use it for audit purposes. sender |                    |
+| Name             | Type                    | Description                                                                                                                                                                                                                                   | Remarks            |
+| ---------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| address          | `string`                | The address of the recipient of the Message.                                                                                                                                                                                                  |                    |
+| relationshipId   | `string`                | The ID of the Relationship between the recipient and the sender of the Message.                                                                                                                                                               | saved only locally |
+| receivedAt       | `string` \| `undefined` | A timestamp that describes when the recipient retrieved the Message from the Backbone. `undefined` when the Message wasn't received yet. Caution: "received" does not mean that it was read, so don't mix this up with a read receipt.        |                    |
+| receivedByDevice | `string` \| `undefined` | The ID of the Device that first retrieved the Message. `undefined` when the Message wasn't received yet. This is of no interest for the sender of the Message, but rather for the recipient itself, since they can use it for audit purposes. |                    |
 
 ## File
 
@@ -924,7 +924,7 @@ RelationshipAttributes describe an Identity in the context of a Relationship. Wh
 
 ## AttributeQueries
 
-One of the main features of enmeshed is sharing Attributes. For this, an Identity either proactively sends its Attributes to a peer. Or, if let's say a company wants to know the birth date of its customer, it can ask for it. Depending on the exact use case, the latter can be achieved with one of a bunch of RequestItems, like for example a [`ReadAttributeRequestItem`](#readattributerequestitem), or a [`CreateAttributeListenerRequestItem`](#createattributerequestitem). All of them have in common that they define a `query` property, which contains either an [`IdentityAttributeQuery`](#identityattributequery) or a [`RelationshipAttributeQuery`](#relationshipattributequery).
+One of the main features of enmeshed is sharing Attributes. For this, an Identity either proactively sends its Attributes to a peer. Or, if let's say a company wants to know the birth date of its customer, it can ask for it. Depending on the exact use case, the latter can be achieved with one of a bunch of RequestItems, like for example a [`ReadAttributeRequestItem`](#readattributerequestitem), or a [`CreateAttributeRequestItem`](#createattributerequestitem). All of them have in common that they define a `query` property, which contains either an [`IdentityAttributeQuery`](#identityattributequery) or a [`RelationshipAttributeQuery`](#relationshipattributequery).
 
 ### IdentityAttributeQuery
 

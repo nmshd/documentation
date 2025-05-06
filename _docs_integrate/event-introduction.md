@@ -33,7 +33,7 @@ Thus, a bidirectional communication is established.
 Events are predefined datastructures used within enmeshed to communicate a significant change of an entity's state.
 They are heavily used internally by the enmeshed Runtime, but can also be propagated by the Connector to external systems.
 Thus, these systems don't have to perform long polling, in order to receive changes, but are actively informed once they occur.
-This is not only more efficient, also, its is safer, since it keeps you updated about all changes of interest.
+This is not only more efficient, also, it is safer, since it keeps you updated about all changes of interest.
 Working with events allows to determine routines, that are executed whenever a specific event arises, called handlers.
 An overview of the [Connector events]({% link _docs_integrate/connector-events.md %}) that may occur is given in the corresponding section.
 
