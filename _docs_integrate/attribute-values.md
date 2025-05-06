@@ -149,7 +149,7 @@ It is not recommended to send a BirthDay to another Identity by its own. Instead
 
 ## BirthMonth
 
-The day of month.
+The month of birth.
 
 It is not recommended to send a BirthMonth to another Identity by its own. Instead, send a [`BirthDate`](#birthdate) with the `month` property set.
 {: .notice--warning}
