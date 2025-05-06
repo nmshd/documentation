@@ -514,7 +514,7 @@ The statement allows a very generic digital mapping of facts
 | `issuer`           | `string`      |    ✓     | see [`DigitalIdentityDescriptor`](#statement-digitalidentitydescriptor) |
 | `issuerConditions` | `string`      |    ✓     | see [`StatementIssuerConditions`](#statementissuerconditions)           |
 
-## Statement DigitalIdentitydescriptor
+## Statement DigitalIdentityDescriptor
 
 The issuer of a [`statement`](#statement).
 
