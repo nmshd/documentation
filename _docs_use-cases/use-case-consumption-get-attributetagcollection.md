@@ -37,3 +37,13 @@ required_by:
 api_route_regex: ^GET /api/v2/Attributes/TagCollection$
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use case is intended to query the Backbone-defined `tags` of [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) from the Backbone.
+
+## On Success
+
+- Returns a list of the Backbone-defined `tags` of [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
