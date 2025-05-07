@@ -14,7 +14,7 @@ properties:
   - layer: Consumption
   - facade: AttributesFacade
   - function: getAttributeTagCollection
-  - description: Get Backbone defined `tags` for IdentityAttributes.
+  - description: Get Backbone-defined `tags` for IdentityAttributes.
   - feature category: Normalized Attributes
   - tech category: Attributes
   - status: DONE
