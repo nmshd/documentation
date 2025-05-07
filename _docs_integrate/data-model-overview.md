@@ -430,6 +430,20 @@ A LocalAttributeListener is created when you accept an incoming Request with a [
 | query | [`IdentityAttributeQuery`](#identityattributequery) \| [`ThirdPartyRelationshipAttributeQuery`](#thirdpartyrelationshipattributequery) | The query the Attribute that is listened to must match. Note that you cannot send a [`RelationshipAttributeQuery`](#relationshipattributequery) here, because it doesn't make sense: by definition, both parties know about a RelationshipAttribute right from the beginning, because one party requests its creation, and the other one accepts it. |
 | peer  | `string`                                                                                                                               | The address of the peer that requested the Attribute Listener.                                                                                                                                                                                                                                                                                       |
 
+## AttributeTagCollection
+
+| Name                       | Type                                           | Description                                                                                                                                                                                                                                                       |
+| -------------------------- | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| supportedLanguages         | `string[]`                                     | An array of all supported languages for which a translation must be specified within the `displayNames` mapping of any [AttributeTag](#attributetag) within the `tagsForAttributeValueTypes` mapping.                                                             |
+| tagsForAttributeValueTypes | `Record<string, Record<string, AttributeTag>>` | A mapping of certain [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) `value.@types` and associated `tags`. These are represented by a mapping of their names and their specifications as [AttributeTags](#attributetag). |
+
+### AttributeTag
+
+| Name         | Type                                          | Description                                                                                                                                                        |
+| ------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| displayNames | `Record<string, string>`                      | A mapping of all `supportedLanguages` of the associated [AttributeTagCollection](#attributetagcollection) and the corresponding display names of the AttributeTag. |
+| children     | `Record<string, AttributeTag>` \| `undefined` | A mapping of the names of child AttributeTags of the AttributeTag and their specifications.                                                                        |
+
 # Content Types
 
 Content Types can be seen as a data contract between Identities. The medium through which this data is exchanged are the [Transport types](#transport-types) (e.g. Messages, Tokens, ...). This chapter shows all the Content types and describes their intended usage.
