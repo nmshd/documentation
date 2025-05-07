@@ -1,8 +1,8 @@
 ---
 # Start automatic generation
-permalink: use-case-consumption-get-attribute-tag-collection
+permalink: use-case-consumption-get-attributetagcollection
 published: true
-title: "Get Attribute Tag Collection"
+title: "Get AttributeTagCollection"
 type: use-case
 toc: true
 sidebar:
@@ -31,7 +31,7 @@ properties:
   - changed_at:
   - api_route_regex: GET /api/v2/Attributes/TagCollection
   - published: default
-  - link: use-case-consumption-get-attribute-tag-collection
+  - link: use-case-consumption-get-attributetagcollection
 require:
 required_by:
 api_route_regex: ^GET /api/v2/Attributes/TagCollection$
