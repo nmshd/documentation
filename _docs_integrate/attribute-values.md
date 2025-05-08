@@ -323,7 +323,7 @@ How an IdentityFileReference can be used to [exchange Files using Attributes]({%
 | Name    | Type                      | Required | Validation       |
 | ------- | ------------------------- | :------: | ---------------- |
 | `@type` | `"IdentityFileReference"` |    ✓     |                  |
-| `value` | `string`                  |    ✓     | max. length: 100 |
+| `value` | `string`                  |    ✓     | max. length: 150 |
 
 ## GivenName
 
@@ -759,7 +759,7 @@ Similar to an [IdentityFileReference]({% link _docs_integrate/attribute-values.m
 | `title`              | `string`                                                                                     |    ✓     | max. length: 100  |
 | `description`        | `string`                                                                                     |    ✗     | max. length: 1000 |
 | `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                   |
-| `value`              | `string`                                                                                     |    ✓     | max. length: 100  |
+| `value`              | `string`                                                                                     |    ✓     | max. length: 150  |
 
 ## ProprietaryFloat
 
