@@ -569,6 +569,12 @@ var store = [{
         "url": "/use-case-consumption-get-attributes",
         "teaser": null
       },{
+        "title": "Get AttributeTagCollection",
+        "excerpt":"   This use case is intended to query the AttributeTagCollection from the Backbone.   On Success      Returns the AttributeTagCollection.  ","categories": [],
+        "tags": [],
+        "url": "/use-case-consumption-get-attributetagcollection",
+        "teaser": null
+      },{
         "title": "Get IdentityMetadata",
         "excerpt":"IdentityMetadata is used to store arbitrary auxiliary metadata related to an Identity within the Connector. This use case retrieves the IdentityMetadata for a given reference or a given combination of reference and key if the IdentityMetadata is equipped with the additional key identifier. As there is at most one IdentityMetadata...","categories": [],
         "tags": [],
