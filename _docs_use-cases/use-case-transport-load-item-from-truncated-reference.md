@@ -19,7 +19,7 @@ properties:
   - tech category: Account
   - status: QUESTIONS
   - documentation status: DONE
-  - comments: rather somewhere else?
+  - comments: deprecated use /use-case-transport-load-item-from-reference instead; rather somewhere else?
   - actor: Identity
   - trigger:
   - precondition:
