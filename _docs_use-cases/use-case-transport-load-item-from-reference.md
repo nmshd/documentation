@@ -1,25 +1,25 @@
 ---
 # Start automatic generation
-permalink: use-case-transport-load-item-from-truncated-reference
+permalink: use-case-transport-load-item-from-reference
 published: true
-title: "Load item from truncated reference"
+title: "Load item from reference"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RU9
+  - id: RU10
   - component: Runtime
   - layer: Transport
   - facade: AccountFacade
-  - function: loadItemFromTruncatedReference
+  - function: loadItemFromReference
   - description:
   - feature category: Share information over side-channel
   - tech category: Account
   - status: QUESTIONS
   - documentation status: DONE
-  - comments: deprecated use /use-case-transport-load-item-from-reference instead; rather somewhere else?
+  - comments: add redirect from /use-case-transport-load-item-from-truncated-reference as soon as that use case is deleted; rather somewhere else?
   - actor: Identity
   - trigger:
   - precondition:
@@ -31,7 +31,7 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: use-case-transport-load-item-from-truncated-reference
+  - link: use-case-transport-load-item-from-reference
 require:
 required_by:
 # End automatic generation
@@ -40,9 +40,6 @@ required_by:
 {{properties.description}}
 
 {% include properties_list.html %}
-
-This use case is deprecated and will be removed in the next major version. Please use the use case [Load item from reference](use-case-transport-load-item-from-reference) instead.
-{: .notice--warning}
 
 This use case intends to load an entity by its `reference` received by a peer. Internally, it uses the specific use cases of each entity:
 
