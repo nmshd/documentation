@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-05-09T12:17:28+02:00">
+  <meta property="article:published_time" content="2025-05-09T14:05:53+02:00">
 
 
 
@@ -365,7 +365,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2025-05-09T12:17:28+02:00">
+    <meta itemprop="datePublished" content="2025-05-09T14:05:53+02:00">
     
 
     <div class="page__inner-wrap">
@@ -946,7 +946,7 @@ The content of the File can be downloaded separately by executing the <a href="/
     <tr>
       <td>tags</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>To specify additional information.</td>
+      <td>To specify additional information. A tag is valid if it is contained in the <a href="#attributetagcollection">AttributeTagCollection</a> for the <a href="#identityattribute">IdentityAttribute</a> <code class="language-plaintext highlighter-rouge">value.@type</code> <a href="/versions/v7/integrate/attribute-values#identityfilereference">IdentityFileReference</a> or if it starts with the custom tag prefix <code class="language-plaintext highlighter-rouge">x+%+</code> or <code class="language-plaintext highlighter-rouge">X+%+</code>. This validation is needed as an associated IdentityAttribute with IdentityFileReference as <code class="language-plaintext highlighter-rouge">value.@type</code> will have these <code class="language-plaintext highlighter-rouge">tags</code> as well if it is created for the File during <a href="/versions/v7/integrate/exchange-files-using-attributes#transfer-the-ownership-of-a-file-to-a-peer">transferring its ownership to a peer</a>.</td>
       <td>will be encrypted before sent to the Backbone</td>
     </tr>
     <tr>
@@ -1582,7 +1582,7 @@ This will be the case, if the peer already accepted the DeleteAttributeRequestIt
 
 <p>The AttributeTagCollection is defined by the Backbone and specifies which <code class="language-plaintext highlighter-rouge">tags</code> are allowed for which <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a> <code class="language-plaintext highlighter-rouge">value.@type</code>.
 It can be queried from the Backbone by using the <a href="/versions/v7/use-case-consumption-get-attributetagcollection">Get AttributeTagCollection</a> use case.
-Apart from the Backbone-defined <code class="language-plaintext highlighter-rouge">tags</code>, only <code class="language-plaintext highlighter-rouge">tags</code> starting with the custom tag prefix <code class="language-plaintext highlighter-rouge">x+%+</code> or <code class="language-plaintext highlighter-rouge">X+%+</code> will be allowed to use when working with IdentityAttributes.</p>
+Apart from the Backbone-defined <code class="language-plaintext highlighter-rouge">tags</code>, only <code class="language-plaintext highlighter-rouge">tags</code> starting with the custom tag prefix <code class="language-plaintext highlighter-rouge">x+%+</code> or <code class="language-plaintext highlighter-rouge">X+%+</code> are allowed to use when working with IdentityAttributes.</p>
 
 <table>
   <thead>
@@ -3159,7 +3159,7 @@ Internally, for your corresponding ThirdPartyRelationshipAttribute the <code cla
     <tr>
       <td>tags</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>To specify additional information.</td>
+      <td>To specify additional information. A tag is valid if it is contained in the <a href="#attributetagcollection">AttributeTagCollection</a> or if it starts with the custom tag prefix <code class="language-plaintext highlighter-rouge">x+%+</code> or <code class="language-plaintext highlighter-rouge">X+%+</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -3247,7 +3247,7 @@ Internally, for your corresponding ThirdPartyRelationshipAttribute the <code cla
     <tr>
       <td>tags</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>To specify additional information.</td>
+      <td>To specify additional information. A tag is valid if it is contained in the <a href="#attributetagcollection">AttributeTagCollection</a> or if it starts with the custom tag prefix <code class="language-plaintext highlighter-rouge">x+%+</code> or <code class="language-plaintext highlighter-rouge">X+%+</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -3497,7 +3497,7 @@ Internally, for your corresponding ThirdPartyRelationshipAttribute the <code cla
     <tr>
       <td>tags</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>The <code class="language-plaintext highlighter-rouge">tags</code> for the IdentityAttribute, which should be created.</td>
+      <td>The <code class="language-plaintext highlighter-rouge">tags</code> for the IdentityAttribute, which should be created. A tag is valid if it is contained in the <a href="#attributetagcollection">AttributeTagCollection</a> or if it starts with the custom tag prefix <code class="language-plaintext highlighter-rouge">x+%+</code> or <code class="language-plaintext highlighter-rouge">X+%+</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -3874,7 +3874,7 @@ For example, when using <a href="#booleanformfieldsettings">BooleanFormFieldSett
     <tr>
       <td>tags</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>If additional <code class="language-plaintext highlighter-rouge">tags</code> are requested, that the exsiting Attibute doesn’t have, yet, they can be specified using this property.</td>
+      <td>If additional <code class="language-plaintext highlighter-rouge">tags</code> are requested, that the exsiting Attibute doesn’t have, yet, they can be specified using this property. A tag is valid if it is contained in the <a href="#attributetagcollection">AttributeTagCollection</a> or if it starts with the custom tag prefix <code class="language-plaintext highlighter-rouge">x+%+</code> or <code class="language-plaintext highlighter-rouge">X+%+</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -3956,7 +3956,7 @@ There is the <a href="/versions/v7/use-case-consumption-upsert-identitymetadata"
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-09T12:17:28+02:00">May 9, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-09T14:05:53+02:00">May 9, 2025</time></p>
 
       </footer>
 

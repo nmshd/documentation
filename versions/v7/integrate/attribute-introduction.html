@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-05-09T12:17:28+02:00">
+  <meta property="article:published_time" content="2025-05-09T14:05:53+02:00">
 
 
 
@@ -365,7 +365,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Attribute introduction">
     <meta itemprop="description" content="This guide provides an introduction to Attributes in the enmeshed context. Attributes are used to store information about Identities or data that is relevant in a Relationship between Identities. There are therefore two types of Attributes, the IdentityAttributes and the RelationshipAttributes, which are designed for these different purposes. Both have in common that they have a value property that contains the actual value of the Attribute, whereby it is possible to select from a long list of possible Attribute value types. They define the format, the validation rules and the information display for the stored data. Furthermore, an Attribute is technically stored as the content of a LocalAttribute, in whose other properties metadata can be found.">
-    <meta itemprop="datePublished" content="2025-05-09T12:17:28+02:00">
+    <meta itemprop="datePublished" content="2025-05-09T14:05:53+02:00">
     
 
     <div class="page__inner-wrap">
@@ -400,7 +400,10 @@
 
 <h3 id="identityattribute-value-types">IdentityAttribute value types</h3>
 
-<p>The <a href="/versions/v7/integrate/attribute-values#identity-attributes">IdentityAttribute value types</a> are used to define the type of the <code class="language-plaintext highlighter-rouge">value</code> property of an <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a>. In order to fulfill various purposes, many such IdentityAttribute value types are provided. If the IdentityAttribute value type used is not sufficient to clearly characterize the IdentityAttribute, <code class="language-plaintext highlighter-rouge">tags</code> can be used for a more precise description of its meaning.</p>
+<p>The <a href="/versions/v7/integrate/attribute-values#identity-attributes">IdentityAttribute value types</a> are used to define the type of the <code class="language-plaintext highlighter-rouge">value</code> property of an <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a>.
+In order to fulfill various purposes, many such IdentityAttribute value types are provided.
+If the IdentityAttribute value type used is not sufficient to clearly characterize the IdentityAttribute, <code class="language-plaintext highlighter-rouge">tags</code> can be used for a more precise description of its meaning.
+Apart from custom <code class="language-plaintext highlighter-rouge">tags</code>, which must have the prefix <code class="language-plaintext highlighter-rouge">x+%+</code> or <code class="language-plaintext highlighter-rouge">X+%+</code>, only Backbone-defined <code class="language-plaintext highlighter-rouge">tags</code> may be used, which can be queried using the <a href="/versions/v7/use-case-consumption-get-attributetagcollection">Get AttributeTagCollection</a> use case.</p>
 
 <p class="notice--info">The storage of multiple IdentityAttributes of the same value type is possible. If an Identity receives a <a href="/versions/v7/integrate/read-attributes-from-peer#example-of-reading-an-identityattribute">Request for an IdentityAttribute of a certain value type</a>, it can choose which of the matching IdentityAttributes it wants to provide for its <a href="/versions/v7/integrate/data-model-overview#response">Response</a> to the <a href="/versions/v7/integrate/data-model-overview#request">Request</a>. For example, storing multiple IdentityAttributes of the same value type is beneficial if an Identity has more than one residential address. Using <code class="language-plaintext highlighter-rouge">tags</code> helps to distinguish such IdentityAttributes from each other.</p>
 
@@ -530,7 +533,7 @@ The difference to the ReadAttributeRequestItem is that an Identity already has i
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-09T12:17:28+02:00">May 9, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-09T14:05:53+02:00">May 9, 2025</time></p>
 
       </footer>
 

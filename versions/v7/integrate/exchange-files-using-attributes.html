@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-05-09T12:17:28+02:00">
+  <meta property="article:published_time" content="2025-05-09T14:05:53+02:00">
 
 
 
@@ -365,7 +365,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Exchange Files using Attributes">
     <meta itemprop="description" content="Communication between Identities involves exchanging uploaded Files with each other, for example:">
-    <meta itemprop="datePublished" content="2025-05-09T12:17:28+02:00">
+    <meta itemprop="datePublished" content="2025-05-09T14:05:53+02:00">
     
 
     <div class="page__inner-wrap">
@@ -568,6 +568,7 @@ For that, follow the instructions of the <a href="/versions/v7/use-case-consumpt
 The <a href="/versions/v7/integrate/data-model-overview#acceptrequestitemparameters">AcceptRequestItemParameters</a> must be used for this.
 The acceptance of a TransferFileOwnershipRequestItem leads to the transfer of the ownership of the File on the Backbone.
 Additionally, a <a href="/versions/v7/integrate/data-model-overview#localattribute">RepositoryAttribute</a> will be created for the recipient, whose <code class="language-plaintext highlighter-rouge">content</code> is an <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a> with <a href="/versions/v7/integrate/attribute-values#identityfilereference">IdentityFileReference</a> as <code class="language-plaintext highlighter-rouge">value.@type</code>.
+If the File has <code class="language-plaintext highlighter-rouge">tags</code>, the IdentityAttribute will have the same <code class="language-plaintext highlighter-rouge">tags</code>.
 The <code class="language-plaintext highlighter-rouge">value</code> of the IdentityFileReference is the <code class="language-plaintext highlighter-rouge">truncatedReference</code> of the File that is now owned by the recipient.
 Also, the newly created RepositoryAttribute of the recipient will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient.
 Based on this, an appropriate AcceptResponseItem of type <a href="/versions/v7/integrate/data-model-overview#transferfileownershipacceptresponseitem">TransferFileOwnershipAcceptResponseItem</a> is generated.
@@ -618,7 +619,7 @@ If the Request for transferring the ownership of Files contains a RequestItemGro
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-09T12:17:28+02:00">May 9, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-09T14:05:53+02:00">May 9, 2025</time></p>
 
       </footer>
 
