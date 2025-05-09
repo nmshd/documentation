@@ -50,7 +50,7 @@ The step-by-step instructions can be consulted to start the migration to version
 
 ## Runtime-Specific Breaking Changes
 
-As an Integrator of a Connector, the following changes do not need to be taken into account during migration to version 7.
+As an Integrator of a Connector, the following changes do not need to be taken into account during migration to version 7, as they are Runtime-specific breaking changes.
 
 ### Removed Use Cases
 
