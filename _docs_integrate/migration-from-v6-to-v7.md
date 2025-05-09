@@ -45,4 +45,4 @@ The step-by-step instructions can be consulted to start the migration to version
 
 ### Changed Behavior of Known Features
 
-- Stricter validation of `tags` of [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) has been added.
+- Stricter validation of `tags` of [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) has been added. An error with [error code]({% link _docs_integrate/error-codes.md %}) `error.consumption.attributes.invalidTags` will be thrown if invalid tags are used.
