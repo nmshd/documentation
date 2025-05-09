@@ -50,6 +50,11 @@ The step-by-step instructions can be consulted to start the migration to version
   Only `tags` that are contained in the [AttributeTagCollection]({% link _docs_integrate/data-model-overview.md %}#attributetagcollection) or that start with the custom tag prefix `x+%+` or `X+%+` may be used.
   An error with [error code]({% link _docs_integrate/error-codes.md %}) `error.consumption.attributes.invalidTags` will be thrown if an attempt is made to use invalid `tags`.
 
+### Changes to Connector Routes
+
+- The `onlyValid` parameter was removed from the use cases [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}), [Get own shared Attributes]({% link _docs_use-cases/use-case-consumption-get-own-shared-attributes.md %}) and [Get peer shared Attributes]({% link _docs_use-cases/use-case-consumption-get-peer-shared-attributes.md %}).
+  Accordingly, it was removed from the associated Connector routes as well.
+
 ## Runtime-Specific Breaking Changes
 
 As an Integrator of a Connector, the following changes do not need to be taken into account during migration to version 7, as they are Runtime-specific breaking changes.
