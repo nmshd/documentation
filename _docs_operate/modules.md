@@ -29,18 +29,6 @@ Additionally, the Connector defines its own Modules that only make sense in the 
 
 Read more about the Module configuration on the <i class="fas fa-fw fa-cog"/> icon in each title.
 
-### AMQP Publisher <a href="{% link _docs_operate/configuration.md %}#amqppublisher"><i class="fas fa-fw fa-cog"/></a> {#amqppublisher}
-
-This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
-{: .notice--danger}
-
-This Module proxies all [events]({% link _docs_integrate/connector-events.md %}) of the internal event bus of the Connector to an exchange in a configurable AMQP server.
-
-Compared to [webhooks](#webhooks), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
-
-- You need persistence for the triggered [events]({% link _docs_integrate/connector-events.md %}).
-- You want to integrate enmeshed into an already existing message broker.
-
 ### Auto Accept Pending Relationships <a href="{% link _docs_operate/configuration.md %}#autoacceptpendingrelationships"><i class="fas fa-fw fa-cog"/></a> {#autoacceptpendingrelationships}
 
 It is not recommended to use this Module for production scenarios.
@@ -56,7 +44,7 @@ This Module contains the HTTP API with all enmeshed base functionalities.
 
 ### Message Broker Publisher <a href="{% link _docs_operate/configuration.md %}#messagebrokerpublisher"><i class="fas fa-fw fa-cog"/></a> {#messagebrokerpublisher}
 
-The Message Broker Publisher Module allows you to publish [events]({% link _docs_integrate/connector-events.md %}) to different message brokers. Supported message brokers are: `AMQP`, `PubSub`, `Redis` and `MQTT`.
+The Message Broker Publisher Module allows you to publish [events]({% link _docs_integrate/connector-events.md %}) of the internal event bus of the Connector to different message brokers. Supported message brokers are: `AMQP`, `PubSub`, `Redis` and `MQTT`.
 
 Compared to [webhooks](#webhooks), this gives you the full feature set of these message brokers. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
 
@@ -69,18 +57,6 @@ The `sync` Module regularly fetches changes from the Backbone (e.g. new Messages
 
 The sync Module and the [sse Module](#sse) are not compatible. The sync Module will be disabled if both are active.
 {: .notice--warning}
-
-### PubSub Publisher <a href="{% link _docs_operate/configuration.md %}#pubsubpublisher"><i class="fas fa-fw fa-cog"/></a> {#pubsubpublisher}
-
-This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
-{: .notice--danger}
-
-This Module proxies all events of the internal event bus of the Connector to a configurable PubSub instance.
-
-Compared to [webhooks](#webhooks), this gives you the full feature set of a message broker. There are multiple scenarios where this Module outweighs the Webhooks Module. For example:
-
-- You need persistence for the triggered [events]({% link _docs_integrate/connector-events.md %}).
-- You want to integrate enmeshed into an already existing message broker.
 
 ### Webhooks <a href="{% link _docs_operate/configuration.md %}#webhooks"><i class="fas fa-fw fa-cog"/></a> {#webhooks}
 

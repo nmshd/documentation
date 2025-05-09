@@ -278,39 +278,6 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
 Every Module can be enabled or disabled by passing true / false to `enabled`. Read more about the Module by clicking on the <i class="fas fa-fw fa-info-circle"/> icon in each title.
 
-#### amqpPublisher <a href="{% link _docs_operate/modules.md %}#amqppublisher"><i class="fas fa-fw fa-info-circle"/></a> {#amqppublisher}
-
-This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
-{: .notice--danger}
-
-**Sample Configuration:**
-
-```jsonc
-{
-  // ...
-
-  "modules": {
-    "amqpPublisher": {
-      "enabled": false,
-      "url": "amqp://example.com:5672",
-      "exchange": "myExchange"
-    }
-  }
-}
-```
-
-- **enabled** `default: false`
-
-  Enable or disable the AMQP Publisher Module.
-
-- **url** `required`
-
-  The URL of the AMQP server.
-
-- **exchange** `default: ""`
-
-  The name of the AMQP exchange to publish to.
-
 #### autoAcceptPendingRelationships <a href="{% link _docs_operate/modules.md %}#autoacceptpendingrelationships"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptpendingrelationships}
 
 It is not recommended to use this Module for production scenarios.
@@ -423,9 +390,9 @@ It is not recommended to use this Module for production scenarios.
 
       > the URL must be in the [AMQP url format](https://www.rabbitmq.com/docs/uri-spec)
 
-    - exchange `string` -
+    - exchange `string, default: ""` -
 
-      the name of the exchange to publish to
+      the name of the AMQP exchange to publish to
 
     - timeout `number` -
 
@@ -526,44 +493,6 @@ It is not recommended to use this Module for production scenarios.
 - **interval** `default: 60`
 
   The interval in seconds at which the sync Module will fetch changes from the Backbone.
-
-#### PubSubPublisher <a href="{% link _docs_operate/modules.md %}#pubsubpublisher"><i class="fas fa-fw fa-info-circle"/></a> {#pubsubpublisher}
-
-This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
-{: .notice--danger}
-
-**Sample Configuration:**
-
-```jsonc
-{
-  // ...
-
-  "modules": {
-    "PubSubPublisher": {
-      "enabled": false,
-      "projectId": "",
-      "topic": "",
-      "keyFile": ""
-    }
-  }
-}
-```
-
-- **enabled** `default: false`
-
-  Enable or disable the PubSub Publisher Module.
-
-- **projectId** `required`
-
-  The project id of the Google Cloud project.
-
-- **topic** `required`
-
-  The name of the PubSub topic to publish to.
-
-- **keyFile** `required`
-
-  The (absolute) path of the key file to authenticate with the Google Cloud project.
 
 #### webhooks <a href="{% link _docs_operate/modules.md %}#webhooks"><i class="fas fa-fw fa-info-circle"/></a> {#webhooks}
 
