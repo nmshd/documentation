@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Migration From v5 to v6 - enmeshed</title>
-<meta name="description" content="The Runtime of enmeshed has recently been updated from version 5 to version 6.">
+<!-- begin _includes/seo.html --><title>Load item from reference - enmeshed</title>
+<meta name="description" content="">
 
 
   <meta name="author" content="enmeshed Team">
@@ -23,11 +23,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Migration From v5 to v6">
-<meta property="og:url" content="/versions/v7/integrate/migration-from-v5-to-v6">
+<meta property="og:title" content="Load item from reference">
+<meta property="og:url" content="/versions/v7/use-case-transport-load-item-from-reference">
 
 
-  <meta property="og:description" content="The Runtime of enmeshed has recently been updated from version 5 to version 6.">
+  <meta property="og:description" content="">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/versions/v7/integrate/migration-from-v5-to-v6">
+<link rel="canonical" href="/versions/v7/use-case-transport-load-item-from-reference">
 
 
 
@@ -93,7 +93,7 @@
 
   </head>
 
-  <body class="layout--single" dir="ltr">
+  <body class="layout--usecase" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -327,7 +327,7 @@
             
               <li><a href="/versions/v7/integrate/migration-from-v4-to-v5">Migration From v4 to v5</a></li>
             
-              <li><a href="/versions/v7/integrate/migration-from-v5-to-v6" class="active">Migration From v5 to v6</a></li>
+              <li><a href="/versions/v7/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
             
           </ul>
           
@@ -363,8 +363,8 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Migration From v5 to v6">
-    <meta itemprop="description" content="The Runtime of enmeshed has recently been updated from version 5 to version 6.">
+    <meta itemprop="headline" content="Load item from reference">
+    <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2025-05-09T10:48:21+02:00">
     
 
@@ -372,7 +372,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/versions/v7/integrate/migration-from-v5-to-v6" itemprop="url">Migration From v5 to v6
+            <a href="/versions/v7/use-case-transport-load-item-from-reference" itemprop="url">Load item from reference
 </a>
           </h1>
           
@@ -386,39 +386,90 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#removal-of-routes-for-loading-peer-objects-by-id-and-key">Removal of Routes for loading peer objects by id and key</a></li><li><a href="#removal-of-secretkey-from-objects">Removal of secretKey from objects</a></li></ul>
+              
             </nav>
           </aside>
         
-        <p>The <a href="https://github.com/nmshd/runtime">Runtime</a> of enmeshed has recently been updated from version 5 to version 6.</p>
+        
+<!--<div>
+    <table>
+        
+        <tr><td>id</td>
+            <td>RU10</td></tr>
+        
+        <tr><td>component</td>
+            <td>Runtime</td></tr>
+        
+        <tr><td>layer</td>
+            <td>Transport</td></tr>
+        
+        <tr><td>facade</td>
+            <td>AccountFacade</td></tr>
+        
+        <tr><td>function</td>
+            <td>loadItemFromReference</td></tr>
+        
+        <tr></tr>
+        
+        <tr><td>feature category</td>
+            <td>Share information over side-channel</td></tr>
+        
+        <tr><td>tech category</td>
+            <td>Account</td></tr>
+        
+        <tr><td>status</td>
+            <td>QUESTIONS</td></tr>
+        
+        <tr><td>documentation status</td>
+            <td>DONE</td></tr>
+        
+        <tr><td>comments</td>
+            <td>add redirect from /use-case-transport-load-item-from-truncated-reference as soon as that use case is deleted; rather somewhere else?</td></tr>
+        
+        <tr><td>actor</td>
+            <td>Identity</td></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr><td>priority</td>
+            <td>n/a</td></tr>
+        
+        <tr><td>complexity</td>
+            <td>n/a</td></tr>
+        
+        <tr><td>size</td>
+            <td>n/a</td></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr></tr>
+        
+        <tr><td>published</td>
+            <td>default</td></tr>
+        
+        <tr><td>link</td>
+            <td>use-case-transport-load-item-from-reference</td></tr>
+        
+        <tr></tr>
+        <tr></tr>
+    </table>
+</div>
+-->
 
-<p>Accordingly, a new version of the <a href="https://github.com/nmshd/connector">Connector</a> has also been released to make the updated Runtime available to Integrators of Connectors.</p>
+<p>This use case intends to load an entity by its <code class="language-plaintext highlighter-rouge">reference</code> received by a peer. Internally, it uses the specific use cases of each entity:</p>
 
-<p>The version update has resulted in some breaking changes.
-To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.</p>
-
-<h2 id="removal-of-routes-for-loading-peer-objects-by-id-and-key">Removal of Routes for loading peer objects by id and key</h2>
-
-<p>The routes <code class="language-plaintext highlighter-rouge">POST /api/v2/Files/Peer</code>, <code class="language-plaintext highlighter-rouge">POST /api/v2/RelationshipTemplates/Peer</code>, <code class="language-plaintext highlighter-rouge">POST /api/v2/Tokens/Peer</code> all had the possibility to load peer objects with two different payloads:</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the id of the peer object"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"secretKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the secret key to decrypt the peer object"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p>and</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the truncated reference containing all the information to load the peer object"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p>In preperation for upcoming features loading peer objects by id and key has been removed.</p>
-
-<h2 id="removal-of-secretkey-from-objects">Removal of <code class="language-plaintext highlighter-rouge">secretKey</code> from objects</h2>
-
-<p>The <code class="language-plaintext highlighter-rouge">secretKey</code> field has been removed from all objects. As it is not possible to load peer objects by id and key anymore, the <code class="language-plaintext highlighter-rouge">secretKey</code> field became redundant.</p>
+<ul>
+  <li>If the <code class="language-plaintext highlighter-rouge">reference</code> refers to a <a href="/versions/v7/integrate/data-model-overview#token">Token</a>, it fetches the Token just like the <a href="/versions/v7/use-case-transport-load-token-created-by-others">Load Token created by others</a> use case. For example, if the <code class="language-plaintext highlighter-rouge">content</code> of the Token is a TokenContentDeviceSharedSecret, a DeviceOnboardingInfo is returned after the successful execution of the use case. A TokenContentDeviceSharedSecret is created by the <a href="/versions/v7/use-case-transport-create-device-onboarding-token">Create Device Onboarding Token</a> use case.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">reference</code> refers to a <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>, it fetches the RelationshipTemplate just like the <a href="/versions/v7/use-case-transport-load-relationshiptemplate-created-by-others">Load RelationshipTemplate created by others</a> use case.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">reference</code> refers to a <a href="/versions/v7/integrate/data-model-overview#file">File</a>, it fetches the File just like the <a href="/versions/v7/use-case-transport-load-file">Load File</a> use case.</li>
+</ul>
+ 
 
         
       </section>

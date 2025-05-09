@@ -1025,8 +1025,14 @@ var store = [{
         "url": "/versions/v7/use-case-transport-load-file",
         "teaser": null
       },{
-        "title": "Load item from truncated reference",
+        "title": "Load item from reference",
         "excerpt":"This use case intends to load an entity by its reference received by a peer. Internally, it uses the specific use cases of each entity: If the reference refers to a Token, it fetches the Token just like the Load Token created by others use case. For example, if the...","categories": [],
+        "tags": [],
+        "url": "/versions/v7/use-case-transport-load-item-from-reference",
+        "teaser": null
+      },{
+        "title": "Load item from truncated reference",
+        "excerpt":"This use case is deprecated and will be removed in the next major version. Please use the use case Load item from reference instead. This use case intends to load an entity by its reference received by a peer. Internally, it uses the specific use cases of each entity: If...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-transport-load-item-from-truncated-reference",
         "teaser": null
