@@ -28,7 +28,8 @@ To support the migration of existing systems to the new version, the breaking ch
 
 ## Step-by-Step Instructions
 
-The step-by-step instructions can be consulted to start the migration to version 7 directly.
+The step-by-step instructions can be consulted to start the migration to version 7 as an Integrator of a Connector directly.
+[Runtime-specific breaking changes](#runtime-specific-breaking-changes) that do not need to be taken into account when updating the Connector from version 6 to version 7 can be found below.
 
 ### Connector Setup
 
@@ -47,11 +48,14 @@ The step-by-step instructions can be consulted to start the migration to version
 
 - Stricter validation of `tags` of [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) has been added. An error with [error code]({% link _docs_integrate/error-codes.md %}) `error.consumption.attributes.invalidTags` will be thrown if invalid tags are used.
 
+## Runtime-Specific Breaking Changes
+
+As an Integrator of a Connector, the following changes do not need to be taken into account during migration to version 7.
+
 ### Removed Use Cases
 
 Some [use cases]({% link _docs_integrate/use-cases.md %}) of the Runtime that were previously marked as deprecated and replaced by new ones have now been removed.
 However, the Connector routes associated with these use cases are not affected by these replacements and can still be used.
-As an Integrator of a Connector, the following changes therefore do not need to be taken into account during migration.
 
 - The nomenclature of [ThirdPartyRelationshipAttributes]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes) has already changed in version 6.
   In particular, the term third party owned RelationshipAttribute has become obsolete.
