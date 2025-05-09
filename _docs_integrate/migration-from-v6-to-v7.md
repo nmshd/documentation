@@ -49,7 +49,8 @@ The step-by-step instructions can be consulted to start the migration to version
 
 ### Removed Use Cases
 
-- The nomenclature of [ThirdPartyRelationshipAttributes]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes) has changed. In particular, the term third party owned RelationshipAttribute has become obsolete.
+- The nomenclature of [ThirdPartyRelationshipAttributes]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes) has already changed in version 6.
+  In particular, the term third party owned RelationshipAttribute has become obsolete.
   For this reason, the [Delete a ThirdPartyRelationshipAttribute and notify peer]({% link _docs_use-cases/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer.md %}) use case was already added in version 6 and the use case of deleting a third party owned RelationshipAttribute and notifying the peer was marked as deprecated.
   It has now been deleted with the update to version 7.
 - It will be possible to load items not only from truncated references, but also from other references.
