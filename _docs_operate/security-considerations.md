@@ -71,7 +71,7 @@ To access the latest updates, other routes might need to be opened within the fi
 
 The Connector synchronizes itself with the Backbone by a long-polling mechanism (it accesses the Internet). There is no data transfer triggered by the Backbone (or other users) and thus, there is no need for opening up special ports or reverse proxies for inbound connections from the Internet.
 
-### Oubound Communication to Internal Networks
+### Outbound Communication to Internal Networks
 
 The Connector does need to access its database. Access to other networks or systems from the Connector can be blocked unless there is a synchronization route (webhook) set up in the Connector configuration. Otherwise, the Connector needs to access the provided internal domains for submitting new data.
 

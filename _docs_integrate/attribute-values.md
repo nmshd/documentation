@@ -149,7 +149,7 @@ It is not recommended to send a BirthDay to another Identity by its own. Instead
 
 ## BirthMonth
 
-The day of month.
+The month of birth.
 
 It is not recommended to send a BirthMonth to another Identity by its own. Instead, send a [`BirthDate`](#birthdate) with the `month` property set.
 {: .notice--warning}
@@ -323,7 +323,7 @@ How an IdentityFileReference can be used to [exchange Files using Attributes]({%
 | Name    | Type                      | Required | Validation       |
 | ------- | ------------------------- | :------: | ---------------- |
 | `@type` | `"IdentityFileReference"` |    ✓     |                  |
-| `value` | `string`                  |    ✓     | max. length: 100 |
+| `value` | `string`                  |    ✓     | max. length: 150 |
 
 ## GivenName
 
@@ -514,7 +514,7 @@ The statement allows a very generic digital mapping of facts
 | `issuer`           | `string`      |    ✓     | see [`DigitalIdentityDescriptor`](#statement-digitalidentitydescriptor) |
 | `issuerConditions` | `string`      |    ✓     | see [`StatementIssuerConditions`](#statementissuerconditions)           |
 
-## Statement DigitalIdentitydescriptor
+## Statement DigitalIdentityDescriptor
 
 The issuer of a [`statement`](#statement).
 
@@ -759,7 +759,7 @@ Similar to an [IdentityFileReference]({% link _docs_integrate/attribute-values.m
 | `title`              | `string`                                                                                     |    ✓     | max. length: 100  |
 | `description`        | `string`                                                                                     |    ✗     | max. length: 1000 |
 | `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                   |
-| `value`              | `string`                                                                                     |    ✓     | max. length: 100  |
+| `value`              | `string`                                                                                     |    ✓     | max. length: 150  |
 
 ## ProprietaryFloat
 
