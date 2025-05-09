@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-05-09T14:09:12+02:00">
+  <meta property="article:published_time" content="2025-05-09T14:48:43+02:00">
 
 
 
@@ -277,7 +277,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Configuration">
     <meta itemprop="description" content="Mounting a config file">
-    <meta itemprop="datePublished" content="2025-05-09T14:09:12+02:00">
+    <meta itemprop="datePublished" content="2025-05-09T14:48:43+02:00">
     
 
     <div class="page__inner-wrap">
@@ -298,7 +298,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#mounting-a-config-file">Mounting a config file</a></li><li><a href="#environment-variables">Environment variables</a><ul><li><a href="#parsing-rules">Parsing rules</a></li><li><a href="#example">Example</a></li></ul></li><li><a href="#configuration-options">Configuration options</a><ul><li><a href="#debug">debug available since version 3.3.0</a></li><li><a href="#enforceCertificatePinning">enforceCertificatePinning available since version 6.5.0</a></li><li><a href="#pinnedTLSCertificateSHA256Fingerprints">pinnedTLSCertificateSHA256Fingerprints available since version 6.5.0</a></li><li><a href="#transportlibrary">transportLibrary</a></li><li><a href="#database">database</a></li><li><a href="#infrastructure">infrastructure</a><ul><li><a href="#httpserver">httpServer</a></li></ul></li><li><a href="#modules">modules</a><ul><li><a href="#amqppublisher">amqpPublisher </a></li><li><a href="#autoacceptpendingrelationships">autoAcceptPendingRelationships </a></li><li><a href="#corehttpapi">coreHttpApi </a></li><li><a href="#messagebrokerpublisher">messageBrokerPublisher </a></li><li><a href="#sync">sync </a></li><li><a href="#pubsubpublisher">PubSubPublisher </a></li><li><a href="#webhooks">webhooks </a><ul><li><a href="#payload">Payload</a></li></ul></li><li><a href="#sse">sse (Server-Sent Events) </a></li></ul></li></ul></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
+              <ul class="toc__menu"><li><a href="#mounting-a-config-file">Mounting a config file</a></li><li><a href="#environment-variables">Environment variables</a><ul><li><a href="#parsing-rules">Parsing rules</a></li><li><a href="#example">Example</a></li></ul></li><li><a href="#configuration-options">Configuration options</a><ul><li><a href="#debug">debug available since version 3.3.0</a></li><li><a href="#enforceCertificatePinning">enforceCertificatePinning available since version 6.5.0</a></li><li><a href="#pinnedTLSCertificateSHA256Fingerprints">pinnedTLSCertificateSHA256Fingerprints available since version 6.5.0</a></li><li><a href="#transportlibrary">transportLibrary</a></li><li><a href="#database">database</a></li><li><a href="#infrastructure">infrastructure</a><ul><li><a href="#httpserver">httpServer</a></li></ul></li><li><a href="#modules">modules</a><ul><li><a href="#autoacceptpendingrelationships">autoAcceptPendingRelationships </a></li><li><a href="#corehttpapi">coreHttpApi </a></li><li><a href="#messagebrokerpublisher">messageBrokerPublisher </a></li><li><a href="#sync">sync </a></li><li><a href="#webhooks">webhooks </a><ul><li><a href="#payload">Payload</a></li></ul></li><li><a href="#sse">sse (Server-Sent Events) </a></li></ul></li></ul></li><li><a href="#troubleshooting">Troubleshooting</a></li></ul>
             </nav>
           </aside>
         
@@ -571,43 +571,6 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 <p>Every Module can be enabled or disabled by passing true / false to <code class="language-plaintext highlighter-rouge">enabled</code>. Read more about the Module by clicking on the <i class="fas fa-fw fa-info-circle"></i> icon in each title.</p>
 
-<h4 id="amqppublisher">amqpPublisher <a href="/versions/v7/operate/modules#amqppublisher"><i class="fas fa-fw fa-info-circle"></i></a></h4>
-
-<p class="notice--danger">This module is deprecated in favor of the <a href="#messagebrokerpublisher">Message Broker Publisher</a> Module.</p>
-
-<p><strong>Sample Configuration:</strong></p>
-
-<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="c1">// ...</span><span class="w">
-
-  </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"amqpPublisher"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"amqp://example.com:5672"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"exchange"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myExchange"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<ul>
-  <li>
-    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
-
-    <p>Enable or disable the AMQP Publisher Module.</p>
-  </li>
-  <li>
-    <p><strong>url</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
-
-    <p>The URL of the AMQP server.</p>
-  </li>
-  <li>
-    <p><strong>exchange</strong> <code class="language-plaintext highlighter-rouge">default: ""</code></p>
-
-    <p>The name of the AMQP exchange to publish to.</p>
-  </li>
-</ul>
-
 <h4 id="autoacceptpendingrelationships">autoAcceptPendingRelationships <a href="/versions/v7/operate/modules#autoacceptpendingrelationships"><i class="fas fa-fw fa-info-circle"></i></a></h4>
 
 <p class="notice--danger">It is not recommended to use this Module for production scenarios.</p>
@@ -733,9 +696,9 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
             </blockquote>
           </li>
           <li>
-            <p>exchange <code class="language-plaintext highlighter-rouge">string</code> -</p>
+            <p>exchange <code class="language-plaintext highlighter-rouge">string, default: ""</code> -</p>
 
-            <p>the name of the exchange to publish to</p>
+            <p>the name of the AMQP exchange to publish to</p>
           </li>
           <li>
             <p>timeout <code class="language-plaintext highlighter-rouge">number</code> -</p>
@@ -863,49 +826,6 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     <p><strong>interval</strong> <code class="language-plaintext highlighter-rouge">default: 60</code></p>
 
     <p>The interval in seconds at which the sync Module will fetch changes from the Backbone.</p>
-  </li>
-</ul>
-
-<h4 id="pubsubpublisher">PubSubPublisher <a href="/versions/v7/operate/modules#pubsubpublisher"><i class="fas fa-fw fa-info-circle"></i></a></h4>
-
-<p class="notice--danger">This module is deprecated in favor of the <a href="#messagebrokerpublisher">Message Broker Publisher</a> Module.</p>
-
-<p><strong>Sample Configuration:</strong></p>
-
-<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="c1">// ...</span><span class="w">
-
-  </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"PubSubPublisher"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"projectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"keyFile"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<ul>
-  <li>
-    <p><strong>enabled</strong> <code class="language-plaintext highlighter-rouge">default: false</code></p>
-
-    <p>Enable or disable the PubSub Publisher Module.</p>
-  </li>
-  <li>
-    <p><strong>projectId</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
-
-    <p>The project id of the Google Cloud project.</p>
-  </li>
-  <li>
-    <p><strong>topic</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
-
-    <p>The name of the PubSub topic to publish to.</p>
-  </li>
-  <li>
-    <p><strong>keyFile</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
-
-    <p>The (absolute) path of the key file to authenticate with the Google Cloud project.</p>
   </li>
 </ul>
 
@@ -1132,7 +1052,7 @@ Ensure that your Backbone has the required settings enabled.</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-09T14:09:12+02:00">May 9, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-09T14:48:43+02:00">May 9, 2025</time></p>
 
       </footer>
 
