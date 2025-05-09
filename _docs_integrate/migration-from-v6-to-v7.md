@@ -46,3 +46,9 @@ The step-by-step instructions can be consulted to start the migration to version
 ### Changed Behavior of Known Features
 
 - Stricter validation of `tags` of [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) has been added. An error with [error code]({% link _docs_integrate/error-codes.md %}) `error.consumption.attributes.invalidTags` will be thrown if invalid tags are used.
+
+### Removed Use Cases
+
+- It will be possible to load items not only from truncated references, but also from other references.
+  For this reason, the [Load item from reference]({% link _docs_use-cases/use-case-transport-load-item-from-reference.md %}) use case was already added in version 6 and the use case of loading an item from a truncated reference was marked as deprecated.
+  It has now been deleted with the update to version 7.
