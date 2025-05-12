@@ -69,3 +69,4 @@ In the latter case, the [Token for the File must be created]({% link _docs_use-c
 
 - The parameters are malformed.
 - The file size is too big.
+- Invalid `tags` were provided. A tag is invalid if it is neither contained in the [AttributeTagCollection]({% link _docs_integrate/data-model-overview.md %}#attributetagcollection) for the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) `value.@type` [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) nor starts with the custom tag prefix `x+%+` or `X+%+`.
