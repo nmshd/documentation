@@ -52,7 +52,7 @@ The step-by-step instructions can be consulted to start the migration to version
 
 ### Changes to Connector Routes
 
-- The `onlyValid` parameter was removed from the use cases [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}), [Get own shared Attributes]({% link _docs_use-cases/use-case-consumption-get-own-shared-attributes.md %}) and [Get peer shared Attributes]({% link _docs_use-cases/use-case-consumption-get-peer-shared-attributes.md %}).
+- The `onlyValid` parameter was removed from the use cases [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}), [Get own shared Attributes]({% link _docs_use-cases/use-case-consumption-get-own-shared-attributes.md %}) and [Get peer shared Attributes]({% link _docs_use-cases/use-case-consumption-get-peer-shared-attributes.md %}) as the properties `validFrom` and `validTo` have been removed from the [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes).
   Accordingly, it was removed from the associated Connector routes as well.
 
 ## Runtime-Specific Breaking Changes
