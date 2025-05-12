@@ -53,7 +53,7 @@ If a RepositoryAttribute can be created, this can be achieved by executing the [
 
 - Returns a CanCreateRepositoryAttributeResponse that indicates if a RepositoryAttribute can be created based on the specified `content`.
 - If the `isSuccess` property of the CanCreateRepositoryAttributeResponse has the value `true`, the RepositoryAttribute can currently be created.
-- If the `isSuccess` property of the CanCreateRepositoryAttributeResponse has the value `false`, the RepositoryAttribute cannot currently be created. This may have the following reasons:<br>
+- If the `isSuccess` property of the CanCreateRepositoryAttributeResponse has the value `false`, the RepositoryAttribute cannot currently be created. This may have the following reasons:
   - The provided `content.value.@type` does not match one of the allowed [IdentityAttribute value types]({% link _docs_integrate/attribute-values.md %}#identity-attributes).
   - There is already an existing [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `succeededBy` property is undefined that has the exact same `content.value`.
 
