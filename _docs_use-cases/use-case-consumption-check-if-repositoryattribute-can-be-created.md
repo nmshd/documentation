@@ -37,3 +37,10 @@ required_by:
 api_route_regex: ^PUT /api/v2/Attributes/CanCreate$
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use case checks whether a [RepositoryAttribute]({% link _docs_integrate/attribute-introduction.md %}#repositoryattributes), which is an unshared [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute), can be created without actually creating it.
+If a RepositoryAttribute can be created, this can be achieved by executing the [Create a RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-create-a-repositoryattribute.md %}) use case.
