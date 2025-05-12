@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Discards outgoing Request - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Check if RepositoryAttribute can be created - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Discards outgoing Request">
-<meta property="og:url" content="/use-case-consumption-discards-outgoing-request">
+<meta property="og:title" content="Check if RepositoryAttribute can be created">
+<meta property="og:url" content="/use-case-consumption-check-if-repositoryattribute-can-be-created">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/use-case-consumption-discards-outgoing-request">
+<link rel="canonical" href="/use-case-consumption-check-if-repositoryattribute-can-be-created">
 
 
 
@@ -358,7 +358,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Discards outgoing Request">
+    <meta itemprop="headline" content="Check if RepositoryAttribute can be created">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2025-05-12T11:33:20+02:00">
     
@@ -367,7 +367,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/use-case-consumption-discards-outgoing-request" itemprop="url">Discards outgoing Request
+            <a href="/use-case-consumption-check-if-repositoryattribute-can-be-created" itemprop="url">Check if RepositoryAttribute can be created
 </a>
           </h1>
           
@@ -390,7 +390,7 @@
     <table>
         
         <tr><td>id</td>
-            <td>ROR8</td></tr>
+            <td>RA31</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
@@ -399,18 +399,18 @@
             <td>Consumption</td></tr>
         
         <tr><td>facade</td>
-            <td>OutgoingRequestsFacade</td></tr>
+            <td>AttributesFacade</td></tr>
         
         <tr><td>function</td>
-            <td>discard</td></tr>
+            <td>canCreateRepositoryAttribute</td></tr>
         
         <tr></tr>
         
         <tr><td>feature category</td>
-            <td>Normalized Requests/Responses to and from users</td></tr>
+            <td>Normalized Attributes</td></tr>
         
         <tr><td>tech category</td>
-            <td>Requests</td></tr>
+            <td>Attributes</td></tr>
         
         <tr><td>status</td>
             <td>DONE</td></tr>
@@ -423,7 +423,8 @@
         <tr><td>actor</td>
             <td>Identity</td></tr>
         
-        <tr></tr>
+        <tr><td>trigger</td>
+            <td>REST API</td></tr>
         
         <tr></tr>
         
@@ -442,13 +443,14 @@
         
         <tr></tr>
         
-        <tr></tr>
+        <tr><td>api_route_regex</td>
+            <td>PUT /api/v2/Attributes/CanCreate</td></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-consumption-discards-outgoing-request</td></tr>
+            <td>use-case-consumption-check-if-repositoryattribute-can-be-created</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -456,26 +458,58 @@
 </div>
 -->
 
-<p>This use case is intended to discard an outgoing <a href="/integrate/data-model-overview#localrequest">LocalRequest</a> that has not been sent to the peer yet and is thus still in status <code class="language-plaintext highlighter-rouge">Draft</code>.</p>
+<p>This use case checks whether a <a href="/integrate/attribute-introduction#repositoryattributes">RepositoryAttribute</a>, which is an unshared <a href="/integrate/data-model-overview#localattribute">LocalAttribute</a> whose <code class="language-plaintext highlighter-rouge">content</code> is an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a>, can be created without actually creating it.
+If a RepositoryAttribute can be created, this can be achieved by executing the <a href="/use-case-consumption-create-a-repositoryattribute">Create a RepositoryAttribute</a> use case.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">id</code> references the outgoing LocalRequest that is to be discarded.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">content</code> is an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> without the <code class="language-plaintext highlighter-rouge">owner</code> property, since its value would automatically be set to the <code class="language-plaintext highlighter-rouge">address</code> of your <a href="/integrate/data-model-overview#identity">Identity</a> during the potential <a href="/use-case-consumption-create-a-repositoryattribute">creation of the RepositoryAttribute</a>.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>The LocalRequest is deleted and returned.</li>
+  <li>Returns a <code class="language-plaintext highlighter-rouge">result</code> that indicates if a RepositoryAttribute can be created based on the specified <code class="language-plaintext highlighter-rouge">content</code>.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">isSuccess</code> property of the <code class="language-plaintext highlighter-rouge">result</code> has the value <code class="language-plaintext highlighter-rouge">true</code>, the RepositoryAttribute can currently be created.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">isSuccess</code> property of the <code class="language-plaintext highlighter-rouge">result</code> has the value <code class="language-plaintext highlighter-rouge">false</code>, the RepositoryAttribute cannot currently be created. This may have the following reasons:
+    <ul>
+      <li>The provided <code class="language-plaintext highlighter-rouge">content.value.@type</code> does not match one of the allowed <a href="/integrate/attribute-values#identity-attributes">IdentityAttribute value types</a>.</li>
+      <li>There is already an existing <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a> whose <code class="language-plaintext highlighter-rouge">succeededBy</code> property is undefined that has the exact same <code class="language-plaintext highlighter-rouge">content.value</code>.</li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>The LocalRequest could not be found.</li>
-  <li>The LocalRequest is not in status <code class="language-plaintext highlighter-rouge">Draft</code>.</li>
+  <li>The parameters are malformed.</li>
 </ul>
+  <h2>How to execute this use case with the Connector?</h2>
+
+The Connector is our first-class citizen, thus we provide you with a detailed API description for every use case.
+This use case can be executed with the REST API of the Connector which you can <a href="/integrate/access-the-connector">Access the Connector</a>.
+ 
+<h6>Corresponding interactive API docs excerpt:</h6>
+
+<rapi-doc-mini
+    server-url="https://doc-demo.is.enmeshed.eu/"
+    default-api-server="https://doc-demo.is.enmeshed.eu/"
+    api-key-name="x-api-key"
+    api-key-location="header"
+    api-key-value="apikey"
+    layout="column"
+    default-schema-tab="example"
+    spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
+    paths-expanded="false"
+    theme="light"
+    bg-color="#f9f9fb"
+    
+    match-paths="^PUT /api/v2/Attributes/CanCreate$"
+    
+    match-type="regex"
+></rapi-doc-mini>
+<br />
  
 
         
