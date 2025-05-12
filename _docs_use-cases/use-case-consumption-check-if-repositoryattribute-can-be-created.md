@@ -48,3 +48,11 @@ If a RepositoryAttribute can be created, this can be achieved by executing the [
 ## Parameters
 
 - The `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) without the `owner` property, since its value would automatically be set to the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) during the potential [creation of the RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-create-a-repositoryattribute.md %}).
+
+## On Success
+
+- Returns a CanCreateRepositoryAttributeResponse that indicates if a RepositoryAttribute can be created based on the specified `content`.
+- If the `isSuccess` property of the CanCreateRepositoryAttributeResponse has the value `true`, the RepositoryAttribute can currently be created.
+- If the `isSuccess` property of the CanCreateRepositoryAttributeResponse has the value `false`, the RepositoryAttribute cannot currently be created. This may have the following causes:<br>
+  - The provided `content.value.@type` does not match one of the allowed [IdentityAttribute value types]({% link _docs_integrate/attribute-values.md %}#identity-attributes).
+  - There is already an existing [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `succeededBy` property is undefined that has the exact same `content.value`.
