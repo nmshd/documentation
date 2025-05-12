@@ -455,6 +455,12 @@ var store = [{
         "url": "/versions/v7/use-case-consumption-check-if-outgoing-request-can-be-created",
         "teaser": null
       },{
+        "title": "Check if RepositoryAttribute can be created",
+        "excerpt":"This use case checks whether a RepositoryAttribute, which is an unshared LocalAttribute whose content is an IdentityAttribute, can be created without actually creating it. If a RepositoryAttribute can be created, this can be achieved by executing the Create a RepositoryAttribute use case. Parameters The content is an IdentityAttribute without the...","categories": [],
+        "tags": [],
+        "url": "/versions/v7/use-case-consumption-check-if-repositoryattribute-can-be-created",
+        "teaser": null
+      },{
         "title": "Create a RepositoryAttribute",
         "excerpt":"This use case is intended to create a RepositoryAttribute, i.e. an unshared LocalAttribute based on a given IdentityAttribute. Parameters The content for the LocalAttribute that ought to be created as IdentityAttribute without the owner property, since it is automatically set to the address of your Identity. On Success A LocalAttribute...","categories": [],
         "tags": [],

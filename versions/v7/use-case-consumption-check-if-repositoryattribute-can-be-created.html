@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Send Message to Recipient(s) - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Check if RepositoryAttribute can be created - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Send Message to Recipient(s)">
-<meta property="og:url" content="/versions/v7/use-case-transport-send-message-to-recipients">
+<meta property="og:title" content="Check if RepositoryAttribute can be created">
+<meta property="og:url" content="/versions/v7/use-case-consumption-check-if-repositoryattribute-can-be-created">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/versions/v7/use-case-transport-send-message-to-recipients">
+<link rel="canonical" href="/versions/v7/use-case-consumption-check-if-repositoryattribute-can-be-created">
 
 
 
@@ -363,7 +363,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Send Message to Recipient(s)">
+    <meta itemprop="headline" content="Check if RepositoryAttribute can be created">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2025-05-12T11:33:33+02:00">
     
@@ -372,7 +372,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/versions/v7/use-case-transport-send-message-to-recipients" itemprop="url">Send Message to Recipient(s)
+            <a href="/versions/v7/use-case-consumption-check-if-repositoryattribute-can-be-created" itemprop="url">Check if RepositoryAttribute can be created
 </a>
           </h1>
           
@@ -395,27 +395,27 @@
     <table>
         
         <tr><td>id</td>
-            <td>RM1</td></tr>
+            <td>RA31</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
         
         <tr><td>layer</td>
-            <td>Transport</td></tr>
+            <td>Consumption</td></tr>
         
         <tr><td>facade</td>
-            <td>MessagesFacade</td></tr>
+            <td>AttributesFacade</td></tr>
         
         <tr><td>function</td>
-            <td>sendMessage</td></tr>
+            <td>canCreateRepositoryAttribute</td></tr>
         
         <tr></tr>
         
         <tr><td>feature category</td>
-            <td>Bidirectional (un-)structured communication</td></tr>
+            <td>Normalized Attributes</td></tr>
         
         <tr><td>tech category</td>
-            <td>Messages</td></tr>
+            <td>Attributes</td></tr>
         
         <tr><td>status</td>
             <td>DONE</td></tr>
@@ -428,7 +428,8 @@
         <tr><td>actor</td>
             <td>Identity</td></tr>
         
-        <tr></tr>
+        <tr><td>trigger</td>
+            <td>REST API</td></tr>
         
         <tr></tr>
         
@@ -448,13 +449,13 @@
         <tr></tr>
         
         <tr><td>api_route_regex</td>
-            <td>POST /api/v2/Messages</td></tr>
+            <td>PUT /api/v2/Attributes/CanCreate</td></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-transport-send-message-to-recipients</td></tr>
+            <td>use-case-consumption-check-if-repositoryattribute-can-be-created</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -462,30 +463,32 @@
 </div>
 -->
 
-<p>This use case sends a <a href="/versions/v7/integrate/data-model-overview#message">Message</a> to the given recipient(s).</p>
+<p>This use case checks whether a <a href="/versions/v7/integrate/attribute-introduction#repositoryattributes">RepositoryAttribute</a>, which is an unshared <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> whose <code class="language-plaintext highlighter-rouge">content</code> is an <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a>, can be created without actually creating it.
+If a RepositoryAttribute can be created, this can be achieved by executing the <a href="/versions/v7/use-case-consumption-create-a-repositoryattribute">Create a RepositoryAttribute</a> use case.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">recipients</code> is a list of the enmeshed addresses which should receive the Message.</li>
-  <li><code class="language-plaintext highlighter-rouge">content</code> the structured content of the Message. Usually a <a href="/versions/v7/integrate/data-model-overview#mail">Mail</a> when communicating with a user.</li>
-  <li><code class="language-plaintext highlighter-rouge">attachments</code> is a list of <a href="/versions/v7/integrate/data-model-overview#file">File</a> ids which should be attached to the Message.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">content</code> is an <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a> without the <code class="language-plaintext highlighter-rouge">owner</code> property, since its value would automatically be set to the <code class="language-plaintext highlighter-rouge">address</code> of your <a href="/versions/v7/integrate/data-model-overview#identity">Identity</a> during the potential <a href="/versions/v7/use-case-consumption-create-a-repositoryattribute">creation of the RepositoryAttribute</a>.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>Sends the Message to all recipients</li>
-  <li>Returns the sent Message</li>
+  <li>Returns a <code class="language-plaintext highlighter-rouge">result</code> that indicates if a RepositoryAttribute can be created based on the specified <code class="language-plaintext highlighter-rouge">content</code>.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">isSuccess</code> property of the <code class="language-plaintext highlighter-rouge">result</code> has the value <code class="language-plaintext highlighter-rouge">true</code>, the RepositoryAttribute can currently be created.</li>
+  <li>If the <code class="language-plaintext highlighter-rouge">isSuccess</code> property of the <code class="language-plaintext highlighter-rouge">result</code> has the value <code class="language-plaintext highlighter-rouge">false</code>, the RepositoryAttribute cannot currently be created. This may have the following reasons:
+    <ul>
+      <li>The provided <code class="language-plaintext highlighter-rouge">content.value.@type</code> does not match one of the allowed <a href="/versions/v7/integrate/attribute-values#identity-attributes">IdentityAttribute value types</a>.</li>
+      <li>There is already an existing <a href="/versions/v7/integrate/data-model-overview#localattribute">RepositoryAttribute</a> whose <code class="language-plaintext highlighter-rouge">succeededBy</code> property is undefined that has the exact same <code class="language-plaintext highlighter-rouge">content.value</code>.</li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>One of the <code class="language-plaintext highlighter-rouge">recipients</code> is not an active Relationship</li>
-  <li>The <code class="language-plaintext highlighter-rouge">attachments</code> are not valid File ids.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">content</code> of the Message is a <a href="/versions/v7/integrate/data-model-overview#request">Request</a> that is already expired. Please create a new Request and try again.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">content</code> is malformed.</li>
+  <li>The parameters are malformed.</li>
 </ul>
   <h2>How to execute this use case with the Connector?</h2>
 
@@ -507,7 +510,7 @@ This use case can be executed with the REST API of the Connector which you can <
     theme="light"
     bg-color="#f9f9fb"
     
-    match-paths="^POST /api/v2/Messages$"
+    match-paths="^PUT /api/v2/Attributes/CanCreate$"
     
     match-type="regex"
 ></rapi-doc-mini>
