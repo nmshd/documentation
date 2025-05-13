@@ -55,7 +55,7 @@ In the latter case, the [Token for the File must be created]({% link _docs_use-c
 - Optionally, `expiresAt` can be specified, which describes the ISODateTime the File expires.
 - Optionally, a `title` can be provided for the File.
 - Optionally, a `description` can be provided for the File.
-- Optionally, `tags` can be provided for the File. If an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type` is created for the File during [transferring the ownership of the File to a peer]({% link _docs_integrate/exchange-files-using-attributes.md %}#transfer-the-ownership-of-a-file-to-a-peer), it will have these `tags` as well. For this reason, a tag is valid if it is contained in the [AttributeTagCollection]({% link _docs_integrate/data-model-overview.md %}#attributetagcollection) for the `value.@type` IdentityFileReference or if it starts with the custom tag prefix `x+%+` or `X+%+`.
+- Optionally, `tags` can be provided for the File. If an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type` is created for the File during [transferring the ownership of the File to a peer]({% link _docs_integrate/exchange-files-using-attributes.md %}#transfer-the-ownership-of-a-file-to-a-peer), it will have these `tags` as well. For this reason, a tag is valid if it is contained in the [AttributeTagCollection]({% link _docs_integrate/data-model-overview.md %}#attributetagcollection) for the `value.@type` IdentityFileReference or if it starts with the custom tag prefix `x:` or `X:`.
 
 ## On Success
 
@@ -69,4 +69,4 @@ In the latter case, the [Token for the File must be created]({% link _docs_use-c
 
 - The parameters are malformed.
 - The file size is too big.
-- Invalid `tags` were provided. A tag is invalid if it is neither contained in the [AttributeTagCollection]({% link _docs_integrate/data-model-overview.md %}#attributetagcollection) for the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) `value.@type` [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) nor starts with the custom tag prefix `x+%+` or `X+%+`.
+- Invalid `tags` were provided. A tag is invalid if it is neither contained in the [AttributeTagCollection]({% link _docs_integrate/data-model-overview.md %}#attributetagcollection) for the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) `value.@type` [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) nor starts with the custom tag prefix `x:` or `X:`.
