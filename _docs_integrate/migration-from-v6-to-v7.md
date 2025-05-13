@@ -33,21 +33,27 @@ The step-by-step instructions can be consulted to start the migration to version
 
 ### Connector Setup
 
-- The data from the database that was used by the Connector of the former version is outdated. This is because the `title` of most [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) has been removed, for example. For this reason, the old data must be deleted. Alternatively, the database can be deleted as a whole and [set up again]({% link _docs_operate/setup-with-docker-compose.md %}).
+- Data persisted in the database by a previous version of the Connector is not compatible with version 7.
+  For this reason, the old data must be deleted.
+  Alternatively, the database can be deleted as a whole and [set up again]({% link _docs_operate/setup-with-docker-compose.md %}).
 - The [image](https://github.com/nmshd/connector?tab=readme-ov-file#connector) used to run the Connector must be updated to version 7.
 
 ### Removed and Changed Data Structures
 
-- The FreeTextRequestItem has been removed. It is no longer needed as the [FormFieldRequestItem]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem) with [StringFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#stringformfieldsettings) as `settings` can be used instead. Of course, the associated AcceptFreeTextRequestItemParameters and the FreeTextAcceptResponseItem have been removed as well.
-- The `title` property of most [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) has been removed, because in most cases the kind of RequestItem already clearly indicates its purpose. To be more precise, the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem), the [DeleteAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#deleteattributerequestitem), the [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem), the [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), the [RegisterAttributeListenerRequestItem]({% link _docs_integrate/data-model-overview.md %}#registerattributelistenerrequestitem), the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) and the [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem) no longer have a `title`, while keeping the `title` is necessary to provide sufficient context for the [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem) and the [FormFieldRequestItem]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem).
+- The FreeTextRequestItem has been removed.
+  It is no longer needed as the [FormFieldRequestItem]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem) with [StringFormFieldSettings]({% link _docs_integrate/data-model-overview.md %}#stringformfieldsettings) as `settings` can be used instead.
+  Of course, the associated AcceptFreeTextRequestItemParameters and the FreeTextAcceptResponseItem have been removed as well.
+- The `title` property of most [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) has been removed, because in most cases the kind of RequestItem already clearly indicates its purpose.
+  To be more precise, the `title` was only kept by the [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem) and the [FormFieldRequestItem]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem) to provide sufficient context.
 - The `title` property of the [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem) is now mandatory to always convey the subject of authentication.
-- The properties `validFrom` and `validTo` have been removed from the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute), the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), the [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery), the [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) and the [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery). Specifying validity periods for [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) is no longer supported as they were not enforced during Attribute processing so far.
+- The properties `validFrom` and `validTo` have been removed from the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute), the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), the [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery), the [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) and the [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery).
+  Specifying validity periods for [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) is no longer supported as they were not enforced during Attribute processing so far.
 - The `template` property of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) was replaced by the `templateId` property in order to store only the `id` of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) within the Relationship rather than the RelationshipTemplate itself.
+  Data duplication can thus be reduced.
 
 ### Changed Behavior of Known Features
 
-- Stricter validation of `tags` of [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) and [Files]({% link _docs_integrate/data-model-overview.md %}#file) have been added.
-  Only `tags` that are contained in the [AttributeTagCollection]({% link _docs_integrate/data-model-overview.md %}#attributetagcollection) or that start with the custom tag prefix `x+%+` or `X+%+` may be used.
+- Stricter validation of `tags` of [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) and [Files]({% link _docs_integrate/data-model-overview.md %}#file) have been added as documented in their description in the data model overview.
   An error with [error code]({% link _docs_integrate/error-codes.md %}) `error.consumption.attributes.invalidTags` will be thrown if an attempt is made to use invalid `tags`.
 
 ### Changes to Connector Routes
@@ -57,7 +63,7 @@ The step-by-step instructions can be consulted to start the migration to version
 
 ## Runtime-Specific Breaking Changes
 
-As an Integrator of a Connector, the following changes do not need to be taken into account during migration to version 7, as they are Runtime-specific breaking changes.
+As an Integrator of a Connector, the following changes do not need to be taken into account during migration to version 7, as they are Runtime-specific breaking changes handled internally by the Connector.
 
 ### Removed Use Cases
 
