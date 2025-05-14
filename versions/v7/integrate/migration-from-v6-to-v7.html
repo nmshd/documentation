@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Check if Relationship can be created - enmeshed</title>
-<meta name="description" content="">
+<!-- begin _includes/seo.html --><title>Migration From v6 to v7 - enmeshed</title>
+<meta name="description" content="The Runtime of enmeshed has recently been updated from version 6 to version 7. Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors. The version update has resulted in some breaking changes. To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
 
 
   <meta name="author" content="enmeshed Team">
@@ -23,11 +23,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Check if Relationship can be created">
-<meta property="og:url" content="/versions/v7/use-case-transport-check-if-relationship-can-be-created">
+<meta property="og:title" content="Migration From v6 to v7">
+<meta property="og:url" content="/versions/v7/integrate/migration-from-v6-to-v7">
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="The Runtime of enmeshed has recently been updated from version 6 to version 7. Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors. The version update has resulted in some breaking changes. To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/versions/v7/use-case-transport-check-if-relationship-can-be-created">
+<link rel="canonical" href="/versions/v7/integrate/migration-from-v6-to-v7">
 
 
 
@@ -93,7 +93,7 @@
 
   </head>
 
-  <body class="layout--usecase" dir="ltr">
+  <body class="layout--single" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -329,7 +329,7 @@
             
               <li><a href="/versions/v7/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
             
-              <li><a href="/versions/v7/integrate/migration-from-v6-to-v7">Migration From v6 to v7</a></li>
+              <li><a href="/versions/v7/integrate/migration-from-v6-to-v7" class="active">Migration From v6 to v7</a></li>
             
           </ul>
           
@@ -365,8 +365,8 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Check if Relationship can be created">
-    <meta itemprop="description" content="">
+    <meta itemprop="headline" content="Migration From v6 to v7">
+    <meta itemprop="description" content="The Runtime of enmeshed has recently been updated from version 6 to version 7.Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors.The version update has resulted in some breaking changes.To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
     <meta itemprop="datePublished" content="2025-05-14T11:00:30+02:00">
     
 
@@ -374,7 +374,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/versions/v7/use-case-transport-check-if-relationship-can-be-created" itemprop="url">Check if Relationship can be created
+            <a href="/versions/v7/integrate/migration-from-v6-to-v7" itemprop="url">Migration From v6 to v7
 </a>
           </h1>
           
@@ -388,144 +388,75 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#parameters">Parameters</a></li><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
+              <ul class="toc__menu"><li><a href="#step-by-step-instructions">Step-by-Step Instructions</a><ul><li><a href="#connector-setup">Connector Setup</a></li><li><a href="#removed-and-changed-data-structures">Removed and Changed Data Structures</a></li><li><a href="#changed-behavior-of-known-features">Changed Behavior of Known Features</a></li><li><a href="#changes-to-connector-routes">Changes to Connector Routes</a></li></ul></li><li><a href="#runtime-specific-breaking-changes">Runtime-Specific Breaking Changes</a><ul><li><a href="#removed-use-cases">Removed Use Cases</a></li></ul></li></ul>
             </nav>
           </aside>
         
-        
-<!--<div>
-    <table>
-        
-        <tr><td>id</td>
-            <td>RR16</td></tr>
-        
-        <tr><td>component</td>
-            <td>Runtime</td></tr>
-        
-        <tr><td>layer</td>
-            <td>Transport</td></tr>
-        
-        <tr><td>facade</td>
-            <td>RelationshipsFacade</td></tr>
-        
-        <tr><td>function</td>
-            <td>canCreateRelationship</td></tr>
-        
-        <tr><td>description</td>
-            <td>Checks if a Relationship with the given `templateId` and `creationContent` can be created.</td></tr>
-        
-        <tr><td>feature category</td>
-            <td>Mutual peer-to-peer Relationships</td></tr>
-        
-        <tr><td>tech category</td>
-            <td>Relationships</td></tr>
-        
-        <tr><td>status</td>
-            <td>DONE</td></tr>
-        
-        <tr><td>documentation status</td>
-            <td>DONE</td></tr>
-        
-        <tr></tr>
-        
-        <tr><td>actor</td>
-            <td>Identity</td></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr><td>priority</td>
-            <td>n/a</td></tr>
-        
-        <tr><td>complexity</td>
-            <td>n/a</td></tr>
-        
-        <tr><td>size</td>
-            <td>n/a</td></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr><td>api_route_regex</td>
-            <td>PUT /api/v2/Relationships/CanCreate</td></tr>
-        
-        <tr><td>published</td>
-            <td>default</td></tr>
-        
-        <tr><td>link</td>
-            <td>use-case-transport-check-if-relationship-can-be-created</td></tr>
-        
-        <tr></tr>
-        <tr></tr>
-    </table>
-</div>
--->
+        <p>The <a href="https://github.com/nmshd/runtime">Runtime</a> of enmeshed has recently been updated from version 6 to version 7.
+Accordingly, a new version of the <a href="https://github.com/nmshd/connector">Connector</a> has also been released to make the updated Runtime available to Integrators of Connectors.
+The version update has resulted in some breaking changes.
+To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.</p>
 
-<p>This use case checks whether a <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> can be created based on a received <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> to the RelationshipTemplate&#8217;s creator without actually creating it.
-It makes sense to promptly execute this use case in order to prevent the data required to <a href="/versions/v7/integrate/establish-relationships#initiate-a-relationship">initiate a Relationship</a> from being provided when this is currently not technically possible anyway.
-If a Relationship can be created, this can be achieved by executing the <a href="/versions/v7/use-case-transport-create-relationship-with-relationshiptemplate">Create Relationship with RelationshipTemplate</a> use case.
-If the <a href="/versions/v7/explore/runtime#request-module">Request Module</a> is enabled and a <a href="/versions/v7/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a> has been specified as the <code class="language-plaintext highlighter-rouge">content</code> of the RelationshipTemplate, the <a href="/versions/v7/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case should be utilized to <a href="/versions/v7/integrate/establish-relationships#relationshiptemplate-with-relationshiptemplatecontent">initiate a Relationship</a>.</p>
+<h2 id="step-by-step-instructions">Step-by-Step Instructions</h2>
 
-<h2 id="parameters">Parameters</h2>
+<p>The step-by-step instructions can be consulted to start the migration to version 7 as an Integrator of a Connector directly.
+<a href="#runtime-specific-breaking-changes">Runtime-specific breaking changes</a> that do not need to be taken into account when updating the Connector from version 6 to version 7 can be found below.</p>
+
+<h3 id="connector-setup">Connector Setup</h3>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">templateId</code> references the <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> received from its creator.</li>
-  <li>Optionally, <code class="language-plaintext highlighter-rouge">creationContent</code> can be provided. It is a <a href="/versions/v7/integrate/data-model-overview#relationshipcreationcontent">RelationshipCreationContent</a> or an <a href="/versions/v7/integrate/data-model-overview#arbitraryrelationshipcreationcontent">ArbitraryRelationshipCreationContent</a> depending on whether the RelationshipTemplate&#8217;s <code class="language-plaintext highlighter-rouge">content</code> is a <a href="/versions/v7/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a> or an <a href="/versions/v7/integrate/data-model-overview#arbitraryrelationshiptemplatecontent">ArbitraryRelationshipTemplateContent</a>. Specify this parameter if additional validations are wanted for the <code class="language-plaintext highlighter-rouge">creationContent</code> that would be used to create the <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a>.</li>
+  <li>Data persisted in the database by a previous version of the Connector is not compatible with version 7.
+For this reason, the old data must be deleted.
+Alternatively, the database can be deleted as a whole and <a href="/versions/v7/operate/setup-with-docker-compose">set up again</a>.</li>
+  <li>The <a href="https://github.com/nmshd/connector?tab=readme-ov-file#connector">image</a> used to run the Connector must be updated to version 7.</li>
 </ul>
 
-<h2 id="on-success">On Success</h2>
+<h3 id="removed-and-changed-data-structures">Removed and Changed Data Structures</h3>
 
 <ul>
-  <li>Returns a <code class="language-plaintext highlighter-rouge">result</code> that indicates if a <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> can be created with the given parameters.</li>
-  <li>If the <code class="language-plaintext highlighter-rouge">isSuccess</code> property of the <code class="language-plaintext highlighter-rouge">result</code> has the value <code class="language-plaintext highlighter-rouge">true</code>, a <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> can currently be created to the creator of the RelationshipTemplate. This would then initially have <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code> until the creator of the RelationshipTemplate <a href="/versions/v7/use-case-transport-accept-relationship">accepts the Relationship</a>.</li>
-  <li>If the <code class="language-plaintext highlighter-rouge">isSuccess</code> property of the <code class="language-plaintext highlighter-rouge">result</code> has the value <code class="language-plaintext highlighter-rouge">false</code>, no <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> can currently be created to the creator of the RelationshipTemplate. This can have various causes, for example:
-    <ul>
-      <li>The <code class="language-plaintext highlighter-rouge">templateId</code> does not resolve to a <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> or the associated RelationshipTemplate was not cached correctly.<br /></li>
-      <li>The <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> has already expired, which means that the timestamp specified in its <code class="language-plaintext highlighter-rouge">expiresAt</code> property has been exceeded.<br /></li>
-      <li>A <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> with <code class="language-plaintext highlighter-rouge">"Pending"</code>, <code class="language-plaintext highlighter-rouge">"Active"</code>, <code class="language-plaintext highlighter-rouge">"Terminated"</code> or <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code> as <code class="language-plaintext highlighter-rouge">status</code> already exists to the creator of the RelationshipTemplate. In particular, the initiation of a new Relationship is prevented if the potential initiator has already <a href="/versions/v7/integrate/terminate-relationships#decompose-a-relationship">decomposed the former Relationship</a> to the RelationshipTemplate&#8217;s creator, but the creator of the RelationshipTemplate has not yet decomposed it and still has the former Relationship with <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code> as <code class="language-plaintext highlighter-rouge">status</code>.<br /></li>
-      <li>The <a href="/versions/v7/integrate/data-model-overview#identity">Identity</a> of the creator of the RelationshipTemplate is in deletion or has already been deleted.<br /></li>
-      <li>The <code class="language-plaintext highlighter-rouge">creationContent</code>, if specified, is not a <a href="/versions/v7/integrate/data-model-overview#relationshipcreationcontent">RelationshipCreationContent</a>, although the RelationshipTemplate&#8217;s <code class="language-plaintext highlighter-rouge">content</code> is a RelationshipTemplateContent, or it is not an <a href="/versions/v7/integrate/data-model-overview#arbitraryrelationshipcreationcontent">ArbitraryRelationshipCreationContent</a>, although the RelationshipTemplate&#8217;s <code class="language-plaintext highlighter-rouge">content</code> is an ArbitraryRelationshipTemplateContent.<br /></li>
-      <li>A RelationshipCreationContent was specified as <code class="language-plaintext highlighter-rouge">creationContent</code>, because the RelationshipTemplate&#8217;s <code class="language-plaintext highlighter-rouge">content</code> is a RelationshipTemplateContent, but there is no associated accepted incoming <a href="/versions/v7/integrate/data-model-overview#request">Request</a>.<br /></li>
-      <li>A RelationshipCreationContent was specified as <code class="language-plaintext highlighter-rouge">creationContent</code>, because the RelationshipTemplate&#8217;s <code class="language-plaintext highlighter-rouge">content</code> is a RelationshipTemplateContent, and there is an associated accepted incoming <a href="/versions/v7/integrate/data-model-overview#request">Request</a>, but its <a href="/versions/v7/integrate/data-model-overview#response">Response</a> was not provided as the <code class="language-plaintext highlighter-rouge">response</code> of the specified <a href="/versions/v7/integrate/data-model-overview#relationshipcreationcontent">RelationshipCreationContent</a>.</li>
-    </ul>
-  </li>
+  <li>The FreeTextRequestItem has been removed.
+It is no longer needed as the <a href="/versions/v7/integrate/data-model-overview#formfieldrequestitem">FormFieldRequestItem</a> with <a href="/versions/v7/integrate/data-model-overview#stringformfieldsettings">StringFormFieldSettings</a> as <code class="language-plaintext highlighter-rouge">settings</code> can be used instead.
+Of course, the associated AcceptFreeTextRequestItemParameters and the FreeTextAcceptResponseItem have been removed as well.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">title</code> property of most <a href="/versions/v7/integrate/data-model-overview#requestitems">RequestItems</a> has been removed, because in most cases the kind of RequestItem already clearly indicates its purpose.
+To be more precise, the <code class="language-plaintext highlighter-rouge">title</code> was only kept by the <a href="/versions/v7/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> and the <a href="/versions/v7/integrate/data-model-overview#formfieldrequestitem">FormFieldRequestItem</a> to provide context.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">title</code> property of the <a href="/versions/v7/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> is now mandatory to always convey the subject of authentication.</li>
+  <li>The properties <code class="language-plaintext highlighter-rouge">validFrom</code> and <code class="language-plaintext highlighter-rouge">validTo</code> have been removed from the <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a>, the <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>, the <a href="/versions/v7/integrate/data-model-overview#identityattributequery">IdentityAttributeQuery</a>, the <a href="/versions/v7/integrate/data-model-overview#relationshipattributequery">RelationshipAttributeQuery</a> and the <a href="/versions/v7/integrate/data-model-overview#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a>.
+Specifying validity periods for <a href="/versions/v7/integrate/data-model-overview#attributes">Attributes</a> is no longer supported as they were not enforced during Attribute processing so far.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">template</code> property of the <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> was replaced by the <code class="language-plaintext highlighter-rouge">templateId</code> property in order to reduce data duplication by storing only the <code class="language-plaintext highlighter-rouge">id</code> of the <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> rather than the RelationshipTemplate itself within the Relationship.</li>
 </ul>
 
-<h2 id="on-failure">On Failure</h2>
+<h3 id="changed-behavior-of-known-features">Changed Behavior of Known Features</h3>
 
 <ul>
-  <li>The parameters are malformed.</li>
+  <li>Stricter validation of <code class="language-plaintext highlighter-rouge">tags</code> of <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttributes</a> and <a href="/versions/v7/integrate/data-model-overview#file">Files</a> have been added as documented in their description in the data model overview.
+An error with <a href="/versions/v7/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.consumption.attributes.invalidTags</code> will be thrown if an attempt is made to use invalid <code class="language-plaintext highlighter-rouge">tags</code>.</li>
 </ul>
-  <h2>How to execute this use case with the Connector?</h2>
 
-The Connector is our first-class citizen, thus we provide you with a detailed API description for every use case.
-This use case can be executed with the REST API of the Connector which you can <a href="/integrate/access-the-connector">Access the Connector</a>.
- 
-<h6>Corresponding interactive API docs excerpt:</h6>
+<h3 id="changes-to-connector-routes">Changes to Connector Routes</h3>
 
-<rapi-doc-mini
-    server-url="https://doc-demo.is.enmeshed.eu/"
-    default-api-server="https://doc-demo.is.enmeshed.eu/"
-    api-key-name="x-api-key"
-    api-key-location="header"
-    api-key-value="apikey"
-    layout="column"
-    default-schema-tab="example"
-    spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
-    paths-expanded="false"
-    theme="light"
-    bg-color="#f9f9fb"
-    
-    match-paths="^PUT /api/v2/Relationships/CanCreate$"
-    
-    match-type="regex"
-></rapi-doc-mini>
-<br />
- 
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">onlyValid</code> parameter was removed from the use cases <a href="/versions/v7/use-case-consumption-get-attributes">Get Attributes</a>, <a href="/versions/v7/use-case-consumption-get-own-shared-attributes">Get own shared Attributes</a> and <a href="/versions/v7/use-case-consumption-get-peer-shared-attributes">Get peer shared Attributes</a> as the properties <code class="language-plaintext highlighter-rouge">validFrom</code> and <code class="language-plaintext highlighter-rouge">validTo</code> have been removed from the <a href="/versions/v7/integrate/data-model-overview#attributes">Attributes</a>.
+Accordingly, it was removed from the associated Connector routes as well.</li>
+</ul>
+
+<h2 id="runtime-specific-breaking-changes">Runtime-Specific Breaking Changes</h2>
+
+<p>As an Integrator of a Connector, the following changes do not need to be taken into account during migration to version 7, as they are Runtime-specific breaking changes handled internally by the Connector.</p>
+
+<h3 id="removed-use-cases">Removed Use Cases</h3>
+
+<p>Some <a href="/versions/v7/integrate/use-cases">use cases</a> of the Runtime that were previously marked as deprecated and replaced by new ones have now been removed.
+However, the Connector routes associated with these use cases are not affected by these replacements and can still be used.</p>
+
+<ul>
+  <li>The nomenclature of <a href="/versions/v7/integrate/attribute-introduction#emitted-and-received-thirdpartyrelationshipattributes">ThirdPartyRelationshipAttributes</a> has already changed in version 6.
+In particular, the term third party owned RelationshipAttribute has become obsolete.
+For this reason, the <a href="/versions/v7/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer">Delete a ThirdPartyRelationshipAttribute and notify peer</a> use case was already added in version 6 and the use case of deleting a third party owned RelationshipAttribute and notifying the peer was marked as deprecated.
+It has now been deleted with the update to version 7.</li>
+  <li>It will be possible to load items not only from truncated references, but also from other references.
+For this reason, the <a href="/versions/v7/use-case-transport-load-item-from-reference">Load item from reference</a> use case was already added in version 6 and the use case of loading an item from a truncated reference was marked as deprecated.
+It has now been deleted with the update to version 7.</li>
+</ul>
 
         
       </section>

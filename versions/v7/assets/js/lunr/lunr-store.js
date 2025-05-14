@@ -251,6 +251,12 @@ var store = [{
         "url": "/versions/v7/integrate/migration-from-v5-to-v6",
         "teaser": null
       },{
+        "title": "Migration From v6 to v7",
+        "excerpt":"The Runtime of enmeshed has recently been updated from version 6 to version 7. Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors. The version update has resulted in some breaking changes. To support the migration of existing...","categories": [],
+        "tags": [],
+        "url": "/versions/v7/integrate/migration-from-v6-to-v7",
+        "teaser": null
+      },{
         "title": "Propose Attributes to peer",
         "excerpt":"An Identity may have received information about a peer in the past that it needs to process a transaction at a later time. To ensure the accuracy of the available information, the Identity can propose Attributes to the peer for creation. Depending on whether the peer confirms the fittingness of...","categories": [],
         "tags": [],
