@@ -147,6 +147,8 @@ docs_integrate:
         url: /integrate/migration-from-v4-to-v5
       - title: "Migration From v5 to v6"
         url: /integrate/migration-from-v5-to-v6
+      - title: "Migration From v6 to v7"
+        url: /integrate/migration-from-v6-to-v7
   - title: Troubleshooting
     children:
       - title: "Error codes"
