@@ -49,7 +49,7 @@ The step-by-step instructions can be consulted to start the migration to version
 - The properties `validFrom` and `validTo` have been removed from the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute), the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), the [IdentityAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#identityattributequery), the [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) and the [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery).
   Specifying validity periods for [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) is no longer supported as they were not enforced during Attribute processing so far.
 - The `template` property of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) was replaced by the `templateId` property in order to reduce data duplication by storing only the `id` of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) rather than the RelationshipTemplate itself within the Relationship.
-- The `title` property of the [File]({% link _docs_integrate/data-model-overview.md %}#file) became optional and should no longer be relied upon to always be present.
+- The `title` property of the [File]({% link _docs_integrate/data-model-overview.md %}#file) became optional and should no longer be relied upon to be set.
 
 ### Changed Behavior of Known Features
 
