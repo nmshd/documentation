@@ -56,9 +56,10 @@ The step-by-step instructions can be consulted to start the migration to version
 - Stricter validation of `tags` of [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) and [Files]({% link _docs_integrate/data-model-overview.md %}#file) have been added as documented in their description in the data model overview.
   An error with [error code]({% link _docs_integrate/error-codes.md %}) `error.consumption.attributes.invalidTags` will be thrown if an attempt is made to use invalid `tags`.
 
-### Changes to Connector Routes
+### Removed and Changed Connector Routes
 
-- The `onlyValid` parameter was removed from the use cases [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}), [Get own shared Attributes]({% link _docs_use-cases/use-case-consumption-get-own-shared-attributes.md %}) and [Get peer shared Attributes]({% link _docs_use-cases/use-case-consumption-get-peer-shared-attributes.md %}) as the properties `validFrom` and `validTo` have been removed from the [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes).
+- The `GET /api/v2/Attributes/Valid` Connector route and its underlying [use case]({% link _docs_integrate/use-cases.md %}) for getting valid [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) were removed, because the properties `validFrom` and `validTo` have been removed from the Attributes.
+- For the same reason, the `onlyValid` parameter was removed from the use cases [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}), [Get own shared Attributes]({% link _docs_use-cases/use-case-consumption-get-own-shared-attributes.md %}) and [Get peer shared Attributes]({% link _docs_use-cases/use-case-consumption-get-peer-shared-attributes.md %}).
   Accordingly, it was removed from the associated Connector routes as well.
 
 ## Runtime-Specific Breaking Changes
