@@ -77,6 +77,15 @@ Information about the password protection of a Token or a RelationshipTemplate i
 | password      | `string`              | The password of the Token or the RelationshipTemplate.                                                                                                                                                                                                                                                                                                                                                                             |         |
 | passwordIsPin | `true` \| `undefined` | If the password consists of 4 to 16 digits, the value of the `passwordIsPin` property can be set to `true`. In this case, the password is interpreted as a pin and a corresponding input field is displayed in the App when the pin needs to be entered. However, if the value is `undefined`, a regular input field for entering the password is displayed regardless of whether the password could also be interpreted as a pin. |         |
 
+### ObjectReference
+
+The data objects [Token](#token), [RelationshipTemplate](#relationshiptemplate) and [File](#file) have a `reference`.
+
+| Name      | Type     | Description                                            | Remarks |
+| --------- | -------- | ------------------------------------------------------ | ------- |
+| truncated | `string` | {% include descr_reference_truncated class="object" %} |         |
+| url       | `string` | The modern url reference.                              |         |
+
 ## RelationshipTemplate
 
 A RelationshipTemplate serves two purposes:
