@@ -81,10 +81,10 @@ Information about the password protection of a Token or a RelationshipTemplate i
 
 The data objects [Token](#token), [RelationshipTemplate](#relationshiptemplate) and [File](#file) have a `reference`.
 
-| Name      | Type     | Description               | Remarks |
-| --------- | -------- | ------------------------- | ------- |
-| truncated | `string` | The truncated reference.  |         |
-| url       | `string` | The modern url reference. |         |
+| Name      | Type     | Description                                                                                                                                                                                                                                         | Remarks |
+| --------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| truncated | `string` | The Base64 encoded truncated reference of this object, which actually consists of all information to get and decrypt it.                                                                                                                            |         |
+| url       | `string` | The object reference as a URL, consisting of all information to get and decrypt it. In addition, this URL is valid for browsers and therefore it is possible to show a help page if it is tried to access the object when the App is not installed. |         |
 
 ## RelationshipTemplate
 
