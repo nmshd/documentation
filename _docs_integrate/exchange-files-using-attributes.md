@@ -50,16 +50,16 @@ The [File]({% link _docs_integrate/data-model-overview.md %}#file) exchange flow
 
 In order to be able to [share a File with a peer](#share-an-own-file-with-a-peer) or to [transfer the ownership of a File to a peer](#transfer-the-ownership-of-a-file-to-a-peer), its content must first be uploaded to the Backbone in encrypted form.
 To do this, consult the documentation of the [Upload own File]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}) use case.
-By uploading the [File]({% link _docs_integrate/data-model-overview.md %}#file), it is assigned an `id` and a `truncatedReference` with which it can be identified from now on.
+By uploading the [File]({% link _docs_integrate/data-model-overview.md %}#file), it is assigned an `id` and a `reference.truncated` with which it can be identified from now on.
 Either of them can be specified as a parameter when executing the [Get File metadata]({% link _docs_use-cases/use-case-transport-get-file-metadata.md %}) use case in order to display the metadata information of the File.
-In the context of exchanging Files, particular attention should be paid to the `truncatedReference` property of the File.
+In the context of exchanging Files, particular attention should be paid to the `reference.truncated` property of the File.
 All Identities that know its value can download the encrypted content of the File from the Backbone and decrypt it.
 
 # Share an Own File With a Peer
 
-After [uploading a File](#upload-a-file), a certain kind of [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) can be used to share the value of the `truncatedReference` property of the [File]({% link _docs_integrate/data-model-overview.md %}#file) with other Identities.
+After [uploading a File](#upload-a-file), a certain kind of [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) can be used to share the value of the `reference.truncated` property of the [File]({% link _docs_integrate/data-model-overview.md %}#file) with other Identities.
 To be more precise, this is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type`.
-An IdentityFileReference stores the value of the `truncatedReference` property of the File within its `value` property.
+An IdentityFileReference stores the value of the `reference.truncated` property of the File within its `value` property.
 By [sending a suitable Request]({% link _docs_integrate/share-attributes-with-peer.md %}#send-and-receive-the-request), this IdentityAttribute can be shared with a `peer` of an already existing [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) or in the process of [establishing a Relationship]({% link _docs_integrate/establish-relationships.md %}).
 If the peer accepts the Request, a peer shared IdentityAttribute will be created for them and they will gain read access to the underlying File, that was [uploaded to the Backbone](#upload-a-file).
 For the sender an own shared IdentityAttribute will be created.
@@ -68,7 +68,7 @@ For the sender an own shared IdentityAttribute will be created.
 
 ## Create an IdentityFileReference
 
-After [uploading the File](#upload-a-file), an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` and the `truncatedReference` of the uploaded [File]({% link _docs_integrate/data-model-overview.md %}#file) as its `value.value` can be created by proceeding as described in the documentation on how to [create an IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself).
+After [uploading the File](#upload-a-file), an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` and the `reference.truncated` of the uploaded [File]({% link _docs_integrate/data-model-overview.md %}#file) as its `value.value` can be created by proceeding as described in the documentation on how to [create an IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself).
 The following `content` can be used during the creation process, with its properties `validFrom`, `validTo` and `tags` being optional:
 
 ```jsonc
@@ -78,33 +78,33 @@ The following `content` can be used during the creation process, with its proper
     "validTo": "<end of IdentityFileReference's validity>",
     "value": {
       "@type": "IdentityFileReference",
-      "value": "<truncatedReference of File>"
+      "value": "<truncated reference of File>"
     },
     "tags": ["<tag of IdentityFileReference to be created>", ...]
   }
 }
 ```
 
-If an App user [uploads a File](#upload-a-file), such an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` and the `truncatedReference` of the uploaded [File]({% link _docs_integrate/data-model-overview.md %}#file) as its `value.value` is created automatically in the background.
+If an App user [uploads a File](#upload-a-file), such an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with an [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` and the `reference.truncatedd` of the uploaded [File]({% link _docs_integrate/data-model-overview.md %}#file) as its `value.value` is created automatically in the background.
 For this reason, it is directly available to the App user for sharing.
 Furthermore, knowledge of this automation in the App should motivate Integrators of Connectors to strive to [exchange Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}) in order to achieve File management compatibility between them and App users.
 {: .notice--info}
 
 ## Share an IdentityFileReference
 
-After the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` and the `truncatedReference` of the uploaded [File]({% link _docs_integrate/data-model-overview.md %}#file) as its `value.value` has been created, the Integrator of the Connector must send a [suitable Request]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes) to share it.
+After the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` and the `reference.truncated` of the uploaded [File]({% link _docs_integrate/data-model-overview.md %}#file) as its `value.value` has been created, the Integrator of the Connector must send a [suitable Request]({% link _docs_integrate/share-attributes-with-peer.md %}#request-for-sharing-attributes) to share it.
 More details on how to share [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) can be found in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) scenario documentation.
 
 ## Load a Referenced File
 
-Once the shared [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` has been obtained, its recipient has knowledge of its `value.value` and thus also of the `truncatedReference` of the [File]({% link _docs_integrate/data-model-overview.md %}#file) to be shared.
+Once the shared [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) that has [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as its `value.@type` has been obtained, its recipient has knowledge of its `value.value` and thus also of the `reference.truncated` of the [File]({% link _docs_integrate/data-model-overview.md %}#file) to be shared.
 In order for the recipient to be authorized to [download]({% link _docs_use-cases/use-case-transport-download-file.md %}) the encrypted content of the File from the Backbone and decrypt it, they must first load the metadata information of the File.
-This is done by executing the [Load File]({% link _docs_use-cases/use-case-transport-load-file.md %}) use case and specifying the `truncatedReference` of the File as the required `reference`.
+This is done by executing the [Load File]({% link _docs_use-cases/use-case-transport-load-file.md %}) use case and specifying the `reference.truncated` of the File as the required `reference`.
 
-Please note that it is also possible to store the `truncatedReference` of a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for the File within the `value.value` property of the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) `value.@type` instead of the `truncatedReference` of the [File]({% link _docs_integrate/data-model-overview.md %}#file) itself.
+Please note that it is also possible to store the `reference.truncated` of a [Token]({% link _docs_integrate/data-model-overview.md %}#token) for the File within the `value.value` property of the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) of [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) `value.@type` instead of the `reference.truncated` of the [File]({% link _docs_integrate/data-model-overview.md %}#file) itself.
 In this case, the [Token for the File must be created]({% link _docs_use-cases/use-case-transport-create-token-for-file.md %}) beforehand.
 The advantage of using Tokens is that they can be personalized or password protected.
-When executing the [Load File]({% link _docs_use-cases/use-case-transport-load-file.md %}) use case, the `truncatedReference` of the Token can be specified as the `reference`.
+When executing the [Load File]({% link _docs_use-cases/use-case-transport-load-file.md %}) use case, the `reference.truncated` of the Token can be specified as the `reference`.
 If the Token is password protected, the `password` must additionally be entered for loading.
 {: .notice--info}
 
@@ -117,7 +117,7 @@ This must be done separately if required.
 
 ## Utilization of a ProprietaryFileReference
 
-Furthermore, it is possible to represent [uploaded Files](#upload-a-file) within a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) utilizing a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) that has [ProprietaryFileReference]({% link _docs_integrate/attribute-values.md %}#proprietaryfilereference) as its `value.@type` and the `truncatedReference` of the [File]({% link _docs_integrate/data-model-overview.md %}#file) as `value.value`.
+Furthermore, it is possible to represent [uploaded Files](#upload-a-file) within a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) utilizing a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) that has [ProprietaryFileReference]({% link _docs_integrate/attribute-values.md %}#proprietaryfilereference) as its `value.@type` and the `reference.truncated` of the [File]({% link _docs_integrate/data-model-overview.md %}#file) as `value.value`.
 It is advantageous to use such a RelationshipAttribute instead of an IdentityAttribute of [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) `value.@type` if the File fits more into the context of the Relationship and is less attributable to a single Identity.
 An overview of the available options for [creating a RelationshipAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-a-relationshipattribute) can be found in the corresponding scenario documentation.
 
@@ -143,7 +143,7 @@ In the following subsections, we describe the general appearance of a Request fo
 For transferring the ownership of a single File, the sender needs to insert a single RequestItem of type [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem) into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 The sender can only transfer the ownership of a File that was already [uploaded to the Backbone](#upload-a-file) and is owned by themselves.
 The latter means that the `isOwn` property of the corresponding File is `true`.
-To create the TransferFileOwnershipRequestItem, the `truncatedReference` of the File must be inserted into its `fileReference` property.
+To create the TransferFileOwnershipRequestItem, the `reference.truncated` of the File must be inserted into its `fileReference` property.
 
 To get a list of all Files that are owned by the sender, proceed as described in the [Query metadata of own Files]({% link _docs_use-cases/use-case-transport-query-metadata-of-own-files.md %}) use case documentation.
 {: .notice--info}
@@ -151,7 +151,7 @@ To get a list of all Files that are owned by the sender, proceed as described in
 ### Example of Transferring the Ownership of a File
 
 We assume that the Integrator of the sender has [uploaded a File to the Backbone](#upload-a-file), whose ownership they want to transfer to the recipient.
-To do so, they need to insert the `truncatedReference` of the corresponding File into the `fileReference` property of the [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem).
+To do so, they need to insert the `reference.truncated` of the corresponding File into the `fileReference` property of the [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem).
 The value of the `mustBeAccepted` property is set to `true` in this example.
 Then, the RequestItem needs to be put into the `item` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for transferring the ownership of Files.
 
@@ -162,7 +162,7 @@ Then, the RequestItem needs to be put into the `item` property of the [Request](
     {
       "@type": "TransferFileOwnershipRequestItem",
       "mustBeAccepted": true,
-      "fileReference": "<truncatedReference of the File>"
+      "fileReference": "<truncated reference of the File>"
     }
   ]
 }
@@ -207,7 +207,7 @@ If the recipient agrees to receive the ownership of one of the sender's Files, t
 The [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) must be used for this.
 The acceptance of a TransferFileOwnershipRequestItem leads to the transfer of the ownership of the File on the Backbone.
 Additionally, a [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be created for the recipient, whose `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type`.
-The `value` of the IdentityFileReference is the `truncatedReference` of the File that is now owned by the recipient.
+The `value` of the IdentityFileReference is the `reference.truncated` of the File that is now owned by the recipient.
 Also, the newly created RepositoryAttribute of the recipient will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient.
 Based on this, an appropriate AcceptResponseItem of type [TransferFileOwnershipAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershipacceptresponseitem) is generated.
 It contains the `id` and the `content` of the created own shared IdentityAttribute in its `attributeId` and `attribute` property, respectively.

@@ -44,7 +44,7 @@ api_route_regex: ^POST /api/v2/Files/Own$
 
 This use case takes a given file outside of enmeshed, encrypts and uploads it to the Backbone and creates a [File]({% link _docs_integrate/data-model-overview.md %}#file) with the respective metadata information for the Identity to access it.
 The File can from now on be shared by references to other Identities.
-This can be the `truncatedReference` of the File itself, which is used, for example, when [exchanging Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}), or the `truncatedReference` of a [Token]({% link _docs_integrate/data-model-overview.md %}#token).
+This can be the `reference.truncated` of the File itself, which is used, for example, when [exchanging Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}), or the `reference.truncated` of a [Token]({% link _docs_integrate/data-model-overview.md %}#token).
 In the latter case, the [Token for the File must be created]({% link _docs_use-cases/use-case-transport-create-token-for-file.md %}) first.
 
 ## Parameters
