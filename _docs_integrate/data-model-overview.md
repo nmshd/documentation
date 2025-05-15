@@ -62,7 +62,7 @@ A Token has the following properties:
 | forIdentity        | `string` \| `undefined`                                    | Can be set to an enmeshed address. If set, then only the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) with that `address` can retrieve the Token from the Backbone.                                                                            |
 | passwordProtection | [`PasswordProtection`](#passwordprotection) \| `undefined` | Information about whether or not the Token is protected by a password or pin.                                                                                                                                                                                            |                                               |
 | truncatedReference | `string`                                                   | A Base64 encoded string containing all information necessary for another Identity to load the Token. You can use it to share the Token with someone else. This property is deprecated and will be replaced by the `reference.truncated` property of the Token in future. | saved only locally                            |
-| reference          | [`ObjectReference`](#objectreference)                      | {% include descr_reference_truncated class="Token" %}                                                                                                                                                                                                                    | saved only locally                            |
+| reference          | [`ObjectReference`](#objectreference)                      | {% include descr_reference class="Token" %}                                                                                                                                                                                                                              | saved only locally                            |
 | isEphemeral        | `boolean`                                                  | If set to `true` the Token will not be cached in the database and only displayed once. You will not be able to fetch this Token unless you remember its truncatedReference.                                                                                              |
 
 ### PasswordProtection
@@ -81,10 +81,10 @@ Information about the password protection of a Token or a RelationshipTemplate i
 
 The data objects [Token](#token), [RelationshipTemplate](#relationshiptemplate) and [File](#file) have a `reference`.
 
-| Name      | Type     | Description                                            | Remarks |
-| --------- | -------- | ------------------------------------------------------ | ------- |
-| truncated | `string` | {% include descr_reference_truncated class="object" %} |         |
-| url       | `string` | The modern url reference.                              |         |
+| Name      | Type     | Description               | Remarks |
+| --------- | -------- | ------------------------- | ------- |
+| truncated | `string` | The truncated reference.  |         |
+| url       | `string` | The modern url reference. |         |
 
 ## RelationshipTemplate
 
