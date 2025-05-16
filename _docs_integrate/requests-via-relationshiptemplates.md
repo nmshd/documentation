@@ -123,9 +123,9 @@ In the payload example below, the [Request whose validity was already checked](#
 }
 ```
 
-If the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) has been successfully created, the Sender receives a success response from which its `id` and `truncatedReference` can be read. Note that the creation of a RelationshipTemplate which contains a Request does not yet lead to the creation of a corresponding [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest). This is only created after the Recipient of the Request has responded to it.
+If the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) has been successfully created, the Sender receives a success response from which its `id` and `reference.truncated` can be read. Note that the creation of a RelationshipTemplate which contains a Request does not yet lead to the creation of a corresponding [LocalRequest]({% link _docs_integrate/data-model-overview.md %}#localrequest). This is only created after the Recipient of the Request has responded to it.
 
-{% include copy-notice description="Save the `id` and the `truncatedReference` of the RelationshipTemplate because these values are needed in the next steps." %}
+{% include copy-notice description="Save the `id` and the `reference.truncated` of the RelationshipTemplate because these values are needed in the next steps." %}
 
 ## Receive the Request by loading the RelationshipTemplate
 
@@ -181,7 +181,7 @@ This can be observed by [querying the Request]({% link _docs_use-cases/use-case-
 
 ### Accept
 
-If you tried out the rejection before this step, make sure to create a new Request by [loading the RelationshipTemplate](#receive-the-request-by-loading-the-relationshiptemplate) again with the same `truncatedReference`.
+If you tried out the rejection before this step, make sure to create a new Request by [loading the RelationshipTemplate](#receive-the-request-by-loading-the-relationshiptemplate) again with the same `reference.truncated`.
 
 To [accept the Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}), you need its `id` that you saved in a previous step.
 In the payload you have to accept at least all RequestItems where the `mustBeAccepted` property is set to `true`.

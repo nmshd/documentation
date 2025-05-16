@@ -50,9 +50,9 @@ This use case loads a peer's [RelationshipTemplate]({% link _docs_integrate/data
 
 There are two different options to use this use case, depending on the actual information received by the peer:
 
-- by knowing a `truncatedReference` of the peer's RelationshipTemplate (RelationshipTemplateReferenceTruncated)
+- by knowing a `reference.truncated` of the peer's RelationshipTemplate
   - `reference` as string
-- by knowing a `truncatedReference` of the peer's [Token]({% link _docs_integrate/data-model-overview.md %}#token), which references to the peer's RelationshipTemplate (TokenReferenceTruncated)
+- by knowing a `reference.truncated` of the peer's [Token]({% link _docs_integrate/data-model-overview.md %}#token), which references to the peer's RelationshipTemplate
   - `reference` as string
 
 If the RelationshipTemplate or the Token, if there is one, is protected by a password via the `passwordProtection` property, it must be entered with the `password` parameter of this use case in order to be authorized to load the RelationshipTemplate.

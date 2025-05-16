@@ -122,7 +122,7 @@ However, if the value is `undefined`, a regular input field for entering the pas
 
 If you have successfully created the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) on the templator, you will receive a success response from which you can read its `id`. As the templator is the creator of the RelationshipTemplate, the `createdBy` property contains the address of the templator. For this reason, the value of the `isOwn` property is set to `true` in this context.
 
-{% include copy-notice description="Save the `id` of the RelationshipTemplate so that you can refer to it and make it available to other Identities later. For the same reason, save the value of the property `truncatedReference`." %}
+{% include copy-notice description="Save the `id` of the RelationshipTemplate so that you can refer to it and make it available to other Identities later. For the same reason, save the value of the property `reference.truncated`." %}
 
 ## Make the RelationshipTemplate Available
 
@@ -143,7 +143,7 @@ If a Connector wants to initate a Relationship with the templator, it must first
 }
 ```
 
-In doing so, it is necessary to insert the value of the `truncatedReference` property read from the [created RelationshipTemplate]({% link _docs_integrate/establish-relationships.md %}#successfully-created-relationshiptemplate) into the `reference` property.
+In doing so, it is necessary to insert the value of the `reference.truncated` property read from the [created RelationshipTemplate]({% link _docs_integrate/establish-relationships.md %}#successfully-created-relationshiptemplate) into the `reference` property.
 
 When the RelationshipTemplate of the templator is successfully loaded onto the Connector, the `transport.peerRelationshipTemplateLoaded` [Connector event]({% link _docs_integrate/connector-events.md %}) is triggered and a success response is sent. This success response looks like the success response you receive when you have [successfully created a RelationshipTemplate]({% link _docs_integrate/establish-relationships.md %}#successfully-created-relationshiptemplate) on the templator, except that the value of the property `isOwn` is now `false` instead of `true`. Assuming that there is no Relationship between the Connector and the templator yet and that the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) contains a [RelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplatecontent) in its `content` property, the Connector will additionally receive a new incoming Request. The Integrator of the Connector can [accept]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}) it if they want to [initiate a Relationship]({% link _docs_integrate/establish-relationships.md %}#initiate-it-as-a-connector) with the templator.
 

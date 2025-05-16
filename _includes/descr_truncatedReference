@@ -1,1 +1,0 @@
-A Base64 encoded string containing all information necessary for another Identity to load the {{ include.class }}. You can use it to share the {{ include.class }} with someone else.

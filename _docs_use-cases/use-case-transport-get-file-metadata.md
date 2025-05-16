@@ -47,12 +47,12 @@ If it is not the metadata information of the File that is of interest, but its a
 
 ## Parameters
 
-- `id` or `truncatedReference` of the File whose metadata should be retrieved.
+- `id` or `reference.truncated` of the File whose metadata should be retrieved.
 
 ## On Success
 
-- The metadata of the [File]({% link _docs_integrate/data-model-overview.md %}#file) that matches the `id` or `truncatedReference`.
+- The metadata of the [File]({% link _docs_integrate/data-model-overview.md %}#file) that matches the `id` or `reference.truncated`.
 
 ## On Failure
 
-- No File corresponds to the `id` or `truncatedReference`.
+- No File corresponds to the `id` or `reference.truncated`.
