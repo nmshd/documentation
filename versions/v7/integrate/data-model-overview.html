@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-05-16T12:12:55+02:00">
+  <meta property="article:published_time" content="2025-05-16T16:48:18+02:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2025-05-16T12:12:55+02:00">
+    <meta itemprop="datePublished" content="2025-05-16T16:48:18+02:00">
     
 
     <div class="page__inner-wrap">
@@ -3625,7 +3625,7 @@ Internally, for your corresponding ThirdPartyRelationshipAttribute the <code cla
 
 <h2 id="mail">Mail</h2>
 
-<p>A Mail can be sent as the content of a <a href="#message">Message</a>. It is comparable with the classic email, so its properties should not contain any surprise.</p>
+<p>A Mail can be sent as the content of a <a href="#message">Message</a>. It is comparable with the classic email, so its properties should be familiar.</p>
 
 <table>
   <thead>
@@ -3644,12 +3644,12 @@ Internally, for your corresponding ThirdPartyRelationshipAttribute the <code cla
     <tr>
       <td>to</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code></td>
-      <td>The enmeshed addresses of the main recipients of this Mail.</td>
+      <td>The enmeshed addresses of the main recipients of this Mail. Only <code class="language-plaintext highlighter-rouge">recipients</code> of the Message may be specified here.</td>
     </tr>
     <tr>
       <td>cc</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>The enmeshed addresses that should receive a copy of this Mail, additionally to the ones specified in <code class="language-plaintext highlighter-rouge">to</code>.</td>
+      <td>The enmeshed addresses that should receive a copy of this Mail, additionally to the enmeshed addresses of the main recipients specified in <code class="language-plaintext highlighter-rouge">to</code>. Only <code class="language-plaintext highlighter-rouge">recipients</code> of the Message which are not main recipients of the Mail can receive a copy of it.</td>
     </tr>
     <tr>
       <td>subject</td>
@@ -3958,7 +3958,7 @@ There is the <a href="/versions/v7/use-case-consumption-upsert-identitymetadata"
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-16T12:12:55+02:00">May 16, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-16T16:48:18+02:00">May 16, 2025</time></p>
 
       </footer>
 
