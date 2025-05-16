@@ -1072,15 +1072,15 @@ When receiving a [RelationshipTemplate](#relationshiptemplate) with an [Arbitrar
 
 ## Mail
 
-A Mail can be sent as the content of a [Message](#message). It is comparable with the classic email, so its properties should not contain any surprise.
+A Mail can be sent as the content of a [Message](#message). It is comparable with the classic email, so its properties should be familiar.
 
-| Name    | Type                      | Description                                                                                                 |
-| ------- | ------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| @type   | `"Mail"`                  |                                                                                                             |
-| to      | `string[]`                | The enmeshed addresses of the main recipients of this Mail.                                                 |
-| cc      | `string[]` \| `undefined` | The enmeshed addresses that should receive a copy of this Mail, additionally to the ones specified in `to`. |
-| subject | `string`                  | The subject of the Mail.                                                                                    |
-| body    | `string`                  | The body of the Mail.                                                                                       |
+| Name    | Type                      | Description                                                                                                                                                                                                                                           |
+| ------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| @type   | `"Mail"`                  |                                                                                                                                                                                                                                                       |
+| to      | `string[]`                | The enmeshed addresses of the main recipients of this Mail. Only `recipients` of the Message may be specified here.                                                                                                                                   |
+| cc      | `string[]` \| `undefined` | The enmeshed addresses that should receive a copy of this Mail, additionally to the enmeshed addresses of the main recipients specified in `to`. Only `recipients` of the Message which are not main recipients of the Mail can receive a copy of it. |
+| subject | `string`                  | The subject of the Mail.                                                                                                                                                                                                                              |
+| body    | `string`                  | The body of the Mail.                                                                                                                                                                                                                                 |
 
 ## ArbitraryMessageContent
 
