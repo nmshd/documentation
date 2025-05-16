@@ -1107,7 +1107,7 @@ When receiving a [RelationshipTemplate](#relationshiptemplate) with an [Arbitrar
 
 ## Mail
 
-A Mail can be sent as the content of a [Message](#message). It is comparable with the classic email, so its properties should not contain any surprise.
+A Mail can be sent as the content of a [Message](#message). It is comparable with the classic email, so its properties should be familiar.
 
 | Name    | Type                      | Description                                                                                                                                                                                                                                           |
 | ------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
