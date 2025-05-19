@@ -162,7 +162,7 @@ Relationships are usually used as the technical term, whereas contact is used as
 ### Relationship Structure
 
 - id
-- RelationshipTemplate
+- templateId
 - status
 - peer
 - peerIdentity
