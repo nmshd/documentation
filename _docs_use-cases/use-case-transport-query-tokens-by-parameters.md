@@ -45,6 +45,7 @@ This use case queries [Tokens]({% link _docs_integrate/data-model-overview.md %}
 
 ## Parameters
 
+- `isOwn` indicates if the Token was created by the current Identity.
 - `createdAt` is the ISODateTime the Token was created at.
 - `createdBy` is the enmeshed `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that created the Token.
 - `createdByDevice` is the `id` of the Device that created the Token.

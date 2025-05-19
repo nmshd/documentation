@@ -121,6 +121,8 @@ The actual file is then shared by a file reference to a recipient. Files can be 
 - expiresAt: ISO String when the file expires
 - mimetype: Mimetype of the file's payload
 - isOwn: Whether or not the file was uploaded by the current Identity
+- truncatedReference: The truncated reference of the file
+- reference: The reference of the file
 - deletedAt: ISO String when the file has been deleted
 - deletedBy: Address of the Identity which deleted the file
 - deletedByDevice: Device id of the device which deleted the file
@@ -149,6 +151,8 @@ Depending on the content of the Message, a Message could act as a technical Mess
 - relationshipIds: Array of Relationship IDs of the recipients (same order as recipients)
 - content: The content of the Message
 - attachments: Array of files which are attached to this Message
+- isOwn: Whether or not the Message was sent by the current Identity
+- wasReadAt: ISO String indicating when the Message was firstly read
 
 ## Relationships
 
@@ -162,6 +166,8 @@ Relationships are usually used as the technical term, whereas contact is used as
 - RelationshipTemplate
 - status
 - peer
+- peerIdentity
+- peerDeletionInfo
 - creationContent
 - auditLog
   - createdAt
@@ -256,6 +262,10 @@ A company has no customer system where customers can log in but would still like
 - createdAt
 - expiresAt
 - content
+- forIdentity
+- passwordProtection
+- truncatedReference
+- reference
 
 ## Tokens
 
@@ -272,9 +282,13 @@ The token id and the generated secret key are then the only two properties which
 ### Token Structure
 
 - id
+- isOwn
 - createdBy
 - createdByDevice
 - createdAt
 - expiresAt
 - content
+- forIdentity
+- passwordProtection
 - truncatedReference
+- reference
