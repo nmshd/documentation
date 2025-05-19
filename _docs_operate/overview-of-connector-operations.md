@@ -49,6 +49,10 @@ If you use FerretDB as your database engine make sure to backup the data of the 
 
 Using the command-line interface (CLI) of the Connector, it is possible to perform operations like deleting its underlying Identity.
 
+### Identity Deletion
+
+To delete the underlying Identity of the Connector, its CLI can be used.
+
 ## Proposed System Tasks
 
 ### Check Health
