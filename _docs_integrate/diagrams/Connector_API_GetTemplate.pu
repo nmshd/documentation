@@ -16,8 +16,8 @@ Backbone <-> Connector: Verified enmeshed Organization Identity
 
 == Get Template ==
 
--> backend ++: Start\n(with reference.truncated)
-backend -> Connector ++: POST /RelationshipTemplates\n- reference.truncated
+-> backend ++: Start\n(with <truncated reference>)
+backend -> Connector ++: POST /RelationshipTemplates\n- <truncated reference>
 Connector -> Connector: Validate input
 Connector -> Connector: Extract tokenId and secretKey\nout of reference
 Connector -> Connector: Validate tokenId and secretKey
