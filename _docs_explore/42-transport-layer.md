@@ -278,3 +278,4 @@ The token id and the generated secret key are then the only two properties which
 - expiresAt
 - content
 - truncatedReference
+- reference
