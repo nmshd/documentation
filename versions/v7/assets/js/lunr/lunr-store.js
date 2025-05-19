@@ -324,7 +324,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Use Cases",
-        "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Load Token by truncated reference (without having an account) Anonymous Identity AnonymousTokens Runtime Accept incoming Request Consumption Identity Requests Runtime Change default RepositoryAttribute Consumption Identity Attributes Runtime Check if incoming Request can be accepted Consumption Identity Requests Runtime Check if incoming...","categories": [],
+        "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Load Token by reference (without having an account) Anonymous Identity AnonymousTokens Runtime Accept incoming Request Consumption Identity Requests Runtime Change default RepositoryAttribute Consumption Identity Attributes Runtime Check if incoming Request can be accepted Consumption Identity Requests Runtime Check if incoming Request...","categories": [],
         "tags": [],
         "url": "/versions/v7/integrate/use-cases",
         "teaser": null
@@ -425,10 +425,10 @@ var store = [{
         "url": "/versions/v7/use/secure-device-setup",
         "teaser": null
       },{
-        "title": "Load Token by truncated reference (without having an account)",
+        "title": "Load Token by reference (without having an account)",
         "excerpt":"This use case attempts to retrieve a Token by its reference.truncated without having an account on the Backbone, thus without an authentication. This can be used to fetch Tokens for Device Onboarding or Recovery. Parameters The reference that contains all information to load a Token. The password if the Token...","categories": [],
         "tags": [],
-        "url": "/versions/v7/use-case-anonymous-load-token-by-truncated-reference-without-having-an-account",
+        "url": "/versions/v7/use-case-anonymous-load-token-by-reference-without-having-an-account",
         "teaser": null
       },{
         "title": "Accept incoming Request",

@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Succeed a RelationshipAttribute and notify peer - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Load Token by reference (without having an account) - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Succeed a RelationshipAttribute and notify peer">
-<meta property="og:url" content="/versions/v7/use-case-consumption-succeed-a-relationshipattribute-and-notify-peer">
+<meta property="og:title" content="Load Token by reference (without having an account)">
+<meta property="og:url" content="/versions/v7/use-case-anonymous-load-token-by-reference-without-having-an-account">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/versions/v7/use-case-consumption-succeed-a-relationshipattribute-and-notify-peer">
+<link rel="canonical" href="/versions/v7/use-case-anonymous-load-token-by-reference-without-having-an-account">
 
 
 
@@ -365,7 +365,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Succeed a RelationshipAttribute and notify peer">
+    <meta itemprop="headline" content="Load Token by reference (without having an account)">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2025-05-19T16:42:13+02:00">
     
@@ -374,7 +374,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/versions/v7/use-case-consumption-succeed-a-relationshipattribute-and-notify-peer" itemprop="url">Succeed a RelationshipAttribute and notify peer
+            <a href="/versions/v7/use-case-anonymous-load-token-by-reference-without-having-an-account" itemprop="url">Load Token by reference (without having an account)
 </a>
           </h1>
           
@@ -397,27 +397,27 @@
     <table>
         
         <tr><td>id</td>
-            <td>RA17</td></tr>
+            <td>RY1</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
         
         <tr><td>layer</td>
-            <td>Consumption</td></tr>
+            <td>Anonymous</td></tr>
         
         <tr><td>facade</td>
-            <td>AttributesFacade</td></tr>
+            <td>AnonymousTokensFacade</td></tr>
         
         <tr><td>function</td>
-            <td>succeedRelationshipAttributeAndNotifyPeer</td></tr>
+            <td>loadPeerTokenByReference</td></tr>
         
         <tr></tr>
         
         <tr><td>feature category</td>
-            <td>Cross-Identity Attribute sharing</td></tr>
+            <td>Share information over side-channel</td></tr>
         
         <tr><td>tech category</td>
-            <td>Attributes</td></tr>
+            <td>AnonymousTokens</td></tr>
         
         <tr><td>status</td>
             <td>DONE</td></tr>
@@ -430,8 +430,7 @@
         <tr><td>actor</td>
             <td>Identity</td></tr>
         
-        <tr><td>trigger</td>
-            <td>REST API</td></tr>
+        <tr></tr>
         
         <tr></tr>
         
@@ -450,14 +449,13 @@
         
         <tr></tr>
         
-        <tr><td>api_route_regex</td>
-            <td>POST /api/v2/Attributes/{predecessorId}/Succeed</td></tr>
+        <tr></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-consumption-succeed-a-relationshipattribute-and-notify-peer</td></tr>
+            <td>use-case-anonymous-load-token-by-reference-without-having-an-account</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -465,61 +463,30 @@
 </div>
 -->
 
-<p>This use case allows the owner to update a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>, while automatically handling the coherent versioning at both your and your peer&#8217;s side.
-<a href="/versions/v7/integrate/update-attributes-by-succession#succeeding-own-relationshipattributes">Succeeding an own RelationshipAttribute</a>, a new <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> with the updated <code class="language-plaintext highlighter-rouge">content</code> will be created at your side.
-In its <code class="language-plaintext highlighter-rouge">succeeds</code> property it links to the predecessing version, which in turn is also updated and links to the newly created version in its <code class="language-plaintext highlighter-rouge">succeededBy</code> property.
-Thus, a doubly linked list is established, ensuring every version to have not more that one predecessor or successor.
-Once the succession at your side is completed, a <a href="/versions/v7/integrate/data-model-overview#notification">Notification</a> is sent automatically to your peer.
-It triggers the succession of their peer shared RelationshipAttribute in the same manner as described above, such that both your succession chains match.</p>
+<p>This use case attempts to retrieve a <a href="/versions/v7/integrate/data-model-overview#token">Token</a> by its <code class="language-plaintext highlighter-rouge">reference.truncated</code> without having an account on the Backbone, thus without an authentication.</p>
+
+<p>This can be used to fetch <code class="language-plaintext highlighter-rouge">Tokens</code> for Device Onboarding or Recovery.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">predecessorId</code>: the <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute with the RelationshipAttribute <code class="language-plaintext highlighter-rouge">content</code> you want to succeed</li>
-  <li>The updated <code class="language-plaintext highlighter-rouge">successorContent</code> limited to the <code class="language-plaintext highlighter-rouge">value</code> property of a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> that may be changed by a succession</li>
+  <li>The <code class="language-plaintext highlighter-rouge">reference</code> that contains all information to load a Token.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">password</code> if the Token is protected by a password via its <code class="language-plaintext highlighter-rouge">passwordProtection</code> property.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>The response returns a <code class="language-plaintext highlighter-rouge">predecessor</code> and a <code class="language-plaintext highlighter-rouge">successor</code> LocalAttribute, as well as the <code class="language-plaintext highlighter-rouge">notificationId</code> of the Notification sent to the peer.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">predecessor</code> is an updated version of the own shared RelationshipAttribute, having the <code class="language-plaintext highlighter-rouge">succeededBy</code> field set to the <code class="language-plaintext highlighter-rouge">successor</code>&#8217;s <code class="language-plaintext highlighter-rouge">id</code>.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">successor</code> is a new own shared RelationshipAttribute version with the specified <code class="language-plaintext highlighter-rouge">successorContent</code>. Its <code class="language-plaintext highlighter-rouge">succeeds</code> property links to the <code class="language-plaintext highlighter-rouge">predecessor</code>.</li>
+  <li>Returns the corresponding <a href="/versions/v7/integrate/data-model-overview#token">Token</a>.</li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>The response cannot be created if the <code class="language-plaintext highlighter-rouge">predecessorId</code> doesn&#8217;t belong to a valid own LocalAttribute with RelationshipAttribute <code class="language-plaintext highlighter-rouge">content</code>.</li>
-  <li>The response cannot be created if the LocalAttribute belonging to the <code class="language-plaintext highlighter-rouge">predecessorId</code> already has a successor.</li>
-  <li>The response cannot be created if the LocalAttribute belonging to the <code class="language-plaintext highlighter-rouge">predecessorId</code> has a <code class="language-plaintext highlighter-rouge">deletionInfo</code> with <code class="language-plaintext highlighter-rouge">deletionStatus</code> other than <code class="language-plaintext highlighter-rouge">"DeletionRequestRejected"</code>.</li>
-  <li>The response cannot be created if the parameters are malformed.</li>
+  <li>There is no <code class="language-plaintext highlighter-rouge">Token</code> that matches the <code class="language-plaintext highlighter-rouge">reference</code>.</li>
+  <li>The Token is personalized for another <a href="/versions/v7/integrate/data-model-overview#identity">Identity</a> via the property <code class="language-plaintext highlighter-rouge">forIdentity</code> of the Token.</li>
+  <li>No <code class="language-plaintext highlighter-rouge">password</code> or an incorrect <code class="language-plaintext highlighter-rouge">password</code> was entered in case of a password protected Token.</li>
 </ul>
-  <h2>How to execute this use case with the Connector?</h2>
-
-The Connector is our first-class citizen, thus we provide you with a detailed API description for every use case.
-This use case can be executed with the REST API of the Connector which you can <a href="/integrate/access-the-connector">Access the Connector</a>.
- 
-<h6>Corresponding interactive API docs excerpt:</h6>
-
-<rapi-doc-mini
-    server-url="https://doc-demo.is.enmeshed.eu/"
-    default-api-server="https://doc-demo.is.enmeshed.eu/"
-    api-key-name="x-api-key"
-    api-key-location="header"
-    api-key-value="apikey"
-    layout="column"
-    default-schema-tab="example"
-    spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
-    paths-expanded="false"
-    theme="light"
-    bg-color="#f9f9fb"
-    
-    match-paths="^POST /api/v2/Attributes/{predecessorId}/Succeed$"
-    
-    match-type="regex"
-></rapi-doc-mini>
-<br />
  
 
         
