@@ -1098,7 +1098,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Query Tokens by parameters",
-        "excerpt":"This use case queries Tokens of the Identity. Parameters createdAt is the ISODateTime the Token was created at. createdBy is the enmeshed address of the Identity that created the Token. createdByDevice is the id of the Device that created the Token. expiresAt is the ISODateTime the Token expires. forIdentity is...","categories": [],
+        "excerpt":"This use case queries Tokens of the Identity. Parameters isOwn indicates if the Token was created by the current Identity. createdAt is the ISODateTime the Token was created at. createdBy is the enmeshed address of the Identity that created the Token. createdByDevice is the id of the Device that created...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-tokens-by-parameters",
         "teaser": null
