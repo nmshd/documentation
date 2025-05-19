@@ -50,7 +50,7 @@ The step-by-step instructions can be consulted to start the migration to version
   Specifying validity periods for [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) is no longer supported as they were not enforced during Attribute processing so far.
 - The `template` property of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) was replaced by the `templateId` property in order to reduce data duplication by storing only the `id` of the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) rather than the RelationshipTemplate itself within the Relationship.
 - The `truncatedReference` property of the [Token]({% link _docs_integrate/data-model-overview.md %}#token), the [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) and the [File]({% link _docs_integrate/data-model-overview.md %}#file), which was already marked as deprecated, has been removed and replaced by the `reference.truncated` property.
-  In addition, the mentioned objects have a `reference.url` property, which is used to create QR codes that can be scanned to access the corresponding objects.
+  The property `reference` was introduced to group the property `truncated` with the additional property `url`, improving structure and better organizing related data.
 - The `title` property of the [File]({% link _docs_integrate/data-model-overview.md %}#file) became optional and should no longer be relied upon to be set.
 
 ### Changed Behavior of Known Features
