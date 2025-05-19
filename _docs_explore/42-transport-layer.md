@@ -121,7 +121,6 @@ The actual file is then shared by a file reference to a recipient. Files can be 
 - expiresAt: ISO String when the file expires
 - mimetype: Mimetype of the file's payload
 - isOwn: Whether or not the file was uploaded by the current Identity
-- truncatedReference: The truncated reference of the file
 - reference: The reference of the file
 - deletedAt: ISO String when the file has been deleted
 - deletedBy: Address of the Identity which deleted the file
@@ -264,7 +263,6 @@ A company has no customer system where customers can log in but would still like
 - content
 - forIdentity
 - passwordProtection
-- truncatedReference
 - reference
 
 ## Tokens
@@ -290,5 +288,4 @@ The token id and the generated secret key are then the only two properties which
 - content
 - forIdentity
 - passwordProtection
-- truncatedReference
 - reference
