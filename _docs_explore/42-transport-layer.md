@@ -272,6 +272,7 @@ The token id and the generated secret key are then the only two properties which
 ### Token Structure
 
 - id
+- isOwn
 - createdBy
 - createdByDevice
 - createdAt
