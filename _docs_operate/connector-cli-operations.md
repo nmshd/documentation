@@ -23,6 +23,20 @@ required_by:
 
 Learn how to set up the command-line interface (CLI) of the Connector and how to perform operations with it.
 
+## Connector CLI Setup
+
+### Setup with Docker Compose
+
+## Connector CLI Operations
+
+### Start Command
+
+### Status Command
+
 ### Identity Deletion
 
 To delete the underlying Identity of the Connector, its CLI can be used.
+
+#### Initialization Command
+
+#### Cancellation Command
