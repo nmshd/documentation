@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-05-16T16:48:18+02:00">
+  <meta property="article:published_time" content="2025-05-19T14:07:12+02:00">
 
 
 
@@ -301,7 +301,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Transport Layer">
     <meta itemprop="description" content="The transport layer is located between the Backbone layer and the consumption layer. Thus it acts as the interface between the trusted environment (own device/network) and the untrusted environment (Backbone). It is usually hosted as a REST API by the Connector or programmatically accessed by the App. The Runtime is the primary technical building block, containing the transport library, the content library and the crypto library.">
-    <meta itemprop="datePublished" content="2025-05-16T16:48:18+02:00">
+    <meta itemprop="datePublished" content="2025-05-19T14:07:12+02:00">
     
 
     <div class="page__inner-wrap">
@@ -450,6 +450,8 @@
   <li>expiresAt: ISO String when the file expires</li>
   <li>mimetype: Mimetype of the file’s payload</li>
   <li>isOwn: Whether or not the file was uploaded by the current Identity</li>
+  <li>truncatedReference: The truncated reference of the file</li>
+  <li>reference: The reference of the file</li>
   <li>deletedAt: ISO String when the file has been deleted</li>
   <li>deletedBy: Address of the Identity which deleted the file</li>
   <li>deletedByDevice: Device id of the device which deleted the file</li>
@@ -483,6 +485,8 @@ Depending on the content of the Message, a Message could act as a technical Mess
   <li>relationshipIds: Array of Relationship IDs of the recipients (same order as recipients)</li>
   <li>content: The content of the Message</li>
   <li>attachments: Array of files which are attached to this Message</li>
+  <li>isOwn: Whether or not the Message was sent by the current Identity</li>
+  <li>wasReadAt: ISO String indicating when the Message was firstly read</li>
 </ul>
 
 <h2 id="relationships">Relationships</h2>
@@ -498,6 +502,8 @@ Depending on the content of the Message, a Message could act as a technical Mess
   <li>RelationshipTemplate</li>
   <li>status</li>
   <li>peer</li>
+  <li>peerIdentity</li>
+  <li>peerDeletionInfo</li>
   <li>creationContent</li>
   <li>auditLog
     <ul>
@@ -616,6 +622,10 @@ A company has no customer system where customers can log in but would still like
   <li>createdAt</li>
   <li>expiresAt</li>
   <li>content</li>
+  <li>forIdentity</li>
+  <li>passwordProtection</li>
+  <li>truncatedReference</li>
+  <li>reference</li>
 </ul>
 
 <h2 id="tokens">Tokens</h2>
@@ -634,12 +644,16 @@ A company has no customer system where customers can log in but would still like
 
 <ul>
   <li>id</li>
+  <li>isOwn</li>
   <li>createdBy</li>
   <li>createdByDevice</li>
   <li>createdAt</li>
   <li>expiresAt</li>
   <li>content</li>
+  <li>forIdentity</li>
+  <li>passwordProtection</li>
   <li>truncatedReference</li>
+  <li>reference</li>
 </ul>
 
         
@@ -652,7 +666,7 @@ A company has no customer system where customers can log in but would still like
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-16T16:48:18+02:00">May 16, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-19T14:07:12+02:00">May 19, 2025</time></p>
 
       </footer>
 
