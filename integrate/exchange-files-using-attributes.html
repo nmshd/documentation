@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-05-16T16:47:38+02:00">
+  <meta property="article:published_time" content="2025-05-19T11:28:29+02:00">
 
 
 
@@ -360,7 +360,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Exchange Files using Attributes">
     <meta itemprop="description" content="Communication between Identities involves exchanging uploaded Files with each other, for example:">
-    <meta itemprop="datePublished" content="2025-05-16T16:47:38+02:00">
+    <meta itemprop="datePublished" content="2025-05-19T11:28:29+02:00">
     
 
     <div class="page__inner-wrap">
@@ -414,16 +414,16 @@ The <a href="/integrate/data-model-overview#file">File</a> exchange flow describ
 
 <p>In order to be able to <a href="#share-an-own-file-with-a-peer">share a File with a peer</a> or to <a href="#transfer-the-ownership-of-a-file-to-a-peer">transfer the ownership of a File to a peer</a>, its content must first be uploaded to the Backbone in encrypted form.
 To do this, consult the documentation of the <a href="/use-case-transport-upload-own-file">Upload own File</a> use case.
-By uploading the <a href="/integrate/data-model-overview#file">File</a>, it is assigned an <code class="language-plaintext highlighter-rouge">id</code> and a <code class="language-plaintext highlighter-rouge">truncatedReference</code> with which it can be identified from now on.
+By uploading the <a href="/integrate/data-model-overview#file">File</a>, it is assigned an <code class="language-plaintext highlighter-rouge">id</code> and a <code class="language-plaintext highlighter-rouge">reference.truncated</code> with which it can be identified from now on.
 Either of them can be specified as a parameter when executing the <a href="/use-case-transport-get-file-metadata">Get File metadata</a> use case in order to display the metadata information of the File.
-In the context of exchanging Files, particular attention should be paid to the <code class="language-plaintext highlighter-rouge">truncatedReference</code> property of the File.
+In the context of exchanging Files, particular attention should be paid to the <code class="language-plaintext highlighter-rouge">reference.truncated</code> property of the File.
 All Identities that know its value can download the encrypted content of the File from the Backbone and decrypt it.</p>
 
 <h1 id="share-an-own-file-with-a-peer">Share an Own File With a Peer</h1>
 
-<p>After <a href="#upload-a-file">uploading a File</a>, a certain kind of <a href="/integrate/data-model-overview#attributes">Attribute</a> can be used to share the value of the <code class="language-plaintext highlighter-rouge">truncatedReference</code> property of the <a href="/integrate/data-model-overview#file">File</a> with other Identities.
+<p>After <a href="#upload-a-file">uploading a File</a>, a certain kind of <a href="/integrate/data-model-overview#attributes">Attribute</a> can be used to share the value of the <code class="language-plaintext highlighter-rouge">reference.truncated</code> property of the <a href="/integrate/data-model-overview#file">File</a> with other Identities.
 To be more precise, this is an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> that has <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> as its <code class="language-plaintext highlighter-rouge">value.@type</code>.
-An IdentityFileReference stores the value of the <code class="language-plaintext highlighter-rouge">truncatedReference</code> property of the File within its <code class="language-plaintext highlighter-rouge">value</code> property.
+An IdentityFileReference stores the value of the <code class="language-plaintext highlighter-rouge">reference.truncated</code> property of the File within its <code class="language-plaintext highlighter-rouge">value</code> property.
 By <a href="/integrate/share-attributes-with-peer#send-and-receive-the-request">sending a suitable Request</a>, this IdentityAttribute can be shared with a <code class="language-plaintext highlighter-rouge">peer</code> of an already existing <a href="/integrate/data-model-overview#relationship">Relationship</a> or in the process of <a href="/integrate/establish-relationships">establishing a Relationship</a>.
 If the peer accepts the Request, a peer shared IdentityAttribute will be created for them and they will gain read access to the underlying File, that was <a href="#upload-a-file">uploaded to the Backbone</a>.
 For the sender an own shared IdentityAttribute will be created.</p>
@@ -432,7 +432,7 @@ For the sender an own shared IdentityAttribute will be created.</p>
 
 <h2 id="create-an-identityfilereference">Create an IdentityFileReference</h2>
 
-<p>After <a href="#upload-a-file">uploading the File</a>, an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> with an <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> as its <code class="language-plaintext highlighter-rouge">value.@type</code> and the <code class="language-plaintext highlighter-rouge">truncatedReference</code> of the uploaded <a href="/integrate/data-model-overview#file">File</a> as its <code class="language-plaintext highlighter-rouge">value.value</code> can be created by proceeding as described in the documentation on how to <a href="/integrate/create-attributes-for-yourself#create-an-identityattribute-for-yourself">create an IdentityAttribute for yourself</a>.
+<p>After <a href="#upload-a-file">uploading the File</a>, an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> with an <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> as its <code class="language-plaintext highlighter-rouge">value.@type</code> and the <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the uploaded <a href="/integrate/data-model-overview#file">File</a> as its <code class="language-plaintext highlighter-rouge">value.value</code> can be created by proceeding as described in the documentation on how to <a href="/integrate/create-attributes-for-yourself#create-an-identityattribute-for-yourself">create an IdentityAttribute for yourself</a>.
 The following <code class="language-plaintext highlighter-rouge">content</code> can be used during the creation process, with its properties <code class="language-plaintext highlighter-rouge">validFrom</code>, <code class="language-plaintext highlighter-rouge">validTo</code> and <code class="language-plaintext highlighter-rouge">tags</code> being optional:</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -441,32 +441,32 @@ The following <code class="language-plaintext highlighter-rouge">content</code> 
     </span><span class="nl">"validTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;end of IdentityFileReference's validity&gt;"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityFileReference"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;truncatedReference of File&gt;"</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;truncated reference of File&gt;"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;tag of IdentityFileReference to be created&gt;"</span><span class="p">,</span><span class="w"> </span><span class="c1">...</span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p class="notice--info">If an App user <a href="#upload-a-file">uploads a File</a>, such an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> with an <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> as its <code class="language-plaintext highlighter-rouge">value.@type</code> and the <code class="language-plaintext highlighter-rouge">truncatedReference</code> of the uploaded <a href="/integrate/data-model-overview#file">File</a> as its <code class="language-plaintext highlighter-rouge">value.value</code> is created automatically in the background.
+<p class="notice--info">If an App user <a href="#upload-a-file">uploads a File</a>, such an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> with an <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> as its <code class="language-plaintext highlighter-rouge">value.@type</code> and the <code class="language-plaintext highlighter-rouge">reference.truncatedd</code> of the uploaded <a href="/integrate/data-model-overview#file">File</a> as its <code class="language-plaintext highlighter-rouge">value.value</code> is created automatically in the background.
 For this reason, it is directly available to the App user for sharing.
 Furthermore, knowledge of this automation in the App should motivate Integrators of Connectors to strive to <a href="/integrate/exchange-files-using-attributes">exchange Files using Attributes</a> in order to achieve File management compatibility between them and App users.</p>
 
 <h2 id="share-an-identityfilereference">Share an IdentityFileReference</h2>
 
-<p>After the <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> that has <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> as its <code class="language-plaintext highlighter-rouge">value.@type</code> and the <code class="language-plaintext highlighter-rouge">truncatedReference</code> of the uploaded <a href="/integrate/data-model-overview#file">File</a> as its <code class="language-plaintext highlighter-rouge">value.value</code> has been created, the Integrator of the Connector must send a <a href="/integrate/share-attributes-with-peer#request-for-sharing-attributes">suitable Request</a> to share it.
+<p>After the <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> that has <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> as its <code class="language-plaintext highlighter-rouge">value.@type</code> and the <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the uploaded <a href="/integrate/data-model-overview#file">File</a> as its <code class="language-plaintext highlighter-rouge">value.value</code> has been created, the Integrator of the Connector must send a <a href="/integrate/share-attributes-with-peer#request-for-sharing-attributes">suitable Request</a> to share it.
 More details on how to share <a href="/integrate/data-model-overview#attributes">Attributes</a> can be found in the <a href="/integrate/share-attributes-with-peer">Share Attributes with peer</a> scenario documentation.</p>
 
 <h2 id="load-a-referenced-file">Load a Referenced File</h2>
 
-<p>Once the shared <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> that has <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> as its <code class="language-plaintext highlighter-rouge">value.@type</code> has been obtained, its recipient has knowledge of its <code class="language-plaintext highlighter-rouge">value.value</code> and thus also of the <code class="language-plaintext highlighter-rouge">truncatedReference</code> of the <a href="/integrate/data-model-overview#file">File</a> to be shared.
+<p>Once the shared <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> that has <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> as its <code class="language-plaintext highlighter-rouge">value.@type</code> has been obtained, its recipient has knowledge of its <code class="language-plaintext highlighter-rouge">value.value</code> and thus also of the <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the <a href="/integrate/data-model-overview#file">File</a> to be shared.
 In order for the recipient to be authorized to <a href="/use-case-transport-download-file">download</a> the encrypted content of the File from the Backbone and decrypt it, they must first load the metadata information of the File.
-This is done by executing the <a href="/use-case-transport-load-file">Load File</a> use case and specifying the <code class="language-plaintext highlighter-rouge">truncatedReference</code> of the File as the required <code class="language-plaintext highlighter-rouge">reference</code>.</p>
+This is done by executing the <a href="/use-case-transport-load-file">Load File</a> use case and specifying the <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the File as the required <code class="language-plaintext highlighter-rouge">reference</code>.</p>
 
-<p class="notice--info">Please note that it is also possible to store the <code class="language-plaintext highlighter-rouge">truncatedReference</code> of a <a href="/integrate/data-model-overview#token">Token</a> for the File within the <code class="language-plaintext highlighter-rouge">value.value</code> property of the <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> of <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> <code class="language-plaintext highlighter-rouge">value.@type</code> instead of the <code class="language-plaintext highlighter-rouge">truncatedReference</code> of the <a href="/integrate/data-model-overview#file">File</a> itself.
+<p class="notice--info">Please note that it is also possible to store the <code class="language-plaintext highlighter-rouge">reference.truncated</code> of a <a href="/integrate/data-model-overview#token">Token</a> for the File within the <code class="language-plaintext highlighter-rouge">value.value</code> property of the <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> of <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> <code class="language-plaintext highlighter-rouge">value.@type</code> instead of the <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the <a href="/integrate/data-model-overview#file">File</a> itself.
 In this case, the <a href="/use-case-transport-create-token-for-file">Token for the File must be created</a> beforehand.
 The advantage of using Tokens is that they can be personalized or password protected.
-When executing the <a href="/use-case-transport-load-file">Load File</a> use case, the <code class="language-plaintext highlighter-rouge">truncatedReference</code> of the Token can be specified as the <code class="language-plaintext highlighter-rouge">reference</code>.
+When executing the <a href="/use-case-transport-load-file">Load File</a> use case, the <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the Token can be specified as the <code class="language-plaintext highlighter-rouge">reference</code>.
 If the Token is password protected, the <code class="language-plaintext highlighter-rouge">password</code> must additionally be entered for loading.</p>
 
 <h1 id="further-options-for-exchanging-files">Further Options for Exchanging Files</h1>
@@ -478,7 +478,7 @@ This must be done separately if required.</p>
 
 <h2 id="utilization-of-a-proprietaryfilereference">Utilization of a ProprietaryFileReference</h2>
 
-<p>Furthermore, it is possible to represent <a href="#upload-a-file">uploaded Files</a> within a <a href="/integrate/data-model-overview#relationship">Relationship</a> utilizing a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> that has <a href="/integrate/attribute-values#proprietaryfilereference">ProprietaryFileReference</a> as its <code class="language-plaintext highlighter-rouge">value.@type</code> and the <code class="language-plaintext highlighter-rouge">truncatedReference</code> of the <a href="/integrate/data-model-overview#file">File</a> as <code class="language-plaintext highlighter-rouge">value.value</code>.
+<p>Furthermore, it is possible to represent <a href="#upload-a-file">uploaded Files</a> within a <a href="/integrate/data-model-overview#relationship">Relationship</a> utilizing a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> that has <a href="/integrate/attribute-values#proprietaryfilereference">ProprietaryFileReference</a> as its <code class="language-plaintext highlighter-rouge">value.@type</code> and the <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the <a href="/integrate/data-model-overview#file">File</a> as <code class="language-plaintext highlighter-rouge">value.value</code>.
 It is advantageous to use such a RelationshipAttribute instead of an IdentityAttribute of <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> <code class="language-plaintext highlighter-rouge">value.@type</code> if the File fits more into the context of the Relationship and is less attributable to a single Identity.
 An overview of the available options for <a href="/integrate/create-attributes-for-yourself#create-a-relationshipattribute">creating a RelationshipAttribute</a> can be found in the corresponding scenario documentation.</p>
 
@@ -504,14 +504,14 @@ In the following subsections, we describe the general appearance of a Request fo
 <p>For transferring the ownership of a single File, the sender needs to insert a single RequestItem of type <a href="/integrate/data-model-overview#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a> into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#request">Request</a>.
 The sender can only transfer the ownership of a File that was already <a href="#upload-a-file">uploaded to the Backbone</a> and is owned by themselves.
 The latter means that the <code class="language-plaintext highlighter-rouge">isOwn</code> property of the corresponding File is <code class="language-plaintext highlighter-rouge">true</code>.
-To create the TransferFileOwnershipRequestItem, the <code class="language-plaintext highlighter-rouge">truncatedReference</code> of the File must be inserted into its <code class="language-plaintext highlighter-rouge">fileReference</code> property.</p>
+To create the TransferFileOwnershipRequestItem, the <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the File must be inserted into its <code class="language-plaintext highlighter-rouge">fileReference</code> property.</p>
 
 <p class="notice--info">To get a list of all Files that are owned by the sender, proceed as described in the <a href="/use-case-transport-query-metadata-of-own-files">Query metadata of own Files</a> use case documentation.</p>
 
 <h3 id="example-of-transferring-the-ownership-of-a-file">Example of Transferring the Ownership of a File</h3>
 
 <p>We assume that the Integrator of the sender has <a href="#upload-a-file">uploaded a File to the Backbone</a>, whose ownership they want to transfer to the recipient.
-To do so, they need to insert the <code class="language-plaintext highlighter-rouge">truncatedReference</code> of the corresponding File into the <code class="language-plaintext highlighter-rouge">fileReference</code> property of the <a href="/integrate/data-model-overview#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a>.
+To do so, they need to insert the <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the corresponding File into the <code class="language-plaintext highlighter-rouge">fileReference</code> property of the <a href="/integrate/data-model-overview#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a>.
 The value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code> in this example.
 Then, the RequestItem needs to be put into the <code class="language-plaintext highlighter-rouge">item</code> property of the <a href="/integrate/data-model-overview#request">Request</a> for transferring the ownership of Files.</p>
 
@@ -521,7 +521,7 @@ Then, the RequestItem needs to be put into the <code class="language-plaintext h
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TransferFileOwnershipRequestItem"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"fileReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;truncatedReference of the File&gt;"</span><span class="w">
+      </span><span class="nl">"fileReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;truncated reference of the File&gt;"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -565,7 +565,7 @@ For that, follow the instructions of the <a href="/use-case-consumption-reject-i
 The <a href="/integrate/data-model-overview#acceptrequestitemparameters">AcceptRequestItemParameters</a> must be used for this.
 The acceptance of a TransferFileOwnershipRequestItem leads to the transfer of the ownership of the File on the Backbone.
 Additionally, a <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a> will be created for the recipient, whose <code class="language-plaintext highlighter-rouge">content</code> is an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> with <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> as <code class="language-plaintext highlighter-rouge">value.@type</code>.
-The <code class="language-plaintext highlighter-rouge">value</code> of the IdentityFileReference is the <code class="language-plaintext highlighter-rouge">truncatedReference</code> of the File that is now owned by the recipient.
+The <code class="language-plaintext highlighter-rouge">value</code> of the IdentityFileReference is the <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the File that is now owned by the recipient.
 Also, the newly created RepositoryAttribute of the recipient will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient.
 Based on this, an appropriate AcceptResponseItem of type <a href="/integrate/data-model-overview#transferfileownershipacceptresponseitem">TransferFileOwnershipAcceptResponseItem</a> is generated.
 It contains the <code class="language-plaintext highlighter-rouge">id</code> and the <code class="language-plaintext highlighter-rouge">content</code> of the created own shared IdentityAttribute in its <code class="language-plaintext highlighter-rouge">attributeId</code> and <code class="language-plaintext highlighter-rouge">attribute</code> property, respectively.
@@ -615,7 +615,7 @@ If the Request for transferring the ownership of Files contains a RequestItemGro
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-16T16:47:38+02:00">May 16, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-19T11:28:29+02:00">May 19, 2025</time></p>
 
       </footer>
 

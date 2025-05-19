@@ -420,7 +420,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Load Token by truncated reference (without having an account)",
-        "excerpt":"This use case attempts to retrieve a Token by its truncatedReference without having an account on the Backbone, thus without an authentication. This can be used to fetch Tokens for Device Onboarding or Recovery. Parameters The reference that contains all information to load a Token. The password if the Token...","categories": [],
+        "excerpt":"This use case attempts to retrieve a Token by its reference.truncated without having an account on the Backbone, thus without an authentication. This can be used to fetch Tokens for Device Onboarding or Recovery. Parameters The reference that contains all information to load a Token. The password if the Token...","categories": [],
         "tags": [],
         "url": "/use-case-anonymous-load-token-by-truncated-reference-without-having-an-account",
         "teaser": null
@@ -966,7 +966,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Get File metadata",
-        "excerpt":"This use case retrieves the metadata information of a File. If it is not the metadata information of the File that is of interest, but its actual content, the File must be downloaded instead. Parameters id or truncatedReference of the File whose metadata should be retrieved. On Success The metadata...","categories": [],
+        "excerpt":"This use case retrieves the metadata information of a File. If it is not the metadata information of the File that is of interest, but its actual content, the File must be downloaded instead. Parameters id or reference.truncated of the File whose metadata should be retrieved. On Success The metadata...","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-file-metadata",
         "teaser": null
@@ -1026,7 +1026,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Load File",
-        "excerpt":"This use case loads the metadata information of a File by a reference to it. This can be the truncatedReference of the File itself, which can be obtained from the File uploader, for example, when exchanging Files using Attributes, or the truncatedReference of a Token. In the latter case, the...","categories": [],
+        "excerpt":"This use case loads the metadata information of a File by a reference to it. This can be the reference.truncated of the File itself, which can be obtained from the File uploader, for example, when exchanging Files using Attributes, or the reference.truncated of a Token. In the latter case, the...","categories": [],
         "tags": [],
         "url": "/use-case-transport-load-file",
         "teaser": null
@@ -1044,13 +1044,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Load RelationshipTemplate created by others",
-        "excerpt":"This use case loads a peer&#8217;s RelationshipTemplate from the Backbone by a given reference to the RelationshipTemplate. Parameters There are two different options to use this use case, depending on the actual information received by the peer: by knowing a truncatedReference of the peer&#8217;s RelationshipTemplate (RelationshipTemplateReferenceTruncated) reference as string by...","categories": [],
+        "excerpt":"This use case loads a peer&#8217;s RelationshipTemplate from the Backbone by a given reference to the RelationshipTemplate. Parameters There are two different options to use this use case, depending on the actual information received by the peer: by knowing a reference.truncated of the peer&#8217;s RelationshipTemplate reference as string by knowing...","categories": [],
         "tags": [],
         "url": "/use-case-transport-load-relationshiptemplate-created-by-others",
         "teaser": null
       },{
         "title": "Load Token created by others",
-        "excerpt":"This use case intends to load a peer&#8217;s Token from the Backbone by a given reference to the Token. Parameters You can execute this use case if you know the truncatedReference of the peer&#8217;s Token. reference that identifies the Token. ephemeral to indicate that the Token should be stored locally....","categories": [],
+        "excerpt":"This use case intends to load a peer&#8217;s Token from the Backbone by a given reference to the Token. Parameters You can execute this use case if you know the reference.truncated of the peer&#8217;s Token. reference that identifies the Token. ephemeral to indicate that the Token should be stored locally....","categories": [],
         "tags": [],
         "url": "/use-case-transport-load-token-created-by-others",
         "teaser": null
@@ -1164,7 +1164,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Upload own File",
-        "excerpt":"This use case takes a given file outside of enmeshed, encrypts and uploads it to the Backbone and creates a File with the respective metadata information for the Identity to access it. The File can from now on be shared by references to other Identities. This can be the truncatedReference...","categories": [],
+        "excerpt":"This use case takes a given file outside of enmeshed, encrypts and uploads it to the Backbone and creates a File with the respective metadata information for the Identity to access it. The File can from now on be shared by references to other Identities. This can be the reference.truncated...","categories": [],
         "tags": [],
         "url": "/use-case-transport-upload-own-file",
         "teaser": null
