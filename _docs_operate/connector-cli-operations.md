@@ -21,13 +21,13 @@ required_by:
 # End automatic generation
 ---
 
-Learn how to set up the command-line interface (CLI) of the Connector and how to perform operations with it.
+The following guide provides step-by-step instructions for configuring the command-line interface (CLI) of the Connector and performing essential operations using it.
 
-## Connector CLI Setup
+## Setup
 
 ### Setup with Docker Compose
 
-## Connector CLI Operations
+## Operations
 
 ### Start Command
 
