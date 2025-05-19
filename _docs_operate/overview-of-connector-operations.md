@@ -45,6 +45,10 @@ For a recovery, you should be able to just start the Connector again with the re
 
 If you use FerretDB as your database engine make sure to backup the data of the underlying PostgreSQL database. Read more about this in the [PostgreSQL documentation](https://www.postgresql.org/docs/8.1/backup.html).
 
+## Connector CLI Operations
+
+Using the command-line interface (CLI) of the Connector, it is possible to perform operations like deleting its underlying Identity.
+
 ## Proposed System Tasks
 
 ### Check Health
