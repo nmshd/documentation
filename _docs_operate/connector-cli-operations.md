@@ -20,3 +20,9 @@ require:
 required_by:
 # End automatic generation
 ---
+
+Learn how to set up the command-line interface (CLI) of the Connector and how to perform operations with it.
+
+### Identity Deletion
+
+To delete the underlying Identity of the Connector, its CLI can be used.
