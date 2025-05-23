@@ -259,17 +259,17 @@ This chapter explains all of those types, together with their properties.
 
 A LocalRequest contains the local metadata for a [Request](#request).
 
-| Name                    | Type                                                       | Description                                                                                                                                   |
-| ----------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| id                      | `string`                                                   | {% include descr_id class="LocalRequest" prefix="REQ" %}                                                                                      |
-| isOwn                   | `boolean`                                                  | `true` if you sent the Request, `false` if you received it.                                                                                   |
-| peer                    | `string`                                                   | The Identity that sent you the corresponding Request/that you sent the Request to.                                                            |
-| createdAt               | `string`                                                   | {% include descr_createdAt class="LocalRequest" %}                                                                                            |
-| status                  | [`LocalRequestStatus`](#localrequeststatus)                | The current status of the Request. See [below](#localrequeststatus) for a list of all possible values.                                        |
-| content                 | [`Request`](#request)                                      | The actual Content object this LocalRequest defines the metadata for.                                                                         |
-| source                  | [`LocalRequestSource`](#localrequestsource) \| `undefined` | Information about the Transport object with which the Request came in/was sent. This property is `undefined` if the Request is not sent yet.  |
-| response                | [`LocalResponse`](#localresponse) \| `undefined`           | Metadata + Content object of the response. If there is no response yet, this property is `undefined`.                                         |
-| wasAutomaticallyDecided | `true` \| `undefined`                                      | Indicates whether the Request was decided automatically, e.g. by the [Decider Module]({% link _docs_explore/61-runtime.md %}#decider-module). |
+| Name                    | Type                                                       | Description                                                                                                                                  |
+| ----------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                      | `string`                                                   | {% include descr_id class="LocalRequest" prefix="REQ" %}                                                                                     |
+| isOwn                   | `boolean`                                                  | `true` if you sent the Request, `false` if you received it.                                                                                  |
+| peer                    | `string`                                                   | The Identity that sent you the corresponding Request/that you sent the Request to.                                                           |
+| createdAt               | `string`                                                   | {% include descr_createdAt class="LocalRequest" %}                                                                                           |
+| status                  | [`LocalRequestStatus`](#localrequeststatus)                | The current status of the Request. See [below](#localrequeststatus) for a list of all possible values.                                       |
+| content                 | [`Request`](#request)                                      | The actual Content object this LocalRequest defines the metadata for.                                                                        |
+| source                  | [`LocalRequestSource`](#localrequestsource) \| `undefined` | Information about the Transport object with which the Request came in/was sent. This property is `undefined` if the Request is not sent yet. |
+| response                | [`LocalResponse`](#localresponse) \| `undefined`           | Metadata + Content object of the response. If there is no response yet, this property is `undefined`.                                        |
+| wasAutomaticallyDecided | `true` \| `undefined`                                      | Indicates whether the Request was decided automatically by the [Decider Module]({% link _docs_explore/61-runtime.md %}#decider-module).      |
 
 ### LocalRequestStatus
 
