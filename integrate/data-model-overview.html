@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-05-23T14:48:06+02:00">
+  <meta property="article:published_time" content="2025-05-23T14:49:40+02:00">
 
 
 
@@ -360,7 +360,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2025-05-23T14:48:06+02:00">
+    <meta itemprop="datePublished" content="2025-05-23T14:49:40+02:00">
     
 
     <div class="page__inner-wrap">
@@ -857,7 +857,7 @@ Whether the Identity with which you have a Relationship is to be deleted or has 
     <tr>
       <td>recipients</td>
       <td><a href="#recipient"><code class="language-plaintext highlighter-rouge">Recipient</code></a><code class="language-plaintext highlighter-rouge">[]</code></td>
-      <td>An array of recipients of this Message.</td>
+      <td>An array of recipients of this Message without duplicates.</td>
       <td> </td>
     </tr>
     <tr>
@@ -869,7 +869,7 @@ Whether the Identity with which you have a Relationship is to be deleted or has 
     <tr>
       <td>attachments</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code></td>
-      <td>An array of <a href="#file">File</a> IDs you want to attach to your Message. You receive the File ID after you uploaded a file to the Backbone. By attaching a File to a Message, you share the secret key used to encrypt/decrypt the File, which cannot be undone.</td>
+      <td>An array of <a href="#file">File</a> IDs without duplicates you want to attach to your Message. You receive the File ID after you uploaded a file to the Backbone. By attaching a File to a Message, you share the secret key used to encrypt/decrypt the File, which cannot be undone.</td>
       <td> </td>
     </tr>
     <tr>
@@ -988,7 +988,7 @@ The content of the File can be downloaded separately by executing the <a href="/
     <tr>
       <td>tags</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>To specify additional information.</td>
+      <td>To specify additional information. It is not possible to specify the same tag more than once.</td>
       <td>will be encrypted before sent to the Backbone</td>
     </tr>
     <tr>
@@ -3337,7 +3337,7 @@ Internally, for your corresponding ThirdPartyRelationshipAttribute the <code cla
     <tr>
       <td>tags</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>To specify additional information.</td>
+      <td>To specify additional information. It is not possible to specify the same tag more than once.</td>
     </tr>
   </tbody>
 </table>
@@ -3862,12 +3862,12 @@ Internally, for your corresponding ThirdPartyRelationshipAttribute the <code cla
     <tr>
       <td>to</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code></td>
-      <td>The enmeshed addresses of the main recipients of this Mail. Only <code class="language-plaintext highlighter-rouge">recipients</code> of the Message may be specified here.</td>
+      <td>The enmeshed addresses of the main recipients of this Mail without duplicates. Only <code class="language-plaintext highlighter-rouge">recipients</code> of the Message may be specified here.</td>
     </tr>
     <tr>
       <td>cc</td>
       <td><code class="language-plaintext highlighter-rouge">string[]</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>The enmeshed addresses that should receive a copy of this Mail, additionally to the enmeshed addresses of the main recipients specified in <code class="language-plaintext highlighter-rouge">to</code>. Only <code class="language-plaintext highlighter-rouge">recipients</code> of the Message which are not main recipients of the Mail can receive a copy of it.</td>
+      <td>The enmeshed addresses without duplicates that should receive a copy of this Mail, additionally to the enmeshed addresses of the main recipients specified in <code class="language-plaintext highlighter-rouge">to</code>. Only <code class="language-plaintext highlighter-rouge">recipients</code> of the Message which are not main recipients of the Mail can receive a copy of it.</td>
     </tr>
     <tr>
       <td>subject</td>
@@ -4200,7 +4200,7 @@ There is the <a href="/use-case-consumption-upsert-identitymetadata">Upsert Iden
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-23T14:48:06+02:00">May 23, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-23T14:49:40+02:00">May 23, 2025</time></p>
 
       </footer>
 
