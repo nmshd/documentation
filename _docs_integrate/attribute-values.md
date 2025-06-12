@@ -753,13 +753,13 @@ Similar to an [IdentityFileReference]({% link _docs_integrate/attribute-values.m
 
 **Properties**
 
-| Name                 | Type                                                                                         | Required | Validation        |
-| -------------------- | -------------------------------------------------------------------------------------------- | :------: | ----------------- |
-| `@type`              | `"ProprietaryFileReference"`                                                                 |    ✓     |                   |
-| `title`              | `string`                                                                                     |    ✓     | max. length: 100  |
-| `description`        | `string`                                                                                     |    ✗     | max. length: 1000 |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                   |
-| `value`              | `string`                                                                                     |    ✓     | max. length: 150  |
+| Name                 | Type                                                                                         | Required | Validation                          |
+| -------------------- | -------------------------------------------------------------------------------------------- | :------: | ----------------------------------- |
+| `@type`              | `"ProprietaryFileReference"`                                                                 |    ✓     |                                     |
+| `title`              | `string`                                                                                     |    ✓     | max. length: 100                    |
+| `description`        | `string`                                                                                     |    ✗     | max. length: 1000                   |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                     |
+| `value`              | `string`                                                                                     |    ✓     | min. length: 30<br>max. length: 150 |
 
 ## ProprietaryFloat
 
