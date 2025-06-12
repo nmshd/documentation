@@ -55,4 +55,4 @@ This use case regenerates the `ownershipToken` of a [File]({% link _docs_integra
 
 - The parameters are malformed.
 - There was no File found with the specified `id`.
-- The use case was called by an Identity, who is not the owner of the File.
+- The use case was called by an Identity who is not the owner of the File.

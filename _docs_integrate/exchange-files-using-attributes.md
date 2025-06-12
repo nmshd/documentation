@@ -189,7 +189,7 @@ There are two ways to send the Request for transferring the ownership of a File 
 
 Ensure that the Request for transferring the ownership of a File is only sent to one peer.
 It must not be sent to multiple peers, since there can only be one owner for each File.
-If the same Request was sent to multiple peers, after the first of them accepted it the others would receive an error.
+If the same Request was sent to multiple peers, once the first of them accepted it, the others would receive an error.
 {: .notice--warning}
 
 ### Request via RelationshipTemplate
@@ -230,7 +230,7 @@ This ResponseItem will appear within the `items` property of the [Response]({% l
 In case no `ownershipToken` was specified in the TransferFileOwnershipRequestItem, the actual ownership of the File that was uploaded to the Backbone does not change.
 Instead, accepting a TransferFileOwnershipRequestItem downloads the corresponding File and uploads it again to the Backbone, such that the recipient is its owner.
 The created IdentityAttributes with `value.@type` IdentityFileReference references this newly uploaded File.
-Consequently, after receiving the Response, the File that was originally uploaded by the sender lost its meaning and can be [deleted]({% link _docs_use-cases/use-case-transport-delete-file.md %}).
+Consequently, after [receiving the Response](#receive-the-response-to-the-request), the File that was originally uploaded by the sender lost its meaning and can be [deleted]({% link _docs_use-cases/use-case-transport-delete-file.md %}).
 Due to this workaround, it is not recommended to send a TransferFileOwnershipRequestItem without specifying an `ownershipToken`.
 Thus, in the next major version the `ownershipToken` will be a mandatory property of the TransferFileOwnershipRequestItem.
 {: .notice--warning}
