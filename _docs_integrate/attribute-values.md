@@ -299,7 +299,7 @@ The email address which can be used to reach the Identity over email systems.
 | Name    | Type             | Required | Validation                                                                                |
 | ------- | ---------------- | :------: | ----------------------------------------------------------------------------------------- |
 | `@type` | `"EMailAddress"` |    ✓     |                                                                                           |
-| `value` | `string`         |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
+| `value` | `string`         |    ✓     | min. length: 3<br>max. length: 254<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
 
 ## FaxNumber
 
