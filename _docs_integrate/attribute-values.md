@@ -781,13 +781,13 @@ A hexadecimal color code.
 
 **Properties**
 
-| Name                 | Type                                                                                         | Required | Validation                                                               |
-| -------------------- | -------------------------------------------------------------------------------------------- | :------: | ------------------------------------------------------------------------ |
-| `@type`              | `"ProprietaryHEXColor"`                                                                      |    ✓     |                                                                          |
-| `title`              | `string`                                                                                     |    ✓     | max. length: 100                                                         |
-| `description`        | `string`                                                                                     |    ✗     | max. length: 1000                                                        |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                                                          |
-| `value`              | `string`                                                                                     |    ✓     | min.length: 4<br> must match `^#([0-9A-F]{3}){1,2}$`<br>max. length: 100 |
+| Name                 | Type                                                                                         | Required | Validation                                                            |
+| -------------------- | -------------------------------------------------------------------------------------------- | :------: | --------------------------------------------------------------------- |
+| `@type`              | `"ProprietaryHEXColor"`                                                                      |    ✓     |                                                                       |
+| `title`              | `string`                                                                                     |    ✓     | max. length: 100                                                      |
+| `description`        | `string`                                                                                     |    ✗     | max. length: 1000                                                     |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                                                       |
+| `value`              | `string`                                                                                     |    ✓     | min.length: 4<br>max. length: 9<br>must match `^#([0-9A-F]{3}){1,2}$` |
 
 ## ProprietaryInteger
 
