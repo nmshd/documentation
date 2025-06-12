@@ -138,20 +138,26 @@ The sender wants to transfer the ownership of a File to the recipient.
 To do so, the sender must first create a suitable Request, which they can then send to the recipient.
 In the following subsections, we describe the general appearance of a Request for transferring the ownership of a File.
 
+To get a list of all Files that are owned by the sender, proceed as described in the [Query metadata of own Files]({% link _docs_use-cases/use-case-transport-query-metadata-of-own-files.md %}) use case documentation.
+{: .notice--info}
+
 ### Role of TransferFileOwnershipRequestItem
 
 For transferring the ownership of a single File, the sender needs to insert a single RequestItem of type [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem) into the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 The sender can only transfer the ownership of a File that was already [uploaded to the Backbone](#upload-a-file) and is owned by themselves.
 The latter means that the `isOwn` property of the corresponding File is `true`.
-To create the TransferFileOwnershipRequestItem, the `reference.truncated` of the File must be inserted into its `fileReference` property.
+To create the TransferFileOwnershipRequestItem, the value of `reference.truncated` of the File must be inserted into its `fileReference` property.
+Furthermore, the `ownershipToken` of the File must be specified.
 
-To get a list of all Files that are owned by the sender, proceed as described in the [Query metadata of own Files]({% link _docs_use-cases/use-case-transport-query-metadata-of-own-files.md %}) use case documentation.
-{: .notice--info}
+If the File doesn't have an `ownershipToken`, make sure that you are the owner.
+If so, the reason is probably that the File is too old, such that no `ownershipToken` was generated upon its upload.
+In this case, you can manually [regenerate the `ownershipToken` of the File]({% link _docs_use-cases/use-case-transport-regenerate-file-ownership-token.md %}).
+{: .notice--warning}
 
 ### Example of Transferring the Ownership of a File
 
 We assume that the Integrator of the sender has [uploaded a File to the Backbone](#upload-a-file), whose ownership they want to transfer to the recipient.
-To do so, they need to insert the `reference.truncated` of the corresponding File into the `fileReference` property of the [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem).
+To do so, they need to insert the value of `reference.truncated` of the corresponding File into the `fileReference` property of the [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem) and specify the `ownershipToken` of the File.
 The value of the `mustBeAccepted` property is set to `true` in this example.
 Then, the RequestItem needs to be put into the `item` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for transferring the ownership of Files.
 
@@ -161,8 +167,9 @@ Then, the RequestItem needs to be put into the `item` property of the [Request](
   "items": [
     {
       "@type": "TransferFileOwnershipRequestItem",
-      "mustBeAccepted": true,
-      "fileReference": "<truncated reference of the File>"
+      "fileReference": "<truncated reference of the File>",
+      "ownershipToken": "<ownershipToken of the File>",
+      "mustBeAccepted": true
     }
   ]
 }
@@ -179,6 +186,11 @@ If you want to use a RequestItemGroup in order to transfer the ownership of mult
 The sender that wants to transfer the ownership of a File may or may not already have a Relationship with the recipient.
 Depending on which is the case, a different method can be used to send the [Request for transferring the ownership of a File](#request-for-transferring-the-ownership-of-a-file).
 There are two ways to send the Request for transferring the ownership of a File to the recipient.
+
+Ensure that the Request for transferring the ownership of a File is only sent to one peer.
+It must not be sent to multiple peers, since there can only be one owner for each File.
+If the same Request was sent to multiple peers, once the first of them accepted it, the others would receive an error.
+{: .notice--warning}
 
 ### Request via RelationshipTemplate
 
@@ -206,17 +218,21 @@ For that, follow the instructions of the [Reject incoming Request]({% link _docs
 If the recipient agrees to receive the ownership of one of the sender's Files, they can accept the associated TransferFileOwnershipRequestItem.
 The [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) must be used for this.
 The acceptance of a TransferFileOwnershipRequestItem leads to the transfer of the ownership of the File on the Backbone.
+Thereby, the `ownershipToken` of the File is regenerated.
 Additionally, a [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be created for the recipient, whose `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type`.
-The `value` of the IdentityFileReference is the `reference.truncated` of the File that is now owned by the recipient.
-Also, the newly created RepositoryAttribute of the recipient will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient.
+The `value` of the IdentityFileReference is the value of `reference.truncated` of the File that is now owned by the recipient.
+Also, if the File has any `tags`, they will become `tags` of the IdentityAttribute.
+Moreover, the newly created RepositoryAttribute of the recipient will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient.
 Based on this, an appropriate AcceptResponseItem of type [TransferFileOwnershipAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershipacceptresponseitem) is generated.
 It contains the `id` and the `content` of the created own shared IdentityAttribute in its `attributeId` and `attribute` property, respectively.
 This ResponseItem will appear within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for transferring the ownership of Files, which will be sent back to the sender.
 
-Currently, there is no implementation for changing the actual ownership of a File that was uploaded to the Backbone.
+In case no `ownershipToken` was specified in the TransferFileOwnershipRequestItem, the actual ownership of the File that was uploaded to the Backbone does not change.
 Instead, accepting a TransferFileOwnershipRequestItem downloads the corresponding File and uploads it again to the Backbone, such that the recipient is its owner.
-The created IdentityAttributes with `value.@type` IdentityFileReference reference this newly uploaded File.
-Consequently, after receiving the Response, the sender can [delete their uploaded File]({% link _docs_use-cases/use-case-transport-delete-file.md %}) if they wish to do so, without impacting the File owned by the recipient.
+The created IdentityAttributes with `value.@type` IdentityFileReference references this newly uploaded File.
+Consequently, after [receiving the Response](#receive-the-response-to-the-request), the File that was originally uploaded by the sender lost its meaning and can be [deleted]({% link _docs_use-cases/use-case-transport-delete-file.md %}).
+Due to this workaround, it is not recommended to send a TransferFileOwnershipRequestItem without specifying an `ownershipToken`.
+Thus, in the next major version the `ownershipToken` will be a mandatory property of the TransferFileOwnershipRequestItem.
 {: .notice--warning}
 
 ### Reject a TransferFileOwnershipRequestItem
