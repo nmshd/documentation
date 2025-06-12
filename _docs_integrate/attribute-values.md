@@ -320,10 +320,10 @@ How an IdentityFileReference can be used to [exchange Files using Attributes]({%
 
 **Properties**
 
-| Name    | Type                      | Required | Validation       |
-| ------- | ------------------------- | :------: | ---------------- |
-| `@type` | `"IdentityFileReference"` |    ✓     |                  |
-| `value` | `string`                  |    ✓     | max. length: 150 |
+| Name    | Type                      | Required | Validation                          |
+| ------- | ------------------------- | :------: | ----------------------------------- |
+| `@type` | `"IdentityFileReference"` |    ✓     |                                     |
+| `value` | `string`                  |    ✓     | min. length: 30<br>max. length: 150 |
 
 ## GivenName
 
