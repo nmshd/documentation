@@ -913,7 +913,7 @@ A URL.
 
 ## ProprietaryXML
 
-A XML.
+An XML.
 
 **Properties**
 
