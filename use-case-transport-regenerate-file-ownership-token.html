@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Revoke Relationship - enmeshed</title>
-<meta name="description" content="">
+<!-- begin _includes/seo.html --><title>Regenerate File Ownership Token - enmeshed</title>
+<meta name="description" content="This use case regenerates the ownershipToken of a File.">
 
 
   <meta name="author" content="enmeshed Team">
@@ -23,11 +23,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Revoke Relationship">
-<meta property="og:url" content="/use-case-transport-revoke-relationship">
+<meta property="og:title" content="Regenerate File Ownership Token">
+<meta property="og:url" content="/use-case-transport-regenerate-file-ownership-token">
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="This use case regenerates the ownershipToken of a File.">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/use-case-transport-revoke-relationship">
+<link rel="canonical" href="/use-case-transport-regenerate-file-ownership-token">
 
 
 
@@ -358,8 +358,8 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Revoke Relationship">
-    <meta itemprop="description" content="">
+    <meta itemprop="headline" content="Regenerate File Ownership Token">
+    <meta itemprop="description" content="This use case regenerates the ownershipToken of a File.">
     <meta itemprop="datePublished" content="2025-06-12T11:58:55+02:00">
     
 
@@ -367,7 +367,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/use-case-transport-revoke-relationship" itemprop="url">Revoke Relationship
+            <a href="/use-case-transport-regenerate-file-ownership-token" itemprop="url">Regenerate File Ownership Token
 </a>
           </h1>
           
@@ -385,98 +385,29 @@
             </nav>
           </aside>
         
-        
-<!--<div>
-    <table>
-        
-        <tr><td>id</td>
-            <td>RR8</td></tr>
-        
-        <tr><td>component</td>
-            <td>Runtime</td></tr>
-        
-        <tr><td>layer</td>
-            <td>Transport</td></tr>
-        
-        <tr><td>facade</td>
-            <td>RelationshipsFacade</td></tr>
-        
-        <tr><td>function</td>
-            <td>revokeRelationship</td></tr>
-        
-        <tr><td>description</td>
-            <td>Revokes the Relationship with the given `relationshipId`.</td></tr>
-        
-        <tr><td>feature category</td>
-            <td>Mutual peer-to-peer Relationships</td></tr>
-        
-        <tr><td>tech category</td>
-            <td>Relationships</td></tr>
-        
-        <tr><td>status</td>
-            <td>DONE</td></tr>
-        
-        <tr><td>documentation status</td>
-            <td>DONE</td></tr>
-        
-        <tr></tr>
-        
-        <tr><td>actor</td>
-            <td>Identity</td></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr><td>api_route_regex</td>
-            <td>PUT /api/v2/Relationships/{id}/Revoke</td></tr>
-        
-        <tr><td>published</td>
-            <td>default</td></tr>
-        
-        <tr><td>link</td>
-            <td>use-case-transport-revoke-relationship</td></tr>
-        
-        <tr></tr>
-        <tr></tr>
-    </table>
-</div>
--->
-
-<p><a href="/integrate/establish-relationships#initiate-a-relationship">Initiating a Relationship</a> leads to the creation of a <a href="/integrate/data-model-overview#relationship">Relationship</a> with <code class="language-plaintext highlighter-rouge">"Pending"</code> as <code class="language-plaintext highlighter-rouge">status</code>.
-With this use case, the initiator of the Relationship can revoke the pending Relationship with the given Relationship&#8217;s <code class="language-plaintext highlighter-rouge">id</code>.
-As a result, the <code class="language-plaintext highlighter-rouge">status</code> of the Relationship changes from <code class="language-plaintext highlighter-rouge">"Pending"</code> to <code class="language-plaintext highlighter-rouge">"Revoked"</code>.</p>
+        <p>This use case regenerates the <code class="language-plaintext highlighter-rouge">ownershipToken</code> of a <a href="/integrate/data-model-overview#file">File</a>.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">relationshipId</code>, the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship</li>
+  <li><code class="language-plaintext highlighter-rouge">id</code> of the File.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>Revokes the pending Relationship</li>
-  <li>Returns the revoked Relationship</li>
+  <li>A new <code class="language-plaintext highlighter-rouge">ownershipToken</code> is generated for the File.</li>
+  <li>The ownership of the File is unlocked, meaning that it is possible to claim the ownership of the File with the new <code class="language-plaintext highlighter-rouge">ownershipToken</code>.</li>
+  <li>The corresponding indicator <code class="language-plaintext highlighter-rouge">ownershipIsLocked</code> is set to undefined.</li>
+  <li>The updated File is returned.</li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>The <code class="language-plaintext highlighter-rouge">relationshipId</code> does not resolve to a pending Relationship</li>
-  <li>You have tried to revoke a Relationship not created by yourself</li>
+  <li>The parameters are malformed.</li>
+  <li>There was no File found with the specified <code class="language-plaintext highlighter-rouge">id</code>.</li>
+  <li>The use case was called by an Identity who is not the owner of the File.</li>
 </ul>
   <h2>How to execute this use case with the Connector?</h2>
 
@@ -498,7 +429,7 @@ This use case can be executed with the REST API of the Connector which you can <
     theme="light"
     bg-color="#f9f9fb"
     
-    match-paths="^PUT /api/v2/Relationships/{id}/Revoke$"
+    match-paths="^PATCH /api/v2/Files/{id}/RegenerateOwnershipToken$"
     
     match-type="regex"
 ></rapi-doc-mini>

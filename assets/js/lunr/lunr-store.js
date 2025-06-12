@@ -1103,6 +1103,12 @@ var store = [{
         "url": "/use-case-transport-query-tokens-by-parameters",
         "teaser": null
       },{
+        "title": "Regenerate File Ownership Token",
+        "excerpt":"This use case regenerates the ownershipToken of a File. Parameters id of the File. On Success A new ownershipToken is generated for the File. The ownership of the File is unlocked, meaning that it is possible to claim the ownership of the File with the new ownershipToken. The corresponding indicator...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-regenerate-file-ownership-token",
+        "teaser": null
+      },{
         "title": "Reject IdentityDeletionProcess",
         "excerpt":"Please note that the feature of triggering the deletion of an Identity via the Backbone Admin UI is currently disabled. For this reason, an IdentityDeletionProcess currently cannot have \"WaitingForApproval\" as status. In addition, this use case for rejecting and the use case for approving IdentityDeletionProcesses are not needed for the...","categories": [],
         "tags": [],

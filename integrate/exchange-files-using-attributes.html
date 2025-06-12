@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-05-26T12:54:00+02:00">
+  <meta property="article:published_time" content="2025-06-12T11:58:55+02:00">
 
 
 
@@ -360,7 +360,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Exchange Files using Attributes">
     <meta itemprop="description" content="Communication between Identities involves exchanging uploaded Files with each other, for example:">
-    <meta itemprop="datePublished" content="2025-05-26T12:54:00+02:00">
+    <meta itemprop="datePublished" content="2025-06-12T11:58:55+02:00">
     
 
     <div class="page__inner-wrap">
@@ -499,19 +499,24 @@ Moreover, this RepositoryAttribute will be shared with the sender, i.e. an own s
 To do so, the sender must first create a suitable Request, which they can then send to the recipient.
 In the following subsections, we describe the general appearance of a Request for transferring the ownership of a File.</p>
 
+<p class="notice--info">To get a list of all Files that are owned by the sender, proceed as described in the <a href="/use-case-transport-query-metadata-of-own-files">Query metadata of own Files</a> use case documentation.</p>
+
 <h3 id="role-of-transferfileownershiprequestitem">Role of TransferFileOwnershipRequestItem</h3>
 
 <p>For transferring the ownership of a single File, the sender needs to insert a single RequestItem of type <a href="/integrate/data-model-overview#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a> into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#request">Request</a>.
 The sender can only transfer the ownership of a File that was already <a href="#upload-a-file">uploaded to the Backbone</a> and is owned by themselves.
 The latter means that the <code class="language-plaintext highlighter-rouge">isOwn</code> property of the corresponding File is <code class="language-plaintext highlighter-rouge">true</code>.
-To create the TransferFileOwnershipRequestItem, the <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the File must be inserted into its <code class="language-plaintext highlighter-rouge">fileReference</code> property.</p>
+To create the TransferFileOwnershipRequestItem, the value of <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the File must be inserted into its <code class="language-plaintext highlighter-rouge">fileReference</code> property.
+Furthermore, the <code class="language-plaintext highlighter-rouge">ownershipToken</code> of the File must be specified.</p>
 
-<p class="notice--info">To get a list of all Files that are owned by the sender, proceed as described in the <a href="/use-case-transport-query-metadata-of-own-files">Query metadata of own Files</a> use case documentation.</p>
+<p class="notice--warning">If the File doesn’t have an <code class="language-plaintext highlighter-rouge">ownershipToken</code>, make sure that you are the owner.
+If so, the reason is probably that the File is too old, such that no <code class="language-plaintext highlighter-rouge">ownershipToken</code> was generated upon its upload.
+In this case, you can manually <a href="/use-case-transport-regenerate-file-ownership-token">regenerate the <code class="language-plaintext highlighter-rouge">ownershipToken</code> of the File</a>.</p>
 
 <h3 id="example-of-transferring-the-ownership-of-a-file">Example of Transferring the Ownership of a File</h3>
 
 <p>We assume that the Integrator of the sender has <a href="#upload-a-file">uploaded a File to the Backbone</a>, whose ownership they want to transfer to the recipient.
-To do so, they need to insert the <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the corresponding File into the <code class="language-plaintext highlighter-rouge">fileReference</code> property of the <a href="/integrate/data-model-overview#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a>.
+To do so, they need to insert the value of <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the corresponding File into the <code class="language-plaintext highlighter-rouge">fileReference</code> property of the <a href="/integrate/data-model-overview#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a> and specify the <code class="language-plaintext highlighter-rouge">ownershipToken</code> of the File.
 The value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code> in this example.
 Then, the RequestItem needs to be put into the <code class="language-plaintext highlighter-rouge">item</code> property of the <a href="/integrate/data-model-overview#request">Request</a> for transferring the ownership of Files.</p>
 
@@ -520,8 +525,9 @@ Then, the RequestItem needs to be put into the <code class="language-plaintext h
   </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TransferFileOwnershipRequestItem"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"fileReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;truncated reference of the File&gt;"</span><span class="w">
+      </span><span class="nl">"fileReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;truncated reference of the File&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ownershipToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ownershipToken of the File&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -538,6 +544,10 @@ If you want to use a RequestItemGroup in order to transfer the ownership of mult
 <p>The sender that wants to transfer the ownership of a File may or may not already have a Relationship with the recipient.
 Depending on which is the case, a different method can be used to send the <a href="#request-for-transferring-the-ownership-of-a-file">Request for transferring the ownership of a File</a>.
 There are two ways to send the Request for transferring the ownership of a File to the recipient.</p>
+
+<p class="notice--warning">Ensure that the Request for transferring the ownership of a File is only sent to one peer.
+It must not be sent to multiple peers, since there can only be one owner for each File.
+If the same Request was sent to multiple peers, once the first of them accepted it, the others would receive an error.</p>
 
 <h3 id="request-via-relationshiptemplate">Request via RelationshipTemplate</h3>
 
@@ -564,17 +574,21 @@ For that, follow the instructions of the <a href="/use-case-consumption-reject-i
 <p>If the recipient agrees to receive the ownership of one of the sender’s Files, they can accept the associated TransferFileOwnershipRequestItem.
 The <a href="/integrate/data-model-overview#acceptrequestitemparameters">AcceptRequestItemParameters</a> must be used for this.
 The acceptance of a TransferFileOwnershipRequestItem leads to the transfer of the ownership of the File on the Backbone.
+Thereby, the <code class="language-plaintext highlighter-rouge">ownershipToken</code> of the File is regenerated.
 Additionally, a <a href="/integrate/data-model-overview#localattribute">RepositoryAttribute</a> will be created for the recipient, whose <code class="language-plaintext highlighter-rouge">content</code> is an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a> with <a href="/integrate/attribute-values#identityfilereference">IdentityFileReference</a> as <code class="language-plaintext highlighter-rouge">value.@type</code>.
-The <code class="language-plaintext highlighter-rouge">value</code> of the IdentityFileReference is the <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the File that is now owned by the recipient.
-Also, the newly created RepositoryAttribute of the recipient will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient.
+The <code class="language-plaintext highlighter-rouge">value</code> of the IdentityFileReference is the value of <code class="language-plaintext highlighter-rouge">reference.truncated</code> of the File that is now owned by the recipient.
+Also, if the File has any <code class="language-plaintext highlighter-rouge">tags</code>, they will become <code class="language-plaintext highlighter-rouge">tags</code> of the IdentityAttribute.
+Moreover, the newly created RepositoryAttribute of the recipient will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient.
 Based on this, an appropriate AcceptResponseItem of type <a href="/integrate/data-model-overview#transferfileownershipacceptresponseitem">TransferFileOwnershipAcceptResponseItem</a> is generated.
 It contains the <code class="language-plaintext highlighter-rouge">id</code> and the <code class="language-plaintext highlighter-rouge">content</code> of the created own shared IdentityAttribute in its <code class="language-plaintext highlighter-rouge">attributeId</code> and <code class="language-plaintext highlighter-rouge">attribute</code> property, respectively.
 This ResponseItem will appear within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/integrate/data-model-overview#response">Response</a> to the Request for transferring the ownership of Files, which will be sent back to the sender.</p>
 
-<p class="notice--warning">Currently, there is no implementation for changing the actual ownership of a File that was uploaded to the Backbone.
+<p class="notice--warning">In case no <code class="language-plaintext highlighter-rouge">ownershipToken</code> was specified in the TransferFileOwnershipRequestItem, the actual ownership of the File that was uploaded to the Backbone does not change.
 Instead, accepting a TransferFileOwnershipRequestItem downloads the corresponding File and uploads it again to the Backbone, such that the recipient is its owner.
-The created IdentityAttributes with <code class="language-plaintext highlighter-rouge">value.@type</code> IdentityFileReference reference this newly uploaded File.
-Consequently, after receiving the Response, the sender can <a href="/use-case-transport-delete-file">delete their uploaded File</a> if they wish to do so, without impacting the File owned by the recipient.</p>
+The created IdentityAttributes with <code class="language-plaintext highlighter-rouge">value.@type</code> IdentityFileReference references this newly uploaded File.
+Consequently, after <a href="#receive-the-response-to-the-request">receiving the Response</a>, the File that was originally uploaded by the sender lost its meaning and can be <a href="/use-case-transport-delete-file">deleted</a>.
+Due to this workaround, it is not recommended to send a TransferFileOwnershipRequestItem without specifying an <code class="language-plaintext highlighter-rouge">ownershipToken</code>.
+Thus, in the next major version the <code class="language-plaintext highlighter-rouge">ownershipToken</code> will be a mandatory property of the TransferFileOwnershipRequestItem.</p>
 
 <h3 id="reject-a-transferfileownershiprequestitem">Reject a TransferFileOwnershipRequestItem</h3>
 
@@ -615,7 +629,7 @@ If the Request for transferring the ownership of Files contains a RequestItemGro
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-26T12:54:00+02:00">May 26, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-06-12T11:58:55+02:00">June 12, 2025</time></p>
 
       </footer>
 
