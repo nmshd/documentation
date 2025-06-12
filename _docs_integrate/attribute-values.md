@@ -744,7 +744,7 @@ An email address.
 | `title`              | `string`                                                                                     |    ✓     | max. length: 100                                                                          |
 | `description`        | `string`                                                                                     |    ✗     | max. length: 1000                                                                         |
 | `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                                                                           |
-| `value`              | `string`                                                                                     |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
+| `value`              | `string`                                                                                     |    ✓     | min. length: 3<br>max. length: 254<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
 
 ## ProprietaryFileReference
 
