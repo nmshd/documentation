@@ -1,6 +1,8 @@
 ---
 # Start automatic generation
 permalink: use-case-transport-load-item-from-reference
+redirect_from:
+  - use-case-transport-load-item-from-truncated-reference
 published: true
 title: "Load item from reference"
 type: use-case
@@ -9,7 +11,7 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RU10
+  - id: RU9
   - component: Runtime
   - layer: Transport
   - facade: AccountFacade
@@ -19,7 +21,7 @@ properties:
   - tech category: Account
   - status: QUESTIONS
   - documentation status: DONE
-  - comments: add redirect from /use-case-transport-load-item-from-truncated-reference as soon as that use case is deleted; rather somewhere else?
+  - comments: rather somewhere else?
   - actor: Identity
   - trigger:
   - precondition:
