@@ -226,14 +226,6 @@ Based on this, an appropriate AcceptResponseItem of type [TransferFileOwnershipA
 It contains the `id` and the `content` of the created own shared IdentityAttribute in its `attributeId` and `attribute` property, respectively.
 This ResponseItem will appear within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for transferring the ownership of Files, which will be sent back to the sender.
 
-In case no `ownershipToken` was specified in the TransferFileOwnershipRequestItem, the actual ownership of the File that was uploaded to the Backbone does not change.
-Instead, accepting a TransferFileOwnershipRequestItem downloads the corresponding File and uploads it again to the Backbone, such that the recipient is its owner.
-The created IdentityAttributes with `value.@type` IdentityFileReference references this newly uploaded File.
-Consequently, after [receiving the Response](#receive-the-response-to-the-request), the File that was originally uploaded by the sender lost its meaning and can be [deleted]({% link _docs_use-cases/use-case-transport-delete-file.md %}).
-Due to this workaround, it is not recommended to send a TransferFileOwnershipRequestItem without specifying an `ownershipToken`.
-Thus, in the next major version the `ownershipToken` will be a mandatory property of the TransferFileOwnershipRequestItem.
-{: .notice--warning}
-
 ### Reject a TransferFileOwnershipRequestItem
 
 Even if the recipient accepts the Request for transferring the ownership of Files as a whole, it may decide not to accept the ownership of all of the sender's Files.
