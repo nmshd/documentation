@@ -642,7 +642,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Query incoming Requests",
-        "excerpt":"This use case is intended to query incoming LocalRequests. Parameters The id of the LocalRequest. The peer is the address of the Identity that sent the LocalRequest. createdAt indicates the date of LocalRequest creation. The status of the LocalRequest. The content describes the Request wrapped by the LocalRequest. The source...","categories": [],
+        "excerpt":"This use case is intended to query incoming LocalRequests. Parameters The id of the LocalRequest. The peer is the address of the Identity that sent the LocalRequest. createdAt indicates the creation date of the LocalRequest. The status of the LocalRequest. wasAutomaticallyDecided indicates whether the Request was automatically decided by the...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-consumption-query-incoming-requests",
         "teaser": null
@@ -1095,6 +1095,12 @@ var store = [{
         "excerpt":"This use case queries Tokens of the Identity. Parameters isOwn indicates if the Token was created by the current Identity. createdAt is the ISODateTime the Token was created at. createdBy is the enmeshed address of the Identity that created the Token. createdByDevice is the id of the Device that created...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-transport-query-tokens-by-parameters",
+        "teaser": null
+      },{
+        "title": "Regenerate File Ownership Token",
+        "excerpt":"This use case regenerates the ownershipToken of a File. Parameters id of the File. On Success A new ownershipToken is generated for the File. The ownership of the File is unlocked, meaning that it is possible to claim the ownership of the File with the new ownershipToken. The corresponding indicator...","categories": [],
+        "tags": [],
+        "url": "/versions/v7/use-case-transport-regenerate-file-ownership-token",
         "teaser": null
       },{
         "title": "Reject IdentityDeletionProcess",
