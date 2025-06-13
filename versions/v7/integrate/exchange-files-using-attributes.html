@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-06-13T13:42:31+02:00">
+  <meta property="article:published_time" content="2025-06-13T15:26:27+02:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Exchange Files using Attributes">
     <meta itemprop="description" content="Communication between Identities involves exchanging uploaded Files with each other, for example:">
-    <meta itemprop="datePublished" content="2025-06-13T13:42:31+02:00">
+    <meta itemprop="datePublished" content="2025-06-13T15:26:27+02:00">
     
 
     <div class="page__inner-wrap">
@@ -589,13 +589,6 @@ Based on this, an appropriate AcceptResponseItem of type <a href="/versions/v7/i
 It contains the <code class="language-plaintext highlighter-rouge">id</code> and the <code class="language-plaintext highlighter-rouge">content</code> of the created own shared IdentityAttribute in its <code class="language-plaintext highlighter-rouge">attributeId</code> and <code class="language-plaintext highlighter-rouge">attribute</code> property, respectively.
 This ResponseItem will appear within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#response">Response</a> to the Request for transferring the ownership of Files, which will be sent back to the sender.</p>
 
-<p class="notice--warning">In case no <code class="language-plaintext highlighter-rouge">ownershipToken</code> was specified in the TransferFileOwnershipRequestItem, the actual ownership of the File that was uploaded to the Backbone does not change.
-Instead, accepting a TransferFileOwnershipRequestItem downloads the corresponding File and uploads it again to the Backbone, such that the recipient is its owner.
-The created IdentityAttributes with <code class="language-plaintext highlighter-rouge">value.@type</code> IdentityFileReference references this newly uploaded File.
-Consequently, after <a href="#receive-the-response-to-the-request">receiving the Response</a>, the File that was originally uploaded by the sender lost its meaning and can be <a href="/versions/v7/use-case-transport-delete-file">deleted</a>.
-Due to this workaround, it is not recommended to send a TransferFileOwnershipRequestItem without specifying an <code class="language-plaintext highlighter-rouge">ownershipToken</code>.
-Thus, in the next major version the <code class="language-plaintext highlighter-rouge">ownershipToken</code> will be a mandatory property of the TransferFileOwnershipRequestItem.</p>
-
 <h3 id="reject-a-transferfileownershiprequestitem">Reject a TransferFileOwnershipRequestItem</h3>
 
 <p>Even if the recipient accepts the Request for transferring the ownership of Files as a whole, it may decide not to accept the ownership of all of the sender’s Files.
@@ -635,7 +628,7 @@ If the Request for transferring the ownership of Files contains a RequestItemGro
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-06-13T13:42:31+02:00">June 13, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-06-13T15:26:27+02:00">June 13, 2025</time></p>
 
       </footer>
 
