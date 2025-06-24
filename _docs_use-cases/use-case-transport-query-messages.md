@@ -48,6 +48,7 @@ This use case queries [Messages]({% link _docs_integrate/data-model-overview.md 
 
 All parameters are optional. If no parameter is given, all Messages are returned.
 
+- `isOwn` indicates whether the querying Identity is the `owner` of the Message.
 - `createdBy` is the enmeshed `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that created the Messsage.
 - `createdByDevice` is the `id` of the Device that created the File.
 - `createdAt` is the ISODateTime the Message was created at.
