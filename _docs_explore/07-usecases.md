@@ -7,14 +7,12 @@ published: false
 The list below is a non-complete list of use cases within enmeshed:
 
 - Runtime
-
   - Anonymous
     - Load peer token anonymous by id and key
     - Load peer token anonymous by truncated reference
     - Get version information
     - Login to Identity
   - Transport
-
     - Account
       - Disable auto sync
       - Enable auto sync
@@ -59,7 +57,6 @@ The list below is a non-complete list of use cases within enmeshed:
       - Get token QR code for own RelationshipTemplate
       - Load peer RelationshipTemplate
     - Tokens
-
       - Create own token
       - Get QR code for token
       - Get token
@@ -67,9 +64,7 @@ The list below is a non-complete list of use cases within enmeshed:
       - Load peer token
 
     - Consumption
-
       - Attributes
-
         - Create Attribute
         - Delete Attribute
         - Delete Attribute by name
@@ -83,7 +78,6 @@ The list below is a non-complete list of use cases within enmeshed:
         - Update Attribute
 
       - Settings
-
         - Create setting
         - Delete setting
         - Get setting
@@ -91,7 +85,6 @@ The list below is a non-complete list of use cases within enmeshed:
         - Update setting
 
       - Shared items
-
         - Create shared item
         - Delete shared item
         - Get shared item
