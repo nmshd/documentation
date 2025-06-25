@@ -1062,7 +1062,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Query Messages",
-        "excerpt":"This use case queries Messages of the Identity. Parameters All parameters are optional. If no parameter is given, all Messages are returned. createdBy is the enmeshed address of the Identity that created the Messsage. createdByDevice is the id of the Device that created the File. createdAt is the ISODateTime the...","categories": [],
+        "excerpt":"This use case queries Messages of the Identity. Parameters All parameters are optional. If no parameter is given, all Messages are returned. isOwn indicates whether the querying Identity is the owner of the Message. createdBy is the enmeshed address of the Identity that created the Messsage. createdByDevice is the id...","categories": [],
         "tags": [],
         "url": "/use-case-transport-query-messages",
         "teaser": null
