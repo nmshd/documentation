@@ -75,7 +75,7 @@ The Connector synchronizes itself with the Backbone by a long-polling mechanism 
 
 ### Outbound Communication to Internal Networks
 
-The Connector does need to access its database. Access to other networks or systems from the Connector can be blocked unless there is are outbound modules set-up (e.g. webhook, eventing) set up in the Connector configuration. If that is the case, the Connector needs to access the provided internal IP-Addresses/domains for submitting the data.
+The Connector does need to access its database. Access to other networks or systems from the Connector can be blocked unless there are outbound modules (e.g. webhook, eventing) set up in the Connector configuration. If that is the case, the Connector needs to access the provided internal IP addresses/domains for submitting the data.
 
 ### Inbound Communication from Internal Networks
 
