@@ -136,7 +136,7 @@ To ensure the security and integrity of the system, it is recommended to regular
 
 ## Rate Limitations
 
-Although the Connector limits unauthorized requests - and should not be accessible from the public - we recommend that a rate limitation is implemented on a network level before the Connector e.g. from the firewall. This makes brute-force, denial-of-service or information-retrieval attacks against the Connector much harder.
+Although the Connector limits unauthorized requests - and should not be accessible from the public - we recommend that a rate limitation is implemented on a network level before the Connector, e.g. from the firewall. This makes brute-force, denial-of-service or information-retrieval attacks against the Connector much harder.
 
 ## Database Security
 
