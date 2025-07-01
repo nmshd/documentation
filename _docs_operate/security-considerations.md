@@ -152,7 +152,7 @@ On this page we have summarized some tips for the use of [MongoDB](https://www.m
 
 4. **Rotate passwords and connection strings:** As with API-keys, we recommend to rotate the password and connection strings on a regular basis.
 
-5. **Database access restriction** If the database is used for multiple different purposes or Connectors, i.e. tenants, ensure to restrict the authorizations of the database user or connection string to only the specified datasets required by each tenant.
+5. **Database access restriction:** If the database is used for multiple different purposes or Connectors, i.e. tenants, ensure to restrict the authorizations of the database user or connection string to only the specified datasets required by each tenant.
 
 6. **Regular updates and maintenance:** Regular updates should be performed to keep the database up-to-date and to fix any known security vulnerabilities.
 
