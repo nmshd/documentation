@@ -196,18 +196,12 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 - **dbName** `default: "default"`
 
-  The `dbName` string is used as the name of the MongoDB database, prefixed with `acc-`. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new enmeshed Identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
+  The `dbName` string is used as the name of the MongoDB database. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new enmeshed Identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
 
   If you would like to use multiple Connectors with distinct Identities (one Identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
 
   **Note:** If you are using the Connector in combintation with a FerretDB, you have to pay attention to the database name restrictions specified in the [FerretDB documentation](https://docs.ferretdb.io/diff/).
   {: .notice--warning}
-
-- **dbNamePrefix** `default: "acc-"`
-
-  The `dbNamePrefix` string is used as a prefix for the MongoDB database name. It will be **prepended** to the string configured by the `dbName` property.
-
-  If you don't want your database name to be prefixed, you can set this value to an empty string.
 
 ### infrastructure
 
@@ -367,6 +361,7 @@ It is not recommended to use this Module for production scenarios.
   Here you can define multiple brokers to which the Connector should publish messages.
 
   Each broker consists of a `type` (string) and a `configuration` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `configuration` object contains the configuration for the broker.
+
   - type `AMQP`
 
     **example**
@@ -382,6 +377,7 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
+
     - url `string, required` -
 
       the URL of the AMQP broker
@@ -410,6 +406,7 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
+
     - url `string, required`
 
       the URL of the MQTT broker
@@ -432,6 +429,7 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
+
     - projectId `string, required`
 
       the project id of the Google Cloud project
@@ -458,6 +456,7 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
+
     - url `string, required`
 
       the URL of the broker
@@ -524,6 +523,7 @@ It is not recommended to use this Module for production scenarios.
   **OAuth2**
 
   The OAuth2 authentication type is used to authenticate the request to the webhook using the client credentials flow of OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. The OAuth2 authentication is configured using the following parameters:
+
   - **type** `"OAuth2", required`
 
     The type of the authentication.
@@ -547,6 +547,7 @@ It is not recommended to use this Module for production scenarios.
   **ApiKey**
 
   The ApiKey authentication type is used to authenticate the request to the webhook using an API key. The Connector will send the API key as part of the request using a header. The ApiKey authentication is configured using the following parameters:
+
   - **type** `"ApiKey", required`
 
     The type of the authentication.
