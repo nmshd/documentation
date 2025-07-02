@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-07-02T14:31:00+02:00">
+  <meta property="article:published_time" content="2025-07-02T15:23:19+02:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Migration From v6 to v7">
     <meta itemprop="description" content="The Runtime of enmeshed has recently been updated from version 6 to version 7.Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors.The version update has resulted in some breaking changes.To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
-    <meta itemprop="datePublished" content="2025-07-02T14:31:00+02:00">
+    <meta itemprop="datePublished" content="2025-07-02T15:23:19+02:00">
     
 
     <div class="page__inner-wrap">
@@ -409,6 +409,7 @@ To support the migration of existing systems to the new version, the breaking ch
 For this reason, the old data must be deleted.
 Alternatively, the database can be deleted as a whole and <a href="/versions/v7/operate/setup-with-docker-compose">set up again</a>.</li>
   <li>The <a href="https://github.com/nmshd/connector?tab=readme-ov-file#connector">image</a> used to run the Connector must be updated to version 7.</li>
+  <li>The <a href="/versions/v7/operate/configuration">configuration</a> value <code class="language-plaintext highlighter-rouge">database.dbNamePrefix</code> of the Connector was removed. Before, it defaulted to <code class="language-plaintext highlighter-rouge">acc-</code>. If you want to access a database called <code class="language-plaintext highlighter-rouge">acc-connector</code>, you have to set the <code class="language-plaintext highlighter-rouge">database.dbName</code> configuration value to <code class="language-plaintext highlighter-rouge">acc-connector</code> instead of <code class="language-plaintext highlighter-rouge">connector</code> only.</li>
 </ul>
 
 <h3 id="removed-and-changed-data-structures">Removed and Changed Data Structures</h3>
@@ -473,7 +474,7 @@ It has now been deleted with the update to version 7.</li>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-02T14:31:00+02:00">July 2, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-02T15:23:19+02:00">July 2, 2025</time></p>
 
       </footer>
 
