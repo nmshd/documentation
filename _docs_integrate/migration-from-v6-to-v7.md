@@ -37,7 +37,7 @@ The step-by-step instructions can be consulted to start the migration to version
   For this reason, the old data must be deleted.
   Alternatively, the database can be deleted as a whole and [set up again]({% link _docs_operate/setup-with-docker-compose.md %}).
 - The [image](https://github.com/nmshd/connector?tab=readme-ov-file#connector) used to run the Connector must be updated to version 7.
-- The configuration value `database.dbNamePrefix` in the Connector was removed. Before, it defaulted to `acc-`. If you want to access a database called `acc-connector`, you have to set the `database.dbName` configuration value to `acc-connector` instead of `connector` only.
+- The [configuration]({% link _docs_operate/configuration.md %}) value `database.dbNamePrefix` of the Connector was removed. Before, it defaulted to `acc-`. If you want to access a database called `acc-connector`, you have to set the `database.dbName` configuration value to `acc-connector` instead of `connector` only.
 
 ### Removed and Changed Data Structures
 
