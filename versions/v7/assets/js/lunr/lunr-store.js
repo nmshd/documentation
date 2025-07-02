@@ -378,7 +378,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Security Considerations",
-        "excerpt":"The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Connector and its data. And as the Connector is handling very sensitive data (please see...","categories": [],
+        "excerpt":"The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are responsible for the security of the Connector and its data. And as the Connector is handling very sensitive data (please see chapter...","categories": [],
         "tags": [],
         "url": "/versions/v7/operate/security-considerations",
         "teaser": null

@@ -11,7 +11,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Security Considerations - enmeshed</title>
-<meta name="description" content="The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Connector and its data.">
+<meta name="description" content="The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are responsible for the security of the Connector and its data.">
 
 
   <meta name="author" content="enmeshed Team">
@@ -27,7 +27,7 @@
 <meta property="og:url" content="/versions/v7/operate/security-considerations">
 
 
-  <meta property="og:description" content="The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Connector and its data.">
+  <meta property="og:description" content="The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are responsible for the security of the Connector and its data.">
 
 
 
@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-06-25T14:50:18+02:00">
+  <meta property="article:published_time" content="2025-07-02T11:05:26+02:00">
 
 
 
@@ -276,8 +276,8 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Security Considerations">
-    <meta itemprop="description" content="The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Connector and its data.">
-    <meta itemprop="datePublished" content="2025-06-25T14:50:18+02:00">
+    <meta itemprop="description" content="The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are responsible for the security of the Connector and its data.">
+    <meta itemprop="datePublished" content="2025-07-02T11:05:26+02:00">
     
 
     <div class="page__inner-wrap">
@@ -298,13 +298,15 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#updates">Updates</a></li><li><a href="#trust">Trust</a></li><li><a href="#virus-scans">Virus Scans</a></li><li><a href="#networking">Networking</a><ul><li><a href="#outbound-external-connection-internet">Outbound External Connection: Internet</a></li><li><a href="#no-inbound-external-connections">No Inbound External Connections</a></li><li><a href="#outbound-communication-to-internal-networks">Outbound Communication to Internal Networks</a></li><li><a href="#inbound-communication-from-internal-networks">Inbound Communication from Internal Networks</a></li><li><a href="#tls-certificate-pinning">TLS Certificate Pinning</a></li></ul></li><li><a href="#authentication-and-user-management">Authentication and User Management</a></li><li><a href="#kernel-dumps">Kernel Dumps</a></li><li><a href="#api-key-rotation">API key rotation</a></li><li><a href="#docker-compose-file-security-considerations">Docker Compose File Security Considerations</a></li><li><a href="#setup-firewall">Setup Firewall</a></li><li><a href="#database-security">Database Security</a></li></ul>
+              <ul class="toc__menu"><li><a href="#updates">Updates</a></li><li><a href="#trust">Trust</a></li><li><a href="#virus-scans">Virus Scans</a></li><li><a href="#proposed-network-access">Proposed Network Access</a><ul><li><a href="#outbound-external-connection-internet">Outbound External Connection: Internet</a></li><li><a href="#no-inbound-external-connections">No Inbound External Connections</a></li><li><a href="#outbound-communication-to-internal-networks">Outbound Communication to Internal Networks</a></li><li><a href="#inbound-communication-from-internal-networks">Inbound Communication from Internal Networks</a></li><li><a href="#tls-certificate-pinning">TLS Certificate Pinning</a></li></ul></li><li><a href="#authentication-and-user-management">Authentication and User Management</a><ul><li><a href="#api-key-rotation">API-key rotation</a></li></ul></li><li><a href="#kernel-dumps">Kernel Dumps</a></li><li><a href="#docker-compose-file-security-considerations">Docker Compose File Security Considerations</a></li><li><a href="#setup-firewall">Setup Firewall</a></li><li><a href="#rate-limitations">Rate Limitations</a></li><li><a href="#database-security">Database Security</a></li></ul>
             </nav>
           </aside>
         
-        <p>The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are also responsible for the security of the Connector and its data.</p>
+        <p>The most important thing you have to keep in mind that the Connector is usually running on your landscape and in your authority. This is why you are responsible for the security of the Connector and its data.</p>
 
-<p>And as the Connector is handling very sensitive data (please see chapter Privacy), it should be treated as any other business system - with the same requirements in terms of privacy, security, access or network setup.</p>
+<p>And as the Connector is handling very sensitive data (please see chapter Privacy), it should be treated as any other business system - with the same requirements in terms of privacy, security, authorization or network setup.</p>
+
+<p>With this page, we address what we consider to be the most important security tips for securely setting up the Connector. This list is by far not exhaustive. Also keep in mind, that even if you follow all these tips, a security incident still may occur. We strongly recommend regular penetration tests to check the security of your Connector operations.</p>
 
 <h2 id="updates">Updates</h2>
 
@@ -338,7 +340,7 @@
 
 <p>Thus please consider scanning the host systems and the database for viruses regularly. Additionally, even encrypted data sent to and received from the Backbone should be scanned for viruses.</p>
 
-<h2 id="networking">Networking</h2>
+<h2 id="proposed-network-access">Proposed Network Access</h2>
 
 <p>It is best practice to block unnecessary access from and to software components between networks. In this chapter it is described which access the Connector actually requires and which requests could be blocked.</p>
 
@@ -346,15 +348,15 @@
 
 <p>The Connector uses an TLS-secured Internet connection to the enmeshed Backbone (specified in the <a href="/versions/v7/operate/configuration#transportlibrary">Connector configuration’s baseUrl</a>). Your firewall must not block access to this domain, otherwise the Connector won’t work.</p>
 
-<p>To access the latest updates, other routes might need to be opened within the firewall settings.</p>
+<p>To access the latest updates, other routes might need to be allowed within the firewall settings, e.g. GitHub Container Registry.</p>
 
 <h3 id="no-inbound-external-connections">No Inbound External Connections</h3>
 
-<p>The Connector synchronizes itself with the Backbone by a long-polling mechanism (it accesses the Internet). There is no data transfer triggered by the Backbone (or other users) and thus, there is no need for opening up special ports or reverse proxies for inbound connections from the Internet.</p>
+<p>The Connector synchronizes itself with the Backbone by a long-polling mechanism or server-sent events. In both cases, the Connector opens up the connection to the Backbone. There is no data transfer triggered by the Backbone (or other users) and thus, there is no need for opening up special ports or reverse proxies for inbound connections from the Internet to the Connector.</p>
 
 <h3 id="outbound-communication-to-internal-networks">Outbound Communication to Internal Networks</h3>
 
-<p>The Connector does need to access its database. Access to other networks or systems from the Connector can be blocked unless there is a synchronization route (webhook) set up in the Connector configuration. Otherwise, the Connector needs to access the provided internal domains for submitting new data.</p>
+<p>The Connector does need to access its database. Access to other networks or systems from the Connector can be blocked unless there are outbound modules (e.g. webhook, eventing) set up in the Connector configuration. If that is the case, the Connector needs to access the provided internal IP addresses/domains for submitting the data.</p>
 
 <h3 id="inbound-communication-from-internal-networks">Inbound Communication from Internal Networks</h3>
 
@@ -370,11 +372,15 @@
 
 <h2 id="authentication-and-user-management">Authentication and User Management</h2>
 
-<p>So far, the Connector supports API-Key authentication to securely authenticate technical users. These API-Keys are random character strings with a high entropy and should be kept confidential at all times. Each internal system communicating with the Connector should receive its own API-Key.</p>
+<p>So far, the Connector supports API-key authentication to securely authenticate technical users. These API-Keys are random character strings with a high entropy and should be kept confidential at all times. Each internal system communicating with the Connector should receive its own API-Key.</p>
 
-<p>There is no authorization set up, thus every API-Key can call any API of the Connector API.</p>
+<p>There is no authorization set up, thus every API-key can call any API of the Connector API.</p>
 
 <p>End user authentication, e.g. business users accessing the system, should be done on the respective business system. Usually, there is no need for end users to access the Connector and thus they should not have access to the Connector (from a network and authentication perspective).</p>
+
+<h3 id="api-key-rotation">API-key rotation</h3>
+
+<p>It is important to ensure that API-keys are secure and cannot be easily compromised. One of the key aspects of API-key security is regular rotation and expiration which we recommend. If an API-key is not rotated or expired, it can potentially be used by an attacker who has obtained the key through unauthorized means.</p>
 
 <h2 id="kernel-dumps">Kernel Dumps</h2>
 
@@ -385,10 +391,6 @@
 <p>The recommended course of action is to disable kernel dumps on the host system, outside a development environment, where the Connector is running. This is in line with the <a href="https://libsodium.gitbook.io/doc/memory_management#locking-memory">recommendation of libsodium</a>, the used encryption library.</p>
 
 <p>This can typically be done by modifying the kernel parameters or configuration settings.</p>
-
-<h2 id="api-key-rotation">API key rotation</h2>
-
-<p>It is important to ensure that API keys are secure and cannot be easily compromised. One of the key aspects of API key security is regular rotation and expiration. If an API key is not rotated or expired, it can potentially be used by an attacker who has obtained the key through unauthorized means.</p>
 
 <h2 id="docker-compose-file-security-considerations">Docker Compose File Security Considerations</h2>
 
@@ -412,13 +414,15 @@
 
 <p>To ensure the security and integrity of the system, it is recommended to regularly review and update the allowlist as necessary. This includes removing any URLs that are no longer needed and adding new URLs that may be required.</p>
 
+<h2 id="rate-limitations">Rate Limitations</h2>
+
+<p>Although the Connector limits unauthorized requests - and should not be accessible from the public - we recommend that a rate limitation is implemented on a network level before the Connector, e.g. from the firewall. This makes brute-force, denial-of-service or information-retrieval attacks against the Connector much harder.</p>
+
 <h2 id="database-security">Database Security</h2>
 
 <p>It is crucial to secure databases, and in the case of MongoDB, it is essential to implement proper security measures to mitigate the risks associated with its default insecure configuration.</p>
 
 <p>On this page we have summarized some tips for the use of <a href="https://www.mongodb.com/docs/manual/administration/security-checklist/">MongoDB</a> and <a href="https://docs.ferretdb.io/security/">FerretDB</a>. A good source for further information on these tips is the website of the respective database.</p>
-
-<p>With this page, we address what we consider to be the most important security tips. Even if you follow these tips, a security incident may occur.</p>
 
 <ol>
   <li>
@@ -429,6 +433,12 @@
   </li>
   <li>
     <p><strong>Strong passwords and connection strings:</strong> All user credentials and connection strings should be strong and complex, to prevent unauthorized access to the database.</p>
+  </li>
+  <li>
+    <p><strong>Rotate passwords and connection strings:</strong> As with API-keys, we recommend to rotate the password and connection strings on a regular basis.</p>
+  </li>
+  <li>
+    <p><strong>Database access restriction:</strong> If the database is used for multiple different purposes or Connectors, i.e. tenants, ensure to restrict the authorizations of the database user or connection string to only the specified datasets required by each tenant.</p>
   </li>
   <li>
     <p><strong>Regular updates and maintenance:</strong> Regular updates should be performed to keep the database up-to-date and to fix any known security vulnerabilities.</p>
@@ -447,7 +457,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-06-25T14:50:18+02:00">June 25, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-02T11:05:26+02:00">July 2, 2025</time></p>
 
       </footer>
 
