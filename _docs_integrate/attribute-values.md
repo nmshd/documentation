@@ -151,7 +151,7 @@ It is not recommended to send a BirthDay to another Identity by its own. Instead
 
 ## BirthMonth
 
-The day of month.
+The month of birth.
 
 It is not recommended to send a BirthMonth to another Identity by its own. Instead, send a [`BirthDate`](#birthdate) with the `month` property set.
 {: .notice--warning}
@@ -301,7 +301,7 @@ The email address which can be used to reach the Identity over email systems.
 | Name    | Type             | Required | Validation                                                                                |
 | ------- | ---------------- | :------: | ----------------------------------------------------------------------------------------- |
 | `@type` | `"EMailAddress"` |    ✓     |                                                                                           |
-| `value` | `string`         |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
+| `value` | `string`         |    ✓     | min. length: 3<br>max. length: 254<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
 
 ## FaxNumber
 
@@ -322,10 +322,10 @@ How an IdentityFileReference can be used to [exchange Files using Attributes]({%
 
 **Properties**
 
-| Name    | Type                      | Required | Validation       |
-| ------- | ------------------------- | :------: | ---------------- |
-| `@type` | `"IdentityFileReference"` |    ✓     |                  |
-| `value` | `string`                  |    ✓     | max. length: 100 |
+| Name    | Type                      | Required | Validation                          |
+| ------- | ------------------------- | :------: | ----------------------------------- |
+| `@type` | `"IdentityFileReference"` |    ✓     |                                     |
+| `value` | `string`                  |    ✓     | min. length: 30<br>max. length: 150 |
 
 ## GivenName
 
@@ -516,7 +516,7 @@ The statement allows a very generic digital mapping of facts
 | `issuer`           | `string`      |    ✓     | see [`DigitalIdentityDescriptor`](#statement-digitalidentitydescriptor) |
 | `issuerConditions` | `string`      |    ✓     | see [`StatementIssuerConditions`](#statementissuerconditions)           |
 
-## Statement DigitalIdentitydescriptor
+## Statement DigitalIdentityDescriptor
 
 The issuer of a [`statement`](#statement).
 
@@ -698,12 +698,13 @@ Represents the consent of an Identity to a specific topic. To obtain persistent 
 
 **Properties**
 
-| Name                 | Type                                                                                         | Required | Validation                                                 |
-| -------------------- | -------------------------------------------------------------------------------------------- | :------: | ---------------------------------------------------------- |
-| `@type`              | `"Consent"`                                                                                  |    ✓     |                                                            |
-| `consent`            | `string`                                                                                     |    ✓     | max. length: 2000                                          |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                                            |
-| `link`               | `string`                                                                                     |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+| Name                 | Type                                                                                         | Required | Validation                                                                          |
+| -------------------- | -------------------------------------------------------------------------------------------- | :------: | ----------------------------------------------------------------------------------- |
+| `@type`              | `"Consent"`                                                                                  |    ✓     |                                                                                     |
+| `consent`            | `string`                                                                                     |    ✓     | max. length: 10000                                                                  |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                                                                     |
+| `link`               | `string`                                                                                     |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL                          |
+| `linkDisplayText`    | `string`                                                                                     |    ✗     | min. length: 3<br>max. length: 30<br>can only be specified if a `link` is specified |
 
 ## ProprietaryBoolean
 
@@ -745,7 +746,7 @@ An email address.
 | `title`              | `string`                                                                                     |    ✓     | max. length: 100                                                                          |
 | `description`        | `string`                                                                                     |    ✗     | max. length: 1000                                                                         |
 | `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                                                                           |
-| `value`              | `string`                                                                                     |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
+| `value`              | `string`                                                                                     |    ✓     | min. length: 3<br>max. length: 254<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
 
 ## ProprietaryFileReference
 
@@ -754,13 +755,13 @@ Similar to an [IdentityFileReference]({% link _docs_integrate/attribute-values.m
 
 **Properties**
 
-| Name                 | Type                                                                                         | Required | Validation        |
-| -------------------- | -------------------------------------------------------------------------------------------- | :------: | ----------------- |
-| `@type`              | `"ProprietaryFileReference"`                                                                 |    ✓     |                   |
-| `title`              | `string`                                                                                     |    ✓     | max. length: 100  |
-| `description`        | `string`                                                                                     |    ✗     | max. length: 1000 |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                   |
-| `value`              | `string`                                                                                     |    ✓     | max. length: 100  |
+| Name                 | Type                                                                                         | Required | Validation                          |
+| -------------------- | -------------------------------------------------------------------------------------------- | :------: | ----------------------------------- |
+| `@type`              | `"ProprietaryFileReference"`                                                                 |    ✓     |                                     |
+| `title`              | `string`                                                                                     |    ✓     | max. length: 100                    |
+| `description`        | `string`                                                                                     |    ✗     | max. length: 1000                   |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                     |
+| `value`              | `string`                                                                                     |    ✓     | min. length: 30<br>max. length: 150 |
 
 ## ProprietaryFloat
 
@@ -782,13 +783,13 @@ A hexadecimal color code.
 
 **Properties**
 
-| Name                 | Type                                                                                         | Required | Validation                                                               |
-| -------------------- | -------------------------------------------------------------------------------------------- | :------: | ------------------------------------------------------------------------ |
-| `@type`              | `"ProprietaryHEXColor"`                                                                      |    ✓     |                                                                          |
-| `title`              | `string`                                                                                     |    ✓     | max. length: 100                                                         |
-| `description`        | `string`                                                                                     |    ✗     | max. length: 1000                                                        |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                                                          |
-| `value`              | `string`                                                                                     |    ✓     | min.length: 4<br> must match `^#([0-9A-F]{3}){1,2}$`<br>max. length: 100 |
+| Name                 | Type                                                                                         | Required | Validation                                                            |
+| -------------------- | -------------------------------------------------------------------------------------------- | :------: | --------------------------------------------------------------------- |
+| `@type`              | `"ProprietaryHEXColor"`                                                                      |    ✓     |                                                                       |
+| `title`              | `string`                                                                                     |    ✓     | max. length: 100                                                      |
+| `description`        | `string`                                                                                     |    ✗     | max. length: 1000                                                     |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                                                       |
+| `value`              | `string`                                                                                     |    ✓     | min.length: 4<br>max. length: 9<br>must match `^#([0-9A-F]{3}){1,2}$` |
 
 ## ProprietaryInteger
 
@@ -914,7 +915,7 @@ A URL.
 
 ## ProprietaryXML
 
-A XML.
+An XML.
 
 **Properties**
 

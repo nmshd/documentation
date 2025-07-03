@@ -1,8 +1,10 @@
 ---
 # Start automatic generation
-permalink: use-case-anonymous-load-token-by-truncated-reference-without-having-an-account
+permalink: use-case-anonymous-load-token-by-reference-without-having-an-account
+redirect_from:
+  - use-case-anonymous-load-token-by-truncated-reference-without-having-an-account
 published: true
-title: "Load Token by truncated reference (without having an account)"
+title: "Load Token by reference (without having an account)"
 type: use-case
 toc: true
 sidebar:
@@ -13,7 +15,7 @@ properties:
   - component: Runtime
   - layer: Anonymous
   - facade: AnonymousTokensFacade
-  - function: loadPeerTokenByTruncatedReference
+  - function: loadPeerTokenByReference
   - description:
   - feature category: Share information over side-channel
   - tech category: AnonymousTokens
@@ -31,7 +33,7 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: use-case-anonymous-load-token-by-truncated-reference-without-having-an-account
+  - link: use-case-anonymous-load-token-by-reference-without-having-an-account
 require:
 required_by:
 # End automatic generation
@@ -41,8 +43,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use case attempts to retrieve a [Token]({% link _docs_integrate/data-model-overview.md %}#token)
-by its `truncatedReference` without having an account on the Backbone, thus without an authentication.
+This use case attempts to retrieve a [Token]({% link _docs_integrate/data-model-overview.md %}#token) by its `reference.truncated` without having an account on the Backbone, thus without an authentication.
 
 This can be used to fetch `Tokens` for Device Onboarding or Recovery.
 

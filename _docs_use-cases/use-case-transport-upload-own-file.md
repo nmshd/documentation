@@ -44,7 +44,7 @@ api_route_regex: ^POST /api/v2/Files/Own$
 
 This use case takes a given file outside of enmeshed, encrypts and uploads it to the Backbone and creates a [File]({% link _docs_integrate/data-model-overview.md %}#file) with the respective metadata information for the Identity to access it.
 The File can from now on be shared by references to other Identities.
-This can be the `truncatedReference` of the File itself, which is used, for example, when [exchanging Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}), or the `truncatedReference` of a [Token]({% link _docs_integrate/data-model-overview.md %}#token).
+This can be the `reference.truncated` of the File itself, which is used, for example, when [exchanging Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}), or the `reference.truncated` of a [Token]({% link _docs_integrate/data-model-overview.md %}#token).
 In the latter case, the [Token for the File must be created]({% link _docs_use-cases/use-case-transport-create-token-for-file.md %}) first.
 
 ## Parameters
@@ -54,7 +54,8 @@ In the latter case, the [Token for the File must be created]({% link _docs_use-c
 - `mimetype` of the respective file.
 - Optionally, `expiresAt` can be specified, which describes the ISODateTime the File expires.
 - Optionally, a `title` can be provided for the File.
-- Optional `description` of the File.
+- Optionally, a `description` can be provided for the File.
+- Optionally, `tags` can be provided for the File. If an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type` is created for the File during [transferring the ownership of the File to a peer]({% link _docs_integrate/exchange-files-using-attributes.md %}#transfer-the-ownership-of-a-file-to-a-peer), it will have these `tags` as well. For this reason, a tag is valid if it is contained in the [AttributeTagCollection]({% link _docs_integrate/data-model-overview.md %}#attributetagcollection) for the `value.@type` IdentityFileReference and starts with the prefix `bkb:` or if it starts with the custom tag prefix `x:` or `X:`, the prefix `urn:`, the prefix `language:` followed by a valid ISO 639 language code or the prefix `mimetype:` followed by a valid MIME type matching the pattern `^[a-z-*]+/[a-z-*]+$`.
 
 ## On Success
 
@@ -68,3 +69,4 @@ In the latter case, the [Token for the File must be created]({% link _docs_use-c
 
 - The parameters are malformed.
 - The file size is too big.
+- Invalid `tags` were provided. A tag is invalid if it is neither contained in the [AttributeTagCollection]({% link _docs_integrate/data-model-overview.md %}#attributetagcollection) for the [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) `value.@type` [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) and starts with the prefix `bkb:` nor starts with the custom tag prefix `x:` or `X:`, the prefix `urn:`, the prefix `language:` followed by a valid ISO 639 language code nor the prefix `mimetype:` followed by a valid MIME type matching the pattern `^[a-z-*]+/[a-z-*]+$`.

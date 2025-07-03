@@ -14,7 +14,7 @@ properties:
   - layer: Human
   - facade: Screen
   - function:
-  - description: The user scans a QR code from a different device by the app.
+  - description: The user scans a QR code from a different device by the App.
   - feature category:
   - tech category: User Action
   - status: DONE

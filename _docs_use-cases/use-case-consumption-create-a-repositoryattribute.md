@@ -44,8 +44,7 @@ api_route_regex: ^POST /api/v2/Attributes$
 
 {% include properties_list.html %}
 
-This use case is intended to create a RepositoryAttribute, i.e. an unshared [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute)
-based on a given [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
+This use case is intended to create a RepositoryAttribute, i.e. an unshared [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) based on a given [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
 
 ## Parameters
 
@@ -57,4 +56,6 @@ based on a given [IdentityAttribute]({% link _docs_integrate/data-model-overview
 
 ## On Failure
 
+- The LocalAttribute cannot be created if the provided `content.value.@type` does not match one of the allowed [IdentityAttribute value types]({% link _docs_integrate/attribute-values.md %}#identity-attributes).
+- The LocalAttribute cannot be created if invalid `content.tags` were specified. A tag is invalid if it is neither contained in the [AttributeTagCollection]({% link _docs_integrate/data-model-overview.md %}#attributetagcollection) for the `content.value.@type` and starts with the prefix `bkb:` nor starts with the custom tag prefix `x:` or `X:`, the prefix `urn:`, the prefix `language:` followed by a valid ISO 639 language code nor the prefix `mimetype:` followed by a valid MIME type matching the pattern `^[a-z-*]+/[a-z-*]+$`.
 - The LocalAttribute cannot be created if there is already an existing RepositoryAttribute whose `succeededBy` property is undefined that has the exact same `content.value`.

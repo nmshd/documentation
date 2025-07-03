@@ -196,18 +196,12 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 - **dbName** `default: "default"`
 
-  The `dbName` string is used as the name of the MongoDB database, prefixed with `acc-`. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new enmeshed Identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
+  The `dbName` string is used as the name of the MongoDB database. You can use any name you like, but keep in mind that changing it later will NOT rename the database. Instead a new database will be created, together with a new enmeshed Identity. Even though the old database will still exist, the Connector will not be able to access the data until you change the `dbName` back to its original value.
 
   If you would like to use multiple Connectors with distinct Identities (one Identity per Connector) running on the same database, you have to specify a unique `dbName` for each of them.
 
   **Note:** If you are using the Connector in combintation with a FerretDB, you have to pay attention to the database name restrictions specified in the [FerretDB documentation](https://docs.ferretdb.io/diff/).
   {: .notice--warning}
-
-- **dbNamePrefix** `default: "acc-"`
-
-  The `dbNamePrefix` string is used as a prefix for the MongoDB database name. It will be **prepended** to the string configured by the `dbName` property.
-
-  If you don't want your database name to be prefixed, you can set this value to an empty string.
 
 ### infrastructure
 
@@ -277,39 +271,6 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 ### modules
 
 Every Module can be enabled or disabled by passing true / false to `enabled`. Read more about the Module by clicking on the <i class="fas fa-fw fa-info-circle"/> icon in each title.
-
-#### amqpPublisher <a href="{% link _docs_operate/modules.md %}#amqppublisher"><i class="fas fa-fw fa-info-circle"/></a> {#amqppublisher}
-
-This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
-{: .notice--danger}
-
-**Sample Configuration:**
-
-```jsonc
-{
-  // ...
-
-  "modules": {
-    "amqpPublisher": {
-      "enabled": false,
-      "url": "amqp://example.com:5672",
-      "exchange": "myExchange"
-    }
-  }
-}
-```
-
-- **enabled** `default: false`
-
-  Enable or disable the AMQP Publisher Module.
-
-- **url** `required`
-
-  The URL of the AMQP server.
-
-- **exchange** `default: ""`
-
-  The name of the AMQP exchange to publish to.
 
 #### autoAcceptPendingRelationships <a href="{% link _docs_operate/modules.md %}#autoacceptpendingrelationships"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptpendingrelationships}
 
@@ -400,7 +361,6 @@ It is not recommended to use this Module for production scenarios.
   Here you can define multiple brokers to which the Connector should publish messages.
 
   Each broker consists of a `type` (string) and a `configuration` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `configuration` object contains the configuration for the broker.
-
   - type `AMQP`
 
     **example**
@@ -416,16 +376,15 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - url `string, required` -
 
       the URL of the AMQP broker
 
       > the URL must be in the [AMQP url format](https://www.rabbitmq.com/docs/uri-spec)
 
-    - exchange `string` -
+    - exchange `string, default: ""` -
 
-      the name of the exchange to publish to
+      the name of the AMQP exchange to publish to
 
     - timeout `number` -
 
@@ -445,7 +404,6 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - url `string, required`
 
       the URL of the MQTT broker
@@ -468,7 +426,6 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - projectId `string, required`
 
       the project id of the Google Cloud project
@@ -495,7 +452,6 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - url `string, required`
 
       the URL of the broker
@@ -527,44 +483,6 @@ It is not recommended to use this Module for production scenarios.
 
   The interval in seconds at which the sync Module will fetch changes from the Backbone.
 
-#### PubSubPublisher <a href="{% link _docs_operate/modules.md %}#pubsubpublisher"><i class="fas fa-fw fa-info-circle"/></a> {#pubsubpublisher}
-
-This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
-{: .notice--danger}
-
-**Sample Configuration:**
-
-```jsonc
-{
-  // ...
-
-  "modules": {
-    "PubSubPublisher": {
-      "enabled": false,
-      "projectId": "",
-      "topic": "",
-      "keyFile": ""
-    }
-  }
-}
-```
-
-- **enabled** `default: false`
-
-  Enable or disable the PubSub Publisher Module.
-
-- **projectId** `required`
-
-  The project id of the Google Cloud project.
-
-- **topic** `required`
-
-  The name of the PubSub topic to publish to.
-
-- **keyFile** `required`
-
-  The (absolute) path of the key file to authenticate with the Google Cloud project.
-
 #### webhooks <a href="{% link _docs_operate/modules.md %}#webhooks"><i class="fas fa-fw fa-info-circle"/></a> {#webhooks}
 
 **Sample Configuration:**
@@ -595,7 +513,45 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   The server under the URL must respond to the request with a status code between 200 and 299. Otherwise the Connector will log a warning.
 
-  <br>
+  If the webhook target is protected by authentication, you can configure the webhook module to authenticate itself. Currently, the available `authentication` types are: `OAuth2` and `ApiKey`.
+
+  **OAuth2**
+
+  The OAuth2 authentication type is used to authenticate the request to the webhook using the client credentials flow of OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. The OAuth2 authentication is configured using the following parameters:
+  - **type** `"OAuth2", required`
+
+    The type of the authentication.
+
+  - **accessTokenUrl** `string, required`
+
+    The URL to get the access token from. This URL must be reachable from the Connector.
+
+  - **clientId** `string, required`
+
+    The [client id](https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1) used to authenticate to the access token server.
+
+  - **clientSecret** `string, required`
+
+    The [client secret](https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1) used to authenticate to the access token server.
+
+  - **scope** `string, optional`
+
+    The [scope](https://www.rfc-editor.org/rfc/rfc6749#section-3.3) of the access request. This is optional and can be omitted if not needed.
+
+  **ApiKey**
+
+  The ApiKey authentication type is used to authenticate the request to the webhook using an API key. The Connector will send the API key as part of the request using a header. The ApiKey authentication is configured using the following parameters:
+  - **type** `"ApiKey", required`
+
+    The type of the authentication.
+
+  - **headerName** `string, default: "x-api-key"`
+
+    The name of the header to send the API key in. If not set, the default value `x-api-key` will be used.
+
+  - **apiKey** `string, required`
+
+    The API key to use for authentication.
 
   **Example**
 
@@ -620,6 +576,28 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
     // a target with the {% raw %}{{trigger}}{% endraw %} placeholder as part of the URL
     "target3": {
       "url": "https://example.com/enmeshed/webhook/{% raw %}{{trigger}}{% endraw %}"
+    },
+
+    // a target with an OAuth2 authentication type
+    "target4": {
+      "url": "https://example.com/enmeshed/webhook",
+      "authentication": {
+        "type": "OAuth2",
+        "accessTokenUrl": "https://example.com/oauth2/token",
+        "clientId": "myClientId",
+        "clientSecret": "myClientSecret",
+        "scope": "myScope"
+      }
+    },
+
+    // a target with an ApiKey authentication type
+    "target5": {
+      "url": "https://example.com/enmeshed/webhook",
+      "authentication": {
+        "type": "ApiKey",
+        "headerName": "a-header-name",
+        "apiKey": "my-api-key"
+      }
     }
   }
   ```
@@ -634,8 +612,6 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 - **webhooks** `default: []`
 
   The webhooks that will be called. A webhook consists of one or more [Connector Events]({% link _docs_integrate/connector-events.md %}) on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the `targets` object.
-
-  <br>
 
   **Example**
 

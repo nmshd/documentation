@@ -2,13 +2,13 @@
     var e = {
             428: (e, t, r) => {
                 "use strict";
-                r.r(t), r.d(t, { attributes: () => n });
+                (r.r(t), r.d(t, { attributes: () => n }));
                 const n = [
-                    { value: { "@type": "PhoneNumber", value: "06221/215221" }, validFrom: "2011-01-01T00:00:00", validTo: "2013-01-01T00:00:00" },
-                    { value: { "@type": "PhoneNumber", value: "06221/553132" }, tags: ["emergency"], validFrom: "2021-02-03T00:00:00", validTo: "2024-01-01T00:00:00" },
+                    { value: { "@type": "PhoneNumber", value: "06221/215221" } },
+                    { value: { "@type": "PhoneNumber", value: "06221/553132" }, tags: ["emergency"] },
                     { value: { "@type": "Website", value: "https://enmeshed.eu" } },
-                    { value: { "@type": "GivenName", value: "Steven-Nicholas" }, validFrom: "2020-01-01T00:00:00", validTo: "2023-11-01T00:00:00" },
-                    { value: { "@type": "LastName", value: "O'Malley" }, validFrom: "2021-01-01T00:00:00", validTo: "2023-12-01T00:00:00" },
+                    { value: { "@type": "GivenName", value: "Steven-Nicholas" } },
+                    { value: { "@type": "LastName", value: "O'Malley" } },
                     {
                         value: {
                             "@type": "StreetAddress",
@@ -43,22 +43,20 @@
                             "urn:xbildung-de:unesco:codeliste:isced2011=647",
                             "content:edu.de.higher.certOfEnrolment",
                             "language:es"
-                        ],
-                        validFrom: "2021-01-01T00:00:00",
-                        validTo: "2023-01-01T00:00:00"
+                        ]
                     }
                 ];
             },
             806: (e, t, r) => {
                 "use strict";
-                Object.defineProperty(t, "__esModule", { value: !0 }), (t.validate = t.execute = void 0);
+                (Object.defineProperty(t, "__esModule", { value: !0 }), (t.validate = t.execute = void 0));
                 const n = r(588);
-                (t.execute = function (e, t) {
+                ((t.execute = function (e, t) {
                     return (0, n.parse)(e, { attributes: t });
                 }),
                     (t.validate = function (e) {
                         try {
-                            return (0, n.parse)(e, { attributes: [] }), { isValid: !0 };
+                            return ((0, n.parse)(e, { attributes: [] }), { isValid: !0 });
                         } catch (e) {
                             if (e instanceof n.SyntaxError) {
                                 const t = e;
@@ -69,7 +67,7 @@
                                 error: { message: JSON.stringify(e), location: { start: { column: 0, line: 0, offset: 0 }, end: { column: 0, line: 0, offset: 0 } } }
                             };
                         }
-                    });
+                    }));
             },
             588: (e) => {
                 "use strict";
@@ -91,16 +89,16 @@
                 }
                 function n(e, t, r, o) {
                     var u = Error.call(this, e);
-                    return Object.setPrototypeOf && Object.setPrototypeOf(u, n.prototype), (u.expected = t), (u.found = r), (u.location = o), (u.name = "SyntaxError"), u;
+                    return (Object.setPrototypeOf && Object.setPrototypeOf(u, n.prototype), (u.expected = t), (u.found = r), (u.location = o), (u.name = "SyntaxError"), u);
                 }
                 function o(e, t, r) {
-                    return (r = r || " "), e.length > t ? e : ((t -= e.length), e + (r += r.repeat(t)).slice(0, t));
+                    return ((r = r || " "), e.length > t ? e : ((t -= e.length), e + (r += r.repeat(t)).slice(0, t)));
                 }
-                !(function (e, t) {
+                (!(function (e, t) {
                     function r() {
                         this.constructor = e;
                     }
-                    (r.prototype = t.prototype), (e.prototype = new r());
+                    ((r.prototype = t.prototype), (e.prototype = new r()));
                 })(n, Error),
                     (n.prototype.format = function (e) {
                         var t = "Error: " + this.message;
@@ -276,7 +274,7 @@
                                         (e, t) =>
                                             (function (e, t) {
                                                 const r = Array.from(new Set([...e, ...t]));
-                                                return r.sort((e, t) => e - t), r;
+                                                return (r.sort((e, t) => e - t), r);
                                             })(e, t),
                                         e
                                     );
@@ -286,7 +284,7 @@
                                         (e, t) =>
                                             (function (e, ...t) {
                                                 const r = [e, ...t].reduce((e, t) => e.filter((e) => t.includes(e)));
-                                                return r.sort((e, t) => e - t), r;
+                                                return (r.sort((e, t) => e - t), r);
                                             })(e, t),
                                         e
                                     );
@@ -294,7 +292,7 @@
                                 te = function (e) {
                                     return (function (e, t) {
                                         const r = e.filter((e) => !t.includes(e));
-                                        return r.sort((e, t) => e - t), r;
+                                        return (r.sort((e, t) => e - t), r);
                                     })([...Array(t.attributes.length).keys()], e);
                                 },
                                 re = function (e, n, o) {
@@ -357,14 +355,14 @@
                                 if (n) return n;
                                 if (t >= de.length) r = de.length - 1;
                                 else for (r = t; !de[--r]; );
-                                for (n = { line: (n = de[r]).line, column: n.column }; r < t; ) 10 === e.charCodeAt(r) ? (n.line++, (n.column = 1)) : n.column++, r++;
-                                return (de[t] = n), n;
+                                for (n = { line: (n = de[r]).line, column: n.column }; r < t; ) (10 === e.charCodeAt(r) ? (n.line++, (n.column = 1)) : n.column++, r++);
+                                return ((de[t] = n), n);
                             }
                             function xe(e, t, r) {
                                 var n = me(e),
                                     o = me(t),
                                     u = { source: l, start: { offset: e, line: n.line, column: n.column }, end: { offset: t, line: o.line, column: o.column } };
-                                return r && l && "function" == typeof l.offset && ((u.start = l.offset(u.start)), (u.end = l.offset(u.end))), u;
+                                return (r && l && "function" == typeof l.offset && ((u.start = l.offset(u.start)), (u.end = l.offset(u.end))), u);
                             }
                             function Ae(e) {
                                 fe < pe || (fe > pe && ((pe = fe), (he = [])), he.push(e));
@@ -372,55 +370,55 @@
                             function Se() {
                                 var t, r, n, o, u, s, i, l;
                                 if (((t = fe), (r = Ce()) !== a)) {
-                                    if (((n = []), (o = fe), (u = []), (s = je()) !== a)) for (; s !== a; ) u.push(s), (s = je());
+                                    if (((n = []), (o = fe), (u = []), (s = je()) !== a)) for (; s !== a; ) (u.push(s), (s = je()));
                                     else u = a;
                                     if (u !== a)
                                         if ((e.substr(fe, 2) === d ? ((s = d), (fe += 2)) : ((s = a), 0 === ge && Ae(N)), s !== a)) {
-                                            if (((i = []), (l = je()) !== a)) for (; l !== a; ) i.push(l), (l = je());
+                                            if (((i = []), (l = je()) !== a)) for (; l !== a; ) (i.push(l), (l = je()));
                                             else i = a;
                                             i !== a && (l = Ce()) !== a ? (o = l) : ((fe = o), (o = a));
-                                        } else (fe = o), (o = a);
-                                    else (fe = o), (o = a);
+                                        } else ((fe = o), (o = a));
+                                    else ((fe = o), (o = a));
                                     for (; o !== a; ) {
-                                        if ((n.push(o), (o = fe), (u = []), (s = je()) !== a)) for (; s !== a; ) u.push(s), (s = je());
+                                        if ((n.push(o), (o = fe), (u = []), (s = je()) !== a)) for (; s !== a; ) (u.push(s), (s = je()));
                                         else u = a;
                                         if (u !== a)
                                             if ((e.substr(fe, 2) === d ? ((s = d), (fe += 2)) : ((s = a), 0 === ge && Ae(N)), s !== a)) {
-                                                if (((i = []), (l = je()) !== a)) for (; l !== a; ) i.push(l), (l = je());
+                                                if (((i = []), (l = je()) !== a)) for (; l !== a; ) (i.push(l), (l = je()));
                                                 else i = a;
                                                 i !== a && (l = Ce()) !== a ? (o = l) : ((fe = o), (o = a));
-                                            } else (fe = o), (o = a);
-                                        else (fe = o), (o = a);
+                                            } else ((fe = o), (o = a));
+                                        else ((fe = o), (o = a));
                                     }
                                     t = Y(r, n);
-                                } else (fe = t), (t = a);
+                                } else ((fe = t), (t = a));
                                 return t;
                             }
                             function Ce() {
                                 var t, r, n, o, u, s, i, l;
                                 if (((t = fe), (r = Ee()) !== a)) {
-                                    if (((n = []), (o = fe), (u = []), (s = je()) !== a)) for (; s !== a; ) u.push(s), (s = je());
+                                    if (((n = []), (o = fe), (u = []), (s = je()) !== a)) for (; s !== a; ) (u.push(s), (s = je()));
                                     else u = a;
                                     if (u !== a)
                                         if ((e.substr(fe, 2) === p ? ((s = p), (fe += 2)) : ((s = a), 0 === ge && Ae(P)), s !== a)) {
-                                            if (((i = []), (l = je()) !== a)) for (; l !== a; ) i.push(l), (l = je());
+                                            if (((i = []), (l = je()) !== a)) for (; l !== a; ) (i.push(l), (l = je()));
                                             else i = a;
                                             i !== a && (l = Ee()) !== a ? (o = l) : ((fe = o), (o = a));
-                                        } else (fe = o), (o = a);
-                                    else (fe = o), (o = a);
+                                        } else ((fe = o), (o = a));
+                                    else ((fe = o), (o = a));
                                     for (; o !== a; ) {
-                                        if ((n.push(o), (o = fe), (u = []), (s = je()) !== a)) for (; s !== a; ) u.push(s), (s = je());
+                                        if ((n.push(o), (o = fe), (u = []), (s = je()) !== a)) for (; s !== a; ) (u.push(s), (s = je()));
                                         else u = a;
                                         if (u !== a)
                                             if ((e.substr(fe, 2) === p ? ((s = p), (fe += 2)) : ((s = a), 0 === ge && Ae(P)), s !== a)) {
-                                                if (((i = []), (l = je()) !== a)) for (; l !== a; ) i.push(l), (l = je());
+                                                if (((i = []), (l = je()) !== a)) for (; l !== a; ) (i.push(l), (l = je()));
                                                 else i = a;
                                                 i !== a && (l = Ee()) !== a ? (o = l) : ((fe = o), (o = a));
-                                            } else (fe = o), (o = a);
-                                        else (fe = o), (o = a);
+                                            } else ((fe = o), (o = a));
+                                        else ((fe = o), (o = a));
                                     }
                                     t = ee(r, n);
-                                } else (fe = t), (t = a);
+                                } else ((fe = t), (t = a));
                                 return t;
                             }
                             function Ee() {
@@ -433,18 +431,18 @@
                                         (t = (function () {
                                             var t, r, n, o, u, s;
                                             if (((t = fe), 40 === e.charCodeAt(fe) ? ((r = g), fe++) : ((r = a), 0 === ge && Ae(M)), r !== a)) {
-                                                if (((n = []), (o = je()) !== a)) for (; o !== a; ) n.push(o), (o = je());
+                                                if (((n = []), (o = je()) !== a)) for (; o !== a; ) (n.push(o), (o = je()));
                                                 else n = a;
                                                 if (n !== a)
                                                     if ((o = Se()) !== a) {
-                                                        if (((u = []), (s = je()) !== a)) for (; s !== a; ) u.push(s), (s = je());
+                                                        if (((u = []), (s = je()) !== a)) for (; s !== a; ) (u.push(s), (s = je()));
                                                         else u = a;
                                                         u !== a
                                                             ? (41 === e.charCodeAt(fe) ? ((s = v), fe++) : ((s = a), 0 === ge && Ae(D)), s !== a ? (t = o) : ((fe = t), (t = a)))
                                                             : ((fe = t), (t = a));
-                                                    } else (fe = t), (t = a);
-                                                else (fe = t), (t = a);
-                                            } else (fe = t), (t = a);
+                                                    } else ((fe = t), (t = a));
+                                                else ((fe = t), (t = a));
+                                            } else ((fe = t), (t = a));
                                             return (
                                                 t === a &&
                                                     (t = (function () {
@@ -461,13 +459,13 @@
                                                                         o !== a)
                                                                     )
                                                                         for (; o !== a; )
-                                                                            n.push(o),
+                                                                            (n.push(o),
                                                                                 (o = fe),
                                                                                 46 === e.charCodeAt(fe) ? ((u = y), fe++) : ((u = a), 0 === ge && Ae(z)),
-                                                                                u !== a && (s = Oe()) !== a ? (o = s) : ((fe = o), (o = a));
+                                                                                u !== a && (s = Oe()) !== a ? (o = s) : ((fe = o), (o = a)));
                                                                     else n = a;
                                                                     n !== a && (o = we()) !== a ? (t = oe(r, n, o)) : ((fe = t), (t = a));
-                                                                } else (fe = t), (t = a);
+                                                                } else ((fe = t), (t = a));
                                                                 return (
                                                                     t === a &&
                                                                         ((t = fe),
@@ -490,13 +488,13 @@
                                                                             o !== a;
 
                                                                         )
-                                                                            n.push(o),
+                                                                            (n.push(o),
                                                                                 (o = fe),
                                                                                 46 === e.charCodeAt(fe) ? ((u = y), fe++) : ((u = a), 0 === ge && Ae(z)),
-                                                                                u !== a && (s = Oe()) !== a ? (o = s) : ((fe = o), (o = a));
+                                                                                u !== a && (s = Oe()) !== a ? (o = s) : ((fe = o), (o = a)));
                                                                         (o = we()) !== a ? (t = re(r, n, o)) : ((fe = t), (t = a));
-                                                                    } else (fe = t), (t = a);
-                                                                    return ge--, t === a && ((r = a), 0 === ge && Ae(k)), t;
+                                                                    } else ((fe = t), (t = a));
+                                                                    return (ge--, t === a && ((r = a), 0 === ge && Ae(k)), t);
                                                                 })()),
                                                                 t === a &&
                                                                     (t = (function () {
@@ -543,13 +541,13 @@
                                         o !== a;
 
                                     )
-                                        n.push(o),
+                                        (n.push(o),
                                             e.substr(fe, 2) === x ? ((o = x), (fe += 2)) : ((o = a), 0 === ge && Ae(_)),
                                             o === a &&
                                                 (e.substr(fe, 2) === A ? ((o = A), (fe += 2)) : ((o = a), 0 === ge && Ae(H)),
-                                                o === a && ((o = e.charAt(fe)), E.test(o) ? fe++ : ((o = a), 0 === ge && Ae(J))));
-                                    39 === e.charCodeAt(fe) ? ((o = m), fe++) : ((o = a), 0 === ge && Ae(Z)), o !== a ? (t = le(n)) : ((fe = t), (t = a));
-                                } else (fe = t), (t = a);
+                                                o === a && ((o = e.charAt(fe)), E.test(o) ? fe++ : ((o = a), 0 === ge && Ae(J)))));
+                                    (39 === e.charCodeAt(fe) ? ((o = m), fe++) : ((o = a), 0 === ge && Ae(Z)), o !== a ? (t = le(n)) : ((fe = t), (t = a)));
+                                } else ((fe = t), (t = a));
                                 if (t === a) {
                                     for (
                                         t = fe,
@@ -561,11 +559,11 @@
                                         n !== a;
 
                                     )
-                                        r.push(n),
+                                        (r.push(n),
                                             e.substr(fe, 2) === x ? ((n = x), (fe += 2)) : ((n = a), 0 === ge && Ae(_)),
                                             n === a &&
                                                 (e.substr(fe, 2) === A ? ((n = A), (fe += 2)) : ((n = a), 0 === ge && Ae(H)),
-                                                n === a && ((n = e.charAt(fe)), w.test(n) ? fe++ : ((n = a), 0 === ge && Ae(W))));
+                                                n === a && ((n = e.charAt(fe)), w.test(n) ? fe++ : ((n = a), 0 === ge && Ae(W)))));
                                     t = r = ce(r);
                                 }
                                 return t;
@@ -574,36 +572,36 @@
                                 var t, r, n, o, u;
                                 if (((t = fe), (r = fe), (n = e.charAt(fe)), F.test(n) ? fe++ : ((n = a), 0 === ge && Ae(q)), n !== a)) {
                                     if (((o = []), (u = e.charAt(fe)), O.test(u) ? fe++ : ((u = a), 0 === ge && Ae(G)), u !== a))
-                                        for (; u !== a; ) o.push(u), (u = e.charAt(fe)), O.test(u) ? fe++ : ((u = a), 0 === ge && Ae(G));
+                                        for (; u !== a; ) (o.push(u), (u = e.charAt(fe)), O.test(u) ? fe++ : ((u = a), 0 === ge && Ae(G)));
                                     else o = a;
                                     o !== a ? (r = n = [n, o]) : ((fe = r), (r = a));
-                                } else (fe = r), (r = a);
+                                } else ((fe = r), (r = a));
                                 return r !== a ? e.substring(t, fe) : r;
                             }
                             function Te() {
                                 var t, r, n, o, u;
                                 if ((ge++, (t = fe), (r = fe), (n = e.charAt(fe)), T.test(n) ? fe++ : ((n = a), 0 === ge && Ae(K)), n !== a)) {
                                     for (o = [], u = e.charAt(fe), O.test(u) ? fe++ : ((u = a), 0 === ge && Ae(G)); u !== a; )
-                                        o.push(u), (u = e.charAt(fe)), O.test(u) ? fe++ : ((u = a), 0 === ge && Ae(G));
+                                        (o.push(u), (u = e.charAt(fe)), O.test(u) ? fe++ : ((u = a), 0 === ge && Ae(G)));
                                     r = n = [n, o];
-                                } else (fe = r), (r = a);
-                                return (t = r !== a ? e.substring(t, fe) : r), ge--, t === a && ((r = a), 0 === ge && Ae(U)), t;
+                                } else ((fe = r), (r = a));
+                                return ((t = r !== a ? e.substring(t, fe) : r), ge--, t === a && ((r = a), 0 === ge && Ae(U)), t);
                             }
                             function je() {
                                 var t;
-                                return ge++, (t = e.charAt(fe)), j.test(t) ? fe++ : ((t = a), 0 === ge && Ae(X)), ge--, t === a && 0 === ge && Ae(Q), t;
+                                return (ge++, (t = e.charAt(fe)), j.test(t) ? fe++ : ((t = a), 0 === ge && Ae(X)), ge--, t === a && 0 === ge && Ae(Q), t);
                             }
                             if (((o = f()), t.peg$library)) return { peg$result: o, peg$currPos: fe, peg$FAILED: a, peg$maxFailExpected: he, peg$maxFailPos: pe };
                             if (o !== a && fe === e.length) return o;
                             throw (
-                                (o !== a && fe < e.length && Ae({ type: "end" }),
+                                o !== a && fe < e.length && Ae({ type: "end" }),
                                 (u = he),
                                 (s = pe < e.length ? e.charAt(pe) : null),
                                 (i = pe < e.length ? xe(pe, pe + 1) : xe(pe, pe)),
-                                new n(n.buildMessage(u, s), u, s, i))
+                                new n(n.buildMessage(u, s), u, s, i)
                             );
                         }
-                    });
+                    }));
             }
         },
         t = {};
@@ -611,16 +609,16 @@
         var o = t[n];
         if (void 0 !== o) return o.exports;
         var u = (t[n] = { exports: {} });
-        return e[n](u, u.exports, r), u.exports;
+        return (e[n](u, u.exports, r), u.exports);
     }
-    (r.d = (e, t) => {
+    ((r.d = (e, t) => {
         for (var n in t) r.o(t, n) && !r.o(e, n) && Object.defineProperty(e, n, { enumerable: !0, get: t[n] });
     }),
         (r.o = (e, t) => Object.prototype.hasOwnProperty.call(e, t)),
         (r.r = (e) => {
-            "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
-                Object.defineProperty(e, "__esModule", { value: !0 });
-        });
+            ("undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
+                Object.defineProperty(e, "__esModule", { value: !0 }));
+        }));
     const n = r(806),
         { attributes: o } = r(428),
         u = document.getElementById("data"),
@@ -631,11 +629,11 @@
         for (let t = 0; t < o.length; t++) {
             const r = JSON.stringify(o[t], null, 2);
             let n = "";
-            e.includes(t) && (n = " style='font-weight:bold;background-color:#dcf2df'"), (u.innerHTML += `<pre${n}>${r}</pre>`);
+            (e.includes(t) && (n = " style='font-weight:bold;background-color:#dcf2df'"), (u.innerHTML += `<pre${n}>${r}</pre>`));
         }
     }
     const l = s.value;
-    a(n.execute(l, o)),
+    (a(n.execute(l, o)),
         s.addEventListener("input", (e) => {
             const t = s.value,
                 r = n.validate(t);
@@ -645,5 +643,5 @@
                   (s.style.outlineColor = "red"),
                   (i.value = " ".repeat(r.error.location.start.column - 1) + "^\nError: " + r.error.message),
                   a([]));
-        });
+        }));
 })();

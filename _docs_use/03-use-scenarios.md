@@ -7,13 +7,13 @@ sidebar:
     nav: "docs_use"
 ---
 
-This page is intended for app users.
+This page is intended for App users.
 
 ## Getting Started
 
-Install the app in a secure environment.
+Install the App in a secure environment.
 
-<!-- component = app -->
+<!-- component = App -->
 
 <!-- markdownlint-disable MD011 -->
 <!-- <style>

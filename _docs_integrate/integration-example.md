@@ -204,7 +204,7 @@ To do so, we [synchronize updates of the Backbone]({% link _docs_use-cases/use-c
 {% include rapidoc api_route_regex="^post /api/v2/Account/Sync$" %}
 
 The synchronization causes the `transport.relationshipChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) to be triggered, which should be listened to in order to get the Relationship in status `Pending`.
-We can also [get the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) via `GET /api/v2/Relationships`. Should you be repeating this tutorial, you could e.g. filter by the `id` of the RelationshipTemplate from earlier via `GET /api/v2/Relationships?template.id=<id>` if you use a different RelationshipTemplate.
+We can also [get the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) via `GET /api/v2/Relationships`. Should you be repeating this tutorial, you could e.g. filter by the `id` of the RelationshipTemplate from earlier via `GET /api/v2/Relationships?templateId=<id>` if you use a different RelationshipTemplate.
 
 {% include rapidoc api_route_regex="^get /api/v2/Relationships$" %}
 

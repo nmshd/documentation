@@ -43,7 +43,7 @@ A landscape can be trimmed by different scalability options, depending on the wo
 
 All required infrastructure, like a database, a gateway or a file storage are combined within the infrastructure building block. The infrastructure itself is not enmeshed-specific, the composition of services and the overall configuration however is.
 
-There are different possible cloud providers to host the backbone, the big hyperscalers or smaller ones. Even regional cloud providers would make sense for specific use cases.
+There are different possible cloud providers to host the Backbone, the big hyperscalers or smaller ones. Even regional cloud providers would make sense for specific use cases.
 
 The current cloud provider for the centrally hosted enmeshed Backbone is Microsoft Azure and as thus, the landscape details (and terminology) are primarily focused on the Azure setup. Although there are Azure-specific components and configurations, most of the components used are cloud-provider agnostic, i.e. they will exist in other cloud providers in an equivalent form.
 

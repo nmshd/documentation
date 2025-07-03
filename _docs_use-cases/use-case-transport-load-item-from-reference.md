@@ -1,8 +1,10 @@
 ---
 # Start automatic generation
-permalink: use-case-transport-load-item-from-truncated-reference
+permalink: use-case-transport-load-item-from-reference
+redirect_from:
+  - use-case-transport-load-item-from-truncated-reference
 published: true
-title: "Load item from truncated reference"
+title: "Load item from reference"
 type: use-case
 toc: true
 sidebar:
@@ -13,7 +15,7 @@ properties:
   - component: Runtime
   - layer: Transport
   - facade: AccountFacade
-  - function: loadItemFromTruncatedReference
+  - function: loadItemFromReference
   - description:
   - feature category: Share information over side-channel
   - tech category: Account
@@ -31,7 +33,7 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: use-case-transport-load-item-from-truncated-reference
+  - link: use-case-transport-load-item-from-reference
 require:
 required_by:
 # End automatic generation
