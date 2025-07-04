@@ -237,7 +237,10 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
   configure the CORS middleware. Valid options can be found [here](https://github.com/expressjs/cors#configuration-options).
 
-- **apiKey** `required`
+- **apiKey** `optional`
+
+  For a productive Connector at least one of the three configuration parameters **apiKey**, **oidc** and **jwtBearer** must be set.
+  {: .notice--info}
 
   Define the API-Key the Connector should use to authenticate requests.
 
@@ -246,6 +249,28 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
   There are no limitations regarding the allowed characters. We recommend using an API-Key that is at least 20 characters long.
 
   The API-Key protects your Connector from unauthorized access and should therefore be kept secret.
+
+- **oidc** `optional`
+
+  For a productive Connector at least one of the three configuration parameters **apiKey**, **oidc** and **jwtBearer** must be set.
+  {: .notice--info}
+
+  Defines the setting for the connection to your OIDC server.
+
+  The full configuration can be found [here](https://auth0.github.io/express-openid-connect/interfaces/ConfigParams.html).
+
+  Because the OIDC process requires an redirect this type of authentication is only available when the user cales the Connector via browser.
+
+- **jwtBearer** `optional`
+
+  For a productive Connector at least one of the three configuration parameters **apiKey**, **oidc** and **jwtBearer** must be set.
+  {: .notice--info}
+
+  Defines the setting for the OAuth 2.0 JWT bearer authorization.
+
+  The full configuration can be found [here](https://auth0.github.io/node-oauth2-jwt-bearer/interfaces/AuthOptions.html).
+
+  The JWT from the OAuth 2.0 provider needs to be send via the `Authorizaion` header with the Bearer prefix.
 
 - **helmetOptions** `default: depending on the Connector mode`
 
