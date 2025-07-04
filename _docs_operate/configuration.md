@@ -386,7 +386,6 @@ It is not recommended to use this Module for production scenarios.
   Here you can define multiple brokers to which the Connector should publish messages.
 
   Each broker consists of a `type` (string) and a `configuration` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `configuration` object contains the configuration for the broker.
-
   - type `AMQP`
 
     **example**
@@ -402,7 +401,6 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - url `string, required` -
 
       the URL of the AMQP broker
@@ -431,7 +429,6 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - url `string, required`
 
       the URL of the MQTT broker
@@ -454,7 +451,6 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - projectId `string, required`
 
       the project id of the Google Cloud project
@@ -481,7 +477,6 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - url `string, required`
 
       the URL of the broker
@@ -548,7 +543,6 @@ It is not recommended to use this Module for production scenarios.
   **OAuth2**
 
   The OAuth2 authentication type is used to authenticate the request to the webhook using the client credentials flow of OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. The OAuth2 authentication is configured using the following parameters:
-
   - **type** `"OAuth2", required`
 
     The type of the authentication.
@@ -572,7 +566,6 @@ It is not recommended to use this Module for production scenarios.
   **ApiKey**
 
   The ApiKey authentication type is used to authenticate the request to the webhook using an API key. The Connector will send the API key as part of the request using a header. The ApiKey authentication is configured using the following parameters:
-
   - **type** `"ApiKey", required`
 
     The type of the authentication.
