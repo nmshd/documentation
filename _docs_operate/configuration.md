@@ -252,6 +252,9 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
 - **oidc** `optional`
 
+  For a productive Connector at least one of the three configuration parameters **apiKey**, **oidc** and **jwtBearer** must be set.
+  {: .notice--info}
+
   Defines the setting for the connection to your OIDC server.
 
   The full configuration can be found [here](https://auth0.github.io/express-openid-connect/interfaces/ConfigParams.html).
@@ -259,6 +262,9 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
   Because the OIDC process requires an redirect this type of authentication is only available when the user cales the Connector via browser.
 
 - **jwtBearer** `optional`
+
+  For a productive Connector at least one of the three configuration parameters **apiKey**, **oidc** and **jwtBearer** must be set.
+  {: .notice--info}
 
   Defines the setting for the OAuth 2.0 JWT bearer authorization.
 
