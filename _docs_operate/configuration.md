@@ -239,6 +239,9 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
 - **apiKey** `required`
 
+  For an productive connector one or more of the three configs (**apiKey**, **oicd**, **jwtBearer**) is required
+  {: .notice--info}
+
   Define the API-Key the Connector should use to authenticate requests.
 
   The API-Key can be chosen arbitrarily and has to be sent with every request in the `X-API-KEY` HTTP-Header.
@@ -246,6 +249,22 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
   There are no limitations regarding the allowed characters. We recommend using an API-Key that is at least 20 characters long.
 
   The API-Key protects your Connector from unauthorized access and should therefore be kept secret.
+
+- **oicd** `required`
+
+  Defines the setting for the connection to you OICD server.
+
+  The full configuration can be found [here](https://auth0.github.io/express-openid-connect/interfaces/ConfigParams.html)
+
+  Because the oicd process requires an redirect this type of authentication is only available when the user cales the connector via browser
+
+- **jwtBearer** `required`
+
+  Defines the setting for the oauth2 jwt bearer authorization.
+
+  The full configuration can be found [here](https://auth0.github.io/node-oauth2-jwt-bearer/interfaces/AuthOptions.html)
+
+  The jwt token from the oauth provider needs to be send via the "Authorizaion" header with the Bearer prefix.
 
 - **helmetOptions** `default: depending on the Connector mode`
 
@@ -361,6 +380,7 @@ It is not recommended to use this Module for production scenarios.
   Here you can define multiple brokers to which the Connector should publish messages.
 
   Each broker consists of a `type` (string) and a `configuration` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `configuration` object contains the configuration for the broker.
+
   - type `AMQP`
 
     **example**
@@ -376,6 +396,7 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
+
     - url `string, required` -
 
       the URL of the AMQP broker
@@ -404,6 +425,7 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
+
     - url `string, required`
 
       the URL of the MQTT broker
@@ -426,6 +448,7 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
+
     - projectId `string, required`
 
       the project id of the Google Cloud project
@@ -452,6 +475,7 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
+
     - url `string, required`
 
       the URL of the broker
@@ -518,6 +542,7 @@ It is not recommended to use this Module for production scenarios.
   **OAuth2**
 
   The OAuth2 authentication type is used to authenticate the request to the webhook using the client credentials flow of OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. The OAuth2 authentication is configured using the following parameters:
+
   - **type** `"OAuth2", required`
 
     The type of the authentication.
@@ -541,6 +566,7 @@ It is not recommended to use this Module for production scenarios.
   **ApiKey**
 
   The ApiKey authentication type is used to authenticate the request to the webhook using an API key. The Connector will send the API key as part of the request using a header. The ApiKey authentication is configured using the following parameters:
+
   - **type** `"ApiKey", required`
 
     The type of the authentication.
