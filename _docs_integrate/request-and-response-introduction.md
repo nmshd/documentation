@@ -161,23 +161,6 @@ After the Recipient has responded to the ReadAttributeRequestItem, a suitable [R
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
-#### RegisterAttributeListenerRequestItem
-
-This item is used to register a [Listener]({% link _docs_integrate/data-model-overview.md %}#localattributelistener) for a specific Attribute. The Listener will create a Request in status `Draft` if an Attribute was created that matches the given query and the user is able to send the Request to the creator of the [RegisterAttributeListenerRequestItem]({% link _docs_integrate/data-model-overview.md %}#registerattributelistenerrequestitem). Possible examples are:
-
-- Asking for a specific RelationshipAttribute of a partner organization.
-
-Depending on whether the RegisterAttributeListenerRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
-
-- To accept this RequestItem, the [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) can be utilized.
-- To reject this RequestItem, the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) can be utilized.
-
-After the Recipient has responded to the RegisterAttributeListenerRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
-
-- After accepting this RequestItem, a [RegisterAttributeListenerAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#registerattributelisteneracceptresponseitem) will be transferred.
-- After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
-- In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
-
 #### ShareAttributeRequestItem
 
 If you want to share the own DisplayName and possibly other Attributes, this is done with the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem). To share own IdentityAttributes (owner = self) an Identity uses the ShareAttributeRequestItem. The Identity needs to create the IdentityAttribute separately before the Attribute can be shared. All details on how to use the ShareAttributeRequestItem and examples of use cases for it can be found in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) guide.
@@ -213,7 +196,7 @@ After the Recipient has responded to the TransferFileOwnershipRequestItem, a sui
 Please note that the rendering of the [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems) in the App is currently being revised. As soon as the changes to the App have been made, the example here will also be adapted.
 {: .notice--warning}
 
-This section gives an example of a [Request]({% link _docs_integrate/data-model-overview.md %}#request) that contains various [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems), namely an [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem), a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem), a [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem), a [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), a [RegisterAttributeListenerRequestItem]({% link _docs_integrate/data-model-overview.md %}#registerattributelistenerrequestitem) and a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem), within its `items` property. This Request can be sent from a Sender to an App user. A screenshot from the App showing how the Request is displayed to the App user is provided afterwards.
+This section gives an example of a [Request]({% link _docs_integrate/data-model-overview.md %}#request) that contains various [RequestItems]({% link _docs_integrate/data-model-overview.md %}#requestitems), namely an [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem), a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem), a [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem), a [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) and a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem), within its `items` property. This Request can be sent from a Sender to an App user. A screenshot from the App showing how the Request is displayed to the App user is provided afterwards.
 
 ```json
 {
@@ -273,16 +256,6 @@ This section gives an example of a [Request]({% link _docs_integrate/data-model-
         "@type": "IdentityAttributeQuery",
         "valueType": "BirthDate",
         "tags": ["<tag of date of birth to be read>"]
-      }
-    },
-    {
-      "@type": "RegisterAttributeListenerRequestItem",
-      "mustBeAccepted": false,
-      "description": "<description of RegisterAttributeListenerRequestItem>",
-      "query": {
-        "@type": "IdentityAttributeQuery",
-        "valueType": "StreetAddress",
-        "tags": ["<tag of street address for which the registration was made>"]
       }
     },
     {
