@@ -237,9 +237,9 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
   configure the CORS middleware. Valid options can be found [here](https://github.com/expressjs/cors#configuration-options).
 
-- **apiKey** `required`
+- **apiKey** `optional`
 
-  For an productive connector one or more of the three configs (**apiKey**, **oidc**, **jwtBearer**) is required.
+  For a productive Connector at least one of the three configuration parameters **apiKey**, **oidc** and **jwtBearer** must be set.
   {: .notice--info}
 
   Define the API-Key the Connector should use to authenticate requests.
@@ -250,21 +250,21 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
   The API-Key protects your Connector from unauthorized access and should therefore be kept secret.
 
-- **oidc** `required`
+- **oidc** `optional`
 
-  Defines the setting for the connection to you OIDC server.
+  Defines the setting for the connection to your OIDC server.
 
-  The full configuration can be found [here](https://auth0.github.io/express-openid-connect/interfaces/ConfigParams.html)
+  The full configuration can be found [here](https://auth0.github.io/express-openid-connect/interfaces/ConfigParams.html).
 
-  Because the oidc process requires an redirect this type of authentication is only available when the user cales the connector via browser
+  Because the OIDC process requires an redirect this type of authentication is only available when the user cales the Connector via browser.
 
-- **jwtBearer** `required`
+- **jwtBearer** `optional`
 
-  Defines the setting for the oauth2 jwt bearer authorization.
+  Defines the setting for the OAuth 2.0 JWT bearer authorization.
 
   The full configuration can be found [here](https://auth0.github.io/node-oauth2-jwt-bearer/interfaces/AuthOptions.html).
 
-  The jwt token from the oauth provider needs to be send via the "Authorizaion" header with the Bearer prefix.
+  The JWT from the OAuth 2.0 provider needs to be send via the `Authorizaion` header with the Bearer prefix.
 
 - **helmetOptions** `default: depending on the Connector mode`
 
