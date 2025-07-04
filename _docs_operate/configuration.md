@@ -239,7 +239,7 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
 - **apiKey** `required`
 
-  For an productive connector one or more of the three configs (**apiKey**, **oidc**, **jwtBearer**) is required
+  For an productive connector one or more of the three configs (**apiKey**, **oidc**, **jwtBearer**) is required.
   {: .notice--info}
 
   Define the API-Key the Connector should use to authenticate requests.
@@ -262,7 +262,7 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
   Defines the setting for the oauth2 jwt bearer authorization.
 
-  The full configuration can be found [here](https://auth0.github.io/node-oauth2-jwt-bearer/interfaces/AuthOptions.html)
+  The full configuration can be found [here](https://auth0.github.io/node-oauth2-jwt-bearer/interfaces/AuthOptions.html).
 
   The jwt token from the oauth provider needs to be send via the "Authorizaion" header with the Bearer prefix.
 
