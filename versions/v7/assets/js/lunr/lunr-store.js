@@ -563,12 +563,6 @@ var store = [{
         "url": "/versions/v7/use-case-consumption-get-attribute",
         "teaser": null
       },{
-        "title": "Get AttributeListener",
-        "excerpt":"   This use case is intended to retrieve an Attribute Listener by its id.   Parameter      The unique id identifying the Attribute Listener.   On Success      Returns the LocalAttributeListener that corresponds to the id.   On Failure      There is no such Attribute Listener.  ","categories": [],
-        "tags": [],
-        "url": "/versions/v7/use-case-consumption-get-attributelistener",
-        "teaser": null
-      },{
         "title": "Get Attributes",
         "excerpt":"This use case is intended to query LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters query allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used: createdAt describes the time when the LocalAttribute was created. parentId can be used to...","categories": [],
         "tags": [],
@@ -633,12 +627,6 @@ var store = [{
         "excerpt":"If you succeeded a RepositoryAttribute, whose previous version you shared with a peer, you can decide to inform the peer about the succession. If you do so, the peer will receive a Notification via Message, which handles the succession of their peer shared IdentityAttribute. Also, the associated own shared IdentityAttribute...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-consumption-notify-peer-about-repositoryattribute-succession",
-        "teaser": null
-      },{
-        "title": "Query AttributeListeners",
-        "excerpt":"This use case is intended to query all Attribute Listeners based on a query. Parameter The query optionally describes the searched Attribute Listeners. If no query is given all Attribute Listeners are returned. On Success Returns a list of LocalAttributeListeners that match the query. On Failure The parameters are malformed....","categories": [],
-        "tags": [],
-        "url": "/versions/v7/use-case-consumption-query-attributelisteners",
         "teaser": null
       },{
         "title": "Query incoming Requests",

@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-07-02T15:23:19+02:00">
+  <meta property="article:published_time" content="2025-07-04T17:30:19+02:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Request and Response introduction">
     <meta itemprop="description" content="Requests are the main instrument in enmeshed to interact with other Identities.They enable various business processes, e.g. creating, sharing or receiving Attributes, asking a peer for authentication or consent, and much more.Also, parts of a vaster business process can be implemented with them, like querying all personal information of a user to fill out a tax form.">
-    <meta itemprop="datePublished" content="2025-07-02T15:23:19+02:00">
+    <meta itemprop="datePublished" content="2025-07-04T17:30:19+02:00">
     
 
     <div class="page__inner-wrap">
@@ -388,7 +388,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#requests">Requests</a><ul><li><a href="#structure-of-requests">Structure of Requests</a></li><li><a href="#types-of-requestitems">Types of RequestItems</a><ul><li><a href="#authenticationrequestitem">AuthenticationRequestItem</a></li><li><a href="#consentrequestitem">ConsentRequestItem</a></li><li><a href="#createattributerequestitem">CreateAttributeRequestItem</a></li><li><a href="#deleteattributerequestitem">DeleteAttributeRequestItem</a></li><li><a href="#formfieldrequestitem">FormFieldRequestItem</a></li><li><a href="#proposeattributerequestitem">ProposeAttributeRequestItem</a></li><li><a href="#readattributerequestitem">ReadAttributeRequestItem</a></li><li><a href="#registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</a></li><li><a href="#shareattributerequestitem">ShareAttributeRequestItem</a></li><li><a href="#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a></li></ul></li><li><a href="#rendering-of-requestitems">Rendering of RequestItems</a></li></ul></li><li><a href="#responses">Responses</a><ul><li><a href="#structure-of-responses">Structure of Responses</a></li><li><a href="#types-of-responseitems">Types of ResponseItems</a></li></ul></li><li><a href="#request-response-flow">Request-Response flow</a><ul><li><a href="#localrequests-and-localresponses">LocalRequests and LocalResponses</a></li><li><a href="#sending-requests-via-messages">Sending Requests via Messages</a></li><li><a href="#sending-requests-via-relationshiptemplates">Sending Requests via RelationshipTemplates</a></li></ul></li><li><a href="#examples">Examples</a><ul><li><a href="#working-with-required-and-optional-requestitems">Working with required and optional RequestItems</a></li><li><a href="#working-with-requestitemgroups">Working with RequestItemGroups</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#requests">Requests</a><ul><li><a href="#structure-of-requests">Structure of Requests</a></li><li><a href="#types-of-requestitems">Types of RequestItems</a><ul><li><a href="#authenticationrequestitem">AuthenticationRequestItem</a></li><li><a href="#consentrequestitem">ConsentRequestItem</a></li><li><a href="#createattributerequestitem">CreateAttributeRequestItem</a></li><li><a href="#deleteattributerequestitem">DeleteAttributeRequestItem</a></li><li><a href="#formfieldrequestitem">FormFieldRequestItem</a></li><li><a href="#proposeattributerequestitem">ProposeAttributeRequestItem</a></li><li><a href="#readattributerequestitem">ReadAttributeRequestItem</a></li><li><a href="#shareattributerequestitem">ShareAttributeRequestItem</a></li><li><a href="#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a></li></ul></li><li><a href="#rendering-of-requestitems">Rendering of RequestItems</a></li></ul></li><li><a href="#responses">Responses</a><ul><li><a href="#structure-of-responses">Structure of Responses</a></li><li><a href="#types-of-responseitems">Types of ResponseItems</a></li></ul></li><li><a href="#request-response-flow">Request-Response flow</a><ul><li><a href="#localrequests-and-localresponses">LocalRequests and LocalResponses</a></li><li><a href="#sending-requests-via-messages">Sending Requests via Messages</a></li><li><a href="#sending-requests-via-relationshiptemplates">Sending Requests via RelationshipTemplates</a></li></ul></li><li><a href="#examples">Examples</a><ul><li><a href="#working-with-required-and-optional-requestitems">Working with required and optional RequestItems</a></li><li><a href="#working-with-requestitemgroups">Working with RequestItemGroups</a></li></ul></li></ul>
             </nav>
           </aside>
         
@@ -561,29 +561,6 @@ All details on how to use the FormFieldRequestItem and examples of use cases for
   <li>In case of an error, an <a href="/versions/v7/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
 </ul>
 
-<h4 id="registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</h4>
-
-<p>This item is used to register a <a href="/versions/v7/integrate/data-model-overview#localattributelistener">Listener</a> for a specific Attribute. The Listener will create a Request in status <code class="language-plaintext highlighter-rouge">Draft</code> if an Attribute was created that matches the given query and the user is able to send the Request to the creator of the <a href="/versions/v7/integrate/data-model-overview#registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</a>. Possible examples are:</p>
-
-<ul>
-  <li>Asking for a specific RelationshipAttribute of a partner organization.</li>
-</ul>
-
-<p>Depending on whether the RegisterAttributeListenerRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
-
-<ul>
-  <li>To accept this RequestItem, the <a href="/versions/v7/integrate/data-model-overview#acceptrequestitemparameters">AcceptRequestItemParameters</a> can be utilized.</li>
-  <li>To reject this RequestItem, the <a href="/versions/v7/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a> can be utilized.</li>
-</ul>
-
-<p>After the Recipient has responded to the RegisterAttributeListenerRequestItem, a suitable <a href="/versions/v7/integrate/data-model-overview#responseitems">ResponseItem</a> is generated and transferred to the Sender of the Request:</p>
-
-<ul>
-  <li>After accepting this RequestItem, a <a href="/versions/v7/integrate/data-model-overview#registerattributelisteneracceptresponseitem">RegisterAttributeListenerAcceptResponseItem</a> will be transferred.</li>
-  <li>After rejecting this RequestItem, a <a href="/versions/v7/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> will be transferred.</li>
-  <li>In case of an error, an <a href="/versions/v7/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> will be transferred.</li>
-</ul>
-
 <h4 id="shareattributerequestitem">ShareAttributeRequestItem</h4>
 
 <p>If you want to share the own DisplayName and possibly other Attributes, this is done with the <a href="/versions/v7/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a>. To share own IdentityAttributes (owner = self) an Identity uses the ShareAttributeRequestItem. The Identity needs to create the IdentityAttribute separately before the Attribute can be shared. All details on how to use the ShareAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/share-attributes-with-peer">Share Attributes with peer</a> guide.</p>
@@ -626,7 +603,7 @@ All details on how to use the FormFieldRequestItem and examples of use cases for
 
 <p class="notice--warning">Please note that the rendering of the <a href="/versions/v7/integrate/data-model-overview#requestitems">RequestItems</a> in the App is currently being revised. As soon as the changes to the App have been made, the example here will also be adapted.</p>
 
-<p>This section gives an example of a <a href="/versions/v7/integrate/data-model-overview#request">Request</a> that contains various <a href="/versions/v7/integrate/data-model-overview#requestitems">RequestItems</a>, namely an <a href="/versions/v7/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#consentrequestitem">ConsentRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#registerattributelistenerrequestitem">RegisterAttributeListenerRequestItem</a> and a <a href="/versions/v7/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a>, within its <code class="language-plaintext highlighter-rouge">items</code> property. This Request can be sent from a Sender to an App user. A screenshot from the App showing how the Request is displayed to the App user is provided afterwards.</p>
+<p>This section gives an example of a <a href="/versions/v7/integrate/data-model-overview#request">Request</a> that contains various <a href="/versions/v7/integrate/data-model-overview#requestitems">RequestItems</a>, namely an <a href="/versions/v7/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#consentrequestitem">ConsentRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a> and a <a href="/versions/v7/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a>, within its <code class="language-plaintext highlighter-rouge">items</code> property. This Request can be sent from a Sender to an App user. A screenshot from the App showing how the Request is displayed to the App user is provided afterwards.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;title of Request&gt;"</span><span class="p">,</span><span class="w">
@@ -685,16 +662,6 @@ All details on how to use the FormFieldRequestItem and examples of use cases for
         </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttributeQuery"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BirthDate"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;tag of date of birth to be read&gt;"</span><span class="p">]</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RegisterAttributeListenerRequestItem"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"mustBeAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;description of RegisterAttributeListenerRequestItem&gt;"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IdentityAttributeQuery"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"StreetAddress"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;tag of street address for which the registration was made&gt;"</span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -857,7 +824,7 @@ Once the company accepts the new Relationship, they can exchange Messages or oth
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-02T15:23:19+02:00">July 2, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-04T17:30:19+02:00">July 4, 2025</time></p>
 
       </footer>
 
