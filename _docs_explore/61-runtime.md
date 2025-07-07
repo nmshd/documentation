@@ -68,8 +68,6 @@ The Runtime provides its own builtin Modules. These Modules are available by def
   "modules": {
     "decider": {
       "enabled": true,
-      "displayName": "Decider Module",
-      "name": "DeciderModule",
       "location": "@nmshd/runtime:DeciderModule"
     }
   }
@@ -101,9 +99,12 @@ The Module is responsible for:
 **Note:** This Module is responsible for important logic in the enmeshed ecosystem and is therefore enabled by default in every official enmeshed Application.
 {: .notice--warning}
 
-Currently this Module is only responsible for moving a Request from the status `DecisionRequired` to the status `ManualDecisionRequired` in which e.g. the enmeshed App can prompt the User to manually review the Request.
+The Decider Module can be configured to automatically decide incoming Requests.
+For this to work, each RequestItem must match a form that was previously configured.
+The configuration also states how the RequestItem is processed, i.e. if it is rejected or accepted and in the latter case which parameters are used to do so.
 
-In the future, it will be possible to configure the Decider Module so it automatically accepts certain Requests without any User interaction.
+If there is no suitable configuration for every [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitem) of a Request or at least one RequestItem has `requireManualDecision` set, the Decider Module will not be able to automatically decide the Request.
+In this case, the `status` of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) is moved from `DecisionRequired` to `ManualDecisionRequired` and the user must manually decide the Request.
 
 ### Message Module
 
