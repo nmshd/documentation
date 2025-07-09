@@ -70,6 +70,16 @@ The step-by-step instructions can be consulted to start the migration to version
 ### TypeScript SDK changes
 
 With every version of the Connector we ship a matching [TypeScript SDK]({% link _docs_integrate/access-the-connector.md %}#accessing-the-connector-by-software-development-kits-sdk). With version 7 of the SDK the deprecated field `apiKey` was removed. To access the Connector using an api key, you can configure the SDK now as follows:
+
+```typescript
+import { ApiKeyAuthenticator, ConnectorClient } from "@nmshd/connector-sdk";
+
+const connectorClient = ConnectorClient.create({
+  baseUrl: "https://<INSERT_YOUR_CONNECTOR_DOMAIN_HERE>",
+  authenticator: new ApiKeyAuthenticator("<INSERT_YOUR_API_KEY_HERE>")
+});
+```
+
 ## Runtime-Specific Breaking Changes
 
 As an Integrator of a Connector, the following changes do not need to be taken into account during migration to version 7, as they are Runtime-specific breaking changes handled internally by the Connector.
