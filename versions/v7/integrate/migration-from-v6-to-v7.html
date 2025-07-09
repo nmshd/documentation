@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-07-04T17:30:19+02:00">
+  <meta property="article:published_time" content="2025-07-09T16:26:54+02:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Migration From v6 to v7">
     <meta itemprop="description" content="The Runtime of enmeshed has recently been updated from version 6 to version 7.Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors.The version update has resulted in some breaking changes.To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
-    <meta itemprop="datePublished" content="2025-07-04T17:30:19+02:00">
+    <meta itemprop="datePublished" content="2025-07-09T16:26:54+02:00">
     
 
     <div class="page__inner-wrap">
@@ -388,7 +388,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#step-by-step-instructions">Step-by-Step Instructions</a><ul><li><a href="#connector-setup">Connector Setup</a></li><li><a href="#removed-and-changed-data-structures">Removed and Changed Data Structures</a></li><li><a href="#changed-behavior-of-known-features">Changed Behavior of Known Features</a></li><li><a href="#removed-and-changed-connector-routes">Removed and Changed Connector Routes</a></li></ul></li><li><a href="#runtime-specific-breaking-changes">Runtime-Specific Breaking Changes</a><ul><li><a href="#removed-use-cases">Removed Use Cases</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#step-by-step-instructions">Step-by-Step Instructions</a><ul><li><a href="#connector-setup">Connector Setup</a></li><li><a href="#removed-and-changed-data-structures">Removed and Changed Data Structures</a></li><li><a href="#changed-behavior-of-known-features">Changed Behavior of Known Features</a></li><li><a href="#removed-and-changed-connector-routes">Removed and Changed Connector Routes</a></li><li><a href="#typescript-sdk-changes">TypeScript SDK Changes</a></li></ul></li><li><a href="#runtime-specific-breaking-changes">Runtime-Specific Breaking Changes</a><ul><li><a href="#removed-use-cases">Removed Use Cases</a></li></ul></li></ul>
             </nav>
           </aside>
         
@@ -446,6 +446,18 @@ An error with <a href="/versions/v7/integrate/error-codes">error code</a> <code 
 Accordingly, it was removed from the associated Connector routes as well.</li>
 </ul>
 
+<h3 id="typescript-sdk-changes">TypeScript SDK Changes</h3>
+
+<p>With every version of the Connector, we ship a matching <a href="/versions/v7/integrate/access-the-connector#accessing-the-connector-by-software-development-kits-sdk">TypeScript SDK</a>. With version 7 of the SDK, the deprecated field <code class="language-plaintext highlighter-rouge">apiKey</code> was removed. To access the Connector using an API key, you can configure the SDK now as follows:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ApiKeyAuthenticator</span><span class="p">,</span> <span class="nx">ConnectorClient</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@nmshd/connector-sdk</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">connectorClient</span> <span class="o">=</span> <span class="nx">ConnectorClient</span><span class="p">.</span><span class="nf">create</span><span class="p">({</span>
+  <span class="na">baseUrl</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://&lt;INSERT_YOUR_CONNECTOR_DOMAIN_HERE&gt;</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">authenticator</span><span class="p">:</span> <span class="k">new</span> <span class="nc">ApiKeyAuthenticator</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;INSERT_YOUR_API_KEY_HERE&gt;</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
 <h2 id="runtime-specific-breaking-changes">Runtime-Specific Breaking Changes</h2>
 
 <p>As an Integrator of a Connector, the following changes do not need to be taken into account during migration to version 7, as they are Runtime-specific breaking changes handled internally by the Connector.</p>
@@ -475,7 +487,7 @@ It has now been deleted with the update to version 7.</li>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-04T17:30:19+02:00">July 4, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-09T16:26:54+02:00">July 9, 2025</time></p>
 
       </footer>
 
