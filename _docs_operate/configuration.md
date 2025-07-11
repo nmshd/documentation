@@ -330,13 +330,11 @@ The apiKey authentication method is used to authenticate requests using an API k
   The name of the header in which the API key is sent. Defaults to `X-API-KEY`.
 
 - **keys** `required`
-
   - **enabled** `default: true`
 
     Whether the API key is enabled or not. If set to `false`, the API key will not be accepted by the Connector. This can be used to temporarily disable the API key without removing it from the configuration.
 
   A map of API keys that are allowed to access the Connector. The key is the id of the API key and the value is an object containing the actual API key and some additional configuration options.
-
   - **key** `required`
 
     The actual API key that is used to authenticate the request. This key must be kept secret and should not be shared with anyone.
@@ -512,7 +510,6 @@ It is not recommended to use this Module for production scenarios.
   Here you can define multiple brokers to which the Connector should publish messages.
 
   Each broker consists of a `type` (string) and a `configuration` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `configuration` object contains the configuration for the broker.
-
   - type `AMQP`
 
     **example**
@@ -528,7 +525,6 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - url `string, required` -
 
       the URL of the AMQP broker
@@ -557,7 +553,6 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - url `string, required`
 
       the URL of the MQTT broker
@@ -580,7 +575,6 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - projectId `string, required`
 
       the project id of the Google Cloud project
@@ -607,7 +601,6 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - url `string, required`
 
       the URL of the broker
@@ -674,7 +667,6 @@ It is not recommended to use this Module for production scenarios.
   **OAuth2**
 
   The OAuth2 authentication type is used to authenticate the request to the webhook using the client credentials flow of OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. The OAuth2 authentication is configured using the following parameters:
-
   - **type** `"OAuth2", required`
 
     The type of the authentication.
@@ -698,7 +690,6 @@ It is not recommended to use this Module for production scenarios.
   **ApiKey**
 
   The ApiKey authentication type is used to authenticate the request to the webhook using an API key. The Connector will send the API key as part of the request using a header. The ApiKey authentication is configured using the following parameters:
-
   - **type** `"ApiKey", required`
 
     The type of the authentication.
