@@ -13,7 +13,7 @@
             "authentication": {
                 "apiKey": {
                     "keys": {
-                        "default": {
+                        "<an-api-key-id>": {
                             "key": "<define-an-apiKey => https://enmeshed.eu/integrate/connector-configuration#httpserver>"
                         }
                     }
