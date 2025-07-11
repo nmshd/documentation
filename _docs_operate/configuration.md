@@ -259,7 +259,7 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
   The full configuration can be found [here](https://auth0.github.io/express-openid-connect/interfaces/ConfigParams.html).
 
-  Because the OIDC process requires an redirect this type of authentication is only available when the user cales the Connector via browser.
+  Because the OIDC process requires a redirect this type of authentication is only available when the user cales the Connector via browser.
 
 - **jwtBearer** `optional`
 
