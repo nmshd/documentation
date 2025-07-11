@@ -38,6 +38,13 @@ The step-by-step instructions can be consulted to start the migration to version
   Alternatively, the database can be deleted as a whole and [set up again]({% link _docs_operate/setup-with-docker-compose.md %}).
 - The [image](https://github.com/nmshd/connector?tab=readme-ov-file#connector) used to run the Connector must be updated to version 7.
 - The [configuration]({% link _docs_operate/configuration.md %}) value `database.dbNamePrefix` of the Connector was removed. Before, it defaulted to `acc-`. If you want to access a database called `acc-connector`, you have to set the `database.dbName` configuration value to `acc-connector` instead of `connector` only.
+- Configuring apiKeys for the Connector has changed.
+
+  The `apiKey` property in the configuration file has been replaced by a more structured configuration under `authentication.apiKey.keys.<key-id>.key`.
+
+  Additionally, the support for the `API_KEY` environment variable has been removed, that could be used to define an API key using a short environment variable. As an alternative, the `authentication.apiKey.keys.<key-id>.key` configuration property can be set using [an environment variable]({% link _docs_operate/configuration.md %}#environment-variables).
+
+  You can read more about the authentication configuration in the [configuration documentation]({% link _docs_operate/configuration.md %}#authentication).
 
 ### Removed and Changed Data Structures
 
