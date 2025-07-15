@@ -321,7 +321,7 @@ If multiple authentication methods are configured, the authentication methods wi
 
 The `apiKey` authentication method is used to authenticate requests using an API key in a header.
 
-- **enabled** `default: true (if api keys are configured)`
+- **enabled** `default: true (if API keys are configured)`
 
   Whether the API key authentication is enabled or not. If set to `false`, no API keys will be accepted by the Connector. This can be used to temporarily disable the API key authentication without removing it from the configuration.
 
