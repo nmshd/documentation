@@ -319,7 +319,7 @@ If multiple authentication methods are configured, the authentication methods wi
 }
 ```
 
-The apiKey authentication method is used to authenticate requests using an API key in a header.
+The `apiKey` authentication method is used to authenticate requests using an API key in a header.
 
 - **enabled** `default: true (if api keys are configured)`
 
@@ -330,11 +330,12 @@ The apiKey authentication method is used to authenticate requests using an API k
   The name of the header in which the API key is sent. Defaults to `X-API-KEY`.
 
 - **keys** `required`
+
+  A map of API keys that are allowed to access the Connector. The key of each map entry acts as an id of the API key and the value is an object containing the actual API key and some additional configuration options.
   - **enabled** `default: true`
 
     Whether the API key is enabled or not. If set to `false`, the API key will not be accepted by the Connector. This can be used to temporarily disable the API key without removing it from the configuration.
 
-  A map of API keys that are allowed to access the Connector. The key is the id of the API key and the value is an object containing the actual API key and some additional configuration options.
   - **key** `required`
 
     The actual API key that is used to authenticate the request. This key must be kept secret and should not be shared with anyone.
@@ -361,7 +362,7 @@ The apiKey authentication method is used to authenticate requests using an API k
 }
 ```
 
-The jwtBearer authentication method is used to authenticate requests using JSON Web Tokens (JWT). To configure this authentication method, you need to provide at least the following parameters:
+The `jwtBearer` authentication method is used to authenticate requests using JSON Web Tokens (JWT). To configure this authentication method, you need to provide at least the following parameters:
 
 - **enabled** `default: true (if other options are configured)`
 
@@ -393,7 +394,7 @@ For more sophisticated use cases, please refer to the [JWT documentation page](h
 }
 ```
 
-The oidc authentication method is used to authenticate requests using the OpenID Connect protocol. To configure this authentication method, you need to provide at least the following parameters:
+The `oidc` authentication method is used to authenticate requests using the OpenID Connect protocol. To configure this authentication method, you need to provide at least the following parameters:
 
 - **enabled** `default: true (if other options are configured)`
 
