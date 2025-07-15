@@ -297,9 +297,9 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 }
 ```
 
-There are currently three authentication methods available for the HTTP server: `apiKey`, `jwtBearer` and `oidc`. At least one authentication method must be configured if the connector is running in [production mode](#debug).
+There are currently three authentication methods available for the HTTP server: `apiKey`, `jwtBearer` and `oidc`. At least one authentication method must be configured if the Connector is running in [production mode](#debug).
 
-If multiple authentication methods are configured, the authentication methods will be executed in the following order: `apiKey` > `jwtBearer` > `oidc`. <br><br> For example this means if you enabled `apiKey` and `jwtBearer` and send a wrong API key in combination with a valid JWT bearer token, the request will be rejected. Only sending a valid JWT bearer token will succeed.
+If multiple authentication methods are configured, the authentication methods will be executed in the following order: `apiKey` > `jwtBearer` > `oidc`. <br><br> For example, this means if you enabled `apiKey` and `jwtBearer` and send a wrong API key in combination with a valid JWT bearer token, the request will be rejected. Only sending a valid JWT bearer token will succeed.
 {: .notice--info}
 
 ###### apiKey
