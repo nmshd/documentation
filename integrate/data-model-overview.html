@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-07-08T14:00:14+02:00">
+  <meta property="article:published_time" content="2025-07-15T11:45:53+02:00">
 
 
 
@@ -360,7 +360,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2025-07-08T14:00:14+02:00">
+    <meta itemprop="datePublished" content="2025-07-15T11:45:53+02:00">
     
 
     <div class="page__inner-wrap">
@@ -787,7 +787,7 @@ Whether the Identity with which you have a Relationship is to be deleted or has 
     <tr>
       <td>reason</td>
       <td><code class="language-plaintext highlighter-rouge">"Creation"</code> | <code class="language-plaintext highlighter-rouge">"AcceptanceOfCreation"</code> | <code class="language-plaintext highlighter-rouge">"RejectionOfCreation"</code> | <code class="language-plaintext highlighter-rouge">"RevocationOfCreation"</code> | <code class="language-plaintext highlighter-rouge">"Termination"</code> | <code class="language-plaintext highlighter-rouge">"ReactivationRequested"</code> | <code class="language-plaintext highlighter-rouge">"AcceptanceOfReactivation"</code> | <code class="language-plaintext highlighter-rouge">"RejectionOfReactivation"</code> | <code class="language-plaintext highlighter-rouge">"RevocationOfReactivation"</code> | <code class="language-plaintext highlighter-rouge">"Decomposition"</code> | <code class="language-plaintext highlighter-rouge">"DecompositionDueToIdentityDeletion"</code></td>
-      <td>The type of the Relationship operation. <br /><ul><li>Creation: creation of the pending Relationship.</li><li>AcceptanceOfCreation: acceptance of the pending Relationship.</li><li>RejectionOfCreation: rejection of the pending Relationship.</li><li>RevocationOfCreation: revocation of the pending Relationship.</li><li>Termination: termination of the active Relationship.</li><li>ReactivationRequested: request for the reactivation of the terminated Relationship.</li><li>AcceptanceOfReactivation: acceptance of the reactivation of the terminated Relationship.</li><li>RejectionOfReactivation: rejection of the reactivation of the terminated Relationship.</li><li>RevocationOfReactivation: revocation of the reactivation of the terminated Relationship.</li><li>Decomposition: decomposition of the terminated Relationship.</li><li>DecompositionDueToIdentityDeletion: decomposition of the terminated Relationship due to the <a href="https://enmeshed.eu/integrate/delete-identities#effects-of-identity-deletion-on-relationships">deletion of the peer</a> to which the Relationship exists.</li></ul></ul></td>
+      <td>The type of the Relationship operation. <br /><ul><li>Creation: creation of the pending Relationship.</li><li>AcceptanceOfCreation: acceptance of the pending Relationship.</li><li>RejectionOfCreation: rejection of the pending Relationship.</li><li>RevocationOfCreation: revocation of the pending Relationship.</li><li>Termination: termination of the active Relationship.</li><li>ReactivationRequested: request for the reactivation of the terminated Relationship.</li><li>AcceptanceOfReactivation: acceptance of the reactivation of the terminated Relationship.</li><li>RejectionOfReactivation: rejection of the reactivation of the terminated Relationship.</li><li>RevocationOfReactivation: revocation of the reactivation of the terminated Relationship.</li><li>Decomposition: decomposition of the terminated Relationship.</li><li>DecompositionDueToIdentityDeletion: decomposition of the terminated Relationship due to the <a href="/integrate/delete-identities#effects-of-identity-deletion-on-relationships">deletion of the peer</a> to which the Relationship exists.</li></ul></ul></td>
       <td> </td>
     </tr>
     <tr>
@@ -1101,7 +1101,7 @@ Note, however, that at all times there can only be at most one <strong>active Id
     <tr>
       <td>status</td>
       <td><code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code> | <code class="language-plaintext highlighter-rouge">"Rejected"</code> | <code class="language-plaintext highlighter-rouge">"Approved"</code> | <code class="language-plaintext highlighter-rouge">"Cancelled"</code></td>
-      <td>The status of the IdentityDeletionProcess. <br /><ul><li>WaitingForApproval: the IdentityDeletionProcess was triggered via the Backbone Admin UI and is active. It can be approved or rejected.</li><li>Rejected: the IdentityDeletionProcess was rejected and is no longer active.</li><li>Approved: the IdentityDeletionProcess was approved or <a href="https://enmeshed.eu/use-case-transport-initiate-identitydeletionprocess">initiated directly by the Identity itself</a> instead of the Backbone administrator via the Backbone Admin UI and is active. Unless it is cancelled, the Identity will be deleted by the end of the grace period.</li><li>Cancelled: the IdentityDeletionProcess was cancelled and is no longer active.</li></ul></td>
+      <td>The status of the IdentityDeletionProcess. <br /><ul><li>WaitingForApproval: the IdentityDeletionProcess was triggered via the Backbone Admin UI and is active. It can be approved or rejected.</li><li>Rejected: the IdentityDeletionProcess was rejected and is no longer active.</li><li>Approved: the IdentityDeletionProcess was approved or <a href="/use-case-transport-initiate-identitydeletionprocess">initiated directly by the Identity itself</a> instead of the Backbone administrator via the Backbone Admin UI and is active. Unless it is cancelled, the Identity will be deleted by the end of the grace period.</li><li>Cancelled: the IdentityDeletionProcess was cancelled and is no longer active.</li></ul></td>
       <td> </td>
     </tr>
     <tr>
@@ -1797,7 +1797,7 @@ Apart from the Backbone-defined <code class="language-plaintext highlighter-roug
     <tr>
       <td>mustBeAccepted</td>
       <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
-      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
+      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
     </tr>
     <tr>
       <td>requireManualDecision</td>
@@ -1858,7 +1858,7 @@ Apart from the Backbone-defined <code class="language-plaintext highlighter-roug
     <tr>
       <td>mustBeAccepted</td>
       <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
-      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
+      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
     </tr>
     <tr>
       <td>requireManualDecision</td>
@@ -1909,7 +1909,7 @@ Apart from the Backbone-defined <code class="language-plaintext highlighter-roug
     <tr>
       <td>mustBeAccepted</td>
       <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
-      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
+      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
     </tr>
     <tr>
       <td>requireManualDecision</td>
@@ -1960,7 +1960,7 @@ Apart from the Backbone-defined <code class="language-plaintext highlighter-roug
     <tr>
       <td>mustBeAccepted</td>
       <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
-      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
+      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
     </tr>
     <tr>
       <td>requireManualDecision</td>
@@ -2011,7 +2011,7 @@ Apart from the Backbone-defined <code class="language-plaintext highlighter-roug
     <tr>
       <td>mustBeAccepted</td>
       <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
-      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
+      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
     </tr>
     <tr>
       <td>requireManualDecision</td>
@@ -2272,7 +2272,7 @@ Otherwise, a string array of all selected options is expected, which may also co
     <tr>
       <td>mustBeAccepted</td>
       <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
-      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
+      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
     </tr>
     <tr>
       <td>requireManualDecision</td>
@@ -2328,7 +2328,7 @@ Otherwise, a string array of all selected options is expected, which may also co
     <tr>
       <td>mustBeAccepted</td>
       <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
-      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
+      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
     </tr>
     <tr>
       <td>requireManualDecision</td>
@@ -2379,7 +2379,7 @@ Otherwise, a string array of all selected options is expected, which may also co
     <tr>
       <td>mustBeAccepted</td>
       <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
-      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
+      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
     </tr>
     <tr>
       <td>requireManualDecision</td>
@@ -2430,7 +2430,7 @@ Otherwise, a string array of all selected options is expected, which may also co
     <tr>
       <td>mustBeAccepted</td>
       <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
-      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
+      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
     </tr>
     <tr>
       <td>requireManualDecision</td>
@@ -2491,7 +2491,7 @@ Otherwise, a string array of all selected options is expected, which may also co
     <tr>
       <td>mustBeAccepted</td>
       <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
-      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
+      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
     </tr>
     <tr>
       <td>requireManualDecision</td>
@@ -2547,7 +2547,7 @@ Otherwise, a string array of all selected options is expected, which may also co
     <tr>
       <td>mustBeAccepted</td>
       <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
-      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="https://enmeshed.eu/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
+      <td>The mandatory <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is used to differentiate between required and optional RequestItems within the Request.<br /><ul><li>If <code>mustBeAccepted</code> is set to <code>true</code>, the peer cannot <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> without accepting this RequestItem.</li><li>If <code>mustBeAccepted</code> is set to <code>false</code>, the peer can <a href="/use-case-consumption-accept-incoming-request">accept the Request</a> even though the RequestItem is rejected.</ul></td>
     </tr>
     <tr>
       <td>requireManualDecision</td>
@@ -4222,7 +4222,7 @@ There is the <a href="/use-case-consumption-upsert-identitymetadata">Upsert Iden
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-08T14:00:14+02:00">July 8, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-15T11:45:53+02:00">July 15, 2025</time></p>
 
       </footer>
 
@@ -4333,7 +4333,7 @@ There is the <a href="/use-case-consumption-upsert-identitymetadata">Upsert Iden
                 </li>
                   
                 <li>
-                    <a href="https://enmeshed.eu/feed.xml" rel="nofollow noopener noreferrer" target="_blank"> RSS Feed</a>
+                    <a href="/feed.xml" rel="nofollow noopener noreferrer" target="_blank"> RSS Feed</a>
                 </li>
                   
             </ul>
