@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-07-09T16:26:54+02:00">
+  <meta property="article:published_time" content="2025-07-15T14:46:47+02:00">
 
 
 
@@ -301,7 +301,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="enmeshed Runtime">
     <meta itemprop="description" content="enmeshed Runtime GitHub Repository">
-    <meta itemprop="datePublished" content="2025-07-09T16:26:54+02:00">
+    <meta itemprop="datePublished" content="2025-07-15T14:46:47+02:00">
     
 
     <div class="page__inner-wrap">
@@ -397,8 +397,6 @@
   </span><span class="nl">"modules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"decider"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Decider Module"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DeciderModule"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@nmshd/runtime:DeciderModule"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -433,9 +431,12 @@
 
 <p class="notice--warning"><strong>Note:</strong> This Module is responsible for important logic in the enmeshed ecosystem and is therefore enabled by default in every official enmeshed Application.</p>
 
-<p>Currently this Module is only responsible for moving a Request from the status <code class="language-plaintext highlighter-rouge">DecisionRequired</code> to the status <code class="language-plaintext highlighter-rouge">ManualDecisionRequired</code> in which e.g. the enmeshed App can prompt the User to manually review the Request.</p>
+<p>The Decider Module can be configured to automatically decide incoming Requests.
+For this to work, each RequestItem must match a form that was previously configured.
+The configuration also states how the RequestItem is processed, i.e. if it is rejected or accepted and in the latter case which parameters are used to do so.</p>
 
-<p>In the future, it will be possible to configure the Decider Module so it automatically accepts certain Requests without any User interaction.</p>
+<p>If there is no suitable configuration for every <a href="/versions/v7/integrate/data-model-overview#requestitem">RequestItem</a> of a Request or at least one RequestItem has <code class="language-plaintext highlighter-rouge">requireManualDecision</code> set, the Decider Module will not be able to automatically decide the Request.
+In this case, the <code class="language-plaintext highlighter-rouge">status</code> of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> is moved from <code class="language-plaintext highlighter-rouge">DecisionRequired</code> to <code class="language-plaintext highlighter-rouge">ManualDecisionRequired</code> and the user must manually decide the Request.</p>
 
 <h3 id="message-module">Message Module</h3>
 
@@ -459,7 +460,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-09T16:26:54+02:00">July 9, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-15T14:46:47+02:00">July 15, 2025</time></p>
 
       </footer>
 
@@ -570,7 +571,7 @@
                 </li>
                   
                 <li>
-                    <a href="https://enmeshed.eu/feed.xml" rel="nofollow noopener noreferrer" target="_blank"> RSS Feed</a>
+                    <a href="/feed.xml" rel="nofollow noopener noreferrer" target="_blank"> RSS Feed</a>
                 </li>
                   
             </ul>

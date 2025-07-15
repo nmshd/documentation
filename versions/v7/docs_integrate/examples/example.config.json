@@ -1,8 +1,8 @@
 {
     "transportLibrary": {
-        "baseUrl": "<baseUrl => https://enmeshed.eu/integrate/connector-configuration#transportlibrary>",
-        "platformClientId": "<clientId => https://enmeshed.eu/integrate/connector-configuration#transportlibrary>",
-        "platformClientSecret": "<clientSecret => https://enmeshed.eu/integrate/connector-configuration#transportlibrary>"
+        "baseUrl": "<baseUrl => https://enmeshed.eu/operate/configuration#transportlibrary>",
+        "platformClientId": "<clientId => https://enmeshed.eu/operate/configuration#transportlibrary>",
+        "platformClientSecret": "<clientSecret => https://enmeshed.eu/operate/configuration#transportlibrary>"
     },
     "database": {
         "connectionString": "mongodb://<db-username>:<db-password>@mongodb:27017/?authSource=admin&readPreference=primary&ssl=false",
@@ -10,7 +10,7 @@
     },
     "infrastructure": {
         "httpServer": {
-            "apiKey": "<define-an-apiKey => https://enmeshed.eu/integrate/connector-configuration#httpserver>"
+            "apiKey": "<define-an-apiKey => https://enmeshed.eu/operate/configuration#httpserver>"
         }
     },
     "modules": {
