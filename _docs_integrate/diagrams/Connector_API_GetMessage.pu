@@ -2,32 +2,32 @@
 !include ../../assets/plantuml/styles.iuml
 
 title Connector: Get Message
-caption Copyright 2021, j&s-soft GmbH
+caption Copyright 2021, j&s-soft AG
 
 box "Organizations's Infrastructure"
 participant "Business\nSystem" as backend
-participant "Enmeshed\nConnector" as connector
+participant "enmeshed\nConnector" as Connector
 end box
-participant "Enmeshed\nBackbone" as backbone
+participant "enmeshed\nBackbone" as Backbone
 actor "Sender" as user
 
 == Prerequisites ==
-backbone <-> connector: Verified enmeshed Organization Identity
-connector <-> user: Existing enmeshed Relationship
+Backbone <-> Connector: Verified enmeshed Organization Identity
+Connector <-> user: Existing enmeshed Relationship
 
 == Send Message ==
 
 -> backend ++: Start\n(with sender id)
-backend -> connector ++: GET /Messages\n- senderId
+backend -> Connector ++: GET /Messages\n- senderId
 
-connector -> backbone ++: Get messages
-backbone -> backbone: Retrieve messages\nof sender
-backbone --> connector --: Returns messages
+Connector -> Backbone ++: Get messages
+Backbone -> Backbone: Retrieve messages\nof sender
+Backbone --> Connector --: Returns messages
 
-connector -> connector: Decrypt every message
-connector -> connector: Validate every message
+Connector -> Connector: Decrypt every message
+Connector -> Connector: Validate every message
 
-connector --> backend --: Returns messages
+Connector --> backend --: Returns messages
 
 <-- backend --: Stop\n(with messages)
 

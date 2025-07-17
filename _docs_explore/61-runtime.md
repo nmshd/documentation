@@ -4,7 +4,7 @@ permalink: /explore/runtime
 toc: true
 ---
 
-[enmeshed Runtime GitHub Repository](https://github.com/nmshd/cns-runtime)
+[enmeshed Runtime GitHub Repository](https://github.com/nmshd/runtime)
 
 The Runtime wraps all features of enmeshed into a single programming interface. It is combining the various libraries to a powerful software stack, primarily based on TypeScript, which can be used on nearly every device on the world - and even in the browser.
 
@@ -19,13 +19,13 @@ Although the Runtime could be used by its own, it comes with two flavors:
 
 ## Runtime Building Blocks
 
-### Crypto Library <a href="https://github.com/nmshd/cns-crypto"><i class="fab fa-fw fa-github"/></a> {#crypto-library}
+### Crypto Library <a href="https://github.com/nmshd/ts-crypto"><i class="fab fa-fw fa-github"/></a> {#crypto-library}
 
 To separate the cryptographic interfaces from the used cryptographic library (e.g. libsodium), the crypto library acts as a wrapper. Additionally, cryptographically-related source code is bundled within this library.
 
 This approach allows us to implement features for cryptographic classes, for example the serialization of keys. Additionally, security audits could focus on this library.
 
-### Transport Library <a href="https://github.com/nmshd/cns-transport"><i class="fab fa-fw fa-github"/></a> {#transport-library}
+### Transport Library <a href="https://github.com/nmshd/runtime/tree/main/packages/transport"><i class="fab fa-fw fa-github"/></a> {#transport-library}
 
 The implementation of the transport layer is the transport library. It combines the features of different third party libraries and the crypto library to support the following features:
 
@@ -36,7 +36,7 @@ The implementation of the transport layer is the transport library. It combines 
 - Managing cryptographic artifacts
 - Cross-device synchronization of the datawallet
 
-### Content Library <a href="https://github.com/nmshd/cns-content"><i class="fab fa-fw fa-github"/></a> {#content-library}
+### Content Library <a href="https://github.com/nmshd/runtime/tree/main/packages/content"><i class="fab fa-fw fa-github"/></a> {#content-library}
 
 To separate the actual payload of Messages from the Message structure and envelope, the content library was set up. It is a repository of interfaces and types which are used as the payload of communication between Identities.
 
@@ -46,7 +46,7 @@ Whereas the transport library implements the foundation of communication between
 - Message formats like Mails, RequestMails, or technical messages
 - Transactional formats like Requests
 
-### Consumption Library <a href="https://github.com/nmshd/cns-consumption"><i class="fab fa-fw fa-github"/></a> {#consumption-library}
+### Consumption Library <a href="https://github.com/nmshd/runtime/tree/main/packages/consumption"><i class="fab fa-fw fa-github"/></a> {#consumption-library}
 
 Due to the fact that the Backbone cannot implement business logic to process content sent over the wire just like any other central service, the business logic needs to reside on the respective clients.
 
@@ -68,8 +68,6 @@ The Runtime provides its own builtin Modules. These Modules are available by def
   "modules": {
     "decider": {
       "enabled": true,
-      "displayName": "Decider Module",
-      "name": "DeciderModule",
       "location": "@nmshd/runtime:DeciderModule"
     }
   }
@@ -94,16 +92,19 @@ The Module is responsible for:
 - taking action when the User decides (accepts or rejects) a Request
   - when the Request came from a RelationshipTemplate the Module creates a Relationship with the contents of the User's Response if the User accepted the Request (rejection is currently not handled)
   - when the Request came from a Message the Module sends back a Message containing the User's Response (accept and reject)
-- listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent with the RelationshipCreationChange
+- listen for an incoming Relationship to create a Request out of the RelationshipTemplate that was used to create the Relationship and to directly complete the Request using the Response sent in the Relationship's `creationContent`
 
 ### Decider Module
 
 **Note:** This Module is responsible for important logic in the enmeshed ecosystem and is therefore enabled by default in every official enmeshed Application.
 {: .notice--warning}
 
-Currently this Module is only responsible for moving a Request from the status `DecisionRequired` to the status `ManualDecisionRequired` in which e.g. the enmeshed App can prompt the User to manually review the Request.
+The Decider Module can be configured to automatically decide incoming Requests.
+For this to work, each RequestItem must match a form that was previously configured.
+The configuration also states how the RequestItem is processed, i.e. if it is rejected or accepted and in the latter case which parameters are used to do so.
 
-In the future, it will be possible to configure the Decider Module so it automatically accepts certain Requests without any User interaction.
+If there is no suitable configuration for every [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitem) of a Request or at least one RequestItem has `requireManualDecision` set, the Decider Module will not be able to automatically decide the Request.
+In this case, the `status` of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) is moved from `DecisionRequired` to `ManualDecisionRequired` and the user must manually decide the Request.
 
 ### Message Module
 
@@ -113,6 +114,6 @@ The Message Module is responsible for processing `transport.MessageReceived` eve
 
 In every case the MessageModule will publish a `consumption.relationshipEvent.<Relationship-ID-between-the-sender-and-you>` for e.g. reloading the Relationship including its newest Messages in an UI.
 
-When the Message is a [Mail]({% link _docs_integrate/data-model-overview.md %}#Mail) a `consumption.mailReceived` event will be published. This is useful if you only want to refresh your UI that is rendering structured Mails.
+When the Message is a [Mail]({% link _docs_integrate/data-model-overview.md %}#mail) a `consumption.mailReceived` event will be published. This is useful if you only want to refresh your UI that is rendering structured Mails.
 
 If you are interested in these events you need to enable this module, because it is not enabled by default.

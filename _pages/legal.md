@@ -8,9 +8,9 @@ This website is hosted by a German company, thus the legally required texts are 
 
 # Verantwortliche Organisation
 
-Angaben gemäß §5 TMG:
+Angaben gemäß §5 DDG:
 
-j&amp;s-soft GmbH\\
+j&amp;s-soft AG\\
 Max-Jarecki-Straße 21\\
 69115 Heidelberg
 
@@ -24,18 +24,18 @@ E-Mail: `info@js-soft.com`
 **Registereintrag**\\
 Sitz der Gesellschaft: Heidelberg\\
 Registergericht: Amtsgericht Mannheim, 68149 Mannheim\\
-Registernummer: HRB 337601
+Registernummer: HRB 752407
 
 **Umsatzsteuer Identifikationsnummer**\\
 DE229831469
 
 # Haftungsausschluss
 
-Wir können nicht garantieren, dass der Inhalt dieser Website aktuell, fehlerfrei oder komplett ist. Gemäß den gesetzlichen Vorschriften sind wir selbst erstellte Inhalte auf dieser Webseite verantwortlich. Für Inhalte von dritten Parteien, die uns zur Verfügung gestellt wurden, sind wir nicht verantwortlich.
+Wir können nicht garantieren, dass der Inhalt dieser Website aktuell, fehlerfrei oder komplett ist. Gemäß den gesetzlichen Vorschriften sind wir für selbst erstellte Inhalte auf dieser Webseite verantwortlich. Für Inhalte von dritten Parteien, die uns zur Verfügung gestellt wurden, sind wir nicht verantwortlich.
 
-Die verwendeten Links auf Webseiten Dritter (externe Inhalte) wurden zum Zeitpunkt des Erstellens dieser Webseite auf Vorhandensein illegaler Inhalte überprüft. Wir weisen darauf hin, dass die Verantwortung der externen Inhalte bei den jeweiligen Webseitenbetreibern liegen.
+Die verwendeten Links auf Webseiten Dritter (externe Inhalte) wurden zum Zeitpunkt des Erstellens dieser Webseite auf Vorhandensein illegaler Inhalte überprüft. Wir weisen darauf hin, dass die Verantwortung für die externen Inhalte bei den jeweiligen Webseitenbetreibern liegt.
 
-Falls - entgegen unseren Erwartungen - illegale Inhalte oder Aktivitäten auf dieser Webseite festgestellt werden, folgen wir selbstverständlich unserer Verpflichtung diese Inhalte schnellstmöglich zu entfernen oder zu blockieren. Gleiches gilt für Links die auf fragwürdige oder illegale externe Inhalte verweisen.
+Falls - entgegen unseren Erwartungen - illegale Inhalte oder Aktivitäten auf dieser Webseite festgestellt werden, folgen wir selbstverständlich unserer Verpflichtung diese Inhalte schnellstmöglich zu entfernen oder zu blockieren. Gleiches gilt für Links, die auf fragwürdige oder illegale externe Inhalte verweisen.
 
 # Geschlechtergerechte Sprache
 

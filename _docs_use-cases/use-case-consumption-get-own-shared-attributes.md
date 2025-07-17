@@ -44,11 +44,11 @@ api_route_regex: ^GET /api/v2/Attributes/Own/Shared/Identity$
 
 {% include properties_list.html %}
 
-This use case is intended to retrieve Attributes that the current Identity shared to a peer as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute). The LocalAttributes can be specified using a complex query.
+This use case is intended to retrieve Attributes that the current Identity shared to a peer as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute). The LocalAttributes can be specified using a complex query.
 
 ## Parameters
 
-- `peer` is the Address of the Identity that the LocalAttributes are shared with.
+- `peer` is the `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that the LocalAttributes are shared with.
 - `query` allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used:
   - `createdAt` describes the time when the LocalAttribute was created.
   - The fields of `content` can be used to describe the queried Attribute (either an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute)
@@ -61,7 +61,7 @@ This use case is intended to retrieve Attributes that the current Identity share
 
 ## On Success
 
-- Returns a list of [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#LocalAttribute) shared to the peer that matches the query.
+- Returns a list of [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) shared to the peer that matches the query.
 
 ## On Failure
 

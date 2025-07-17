@@ -87,8 +87,10 @@ The Connector provides the following configuration parameters:
 ```jsonc
 {
     "debug": false,
+    "enforceCertificatePinning": false,
+    "pinnedTLSCertificateSHA256Fingerprints": {},
     "transportLibrary": {
-        "baseUrl": "https://prod.enmeshed.eu",
+        "baseUrl": "BASE_URL",
         "platformClientId": "CLIENT_ID",
         "platformClientSecret": "CLIENT_SECRET"
     },
@@ -103,18 +105,80 @@ The Connector provides the following configuration parameters:
 
 You can validate the config using our [schema file](https://raw.githubusercontent.com/nmshd/cns-connector/main/config.schema.json). This is possible for example with [VSCode](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) or online tools like [jsonschemavalidator.net](https://www.jsonschemavalidator.net).
 
-### debug `availbable since version 3.3.0` {#debug}
+### debug `available since version 3.3.0` {#debug}
 
 ⚠️ Do not turn on debug mode in production environments.
 {: .notice--danger}
 
 The debug flag configures if the Connector is set to **production** or **debug** mode. Defaults to `false`. Can also be configured using the environment variable `DEBUG`.
 
+### enforceCertificatePinning `available since version 6.5.0` {#enforceCertificatePinning}
+
+The `enforceCertificatePinning` flag configures whether the Connector should enforce certificate pinning. Defaults to `false`.
+
+If enabled, the Connector will only accept TLS certificates that match the SHA256 fingerprints for endpoints of outgoing requests specified in the [`pinnedTLSCertificateSHA256Fingerprints`](#pinnedTLSCertificateSHA256Fingerprints) object. If a hostname is not configured at all, it cannot be accessed by the Connector anymore.
+
+### pinnedTLSCertificateSHA256Fingerprints `available since version 6.5.0` {#pinnedTLSCertificateSHA256Fingerprints}
+
+The `pinnedTLSCertificateSHA256Fingerprints` object maps hostnames to TLS certificate SHA256 fingerprints of the respective hostname. If a hostname is found, the Connector only accepts a TLS connection if the server responds with a certificate of one of the given fingerprints. The fingerprints must be in a hexadecimal format and are internally stripped of separators and characters not valid for hexadecimal formats. To reduce attack vectors, wildcard domains like "\*.enmeshed.eu" are not valid hostnames, you need to fill this map with every subdomain.
+
+To increase security, please consider setting [`enforceCertificatePinning`](#enforceCertificatePinning) to true.
+
+TLS certificates are rotated multiple times in a year for each hostname. Therefore, setting multiple fingerprints per hostname is possible. However, the config and fingerprints need to be updated regularly with the new fingerprints, otherwise the Connector will reject outgoing requests for expired certificates and cease to function.
+{: .notice--warning}
+
+**Getting the SHA256 fingerprint of a certificate:**
+
+```bash
+echo -n | openssl s_client -connect <hostname>:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > cert.pem
+openssl x509 -noout -in cert.pem -fingerprint -sha256
+rm cert.pem
+```
+
+This will output something similar to:
+
+```text
+Connecting to <ip>
+...
+DONE
+sha256 Fingerprint=AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA
+```
+
+You can simply copy the fingerprint after `sha256 Fingerprint=` and use it.
+
+If you use another way to acquire the fingerprint, the Connector understands multiple formats like
+
+```text
+AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa:aa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+```
+
+**Sample Configuration:**
+
+```jsonc
+{
+  // ...
+
+  "pinnedTLSCertificateSHA256Fingerprints": {
+    "example.com": [
+      "AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA",
+      "BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB:BB"
+    ],
+    "subdomain.example.com": [
+      "AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA",
+      "CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC:CC"
+    ]
+  }
+}
+```
+
 ### transportLibrary
 
-- **baseUrl** `default: "https://prod.enmeshed.eu"`
+- **baseUrl** `required`
 
-  The base url is used to communicate with the enmeshed platform. It can be changed to use a custom enmeshed Backbone.
+  The base url is used to communicate with the enmeshed platform. It can be changed to use a custom enmeshed Backbone. The base url may not contain a vertical bar `|`.
 
 - **platformClientId** `required`
 
@@ -138,6 +202,12 @@ The debug flag configures if the Connector is set to **production** or **debug**
 
   **Note:** If you are using the Connector in combintation with a FerretDB, you have to pay attention to the database name restrictions specified in the [FerretDB documentation](https://docs.ferretdb.io/diff/).
   {: .notice--warning}
+
+- **dbNamePrefix** `default: "acc-"`
+
+  The `dbNamePrefix` string is used as a prefix for the MongoDB database name. It will be **prepended** to the string configured by the `dbName` property.
+
+  If you don't want your database name to be prefixed, you can set this value to an empty string.
 
 ### infrastructure
 
@@ -183,7 +253,7 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
   The API-Key protects your Connector from unauthorized access and should therefore be kept secret.
 
-- **helmetOptions** `default: depending on the connector mode`
+- **helmetOptions** `default: depending on the Connector mode`
 
   Configure the [helmet](https://helmetjs.github.io/) middleware.
 
@@ -208,40 +278,7 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
 Every Module can be enabled or disabled by passing true / false to `enabled`. Read more about the Module by clicking on the <i class="fas fa-fw fa-info-circle"/> icon in each title.
 
-#### amqpPublisher <a href="{% link _docs_operate/modules.md %}#amqppublisher"><i class="fas fa-fw fa-info-circle"/></a> {#amqppublisher}
-
-This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
-{: .notice--danger}
-
-**Sample Configuration:**
-
-```jsonc
-{
-  // ...
-
-  "modules": {
-    "amqpPublisher": {
-      "enabled": false,
-      "url": "amqp://example.com:5672",
-      "exchange": "myExchange"
-    }
-  }
-}
-```
-
-- **enabled** `default: false`
-
-  Enable or disable the AMQP Publisher Module.
-
-- **url** `required`
-
-  The URL of the AMQP server.
-
-- **exchange** `default: ""`
-
-  The name of the AMQP exchange to publish to.
-
-#### autoAcceptRelationshipCreationChanges <a href="{% link _docs_operate/modules.md %}#autoacceptrelationshipcreationchanges"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptrelationshipcreationchanges}
+#### autoAcceptPendingRelationships <a href="{% link _docs_operate/modules.md %}#autoacceptpendingrelationships"><i class="fas fa-fw fa-info-circle"/></a> {#autoacceptpendingrelationships}
 
 It is not recommended to use this Module for production scenarios.
 {: .notice--danger}
@@ -253,9 +290,8 @@ It is not recommended to use this Module for production scenarios.
   // ...
 
   "modules": {
-    "autoAcceptRelationshipCreationChanges": {
-      "enabled": false,
-      "responseContent": {}
+    "autoAcceptPendingRelationships": {
+      "enabled": false
     }
   }
 }
@@ -263,11 +299,7 @@ It is not recommended to use this Module for production scenarios.
 
 - **enabled** `default: false`
 
-  Enable or disable the autoAcceptRelationshipCreationChanges Module.
-
-- **responseContent** `default: {}`
-
-  The content that is used to accept the incoming Relationship Request.
+  Enable or disable the autoAcceptPendingRelationships Module.
 
 #### coreHttpApi <a href="{% link _docs_operate/modules.md %}#corehttpapi"><i class="fas fa-fw fa-info-circle"/></a> {#corehttpapi}
 
@@ -335,7 +367,6 @@ It is not recommended to use this Module for production scenarios.
   Here you can define multiple brokers to which the Connector should publish messages.
 
   Each broker consists of a `type` (string) and a `configuration` object. The `type` specifies the type of the broker (e.g. `AMQP` or `PubSub`) and the `configuration` object contains the configuration for the broker.
-
   - type `AMQP`
 
     **example**
@@ -351,16 +382,15 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - url `string, required` -
 
       the URL of the AMQP broker
 
       > the URL must be in the [AMQP url format](https://www.rabbitmq.com/docs/uri-spec)
 
-    - exchange `string` -
+    - exchange `string, default: ""` -
 
-      the name of the exchange to publish to
+      the name of the AMQP exchange to publish to
 
     - timeout `number` -
 
@@ -380,7 +410,6 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - url `string, required`
 
       the URL of the MQTT broker
@@ -403,7 +432,6 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - projectId `string, required`
 
       the project id of the Google Cloud project
@@ -430,7 +458,6 @@ It is not recommended to use this Module for production scenarios.
     ```
 
     **configuration**
-
     - url `string, required`
 
       the URL of the broker
@@ -462,44 +489,6 @@ It is not recommended to use this Module for production scenarios.
 
   The interval in seconds at which the sync Module will fetch changes from the Backbone.
 
-#### PubSubPublisher <a href="{% link _docs_operate/modules.md %}#pubsubpublisher"><i class="fas fa-fw fa-info-circle"/></a> {#pubsubpublisher}
-
-This module is deprecated in favor of the [Message Broker Publisher](#messagebrokerpublisher) Module.
-{: .notice--danger}
-
-**Sample Configuration:**
-
-```jsonc
-{
-  // ...
-
-  "modules": {
-    "PubSubPublisher": {
-      "enabled": false,
-      "projectId": "",
-      "topic": "",
-      "keyFile": ""
-    }
-  }
-}
-```
-
-- **enabled** `default: false`
-
-  Enable or disable the PubSub Publisher Module.
-
-- **projectId** `required`
-
-  The project id of the Google Cloud project.
-
-- **topic** `required`
-
-  The name of the PubSub topic to publish to.
-
-- **keyFile** `required`
-
-  The (absolute) path of the key file to authenticate with the Google Cloud project.
-
 #### webhooks <a href="{% link _docs_operate/modules.md %}#webhooks"><i class="fas fa-fw fa-info-circle"/></a> {#webhooks}
 
 **Sample Configuration:**
@@ -530,7 +519,45 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
   The server under the URL must respond to the request with a status code between 200 and 299. Otherwise the Connector will log a warning.
 
-  <br>
+  If the webhook target is protected by authentication, you can configure the webhook module to authenticate itself. Currently, the available `authentication` types are: `OAuth2` and `ApiKey`.
+
+  **OAuth2**
+
+  The OAuth2 authentication type is used to authenticate the request to the webhook using the client credentials flow of OAuth2. The Connector will send a bearer token as part of the request in its Authentication header. The OAuth2 authentication is configured using the following parameters:
+  - **type** `"OAuth2", required`
+
+    The type of the authentication.
+
+  - **accessTokenUrl** `string, required`
+
+    The URL to get the access token from. This URL must be reachable from the Connector.
+
+  - **clientId** `string, required`
+
+    The [client id](https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1) used to authenticate to the access token server.
+
+  - **clientSecret** `string, required`
+
+    The [client secret](https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1) used to authenticate to the access token server.
+
+  - **scope** `string, optional`
+
+    The [scope](https://www.rfc-editor.org/rfc/rfc6749#section-3.3) of the access request. This is optional and can be omitted if not needed.
+
+  **ApiKey**
+
+  The ApiKey authentication type is used to authenticate the request to the webhook using an API key. The Connector will send the API key as part of the request using a header. The ApiKey authentication is configured using the following parameters:
+  - **type** `"ApiKey", required`
+
+    The type of the authentication.
+
+  - **headerName** `string, default: "x-api-key"`
+
+    The name of the header to send the API key in. If not set, the default value `x-api-key` will be used.
+
+  - **apiKey** `string, required`
+
+    The API key to use for authentication.
 
   **Example**
 
@@ -555,6 +582,28 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
     // a target with the {% raw %}{{trigger}}{% endraw %} placeholder as part of the URL
     "target3": {
       "url": "https://example.com/enmeshed/webhook/{% raw %}{{trigger}}{% endraw %}"
+    },
+
+    // a target with an OAuth2 authentication type
+    "target4": {
+      "url": "https://example.com/enmeshed/webhook",
+      "authentication": {
+        "type": "OAuth2",
+        "accessTokenUrl": "https://example.com/oauth2/token",
+        "clientId": "myClientId",
+        "clientSecret": "myClientSecret",
+        "scope": "myScope"
+      }
+    },
+
+    // a target with an ApiKey authentication type
+    "target5": {
+      "url": "https://example.com/enmeshed/webhook",
+      "authentication": {
+        "type": "ApiKey",
+        "headerName": "a-header-name",
+        "apiKey": "my-api-key"
+      }
     }
   }
   ```
@@ -569,8 +618,6 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 - **webhooks** `default: []`
 
   The webhooks that will be called. A webhook consists of one or more [Connector Events]({% link _docs_integrate/connector-events.md %}) on which the webhook should be triggered, as well as a target to which the request should be sent. The target either is an inline definition of target as described above, or a name of a target defined in the `targets` object.
-
-  <br>
 
   **Example**
 
@@ -607,7 +654,7 @@ This module is deprecated in favor of the [Message Broker Publisher](#messagebro
 
 You can find type definitions of the event data in the [Connector Events]({% link _docs_integrate/connector-events.md %}) section.
 
-#### sse (server sent events) <a href="{% link _docs_operate/modules.md %}#sse"><i class="fas fa-fw fa-info-circle"/></a> {#sse}
+#### sse (Server-Sent Events) <a href="{% link _docs_operate/modules.md %}#sse"><i class="fas fa-fw fa-info-circle"/></a> {#sse}
 
 This Module requires additional configuration on the Backbone.
 Ensure that your Backbone has the required settings enabled.

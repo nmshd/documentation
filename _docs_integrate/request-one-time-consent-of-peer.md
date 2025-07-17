@@ -9,7 +9,7 @@ type: scenario
 toc: true
 properties:
   - id: SC025
-  - category: Request consent
+  - category: Request Consent
   - description:
   - customer: All
   - component: integrate
@@ -66,6 +66,7 @@ As already indicated, the Request contains a [ConsentRequestItem]({% link _docs_
 To create the Request, the Sender must proceed as described in the [Create outgoing Request]({% link _docs_use-cases/use-case-consumption-create-outgoing-request.md %}) use case, specifying a suitable payload as given in the example below.
 In this example, the value of the `mustBeAccepted` property of the ConsentRequestItem is set to `true`.
 Please note that the `<...>` notation is used as a placeholder for the actual data as usual and that the `link` property of the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) is optional and can therefore also be omitted.
+In addition to the `link`, a `linkDisplayText` could optionally be specified, which would be displayed in the App instead of the URL of the `link`.
 
 ```jsonc
 {
@@ -79,7 +80,7 @@ Please note that the `<...>` notation is used as a placeholder for the actual da
       }
     ]
   },
-  "peer": "<Address of Recipient>"
+  "peer": "<address of Recipient>"
 }
 ```
 
@@ -92,7 +93,7 @@ After the Request has been created, the Sender can send it to the Recipient. To 
 
 ```jsonc
 {
-  "recipients": ["<Address of Recipient>"],
+  "recipients": ["<address of Recipient>"],
   "content": {
     "@type": "Request",
     "id": "<ID of Request>",

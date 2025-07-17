@@ -44,19 +44,18 @@ api_route_regex: ^POST /api/v2/RelationshipTemplates/Peer$
 
 {% include properties_list.html %}
 
-This use case loads a peer's [RelatonshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) from the Backbone by a given reference to the RelationshipTemplate.
+This use case loads a peer's [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) from the Backbone by a given reference to the RelationshipTemplate.
 
 ## Parameters
 
-There are three different options to use this use case, depending on the actual information received by the peer:
+There are two different options to use this use case, depending on the actual information received by the peer:
 
-- by knowing an `id` and the `secretKey` of the peer's RelationshipTemplate (RelationshipTemplateReference)
-  - `id` of the RelationshipTemplate
-  - `secretKey` as Base64URL encoding for decrypting the RelationshipTemplate
-- by knowing a `reference` of the peer's RelationshipTemplate (RelationshipTemplateReferenceTruncated)
+- by knowing a `reference.truncated` of the peer's RelationshipTemplate
   - `reference` as string
-- by knowing a `reference` of the peer's Token, which references to the peer's RelationshipTemplate TokenReferenceTruncated
+- by knowing a `reference.truncated` of the peer's [Token]({% link _docs_integrate/data-model-overview.md %}#token), which references to the peer's RelationshipTemplate
   - `reference` as string
+
+If the RelationshipTemplate or the Token, if there is one, is protected by a password via the `passwordProtection` property, it must be entered with the `password` parameter of this use case in order to be authorized to load the RelationshipTemplate.
 
 ## On Success
 
@@ -68,3 +67,5 @@ There are three different options to use this use case, depending on the actual 
 - The RelationshipTemplate does not exist.
 - The RelationshipTemplate is expired.
 - The `maxNumberOfAllocations` of the RelationshipTemplate are depleted.
+- The RelationshipTemplate is personalized for a different [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) via the property `forIdentity` of the RelationshipTemplate.
+- No `password` or an incorrect `password` was entered in case of a password protected RelationshipTemplate or a password protected Token, if there is one.

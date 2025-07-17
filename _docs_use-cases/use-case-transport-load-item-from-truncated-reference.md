@@ -19,7 +19,7 @@ properties:
   - tech category: Account
   - status: QUESTIONS
   - documentation status: DONE
-  - comments: rather somewhere else?
+  - comments: deprecated use /use-case-transport-load-item-from-reference instead; rather somewhere else?
   - actor: Identity
   - trigger:
   - precondition:
@@ -41,9 +41,11 @@ required_by:
 
 {% include properties_list.html %}
 
-This use case intends to load an entity by its `reference` received by peer. It is internally using the specific use cases of each entity:
+This use case is deprecated and will be removed in the next major version. Please use the use case [Load item from reference](use-case-transport-load-item-from-reference) instead.
+{: .notice--warning}
 
-- If the `reference` references a Token, fetches the Token just like [Load Token created by others](use-case-transport-load-token-created-by-others.md).
-- If the `reference` references a RelationshipTemplate, fetches the RelationshipTemplate just like [Load RelationshipTemplate created by others](use-case-transport-load-relationshiptemplate-created-by-others.md).
-- If the `reference` references a File, fetches the File just like [Get or load File](use-case-transport-get-or-load-file.md).
-- If the `reference` references a DeviceOnboardingInformation, fetches the DeviceOnboardingInformation just like [Get Device Onboarding Token](use-case-transport-get-device-onboarding-token.md).
+This use case intends to load an entity by its `reference` received by a peer. Internally, it uses the specific use cases of each entity:
+
+- If the `reference` refers to a [Token]({% link _docs_integrate/data-model-overview.md %}#token), it fetches the Token just like the [Load Token created by others]({% link _docs_use-cases/use-case-transport-load-token-created-by-others.md %}) use case. For example, if the `content` of the Token is a TokenContentDeviceSharedSecret, a DeviceOnboardingInfo is returned after the successful execution of the use case. A TokenContentDeviceSharedSecret is created by the [Create Device Onboarding Token]({% link _docs_use-cases/use-case-transport-create-device-onboarding-token.md %}) use case.
+- If the `reference` refers to a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate), it fetches the RelationshipTemplate just like the [Load RelationshipTemplate created by others]({% link _docs_use-cases/use-case-transport-load-relationshiptemplate-created-by-others.md %}) use case.
+- If the `reference` refers to a [File]({% link _docs_integrate/data-model-overview.md %}#file), it fetches the File just like the [Load File]({% link _docs_use-cases/use-case-transport-load-file.md %}) use case.

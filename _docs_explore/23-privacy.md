@@ -30,7 +30,7 @@ Potential examples of personal data / PII:
 - Names
 - Addresses
 - Phone numbers
-- E-Mail addresses
+- Email addresses
 - Birth dates
 - Payment details
 - IP addresses
@@ -57,11 +57,11 @@ Consequently, users gain a comprehensive overview of their personal data.
 
 ## What is PII for enmeshed?
 
-Due to the broad scope of scenarios encompassed within the public sector, an absolute data privacy **absolute data privacy**. However, a solution like enmeshed depends on the jurisdiction of the operating person(s) or organization(s) especially for the enmeshed Backbone and thus it needs to be decided case by case and for each backbone operating entity, which data within the Backbone is considered PII.
+Due to the broad scope of scenarios encompassed within the public sector, an absolute data privacy **absolute data privacy**. However, a solution like enmeshed depends on the jurisdiction of the operating person(s) or organization(s) especially for the enmeshed Backbone and thus it needs to be decided case by case and for each Backbone operating entity, which data within the Backbone is considered PII.
 
 The developers at enmeshed interpret the data privacy regulations narrowly, which has earned the appreciation of lawyers and data privacy experts for the design of the solution. Notably, the ability to delete all of the following data categories within our solution is pivotal for **absolute data privacy**:
 
-1. (Non-technical) personal data which could directly identify a person (like names, e-mail addresses, birth dates, public/social ids, or phone numbers) is only processed in an end-to-end encrypted way between users and organizations. The central service does not have access to this data.
+1. (Non-technical) personal data which could directly identify a person (like names, email addresses, birth dates, public/social ids, or phone numbers) is only processed in an end-to-end encrypted way between users and organizations. The central service does not have access to this data.
 2. Pseudonyms or technical identifiers which are shared between multiple Identities (like enmeshed Addresses, enmeshed Public Keys, Device Ids, or Identity versions) are considered PII, as an entity could use this information to map this data to real world persons.
 3. Pseudonyms, technical identifiers or secrets which are shared between two Identities (like Backbone credentials, device versions, or Relationship public keys) are considered PII, as an entity could use this information to map this data to real world persons.
 4. One-way functions (hashes/digests) of PII are considered PII, as an entity theoretically has the possibility of mapping these hashes to real world persons or could potentially map the hashes to real world persons.
@@ -72,7 +72,7 @@ When considering a **relative data privacy** , one might contend that only data 
 
 ## Least Knowledge
 
-'Least Knowledge' is the fundamental principle upon which enmeshed is built. As a result, the solution aims to minimize Personally Identifiable Information (PII) usage, thereby providing an optimal user experience and comprehensive features. In fact, the "usual personal data", like e-mail addresses, telephone numbers or names never reach the Backbone (and its operator) in cleartext.
+'Least Knowledge' is the fundamental principle upon which enmeshed is built. As a result, the solution aims to minimize Personally Identifiable Information (PII) usage, thereby providing an optimal user experience and comprehensive features. In fact, the "usual personal data", like email addresses, telephone numbers or names never reach the Backbone (and its operator) in cleartext.
 
 - The enmeshed App stores the data in a local database on the device it is operating on. Data usually can only be sent to or received from the Backbone, generic Internet access from the App is blocked.
 - The enmeshed Connector stores the data in a local database within an organization's network. Data can only be sent to or received from the Backbone, no other Internet access should be made possible.
@@ -94,7 +94,7 @@ enmeshed additionally follows the once-only principle for such data, thus enabli
 
 The Backbone is the most significant component in terms of privacy. As a centrally hosted component by a third party, it is understandable that privacy-related questions usually focus this component."
 
-The Backbone only stores technical information of Identities or devices. It never has access to cleartext data such as content of Messages, names, e-mail addresses, and so on, as all this information is end-to-end encrypted. Furthermore, even encrypted data of the Backbone is not publicly available - only the Identities which have reason to access the data get access.
+The Backbone only stores technical information of Identities or devices. It never has access to cleartext data such as content of Messages, names, email addresses, and so on, as all this information is end-to-end encrypted. Furthermore, even encrypted data of the Backbone is not publicly available - only the Identities which have reason to access the data get access.
 
 Without the actual keys from the respective Identities (which the Backbone hosting entity does not receive) the actual data cannot practically be decrypted or analyzed. The **relative data privacy** mindset should thus be reasonably fulfilled by using the enmeshed mechanisms.
 

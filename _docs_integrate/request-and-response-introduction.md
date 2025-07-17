@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC036
-  - category: Working with Requests
+  - category: Working With Requests
   - description:
   - customer: All
   - component: integrate
@@ -28,8 +28,6 @@ Also, parts of a vaster business process can be implemented with them, like quer
 Requests are unique between Identities and can only be processed once by a single Identity, even across multiple devices associated with them.
 Each Request can only have a single Response, which responds to the complete Request and contains all the information the requestor needs.
 The Request-Response flow allows to establish transactional behavior between Identities.
-
-Please note that there are some data structures used in the context of enmeshed, that also use the terms "Request" and "Response" in their name, but do not correspond to the objects described on this page, e.g. [RelationshipChangeRequest]({% link _docs_integrate/data-model-overview.md %}#relationshipchangerequest) and [RelationshipChangeResponse]({% link _docs_integrate/data-model-overview.md %}#relationshipchangeresponse).
 
 ## Requests
 
@@ -112,6 +110,23 @@ After the Recipient has responded to the DeleteAttributeRequestItem, a suitable 
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
+#### FormFieldRequestItem
+
+With the [FormFieldRequestItem]({% link _docs_integrate/data-model-overview.md %}#formfieldrequestitem) it is possible to define a form field.
+Depending on which `settings` the FormFieldRequestItem is configured with, the type of values with which the form field can be filled out and the UI of the form field in the App change.
+All details on how to use the FormFieldRequestItem and examples of use cases for it can be found in the [Form Fields Within Requests]({% link _docs_integrate/form-fields-within-requests.md %}) scenario documentation.
+
+Depending on whether the FormFieldRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
+
+- To accept this RequestItem, the [AcceptFormFieldRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptformfieldrequestitemparameters) can be utilized.
+- To reject this RequestItem, the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) can be utilized.
+
+After the Recipient has responded to the FormFieldRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
+
+- After accepting this RequestItem, a [FormFieldAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#formfieldacceptresponseitem) will be transferred.
+- After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+- In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+
 #### FreeTextRequestItem
 
 With the [FreeTextRequestItem]({% link _docs_integrate/data-model-overview.md %}#freetextrequestitem) it is possible to send a free text to the peer. The peer itself can accept this with a free text as well.
@@ -146,7 +161,7 @@ After the Recipient has responded to the ProposeAttributeRequestItem, a suitable
 
 #### ReadAttributeRequestItem
 
-If you want to query an Identity's Attributes this is done with the [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem). To query Attributes which are not known to the Sender, an Identity uses the ReadAttributeRequestItem. All details on how to use the ReadAttributeRequestItem and examples of use cases for it can be found in the [Read Attributes from peer]({% link _docs_integrate/read-attributes-from-peer.md %}) guide.
+If you want to query an Identity's Attributes, this is done with the [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem). To query Attributes which are not known to the Sender, an Identity uses the ReadAttributeRequestItem. All details on how to use the ReadAttributeRequestItem and examples of use cases for it can be found in the [Read Attributes from peer]({% link _docs_integrate/read-attributes-from-peer.md %}) guide.
 
 Depending on whether the ReadAttributeRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
 
@@ -180,7 +195,7 @@ After the Recipient has responded to the RegisterAttributeListenerRequestItem, a
 
 #### ShareAttributeRequestItem
 
-If you want to share the own DisplayName and possibly other Attributes this is done with the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem). To share own IdentityAttributes (owner = self) an Identity uses the ShareAttributeRequestItem. The Identity needs to create the IdentityAttribute separately before the Attribute can be shared. All details on how to use the ShareAttributeRequestItem and examples of use cases for it can be found in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) guide.
+If you want to share the own DisplayName and possibly other Attributes, this is done with the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem). To share own IdentityAttributes (owner = self) an Identity uses the ShareAttributeRequestItem. The Identity needs to create the IdentityAttribute separately before the Attribute can be shared. All details on how to use the ShareAttributeRequestItem and examples of use cases for it can be found in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) guide.
 
 Depending on whether the ShareAttributeRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
 
@@ -190,6 +205,21 @@ Depending on whether the ShareAttributeRequestItem is to be accepted or rejected
 After the Recipient has responded to the ShareAttributeRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
 
 - After accepting this RequestItem, a [ShareAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#shareattributeacceptresponseitem) will be transferred.
+- After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
+- In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
+
+#### TransferFileOwnershipRequestItem
+
+If you want to transfer the ownership of a [File]({% link _docs_integrate/data-model-overview.md %}#file), this is done with the [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem). The File needs to be uploaded to the Backbone beforehand. All details on how to use the TransferFileOwnershipRequestItem and examples of use cases for it can be found in the [Exchange Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}#transfer-the-ownership-of-a-file-to-a-peer) guide.
+
+Depending on whether the TransferFileOwnershipRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
+
+- To accept this RequestItem, the [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) can be utilized.
+- To reject this RequestItem, the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) can be utilized.
+
+After the Recipient has responded to the TransferFileOwnershipRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
+
+- After accepting this RequestItem, a [TransferFileOwnershipAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershipacceptresponseitem) will be transferred.
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
@@ -343,7 +373,8 @@ Some RequestItems exhibit particular characteristics.
 For the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), for example, a `link` to an external website with more information on the `consent` issue originating from the Sender can optionally be specified.
 Specifying a `link` causes an icon to appear to the right of the ConsentRequestItem.
 Clicking on this icon redirects to the corresponding website.
-The ConsentRequestItem from our example Request provides a `link`. For this reason, the mentioned icon can be found in the screenshot of the App.
+The ConsentRequestItem from our example Request provides a `link`.
+For this reason, the mentioned icon can be found in the screenshot of the App.
 {: .notice--info}
 
 ## Responses
@@ -363,7 +394,7 @@ If a RequestItem is accepted, an [AcceptResponseItem]({% link _docs_integrate/da
 Depending on the kind of RequestItem, it might be a specific AcceptResponseItem, extending the base AcceptResponseItem to answer to RequestItems demanding additional information.
 For example, a ReadAttributeRequestItem is accepted using a [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem), additionally transmitting information about the respective Attribute.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/1d3f3866-4d85-46b5-8523-ecc581052f4b" id="NCvNTKLN71pl"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/fd7932ee-c69a-4c31-9968-b9331ba780ba" id="A1WuBwZ9NzC8"></iframe></div>
 
 If a RequestItem is rejected, however, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) is created.
 Lastly, in case the enmeshed Runtime detects a problem, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) is generated.
@@ -415,9 +446,8 @@ In case you don't have a Relationship with the peer yet, opening the Relationshi
 If the peer decides to accept and to respond to your Request, again a LocalRequest and LocalResponse will be created at their side.
 However, the returned data differ.
 Instead of a ResponseWrapper inside a Message, a Relationship is returned which is in the status `pending` for now.
-It contains the RelationshipTemplate, as well as the changes the peer made to it, i.e. the created Request and Response.
-Only after you accept the RelationshipCreationChangeRequest (not the kind of Request discussed on this page), the LocalRequest with LocalResponse is created at your side and the peer will receive the information about the status change via a `consumption.incomingRequestStatusChanged` [event]({% link _docs_integrate/connector-events.md %}).
-
+It contains the RelationshipTemplate, as well as the Response to the Request.
+Only after you accept the Relationship, the LocalRequest with LocalResponse is created at your side and the peer will receive the information about the status change via a `consumption.incomingRequestStatusChanged` [event]({% link _docs_integrate/connector-events.md %}).
 You can find an [example for the Request-Response flow via RelationshipTemplate](#working-with-requestitemgroups) below.
 
 ## Examples
@@ -443,8 +473,8 @@ For this, they provide a QR code, linking to a RelationshipTemplate.
 In its `content.onNewRelationship` property it holds a Request with two RequestItemGroups.
 One of them contains Attributes the company shares with the peer, e.g. the company name.
 The other contains Attributes it would like to query from the peer.
-In this example they are the given and surname and optionally an e-mail address, following the [Integration example]({% link _docs_integrate/integration-example.md %}).
-Now, an interested person can scan the QR code, provide their information and send their Response inside a RelationshipCreationChangeRequest.
+In this example they are the given and surname and optionally an email address, following the [Integration example]({% link _docs_integrate/integration-example.md %}).
+Now, an interested person can scan the QR code, provide their information and send their Response inside a Relationship's creation content.
 Once the company accepts the new Relationship, they can exchange Messages or other data using enmeshed.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/4ac53380-b21a-4e33-982a-aa9167c471f3" id="iDvN-GT-yvbN"></iframe></div>

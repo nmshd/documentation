@@ -41,15 +41,17 @@ required_by:
 
 {% include properties_list.html %}
 
-This use case allows you to query an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your own Identity by its `id`.
+From a technical perspective, the process of [Identity deletion]({% link _docs_integrate/delete-identities.md %}) is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess).
+An IdentityDeletionProcess can be uniquely identified by its `id`.
+This use case allows you to query an IdentityDeletionProcess for your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) by its `id`.
 
 ## Parameters
 
-- `id` of the IdentityDeletionProcess
+- `id` of the [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess).
 
 ## On Success
 
-- Returns the IdentityDeletionProcess corresponding to the provided `id`
+- Returns the IdentityDeletionProcess corresponding to the provided `id`.
 
 ## On Failure
 

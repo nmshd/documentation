@@ -7,7 +7,7 @@ type: scenario
 toc: true
 properties:
   - id: SC018
-  - category: Relationships between Identities
+  - category: Identities and Relationships
   - description: Nutzer möchte mit anderem Nutzer reden
   - customer: All
   - component: use

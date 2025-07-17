@@ -149,7 +149,7 @@ It is not recommended to send a BirthDay to another Identity by its own. Instead
 
 ## BirthMonth
 
-The day of month.
+The month of birth.
 
 It is not recommended to send a BirthMonth to another Identity by its own. Instead, send a [`BirthDate`](#birthdate) with the `month` property set.
 {: .notice--warning}
@@ -299,7 +299,7 @@ The email address which can be used to reach the Identity over email systems.
 | Name    | Type             | Required | Validation                                                                                |
 | ------- | ---------------- | :------: | ----------------------------------------------------------------------------------------- |
 | `@type` | `"EMailAddress"` |    ✓     |                                                                                           |
-| `value` | `string`         |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
+| `value` | `string`         |    ✓     | min. length: 3<br>max. length: 254<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
 
 ## FaxNumber
 
@@ -314,21 +314,20 @@ The telephone number which can be used to reach the Identity via fax systems.
 
 ## IdentityFileReference
 
-A IdentityFileReference is a link to an enmeshed [`File`]({% link _docs_integrate/data-model-overview.md %}#files) and can be used to add a File as an Attribute of an Identity. One example for a use case is some kind of certificate.
+An IdentityFileReference is a link to an enmeshed [File]({% link _docs_integrate/data-model-overview.md %}#file) and can be used to add a File as an Attribute of an Identity.
+One example for a use case is some kind of certificate.
+How an IdentityFileReference can be used to [exchange Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}) is described in the corresponding scenario documentation.
 
 **Properties**
 
-| Name    | Type                      | Required | Validation       |
-| ------- | ------------------------- | :------: | ---------------- |
-| `@type` | `"IdentityFileReference"` |    ✓     |                  |
-| `value` | `string`                  |    ✓     | max. length: 100 |
+| Name    | Type                      | Required | Validation                          |
+| ------- | ------------------------- | :------: | ----------------------------------- |
+| `@type` | `"IdentityFileReference"` |    ✓     |                                     |
+| `value` | `string`                  |    ✓     | min. length: 30<br>max. length: 150 |
 
 ## GivenName
 
 The Given Name, also called first name or forename, is the name given to a person at birth which differentiates it from other family, tribe or community members.
-
-It is not recommended to send a GivenName to another Identity by its own. Instead, send a [`PersonName`](#personname) with the `givenName` property set.
-{: .notice--warning}
 
 **Properties**
 
@@ -341,9 +340,6 @@ It is not recommended to send a GivenName to another Identity by its own. Instea
 
 The honorific prefix of a person, e.g. 'Sir'.
 
-It is not recommended to send a HonorificPrefix to another Identity by its own. Instead, send a [`PersonName`](#personname) with the `honorificPrefix` property set.
-{: .notice--warning}
-
 **Properties**
 
 | Name    | Type                | Required | Validation       |
@@ -354,9 +350,6 @@ It is not recommended to send a HonorificPrefix to another Identity by its own. 
 ## HonorificSuffix
 
 The honorific suffix of a person, e.g. 'PhD'
-
-It is not recommended to send a HonorificSuffix to another Identity by its own. Instead, send a [`PersonName`](#personname) with the `honorificSuffix` property set.
-{: .notice--warning}
 
 **Properties**
 
@@ -393,9 +386,6 @@ A short phrase that describes the position an employee has within an organizatio
 ## MiddleName
 
 In various cultures, a middle name is a portion of a personal name that is written between the person's first given name and their surname.
-
-It is not recommended to send a MiddleName to another Identity by its own. Instead, send a [`PersonName`](#personname) with the `middleName` property set.
-{: .notice--warning}
 
 **Properties**
 
@@ -478,7 +468,7 @@ SchematizedXML can be used to exchange files in XML format. The exchange of XML 
 | ----------- | ------------------ | :------: | ---------------------------------------------------------- |
 | `@type`     | `"SchematizedXML"` |    ✓     |                                                            |
 | `value`     | `string`           |    ✓     | max. length: 50000 <br>must be a valid XML encoded string  |
-| `schemaURL` | `string`           |    ✓     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+| `schemaURL` | `string`           |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
 
 ## Sex
 
@@ -524,7 +514,7 @@ The statement allows a very generic digital mapping of facts
 | `issuer`           | `string`      |    ✓     | see [`DigitalIdentityDescriptor`](#statement-digitalidentitydescriptor) |
 | `issuerConditions` | `string`      |    ✓     | see [`StatementIssuerConditions`](#statementissuerconditions)           |
 
-## Statement DigitalIdentitydescriptor
+## Statement DigitalIdentityDescriptor
 
 The issuer of a [`statement`](#statement).
 
@@ -533,11 +523,11 @@ It is not recommended to send a DigitalIdentityDescriptor to another Identity by
 
 **Properties**
 
-| Name         | Type                          | Required | Validation                                           |
-| ------------ | ----------------------------- | :------: | ---------------------------------------------------- |
-| `@type`      | `"DigitalIdentityDescriptor"` |    ✓     |                                                      |
-| `address`    | `string`                      |    ✓     | The Address of the Identity that owns the statement. |
-| `attributes` | `string []`                   |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
+| Name         | Type                          | Required | Validation                                                                                                           |
+| ------------ | ----------------------------- | :------: | -------------------------------------------------------------------------------------------------------------------- |
+| `@type`      | `"DigitalIdentityDescriptor"` |    ✓     |                                                                                                                      |
+| `address`    | `string`                      |    ✓     | The `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that owns the statement. |
+| `attributes` | `string []`                   |    ✗     | see [`Identity Attributes`](#identity-attributes)                                                                    |
 
 ## StatementAuthorityType
 
@@ -594,11 +584,11 @@ It is not recommended to send a object to another Identity by its own. Instead, 
 
 **Properties**
 
-| Name         | Type                | Required | Validation                                           |
-| ------------ | ------------------- | :------: | ---------------------------------------------------- |
-| `@type`      | `"StatementObject"` |    ✓     |                                                      |
-| `address`    | `string`            |    ✓     | The Address of the Identity that owns the statement. |
-| `attributes` | `string []`         |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
+| Name         | Type                | Required | Validation                                                                                                           |
+| ------------ | ------------------- | :------: | -------------------------------------------------------------------------------------------------------------------- |
+| `@type`      | `"StatementObject"` |    ✓     |                                                                                                                      |
+| `address`    | `string`            |    ✓     | The `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that owns the statement. |
+| `attributes` | `string []`         |    ✗     | see [`Identity Attributes`](#identity-attributes)                                                                    |
 
 ## StatementPredicate
 
@@ -623,11 +613,11 @@ It is not recommended to send a subject to another Identity by its own. Instead,
 
 **Properties**
 
-| Name         | Type                 | Required | Validation                                           |
-| ------------ | -------------------- | :------: | ---------------------------------------------------- |
-| `@type`      | `"StatementSubject"` |    ✓     |                                                      |
-| `address`    | `string`             |    ✓     | The Address of the Identity that owns the statement. |
-| `attributes` | `string []`          |    ✗     | see [`Identity Attributes`](#identity-attributes)    |
+| Name         | Type                 | Required | Validation                                                                                                           |
+| ------------ | -------------------- | :------: | -------------------------------------------------------------------------------------------------------------------- |
+| `@type`      | `"StatementSubject"` |    ✓     |                                                                                                                      |
+| `address`    | `string`             |    ✓     | The `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that owns the statement. |
+| `attributes` | `string []`          |    ✗     | see [`Identity Attributes`](#identity-attributes)                                                                    |
 
 ## Street
 
@@ -663,9 +653,6 @@ A complex Attribute Value defining the components of a "normal" address.
 ## Surname
 
 The Surname, also called family name or last name, is the portion of the personal name that indicates the family, tribe or community.
-
-It is not recommended to send a Surname to another Identity by its own. Instead, send a [`PersonName`](#personname) with the `surname` property set.
-{: .notice--warning}
 
 **Properties**
 
@@ -709,12 +696,13 @@ Represents the consent of an Identity to a specific topic. To obtain persistent 
 
 **Properties**
 
-| Name                 | Type                                                                                         | Required | Validation                                                 |
-| -------------------- | -------------------------------------------------------------------------------------------- | :------: | ---------------------------------------------------------- |
-| `@type`              | `"Consent"`                                                                                  |    ✓     |                                                            |
-| `consent`            | `string`                                                                                     |    ✓     | max. length: 2000                                          |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                                            |
-| `link`               | `string`                                                                                     |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL |
+| Name                 | Type                                                                                         | Required | Validation                                                                          |
+| -------------------- | -------------------------------------------------------------------------------------------- | :------: | ----------------------------------------------------------------------------------- |
+| `@type`              | `"Consent"`                                                                                  |    ✓     |                                                                                     |
+| `consent`            | `string`                                                                                     |    ✓     | max. length: 10000                                                                  |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                                                                     |
+| `link`               | `string`                                                                                     |    ✗     | min. length: 3<br>max. length: 1024<br>must be a valid URL                          |
+| `linkDisplayText`    | `string`                                                                                     |    ✗     | min. length: 3<br>max. length: 30<br>can only be specified if a `link` is specified |
 
 ## ProprietaryBoolean
 
@@ -756,21 +744,22 @@ An email address.
 | `title`              | `string`                                                                                     |    ✓     | max. length: 100                                                                          |
 | `description`        | `string`                                                                                     |    ✗     | max. length: 1000                                                                         |
 | `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                                                                           |
-| `value`              | `string`                                                                                     |    ✓     | min. length: 3<br>max. length: 100<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
+| `value`              | `string`                                                                                     |    ✓     | min. length: 3<br>max. length: 254<br>must match `^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$` |
 
 ## ProprietaryFileReference
 
-A FileReference is a link to an enmeshed [`File`]({% link _docs_integrate/data-model-overview.md %}#files) and can be used to add a File as an Attribute of a Relationship.
+A ProprietaryFileReference is a link to an enmeshed [File]({% link _docs_integrate/data-model-overview.md %}#file) and can be used to add a File as an Attribute of a Relationship.
+Similar to an [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference), a ProprietaryFileReference can be used to [exchange Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}#utilization-of-a-proprietaryfilereference).
 
 **Properties**
 
-| Name                 | Type                                                                                         | Required | Validation        |
-| -------------------- | -------------------------------------------------------------------------------------------- | :------: | ----------------- |
-| `@type`              | `"ProprietaryFileReference"`                                                                 |    ✓     |                   |
-| `title`              | `string`                                                                                     |    ✓     | max. length: 100  |
-| `description`        | `string`                                                                                     |    ✗     | max. length: 1000 |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                   |
-| `value`              | `string`                                                                                     |    ✓     | max. length: 100  |
+| Name                 | Type                                                                                         | Required | Validation                          |
+| -------------------- | -------------------------------------------------------------------------------------------- | :------: | ----------------------------------- |
+| `@type`              | `"ProprietaryFileReference"`                                                                 |    ✓     |                                     |
+| `title`              | `string`                                                                                     |    ✓     | max. length: 100                    |
+| `description`        | `string`                                                                                     |    ✗     | max. length: 1000                   |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                     |
+| `value`              | `string`                                                                                     |    ✓     | min. length: 30<br>max. length: 150 |
 
 ## ProprietaryFloat
 
@@ -792,13 +781,13 @@ A hexadecimal color code.
 
 **Properties**
 
-| Name                 | Type                                                                                         | Required | Validation                                                               |
-| -------------------- | -------------------------------------------------------------------------------------------- | :------: | ------------------------------------------------------------------------ |
-| `@type`              | `"ProprietaryHEXColor"`                                                                      |    ✓     |                                                                          |
-| `title`              | `string`                                                                                     |    ✓     | max. length: 100                                                         |
-| `description`        | `string`                                                                                     |    ✗     | max. length: 1000                                                        |
-| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                                                          |
-| `value`              | `string`                                                                                     |    ✓     | min.length: 4<br> must match `^#([0-9A-F]{3}){1,2}$`<br>max. length: 100 |
+| Name                 | Type                                                                                         | Required | Validation                                                            |
+| -------------------- | -------------------------------------------------------------------------------------------- | :------: | --------------------------------------------------------------------- |
+| `@type`              | `"ProprietaryHEXColor"`                                                                      |    ✓     |                                                                       |
+| `title`              | `string`                                                                                     |    ✓     | max. length: 100                                                      |
+| `description`        | `string`                                                                                     |    ✗     | max. length: 1000                                                     |
+| `valueHintsOverride` | [`ValueHintsOverride`]({% link _docs_integrate/data-model-overview.md %}#valuehintsoverride) |    ✗     |                                                                       |
+| `value`              | `string`                                                                                     |    ✓     | min.length: 4<br>max. length: 9<br>must match `^#([0-9A-F]{3}){1,2}$` |
 
 ## ProprietaryInteger
 
@@ -924,7 +913,7 @@ A URL.
 
 ## ProprietaryXML
 
-A XML.
+An XML.
 
 **Properties**
 

@@ -46,15 +46,11 @@ This use case intends to load a peer's [Token]({% link _docs_integrate/data-mode
 
 ## Parameters
 
-There are two possible options to load the Token:
+You can execute this use case if you know the `reference.truncated` of the peer's Token.
 
-- by knowing the `reference` of the peer's Token
-  - `reference` that identifies the Token.
-  - `ephemeral` to indicate that the Token should be stored locally.
-- by knowing the `id` and the `secretKey` of the peer's Token
-  - `id` of the Token.
-  - `secretKey` that was used to encrypt the Token.
-  - `ephemeral` to indicate if the Token should be stored locally.
+- `reference` that identifies the Token.
+- `ephemeral` to indicate that the Token should be stored locally.
+- The `password` if the Token is protected by a password via its `passwordProtection` property.
 
 ## On Success
 
@@ -65,3 +61,5 @@ There are two possible options to load the Token:
 - The parameters are malformed.
 - The Token does not exist.
 - The Token is expired.
+- The Token is personalized for a different [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) via the property `forIdentity` of the Token.
+- No `password` or an incorrect `password` was entered in case of a password protected Token.

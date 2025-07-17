@@ -57,8 +57,11 @@ One can and should [check if the outgoing Request can be created](use-case-consu
 
 ## On Failure
 
-- The LocalRequest cannot be created if the `peer` is unknown.
+- The LocalRequest cannot be created if the `peer` is the creator itself.
+- The LocalRequest cannot be created if the expiration date of the Request contained within its `content` property is in the past.
+- The LocalRequest cannot be created if no [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) to the `peer` exists.
 - The LocalRequest cannot be created if the Request specified as `content` is malformed.
+- The LocalRequest cannot be created if its acceptance would lead to the creation of more than one [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) in the context of the Relationship to the `peer` with the same `key`, `owner` and `value.@type`.
 
 For more details on the failure to create a LocalRequest, execute the [Check if outgoing Request can be created](use-case-consumption-check-if-outgoing-request-can-be-created) use case.
 {: .notice--info}

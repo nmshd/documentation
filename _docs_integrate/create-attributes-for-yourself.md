@@ -52,7 +52,11 @@ To create a RepositoryAttribute, proceed as described in the [Create a Repositor
 }
 ```
 
-You need to replace the placeholders marked with `<...>` appropriately. Also, it is necessary that you insert one of the available [IdentityAttributeValues]({% link _docs_integrate/attribute-values.md %}#identity-attributes) into the `value` property. Note that the properties `validFrom`, `validTo` and `tags` are optional, so you can omit them.
+You need to replace the placeholders marked with `<...>` appropriately.
+Note that the properties `validFrom`, `validTo` and `tags` are optional, so you can omit them.
+It is necessary that you insert one of the available [IdentityAttributeValues]({% link _docs_integrate/attribute-values.md %}#identity-attributes) into the `value` property.
+If there is already an existing RepositoryAttribute with an undefined `succeededBy` property and which therefore represents the latest version, whose `content.value` exactly matches the specified `value` in the payload for creating a new RepositoryAttribute, an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.runtime.attributes.cannotCreateDuplicateRepositoryAttribute` is thrown.
+This is to prevent several latest RepositoryAttributes with the same `content.value` from existing in parallel.
 
 ### Process of creating a RepositoryAttribute
 
@@ -105,6 +109,7 @@ When you have successfully created an IdentityAttribute for your own Connector, 
 If you want to create a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute), you must proceed differently than when [creating an IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself). This is because a RelationshipAttribute can only exist in the context of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with a peer, which means that they must also agree to the creation of it. This is achieved by sending a [Request]({% link _docs_integrate/data-model-overview.md %}#request) whose `items` property contains an appropriate [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitems), which must be accepted by the peer. Depending on whether you or your peer should set the [RelationshipAttributeValue]({% link _docs_integrate/attribute-values.md %}#relationship-attributes) and depending on other factors, a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem), [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) or [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) should be used for this.
 
 From a technical point of view, the creation of a RelationshipAttribute corresponds to the creation of one [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for yourself and one LocalAttribute for your peer, whereby their `content` is given by the RelationshipAttribute that is intended to be created and the `shareInfo` of both LocalAttributes contains a correspondingly suitable [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
+In terms of nomenclature, this pair of LocalAttributes consists of one own shared RelationshipAttribute and one peer shared RelationshipAttribute.
 {: .notice--info}
 
 ### Utilization of a CreateAttributeRequestItem

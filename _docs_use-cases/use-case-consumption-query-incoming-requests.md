@@ -47,9 +47,10 @@ This use case is intended to query incoming [LocalRequests]({% link _docs_integr
 ## Parameters
 
 - The `id` of the LocalRequest.
-- The `peer` is the Address of the Identity that sent the LocalRequest.
-- `createdAt` indicates the date of LocalRequest creation.
+- The `peer` is the `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) that sent the LocalRequest.
+- `createdAt` indicates the creation date of the LocalRequest.
 - The `status` of the LocalRequest.
+- `wasAutomaticallyDecided` indicates whether the Request was automatically decided by the [Decider Module]({% link _docs_explore/61-runtime.md %}#decider-module).
 - The `content` describes the [Request]({% link _docs_integrate/data-model-overview.md %}#request) wrapped by the LocalRequest.
 - The `source` of the LocalRequest.
 - The `response` describes the [Response]({% link _docs_integrate/data-model-overview.md %}#response) that might exist for the Request.

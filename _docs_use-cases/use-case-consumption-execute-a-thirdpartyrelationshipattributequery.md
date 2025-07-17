@@ -42,10 +42,8 @@ api_route_regex: ^POST /api/v2/Attributes/ExecuteThirdPartyRelationshipAttribute
 
 {% include properties_list.html %}
 
-This use case is intended to execute an incoming [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery)
-(e.g. received by a ReadAttributeRequestItem) which returns a list of matching
-[Relationship Attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute)
-of another peer.
+This use case is intended to execute an incoming [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery), e.g. received by a [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem).
+It returns a list of matching [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) that exist in the context of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with another peer.
 
 ## Parameters
 
@@ -53,8 +51,8 @@ of another peer.
 
 ## On Success
 
-- Returns the `RelationshipAttributes` as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that match the given query.
+- Returns the RelationshipAttributes as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that match the given `query` and can, thus, be used as `content` for a ThirdPartyRelationshipAttribute.
 
 ## On Failure
 
-- The query is malformed.
+- The `query` is malformed.

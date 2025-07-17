@@ -41,14 +41,18 @@ required_by:
 
 {% include properties_list.html %}
 
-This use case allows you to approve an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) that was started via the Backbone Admin UI for your Identity.
-The respective IdentityDeletionProcess has the `status` `"WaitingForApproval"` and can either be approved or [rejected]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}).
+Please note that the feature of triggering the deletion of an Identity via the Backbone Admin UI is currently disabled. For this reason, an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) currently cannot have `"WaitingForApproval"` as `status`. In addition, this use case for approving and the use case for [rejecting IdentityDeletionProcesses]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}) are not needed for the time being.
+{: .notice--warning}
+
+In the case of [Identity deletion]({% link _docs_integrate/delete-identities.md %}) triggered via the Backbone Admin UI, an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) with `"WaitingForApproval"` as `status` is created for your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) via the Backbone Admin UI.
+This use case can be utilized to approve this IdentityDeletionProcess.
+Alternatively, the [IdentityDeletionProcess can be rejected]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}).
 
 ## On Success
 
-- Changes the `status` of the IdentityDeletionProcess from `"WaitingForApproval"` to `"Approved"`
-- Returns the approved IdentityDeletionProcess
+- Changes the `status` of the IdentityDeletionProcess from `"WaitingForApproval"` to `"Approved"`.
+- Returns the approved IdentityDeletionProcess.
 
 ## On Failure
 
-- No IdentityDeletionProcess can be approved if none was started via the Backbone Admin UI, i.e. no IdentityDeletionProcess in `status` `"WaitingForApproval"` exists for this Identity.
+- No IdentityDeletionProcess can be approved if none was started via the Backbone Admin UI, i.e. no IdentityDeletionProcess with `"WaitingForApproval"` as `status` exists for this Identity.

@@ -19,7 +19,7 @@ properties:
   - tech category: Devices
   - status: DONE
   - documentation status:
-  - comments:
+  - comments: Internal
   - actor: Identity
   - trigger: Runtime
   - precondition:

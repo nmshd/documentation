@@ -38,7 +38,7 @@ api_route_regex: ^POST /api/v2/Attributes/ExecuteRelationshipAttributeQuery$
 # End automatic generation
 ---
 
-{properties.description}
+{{properties.description}}
 
 {% include properties_list.html %}
 

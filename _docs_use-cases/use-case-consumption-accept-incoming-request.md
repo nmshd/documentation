@@ -62,5 +62,6 @@ in advance.
 ## On Failure
 
 - The decisions do not match the RequestItems.
-- The decisions and values of respective RequestItems do not match the requested or required values, e.g. an E-Mail Address is wrong.
-- An item that has the mustBeAccepted field set was not accepted or left blank.
+- The decisions and values of respective RequestItems do not match the requested or required values, e.g. an email address is wrong.
+- A RequestItem that has the `mustBeAccepted` field set to `true` was not accepted or left blank.
+- A RequestItem of a Request cannot be accepted if its acceptance would lead to the creation of a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with the same `key`, `owner` and `value.@type` as a RelationshipAttribute that already exists in the context of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) to the `peer` that sent the Request. The corresponding Request can therefore not be accepted if the RequestItem in question has `mustBeAccepted` set to `true`. However, if `mustBeAccepted` is set to `false`, the Request can still be accepted by rejecting the RequestItem.

@@ -13,7 +13,7 @@ enmeshed itself handles very private and sensitive information. We are aware tha
 
 Though having a central architecture, enmeshed cannot access the keys or payload of data within the backbone. Even if there would be a data breach, nobody could really do something with this metadata and encrypted payload.
 
-For us, security is not only about securing access to data, but making the data itself secure. This applies to the whole communication, be it that the data is completely end-to-end encrypted and digitally signed (so that no one could change the data in between) or that the encrypted data is additionally persisted on the backbone for a specific set of time. This means, that the encrypted data on the backbone can be accessed by authorized parties (e.g. sender and recipients of Messages) as long as it is persisted. The Backbone thus acts as a kind of personal archive.
+For us, security is not only about securing access to data, but making the data itself secure. This applies to the whole communication, be it that the data is completely end-to-end encrypted and digitally signed (so that no one could change the data in between) or that the encrypted data is additionally persisted on the Backbone for a specific set of time. This means, that the encrypted data on the Backbone can be accessed by authorized parties (e.g. sender and recipients of Messages) as long as it is persisted. The Backbone thus acts as a kind of personal archive.
 
 # Backbone Trust
 

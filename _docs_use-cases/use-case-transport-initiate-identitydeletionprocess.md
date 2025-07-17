@@ -41,13 +41,14 @@ required_by:
 
 {% include properties_list.html %}
 
-This use case is intended to initiate an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your Identity.
+Regarding [self-initiated Identity deletion]({% link _docs_integrate/delete-identities.md %}#self-initiated-identity-deletion), this use case can be utilized to initiate an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
+The generated IdentityDeletionProcess immediately has `"Approved"` as its `status` and describes that the Identity will be deleted after the grace period ends unless the [IdentityDeletionProcess is cancelled]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}) by the Identity by then.
 
 ## On Success
 
-- Creates an IdentityDeletionProcess with status `"Approved"`
-- Returns the initiated IdentityDeletionProcess
+- Creates an IdentityDeletionProcess with `"Approved"` as `status`.
+- Returns the initiated IdentityDeletionProcess.
 
 ## On Failure
 
-- No IdentityDeletionProcess can be initiated if there is already an active IdentityDeletionProcess, i.e. an IdentityDeletionProcess in `status` `"Approved"` or `"WaitingForApproval"`, for this Identity.
+- No IdentityDeletionProcess can be initiated if there is already an active IdentityDeletionProcess, i.e. an IdentityDeletionProcess with `"Approved"` or `"WaitingForApproval"` as `status`, for this Identity. Please note that an IdentityDeletionProcess with `"WaitingForApproval"` as `status` is never created by the self-initiated Identity deletion, but only by the process of Identity deletion triggered via the Backbone Admin UI. However, the latter feature is currently disabled.
