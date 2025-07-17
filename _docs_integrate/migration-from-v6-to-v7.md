@@ -64,6 +64,7 @@ The step-by-step instructions can be consulted to start the migration to version
 
 - Stricter validation of `tags` of [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) and [Files]({% link _docs_integrate/data-model-overview.md %}#file) have been added as documented in their description in the data model overview.
   An error with [error code]({% link _docs_integrate/error-codes.md %}) `error.consumption.attributes.invalidTags` will be thrown if an attempt is made to use invalid `tags`.
+- For Attribute values, a [character set is introduced]({% link _docs_integrate/attribute-values.md %}#valid-characters-in-attributes). An error with [error code]({% link _docs_integrate/error-codes.md %}) `error.consumption.attributes.forbiddenCharactersInAttribute` will be thrown if an attempt is made to use characters outside of that character set in an Attribute value.
 
 ### Removed and Changed Connector Routes
 

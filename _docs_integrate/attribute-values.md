@@ -33,6 +33,10 @@ enmeshed defines a standard set of possible Attribute Value types for Identities
 
 Most Attribute Value types are atomic, which means that they have only one property called `value` (e.g. [`EMailAddress`](#emailaddress), [`DisplayName`](#displayname), [`PhoneNumber`](#phonenumber)). But there are also more complex Attribute Value types which consist of multiple properties with a strong correlation (e.g. [`StreetAddress`](#streetaddress), [`PersonName`](#personname)). These properties can (but don't have to) contain other Attribute Values.
 
+# Valid Characters in Attributes
+
+Characters in Attribute values are restricted to the [normative characters of DIN 91379](https://en.wikipedia.org/wiki/DIN_91379#Normative_part) which reduces validation efforts required from integrators. This bans, for example, foreign scripts like Greek or Chinese, but transliterations are possible in that case. Also banned are emojis, which deters joke entries. See [a one-page overview of the characters](https://github.com/String-Latin/DIN-91379-Characters-and-Sequences/blob/e6eff1e/latin_letters_1.3.txt#L1-L40) (the allowed characters are highlighted) and the [regex used for validation](https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd) - search for datatypeC.
+
 # Identity Attributes
 
 The Attribute Values in this chapter can only be used in an [Identity Attribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
