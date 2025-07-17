@@ -38,6 +38,10 @@ The step-by-step instructions can be consulted to start the migration to version
   Alternatively, the database can be deleted as a whole and [set up again]({% link _docs_operate/setup-with-docker-compose.md %}).
 - The [image](https://github.com/nmshd/connector?tab=readme-ov-file#connector) used to run the Connector must be updated to version 7.
 - The [configuration]({% link _docs_operate/configuration.md %}) value `database.dbNamePrefix` of the Connector was removed. Before, it defaulted to `acc-`. If you want to access a database called `acc-connector`, you have to set the `database.dbName` configuration value to `acc-connector` instead of `connector` only.
+- Configuring API keys for the Connector has changed.
+  - The `apiKey` property in the configuration file has been replaced by a more structured configuration under `authentication.apiKey.keys.<key-id>.key`.
+  - Additionally, the support for the `API_KEY` environment variable has been removed, that could be used to define an API key using a short environment variable. As an alternative, the `authentication.apiKey.keys.<key-id>.key` configuration property can be set using an [environment variable]({% link _docs_operate/configuration.md %}#environment-variables).
+  - You can read more about the authentication configuration in the [configuration documentation]({% link _docs_operate/configuration.md %}#authentication).
 
 ### Removed and Changed Data Structures
 
@@ -54,6 +58,7 @@ The step-by-step instructions can be consulted to start the migration to version
   The property `reference` was introduced to group the property `truncated` with the additional property `url`, improving structure and better organizing related data.
 - The `title` property of the [File]({% link _docs_integrate/data-model-overview.md %}#file) became optional and should no longer be relied upon to be set.
 - The `ownershipToken` property of the [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem) became mandatory. This ensures that the ownership of the original File on the Backbone is transferred instead of applying a copy-based workaround. If the ownership of a [File]({% link _docs_integrate/data-model-overview.md %}#file) ought to be transferred, that doesn't have an `ownershipToken` yet, it will need to be [regenerated]({% link _docs_use-cases/use-case-transport-regenerate-file-ownership-token.md %}).
+- All data structures around the Attribute listener feature were removed (`LocalAttributeListener`, `RegisterAttributeListenerRequestItem`, `RegisterAttributeListenerAcceptResponseItem`).
 
 ### Changed Behavior of Known Features
 
@@ -66,6 +71,19 @@ The step-by-step instructions can be consulted to start the migration to version
 - The `GET /api/v2/Attributes/Valid` Connector route and its underlying [use case]({% link _docs_integrate/use-cases.md %}) for getting valid [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) were removed, because the properties `validFrom` and `validTo` have been removed from the Attributes.
 - For the same reason, the `onlyValid` parameter was removed from the use cases [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}), [Get own shared Attributes]({% link _docs_use-cases/use-case-consumption-get-own-shared-attributes.md %}) and [Get peer shared Attributes]({% link _docs_use-cases/use-case-consumption-get-peer-shared-attributes.md %}).
   Accordingly, it was removed from the associated Connector routes as well.
+
+### TypeScript SDK Changes
+
+With every version of the Connector, we ship a matching [TypeScript SDK]({% link _docs_integrate/access-the-connector.md %}#accessing-the-connector-by-software-development-kits-sdk). With version 7 of the SDK, the deprecated field `apiKey` was removed. To access the Connector using an API key, you can configure the SDK now as follows:
+
+```typescript
+import { ApiKeyAuthenticator, ConnectorClient } from "@nmshd/connector-sdk";
+
+const connectorClient = ConnectorClient.create({
+  baseUrl: "https://<INSERT_YOUR_CONNECTOR_DOMAIN_HERE>",
+  authenticator: new ApiKeyAuthenticator("<INSERT_YOUR_API_KEY_HERE>")
+});
+```
 
 ## Runtime-Specific Breaking Changes
 

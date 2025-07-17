@@ -33,7 +33,7 @@ required_by:
      "infrastructure": {
        "httpServer": {
          "enabled": true,
-         "apiKey": "an-api-key"
+         "authentication": {}
        }
      }
    }
@@ -70,7 +70,15 @@ You want to configure the following values:
     "httpServer": {
       "enabled": true,
       "port": 8080,
-      "apiKey": "an-api-key"
+      "authentication": {
+        "apiKey": {
+          "keys": {
+            "default": {
+              "key": "an-api-key"
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -78,7 +86,7 @@ You want to configure the following values:
 
 - The first value can be configured using the variable `infrastructure:httpServer:enabled="true"`. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its boolean representation.
 - The second value can be configured using the variable `infrastructure:httpServer:port="8080"`. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its number representation.
-- The third value can be configured using the variable `infrastructure:httpServer:apiKey="an-api-key"`.
+- The third value can be configured using the variable `infrastructure:httpServer:authentication:apiKey:keys:default:key="an-api-key"`.
 
 ## Configuration options
 
@@ -223,7 +231,15 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
       "cors": {
         "origin": false
       },
-      "apiKey": "an-api-key"
+      "authentication": {
+        "apiKey": {
+          "keys": {
+            "default": {
+              "key": "an-api-key"
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -237,15 +253,9 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
 
   configure the CORS middleware. Valid options can be found [here](https://github.com/expressjs/cors#configuration-options).
 
-- **apiKey** `required`
+- **authentication** `required if running in production mode`
 
-  Define the API-Key the Connector should use to authenticate requests.
-
-  The API-Key can be chosen arbitrarily and has to be sent with every request in the `X-API-KEY` HTTP-Header.
-
-  There are no limitations regarding the allowed characters. We recommend using an API-Key that is at least 20 characters long.
-
-  The API-Key protects your Connector from unauthorized access and should therefore be kept secret.
+  Configure the authentication methods for the HTTP server. At least one authentication method must be configured if the Connector is running in [production mode](#debug). See the [authentication section](#authentication) for more information.
 
 - **helmetOptions** `default: depending on the Connector mode`
 
@@ -267,6 +277,146 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
     }
   }
   ```
+
+##### authentication {#authentication}
+
+**Default Configuration:**
+
+```jsonc
+{
+  // ...
+
+  "authentication": {
+    "apiKey": {
+      "headerName": "X-API-KEY",
+      "keys": {}
+    },
+    "jwtBearer": {},
+    "oidc": {}
+  }
+}
+```
+
+There are currently three authentication methods available for the HTTP server: `apiKey`, `jwtBearer` and `oidc`. At least one authentication method must be configured if the Connector is running in [production mode](#debug).
+
+If multiple authentication methods are configured, the authentication methods will be executed in the following order: `apiKey` > `jwtBearer` > `oidc`. <br><br> For example, this means if you enabled `apiKey` and `jwtBearer` and send a wrong API key in combination with a valid JWT bearer token, the request will be rejected. Only sending a valid JWT bearer token will succeed.
+{: .notice--info}
+
+###### apiKey
+
+**Example Configuration:**
+
+```jsonc
+{
+  // ...
+  "apiKey": {
+    "keys": {
+      "default": {
+        "key": "an-api-key"
+      }
+    }
+  }
+}
+```
+
+The `apiKey` authentication method is used to authenticate requests using an API key in a header.
+
+- **enabled** `default: true (if API keys are configured)`
+
+  Whether the API key authentication is enabled or not. If set to `false`, no API keys will be accepted by the Connector. This can be used to temporarily disable the API key authentication without removing it from the configuration.
+
+- **headerName** `default: "X-API-KEY"`
+
+  The name of the header in which the API key is sent. Defaults to `X-API-KEY`.
+
+- **keys** `required`
+
+  A map of API keys that are allowed to access the Connector. The key of each map entry acts as an id of the API key and the value is an object containing the actual API key and some additional configuration options.
+  - **enabled** `default: true`
+
+    Whether the API key is enabled or not. If set to `false`, the API key will not be accepted by the Connector. This can be used to temporarily disable the API key without removing it from the configuration.
+
+  - **key** `required`
+
+    The actual API key that is used to authenticate the request. This key must be kept secret and should not be shared with anyone.
+
+  - **description** `optional`
+
+    A description of the API key. This is optional and can be used to provide additional information about the API key. This is not used by the Connector itself, but can be useful for documentation purposes.
+
+  - **expiresAt** `optional`
+
+    The date and time when the API key expires. This is optional and can be used to automatically disable the API key after a certain period of time. The date must be in ISO 8601 format (e.g. `2063-10-01T00:00:00Z`).
+
+###### jwtBearer
+
+**Example Configuration:**
+
+```jsonc
+{
+  // ...
+  "jwtBearer": {
+    "issuerBaseURL": "https://auth.example.com",
+    "audience": "an-audience"
+  }
+}
+```
+
+The `jwtBearer` authentication method is used to authenticate requests using JSON Web Tokens (JWT). To configure this authentication method, you need to provide at least the following parameters:
+
+- **enabled** `default: true (if other options are configured)`
+
+  Whether the JWT bearer authentication is enabled or not. If set to `false`, no JWT bearer tokens will be accepted by the Connector. This can be used to temporarily disable the JWT bearer authentication without removing it from the configuration.
+
+- **issuerBaseURL** `required`
+
+  The base URL of the JWT issuer. This is the URL where the JWT issuer is hosted. This URL must be reachable from the Connector and must not contain a trailing slash `/`.
+
+- **audience** `required`
+
+  The audience of the JWT. This is the identifier of the Connector in your identity server.
+
+For more sophisticated use cases, please refer to the [JWT documentation page](https://auth0.github.io/node-oauth2-jwt-bearer/interfaces/AuthOptions.html) where all possibilities are explained in detail.
+
+###### oidc
+
+**Example Configuration:**
+
+```jsonc
+{
+  // ...
+  "oidc": {
+    "issuerBaseURL": "https://auth.example.com",
+    "baseUrl": "https://connector.example.com",
+    "clientID": "a-client-id",
+    "secret": "an-encryption-secret"
+  }
+}
+```
+
+The `oidc` authentication method is used to authenticate requests using the OpenID Connect protocol. To configure this authentication method, you need to provide at least the following parameters:
+
+- **enabled** `default: true (if other options are configured)`
+
+  Whether the OpenID Connect authentication is enabled or not. If set to `false`, no OpenID Connect tokens will be accepted by the Connector. This can be used to temporarily disable the OpenID Connect authentication without removing it from the configuration.
+
+- **issuerBaseURL** `required`
+
+  The base URL of the OpenID Connect provider. This is the URL where the OpenID Connect provider is hosted. This URL must be reachable from the Connector and must not contain a trailing slash `/`.
+
+- **baseURL** `required`
+
+  The base URL of the Connector. This is the URL where the Connector is hosted.
+
+- **clientID** `required`
+
+  The client ID of the Connector. This is the ID that the OpenID Connect provider uses to identify the Connector.
+
+- **secret** `required`
+
+  The secret(s) of the Connector used to derive an encryption key for the user identity in a stateless session cookie.
+
+For more sophisticated use cases, please refer to the [OIDC documentation page](https://auth0.github.io/express-openid-connect/interfaces/ConfigParams.html) where all possibilities are explained in detail.
 
 ### modules
 

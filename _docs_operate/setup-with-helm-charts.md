@@ -40,7 +40,7 @@ You can also query the available options using the command line: `helm show valu
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
 | `image.pullPolicy`              | The image's [PullPolicy](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy)                                                                                                        | `"IfNotPresent"`               |
 | `image.tag`                     | The image's tag. [Available tags](https://github.com/nmshd/cns-connector/pkgs/container/connector/versions)                                                                                               | The version of the Helm chart. |
-| `config`                        | The configuration of the Connector in yaml or json format. [Configuration options](https://enmeshed.eu/integrate/connector-configuration)                                                                 | `{}`                           |
+| `config`                        | The configuration of the Connector in yaml or json format. [Configuration options]({% link _docs_operate/configuration.md %})                                                                             | `{}`                           |
 |                                 |                                                                                                                                                                                                           |                                |
 | `pod.securityContext`           | [SecurityContext](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context) for the pod.                                                                           | `{}`                           |
 | `pod.nodeSelector`              | [NodeSelector](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector) for the pod.                                                                                        | `{}`                           |
@@ -93,7 +93,7 @@ pod:
             name: platform-client-secret
             key: VALUE
 
-      - name: infrastructure__httpServer__apiKey
+      - name: infrastructure__httpServer__authentication__apiKey__keys__default__key
         valueFrom:
           secretKeyRef:
             name: api-key
@@ -148,7 +148,7 @@ pod:
             name: platform-client-secret
             key: VALUE
 
-      - name: infrastructure__httpServer__apiKey
+      - name: infrastructure__httpServer__authentication__apiKey__keys__default__key
         valueFrom:
           secretKeyRef:
             name: api-key

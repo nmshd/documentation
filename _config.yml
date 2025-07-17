@@ -121,7 +121,7 @@ footer:
     - label: "NPM"
       url: "https://www.npmjs.com/search?q=%40nmshd"
     - label: "RSS Feed"
-      url: "https://enmeshed.eu/feed.xml"
+      url: "/feed.xml"
 
 defaults:
   # _posts

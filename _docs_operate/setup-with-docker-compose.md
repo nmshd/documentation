@@ -137,7 +137,15 @@ To use the api platform hosted on the Connector you need to make the following c
      "infrastructure": {
        "httpServer": {
          "enabled": true,
-         "apiKey": "an-api-key"
+         "authentication": {
+           "apiKey": {
+             "keys": {
+               "<an-api-key-id>": {
+                 "key": "<an-api-key>"
+               }
+             }
+           }
+         }
        }
      }
    }
@@ -171,12 +179,12 @@ To use the api platform hosted on the Connector you need to make the following c
 
 ### Links Mentioned in Video
 
-- [Link#1: Setup with Docker Compose](https://enmeshed.eu/operate/setup-with-docker-compose)
-- [Link#2: Configuration](https://enmeshed.eu/operate/configuration)
+- [Link#1: Setup with Docker Compose]({% link _docs_operate/setup-with-docker-compose.md %})
+- [Link#2: Configuration]({% link _docs_operate/configuration.md %})
 - [Link#3: Docker Compose](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/docker-compose-with-mongodb.yml)
 - [Link#4: Config.json](https://raw.githubusercontent.com/nmshd/documentation/main/_docs_integrate/examples/example.config.json)
 - [Link#5: Request Backbone client credentials](https://js-soft.atlassian.net/servicedesk/customer/portal/13/group/42/create/166)
-- [Link#6: Integration Example](https://enmeshed.eu/integrate/integration-example)
+- [Link#6: Integration Example]({% link _docs_integrate/integration-example.md %})
 
 ## Troubleshooting
 
