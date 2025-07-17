@@ -10,7 +10,15 @@
     },
     "infrastructure": {
         "httpServer": {
-            "apiKey": "<define-an-apiKey => https://enmeshed.eu/operate/configuration#httpserver>"
+            "authentication": {
+                "apiKey": {
+                    "keys": {
+                        "<an-api-key-id>": {
+                            "key": "<define-an-apiKey => https://enmeshed.eu/operate/configuration#httpserver>"
+                        }
+                    }
+                }
+            }
         }
     },
     "modules": {
