@@ -17,12 +17,6 @@ var store = [{
         "url": "/explore/example-scenarios",
         "teaser": null
       },{
-        "title": "Features",
-        "excerpt":"Features included with enmeshed: Self-sovereign Identity Datawallet capabilitites, i.e. repository of structured data like Attributes and files Datalog, i.e. know what data was shared when and to whom Cross-identity transparent encryption and digital signatures Cross-identity bi-directional data communication Cross-identity structured data synchronization (manual or automated) Cross-device transparent encryption Cross-device bi-directional...","categories": [],
-        "tags": [],
-        "url": "/explore/features",
-        "teaser": null
-      },{
         "title": "Frequently Asked Questions",
         "excerpt":"Can you read my data? Short answer: No, we can’t. Long answer: Depends who “you” is and what you mean by “data”. We’ve designed enmeshed to use as less data as possible, while using as much data as required by business processes. That being said, all data which is send...","categories": [],
         "tags": [],
