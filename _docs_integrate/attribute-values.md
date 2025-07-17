@@ -35,7 +35,7 @@ Most Attribute Value types are atomic, which means that they have only one prope
 
 # Valid characters in Attributes
 
-Characters in Attribute values are restricted to the [normative characters of DIN 91379](https://en.wikipedia.org/wiki/DIN_91379#Normative_part) which reduces validation efforts required from integrators. This bans e. g. foreign scripts like Greek or Chinese, but transliterations are possible in that case. Also banned are emojis, which deters joke entries. See [a one-page overview of the characters](https://github.com/String-Latin/DIN-91379-Characters-and-Sequences/blob/e6eff1e/latin_letters_1.3.txt#L1-L40) (the allowed characters are highlighted) and the [regex used for validation](https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd) - search for datatypeC.
+Characters in Attribute values are restricted to the [normative characters of DIN 91379](https://en.wikipedia.org/wiki/DIN_91379#Normative_part) which reduces validation efforts required from integrators. This bans, for example, foreign scripts like Greek or Chinese, but transliterations are possible in that case. Also banned are emojis, which deters joke entries. See [a one-page overview of the characters](https://github.com/String-Latin/DIN-91379-Characters-and-Sequences/blob/e6eff1e/latin_letters_1.3.txt#L1-L40) (the allowed characters are highlighted) and the [regex used for validation](https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd) - search for datatypeC.
 
 # Identity Attributes
 
