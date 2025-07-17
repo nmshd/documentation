@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-07-17T09:18:59+02:00">
+  <meta property="article:published_time" content="2025-07-17T11:25:03+02:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Migration From v6 to v7">
     <meta itemprop="description" content="The Runtime of enmeshed has recently been updated from version 6 to version 7.Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors.The version update has resulted in some breaking changes.To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
-    <meta itemprop="datePublished" content="2025-07-17T09:18:59+02:00">
+    <meta itemprop="datePublished" content="2025-07-17T11:25:03+02:00">
     
 
     <div class="page__inner-wrap">
@@ -443,6 +443,7 @@ The property <code class="language-plaintext highlighter-rouge">reference</code>
 <ul>
   <li>Stricter validation of <code class="language-plaintext highlighter-rouge">tags</code> of <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttributes</a> and <a href="/versions/v7/integrate/data-model-overview#file">Files</a> have been added as documented in their description in the data model overview.
 An error with <a href="/versions/v7/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.consumption.attributes.invalidTags</code> will be thrown if an attempt is made to use invalid <code class="language-plaintext highlighter-rouge">tags</code>.</li>
+  <li>For Attribute values, a <a href="/versions/v7/integrate/attribute-values#valid-characters-in-attributes">character set is introduced</a>. An error with <a href="/versions/v7/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.consumption.attributes.forbiddenCharactersInAttribute</code> will be thrown if an attempt is made to use characters outside of that character set in an Attribute value.</li>
 </ul>
 
 <h3 id="removed-and-changed-connector-routes">Removed and Changed Connector Routes</h3>
@@ -494,7 +495,7 @@ It has now been deleted with the update to version 7.</li>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-17T09:18:59+02:00">July 17, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-17T11:25:03+02:00">July 17, 2025</time></p>
 
       </footer>
 
