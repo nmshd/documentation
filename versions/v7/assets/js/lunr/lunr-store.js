@@ -858,7 +858,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create own Token",
-        "excerpt":"Creates a Token that represents arbitrary encrypted data saved on the Backbone. Parameters content an arbitrary JSON structure of the data to share via the Token. expiresAt is the ISODateTime the Token expires at. ephemeral indicates if the Token should be ephemeral and thus not be stored and cached on...","categories": [],
+        "excerpt":"Creates a Token that represents arbitrary encrypted data saved on the Backbone. Parameters content an arbitrary JSON structure of the data to share via the Token. expiresAt is the ISODateTime the Token expires at. ephemeral indicates if the Token should be ephemeral and thus not be stored in the local...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-transport-create-own-token",
         "teaser": null
@@ -876,7 +876,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create Token for own RelationshipTemplate",
-        "excerpt":"Creates a Token for a given RelationshipTemplate. Parameters templateId is the id of the RelationshipTemplate the Token should be created for. expiresAt is the ISODateTime the Token expires at. ephemeral indicates if the Token should be ephemeral and thus not be stored and cached on the local database. This is...","categories": [],
+        "excerpt":"Creates a Token for a given RelationshipTemplate. Parameters templateId is the id of the RelationshipTemplate the Token should be created for. expiresAt is the ISODateTime the Token expires at. ephemeral indicates if the Token should be ephemeral and thus not be stored in the local database. This is especially useful...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-transport-create-token-for-own-relationshiptemplate",
         "teaser": null
@@ -900,7 +900,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Download File",
-        "excerpt":"This use case allows to download the File&#8217;s binary content that corresponds to the fileId. As the File is not stored or cached within the Connector, the encrypted File is downloaded from the Backbone, decrypted and returned every time this use case is called. An uploaded own File can be...","categories": [],
+        "excerpt":"This use case allows to download the File&#8217;s binary content that corresponds to the fileId. As the File is not stored within the Connector, the encrypted File is downloaded from the Backbone, decrypted and returned every time this use case is called. An uploaded own File can be downloaded by...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-transport-download-file",
         "teaser": null
