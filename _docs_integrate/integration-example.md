@@ -41,7 +41,7 @@ You need to replace them with values before you send the Requests.
 ## Prerequisites
 
 - If you want to use your own Connector for executing the examples:
-  - [Install the Connector](https://enmeshed.eu/integrate/connector-installation)
+  - [Install the Connector]({% link _docs_operate/setup-with-docker-compose.md %})
   - Make sure the [Sync Module]({% link _docs_operate/modules.md %}#sync) and the [Server-Sent Events Module]({% link _docs_operate/modules.md %}#sse) are disabled (because in this tutorial we will synchronize manually via the HTTP endpoint). We are also neither utilizing the [Webhooks Module]({% link _docs_operate/modules.md %}#webhooks) nor the [Message Broker Publisher Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher), even though using one of them is recommended in productive use.
   - Make sure the [docs are enabled]({% link _docs_operate/configuration.md %}#corehttpapi) for the documentation route to work
   - Get the API key that was configured during installation of the Connector (it needs to be sent in the `X-API-KEY` header of every HTTP Request)
