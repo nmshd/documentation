@@ -15,7 +15,7 @@ The transport layer is located between the Backbone layer and the consumption la
 
 ## Data Handling
 
-The transport layer introduces a local storage based on a document database. In this database all relevant data is persisted or cached. In addition to the database, the transport layer takes care of serializing and deserializing data structures.
+The transport layer introduces a local storage based on a document database. In this database all relevant data is persisted. In addition to the database, the transport layer takes care of serializing and deserializing data structures.
 
 ## Syntactical validation of plaintext data
 

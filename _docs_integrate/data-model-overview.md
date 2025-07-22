@@ -63,7 +63,7 @@ A Token has the following properties:
 | forIdentity        | `string` \| `undefined`                                    | Can be set to an enmeshed address. If set, then only the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) with that `address` can retrieve the Token from the Backbone. |
 | passwordProtection | [`PasswordProtection`](#passwordprotection) \| `undefined` | Information about whether or not the Token is protected by a password or pin.                                                                                                                 |                                               |
 | reference          | [`ObjectReference`](#objectreference)                      | {% include descr_reference class="Token" %}                                                                                                                                                   | saved only locally                            |
-| isEphemeral        | `boolean`                                                  | If set to `true` the Token will not be cached in the database and only displayed once. You will not be able to fetch this Token unless you remember its reference.                            |
+| isEphemeral        | `boolean`                                                  | If set to `true` the Token will not be persisted in the database and only displayed once. You will not be able to fetch this Token unless you remember its reference.                         |
 
 ### PasswordProtection
 
