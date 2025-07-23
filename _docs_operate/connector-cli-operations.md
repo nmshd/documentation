@@ -41,7 +41,8 @@ To obtain information about the underlying Identity of the Connector, the `ident
 
 #### Status Command
 
-The `status` command can be used to find out what the `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) is and whether a deletion has been initialized.
+The `status` command can be used to display the `address` of the underlying [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) of the Connector.
+If the Identity deletion has been [initialized](#initialization-command) but the end of the grace period has not yet been reached, the status of the Identity deletion process and the end of the grace period are displayed additionally.
 
 ### Identity Deletion
 
@@ -50,12 +51,12 @@ To delete the underlying Identity of the Connector, the `identityDeletion` comma
 #### Initialization Command
 
 The `init` command can be used to initialize the Identity deletion of the underlying Identity of the Connector.
-If the Identity deletion is initiated successfully, a log entry will indicate that the Identity deletion process has started.
+If the Identity deletion is initialized successfully, a log entry will indicate that the Identity deletion process has started.
 Consequently, the Identity will be deleted after the grace period ends unless the Identity deletion process is [cancelled](#cancellation-command) by the Identity by then.
 Checking the [status](#status-command) of the Identity displays the end of the grace period.
 The grace period is usually two weeks.
 
 #### Cancellation Command
 
-The `cancel` command can be used to cancel the Identity deletion if it has already been [initiated](#initialization-command) but the end of the grace period has not yet been reached.
+The `cancel` command can be used to cancel the Identity deletion process if it has already been [initialized](#initialization-command) but the end of the grace period has not yet been reached.
 Checking the [status](#status-command) of the Identity displays the end of the grace period.
