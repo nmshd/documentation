@@ -29,6 +29,12 @@ Different Connector setups may require different approaches to executing the ava
 
 ### Setup with Docker Compose
 
+If the [Connector is set up with Docker Compose]({% link _docs_operate/setup-with-docker-compose.md %}) using `docker compose up -d`, the [start command](#start-command) of the Connector CLI is executed by default.
+The `docker-compose.yml` contains the `connector` as one of the `services`.
+To execute other commands, it must be specified explicitly in the `docker-compose.yml` as a `command` of the Connector service.
+If `docker compose up -d` is then executed, the Connector is not started, but the corresponding command, like [initializing the Identity deletion](#initialization-command), is executed.
+For certain commands, it is also important that `restart` is set to `"no"` or `on-failure` to prevent an Identity from being recreated after it has been deleted.
+
 ## Operations
 
 The commands provided by the Connector CLI are listed in the following.
