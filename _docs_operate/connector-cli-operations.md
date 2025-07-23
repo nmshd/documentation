@@ -36,6 +36,8 @@ The commands provided by the Connector CLI are listed in the following.
 ### Start Command
 
 The `start` command can be used to start the Connector.
+It is executed by default, unless another command is explicitly specified during [setup](#setup).
+Once the Connector is started, it is [accessible]({% link _docs_integrate/access-the-connector.md %}) for use.
 
 ### Identity
 
