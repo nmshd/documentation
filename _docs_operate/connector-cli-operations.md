@@ -31,7 +31,8 @@ Different Connector setups may require different approaches to executing the ava
 
 If the [Connector is set up with Docker Compose]({% link _docs_operate/setup-with-docker-compose.md %}) using `docker compose up -d`, the [start command](#start-command) of the Connector CLI is executed by default.
 To execute another command instead, it must be specified explicitly in the `docker-compose.yml` as a `command` of the `connector` service.
-If `docker compose up -d` is then executed, the Connector is not started, but the operation associated with the command, like, for example, displaying the [status](#status-command) of the underlying Identity of the Connector, is performed.
+If `docker compose up -d` is then executed, the Connector is not started, but the operation associated with the command is performed.
+For example, the [status](#status-command) of the underlying Identity of the Connector is displayed.
 
 ## Operations
 
