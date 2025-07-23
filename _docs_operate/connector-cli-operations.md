@@ -46,6 +46,10 @@ To delete the underlying Identity of the Connector, its CLI can be used.
 #### Initialization Command
 
 The `init` command can be used to initialize the Identity deletion of the underlying Identity of the Connector.
+If the Identity deletion is initiated successfully, a log entry will indicate that the Identity deletion process has started.
+Consequently, the Identity will be deleted after the grace period ends unless the Identity deletion process is [cancelled](#cancellation-command) by the Identity by then.
+Checking the [status](#status-command) of the Identity displays the end of the grace period.
+The grace period is usually two weeks.
 
 #### Cancellation Command
 
