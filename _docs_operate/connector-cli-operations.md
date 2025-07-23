@@ -35,13 +35,17 @@ The commands provided by the Connector CLI are listed in the following.
 
 The `start` command can be used to start the Connector.
 
-### Status Command
+### Identity
+
+To obtain information about the underlying Identity of the Connector, the `identity` command group of its CLI can be utilized.
+
+#### Status Command
 
 The `status` command can be used to find out what the `address` of the [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) is and whether a deletion has been initialized.
 
 ### Identity Deletion
 
-To delete the underlying Identity of the Connector, the `identityDeletion` command group of its CLI can be used.
+To delete the underlying Identity of the Connector, the `identityDeletion` command group of its CLI can be utilized.
 
 #### Initialization Command
 
