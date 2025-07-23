@@ -41,7 +41,7 @@ The `status` command can be used to find out what the `address` of the [Identity
 
 ### Identity Deletion
 
-To delete the underlying Identity of the Connector, its CLI can be used.
+To delete the underlying Identity of the Connector, the `identityDeletion` command group of its CLI can be used.
 
 #### Initialization Command
 
