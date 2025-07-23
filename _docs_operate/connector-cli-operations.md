@@ -21,9 +21,11 @@ required_by:
 # End automatic generation
 ---
 
-The following guide provides step-by-step instructions for configuring the command-line interface (CLI) of the Connector and performing essential operations using it.
+The following guide provides step-by-step instructions for [configuring](#setup) the command-line interface (CLI) of the Connector and performing essential [operations](#operations) using it.
 
 ## Setup
+
+Different Connector setups may require different approaches to executing the available commands provided by the Connector CLI.
 
 ### Setup with Docker Compose
 
