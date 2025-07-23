@@ -53,4 +53,5 @@ The grace period is usually two weeks.
 
 #### Cancellation Command
 
-The `cancel` command can be used to cancel the Identity deletion if it has already been initiated but not yet completed.
+The `cancel` command can be used to cancel the Identity deletion if it has already been [initiated](#initialization-command) but the end of the grace period has not yet been reached.
+Checking the [status](#status-command) of the Identity displays the end of the grace period.
