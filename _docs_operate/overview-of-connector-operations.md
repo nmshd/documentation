@@ -47,7 +47,7 @@ If you use FerretDB as your database engine make sure to backup the data of the 
 
 ## Identity Deletion
 
-Using the [command-line interface of the Connector]({% link _docs_operate/connector-cli-operations.md %}), it is possible to perform operations like [deleting its underlying Identity]({% link _docs_operate/connector-cli-operations.md %}#identity-deletion).
+Using the [command-line interface of the Connector]({% link _docs_operate/connector-cli-operations.md %}), it is possible to perform operations like [deleting its underlying Identity]({% link _docs_operate/connector-cli-operations.md %}#identity-deletion-initialization-command).
 
 ## Proposed System Tasks
 
