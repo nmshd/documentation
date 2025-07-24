@@ -24,9 +24,9 @@ required_by:
 # End automatic generation
 ---
 
-It is not yet possible to utilize the use cases regarding the [IdentityDeletionProcesses]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) mentioned below as an Integrator of a Connector.
-Instead, these functionalities are currently only offered to App users in order to be able to delete their [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
-Even if some use cases still have to be provided to the Integrators of Connectors for deleting their Identity, they benefit from the description of the process of Identity deletion given in this guide.
+It is not possible to utilize the use cases regarding the [IdentityDeletionProcesses]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) mentioned below as an Integrator of a Connector.
+Instead, these functionalities are only offered to App users in order to be able to delete their [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
+Nevertheless, they benefit from the description of the process of Identity deletion given in this guide.
 Indeed, if an App user with whom a Connector has established a Relationship deletes their Identity, it is affected by [side effects on this Relationship](#effects-of-identity-deletion-on-relationships).
 However, Integrators of Connectors can still delete their Identity by using [Connector CLI operations]({% link _docs_operate/connector-cli-operations.md %}#identity-deletion).
 {: .notice--warning}
