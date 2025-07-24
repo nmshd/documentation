@@ -43,6 +43,7 @@ required_by:
 
 Regarding [self-initiated Identity deletion]({% link _docs_integrate/delete-identities.md %}#self-initiated-identity-deletion), this use case can be utilized to initiate an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) for your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
 The generated IdentityDeletionProcess immediately has `"Approved"` as its `status` and describes that the Identity will be deleted after the grace period ends unless the [IdentityDeletionProcess is cancelled]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}) by the Identity by then.
+This use case can be utilized by using the [Identity deletion initialization command]({% link _docs_operate/connector-cli-operations.md %}#identity-deletion-initialization-command) of the [Connector CLI operations]({% link _docs_operate/connector-cli-operations.md %}), but not by using the [Connector REST API]({% link _docs_integrate/access-the-connector.md %}#hosted-api-tooling-by-the-development-connector).
 
 ## On Success
 
