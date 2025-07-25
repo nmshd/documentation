@@ -168,7 +168,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Delete Identities",
-        "excerpt":"It is not yet possible to utilize the use cases regarding the IdentityDeletionProcesses mentioned below as an Integrator of a Connector. Instead, these functionalities are currently only offered to App users in order to be able to delete their Identity. Even if some use cases still have to be provided...","categories": [],
+        "excerpt":"Regardless of whether an Identity is an App user or a Connector, it is stored on the Backbone. This guide describes the different options for Identity deletion from the Backbone. There is usually a predefined grace period in each process of Identity deletion, during which the Identity can cancel its...","categories": [],
         "tags": [],
         "url": "/integrate/delete-identities",
         "teaser": null
@@ -333,6 +333,12 @@ var store = [{
         "excerpt":"Mounting a config file Create a config file in JSON format in a folder of your choice. Fill the config file with your desired configuration (it’s sufficient to add values you want to change; the Connector will merge your config file with the default configuration) Example: { \"infrastructure\": { \"httpServer\":...","categories": [],
         "tags": [],
         "url": "/operate/configuration",
+        "teaser": null
+      },{
+        "title": "Connector CLI Operations",
+        "excerpt":"The following guide provides step-by-step instructions for configuring the command-line interface (CLI) of the Connector and performing essential operations using it. Setup Different Connector setups may require different approaches to executing the available commands provided by the Connector CLI. Setup with Docker Compose If the Connector is set up with...","categories": [],
+        "tags": [],
+        "url": "/operate/connector-cli-operations",
         "teaser": null
       },{
         "title": "Log Event IDs",
@@ -1014,7 +1020,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Initiate IdentityDeletionProcess",
-        "excerpt":"Regarding self-initiated Identity deletion, this use case can be utilized to initiate an IdentityDeletionProcess for your Identity. The generated IdentityDeletionProcess immediately has \"Approved\" as its status and describes that the Identity will be deleted after the grace period ends unless the IdentityDeletionProcess is cancelled by the Identity by then. On...","categories": [],
+        "excerpt":"Regarding self-initiated Identity deletion, this use case can be utilized to initiate an IdentityDeletionProcess for your Identity. The generated IdentityDeletionProcess immediately has \"Approved\" as its status and describes that the Identity will be deleted after the grace period ends unless the IdentityDeletionProcess is cancelled by the Identity by then. This...","categories": [],
         "tags": [],
         "url": "/use-case-transport-initiate-identitydeletionprocess",
         "teaser": null

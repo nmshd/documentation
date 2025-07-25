@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Get peer shared Attributes - enmeshed</title>
-<meta name="description" content="">
+<!-- begin _includes/seo.html --><title>Connector CLI Operations - enmeshed</title>
+<meta name="description" content="The following guide provides step-by-step instructions for configuring the command-line interface (CLI) of the Connector and performing essential operations using it.">
 
 
   <meta name="author" content="enmeshed Team">
@@ -23,11 +23,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Get peer shared Attributes">
-<meta property="og:url" content="/use-case-consumption-get-peer-shared-attributes">
+<meta property="og:title" content="Connector CLI Operations">
+<meta property="og:url" content="/operate/connector-cli-operations">
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="The following guide provides step-by-step instructions for configuring the command-line interface (CLI) of the Connector and performing essential operations using it.">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/use-case-consumption-get-peer-shared-attributes">
+<link rel="canonical" href="/operate/connector-cli-operations">
 
 
 
@@ -88,7 +88,7 @@
 
   </head>
 
-  <body class="layout--usecase" dir="ltr">
+  <body class="layout--single" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -176,7 +176,7 @@
   
     
       
-      <h3>Integrate enmeshed</h3>
+      <h3>Operate enmeshed</h3>
       
       <nav class="nav__list">
   
@@ -188,17 +188,19 @@
       
         <li>
           
-            <span class="nav__sub-title">Getting Started</span>
+            <span class="nav__sub-title">Connector Setup</span>
           
 
           
           <ul>
             
-              <li><a href="/integrate/access-the-connector">Access the Connector</a></li>
+              <li><a href="/operate/setup-with-docker-compose">Setup with Docker Compose</a></li>
             
-              <li><a href="/integrate/integration-example">Integration example</a></li>
+              <li><a href="/operate/setup-with-helm-charts">Setup with Helm Charts</a></li>
             
-              <li><a href="/integrate/event-introduction">Event introduction</a></li>
+              <li><a href="/operate/configuration">Configuration</a></li>
+            
+              <li><a href="/operate/modules">Modules</a></li>
             
           </ul>
           
@@ -206,21 +208,21 @@
       
         <li>
           
-            <span class="nav__sub-title">Identities and Relationships</span>
+            <span class="nav__sub-title">Connector Operations</span>
           
 
           
           <ul>
             
-              <li><a href="/integrate/establish-relationships">Establish Relationships</a></li>
+              <li><a href="/operate/overview-of-connector-operations">Overview of Connector operations</a></li>
             
-              <li><a href="/integrate/exchange-messages">Exchange Messages</a></li>
+              <li><a href="/operate/connector-cli-operations" class="active">Connector CLI Operations</a></li>
             
-              <li><a href="/integrate/terminate-relationships">Terminate Relationships</a></li>
+              <li><a href="/operate/security-considerations">Security Considerations</a></li>
             
-              <li><a href="/integrate/delete-identities">Delete Identities</a></li>
+              <li><a href="/operate/privacy-considerations">Privacy Considerations</a></li>
             
-              <li><a href="/integrate/manage-identitymetadata">Manage IdentityMetadata</a></li>
+              <li><a href="/operate/performance-considerations">Performance Considerations</a></li>
             
           </ul>
           
@@ -228,101 +230,15 @@
       
         <li>
           
-            <span class="nav__sub-title">Working With Requests</span>
+            <span class="nav__sub-title">Backbone Operations</span>
           
 
           
           <ul>
             
-              <li><a href="/integrate/request-and-response-introduction">Request and Response introduction</a></li>
+              <li><a href="/operate/backbone-security-considerations">Backbone Security Considerations</a></li>
             
-              <li><a href="/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a></li>
-            
-              <li><a href="/integrate/requests-via-messages">Requests via Messages</a></li>
-            
-              <li><a href="/integrate/form-fields-within-requests">Form Fields Within Requests</a></li>
-            
-          </ul>
-          
-        </li>
-      
-        <li>
-          
-            <span class="nav__sub-title">Manage Attributes</span>
-          
-
-          
-          <ul>
-            
-              <li><a href="/integrate/attribute-introduction">Attribute introduction</a></li>
-            
-              <li><a href="/integrate/create-attributes-for-yourself">Create Attributes for yourself</a></li>
-            
-              <li><a href="/integrate/share-attributes-with-peer">Share Attributes with peer</a></li>
-            
-              <li><a href="/integrate/read-attributes-from-peer">Read Attributes from peer</a></li>
-            
-              <li><a href="/integrate/create-attributes-for-peer">Create Attributes for peer</a></li>
-            
-              <li><a href="/integrate/propose-attributes-to-peer">Propose Attributes to peer</a></li>
-            
-              <li><a href="/integrate/update-attributes-by-succession">Update Attributes by succession</a></li>
-            
-              <li><a href="/integrate/delete-attributes">Delete Attributes</a></li>
-            
-              <li><a href="/integrate/exchange-files-using-attributes">Exchange Files using Attributes</a></li>
-            
-          </ul>
-          
-        </li>
-      
-        <li>
-          
-            <span class="nav__sub-title">Request Consent</span>
-          
-
-          
-          <ul>
-            
-              <li><a href="/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a></li>
-            
-              <li><a href="/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a></li>
-            
-          </ul>
-          
-        </li>
-      
-        <li>
-          
-            <span class="nav__sub-title">Data Model</span>
-          
-
-          
-          <ul>
-            
-              <li><a href="/integrate/data-model-overview">Data Model Overview</a></li>
-            
-              <li><a href="/integrate/attribute-values">Attribute Values</a></li>
-            
-              <li><a href="/integrate/connector-events">Connector Events</a></li>
-            
-              <li><a href="/integrate/use-cases">Use Cases</a></li>
-            
-          </ul>
-          
-        </li>
-      
-        <li>
-          
-            <span class="nav__sub-title">Migration Guides</span>
-          
-
-          
-          <ul>
-            
-              <li><a href="/integrate/migration-from-v4-to-v5">Migration From v4 to v5</a></li>
-            
-              <li><a href="/integrate/migration-from-v5-to-v6">Migration From v5 to v6</a></li>
+              <li><a href="/operate/log-event-ids">Log Event IDs</a></li>
             
           </ul>
           
@@ -336,11 +252,9 @@
           
           <ul>
             
-              <li><a href="/integrate/error-codes">Error codes</a></li>
+              <li><a href="/operate/troubleshooting-guide">Troubleshooting Guide</a></li>
             
-              <li><a href="/integrate/faq">FAQ</a></li>
-            
-              <li><a href="/integrate/support">Support</a></li>
+              <li><a href="/operate/support">Support</a></li>
             
           </ul>
           
@@ -358,8 +272,8 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Get peer shared Attributes">
-    <meta itemprop="description" content="">
+    <meta itemprop="headline" content="Connector CLI Operations">
+    <meta itemprop="description" content="The following guide provides step-by-step instructions for configuring the command-line interface (CLI) of the Connector and performing essential operations using it.">
     <meta itemprop="datePublished" content="2025-07-25T11:27:22+02:00">
     
 
@@ -367,7 +281,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/use-case-consumption-get-peer-shared-attributes" itemprop="url">Get peer shared Attributes
+            <a href="/operate/connector-cli-operations" itemprop="url">Connector CLI Operations
 </a>
           </h1>
           
@@ -381,140 +295,60 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#parameters">Parameters</a></li><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
+              <ul class="toc__menu"><li><a href="#setup">Setup</a><ul><li><a href="#setup-with-docker-compose">Setup with Docker Compose</a></li></ul></li><li><a href="#operations">Operations</a><ul><li><a href="#start-command">Start Command</a></li><li><a href="#identity-status-command">Identity Status Command</a></li><li><a href="#identity-deletion-initialization-command">Identity Deletion Initialization Command</a></li><li><a href="#identity-deletion-cancellation-command">Identity Deletion Cancellation Command</a></li></ul></li></ul>
             </nav>
           </aside>
         
-        
-<!--<div>
-    <table>
-        
-        <tr><td>id</td>
-            <td>RA3</td></tr>
-        
-        <tr><td>component</td>
-            <td>Runtime</td></tr>
-        
-        <tr><td>layer</td>
-            <td>Consumption</td></tr>
-        
-        <tr><td>facade</td>
-            <td>AttributesFacade</td></tr>
-        
-        <tr><td>function</td>
-            <td>getPeerSharedAttributes</td></tr>
-        
-        <tr></tr>
-        
-        <tr><td>feature category</td>
-            <td>Cross-Identity Attribute sharing</td></tr>
-        
-        <tr><td>tech category</td>
-            <td>Attributes</td></tr>
-        
-        <tr><td>status</td>
-            <td>DONE</td></tr>
-        
-        <tr><td>documentation status</td>
-            <td>DONE</td></tr>
-        
-        <tr></tr>
-        
-        <tr><td>actor</td>
-            <td>Identity</td></tr>
-        
-        <tr><td>trigger</td>
-            <td>REST API</td></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr><td>priority</td>
-            <td>n/a</td></tr>
-        
-        <tr><td>complexity</td>
-            <td>n/a</td></tr>
-        
-        <tr><td>size</td>
-            <td>n/a</td></tr>
-        
-        <tr></tr>
-        
-        <tr></tr>
-        
-        <tr><td>api_route_regex</td>
-            <td>GET /api/v2/Attributes/Peer/Shared/Identity</td></tr>
-        
-        <tr><td>published</td>
-            <td>default</td></tr>
-        
-        <tr><td>link</td>
-            <td>use-case-consumption-get-peer-shared-attributes</td></tr>
-        
-        <tr></tr>
-        <tr></tr>
-    </table>
-</div>
--->
+        <p>The following guide provides step-by-step instructions for <a href="#setup">configuring</a> the command-line interface (CLI) of the Connector and performing essential <a href="#operations">operations</a> using it.</p>
 
-<p>This use case is intended to retrieve Attributes that a peer has shared with the current Identity as <a href="/integrate/data-model-overview#localattribute">LocalAttributes</a>. The LocalAttributes can be specified using a complex query.</p>
+<h2 id="setup">Setup</h2>
 
-<h2 id="parameters">Parameters</h2>
+<p>Different Connector setups may require different approaches to executing the available commands provided by the Connector CLI.</p>
 
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">peer</code> is the <code class="language-plaintext highlighter-rouge">address</code> of the <a href="/integrate/data-model-overview#identity">Identity</a> that shared the LocalAttributes.</li>
-  <li><code class="language-plaintext highlighter-rouge">query</code> allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used:
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">createdAt</code> describes the time when the LocalAttribute was created.</li>
-      <li>The fields of <code class="language-plaintext highlighter-rouge">content</code> can be used to describe the queried Attribute (either an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a>
-or a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>).</li>
-      <li>The fields of the <code class="language-plaintext highlighter-rouge">shareInfo</code> describe if the LocalAttribute is shared with a peer and specify its <a href="/integrate/data-model-overview#localattributeshareinfo">LocalAttributeShareInfo</a>.</li>
-      <li>The fields of the <code class="language-plaintext highlighter-rouge">deletionInfo</code> describe the <a href="/integrate/data-model-overview#localattributedeletioninfo">LocalAttributeDeletionInfo</a> of a shared LocalAttribute.</li>
-    </ul>
-  </li>
-  <li>If <code class="language-plaintext highlighter-rouge">onlyValid</code> is set to <code class="language-plaintext highlighter-rouge">true</code>, LocalAttributes that exceed their validity frame defined by <code class="language-plaintext highlighter-rouge">validFrom</code> and <code class="language-plaintext highlighter-rouge">validTo</code> will not be returned.</li>
-  <li>If <code class="language-plaintext highlighter-rouge">hideTechnical</code> is set to <code class="language-plaintext highlighter-rouge">true</code>, RelationshipAttributes with <code class="language-plaintext highlighter-rouge">isTechnical</code> <code class="language-plaintext highlighter-rouge">true</code> will not be returned.</li>
-  <li>Optionally, <code class="language-plaintext highlighter-rouge">onlyLatestVersions</code> can be disabled, such that in case of <a href="/integrate/update-attributes-by-succession">Attribute succession</a> all versions will be returned.</li>
-</ul>
+<h3 id="setup-with-docker-compose">Setup with Docker Compose</h3>
 
-<h2 id="on-success">On Success</h2>
+<p>If the <a href="/operate/setup-with-docker-compose">Connector is set up with Docker Compose</a> using <code class="language-plaintext highlighter-rouge">docker compose up -d</code>, the <a href="#start-command">start command</a> of the Connector CLI is executed by default.
+To execute another command instead, it must be specified explicitly in the <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> as a <code class="language-plaintext highlighter-rouge">command</code> of the <code class="language-plaintext highlighter-rouge">connector</code> service.
+If <code class="language-plaintext highlighter-rouge">docker compose up -d</code> is then executed, the Connector is not started, but the operation associated with the command is performed.
+For example, the <a href="#identity-status-command">status</a> of the underlying Identity of the Connector is displayed by specifying the following <code class="language-plaintext highlighter-rouge">command</code> for the <code class="language-plaintext highlighter-rouge">connector</code> service:</p>
 
-<ul>
-  <li>Returns a list of <a href="/integrate/data-model-overview#localattribute">LocalAttributes</a> shared by the peer that match the query.</li>
-</ul>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">services</span><span class="pi">:</span>
+  <span class="na">connector</span><span class="pi">:</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">identity status</span>
+    <span class="c1"># ...</span>
+  <span class="c1"># ...</span>
+<span class="c1"># ...</span>
+</code></pre></div></div>
 
-<h2 id="on-failure">On Failure</h2>
+<h2 id="operations">Operations</h2>
 
-<ul>
-  <li>The parameters are malformed.</li>
-</ul>
-  <h2>How to execute this use case with the Connector?</h2>
+<p>The commands provided by the Connector CLI are listed in the following.</p>
 
-The Connector is our first-class citizen, thus we provide you with a detailed API description for every use case.
-This use case can be executed with the REST API of the Connector which you can <a href="/integrate/access-the-connector">Access the Connector</a>.
- 
-<h6>Corresponding interactive API docs excerpt:</h6>
+<h3 id="start-command">Start Command</h3>
 
-<rapi-doc-mini
-    server-url="https://doc-demo.is.enmeshed.eu/"
-    default-api-server="https://doc-demo.is.enmeshed.eu/"
-    api-key-name="x-api-key"
-    api-key-location="header"
-    api-key-value="apikey"
-    layout="column"
-    default-schema-tab="example"
-    spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
-    paths-expanded="false"
-    theme="light"
-    bg-color="#f9f9fb"
-    
-    match-paths="^GET /api/v2/Attributes/Peer/Shared/Identity$"
-    
-    match-type="regex"
-></rapi-doc-mini>
-<br />
- 
+<p>The <code class="language-plaintext highlighter-rouge">start</code> command can be used to start the Connector.
+It is executed by default, unless another command is explicitly specified during <a href="#setup">setup</a>.
+Once the Connector is started, it is <a href="/integrate/access-the-connector">accessible</a> for use.</p>
+
+<h3 id="identity-status-command">Identity Status Command</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">identity status</code> command can be used to obtain information about the underlying Identity of the Connector.
+It displays the <code class="language-plaintext highlighter-rouge">address</code> of the <a href="/integrate/data-model-overview#identity">Identity</a>.
+If the Identity deletion has been <a href="#identity-deletion-initialization-command">initialized</a> but the end of the grace period has not yet been reached, the status of the Identity deletion process and the end of the grace period are displayed additionally.</p>
+
+<h3 id="identity-deletion-initialization-command">Identity Deletion Initialization Command</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">identityDeletion init</code> command can be used to initialize the Identity deletion of the underlying Identity of the Connector.
+If the Identity deletion was initialized successfully, a log entry will indicate that the Identity deletion process has started.
+Consequently, the Identity will be deleted after the grace period ends unless the Identity deletion process is <a href="#identity-deletion-cancellation-command">cancelled</a> by the Identity by then.
+Checking the <a href="#identity-status-command">status</a> of the Identity displays the end of the grace period.
+The grace period is usually two weeks.</p>
+
+<h3 id="identity-deletion-cancellation-command">Identity Deletion Cancellation Command</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">identityDeletion cancel</code> command can be used to cancel the Identity deletion process if it has already been <a href="#identity-deletion-initialization-command">initialized</a> but the end of the grace period has not yet been reached.
+Checking the <a href="#identity-status-command">status</a> of the Identity displays the end of the grace period.
+A log entry will confirm if the Identity deletion process was cancelled successfully.</p>
 
         
       </section>

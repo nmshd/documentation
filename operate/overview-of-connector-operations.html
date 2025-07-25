@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-07-22T07:22:53+02:00">
+  <meta property="article:published_time" content="2025-07-25T11:27:22+02:00">
 
 
 
@@ -216,6 +216,8 @@
             
               <li><a href="/operate/overview-of-connector-operations" class="active">Overview of Connector operations</a></li>
             
+              <li><a href="/operate/connector-cli-operations">Connector CLI Operations</a></li>
+            
               <li><a href="/operate/security-considerations">Security Considerations</a></li>
             
               <li><a href="/operate/privacy-considerations">Privacy Considerations</a></li>
@@ -272,7 +274,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Overview of Connector operations">
     <meta itemprop="description" content="Basic Tasks">
-    <meta itemprop="datePublished" content="2025-07-22T07:22:53+02:00">
+    <meta itemprop="datePublished" content="2025-07-25T11:27:22+02:00">
     
 
     <div class="page__inner-wrap">
@@ -293,7 +295,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#basic-tasks">Basic Tasks</a><ul><li><a href="#stopping-the-connector">Stopping the Connector</a></li><li><a href="#starting-the-connector-after-a-downtime">Starting the Connector after a Downtime</a></li></ul></li><li><a href="#update">Update</a></li><li><a href="#backup--recovery">Backup &amp; Recovery</a></li><li><a href="#proposed-system-tasks">Proposed System Tasks</a><ul><li><a href="#check-health">Check Health</a></li><li><a href="#check-available-resources">Check Available Resources</a><ul><li><a href="#check-cpu-workload">Check CPU Workload</a></li><li><a href="#check-memory-consumption">Check Memory Consumption</a></li><li><a href="#check-harddisk-quota">Check Harddisk Quota</a></li></ul></li><li><a href="#check-for-connector-updates">Check for Connector Updates</a></li><li><a href="#check-for-system-and-docker-updates">Check for System and Docker Updates</a></li><li><a href="#check-error-logs">Check Error Logs</a></li></ul></li><li><a href="#proposed-connector-tasks">Proposed Connector Tasks</a><ul><li><a href="#check-access-to-key-material">Check Access to Key Material</a></li><li><a href="#check-old-material">Check old Material</a></li><li><a href="#check-connector-systems">Check Connector Systems</a></li><li><a href="#check-third-party-systems">Check Third-Party Systems</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#basic-tasks">Basic Tasks</a><ul><li><a href="#stopping-the-connector">Stopping the Connector</a></li><li><a href="#starting-the-connector-after-a-downtime">Starting the Connector after a Downtime</a></li></ul></li><li><a href="#update">Update</a></li><li><a href="#backup--recovery">Backup &amp; Recovery</a></li><li><a href="#identity-deletion">Identity Deletion</a></li><li><a href="#proposed-system-tasks">Proposed System Tasks</a><ul><li><a href="#check-health">Check Health</a></li><li><a href="#check-available-resources">Check Available Resources</a><ul><li><a href="#check-cpu-workload">Check CPU Workload</a></li><li><a href="#check-memory-consumption">Check Memory Consumption</a></li><li><a href="#check-harddisk-quota">Check Harddisk Quota</a></li></ul></li><li><a href="#check-for-connector-updates">Check for Connector Updates</a></li><li><a href="#check-for-system-and-docker-updates">Check for System and Docker Updates</a></li><li><a href="#check-error-logs">Check Error Logs</a></li></ul></li><li><a href="#proposed-connector-tasks">Proposed Connector Tasks</a><ul><li><a href="#check-access-to-key-material">Check Access to Key Material</a></li><li><a href="#check-old-material">Check old Material</a></li><li><a href="#check-connector-systems">Check Connector Systems</a></li><li><a href="#check-third-party-systems">Check Third-Party Systems</a></li></ul></li></ul>
             </nav>
           </aside>
         
@@ -318,6 +320,10 @@
 <p>For a recovery, you should be able to just start the Connector again with the recovered database. For recovering the database itself, please also refer the MongoDB documentation.</p>
 
 <p>If you use FerretDB as your database engine make sure to backup the data of the underlying PostgreSQL database. Read more about this in the <a href="https://www.postgresql.org/docs/8.1/backup.html">PostgreSQL documentation</a>.</p>
+
+<h2 id="identity-deletion">Identity Deletion</h2>
+
+<p>Using the <a href="/operate/connector-cli-operations">command-line interface of the Connector</a>, it is possible to perform operations like <a href="/operate/connector-cli-operations#identity-deletion-initialization-command">deleting its underlying Identity</a>.</p>
 
 <h2 id="proposed-system-tasks">Proposed System Tasks</h2>
 
@@ -382,7 +388,7 @@ We recommend to keep your operating system and Docker as up to date as possible.
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-22T07:22:53+02:00">July 22, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-25T11:27:22+02:00">July 25, 2025</time></p>
 
       </footer>
 
