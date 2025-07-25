@@ -103,7 +103,7 @@ The Decider Module can be configured to automatically decide incoming Requests.
 For this to work, each RequestItem must match a form that was previously configured.
 The configuration also states how the RequestItem is processed, i.e. if it is rejected or accepted and in the latter case which parameters are used to do so.
 
-If there is no suitable configuration for every [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitem) of a Request or at least one RequestItem has `requireManualDecision` set, the Decider Module will not be able to automatically decide the Request.
+If there is no suitable configuration for every [RequestItem]({% link _docs_integrate/data-model-overview.md %}#requestitem) of a Request or at least one RequestItem is an [AuthenticationRequestItem]({% link _docs_integrate/data-model-overview.md %}#authenticationrequestitem) or a [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), the Decider Module will not be able to automatically decide the Request.
 In this case, the `status` of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) is moved from `DecisionRequired` to `ManualDecisionRequired` and the user must manually decide the Request.
 
 ### Message Module
