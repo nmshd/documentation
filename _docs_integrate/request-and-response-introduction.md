@@ -305,8 +305,9 @@ In our example Request, this is the case for the [AuthenticationRequestItem]({% 
 If you do not agree to accept a RequestItem whose value of its `mustBeAccepted` property is set to `true`, you are forced to reject the Request as a whole.
 
 Some RequestItems exhibit particular characteristics.
-For the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), for example, a `link` to an external website with more information on the `consent` issue originating from the Sender can optionally be specified.
-Specifying a `link` causes an icon to appear to the right of the ConsentRequestItem.
+For the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem), for example, setting the optional property `requiresInteraction` to `true` means that the checkbox in the App associated with it is not preselected and must be explicitly ticked, even if `mustBeAccepted` is set to `true`.
+Furthermore, a `link` to an external website with more information on the `consent` issue originating from the Sender can optionally be specified for the ConsentRequestItem.
+This causes an icon to appear to the right of it.
 Clicking on this icon redirects to the corresponding website.
 The ConsentRequestItem from our example Request provides a `link`.
 For this reason, the mentioned icon can be found in the screenshot of the App.

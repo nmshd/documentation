@@ -67,8 +67,7 @@ To create the Request, the Sender must proceed as described in the [Create outgo
 In this example, the value of the `mustBeAccepted` property of the ConsentRequestItem is set to `true`.
 Please note that the `<...>` notation is used as a placeholder for the actual data as usual and that the `link` property of the [ConsentRequestItem]({% link _docs_integrate/data-model-overview.md %}#consentrequestitem) is optional and can therefore also be omitted.
 In addition to the `link`, a `linkDisplayText` could optionally be specified, which would be displayed in the App instead of the URL of the `link`.
-Furthermore, the `requiresInteraction` property could be used to ensure that the checkbox in the App associated with the ConsentRequestItem is definitely
-not preselected.
+Furthermore, the `requiresInteraction` property could be used to ensure that the checkbox in the App associated with the ConsentRequestItem is definitely not preselected.
 
 ```jsonc
 {
