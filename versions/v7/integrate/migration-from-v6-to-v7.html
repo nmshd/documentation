@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-07-25T11:27:38+02:00">
+  <meta property="article:published_time" content="2025-07-25T15:08:11+02:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Migration From v6 to v7">
     <meta itemprop="description" content="The Runtime of enmeshed has recently been updated from version 6 to version 7.Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors.The version update has resulted in some breaking changes.To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
-    <meta itemprop="datePublished" content="2025-07-25T11:27:38+02:00">
+    <meta itemprop="datePublished" content="2025-07-25T15:08:11+02:00">
     
 
     <div class="page__inner-wrap">
@@ -429,7 +429,8 @@ Of course, the associated AcceptFreeTextRequestItemParameters and the FreeTextAc
 To be more precise, the <code class="language-plaintext highlighter-rouge">title</code> was only kept by the <a href="/versions/v7/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> and the <a href="/versions/v7/integrate/data-model-overview#formfieldrequestitem">FormFieldRequestItem</a> to provide context.</li>
   <li>The <code class="language-plaintext highlighter-rouge">title</code> property of the <a href="/versions/v7/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> is now mandatory to always convey the subject of authentication.</li>
   <li>The <code class="language-plaintext highlighter-rouge">requireManualDecision</code> property of all <a href="/versions/v7/integrate/data-model-overview#requestitems">RequestItems</a> has been removed.
-<a href="/versions/v7/integrate/data-model-overview#request">Requests</a> containing at least one <a href="/versions/v7/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> or <a href="/versions/v7/integrate/data-model-overview#consentrequestitem">ConsentRequestItem</a> within their <code class="language-plaintext highlighter-rouge">items</code> property are no longer eligible for automatic acceptance or rejection by the <a href="/versions/v7/explore/runtime#decider-module">Decider Module</a>, yet proper configuration still enables automatic processing of Requests containing other RequestItems.</li>
+<a href="/versions/v7/integrate/data-model-overview#request">Requests</a> containing at least one <a href="/versions/v7/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> or <a href="/versions/v7/integrate/data-model-overview#consentrequestitem">ConsentRequestItem</a> within their <code class="language-plaintext highlighter-rouge">items</code> property are no longer eligible for automatic acceptance or rejection by the <a href="/versions/v7/explore/runtime#decider-module">Decider Module</a>, yet proper configuration still enables automatic processing of Requests containing other RequestItems.
+Furthermore, the <code class="language-plaintext highlighter-rouge">requiresInteraction</code> property was added to the ConsentRequestItem to keep the ability to require an explicit action to grant consent, even though the <code class="language-plaintext highlighter-rouge">requireManualDecision</code> property was removed.</li>
   <li>The properties <code class="language-plaintext highlighter-rouge">validFrom</code> and <code class="language-plaintext highlighter-rouge">validTo</code> have been removed from the <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a>, the <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>, the <a href="/versions/v7/integrate/data-model-overview#identityattributequery">IdentityAttributeQuery</a>, the <a href="/versions/v7/integrate/data-model-overview#relationshipattributequery">RelationshipAttributeQuery</a> and the <a href="/versions/v7/integrate/data-model-overview#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a>.
 Specifying validity periods for <a href="/versions/v7/integrate/data-model-overview#attributes">Attributes</a> is no longer supported as they were not enforced during Attribute processing so far.</li>
   <li>The <code class="language-plaintext highlighter-rouge">template</code> property of the <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> was replaced by the <code class="language-plaintext highlighter-rouge">templateId</code> property in order to reduce data duplication by storing only the <code class="language-plaintext highlighter-rouge">id</code> of the <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> rather than the RelationshipTemplate itself within the Relationship.</li>
@@ -497,7 +498,7 @@ It has now been deleted with the update to version 7.</li>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-25T11:27:38+02:00">July 25, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-25T15:08:11+02:00">July 25, 2025</time></p>
 
       </footer>
 

@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-07-25T11:27:38+02:00">
+  <meta property="article:published_time" content="2025-07-25T15:08:11+02:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Request and Response introduction">
     <meta itemprop="description" content="Requests are the main instrument in enmeshed to interact with other Identities.They enable various business processes, e.g. creating, sharing or receiving Attributes, asking a peer for authentication or consent, and much more.Also, parts of a vaster business process can be implemented with them, like querying all personal information of a user to fill out a tax form.">
-    <meta itemprop="datePublished" content="2025-07-25T11:27:38+02:00">
+    <meta itemprop="datePublished" content="2025-07-25T15:08:11+02:00">
     
 
     <div class="page__inner-wrap">
@@ -708,8 +708,9 @@ In our example Request, this is the case for the <a href="/versions/v7/integrate
 If you do not agree to accept a RequestItem whose value of its <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code>, you are forced to reject the Request as a whole.</p>
 
 <p class="notice--info">Some RequestItems exhibit particular characteristics.
-For the <a href="/versions/v7/integrate/data-model-overview#consentrequestitem">ConsentRequestItem</a>, for example, a <code class="language-plaintext highlighter-rouge">link</code> to an external website with more information on the <code class="language-plaintext highlighter-rouge">consent</code> issue originating from the Sender can optionally be specified.
-Specifying a <code class="language-plaintext highlighter-rouge">link</code> causes an icon to appear to the right of the ConsentRequestItem.
+For the <a href="/versions/v7/integrate/data-model-overview#consentrequestitem">ConsentRequestItem</a>, for example, setting the optional property <code class="language-plaintext highlighter-rouge">requiresInteraction</code> to <code class="language-plaintext highlighter-rouge">true</code> means that the checkbox in the App associated with it is not preselected and must be explicitly ticked, even if <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> is set to <code class="language-plaintext highlighter-rouge">true</code>.
+Furthermore, a <code class="language-plaintext highlighter-rouge">link</code> to an external website with more information on the <code class="language-plaintext highlighter-rouge">consent</code> issue originating from the Sender can optionally be specified for the ConsentRequestItem.
+This causes an icon to appear to the right of it.
 Clicking on this icon redirects to the corresponding website.
 The ConsentRequestItem from our example Request provides a <code class="language-plaintext highlighter-rouge">link</code>.
 For this reason, the mentioned icon can be found in the screenshot of the App.</p>
@@ -731,7 +732,7 @@ If a RequestItem is accepted, an <a href="/versions/v7/integrate/data-model-over
 Depending on the kind of RequestItem, it might be a specific AcceptResponseItem, extending the base AcceptResponseItem to answer to RequestItems demanding additional information.
 For example, a ReadAttributeRequestItem is accepted using a <a href="/versions/v7/integrate/data-model-overview#readattributeacceptresponseitem">ReadAttributeAcceptResponseItem</a>, additionally transmitting information about the respective Attribute.</p>
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/fefe5166-29cd-4f02-ad35-0246ee70c0f5" id="VccYnn65H3tW"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/95b2ef47-7044-4ccd-a2f2-381cbd39231d" id="qUbBRbvLjxvP"></iframe></div>
 
 <p>If a RequestItem is rejected, however, a <a href="/versions/v7/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> is created.
 Lastly, in case the enmeshed Runtime detects a problem, an <a href="/versions/v7/integrate/data-model-overview#errorresponseitem">ErrorResponseItem</a> is generated.
@@ -824,7 +825,7 @@ Once the company accepts the new Relationship, they can exchange Messages or oth
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-25T11:27:38+02:00">July 25, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-07-25T15:08:11+02:00">July 25, 2025</time></p>
 
       </footer>
 
