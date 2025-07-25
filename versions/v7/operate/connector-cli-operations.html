@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Operate enmeshed</title>
-<meta name="description" content="Looking to set up and maintain a Connector in your own infrastructure? No worries, we’ve got you covered!">
+<!-- begin _includes/seo.html --><title>Connector CLI Operations - enmeshed</title>
+<meta name="description" content="The following guide provides step-by-step instructions for configuring the command-line interface (CLI) of the Connector and performing essential operations using it.">
 
 
   <meta name="author" content="enmeshed Team">
@@ -23,11 +23,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Operate enmeshed">
-<meta property="og:url" content="/versions/v7/operate">
+<meta property="og:title" content="Connector CLI Operations">
+<meta property="og:url" content="/versions/v7/operate/connector-cli-operations">
 
 
-  <meta property="og:description" content="Looking to set up and maintain a Connector in your own infrastructure? No worries, we’ve got you covered!">
+  <meta property="og:description" content="The following guide provides step-by-step instructions for configuring the command-line interface (CLI) of the Connector and performing essential operations using it.">
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/versions/v7/operate">
+<link rel="canonical" href="/versions/v7/operate/connector-cli-operations">
 
 
 
@@ -221,7 +221,7 @@
             
               <li><a href="/versions/v7/operate/overview-of-connector-operations">Overview of Connector operations</a></li>
             
-              <li><a href="/versions/v7/operate/connector-cli-operations">Connector CLI Operations</a></li>
+              <li><a href="/versions/v7/operate/connector-cli-operations" class="active">Connector CLI Operations</a></li>
             
               <li><a href="/versions/v7/operate/security-considerations">Security Considerations</a></li>
             
@@ -277,8 +277,8 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Operate enmeshed">
-    <meta itemprop="description" content="Looking to set up and maintain a Connector in your own infrastructure? No worries, we’ve got you covered!">
+    <meta itemprop="headline" content="Connector CLI Operations">
+    <meta itemprop="description" content="The following guide provides step-by-step instructions for configuring the command-line interface (CLI) of the Connector and performing essential operations using it.">
     <meta itemprop="datePublished" content="2025-07-25T11:27:38+02:00">
     
 
@@ -286,7 +286,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/versions/v7/operate" itemprop="url">Operate enmeshed
+            <a href="/versions/v7/operate/connector-cli-operations" itemprop="url">Connector CLI Operations
 </a>
           </h1>
           
@@ -297,180 +297,63 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>Looking to set up and maintain a Connector in your own infrastructure? No worries, we’ve got you covered!</p>
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#setup">Setup</a><ul><li><a href="#setup-with-docker-compose">Setup with Docker Compose</a></li></ul></li><li><a href="#operations">Operations</a><ul><li><a href="#start-command">Start Command</a></li><li><a href="#identity-status-command">Identity Status Command</a></li><li><a href="#identity-deletion-initialization-command">Identity Deletion Initialization Command</a></li><li><a href="#identity-deletion-cancellation-command">Identity Deletion Cancellation Command</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <p>The following guide provides step-by-step instructions for <a href="#setup">configuring</a> the command-line interface (CLI) of the Connector and performing essential <a href="#operations">operations</a> using it.</p>
 
-<p>We’ll guide you on how to configure and maintain your systems optimally, ensuring smooth operations.</p>
+<h2 id="setup">Setup</h2>
 
-<!-- markdownlint-disable MD011 -->
-<!-- <style>
-    .container {
-        position: relative;
-        max-width: 320px;
-        width: 100%;
-    }
-    .select-btn {
-        display: flex;
-        cursor: pointer;
-    }
+<p>Different Connector setups may require different approaches to executing the available commands provided by the Connector CLI.</p>
 
-    .list-items {
-        position: relative;
-        padding: 16px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        display: none;
-        position: fixed;
-        background-color: #fff;
-        z-index: 1;
-    }
-    .select-btn.open ~ .list-items {
-        display: block;
-    }
-    .list-items .item {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-    .item .item-text {
-        font-weight: 400;
-    }
-    .item .checkbox {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 16px;
-        width: 16px;
-        border-radius: 4px;
-        margin-right: 12px;
-        border: 1.5px solid #c0c0c0;
-        transition: all 0.3s ease-in-out;
-    }
-    .item.checked .checkbox {
-        background-color: #0092ca;
-        border-color: #0092ca;
-    }
-</style>
-<script>
-    function searchByName() {
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchByNameInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
+<h3 id="setup-with-docker-compose">Setup with Docker Compose</h3>
 
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-    function filter(input) {
-        // Declare variables
-        var table, tr, td, i, txtValue;
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
+<p>If the <a href="/versions/v7/operate/setup-with-docker-compose">Connector is set up with Docker Compose</a> using <code class="language-plaintext highlighter-rouge">docker compose up -d</code>, the <a href="#start-command">start command</a> of the Connector CLI is executed by default.
+To execute another command instead, it must be specified explicitly in the <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> as a <code class="language-plaintext highlighter-rouge">command</code> of the <code class="language-plaintext highlighter-rouge">connector</code> service.
+If <code class="language-plaintext highlighter-rouge">docker compose up -d</code> is then executed, the Connector is not started, but the operation associated with the command is performed.
+For example, the <a href="#identity-status-command">status</a> of the underlying Identity of the Connector is displayed by specifying the following <code class="language-plaintext highlighter-rouge">command</code> for the <code class="language-plaintext highlighter-rouge">connector</code> service:</p>
 
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            for (const [key, column] of Object.entries(input)) {
-                td = tr[i].getElementsByTagName("td")[key];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    // Loop through all columns
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">services</span><span class="pi">:</span>
+  <span class="na">connector</span><span class="pi">:</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">identity status</span>
+    <span class="c1"># ...</span>
+  <span class="c1"># ...</span>
+<span class="c1"># ...</span>
+</code></pre></div></div>
 
-                    if (column.includes(txtValue)) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                        break;
-                    }
-                }
-            }
-        }
-    }
-</script>
+<h2 id="operations">Operations</h2>
 
-<input type="text" id="searchByNameInput" onkeyup="searchByName()" placeholder="Search for title.." />
+<p>The commands provided by the Connector CLI are listed in the following.</p>
 
+<h3 id="start-command">Start Command</h3>
 
-<table id="myTable" style="width: 100%; display: table">
-    <tr>
-        <th style="width: 30%">Title</th>
-        <th style="width: 30%">
-            <div class="container">
-                <div class="select-btn">Category ⌄</div>
-                <ul class="list-items" id="category"></ul>
-            </div>
-        </th>
-        <th style="width: 20%">
-            <div class="container">
-                <div class="select-btn">customer ⌄</div>
-                <ul class="list-items" id="customer"></ul>
-            </div>
-        </th>
-        <th style="width: 20%">
-            <div class="container">
-                <div class="select-btn">Component ⌄</div>
-                <ul class="list-items" id="component"></ul>
-            </div>
-        </th>
-    </tr>
-    
-</table>
-<script>
-    const columns = ["category", "customer", "component"];
-    columns.forEach((element_id) => {
-        const used_elements = [];
-        var ul = document.getElementById(element_id);
-        var category_list = document.getElementsByClassName(element_id + "-list");
-        for (let i = 0; i < category_list.length; i++) {
-            if (!used_elements.includes(category_list[i].innerHTML)) {
-                used_elements.push(category_list[i].innerHTML);
-                var li = document.createElement("li");
-                li.classList.add("item");
-                li.classList.add("checked");
-                var checkbox = document.createElement("SPAN");
-                checkbox.classList.add("checkbox");
-                var text = document.createElement("SPAN");
-                text.classList.add("item-text");
-                text.textContent = category_list[i].innerHTML;
-                li.appendChild(checkbox);
-                li.appendChild(text);
-                ul.appendChild(li);
-            }
-        }
-    });
-</script>
-<script>
-    const selectBtns = document.querySelectorAll(".select-btn"),
-        items = document.querySelectorAll(".item");
-    selectBtns.forEach((selectBtn) => {
-        selectBtn.addEventListener("click", () => {
-            selectBtn.classList.toggle("open");
-        });
-    });
-    items.forEach((item) => {
-        item.addEventListener("click", () => {
-            item.classList.toggle("checked");
-            let checked = document.querySelectorAll(".checked");
-            var elements = new Array();
-            elements[1] = new Array();
-            elements[2] = new Array();
-            elements[3] = new Array();
-            checked.forEach((element) => {
-                elements[element.parentElement.parentElement.parentElement.cellIndex].push(element.innerText.replace(/[\n\r]+|[\s]{2,}/g, ""));
-            });
-            filter(elements);
-        });
-    });
-</script> -->
+<p>The <code class="language-plaintext highlighter-rouge">start</code> command can be used to start the Connector.
+It is executed by default, unless another command is explicitly specified during <a href="#setup">setup</a>.
+Once the Connector is started, it is <a href="/versions/v7/integrate/access-the-connector">accessible</a> for use.</p>
+
+<h3 id="identity-status-command">Identity Status Command</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">identity status</code> command can be used to obtain information about the underlying Identity of the Connector.
+It displays the <code class="language-plaintext highlighter-rouge">address</code> of the <a href="/versions/v7/integrate/data-model-overview#identity">Identity</a>.
+If the Identity deletion has been <a href="#identity-deletion-initialization-command">initialized</a> but the end of the grace period has not yet been reached, the status of the Identity deletion process and the end of the grace period are displayed additionally.</p>
+
+<h3 id="identity-deletion-initialization-command">Identity Deletion Initialization Command</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">identityDeletion init</code> command can be used to initialize the Identity deletion of the underlying Identity of the Connector.
+If the Identity deletion was initialized successfully, a log entry will indicate that the Identity deletion process has started.
+Consequently, the Identity will be deleted after the grace period ends unless the Identity deletion process is <a href="#identity-deletion-cancellation-command">cancelled</a> by the Identity by then.
+Checking the <a href="#identity-status-command">status</a> of the Identity displays the end of the grace period.
+The grace period is usually two weeks.</p>
+
+<h3 id="identity-deletion-cancellation-command">Identity Deletion Cancellation Command</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">identityDeletion cancel</code> command can be used to cancel the Identity deletion process if it has already been <a href="#identity-deletion-initialization-command">initialized</a> but the end of the grace period has not yet been reached.
+Checking the <a href="#identity-status-command">status</a> of the Identity displays the end of the grace period.
+A log entry will confirm if the Identity deletion process was cancelled successfully.</p>
 
         
       </section>
