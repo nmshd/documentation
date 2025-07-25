@@ -39,7 +39,7 @@ Understand the [Data Model]({% link _docs_integrate/data-model-overview.md %}) o
 
 ## Migration Guides
 
-Get support for the migration of an existing system to a new version, for example when [migrating from version 4 to version 5]({% link _docs_integrate/migration-from-v4-to-v5.md %}) or [from version 5 to version 6]({% link _docs_integrate/migration-from-v5-to-v6.md %}) of the enmeshed Runtime and Connector, respectively.
+Get support for the migration of an existing system to a new version, for example when [migrating from version 5 to version 6]({% link _docs_integrate/migration-from-v5-to-v6.md %}) or [from version 6 to version 7]({% link _docs_integrate/migration-from-v6-to-v7.md %}) of the enmeshed Runtime and Connector, respectively.
 
 ## Troubleshooting
 

@@ -93,7 +93,7 @@ pod:
             name: platform-client-secret
             key: VALUE
 
-      - name: infrastructure__httpServer__apiKey
+      - name: infrastructure__httpServer__authentication__apiKey__keys__default__key
         valueFrom:
           secretKeyRef:
             name: api-key
@@ -148,7 +148,7 @@ pod:
             name: platform-client-secret
             key: VALUE
 
-      - name: infrastructure__httpServer__apiKey
+      - name: infrastructure__httpServer__authentication__apiKey__keys__default__key
         valueFrom:
           secretKeyRef:
             name: api-key
