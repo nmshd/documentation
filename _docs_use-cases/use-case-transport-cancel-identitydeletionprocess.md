@@ -46,6 +46,9 @@ It can be cancelled if the Identity no longer wants to be deleted.
 This is only possible as long as the end of the associated grace period of the IdentityDeletionProcess specified within its `gracePeriodEndsAt` property has not yet been reached.
 This use case allows you to cancel an approved IdentityDeletionProcess for your Identity within the grace period.
 
+This use case can be utilized by using the [Identity deletion cancellation command]({% link _docs_operate/connector-cli-operations.md %}#identity-deletion-cancellation-command) of the [Connector CLI operations]({% link _docs_operate/connector-cli-operations.md %}), but not by using the [Connector REST API]({% link _docs_integrate/access-the-connector.md %}#hosted-api-tooling-by-the-development-connector).
+{: .notice--info}
+
 ## On Success
 
 - Changes the `status` of the IdentityDeletionProcess from `"Approved"` to `"Cancelled"`.
