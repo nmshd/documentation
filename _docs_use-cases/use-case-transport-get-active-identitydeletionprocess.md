@@ -46,6 +46,10 @@ An IdentityDeletionProcess is active if it has `"WaitingForApproval"` or `"Appro
 This use case returns the active IdentityDeletionProcess for your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) if one exists.
 At all times, there can only be at most one active IdentityDeletionProcess per Identity.
 
+This use case cannot be utilized by using the [Connector REST API]({% link _docs_integrate/access-the-connector.md %}#hosted-api-tooling-by-the-development-connector).
+However, the [Identity status command]({% link _docs_operate/connector-cli-operations.md %}#identity-status-command) of the [Connector CLI operations]({% link _docs_operate/connector-cli-operations.md %}) can be used to find out whether there is currently an active IdentityDeletionProcess.
+{: .notice--info}
+
 ## On Success
 
 - Returns the active IdentityDeletionProcess.
