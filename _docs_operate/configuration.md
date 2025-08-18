@@ -348,6 +348,14 @@ The `apiKey` authentication method is used to authenticate requests using an API
 
     The date and time when the API key expires. This is optional and can be used to automatically disable the API key after a certain period of time. The date must be in ISO 8601 format (e.g. `2063-10-01T00:00:00Z`).
 
+  - **scopes** `optional`
+
+    An optional array of strings that defines roles, specifying the permissions granted to anyone using the API key.
+    By default, administrator rights are assigned, represented explicitly by `"**"`, providing unrestricted access.
+    Roles can also be limited to specific resources, for example, `"core:messages"` allows access only to the messages controller.
+    A wildcard `"*"` can be used within a namespace to allow access to every resource in that namespace.
+    For instance, `core:*` allows access to `core:messages`, `core:relationships`, and any other resources within the `core` namespace.
+
 ###### jwtBearer
 
 **Example Configuration:**
