@@ -37,11 +37,10 @@ The step-by-step instructions can be consulted to start the migration to version
   For this reason, the old data must be deleted.
   Alternatively, the database can be deleted as a whole and [set up again]({% link _docs_operate/setup-with-docker-compose.md %}).
 - The [image](https://github.com/nmshd/connector?tab=readme-ov-file#connector) used to run the Connector must be updated to version 7.
-- The [configuration]({% link _docs_operate/configuration.md %}) value `database.dbNamePrefix` of the Connector was removed. Before, it defaulted to `acc-`. If you want to access a database called `acc-connector`, you have to set the `database.dbName` configuration value to `acc-connector` instead of `connector` only.
-- Configuring API keys for the Connector has changed.
-  - The `apiKey` property in the configuration file has been replaced by a more structured configuration under `authentication.apiKey.keys.<key-id>.key`.
-  - Additionally, the support for the `API_KEY` environment variable has been removed, that could be used to define an API key using a short environment variable. As an alternative, the `authentication.apiKey.keys.<key-id>.key` configuration property can be set using an [environment variable]({% link _docs_operate/configuration.md %}#environment-variables).
-  - You can read more about the authentication configuration in the [configuration documentation]({% link _docs_operate/configuration.md %}#authentication).
+- Some changes must be made to the [configuration]({% link _docs_operate/configuration.md %}) of the Connector.
+  - The `database.dbNamePrefix` field of the [database configuration]({% link _docs_operate/configuration.md %}#database) was removed. Before, it defaulted to `acc-`. If a database called `acc-connector` is to be accessed, the value of the `database.dbName` field must be set to `acc-connector` instead of `connector` only.
+  - To support additional authentication methods beyond API key authentication, the `apiKey` field was replaced by the `authentication.apiKey.keys.<key-id>.key` parameter of the [authentication configuration]({% link _docs_operate/configuration.md %}#authentication). The `authentication.apiKey.keys.<key-id>.scopes` field provides a convenient way to configure the permissions that apply when the API key identified by `<key-id>` is used.
+  - Additionally, the support for the `API_KEY` [environment variable]({% link _docs_operate/configuration.md %}#environment-variables) has been removed, that could be used to define an API key using a short environment variable. As an alternative, the `authentication.apiKey.keys.<key-id>.key` configuration property can be set using an environment variable.
 
 ### Removed and Changed Data Structures
 
