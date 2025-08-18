@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-08-13T17:12:57+02:00">
+  <meta property="article:published_time" content="2025-08-18T15:29:01+02:00">
 
 
 
@@ -279,7 +279,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Configuration">
     <meta itemprop="description" content="Mounting a config file">
-    <meta itemprop="datePublished" content="2025-08-13T17:12:57+02:00">
+    <meta itemprop="datePublished" content="2025-08-18T15:29:01+02:00">
     
 
     <div class="page__inner-wrap">
@@ -647,6 +647,15 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         <p><strong>expiresAt</strong> <code class="language-plaintext highlighter-rouge">optional</code></p>
 
         <p>The date and time when the API key expires. This is optional and can be used to automatically disable the API key after a certain period of time. The date must be in ISO 8601 format (e.g. <code class="language-plaintext highlighter-rouge">2063-10-01T00:00:00Z</code>).</p>
+      </li>
+      <li>
+        <p><strong>scopes</strong> <code class="language-plaintext highlighter-rouge">optional</code></p>
+
+        <p>An optional array of strings that defines roles, specifying the permissions granted to anyone using the API key.
+By default, administrator rights are assigned, represented explicitly by <code class="language-plaintext highlighter-rouge">"**"</code>, providing unrestricted access.
+Roles can also be limited to specific resources, for example, <code class="language-plaintext highlighter-rouge">"core:messages"</code> allows access only to the Connector routes related to messages.
+A wildcard <code class="language-plaintext highlighter-rouge">"*"</code> can be used within a namespace to allow access to every resource in that namespace.
+For instance, <code class="language-plaintext highlighter-rouge">core:*</code> allows access to <code class="language-plaintext highlighter-rouge">core:messages</code>, <code class="language-plaintext highlighter-rouge">core:relationships</code>, and any other resources within the <code class="language-plaintext highlighter-rouge">core</code> namespace.</p>
       </li>
     </ul>
   </li>
@@ -1212,7 +1221,7 @@ Ensure that your Backbone has the required settings enabled.</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-08-13T17:12:57+02:00">August 13, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-08-18T15:29:01+02:00">August 18, 2025</time></p>
 
       </footer>
 
