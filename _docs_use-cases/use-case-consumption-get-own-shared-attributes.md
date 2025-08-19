@@ -31,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Attributes/Own/Shared/Identity
+  - api_route_regex: GET /api/core/v1/Attributes/Own/Shared/Identity
   - published: default
   - link: use-case-consumption-get-own-shared-attributes
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Attributes/Own/Shared/Identity$
+api_route_regex: ^GET /api/core/v1/Attributes/Own/Shared/Identity$
 # End automatic generation
 ---
 

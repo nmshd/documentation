@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/Tokens/Own
+  - api_route_regex: POST /api/core/v1/Tokens/Own
   - published: default
   - link: use-case-transport-create-own-token
 require:
 required_by:
-api_route_regex: ^POST /api/v2/Tokens/Own$
+api_route_regex: ^POST /api/core/v1/Tokens/Own$
 # End automatic generation
 ---
 

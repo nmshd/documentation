@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/Files/Own
+  - api_route_regex: POST /api/core/v1/Files/Own
   - published: default
   - link: use-case-transport-upload-own-file
 require:
 required_by:
-api_route_regex: ^POST /api/v2/Files/Own$
+api_route_regex: ^POST /api/core/v1/Files/Own$
 # End automatic generation
 ---
 

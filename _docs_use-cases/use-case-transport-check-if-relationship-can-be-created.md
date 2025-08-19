@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: PUT /api/v2/Relationships/CanCreate
+  - api_route_regex: PUT /api/core/v1/Relationships/CanCreate
   - published: default
   - link: use-case-transport-check-if-relationship-can-be-created
 require:
 required_by:
-api_route_regex: ^PUT /api/v2/Relationships/CanCreate$
+api_route_regex: ^PUT /api/core/v1/Relationships/CanCreate$
 # End automatic generation
 ---
 

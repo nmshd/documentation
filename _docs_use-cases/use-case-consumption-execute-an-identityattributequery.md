@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/Attributes/ExecuteIdentityAttributeQuery
+  - api_route_regex: POST /api/core/v1/Attributes/ExecuteIdentityAttributeQuery
   - published: default
   - link: use-case-consumption-execute-an-identityattributequery
 require:
 required_by:
-api_route_regex: ^POST /api/v2/Attributes/ExecuteIdentityAttributeQuery$
+api_route_regex: ^POST /api/core/v1/Attributes/ExecuteIdentityAttributeQuery$
 # End automatic generation
 ---
 

@@ -31,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/RelationshipTemplates/Own/{id}/Token
+  - api_route_regex: POST /api/core/v1/RelationshipTemplates/Own/{id}/Token
   - published: default
   - link: use-case-device-create-token-qr-code-for-own-relationshiptemplate
 require:
 required_by:
-api_route_regex: ^POST /api/v2/RelationshipTemplates/Own/{id}/Token$
+api_route_regex: ^POST /api/core/v1/RelationshipTemplates/Own/{id}/Token$
 # End automatic generation
 ---
 

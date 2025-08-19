@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/Messages
+  - api_route_regex: POST /api/core/v1/Messages
   - published: default
   - link: use-case-transport-send-message-to-recipients
 require:
 required_by:
-api_route_regex: ^POST /api/v2/Messages$
+api_route_regex: ^POST /api/core/v1/Messages$
 # End automatic generation
 ---
 

@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Attributes/{id}/Versions
+  - api_route_regex: GET /api/core/v1/Attributes/{id}/Versions
   - published: default
   - link: use-case-consumption-get-versions-of-an-attribute
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Attributes/{id}/Versions$
+api_route_regex: ^GET /api/core/v1/Attributes/{id}/Versions$
 # End automatic generation
 ---
 

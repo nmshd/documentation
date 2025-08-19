@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/Attributes/ValidateIQLQuery
+  - api_route_regex: POST /api/core/v1/Attributes/ValidateIQLQuery
   - published: default
   - link: use-case-consumption-validate-an-iqlquery
 require:
 required_by:
-api_route_regex: ^POST /api/v2/Attributes/ValidateIQLQuery$
+api_route_regex: ^POST /api/core/v1/Attributes/ValidateIQLQuery$
 # End automatic generation
 ---
 

@@ -29,11 +29,11 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/Challenges
+  - api_route_regex: POST /api/core/v1/Challenges
   - published:
   - link: use-case-transport-create-challenge
 require:
 required_by:
-api_route_regex: ^POST /api/v2/Challenges$
+api_route_regex: ^POST /api/core/v1/Challenges$
 # End automatic generation
 ---

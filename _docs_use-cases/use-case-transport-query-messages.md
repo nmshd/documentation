@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Messages
+  - api_route_regex: GET /api/core/v1/Messages
   - published: default
   - link: use-case-transport-query-messages
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Messages$
+api_route_regex: ^GET /api/core/v1/Messages$
 # End automatic generation
 ---
 

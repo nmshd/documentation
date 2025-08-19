@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/Requests/Outgoing/Validate
+  - api_route_regex: POST /api/core/v1/Requests/Outgoing/Validate
   - published: default
   - link: use-case-consumption-check-if-outgoing-request-can-be-created
 require:
 required_by:
-api_route_regex: ^POST /api/v2/Requests/Outgoing/Validate$
+api_route_regex: ^POST /api/core/v1/Requests/Outgoing/Validate$
 # End automatic generation
 ---
 
