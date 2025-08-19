@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/IdentityMetadata
+  - api_route_regex: GET /api/core/v1/IdentityMetadata
   - published: default
   - link: use-case-consumption-get-identitymetadata
 require:
 required_by:
-api_route_regex: ^GET /api/v2/IdentityMetadata$
+api_route_regex: ^GET /api/core/v1/IdentityMetadata$
 # End automatic generation
 ---
 

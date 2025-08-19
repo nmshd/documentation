@@ -70,6 +70,8 @@ The step-by-step instructions can be consulted to start the migration to version
 
 ### Removed and Changed Connector Routes
 
+- For every Connector route originating from the [Core HTTP API Module]({% link _docs_operate/modules.md %}#corehttpapi), the prefix has been changed from `/api/v2` to `/api/core/v1` to reflect its origin.
+  The prefix syntax change led to the version being reset.
 - The `GET /api/v2/Attributes/Valid` Connector route and its underlying [use case]({% link _docs_integrate/use-cases.md %}) for getting valid [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) were removed, because the properties `validFrom` and `validTo` have been removed from the Attributes.
 - For the same reason, the `onlyValid` parameter was removed from the use cases [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}), [Get own shared Attributes]({% link _docs_use-cases/use-case-consumption-get-own-shared-attributes.md %}) and [Get peer shared Attributes]({% link _docs_use-cases/use-case-consumption-get-peer-shared-attributes.md %}).
   Accordingly, it was removed from the associated Connector routes as well.

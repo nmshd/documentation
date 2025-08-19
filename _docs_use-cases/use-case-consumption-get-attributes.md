@@ -31,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Attributes
+  - api_route_regex: GET /api/core/v1/Attributes
   - published: default
   - link: use-case-consumption-get-attributes
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Attributes$
+api_route_regex: ^GET /api/core/v1/Attributes$
 # End automatic generation
 ---
 

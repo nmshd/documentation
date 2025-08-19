@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Relationships/{id}
+  - api_route_regex: GET /api/core/v1/Relationships/{id}
   - published: default
   - link: use-case-transport-get-relationship-by-relationshipid
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Relationships/{id}$
+api_route_regex: ^GET /api/core/v1/Relationships/{id}$
 # End automatic generation
 ---
 

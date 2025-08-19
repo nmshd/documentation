@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Files/{id}/Download
+  - api_route_regex: GET /api/core/v1/Files/{id}/Download
   - published: default
   - link: use-case-transport-download-file
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Files/{id}/Download$
+api_route_regex: ^GET /api/core/v1/Files/{id}/Download$
 # End automatic generation
 ---
 

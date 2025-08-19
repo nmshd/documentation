@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/Attributes/ExecuteRelationshipAttributeQuery
+  - api_route_regex: POST /api/core/v1/Attributes/ExecuteRelationshipAttributeQuery
   - published: default
   - link: use-case-consumption-execute-a-relationshipattributequery
 require:
 required_by:
-api_route_regex: ^POST /api/v2/Attributes/ExecuteRelationshipAttributeQuery$
+api_route_regex: ^POST /api/core/v1/Attributes/ExecuteRelationshipAttributeQuery$
 # End automatic generation
 ---
 

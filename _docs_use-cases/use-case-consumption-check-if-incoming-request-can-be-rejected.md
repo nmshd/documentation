@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: PUT /api/v2/Requests/Incoming/{id}/CanReject
+  - api_route_regex: PUT /api/core/v1/Requests/Incoming/{id}/CanReject
   - published: default
   - link: use-case-consumption-check-if-incoming-request-can-be-rejected
 require:
 required_by:
-api_route_regex: ^PUT /api/v2/Requests/Incoming/{id}/CanReject$
+api_route_regex: ^PUT /api/core/v1/Requests/Incoming/{id}/CanReject$
 # End automatic generation
 ---
 

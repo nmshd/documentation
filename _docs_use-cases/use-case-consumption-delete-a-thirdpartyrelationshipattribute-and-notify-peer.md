@@ -31,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: DELETE /api/v2/Attributes/ThirdParty/{id}
+  - api_route_regex: DELETE /api/core/v1/Attributes/ThirdParty/{id}
   - published: default
   - link: use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer
 require:
 required_by:
-api_route_regex: ^DELETE /api/v2/Attributes/ThirdParty/{id}$
+api_route_regex: ^DELETE /api/core/v1/Attributes/ThirdParty/{id}$
 # End automatic generation
 ---
 

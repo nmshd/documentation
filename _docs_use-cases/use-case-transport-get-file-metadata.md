@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Files/{idOrReference}
+  - api_route_regex: GET /api/core/v1/Files/{idOrReference}
   - published: default
   - link: use-case-transport-get-file-metadata
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Files/{idOrReference}$
+api_route_regex: ^GET /api/core/v1/Files/{idOrReference}$
 # End automatic generation
 ---
 

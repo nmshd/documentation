@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: PATCH /api/v2/Files/{id}/RegenerateOwnershipToken
+  - api_route_regex: PATCH /api/core/v1/Files/{id}/RegenerateOwnershipToken
   - published: default
   - link: use-case-transport-regenerate-file-ownership-token
 require:
 required_by:
-api_route_regex: ^PATCH /api/v2/Files/{id}/RegenerateOwnershipToken$
+api_route_regex: ^PATCH /api/core/v1/Files/{id}/RegenerateOwnershipToken$
 # End automatic generation
 ---
 

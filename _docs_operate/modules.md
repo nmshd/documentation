@@ -36,7 +36,7 @@ It is not recommended to use this Module for production scenarios.
 
 The `autoAcceptPendingRelationships` Module listens to the [events]({% link _docs_integrate/connector-events.md %}) about changed Relationships. It immediately accepts pending Relationships.
 
-Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive changed Relationships. The `sync` Module automates this, but you can also do this manually by calling the `/api/v2/Account/Sync` route.
+Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive changed Relationships. The `sync` Module automates this, but you can also do this manually by calling the `/api/core/v1/Account/Sync` route.
 
 ### Core HTTP API <a href="{% link _docs_operate/configuration.md %}#corehttpapi"><i class="fas fa-fw fa-cog"/></a> {#corehttpapi}
 
@@ -64,7 +64,7 @@ With the REST API, pull mechanisms are supported. However, as there are many bid
 
 For this, the Connector supports the configuration of webhooks which are called every time a specific [Connector Event]({% link _docs_integrate/connector-events.md %}) is triggered (e.g. a new Message has been received => `transport.messageReceived`).
 
-Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The `sync` Module automates this, but you can also do this manually by calling the `/api/v2/Account/Sync` route.
+Keep in mind that you need to synchronize the state of the Connector with the Backbone in order to receive events. The `sync` Module automates this, but you can also do this manually by calling the `/api/core/v1/Account/Sync` route.
 
 ### sse (Server-Sent Events) <a href="{% link _docs_operate/configuration.md %}#sse"><i class="fas fa-fw fa-cog"/></a> {#sse}
 

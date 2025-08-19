@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Tokens/{id}
+  - api_route_regex: GET /api/core/v1/Tokens/{id}
   - published: default
   - link: use-case-transport-get-token-by-tokenid
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Tokens/{id}$
+api_route_regex: ^GET /api/core/v1/Tokens/{id}$
 # End automatic generation
 ---
 

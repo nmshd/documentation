@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Attributes/TagCollection
+  - api_route_regex: GET /api/core/v1/Attributes/TagCollection
   - published: default
   - link: use-case-consumption-get-attributetagcollection
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Attributes/TagCollection$
+api_route_regex: ^GET /api/core/v1/Attributes/TagCollection$
 # End automatic generation
 ---
 
