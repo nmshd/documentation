@@ -30,7 +30,7 @@ To support the migration of existing systems to the new version, the breaking ch
 
 ## Removal of Routes for loading peer objects by id and key
 
-The routes `POST /api/core/v1/Files/Peer`, `POST /api/core/v1/RelationshipTemplates/Peer`, `POST /api/core/v1/Tokens/Peer` all had the possibility to load peer objects with two different payloads:
+The routes `POST /api/v2/Files/Peer`, `POST /api/v2/RelationshipTemplates/Peer`, `POST /api/v2/Tokens/Peer` all had the possibility to load peer objects with two different payloads:
 
 ```json
 {

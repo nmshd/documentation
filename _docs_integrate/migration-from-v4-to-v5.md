@@ -47,14 +47,14 @@ More [detailed explanations]({% link _docs_integrate/migration-from-v4-to-v5.md 
 - The [RelationshipChanges have been removed]({% link _docs_integrate/migration-from-v4-to-v5.md %}#removal-of-relationshipchanges).
   - This has led to the removal of the `changes` property of the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) and the addition of the `creationContent` and `auditLog` properties to the Relationship.
   - In particular, the use cases for accepting and rejecting RelationshipChanges had to be removed. With the use cases [Accept Relationship]({% link _docs_use-cases/use-case-transport-accept-relationship.md %}) and [Reject Relationship]({% link _docs_use-cases/use-case-transport-reject-relationship.md %}), two [new use cases]({% link _docs_integrate/migration-from-v4-to-v5.md %}#removal-of-relationshipchanges-1) have been added that now provide these functionalities.
-  - For this reason, the route `PUT /api/core/v1/Relationships/{id}/Accept` must be executed instead of the route `PUT /api/core/v1/Relationships/{id}/Changes/{changeId}/Accept` and the route `PUT /api/core/v1/Relationships/{id}/Reject` must be executed instead of the route `PUT /api/core/v1/Relationships/{id}/Changes/{changeId}/Reject` when using the Connector. In contrast to the old Connector routes, a request body no longer needs to be provided when using the new Connector routes.
+  - For this reason, the route `PUT /api/v2/Relationships/{id}/Accept` must be executed instead of the route `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept` and the route `PUT /api/v2/Relationships/{id}/Reject` must be executed instead of the route `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Reject` when using the Connector. In contrast to the old Connector routes, a request body no longer needs to be provided when using the new Connector routes.
 - Non-standard `content` of a [Message]({% link _docs_integrate/data-model-overview.md %}#message), non-standard `content` of a [RelationshipTemplate]({% link _docs_integrate/data-model-overview.md %}#relationshiptemplate) and non-standard `creationContent` of a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) is now typed. The [new mandatory wrappers]({% link _docs_integrate/migration-from-v4-to-v5.md %}#new-mandatory-wrappers-for-non-standard-content-of-messages-relationshiptemplates-and-relationships) are [ArbitraryMessageContent]({% link _docs_integrate/data-model-overview.md %}#arbitrarymessagecontent), [ArbitraryRelationshipTemplateContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshiptemplatecontent) and [ArbitraryRelationshipCreationContent]({% link _docs_integrate/data-model-overview.md %}#arbitraryrelationshipcreationcontent), respectively, which must now be used.
 - The `mustBeAccepted` property of the [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) has been removed, which is why this [property must be removed if RequestItemGroups were used]({% link _docs_integrate/migration-from-v4-to-v5.md %}#removal-of-the-mustbeaccepted-property-of-the-requestitemgroup).
 - The type of the `owner` property of the [ThirdPartyRelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributequery) has changed. The [values specified for this property must therefore be adjusted if ThirdPartyRelationshipAttributeQueries were used]({% link _docs_integrate/migration-from-v4-to-v5.md %}#changed-type-of-the-owner-property-of-the-thirdpartyrelationshipattributequery).
 
 ### Changed Behavior of Known Features
 
-- The [Synchronize updates of Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) use case, which corresponds to the Connector route `POST /api/core/v1/Account/Sync`, no longer returns any content. Previously, new Messages or changes to Relationships were shown in the response after the use case was executed. As the [synchronization with the Backbone no longer returns anything]({% link _docs_integrate/migration-from-v4-to-v5.md %}#synchronization-with-backbone-returns-no-content-anymore), the corresponding [events]({% link _docs_integrate/connector-events.md %}) must be listened to instead in order to be informed about new Messages or changes to Relationships.
+- The [Synchronize updates of Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) use case, which corresponds to the Connector route `POST /api/v2/Account/Sync`, no longer returns any content. Previously, new Messages or changes to Relationships were shown in the response after the use case was executed. As the [synchronization with the Backbone no longer returns anything]({% link _docs_integrate/migration-from-v4-to-v5.md %}#synchronization-with-backbone-returns-no-content-anymore), the corresponding [events]({% link _docs_integrate/connector-events.md %}) must be listened to instead in order to be informed about new Messages or changes to Relationships.
 - Stricter [validation of Requests]({% link _docs_integrate/migration-from-v4-to-v5.md %}#validation-of-requests) has been added. Therefore, changes will probably have to be made to existing Request flows. Both [sending Requests]({% link _docs_integrate/migration-from-v4-to-v5.md %}#sending-of-requests) and [responding to Requests]({% link _docs_integrate/migration-from-v4-to-v5.md %}#responding-to-requests) are affected.
 
 ### Changes to Error Codes, Connector Routes and Events
@@ -63,8 +63,8 @@ Changes have been made to the [error codes]({% link _docs_integrate/error-codes.
 
 - An overview of the [removed and changed error codes]({% link _docs_integrate/migration-from-v4-to-v5.md %}#removed-and-changed-error-codes) can be found below.
 - An overview of the [removed, changed and added use cases]({% link _docs_integrate/migration-from-v4-to-v5.md %}#removed-changed-and-added-use-cases) with regard to their impact on the Connector routes can be found below.
-  - In particular, it must be noted that the [use case of getting shared versions of a RepositoryAttribute has been renamed]({% link _docs_integrate/migration-from-v4-to-v5.md %}#renaming-of-the-use-case-getsharedversionsofrepositoryattribute-to-getsharedversionsofattribute). The [Get shared versions of an Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) use case must now be executed instead. Please note, however, that the associated Connector route `GET /api/core/v1/Attributes/{id}/Versions/Shared` has not changed.
-  - With the execution of the Connector route `POST /api/core/v1/Attributes`, which corresponds to the execution of the associated [Create a RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-create-a-repositoryattribute.md %}) use case, an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) can be created for yourself. When executing this Connector route, the fields `content.@type` and `content.owner` may no longer be specified as input. This is due to the fact that previously only the IdentityAttribute as `@type` and the own address as the value of the `owner` property of the [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) to be created for yourself came into question anyway. Therefore, [less input needs to be provided when executing the use case to create a RepositoryAttribute]({% link _docs_integrate/migration-from-v4-to-v5.md %}#less-input-needed-for-the-use-case-createrepositoryattribute).
+  - In particular, it must be noted that the [use case of getting shared versions of a RepositoryAttribute has been renamed]({% link _docs_integrate/migration-from-v4-to-v5.md %}#renaming-of-the-use-case-getsharedversionsofrepositoryattribute-to-getsharedversionsofattribute). The [Get shared versions of an Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) use case must now be executed instead. Please note, however, that the associated Connector route `GET /api/v2/Attributes/{id}/Versions/Shared` has not changed.
+  - With the execution of the Connector route `POST /api/v2/Attributes`, which corresponds to the execution of the associated [Create a RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-create-a-repositoryattribute.md %}) use case, an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) can be created for yourself. When executing this Connector route, the fields `content.@type` and `content.owner` may no longer be specified as input. This is due to the fact that previously only the IdentityAttribute as `@type` and the own address as the value of the `owner` property of the [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) to be created for yourself came into question anyway. Therefore, [less input needs to be provided when executing the use case to create a RepositoryAttribute]({% link _docs_integrate/migration-from-v4-to-v5.md %}#less-input-needed-for-the-use-case-createrepositoryattribute).
 - An overview of the [renamed and added events]({% link _docs_integrate/migration-from-v4-to-v5.md %}#renamed-and-added-events) can be found below.
 
 ## Detailed Explanations
@@ -98,10 +98,10 @@ The functionalities of the old two use cases of accepting and rejecting Relation
 This means that no `content` must be sent with any of these operations anymore.
 The former, more generic Connector routes using RelationshipChanges could also have been used to accept or reject changes to a Relationship other than the establishment of an active Relationship, which might have required the transmission of additional data.
 
-| Old Connector route                                                                     | New Connector route                                                |
-| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| `PUT /api/core/v1/Relationships/{relationshipId}/Changes/{changeId}/Accept` (with body) | `PUT /api/core/v1/Relationships/{relationshipId}/Accept` (no body) |
-| `PUT /api/core/v1/Relationships/{relationshipId}/Changes/{changeId}/Reject` (with body) | `PUT /api/core/v1/Relationships/{relationshipId}/Reject` (no body) |
+| Old Connector route                                                                | New Connector route                                           |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Accept` (with body) | `PUT /api/v2/Relationships/{relationshipId}/Accept` (no body) |
+| `PUT /api/v2/Relationships/{relationshipId}/Changes/{changeId}/Reject` (with body) | `PUT /api/v2/Relationships/{relationshipId}/Reject` (no body) |
 
 #### Modifications to Relationship
 
@@ -131,7 +131,7 @@ These new wrappers are all of the following form, whereby the `<...>` notation i
 }
 ```
 
-Thus, when [sending a Message]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) with non-standard `content` via `POST /api/core/v1/Messages`, instead of using the parameter `content : <arbitrary content of Message>`, it must be used:
+Thus, when [sending a Message]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) with non-standard `content` via `POST /api/v2/Messages`, instead of using the parameter `content : <arbitrary content of Message>`, it must be used:
 
 ```jsonc
 "content": {
@@ -140,7 +140,7 @@ Thus, when [sending a Message]({% link _docs_use-cases/use-case-transport-send-m
 }
 ```
 
-Similarly, when [creating an own RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-own-relationshiptemplate.md %}) with non-standard `content` via the Connector route `POST /api/core/v1/RelationshipTemplates/Own`, it must be provided:
+Similarly, when [creating an own RelationshipTemplate]({% link _docs_use-cases/use-case-transport-create-own-relationshiptemplate.md %}) with non-standard `content` via the Connector route `POST /api/v2/RelationshipTemplates/Own`, it must be provided:
 
 ```jsonc
 "content": {
@@ -149,7 +149,7 @@ Similarly, when [creating an own RelationshipTemplate]({% link _docs_use-cases/u
 }
 ```
 
-Last but not least, when [creating a Relationship]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) with non-standard `creationContent` via the Connector route `POST /api/core/v1/Relationships`, it must be utilized:
+Last but not least, when [creating a Relationship]({% link _docs_use-cases/use-case-transport-create-relationship-with-relationshiptemplate.md %}) with non-standard `creationContent` via the Connector route `POST /api/v2/Relationships`, it must be utilized:
 
 ```jsonc
 "creationContent": {
@@ -190,7 +190,7 @@ This change enables the Sender of the Request to specify more precisely which Id
 
 ### Synchronization With Backbone Returns No Content Anymore
 
-Previously, the [synchronization with the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) via the route `POST /api/core/v1/Account/Sync` returned a list of Relationships and Messages with the HTTP code 201. This has been changed to the sync returning nothing with the HTTP code 204. This removes the support for the workflow of regularly calling the sync and checking the response since unexpected response values happen if syncs are executed from different spots. We recommend working event-based with the [Message Broker Publisher Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher), which sends events to a message broker you have set up. We send a variety of events like `consumption.incomingRequestReceived` or `consumption.incomingRequestStatusChanged`, each of them containing the relevant changed object. See [Connector Events]({% link _docs_integrate/connector-events.md %}) for the full list. Slightly related, we also recommend using the recently published [Server-Sent Events Module]({% link _docs_operate/modules.md %}#sse), which listens to events emitted from the Backbone and syncs with the Backbone when an event is received.
+Previously, the [synchronization with the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}) via the route `POST /api/v2/Account/Sync` returned a list of Relationships and Messages with the HTTP code 201. This has been changed to the sync returning nothing with the HTTP code 204. This removes the support for the workflow of regularly calling the sync and checking the response since unexpected response values happen if syncs are executed from different spots. We recommend working event-based with the [Message Broker Publisher Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher), which sends events to a message broker you have set up. We send a variety of events like `consumption.incomingRequestReceived` or `consumption.incomingRequestStatusChanged`, each of them containing the relevant changed object. See [Connector Events]({% link _docs_integrate/connector-events.md %}) for the full list. Slightly related, we also recommend using the recently published [Server-Sent Events Module]({% link _docs_operate/modules.md %}#sse), which listens to events emitted from the Backbone and syncs with the Backbone when an event is received.
 
 ### Validation of Requests
 
@@ -229,19 +229,19 @@ An overview of the [Use Cases]({% link _docs_integrate/use-cases.md %}) that may
 #### Revocation of Relationships
 
 The [Revoke Relationship]({% link _docs_use-cases/use-case-transport-revoke-relationship.md %}) use case has been added.
-It is now possible to revoke a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` if it was created by yourself. To execute this use case, the Connector route `PUT /api/core/v1/Relationships/{id}/Revoke` can be used.
+It is now possible to revoke a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with `"Pending"` as `status` if it was created by yourself. To execute this use case, the Connector route `PUT /api/v2/Relationships/{id}/Revoke` can be used.
 
 #### Removal of RelationshipChanges
 
 The [removal of RelationshipChanges](#removal-of-relationshipchanges) is the reason why the following use cases are removed:
 
-- The use case for accepting RelationshipChanges along with the associated Connector route `PUT /api/core/v1/Relationships/{id}/Changes/{changeId}/Accept`.
-- The use case for rejecting RelationshipChanges along with the associated Connector route `PUT /api/core/v1/Relationships/{id}/Changes/{changeId}/Reject`.
+- The use case for accepting RelationshipChanges along with the associated Connector route `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Accept`.
+- The use case for rejecting RelationshipChanges along with the associated Connector route `PUT /api/v2/Relationships/{id}/Changes/{changeId}/Reject`.
 
 Therefore, the following new use cases had to be added, which now provide these functionalities:
 
-- The [Accept Relationship]({% link _docs_use-cases/use-case-transport-accept-relationship.md %}) use case along with the `PUT /api/core/v1/Relationships/{id}/Accept` Connector route.
-- The [Reject Relationship]({% link _docs_use-cases/use-case-transport-reject-relationship.md %}) use case along with the `PUT /api/core/v1/Relationships/{id}/Reject` Connector route.
+- The [Accept Relationship]({% link _docs_use-cases/use-case-transport-accept-relationship.md %}) use case along with the `PUT /api/v2/Relationships/{id}/Accept` Connector route.
+- The [Reject Relationship]({% link _docs_use-cases/use-case-transport-reject-relationship.md %}) use case along with the `PUT /api/v2/Relationships/{id}/Reject` Connector route.
 
 #### Termination of Relationships
 
@@ -261,18 +261,18 @@ Taking [ThirdPartyRelationshipAttributes]({% link _docs_integrate/data-model-ove
 For this reason, the [Get shared versions of an Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) use case was already added in version 4 and the use case of getting shared versions of a RepositoryAttribute was marked as deprecated.
 It has now been deleted with the update to version 5.
 
-Please note, however, that the Connector route `GET /api/core/v1/Attributes/{id}/Versions/Shared` that belonged to the use case of getting shared versions of a RepositoryAttribute can still be used. If the Connector route `GET /api/core/v1/Attributes/{id}/Versions/Shared` is executed, the [Get shared versions of an Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) use case is now executed instead.
+Please note, however, that the Connector route `GET /api/v2/Attributes/{id}/Versions/Shared` that belonged to the use case of getting shared versions of a RepositoryAttribute can still be used. If the Connector route `GET /api/v2/Attributes/{id}/Versions/Shared` is executed, the [Get shared versions of an Attribute]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) use case is now executed instead.
 As the functionality has only been extended, there is no breaking change with regard to the Connector route.
 
 #### Less Input Needed for the Use Case CreateRepositoryAttribute
 
-In version 4, there was already a use case for creating Attributes for yourself that could be executed by Connector route `POST /api/core/v1/Attributes`.
+In version 4, there was already a use case for creating Attributes for yourself that could be executed by Connector route `POST /api/v2/Attributes`.
 An Attribute created for yourself is automatically an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) which is owned by yourself.
 Technically, this corresponds exactly to the creation of a [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
 Therefore, the use case for creating Attributes for yourself is named the [Create a RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-create-a-repositoryattribute.md %}) use case.
 
 When [creating Attributes for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}), it is therefore apparently not valuable to have to explicitly specify that an IdentityAttribute should be created instead of a RelationshipAttribute and that the IdentityAttribute should be owned by yourself instead of another Identity.
-For this reason, when executing the Connector route `POST /api/core/v1/Attributes`, which corresponds to the execution of the associated [Create a RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-create-a-repositoryattribute.md %}) use case, less input must now be provided, since the `@type` and the `owner` of the [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) to be created may no longer be specified.
+For this reason, when executing the Connector route `POST /api/v2/Attributes`, which corresponds to the execution of the associated [Create a RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-create-a-repositoryattribute.md %}) use case, less input must now be provided, since the `@type` and the `owner` of the [Attribute]({% link _docs_integrate/data-model-overview.md %}#attributes) to be created may no longer be specified.
 
 ### Renamed and Added Events
 
