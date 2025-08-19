@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-08-18T15:29:01+02:00">
+  <meta property="article:published_time" content="2025-08-19T16:04:08+02:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Migration From v6 to v7">
     <meta itemprop="description" content="The Runtime of enmeshed has recently been updated from version 6 to version 7.Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors.The version update has resulted in some breaking changes.To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
-    <meta itemprop="datePublished" content="2025-08-18T15:29:01+02:00">
+    <meta itemprop="datePublished" content="2025-08-19T16:04:08+02:00">
     
 
     <div class="page__inner-wrap">
@@ -451,6 +451,8 @@ An error with <a href="/versions/v7/integrate/error-codes">error code</a> <code 
 <h3 id="removed-and-changed-connector-routes">Removed and Changed Connector Routes</h3>
 
 <ul>
+  <li>For every Connector route originating from the <a href="/versions/v7/operate/modules#corehttpapi">Core HTTP API Module</a>, the prefix has been changed from <code class="language-plaintext highlighter-rouge">/api/v2</code> to <code class="language-plaintext highlighter-rouge">/api/core/v1</code> to reflect its origin.
+The prefix syntax change led to the version being reset.</li>
   <li>The <code class="language-plaintext highlighter-rouge">GET /api/v2/Attributes/Valid</code> Connector route and its underlying <a href="/versions/v7/integrate/use-cases">use case</a> for getting valid <a href="/versions/v7/integrate/data-model-overview#attributes">Attributes</a> were removed, because the properties <code class="language-plaintext highlighter-rouge">validFrom</code> and <code class="language-plaintext highlighter-rouge">validTo</code> have been removed from the Attributes.</li>
   <li>For the same reason, the <code class="language-plaintext highlighter-rouge">onlyValid</code> parameter was removed from the use cases <a href="/versions/v7/use-case-consumption-get-attributes">Get Attributes</a>, <a href="/versions/v7/use-case-consumption-get-own-shared-attributes">Get own shared Attributes</a> and <a href="/versions/v7/use-case-consumption-get-peer-shared-attributes">Get peer shared Attributes</a>.
 Accordingly, it was removed from the associated Connector routes as well.</li>
@@ -497,7 +499,7 @@ It has now been deleted with the update to version 7.</li>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-08-18T15:29:01+02:00">August 18, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-08-19T16:04:08+02:00">August 19, 2025</time></p>
 
       </footer>
 
