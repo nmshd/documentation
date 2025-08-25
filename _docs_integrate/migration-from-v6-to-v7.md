@@ -84,8 +84,8 @@ With every version of the Connector, we ship a matching [TypeScript SDK]({% link
 import { ApiKeyAuthenticator, ConnectorClient } from "@nmshd/connector-sdk";
 
 const connectorClient = ConnectorClient.create({
-  baseUrl: "https://<insert-your-Connector-domain-here>",
-  authenticator: new ApiKeyAuthenticator("<insert-your-API-key-with-at-least-30-chars-here>")
+  baseUrl: "<insert-the-base-URL-of-your-Connector-here>",
+  authenticator: new ApiKeyAuthenticator("<insert-your-valid-API-key-here>")
 });
 ```
 
