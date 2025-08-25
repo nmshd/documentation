@@ -338,7 +338,7 @@ The `apiKey` authentication method is used to authenticate requests using an API
 
   - **key** `required`
 
-    The actual API key that is used to authenticate the request. This key must be kept secret and should not be shared with anyone.
+    The actual API key that is used to authenticate the request. This key must be kept secret and should not be shared with anyone. A valid API key must be at least 30 characters long and contain at least 2 digits, 2 uppercase letters, 2 lowercase letters and 1 special character out of ``!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~``.
 
   - **description** `optional`
 
