@@ -85,7 +85,7 @@ import { ApiKeyAuthenticator, ConnectorClient } from "@nmshd/connector-sdk";
 
 const connectorClient = ConnectorClient.create({
   baseUrl: "https://<INSERT_YOUR_CONNECTOR_DOMAIN_HERE>",
-  authenticator: new ApiKeyAuthenticator("<INSERT_YOUR_API_KEY_HERE>")
+  authenticator: new ApiKeyAuthenticator("<INSERT_YOUR_API_KEY_WITH_AT_LEAST_30_CHARS_HERE>")
 });
 ```
 
