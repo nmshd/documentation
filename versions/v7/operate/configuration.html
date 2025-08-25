@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-08-19T16:04:08+02:00">
+  <meta property="article:published_time" content="2025-08-25T15:49:06+02:00">
 
 
 
@@ -279,7 +279,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Configuration">
     <meta itemprop="description" content="Mounting a config file">
-    <meta itemprop="datePublished" content="2025-08-19T16:04:08+02:00">
+    <meta itemprop="datePublished" content="2025-08-25T15:49:06+02:00">
     
 
     <div class="page__inner-wrap">
@@ -358,7 +358,7 @@
         </span><span class="nl">"apiKey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"keys"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"default"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"an-api-key"</span><span class="w">
+              </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-valid-API-key"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -371,7 +371,7 @@
 <ul>
   <li>The first value can be configured using the variable <code class="language-plaintext highlighter-rouge">infrastructure:httpServer:enabled="true"</code>. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its boolean representation.</li>
   <li>The second value can be configured using the variable <code class="language-plaintext highlighter-rouge">infrastructure:httpServer:port="8080"</code>. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its number representation.</li>
-  <li>The third value can be configured using the variable <code class="language-plaintext highlighter-rouge">infrastructure:httpServer:authentication:apiKey:keys:default:key="an-api-key"</code>.</li>
+  <li>The third value can be configured using the variable <code class="language-plaintext highlighter-rouge">infrastructure:httpServer:authentication:apiKey:keys:default:key="a-valid-API-key"</code>.</li>
 </ul>
 
 <h2 id="configuration-options">Configuration options</h2>
@@ -523,7 +523,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         </span><span class="nl">"apiKey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"keys"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"default"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"an-api-key"</span><span class="w">
+              </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-valid-API-key"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -603,7 +603,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   </span><span class="nl">"apiKey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"keys"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"default"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"an-api-key"</span><span class="w">
+        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a-valid-API-key"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -636,7 +636,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
       <li>
         <p><strong>key</strong> <code class="language-plaintext highlighter-rouge">required</code></p>
 
-        <p>The actual API key that is used to authenticate the request. This key must be kept secret and should not be shared with anyone.</p>
+        <p>The actual API key that is used to authenticate the request. This key must be kept secret and should not be shared with anyone. A valid API key must be at least 30 characters long and contain at least 2 digits, 2 uppercase letters, 2 lowercase letters and 1 special character out of <code class="language-plaintext highlighter-rouge">!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</code>.</p>
       </li>
       <li>
         <p><strong>description</strong> <code class="language-plaintext highlighter-rouge">optional</code></p>
@@ -1221,7 +1221,7 @@ Ensure that your Backbone has the required settings enabled.</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-08-19T16:04:08+02:00">August 19, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-08-25T15:49:06+02:00">August 25, 2025</time></p>
 
       </footer>
 

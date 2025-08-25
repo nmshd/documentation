@@ -14,7 +14,7 @@
                 "apiKey": {
                     "keys": {
                         "<an-api-key-id>": {
-                            "key": "<define-an-apiKey => https://enmeshed.eu/operate/configuration#httpserver>"
+                            "key": "<define-a-valid-API-key => https://enmeshed.eu/operate/configuration#apikey>"
                         }
                     }
                 }
