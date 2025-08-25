@@ -74,7 +74,7 @@ You want to configure the following values:
         "apiKey": {
           "keys": {
             "default": {
-              "key": "a-valid-API-key-with-at-least-30-chars"
+              "key": "a-valid-API-key"
             }
           }
         }
@@ -86,7 +86,7 @@ You want to configure the following values:
 
 - The first value can be configured using the variable `infrastructure:httpServer:enabled="true"`. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its boolean representation.
 - The second value can be configured using the variable `infrastructure:httpServer:port="8080"`. Note that the value is represented as a string in the environment variable and the Connector will rewrite it to its number representation.
-- The third value can be configured using the variable `infrastructure:httpServer:authentication:apiKey:keys:default:key="a-valid-API-key-with-at-least-30-chars"`.
+- The third value can be configured using the variable `infrastructure:httpServer:authentication:apiKey:keys:default:key="a-valid-API-key"`.
 
 ## Configuration options
 
@@ -235,7 +235,7 @@ The HTTP server is the base for the `coreHttpApi` Module. It opens an express HT
         "apiKey": {
           "keys": {
             "default": {
-              "key": "a-valid-API-key-with-at-least-30-chars"
+              "key": "a-valid-API-key"
             }
           }
         }
@@ -312,7 +312,7 @@ If multiple authentication methods are configured, the authentication methods wi
   "apiKey": {
     "keys": {
       "default": {
-        "key": "a-valid-API-key-with-at-least-30-chars"
+        "key": "a-valid-API-key"
       }
     }
   }

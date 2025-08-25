@@ -141,7 +141,7 @@ To use the api platform hosted on the Connector you need to make the following c
            "apiKey": {
              "keys": {
                "<an-api-key-id>": {
-                 "key": "<a-valid-API-key-with-at-least-30-chars>"
+                 "key": "<a-valid-API-key>"
                }
              }
            }

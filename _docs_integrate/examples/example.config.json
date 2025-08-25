@@ -14,7 +14,7 @@
                 "apiKey": {
                     "keys": {
                         "<an-api-key-id>": {
-                            "key": "<define-a-valid-API-key-with-at-least-30-chars => https://enmeshed.eu/operate/configuration#apikey>"
+                            "key": "<define-a-valid-API-key => https://enmeshed.eu/operate/configuration#apikey>"
                         }
                     }
                 }
