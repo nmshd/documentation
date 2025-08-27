@@ -358,6 +358,7 @@ The `apiKey` authentication method is used to authenticate requests using an API
     However, it does not grant access to deeper sub-resources such as `core:requests:incoming`.
     To allow access to a resource and all of its sub-resources recursively, `"**"` can be utilized.
     For example, `core:**` grants access to `core:requests`, `core:requests:incoming`, and any other deeper sub-resources under the `core` namespace.
+    Overall, there are the `core`, `debug`, and `monitoring` top-level namespaces.
 
 ###### jwtBearer
 
