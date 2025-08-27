@@ -353,8 +353,11 @@ The `apiKey` authentication method is used to authenticate requests using an API
     An optional array of strings that defines roles, specifying the permissions granted to anyone using the API key.
     By default, administrator rights are assigned, represented explicitly by `"**"`, providing unrestricted access.
     Roles can also be limited to specific resources, for example, `"core:messages"` allows access only to the Connector routes related to messages.
-    A wildcard `"*"` can be used within a namespace to allow access to every resource in that namespace.
-    For instance, `core:*` allows access to `core:messages`, `core:relationships`, and any other resources within the `core` namespace.
+    A wildcard `"*"` can be used within a namespace to allow access to all top-level resources in that namespace.
+    For instance, `core:*` allows access to `core:messages`, `core:requests`, and any other top-level resources within the `core` namespace.
+    However, it does not grant access to deeper sub-resources such as `core:requests:incoming`.
+    To allow access to a resource and all of its sub-resources recursively, `"**"` can be utilized.
+    For example, `core:**` grants access to `core:requests`, `core:requests:incoming`, and any other deeper sub-resources under the `core` namespace.
 
 ###### jwtBearer
 
