@@ -384,7 +384,8 @@ The `jwtBearer` authentication method is used to authenticate requests using JSO
 
 - **auth** `optional`
 
-  The roles that determine the permissions granted to anyone authenticated with the JWT bearer token are defined within `auth.payload.scope`.
+  The roles that determine the permissions granted to anyone authenticated with the JWT bearer token can be defined within `auth.payload.scope`.
+  This may vary between identity providers.
   These roles are matched against the [Connector’s permission model](#permission-model-of-the-connector) to control which resources are available.
   By default, no rights are assigned, providing limited access.
 
