@@ -451,6 +451,8 @@ Overall, there are the `core` and `monitoring` top-level namespaces with the fol
 - `core:account`, `core:announcements`, `core:attributes`, `core:backboneNotifications`, `core:challenges`, `core:files`, `core:identityMetadata`, `core:messages`, `core:requests`, `core:requests:incoming`, `core:requests:outgoing`, `core:relationshipTemplates`, `core:relationships` and `core:tokens`.
 - `monitoring:requests`, `monitoring:support` and `monitoring:version`.
 
+However, it is possible to assign roles following a custom structure for custom functionality.
+
 ### modules
 
 Every Module can be enabled or disabled by passing true / false to `enabled`. Read more about the Module by clicking on the <i class="fas fa-fw fa-info-circle"/> icon in each title.
