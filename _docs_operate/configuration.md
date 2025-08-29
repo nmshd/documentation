@@ -391,6 +391,10 @@ The `jwtBearer` authentication method is used to authenticate requests using JSO
 
   The audience of the JWT. This is the identifier of the Connector in your identity server.
 
+- **auth** `optional`
+
+  In the `scope` of the `payload` of the `auth`, roles can be defined.
+
 For more sophisticated use cases, please refer to the [JWT documentation page](https://auth0.github.io/node-oauth2-jwt-bearer/interfaces/AuthOptions.html) where all possibilities are explained in detail.
 
 ###### oidc
@@ -430,6 +434,10 @@ The `oidc` authentication method is used to authenticate requests using the Open
 - **secret** `required`
 
   The secret(s) of the Connector used to derive an encryption key for the user identity in a stateless session cookie.
+
+- **rolesPath** `optional`
+
+  With the `rolesPath`, it can be specified where the roles are defined within the OIDC `user` info.
 
 For more sophisticated use cases, please refer to the [OIDC documentation page](https://auth0.github.io/express-openid-connect/interfaces/ConfigParams.html) where all possibilities are explained in detail.
 
