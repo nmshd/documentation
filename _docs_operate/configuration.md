@@ -351,7 +351,7 @@ The `apiKey` authentication method is used to authenticate requests using an API
   - **scopes** `optional`
 
     An optional array of strings that defines roles, specifying the permissions granted to anyone using the API key.
-    These roles are matched against the [Connector’s permission model](#permission-model-of-the-connector) to control which resources are available.
+    These roles are matched against the [Connector’s permission model]({% link _docs_operate/security-considerations.md %}#permission-model-of-the-connector) to control which resources are available.
     By default, administrator rights are assigned, represented explicitly by `"**"`, providing unrestricted access.
 
 ###### jwtBearer
@@ -386,7 +386,7 @@ The `jwtBearer` authentication method is used to authenticate requests using JSO
 
   The roles that determine the permissions granted to anyone authenticated with the JWT bearer token can be defined within `auth.payload.scope`.
   This may vary between identity providers.
-  These roles are matched against the [Connector’s permission model](#permission-model-of-the-connector) to control which resources are available.
+  These roles are matched against the [Connector’s permission model]({% link _docs_operate/security-considerations.md %}#permission-model-of-the-connector) to control which resources are available.
   By default, no rights are assigned, providing limited access.
 
 For more sophisticated use cases, please refer to the [JWT documentation page](https://auth0.github.io/node-oauth2-jwt-bearer/interfaces/AuthOptions.html) where all possibilities are explained in detail.
@@ -430,22 +430,6 @@ The `oidc` authentication method is used to authenticate requests using the Open
   The secret(s) of the Connector used to derive an encryption key for the user identity in a stateless session cookie.
 
 For more sophisticated use cases, please refer to the [OIDC documentation page](https://auth0.github.io/express-openid-connect/interfaces/ConfigParams.html) where all possibilities are explained in detail.
-
-###### Permission Model of the Connector
-
-Roles across different [authentication](#authentication) methods for the Connector are defined in a consistent format, specifying how they map to the Connector’s permission model.
-Roles can be limited to specific resources, for example, `"core:messages"` allows access only to the Connector routes related to messages.
-A wildcard `"*"` can be used within a namespace to allow access to all top-level resources in that namespace.
-For instance, `core:*` allows access to `core:messages`, `core:requests`, and any other top-level resources within the `core` namespace.
-However, it does not grant access to deeper sub-resources such as `core:requests:incoming`.
-To allow access to a resource and all of its sub-resources recursively, `"**"` can be utilized.
-For example, `core:**` grants access to `core:requests`, `core:requests:incoming`, and any other deeper sub-resources under the `core` namespace.
-Overall, there are the `core` and `monitoring` top-level namespaces with the following sub-resources:
-
-- `core:account`, `core:announcements`, `core:attributes`, `core:backboneNotifications`, `core:challenges`, `core:files`, `core:identityMetadata`, `core:messages`, `core:requests`, `core:requests:incoming`, `core:requests:outgoing`, `core:relationshipTemplates`, `core:relationships` and `core:tokens`.
-- `monitoring:requests`, `monitoring:support` and `monitoring:version`.
-
-However, it is possible to assign roles following a custom structure for custom functionality.
 
 ### modules
 

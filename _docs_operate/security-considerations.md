@@ -102,6 +102,22 @@ End user authentication, e.g. business users accessing the system, should be don
 
 It is important to ensure that API-keys are secure and cannot be easily compromised. One of the key aspects of API-key security is regular rotation and expiration which we recommend. If an API-key is not rotated or expired, it can potentially be used by an attacker who has obtained the key through unauthorized means.
 
+### Permission Model of the Connector
+
+Roles across different [authentication]({% link _docs_operate/configuration.md %}#authentication) methods for the Connector are defined in a consistent format, specifying how they map to the Connector’s permission model.
+Roles can be limited to specific resources, for example, `"core:messages"` allows access only to the Connector routes related to messages.
+A wildcard `"*"` can be used within a namespace to allow access to all top-level resources in that namespace.
+For instance, `core:*` allows access to `core:messages`, `core:requests`, and any other top-level resources within the `core` namespace.
+However, it does not grant access to deeper sub-resources such as `core:requests:incoming`.
+To allow access to a resource and all of its sub-resources recursively, `"**"` can be utilized.
+For example, `core:**` grants access to `core:requests`, `core:requests:incoming`, and any other deeper sub-resources under the `core` namespace.
+Overall, there are the `core` and `monitoring` top-level namespaces with the following sub-resources:
+
+- `core:account`, `core:announcements`, `core:attributes`, `core:backboneNotifications`, `core:challenges`, `core:files`, `core:identityMetadata`, `core:messages`, `core:requests`, `core:requests:incoming`, `core:requests:outgoing`, `core:relationshipTemplates`, `core:relationships` and `core:tokens`.
+- `monitoring:requests`, `monitoring:support` and `monitoring:version`.
+
+However, it is possible to assign roles following a custom structure for custom functionality.
+
 ## Kernel Dumps
 
 Kernel dumps can be a useful tool for diagnosing and troubleshooting system issues. However, they can also be a security risk if they contain sensitive information such as encryption keys. If an attacker gains access to a kernel dump file, they may be able to extract this information and use it to compromise the security of your system.
