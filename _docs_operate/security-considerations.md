@@ -94,8 +94,6 @@ Certificate pinning adds additional effort to the Connector administrators, as f
 
 So far, the Connector supports API-key authentication to securely authenticate technical users. These API-Keys are random character strings with a high entropy and should be kept confidential at all times. Each internal system communicating with the Connector should receive its own API-Key.
 
-There is no authorization set up, thus every API-key can call any API of the Connector API.
-
 End user authentication, e.g. business users accessing the system, should be done on the respective business system. Usually, there is no need for end users to access the Connector and thus they should not have access to the Connector (from a network and authentication perspective).
 
 ### API-key rotation
