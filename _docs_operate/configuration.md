@@ -429,12 +429,6 @@ The `oidc` authentication method is used to authenticate requests using the Open
 
   The secret(s) of the Connector used to derive an encryption key for the user identity in a stateless session cookie.
 
-- **rolesPath** `optional`
-
-  The JSON path inside the OIDC `user` object where the list of roles assigned to the authenticated user can be found.
-  The extracted roles are matched against the [Connector’s permission model](#permission-model-of-the-connector) to determine what resources the user is allowed to access.
-  By default, no rights are assigned, providing limited access.
-
 For more sophisticated use cases, please refer to the [OIDC documentation page](https://auth0.github.io/express-openid-connect/interfaces/ConfigParams.html) where all possibilities are explained in detail.
 
 ###### Permission Model of the Connector
