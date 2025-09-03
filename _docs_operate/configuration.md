@@ -368,7 +368,13 @@ The `apiKey` authentication method is used to authenticate requests using an API
 }
 ```
 
-The `jwtBearer` authentication method is used to authenticate requests using JSON Web Tokens (JWT). To configure this authentication method, you need to provide at least the following parameters:
+The `jwtBearer` authentication method is used to authenticate requests using JSON Web Tokens (JWT).
+The permissions available to anyone authenticated with a JWT bearer token are determined by its scope.
+The scope is a space-separated list of segments, and each segment is treated as a role.
+Depending on the identity provider, the roles may be stored within `auth.payload.scope` or a different field.
+These roles are then matched against the [Connector’s permission model]({% link _docs_operate/security-considerations.md %}#permission-model-of-the-connector) to control which resources are accessible.
+By default, no rights are assigned, providing limited access.
+To configure the `jwtBearer` authentication method, you need to provide at least the following parameters:
 
 - **enabled** `default: true (if other options are configured)`
 
@@ -381,13 +387,6 @@ The `jwtBearer` authentication method is used to authenticate requests using JSO
 - **audience** `required`
 
   The audience of the JWT. This is the identifier of the Connector in your identity server.
-
-- **auth** `optional`
-
-  The roles that determine the permissions granted to anyone authenticated with the JWT bearer token can be defined within `auth.payload.scope`.
-  This may vary between identity providers.
-  These roles are matched against the [Connector’s permission model]({% link _docs_operate/security-considerations.md %}#permission-model-of-the-connector) to control which resources are available.
-  By default, no rights are assigned, providing limited access.
 
 For more sophisticated use cases, please refer to the [JWT documentation page](https://auth0.github.io/node-oauth2-jwt-bearer/interfaces/AuthOptions.html) where all possibilities are explained in detail.
 
