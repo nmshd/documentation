@@ -369,9 +369,8 @@ The `apiKey` authentication method is used to authenticate requests using an API
 ```
 
 The `jwtBearer` authentication method is used to authenticate requests using JSON Web Tokens (JWT).
-The permissions available to anyone authenticated with a JWT bearer token are determined by its scope.
-The scope is a space-separated list of segments, and each segment is treated as a role.
-Depending on the identity provider, the roles may be stored within `auth.payload.scope` or a different field.
+The permissions available to anyone authenticated with a JWT bearer token are determined by the scope of the JWT payload.
+Depending on the identity provider, roles may be provided in a different way and need to be mapped into the scope.
 These roles are then matched against the [Connector’s permission model]({% link _docs_operate/security-considerations.md %}#permission-model-of-the-connector) to control which resources are accessible.
 By default, no rights are assigned, providing limited access.
 To configure the `jwtBearer` authentication method, you need to provide at least the following parameters:
