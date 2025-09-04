@@ -351,10 +351,8 @@ The `apiKey` authentication method is used to authenticate requests using an API
   - **scopes** `optional`
 
     An optional array of strings that defines roles, specifying the permissions granted to anyone using the API key.
+    These roles are matched against the [Connector’s permission model]({% link _docs_operate/security-considerations.md %}#permission-model-of-the-connector) to control which resources are available.
     By default, administrator rights are assigned, represented explicitly by `"**"`, providing unrestricted access.
-    Roles can also be limited to specific resources, for example, `"core:messages"` allows access only to the Connector routes related to messages.
-    A wildcard `"*"` can be used within a namespace to allow access to every resource in that namespace.
-    For instance, `core:*` allows access to `core:messages`, `core:relationships`, and any other resources within the `core` namespace.
 
 ###### jwtBearer
 
@@ -370,7 +368,12 @@ The `apiKey` authentication method is used to authenticate requests using an API
 }
 ```
 
-The `jwtBearer` authentication method is used to authenticate requests using JSON Web Tokens (JWT). To configure this authentication method, you need to provide at least the following parameters:
+The `jwtBearer` authentication method is used to authenticate requests using JSON Web Tokens (JWT).
+The permissions available to anyone authenticated with a JWT bearer token are determined by the scope of the JWT payload.
+Depending on the identity provider, roles may be provided in a different way and need to be mapped into the scope.
+These roles are then matched against the [Connector’s permission model]({% link _docs_operate/security-considerations.md %}#permission-model-of-the-connector) to control which resources are accessible.
+By default, no rights are assigned, providing limited access.
+To configure the `jwtBearer` authentication method, you need to provide at least the following parameters:
 
 - **enabled** `default: true (if other options are configured)`
 
