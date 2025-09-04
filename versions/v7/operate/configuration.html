@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-08-25T15:49:06+02:00">
+  <meta property="article:published_time" content="2025-09-04T10:25:37+02:00">
 
 
 
@@ -279,7 +279,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Configuration">
     <meta itemprop="description" content="Mounting a config file">
-    <meta itemprop="datePublished" content="2025-08-25T15:49:06+02:00">
+    <meta itemprop="datePublished" content="2025-09-04T10:25:37+02:00">
     
 
     <div class="page__inner-wrap">
@@ -652,10 +652,8 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         <p><strong>scopes</strong> <code class="language-plaintext highlighter-rouge">optional</code></p>
 
         <p>An optional array of strings that defines roles, specifying the permissions granted to anyone using the API key.
-By default, administrator rights are assigned, represented explicitly by <code class="language-plaintext highlighter-rouge">"**"</code>, providing unrestricted access.
-Roles can also be limited to specific resources, for example, <code class="language-plaintext highlighter-rouge">"core:messages"</code> allows access only to the Connector routes related to messages.
-A wildcard <code class="language-plaintext highlighter-rouge">"*"</code> can be used within a namespace to allow access to every resource in that namespace.
-For instance, <code class="language-plaintext highlighter-rouge">core:*</code> allows access to <code class="language-plaintext highlighter-rouge">core:messages</code>, <code class="language-plaintext highlighter-rouge">core:relationships</code>, and any other resources within the <code class="language-plaintext highlighter-rouge">core</code> namespace.</p>
+These roles are matched against the <a href="/versions/v7/operate/security-considerations#permission-model-of-the-connector">Connector’s permission model</a> to control which resources are available.
+By default, administrator rights are assigned, represented explicitly by <code class="language-plaintext highlighter-rouge">"**"</code>, providing unrestricted access.</p>
       </li>
     </ul>
   </li>
@@ -674,7 +672,12 @@ For instance, <code class="language-plaintext highlighter-rouge">core:*</code> a
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>The <code class="language-plaintext highlighter-rouge">jwtBearer</code> authentication method is used to authenticate requests using JSON Web Tokens (JWT). To configure this authentication method, you need to provide at least the following parameters:</p>
+<p>The <code class="language-plaintext highlighter-rouge">jwtBearer</code> authentication method is used to authenticate requests using JSON Web Tokens (JWT).
+The permissions available to anyone authenticated with a JWT bearer token are determined by the scope of the JWT payload.
+Depending on the identity provider, roles may be provided in a different way and need to be mapped into the scope.
+These roles are then matched against the <a href="/versions/v7/operate/security-considerations#permission-model-of-the-connector">Connector’s permission model</a> to control which resources are accessible.
+By default, no rights are assigned, providing limited access.
+To configure the <code class="language-plaintext highlighter-rouge">jwtBearer</code> authentication method, you need to provide at least the following parameters:</p>
 
 <ul>
   <li>
@@ -1221,7 +1224,7 @@ Ensure that your Backbone has the required settings enabled.</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-08-25T15:49:06+02:00">August 25, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-09-04T10:25:37+02:00">September 4, 2025</time></p>
 
       </footer>
 
