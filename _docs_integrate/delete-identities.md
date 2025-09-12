@@ -37,7 +37,6 @@ However, Integrators of Connectors can still delete their Identity by using [Con
 
 From a technical perspective, the process of Identity deletion is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess). It can be uniquely identified by its `id`.
 An IdentityDeletionProcess can have `"Approved"` or `"Cancelled"` as its `status`.
-
 If an IdentityDeletionProcess has `"Approved"` as `status`, it is also referred to as an **active IdentityDeletionProcess**.
 There can be at most one active IdentityDeletionProcess per Identity.
 There are three [use cases]({% link _docs_integrate/use-cases.md %}) for getting one or more already existing [IdentityDeletionProcesses]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess):
