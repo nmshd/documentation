@@ -9,12 +9,12 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RID6
+  - id: RID4
   - component: Runtime
   - layer: Transport
   - facade: IdentityDeletionProcessFacade
   - function: getActiveIdentityDeletionProcess
-  - description: Get IdentityDeletionProcess that is in status 'WaitingForApproval' or 'Approved'
+  - description: Get IdentityDeletionProcess that is in status 'Approved'
   - feature category: Identity handling
   - tech category: IdentityDeletionProcesses
   - status: DONE

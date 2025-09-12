@@ -9,7 +9,7 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RID5
+  - id: RID3
   - component: Runtime
   - layer: Transport
   - facade: IdentityDeletionProcessFacade
