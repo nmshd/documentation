@@ -220,8 +220,8 @@ If you want to [delete your Identity]({% link _docs_integrate/delete-identities.
 Up until then, the data about the deletion process is stored in an object called IdentityDeletionProcess.
 It is possible to [cancel an IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}) that hasn't reached the end of its grace period, yet.
 Furthermore, the deletion of an Identity can be triggered via the Backbone Admin UI.
-In this case, the Identity has to [approve the IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-approve-identitydeletionprocess.md %}) in order to start the grace period.
-The IdentityDeletionProcess can also be [rejected]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}) if an Identity does not agree with its deletion triggered via the Backbone Admin UI.
+In this case, the Identity has to approve the IdentityDeletionProcess in order to start the grace period.
+The IdentityDeletionProcess can also be rejected if an Identity does not agree with its deletion triggered via the Backbone Admin UI.
 Since rejected and cancelled IdentityDeletionProcesses are stored, you can reach a situation in which there are multiple IdentityDeletionProcesses associated with the same Identity.
 Note, however, that at all times there can only be at most one **active IdentityDeletionProcess**, i.e. with `status` `"WaitingForApproval"` or `"Approved"`, per Identity.
 
