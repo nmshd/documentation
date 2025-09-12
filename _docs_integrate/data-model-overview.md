@@ -216,9 +216,6 @@ The content of the File can be downloaded separately by executing the [Download 
 
 ## IdentityDeletionProcess
 
-Please note that the feature of triggering the deletion of an Identity via the Backbone Admin UI is currently disabled. For this reason, an IdentityDeletionProcess currently cannot have `"WaitingForApproval"` as `status`. In addition, the use cases for [approving]({% link _docs_use-cases/use-case-transport-approve-identitydeletionprocess.md %}) and [rejecting]({% link _docs_use-cases/use-case-transport-reject-identitydeletionprocess.md %}) IdentityDeletionProcesses are not needed for the time being.
-{: .notice--warning}
-
 If you want to [delete your Identity]({% link _docs_integrate/delete-identities.md %}), the actual deletion of all data associated with that [Identity](#identity) will only take place after a certain grace period has ended.
 Up until then, the data about the deletion process is stored in an object called IdentityDeletionProcess.
 It is possible to [cancel an IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}) that hasn't reached the end of its grace period, yet.
