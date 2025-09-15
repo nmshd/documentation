@@ -8,7 +8,7 @@ toc: true
 properties:
   - id: SC121
   - category: Backbone Operations
-  - description: For example, it can be used to start an IdentityDeletionProcess
+  - description: For example, it can be used to create Announcements
   - customer:
   - component: operate
   - level:

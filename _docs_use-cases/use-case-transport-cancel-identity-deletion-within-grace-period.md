@@ -9,7 +9,7 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: ARS10
+  - id: ARS9
   - component: AppRuntime
   - layer: Transport
   - facade:
