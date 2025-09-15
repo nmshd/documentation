@@ -54,4 +54,4 @@ This use case can be utilized by using the [Identity deletion initialization com
 
 ## On Failure
 
-- No IdentityDeletionProcess can be initiated if there is already an active IdentityDeletionProcess, i.e. an IdentityDeletionProcess with `"Approved"` or `"WaitingForApproval"` as `status`, for this Identity. Please note that an IdentityDeletionProcess with `"WaitingForApproval"` as `status` is never created by the self-initiated Identity deletion, but only by the process of Identity deletion triggered via the Backbone Admin UI. However, the latter feature is currently disabled.
+- No IdentityDeletionProcess can be initiated if there is already an active IdentityDeletionProcess, i.e. an IdentityDeletionProcess with `"Approved"` as `status`, for this Identity.
