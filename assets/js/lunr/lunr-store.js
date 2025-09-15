@@ -845,12 +845,6 @@ var store = [{
         "url": "/use-case-transport-accept-relationship",
         "teaser": null
       },{
-        "title": "Approve IdentityDeletionProcess",
-        "excerpt":"Please note that the feature of triggering the deletion of an Identity via the Backbone Admin UI is currently disabled. For this reason, an IdentityDeletionProcess currently cannot have \"WaitingForApproval\" as status. In addition, this use case for approving and the use case for rejecting IdentityDeletionProcesses are not needed for the...","categories": [],
-        "tags": [],
-        "url": "/use-case-transport-approve-identitydeletionprocess",
-        "teaser": null
-      },{
         "title": "Cancel IdentityDeletionProcess",
         "excerpt":"The process of Identity deletion leads to the creation of an IdentityDeletionProcess with \"Approved\" as status. It can be cancelled if the Identity no longer wants to be deleted. This is only possible as long as the end of the associated grace period of the IdentityDeletionProcess specified within its gracePeriodEndsAt...","categories": [],
         "tags": [],
@@ -924,7 +918,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Get active IdentityDeletionProcess",
-        "excerpt":"From a technical perspective, the process of Identity deletion is described by a data object of type IdentityDeletionProcess. An IdentityDeletionProcess is active if it has \"WaitingForApproval\" or \"Approved\" as status. This use case returns the active IdentityDeletionProcess for your Identity if one exists. At all times, there can only be...","categories": [],
+        "excerpt":"From a technical perspective, the process of Identity deletion is described by a data object of type IdentityDeletionProcess. An IdentityDeletionProcess is active if it has \"Approved\" as status. This use case returns the active IdentityDeletionProcess for your Identity if one exists. At all times, there can only be at most...","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-active-identitydeletionprocess",
         "teaser": null
@@ -1107,12 +1101,6 @@ var store = [{
         "excerpt":"This use case regenerates the ownershipToken of a File. Parameters id of the File. On Success A new ownershipToken is generated for the File. The ownership of the File is unlocked, meaning that it is possible to claim the ownership of the File with the new ownershipToken. The corresponding indicator...","categories": [],
         "tags": [],
         "url": "/use-case-transport-regenerate-file-ownership-token",
-        "teaser": null
-      },{
-        "title": "Reject IdentityDeletionProcess",
-        "excerpt":"Please note that the feature of triggering the deletion of an Identity via the Backbone Admin UI is currently disabled. For this reason, an IdentityDeletionProcess currently cannot have \"WaitingForApproval\" as status. In addition, this use case for rejecting and the use case for approving IdentityDeletionProcesses are not needed for the...","categories": [],
-        "tags": [],
-        "url": "/use-case-transport-reject-identitydeletionprocess",
         "teaser": null
       },{
         "title": "Reject Relationship reactivation",

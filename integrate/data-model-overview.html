@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-08-06T20:46:05+02:00">
+  <meta property="article:published_time" content="2025-09-15T12:10:48+02:00">
 
 
 
@@ -360,7 +360,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2025-08-06T20:46:05+02:00">
+    <meta itemprop="datePublished" content="2025-09-15T12:10:48+02:00">
     
 
     <div class="page__inner-wrap">
@@ -1071,16 +1071,11 @@ The content of the File can be downloaded separately by executing the <a href="/
 
 <h2 id="identitydeletionprocess">IdentityDeletionProcess</h2>
 
-<p class="notice--warning">Please note that the feature of triggering the deletion of an Identity via the Backbone Admin UI is currently disabled. For this reason, an IdentityDeletionProcess currently cannot have <code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code> as <code class="language-plaintext highlighter-rouge">status</code>. In addition, the use cases for <a href="/use-case-transport-approve-identitydeletionprocess">approving</a> and <a href="/use-case-transport-reject-identitydeletionprocess">rejecting</a> IdentityDeletionProcesses are not needed for the time being.</p>
-
 <p>If you want to <a href="/integrate/delete-identities">delete your Identity</a>, the actual deletion of all data associated with that <a href="#identity">Identity</a> will only take place after a certain grace period has ended.
 Up until then, the data about the deletion process is stored in an object called IdentityDeletionProcess.
 It is possible to <a href="/use-case-transport-cancel-identitydeletionprocess">cancel an IdentityDeletionProcess</a> that hasn’t reached the end of its grace period, yet.
-Furthermore, the deletion of an Identity can be triggered via the Backbone Admin UI.
-In this case, the Identity has to <a href="/use-case-transport-approve-identitydeletionprocess">approve the IdentityDeletionProcess</a> in order to start the grace period.
-The IdentityDeletionProcess can also be <a href="/use-case-transport-reject-identitydeletionprocess">rejected</a> if an Identity does not agree with its deletion triggered via the Backbone Admin UI.
-Since rejected and cancelled IdentityDeletionProcesses are stored, you can reach a situation in which there are multiple IdentityDeletionProcesses associated with the same Identity.
-Note, however, that at all times there can only be at most one <strong>active IdentityDeletionProcess</strong>, i.e. with <code class="language-plaintext highlighter-rouge">status</code> <code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code> or <code class="language-plaintext highlighter-rouge">"Approved"</code>, per Identity.</p>
+Since cancelled IdentityDeletionProcesses are stored, you can reach a situation in which there are multiple IdentityDeletionProcesses associated with the same Identity.
+Note, however, that at all times there can only be at most one <strong>active IdentityDeletionProcess</strong>, i.e. with <code class="language-plaintext highlighter-rouge">"Approved"</code> as <code class="language-plaintext highlighter-rouge">status</code>, per Identity.</p>
 
 <table>
   <thead>
@@ -1100,8 +1095,8 @@ Note, however, that at all times there can only be at most one <strong>active Id
     </tr>
     <tr>
       <td>status</td>
-      <td><code class="language-plaintext highlighter-rouge">"WaitingForApproval"</code> | <code class="language-plaintext highlighter-rouge">"Rejected"</code> | <code class="language-plaintext highlighter-rouge">"Approved"</code> | <code class="language-plaintext highlighter-rouge">"Cancelled"</code></td>
-      <td>The status of the IdentityDeletionProcess. <br /><ul><li>WaitingForApproval: the IdentityDeletionProcess was triggered via the Backbone Admin UI and is active. It can be approved or rejected.</li><li>Rejected: the IdentityDeletionProcess was rejected and is no longer active.</li><li>Approved: the IdentityDeletionProcess was approved or <a href="/use-case-transport-initiate-identitydeletionprocess">initiated directly by the Identity itself</a> instead of the Backbone administrator via the Backbone Admin UI and is active. Unless it is cancelled, the Identity will be deleted by the end of the grace period.</li><li>Cancelled: the IdentityDeletionProcess was cancelled and is no longer active.</li></ul></td>
+      <td><code class="language-plaintext highlighter-rouge">"Approved"</code> | <code class="language-plaintext highlighter-rouge">"Cancelled"</code></td>
+      <td>The status of the IdentityDeletionProcess. <br /><ul><li>Approved: the IdentityDeletionProcess was <a href="/use-case-transport-initiate-identitydeletionprocess">initiated directly by the Identity itself</a> and is active. Unless it is cancelled, the Identity will be deleted by the end of the grace period.</li><li>Cancelled: the IdentityDeletionProcess was cancelled and is no longer active.</li></ul></td>
       <td> </td>
     </tr>
     <tr>
@@ -1117,12 +1112,6 @@ Note, however, that at all times there can only be at most one <strong>active Id
       <td> </td>
     </tr>
     <tr>
-      <td>approvalPeriodEndsAt</td>
-      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>A timestamp that describes up until when it is possible to approve or reject the IdentityDeletionProcess. If it is reached without the user having made their decision, the IdentityDeletionProcess will be cancelled.</td>
-      <td> </td>
-    </tr>
-    <tr>
       <td>approvedAt</td>
       <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>A timestamp that describes when the IdentityDeletionProcess was approved.</td>
@@ -1132,18 +1121,6 @@ Note, however, that at all times there can only be at most one <strong>active Id
       <td>approvedByDevice</td>
       <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
       <td>The ID of the Device that approved the IdentityDeletionProcess.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>rejectedAt</td>
-      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>A timestamp that describes when the IdentityDeletionProcess was rejected.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>rejectedByDevice</td>
-      <td><code class="language-plaintext highlighter-rouge">string</code> | <code class="language-plaintext highlighter-rouge">undefined</code></td>
-      <td>The ID of the Device that rejected the IdentityDeletionProcess.</td>
       <td> </td>
     </tr>
     <tr>
@@ -4222,7 +4199,7 @@ There is the <a href="/use-case-consumption-upsert-identitymetadata">Upsert Iden
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-08-06T20:46:05+02:00">August 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-09-15T12:10:48+02:00">September 15, 2025</time></p>
 
       </footer>
 
