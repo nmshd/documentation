@@ -105,3 +105,5 @@ However, the Connector routes associated with these use cases are not affected b
 - It will be possible to load items not only from truncated references, but also from other references.
   For this reason, the [Load item from reference]({% link _docs_use-cases/use-case-transport-load-item-from-reference.md %}) use case was already added in version 6 and the use case of loading an item from a truncated reference was marked as deprecated.
   It has now been deleted with the update to version 7.
+
+Furthermore, the use cases of creating a [Device]({% link _docs_integrate/data-model-overview.md %}#device), creating a Device onboarding [Token]({% link _docs_integrate/data-model-overview.md %}#token) and getting the Device onboarding information have been removed.
