@@ -41,6 +41,9 @@ required_by:
 
 {% include properties_list.html %}
 
+This use case is deprecated and will be removed in the next major version. Please use the use case [Fill Device onboarding Token with new Device](use-case-consumption-fill-device-onboarding-token-with-new-device) instead.
+{: .notice--warning}
+
 This use case retrieves the onboarding information a so far not-onboarded Device that corresponds to the given Device `id` in order to onboard the Device to the Identity.
 
 ## Parameters
