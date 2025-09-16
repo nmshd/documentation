@@ -9,7 +9,7 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RD3
+  - id: RD2
   - component: Runtime
   - layer: Transport
   - facade: DevicesFacade
