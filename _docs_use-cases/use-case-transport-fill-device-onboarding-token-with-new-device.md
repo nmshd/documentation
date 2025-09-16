@@ -36,3 +36,23 @@ require:
 required_by:
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use case fills the Device onboarding [Token]({% link _docs_integrate/data-model-overview.md %}#token) with a new Device.
+
+## Parameters
+
+- `reference` pointing to an [empty Token]({% link _docs_use-cases/use-case-anonymous-create-empty-token.md %}).
+- `profileName` can be specified optionally.
+- `isAdmin` can be specified optionally.
+
+## On Success
+
+- Returns the filled Device onboarding Token.
+
+## On Failure
+
+- The `reference` is not pointing to an empty Token.
