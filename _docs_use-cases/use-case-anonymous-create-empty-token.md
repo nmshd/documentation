@@ -36,3 +36,13 @@ require:
 required_by:
 # End automatic generation
 ---
+
+{{properties.description}}
+
+{% include properties_list.html %}
+
+This use case creates an empty [Token]({% link _docs_integrate/data-model-overview.md %}#token).
+
+## On Success
+
+- Returns an empty Token.
