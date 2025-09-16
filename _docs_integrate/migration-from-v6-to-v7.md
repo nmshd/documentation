@@ -107,3 +107,4 @@ However, the Connector routes associated with these use cases are not affected b
   It has now been deleted with the update to version 7.
 
 Furthermore, the use cases of creating a [Device]({% link _docs_integrate/data-model-overview.md %}#device), creating a Device onboarding [Token]({% link _docs_integrate/data-model-overview.md %}#token) and getting the Device onboarding information have been removed.
+Instead, the use case of filling a Device onboarding Token with a new Device must be utilized.
