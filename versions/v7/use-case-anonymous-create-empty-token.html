@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Discards outgoing Request - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Create empty Token - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Discards outgoing Request">
-<meta property="og:url" content="/versions/v7/use-case-consumption-discards-outgoing-request">
+<meta property="og:title" content="Create empty Token">
+<meta property="og:url" content="/versions/v7/use-case-anonymous-create-empty-token">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/versions/v7/use-case-consumption-discards-outgoing-request">
+<link rel="canonical" href="/versions/v7/use-case-anonymous-create-empty-token">
 
 
 
@@ -365,7 +365,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Discards outgoing Request">
+    <meta itemprop="headline" content="Create empty Token">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2025-09-17T11:50:20+02:00">
     
@@ -374,7 +374,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/versions/v7/use-case-consumption-discards-outgoing-request" itemprop="url">Discards outgoing Request
+            <a href="/versions/v7/use-case-anonymous-create-empty-token" itemprop="url">Create empty Token
 </a>
           </h1>
           
@@ -388,7 +388,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#parameters">Parameters</a></li><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
+              <ul class="toc__menu"><li><a href="#on-success">On Success</a></li></ul>
             </nav>
           </aside>
         
@@ -397,27 +397,27 @@
     <table>
         
         <tr><td>id</td>
-            <td>ROR8</td></tr>
+            <td>RY2</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
         
         <tr><td>layer</td>
-            <td>Consumption</td></tr>
+            <td>Anonymous</td></tr>
         
         <tr><td>facade</td>
-            <td>OutgoingRequestsFacade</td></tr>
+            <td>AnonymousTokensFacade</td></tr>
         
         <tr><td>function</td>
-            <td>discard</td></tr>
+            <td>createEmptyToken</td></tr>
         
         <tr></tr>
         
         <tr><td>feature category</td>
-            <td>Normalized Requests/Responses to and from users</td></tr>
+            <td>Create empty Token for Device onboarding</td></tr>
         
         <tr><td>tech category</td>
-            <td>Requests</td></tr>
+            <td>AnonymousTokens</td></tr>
         
         <tr><td>status</td>
             <td>DONE</td></tr>
@@ -455,7 +455,7 @@
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-consumption-discards-outgoing-request</td></tr>
+            <td>use-case-anonymous-create-empty-token</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -463,25 +463,12 @@
 </div>
 -->
 
-<p>This use case is intended to discard an outgoing <a href="/versions/v7/integrate/data-model-overview#localrequest">LocalRequest</a> that has not been sent to the peer yet and is thus still in status <code class="language-plaintext highlighter-rouge">Draft</code>.</p>
-
-<h2 id="parameters">Parameters</h2>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">id</code> references the outgoing LocalRequest that is to be discarded.</li>
-</ul>
+<p>This use case creates an empty <a href="/versions/v7/integrate/data-model-overview#token">Token</a> that can be <a href="/versions/v7/use-case-transport-fill-device-onboarding-token-with-new-device">filled with onboarding information</a>.</p>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>The LocalRequest is deleted and returned.</li>
-</ul>
-
-<h2 id="on-failure">On Failure</h2>
-
-<ul>
-  <li>The LocalRequest could not be found.</li>
-  <li>The LocalRequest is not in status <code class="language-plaintext highlighter-rouge">Draft</code>.</li>
+  <li>Returns an empty Token.</li>
 </ul>
  
 

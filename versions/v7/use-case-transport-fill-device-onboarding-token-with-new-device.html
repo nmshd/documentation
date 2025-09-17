@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Discards outgoing Request - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Fill Device onboarding Token with new Device - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Discards outgoing Request">
-<meta property="og:url" content="/versions/v7/use-case-consumption-discards-outgoing-request">
+<meta property="og:title" content="Fill Device onboarding Token with new Device">
+<meta property="og:url" content="/versions/v7/use-case-transport-fill-device-onboarding-token-with-new-device">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/versions/v7/use-case-consumption-discards-outgoing-request">
+<link rel="canonical" href="/versions/v7/use-case-transport-fill-device-onboarding-token-with-new-device">
 
 
 
@@ -365,7 +365,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Discards outgoing Request">
+    <meta itemprop="headline" content="Fill Device onboarding Token with new Device">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2025-09-17T11:50:20+02:00">
     
@@ -374,7 +374,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/versions/v7/use-case-consumption-discards-outgoing-request" itemprop="url">Discards outgoing Request
+            <a href="/versions/v7/use-case-transport-fill-device-onboarding-token-with-new-device" itemprop="url">Fill Device onboarding Token with new Device
 </a>
           </h1>
           
@@ -397,27 +397,28 @@
     <table>
         
         <tr><td>id</td>
-            <td>ROR8</td></tr>
+            <td>RD10</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
         
         <tr><td>layer</td>
-            <td>Consumption</td></tr>
+            <td>Transport</td></tr>
         
         <tr><td>facade</td>
-            <td>OutgoingRequestsFacade</td></tr>
+            <td>DevicesFacade</td></tr>
         
         <tr><td>function</td>
-            <td>discard</td></tr>
+            <td>fillDeviceOnboardingTokenWithNewDevice</td></tr>
         
-        <tr></tr>
+        <tr><td>description</td>
+            <td>Fill Device onboarding Token with new Device</td></tr>
         
         <tr><td>feature category</td>
-            <td>Normalized Requests/Responses to and from users</td></tr>
+            <td>Multi-device</td></tr>
         
         <tr><td>tech category</td>
-            <td>Requests</td></tr>
+            <td>Devices</td></tr>
         
         <tr><td>status</td>
             <td>DONE</td></tr>
@@ -430,7 +431,8 @@
         <tr><td>actor</td>
             <td>Identity</td></tr>
         
-        <tr></tr>
+        <tr><td>trigger</td>
+            <td>Runtime</td></tr>
         
         <tr></tr>
         
@@ -455,7 +457,7 @@
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-consumption-discards-outgoing-request</td></tr>
+            <td>use-case-transport-fill-device-onboarding-token-with-new-device</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -463,25 +465,26 @@
 </div>
 -->
 
-<p>This use case is intended to discard an outgoing <a href="/versions/v7/integrate/data-model-overview#localrequest">LocalRequest</a> that has not been sent to the peer yet and is thus still in status <code class="language-plaintext highlighter-rouge">Draft</code>.</p>
+<p>This use case creates a new Device and fills the given <a href="/versions/v7/use-case-anonymous-create-empty-token">empty Token</a> with the onboarding information.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">id</code> references the outgoing LocalRequest that is to be discarded.</li>
+  <li><code class="language-plaintext highlighter-rouge">reference</code> pointing to an empty <a href="/versions/v7/integrate/data-model-overview#token">Token</a>.</li>
+  <li><code class="language-plaintext highlighter-rouge">profileName</code> can be specified optionally.</li>
+  <li><code class="language-plaintext highlighter-rouge">isAdmin</code> can be specified optionally.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>The LocalRequest is deleted and returned.</li>
+  <li>Returns the filled Device onboarding Token.</li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>The LocalRequest could not be found.</li>
-  <li>The LocalRequest is not in status <code class="language-plaintext highlighter-rouge">Draft</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">reference</code> is not pointing to an empty Token.</li>
 </ul>
  
 
