@@ -15,7 +15,7 @@ properties:
   - component: Runtime
   - layer: Anonymous
   - facade: AnonymousTokensFacade
-  - function: loadPeerTokenByReference
+  - function: loadPeerToken
   - description:
   - feature category: Share information over side-channel
   - tech category: AnonymousTokens
