@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Get Attributes - enmeshed</title>
+<!-- begin _includes/seo.html --><title>Create empty Token - enmeshed</title>
 <meta name="description" content="">
 
 
@@ -23,8 +23,8 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="enmeshed">
-<meta property="og:title" content="Get Attributes">
-<meta property="og:url" content="/use-case-consumption-get-attributes">
+<meta property="og:title" content="Create empty Token">
+<meta property="og:url" content="/use-case-anonymous-create-empty-token">
 
 
   <meta property="og:description" content="">
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="/use-case-consumption-get-attributes">
+<link rel="canonical" href="/use-case-anonymous-create-empty-token">
 
 
 
@@ -358,7 +358,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Get Attributes">
+    <meta itemprop="headline" content="Create empty Token">
     <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2025-09-17T11:49:30+02:00">
     
@@ -367,7 +367,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="/use-case-consumption-get-attributes" itemprop="url">Get Attributes
+            <a href="/use-case-anonymous-create-empty-token" itemprop="url">Create empty Token
 </a>
           </h1>
           
@@ -381,7 +381,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#parameters">Parameters</a></li><li><a href="#on-success">On Success</a></li><li><a href="#on-failure">On Failure</a></li></ul>
+              <ul class="toc__menu"><li><a href="#on-success">On Success</a></li></ul>
             </nav>
           </aside>
         
@@ -390,27 +390,27 @@
     <table>
         
         <tr><td>id</td>
-            <td>RA2</td></tr>
+            <td>RY2</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
         
         <tr><td>layer</td>
-            <td>Consumption</td></tr>
+            <td>Anonymous</td></tr>
         
         <tr><td>facade</td>
-            <td>AttributesFacade</td></tr>
+            <td>AnonymousTokensFacade</td></tr>
         
         <tr><td>function</td>
-            <td>getAttributes</td></tr>
+            <td>createEmptyToken</td></tr>
         
         <tr></tr>
         
         <tr><td>feature category</td>
-            <td>Normalized Attributes</td></tr>
+            <td>Create empty Token for Device onboarding</td></tr>
         
         <tr><td>tech category</td>
-            <td>Attributes</td></tr>
+            <td>AnonymousTokens</td></tr>
         
         <tr><td>status</td>
             <td>DONE</td></tr>
@@ -423,8 +423,7 @@
         <tr><td>actor</td>
             <td>Identity</td></tr>
         
-        <tr><td>trigger</td>
-            <td>REST API</td></tr>
+        <tr></tr>
         
         <tr></tr>
         
@@ -443,14 +442,13 @@
         
         <tr></tr>
         
-        <tr><td>api_route_regex</td>
-            <td>GET /api/v2/Attributes</td></tr>
+        <tr></tr>
         
         <tr><td>published</td>
             <td>default</td></tr>
         
         <tr><td>link</td>
-            <td>use-case-consumption-get-attributes</td></tr>
+            <td>use-case-anonymous-create-empty-token</td></tr>
         
         <tr></tr>
         <tr></tr>
@@ -458,63 +456,13 @@
 </div>
 -->
 
-<p>This use case is intended to query <a href="/integrate/data-model-overview#localattribute">LocalAttributes</a>. The LocalAttributes can be specified using a complex query.</p>
-
-<h2 id="parameters">Parameters</h2>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">query</code> allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used:
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">createdAt</code> describes the time when the LocalAttribute was created.</li>
-      <li><code class="language-plaintext highlighter-rouge">parentId</code> can be used to find the child Attributes of a <a href="/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttribute</a>.</li>
-      <li>The fields of <code class="language-plaintext highlighter-rouge">content</code> can be used to describe the queried Attribute (either an <a href="/integrate/data-model-overview#identityattribute">IdentityAttribute</a>
-or a <a href="/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>).</li>
-      <li><code class="language-plaintext highlighter-rouge">succeeds</code> and <code class="language-plaintext highlighter-rouge">succeededBy</code> give information about the <a href="/integrate/update-attributes-by-succession">succession state</a> of the LocalAttribute.</li>
-      <li>The fields of the <code class="language-plaintext highlighter-rouge">shareInfo</code> describe if the LocalAttribute is shared with a peer and specify its <a href="/integrate/data-model-overview#localattributeshareinfo">LocalAttributeShareInfo</a>.</li>
-      <li>The fields of the <code class="language-plaintext highlighter-rouge">deletionInfo</code> describe the <a href="/integrate/data-model-overview#localattributedeletioninfo">LocalAttributeDeletionInfo</a> of a shared LocalAttribute.</li>
-      <li><code class="language-plaintext highlighter-rouge">isDefault</code> states whether a RepositoryAttribute is the default for its value type.</li>
-    </ul>
-  </li>
-  <li>If <code class="language-plaintext highlighter-rouge">onlyValid</code> is set to <code class="language-plaintext highlighter-rouge">true</code>, LocalAttributes that exceed their validity frame defined by <code class="language-plaintext highlighter-rouge">validFrom</code> and <code class="language-plaintext highlighter-rouge">validTo</code> will not be returned.</li>
-  <li>If <code class="language-plaintext highlighter-rouge">hideTechnical</code> is set to <code class="language-plaintext highlighter-rouge">true</code>, RelationshipAttributes with <code class="language-plaintext highlighter-rouge">isTechnical</code> <code class="language-plaintext highlighter-rouge">true</code> will not be returned.</li>
-</ul>
+<p>This use case creates an empty <a href="/integrate/data-model-overview#token">Token</a> that can be <a href="/use-case-transport-fill-device-onboarding-token-with-new-device">filled with onboarding information</a>.</p>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>Returns a list of <a href="/integrate/data-model-overview#localattribute">LocalAttributes</a> that match the parameters.</li>
+  <li>Returns an empty Token.</li>
 </ul>
-
-<h2 id="on-failure">On Failure</h2>
-
-<ul>
-  <li>The parameters are malformed.</li>
-</ul>
-  <h2>How to execute this use case with the Connector?</h2>
-
-The Connector is our first-class citizen, thus we provide you with a detailed API description for every use case.
-This use case can be executed with the REST API of the Connector which you can <a href="/integrate/access-the-connector">Access the Connector</a>.
- 
-<h6>Corresponding interactive API docs excerpt:</h6>
-
-<rapi-doc-mini
-    server-url="https://doc-demo.is.enmeshed.eu/"
-    default-api-server="https://doc-demo.is.enmeshed.eu/"
-    api-key-name="x-api-key"
-    api-key-location="header"
-    api-key-value="apikey"
-    layout="column"
-    default-schema-tab="example"
-    spec-url="https://doc-demo.is.enmeshed.eu/docs/json"
-    paths-expanded="false"
-    theme="light"
-    bg-color="#f9f9fb"
-    
-    match-paths="^GET /api/v2/Attributes$"
-    
-    match-type="regex"
-></rapi-doc-mini>
-<br />
  
 
         

@@ -312,7 +312,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Use Cases",
-        "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Load Token by truncated reference (without having an account) Anonymous Identity AnonymousTokens Runtime Accept incoming Request Consumption Identity Requests Runtime Change default RepositoryAttribute Consumption Identity Attributes Runtime Check if incoming Request can be accepted Consumption Identity Requests Runtime Check if incoming...","categories": [],
+        "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Create empty Token Anonymous Identity AnonymousTokens Runtime Load Token by truncated reference (without having an account) Anonymous Identity AnonymousTokens Runtime Accept incoming Request Consumption Identity Requests Runtime Change default RepositoryAttribute Consumption Identity Attributes Runtime Check if incoming Request can be accepted...","categories": [],
         "tags": [],
         "url": "/integrate/use-cases",
         "teaser": null
@@ -417,6 +417,12 @@ var store = [{
         "excerpt":"We’ve summarized some tips for end-user device usage on this site. A great resource for more in-depth information about those tips is the website of the Federal Office for Information Security (BSI, Bundesamt für Sicherheit in der Informationstechnik). We do not know every security guideline and tip out there, so...","categories": [],
         "tags": [],
         "url": "/use/secure-device-setup",
+        "teaser": null
+      },{
+        "title": "Create empty Token",
+        "excerpt":"   This use case creates an empty Token that can be filled with onboarding information.   On Success      Returns an empty Token.  ","categories": [],
+        "tags": [],
+        "url": "/use-case-anonymous-create-empty-token",
         "teaser": null
       },{
         "title": "Load Token by truncated reference (without having an account)",
@@ -858,7 +864,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create Device Onboarding Token",
-        "excerpt":"This use case retrieves the Token of a not yet onboarded Device that corresponds to the given Device id in order to onboard the Device to the Identity. Parameters id of the Device. expiresAt is the ISODateTime the Token expires at. passwordProtection can be specified as an object for PasswordProtection...","categories": [],
+        "excerpt":"This use case is deprecated and will be removed in the next major version. Please use the use case Fill Device onboarding Token with new Device instead. This use case retrieves the Token of a not yet onboarded Device that corresponds to the given Device id in order to onboard...","categories": [],
         "tags": [],
         "url": "/use-case-transport-create-device-onboarding-token",
         "teaser": null
@@ -917,6 +923,12 @@ var store = [{
         "url": "/use-case-transport-download-file",
         "teaser": null
       },{
+        "title": "Fill Device onboarding Token with new Device",
+        "excerpt":"This use case creates a new Device and fills the given empty Token with the onboarding information. Parameters reference pointing to an empty Token. profileName can be specified optionally. isAdmin can be specified optionally. On Success Returns the filled Device onboarding Token. On Failure The reference is not pointing to...","categories": [],
+        "tags": [],
+        "url": "/use-case-transport-fill-device-onboarding-token-with-new-device",
+        "teaser": null
+      },{
         "title": "Get active IdentityDeletionProcess",
         "excerpt":"From a technical perspective, the process of Identity deletion is described by a data object of type IdentityDeletionProcess. An IdentityDeletionProcess is active if it has \"Approved\" as status. This use case returns the active IdentityDeletionProcess for your Identity if one exists. At all times, there can only be at most...","categories": [],
         "tags": [],
@@ -942,7 +954,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Get Device Onboarding Info",
-        "excerpt":"   This use case retrieves the onboarding information a so far not-onboarded Device that corresponds to the given Device id in order to onboard the Device to the Identity.   Parameters      id of the Device.   On Success      Returns the onboarding information of the Device.   On Failure      The Device was already onboarded.  ","categories": [],
+        "excerpt":"This use case is deprecated and will be removed in the next major version. Please use the use case Fill Device onboarding Token with new Device instead. This use case retrieves the onboarding information a so far not-onboarded Device that corresponds to the given Device id in order to onboard...","categories": [],
         "tags": [],
         "url": "/use-case-transport-get-device-onboarding-info",
         "teaser": null
