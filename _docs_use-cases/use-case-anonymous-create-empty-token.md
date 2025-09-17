@@ -41,7 +41,7 @@ required_by:
 
 {% include properties_list.html %}
 
-This use case creates an empty [Token]({% link _docs_integrate/data-model-overview.md %}#token).
+This use case creates an empty [Token]({% link _docs_integrate/data-model-overview.md %}#token) that can be [filled with onboarding information]({% link _docs_use-cases/use-case-transport-fill-device-onboarding-token-with-new-device.md %}).
 
 ## On Success
 
