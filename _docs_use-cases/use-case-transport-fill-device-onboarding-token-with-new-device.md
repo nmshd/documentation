@@ -41,11 +41,11 @@ required_by:
 
 {% include properties_list.html %}
 
-This use case fills the Device onboarding [Token]({% link _docs_integrate/data-model-overview.md %}#token) with a new Device.
+This use case creates a new Device and fills the given [empty Token]({% link _docs_use-cases/use-case-anonymous-create-empty-token.md %}) with the onboarding information.
 
 ## Parameters
 
-- `reference` pointing to an [empty Token]({% link _docs_use-cases/use-case-anonymous-create-empty-token.md %}).
+- `reference` pointing to an empty [Token]({% link _docs_integrate/data-model-overview.md %}#token).
 - `profileName` can be specified optionally.
 - `isAdmin` can be specified optionally.
 
