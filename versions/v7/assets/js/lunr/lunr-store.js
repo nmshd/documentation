@@ -851,12 +851,6 @@ var store = [{
         "url": "/versions/v7/use-case-transport-check-if-relationship-can-be-created",
         "teaser": null
       },{
-        "title": "Create Device Onboarding Token",
-        "excerpt":"This use case is deprecated and will be removed in the next major version. Please use the use case Fill Device onboarding Token with new Device instead. This use case retrieves the Token of a not yet onboarded Device that corresponds to the given Device id in order to onboard...","categories": [],
-        "tags": [],
-        "url": "/versions/v7/use-case-transport-create-device-onboarding-token",
-        "teaser": null
-      },{
         "title": "Create own RelationshipTemplate",
         "excerpt":"Creates a RelationshipTemplate with the given parameters and submits it to the Backbone for other Identities to use. A RelationshipTemplate can be used by any party to either initiate a Relationship with the current Identity or retrieve a Request from an existing Relationship by a side-channel. Parameters expiresAt is the...","categories": [],
         "tags": [],
@@ -939,12 +933,6 @@ var store = [{
         "excerpt":"   This use case retrieves information about the currently used Identity.  ","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-transport-get-currently-used-identity",
-        "teaser": null
-      },{
-        "title": "Get Device Onboarding Info",
-        "excerpt":"This use case is deprecated and will be removed in the next major version. Please use the use case Fill Device onboarding Token with new Device instead. This use case retrieves the onboarding information a so far not-onboarded Device that corresponds to the given Device id in order to onboard...","categories": [],
-        "tags": [],
-        "url": "/versions/v7/use-case-transport-get-device-onboarding-info",
         "teaser": null
       },{
         "title": "Get Device",
