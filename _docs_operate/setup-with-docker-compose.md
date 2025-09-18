@@ -137,7 +137,15 @@ To use the api platform hosted on the Connector you need to make the following c
      "infrastructure": {
        "httpServer": {
          "enabled": true,
-         "apiKey": "an-api-key"
+         "authentication": {
+           "apiKey": {
+             "keys": {
+               "<an-api-key-id>": {
+                 "key": "<a-valid-API-key>"
+               }
+             }
+           }
+         }
        }
      }
    }

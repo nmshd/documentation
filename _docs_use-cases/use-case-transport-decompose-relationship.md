@@ -29,12 +29,12 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - api_route_regex: DELETE /api/v2/Relationships/{id}
+  - api_route_regex: DELETE /api/core/v1/Relationships/{id}
   - published: default
   - link: use-case-transport-decompose-relationship
 require:
 required_by:
-api_route_regex: ^DELETE /api/v2/Relationships/{id}$
+api_route_regex: ^DELETE /api/core/v1/Relationships/{id}$
 # End automatic generation
 ---
 

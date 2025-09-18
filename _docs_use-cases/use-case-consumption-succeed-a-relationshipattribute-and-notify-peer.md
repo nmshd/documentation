@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/Attributes/{predecessorId}/Succeed
+  - api_route_regex: POST /api/core/v1/Attributes/{predecessorId}/Succeed
   - published: default
   - link: use-case-consumption-succeed-a-relationshipattribute-and-notify-peer
 require:
 required_by:
-api_route_regex: ^POST /api/v2/Attributes/{predecessorId}/Succeed$
+api_route_regex: ^POST /api/core/v1/Attributes/{predecessorId}/Succeed$
 # End automatic generation
 ---
 
@@ -52,7 +52,7 @@ It triggers the succession of their peer shared RelationshipAttribute in the sam
 ## Parameters
 
 - `predecessorId`: the `id` of the LocalAttribute with the RelationshipAttribute `content` you want to succeed
-- The updated `successorContent` limited to the `value`, `validFrom` and `validTo` properties of a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) that may be changed by a succession
+- The updated `successorContent` limited to the `value` property of a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) that may be changed by a succession
 
 ## On Success
 

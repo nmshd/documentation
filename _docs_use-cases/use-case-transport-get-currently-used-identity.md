@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Account/IdentityInfo
+  - api_route_regex: GET /api/core/v1/Account/IdentityInfo
   - published: default
   - link: use-case-transport-get-currently-used-identity
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Account/IdentityInfo$
+api_route_regex: ^GET /api/core/v1/Account/IdentityInfo$
 # End automatic generation
 ---
 

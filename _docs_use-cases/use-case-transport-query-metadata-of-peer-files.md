@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Files/Peer
+  - api_route_regex: GET /api/core/v1/Files/Peer
   - published: default
   - link: use-case-transport-query-metadata-of-peer-files
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Files/Peer$
+api_route_regex: ^GET /api/core/v1/Files/Peer$
 # End automatic generation
 ---
 

@@ -31,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Attributes/{id}/Versions/Shared
+  - api_route_regex: GET /api/core/v1/Attributes/{id}/Versions/Shared
   - published: default
   - link: use-case-consumption-get-shared-versions-of-an-attribute
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Attributes/{id}/Versions/Shared$
+api_route_regex: ^GET /api/core/v1/Attributes/{id}/Versions/Shared$
 # End automatic generation
 ---
 

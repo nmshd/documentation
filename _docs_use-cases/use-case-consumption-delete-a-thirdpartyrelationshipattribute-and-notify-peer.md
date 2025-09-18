@@ -1,6 +1,8 @@
 ---
 # Start automatic generation
 permalink: use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer
+redirect_from:
+  - /use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer
 published: true
 title: "Delete a ThirdPartyRelationshipAttribute and notify peer"
 type: use-case
@@ -9,7 +11,7 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA29
+  - id: RA25
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
@@ -19,7 +21,7 @@ properties:
   - tech category: Attributes
   - status: DONE
   - documentation status: DONE
-  - comments: add redirect from /use-case-consumption-delete-a-third-party-owned-relationshipattribute-and-notify-peer as soon as that use case is deleted
+  - comments:
   - actor: Identity
   - trigger: REST API
   - precondition:
@@ -29,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: DELETE /api/v2/Attributes/ThirdParty/{id}
+  - api_route_regex: DELETE /api/core/v1/Attributes/ThirdParty/{id}
   - published: default
   - link: use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer
 require:
 required_by:
-api_route_regex: ^DELETE /api/v2/Attributes/ThirdParty/{id}$
+api_route_regex: ^DELETE /api/core/v1/Attributes/ThirdParty/{id}$
 # End automatic generation
 ---
 

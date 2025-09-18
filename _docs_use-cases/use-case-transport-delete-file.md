@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: DELETE /api/v2/Files/{id}
+  - api_route_regex: DELETE /api/core/v1/Files/{id}
   - published: default
   - link: use-case-transport-delete-file
 require:
 required_by:
-api_route_regex: ^DELETE /api/v2/Files/{id}$
+api_route_regex: ^DELETE /api/core/v1/Files/{id}$
 # End automatic generation
 ---
 

@@ -31,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: PUT /api/v2/Relationships/{id}/Reject
+  - api_route_regex: PUT /api/core/v1/Relationships/{id}/Reject
   - published: default
   - link: use-case-transport-reject-relationship
 require:
 required_by:
-api_route_regex: ^PUT /api/v2/Relationships/{id}/Reject$
+api_route_regex: ^PUT /api/core/v1/Relationships/{id}/Reject$
 # End automatic generation
 ---
 

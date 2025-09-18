@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Requests/Outgoing
+  - api_route_regex: GET /api/core/v1/Requests/Outgoing
   - published: default
   - link: use-case-consumption-query-outgoing-requests
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Requests/Outgoing$
+api_route_regex: ^GET /api/core/v1/Requests/Outgoing$
 # End automatic generation
 ---
 

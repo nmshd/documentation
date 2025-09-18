@@ -29,12 +29,12 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - api_route_regex: PUT /api/v2/Relationships/{id}/Revoke
+  - api_route_regex: PUT /api/core/v1/Relationships/{id}/Revoke
   - published: default
   - link: use-case-transport-revoke-relationship
 require:
 required_by:
-api_route_regex: ^PUT /api/v2/Relationships/{id}/Revoke$
+api_route_regex: ^PUT /api/core/v1/Relationships/{id}/Revoke$
 # End automatic generation
 ---
 

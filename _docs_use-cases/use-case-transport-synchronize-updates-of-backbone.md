@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/Account/Sync
+  - api_route_regex: POST /api/core/v1/Account/Sync
   - published: default
   - link: use-case-transport-synchronize-updates-of-backbone
 require:
 required_by:
-api_route_regex: ^POST /api/v2/Account/Sync$
+api_route_regex: ^POST /api/core/v1/Account/Sync$
 # End automatic generation
 ---
 

@@ -29,12 +29,12 @@ properties:
   - size:
   - created_at:
   - changed_at:
-  - api_route_regex: PUT /api/v2/Relationships/{id}/Reactivate/Accept
+  - api_route_regex: PUT /api/core/v1/Relationships/{id}/Reactivate/Accept
   - published: default
   - link: use-case-transport-accept-relationship-reactivation
 require:
 required_by:
-api_route_regex: ^PUT /api/v2/Relationships/{id}/Reactivate/Accept$
+api_route_regex: ^PUT /api/core/v1/Relationships/{id}/Reactivate/Accept$
 # End automatic generation
 ---
 

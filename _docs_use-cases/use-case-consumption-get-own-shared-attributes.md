@@ -31,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Attributes/Own/Shared/Identity
+  - api_route_regex: GET /api/core/v1/Attributes/Own/Shared/Identity
   - published: default
   - link: use-case-consumption-get-own-shared-attributes
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Attributes/Own/Shared/Identity$
+api_route_regex: ^GET /api/core/v1/Attributes/Own/Shared/Identity$
 # End automatic generation
 ---
 
@@ -55,7 +55,6 @@ This use case is intended to retrieve Attributes that the current Identity share
     or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute)).
   - The fields of the `shareInfo` describe if the LocalAttribute is shared with a peer and specify its [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
   - The fields of the `deletionInfo` describe the [LocalAttributeDeletionInfo]({% link _docs_integrate/data-model-overview.md %}#localattributedeletioninfo) of a shared LocalAttribute.
-- If `onlyValid` is set to `true`, LocalAttributes that exceed their validity frame defined by `validFrom` and `validTo` will not be returned.
 - If `hideTechnical` is set to `true`, RelationshipAttributes with `isTechnical` `true` will not be returned.
 - Optionally, `onlyLatestVersions` can be disabled, such that in case of [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) all versions will be returned.
 

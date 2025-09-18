@@ -31,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/Files/{id}/Token
+  - api_route_regex: POST /api/core/v1/Files/{id}/Token
   - published: default
   - link: use-case-device-create-token-qr-code-for-file
 require:
 required_by:
-api_route_regex: ^POST /api/v2/Files/{id}/Token$
+api_route_regex: ^POST /api/core/v1/Files/{id}/Token$
 # End automatic generation
 ---
 

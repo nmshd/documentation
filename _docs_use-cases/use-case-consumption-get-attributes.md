@@ -31,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Attributes
+  - api_route_regex: GET /api/core/v1/Attributes
   - published: default
   - link: use-case-consumption-get-attributes
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Attributes$
+api_route_regex: ^GET /api/core/v1/Attributes$
 # End automatic generation
 ---
 
@@ -57,7 +57,6 @@ This use case is intended to query [LocalAttributes]({% link _docs_integrate/dat
   - The fields of the `shareInfo` describe if the LocalAttribute is shared with a peer and specify its [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
   - The fields of the `deletionInfo` describe the [LocalAttributeDeletionInfo]({% link _docs_integrate/data-model-overview.md %}#localattributedeletioninfo) of a shared LocalAttribute.
   - `isDefault` states whether a RepositoryAttribute is the default for its value type.
-- If `onlyValid` is set to `true`, LocalAttributes that exceed their validity frame defined by `validFrom` and `validTo` will not be returned.
 - If `hideTechnical` is set to `true`, RelationshipAttributes with `isTechnical` `true` will not be returned.
 
 ## On Success

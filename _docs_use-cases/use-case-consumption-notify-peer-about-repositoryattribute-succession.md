@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: POST /api/v2/Attributes/{attributeId}/NotifyPeer
+  - api_route_regex: POST /api/core/v1/Attributes/{attributeId}/NotifyPeer
   - published: default
   - link: use-case-consumption-notify-peer-about-repositoryattribute-succession
 require:
 required_by:
-api_route_regex: ^POST /api/v2/Attributes/{attributeId}/NotifyPeer$
+api_route_regex: ^POST /api/core/v1/Attributes/{attributeId}/NotifyPeer$
 # End automatic generation
 ---
 

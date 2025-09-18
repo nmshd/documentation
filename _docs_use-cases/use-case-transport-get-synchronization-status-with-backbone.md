@@ -29,12 +29,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/Account/SyncInfo
+  - api_route_regex: GET /api/core/v1/Account/SyncInfo
   - published: default
   - link: use-case-transport-get-synchronization-status-with-backbone
 require:
 required_by:
-api_route_regex: ^GET /api/v2/Account/SyncInfo$
+api_route_regex: ^GET /api/core/v1/Account/SyncInfo$
 # End automatic generation
 ---
 

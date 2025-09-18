@@ -31,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/v2/RelationshipTemplates
+  - api_route_regex: GET /api/core/v1/RelationshipTemplates
   - published: default
   - link: use-case-transport-query-relationshiptemplates
 require:
 required_by:
-api_route_regex: ^GET /api/v2/RelationshipTemplates$
+api_route_regex: ^GET /api/core/v1/RelationshipTemplates$
 # End automatic generation
 ---
 
