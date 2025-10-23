@@ -59,7 +59,7 @@ Successful execution leads to the creation of an [IdentityDeletionProcess]({% li
 The Identity is immediately in deletion and will be irreversibly deleted from the Backbone once the end of the associated grace period of the IdentityDeletionProcess specified within its `gracePeriodEndsAt` property has been reached.
 Within the grace period, the [Cancel IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}) use case can be applied by the Identity if it no longer wants to be deleted.
 In this case, the `status` of the IdentityDeletionProcess changes to `"Cancelled"`.
-Trying to cancel an IdentityDeletionProcess that does not have `"Approved"` as `status` causes an error with `error.runtime.identityDeletionProcess.noApprovedIdentityDeletionProcess` as [error code]({% link _docs_integrate/error-codes.md %}) to be thrown.
+Trying to cancel an IdentityDeletionProcess that does not have `"Active"` as `status` causes an error with `error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess` as [error code]({% link _docs_integrate/error-codes.md %}) to be thrown.
 Furthermore, please note that the use of the [Initiate IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-initiate-identitydeletionprocess.md %}) use case is not permitted if there is already an active IdentityDeletionProcess.
 The corresponding [error code]({% link _docs_integrate/error-codes.md %}) is given by `error.runtime.identityDeletionProcess.activeIdentityDeletionProcessAlreadyExists`.
 

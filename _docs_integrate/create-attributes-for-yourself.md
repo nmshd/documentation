@@ -53,7 +53,7 @@ To create a RepositoryAttribute, proceed as described in the [Create a Repositor
 You need to replace the placeholders marked with `<...>` appropriately.
 Note that the property `tags` is optional, so you can omit it.
 It is necessary that you insert one of the available [IdentityAttributeValues]({% link _docs_integrate/attribute-values.md %}#identity-attributes) into the `value` property.
-If there is already an existing RepositoryAttribute with an undefined `succeededBy` property and which therefore represents the latest version, whose `content.value` exactly matches the specified `value` in the payload for creating a new RepositoryAttribute, an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.runtime.attributes.cannotCreateDuplicateRepositoryAttribute` is thrown.
+If there is already an existing RepositoryAttribute with an undefined `succeededBy` property and which therefore represents the latest version, whose `content.value` exactly matches the specified `value` in the payload for creating a new RepositoryAttribute, an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.runtime.attributes.cannotCreateDuplicateOwnIdentityAttribute` is thrown.
 This is to prevent several latest RepositoryAttributes with the same `content.value` from existing in parallel.
 
 ### Process of creating a RepositoryAttribute
