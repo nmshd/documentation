@@ -100,7 +100,7 @@ const connectorClient = ConnectorClient.create({
 
 An overview of the [Error codes]({% link _docs_integrate/error-codes.md %}) that may occur is given on the corresponding documentation page. The most important changes regarding the error codes due to the update from version 6 to version 7 are:
 
-- With the new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) concept, an Attribute copy is no longer created when an Attribute is shared.
+- With the new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) concept, an Attribute copy is no longer created when an Attribute is [shared]({% link _docs_integrate/share-attributes-with-peer.md %}).
   Therefore, there are no Attribute copies and source Attributes anymore.
   The `error.consumption.attributes.successorSourceContentIsNotEqualToCopyContent` error code and similar error codes could thus be removed.
 - The `error.consumption.attributes.successionMustNotChangePeer` error code has been removed as the new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) concept prevents some errors from occurring.
