@@ -36,8 +36,8 @@ However, Integrators of Connectors can still delete their Identity by using [Con
 ## IdentityDeletionProcesses
 
 From a technical perspective, the process of Identity deletion is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess). It can be uniquely identified by its `id`.
-An IdentityDeletionProcess can have `"Approved"` or `"Cancelled"` as its `status`.
-If an IdentityDeletionProcess has `"Approved"` as `status`, it is also referred to as an **active IdentityDeletionProcess**.
+An IdentityDeletionProcess can have `"Active"` or `"Cancelled"` as its `status`.
+If an IdentityDeletionProcess has `"Active"` as `status`, it is also referred to as an **active IdentityDeletionProcess**.
 There can be at most one active IdentityDeletionProcess per Identity.
 There are three [use cases]({% link _docs_integrate/use-cases.md %}) for getting one or more already existing [IdentityDeletionProcesses]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess):
 
@@ -55,7 +55,7 @@ Whenever a new [IdentityDeletionProcess]({% link _docs_integrate/data-model-over
 ### Self-Initiated Identity Deletion
 
 An Identity can actively trigger its own process of deletion by executing the [Initiate IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-initiate-identitydeletionprocess.md %}) use case.
-Successful execution leads to the creation of an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) with `"Approved"` as `status`.
+Successful execution leads to the creation of an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) with `"Active"` as `status`.
 The Identity is immediately in deletion and will be irreversibly deleted from the Backbone once the end of the associated grace period of the IdentityDeletionProcess specified within its `gracePeriodEndsAt` property has been reached.
 Within the grace period, the [Cancel IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}) use case can be applied by the Identity if it no longer wants to be deleted.
 In this case, the `status` of the IdentityDeletionProcess changes to `"Cancelled"`.

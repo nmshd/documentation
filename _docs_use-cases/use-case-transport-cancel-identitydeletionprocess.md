@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: IdentityDeletionProcessFacade
   - function: cancelIdentityDeletionProcess
-  - description: Cancel an IdentityDeletionProcess that has status 'Approved' within grace period
+  - description: Cancel an IdentityDeletionProcess that has status 'Active' within grace period
   - feature category: Identity handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
@@ -41,19 +41,19 @@ required_by:
 
 {% include properties_list.html %}
 
-The process of [Identity deletion]({% link _docs_integrate/delete-identities.md %}) leads to the creation of an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) with `"Approved"` as `status`.
+The process of [Identity deletion]({% link _docs_integrate/delete-identities.md %}) leads to the creation of an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) with `"Active"` as `status`.
 It can be cancelled if the Identity no longer wants to be deleted.
 This is only possible as long as the end of the associated grace period of the IdentityDeletionProcess specified within its `gracePeriodEndsAt` property has not yet been reached.
-This use case allows you to cancel an approved IdentityDeletionProcess for your Identity within the grace period.
+This use case allows you to cancel an active IdentityDeletionProcess for your Identity within the grace period.
 
 This use case can be utilized by using the [Identity deletion cancellation command]({% link _docs_operate/connector-cli-operations.md %}#identity-deletion-cancellation-command) of the [Connector CLI operations]({% link _docs_operate/connector-cli-operations.md %}), but not by using the [Connector REST API]({% link _docs_integrate/access-the-connector.md %}#hosted-api-tooling-by-the-development-connector).
 {: .notice--info}
 
 ## On Success
 
-- Changes the `status` of the IdentityDeletionProcess from `"Approved"` to `"Cancelled"`.
+- Changes the `status` of the IdentityDeletionProcess from `"Active"` to `"Cancelled"`.
 - Returns the cancelled IdentityDeletionProcess.
 
 ## On Failure
 
-- No IdentityDeletionProcess can be cancelled if none has `"Approved"` as `status` for this Identity.
+- No IdentityDeletionProcess can be cancelled if none has `"Active"` as `status` for this Identity.
