@@ -106,7 +106,7 @@ An overview of the [Error codes]({% link _docs_integrate/error-codes.md %}) that
 - The `error.consumption.attributes.successionMustNotChangePeer` error code has been removed as the new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) concept prevents some errors from occurring.
   Similarly, other error codes are no longer needed.
   However, a few new error codes, such as `error.consumption.attributes.wrongTypeOfAttribute`, had to be introduced.
-- The `error.runtime.attributes.isNotRepositoryAttribute` error code has been renamed to `error.runtime.attributes.isNotOwnIdentityAttribute` as OwnIdentityAttributes now include those [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that were previously known as RepositoryAttributes.
+- The `error.runtime.attributes.isNotRepositoryAttribute` error code has been renamed to `error.runtime.attributes.isNotOwnIdentityAttribute` as OwnIdentityAttributes now present those [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that were previously known as RepositoryAttributes.
   Similarly, other error codes have been renamed.
 - The `error.consumption.attributes.cannotSucceedChildOfComplexAttribute` error code has been removed as there is no child Attribute feature anymore.
   Sharing individual components of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) will be possible again in future releases.
