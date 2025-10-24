@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-10-24T13:45:19+02:00">
+  <meta property="article:published_time" content="2025-10-24T16:47:22+02:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Delete Identities">
     <meta itemprop="description" content="Regardless of whether an Identity is an App user or a Connector, it is stored on the Backbone.This guide describes the different options for Identity deletion from the Backbone.There is usually a predefined grace period in each process of Identity deletion, during which the Identity can cancel its deletion if it no longer wants to be deleted.Please note that an Identity can never trigger the process of deletion of another Identity.">
-    <meta itemprop="datePublished" content="2025-10-24T13:45:19+02:00">
+    <meta itemprop="datePublished" content="2025-10-24T16:47:22+02:00">
     
 
     <div class="page__inner-wrap">
@@ -428,7 +428,7 @@ Successful execution leads to the creation of an <a href="/versions/v7/integrate
 The Identity is immediately in deletion and will be irreversibly deleted from the Backbone once the end of the associated grace period of the IdentityDeletionProcess specified within its <code class="language-plaintext highlighter-rouge">gracePeriodEndsAt</code> property has been reached.
 Within the grace period, the <a href="/versions/v7/use-case-transport-cancel-identitydeletionprocess">Cancel IdentityDeletionProcess</a> use case can be applied by the Identity if it no longer wants to be deleted.
 In this case, the <code class="language-plaintext highlighter-rouge">status</code> of the IdentityDeletionProcess changes to <code class="language-plaintext highlighter-rouge">"Cancelled"</code>.
-Trying to cancel an IdentityDeletionProcess that does not have <code class="language-plaintext highlighter-rouge">"Active"</code> as <code class="language-plaintext highlighter-rouge">status</code> causes an error with <code class="language-plaintext highlighter-rouge">error.runtime.identityDeletionProcess.noApprovedIdentityDeletionProcess</code> as <a href="/versions/v7/integrate/error-codes">error code</a> to be thrown.
+Trying to cancel an IdentityDeletionProcess that does not have <code class="language-plaintext highlighter-rouge">"Active"</code> as <code class="language-plaintext highlighter-rouge">status</code> causes an error with <code class="language-plaintext highlighter-rouge">error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess</code> as <a href="/versions/v7/integrate/error-codes">error code</a> to be thrown.
 Furthermore, please note that the use of the <a href="/versions/v7/use-case-transport-initiate-identitydeletionprocess">Initiate IdentityDeletionProcess</a> use case is not permitted if there is already an active IdentityDeletionProcess.
 The corresponding <a href="/versions/v7/integrate/error-codes">error code</a> is given by <code class="language-plaintext highlighter-rouge">error.runtime.identityDeletionProcess.activeIdentityDeletionProcessAlreadyExists</code>.</p>
 
@@ -472,7 +472,7 @@ Similarly, it is not possible to <a href="/versions/v7/use-case-consumption-crea
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-10-24T13:45:19+02:00">October 24, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-10-24T16:47:22+02:00">October 24, 2025</time></p>
 
       </footer>
 

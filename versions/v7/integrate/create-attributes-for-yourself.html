@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-10-24T13:45:19+02:00">
+  <meta property="article:published_time" content="2025-10-24T16:47:22+02:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Create Attributes for yourself">
     <meta itemprop="description" content="This guide explains the end-to-end flow of creating an Attribute for your own Connector as its Integrator. As there are two types of Attributes, IdentityAttributes and RelationshipAttributes, a distinction must be made between them when creating an Attribute for yourself.">
-    <meta itemprop="datePublished" content="2025-10-24T13:45:19+02:00">
+    <meta itemprop="datePublished" content="2025-10-24T16:47:22+02:00">
     
 
     <div class="page__inner-wrap">
@@ -418,7 +418,7 @@
 <p>You need to replace the placeholders marked with <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> appropriately.
 Note that the property <code class="language-plaintext highlighter-rouge">tags</code> is optional, so you can omit it.
 It is necessary that you insert one of the available <a href="/versions/v7/integrate/attribute-values#identity-attributes">IdentityAttributeValues</a> into the <code class="language-plaintext highlighter-rouge">value</code> property.
-If there is already an existing RepositoryAttribute with an undefined <code class="language-plaintext highlighter-rouge">succeededBy</code> property and which therefore represents the latest version, whose <code class="language-plaintext highlighter-rouge">content.value</code> exactly matches the specified <code class="language-plaintext highlighter-rouge">value</code> in the payload for creating a new RepositoryAttribute, an error with <a href="/versions/v7/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.runtime.attributes.cannotCreateDuplicateRepositoryAttribute</code> is thrown.
+If there is already an existing RepositoryAttribute with an undefined <code class="language-plaintext highlighter-rouge">succeededBy</code> property and which therefore represents the latest version, whose <code class="language-plaintext highlighter-rouge">content.value</code> exactly matches the specified <code class="language-plaintext highlighter-rouge">value</code> in the payload for creating a new RepositoryAttribute, an error with <a href="/versions/v7/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.runtime.attributes.cannotCreateDuplicateOwnIdentityAttribute</code> is thrown.
 This is to prevent several latest RepositoryAttributes with the same <code class="language-plaintext highlighter-rouge">content.value</code> from existing in parallel.</p>
 
 <h3 id="process-of-creating-a-repositoryattribute">Process of creating a RepositoryAttribute</h3>
@@ -498,7 +498,7 @@ In terms of nomenclature, this pair of LocalAttributes consists of one own share
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-10-24T13:45:19+02:00">October 24, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-10-24T16:47:22+02:00">October 24, 2025</time></p>
 
       </footer>
 
