@@ -840,7 +840,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Cancel IdentityDeletionProcess",
-        "excerpt":"The process of Identity deletion leads to the creation of an IdentityDeletionProcess with \"Approved\" as status. It can be cancelled if the Identity no longer wants to be deleted. This is only possible as long as the end of the associated grace period of the IdentityDeletionProcess specified within its gracePeriodEndsAt...","categories": [],
+        "excerpt":"The process of Identity deletion leads to the creation of an IdentityDeletionProcess with \"Active\" as status. It can be cancelled if the Identity no longer wants to be deleted. This is only possible as long as the end of the associated grace period of the IdentityDeletionProcess specified within its gracePeriodEndsAt...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-transport-cancel-identitydeletionprocess",
         "teaser": null
@@ -912,7 +912,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Get active IdentityDeletionProcess",
-        "excerpt":"From a technical perspective, the process of Identity deletion is described by a data object of type IdentityDeletionProcess. An IdentityDeletionProcess is active if it has \"Approved\" as status. This use case returns the active IdentityDeletionProcess for your Identity if one exists. At all times, there can only be at most...","categories": [],
+        "excerpt":"From a technical perspective, the process of Identity deletion is described by a data object of type IdentityDeletionProcess. An IdentityDeletionProcess is active if it has \"Active\" as status. This use case returns the active IdentityDeletionProcess for your Identity if one exists. At all times, there can only be at most...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-transport-get-active-identitydeletionprocess",
         "teaser": null
@@ -1002,7 +1002,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Initiate IdentityDeletionProcess",
-        "excerpt":"Regarding self-initiated Identity deletion, this use case can be utilized to initiate an IdentityDeletionProcess for your Identity. The generated IdentityDeletionProcess immediately has \"Approved\" as its status and describes that the Identity will be deleted after the grace period ends unless the IdentityDeletionProcess is cancelled by the Identity by then. This...","categories": [],
+        "excerpt":"Regarding self-initiated Identity deletion, this use case can be utilized to initiate an IdentityDeletionProcess for your Identity. The generated IdentityDeletionProcess immediately has \"Active\" as its status and describes that the Identity will be deleted after the grace period ends unless the IdentityDeletionProcess is cancelled by the Identity by then. This...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-transport-initiate-identitydeletionprocess",
         "teaser": null
