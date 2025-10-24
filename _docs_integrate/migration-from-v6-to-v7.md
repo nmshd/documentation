@@ -96,6 +96,22 @@ const connectorClient = ConnectorClient.create({
 });
 ```
 
+### Removed and Changed Error Codes
+
+An overview of the [Error codes]({% link _docs_integrate/error-codes.md %}) that may occur is given on the corresponding documentation page. The most important changes regarding the error codes due to the update from version 6 to version 7 are:
+
+- With the new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) concept, an Attribute copy is no longer created when an Attribute is [shared]({% link _docs_integrate/share-attributes-with-peer.md %}).
+  Therefore, there are no Attribute copies and source Attributes anymore.
+  The `error.consumption.attributes.successorSourceContentIsNotEqualToCopyContent` error code and similar error codes could thus be removed.
+- The `error.consumption.attributes.successionMustNotChangePeer` error code has been removed as the new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) concept prevents some errors from occurring.
+  Similarly, other error codes are no longer needed.
+  However, a few new error codes, such as `error.consumption.attributes.wrongTypeOfAttribute`, had to be introduced.
+- The `error.runtime.attributes.isNotRepositoryAttribute` error code has been renamed to `error.runtime.attributes.isNotOwnIdentityAttribute` as OwnIdentityAttributes now present those [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that were previously known as RepositoryAttributes.
+  Similarly, other error codes have been renamed.
+- The `error.consumption.attributes.cannotSucceedChildOfComplexAttribute` error code has been removed as there is no child Attribute feature anymore.
+  Sharing individual components of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) will be possible again in future releases.
+- By renaming an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) `status` from `"Approved"` to `"Active"`, the error code `error.runtime.identityDeletionProcess.noApprovedIdentityDeletionProcess` has been replaced by `error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess`.
+
 ## Runtime-Specific Breaking Changes
 
 As an Integrator of a Connector, the following changes do not need to be taken into account during migration to version 7, as they are Runtime-specific breaking changes handled internally by the Connector.
