@@ -91,8 +91,8 @@ There is no authorization set up. So if you have the API-Key, you can access all
 
 The Consumer API supports configuring quotas on different write-actions to limit how often a user can execute those. These quotas can be defined per identity. However, there are some endpoints that allow anonymous access and that therefore cannot be rate limited by quotas. These endpoints currently are:
 
-- `POST /api/v1/Challenges`
-- `POST /api/v1/Identities`
+- `POST /api/v2/Challenges`
+- `POST /api/v2/Identities`
 
 When operating the Backbone's Consumer API, you should make sure that the endpoints mentioned above are not abused by malicious users by implementing rate limiting on the network level.
 
