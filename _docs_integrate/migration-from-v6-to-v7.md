@@ -100,16 +100,17 @@ const connectorClient = ConnectorClient.create({
 
 An overview of the [Error codes]({% link _docs_integrate/error-codes.md %}) that may occur is given on the corresponding documentation page. The most important changes regarding the error codes due to the update from version 6 to version 7 are:
 
-- With the new Attribute concept, no Attribute copy is created anymore when an Attribute is shared.
+- With the new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) concept, an Attribute copy is no longer created when an Attribute is shared.
   Therefore, there are no Attribute copies and source Attributes anymore.
-  For this reason, error codes such as the `error.consumption.attributes.successorSourceContentIsNotEqualToCopyContent` have been removed.
-- The `error.consumption.attributes.predecessorIsNotRepositoryAttribute` error code has been removed as the new Attribute concept handles Attribute types differently such that some Attribute type errors can be prevent.
-  Similarly, other error codes have been removed.
-  However, some Attribute type errors cannot be prevented, which is why the error code `error.consumption.attributes.wrongTypeOfAttribute` was introduced.
-- The `error.runtime.attributes.isNotRepositoryAttribute` error code has been renamed to `error.runtime.attributes.isNotOwnIdentityAttribute` as OwnIdentityAttributes now include those Attributes that were previously known as RepositoryAttributes.
+  The `error.consumption.attributes.successorSourceContentIsNotEqualToCopyContent` error code and similar error codes could thus be removed.
+- The `error.consumption.attributes.successionMustNotChangePeer` error code has been removed as the new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) concept prevents some errors from occurring.
+  Similarly, other error codes are no longer needed.
+  However, a few new error codes, such as `error.consumption.attributes.wrongTypeOfAttribute`, had to be introduced.
+- The `error.runtime.attributes.isNotRepositoryAttribute` error code has been renamed to `error.runtime.attributes.isNotOwnIdentityAttribute` as OwnIdentityAttributes now include those [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that were previously known as RepositoryAttributes.
   Similarly, other error codes have been renamed.
-- The `error.consumption.attributes.cannotSucceedChildOfComplexAttribute` error code has been removed as there is no complex Attribute feature anymore.
-- As the IdentityDeletionProcess `status` `"Approved"` has been replaced by `"Active"`, `error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess` instead of `error.runtime.identityDeletionProcess.noApprovedIdentityDeletionProcess` is used as error code from now on.
+- The `error.consumption.attributes.cannotSucceedChildOfComplexAttribute` error code has been removed as there is no child Attribute feature anymore.
+  Sharing individual components of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) will be possible again in future releases.
+- By renaming an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) `status` from `"Approved"` to `"Active"`, the error code `error.runtime.identityDeletionProcess.noApprovedIdentityDeletionProcess` has been replaced by `error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess`.
 
 ## Runtime-Specific Breaking Changes
 
