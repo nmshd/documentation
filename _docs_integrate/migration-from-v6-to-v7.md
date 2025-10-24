@@ -41,6 +41,11 @@ The step-by-step instructions can be consulted to start the migration to version
   - The `database.dbNamePrefix` field of the [database configuration]({% link _docs_operate/configuration.md %}#database) was removed. Before, it defaulted to `acc-`. If a database called `acc-connector` is to be accessed, the value of the `database.dbName` field must be set to `acc-connector` instead of `connector` only.
   - To support additional authentication methods beyond API key authentication, the `apiKey` field was replaced by the `authentication.apiKey.keys.<key-id>.key` parameter of the [authentication configuration]({% link _docs_operate/configuration.md %}#authentication). The `authentication.apiKey.keys.<key-id>.scopes` field provides a convenient way to configure the permissions that apply when the API key identified by `<key-id>` is used.
   - Additionally, the support for the `API_KEY` [environment variable]({% link _docs_operate/configuration.md %}#environment-variables) has been removed, that could be used to define an API key using a short environment variable. As an alternative, the `authentication.apiKey.keys.<key-id>.key` configuration property can be set using an environment variable.
+- It must be ensured that a [Backbone](https://github.com/nmshd/backbone/tags) is used which is compatible with version 7 of the Connector.
+  Even though a Backbone of version 6 can still be used, it is recommended to update to version 7 of the Backbone due to the new features and bug fixes provided.
+  Appropriate Backbone credentials can be specified in the fields `transportLibrary.baseUrl`, `transportLibrary.platformClientId` and `transportLibrary.platformClientSecret` of the [Backbone configuration]({% link _docs_operate/configuration.md %}#transportlibrary).
+  The URL `<baseUrl of Backbone>/api/v2/version` can be accessed to validate the version of the Backbone.
+  Please note that version 7 of the Backbone only supports version 2 of its API and no longer version 1.
 
 ### Removed and Changed Data Structures
 
@@ -60,6 +65,8 @@ The step-by-step instructions can be consulted to start the migration to version
   The property `reference` was introduced to group the property `truncated` with the additional property `url`, improving structure and better organizing related data.
 - The `title` property of the [File]({% link _docs_integrate/data-model-overview.md %}#file) became optional and should no longer be relied upon to be set.
 - The `ownershipToken` property of the [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem) became mandatory. This ensures that the ownership of the original File on the Backbone is transferred instead of applying a copy-based workaround. If the ownership of a [File]({% link _docs_integrate/data-model-overview.md %}#file) ought to be transferred, that doesn't have an `ownershipToken` yet, it will need to be [regenerated]({% link _docs_use-cases/use-case-transport-regenerate-file-ownership-token.md %}).
+- The properties `approvedAt` and `approvedByDevice` of the [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) have been removed.
+  Furthermore, renaming `"Approved"` to `"Active"` resulted in a change of an IdentityDeletionProcess `status`.
 - All data structures around the Attribute listener feature, including the LocalAttributeListener, the RegisterAttributeListenerRequestItem, and the RegisterAttributeListenerAcceptResponseItem, were removed.
 
 ### Changed Behavior of Known Features

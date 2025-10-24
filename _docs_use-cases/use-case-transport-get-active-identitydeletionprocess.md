@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: IdentityDeletionProcessFacade
   - function: getActiveIdentityDeletionProcess
-  - description: Get IdentityDeletionProcess that is in status 'Approved'
+  - description: Get IdentityDeletionProcess that is in status 'Active'
   - feature category: Identity handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
@@ -42,7 +42,7 @@ required_by:
 {% include properties_list.html %}
 
 From a technical perspective, the process of [Identity deletion]({% link _docs_integrate/delete-identities.md %}) is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess).
-An IdentityDeletionProcess is active if it has `"Approved"` as `status`.
+An IdentityDeletionProcess is active if it has `"Active"` as `status`.
 This use case returns the active IdentityDeletionProcess for your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) if one exists.
 At all times, there can only be at most one active IdentityDeletionProcess per Identity.
 
