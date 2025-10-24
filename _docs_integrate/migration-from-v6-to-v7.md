@@ -66,6 +66,7 @@ The step-by-step instructions can be consulted to start the migration to version
 - The `title` property of the [File]({% link _docs_integrate/data-model-overview.md %}#file) became optional and should no longer be relied upon to be set.
 - The `ownershipToken` property of the [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem) became mandatory. This ensures that the ownership of the original File on the Backbone is transferred instead of applying a copy-based workaround. If the ownership of a [File]({% link _docs_integrate/data-model-overview.md %}#file) ought to be transferred, that doesn't have an `ownershipToken` yet, it will need to be [regenerated]({% link _docs_use-cases/use-case-transport-regenerate-file-ownership-token.md %}).
 - The properties `approvedAt` and `approvedByDevice` of the [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) have been removed.
+  Furthermore, renaming `"Approved"` to `"Active"` resulted in a change of an IdentityDeletionProcess `status`.
 - All data structures around the Attribute listener feature, including the LocalAttributeListener, the RegisterAttributeListenerRequestItem, and the RegisterAttributeListenerAcceptResponseItem, were removed.
 
 ### Changed Behavior of Known Features
