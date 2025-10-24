@@ -14,7 +14,7 @@ properties:
   - layer: Transport
   - facade: IdentityDeletionProcessFacade
   - function: getActiveIdentityDeletionProcess
-  - description: Get IdentityDeletionProcess that is in status 'Approved'
+  - description: Get IdentityDeletionProcess that is in status 'Active'
   - feature category: Identity handling
   - tech category: IdentityDeletionProcesses
   - status: DONE
