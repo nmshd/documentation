@@ -451,6 +451,10 @@ This will be the case, if the peer already accepted the DeleteAttributeRequestIt
 
 ## AttributeForwardingDetails
 
+## EmittedAttributeDeletionInfo
+
+## ReceivedAttributeDeletionInfo
+
 ## AttributeTagCollection
 
 The AttributeTagCollection is defined by the Backbone and specifies which `tags` are allowed for which [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) `value.@type`.
