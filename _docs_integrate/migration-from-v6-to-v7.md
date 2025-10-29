@@ -80,7 +80,7 @@ Furthermore, LocalAttribute subtypes have been introduced to help distinguish be
 - Peer shared IdentityAttributes and peer shared RelationshipAttributes have been replaced by the LocalAttribute subtypes PeerIdentityAttribute and PeerRelationshipAttribute.
 - Instead of emitted ThirdPartyRelationshipAttributes, AttributeForwardingDetails are created.
   For this reason, the received ThirdPartyRelationshipAttribute is now simply called ThirdPartyRelationshipAttribute.
-- `shareInfo` property was removed.
+- `shareInfo` property and the LocalAttributeShareInfo data object were removed.
   Instead, there are AttributeForwardingDetails and flattened sharing properties depending on the type of LocalAttribute.
 - LocalAttributeDeletionInfo has been replaced by EmittedAttributeDeletionInfo and ReceivedAttributeDeletionInfo depending on the type of LocalAttribute.
 - The `parentId` property was removed as there is no child Attribute feature anymore.
