@@ -50,7 +50,6 @@ This use case is intended to query [LocalAttributes]({% link _docs_integrate/dat
 
 - `query` allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used:
   - `createdAt` describes the time when the LocalAttribute was created.
-  - `parentId` can be used to find the child Attributes of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes).
   - The fields of `content` can be used to describe the queried Attribute (either an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute)
     or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute)).
   - `succeeds` and `succeededBy` give information about the [succession state]({% link _docs_integrate/update-attributes-by-succession.md %}) of the LocalAttribute.

@@ -83,8 +83,7 @@ Furthermore, LocalAttribute subtypes have been introduced to help distinguish be
 - `shareInfo` property was removed.
   Instead, there are AttributeForwardingDetails and flattened sharing properties depending on the type of LocalAttribute.
 - LocalAttributeDeletionInfo has been replaced by EmittedAttributeDeletionInfo and ReceivedAttributeDeletionInfo depending on the type of LocalAttribute.
-- `parentId` property was removed as there is no child Attribute feature anymore.
-  Sharing individual components of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) will be possible again in future releases.
+- The `parentId` property was removed as there is no child Attribute feature anymore.
 - Many NotificationItems and many use cases have been renamed.
 
 ### Changed Behavior of Known Features
