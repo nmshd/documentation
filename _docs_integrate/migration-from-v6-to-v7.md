@@ -69,6 +69,24 @@ The step-by-step instructions can be consulted to start the migration to version
   Furthermore, renaming `"Approved"` to `"Active"` resulted in a change of an IdentityDeletionProcess `status`.
 - All data structures around the Attribute listener feature, including the LocalAttributeListener, the RegisterAttributeListenerRequestItem, and the RegisterAttributeListenerAcceptResponseItem, were removed.
 
+#### New LocalAttribute Concept
+
+With the new LocalAttribute concept, no Attribute copy is created anymore when an Attribute is shared.
+Furthermore, LocalAttribute subtypes have been introduced to help distinguish between different kinds of LocalAttributes.
+
+- RepositoryAttributes were renamed to OwnIdentityAttributes.
+  There are no own shared IdentityAttributes anymore.
+  Instead, AttributeForwardingDetails are created.
+- Peer shared IdentityAttributes and peer shared RelationshipAttributes have been replaced by the LocalAttribute subtypes PeerIdentityAttribute and PeerRelationshipAttribute.
+- Instead of emitted ThirdPartyRelationshipAttributes, AttributeForwardingDetails are created.
+  For this reason, the received ThirdPartyRelationshipAttribute is now simply called ThirdPartyRelationshipAttribute.
+- `shareInfo` property was removed.
+  Instead, there are AttributeForwardingDetails and flattened sharing properties depending on the type of LocalAttribute.
+- LocalAttributeDeletionInfo has been replaced by EmittedAttributeDeletionInfo and ReceivedAttributeDeletionInfo depending on the type of LocalAttribute.
+- `parentId` property was removed as there is no child Attribute feature anymore.
+  Sharing individual components of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) will be possible again in future releases.
+- Many NotificationItems and many use cases have been renamed.
+
 ### Changed Behavior of Known Features
 
 - Stricter validation of `tags` of [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) and [Files]({% link _docs_integrate/data-model-overview.md %}#file) have been added as documented in their description in the data model overview.
