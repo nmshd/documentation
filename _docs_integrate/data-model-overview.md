@@ -455,6 +455,11 @@ This will be the case, if the peer already accepted the DeleteAttributeRequestIt
 
 ## ReceivedAttributeDeletionInfo
 
+| Name           | Type                                    | Description                                                                                                                                                                                                           |
+| -------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| deletionStatus | `"ToBeDeleted"` \| `"DeletedByEmitter"` | The deletion status of the recipient's or emitter's Attribute.                                                                                                                                                        |
+| deletionDate   | `string`                                | The point in time<br>{::nomarkdown}<ul></li><li>an upcoming deletion is planned (for <code>"ToBeDeleted"</code>).</li><li>a completed deletion has been notified (for <code>"DeletedByEmitter"</code>).</li></ul>{:/} |
+
 ## AttributeTagCollection
 
 The AttributeTagCollection is defined by the Backbone and specifies which `tags` are allowed for which [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) `value.@type`.
