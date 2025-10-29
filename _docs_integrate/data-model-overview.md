@@ -390,6 +390,16 @@ In the [Attribute introduction]({% link _docs_integrate/attribute-introduction.m
 | isDefault    | `true` \| `undefined`                                                                          | States whether the LocalAttribute is the default RepositoryAttribute for its Attribute value type. If setting default RepositoryAttributes is enabled, for every IdentityAttribute value type exactly one RepositoryAttribute will have `isDefault` set, given that at least one RepositoryAttribute of that value type exists. This property is only used for the UI of the App, e.g. to mark the Attribute that should be displayed firstly if multiple Attributes of the same value type exist. Thus, for a Connector it will always be `undefined`. |
 | wasViewedAt  | `string` \| `undefined`                                                                        | A timestamp indicating when the LocalAttribute was firstly viewed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
+### OwnIdentityAttribute
+
+### PeerIdentityAttribute
+
+### OwnRelationshipAttribute
+
+### PeerRelationshipAttribute
+
+### ThirdPartyRelationshipAttribute
+
 ### LocalAttributeShareInfo
 
 The LocalAttributeShareInfo helps to keep track of how the LocalAttribute was received/sent, from whom it was received/who sent it, as well as which LocalAttribute it was copied from. For example, this enables us to track back who we shared a certain IdentityAttribute with, so we are able to notify each of those peers when changing it. The Attribute can be either transmitted via Request or Notification. Hence, only one of `requestReference` and `notificationReference` can be set.
@@ -420,6 +430,8 @@ This will be the case, if the peer already accepted the DeleteAttributeRequestIt
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | deletionStatus | `"DeletionRequestSent"` \| `"DeletionRequestRejected"` \| `"ToBeDeleted"` \| `"ToBeDeletedByPeer"` \| `"DeletedByOwner"` \| `"DeletedByPeer"` | The deletion status of the peer's counterpart of the shared Attribute. For own shared Attributes it may only be set to `"DeletionRequestSent"`, `"DeletionRequestRejected"`, `"ToBeDeletedByPeer"` or `"DeletedByPeer"`, whereas for peer shared Attributes only the values `"ToBeDeleted"` and `"DeletedByOwner"` are allowed.                                                                                                                                                                       |
 | deletionDate   | `string`                                                                                                                                      | The point in time<br>{::nomarkdown}<ul><li>the Request with a DeleteAttributeRequestItem was sent (for <code>"DeletionRequestSent"</code>).</li><li>the Response with a RejectResponseItem was received (for <code>"DeletionRequestRejected"</code>).</li><li>an upcoming deletion is planned (for <code>"ToBeDeleted"</code> or <code>"ToBeDeletedByPeer"</code>).</li><li>a completed deletion has been notified (for <code>"DeletedByOwner"</code> or <code>"DeletedByPeer"</code>).</li></ul>{:/} |
+
+## AttributeForwardingDetails
 
 ## AttributeTagCollection
 
