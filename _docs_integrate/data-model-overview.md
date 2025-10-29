@@ -432,21 +432,21 @@ The LocalAttributeShareInfo helps to keep track of how the LocalAttribute was re
 
 ### LocalAttributeDeletionInfo
 
-The LocalAttributeDeletionInfo holds information about the deletion status of the counterpart of a shared Attribute, as well as the point in time of that deletion.
-If the Attribute's `owner` requests the deletion of a shared Attribute via a [DeleteAttributeRequestItem](#deleteattributerequestitem) from the peer, their own shared Attribute will get `"DeletionRequestSent"` as `deletionStatus` and the time of sending the Request as `deletionDate`.
-Should the peer reject the DeleteAttributeRequestItem, the own shared Attribute of the `owner` is given `"DeletionRequestRejected"` as `deletionStatus`.
-The `deletionDate` then will be set to the time of receiving the [RejectResponseItem](#rejectresponseitem).
-If they accept, however, using the [AcceptDeleteAttributeRequestItemParameters](#acceptdeleteattributerequestitemparameters), the `deletionStatus` of the peer shared Attribute of the peer will be set to `"ToBeDeleted"` and its `deletionDate` will be set to the `deletionDate` the peer sent in their Response.
-Accordingly, the `deletionStatus` of the own shared Attribute of the owner will move to `"ToBeDeletedByPeer"` with the same `deletionDate`.
-Once the peer shared Attribute is deleted by the peer, a [PeerSharedAttributeDeletedByPeerNotificationItem](#peersharedattributedeletedbypeernotificationitem) is sent to the owner, where the `deletionStatus` of the own shared Attribute is set to `"DeletedByPeer"` with the current time stamp as `deletionDate`.
-Likewise, if the owner deletes their own shared Attribute, before the peer deleted their corresponding peer shared Attribute, an [OwnSharedAttributeDeletedByOwnerNotificationItem](#ownsharedattributedeletedbyownernotificationitem) is sent to the peer.
-If the `deletionInfo` of the peer was undefined before, the `deletionStatus` will be set to `"DeletedByOwner"` with the current time stamp as `deletionDate`.
-However, if the `deletionInfo` was defined before with `"ToBeDeleted"` as `deletionStatus`, it will remain unchanged, such that the peer will be able to delete their peer shared Attribute as planned.
-This will be the case, if the peer already accepted the DeleteAttributeRequestItem for this particular Attribute.
-
 ## AttributeForwardingDetails
 
 ## EmittedAttributeDeletionInfo
+
+The EmittedAttributeDeletionInfo holds information about the deletion status of the recipient's Attribute, as well as the point in time of that deletion.
+If the Attribute's `owner` requests the deletion of a shared Attribute via a [DeleteAttributeRequestItem](#deleteattributerequestitem) from the recipient, their emitted Attribute will get `"DeletionRequestSent"` as `deletionStatus` and the time of sending the Request as `deletionDate`.
+Should the recipient reject the DeleteAttributeRequestItem, the emitted Attribute of the `owner` is given `"DeletionRequestRejected"` as `deletionStatus`.
+The `deletionDate` then will be set to the time of receiving the [RejectResponseItem](#rejectresponseitem).
+If they accept, however, using the [AcceptDeleteAttributeRequestItemParameters](#acceptdeleteattributerequestitemparameters), the `deletionStatus` of the recipient's Attribute will be set to `"ToBeDeleted"` and its `deletionDate` will be set to the `deletionDate` the recipient sent in their Response.
+Accordingly, the `deletionStatus` of the emitted Attribute of the owner will move to `"ToBeDeletedByRecipient"` with the same `deletionDate`.
+Once the recipient's Attribute is deleted by the recipient, a [PeerSharedAttributeDeletedByPeerNotificationItem](#peersharedattributedeletedbypeernotificationitem) is sent to the owner, where the `deletionStatus` of the emitted Attribute is set to `"DeletedByRecipient"` with the current time stamp as `deletionDate`.
+Likewise, if the owner deletes their emitted Attribute, before the recipient deleted their Attribute, an [OwnSharedAttributeDeletedByOwnerNotificationItem](#ownsharedattributedeletedbyownernotificationitem) is sent to the recipient.
+If the `deletionInfo` of the recipient was undefined before, the `deletionStatus` will be set to `"DeletedByEmitter"` with the current time stamp as `deletionDate`.
+However, if the `deletionInfo` was defined before with `"ToBeDeleted"` as `deletionStatus`, it will remain unchanged, such that the recipient will be able to delete their Attribute as planned.
+This will be the case, if the recipient already accepted the DeleteAttributeRequestItem for this particular Attribute.
 
 | Name           | Type                                                                                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | -------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -454,6 +454,18 @@ This will be the case, if the peer already accepted the DeleteAttributeRequestIt
 | deletionDate   | `string`                                                                                                       | The point in time<br>{::nomarkdown}<ul><li>the Request with a DeleteAttributeRequestItem was sent (for <code>"DeletionRequestSent"</code>).</li><li>the Response with a RejectResponseItem was received (for <code>"DeletionRequestRejected"</code>).</li><li>an upcoming deletion is planned (for <code>"ToBeDeletedByRecipient"</code>).</li><li>a completed deletion has been notified (for <code>"DeletedByRecipient"</code>).</li></ul>{:/} |
 
 ## ReceivedAttributeDeletionInfo
+
+The ReceivedAttributeDeletionInfo holds information about the deletion status of the recipient's or emitter's Attribute, as well as the point in time of that deletion.
+If the Attribute's `owner` requests the deletion of a shared Attribute via a [DeleteAttributeRequestItem](#deleteattributerequestitem) from the recipient, their emitted Attribute will get `"DeletionRequestSent"` as `deletionStatus` and the time of sending the Request as `deletionDate`.
+Should the recipient reject the DeleteAttributeRequestItem, the emitted Attribute of the `owner` is given `"DeletionRequestRejected"` as `deletionStatus`.
+The `deletionDate` then will be set to the time of receiving the [RejectResponseItem](#rejectresponseitem).
+If they accept, however, using the [AcceptDeleteAttributeRequestItemParameters](#acceptdeleteattributerequestitemparameters), the `deletionStatus` of the recipient's Attribute will be set to `"ToBeDeleted"` and its `deletionDate` will be set to the `deletionDate` the recipient sent in their Response.
+Accordingly, the `deletionStatus` of the emitted Attribute of the owner will move to `"ToBeDeletedByRecipient"` with the same `deletionDate`.
+Once the recipient's Attribute is deleted by the recipient, a [PeerSharedAttributeDeletedByPeerNotificationItem](#peersharedattributedeletedbypeernotificationitem) is sent to the owner, where the `deletionStatus` of the emitted Attribute is set to `"DeletedByRecipient"` with the current time stamp as `deletionDate`.
+Likewise, if the owner deletes their emitted Attribute, before the recipient deleted their Attribute, an [OwnSharedAttributeDeletedByOwnerNotificationItem](#ownsharedattributedeletedbyownernotificationitem) is sent to the recipient.
+If the `deletionInfo` of the recipient was undefined before, the `deletionStatus` will be set to `"DeletedByEmitter"` with the current time stamp as `deletionDate`.
+However, if the `deletionInfo` was defined before with `"ToBeDeleted"` as `deletionStatus`, it will remain unchanged, such that the recipient will be able to delete their Attribute as planned.
+This will be the case, if the recipient already accepted the DeleteAttributeRequestItem for this particular Attribute.
 
 | Name           | Type                                    | Description                                                                                                                                                                                                           |
 | -------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
