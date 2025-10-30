@@ -84,7 +84,9 @@ Furthermore, LocalAttribute subtypes have been introduced to help distinguish be
   Instead, there are AttributeForwardingDetails and flattened sharing properties depending on the type of LocalAttribute.
 - LocalAttributeDeletionInfo has been replaced by EmittedAttributeDeletionInfo and ReceivedAttributeDeletionInfo depending on the type of LocalAttribute.
 - The `parentId` property was removed as there is no child Attribute feature anymore.
-- Many NotificationItems and many use cases have been renamed.
+- The OwnSharedAttributeDeletedByOwnerNotificationItem, the PeerSharedAttributeDeletedByPeerNotificationItem, the PeerSharedAttributeSucceededNotificationItem and the ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem have been removed.
+  The new NotificationItems are ForwardedAttributeDeletedByPeerNotificationItem, OwnAttributeDeletedByOwnerNotificationItem, PeerAttributeSucceededNotificationItem and PeerRelationshipAttributeDeletedByPeerNotificationItem.
+- Many use cases have been renamed.
 
 ### Changed Behavior of Known Features
 
