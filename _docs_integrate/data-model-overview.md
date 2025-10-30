@@ -912,47 +912,47 @@ In the example of Attribute succession, the peer can not decide to accept or rej
 
 NotificationItems are sent inside a Notification and specify which processes should be triggered when receiving the Notification.
 
-#### OwnSharedAttributeDeletedByOwnerNotificationItem
+#### ForwardedAttributeDeletedByPeerNotificationItem
 
-If a peer has shared one of their Attributes with you and deletes their own shared Attribute, an OwnSharedAttributeDeletedByOwnerNotificationItem will be sent to you.
-Internally, for your corresponding peer shared Attribute the `deletionInfo.deletionStatus` will be set to `"DeletedByOwner"` if it wasn't set to `"ToBeDeleted` before.
+If an Identity has shared an [OwnIdentityAttribute](#ownidentityattribute) with a peer or forwarded an [OwnRelationshipAttribute](#ownrelationshipattribute) or a [PeerRelationshipAttribute](#peerrelationshipattribute) to a peer which is not involved in the Relationship in which the RelationshipAttribute exists, and the peer deletes their forwarded Attribute, a ForwardedAttributeDeletedByPeerNotificationItem will be sent to the Identity.
+Internally, for the corresponding Attribute of the Identity, the `deletionInfo.deletionStatus` will be set to `"DeletedByRecipient"`.
 
-| Name        | Type                                                 | Description                                                                                                                                           |
-| ----------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| @type       | `"OwnSharedAttributeDeletedByOwnerNotificationItem"` |                                                                                                                                                       |
-| attributeId | `string`                                             | The `id` of the own shared Attribute that was deleted by the owner. It matches the `id` of the corresponding peer shared Attributes of the recipient. |
+| Name        | Type                                                | Description                                                                                                                           |
+| ----------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| @type       | `"ForwardedAttributeDeletedByPeerNotificationItem"` |                                                                                                                                       |
+| attributeId | `string`                                            | The `id` of the forwarded Attribute that was deleted by the peer. It matches the `id` of the corresponding Attribute of the Identity. |
 
-#### PeerSharedAttributeDeletedByPeerNotificationItem
+#### OwnAttributeDeletedByOwnerNotificationItem
 
-If you have shared one of your Attributes with a peer and they delete their peer shared Attribute, a PeerSharedAttributeDeletedByPeerNotificationItem will be sent to you.
-Internally, for your corresponding own shared Attribute the `deletionInfo.deletionStatus` will be set to `"DeletedByPeer"` .
+If an Identity has shared an [OwnIdentityAttribute](#ownidentityattribute) or an [OwnRelationshipAttribute](#ownrelationshipattribute) with a peer and deletes their own Attribute, an OwnAttributeDeletedByOwnerNotificationItem will be sent to the peer.
+Internally, for the corresponding Attribute of the peer, the `deletionInfo.deletionStatus` will be set to `"DeletedByEmitter"` if it wasn't set to `"ToBeDeleted` before.
 
-| Name        | Type                                                 | Description                                                                                                                                          |
-| ----------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| @type       | `"PeerSharedAttributeDeletedByPeerNotificationItem"` |                                                                                                                                                      |
-| attributeId | `string`                                             | The `id` of the peer shared Attribute that was deleted by the peer. It matches the `id` of the corresponding own shared Attributes of the recipient. |
+| Name        | Type                                           | Description                                                                                                                  |
+| ----------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| @type       | `"OwnAttributeDeletedByOwnerNotificationItem"` |                                                                                                                              |
+| attributeId | `string`                                       | The `id` of the own Attribute that was deleted by the owner. It matches the `id` of the corresponding Attribute of the peer. |
 
-#### PeerSharedAttributeSucceededNotificationItem
+#### PeerAttributeSucceededNotificationItem
 
-A PeerSharedAttributeSucceededNotificationItem will be sent, if an Attribute, a peer shared with you, was succeeded by them and they choose to notify you about it.
-Internally, the succeeded version will then be created at your side as successor for your previously received Attribute.
+A PeerAttributeSucceededNotificationItem will be sent, if an Attribute, an Identity has shared with a peer, was succeeded by the Identity and they choose to notify the peer about it.
+Internally, the succeeded version will then be created at the peer's side as successor for the previously received Attribute.
 
-| Name             | Type                                                                                           | Description                                        |
-| ---------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| @type            | `"PeerSharedAttributeSucceededNotificationItem"`                                               |                                                    |
-| predecessorId    | `string`                                                                                       | The `id` of the LocalAttribute that was succeeded  |
-| successorId      | `string`                                                                                       | The `id` of the LocalAttribute it was succeeded by |
-| successorContent | [`IdentityAttribute`](#identityattribute) \| [`RelationshipAttribute`](#relationshipattribute) | The updated `content` of the LocalAttribute        |
+| Name             | Type                                                                                           | Description                                                            |
+| ---------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| @type            | `"PeerAttributeSucceededNotificationItem"`                                                     |                                                                        |
+| predecessorId    | `string`                                                                                       | The `id` of the [LocalAttribute](#localattribute) that was succeeded.  |
+| successorId      | `string`                                                                                       | The `id` of the [LocalAttribute](#localattribute) it was succeeded by. |
+| successorContent | [`IdentityAttribute`](#identityattribute) \| [`RelationshipAttribute`](#relationshipattribute) | The updated `content` of the [LocalAttribute](#localattribute).        |
 
-#### ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem
+#### PeerRelationshipAttributeDeletedByPeerNotificationItem
 
-If your peer deletes an [emitted or received ThirdPartyRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes), a ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem will be sent to you.
-Internally, for your corresponding ThirdPartyRelationshipAttribute the `deletionInfo.deletionStatus` will be set to `"DeletedByPeer"`.
+If an Identity has shared a [PeerRelationshipAttribute](#peerrelationshipattribute) with a peer and deletes their PeerRelationshipAttribute, a PeerRelationshipAttributeDeletedByPeerNotificationItem will be sent to the peer.
+Internally, for the corresponding [OwnRelationshipAttribute](#ownrelationshipattribute) or [ThirdPartyRelationshipAttribute](#thirdpartyrelationshipattribute) of the peer, the `deletionInfo.deletionStatus` will be set to `"DeletedByRecipient"` or `"DeletedByEmitter"`, respectively.
 
-| Name        | Type                                                             | Description                                                                                                                                                                                           |
-| ----------- | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| @type       | `"ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem"` |                                                                                                                                                                                                       |
-| attributeId | `string`                                                         | The `id` of the ThirdPartyRelationshipAttribute that was deleted by the peer. The `id` of the ThirdPartyRelationshipAttribute of the sender of the NotificationItem matches the one of the recipient. |
+| Name        | Type                                                       | Description                                                                                                                                                                     |
+| ----------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| @type       | `"PeerRelationshipAttributeDeletedByPeerNotificationItem"` |                                                                                                                                                                                 |
+| attributeId | `string`                                                   | The `id` of the PeerRelationshipAttribute that was deleted by the Identity. It matches the `id` of the OwnRelationshipAttribute or ThirdPartyRelationshipAttribute of the peer. |
 
 ## Attributes
 
