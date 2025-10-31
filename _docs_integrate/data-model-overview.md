@@ -911,8 +911,8 @@ NotificationItems are sent inside a Notification and specify which processes sho
 
 #### ForwardedAttributeDeletedByPeerNotificationItem
 
-If an Identity has shared an [OwnIdentityAttribute](#ownidentityattribute) with a peer or forwarded an [OwnRelationshipAttribute](#ownrelationshipattribute) or a [PeerRelationshipAttribute](#peerrelationshipattribute) to a peer which is not involved in the Relationship in which the RelationshipAttribute exists, and the peer deletes their forwarded Attribute, a ForwardedAttributeDeletedByPeerNotificationItem will be sent to the Identity.
-Internally, for the corresponding Attribute of the Identity, the `deletionInfo.deletionStatus` will be set to `"DeletedByRecipient"`.
+If an Identity has shared an [OwnIdentityAttribute](#ownidentityattribute) with a peer or forwarded an [OwnRelationshipAttribute](#ownrelationshipattribute) or a [PeerRelationshipAttribute](#peerrelationshipattribute) to a peer which is not involved in the [Relationship](#relationship) in which the [RelationshipAttribute](#relationshipattribute) exists, a ForwardedAttributeDeletedByPeerNotificationItem will be sent to the Identity if the peer deletes their forwarded Attribute.
+Internally, for the corresponding [AttributeForwardingDetails](#attributeforwardingdetails) of the Identity's Attribute, the `deletionInfo.deletionStatus` will be set to `"DeletedByRecipient"`.
 
 | Name        | Type                                                | Description                                                                                                                           |
 | ----------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
@@ -921,7 +921,7 @@ Internally, for the corresponding Attribute of the Identity, the `deletionInfo.d
 
 #### OwnAttributeDeletedByOwnerNotificationItem
 
-If an Identity has shared an [OwnIdentityAttribute](#ownidentityattribute) or an [OwnRelationshipAttribute](#ownrelationshipattribute) with a peer and deletes their own Attribute, an OwnAttributeDeletedByOwnerNotificationItem will be sent to the peer.
+If an Identity has shared an [OwnIdentityAttribute](#ownidentityattribute) or an [OwnRelationshipAttribute](#ownrelationshipattribute) with a peer and deletes it, an OwnAttributeDeletedByOwnerNotificationItem will be sent to the peer.
 Internally, for the corresponding Attribute of the peer, the `deletionInfo.deletionStatus` will be set to `"DeletedByEmitter"` if it wasn't set to `"ToBeDeleted` before.
 
 | Name        | Type                                           | Description                                                                                                                  |
@@ -931,7 +931,7 @@ Internally, for the corresponding Attribute of the peer, the `deletionInfo.delet
 
 #### PeerAttributeSucceededNotificationItem
 
-A PeerAttributeSucceededNotificationItem will be sent, if an Attribute, an Identity has shared with a peer, was succeeded by the Identity and they choose to notify the peer about it.
+A PeerAttributeSucceededNotificationItem will be sent if an Attribute, an Identity has shared with a peer, was succeeded by the Identity and they choose to notify the peer about it.
 Internally, the succeeded version will then be created at the peer's side as successor for the previously received Attribute.
 
 | Name             | Type                                                                                           | Description                                                            |
@@ -943,7 +943,7 @@ Internally, the succeeded version will then be created at the peer's side as suc
 
 #### PeerRelationshipAttributeDeletedByPeerNotificationItem
 
-If an Identity has shared a [PeerRelationshipAttribute](#peerrelationshipattribute) with a peer and deletes their PeerRelationshipAttribute, a PeerRelationshipAttributeDeletedByPeerNotificationItem will be sent to the peer.
+If an Identity has shared a [PeerRelationshipAttribute](#peerrelationshipattribute) with a peer and deletes it, a PeerRelationshipAttributeDeletedByPeerNotificationItem will be sent to the peer.
 Internally, for the corresponding [OwnRelationshipAttribute](#ownrelationshipattribute) or [ThirdPartyRelationshipAttribute](#thirdpartyrelationshipattribute) of the peer, the `deletionInfo.deletionStatus` will be set to `"DeletedByRecipient"` or `"DeletedByEmitter"`, respectively.
 
 | Name        | Type                                                       | Description                                                                                                                                                                     |
