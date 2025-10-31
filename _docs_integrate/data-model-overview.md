@@ -358,26 +358,19 @@ With the information in this type you can clearly identify the Transport object 
 
 ## LocalAttribute
 
-A LocalAttribute stores the local metadata for an [Attribute](#attributes). This is contained within the `content` property of the LocalAttribute. The Attribute can be an [IdentityAttribute](#identityattribute) or a [RelationshipAttribute](#relationshipattribute). In the case of IdentityAttributes, there are two situations in which a LocalAttribute is created in the database:
-
-- The Identity [creates an IdentityAttribute for itself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself) (e.g. sets its first name). In particular, it is the `owner` of the IdentityAttribute. Such a LocalAttribute is an **OwnIdentityAttribute**. The Identity can share an IdentityAttribute of itself with another Identity (e.g. by [exchanging]({% link _docs_integrate/attribute-introduction.md %}#attribute-management-options) it using a suitable [Request]({% link _docs_integrate/data-model-overview.md %}#request)). In that case, AttributeForwardingDetails are created that reference the `id` of the OwnIdentityAttribute as `attributeId`.
-- The Identity receives an IdentityAttribute from another Identity (e.g. receives it via a [Request]({% link _docs_integrate/data-model-overview.md %}#request)). In that case, a new LocalAttribute is created which is a **PeerIdentityAttribute**. An IdentityAttribute received from another Identity cannot be shared further.
-
-In contrast, [RelationshipAttributes](#relationshipattribute) always exist in the context of a [Relationship](#relationship).
-For this reason, it is not possible for an Identity to have an unshared RelationshipAttribute.
-The [creation of a RelationshipAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-a-relationshipattribute) corresponds to the creation of one LocalAttribute for its `owner` and one LocalAttribute for the peer with whom the `owner` has established the Relationship in whose context the RelationshipAttribute is to exist.
-
-- The LocalAttribute of the `owner` is an **OwnRelationshipAttribute**.
-- The peer’s LocalAttribute is a **PeerRelationshipAttribute**.
-
-A RelationshipAttribute can be forwarded to a peer which is not involved in the Relationship in which the RelationshipAttribute exists if its `confidentiality` is not set to `"private"`.
-
-- For the Identity which is in the Relationship in whose context the forwarded RelationshipAttribute exists, AttributeForwardingDetails are created that reference the `id` of the source RelationshipAttribute as `attributeId`.
-- For the Identity which received the forwarded RelationshipAttribute, a new LocalAttribute is created which is a **ThirdPartyRelationshipAttribute**.
-
-In the [Attribute introduction]({% link _docs_integrate/attribute-introduction.md %}) more details on the terminology related to LocalAttributes can be found.
+A LocalAttribute stores the local metadata for an [Attribute](#attributes).
+This is contained within the `content` property of the LocalAttribute.
+The Attribute can be an [IdentityAttribute](#identityattribute) or a [RelationshipAttribute](#relationshipattribute).
+In the [Attribute introduction]({% link _docs_integrate/attribute-introduction.md %}), more details on the terminology related to LocalAttributes can be found.
 
 ### OwnIdentityAttribute
+
+In the case of IdentityAttributes, there are two situations in which a LocalAttribute is created in the database.
+The Identity [creates an IdentityAttribute for itself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself) (e.g. sets its first name).
+In particular, it is the `owner` of the IdentityAttribute.
+Such a LocalAttribute is an **OwnIdentityAttribute**.
+The Identity can share an IdentityAttribute of itself with another Identity (e.g. by [exchanging]({% link _docs_integrate/attribute-introduction.md %}#attribute-management-options) it using a suitable [Request]({% link _docs_integrate/data-model-overview.md %}#request)).
+In that case, AttributeForwardingDetails are created that reference the `id` of the OwnIdentityAttribute as `attributeId`.
 
 | Name        | Type                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ----------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -390,6 +383,10 @@ In the [Attribute introduction]({% link _docs_integrate/attribute-introduction.m
 | isDefault   | `true` \| `undefined`                     | States whether the LocalAttribute is the default OwnIdentityAttribute for its Attribute value type. If setting default OwnIdentityAttributes is enabled, for every IdentityAttribute value type exactly one OwnIdentityAttribute will have `isDefault` set, given that at least one OwnIdentityAttribute of that value type exists. This property is only used for the UI of the App, e.g. to mark the Attribute that should be displayed firstly if multiple Attributes of the same value type exist. Thus, for a Connector it will always be `undefined`. |
 
 ### PeerIdentityAttribute
+
+The Identity receives an IdentityAttribute from another Identity (e.g. receives it via a [Request]({% link _docs_integrate/data-model-overview.md %}#request)).
+In that case, a new LocalAttribute is created which is a **PeerIdentityAttribute**.
+An IdentityAttribute received from another Identity cannot be shared further.
 
 | Name            | Type                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -405,6 +402,11 @@ In the [Attribute introduction]({% link _docs_integrate/attribute-introduction.m
 
 ### OwnRelationshipAttribute
 
+[RelationshipAttributes](#relationshipattribute) always exist in the context of a [Relationship](#relationship).
+For this reason, it is not possible for an Identity to have an unshared RelationshipAttribute.
+The [creation of a RelationshipAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-a-relationshipattribute) corresponds to the creation of one LocalAttribute for its `owner` and one LocalAttribute for the peer with whom the `owner` has established the Relationship in whose context the RelationshipAttribute is to exist.
+The LocalAttribute of the `owner` is an **OwnRelationshipAttribute** and the peer’s LocalAttribute is a **PeerRelationshipAttribute**.
+
 | Name            | Type                                                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | id              | `string`                                                                       | {% include descr_id class="LocalAttribute" prefix="ATT" %}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -419,6 +421,11 @@ In the [Attribute introduction]({% link _docs_integrate/attribute-introduction.m
 
 ### PeerRelationshipAttribute
 
+[RelationshipAttributes](#relationshipattribute) always exist in the context of a [Relationship](#relationship).
+For this reason, it is not possible for an Identity to have an unshared RelationshipAttribute.
+The [creation of a RelationshipAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-a-relationshipattribute) corresponds to the creation of one LocalAttribute for its `owner` and one LocalAttribute for the peer with whom the `owner` has established the Relationship in whose context the RelationshipAttribute is to exist.
+The LocalAttribute of the `owner` is an **OwnRelationshipAttribute** and the peer’s LocalAttribute is a **PeerRelationshipAttribute**.
+
 | Name            | Type                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | id              | `string`                                                                         | {% include descr_id class="LocalAttribute" prefix="ATT" %}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -432,6 +439,10 @@ In the [Attribute introduction]({% link _docs_integrate/attribute-introduction.m
 | deletionInfo    | [`ReceivedAttributeDeletionInfo`](#receivedattributedeletioninfo) \| `undefined` | Information about whether the PeerRelationshipAttribute is to be deleted or the OwnRelationshipAttribute is deleted by the emitter, as well as the point in time of that deletion.                                                                                                                                                                                                                                                                                                                                                                 |
 
 ### ThirdPartyRelationshipAttribute
+
+A RelationshipAttribute can be forwarded to a peer which is not involved in the Relationship in which the RelationshipAttribute exists if its `confidentiality` is not set to `"private"`.
+For the Identity which is in the Relationship in whose context the forwarded RelationshipAttribute exists, AttributeForwardingDetails are created that reference the `id` of the source RelationshipAttribute, which is an OwnRelationshipAttribute or a PeerRelationshipAttribute, as `attributeId`.
+For the Identity which received the forwarded RelationshipAttribute, a new LocalAttribute is created which is a **ThirdPartyRelationshipAttribute**.
 
 | Name                 | Type                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | -------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
