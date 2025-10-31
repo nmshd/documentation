@@ -68,25 +68,25 @@ The step-by-step instructions can be consulted to start the migration to version
 - The properties `approvedAt` and `approvedByDevice` of the [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) have been removed.
   Furthermore, renaming `"Approved"` to `"Active"` resulted in a change of an IdentityDeletionProcess `status`.
 - All data structures around the Attribute listener feature, including the LocalAttributeListener, the RegisterAttributeListenerRequestItem, and the RegisterAttributeListenerAcceptResponseItem, were removed.
-
-#### New LocalAttribute Concept
-
-With the new LocalAttribute concept, no Attribute copy is created anymore when an Attribute is shared.
-Furthermore, LocalAttribute subtypes have been introduced to help distinguish between different kinds of LocalAttributes.
-
-- RepositoryAttributes were renamed to OwnIdentityAttributes.
-  There are no own shared IdentityAttributes anymore.
-  Instead, AttributeForwardingDetails are created.
-- Peer shared IdentityAttributes and peer shared RelationshipAttributes have been replaced by the LocalAttribute subtypes PeerIdentityAttribute and PeerRelationshipAttribute.
-- Instead of emitted ThirdPartyRelationshipAttributes, AttributeForwardingDetails are created.
-  For this reason, the received ThirdPartyRelationshipAttribute is now simply called ThirdPartyRelationshipAttribute.
-- `shareInfo` property and the LocalAttributeShareInfo data object were removed.
-  Instead, there are AttributeForwardingDetails and flattened sharing properties depending on the type of LocalAttribute.
-- LocalAttributeDeletionInfo has been replaced by EmittedAttributeDeletionInfo and ReceivedAttributeDeletionInfo depending on the type of LocalAttribute.
-- The `parentId` property was removed as there is no child Attribute feature anymore.
-- The OwnSharedAttributeDeletedByOwnerNotificationItem, the PeerSharedAttributeDeletedByPeerNotificationItem, the PeerSharedAttributeSucceededNotificationItem and the ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem have been removed.
-  The new NotificationItems are ForwardedAttributeDeletedByPeerNotificationItem, OwnAttributeDeletedByOwnerNotificationItem, PeerAttributeSucceededNotificationItem and PeerRelationshipAttributeDeletedByPeerNotificationItem.
-- Many use cases have been renamed.
+- With the new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) concept, an Attribute copy is no longer created when an Attribute is [shared]({% link _docs_integrate/share-attributes-with-peer.md %}).
+  Furthermore, LocalAttribute subtypes have been introduced to help distinguish between different kinds of LocalAttributes.
+  - RepositoryAttributes were renamed to [OwnIdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute).
+    There are no own shared IdentityAttributes anymore.
+    Instead, sharing an OwnIdentityAttribute leads to the creation of [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails).
+  - The peer shared IdentityAttribute, the own shared RelationshipAttribute and the peer shared RelationshipAttribute have been replaced by the LocalAttribute subtypes [PeerIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#peeridentityattribute), [OwnRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) and [PeerRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute), respectively.
+  - There are no emitted ThirdPartyRelationshipAttributes anymore.
+    Instead, forwarding a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) to a third party, which is not involved in the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) in which the RelationshipAttribute exists, leads to the creation of [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails).
+    For this reason, the received ThirdPartyRelationshipAttribute is called [ThirdPartyRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattribute) from now on.
+  - The `shareInfo` property of the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) and the corresponding LocalAttributeShareInfo data object were removed.
+    To track with which peer an Attribute was [shared]({% link _docs_integrate/share-attributes-with-peer.md %}), [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) are now used and, in the case of [PeerIdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#peeridentityattribute), [OwnRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute), [PeerRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute), and [ThirdPartyRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattribute), the properties `peer`, `sourceReference`, and `deletionInfo`.
+    The `initialAttributePeer` property is additionally needed for the ThirdPartyRelationshipAttribute.
+  - Some [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) subtypes may have a `deletionInfo` set, which has either [EmittedAttributeDeletionInfo]({% link _docs_integrate/data-model-overview.md %}#emittedattributedeletioninfo) or [ReceivedAttributeDeletionInfo]({% link _docs_integrate/data-model-overview.md %}#receivedattributedeletioninfo) as its type.
+    The LocalAttributeDeletionInfo data object has been removed.
+  - The `parentId` property of the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) was removed as there is no child Attribute feature anymore.
+    Sharing individual components of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) will be possible again in future releases.
+  - The introduction of the new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) subtypes have led to renaming of the [NotificationItems]({% link _docs_integrate/data-model-overview.md %}#notificationitems).
+    The [PeerAttributeSucceededNotificationItem]({% link _docs_integrate/data-model-overview.md %}#peerattributesucceedednotificationitem) replaces the PeerSharedAttributeSucceededNotificationItem.
+    The OwnSharedAttributeDeletedByOwnerNotificationItem, the PeerSharedAttributeDeletedByPeerNotificationItem and the ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem have been replaced by the [OwnAttributeDeletedByOwnerNotificationItem]({% link _docs_integrate/data-model-overview.md %}#ownattributedeletedbyownernotificationitem), the [PeerRelationshipAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#peerrelationshipattributedeletedbypeernotificationitem) and the [ForwardedAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#forwardedattributedeletedbypeernotificationitem).
 
 ### Changed Behavior of Known Features
 
@@ -128,7 +128,6 @@ An overview of the [Error codes]({% link _docs_integrate/error-codes.md %}) that
 - The `error.runtime.attributes.isNotRepositoryAttribute` error code has been renamed to `error.runtime.attributes.isNotOwnIdentityAttribute` as OwnIdentityAttributes now present those [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that were previously known as RepositoryAttributes.
   Similarly, other error codes have been renamed.
 - The `error.consumption.attributes.cannotSucceedChildOfComplexAttribute` error code has been removed as there is no child Attribute feature anymore.
-  Sharing individual components of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) will be possible again in future releases.
 - By renaming an [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess) `status` from `"Approved"` to `"Active"`, the error code `error.runtime.identityDeletionProcess.noApprovedIdentityDeletionProcess` has been replaced by `error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess`.
 
 ## Runtime-Specific Breaking Changes
