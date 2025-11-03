@@ -55,7 +55,7 @@ This use case allows you to delete a ThirdPartyRelationshipAttribute, i.e. a [Lo
 - The ThirdPartyRelationshipAttribute will be deleted.
 - All predecessors of the ThirdPartyRelationshipAttribute will be deleted.
 - If the ThirdPartyRelationshipAttribute was succeeded, the `succeeds` property of the successor will be set to undefined.
-- A [Notification]({%link _docs_integrate/data-model-overview.md %}#notification) with a [ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattributedeletedbypeernotificationitem) is sent to the peer of the Attribute, informing them that you deleted the Attribute. Technically, the Attribute of the peer and all predecessors will get a `deletionInfo` with `deletionStatus` `"DeletedByPeer"` and the time of receiving the Notification as `deletionDate`.
+- A [Notification]({%link _docs_integrate/data-model-overview.md %}#notification) with a [ForwardedAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#forwardedattributedeletedbypeernotificationitem) is sent to the peer of the Attribute, informing them that you deleted the Attribute. Technically, the Attribute of the peer and all predecessors will get a `deletionInfo` with `deletionStatus` `"DeletedByRecipient"` and the time of receiving the Notification as `deletionDate`.
 - The `notificationId` is returned.
 
 ## On Failure

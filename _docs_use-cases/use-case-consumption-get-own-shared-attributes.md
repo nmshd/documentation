@@ -53,8 +53,7 @@ This use case is intended to retrieve Attributes that the current Identity share
   - `createdAt` describes the time when the LocalAttribute was created.
   - The fields of `content` can be used to describe the queried Attribute (either an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute)
     or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute)).
-  - The fields of the `shareInfo` describe if the LocalAttribute is shared with a peer and specify its [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
-  - The fields of the `deletionInfo` describe the [LocalAttributeDeletionInfo]({% link _docs_integrate/data-model-overview.md %}#localattributedeletioninfo) of a shared LocalAttribute.
+  - The fields of the `deletionInfo` describe the [EmittedAttributeDeletionInfo]({% link _docs_integrate/data-model-overview.md %}#emittedattributedeletioninfo) of a shared LocalAttribute.
 - If `hideTechnical` is set to `true`, RelationshipAttributes with `isTechnical` `true` will not be returned.
 - Optionally, `onlyLatestVersions` can be disabled, such that in case of [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) all versions will be returned.
 

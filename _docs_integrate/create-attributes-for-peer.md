@@ -141,7 +141,7 @@ If the Recipient does not want to create any of the Attributes offered by the Se
 
 If the Recipient agrees to the creation of one of the Attributes offered by the Sender, it can accept the associated CreateAttributeRequestItem contained in the Request for creating Attributes.
 The [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) must be used for that.
-The acceptance of a CreateAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo) contained within its `shareInfo` property.
+The acceptance of a CreateAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
 The `content` of the LocalAttribute is the underlying `attribute` of the CreateAttributeRequestItem.
 Depending on whether an IdentityAttribute or a RelationshipAttribute is created and the ownership, it is referred to as either an [own shared IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-identityattributes), an [own shared RelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-relationshipattributes) or a [peer shared RelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-relationshipattributes).
 Based on the created LocalAttribute, an appropriate AcceptResponseItem of type [CreateAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#createattributeacceptresponseitem) is generated, which incorporates the `id` of the LocalAttribute in its `attributeId` property.
@@ -253,7 +253,7 @@ To view the Response to the Request, proceed as described in the [Query outgoing
 
 The Integrator of the Sender can now get the Response of the Recipient from the `response.content` property of the result.
 In the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) is a [CreateAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#createattributeacceptresponseitem) for each accepted and a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) for each rejected CreateAttributeRequestItem included.
-Note that each accepted CreateAttributeRequestItem leads to the creation of an appropriate LocalAttribute with a LocalAttributeShareInfo of the Sender.
+Note that each accepted CreateAttributeRequestItem leads to the creation of an appropriate LocalAttribute of the Sender.
 The `content` of the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) is the underlying `attribute` of the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem).
 Depending on whether an IdentityAttribute or a RelationshipAttribute has been created and the ownership, it is referred to as either a [peer shared IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-identityattributes), an [own shared RelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-relationshipattributes) or a [peer shared RelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-relationshipattributes).
 

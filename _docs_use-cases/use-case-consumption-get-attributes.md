@@ -50,12 +50,10 @@ This use case is intended to query [LocalAttributes]({% link _docs_integrate/dat
 
 - `query` allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used:
   - `createdAt` describes the time when the LocalAttribute was created.
-  - `parentId` can be used to find the child Attributes of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes).
   - The fields of `content` can be used to describe the queried Attribute (either an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute)
     or a [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute)).
   - `succeeds` and `succeededBy` give information about the [succession state]({% link _docs_integrate/update-attributes-by-succession.md %}) of the LocalAttribute.
-  - The fields of the `shareInfo` describe if the LocalAttribute is shared with a peer and specify its [LocalAttributeShareInfo]({% link _docs_integrate/data-model-overview.md %}#localattributeshareinfo).
-  - The fields of the `deletionInfo` describe the [LocalAttributeDeletionInfo]({% link _docs_integrate/data-model-overview.md %}#localattributedeletioninfo) of a shared LocalAttribute.
+  - The fields of the `deletionInfo` describe the [EmittedAttributeDeletionInfo]({% link _docs_integrate/data-model-overview.md %}#emittedattributedeletioninfo) or [ReceivedAttributeDeletionInfo]({% link _docs_integrate/data-model-overview.md %}#receivedattributedeletioninfo) of a shared LocalAttribute.
   - `isDefault` states whether a RepositoryAttribute is the default for its value type.
 - If `hideTechnical` is set to `true`, RelationshipAttributes with `isTechnical` `true` will not be returned.
 

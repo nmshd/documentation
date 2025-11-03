@@ -55,7 +55,7 @@ It is created as a result of sharing the `content` of a RepositoryAttribute with
 - All predecessors of the own shared Attribute will be deleted.
 - If the own shared Attribute was succeeded, the `succeeds` property of the successor will be set to undefined.
 - If the `attributeId` relates to a [RelationshipAttribute]({%link _docs_integrate/data-model-overview.md %}#relationshipattribute) and there are shared copies of the own shared RelationshipAttribute or potential predecessors of it, the `shareInfo.sourceAttribute` of those emitted ThirdPartyRelationshipAttributes will be set to undefined.
-- A [Notification]({%link _docs_integrate/data-model-overview.md %}#notification) with a [OwnSharedAttributeDeletedByOwnerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#ownsharedattributedeletedbyownernotificationitem) is sent to the peer you shared the Attribute with, informing them that you deleted the Attribute. Technically, the peer shared Attribute at the peer's side and all predecessors will get a `deletionInfo` with `deletionStatus` `"DeletedByOwner"` and the time of receiving the Notification as `deletionDate`.
+- A [Notification]({%link _docs_integrate/data-model-overview.md %}#notification) with an [OwnAttributeDeletedByOwnerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#ownattributedeletedbyownernotificationitem) is sent to the peer you shared the Attribute with, informing them that you deleted the Attribute. Technically, the peer shared Attribute at the peer's side and all predecessors will get a `deletionInfo` with `deletionStatus` `"DeletedByEmitter"` and the time of receiving the Notification as `deletionDate`.
 - The `notificationId` is returned.
 
 ## On Failure
