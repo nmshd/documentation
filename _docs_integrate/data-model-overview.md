@@ -29,25 +29,38 @@ The enmeshed data model can be divided into three parts:
 - Local types
 - Content types
 
-The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail.
+The following diagram gives you an overview of all the existing types and how they are connected to each other.
+The subsequent chapters describe these types in more detail.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/f32afee5-014a-4cfb-9a9f-91c974b77d9a" id="ksXuAN~ZRo~g"></iframe></div>
 (note that you can click on each type in order to navigate to the paragraph with the corresponding description)
 
-At a first glance the amount of types is overwhelming. But in the following chapters all of them are explained in detail.
+At a first glance the amount of types is overwhelming.
+But in the following chapters all of them are explained in detail.
 
 # Transport Types
 
-Transport types like `RelationshipTemplate`, `Token` or `File` are types that are "exchanged" between Identities via the Backbone. They are created and updated by the [Transport Layer]({% link _docs_explore/42-transport-layer.md %}). In most cases they have a `content` property, which contains the actual payload that should be transferred between the Identities. This payload is being encrypted when it is sent to the Backbone, and decrypted by the other Identity when it is received. The following sections describe the different Transport types and their properties.
+Transport types like `RelationshipTemplate`, `Token` or `File` are types that are "exchanged" between Identities via the Backbone.
+They are created and updated by the [Transport Layer]({% link _docs_explore/42-transport-layer.md %}).
+In most cases they have a `content` property, which contains the actual payload that should be transferred between the Identities.
+This payload is being encrypted when it is sent to the Backbone, and decrypted by the other Identity when it is received.
+The following sections describe the different Transport types and their properties.
 
-Note that the properties of the types are the ones that exist locally (aka on the Connector/in the App). The Backbone does not necessarily know about them. The properties that only exist locally are marked accordingly in the tables below. Further there are properties that are confidential and are therefore encrypted before sent to the Backbone, in order to enable end-to-end encryption. Both kinds of these properties are marked accordingly in the "Remarks" column of the property tables below.
+Note that the properties of the types are the ones that exist locally (aka on the Connector/in the App).
+The Backbone does not necessarily know about them.
+The properties that only exist locally are marked accordingly in the tables below.
+Further there are properties that are confidential and are therefore encrypted before sent to the Backbone, in order to enable end-to-end encryption.
+Both kinds of these properties are marked accordingly in the "Remarks" column of the property tables below.
 
 ## Token
 
-Tokens can be used to save arbitrary structured data on the Backbone, which is encrypted with a random symmetric key. You can then pass the ID of the Token, together with the random key, to another Identity, which can then retrieve the token and decrypt it, e.g. inside of a QR code, which you send to the recipient via letter. Tokens can be handy in a lot of scenarios, for example:
+Tokens can be used to save arbitrary structured data on the Backbone, which is encrypted with a random symmetric key.
+You can then pass the ID of the Token, together with the random key, to another Identity, which can then retrieve the token and decrypt it, e.g. inside of a QR code, which you send to the recipient via letter.
+Tokens can be handy in a lot of scenarios, for example:
 
 - You want to share secret information with someone you don't have a Relationship with.
-- The enmeshed App currently uses a Token to save a Backup of the Identity. The Token's `reference.url` is then encoded in a QR code, which the user can print out and scan later in order to restore the Identity on a new device.
+- The enmeshed App currently uses a Token to save a Backup of the Identity.
+  The Token's `reference.url` is then encoded in a QR code, which the user can print out and scan later in order to restore the Identity on a new device.
 
 A Token has the following properties:
 
@@ -90,8 +103,12 @@ The data objects [Token](#token), [RelationshipTemplate](#relationshiptemplate) 
 
 A RelationshipTemplate serves two purposes:
 
-1. It represents the permission to establish a Relationship. When initiating a Relationship, the ID of a valid RelationshipTemplate must be attached. Otherwise the Backbone blocks the Relationship. And since the IDs are randomly generated, you can only obtain such an ID from the RelationshipTemplate's owner.
-2. It can contain data which is of interest for the one who uses the RelationshipTemplate. The enmeshed App for example expects a RelationshipTemplate content which contains a `Request` which contains e.g. Attributes about the creator of the RelationshipTemplate as well as queries for Attributes that the RelationshipTemplate creator wants to receive together with the Relationship.
+1. It represents the permission to establish a Relationship.
+   When initiating a Relationship, the ID of a valid RelationshipTemplate must be attached.
+   Otherwise the Backbone blocks the Relationship.
+   And since the IDs are randomly generated, you can only obtain such an ID from the RelationshipTemplate's owner.
+2. It can contain data which is of interest for the one who uses the RelationshipTemplate.
+   The enmeshed App for example expects a RelationshipTemplate content which contains a `Request` which contains e.g. Attributes about the creator of the RelationshipTemplate as well as queries for Attributes that the RelationshipTemplate creator wants to receive together with the Relationship.
 
 | Name                   | Type                                                                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                   | Remarks                                       |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
@@ -109,7 +126,9 @@ A RelationshipTemplate serves two purposes:
 
 ## Relationship
 
-A Relationship between two Identities is the prerequisite for them to exchange Messages. If there is no Relationship, the Backbone blocks all Messages that are tried to be sent. This ensures that you only receive Messages from Identities you know, so you are protected from any harmful Messages like spam or phishing mails.
+A Relationship between two Identities is the prerequisite for them to exchange Messages.
+If there is no Relationship, the Backbone blocks all Messages that are tried to be sent.
+This ensures that you only receive Messages from Identities you know, so you are protected from any harmful Messages like spam or phishing mails.
 
 | Name             | Type                                                                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Remarks                                       |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
@@ -134,7 +153,9 @@ Whether the Identity with which you have a Relationship is to be deleted or has 
 
 ### RelationshipAuditLogEntry
 
-The audit log records Relationship operations starting with the creation of the Relationship in status `Pending`. For the full list of tracked operations see the property `reason`. Each entry of the log is timestamped and states who executed the operation.
+The audit log records Relationship operations starting with the creation of the Relationship in status `Pending`.
+For the full list of tracked operations see the property `reason`.
+Each entry of the log is timestamped and states who executed the operation.
 
 | Name            | Type                                                                                                                                                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Remarks |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
@@ -147,7 +168,11 @@ The audit log records Relationship operations starting with the creation of the 
 
 ## Message
 
-A Message is a piece of data that can be sent to one or more recipients. The sender is completely free in what the content of the Message looks like. Though in order to enable a normalized communication, enmeshed defines some `content` structures for Messages, and in the future there will be more of those. Consider that the enmeshed App only supports Messages with such a normalized `content`. Currently there are:
+A Message is a piece of data that can be sent to one or more recipients.
+The sender is completely free in what the content of the Message looks like.
+Though in order to enable a normalized communication, enmeshed defines some `content` structures for Messages, and in the future there will be more of those.
+Consider that the enmeshed App only supports Messages with such a normalized `content`.
+Currently there are:
 
 - [`Mail`](#mail)
 - [`Request`](#request)
@@ -183,7 +208,8 @@ But if you are communicating with another Connector, you can use the [`Arbitrary
 
 The Backbone allows you to [upload a file]({% link _docs_use-cases/use-case-transport-upload-own-file.md %}) in encrypted form.
 Its metadata information is stored in a data object of type File.
-A File further has its content, of course. But since this is not a JSON property, it is not included in the following table.
+A File further has its content, of course.
+But since this is not a JSON property, it is not included in the following table.
 The content of the File can be downloaded separately by executing the [Download File]({% link _docs_use-cases/use-case-transport-download-file.md %}) use case.
 
 | Name              | Type                                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Remarks                                       |
@@ -231,7 +257,9 @@ Note, however, that at all times there can only be at most one **active Identity
 
 # Local Types
 
-In addition to the types that are shared between Identities via the Backbone, there are certain types that only exist within one Identity. These types usually contain metadata about [Content types](#content-types) that should not be transferred to other Identities. They are created and updated by the [Consumption Layer]({% link _docs_explore/43-consumption-layer.md %}).
+In addition to the types that are shared between Identities via the Backbone, there are certain types that only exist within one Identity.
+These types usually contain metadata about [Content types](#content-types) that should not be transferred to other Identities.
+They are created and updated by the [Consumption Layer]({% link _docs_explore/43-consumption-layer.md %}).
 
 Currently there are three main Local types:
 
@@ -261,36 +289,47 @@ A LocalRequest contains the local metadata for a [Request](#request).
 
 ### LocalRequestStatus
 
-Depending on whether it is an incoming or an outgoing Request, there can be different statuses. The following state diagram shows which status exists in both cases and when there are transitions from one state to another:
+Depending on whether it is an incoming or an outgoing Request, there can be different statuses.
+The following state diagram shows which status exists in both cases and when there are transitions from one state to another:
 
 ![State diagram for LocalRequest Status]( {{ '/assets/images/explore/RequestStatus%20-%20State%20Diagram.png' | relative_url }} )
 
 Draft
-: This status only exists for outgoing Requests. It means that the LocalRequest was created, but not yet sent.
+: This status only exists for outgoing Requests.
+It means that the LocalRequest was created, but not yet sent.
 
 Open
-: In case of an outgoing Request, `Open` means that the Request was sent. The transition to `Open` happens automatically when you send the Request with a Message.
+: In case of an outgoing Request, `Open` means that the Request was sent.
+The transition to `Open` happens automatically when you send the Request with a Message.
 : In case of an incoming Request, `Open` means that the LocalRequest was received.
 
 DecisionRequired
-: After the prerequisites of the Request and all of its RequestItems were checked, a decision can be made. At first, the [Decider Module]({% link _docs_explore/61-runtime.md %}#decider-module) tries to make an automatic decision. It therefore checks all LocalRequests in status `DecisionRequired`.
+: After the prerequisites of the Request and all of its RequestItems were checked, a decision can be made.
+At first, the [Decider Module]({% link _docs_explore/61-runtime.md %}#decider-module) tries to make an automatic decision.
+It therefore checks all LocalRequests in status `DecisionRequired`.
 
 ManualDecisionRequired
-: If the Decider Module cannot make a decision, it moves the LocalRequest to `ManualDecisionRequired`. When the LocalRequest is in this status, it's the User's turn to decide whether they want to accept or reject the Request.
+: If the Decider Module cannot make a decision, it moves the LocalRequest to `ManualDecisionRequired`.
+When the LocalRequest is in this status, it's the User's turn to decide whether they want to accept or reject the Request.
 
 Decided
-: When the User or the Decider Module accepts or rejects the Request, the Response and ResponseItems are generated based on the passed parameters. This Response is saved in the `response` property of the `LocalRequest`, but not yet sent.
+: When the User or the Decider Module accepts or rejects the Request, the Response and ResponseItems are generated based on the passed parameters.
+This Response is saved in the `response` property of the `LocalRequest`, but not yet sent.
 
 Completed
-: In case of an incoming Request, the Runtime Module listens to an Event saying that a Request moved to status `Decided`. It then checks on which way the Request was received (Message/RelationshipTemplate) and sends the Response on the corresponding way (by sending a Message or creating a Relationship). After the Response was successfully sent, it moves the LocalRequest to `Completed`.
-: In case of an outgoing Request, the Runtime Module listens to the `MessageReceivedEvent` and checks the content of the sent Message for a Response. If there is one, it moves the corresponding LocalRequest to `Completed`.
+: In case of an incoming Request, the Runtime Module listens to an Event saying that a Request moved to status `Decided`.
+It then checks on which way the Request was received (Message/RelationshipTemplate) and sends the Response on the corresponding way (by sending a Message or creating a Relationship).
+After the Response was successfully sent, it moves the LocalRequest to `Completed`.
+: In case of an outgoing Request, the Runtime Module listens to the `MessageReceivedEvent` and checks the content of the sent Message for a Response.
+If there is one, it moves the corresponding LocalRequest to `Completed`.
 
 Expired
 : When the timestamp in `expiresAt` of a Request is reached, the Request automatically moves to the status `Expired`.
 
 ### LocalRequestSource
 
-With the information in this type you can clearly identify the Transport object the Request was sent/received in. Currently there are only two possibilities: Message and RelationshipTemplate.
+With the information in this type you can clearly identify the Transport object the Request was sent/received in.
+Currently there are only two possibilities: Message and RelationshipTemplate.
 
 | Name      | Type                                    | Description                                                      |
 | --------- | --------------------------------------- | ---------------------------------------------------------------- |
@@ -309,7 +348,8 @@ When a LocalRequest is decided/received, a Local Response is generated, which co
 
 ### LocalResponseSource
 
-With the information in this type you can clearly identify the Transport object the Response was sent/received in. Currently there are only two possibilities: Message and Relationship.
+With the information in this type you can clearly identify the Transport object the Response was sent/received in.
+Currently there are only two possibilities: Message and Relationship.
 
 | Name      | Type                            | Description                                                       |
 | --------- | ------------------------------- | ----------------------------------------------------------------- |
@@ -336,20 +376,23 @@ A LocalNotification contains the local metadata for a [Notification](#notificati
 Depending on whether it is an incoming or an outgoing Notification, there can be different statuses.
 
 Sent
-: This is the only valid status on sender side. If a Notification is sent and, therefore, a LocalNotification is created, its status will be set to `Sent`.
+: This is the only valid status on sender side.
+If a Notification is sent and, therefore, a LocalNotification is created, its status will be set to `Sent`.
 
 Open
 : Receiving a Notification, a LocalNotification is created with status `Open`.
 
 Completed
-: After receiving a Notification, its items will be processed internally. If all processes finish successfully, the status of the LocalNotification will be set to `Completed`.
+: After receiving a Notification, its items will be processed internally.
+If all processes finish successfully, the status of the LocalNotification will be set to `Completed`.
 
 Error
 : If an error occurs while processing the items of a received Notification, the status of the LocalNotification will be set to `Error`.
 
 ### LocalNotificationSource
 
-With the information in this type you can clearly identify the Transport object the Notification was sent/received in. Currently, the only possibility for transmitting Notifications are Messages.
+With the information in this type you can clearly identify the Transport object the Notification was sent/received in.
+Currently, the only possibility for transmitting Notifications are Messages.
 
 | Name      | Type      | Description                                                                                                                                 |
 | --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -517,7 +560,9 @@ AttributeTags occur within the `tagsForAttributeValueTypes` mapping of the [Attr
 
 # Content Types
 
-Content Types can be seen as a data contract between Identities. The medium through which this data is exchanged are the [Transport types](#transport-types) (e.g. Messages, Tokens, ...). This chapter shows all the Content types and describes their intended usage.
+Content Types can be seen as a data contract between Identities.
+The medium through which this data is exchanged are the [Transport types](#transport-types) (e.g. Messages, Tokens, ...).
+This chapter shows all the Content types and describes their intended usage.
 
 ## Request
 
@@ -540,7 +585,9 @@ You can also put multiple Items into a [RequestItemGroup](#requestitemgroup) in 
 
 ### RequestItems
 
-RequestItems can be sent inside of a [Request](#request) and specify what should be done when the [Request is accepted]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}). More information on how to use the individual [types of RequestItems]({% link _docs_integrate/request-and-response-introduction.md %}#types-of-requestitems) for your purposes can be found in the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}). If you are interested in a brief overview of the various operations which can be performed with Attributes, take a look at our [Attribute management options]({% link _docs_integrate/attribute-introduction.md %}#attribute-management-options).
+RequestItems can be sent inside of a [Request](#request) and specify what should be done when the [Request is accepted]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}).
+More information on how to use the individual [types of RequestItems]({% link _docs_integrate/request-and-response-introduction.md %}#types-of-requestitems) for your purposes can be found in the [Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}).
+If you are interested in a brief overview of the various operations which can be performed with Attributes, take a look at our [Attribute management options]({% link _docs_integrate/attribute-introduction.md %}#attribute-management-options).
 
 #### AuthenticationRequestItem
 
@@ -556,7 +603,8 @@ For more information you should check out the section [AuthenticationRequestItem
 
 #### ConsentRequestItem
 
-For more information you should check out the section [ConsentRequestItem of the Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#consentrequestitem). Furthermore, all details on how to use the ConsentRequestItem and examples of use cases for it can be found in the [Request one-time consent of peer]({% link _docs_integrate/request-one-time-consent-of-peer.md %}) guide.
+For more information you should check out the section [ConsentRequestItem of the Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#consentrequestitem).
+Furthermore, all details on how to use the ConsentRequestItem and examples of use cases for it can be found in the [Request one-time consent of peer]({% link _docs_integrate/request-one-time-consent-of-peer.md %}) guide.
 
 | Name                | Type                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -571,7 +619,8 @@ For more information you should check out the section [ConsentRequestItem of the
 
 #### CreateAttributeRequestItem
 
-For more information you should check out the section [CreateAttributeRequestItem of the Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#createattributerequestitem). Furthermore, all details on how to use the CreateAttributeRequestItem and examples of use cases for it can be found in the [Create Attributes for peer]({% link _docs_integrate/create-attributes-for-peer.md %}) guide.
+For more information you should check out the section [CreateAttributeRequestItem of the Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#createattributerequestitem).
+Furthermore, all details on how to use the CreateAttributeRequestItem and examples of use cases for it can be found in the [Create Attributes for peer]({% link _docs_integrate/create-attributes-for-peer.md %}) guide.
 
 | Name           | Type                                                                                                                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -583,7 +632,8 @@ For more information you should check out the section [CreateAttributeRequestIte
 
 #### DeleteAttributeRequestItem
 
-For more information you should check out the section [DeleteAttributeRequestItem of the Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#deleteattributerequestitem). Furthermore, all details on how to use the DeleteAttributeRequestItem can be found in the [Delete Attributes]({% link _docs_integrate/delete-attributes.md %}) guide.
+For more information you should check out the section [DeleteAttributeRequestItem of the Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#deleteattributerequestitem).
+Furthermore, all details on how to use the DeleteAttributeRequestItem can be found in the [Delete Attributes]({% link _docs_integrate/delete-attributes.md %}) guide.
 
 | Name           | Type                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | -------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -679,7 +729,8 @@ If StringFormFieldSettings are used as `settings` of a [FormFieldRequestItem](#f
 
 #### ProposeAttributeRequestItem
 
-For more information you should check out the section [ProposeAttributeRequestItem of the Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#proposeattributerequestitem). Furthermore, all details on how to use the ProposeAttributeRequestItem and examples of use cases for it can be found in the [Propose Attributes to peer]({% link _docs_integrate/propose-attributes-to-peer.md %}) guide.
+For more information you should check out the section [ProposeAttributeRequestItem of the Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#proposeattributerequestitem).
+Furthermore, all details on how to use the ProposeAttributeRequestItem and examples of use cases for it can be found in the [Propose Attributes to peer]({% link _docs_integrate/propose-attributes-to-peer.md %}) guide.
 
 | Name           | Type                                                                                                                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -692,7 +743,8 @@ For more information you should check out the section [ProposeAttributeRequestIt
 
 #### ReadAttributeRequestItem
 
-For more information you should check out the section [ReadAttributeRequestItem of the Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#readattributerequestitem). Furthermore, all details on how to use the ReadAttributeRequestItem and examples of use cases for it can be found in the [Read Attributes from peer]({% link _docs_integrate/read-attributes-from-peer.md %}) guide.
+For more information you should check out the section [ReadAttributeRequestItem of the Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#readattributerequestitem).
+Furthermore, all details on how to use the ReadAttributeRequestItem and examples of use cases for it can be found in the [Read Attributes from peer]({% link _docs_integrate/read-attributes-from-peer.md %}) guide.
 
 | Name           | Type                                                                                                                                                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -704,7 +756,8 @@ For more information you should check out the section [ReadAttributeRequestItem 
 
 #### ShareAttributeRequestItem
 
-For more information you should check out the section [ShareAttributeRequestItem of the Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#shareattributerequestitem). Furthermore, all details on how to use the ShareAttributeRequestItem and examples of use cases for it can be found in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) guide.
+For more information you should check out the section [ShareAttributeRequestItem of the Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#shareattributerequestitem).
+Furthermore, all details on how to use the ShareAttributeRequestItem and examples of use cases for it can be found in the [Share Attributes with peer]({% link _docs_integrate/share-attributes-with-peer.md %}) guide.
 
 | Name              | Type                                                                                                                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -718,7 +771,8 @@ For more information you should check out the section [ShareAttributeRequestItem
 
 #### TransferFileOwnershipRequestItem
 
-For more information you should check out the section [TransferFileOwnershipRequestItem of the Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#transferfileownershiprequestitem). Furthermore, all details on how to use the TransferFileOwnershipRequestItem and examples of use cases for it can be found in the [Exchange Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}#transfer-the-ownership-of-a-file-to-a-peer) guide.
+For more information you should check out the section [TransferFileOwnershipRequestItem of the Request and Response introduction]({% link _docs_integrate/request-and-response-introduction.md %}#transferfileownershiprequestitem).
+Furthermore, all details on how to use the TransferFileOwnershipRequestItem and examples of use cases for it can be found in the [Exchange Files using Attributes]({% link _docs_integrate/exchange-files-using-attributes.md %}#transfer-the-ownership-of-a-file-to-a-peer) guide.
 
 | Name           | Type                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | -------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -866,7 +920,9 @@ Receiving an AttributeSuccessionAcceptResponseItem, the respective shared LocalA
 
 #### ErrorResponseItem
 
-The `ErrorResponseItem` is only created by the enmeshed Runtime, in case something happens which hinders you from further processing of the RequestItem. It will never be created manually. The properties are:
+The `ErrorResponseItem` is only created by the enmeshed Runtime, in case something happens which hinders you from further processing of the RequestItem.
+It will never be created manually.
+The properties are:
 
 | Name    | Type                  | Description                                                             |
 | ------- | --------------------- | ----------------------------------------------------------------------- |
@@ -884,7 +940,8 @@ The `ErrorResponseItem` is only created by the enmeshed Runtime, in case somethi
 
 ## ResponseWrapper
 
-The ResponseWrapper is a wrapper around the Response that is sent by the recipient of the Request. It contains the Response itself, but also some additional information that is required for the Request to be processed correctly.
+The ResponseWrapper is a wrapper around the Response that is sent by the recipient of the Request.
+It contains the Response itself, but also some additional information that is required for the Request to be processed correctly.
 
 | Name                   | Type                                    | Description                                                                                                        |
 | ---------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -954,11 +1011,14 @@ Internally, the succeeded version will then be created at the peer's side as suc
 
 ## Attributes
 
-An Attribute is some piece of information about an Identity itself (e.g. its name, address, birth date, etc.) or about an Identity in the context of a Relationship (e.g. the customer id the of the user the Relationship). Since the two scenarios differ quite a lot, there are two different types for them: IdentityAttribute and RelationshipAttribute.
+An Attribute is some piece of information about an Identity itself (e.g. its name, address, birth date, etc.) or about an Identity in the context of a Relationship (e.g. the customer id the of the user the Relationship).
+Since the two scenarios differ quite a lot, there are two different types for them: IdentityAttribute and RelationshipAttribute.
 
 ### IdentityAttribute
 
-IdentityAttributes describe an Identity itself. Their values are strongly normalized. There is a list of available values [here]({% link _docs_integrate/attribute-values.md %}).
+IdentityAttributes describe an Identity itself.
+Their values are strongly normalized.
+There is a list of available values [here]({% link _docs_integrate/attribute-values.md %}).
 
 | Name  | Type                                                                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ----- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -969,7 +1029,8 @@ IdentityAttributes describe an Identity itself. Their values are strongly normal
 
 ### RelationshipAttribute
 
-RelationshipAttributes describe an Identity in the context of a Relationship. While there are some types that can be used as a value for a RelationshipAttribute, these types are rather generic (e.g. `ProprietaryString`, `ProprietaryInteger`, ...).
+RelationshipAttributes describe an Identity in the context of a Relationship.
+While there are some types that can be used as a value for a RelationshipAttribute, these types are rather generic (e.g. `ProprietaryString`, `ProprietaryInteger`, ...).
 
 | Name            | Type                                                                                                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | --------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
@@ -982,11 +1043,16 @@ RelationshipAttributes describe an Identity in the context of a Relationship. Wh
 
 ## AttributeQueries
 
-One of the main features of enmeshed is sharing Attributes. For this, an Identity either proactively sends its Attributes to a peer. Or, if let's say a company wants to know the birth date of its customer, it can ask for it. Depending on the exact use case, the latter can be achieved with one of a bunch of RequestItems, like for example a [`ReadAttributeRequestItem`](#readattributerequestitem), or a [`CreateAttributeRequestItem`](#createattributerequestitem). All of them have in common that they define a `query` property, which contains either an [`IdentityAttributeQuery`](#identityattributequery) or a [`RelationshipAttributeQuery`](#relationshipattributequery).
+One of the main features of enmeshed is sharing Attributes.
+For this, an Identity either proactively sends its Attributes to a peer.
+Or, if let's say a company wants to know the birth date of its customer, it can ask for it.
+Depending on the exact use case, the latter can be achieved with one of a bunch of RequestItems, like for example a [`ReadAttributeRequestItem`](#readattributerequestitem), or a [`CreateAttributeRequestItem`](#createattributerequestitem).
+All of them have in common that they define a `query` property, which contains either an [`IdentityAttributeQuery`](#identityattributequery) or a [`RelationshipAttributeQuery`](#relationshipattributequery).
 
 ### IdentityAttributeQuery
 
-An `IdentityAttributeQuery` is used to query for IdentityAttributes. For that, it defines the following properties:
+An `IdentityAttributeQuery` is used to query for IdentityAttributes.
+For that, it defines the following properties:
 
 | Name      | Type                       | Description                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -998,7 +1064,11 @@ You can only query IdentityAttributes owned by the recipient of the query.
 
 ### RelationshipAttributeQuery
 
-There are cases in which you want to query some data from your peer that is not an IdentityAttribute. An example for this is when an electricity provider asks for the electric meter number of a new customer. Since this information is only relevant in the context of the Relationship, an IdentityAttribute wouldn't make any sense here. That's why you would send a `RelationshipAttributeQuery`. Its properties are:
+There are cases in which you want to query some data from your peer that is not an IdentityAttribute.
+An example for this is when an electricity provider asks for the electric meter number of a new customer.
+Since this information is only relevant in the context of the Relationship, an IdentityAttribute wouldn't make any sense here.
+That's why you would send a `RelationshipAttributeQuery`.
+Its properties are:
 
 | Name                   | Type                                                                        | Description                                                                                            |
 | ---------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
@@ -1032,7 +1102,8 @@ There are cases in which you want to query some data from your peer that is not 
 
 #### ValueHintsOverride
 
-`ValueHintsOverride` has the same properties as [`ValueHints`](#valuehints), except that all of them are optional. This type is used for some [RelationshipAttribute values]({% link _docs_integrate/attribute-values.md %}#relationship-attributes)
+`ValueHintsOverride` has the same properties as [`ValueHints`](#valuehints), except that all of them are optional.
+This type is used for some [RelationshipAttribute values]({% link _docs_integrate/attribute-values.md %}#relationship-attributes)
 
 #### ValueHintsValue
 
@@ -1043,7 +1114,9 @@ There are cases in which you want to query some data from your peer that is not 
 
 ### ThirdPartyRelationshipAttributeQuery
 
-If you want to query RelationshipAttributes the Recipient has in the context of a Relationship with a third party, you can use the `ThirdPartyRelationshipAttributeQuery`. An example would be the query for the number of a bonus card managed by another company (like Payback). A ThirdPartyRelationshipAttributeQuery has the following properties:
+If you want to query RelationshipAttributes the Recipient has in the context of a Relationship with a third party, you can use the `ThirdPartyRelationshipAttributeQuery`.
+An example would be the query for the number of a bonus card managed by another company (like Payback).
+A ThirdPartyRelationshipAttributeQuery has the following properties:
 
 | Name       | Type                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ---------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1054,7 +1127,11 @@ If you want to query RelationshipAttributes the Recipient has in the context of 
 
 ### IQLQuery
 
-If you want to query IdentityAttributes by their content, you can use the `IQLQuery` which is based on the IQL language, a simple and accessible yet powerful query language for IdentityAttributes. It allows you to specify conditions the IdentityAttribute must match and which may be chained using binary operations. Every property of the IdentityAttribute's content may be queried. For a full explanation of the IQL syntax, see its [dedicated documentation page]({% link _docs_integrate/iql-syntax.md %}) which also includes an interactive demo for you to try out different queries. If no IdentityAttribute corresponding to the IQLQuery exists at the peer's side, you are given the possibility to add `attributeCreationHints`, suggesting to create an IdentityAttribute which matches a specific `valueType` and optionally `tags`.
+If you want to query IdentityAttributes by their content, you can use the `IQLQuery` which is based on the IQL language, a simple and accessible yet powerful query language for IdentityAttributes.
+It allows you to specify conditions the IdentityAttribute must match and which may be chained using binary operations.
+Every property of the IdentityAttribute's content may be queried.
+For a full explanation of the IQL syntax, see its [dedicated documentation page]({% link _docs_integrate/iql-syntax.md %}) which also includes an interactive demo for you to try out different queries.
+If no IdentityAttribute corresponding to the IQLQuery exists at the peer's side, you are given the possibility to add `attributeCreationHints`, suggesting to create an IdentityAttribute which matches a specific `valueType` and optionally `tags`.
 
 | Name                   | Type                                   | Description                                                                                                                                                             |
 | ---------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1071,7 +1148,8 @@ If you want to query IdentityAttributes by their content, you can use the `IQLQu
 
 ## RelationshipTemplateContent
 
-Theoretically you can send any kind of data in a RelationshipTemplate. However, if your peer uses the enmeshed App, it will only be able to process RelationshipTemplates that contain a `RelationshipTemplateContent`, which looks like this:
+Theoretically you can send any kind of data in a RelationshipTemplate.
+However, if your peer uses the enmeshed App, it will only be able to process RelationshipTemplates that contain a `RelationshipTemplateContent`, which looks like this:
 
 | Name                   | Type                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ---------------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1092,7 +1170,8 @@ When communicating with a Connector, you can send any kind of data in a [Relatio
 
 ## RelationshipCreationContent
 
-Theoretically you can send any kind of data in a [Relationship's](#relationship) `creationContent`. However, if the [RelationshipTemplate's](#relationshiptemplate) `content` was of type `RelationshipTemplateContent`, the `creationContent` must be of type `RelationshipCreationContent`, containing the Response to the [Request](#request) contained within the [RelationshipTemplateContent's](#relationshiptemplatecontent) `onNewRelationship` property.
+Theoretically you can send any kind of data in a [Relationship's](#relationship) `creationContent`.
+However, if the [RelationshipTemplate's](#relationshiptemplate) `content` was of type `RelationshipTemplateContent`, the `creationContent` must be of type `RelationshipCreationContent`, containing the Response to the [Request](#request) contained within the [RelationshipTemplateContent's](#relationshiptemplatecontent) `onNewRelationship` property.
 
 | Name     | Type                            | Description                                                                                                                                              |
 | -------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1110,7 +1189,8 @@ When receiving a [RelationshipTemplate](#relationshiptemplate) with an [Arbitrar
 
 ## Mail
 
-A Mail can be sent as the content of a [Message](#message). It is comparable with the classic email, so its properties should be familiar.
+A Mail can be sent as the content of a [Message](#message).
+It is comparable with the classic email, so its properties should be familiar.
 
 | Name    | Type                      | Description                                                                                                                                                                                                                                                              |
 | ------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

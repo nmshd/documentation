@@ -51,4 +51,5 @@ In preperation for upcoming features loading peer objects by id and key has been
 
 ## Removal of `secretKey` from objects
 
-The `secretKey` field has been removed from all objects. As it is not possible to load peer objects by id and key anymore, the `secretKey` field became redundant.
+The `secretKey` field has been removed from all objects.
+As it is not possible to load peer objects by id and key anymore, the `secretKey` field became redundant.

@@ -50,7 +50,8 @@ To retrieve it, the Sender can [query their Relationships]({% link _docs_use-cas
 ]
 ```
 
-{% include copy-notice description="Look for the correct Relationship and save its `peer` property. You are going to need it later." %}
+{% include copy-notice description="Look for the correct Relationship and save its `peer` property.
+You are going to need it later." %}
 
 ## Check the Request's validity
 
@@ -108,7 +109,8 @@ Also, note that the `content` was extented by the `@type` property and a generat
 }
 ```
 
-{% include copy-notice description="Save the complete `content` of the response. You will need it in the next step." %}
+{% include copy-notice description="Save the complete `content` of the response.
+You will need it in the next step." %}
 
 ## Send the Request
 

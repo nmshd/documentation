@@ -35,15 +35,18 @@ However, Integrators of Connectors can still delete their Identity by using [Con
 
 ## IdentityDeletionProcesses
 
-From a technical perspective, the process of Identity deletion is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess). It can be uniquely identified by its `id`.
+From a technical perspective, the process of Identity deletion is described by a data object of type [IdentityDeletionProcess]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess).
+It can be uniquely identified by its `id`.
 An IdentityDeletionProcess can have `"Active"` or `"Cancelled"` as its `status`.
 If an IdentityDeletionProcess has `"Active"` as `status`, it is also referred to as an **active IdentityDeletionProcess**.
 There can be at most one active IdentityDeletionProcess per Identity.
 There are three [use cases]({% link _docs_integrate/use-cases.md %}) for getting one or more already existing [IdentityDeletionProcesses]({% link _docs_integrate/data-model-overview.md %}#identitydeletionprocess):
 
 - If the `id` of an IdentityDeletionProcess is known, it can be viewed by calling the [Get IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocess.md %}) use case.
-- All IdentityDeletionProcesses of an Identity can be viewed by utilizing the [Get IdentityDeletionProcesses]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocesses.md %}) use case. This includes IdentityDeletionProcesses with `"Cancelled"` as `status` in particular.
-- The [Get active IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-active-identitydeletionprocess.md %}) use case can be executed to view the currently active IdentityDeletionProcess if one exists. If none exists, the [error code]({% link _docs_integrate/error-codes.md %}) `error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess` will arise if an attempt is made to apply the use case anyway.
+- All IdentityDeletionProcesses of an Identity can be viewed by utilizing the [Get IdentityDeletionProcesses]({% link _docs_use-cases/use-case-transport-get-identitydeletionprocesses.md %}) use case.
+  This includes IdentityDeletionProcesses with `"Cancelled"` as `status` in particular.
+- The [Get active IdentityDeletionProcess]({% link _docs_use-cases/use-case-transport-get-active-identitydeletionprocess.md %}) use case can be executed to view the currently active IdentityDeletionProcess if one exists.
+  If none exists, the [error code]({% link _docs_integrate/error-codes.md %}) `error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess` will arise if an attempt is made to apply the use case anyway.
 
 ## Options for Identity Deletion
 
@@ -85,7 +88,8 @@ However, if the creator of the RelationshipTemplate is meanwhile in deletion or 
 An Identity is not permitted to [send a Message]({% link _docs_use-cases/use-case-transport-send-message-to-recipients.md %}) to a peer with which a Relationship has been established if the peer has already been deleted.
 As long as the `content` of a [Message]({% link _docs_integrate/data-model-overview.md %}#message) is not a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification), this also applies to a peer in deletion.
 If the Identity tries to send a Message anyway to such a peer, an error with [error code]({% link _docs_integrate/error-codes.md %}) `error.runtime.messages.peerIsInDeletion` or `error.transport.messages.peerIsDeleted` is thrown.
-Sent Messages whose `content` is a Notification cannot be received by a peer which is in deletion, but they are queued in case the peer cancels its deletion. After the peer has cancelled its deletion, it receives the queued Notifications.
+Sent Messages whose `content` is a Notification cannot be received by a peer which is in deletion, but they are queued in case the peer cancels its deletion.
+After the peer has cancelled its deletion, it receives the queued Notifications.
 
 ### Sending and Responding to Requests
 
