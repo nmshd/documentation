@@ -929,6 +929,16 @@ Internally, for the corresponding Attribute of the peer, the `deletionInfo.delet
 | @type       | `"OwnAttributeDeletedByOwnerNotificationItem"` |                                                                                                                              |
 | attributeId | `string`                                       | The `id` of the own Attribute that was deleted by the owner. It matches the `id` of the corresponding Attribute of the peer. |
 
+#### PeerRelationshipAttributeDeletedByPeerNotificationItem
+
+If an Identity has shared a [PeerRelationshipAttribute](#peerrelationshipattribute) with a peer and deletes it, a PeerRelationshipAttributeDeletedByPeerNotificationItem will be sent to the peer.
+Internally, for the corresponding [OwnRelationshipAttribute](#ownrelationshipattribute) or [ThirdPartyRelationshipAttribute](#thirdpartyrelationshipattribute) of the peer, the `deletionInfo.deletionStatus` will be set to `"DeletedByRecipient"` or `"DeletedByEmitter"`, respectively.
+
+| Name        | Type                                                       | Description                                                                                                                                                                     |
+| ----------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| @type       | `"PeerRelationshipAttributeDeletedByPeerNotificationItem"` |                                                                                                                                                                                 |
+| attributeId | `string`                                                   | The `id` of the PeerRelationshipAttribute that was deleted by the Identity. It matches the `id` of the OwnRelationshipAttribute or ThirdPartyRelationshipAttribute of the peer. |
+
 #### PeerAttributeSucceededNotificationItem
 
 A PeerAttributeSucceededNotificationItem will be sent if an Attribute, an Identity has shared with a peer, was succeeded by the Identity and they choose to notify the peer about it.
@@ -940,16 +950,6 @@ Internally, the succeeded version will then be created at the peer's side as suc
 | predecessorId    | `string`                                                                                       | The `id` of the [LocalAttribute](#localattribute) that was succeeded.  |
 | successorId      | `string`                                                                                       | The `id` of the [LocalAttribute](#localattribute) it was succeeded by. |
 | successorContent | [`IdentityAttribute`](#identityattribute) \| [`RelationshipAttribute`](#relationshipattribute) | The updated `content` of the [LocalAttribute](#localattribute).        |
-
-#### PeerRelationshipAttributeDeletedByPeerNotificationItem
-
-If an Identity has shared a [PeerRelationshipAttribute](#peerrelationshipattribute) with a peer and deletes it, a PeerRelationshipAttributeDeletedByPeerNotificationItem will be sent to the peer.
-Internally, for the corresponding [OwnRelationshipAttribute](#ownrelationshipattribute) or [ThirdPartyRelationshipAttribute](#thirdpartyrelationshipattribute) of the peer, the `deletionInfo.deletionStatus` will be set to `"DeletedByRecipient"` or `"DeletedByEmitter"`, respectively.
-
-| Name        | Type                                                       | Description                                                                                                                                                                     |
-| ----------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| @type       | `"PeerRelationshipAttributeDeletedByPeerNotificationItem"` |                                                                                                                                                                                 |
-| attributeId | `string`                                                   | The `id` of the PeerRelationshipAttribute that was deleted by the Identity. It matches the `id` of the OwnRelationshipAttribute or ThirdPartyRelationshipAttribute of the peer. |
 
 ## Attributes
 

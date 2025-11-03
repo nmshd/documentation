@@ -82,11 +82,11 @@ The step-by-step instructions can be consulted to start the migration to version
     For the ThirdPartyRelationshipAttributes, the `initialAttributePeer` property is additionally needed.
   - Some [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) subtypes may have a `deletionInfo` set, which has either [EmittedAttributeDeletionInfo]({% link _docs_integrate/data-model-overview.md %}#emittedattributedeletioninfo) or [ReceivedAttributeDeletionInfo]({% link _docs_integrate/data-model-overview.md %}#receivedattributedeletioninfo) as its type.
     The LocalAttributeDeletionInfo data object has been removed.
-  - The `parentId` property of the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) was removed as there is no child Attribute feature anymore.
-    Sharing individual components of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) will be possible again in future releases.
   - The introduction of the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) subtypes has led to a renaming of the [NotificationItems]({% link _docs_integrate/data-model-overview.md %}#notificationitems).
     The [PeerAttributeSucceededNotificationItem]({% link _docs_integrate/data-model-overview.md %}#peerattributesucceedednotificationitem) replaces the PeerSharedAttributeSucceededNotificationItem.
     The OwnSharedAttributeDeletedByOwnerNotificationItem, the PeerSharedAttributeDeletedByPeerNotificationItem and the ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem have been replaced by the [OwnAttributeDeletedByOwnerNotificationItem]({% link _docs_integrate/data-model-overview.md %}#ownattributedeletedbyownernotificationitem), the [PeerRelationshipAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#peerrelationshipattributedeletedbypeernotificationitem) and the [ForwardedAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#forwardedattributedeletedbypeernotificationitem).
+  - The `parentId` property of the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) was removed as there is no child Attribute feature anymore.
+    Sharing individual components of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes) will be possible again in future releases.
 
 ### Changed Behavior of Known Features
 
