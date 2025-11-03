@@ -768,7 +768,8 @@ An AcceptResponseItem can be received as answer to an [AuthenticationRequestItem
 ##### AttributeAlreadySharedAcceptResponseItem
 
 An AttributeAlreadySharedAcceptResponseItem can be received as answer to a [ReadAttributeRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#readattributerequestitem) or [ProposeAttributeRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#proposeattributerequestitem).
-It is generated if the Recipient of the RequestItem responds to it with an existing Attribute they already shared with the Sender in case the corresponding AttributeForwardingDetails of the own [LocalAttribute](#localattribute) don't have `"DeletedByRecipient"` or `"ToBeDeletedByRecipient"` as `deletionInfo.deletionStatus`.
+It is generated if the Recipient of the RequestItem responds to it with an existing Attribute they already shared with the Sender in case the corresponding AttributeForwardingDetails of the own [LocalAttribute](#localattribute) don't have `"DeletedByRecipient"` as `deletionInfo.deletionStatus`.
+If `"ToBeDeletedByRecipient"` was previously the `deletionInfo.deletionStatus`, the `deletionInfo` will be reset to undefined.
 Instead of creating further AttributeForwardingDetails, the `id` of the already existing shared LocalAttributes is returned.
 Note that the `id` of the own/peer Attribute of the Sender matches the `id` of the corresponding peer/own Attribute of the Recipient.
 
@@ -781,7 +782,7 @@ Note that the `id` of the own/peer Attribute of the Sender matches the `id` of t
 ##### AttributeSuccessionAcceptResponseItem
 
 An AttributeSuccessionAcceptResponseItem can be received as answer to a [ReadAttributeRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#readattributerequestitem) or [ProposeAttributeRequestItem]({% link _docs_integrate/request-and-response-introduction.md %}#proposeattributerequestitem).
-It is generated if the Recipient of the RequestItem responds to it with an existing Attribute that is a successor of an Attribute they already shared with the Sender in case the corresponding AttributeForwardingDetails of the own [LocalAttribute](#localattribute) don't have `"DeletedByRecipient"` or `"ToBeDeletedByRecipient"` as `deletionInfo.deletionStatus`.
+It is generated if the Recipient of the RequestItem responds to it with an existing Attribute that is a successor of an Attribute they already shared with the Sender in case the corresponding AttributeForwardingDetails of the own [LocalAttribute](#localattribute) don't have `"DeletedByRecipient"` as `deletionInfo.deletionStatus`.
 Instead of creating an independent peer Attribute, internally an [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) is performed.
 The `id` of the already existing shared LocalAttribute predecessor is returned, as well as the `id` and `content` of the newly created successor.
 Receiving an AttributeSuccessionAcceptResponseItem, the respective shared LocalAttribute of the Sender of the Request is automatically succeeded accordingly.
