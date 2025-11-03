@@ -42,7 +42,8 @@ You need to replace them with values before you send the Requests.
 
 - If you want to use your own Connector for executing the examples:
   - [Install the Connector]({% link _docs_operate/setup-with-docker-compose.md %})
-  - Make sure the [Sync Module]({% link _docs_operate/modules.md %}#sync) and the [Server-Sent Events Module]({% link _docs_operate/modules.md %}#sse) are disabled (because in this tutorial we will synchronize manually via the HTTP endpoint). We are also neither utilizing the [Webhooks Module]({% link _docs_operate/modules.md %}#webhooks) nor the [Message Broker Publisher Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher), even though using one of them is recommended in productive use.
+  - Make sure the [Sync Module]({% link _docs_operate/modules.md %}#sync) and the [Server-Sent Events Module]({% link _docs_operate/modules.md %}#sse) are disabled (because in this tutorial we will synchronize manually via the HTTP endpoint).
+    We are also neither utilizing the [Webhooks Module]({% link _docs_operate/modules.md %}#webhooks) nor the [Message Broker Publisher Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher), even though using one of them is recommended in productive use.
   - Make sure the [docs are enabled]({% link _docs_operate/configuration.md %}#corehttpapi) for the documentation route to work
   - Get the API key that was configured during installation of the Connector (it needs to be sent in the `X-API-KEY` header of every HTTP Request)
 - You need the [enmeshed App]({% link _docs_use/install-the-app.md %}) with a minimum version of `4.0.0` installed on your mobile device.
@@ -148,7 +149,8 @@ Let's assume the Connector needs to know the given name and surname of its conta
 }
 ```
 
-Before we actually create the RelationshipTemplate, we want to ensure the validity of the Request and its items. To do so, execute `POST /api/core/v1/Requests/Outgoing/Validate` with the Request.
+Before we actually create the RelationshipTemplate, we want to ensure the validity of the Request and its items.
+To do so, execute `POST /api/core/v1/Requests/Outgoing/Validate` with the Request.
 
 {% include rapidoc api_route_regex="^post /api/core/v1/Requests/Outgoing/Validate$" %}
 
@@ -188,13 +190,17 @@ For this, execute the `GET /api/core/v1/RelationshipTemplates/{id}` route (Accep
 
 ### App: Initiate a Relationship
 
-When the App is opened and no profile has been created yet, the user must create one. From the profile overview, the user can add a new contact using the "Add Contact" option. A QR code must be scanned to complete the process.
+When the App is opened and no profile has been created yet, the user must create one.
+From the profile overview, the user can add a new contact using the "Add Contact" option.
+A QR code must be scanned to complete the process.
 
 Scanning the QR code should result in a screen similar to the one below, where you can see the information that you added as `content` to the RelationshipTemplate.
 
 ![Add contact screen]({{ '/assets/images/add-contact-screen.jpg' | relative_url }}){: width="40%"}
 
-Finally, fill out the required fields and click on "Add contact" to send the Relationship. This will initiate a Relationship between the App and the Connector. This Relationship has the status `Pending` for now.
+Finally, fill out the required fields and click on "Add contact" to send the Relationship.
+This will initiate a Relationship between the App and the Connector.
+This Relationship has the status `Pending` for now.
 
 ### Connector: Accept the Relationship
 
@@ -204,7 +210,8 @@ To do so, we [synchronize updates of the Backbone]({% link _docs_use-cases/use-c
 {% include rapidoc api_route_regex="^post /api/core/v1/Account/Sync$" %}
 
 The synchronization causes the `transport.relationshipChanged` [Connector event]({% link _docs_integrate/connector-events.md %}) to be triggered, which should be listened to in order to get the Relationship in status `Pending`.
-We can also [get the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) via `GET /api/core/v1/Relationships`. Should you be repeating this tutorial, you could e.g. filter by the `id` of the RelationshipTemplate from earlier via `GET /api/core/v1/Relationships?templateId=<id>` if you use a different RelationshipTemplate.
+We can also [get the Relationship]({% link _docs_use-cases/use-case-transport-query-relationships.md %}) via `GET /api/core/v1/Relationships`.
+Should you be repeating this tutorial, you could e.g. filter by the `id` of the RelationshipTemplate from earlier via `GET /api/core/v1/Relationships?templateId=<id>` if you use a different RelationshipTemplate.
 
 {% include rapidoc api_route_regex="^get /api/core/v1/Relationships$" %}
 
@@ -274,7 +281,9 @@ In order to fetch the Message, we need to synchronize the Connector with the Bac
 
 {% include rapidoc api_route_regex="^post /api/core/v1/Account/Sync$" %}
 
-After syncing, all Messages can be displayed with the `GET /api/core/v1/Messages` route. Additionally, the [Event]({% link _docs_integrate/connector-events.md %}) `transport.messageReceived` is triggered after a Message is received. If you use the [Message Broker Publisher Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher) or the [Webhooks Module]({% link _docs_operate/modules.md %}#webhooks) to subscribe to this event, you will receive the information whenever a new Message arrives.
+After syncing, all Messages can be displayed with the `GET /api/core/v1/Messages` route.
+Additionally, the [Event]({% link _docs_integrate/connector-events.md %}) `transport.messageReceived` is triggered after a Message is received.
+If you use the [Message Broker Publisher Module]({% link _docs_operate/modules.md %}#messagebrokerpublisher) or the [Webhooks Module]({% link _docs_operate/modules.md %}#webhooks) to subscribe to this event, you will receive the information whenever a new Message arrives.
 
 {% include rapidoc api_route_regex="^get /api/core/v1/Messages$" %}
 
@@ -282,7 +291,8 @@ The response should contain a Message with the `content` you entered in the App.
 
 ## What's next?
 
-Now that you have successfully established a Relationship and exchanged Messages, you can further explore the enmeshed API. You can for example:
+Now that you have successfully established a Relationship and exchanged Messages, you can further explore the enmeshed API.
+You can for example:
 
 - explore the [enmeshed data model]({% link _docs_integrate/data-model-overview.md %}) and learn more about the objects you used during this tutorial and the objects you will encounter in the future
 - learn how to send [Requests via Messages]({% link _docs_integrate/requests-via-messages.md %}) with your established Relationship
