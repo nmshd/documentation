@@ -476,10 +476,11 @@ SchematizedXML can be used to exchange files in XML format. The exchange of XML 
 
 ## Sex
 
-The Sex is the biological, medical, or public gender of a natural person.
+The Sex is the biological, medical, or officially registered gender of a natural person.
 
-Please be advised that the possible values are defined by the public laws and technical passport measures between countries.<br><br>
-We embrace the person’s own definition of its/her/his sexual and gender orientations. Therefore we have no “Gender” AttributeValueType (yet). We look forward in hearing your comments about this.
+Please be advised that the possible values are defined by the public laws and technical identification standards that may vary between countries.<br><br>
+We acknowledge and respect each person’s self-defined sexual and gender identity.
+The "Gender" Attribute Value type is currently being evaluated to ensure inclusive and consistent representation.
 {: .notice--info}
 
 **Properties**
