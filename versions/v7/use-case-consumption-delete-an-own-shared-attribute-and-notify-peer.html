@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-10-24T16:47:22+02:00">
+  <meta property="article:published_time" content="2025-11-03T14:42:09+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Delete an own shared Attribute and notify peer">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2025-10-24T16:47:22+02:00">
+    <meta itemprop="datePublished" content="2025-11-03T14:42:09+01:00">
     
 
     <div class="page__inner-wrap">
@@ -481,7 +481,7 @@ It is created as a result of sharing the <code class="language-plaintext highlig
   <li>All predecessors of the own shared Attribute will be deleted.</li>
   <li>If the own shared Attribute was succeeded, the <code class="language-plaintext highlighter-rouge">succeeds</code> property of the successor will be set to undefined.</li>
   <li>If the <code class="language-plaintext highlighter-rouge">attributeId</code> relates to a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> and there are shared copies of the own shared RelationshipAttribute or potential predecessors of it, the <code class="language-plaintext highlighter-rouge">shareInfo.sourceAttribute</code> of those emitted ThirdPartyRelationshipAttributes will be set to undefined.</li>
-  <li>A <a href="/versions/v7/integrate/data-model-overview#notification">Notification</a> with a <a href="/versions/v7/integrate/data-model-overview#ownsharedattributedeletedbyownernotificationitem">OwnSharedAttributeDeletedByOwnerNotificationItem</a> is sent to the peer you shared the Attribute with, informing them that you deleted the Attribute. Technically, the peer shared Attribute at the peer&#8217;s side and all predecessors will get a <code class="language-plaintext highlighter-rouge">deletionInfo</code> with <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> and the time of receiving the Notification as <code class="language-plaintext highlighter-rouge">deletionDate</code>.</li>
+  <li>A <a href="/versions/v7/integrate/data-model-overview#notification">Notification</a> with an <a href="/versions/v7/integrate/data-model-overview#ownattributedeletedbyownernotificationitem">OwnAttributeDeletedByOwnerNotificationItem</a> is sent to the peer you shared the Attribute with, informing them that you deleted the Attribute. Technically, the peer shared Attribute at the peer&#8217;s side and all predecessors will get a <code class="language-plaintext highlighter-rouge">deletionInfo</code> with <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"DeletedByEmitter"</code> and the time of receiving the Notification as <code class="language-plaintext highlighter-rouge">deletionDate</code>.</li>
   <li>The <code class="language-plaintext highlighter-rouge">notificationId</code> is returned.</li>
 </ul>
 
@@ -528,7 +528,7 @@ This use case can be executed with the REST API of the Connector which you can <
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-10-24T16:47:22+02:00">October 24, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T14:42:09+01:00">November 3, 2025</time></p>
 
       </footer>
 

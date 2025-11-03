@@ -570,7 +570,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Get Attributes",
-        "excerpt":"This use case is intended to query LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters query allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used: createdAt describes the time when the LocalAttribute was created. parentId can be used to...","categories": [],
+        "excerpt":"This use case is intended to query LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters query allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used: createdAt describes the time when the LocalAttribute was created. The fields of content can...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-consumption-get-attributes",
         "teaser": null

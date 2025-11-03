@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-10-24T16:47:22+02:00">
+  <meta property="article:published_time" content="2025-11-03T14:42:09+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Delete Attributes">
     <meta itemprop="description" content="The exact process of deleting an Attribute depends on the kind of Attribute at hand.Creating an Attribute, we must distinguish between IdentityAttributes and RelationshipAttributes.In the former case, a so-called RepositoryAttribute is created, which is a LocalAttribute without shareInfo, that you are the owner of.Afterwards, you may share it with a peer, which yields the creation of an own shared IdentityAttribute.This is a LocalAttribute with the copied content of the RepositoryAttribute, but an additional shareInfo property.Doing so, also a LocalAttribute with the same content and a respective shareInfo is created for the peer, which is referred to as peer shared Attribute.In the case of RelationshipAttributes we have own shared and peer shared RelationshipAttributes analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with RepositoryAttributes.These different kinds of Attributes have different demands that need to be taken into account, wanting to delete them.">
-    <meta itemprop="datePublished" content="2025-10-24T16:47:22+02:00">
+    <meta itemprop="datePublished" content="2025-11-03T14:42:09+01:00">
     
 
     <div class="page__inner-wrap">
@@ -436,7 +436,7 @@ For this purpose, several DeleteAttributeRequestItems or suitable <a href="/vers
 <p>Next, send the Request to the peer.
 You can either do so by <a href="/versions/v7/integrate/data-model-overview#message">Message</a> or by a <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a>, using the <code class="language-plaintext highlighter-rouge">onExistingRelationship</code> property of a <a href="/versions/v7/integrate/data-model-overview#relationshiptemplatecontent">RelationshipTemplateContent</a>.
 For a detailed explanation check out our guides on how to send <a href="/versions/v7/integrate/requests-via-messages">Requests via Messages</a> and <a href="/versions/v7/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a>.
-Once the Request is sent, the according own shared Attribute of the Sender gets a <a href="/versions/v7/integrate/data-model-overview#localattributedeletioninfo">LocalAttributeDeletionInfo</a>.
+Once the Request is sent, the according own shared Attribute of the Sender gets an <a href="/versions/v7/integrate/data-model-overview#emittedattributedeletioninfo">EmittedAttributeDeletionInfo</a>.
 There, <code class="language-plaintext highlighter-rouge">"DeletionRequestSent"</code> is set as <code class="language-plaintext highlighter-rouge">deletionStatus</code> and the time of sending the Request is stored as <code class="language-plaintext highlighter-rouge">deletionDate</code>.</p>
 
 <p>When the peer receives the Request, they can accept or reject it.
@@ -457,7 +457,7 @@ In the given example, the payload would look like the following:</p>
 <p>Now, the <a href="/versions/v7/explore/runtime">enmeshed Runtime</a> sets the <code class="language-plaintext highlighter-rouge">deletionInfo</code> of the corresponding peer shared Attribute of the peer with <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"ToBeDeleted"</code> and the specified <code class="language-plaintext highlighter-rouge">deletionDate</code>.
 The same is done for all predecessors of the peer shared Attribute.
 Then, the appropriate <a href="/versions/v7/integrate/data-model-overview#deleteattributeacceptresponseitem">DeleteAttributeAcceptResponseItem</a> is generated and sent back in the <a href="/versions/v7/integrate/data-model-overview#response">Reponse</a> to the Sender of the Request.
-There, the <code class="language-plaintext highlighter-rouge">deletionInfo</code> of the corresponding own shared Attribute and its predecessors is set with <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"ToBeDeletedByPeer"</code> and the <code class="language-plaintext highlighter-rouge">deletionDate</code> received in the Response.</p>
+There, the <code class="language-plaintext highlighter-rouge">deletionInfo</code> of the corresponding own shared Attribute and its predecessors is set with <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"ToBeDeletedByRecipient"</code> and the <code class="language-plaintext highlighter-rouge">deletionDate</code> received in the Response.</p>
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/a738fd76-2fe0-4e3e-a0fd-bec86b3b7939" id="ZGDlhHzeKlb-"></iframe></div>
 
@@ -473,8 +473,8 @@ This can either be triggered if the <code class="language-plaintext highlighter-
 <p>To <a href="/versions/v7/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer">delete a peer shared Attribute</a>, only its <code class="language-plaintext highlighter-rouge">attributeId</code> must be specified.
 Internally, not just the given peer shared Attribute is deleted, but also all its predecessors, in case there were any.
 Moreover, if the peer shared Attribute had a successor, its <code class="language-plaintext highlighter-rouge">succeeds</code> property will be set to undefined, as the corresponding predecessor no longer exists.
-Then, a <a href="/versions/v7/integrate/data-model-overview#notification">Notification</a> with a <a href="/versions/v7/integrate/data-model-overview#peersharedattributedeletedbypeernotificationitem">PeerSharedAttributeDeletedByPeerNotificationItem</a> is generated and sent to the owner of the peer shared Attribute, informing them that you deleted the Attribute they shared with you.
-Consequently, the <code class="language-plaintext highlighter-rouge">deletionInfo</code> of their corresponding own shared Attribute and of all potential predecessors is updated with <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"DeletedByPeer"</code> and the time of receiving the Notification as <code class="language-plaintext highlighter-rouge">deletionDate</code>.
+Then, a <a href="/versions/v7/integrate/data-model-overview#notification">Notification</a> with a <a href="/versions/v7/integrate/data-model-overview#forwardedattributedeletedbypeernotificationitem">ForwardedAttributeDeletedByPeerNotificationItem</a> or a <a href="/versions/v7/integrate/data-model-overview#peerrelationshipattributedeletedbypeernotificationitem">PeerRelationshipAttributeDeletedByPeerNotificationItem</a> is generated and sent to the owner of the peer shared Attribute, informing them that you deleted the Attribute they shared with you.
+Consequently, the <code class="language-plaintext highlighter-rouge">deletionInfo</code> of their corresponding own shared Attribute and of all potential predecessors is updated with <code class="language-plaintext highlighter-rouge">deletionStatus</code> <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> and the time of receiving the Notification as <code class="language-plaintext highlighter-rouge">deletionDate</code>.
 In case the owner already <a href="#delete-own-shared-attributes">deleted their own shared Attribute</a>, nothing happens.
 Please further note that the Notification is queued if the <a href="/versions/v7/integrate/terminate-relationships#terminate-an-active-relationship">Relationship is currently terminated</a> but not yet <a href="/versions/v7/integrate/terminate-relationships#decompose-a-relationship">decomposed</a>.
 It can then only be received and processed if the <a href="/versions/v7/integrate/terminate-relationships#reactivate-a-terminated-relationship">Relationship is reactivated</a>.
@@ -484,7 +484,7 @@ It can then only be received and processed if the peer <a href="/versions/v7/use
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/2385af4a-4bfa-43f4-a119-afb51273194d" id="HNEl2zIWWLxc"></iframe></div>
 
 <p class="notice--info">If you want to <a href="/versions/v7/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer">delete a ThirdPartyRelationshipAttribute</a>, the process will work analogously.
-In this case, a <a href="/versions/v7/integrate/data-model-overview#thirdpartyrelationshipattributedeletedbypeernotificationitem">ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem</a> will be sent.</p>
+In this case, a <a href="/versions/v7/integrate/data-model-overview#forwardedattributedeletedbypeernotificationitem">ForwardedAttributeDeletedByPeerNotificationItem</a> will be sent.</p>
 
 <h2 id="delete-own-shared-attributes">Delete own shared Attributes</h2>
 
@@ -496,10 +496,10 @@ Thus, we recommend to <a href="#request-the-deletion-of-own-attributes-from-peer
 <p>If you decide to <a href="/versions/v7/use-case-consumption-delete-an-own-shared-attribute-and-notify-peer">delete an own shared Attribute</a>, you must specifiy its <code class="language-plaintext highlighter-rouge">attributeId</code>.
 Then, in addition to the own shared Attribute itself, also all its predecessors will be deleted, given there were any.
 Moreover, if the own shared Attribute had a successor, its <code class="language-plaintext highlighter-rouge">succeeds</code> property will be set to undefined, as the corresponding predecessor no longer exists.
-Then, a Notification with an <a href="/versions/v7/integrate/data-model-overview#ownsharedattributedeletedbyownernotificationitem">OwnSharedAttributeDeletedByOwnerNotificationItem</a> is generated and sent to the peer you shared the Attribute with, informing them that you deleted that own shared Attribute.
+Then, a Notification with an <a href="/versions/v7/integrate/data-model-overview#ownattributedeletedbyownernotificationitem">OwnAttributeDeletedByOwnerNotificationItem</a> is generated and sent to the peer you shared the Attribute with, informing them that you deleted that own shared Attribute.
 If they already deleted their corresponding peer shared Attribute or marked it for deletion, nothing will change.
 However, if the <code class="language-plaintext highlighter-rouge">deletionInfo</code> of their peer shared Attribute was undefined before, since you didn’t send a Request for Attribute deletion or the Request was rejected, a <code class="language-plaintext highlighter-rouge">deletionInfo</code> will be set.
-Its <code class="language-plaintext highlighter-rouge">deletionStatus</code> will be set to <code class="language-plaintext highlighter-rouge">"DeletedByOwner"</code> and the <code class="language-plaintext highlighter-rouge">deletionDate</code> will be the time of receiving the Notification.
+Its <code class="language-plaintext highlighter-rouge">deletionStatus</code> will be set to <code class="language-plaintext highlighter-rouge">"DeletedByEmitter"</code> and the <code class="language-plaintext highlighter-rouge">deletionDate</code> will be the time of receiving the Notification.
 Please note that the Notification is queued if the <a href="/versions/v7/integrate/terminate-relationships#terminate-an-active-relationship">Relationship is currently terminated</a> but not yet <a href="/versions/v7/integrate/terminate-relationships#decompose-a-relationship">decomposed</a>.
 It can then only be received and processed if the <a href="/versions/v7/integrate/terminate-relationships#reactivate-a-terminated-relationship">Relationship is reactivated</a>.
 Furthermore, the Notification is also queued if the <a href="/versions/v7/integrate/delete-identities#effects-of-identity-deletion-on-relationships">peer is currently in deletion</a> but not yet deleted.
@@ -529,7 +529,7 @@ Instead, if you want to inform them about a newer version of this RepositoryAttr
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-10-24T16:47:22+02:00">October 24, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T14:42:09+01:00">November 3, 2025</time></p>
 
       </footer>
 

@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-10-24T16:47:22+02:00">
+  <meta property="article:published_time" content="2025-11-03T14:42:09+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Create Attributes for peer">
     <meta itemprop="description" content="There are many situations in which an Identity wants to create an IdentityAttribute or a RelationshipAttribute for another Identity, for example:">
-    <meta itemprop="datePublished" content="2025-10-24T16:47:22+02:00">
+    <meta itemprop="datePublished" content="2025-11-03T14:42:09+01:00">
     
 
     <div class="page__inner-wrap">
@@ -541,7 +541,7 @@ this leads to the creation of an Attribute for the Recipient whose Attribute val
 
 <p>If the Recipient agrees to the creation of one of the Attributes offered by the Sender, it can accept the associated CreateAttributeRequestItem contained in the Request for creating Attributes.
 The <a href="/versions/v7/integrate/data-model-overview#acceptrequestitemparameters">AcceptRequestItemParameters</a> must be used for that.
-The acceptance of a CreateAttributeRequestItem leads to the creation of a corresponding <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> with a <a href="/versions/v7/integrate/data-model-overview#localattributeshareinfo">LocalAttributeShareInfo</a> contained within its <code class="language-plaintext highlighter-rouge">shareInfo</code> property.
+The acceptance of a CreateAttributeRequestItem leads to the creation of a corresponding <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a>.
 The <code class="language-plaintext highlighter-rouge">content</code> of the LocalAttribute is the underlying <code class="language-plaintext highlighter-rouge">attribute</code> of the CreateAttributeRequestItem.
 Depending on whether an IdentityAttribute or a RelationshipAttribute is created and the ownership, it is referred to as either an <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-identityattributes">own shared IdentityAttribute</a>, an <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-relationshipattributes">own shared RelationshipAttribute</a> or a <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-relationshipattributes">peer shared RelationshipAttribute</a>.
 Based on the created LocalAttribute, an appropriate AcceptResponseItem of type <a href="/versions/v7/integrate/data-model-overview#createattributeacceptresponseitem">CreateAttributeAcceptResponseItem</a> is generated, which incorporates the <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute in its <code class="language-plaintext highlighter-rouge">attributeId</code> property.
@@ -652,7 +652,7 @@ If the underlying <code class="language-plaintext highlighter-rouge">attribute</
 
 <p>The Integrator of the Sender can now get the Response of the Recipient from the <code class="language-plaintext highlighter-rouge">response.content</code> property of the result.
 In the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#response">Response</a> is a <a href="/versions/v7/integrate/data-model-overview#createattributeacceptresponseitem">CreateAttributeAcceptResponseItem</a> for each accepted and a <a href="/versions/v7/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a> for each rejected CreateAttributeRequestItem included.
-Note that each accepted CreateAttributeRequestItem leads to the creation of an appropriate LocalAttribute with a LocalAttributeShareInfo of the Sender.
+Note that each accepted CreateAttributeRequestItem leads to the creation of an appropriate LocalAttribute of the Sender.
 The <code class="language-plaintext highlighter-rouge">content</code> of the <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> is the underlying <code class="language-plaintext highlighter-rouge">attribute</code> of the <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a>.
 Depending on whether an IdentityAttribute or a RelationshipAttribute has been created and the ownership, it is referred to as either a <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-identityattributes">peer shared IdentityAttribute</a>, an <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-relationshipattributes">own shared RelationshipAttribute</a> or a <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-relationshipattributes">peer shared RelationshipAttribute</a>.</p>
 
@@ -672,7 +672,7 @@ Depending on whether an IdentityAttribute or a RelationshipAttribute has been cr
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-10-24T16:47:22+02:00">October 24, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T14:42:09+01:00">November 3, 2025</time></p>
 
       </footer>
 

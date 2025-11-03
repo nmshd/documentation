@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-10-24T16:47:22+02:00">
+  <meta property="article:published_time" content="2025-11-03T14:42:09+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Migration From v6 to v7">
     <meta itemprop="description" content="The Runtime of enmeshed has recently been updated from version 6 to version 7.Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors.The version update has resulted in some breaking changes.To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
-    <meta itemprop="datePublished" content="2025-10-24T16:47:22+02:00">
+    <meta itemprop="datePublished" content="2025-11-03T14:42:09+01:00">
     
 
     <div class="page__inner-wrap">
@@ -445,6 +445,28 @@ The property <code class="language-plaintext highlighter-rouge">reference</code>
   <li>The properties <code class="language-plaintext highlighter-rouge">approvedAt</code> and <code class="language-plaintext highlighter-rouge">approvedByDevice</code> of the <a href="/versions/v7/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> have been removed.
 Furthermore, renaming <code class="language-plaintext highlighter-rouge">"Approved"</code> to <code class="language-plaintext highlighter-rouge">"Active"</code> resulted in a change of an IdentityDeletionProcess <code class="language-plaintext highlighter-rouge">status</code>.</li>
   <li>All data structures around the Attribute listener feature, including the LocalAttributeListener, the RegisterAttributeListenerRequestItem, and the RegisterAttributeListenerAcceptResponseItem, were removed.</li>
+  <li>With the new <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> concept, an Attribute copy is no longer created when an Attribute is <a href="/versions/v7/integrate/share-attributes-with-peer">shared</a>.
+Furthermore, LocalAttribute subtypes have been introduced to help distinguish between different kinds of LocalAttributes.
+    <ul>
+      <li>RepositoryAttributes were renamed to <a href="/versions/v7/integrate/data-model-overview#ownidentityattribute">OwnIdentityAttributes</a>.
+There are no own shared IdentityAttributes anymore.
+Instead, sharing an OwnIdentityAttribute leads to the creation of <a href="/versions/v7/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a>.</li>
+      <li>The peer shared IdentityAttribute, the own shared RelationshipAttribute and the peer shared RelationshipAttribute have been replaced by the LocalAttribute subtypes <a href="/versions/v7/integrate/data-model-overview#peeridentityattribute">PeerIdentityAttribute</a>, <a href="/versions/v7/integrate/data-model-overview#ownrelationshipattribute">OwnRelationshipAttribute</a> and <a href="/versions/v7/integrate/data-model-overview#peerrelationshipattribute">PeerRelationshipAttribute</a>, respectively.</li>
+      <li>There are no emitted ThirdPartyRelationshipAttributes anymore.
+Instead, forwarding a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> to a peer, which is not involved in the <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> in which the RelationshipAttribute exists, leads to the creation of <a href="/versions/v7/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a>.
+For this reason, the received ThirdPartyRelationshipAttribute is called <a href="/versions/v7/integrate/data-model-overview#thirdpartyrelationshipattribute">ThirdPartyRelationshipAttribute</a> from now on.</li>
+      <li>The <code class="language-plaintext highlighter-rouge">shareInfo</code> property of the <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> and the corresponding LocalAttributeShareInfo data object were removed.
+To track with which peer an Attribute was <a href="/versions/v7/integrate/share-attributes-with-peer">shared</a>, <a href="/versions/v7/integrate/data-model-overview#attributeforwardingdetails">AttributeForwardingDetails</a> are now used and, in the case of <a href="/versions/v7/integrate/data-model-overview#peeridentityattribute">PeerIdentityAttributes</a>, <a href="/versions/v7/integrate/data-model-overview#ownrelationshipattribute">OwnRelationshipAttributes</a>, <a href="/versions/v7/integrate/data-model-overview#peerrelationshipattribute">PeerRelationshipAttributes</a>, and <a href="/versions/v7/integrate/data-model-overview#thirdpartyrelationshipattribute">ThirdPartyRelationshipAttributes</a>, the properties <code class="language-plaintext highlighter-rouge">peer</code>, <code class="language-plaintext highlighter-rouge">sourceReference</code>, and <code class="language-plaintext highlighter-rouge">deletionInfo</code> are utilized.
+For the ThirdPartyRelationshipAttributes, the <code class="language-plaintext highlighter-rouge">initialAttributePeer</code> property is additionally needed.</li>
+      <li>Some <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> subtypes may have a <code class="language-plaintext highlighter-rouge">deletionInfo</code> set, which has either <a href="/versions/v7/integrate/data-model-overview#emittedattributedeletioninfo">EmittedAttributeDeletionInfo</a> or <a href="/versions/v7/integrate/data-model-overview#receivedattributedeletioninfo">ReceivedAttributeDeletionInfo</a> as its type.
+The LocalAttributeDeletionInfo data object has been removed.</li>
+      <li>The introduction of the <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> subtypes has led to a renaming of the <a href="/versions/v7/integrate/data-model-overview#notificationitems">NotificationItems</a>.
+The <a href="/versions/v7/integrate/data-model-overview#peerattributesucceedednotificationitem">PeerAttributeSucceededNotificationItem</a> replaces the PeerSharedAttributeSucceededNotificationItem.
+The OwnSharedAttributeDeletedByOwnerNotificationItem, the PeerSharedAttributeDeletedByPeerNotificationItem and the ThirdPartyRelationshipAttributeDeletedByPeerNotificationItem have been replaced by the <a href="/versions/v7/integrate/data-model-overview#ownattributedeletedbyownernotificationitem">OwnAttributeDeletedByOwnerNotificationItem</a>, the <a href="/versions/v7/integrate/data-model-overview#peerrelationshipattributedeletedbypeernotificationitem">PeerRelationshipAttributeDeletedByPeerNotificationItem</a> and the <a href="/versions/v7/integrate/data-model-overview#forwardedattributedeletedbypeernotificationitem">ForwardedAttributeDeletedByPeerNotificationItem</a>.</li>
+      <li>The <code class="language-plaintext highlighter-rouge">parentId</code> property of the <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> was removed as there is no child Attribute feature anymore.
+Sharing individual components of a <a href="/versions/v7/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttribute</a> will be possible again in future releases.</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="changed-behavior-of-known-features">Changed Behavior of Known Features</h3>
@@ -490,8 +512,7 @@ Similarly, other error codes are no longer needed.
 However, a few new error codes, such as <code class="language-plaintext highlighter-rouge">error.consumption.attributes.wrongTypeOfAttribute</code>, had to be introduced.</li>
   <li>The <code class="language-plaintext highlighter-rouge">error.runtime.attributes.isNotRepositoryAttribute</code> error code has been renamed to <code class="language-plaintext highlighter-rouge">error.runtime.attributes.isNotOwnIdentityAttribute</code> as OwnIdentityAttributes now present those <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttributes</a> that were previously known as RepositoryAttributes.
 Similarly, other error codes have been renamed.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">error.consumption.attributes.cannotSucceedChildOfComplexAttribute</code> error code has been removed as there is no child Attribute feature anymore.
-Sharing individual components of a <a href="/versions/v7/integrate/attribute-introduction#complex-identityattributes">complex IdentityAttribute</a> will be possible again in future releases.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">error.consumption.attributes.cannotSucceedChildOfComplexAttribute</code> error code has been removed as there is no child Attribute feature anymore.</li>
   <li>By renaming an <a href="/versions/v7/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> <code class="language-plaintext highlighter-rouge">status</code> from <code class="language-plaintext highlighter-rouge">"Approved"</code> to <code class="language-plaintext highlighter-rouge">"Active"</code>, the error code <code class="language-plaintext highlighter-rouge">error.runtime.identityDeletionProcess.noApprovedIdentityDeletionProcess</code> has been replaced by <code class="language-plaintext highlighter-rouge">error.runtime.identityDeletionProcess.noActiveIdentityDeletionProcess</code>.</li>
 </ul>
 
@@ -524,7 +545,7 @@ It has now been deleted with the update to version 7.</li>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-10-24T16:47:22+02:00">October 24, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T14:42:09+01:00">November 3, 2025</time></p>
 
       </footer>
 
