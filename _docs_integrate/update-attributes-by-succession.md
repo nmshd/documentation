@@ -33,9 +33,13 @@ How the Attribute succession works in detail depends on the type of Attribute.
 
 When talking about [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute), we need to distinguish three cases:
 
-- The Identity maintains an unshared Attribute about itself. This IdentityAttribute is stored in the `content` field of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute), whose `shareInfo` is undefined. Since this LocalAttribute is created for the Identity's private repository of Attributes, it is referred to as **RepositoryAttribute**.
-- When sharing a RepositoryAttribute with a peer, a copy of the IdentityAttribute is created for the Sender and stored in the `content` field of a LocalAttribute with a defined `shareInfo`. We call this LocalAttribute an **own shared IdentityAttribute**.
-- Receiving a shared IdentityAttribute from a peer leads to the creation of a LocalAttribute with according `content` and a defined `shareInfo` for the Recipient. We call this LocalAttribute a **peer shared IdentityAttribute**.
+- The Identity maintains an unshared Attribute about itself.
+  This IdentityAttribute is stored in the `content` field of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute), whose `shareInfo` is undefined.
+  Since this LocalAttribute is created for the Identity's private repository of Attributes, it is referred to as **RepositoryAttribute**.
+- When sharing a RepositoryAttribute with a peer, a copy of the IdentityAttribute is created for the Sender and stored in the `content` field of a LocalAttribute with a defined `shareInfo`.
+  We call this LocalAttribute an **own shared IdentityAttribute**.
+- Receiving a shared IdentityAttribute from a peer leads to the creation of a LocalAttribute with according `content` and a defined `shareInfo` for the Recipient.
+  We call this LocalAttribute a **peer shared IdentityAttribute**.
 
 Discussing the succession of IdentityAttributes requires some background knowledge about this differentiation and the behavior of shared Attributes.
 Hence, we will look at the process of creating, sharing and succeeding an IdentityAttribute step by step.
