@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:34+01:00">
+  <meta property="article:published_time" content="2025-11-03T17:03:21+01:00">
 
 
 
@@ -366,8 +366,8 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Terminate Relationships">
-    <meta itemprop="description" content="In order for two Identities to communicate with each other and exchange data, they must establish a Relationship between them. If an active Relationship to another Identity is no longer wanted, it can be terminated.">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:34+01:00">
+    <meta itemprop="description" content="In order for two Identities to communicate with each other and exchange data, they must establish a Relationship between them.If an active Relationship to another Identity is no longer wanted, it can be terminated.">
+    <meta itemprop="datePublished" content="2025-11-03T17:03:21+01:00">
     
 
     <div class="page__inner-wrap">
@@ -392,7 +392,8 @@
             </nav>
           </aside>
         
-        <p>In order for two Identities to communicate with each other and exchange data, they must <a href="/versions/v7/integrate/establish-relationships">establish a Relationship</a> between them. If an active <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> to another Identity is no longer wanted, it can be terminated.</p>
+        <p>In order for two Identities to communicate with each other and exchange data, they must <a href="/versions/v7/integrate/establish-relationships">establish a Relationship</a> between them.
+If an active <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> to another Identity is no longer wanted, it can be terminated.</p>
 
 <p><a href="/versions/v7/integrate/terminate-relationships#terminate-an-active-relationship">Terminating an active Relationship</a> initially blocks regular communication for both Identities, but does not yet delete any Relationship data.
 The only possible communication between them is to request the <a href="/versions/v7/integrate/terminate-relationships#reactivate-a-terminated-relationship">reactivation of the terminated Relationship</a>, which can be done by both Identities.
@@ -408,7 +409,8 @@ It is then no longer possible to reactivate the Relationship.
 The termination of the Relationship does not require the permission of the peer.
 After the Relationship has been terminated, its <code class="language-plaintext highlighter-rouge">status</code> changes to <code class="language-plaintext highlighter-rouge">"Terminated"</code>.
 The Identity which terminated the Relationship and its peer receive a <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> <a href="/versions/v7/integrate/connector-events">event</a>.
-Then no <a href="/versions/v7/integrate/data-model-overview#message">Messages</a> can be sent from either side. This includes <a href="/versions/v7/integrate/requests-via-messages">sending or responding to Requests</a> and <a href="/versions/v7/integrate/attribute-introduction#attribute-management-options">exchanging Attributes</a>.
+Then no <a href="/versions/v7/integrate/data-model-overview#message">Messages</a> can be sent from either side.
+This includes <a href="/versions/v7/integrate/requests-via-messages">sending or responding to Requests</a> and <a href="/versions/v7/integrate/attribute-introduction#attribute-management-options">exchanging Attributes</a>.
 However, please note that Messages whose <code class="language-plaintext highlighter-rouge">content</code> is a <a href="/versions/v7/integrate/data-model-overview#notification">Notification</a> are still sent on terminated Relationships.
 Such Notifications cannot be received directly, but they are queued in case the Relationship is <a href="#reactivate-a-terminated-relationship">reactivated</a>.
 For example, if certain <a href="/versions/v7/integrate/attribute-introduction#delete-attributes">Attributes were deleted</a> or <a href="/versions/v7/integrate/attribute-introduction#update-attributes-by-succession">Attributes were updated by succession</a> while the Relationship was terminated, the associated Notifications are transmitted after the reactivation.
@@ -425,7 +427,11 @@ If you want to keep the Relationship terminated, you reject the reactivation wit
 
 <p>If you have requested the reactivation and changed your mind, you revoke it with the use case <a href="/versions/v7/use-case-transport-revoke-relationship-reactivation">Revoke Relationship reactivation</a>.</p>
 
-<p>Each use case has the <code class="language-plaintext highlighter-rouge">relationshipId</code> as input. Only accepting the reactivation changes the <code class="language-plaintext highlighter-rouge">status</code> of the Relationship, namely from <code class="language-plaintext highlighter-rouge">"Terminated"</code> to <code class="language-plaintext highlighter-rouge">"Active"</code>. Requesting, rejecting or revoking the reactivation don’t change its <code class="language-plaintext highlighter-rouge">status</code>. However, they still are recorded as an <a href="/versions/v7/integrate/data-model-overview#auditlogentry">AuditLogEntry</a> in the <code class="language-plaintext highlighter-rouge">auditLog</code> of the Relationship. Regardless of whether the reactivation is accepted, rejected or revoked, you receive a <code class="language-plaintext highlighter-rouge">transport.relationshipReactivationCompleted</code> <a href="/versions/v7/integrate/connector-events">event</a> in addition to a <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> event and the peer as well if they use a Connector.</p>
+<p>Each use case has the <code class="language-plaintext highlighter-rouge">relationshipId</code> as input.
+Only accepting the reactivation changes the <code class="language-plaintext highlighter-rouge">status</code> of the Relationship, namely from <code class="language-plaintext highlighter-rouge">"Terminated"</code> to <code class="language-plaintext highlighter-rouge">"Active"</code>.
+Requesting, rejecting or revoking the reactivation don’t change its <code class="language-plaintext highlighter-rouge">status</code>.
+However, they still are recorded as an <a href="/versions/v7/integrate/data-model-overview#auditlogentry">AuditLogEntry</a> in the <code class="language-plaintext highlighter-rouge">auditLog</code> of the Relationship.
+Regardless of whether the reactivation is accepted, rejected or revoked, you receive a <code class="language-plaintext highlighter-rouge">transport.relationshipReactivationCompleted</code> <a href="/versions/v7/integrate/connector-events">event</a> in addition to a <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> event and the peer as well if they use a Connector.</p>
 
 <h2 id="decompose-a-relationship">Decompose a Relationship</h2>
 
@@ -433,16 +439,25 @@ If you want to keep the Relationship terminated, you reject the reactivation wit
 
 <ul>
   <li>The Relationship itself.</li>
-  <li>The <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> used to establish the Relationship if it was for single use, which means that the value of its <code class="language-plaintext highlighter-rouge">maxNumberOfAllocations</code> property is one, or is owned by the peer. A RelationshipTemplate must be exchanged again to establish a new Relationship.</li>
-  <li>In any case, all RelationshipTemplates of the peer. During a Relationship, several RelationshipTemplates may have been exchanged, as <a href="/versions/v7/integrate/requests-via-relationshiptemplates#create-the-relationshiptemplate">Requests can be sent via RelationshipTemplates</a> both when establishing new Relationships and for existing Relationships.</li>
+  <li>The <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> used to establish the Relationship if it was for single use, which means that the value of its <code class="language-plaintext highlighter-rouge">maxNumberOfAllocations</code> property is one, or is owned by the peer.
+A RelationshipTemplate must be exchanged again to establish a new Relationship.</li>
+  <li>In any case, all RelationshipTemplates of the peer.
+During a Relationship, several RelationshipTemplates may have been exchanged, as <a href="/versions/v7/integrate/requests-via-relationshiptemplates#create-the-relationshiptemplate">Requests can be sent via RelationshipTemplates</a> both when establishing new Relationships and for existing Relationships.</li>
   <li>Both the sent and the received shared <a href="/versions/v7/integrate/data-model-overview#attributes">Attributes</a>, <a href="/versions/v7/integrate/data-model-overview#notification">Notifications</a> and <a href="/versions/v7/integrate/data-model-overview#request">Requests</a>.</li>
-  <li>Sent and received <a href="/versions/v7/integrate/data-model-overview#message">Messages</a> with one exception: If a Message has been sent to multiple <code class="language-plaintext highlighter-rouge">recipients</code>, the Message is not deleted but the peer’s address is replaced with a pseudonym. The pseudonym is the same for every peer whose Relationship was decomposed.</li>
+  <li>Sent and received <a href="/versions/v7/integrate/data-model-overview#message">Messages</a> with one exception: If a Message has been sent to multiple <code class="language-plaintext highlighter-rouge">recipients</code>, the Message is not deleted but the peer’s address is replaced with a pseudonym.
+The pseudonym is the same for every peer whose Relationship was decomposed.</li>
   <li>The <a href="/versions/v7/integrate/data-model-overview#identitymetadata">IdentityMetadata</a> that have the peer as their <code class="language-plaintext highlighter-rouge">reference</code>.</li>
   <li>Furthermore, the corresponding <a href="/versions/v7/integrate/data-model-overview#token">Tokens</a>.</li>
 </ul>
 
-<p>The use case is <a href="/versions/v7/use-case-transport-decompose-relationship">Decompose Relationship</a>, which takes the <code class="language-plaintext highlighter-rouge">relationshipId</code> as input. For the peer, the Relationship is not deleted, but its <code class="language-plaintext highlighter-rouge">status</code> now is <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code>.
-If the peer uses a Connector, they receive a <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> <a href="/versions/v7/integrate/connector-events">event</a>. You receive a <code class="language-plaintext highlighter-rouge">transport.relationshipDecomposedBySelf</code> event. The peer is expected to follow suit once the shared data is no longer needed. Only after both Identities involved in the Relationship have decomposed it, the Relationship itself and data transmitted during it are deleted from the Backbone. To get to an active Relationship again after one involved Identity has decomposed, the other Identity must decompose as well. After that, the two have to start from scratch to <a href="/versions/v7/integrate/establish-relationships">establish a Relationship</a>, as reactivation of the former Relationship is no longer possible.</p>
+<p>The use case is <a href="/versions/v7/use-case-transport-decompose-relationship">Decompose Relationship</a>, which takes the <code class="language-plaintext highlighter-rouge">relationshipId</code> as input.
+For the peer, the Relationship is not deleted, but its <code class="language-plaintext highlighter-rouge">status</code> now is <code class="language-plaintext highlighter-rouge">"DeletionProposed"</code>.
+If the peer uses a Connector, they receive a <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> <a href="/versions/v7/integrate/connector-events">event</a>.
+You receive a <code class="language-plaintext highlighter-rouge">transport.relationshipDecomposedBySelf</code> event.
+The peer is expected to follow suit once the shared data is no longer needed.
+Only after both Identities involved in the Relationship have decomposed it, the Relationship itself and data transmitted during it are deleted from the Backbone.
+To get to an active Relationship again after one involved Identity has decomposed, the other Identity must decompose as well.
+After that, the two have to start from scratch to <a href="/versions/v7/integrate/establish-relationships">establish a Relationship</a>, as reactivation of the former Relationship is no longer possible.</p>
 
         
       </section>
@@ -454,7 +469,7 @@ If the peer uses a Connector, they receive a <code class="language-plaintext hig
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:34+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T17:03:21+01:00">November 3, 2025</time></p>
 
       </footer>
 

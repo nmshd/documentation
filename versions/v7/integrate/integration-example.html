@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:34+01:00">
+  <meta property="article:published_time" content="2025-11-03T17:03:21+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Integration example">
     <meta itemprop="description" content="In this tutorial we go through the basic steps necessary to establish a Relationship to another Identity and send Messages between two Identities with an existing Relationship.This will create a better understanding of these processes, which will help you automating them for your organization.">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:34+01:00">
+    <meta itemprop="datePublished" content="2025-11-03T17:03:21+01:00">
     
 
     <div class="page__inner-wrap">
@@ -416,7 +416,8 @@ You need to replace them with values before you send the Requests.</p>
   <li>If you want to use your own Connector for executing the examples:
     <ul>
       <li><a href="/versions/v7/operate/setup-with-docker-compose">Install the Connector</a></li>
-      <li>Make sure the <a href="/versions/v7/operate/modules#sync">Sync Module</a> and the <a href="/versions/v7/operate/modules#sse">Server-Sent Events Module</a> are disabled (because in this tutorial we will synchronize manually via the HTTP endpoint). We are also neither utilizing the <a href="/versions/v7/operate/modules#webhooks">Webhooks Module</a> nor the <a href="/versions/v7/operate/modules#messagebrokerpublisher">Message Broker Publisher Module</a>, even though using one of them is recommended in productive use.</li>
+      <li>Make sure the <a href="/versions/v7/operate/modules#sync">Sync Module</a> and the <a href="/versions/v7/operate/modules#sse">Server-Sent Events Module</a> are disabled (because in this tutorial we will synchronize manually via the HTTP endpoint).
+We are also neither utilizing the <a href="/versions/v7/operate/modules#webhooks">Webhooks Module</a> nor the <a href="/versions/v7/operate/modules#messagebrokerpublisher">Message Broker Publisher Module</a>, even though using one of them is recommended in productive use.</li>
       <li>Make sure the <a href="/versions/v7/operate/configuration#corehttpapi">docs are enabled</a> for the documentation route to work</li>
       <li>Get the API key that was configured during installation of the Connector (it needs to be sent in the <code class="language-plaintext highlighter-rouge">X-API-KEY</code> header of every HTTP Request)</li>
     </ul>
@@ -461,7 +462,8 @@ To do so, execute <code class="language-plaintext highlighter-rouge">POST /api/c
 <table style="border: none" class="notice--warning">
     <tr>
         <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
-        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> and the <code class="language-plaintext highlighter-rouge">owner</code> of the Attribute that you can find in the response. You will need it in the next step.</p>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> and the <code class="language-plaintext highlighter-rouge">owner</code> of the Attribute that you can find in the response.
+You will need it in the next step.</p>
 </td>
     </tr>
 </table>
@@ -532,7 +534,8 @@ Let’s assume the Connector needs to know the given name and surname of its con
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Before we actually create the RelationshipTemplate, we want to ensure the validity of the Request and its items. To do so, execute <code class="language-plaintext highlighter-rouge">POST /api/core/v1/Requests/Outgoing/Validate</code> with the Request.</p>
+<p>Before we actually create the RelationshipTemplate, we want to ensure the validity of the Request and its items.
+To do so, execute <code class="language-plaintext highlighter-rouge">POST /api/core/v1/Requests/Outgoing/Validate</code> with the Request.</p>
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
@@ -568,7 +571,8 @@ Furthermore, we specify an expiration date, which is located in the future, and 
 <table style="border: none" class="notice--warning">
     <tr>
         <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
-        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> of the RelationshipTemplate that you can find in the Response. You will need it in the next step.</p>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> of the RelationshipTemplate that you can find in the Response.
+You will need it in the next step.</p>
 </td>
     </tr>
 </table>
@@ -585,13 +589,17 @@ For this, execute the <code class="language-plaintext highlighter-rouge">GET /ap
 
 <h3 id="app-initiate-a-relationship">App: Initiate a Relationship</h3>
 
-<p>When the App is opened and no profile has been created yet, the user must create one. From the profile overview, the user can add a new contact using the “Add Contact” option. A QR code must be scanned to complete the process.</p>
+<p>When the App is opened and no profile has been created yet, the user must create one.
+From the profile overview, the user can add a new contact using the “Add Contact” option.
+A QR code must be scanned to complete the process.</p>
 
 <p>Scanning the QR code should result in a screen similar to the one below, where you can see the information that you added as <code class="language-plaintext highlighter-rouge">content</code> to the RelationshipTemplate.</p>
 
 <p><img src="/versions/v7/assets/images/add-contact-screen.jpg" alt="Add contact screen" width="40%" /></p>
 
-<p>Finally, fill out the required fields and click on “Add contact” to send the Relationship. This will initiate a Relationship between the App and the Connector. This Relationship has the status <code class="language-plaintext highlighter-rouge">Pending</code> for now.</p>
+<p>Finally, fill out the required fields and click on “Add contact” to send the Relationship.
+This will initiate a Relationship between the App and the Connector.
+This Relationship has the status <code class="language-plaintext highlighter-rouge">Pending</code> for now.</p>
 
 <h3 id="connector-accept-the-relationship">Connector: Accept the Relationship</h3>
 
@@ -604,7 +612,8 @@ To do so, we <a href="/versions/v7/use-case-transport-synchronize-updates-of-bac
 <p><br /></p>
 
 <p>The synchronization causes the <code class="language-plaintext highlighter-rouge">transport.relationshipChanged</code> <a href="/versions/v7/integrate/connector-events">Connector event</a> to be triggered, which should be listened to in order to get the Relationship in status <code class="language-plaintext highlighter-rouge">Pending</code>.
-We can also <a href="/versions/v7/use-case-transport-query-relationships">get the Relationship</a> via <code class="language-plaintext highlighter-rouge">GET /api/core/v1/Relationships</code>. Should you be repeating this tutorial, you could e.g. filter by the <code class="language-plaintext highlighter-rouge">id</code> of the RelationshipTemplate from earlier via <code class="language-plaintext highlighter-rouge">GET /api/core/v1/Relationships?templateId=&lt;id&gt;</code> if you use a different RelationshipTemplate.</p>
+We can also <a href="/versions/v7/use-case-transport-query-relationships">get the Relationship</a> via <code class="language-plaintext highlighter-rouge">GET /api/core/v1/Relationships</code>.
+Should you be repeating this tutorial, you could e.g. filter by the <code class="language-plaintext highlighter-rouge">id</code> of the RelationshipTemplate from earlier via <code class="language-plaintext highlighter-rouge">GET /api/core/v1/Relationships?templateId=&lt;id&gt;</code> if you use a different RelationshipTemplate.</p>
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
@@ -628,7 +637,8 @@ We can also <a href="/versions/v7/use-case-transport-query-relationships">get th
 <table style="border: none" class="notice--warning">
     <tr>
         <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
-        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship (<code class="language-plaintext highlighter-rouge">REL_________________</code>) and use it as input to the <code class="language-plaintext highlighter-rouge">PUT /api/core/v1/Relationships/{id}/Accept</code> route. You can leave that Request body as it is.</p>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">id</code> of the Relationship (<code class="language-plaintext highlighter-rouge">REL_________________</code>) and use it as input to the <code class="language-plaintext highlighter-rouge">PUT /api/core/v1/Relationships/{id}/Accept</code> route.
+You can leave that Request body as it is.</p>
 </td>
     </tr>
 </table>
@@ -645,7 +655,8 @@ It can be found in the Response, when accepting the Relationship.</p>
 <table style="border: none" class="notice--warning">
     <tr>
         <td style="border: none"><i style="font-size: 2em" class="fas fa-fw fa-copy" /></td>
-        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">peer</code> property of the Response (<code class="language-plaintext highlighter-rouge">did:e:_________________</code>). You will need it in the next step.</p>
+        <td style="border: none"><p>Save the <code class="language-plaintext highlighter-rouge">peer</code> property of the Response (<code class="language-plaintext highlighter-rouge">did:e:_________________</code>).
+You will need it in the next step.</p>
 </td>
     </tr>
 </table>
@@ -696,7 +707,9 @@ Then, tap on “New Message”, enter a subject and body and tap on “Send”.<
 <rapi-doc-mini server-url="https://doc-demo-v7.is.enmeshed.eu/" default-api-server="https://doc-demo-v7.is.enmeshed.eu/" api-key-name="x-api-key" api-key-location="header" api-key-value="apikey" layout="column" default-schema-tab="example" spec-url="https://doc-demo-v7.is.enmeshed.eu/docs/json" paths-expanded="false" theme="light" bg-color="#f9f9fb" match-paths="^post /api/core/v1/Account/Sync$" match-type="regex"></rapi-doc-mini>
 <p><br /></p>
 
-<p>After syncing, all Messages can be displayed with the <code class="language-plaintext highlighter-rouge">GET /api/core/v1/Messages</code> route. Additionally, the <a href="/versions/v7/integrate/connector-events">Event</a> <code class="language-plaintext highlighter-rouge">transport.messageReceived</code> is triggered after a Message is received. If you use the <a href="/versions/v7/operate/modules#messagebrokerpublisher">Message Broker Publisher Module</a> or the <a href="/versions/v7/operate/modules#webhooks">Webhooks Module</a> to subscribe to this event, you will receive the information whenever a new Message arrives.</p>
+<p>After syncing, all Messages can be displayed with the <code class="language-plaintext highlighter-rouge">GET /api/core/v1/Messages</code> route.
+Additionally, the <a href="/versions/v7/integrate/connector-events">Event</a> <code class="language-plaintext highlighter-rouge">transport.messageReceived</code> is triggered after a Message is received.
+If you use the <a href="/versions/v7/operate/modules#messagebrokerpublisher">Message Broker Publisher Module</a> or the <a href="/versions/v7/operate/modules#webhooks">Webhooks Module</a> to subscribe to this event, you will receive the information whenever a new Message arrives.</p>
 
 <h6>Corresponding interactive API docs excerpt:</h6>
 
@@ -707,7 +720,8 @@ Then, tap on “New Message”, enter a subject and body and tap on “Send”.<
 
 <h2 id="whats-next">What’s next?</h2>
 
-<p>Now that you have successfully established a Relationship and exchanged Messages, you can further explore the enmeshed API. You can for example:</p>
+<p>Now that you have successfully established a Relationship and exchanged Messages, you can further explore the enmeshed API.
+You can for example:</p>
 
 <ul>
   <li>explore the <a href="/versions/v7/integrate/data-model-overview">enmeshed data model</a> and learn more about the objects you used during this tutorial and the objects you will encounter in the future</li>
@@ -725,7 +739,7 @@ Then, tap on “New Message”, enter a subject and body and tap on “Send”.<
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:34+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T17:03:21+01:00">November 3, 2025</time></p>
 
       </footer>
 

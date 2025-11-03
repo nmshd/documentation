@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:34+01:00">
+  <meta property="article:published_time" content="2025-11-03T17:03:21+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Create Attributes for peer">
     <meta itemprop="description" content="There are many situations in which an Identity wants to create an IdentityAttribute or a RelationshipAttribute for another Identity, for example:">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:34+01:00">
+    <meta itemprop="datePublished" content="2025-11-03T17:03:21+01:00">
     
 
     <div class="page__inner-wrap">
@@ -399,26 +399,44 @@
   <li>A company wants to provide an employee with their business email address at the start of their employment.</li>
 </ul>
 
-<p>We will now explain how a Connector, hereinafter referred to as the Sender, can create an Attribute for another Connector, the so-called Recipient. Since understanding this creation process requires knowledge about <a href="/versions/v7/integrate/data-model-overview#request">Requests</a> and how to use them in general, you should take a look at our <a href="/versions/v7/integrate/request-and-response-introduction">Request and Response introduction</a> before continuing reading this guide.</p>
+<p>We will now explain how a Connector, hereinafter referred to as the Sender, can create an Attribute for another Connector, the so-called Recipient.
+Since understanding this creation process requires knowledge about <a href="/versions/v7/integrate/data-model-overview#request">Requests</a> and how to use them in general, you should take a look at our <a href="/versions/v7/integrate/request-and-response-introduction">Request and Response introduction</a> before continuing reading this guide.</p>
 
-<p class="notice--info">Please note that the general procedure is the same if the Connector wants to create an Attribute for an App user instead of another Connector. For reasons of clarity, this guide focuses on the creation process with two Connectors.</p>
+<p class="notice--info">Please note that the general procedure is the same if the Connector wants to create an Attribute for an App user instead of another Connector.
+For reasons of clarity, this guide focuses on the creation process with two Connectors.</p>
 
-<p>The Sender has several options for requesting an Attribute creation. This guide covers how it can request the creation of an Attribute for the Recipient so that the <a href="/versions/v7/integrate/attribute-values">Attribute value</a> is only set by the Sender itself and cannot be modified by the Recipient when accepting the Request.</p>
+<p>The Sender has several options for requesting an Attribute creation.
+This guide covers how it can request the creation of an Attribute for the Recipient so that the <a href="/versions/v7/integrate/attribute-values">Attribute value</a> is only set by the Sender itself and cannot be modified by the Recipient when accepting the Request.</p>
 
-<p class="notice--info">If the Recipient should be able to adjust the Attribute offered for creation, the <a href="/versions/v7/integrate/propose-attributes-to-peer">Propose Attributes to peer</a> guide must be consulted instead. Also, it is possible for the Sender to ask the Recipient for an Attribute of a specific Attribute value type without offering an Attribute by following the <a href="/versions/v7/integrate/read-attributes-from-peer">Read Attributes from peer</a> guide. If the Recipient complies with this Request by using the <code class="language-plaintext highlighter-rouge">newAttribute</code> parameter of the <a href="/versions/v7/integrate/data-model-overview#acceptreadattributerequestitemparameters">AcceptReadAttributeRequestItemParameters</a>,
+<p class="notice--info">If the Recipient should be able to adjust the Attribute offered for creation, the <a href="/versions/v7/integrate/propose-attributes-to-peer">Propose Attributes to peer</a> guide must be consulted instead.
+Also, it is possible for the Sender to ask the Recipient for an Attribute of a specific Attribute value type without offering an Attribute by following the <a href="/versions/v7/integrate/read-attributes-from-peer">Read Attributes from peer</a> guide.
+If the Recipient complies with this Request by using the <code class="language-plaintext highlighter-rouge">newAttribute</code> parameter of the <a href="/versions/v7/integrate/data-model-overview#acceptreadattributerequestitemparameters">AcceptReadAttributeRequestItemParameters</a>,
 this leads to the creation of an Attribute for the Recipient whose Attribute value was chosen completely freely by it.</p>
 
 <h2 id="request-for-creating-attributes">Request for creating Attributes</h2>
 
-<p>The Sender wants to create an Attribute for the Recipient. To do this, the Sender must first create a suitable Request, which it can then send to the Recipient. In the following subsections, we describe the general appearance of a Request for creating Attributes.</p>
+<p>The Sender wants to create an Attribute for the Recipient.
+To do this, the Sender must first create a suitable Request, which it can then send to the Recipient.
+In the following subsections, we describe the general appearance of a Request for creating Attributes.</p>
 
 <h3 id="role-of-createattributerequestitem">Role of CreateAttributeRequestItem</h3>
 
-<p>For requesting the creation of a single Attribute for the Recipient, a single RequestItem of type <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> must be inserted into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a>. It is possible to request the creation of an <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a> or a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>, which must be inserted into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the CreateAttributeRequestItem. Depending on whether an IdentityAttribute or a RelationshipAttribute is to be created for the Recipient, the Sender has a different number of input options when defining the prospective <code class="language-plaintext highlighter-rouge">owner</code> of the <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a>. In the case of IdentityAttributes, the Recipient must be the prospective <code class="language-plaintext highlighter-rouge">owner</code>. In contrast, the Sender is also permitted as the <code class="language-plaintext highlighter-rouge">owner</code> of RelationshipAttributes. More details on the various input options when creating a Request for creating Attributes and the corresponding application scenarios can be found in the table of the <a href="/versions/v7/integrate/create-attributes-for-peer#combinations-and-usage-scenarios-of-createattributerequestitem">Combinations and usage scenarios of the CreateAttributeRequestItem</a>.</p>
+<p>For requesting the creation of a single Attribute for the Recipient, a single RequestItem of type <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> must be inserted into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a>.
+It is possible to request the creation of an <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a> or a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>, which must be inserted into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the CreateAttributeRequestItem.
+Depending on whether an IdentityAttribute or a RelationshipAttribute is to be created for the Recipient, the Sender has a different number of input options when defining the prospective <code class="language-plaintext highlighter-rouge">owner</code> of the <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a>.
+In the case of IdentityAttributes, the Recipient must be the prospective <code class="language-plaintext highlighter-rouge">owner</code>.
+In contrast, the Sender is also permitted as the <code class="language-plaintext highlighter-rouge">owner</code> of RelationshipAttributes.
+More details on the various input options when creating a Request for creating Attributes and the corresponding application scenarios can be found in the table of the <a href="/versions/v7/integrate/create-attributes-for-peer#combinations-and-usage-scenarios-of-createattributerequestitem">Combinations and usage scenarios of the CreateAttributeRequestItem</a>.</p>
 
 <h3 id="combinations-and-usage-scenarios-of-createattributerequestitem">Combinations and usage scenarios of CreateAttributeRequestItem</h3>
 
-<p>The following table provides an overview of the possible kinds of Attributes that the Sender can create for the Recipient using the CreateAttributeRequestItem. It must be taken into account whether the <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a> is an IdentityAttribute or a RelationshipAttribute and which Identity is its <code class="language-plaintext highlighter-rouge">owner</code>. Note that you can only explicitly specify the Recipient as the <code class="language-plaintext highlighter-rouge">owner</code> of the Attribute for <a href="/versions/v7/integrate/create-attributes-for-peer#request-via-message">Requests that are sent via a Message</a>. This is because when a Request is sent via a Message, the Identity that receives the Request is always known in advance. For <a href="/versions/v7/integrate/create-attributes-for-peer#request-via-relationshiptemplate">Requests that are sent via a RelationshipTemplate</a>, an empty string must be specified as the <code class="language-plaintext highlighter-rouge">owner</code> instead, as you do not know the Identity that will load your RelationshipTemplate beforehand. Specifying an empty string for the <code class="language-plaintext highlighter-rouge">owner</code> of the Attribute is equivalent to requesting the creation of an Attribute with the Recipient as its <code class="language-plaintext highlighter-rouge">owner</code>. Requesting the creation of a RelationshipAttribute using a CreateAttributeRequestItem is only possible if it should exist in the context of the Relationship between the Sender and the Recipient.</p>
+<p>The following table provides an overview of the possible kinds of Attributes that the Sender can create for the Recipient using the CreateAttributeRequestItem.
+It must be taken into account whether the <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a> is an IdentityAttribute or a RelationshipAttribute and which Identity is its <code class="language-plaintext highlighter-rouge">owner</code>.
+Note that you can only explicitly specify the Recipient as the <code class="language-plaintext highlighter-rouge">owner</code> of the Attribute for <a href="/versions/v7/integrate/create-attributes-for-peer#request-via-message">Requests that are sent via a Message</a>.
+This is because when a Request is sent via a Message, the Identity that receives the Request is always known in advance.
+For <a href="/versions/v7/integrate/create-attributes-for-peer#request-via-relationshiptemplate">Requests that are sent via a RelationshipTemplate</a>, an empty string must be specified as the <code class="language-plaintext highlighter-rouge">owner</code> instead, as you do not know the Identity that will load your RelationshipTemplate beforehand.
+Specifying an empty string for the <code class="language-plaintext highlighter-rouge">owner</code> of the Attribute is equivalent to requesting the creation of an Attribute with the Recipient as its <code class="language-plaintext highlighter-rouge">owner</code>.
+Requesting the creation of a RelationshipAttribute using a CreateAttributeRequestItem is only possible if it should exist in the context of the Relationship between the Sender and the Recipient.</p>
 
 <table>
   <thead>
@@ -464,7 +482,12 @@ this leads to the creation of an Attribute for the Recipient whose Attribute val
 
 <h3 id="example-of-creating-an-identityattribute">Example of creating an IdentityAttribute</h3>
 
-<p>We assume that the Integrator of the Sender wants to create an IdentityAttribute of type <a href="/versions/v7/integrate/attribute-values#emailaddress">EMailAddress</a> for the Recipient. To request the creation of this IdentityAttribute, the Sender needs to insert it into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for creating Attributes. As the IdentityAttribute should be owned by the Recipient, an empty string is specified for its <code class="language-plaintext highlighter-rouge">owner</code> property. If the Sender sends the corresponding <a href="/versions/v7/integrate/create-attributes-for-peer#request-via-message">Request via a Message</a>, the address of the Recipient could alternatively be specified explicitly. In our example, we have chosen to set the value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the CreateAttributeRequestItem to <code class="language-plaintext highlighter-rouge">true</code>. Please note that the <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> notation is used as a placeholder for the actual data as usual.</p>
+<p>We assume that the Integrator of the Sender wants to create an IdentityAttribute of type <a href="/versions/v7/integrate/attribute-values#emailaddress">EMailAddress</a> for the Recipient.
+To request the creation of this IdentityAttribute, the Sender needs to insert it into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for creating Attributes.
+As the IdentityAttribute should be owned by the Recipient, an empty string is specified for its <code class="language-plaintext highlighter-rouge">owner</code> property.
+If the Sender sends the corresponding <a href="/versions/v7/integrate/create-attributes-for-peer#request-via-message">Request via a Message</a>, the address of the Recipient could alternatively be specified explicitly.
+In our example, we have chosen to set the value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the CreateAttributeRequestItem to <code class="language-plaintext highlighter-rouge">true</code>.
+Please note that the <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> notation is used as a placeholder for the actual data as usual.</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
@@ -487,7 +510,9 @@ this leads to the creation of an Attribute for the Recipient whose Attribute val
 
 <h3 id="example-of-creating-a-relationshipattribute">Example of creating a RelationshipAttribute</h3>
 
-<p>We now consider the case in which the Sender has an active <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> with the Recipient and wants to create a RelationshipAttribute of type <a href="/versions/v7/integrate/attribute-values#proprietarystring">ProprietaryString</a> for this Relationship that is owned by itself. The Sender can request the creation of this RelationshipAttribute by inserting it into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> included in the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for creating Attributes. In our example, we have chosen to set the value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the CreateAttributeRequestItem to <code class="language-plaintext highlighter-rouge">true</code> and the value of the <code class="language-plaintext highlighter-rouge">confidentiality</code> property of the RelationshipAttribute to <code class="language-plaintext highlighter-rouge">"public"</code>.</p>
+<p>We now consider the case in which the Sender has an active <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> with the Recipient and wants to create a RelationshipAttribute of type <a href="/versions/v7/integrate/attribute-values#proprietarystring">ProprietaryString</a> for this Relationship that is owned by itself.
+The Sender can request the creation of this RelationshipAttribute by inserting it into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> included in the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for creating Attributes.
+In our example, we have chosen to set the value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the CreateAttributeRequestItem to <code class="language-plaintext highlighter-rouge">true</code> and the value of the <code class="language-plaintext highlighter-rouge">confidentiality</code> property of the RelationshipAttribute to <code class="language-plaintext highlighter-rouge">"public"</code>.</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
@@ -515,25 +540,35 @@ this leads to the creation of an Attribute for the Recipient whose Attribute val
 
 <h3 id="create-multiple-attributes">Create multiple Attributes</h3>
 
-<p>Requesting the creation of Attributes for a peer is not limited to just a single Attribute, but it is possible to request the creation of multiple Attributes at the same time. For this purpose, several CreateAttributeRequestItems or suitable <a href="/versions/v7/integrate/data-model-overview#requestitemgroup">RequestItemGroups</a> can be inserted into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for creating Attributes. If you want to use a RequestItemGroup in order to create multiple Attributes for the Recipient at the same time, you must insert corresponding CreateAttributeRequestItems into the <code class="language-plaintext highlighter-rouge">items</code> property of it.</p>
+<p>Requesting the creation of Attributes for a peer is not limited to just a single Attribute, but it is possible to request the creation of multiple Attributes at the same time.
+For this purpose, several CreateAttributeRequestItems or suitable <a href="/versions/v7/integrate/data-model-overview#requestitemgroup">RequestItemGroups</a> can be inserted into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for creating Attributes.
+If you want to use a RequestItemGroup in order to create multiple Attributes for the Recipient at the same time, you must insert corresponding CreateAttributeRequestItems into the <code class="language-plaintext highlighter-rouge">items</code> property of it.</p>
 
 <h2 id="send-and-receive-the-request">Send and receive the Request</h2>
 
-<p>The Sender that wants to create an Attribute for the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method can be used to send the <a href="/versions/v7/integrate/create-attributes-for-peer#request-for-creating-attributes">Request for creating Attributes</a>. There are two ways to send the Request for creating Attributes created by the Sender to the Recipient.</p>
+<p>The Sender that wants to create an Attribute for the Recipient may or may not already have a Relationship with the Recipient.
+Depending on which is the case, a different method can be used to send the <a href="/versions/v7/integrate/create-attributes-for-peer#request-for-creating-attributes">Request for creating Attributes</a>.
+There are two ways to send the Request for creating Attributes created by the Sender to the Recipient.</p>
 
 <h3 id="request-via-relationshiptemplate">Request via RelationshipTemplate</h3>
 
-<p>If there is currently no Relationship between the Sender and the Recipient, this approach must be used. However, it is also possible for the Sender to use a <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> to send a Request to the Recipient if there is already an active Relationship between them. All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the <a href="/versions/v7/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a> guide.</p>
+<p>If there is currently no Relationship between the Sender and the Recipient, this approach must be used.
+However, it is also possible for the Sender to use a <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> to send a Request to the Recipient if there is already an active Relationship between them.
+All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the <a href="/versions/v7/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a> guide.</p>
 
 <h3 id="request-via-message">Request via Message</h3>
 
-<p>The Sender only has the option of sending a Request to the Recipient via a <a href="/versions/v7/integrate/data-model-overview#message">Message</a> if there is already an active Relationship between them. All information on how to send and receive a Request via a Message can be found in the <a href="/versions/v7/integrate/requests-via-messages">Requests via Messages</a> guide.</p>
+<p>The Sender only has the option of sending a Request to the Recipient via a <a href="/versions/v7/integrate/data-model-overview#message">Message</a> if there is already an active Relationship between them.
+All information on how to send and receive a Request via a Message can be found in the <a href="/versions/v7/integrate/requests-via-messages">Requests via Messages</a> guide.</p>
 
 <h2 id="accept-the-request-and-create-the-attributes">Accept the Request and create the Attributes</h2>
 
-<p>After the Recipient has received the <a href="/versions/v7/integrate/create-attributes-for-peer#request-for-creating-attributes">Request for creating Attributes</a>, it can accept it to create all or some of the Attributes that were offered for creation by the Sender. To do this, proceed as described in the <a href="/versions/v7/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case documentation and specify the <code class="language-plaintext highlighter-rouge">id</code> of the received <a href="/versions/v7/integrate/data-model-overview#request">Request</a>. Also, you need to decide and specify for each CreateAttributeRequestItem contained in the Request for creating Attributes whether you want to accept or reject it.</p>
+<p>After the Recipient has received the <a href="/versions/v7/integrate/create-attributes-for-peer#request-for-creating-attributes">Request for creating Attributes</a>, it can accept it to create all or some of the Attributes that were offered for creation by the Sender.
+To do this, proceed as described in the <a href="/versions/v7/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case documentation and specify the <code class="language-plaintext highlighter-rouge">id</code> of the received <a href="/versions/v7/integrate/data-model-overview#request">Request</a>.
+Also, you need to decide and specify for each CreateAttributeRequestItem contained in the Request for creating Attributes whether you want to accept or reject it.</p>
 
-<p class="notice--info">If the Recipient does not want to create any of the Attributes offered by the Sender and, therefore, does not want to accept the Request for creating Attributes of the Sender, it can reject it as a whole as well. For that, follow the instructions of the <a href="/versions/v7/use-case-consumption-reject-incoming-request">Reject incoming Request</a> use case.</p>
+<p class="notice--info">If the Recipient does not want to create any of the Attributes offered by the Sender and, therefore, does not want to accept the Request for creating Attributes of the Sender, it can reject it as a whole as well.
+For that, follow the instructions of the <a href="/versions/v7/use-case-consumption-reject-incoming-request">Reject incoming Request</a> use case.</p>
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/970e4551-ac83-4130-bdc4-67e92a8aa033" id="H.NPTJ1Oxg-P"></iframe></div>
 
@@ -550,11 +585,17 @@ If the underlying <code class="language-plaintext highlighter-rouge">attribute</
 
 <h3 id="reject-a-createattributerequestitem">Reject a CreateAttributeRequestItem</h3>
 
-<p>Even if the Recipient accepts the Request for creating Attributes as a whole, it may decide not to accept all of the Attributes offered by the Sender. To be more precise, the Recipient has the option of rejecting <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItems</a> that have the value <code class="language-plaintext highlighter-rouge">false</code> specified in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property. To reject a CreateAttributeRequestItem, use the <a href="/versions/v7/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a>. The rejection of a CreateAttributeRequestItem leads to the creation of a corresponding ResponseItem of type <a href="/versions/v7/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a>. This will be contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#response">Response</a> to the Request for creating Attributes.</p>
+<p>Even if the Recipient accepts the Request for creating Attributes as a whole, it may decide not to accept all of the Attributes offered by the Sender.
+To be more precise, the Recipient has the option of rejecting <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItems</a> that have the value <code class="language-plaintext highlighter-rouge">false</code> specified in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property.
+To reject a CreateAttributeRequestItem, use the <a href="/versions/v7/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a>.
+The rejection of a CreateAttributeRequestItem leads to the creation of a corresponding ResponseItem of type <a href="/versions/v7/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a>.
+This will be contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#response">Response</a> to the Request for creating Attributes.</p>
 
 <h3 id="example-of-accepting-a-requestitemgroup">Example of accepting a RequestItemGroup</h3>
 
-<p>Let’s look at an example where the Sender wants to create an <a href="/versions/v7/integrate/attribute-values#emailaddress">EMailAddress</a>, a <a href="/versions/v7/integrate/attribute-values#birthdate">BirthDate</a> and a <a href="/versions/v7/integrate/attribute-values#birthplace">BirthPlace</a> for the Recipient. For this purpose, the Sender creates a <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for creating Attributes, which contains a CreateAttributeRequestItem belonging to the EMailAddress and a RequestItemGroup belonging to the birth information in its <code class="language-plaintext highlighter-rouge">items</code> property. The <a href="/versions/v7/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> itself includes two CreateAttributeRequestItems in its <code class="language-plaintext highlighter-rouge">items</code> property, namely one for the BirthDate and one for the BirthPlace.</p>
+<p>Let’s look at an example where the Sender wants to create an <a href="/versions/v7/integrate/attribute-values#emailaddress">EMailAddress</a>, a <a href="/versions/v7/integrate/attribute-values#birthdate">BirthDate</a> and a <a href="/versions/v7/integrate/attribute-values#birthplace">BirthPlace</a> for the Recipient.
+For this purpose, the Sender creates a <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for creating Attributes, which contains a CreateAttributeRequestItem belonging to the EMailAddress and a RequestItemGroup belonging to the birth information in its <code class="language-plaintext highlighter-rouge">items</code> property.
+The <a href="/versions/v7/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> itself includes two CreateAttributeRequestItems in its <code class="language-plaintext highlighter-rouge">items</code> property, namely one for the BirthDate and one for the BirthPlace.</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
@@ -607,11 +648,15 @@ If the underlying <code class="language-plaintext highlighter-rouge">attribute</
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>In our example, the Sender only requires the Recipient to accept the EMailAddress and the BirthDate, which is why the individual <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItems</a> within the Request have specified corresponding values in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property. We assume that the Recipient wants to accept the Request and all its CreateAttributeRequestItems with the exception of the BirthPlace.</p>
+<p>In our example, the Sender only requires the Recipient to accept the EMailAddress and the BirthDate, which is why the individual <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItems</a> within the Request have specified corresponding values in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property.
+We assume that the Recipient wants to accept the Request and all its CreateAttributeRequestItems with the exception of the BirthPlace.</p>
 
-<p class="notice--info">If the Recipient wants to accept the Request for creating Attributes, it must accept all CreateAttributeRequestItems for which the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code>. It is therefore not permitted for the Recipient to refuse to accept the EMailAddress or the BirthDate offered by the Sender.</p>
+<p class="notice--info">If the Recipient wants to accept the Request for creating Attributes, it must accept all CreateAttributeRequestItems for which the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code>.
+It is therefore not permitted for the Recipient to refuse to accept the EMailAddress or the BirthDate offered by the Sender.</p>
 
-<p>The Recipient accepts the EMailAddress of the Sender. Also, the Recipient accepts the BirthDate and rejects the BirthPlace of the Sender. It therefore responds to the Request for creating Attributes as follows:</p>
+<p>The Recipient accepts the EMailAddress of the Sender.
+Also, the Recipient accepts the BirthDate and rejects the BirthPlace of the Sender.
+It therefore responds to the Request for creating Attributes as follows:</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -639,7 +684,9 @@ If the underlying <code class="language-plaintext highlighter-rouge">attribute</
 
 <h2 id="receive-the-response-to-the-request">Receive the Response to the Request</h2>
 
-<p>We now assume that the Recipient has accepted the <a href="/versions/v7/integrate/create-attributes-for-peer#request-for-creating-attributes">Request for creating Attributes</a> of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to <a href="/versions/v7/use-case-transport-synchronize-updates-of-backbone">synchronize the updates of the Backbone</a>. Please note that this synchronization can also be automated by using the <a href="/versions/v7/operate/modules#sync">Sync Module</a>.</p>
+<p>We now assume that the Recipient has accepted the <a href="/versions/v7/integrate/create-attributes-for-peer#request-for-creating-attributes">Request for creating Attributes</a> of the Sender.
+In order for the Sender to receive the Response of the Recipient, it needs to <a href="/versions/v7/use-case-transport-synchronize-updates-of-backbone">synchronize the updates of the Backbone</a>.
+Please note that this synchronization can also be automated by using the <a href="/versions/v7/operate/modules#sync">Sync Module</a>.</p>
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/7b9d7d3f-796a-44fe-877a-520e952f672b" id="f~NPBql6VM9h"></iframe></div>
 
@@ -656,11 +703,15 @@ Note that each accepted CreateAttributeRequestItem leads to the creation of an a
 The <code class="language-plaintext highlighter-rouge">content</code> of the <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> is the underlying <code class="language-plaintext highlighter-rouge">attribute</code> of the <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a>.
 Depending on whether an IdentityAttribute or a RelationshipAttribute has been created and the ownership, it is referred to as either a <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-identityattributes">peer shared IdentityAttribute</a>, an <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-relationshipattributes">own shared RelationshipAttribute</a> or a <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-relationshipattributes">peer shared RelationshipAttribute</a>.</p>
 
-<p class="notice--info">In case of an error, <a href="/versions/v7/integrate/data-model-overview#errorresponseitem">ErrorResponseItems</a> can also be included in the Response. If the Request for creating Attributes contains a RequestItemGroup in its <code class="language-plaintext highlighter-rouge">items</code> property, the Response to this Request contains a corresponding <a href="/versions/v7/integrate/data-model-overview#responseitemgroup">ResponseItemGroup</a> in its <code class="language-plaintext highlighter-rouge">items</code> property.</p>
+<p class="notice--info">In case of an error, <a href="/versions/v7/integrate/data-model-overview#errorresponseitem">ErrorResponseItems</a> can also be included in the Response.
+If the Request for creating Attributes contains a RequestItemGroup in its <code class="language-plaintext highlighter-rouge">items</code> property, the Response to this Request contains a corresponding <a href="/versions/v7/integrate/data-model-overview#responseitemgroup">ResponseItemGroup</a> in its <code class="language-plaintext highlighter-rouge">items</code> property.</p>
 
 <h2 id="whats-next">What’s next?</h2>
 
-<p>As already mentioned, this guide covers how an Identity can request the creation of an Attribute for a peer so that the <a href="/versions/v7/integrate/attribute-values">Attribute value</a> is only set by the Identity itself and cannot be modified by the peer when accepting the Request. For a typical example of an application of this procedure, refer to the documentation of the <a href="/versions/v7/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a> scenario. In many cases, however, it makes more sense if the peer can adjust the Attribute that was offered for creation. For that, take a look at the <a href="/versions/v7/integrate/propose-attributes-to-peer">Propose Attributes to peer</a> guide.</p>
+<p>As already mentioned, this guide covers how an Identity can request the creation of an Attribute for a peer so that the <a href="/versions/v7/integrate/attribute-values">Attribute value</a> is only set by the Identity itself and cannot be modified by the peer when accepting the Request.
+For a typical example of an application of this procedure, refer to the documentation of the <a href="/versions/v7/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a> scenario.
+In many cases, however, it makes more sense if the peer can adjust the Attribute that was offered for creation.
+For that, take a look at the <a href="/versions/v7/integrate/propose-attributes-to-peer">Propose Attributes to peer</a> guide.</p>
 
         
       </section>
@@ -672,7 +723,7 @@ Depending on whether an IdentityAttribute or a RelationshipAttribute has been cr
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:34+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T17:03:21+01:00">November 3, 2025</time></p>
 
       </footer>
 

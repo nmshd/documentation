@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:34+01:00">
+  <meta property="article:published_time" content="2025-11-03T17:03:21+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Request and Response introduction">
     <meta itemprop="description" content="Requests are the main instrument in enmeshed to interact with other Identities.They enable various business processes, e.g. creating, sharing or receiving Attributes, asking a peer for authentication or consent, and much more.Also, parts of a vaster business process can be implemented with them, like querying all personal information of a user to fill out a tax form.">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:34+01:00">
+    <meta itemprop="datePublished" content="2025-11-03T17:03:21+01:00">
     
 
     <div class="page__inner-wrap">
@@ -417,7 +417,10 @@ After creating the Request, it can be transmitted either via a RelationshipTempl
 
 <h4 id="authenticationrequestitem">AuthenticationRequestItem</h4>
 
-<p>With the <a href="/versions/v7/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> the Sender can request the peer for an authentication in a business context for a certain purpose. The peer can then decide to authenticate or not. This authentication is mostly short-lived and limited in time. Possible examples are:</p>
+<p>With the <a href="/versions/v7/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a> the Sender can request the peer for an authentication in a business context for a certain purpose.
+The peer can then decide to authenticate or not.
+This authentication is mostly short-lived and limited in time.
+Possible examples are:</p>
 
 <ul>
   <li>Authentication for a login to a website.</li>
@@ -441,7 +444,8 @@ After creating the Request, it can be transmitted either via a RelationshipTempl
 
 <h4 id="consentrequestitem">ConsentRequestItem</h4>
 
-<p>With the <a href="/versions/v7/integrate/data-model-overview#consentrequestitem">ConsentRequestItem</a> it is possible to request the one-time consent of a peer to an arbitrary text and thus reach agreement on a certain non-machine-processable context. All details on how to use the ConsentRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a> guide.</p>
+<p>With the <a href="/versions/v7/integrate/data-model-overview#consentrequestitem">ConsentRequestItem</a> it is possible to request the one-time consent of a peer to an arbitrary text and thus reach agreement on a certain non-machine-processable context.
+All details on how to use the ConsentRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a> guide.</p>
 
 <p class="notice--info">Note that the ConsentRequestItem cannot be used if intending to <a href="/versions/v7/integrate/request-persistent-consent-of-peer">request persistent consent from a peer</a>.</p>
 
@@ -462,7 +466,11 @@ After creating the Request, it can be transmitted either via a RelationshipTempl
 
 <h4 id="createattributerequestitem">CreateAttributeRequestItem</h4>
 
-<p>If you want to create IdentityAttributes or RelationshipAttributes for the peer, the <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> can be used. Please have a look at the <a href="#proposeattributerequestitem">ProposeAttributeRequestItem</a> if the peer should be able to overwrite the Attribute. To create an Attribute with a fixed value defined by the Sender, an Identity uses the CreateAttributeRequestItem. A fixed value in this case means, that the Recipient is not allowed to change the value when accepting the Request. All details on how to use the CreateAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/create-attributes-for-peer">Create Attributes for peer</a> guide.</p>
+<p>If you want to create IdentityAttributes or RelationshipAttributes for the peer, the <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> can be used.
+Please have a look at the <a href="#proposeattributerequestitem">ProposeAttributeRequestItem</a> if the peer should be able to overwrite the Attribute.
+To create an Attribute with a fixed value defined by the Sender, an Identity uses the CreateAttributeRequestItem.
+A fixed value in this case means, that the Recipient is not allowed to change the value when accepting the Request.
+All details on how to use the CreateAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/create-attributes-for-peer">Create Attributes for peer</a> guide.</p>
 
 <p>Depending on whether the CreateAttributeRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
 
@@ -521,7 +529,11 @@ All details on how to use the FormFieldRequestItem and examples of use cases for
 
 <h4 id="proposeattributerequestitem">ProposeAttributeRequestItem</h4>
 
-<p>The <a href="/versions/v7/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a> is a combination of a <a href="#readattributerequestitem">ReadAttributeRequestItem</a> and a <a href="#createattributerequestitem">CreateAttributeRequestItem</a>. The Sender would like to receive a correct Attribute from the peer, thinks it has a possible value but the peer might overrule this value with an existing or new one. To create an Attribute with a value proposed by the Sender, an Identity uses the ProposeAttributeRequestItem. A proposed value in this case means, that the Recipient is allowed to change the value if accepting the Request. All details on how to use the ProposeAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/propose-attributes-to-peer">Propose Attributes to peer</a> guide.</p>
+<p>The <a href="/versions/v7/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a> is a combination of a <a href="#readattributerequestitem">ReadAttributeRequestItem</a> and a <a href="#createattributerequestitem">CreateAttributeRequestItem</a>.
+The Sender would like to receive a correct Attribute from the peer, thinks it has a possible value but the peer might overrule this value with an existing or new one.
+To create an Attribute with a value proposed by the Sender, an Identity uses the ProposeAttributeRequestItem.
+A proposed value in this case means, that the Recipient is allowed to change the value if accepting the Request.
+All details on how to use the ProposeAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/propose-attributes-to-peer">Propose Attributes to peer</a> guide.</p>
 
 <p>Depending on whether the ProposeAttributeRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
 
@@ -542,7 +554,9 @@ All details on how to use the FormFieldRequestItem and examples of use cases for
 
 <h4 id="readattributerequestitem">ReadAttributeRequestItem</h4>
 
-<p>If you want to query an Identity’s Attributes, this is done with the <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>. To query Attributes which are not known to the Sender, an Identity uses the ReadAttributeRequestItem. All details on how to use the ReadAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/read-attributes-from-peer">Read Attributes from peer</a> guide.</p>
+<p>If you want to query an Identity’s Attributes, this is done with the <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>.
+To query Attributes which are not known to the Sender, an Identity uses the ReadAttributeRequestItem.
+All details on how to use the ReadAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/read-attributes-from-peer">Read Attributes from peer</a> guide.</p>
 
 <p>Depending on whether the ReadAttributeRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
 
@@ -563,7 +577,10 @@ All details on how to use the FormFieldRequestItem and examples of use cases for
 
 <h4 id="shareattributerequestitem">ShareAttributeRequestItem</h4>
 
-<p>If you want to share the own DisplayName and possibly other Attributes, this is done with the <a href="/versions/v7/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a>. To share own IdentityAttributes (owner = self) an Identity uses the ShareAttributeRequestItem. The Identity needs to create the IdentityAttribute separately before the Attribute can be shared. All details on how to use the ShareAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/share-attributes-with-peer">Share Attributes with peer</a> guide.</p>
+<p>If you want to share the own DisplayName and possibly other Attributes, this is done with the <a href="/versions/v7/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a>.
+To share own IdentityAttributes (owner = self) an Identity uses the ShareAttributeRequestItem.
+The Identity needs to create the IdentityAttribute separately before the Attribute can be shared.
+All details on how to use the ShareAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/share-attributes-with-peer">Share Attributes with peer</a> guide.</p>
 
 <p>Depending on whether the ShareAttributeRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
 
@@ -582,7 +599,9 @@ All details on how to use the FormFieldRequestItem and examples of use cases for
 
 <h4 id="transferfileownershiprequestitem">TransferFileOwnershipRequestItem</h4>
 
-<p>If you want to transfer the ownership of a <a href="/versions/v7/integrate/data-model-overview#file">File</a>, this is done with the <a href="/versions/v7/integrate/data-model-overview#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a>. The File needs to be uploaded to the Backbone beforehand. All details on how to use the TransferFileOwnershipRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/exchange-files-using-attributes#transfer-the-ownership-of-a-file-to-a-peer">Exchange Files using Attributes</a> guide.</p>
+<p>If you want to transfer the ownership of a <a href="/versions/v7/integrate/data-model-overview#file">File</a>, this is done with the <a href="/versions/v7/integrate/data-model-overview#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a>.
+The File needs to be uploaded to the Backbone beforehand.
+All details on how to use the TransferFileOwnershipRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/exchange-files-using-attributes#transfer-the-ownership-of-a-file-to-a-peer">Exchange Files using Attributes</a> guide.</p>
 
 <p>Depending on whether the TransferFileOwnershipRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:</p>
 
@@ -601,9 +620,12 @@ All details on how to use the FormFieldRequestItem and examples of use cases for
 
 <h3 id="rendering-of-requestitems">Rendering of RequestItems</h3>
 
-<p class="notice--warning">Please note that the rendering of the <a href="/versions/v7/integrate/data-model-overview#requestitems">RequestItems</a> in the App is currently being revised. As soon as the changes to the App have been made, the example here will also be adapted.</p>
+<p class="notice--warning">Please note that the rendering of the <a href="/versions/v7/integrate/data-model-overview#requestitems">RequestItems</a> in the App is currently being revised.
+As soon as the changes to the App have been made, the example here will also be adapted.</p>
 
-<p>This section gives an example of a <a href="/versions/v7/integrate/data-model-overview#request">Request</a> that contains various <a href="/versions/v7/integrate/data-model-overview#requestitems">RequestItems</a>, namely an <a href="/versions/v7/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#consentrequestitem">ConsentRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a> and a <a href="/versions/v7/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a>, within its <code class="language-plaintext highlighter-rouge">items</code> property. This Request can be sent from a Sender to an App user. A screenshot from the App showing how the Request is displayed to the App user is provided afterwards.</p>
+<p>This section gives an example of a <a href="/versions/v7/integrate/data-model-overview#request">Request</a> that contains various <a href="/versions/v7/integrate/data-model-overview#requestitems">RequestItems</a>, namely an <a href="/versions/v7/integrate/data-model-overview#authenticationrequestitem">AuthenticationRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#consentrequestitem">ConsentRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#proposeattributerequestitem">ProposeAttributeRequestItem</a>, a <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a> and a <a href="/versions/v7/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItem</a>, within its <code class="language-plaintext highlighter-rouge">items</code> property.
+This Request can be sent from a Sender to an App user.
+A screenshot from the App showing how the Request is displayed to the App user is provided afterwards.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;title of Request&gt;"</span><span class="p">,</span><span class="w">
@@ -683,7 +705,9 @@ All details on how to use the FormFieldRequestItem and examples of use cases for
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p class="notice--info">The <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> notation is used as a placeholder for the actual data as usual. Also note that in the example Request, the <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttributes</a> have been used for test purposes instead of the <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttributes</a> for those RequestItems that relate to <a href="/versions/v7/integrate/data-model-overview#attributes">Attributes</a>. For an overview of the different types of Attributes, consult the <a href="/versions/v7/integrate/attribute-introduction">Attribute introduction</a>.</p>
+<p class="notice--info">The <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> notation is used as a placeholder for the actual data as usual.
+Also note that in the example Request, the <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttributes</a> have been used for test purposes instead of the <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttributes</a> for those RequestItems that relate to <a href="/versions/v7/integrate/data-model-overview#attributes">Attributes</a>.
+For an overview of the different types of Attributes, consult the <a href="/versions/v7/integrate/attribute-introduction">Attribute introduction</a>.</p>
 
 <p>After the Sender has created the Request and sent it to the App user <a href="/versions/v7/integrate/requests-via-messages">via a Message</a> or <a href="/versions/v7/integrate/requests-via-relationshiptemplates">via a RelationshipTemplate</a>, the Request is displayed to the App user.
 The following screenshot shows the rendering of the example Request in the App.
@@ -691,12 +715,14 @@ The order in which the RequestItems are rendered corresponds to the order in whi
 
 <div style="width: 640px; height: 600px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:600px" src="https://lucid.app/documents/embedded/cefb2b00-928c-431b-8bf6-3086534f891c" id="bN9IW2Drzrx."></iframe></div>
 
-<p class="notice--info">At the bottom of the App screen, there is a “Reject” button to <a href="/versions/v7/use-case-consumption-reject-incoming-request">reject the Request</a> and an “Accept” button to <a href="/versions/v7/use-case-consumption-accept-incoming-request">accept the Request</a>. If no Relationship has been established between the Sender and the App user, and the Request was sent <a href="/versions/v7/integrate/requests-via-relationshiptemplates">via a RelationshipTemplate</a>, the “Accept” button is labeled “Add Contact” instead.</p>
+<p class="notice--info">At the bottom of the App screen, there is a “Reject” button to <a href="/versions/v7/use-case-consumption-reject-incoming-request">reject the Request</a> and an “Accept” button to <a href="/versions/v7/use-case-consumption-accept-incoming-request">accept the Request</a>.
+If no Relationship has been established between the Sender and the App user, and the Request was sent <a href="/versions/v7/integrate/requests-via-relationshiptemplates">via a RelationshipTemplate</a>, the “Accept” button is labeled “Add Contact” instead.</p>
 
 <p>The screenshot demonstrates that the rendering of the individual kinds of <a href="/versions/v7/integrate/data-model-overview#requestitems">RequestItems</a> differs from one another.
 However, the display of a RequestItem in the App depends not only on its properties, but also on which <a href="/versions/v7/integrate/data-model-overview#deciderequestitemparameters">DecideRequestItemParameters</a> must be used to accept it.</p>
 
-<p class="notice--info">For instance, when accepting a ProposeAttributeRequestItem, the <a href="/versions/v7/integrate/data-model-overview#acceptproposeattributerequestitemparameters">AcceptProposeAttributeRequestItemParameters</a> must be utilized. These parameters enable acceptance of the ProposeAttributeRequestItem with either an existing Attribute or a new one, which could be the Attribute proposed by the Sender.
+<p class="notice--info">For instance, when accepting a ProposeAttributeRequestItem, the <a href="/versions/v7/integrate/data-model-overview#acceptproposeattributerequestitemparameters">AcceptProposeAttributeRequestItemParameters</a> must be utilized.
+These parameters enable acceptance of the ProposeAttributeRequestItem with either an existing Attribute or a new one, which could be the Attribute proposed by the Sender.
 In the App, a small arrow icon is displayed to the right of the ProposeAttributeRequestItem, which leads the App user to a list of existing Attributes that would be suitable for accepting the ProposeAttributeRequestItem, too.
 In addition, further new Attributes suitable for accepting the ProposeAttributeRequestItem can be created there.</p>
 
@@ -825,7 +851,7 @@ Once the company accepts the new Relationship, they can exchange Messages or oth
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:34+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T17:03:21+01:00">November 3, 2025</time></p>
 
       </footer>
 

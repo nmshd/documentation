@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:34+01:00">
+  <meta property="article:published_time" content="2025-11-03T17:03:21+01:00">
 
 
 
@@ -366,8 +366,8 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Attribute Values">
-    <meta itemprop="description" content="Each Attribute contains an instance of an Attribute Value within its value property. There are different types of Attribute Values. The types define the value’s structural definition, rendering information and validators. For example, an email address with the value address@company.corp is stored with the Attribute Value type EMailAddress, which defines">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:34+01:00">
+    <meta itemprop="description" content="Each Attribute contains an instance of an Attribute Value within its value property.There are different types of Attribute Values.The types define the value’s structural definition, rendering information and validators.For example, an email address with the value address@company.corp is stored with the Attribute Value type EMailAddress, which defines">
+    <meta itemprop="datePublished" content="2025-11-03T17:03:21+01:00">
     
 
     <div class="page__inner-wrap">
@@ -392,7 +392,10 @@
             </nav>
           </aside>
         
-        <p>Each <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a> contains an instance of an Attribute Value within its <code class="language-plaintext highlighter-rouge">value</code> property. There are different types of Attribute Values. The types define the value’s structural definition, rendering information and validators. For example, an email address with the value <code class="language-plaintext highlighter-rouge">address@company.corp</code> is stored with the Attribute Value type <a href="#emailaddress"><code class="language-plaintext highlighter-rouge">EMailAddress</code></a>, which defines</p>
+        <p>Each <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a> contains an instance of an Attribute Value within its <code class="language-plaintext highlighter-rouge">value</code> property.
+There are different types of Attribute Values.
+The types define the value’s structural definition, rendering information and validators.
+For example, an email address with the value <code class="language-plaintext highlighter-rouge">address@company.corp</code> is stored with the Attribute Value type <a href="#emailaddress"><code class="language-plaintext highlighter-rouge">EMailAddress</code></a>, which defines</p>
 
 <ul>
   <li>the data type of the actual value (a String)</li>
@@ -400,13 +403,19 @@
   <li>information about how it can be rendered on the UI</li>
 </ul>
 
-<p>enmeshed defines a standard set of possible Attribute Value types for Identities within the enmeshed ecosystem and its meaning for the Identities. And every Identity can understand/use/fill/query these Attribute Value types of other Identities.</p>
+<p>enmeshed defines a standard set of possible Attribute Value types for Identities within the enmeshed ecosystem and its meaning for the Identities.
+And every Identity can understand/use/fill/query these Attribute Value types of other Identities.</p>
 
-<p>Most Attribute Value types are atomic, which means that they have only one property called <code class="language-plaintext highlighter-rouge">value</code> (e.g. <a href="#emailaddress"><code class="language-plaintext highlighter-rouge">EMailAddress</code></a>, <a href="#displayname"><code class="language-plaintext highlighter-rouge">DisplayName</code></a>, <a href="#phonenumber"><code class="language-plaintext highlighter-rouge">PhoneNumber</code></a>). But there are also more complex Attribute Value types which consist of multiple properties with a strong correlation (e.g. <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>, <a href="#personname"><code class="language-plaintext highlighter-rouge">PersonName</code></a>). These properties can (but don’t have to) contain other Attribute Values.</p>
+<p>Most Attribute Value types are atomic, which means that they have only one property called <code class="language-plaintext highlighter-rouge">value</code> (e.g. <a href="#emailaddress"><code class="language-plaintext highlighter-rouge">EMailAddress</code></a>, <a href="#displayname"><code class="language-plaintext highlighter-rouge">DisplayName</code></a>, <a href="#phonenumber"><code class="language-plaintext highlighter-rouge">PhoneNumber</code></a>).
+But there are also more complex Attribute Value types which consist of multiple properties with a strong correlation (e.g. <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>, <a href="#personname"><code class="language-plaintext highlighter-rouge">PersonName</code></a>).
+These properties can (but don’t have to) contain other Attribute Values.</p>
 
 <h1 id="valid-characters-in-attributes">Valid Characters in Attributes</h1>
 
-<p>Characters in Attribute values are restricted to the <a href="https://en.wikipedia.org/wiki/DIN_91379#Normative_part">normative characters of DIN 91379</a> which reduces validation efforts required from integrators. This bans, for example, foreign scripts like Greek or Chinese, but transliterations are possible in that case. Also banned are emojis, which deters joke entries. See <a href="https://github.com/String-Latin/DIN-91379-Characters-and-Sequences/blob/e6eff1e/latin_letters_1.3.txt#L1-L40">a one-page overview of the characters</a> (the allowed characters are highlighted) and the <a href="https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd">regex used for validation</a> - search for datatypeC.</p>
+<p>Characters in Attribute values are restricted to the <a href="https://en.wikipedia.org/wiki/DIN_91379#Normative_part">normative characters of DIN 91379</a> which reduces validation efforts required from integrators.
+This bans, for example, foreign scripts like Greek or Chinese, but transliterations are possible in that case.
+Also banned are emojis, which deters joke entries.
+See <a href="https://github.com/String-Latin/DIN-91379-Characters-and-Sequences/blob/e6eff1e/latin_letters_1.3.txt#L1-L40">a one-page overview of the characters</a> (the allowed characters are highlighted) and the <a href="https://xoev.de/schemata/din/91379/2022-08/din-norm-91379-datatypes.xsd">regex used for validation</a> - search for datatypeC.</p>
 
 <h1 id="identity-attributes">Identity Attributes</h1>
 
@@ -414,7 +423,8 @@
 
 <h2 id="affiliation">Affiliation</h2>
 
-<p>A complex Attribute Value type which defines the affiliation of a person to an organization. Inside of the organization the person can have a role and it can be assigned to a specific unit inside of the organization.</p>
+<p>A complex Attribute Value type which defines the affiliation of a person to an organization.
+Inside of the organization the person can have a role and it can be assigned to a specific unit inside of the organization.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -459,7 +469,8 @@
 
 <p>The organization the person is affiliated to.</p>
 
-<p class="notice--warning">It is not recommended to send an AffiliationOrganization to another Identity by its own. Instead, send an <a href="#affiliation"><code class="language-plaintext highlighter-rouge">Affiliation</code></a> with the <code class="language-plaintext highlighter-rouge">organization</code> property set.</p>
+<p class="notice--warning">It is not recommended to send an AffiliationOrganization to another Identity by its own.
+Instead, send an <a href="#affiliation"><code class="language-plaintext highlighter-rouge">Affiliation</code></a> with the <code class="language-plaintext highlighter-rouge">organization</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -494,7 +505,8 @@
 
 <p>The role the person has in the organization.</p>
 
-<p class="notice--warning">It is not recommended to send an AffiliationRole to another Identity by its own. Instead, send an <a href="#affiliation"><code class="language-plaintext highlighter-rouge">Affiliation</code></a> with the <code class="language-plaintext highlighter-rouge">role</code> property set.</p>
+<p class="notice--warning">It is not recommended to send an AffiliationRole to another Identity by its own.
+Instead, send an <a href="#affiliation"><code class="language-plaintext highlighter-rouge">Affiliation</code></a> with the <code class="language-plaintext highlighter-rouge">role</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -527,7 +539,8 @@
 
 <p>The organization unit the person is affiliated to.</p>
 
-<p class="notice--warning">It is not recommended to send an AffiliationUnit to another Identity by its own. Instead, send an <a href="#affiliation"><code class="language-plaintext highlighter-rouge">Affiliation</code></a> with the <code class="language-plaintext highlighter-rouge">unit</code> property set.</p>
+<p class="notice--warning">It is not recommended to send an AffiliationUnit to another Identity by its own.
+Instead, send an <a href="#affiliation"><code class="language-plaintext highlighter-rouge">Affiliation</code></a> with the <code class="language-plaintext highlighter-rouge">unit</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -560,7 +573,8 @@
 
 <p>The city of birth.</p>
 
-<p class="notice--warning">It is not recommended to send a BirthCity to another Identity by its own. Instead, send a <a href="#birthplace"><code class="language-plaintext highlighter-rouge">BirthPlace</code></a> with the <code class="language-plaintext highlighter-rouge">city</code> property set.</p>
+<p class="notice--warning">It is not recommended to send a BirthCity to another Identity by its own.
+Instead, send a <a href="#birthplace"><code class="language-plaintext highlighter-rouge">BirthPlace</code></a> with the <code class="language-plaintext highlighter-rouge">city</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -593,7 +607,8 @@
 
 <p>The country of birth.</p>
 
-<p class="notice--warning">It is not recommended to send a BirthCountry to another Identity by its own. Instead, send a <a href="#birthplace"><code class="language-plaintext highlighter-rouge">BirthPlace</code></a> with the <code class="language-plaintext highlighter-rouge">country</code> property set.</p>
+<p class="notice--warning">It is not recommended to send a BirthCountry to another Identity by its own.
+Instead, send a <a href="#birthplace"><code class="language-plaintext highlighter-rouge">BirthPlace</code></a> with the <code class="language-plaintext highlighter-rouge">country</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -669,7 +684,8 @@
 
 <p>The day of birth.</p>
 
-<p class="notice--warning">It is not recommended to send a BirthDay to another Identity by its own. Instead, send a <a href="#birthdate"><code class="language-plaintext highlighter-rouge">BirthDate</code></a> with the <code class="language-plaintext highlighter-rouge">day</code> property set.</p>
+<p class="notice--warning">It is not recommended to send a BirthDay to another Identity by its own.
+Instead, send a <a href="#birthdate"><code class="language-plaintext highlighter-rouge">BirthDate</code></a> with the <code class="language-plaintext highlighter-rouge">day</code> property set.</p>
 
 <table>
   <thead>
@@ -700,7 +716,8 @@
 
 <p>The month of birth.</p>
 
-<p class="notice--warning">It is not recommended to send a BirthMonth to another Identity by its own. Instead, send a <a href="#birthdate"><code class="language-plaintext highlighter-rouge">BirthDate</code></a> with the <code class="language-plaintext highlighter-rouge">month</code> property set.</p>
+<p class="notice--warning">It is not recommended to send a BirthMonth to another Identity by its own.
+Instead, send a <a href="#birthdate"><code class="language-plaintext highlighter-rouge">BirthDate</code></a> with the <code class="language-plaintext highlighter-rouge">month</code> property set.</p>
 
 <table>
   <thead>
@@ -729,7 +746,9 @@
 
 <h2 id="birthname">BirthName</h2>
 
-<p>The BirthName is the surname of the person at birth. Some countries allow changing the surname, thus the BirthName is also used as the identification. The BirthName is innate depending on your surname at birth.</p>
+<p>The BirthName is the surname of the person at birth.
+Some countries allow changing the surname, thus the BirthName is also used as the identification.
+The BirthName is innate depending on your surname at birth.</p>
 
 <p>If this value is set, there has been a change of the surname throughout the life of the person.</p>
 
@@ -807,7 +826,8 @@
 
 <p>The state of birth.</p>
 
-<p class="notice--warning">It is not recommended to send a BirthState to another Identity by its own. Instead, send a <a href="#birthplace"><code class="language-plaintext highlighter-rouge">BirthPlace</code></a> with the <code class="language-plaintext highlighter-rouge">state</code> property set.</p>
+<p class="notice--warning">It is not recommended to send a BirthState to another Identity by its own.
+Instead, send a <a href="#birthplace"><code class="language-plaintext highlighter-rouge">BirthPlace</code></a> with the <code class="language-plaintext highlighter-rouge">state</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -840,7 +860,8 @@
 
 <p>The year of birth in the Gregorian calendar.</p>
 
-<p class="notice--warning">It is not recommended to send a BirthYear to another Identity by its own. Instead, send a <a href="#birthdate"><code class="language-plaintext highlighter-rouge">BirthDate</code></a> with the <code class="language-plaintext highlighter-rouge">year</code> property set.</p>
+<p class="notice--warning">It is not recommended to send a BirthYear to another Identity by its own.
+Instead, send a <a href="#birthdate"><code class="language-plaintext highlighter-rouge">BirthDate</code></a> with the <code class="language-plaintext highlighter-rouge">year</code> property set.</p>
 
 <table>
   <thead>
@@ -869,7 +890,8 @@
 
 <h2 id="citizenship">Citizenship</h2>
 
-<p>The Citizenship defines which country currently recognizes you as a citizen. Thus, the Citizenship usually refers to the country you have a passport from.</p>
+<p>The Citizenship defines which country currently recognizes you as a citizen.
+Thus, the Citizenship usually refers to the country you have a passport from.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -900,9 +922,11 @@
 
 <h2 id="city">City</h2>
 
-<p>The name of a city. This is usually used as part of a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
+<p>The name of a city.
+This is usually used as part of a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
 
-<p class="notice--warning">It is not recommended to send a City to another Identity by its own. Instead, send a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">city</code> property set.</p>
+<p class="notice--warning">It is not recommended to send a City to another Identity by its own.
+Instead, send a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">city</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -964,9 +988,11 @@
 
 <h2 id="country">Country</h2>
 
-<p>A country code according to the standard “ISO 3166-1 alpha-2”. This is usually used as part of a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
+<p>A country code according to the standard “ISO 3166-1 alpha-2”.
+This is usually used as part of a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
 
-<p class="notice--warning">It is not recommended to send a Country to another Identity by its own. Instead, send a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">country</code> property set.</p>
+<p class="notice--warning">It is not recommended to send a Country to another Identity by its own.
+Instead, send a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">country</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1070,7 +1096,8 @@
 
 <h2 id="displayname">DisplayName</h2>
 
-<p>The Display Name is the textual representation of the natural or legal person. It is usually combined out of titles, names or legal statuses.</p>
+<p>The Display Name is the textual representation of the natural or legal person.
+It is usually combined out of titles, names or legal statuses.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1289,9 +1316,11 @@ How an IdentityFileReference can be used to <a href="/versions/v7/integrate/exch
 
 <h2 id="housenumber">HouseNumber</h2>
 
-<p>A house number. This is usually used as part of a <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
+<p>A house number.
+This is usually used as part of a <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
 
-<p class="notice--warning">It is not recommended to send a HouseNumber to another Identity by its own. Instead, send a <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">houseNumber</code> property set.</p>
+<p class="notice--warning">It is not recommended to send a HouseNumber to another Identity by its own.
+Instead, send a <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">houseNumber</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1322,7 +1351,7 @@ How an IdentityFileReference can be used to <a href="/versions/v7/integrate/exch
 
 <h2 id="jobtitle">JobTitle</h2>
 
-<p>A short phrase that describes the position an employee has within an organization. (e.g. “Senior Developer” in case of a software company).</p>
+<p>A short phrase that describes the position an employee has within an organization, e.g. “Senior Developer” in case of a software company.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1384,7 +1413,9 @@ How an IdentityFileReference can be used to <a href="/versions/v7/integrate/exch
 
 <h2 id="nationality">Nationality</h2>
 
-<p>The Nationality is the citizenship of a person at birth. One cannot change the Nationality because it’s innate. Thus, the Nationality refers usually to the country where you are born.</p>
+<p>The Nationality is the citizenship of a person at birth.
+One cannot change the Nationality because it’s innate.
+Thus, the Nationality refers usually to the country where you are born.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1593,7 +1624,8 @@ How an IdentityFileReference can be used to <a href="/versions/v7/integrate/exch
 
 <h2 id="schematizedxml">SchematizedXML</h2>
 
-<p>SchematizedXML can be used to exchange files in XML format. The exchange of XML files is also possible via <a href="#identityfilereference"><code class="language-plaintext highlighter-rouge">IdentityFileReference</code></a>, but SchematizedXML has the advantage that it is possible to validate the XML and display the Attributes in the wallet.</p>
+<p>SchematizedXML can be used to exchange files in XML format.
+The exchange of XML files is also possible via <a href="#identityfilereference"><code class="language-plaintext highlighter-rouge">IdentityFileReference</code></a>, but SchematizedXML has the advantage that it is possible to validate the XML and display the Attributes in the wallet.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1665,9 +1697,11 @@ The “Gender” Attribute Value type is currently being evaluated to ensure inc
 
 <h2 id="state">State</h2>
 
-<p>The name of a state. This is usually used as part of a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
+<p>The name of a state.
+This is usually used as part of a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
 
-<p class="notice--warning">It is not recommended to send a State to another Identity by its own. Instead, send a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">state</code> property set.</p>
+<p class="notice--warning">It is not recommended to send a State to another Identity by its own.
+Instead, send a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">state</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -1755,7 +1789,8 @@ The “Gender” Attribute Value type is currently being evaluated to ensure inc
 
 <p>The issuer of a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a>.</p>
 
-<p class="notice--warning">It is not recommended to send a DigitalIdentityDescriptor to another Identity by its own. Instead, send a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a></p>
+<p class="notice--warning">It is not recommended to send a DigitalIdentityDescriptor to another Identity by its own.
+Instead, send a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a></p>
 
 <p><strong>Properties</strong></p>
 
@@ -1794,7 +1829,8 @@ The “Gender” Attribute Value type is currently being evaluated to ensure inc
 
 <p>The authority type in <a href="#statementissuerconditions"><code class="language-plaintext highlighter-rouge">StatementIssuerConditions</code></a></p>
 
-<p class="notice--warning">It is not recommended to send a StatementAuthorityType to another Identity by its own. Instead, send a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a></p>
+<p class="notice--warning">It is not recommended to send a StatementAuthorityType to another Identity by its own.
+Instead, send a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a></p>
 
 <p><strong>Properties</strong></p>
 
@@ -1827,7 +1863,8 @@ The “Gender” Attribute Value type is currently being evaluated to ensure inc
 
 <p>The evidence in <a href="#statementissuerconditions"><code class="language-plaintext highlighter-rouge">StatementIssuerConditions</code></a></p>
 
-<p class="notice--warning">It is not recommended to send a StatementEvidence to another Identity by its own. Instead, send a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a></p>
+<p class="notice--warning">It is not recommended to send a StatementEvidence to another Identity by its own.
+Instead, send a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a></p>
 
 <p><strong>Properties</strong></p>
 
@@ -1860,7 +1897,8 @@ The “Gender” Attribute Value type is currently being evaluated to ensure inc
 
 <p>The issuer conditions in a <a href="#statement"><code class="language-plaintext highlighter-rouge">Statement</code></a></p>
 
-<p class="notice--warning">It is not recommended to send a StatementIssuerConditions to another Identity by its own. Instead, send a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a></p>
+<p class="notice--warning">It is not recommended to send a StatementIssuerConditions to another Identity by its own.
+Instead, send a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a></p>
 
 <p><strong>Properties</strong></p>
 
@@ -1917,7 +1955,8 @@ The “Gender” Attribute Value type is currently being evaluated to ensure inc
 
 <p>The object of a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a>.</p>
 
-<p class="notice--warning">It is not recommended to send a object to another Identity by its own. Instead, send a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a></p>
+<p class="notice--warning">It is not recommended to send a object to another Identity by its own.
+Instead, send a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a></p>
 
 <p><strong>Properties</strong></p>
 
@@ -1956,7 +1995,8 @@ The “Gender” Attribute Value type is currently being evaluated to ensure inc
 
 <p>The predicate of a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a>.</p>
 
-<p class="notice--warning">It is not recommended to send a predicate to another Identity by its own. Instead, send a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a></p>
+<p class="notice--warning">It is not recommended to send a predicate to another Identity by its own.
+Instead, send a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a></p>
 
 <p><strong>Properties</strong></p>
 
@@ -1989,7 +2029,8 @@ The “Gender” Attribute Value type is currently being evaluated to ensure inc
 
 <p>The subject of a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a>.</p>
 
-<p class="notice--warning">It is not recommended to send a subject to another Identity by its own. Instead, send a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a></p>
+<p class="notice--warning">It is not recommended to send a subject to another Identity by its own.
+Instead, send a <a href="#statement"><code class="language-plaintext highlighter-rouge">statement</code></a></p>
 
 <p><strong>Properties</strong></p>
 
@@ -2026,9 +2067,11 @@ The “Gender” Attribute Value type is currently being evaluated to ensure inc
 
 <h2 id="street">Street</h2>
 
-<p>A street name. This is usually used as part of a <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
+<p>A street name.
+This is usually used as part of a <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
 
-<p class="notice--warning">It is not recommended to send a Street to another Identity by its own. Instead, send a <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">street</code> property set.</p>
+<p class="notice--warning">It is not recommended to send a Street to another Identity by its own.
+Instead, send a <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">street</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -2188,9 +2231,11 @@ The “Gender” Attribute Value type is currently being evaluated to ensure inc
 
 <h2 id="zipcode">ZipCode</h2>
 
-<p>A zip code. This is usually used as part of a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
+<p>A zip code.
+This is usually used as part of a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a>.</p>
 
-<p class="notice--warning">It is not recommended to send a ZipCode to another Identity by its own. Instead, send a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">zipCode</code> property set.</p>
+<p class="notice--warning">It is not recommended to send a ZipCode to another Identity by its own.
+Instead, send a <a href="#deliveryboxaddress"><code class="language-plaintext highlighter-rouge">DeliveryBoxAddress</code></a>, <a href="#postofficeboxaddress"><code class="language-plaintext highlighter-rouge">PostOfficeBoxAddress</code></a> or <a href="#streetaddress"><code class="language-plaintext highlighter-rouge">StreetAddress</code></a> with the <code class="language-plaintext highlighter-rouge">zipCode</code> property set.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -2221,11 +2266,16 @@ The “Gender” Attribute Value type is currently being evaluated to ensure inc
 
 <h1 id="relationship-attributes">Relationship Attributes</h1>
 
-<p>The Attribute Values in this chapter can only be used in a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">Relationship Attribute</a>. Most of them are generic. You can recognize those by the prefix <code class="language-plaintext highlighter-rouge">Proprietary</code> (e.g. <code class="language-plaintext highlighter-rouge">ProprietaryInteger</code>, <code class="language-plaintext highlighter-rouge">ProprietaryString</code>, …). In order to add some validation, you have the option to add <a href="/versions/v7/integrate/data-model-overview#valuehints"><code class="language-plaintext highlighter-rouge">valueHints</code></a>.</p>
+<p>The Attribute Values in this chapter can only be used in a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">Relationship Attribute</a>.
+Most of them are generic.
+You can recognize those by the prefix <code class="language-plaintext highlighter-rouge">Proprietary</code> (e.g. <code class="language-plaintext highlighter-rouge">ProprietaryInteger</code>, <code class="language-plaintext highlighter-rouge">ProprietaryString</code>, …).
+In order to add some validation, you have the option to add <a href="/versions/v7/integrate/data-model-overview#valuehints"><code class="language-plaintext highlighter-rouge">valueHints</code></a>.</p>
 
 <h2 id="consent">Consent</h2>
 
-<p>Represents the consent of an Identity to a specific topic. To obtain persistent consent from a peer, a <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> can be sent, which contains a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>, whose <code class="language-plaintext highlighter-rouge">owner</code> is the peer, with Consent as <code class="language-plaintext highlighter-rouge">value.@type</code> within its <code class="language-plaintext highlighter-rouge">attribute</code> property. For more details, refer to the documentation of the <a href="/versions/v7/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a> scenario.</p>
+<p>Represents the consent of an Identity to a specific topic.
+To obtain persistent consent from a peer, a <a href="/versions/v7/integrate/data-model-overview#createattributerequestitem">CreateAttributeRequestItem</a> can be sent, which contains a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>, whose <code class="language-plaintext highlighter-rouge">owner</code> is the peer, with Consent as <code class="language-plaintext highlighter-rouge">value.@type</code> within its <code class="language-plaintext highlighter-rouge">attribute</code> property.
+For more details, refer to the documentation of the <a href="/versions/v7/integrate/request-persistent-consent-of-peer">Request persistent consent of peer</a> scenario.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -2618,9 +2668,11 @@ Similar to an <a href="/versions/v7/integrate/attribute-values#identityfilerefer
 
 <h2 id="proprietaryjson">ProprietaryJSON</h2>
 
-<p>An arbitrary JSON value. The <code class="language-plaintext highlighter-rouge">value</code> property can contain any valid JSON structure (except <code class="language-plaintext highlighter-rouge">null</code>).</p>
+<p>An arbitrary JSON value.
+The <code class="language-plaintext highlighter-rouge">value</code> property can contain any valid JSON structure (except <code class="language-plaintext highlighter-rouge">null</code>).</p>
 
-<p>For validation purposes, the <code class="language-plaintext highlighter-rouge">value</code> property is stringified using <code class="language-plaintext highlighter-rouge">JSON.stringify</code>. That string must not exceed the maximum length of 4096 characters.</p>
+<p>For validation purposes, the <code class="language-plaintext highlighter-rouge">value</code> property is stringified using <code class="language-plaintext highlighter-rouge">JSON.stringify</code>.
+That string must not exceed the maximum length of 4096 characters.</p>
 
 <p><strong>Properties</strong></p>
 
@@ -2956,7 +3008,7 @@ Similar to an <a href="/versions/v7/integrate/attribute-values#identityfilerefer
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:34+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T17:03:21+01:00">November 3, 2025</time></p>
 
       </footer>
 

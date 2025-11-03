@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:34+01:00">
+  <meta property="article:published_time" content="2025-11-03T17:03:21+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Migration From v6 to v7">
     <meta itemprop="description" content="The Runtime of enmeshed has recently been updated from version 6 to version 7.Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors.The version update has resulted in some breaking changes.To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:34+01:00">
+    <meta itemprop="datePublished" content="2025-11-03T17:03:21+01:00">
     
 
     <div class="page__inner-wrap">
@@ -411,9 +411,13 @@ Alternatively, the database can be deleted as a whole and <a href="/versions/v7/
   <li>The <a href="https://github.com/nmshd/connector?tab=readme-ov-file#connector">image</a> used to run the Connector must be updated to version 7.</li>
   <li>Some changes must be made to the <a href="/versions/v7/operate/configuration">configuration</a> of the Connector.
     <ul>
-      <li>The <code class="language-plaintext highlighter-rouge">database.dbNamePrefix</code> field of the <a href="/versions/v7/operate/configuration#database">database configuration</a> was removed. Before, it defaulted to <code class="language-plaintext highlighter-rouge">acc-</code>. If a database called <code class="language-plaintext highlighter-rouge">acc-connector</code> is to be accessed, the value of the <code class="language-plaintext highlighter-rouge">database.dbName</code> field must be set to <code class="language-plaintext highlighter-rouge">acc-connector</code> instead of <code class="language-plaintext highlighter-rouge">connector</code> only.</li>
-      <li>To support additional authentication methods beyond API key authentication, the <code class="language-plaintext highlighter-rouge">apiKey</code> field was replaced by the <code class="language-plaintext highlighter-rouge">authentication.apiKey.keys.&lt;key-id&gt;.key</code> parameter of the <a href="/versions/v7/operate/configuration#authentication">authentication configuration</a>. The <code class="language-plaintext highlighter-rouge">authentication.apiKey.keys.&lt;key-id&gt;.scopes</code> field provides a convenient way to configure the permissions that apply when the API key identified by <code class="language-plaintext highlighter-rouge">&lt;key-id&gt;</code> is used.</li>
-      <li>Additionally, the support for the <code class="language-plaintext highlighter-rouge">API_KEY</code> <a href="/versions/v7/operate/configuration#environment-variables">environment variable</a> has been removed, that could be used to define an API key using a short environment variable. As an alternative, the <code class="language-plaintext highlighter-rouge">authentication.apiKey.keys.&lt;key-id&gt;.key</code> configuration property can be set using an environment variable.</li>
+      <li>The <code class="language-plaintext highlighter-rouge">database.dbNamePrefix</code> field of the <a href="/versions/v7/operate/configuration#database">database configuration</a> was removed.
+Before, it defaulted to <code class="language-plaintext highlighter-rouge">acc-</code>.
+If a database called <code class="language-plaintext highlighter-rouge">acc-connector</code> is to be accessed, the value of the <code class="language-plaintext highlighter-rouge">database.dbName</code> field must be set to <code class="language-plaintext highlighter-rouge">acc-connector</code> instead of <code class="language-plaintext highlighter-rouge">connector</code> only.</li>
+      <li>To support additional authentication methods beyond API key authentication, the <code class="language-plaintext highlighter-rouge">apiKey</code> field was replaced by the <code class="language-plaintext highlighter-rouge">authentication.apiKey.keys.&lt;key-id&gt;.key</code> parameter of the <a href="/versions/v7/operate/configuration#authentication">authentication configuration</a>.
+The <code class="language-plaintext highlighter-rouge">authentication.apiKey.keys.&lt;key-id&gt;.scopes</code> field provides a convenient way to configure the permissions that apply when the API key identified by <code class="language-plaintext highlighter-rouge">&lt;key-id&gt;</code> is used.</li>
+      <li>Additionally, the support for the <code class="language-plaintext highlighter-rouge">API_KEY</code> <a href="/versions/v7/operate/configuration#environment-variables">environment variable</a> has been removed, that could be used to define an API key using a short environment variable.
+As an alternative, the <code class="language-plaintext highlighter-rouge">authentication.apiKey.keys.&lt;key-id&gt;.key</code> configuration property can be set using an environment variable.</li>
     </ul>
   </li>
   <li>It must be ensured that a <a href="https://github.com/nmshd/backbone/tags">Backbone</a> is used which is compatible with version 7 of the Connector.
@@ -441,7 +445,9 @@ Specifying validity periods for <a href="/versions/v7/integrate/data-model-overv
   <li>The <code class="language-plaintext highlighter-rouge">truncatedReference</code> property of the <a href="/versions/v7/integrate/data-model-overview#token">Token</a>, the <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> and the <a href="/versions/v7/integrate/data-model-overview#file">File</a>, which was already marked as deprecated, has been removed and replaced by the <code class="language-plaintext highlighter-rouge">reference.truncated</code> property.
 The property <code class="language-plaintext highlighter-rouge">reference</code> was introduced to group the property <code class="language-plaintext highlighter-rouge">truncated</code> with the additional property <code class="language-plaintext highlighter-rouge">url</code>, improving structure and better organizing related data.</li>
   <li>The <code class="language-plaintext highlighter-rouge">title</code> property of the <a href="/versions/v7/integrate/data-model-overview#file">File</a> became optional and should no longer be relied upon to be set.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">ownershipToken</code> property of the <a href="/versions/v7/integrate/data-model-overview#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a> became mandatory. This ensures that the ownership of the original File on the Backbone is transferred instead of applying a copy-based workaround. If the ownership of a <a href="/versions/v7/integrate/data-model-overview#file">File</a> ought to be transferred, that doesn’t have an <code class="language-plaintext highlighter-rouge">ownershipToken</code> yet, it will need to be <a href="/versions/v7/use-case-transport-regenerate-file-ownership-token">regenerated</a>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">ownershipToken</code> property of the <a href="/versions/v7/integrate/data-model-overview#transferfileownershiprequestitem">TransferFileOwnershipRequestItem</a> became mandatory.
+This ensures that the ownership of the original File on the Backbone is transferred instead of applying a copy-based workaround.
+If the ownership of a <a href="/versions/v7/integrate/data-model-overview#file">File</a> ought to be transferred, that doesn’t have an <code class="language-plaintext highlighter-rouge">ownershipToken</code> yet, it will need to be <a href="/versions/v7/use-case-transport-regenerate-file-ownership-token">regenerated</a>.</li>
   <li>The properties <code class="language-plaintext highlighter-rouge">approvedAt</code> and <code class="language-plaintext highlighter-rouge">approvedByDevice</code> of the <a href="/versions/v7/integrate/data-model-overview#identitydeletionprocess">IdentityDeletionProcess</a> have been removed.
 Furthermore, renaming <code class="language-plaintext highlighter-rouge">"Approved"</code> to <code class="language-plaintext highlighter-rouge">"Active"</code> resulted in a change of an IdentityDeletionProcess <code class="language-plaintext highlighter-rouge">status</code>.</li>
   <li>All data structures around the Attribute listener feature, including the LocalAttributeListener, the RegisterAttributeListenerRequestItem, and the RegisterAttributeListenerAcceptResponseItem, were removed.</li>
@@ -474,7 +480,8 @@ Sharing individual components of a <a href="/versions/v7/integrate/attribute-int
 <ul>
   <li>Stricter validation of <code class="language-plaintext highlighter-rouge">tags</code> of <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttributes</a> and <a href="/versions/v7/integrate/data-model-overview#file">Files</a> have been added as documented in their description in the data model overview.
 An error with <a href="/versions/v7/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.consumption.attributes.invalidTags</code> will be thrown if an attempt is made to use invalid <code class="language-plaintext highlighter-rouge">tags</code>.</li>
-  <li>For Attribute values, a <a href="/versions/v7/integrate/attribute-values#valid-characters-in-attributes">character set is introduced</a>. An error with <a href="/versions/v7/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.consumption.attributes.forbiddenCharactersInAttribute</code> will be thrown if an attempt is made to use characters outside of that character set in an Attribute value.</li>
+  <li>For Attribute values, a <a href="/versions/v7/integrate/attribute-values#valid-characters-in-attributes">character set is introduced</a>.
+An error with <a href="/versions/v7/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.consumption.attributes.forbiddenCharactersInAttribute</code> will be thrown if an attempt is made to use characters outside of that character set in an Attribute value.</li>
 </ul>
 
 <h3 id="removed-and-changed-connector-routes">Removed and Changed Connector Routes</h3>
@@ -489,7 +496,9 @@ Accordingly, it was removed from the associated Connector routes as well.</li>
 
 <h3 id="typescript-sdk-changes">TypeScript SDK Changes</h3>
 
-<p>With every version of the Connector, we ship a matching <a href="/versions/v7/integrate/access-the-connector#accessing-the-connector-by-software-development-kits-sdk">TypeScript SDK</a>. With version 7 of the SDK, the deprecated field <code class="language-plaintext highlighter-rouge">apiKey</code> was removed. To access the Connector using an API key, you can configure the SDK now as follows:</p>
+<p>With every version of the Connector, we ship a matching <a href="/versions/v7/integrate/access-the-connector#accessing-the-connector-by-software-development-kits-sdk">TypeScript SDK</a>.
+With version 7 of the SDK, the deprecated field <code class="language-plaintext highlighter-rouge">apiKey</code> was removed.
+To access the Connector using an API key, you can configure the SDK now as follows:</p>
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ApiKeyAuthenticator</span><span class="p">,</span> <span class="nx">ConnectorClient</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@nmshd/connector-sdk</span><span class="dl">"</span><span class="p">;</span>
 
@@ -501,7 +510,8 @@ Accordingly, it was removed from the associated Connector routes as well.</li>
 
 <h3 id="removed-and-changed-error-codes">Removed and Changed Error Codes</h3>
 
-<p>An overview of the <a href="/versions/v7/integrate/error-codes">Error codes</a> that may occur is given on the corresponding documentation page. The most important changes regarding the error codes due to the update from version 6 to version 7 are:</p>
+<p>An overview of the <a href="/versions/v7/integrate/error-codes">Error codes</a> that may occur is given on the corresponding documentation page.
+The most important changes regarding the error codes due to the update from version 6 to version 7 are:</p>
 
 <ul>
   <li>With the new <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> concept, an Attribute copy is no longer created when an Attribute is <a href="/versions/v7/integrate/share-attributes-with-peer">shared</a>.
@@ -545,7 +555,7 @@ It has now been deleted with the update to version 7.</li>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:34+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T17:03:21+01:00">November 3, 2025</time></p>
 
       </footer>
 

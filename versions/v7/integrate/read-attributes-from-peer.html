@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:34+01:00">
+  <meta property="article:published_time" content="2025-11-03T17:03:21+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Read Attributes from peer">
     <meta itemprop="description" content="There are many situations in which an Identity is interested in an IdentityAttribute or a RelationshipAttribute of another Identity, for example:">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:34+01:00">
+    <meta itemprop="datePublished" content="2025-11-03T17:03:21+01:00">
     
 
     <div class="page__inner-wrap">
@@ -401,25 +401,42 @@
   <li>A university needs to know the email address of a student in order to be able to send them emails.</li>
 </ul>
 
-<p>In this guide, we explain how a Connector, hereinafter referred to as the Sender, can read an <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a> of another Connector, the so-called Recipient. Since understanding this reading process requires knowledge about <a href="/versions/v7/integrate/data-model-overview#request">Requests</a> and how to use them in general, you should take a look at our <a href="/versions/v7/integrate/request-and-response-introduction">Request and Response introduction</a> before continuing reading this guide.</p>
+<p>In this guide, we explain how a Connector, hereinafter referred to as the Sender, can read an <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a> of another Connector, the so-called Recipient.
+Since understanding this reading process requires knowledge about <a href="/versions/v7/integrate/data-model-overview#request">Requests</a> and how to use them in general, you should take a look at our <a href="/versions/v7/integrate/request-and-response-introduction">Request and Response introduction</a> before continuing reading this guide.</p>
 
-<p class="notice--info">Please note that the general procedure is the same if the Connector wants to read an Attribute of an App user instead of another Connector. For reasons of clarity, this guide focuses on the reading process with two Connectors.</p>
+<p class="notice--info">Please note that the general procedure is the same if the Connector wants to read an Attribute of an App user instead of another Connector.
+For reasons of clarity, this guide focuses on the reading process with two Connectors.</p>
 
 <h2 id="request-for-reading-attributes">Request for reading Attributes</h2>
 
-<p>The Sender wants to read an Attribute of the Recipient. To do this, the Sender must first create a suitable Request, which it can then send to the Recipient. In the following subsections, we describe the general appearance of a Request for reading Attributes.</p>
+<p>The Sender wants to read an Attribute of the Recipient.
+To do this, the Sender must first create a suitable Request, which it can then send to the Recipient.
+In the following subsections, we describe the general appearance of a Request for reading Attributes.</p>
 
 <h3 id="role-of-readattributerequestitem">Role of ReadAttributeRequestItem</h3>
 
-<p>For reading a single Attribute, the Sender needs to insert a single RequestItem of type <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a> into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a>. The input it has to provide for the <code class="language-plaintext highlighter-rouge">query</code> property of the ReadAttributeRequestItem depends on what type of Attribute it wants to get. If the Sender wants to read an IdentityAttribute, it can use an appropriate <a href="/versions/v7/integrate/data-model-overview#identityattributequery">IdentityAttributeQuery</a>. Only IdentityAttributes that are owned by the Recipient can be requested by the Sender. It makes no sense for the Sender to request a RelationshipAttribute from the Recipient that already exists in the context of their <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> to each other. However, the Sender may want to create a RelationshipAttribute for this Relationship whose <code class="language-plaintext highlighter-rouge">value</code> is set by the Recipient. This can be done by using a <a href="/versions/v7/integrate/data-model-overview#relationshipattributequery">RelationshipAttributeQuery</a>.</p>
+<p>For reading a single Attribute, the Sender needs to insert a single RequestItem of type <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a> into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a>.
+The input it has to provide for the <code class="language-plaintext highlighter-rouge">query</code> property of the ReadAttributeRequestItem depends on what type of Attribute it wants to get.
+If the Sender wants to read an IdentityAttribute, it can use an appropriate <a href="/versions/v7/integrate/data-model-overview#identityattributequery">IdentityAttributeQuery</a>.
+Only IdentityAttributes that are owned by the Recipient can be requested by the Sender.
+It makes no sense for the Sender to request a RelationshipAttribute from the Recipient that already exists in the context of their <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> to each other.
+However, the Sender may want to create a RelationshipAttribute for this Relationship whose <code class="language-plaintext highlighter-rouge">value</code> is set by the Recipient.
+This can be done by using a <a href="/versions/v7/integrate/data-model-overview#relationshipattributequery">RelationshipAttributeQuery</a>.</p>
 
-<p class="notice--info">The Sender can use a ReadAttributeRequestItem to create a RelationshipAttribute in the context of a Relationship between itself and the Recipient if it wants the <a href="/versions/v7/integrate/attribute-values#relationship-attributes">RelationshipAttributeValue</a> to be set by the Recipient. Even if it seems misleading to use a ReadAttributeRequestItem to create a RelationshipAttribute, this terminology makes sense insofar as the RelationshipAttributeValue should be read from the Recipient in order to be able to create it.</p>
+<p class="notice--info">The Sender can use a ReadAttributeRequestItem to create a RelationshipAttribute in the context of a Relationship between itself and the Recipient if it wants the <a href="/versions/v7/integrate/attribute-values#relationship-attributes">RelationshipAttributeValue</a> to be set by the Recipient.
+Even if it seems misleading to use a ReadAttributeRequestItem to create a RelationshipAttribute, this terminology makes sense insofar as the RelationshipAttributeValue should be read from the Recipient in order to be able to create it.</p>
 
-<p>Note that the Sender cannot explicitly specify the Recipient’s address as the value for the <code class="language-plaintext highlighter-rouge">owner</code> property of the RelationshipAttributeQuery because the address does not have to be known beforehand. This is the case if the <a href="/versions/v7/integrate/read-attributes-from-peer#request-via-relationshiptemplate">Request is sent via a RelationshipTemplate</a> and not via a Message. Therefore, an empty string must be specified as the <code class="language-plaintext highlighter-rouge">owner</code> instead if the Sender wants the RelationshipAttribute to be owned by the Recipient. If the Sender is interested in a RelationshipAttribute that the Recipient has in the context of a Relationship with a third party, a <a href="/versions/v7/integrate/data-model-overview#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a> can be used. In addition, it is also permitted to specify an <a href="/versions/v7/integrate/data-model-overview#iqlquery">IQLQuery</a> for the <code class="language-plaintext highlighter-rouge">query</code> property of the ReadAttributeRequestItem.</p>
+<p>Note that the Sender cannot explicitly specify the Recipient’s address as the value for the <code class="language-plaintext highlighter-rouge">owner</code> property of the RelationshipAttributeQuery because the address does not have to be known beforehand.
+This is the case if the <a href="/versions/v7/integrate/read-attributes-from-peer#request-via-relationshiptemplate">Request is sent via a RelationshipTemplate</a> and not via a Message.
+Therefore, an empty string must be specified as the <code class="language-plaintext highlighter-rouge">owner</code> instead if the Sender wants the RelationshipAttribute to be owned by the Recipient.
+If the Sender is interested in a RelationshipAttribute that the Recipient has in the context of a Relationship with a third party, a <a href="/versions/v7/integrate/data-model-overview#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a> can be used.
+In addition, it is also permitted to specify an <a href="/versions/v7/integrate/data-model-overview#iqlquery">IQLQuery</a> for the <code class="language-plaintext highlighter-rouge">query</code> property of the ReadAttributeRequestItem.</p>
 
 <h3 id="combinations-and-usage-scenarios-of-readattributerequestitem">Combinations and usage scenarios of ReadAttributeRequestItem</h3>
 
-<p>The following table provides an overview of the possible kinds of Attributes that the Sender can read from the Recipient using the ReadAttributeRequestItem. It must be taken into account whether the <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a> is an IdentityAttribute or a RelationshipAttribute and which Identity is its <code class="language-plaintext highlighter-rouge">owner</code>. If the Sender wants to read a RelationshipAttribute from the Recipient, a distinction must be made between which Identities the Relationship in question exists.</p>
+<p>The following table provides an overview of the possible kinds of Attributes that the Sender can read from the Recipient using the ReadAttributeRequestItem.
+It must be taken into account whether the <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a> is an IdentityAttribute or a RelationshipAttribute and which Identity is its <code class="language-plaintext highlighter-rouge">owner</code>.
+If the Sender wants to read a RelationshipAttribute from the Recipient, a distinction must be made between which Identities the Relationship in question exists.</p>
 
 <table>
   <thead>
@@ -486,7 +503,9 @@
 
 <h3 id="example-of-reading-an-identityattribute">Example of reading an IdentityAttribute</h3>
 
-<p>We assume that the Sender wants to read an IdentityAttribute of type <a href="/versions/v7/integrate/attribute-values#emailaddress">EMailAddress</a> of the Recipient. To do this, it inserts the corresponding <a href="/versions/v7/integrate/data-model-overview#identityattributequery">IdentityAttributeQuery</a> into the <code class="language-plaintext highlighter-rouge">query</code> property of the <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>, which is contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for reading Attributes. In our example, we have chosen to set the value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the ReadAttributeRequestItem to <code class="language-plaintext highlighter-rouge">true</code>.</p>
+<p>We assume that the Sender wants to read an IdentityAttribute of type <a href="/versions/v7/integrate/attribute-values#emailaddress">EMailAddress</a> of the Recipient.
+To do this, it inserts the corresponding <a href="/versions/v7/integrate/data-model-overview#identityattributequery">IdentityAttributeQuery</a> into the <code class="language-plaintext highlighter-rouge">query</code> property of the <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>, which is contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for reading Attributes.
+In our example, we have chosen to set the value of the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property of the ReadAttributeRequestItem to <code class="language-plaintext highlighter-rouge">true</code>.</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
@@ -505,7 +524,9 @@
 
 <h3 id="example-of-reading-a-relationshipattribute-without-a-third-party-involved">Example of reading a RelationshipAttribute without a third party involved</h3>
 
-<p>We now consider the case that the Sender has an active Relationship established with the Recipient and that it wants to create a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> for this Relationship whose <code class="language-plaintext highlighter-rouge">value</code> is read from the Recipient. Then the associated <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>, which is contained in the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for reading Attributes created by the Sender, must contain an appropriate RelationshipAttributeQuery in its <code class="language-plaintext highlighter-rouge">query</code> property. For example, if the Sender wants to request a RelationshipAttribute of type <a href="/versions/v7/integrate/attribute-values#proprietarystring">ProprietaryString</a> that is owned by the Recipient and whose <code class="language-plaintext highlighter-rouge">confidentiality</code> is <code class="language-plaintext highlighter-rouge">"public"</code>, the Request could look like this:</p>
+<p>We now consider the case that the Sender has an active Relationship established with the Recipient and that it wants to create a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> for this Relationship whose <code class="language-plaintext highlighter-rouge">value</code> is read from the Recipient.
+Then the associated <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>, which is contained in the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for reading Attributes created by the Sender, must contain an appropriate RelationshipAttributeQuery in its <code class="language-plaintext highlighter-rouge">query</code> property.
+For example, if the Sender wants to request a RelationshipAttribute of type <a href="/versions/v7/integrate/attribute-values#proprietarystring">ProprietaryString</a> that is owned by the Recipient and whose <code class="language-plaintext highlighter-rouge">confidentiality</code> is <code class="language-plaintext highlighter-rouge">"public"</code>, the Request could look like this:</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
@@ -532,7 +553,10 @@
 
 <h3 id="example-of-reading-a-relationshipattribute-with-a-third-party-involved">Example of reading a RelationshipAttribute with a third party involved</h3>
 
-<p>If the Sender has established an active Relationship with the Recipient and the Recipient has also established an active Relationship with a third party, the Sender can request to read <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttributes</a> that exist in the context of the Relationship between the Recipient and the third party. To do this, a corresponding <a href="/versions/v7/integrate/data-model-overview#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a> must be used. The Sender inserts it into the <code class="language-plaintext highlighter-rouge">query</code> property of the <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>, which is contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for reading Attributes. For example, if the Sender wants to request a RelationshipAttribute that is owned by the Recipient and that exists in the context of the Relationship between the Recipient and a specific third party, the Request could look like this:</p>
+<p>If the Sender has established an active Relationship with the Recipient and the Recipient has also established an active Relationship with a third party, the Sender can request to read <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttributes</a> that exist in the context of the Relationship between the Recipient and the third party.
+To do this, a corresponding <a href="/versions/v7/integrate/data-model-overview#thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</a> must be used.
+The Sender inserts it into the <code class="language-plaintext highlighter-rouge">query</code> property of the <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItem</a>, which is contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for reading Attributes.
+For example, if the Sender wants to request a RelationshipAttribute that is owned by the Recipient and that exists in the context of the Relationship between the Recipient and a specific third party, the Request could look like this:</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
@@ -551,37 +575,53 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Note that the string <code class="language-plaintext highlighter-rouge">"recipient"</code> must be specified as the value for the <code class="language-plaintext highlighter-rouge">owner</code> property of the ThirdPartyRelationshipAttributeQuery if the Sender wants the requested RelationshipAttribute to be owned by the Recipient. RelationshipAttributes that exist in the context of the Relationship between the Recipient and the third party and whose <code class="language-plaintext highlighter-rouge">confidentitality</code> is <code class="language-plaintext highlighter-rouge">"private"</code> cannot be sent by the Recipient to the Sender.</p>
+<p>Note that the string <code class="language-plaintext highlighter-rouge">"recipient"</code> must be specified as the value for the <code class="language-plaintext highlighter-rouge">owner</code> property of the ThirdPartyRelationshipAttributeQuery if the Sender wants the requested RelationshipAttribute to be owned by the Recipient.
+RelationshipAttributes that exist in the context of the Relationship between the Recipient and the third party and whose <code class="language-plaintext highlighter-rouge">confidentitality</code> is <code class="language-plaintext highlighter-rouge">"private"</code> cannot be sent by the Recipient to the Sender.</p>
 
 <h3 id="read-multiple-attributes">Read multiple Attributes</h3>
 
-<p>Requesting read access is not limited to just a single Attribute, but it is possible to request read access to multiple Attributes at the same time. Several ReadAttributeRequestItems or suitable <a href="/versions/v7/integrate/data-model-overview#requestitemgroup">RequestItemGroups</a> can be inserted into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for reading Attributes for this purpose. If you want to use a RequestItemGroup in order to request read access to multiple Attributes of the Recipient at the same time, you must insert corresponding ReadAttributeRequestItems into the <code class="language-plaintext highlighter-rouge">items</code> property of it.</p>
+<p>Requesting read access is not limited to just a single Attribute, but it is possible to request read access to multiple Attributes at the same time.
+Several ReadAttributeRequestItems or suitable <a href="/versions/v7/integrate/data-model-overview#requestitemgroup">RequestItemGroups</a> can be inserted into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for reading Attributes for this purpose.
+If you want to use a RequestItemGroup in order to request read access to multiple Attributes of the Recipient at the same time, you must insert corresponding ReadAttributeRequestItems into the <code class="language-plaintext highlighter-rouge">items</code> property of it.</p>
 
 <h2 id="send-and-receive-the-request">Send and receive the Request</h2>
 
-<p>The Sender that wants to read an Attribute of the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method can be used to send the <a href="/versions/v7/integrate/read-attributes-from-peer#request-for-reading-attributes">Request for reading Attributes</a>. There are two ways to send the Request for reading Attributes created by the Sender to the Recipient.</p>
+<p>The Sender that wants to read an Attribute of the Recipient may or may not already have a Relationship with the Recipient.
+Depending on which is the case, a different method can be used to send the <a href="/versions/v7/integrate/read-attributes-from-peer#request-for-reading-attributes">Request for reading Attributes</a>.
+There are two ways to send the Request for reading Attributes created by the Sender to the Recipient.</p>
 
 <h3 id="request-via-relationshiptemplate">Request via RelationshipTemplate</h3>
 
-<p>If there is currently no Relationship between the Sender and the Recipient, this approach must be used. But it is also possible for the Sender to use a <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> to send a Request to the Recipient if there is already an active Relationship between them. All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the <a href="/versions/v7/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a> guide.</p>
+<p>If there is currently no Relationship between the Sender and the Recipient, this approach must be used.
+But it is also possible for the Sender to use a <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> to send a Request to the Recipient if there is already an active Relationship between them.
+All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the <a href="/versions/v7/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a> guide.</p>
 
 <h3 id="request-via-message">Request via Message</h3>
 
-<p>The Sender only has the option of sending a Request to the Recipient via a <a href="/versions/v7/integrate/data-model-overview#message">Message</a> if there is already an active Relationship between them. All information on how to send and receive a Request via a Message can be found in the <a href="/versions/v7/integrate/requests-via-messages">Requests via Messages</a> guide.</p>
+<p>The Sender only has the option of sending a Request to the Recipient via a <a href="/versions/v7/integrate/data-model-overview#message">Message</a> if there is already an active Relationship between them.
+All information on how to send and receive a Request via a Message can be found in the <a href="/versions/v7/integrate/requests-via-messages">Requests via Messages</a> guide.</p>
 
 <h2 id="accept-the-request">Accept the Request</h2>
 
-<p>After the Recipient has received the <a href="/versions/v7/integrate/read-attributes-from-peer#request-for-reading-attributes">Request for reading Attributes</a>, it can accept it to give the Sender read access to all or some of the requested Attributes. To do this, proceed as described in the <a href="/versions/v7/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case documentation and specify the <code class="language-plaintext highlighter-rouge">id</code> of the received <a href="/versions/v7/integrate/data-model-overview#request">Request</a>. You must also decide and specify for each ReadAttributeRequestItem contained in the Request for reading Attributes whether you want to accept or reject it.</p>
+<p>After the Recipient has received the <a href="/versions/v7/integrate/read-attributes-from-peer#request-for-reading-attributes">Request for reading Attributes</a>, it can accept it to give the Sender read access to all or some of the requested Attributes.
+To do this, proceed as described in the <a href="/versions/v7/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case documentation and specify the <code class="language-plaintext highlighter-rouge">id</code> of the received <a href="/versions/v7/integrate/data-model-overview#request">Request</a>.
+You must also decide and specify for each ReadAttributeRequestItem contained in the Request for reading Attributes whether you want to accept or reject it.</p>
 
-<p class="notice--info">If the Recipient does not want the Sender to read any of its Attributes and, therefore, does not want to accept the Request for reading Attributes of the Sender, it can reject it as a whole as well. For this, follow the instructions of the <a href="/versions/v7/use-case-consumption-reject-incoming-request">Reject incoming Request</a> use case.</p>
+<p class="notice--info">If the Recipient does not want the Sender to read any of its Attributes and, therefore, does not want to accept the Request for reading Attributes of the Sender, it can reject it as a whole as well.
+For this, follow the instructions of the <a href="/versions/v7/use-case-consumption-reject-incoming-request">Reject incoming Request</a> use case.</p>
 
 <div style="width: 640px; height: 720px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:720px" src="https://lucid.app/documents/embedded/57c9e02d-cf47-4777-b5d1-4d40c10a7593" id="eaAPLfDc5muI"></iframe></div>
 
 <h3 id="accept-a-readattributerequestitem">Accept a ReadAttributeRequestItem</h3>
 
-<p>If the Recipient agrees to share a requested Attribute with the Sender, it can accept the associated ReadAttributeRequestItem contained in the Request for reading Attributes. In particular, it must then provide the Attribute requested via the <code class="language-plaintext highlighter-rouge">query</code> property of the ReadAttributeRequestItem for its Response to the Request. Depending on whether the Recipient wants to share an Attribute that already exists as a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> or that has to be created first, different <a href="/versions/v7/integrate/data-model-overview#acceptreadattributerequestitemparameters">AcceptReadAttributeRequestItemParameters</a> must be used for this. If the Recipient decides to share an existing Attribute that doesn’t contain at least one tag matching the <code class="language-plaintext highlighter-rouge">tags</code> specified within the <code class="language-plaintext highlighter-rouge">query</code> of the ReadAttributeRequestItem, they have the possibility to specify additional <code class="language-plaintext highlighter-rouge">tags</code> within the AcceptReadAttributeRequestItemParameters. As already indicated, a RelationshipAttributeQuery can only be validly answered with a new Attribute, and a ThirdPartyRelationshipAttributeQuery can only be validly answered with an existing Attribute.</p>
+<p>If the Recipient agrees to share a requested Attribute with the Sender, it can accept the associated ReadAttributeRequestItem contained in the Request for reading Attributes.
+In particular, it must then provide the Attribute requested via the <code class="language-plaintext highlighter-rouge">query</code> property of the ReadAttributeRequestItem for its Response to the Request.
+Depending on whether the Recipient wants to share an Attribute that already exists as a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> or that has to be created first, different <a href="/versions/v7/integrate/data-model-overview#acceptreadattributerequestitemparameters">AcceptReadAttributeRequestItemParameters</a> must be used for this.
+If the Recipient decides to share an existing Attribute that doesn’t contain at least one tag matching the <code class="language-plaintext highlighter-rouge">tags</code> specified within the <code class="language-plaintext highlighter-rouge">query</code> of the ReadAttributeRequestItem, they have the possibility to specify additional <code class="language-plaintext highlighter-rouge">tags</code> within the AcceptReadAttributeRequestItemParameters.
+As already indicated, a RelationshipAttributeQuery can only be validly answered with a new Attribute, and a ThirdPartyRelationshipAttributeQuery can only be validly answered with an existing Attribute.</p>
 
-<p class="notice--info">Otherwise, the <a href="/versions/v7/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.consumption.requests.invalidAcceptParameters</code> arises. Furthermore, an error with the code <code class="language-plaintext highlighter-rouge">error.consumption.requests.attributeQueryMismatch</code> will be thrown if the Attribute provided by the Recipient does not match the <a href="/versions/v7/integrate/data-model-overview#attributequeries">AttributeQuery</a> specified in the <code class="language-plaintext highlighter-rouge">query</code> property of the ReadAttributeRequestItem.</p>
+<p class="notice--info">Otherwise, the <a href="/versions/v7/integrate/error-codes">error code</a> <code class="language-plaintext highlighter-rouge">error.consumption.requests.invalidAcceptParameters</code> arises.
+Furthermore, an error with the code <code class="language-plaintext highlighter-rouge">error.consumption.requests.attributeQueryMismatch</code> will be thrown if the Attribute provided by the Recipient does not match the <a href="/versions/v7/integrate/data-model-overview#attributequeries">AttributeQuery</a> specified in the <code class="language-plaintext highlighter-rouge">query</code> property of the ReadAttributeRequestItem.</p>
 
 <p>Accepting a ReadAttributeRequestItem with a new Attribute or an existing, that isn’t shared with the Sender already neither itself nor any of its predecessing versions, leads to the creation of a LocalAttribute, whose underlying <code class="language-plaintext highlighter-rouge">content</code> is given by the shared Attribute.
 Depending on whether the Recipient sends back an IdentityAttribute or a RelationshipAttribute, the ownership, and, in the case of RelationshipAttributes, from which Relationship context the RelationshipAttribute originates, it is referred to as either an <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-identityattributes">own shared IdentityAttribute</a>, an <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-relationshipattributes">own shared RelationshipAttribute</a>, a <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-relationshipattributes">peer shared RelationshipAttribute</a> or an <a href="/versions/v7/integrate/attribute-introduction#emitted-and-received-thirdpartyrelationshipattributes">emitted ThirdPartyRelationshipAttribute</a>.
@@ -600,11 +640,17 @@ The <code class="language-plaintext highlighter-rouge">id</code> of the already 
 
 <h3 id="reject-a-readattributerequestitem">Reject a ReadAttributeRequestItem</h3>
 
-<p>Even if the Recipient accepts the Request for reading Attributes as a whole, it may decide not to share every requested Attribute with the Sender. To be more precise, the Recipient has the option of rejecting <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItems</a> that have the value <code class="language-plaintext highlighter-rouge">false</code> specified in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property. To reject a ReadAttributeRequestItem, use the <a href="/versions/v7/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a>. The rejection of a ReadAttributeRequestItem leads to the creation of a ResponseItem of type <a href="/versions/v7/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a>. This will be contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#response">Response</a> to the Request for reading Attributes.</p>
+<p>Even if the Recipient accepts the Request for reading Attributes as a whole, it may decide not to share every requested Attribute with the Sender.
+To be more precise, the Recipient has the option of rejecting <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItems</a> that have the value <code class="language-plaintext highlighter-rouge">false</code> specified in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property.
+To reject a ReadAttributeRequestItem, use the <a href="/versions/v7/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a>.
+The rejection of a ReadAttributeRequestItem leads to the creation of a ResponseItem of type <a href="/versions/v7/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a>.
+This will be contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#response">Response</a> to the Request for reading Attributes.</p>
 
 <h3 id="example-of-accepting-a-requestitemgroup">Example of accepting a RequestItemGroup</h3>
 
-<p>Let’s look at an example where the Sender is interested in the Recipient’s <a href="/versions/v7/integrate/attribute-values#birthdate">BirthDate</a> and contact information in the form of an <a href="/versions/v7/integrate/attribute-values#emailaddress">EMailAddress</a> or a <a href="/versions/v7/integrate/attribute-values#phonenumber">PhoneNumber</a>. To ask the Recipient for this data, the Sender creates a <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for reading Attributes, which contains a ReadAttributeRequestItem belonging to the BirthDate and a RequestItemGroup belonging to the contact information in its <code class="language-plaintext highlighter-rouge">items</code> property. The <a href="/versions/v7/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> itself contains two ReadAttributeRequestItems in its <code class="language-plaintext highlighter-rouge">items</code> property, namely one for the EMailAddress and one for the PhoneNumber.</p>
+<p>Let’s look at an example where the Sender is interested in the Recipient’s <a href="/versions/v7/integrate/attribute-values#birthdate">BirthDate</a> and contact information in the form of an <a href="/versions/v7/integrate/attribute-values#emailaddress">EMailAddress</a> or a <a href="/versions/v7/integrate/attribute-values#phonenumber">PhoneNumber</a>.
+To ask the Recipient for this data, the Sender creates a <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for reading Attributes, which contains a ReadAttributeRequestItem belonging to the BirthDate and a RequestItemGroup belonging to the contact information in its <code class="language-plaintext highlighter-rouge">items</code> property.
+The <a href="/versions/v7/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> itself contains two ReadAttributeRequestItems in its <code class="language-plaintext highlighter-rouge">items</code> property, namely one for the EMailAddress and one for the PhoneNumber.</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
@@ -645,9 +691,12 @@ The <code class="language-plaintext highlighter-rouge">id</code> of the already 
 <p>In our example, the Sender only requires the Recipient to share its EMailAddress, which is why the individual <a href="/versions/v7/integrate/data-model-overview#readattributerequestitem">ReadAttributeRequestItems</a> within the Request have specified corresponding values in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property.
 We assume that the Recipient wants to accept the Request and only wants to share its EMailAddress, which is already saved as an appropriate <a href="/versions/v7/integrate/attribute-introduction#repositoryattributes">RepositoryAttribute</a>, with the Sender.</p>
 
-<p class="notice--info">If the Recipient wants to accept the Request for reading Attributes, it must accept all ReadAttributeRequestItems for which the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code>. It is therefore not permitted, for example, for the Recipient to refuse to share its EMailAddress and instead share its PhoneNumber.</p>
+<p class="notice--info">If the Recipient wants to accept the Request for reading Attributes, it must accept all ReadAttributeRequestItems for which the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code>.
+It is therefore not permitted, for example, for the Recipient to refuse to share its EMailAddress and instead share its PhoneNumber.</p>
 
-<p>The Recipient refuses to share its BirthDate with the Sender. Also, the Recipient accepts the sharing of its EMailAddress and rejects the sharing of its PhoneNumber. Thus, it responds to the Request for reading Attributes as follows:</p>
+<p>The Recipient refuses to share its BirthDate with the Sender.
+Also, the Recipient accepts the sharing of its EMailAddress and rejects the sharing of its PhoneNumber.
+Thus, it responds to the Request for reading Attributes as follows:</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -676,7 +725,9 @@ We assume that the Recipient wants to accept the Request and only wants to share
 
 <h2 id="get-the-attributes">Get the Attributes</h2>
 
-<p>We now assume that the Recipient has accepted the <a href="/versions/v7/integrate/read-attributes-from-peer#request-for-reading-attributes">Request for reading Attributes</a> of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to <a href="/versions/v7/use-case-transport-synchronize-updates-of-backbone">synchronize the updates of the Backbone</a>. Please note that this synchronization can also be automated by using the <a href="/versions/v7/operate/modules#sync">Sync Module</a>.</p>
+<p>We now assume that the Recipient has accepted the <a href="/versions/v7/integrate/read-attributes-from-peer#request-for-reading-attributes">Request for reading Attributes</a> of the Sender.
+In order for the Sender to receive the Response of the Recipient, it needs to <a href="/versions/v7/use-case-transport-synchronize-updates-of-backbone">synchronize the updates of the Backbone</a>.
+Please note that this synchronization can also be automated by using the <a href="/versions/v7/operate/modules#sync">Sync Module</a>.</p>
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/eacdb246-9a8f-4361-965b-a9c21edacc45" id="EaAPpEXMzk_7"></iframe></div>
 
@@ -693,11 +744,14 @@ A shared <code class="language-plaintext highlighter-rouge">attribute</code> tha
 Depending on whether the Recipient has sent back an IdentityAttribute or a RelationshipAttribute to the Sender, the ownership, and, in the case of RelationshipAttributes, from which Relationship context the RelationshipAttribute originates, it is referred to as either a <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-identityattributes">peer shared IdentityAttribute</a>, an <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-relationshipattributes">own shared RelationshipAttribute</a>, a <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-relationshipattributes">peer shared RelationshipAttribute</a> or a <a href="/versions/v7/integrate/attribute-introduction#emitted-and-received-thirdpartyrelationshipattributes">received ThirdPartyRelationshipAttribute</a>.
 When the Sender of the Request receives an AttributeSuccessionAcceptResponseItem, the according <a href="/versions/v7/integrate/update-attributes-by-succession">Attribute succession</a> is automatically performed for them.</p>
 
-<p class="notice--info">In case of an error, <a href="/versions/v7/integrate/data-model-overview#errorresponseitem">ErrorResponseItems</a> can also be included in the Response. If the Request for reading Attributes contains a RequestItemGroup in its <code class="language-plaintext highlighter-rouge">items</code> property, the Response to this Request contains a corresponding <a href="/versions/v7/integrate/data-model-overview#responseitemgroup">ResponseItemGroup</a> in its <code class="language-plaintext highlighter-rouge">items</code> property.</p>
+<p class="notice--info">In case of an error, <a href="/versions/v7/integrate/data-model-overview#errorresponseitem">ErrorResponseItems</a> can also be included in the Response.
+If the Request for reading Attributes contains a RequestItemGroup in its <code class="language-plaintext highlighter-rouge">items</code> property, the Response to this Request contains a corresponding <a href="/versions/v7/integrate/data-model-overview#responseitemgroup">ResponseItemGroup</a> in its <code class="language-plaintext highlighter-rouge">items</code> property.</p>
 
 <h2 id="whats-next">What’s next?</h2>
 
-<p>Take a look at our <a href="/versions/v7/integrate/integration-example">Integration example</a> if you want to see how an Attribute of a peer is read by an Identity in the context of a larger process. Also note that it is not only possible to request the reading of an Attribute from a peer, but that you can share an Attribute with a peer as well. Consult the <a href="/versions/v7/integrate/share-attributes-with-peer">Share Attributes with peer</a> guide for this.</p>
+<p>Take a look at our <a href="/versions/v7/integrate/integration-example">Integration example</a> if you want to see how an Attribute of a peer is read by an Identity in the context of a larger process.
+Also note that it is not only possible to request the reading of an Attribute from a peer, but that you can share an Attribute with a peer as well.
+Consult the <a href="/versions/v7/integrate/share-attributes-with-peer">Share Attributes with peer</a> guide for this.</p>
 
         
       </section>
@@ -709,7 +763,7 @@ When the Sender of the Request receives an AttributeSuccessionAcceptResponseItem
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:34+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T17:03:21+01:00">November 3, 2025</time></p>
 
       </footer>
 

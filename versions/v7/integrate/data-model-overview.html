@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:34+01:00">
+  <meta property="article:published_time" content="2025-11-03T17:03:21+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Data Model Overview">
     <meta itemprop="description" content="The enmeshed data model can be divided into three parts:">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:34+01:00">
+    <meta itemprop="datePublished" content="2025-11-03T17:03:21+01:00">
     
 
     <div class="page__inner-wrap">
@@ -400,26 +400,39 @@
   <li>Content types</li>
 </ul>
 
-<p>The following diagram gives you an overview of all the existing types and how they are connected to each other. The subsequent chapters describe these types in more detail.</p>
+<p>The following diagram gives you an overview of all the existing types and how they are connected to each other.
+The subsequent chapters describe these types in more detail.</p>
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/f32afee5-014a-4cfb-9a9f-91c974b77d9a" id="ksXuAN~ZRo~g"></iframe></div>
 <p>(note that you can click on each type in order to navigate to the paragraph with the corresponding description)</p>
 
-<p>At a first glance the amount of types is overwhelming. But in the following chapters all of them are explained in detail.</p>
+<p>At a first glance the amount of types is overwhelming.
+But in the following chapters all of them are explained in detail.</p>
 
 <h1 id="transport-types">Transport Types</h1>
 
-<p>Transport types like <code class="language-plaintext highlighter-rouge">RelationshipTemplate</code>, <code class="language-plaintext highlighter-rouge">Token</code> or <code class="language-plaintext highlighter-rouge">File</code> are types that are “exchanged” between Identities via the Backbone. They are created and updated by the <a href="/versions/v7/explore/layers/transport">Transport Layer</a>. In most cases they have a <code class="language-plaintext highlighter-rouge">content</code> property, which contains the actual payload that should be transferred between the Identities. This payload is being encrypted when it is sent to the Backbone, and decrypted by the other Identity when it is received. The following sections describe the different Transport types and their properties.</p>
+<p>Transport types like <code class="language-plaintext highlighter-rouge">RelationshipTemplate</code>, <code class="language-plaintext highlighter-rouge">Token</code> or <code class="language-plaintext highlighter-rouge">File</code> are types that are “exchanged” between Identities via the Backbone.
+They are created and updated by the <a href="/versions/v7/explore/layers/transport">Transport Layer</a>.
+In most cases they have a <code class="language-plaintext highlighter-rouge">content</code> property, which contains the actual payload that should be transferred between the Identities.
+This payload is being encrypted when it is sent to the Backbone, and decrypted by the other Identity when it is received.
+The following sections describe the different Transport types and their properties.</p>
 
-<p>Note that the properties of the types are the ones that exist locally (aka on the Connector/in the App). The Backbone does not necessarily know about them. The properties that only exist locally are marked accordingly in the tables below. Further there are properties that are confidential and are therefore encrypted before sent to the Backbone, in order to enable end-to-end encryption. Both kinds of these properties are marked accordingly in the “Remarks” column of the property tables below.</p>
+<p>Note that the properties of the types are the ones that exist locally (aka on the Connector/in the App).
+The Backbone does not necessarily know about them.
+The properties that only exist locally are marked accordingly in the tables below.
+Further there are properties that are confidential and are therefore encrypted before sent to the Backbone, in order to enable end-to-end encryption.
+Both kinds of these properties are marked accordingly in the “Remarks” column of the property tables below.</p>
 
 <h2 id="token">Token</h2>
 
-<p>Tokens can be used to save arbitrary structured data on the Backbone, which is encrypted with a random symmetric key. You can then pass the ID of the Token, together with the random key, to another Identity, which can then retrieve the token and decrypt it, e.g. inside of a QR code, which you send to the recipient via letter. Tokens can be handy in a lot of scenarios, for example:</p>
+<p>Tokens can be used to save arbitrary structured data on the Backbone, which is encrypted with a random symmetric key.
+You can then pass the ID of the Token, together with the random key, to another Identity, which can then retrieve the token and decrypt it, e.g. inside of a QR code, which you send to the recipient via letter.
+Tokens can be handy in a lot of scenarios, for example:</p>
 
 <ul>
   <li>You want to share secret information with someone you don’t have a Relationship with.</li>
-  <li>The enmeshed App currently uses a Token to save a Backup of the Identity. The Token’s <code class="language-plaintext highlighter-rouge">reference.url</code> is then encoded in a QR code, which the user can print out and scan later in order to restore the Identity on a new device.</li>
+  <li>The enmeshed App currently uses a Token to save a Backup of the Identity.
+The Token’s <code class="language-plaintext highlighter-rouge">reference.url</code> is then encoded in a QR code, which the user can print out and scan later in order to restore the Identity on a new device.</li>
 </ul>
 
 <p>A Token has the following properties:</p>
@@ -569,8 +582,12 @@ Information about the password protection of a Token or a RelationshipTemplate i
 <p>A RelationshipTemplate serves two purposes:</p>
 
 <ol>
-  <li>It represents the permission to establish a Relationship. When initiating a Relationship, the ID of a valid RelationshipTemplate must be attached. Otherwise the Backbone blocks the Relationship. And since the IDs are randomly generated, you can only obtain such an ID from the RelationshipTemplate’s owner.</li>
-  <li>It can contain data which is of interest for the one who uses the RelationshipTemplate. The enmeshed App for example expects a RelationshipTemplate content which contains a <code class="language-plaintext highlighter-rouge">Request</code> which contains e.g. Attributes about the creator of the RelationshipTemplate as well as queries for Attributes that the RelationshipTemplate creator wants to receive together with the Relationship.</li>
+  <li>It represents the permission to establish a Relationship.
+When initiating a Relationship, the ID of a valid RelationshipTemplate must be attached.
+Otherwise the Backbone blocks the Relationship.
+And since the IDs are randomly generated, you can only obtain such an ID from the RelationshipTemplate’s owner.</li>
+  <li>It can contain data which is of interest for the one who uses the RelationshipTemplate.
+The enmeshed App for example expects a RelationshipTemplate content which contains a <code class="language-plaintext highlighter-rouge">Request</code> which contains e.g. Attributes about the creator of the RelationshipTemplate as well as queries for Attributes that the RelationshipTemplate creator wants to receive together with the Relationship.</li>
 </ol>
 
 <table>
@@ -654,7 +671,9 @@ Information about the password protection of a Token or a RelationshipTemplate i
 
 <h2 id="relationship">Relationship</h2>
 
-<p>A Relationship between two Identities is the prerequisite for them to exchange Messages. If there is no Relationship, the Backbone blocks all Messages that are tried to be sent. This ensures that you only receive Messages from Identities you know, so you are protected from any harmful Messages like spam or phishing mails.</p>
+<p>A Relationship between two Identities is the prerequisite for them to exchange Messages.
+If there is no Relationship, the Backbone blocks all Messages that are tried to be sent.
+This ensures that you only receive Messages from Identities you know, so you are protected from any harmful Messages like spam or phishing mails.</p>
 
 <table>
   <thead>
@@ -749,7 +768,9 @@ Whether the Identity with which you have a Relationship is to be deleted or has 
 
 <h3 id="relationshipauditlogentry">RelationshipAuditLogEntry</h3>
 
-<p>The audit log records Relationship operations starting with the creation of the Relationship in status <code class="language-plaintext highlighter-rouge">Pending</code>. For the full list of tracked operations see the property <code class="language-plaintext highlighter-rouge">reason</code>. Each entry of the log is timestamped and states who executed the operation.</p>
+<p>The audit log records Relationship operations starting with the creation of the Relationship in status <code class="language-plaintext highlighter-rouge">Pending</code>.
+For the full list of tracked operations see the property <code class="language-plaintext highlighter-rouge">reason</code>.
+Each entry of the log is timestamped and states who executed the operation.</p>
 
 <table>
   <thead>
@@ -802,7 +823,11 @@ Whether the Identity with which you have a Relationship is to be deleted or has 
 
 <h2 id="message">Message</h2>
 
-<p>A Message is a piece of data that can be sent to one or more recipients. The sender is completely free in what the content of the Message looks like. Though in order to enable a normalized communication, enmeshed defines some <code class="language-plaintext highlighter-rouge">content</code> structures for Messages, and in the future there will be more of those. Consider that the enmeshed App only supports Messages with such a normalized <code class="language-plaintext highlighter-rouge">content</code>. Currently there are:</p>
+<p>A Message is a piece of data that can be sent to one or more recipients.
+The sender is completely free in what the content of the Message looks like.
+Though in order to enable a normalized communication, enmeshed defines some <code class="language-plaintext highlighter-rouge">content</code> structures for Messages, and in the future there will be more of those.
+Consider that the enmeshed App only supports Messages with such a normalized <code class="language-plaintext highlighter-rouge">content</code>.
+Currently there are:</p>
 
 <ul>
   <li><a href="#mail"><code class="language-plaintext highlighter-rouge">Mail</code></a></li>
@@ -925,7 +950,8 @@ Whether the Identity with which you have a Relationship is to be deleted or has 
 
 <p>The Backbone allows you to <a href="/versions/v7/use-case-transport-upload-own-file">upload a file</a> in encrypted form.
 Its metadata information is stored in a data object of type File.
-A File further has its content, of course. But since this is not a JSON property, it is not included in the following table.
+A File further has its content, of course.
+But since this is not a JSON property, it is not included in the following table.
 The content of the File can be downloaded separately by executing the <a href="/versions/v7/use-case-transport-download-file">Download File</a> use case.</p>
 
 <table>
@@ -1123,7 +1149,9 @@ Note, however, that at all times there can only be at most one <strong>active Id
 
 <h1 id="local-types">Local Types</h1>
 
-<p>In addition to the types that are shared between Identities via the Backbone, there are certain types that only exist within one Identity. These types usually contain metadata about <a href="#content-types">Content types</a> that should not be transferred to other Identities. They are created and updated by the <a href="/versions/v7/explore/layers/consumption">Consumption Layer</a>.</p>
+<p>In addition to the types that are shared between Identities via the Backbone, there are certain types that only exist within one Identity.
+These types usually contain metadata about <a href="#content-types">Content types</a> that should not be transferred to other Identities.
+They are created and updated by the <a href="/versions/v7/explore/layers/consumption">Consumption Layer</a>.</p>
 
 <p>Currently there are three main Local types:</p>
 
@@ -1200,32 +1228,43 @@ Note, however, that at all times there can only be at most one <strong>active Id
 
 <h3 id="localrequeststatus">LocalRequestStatus</h3>
 
-<p>Depending on whether it is an incoming or an outgoing Request, there can be different statuses. The following state diagram shows which status exists in both cases and when there are transitions from one state to another:</p>
+<p>Depending on whether it is an incoming or an outgoing Request, there can be different statuses.
+The following state diagram shows which status exists in both cases and when there are transitions from one state to another:</p>
 
 <p><img src="/versions/v7/assets/images/explore/RequestStatus%20-%20State%20Diagram.png" alt="State diagram for LocalRequest Status" /></p>
 
 <dl>
   <dt>Draft</dt>
-  <dd>This status only exists for outgoing Requests. It means that the LocalRequest was created, but not yet sent.</dd>
+  <dd>This status only exists for outgoing Requests.
+It means that the LocalRequest was created, but not yet sent.</dd>
   <dt>Open</dt>
-  <dd>In case of an outgoing Request, <code class="language-plaintext highlighter-rouge">Open</code> means that the Request was sent. The transition to <code class="language-plaintext highlighter-rouge">Open</code> happens automatically when you send the Request with a Message.</dd>
+  <dd>In case of an outgoing Request, <code class="language-plaintext highlighter-rouge">Open</code> means that the Request was sent.
+The transition to <code class="language-plaintext highlighter-rouge">Open</code> happens automatically when you send the Request with a Message.</dd>
   <dd>In case of an incoming Request, <code class="language-plaintext highlighter-rouge">Open</code> means that the LocalRequest was received.</dd>
   <dt>DecisionRequired</dt>
-  <dd>After the prerequisites of the Request and all of its RequestItems were checked, a decision can be made. At first, the <a href="/versions/v7/explore/runtime#decider-module">Decider Module</a> tries to make an automatic decision. It therefore checks all LocalRequests in status <code class="language-plaintext highlighter-rouge">DecisionRequired</code>.</dd>
+  <dd>After the prerequisites of the Request and all of its RequestItems were checked, a decision can be made.
+At first, the <a href="/versions/v7/explore/runtime#decider-module">Decider Module</a> tries to make an automatic decision.
+It therefore checks all LocalRequests in status <code class="language-plaintext highlighter-rouge">DecisionRequired</code>.</dd>
   <dt>ManualDecisionRequired</dt>
-  <dd>If the Decider Module cannot make a decision, it moves the LocalRequest to <code class="language-plaintext highlighter-rouge">ManualDecisionRequired</code>. When the LocalRequest is in this status, it’s the User’s turn to decide whether they want to accept or reject the Request.</dd>
+  <dd>If the Decider Module cannot make a decision, it moves the LocalRequest to <code class="language-plaintext highlighter-rouge">ManualDecisionRequired</code>.
+When the LocalRequest is in this status, it’s the User’s turn to decide whether they want to accept or reject the Request.</dd>
   <dt>Decided</dt>
-  <dd>When the User or the Decider Module accepts or rejects the Request, the Response and ResponseItems are generated based on the passed parameters. This Response is saved in the <code class="language-plaintext highlighter-rouge">response</code> property of the <code class="language-plaintext highlighter-rouge">LocalRequest</code>, but not yet sent.</dd>
+  <dd>When the User or the Decider Module accepts or rejects the Request, the Response and ResponseItems are generated based on the passed parameters.
+This Response is saved in the <code class="language-plaintext highlighter-rouge">response</code> property of the <code class="language-plaintext highlighter-rouge">LocalRequest</code>, but not yet sent.</dd>
   <dt>Completed</dt>
-  <dd>In case of an incoming Request, the Runtime Module listens to an Event saying that a Request moved to status <code class="language-plaintext highlighter-rouge">Decided</code>. It then checks on which way the Request was received (Message/RelationshipTemplate) and sends the Response on the corresponding way (by sending a Message or creating a Relationship). After the Response was successfully sent, it moves the LocalRequest to <code class="language-plaintext highlighter-rouge">Completed</code>.</dd>
-  <dd>In case of an outgoing Request, the Runtime Module listens to the <code class="language-plaintext highlighter-rouge">MessageReceivedEvent</code> and checks the content of the sent Message for a Response. If there is one, it moves the corresponding LocalRequest to <code class="language-plaintext highlighter-rouge">Completed</code>.</dd>
+  <dd>In case of an incoming Request, the Runtime Module listens to an Event saying that a Request moved to status <code class="language-plaintext highlighter-rouge">Decided</code>.
+It then checks on which way the Request was received (Message/RelationshipTemplate) and sends the Response on the corresponding way (by sending a Message or creating a Relationship).
+After the Response was successfully sent, it moves the LocalRequest to <code class="language-plaintext highlighter-rouge">Completed</code>.</dd>
+  <dd>In case of an outgoing Request, the Runtime Module listens to the <code class="language-plaintext highlighter-rouge">MessageReceivedEvent</code> and checks the content of the sent Message for a Response.
+If there is one, it moves the corresponding LocalRequest to <code class="language-plaintext highlighter-rouge">Completed</code>.</dd>
   <dt>Expired</dt>
   <dd>When the timestamp in <code class="language-plaintext highlighter-rouge">expiresAt</code> of a Request is reached, the Request automatically moves to the status <code class="language-plaintext highlighter-rouge">Expired</code>.</dd>
 </dl>
 
 <h3 id="localrequestsource">LocalRequestSource</h3>
 
-<p>With the information in this type you can clearly identify the Transport object the Request was sent/received in. Currently there are only two possibilities: Message and RelationshipTemplate.</p>
+<p>With the information in this type you can clearly identify the Transport object the Request was sent/received in.
+Currently there are only two possibilities: Message and RelationshipTemplate.</p>
 
 <table>
   <thead>
@@ -1282,7 +1321,8 @@ Note, however, that at all times there can only be at most one <strong>active Id
 
 <h3 id="localresponsesource">LocalResponseSource</h3>
 
-<p>With the information in this type you can clearly identify the Transport object the Response was sent/received in. Currently there are only two possibilities: Message and Relationship.</p>
+<p>With the information in this type you can clearly identify the Transport object the Response was sent/received in.
+Currently there are only two possibilities: Message and Relationship.</p>
 
 <table>
   <thead>
@@ -1368,18 +1408,21 @@ Note, however, that at all times there can only be at most one <strong>active Id
 
 <dl>
   <dt>Sent</dt>
-  <dd>This is the only valid status on sender side. If a Notification is sent and, therefore, a LocalNotification is created, its status will be set to <code class="language-plaintext highlighter-rouge">Sent</code>.</dd>
+  <dd>This is the only valid status on sender side.
+If a Notification is sent and, therefore, a LocalNotification is created, its status will be set to <code class="language-plaintext highlighter-rouge">Sent</code>.</dd>
   <dt>Open</dt>
   <dd>Receiving a Notification, a LocalNotification is created with status <code class="language-plaintext highlighter-rouge">Open</code>.</dd>
   <dt>Completed</dt>
-  <dd>After receiving a Notification, its items will be processed internally. If all processes finish successfully, the status of the LocalNotification will be set to <code class="language-plaintext highlighter-rouge">Completed</code>.</dd>
+  <dd>After receiving a Notification, its items will be processed internally.
+If all processes finish successfully, the status of the LocalNotification will be set to <code class="language-plaintext highlighter-rouge">Completed</code>.</dd>
   <dt>Error</dt>
   <dd>If an error occurs while processing the items of a received Notification, the status of the LocalNotification will be set to <code class="language-plaintext highlighter-rouge">Error</code>.</dd>
 </dl>
 
 <h3 id="localnotificationsource">LocalNotificationSource</h3>
 
-<p>With the information in this type you can clearly identify the Transport object the Notification was sent/received in. Currently, the only possibility for transmitting Notifications are Messages.</p>
+<p>With the information in this type you can clearly identify the Transport object the Notification was sent/received in.
+Currently, the only possibility for transmitting Notifications are Messages.</p>
 
 <table>
   <thead>
@@ -1882,7 +1925,9 @@ Apart from the Backbone-defined <code class="language-plaintext highlighter-roug
 
 <h1 id="content-types">Content Types</h1>
 
-<p>Content Types can be seen as a data contract between Identities. The medium through which this data is exchanged are the <a href="#transport-types">Transport types</a> (e.g. Messages, Tokens, …). This chapter shows all the Content types and describes their intended usage.</p>
+<p>Content Types can be seen as a data contract between Identities.
+The medium through which this data is exchanged are the <a href="#transport-types">Transport types</a> (e.g. Messages, Tokens, …).
+This chapter shows all the Content types and describes their intended usage.</p>
 
 <h2 id="request">Request</h2>
 
@@ -1942,7 +1987,9 @@ You can also put multiple Items into a <a href="#requestitemgroup">RequestItemGr
 
 <h3 id="requestitems">RequestItems</h3>
 
-<p>RequestItems can be sent inside of a <a href="#request">Request</a> and specify what should be done when the <a href="/versions/v7/use-case-consumption-accept-incoming-request">Request is accepted</a>. More information on how to use the individual <a href="/versions/v7/integrate/request-and-response-introduction#types-of-requestitems">types of RequestItems</a> for your purposes can be found in the <a href="/versions/v7/integrate/request-and-response-introduction">Request and Response introduction</a>. If you are interested in a brief overview of the various operations which can be performed with Attributes, take a look at our <a href="/versions/v7/integrate/attribute-introduction#attribute-management-options">Attribute management options</a>.</p>
+<p>RequestItems can be sent inside of a <a href="#request">Request</a> and specify what should be done when the <a href="/versions/v7/use-case-consumption-accept-incoming-request">Request is accepted</a>.
+More information on how to use the individual <a href="/versions/v7/integrate/request-and-response-introduction#types-of-requestitems">types of RequestItems</a> for your purposes can be found in the <a href="/versions/v7/integrate/request-and-response-introduction">Request and Response introduction</a>.
+If you are interested in a brief overview of the various operations which can be performed with Attributes, take a look at our <a href="/versions/v7/integrate/attribute-introduction#attribute-management-options">Attribute management options</a>.</p>
 
 <h4 id="authenticationrequestitem">AuthenticationRequestItem</h4>
 
@@ -1987,7 +2034,8 @@ You can also put multiple Items into a <a href="#requestitemgroup">RequestItemGr
 
 <h4 id="consentrequestitem">ConsentRequestItem</h4>
 
-<p>For more information you should check out the section <a href="/versions/v7/integrate/request-and-response-introduction#consentrequestitem">ConsentRequestItem of the Request and Response introduction</a>. Furthermore, all details on how to use the ConsentRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a> guide.</p>
+<p>For more information you should check out the section <a href="/versions/v7/integrate/request-and-response-introduction#consentrequestitem">ConsentRequestItem of the Request and Response introduction</a>.
+Furthermore, all details on how to use the ConsentRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/request-one-time-consent-of-peer">Request one-time consent of peer</a> guide.</p>
 
 <table>
   <thead>
@@ -2043,7 +2091,8 @@ You can also put multiple Items into a <a href="#requestitemgroup">RequestItemGr
 
 <h4 id="createattributerequestitem">CreateAttributeRequestItem</h4>
 
-<p>For more information you should check out the section <a href="/versions/v7/integrate/request-and-response-introduction#createattributerequestitem">CreateAttributeRequestItem of the Request and Response introduction</a>. Furthermore, all details on how to use the CreateAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/create-attributes-for-peer">Create Attributes for peer</a> guide.</p>
+<p>For more information you should check out the section <a href="/versions/v7/integrate/request-and-response-introduction#createattributerequestitem">CreateAttributeRequestItem of the Request and Response introduction</a>.
+Furthermore, all details on how to use the CreateAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/create-attributes-for-peer">Create Attributes for peer</a> guide.</p>
 
 <table>
   <thead>
@@ -2084,7 +2133,8 @@ You can also put multiple Items into a <a href="#requestitemgroup">RequestItemGr
 
 <h4 id="deleteattributerequestitem">DeleteAttributeRequestItem</h4>
 
-<p>For more information you should check out the section <a href="/versions/v7/integrate/request-and-response-introduction#deleteattributerequestitem">DeleteAttributeRequestItem of the Request and Response introduction</a>. Furthermore, all details on how to use the DeleteAttributeRequestItem can be found in the <a href="/versions/v7/integrate/delete-attributes">Delete Attributes</a> guide.</p>
+<p>For more information you should check out the section <a href="/versions/v7/integrate/request-and-response-introduction#deleteattributerequestitem">DeleteAttributeRequestItem of the Request and Response introduction</a>.
+Furthermore, all details on how to use the DeleteAttributeRequestItem can be found in the <a href="/versions/v7/integrate/delete-attributes">Delete Attributes</a> guide.</p>
 
 <table>
   <thead>
@@ -2381,7 +2431,8 @@ Otherwise, a string array of all selected options is expected, which may also co
 
 <h4 id="proposeattributerequestitem">ProposeAttributeRequestItem</h4>
 
-<p>For more information you should check out the section <a href="/versions/v7/integrate/request-and-response-introduction#proposeattributerequestitem">ProposeAttributeRequestItem of the Request and Response introduction</a>. Furthermore, all details on how to use the ProposeAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/propose-attributes-to-peer">Propose Attributes to peer</a> guide.</p>
+<p>For more information you should check out the section <a href="/versions/v7/integrate/request-and-response-introduction#proposeattributerequestitem">ProposeAttributeRequestItem of the Request and Response introduction</a>.
+Furthermore, all details on how to use the ProposeAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/propose-attributes-to-peer">Propose Attributes to peer</a> guide.</p>
 
 <table>
   <thead>
@@ -2427,7 +2478,8 @@ Otherwise, a string array of all selected options is expected, which may also co
 
 <h4 id="readattributerequestitem">ReadAttributeRequestItem</h4>
 
-<p>For more information you should check out the section <a href="/versions/v7/integrate/request-and-response-introduction#readattributerequestitem">ReadAttributeRequestItem of the Request and Response introduction</a>. Furthermore, all details on how to use the ReadAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/read-attributes-from-peer">Read Attributes from peer</a> guide.</p>
+<p>For more information you should check out the section <a href="/versions/v7/integrate/request-and-response-introduction#readattributerequestitem">ReadAttributeRequestItem of the Request and Response introduction</a>.
+Furthermore, all details on how to use the ReadAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/read-attributes-from-peer">Read Attributes from peer</a> guide.</p>
 
 <table>
   <thead>
@@ -2468,7 +2520,8 @@ Otherwise, a string array of all selected options is expected, which may also co
 
 <h4 id="shareattributerequestitem">ShareAttributeRequestItem</h4>
 
-<p>For more information you should check out the section <a href="/versions/v7/integrate/request-and-response-introduction#shareattributerequestitem">ShareAttributeRequestItem of the Request and Response introduction</a>. Furthermore, all details on how to use the ShareAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/share-attributes-with-peer">Share Attributes with peer</a> guide.</p>
+<p>For more information you should check out the section <a href="/versions/v7/integrate/request-and-response-introduction#shareattributerequestitem">ShareAttributeRequestItem of the Request and Response introduction</a>.
+Furthermore, all details on how to use the ShareAttributeRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/share-attributes-with-peer">Share Attributes with peer</a> guide.</p>
 
 <table>
   <thead>
@@ -2519,7 +2572,8 @@ Otherwise, a string array of all selected options is expected, which may also co
 
 <h4 id="transferfileownershiprequestitem">TransferFileOwnershipRequestItem</h4>
 
-<p>For more information you should check out the section <a href="/versions/v7/integrate/request-and-response-introduction#transferfileownershiprequestitem">TransferFileOwnershipRequestItem of the Request and Response introduction</a>. Furthermore, all details on how to use the TransferFileOwnershipRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/exchange-files-using-attributes#transfer-the-ownership-of-a-file-to-a-peer">Exchange Files using Attributes</a> guide.</p>
+<p>For more information you should check out the section <a href="/versions/v7/integrate/request-and-response-introduction#transferfileownershiprequestitem">TransferFileOwnershipRequestItem of the Request and Response introduction</a>.
+Furthermore, all details on how to use the TransferFileOwnershipRequestItem and examples of use cases for it can be found in the <a href="/versions/v7/integrate/exchange-files-using-attributes#transfer-the-ownership-of-a-file-to-a-peer">Exchange Files using Attributes</a> guide.</p>
 
 <table>
   <thead>
@@ -3009,7 +3063,9 @@ Receiving an AttributeSuccessionAcceptResponseItem, the respective shared LocalA
 
 <h4 id="errorresponseitem">ErrorResponseItem</h4>
 
-<p>The <code class="language-plaintext highlighter-rouge">ErrorResponseItem</code> is only created by the enmeshed Runtime, in case something happens which hinders you from further processing of the RequestItem. It will never be created manually. The properties are:</p>
+<p>The <code class="language-plaintext highlighter-rouge">ErrorResponseItem</code> is only created by the enmeshed Runtime, in case something happens which hinders you from further processing of the RequestItem.
+It will never be created manually.
+The properties are:</p>
 
 <table>
   <thead>
@@ -3069,7 +3125,8 @@ Receiving an AttributeSuccessionAcceptResponseItem, the respective shared LocalA
 
 <h2 id="responsewrapper">ResponseWrapper</h2>
 
-<p>The ResponseWrapper is a wrapper around the Response that is sent by the recipient of the Request. It contains the Response itself, but also some additional information that is required for the Request to be processed correctly.</p>
+<p>The ResponseWrapper is a wrapper around the Response that is sent by the recipient of the Request.
+It contains the Response itself, but also some additional information that is required for the Request to be processed correctly.</p>
 
 <table>
   <thead>
@@ -3265,11 +3322,14 @@ Internally, the succeeded version will then be created at the peer’s side as s
 
 <h2 id="attributes">Attributes</h2>
 
-<p>An Attribute is some piece of information about an Identity itself (e.g. its name, address, birth date, etc.) or about an Identity in the context of a Relationship (e.g. the customer id the of the user the Relationship). Since the two scenarios differ quite a lot, there are two different types for them: IdentityAttribute and RelationshipAttribute.</p>
+<p>An Attribute is some piece of information about an Identity itself (e.g. its name, address, birth date, etc.) or about an Identity in the context of a Relationship (e.g. the customer id the of the user the Relationship).
+Since the two scenarios differ quite a lot, there are two different types for them: IdentityAttribute and RelationshipAttribute.</p>
 
 <h3 id="identityattribute">IdentityAttribute</h3>
 
-<p>IdentityAttributes describe an Identity itself. Their values are strongly normalized. There is a list of available values <a href="/versions/v7/integrate/attribute-values">here</a>.</p>
+<p>IdentityAttributes describe an Identity itself.
+Their values are strongly normalized.
+There is a list of available values <a href="/versions/v7/integrate/attribute-values">here</a>.</p>
 
 <table>
   <thead>
@@ -3305,7 +3365,8 @@ Internally, the succeeded version will then be created at the peer’s side as s
 
 <h3 id="relationshipattribute">RelationshipAttribute</h3>
 
-<p>RelationshipAttributes describe an Identity in the context of a Relationship. While there are some types that can be used as a value for a RelationshipAttribute, these types are rather generic (e.g. <code class="language-plaintext highlighter-rouge">ProprietaryString</code>, <code class="language-plaintext highlighter-rouge">ProprietaryInteger</code>, …).</p>
+<p>RelationshipAttributes describe an Identity in the context of a Relationship.
+While there are some types that can be used as a value for a RelationshipAttribute, these types are rather generic (e.g. <code class="language-plaintext highlighter-rouge">ProprietaryString</code>, <code class="language-plaintext highlighter-rouge">ProprietaryInteger</code>, …).</p>
 
 <table>
   <thead>
@@ -3358,11 +3419,16 @@ Internally, the succeeded version will then be created at the peer’s side as s
 
 <h2 id="attributequeries">AttributeQueries</h2>
 
-<p>One of the main features of enmeshed is sharing Attributes. For this, an Identity either proactively sends its Attributes to a peer. Or, if let’s say a company wants to know the birth date of its customer, it can ask for it. Depending on the exact use case, the latter can be achieved with one of a bunch of RequestItems, like for example a <a href="#readattributerequestitem"><code class="language-plaintext highlighter-rouge">ReadAttributeRequestItem</code></a>, or a <a href="#createattributerequestitem"><code class="language-plaintext highlighter-rouge">CreateAttributeRequestItem</code></a>. All of them have in common that they define a <code class="language-plaintext highlighter-rouge">query</code> property, which contains either an <a href="#identityattributequery"><code class="language-plaintext highlighter-rouge">IdentityAttributeQuery</code></a> or a <a href="#relationshipattributequery"><code class="language-plaintext highlighter-rouge">RelationshipAttributeQuery</code></a>.</p>
+<p>One of the main features of enmeshed is sharing Attributes.
+For this, an Identity either proactively sends its Attributes to a peer.
+Or, if let’s say a company wants to know the birth date of its customer, it can ask for it.
+Depending on the exact use case, the latter can be achieved with one of a bunch of RequestItems, like for example a <a href="#readattributerequestitem"><code class="language-plaintext highlighter-rouge">ReadAttributeRequestItem</code></a>, or a <a href="#createattributerequestitem"><code class="language-plaintext highlighter-rouge">CreateAttributeRequestItem</code></a>.
+All of them have in common that they define a <code class="language-plaintext highlighter-rouge">query</code> property, which contains either an <a href="#identityattributequery"><code class="language-plaintext highlighter-rouge">IdentityAttributeQuery</code></a> or a <a href="#relationshipattributequery"><code class="language-plaintext highlighter-rouge">RelationshipAttributeQuery</code></a>.</p>
 
 <h3 id="identityattributequery">IdentityAttributeQuery</h3>
 
-<p>An <code class="language-plaintext highlighter-rouge">IdentityAttributeQuery</code> is used to query for IdentityAttributes. For that, it defines the following properties:</p>
+<p>An <code class="language-plaintext highlighter-rouge">IdentityAttributeQuery</code> is used to query for IdentityAttributes.
+For that, it defines the following properties:</p>
 
 <table>
   <thead>
@@ -3395,7 +3461,11 @@ Internally, the succeeded version will then be created at the peer’s side as s
 
 <h3 id="relationshipattributequery">RelationshipAttributeQuery</h3>
 
-<p>There are cases in which you want to query some data from your peer that is not an IdentityAttribute. An example for this is when an electricity provider asks for the electric meter number of a new customer. Since this information is only relevant in the context of the Relationship, an IdentityAttribute wouldn’t make any sense here. That’s why you would send a <code class="language-plaintext highlighter-rouge">RelationshipAttributeQuery</code>. Its properties are:</p>
+<p>There are cases in which you want to query some data from your peer that is not an IdentityAttribute.
+An example for this is when an electricity provider asks for the electric meter number of a new customer.
+Since this information is only relevant in the context of the Relationship, an IdentityAttribute wouldn’t make any sense here.
+That’s why you would send a <code class="language-plaintext highlighter-rouge">RelationshipAttributeQuery</code>.
+Its properties are:</p>
 
 <table>
   <thead>
@@ -3524,7 +3594,8 @@ Internally, the succeeded version will then be created at the peer’s side as s
 
 <h4 id="valuehintsoverride">ValueHintsOverride</h4>
 
-<p><code class="language-plaintext highlighter-rouge">ValueHintsOverride</code> has the same properties as <a href="#valuehints"><code class="language-plaintext highlighter-rouge">ValueHints</code></a>, except that all of them are optional. This type is used for some <a href="/versions/v7/integrate/attribute-values#relationship-attributes">RelationshipAttribute values</a></p>
+<p><code class="language-plaintext highlighter-rouge">ValueHintsOverride</code> has the same properties as <a href="#valuehints"><code class="language-plaintext highlighter-rouge">ValueHints</code></a>, except that all of them are optional.
+This type is used for some <a href="/versions/v7/integrate/attribute-values#relationship-attributes">RelationshipAttribute values</a></p>
 
 <h4 id="valuehintsvalue">ValueHintsValue</h4>
 
@@ -3552,7 +3623,9 @@ Internally, the succeeded version will then be created at the peer’s side as s
 
 <h3 id="thirdpartyrelationshipattributequery">ThirdPartyRelationshipAttributeQuery</h3>
 
-<p>If you want to query RelationshipAttributes the Recipient has in the context of a Relationship with a third party, you can use the <code class="language-plaintext highlighter-rouge">ThirdPartyRelationshipAttributeQuery</code>. An example would be the query for the number of a bonus card managed by another company (like Payback). A ThirdPartyRelationshipAttributeQuery has the following properties:</p>
+<p>If you want to query RelationshipAttributes the Recipient has in the context of a Relationship with a third party, you can use the <code class="language-plaintext highlighter-rouge">ThirdPartyRelationshipAttributeQuery</code>.
+An example would be the query for the number of a bonus card managed by another company (like Payback).
+A ThirdPartyRelationshipAttributeQuery has the following properties:</p>
 
 <table>
   <thead>
@@ -3588,7 +3661,11 @@ Internally, the succeeded version will then be created at the peer’s side as s
 
 <h3 id="iqlquery">IQLQuery</h3>
 
-<p>If you want to query IdentityAttributes by their content, you can use the <code class="language-plaintext highlighter-rouge">IQLQuery</code> which is based on the IQL language, a simple and accessible yet powerful query language for IdentityAttributes. It allows you to specify conditions the IdentityAttribute must match and which may be chained using binary operations. Every property of the IdentityAttribute’s content may be queried. For a full explanation of the IQL syntax, see its <a href="/versions/v7/integrate/iql-syntax">dedicated documentation page</a> which also includes an interactive demo for you to try out different queries. If no IdentityAttribute corresponding to the IQLQuery exists at the peer’s side, you are given the possibility to add <code class="language-plaintext highlighter-rouge">attributeCreationHints</code>, suggesting to create an IdentityAttribute which matches a specific <code class="language-plaintext highlighter-rouge">valueType</code> and optionally <code class="language-plaintext highlighter-rouge">tags</code>.</p>
+<p>If you want to query IdentityAttributes by their content, you can use the <code class="language-plaintext highlighter-rouge">IQLQuery</code> which is based on the IQL language, a simple and accessible yet powerful query language for IdentityAttributes.
+It allows you to specify conditions the IdentityAttribute must match and which may be chained using binary operations.
+Every property of the IdentityAttribute’s content may be queried.
+For a full explanation of the IQL syntax, see its <a href="/versions/v7/integrate/iql-syntax">dedicated documentation page</a> which also includes an interactive demo for you to try out different queries.
+If no IdentityAttribute corresponding to the IQLQuery exists at the peer’s side, you are given the possibility to add <code class="language-plaintext highlighter-rouge">attributeCreationHints</code>, suggesting to create an IdentityAttribute which matches a specific <code class="language-plaintext highlighter-rouge">valueType</code> and optionally <code class="language-plaintext highlighter-rouge">tags</code>.</p>
 
 <table>
   <thead>
@@ -3643,7 +3720,8 @@ Internally, the succeeded version will then be created at the peer’s side as s
 
 <h2 id="relationshiptemplatecontent">RelationshipTemplateContent</h2>
 
-<p>Theoretically you can send any kind of data in a RelationshipTemplate. However, if your peer uses the enmeshed App, it will only be able to process RelationshipTemplates that contain a <code class="language-plaintext highlighter-rouge">RelationshipTemplateContent</code>, which looks like this:</p>
+<p>Theoretically you can send any kind of data in a RelationshipTemplate.
+However, if your peer uses the enmeshed App, it will only be able to process RelationshipTemplates that contain a <code class="language-plaintext highlighter-rouge">RelationshipTemplateContent</code>, which looks like this:</p>
 
 <table>
   <thead>
@@ -3710,7 +3788,8 @@ Internally, the succeeded version will then be created at the peer’s side as s
 
 <h2 id="relationshipcreationcontent">RelationshipCreationContent</h2>
 
-<p>Theoretically you can send any kind of data in a <a href="#relationship">Relationship’s</a> <code class="language-plaintext highlighter-rouge">creationContent</code>. However, if the <a href="#relationshiptemplate">RelationshipTemplate’s</a> <code class="language-plaintext highlighter-rouge">content</code> was of type <code class="language-plaintext highlighter-rouge">RelationshipTemplateContent</code>, the <code class="language-plaintext highlighter-rouge">creationContent</code> must be of type <code class="language-plaintext highlighter-rouge">RelationshipCreationContent</code>, containing the Response to the <a href="#request">Request</a> contained within the <a href="#relationshiptemplatecontent">RelationshipTemplateContent’s</a> <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property.</p>
+<p>Theoretically you can send any kind of data in a <a href="#relationship">Relationship’s</a> <code class="language-plaintext highlighter-rouge">creationContent</code>.
+However, if the <a href="#relationshiptemplate">RelationshipTemplate’s</a> <code class="language-plaintext highlighter-rouge">content</code> was of type <code class="language-plaintext highlighter-rouge">RelationshipTemplateContent</code>, the <code class="language-plaintext highlighter-rouge">creationContent</code> must be of type <code class="language-plaintext highlighter-rouge">RelationshipCreationContent</code>, containing the Response to the <a href="#request">Request</a> contained within the <a href="#relationshiptemplatecontent">RelationshipTemplateContent’s</a> <code class="language-plaintext highlighter-rouge">onNewRelationship</code> property.</p>
 
 <table>
   <thead>
@@ -3762,7 +3841,8 @@ Internally, the succeeded version will then be created at the peer’s side as s
 
 <h2 id="mail">Mail</h2>
 
-<p>A Mail can be sent as the content of a <a href="#message">Message</a>. It is comparable with the classic email, so its properties should be familiar.</p>
+<p>A Mail can be sent as the content of a <a href="#message">Message</a>.
+It is comparable with the classic email, so its properties should be familiar.</p>
 
 <table>
   <thead>
@@ -4095,7 +4175,7 @@ There is the <a href="/versions/v7/use-case-consumption-upsert-identitymetadata"
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:34+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T17:03:21+01:00">November 3, 2025</time></p>
 
       </footer>
 

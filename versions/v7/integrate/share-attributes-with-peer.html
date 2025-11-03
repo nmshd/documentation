@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-03T16:48:34+01:00">
+  <meta property="article:published_time" content="2025-11-03T17:03:21+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Share Attributes with peer">
     <meta itemprop="description" content="There are many situations in which an Identity wants to share an IdentityAttribute or a RelationshipAttribute with another Identity, for example:">
-    <meta itemprop="datePublished" content="2025-11-03T16:48:34+01:00">
+    <meta itemprop="datePublished" content="2025-11-03T17:03:21+01:00">
     
 
     <div class="page__inner-wrap">
@@ -400,13 +400,17 @@
   <li>A company wants to share the customer number of one of its customers with another company.</li>
 </ul>
 
-<p>In this guide, we explain how a Connector, hereinafter referred to as the Sender, can share an <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a> with another Connector, the so-called Recipient. Since understanding this sharing process requires knowledge about <a href="/versions/v7/integrate/data-model-overview#request">Requests</a> and how to use them in general, you should take a look at our <a href="/versions/v7/integrate/request-and-response-introduction">Request and Response introduction</a> before continuing reading this guide.</p>
+<p>In this guide, we explain how a Connector, hereinafter referred to as the Sender, can share an <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a> with another Connector, the so-called Recipient.
+Since understanding this sharing process requires knowledge about <a href="/versions/v7/integrate/data-model-overview#request">Requests</a> and how to use them in general, you should take a look at our <a href="/versions/v7/integrate/request-and-response-introduction">Request and Response introduction</a> before continuing reading this guide.</p>
 
-<p class="notice--info">Please note that the general procedure is the same if the Connector wants to share an Attribute with an App user instead of another Connector. For reasons of clarity, this guide focuses on the sharing process with two Connectors.</p>
+<p class="notice--info">Please note that the general procedure is the same if the Connector wants to share an Attribute with an App user instead of another Connector.
+For reasons of clarity, this guide focuses on the sharing process with two Connectors.</p>
 
 <h2 id="request-for-sharing-attributes">Request for sharing Attributes</h2>
 
-<p>The Sender wants to share an Attribute with the Recipient. To do this, the Sender must first create a suitable Request, which it can then send to the Recipient. In the following subsections, we describe the general appearance of a Request for sharing Attributes.</p>
+<p>The Sender wants to share an Attribute with the Recipient.
+To do this, the Sender must first create a suitable Request, which it can then send to the Recipient.
+In the following subsections, we describe the general appearance of a Request for sharing Attributes.</p>
 
 <h3 id="role-of-shareattributerequestitem">Role of ShareAttributeRequestItem</h3>
 
@@ -416,11 +420,15 @@ The latter means that the address of the Sender is contained in the <code class=
 The <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute must be inserted into the <code class="language-plaintext highlighter-rouge">sourceAttributeId</code> property and the <code class="language-plaintext highlighter-rouge">content</code> of the LocalAttribute into the <code class="language-plaintext highlighter-rouge">attribute</code> property of the ShareAttributeRequestItem.
 If a RelationshipAttribute is to be shared, the <code class="language-plaintext highlighter-rouge">thirdPartyAddress</code> property of the ShareAttributeRequestItem must contain the address of the <code class="language-plaintext highlighter-rouge">peer</code> with whom the Sender has the <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> from which the RelationshipAttribute originates.</p>
 
-<p class="notice--info">To get a list of all LocalAttributes that are owned by the Sender, proceed as described in the <a href="/versions/v7/use-case-consumption-get-attributes">Get Attributes</a> use case documentation and use <code class="language-plaintext highlighter-rouge">content.owner=&lt;address of Sender&gt;</code> as query parameter. Please note that the <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> notation is used as a placeholder for the actual data as usual. If the <code class="language-plaintext highlighter-rouge">id</code> of a LocalAttribute is known, the underlying IdentityAttribute or RelationshipAttribute within its <code class="language-plaintext highlighter-rouge">content</code> property can be displayed by consulting the <a href="/versions/v7/use-case-consumption-get-attribute">Get Attribute</a> use case description and specifying the <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute.</p>
+<p class="notice--info">To get a list of all LocalAttributes that are owned by the Sender, proceed as described in the <a href="/versions/v7/use-case-consumption-get-attributes">Get Attributes</a> use case documentation and use <code class="language-plaintext highlighter-rouge">content.owner=&lt;address of Sender&gt;</code> as query parameter.
+Please note that the <code class="language-plaintext highlighter-rouge">&lt;...&gt;</code> notation is used as a placeholder for the actual data as usual.
+If the <code class="language-plaintext highlighter-rouge">id</code> of a LocalAttribute is known, the underlying IdentityAttribute or RelationshipAttribute within its <code class="language-plaintext highlighter-rouge">content</code> property can be displayed by consulting the <a href="/versions/v7/use-case-consumption-get-attribute">Get Attribute</a> use case description and specifying the <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute.</p>
 
 <h3 id="combinations-and-usage-scenarios-of-shareattributerequestitem">Combinations and usage scenarios of ShareAttributeRequestItem</h3>
 
-<p>The following table provides an overview of the possible kinds of Attributes that the Sender can share with the Recipient using the ShareAttributeRequestItem. It must be taken into account whether the <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a> to be shared is an IdentityAttribute or a RelationshipAttribute and which Identity is its <code class="language-plaintext highlighter-rouge">owner</code>. If the Sender wants to share a RelationshipAttribute with the Recipient, it must exist in the context of a Relationship between the Sender and a third party, because it makes no sense for the Sender to share a RelationshipAttribute that exists in the context of the Relationship between the Sender and the Recipient with the Recipient.</p>
+<p>The following table provides an overview of the possible kinds of Attributes that the Sender can share with the Recipient using the ShareAttributeRequestItem.
+It must be taken into account whether the <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a> to be shared is an IdentityAttribute or a RelationshipAttribute and which Identity is its <code class="language-plaintext highlighter-rouge">owner</code>.
+If the Sender wants to share a RelationshipAttribute with the Recipient, it must exist in the context of a Relationship between the Sender and a third party, because it makes no sense for the Sender to share a RelationshipAttribute that exists in the context of the Relationship between the Sender and the Recipient with the Recipient.</p>
 
 <table>
   <thead>
@@ -521,7 +529,9 @@ The value of the <code class="language-plaintext highlighter-rouge">mustBeAccept
 
 <h3 id="example-of-sharing-a-relationshipattribute">Example of sharing a RelationshipAttribute</h3>
 
-<p>We now consider the case in which the Sender has an active <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> with a third party and owns a RelationshipAttribute, which has already been created by using an appropriate Request, of type <a href="/versions/v7/integrate/attribute-values#proprietarystring">ProprietaryString</a> of this Relationship. The Sender can request to share this RelationshipAttribute with the Recipient if its <code class="language-plaintext highlighter-rouge">confidentiality</code> is <code class="language-plaintext highlighter-rouge">"protected"</code> or <code class="language-plaintext highlighter-rouge">"public"</code>. In our example, we assume that the <code class="language-plaintext highlighter-rouge">confidentiality</code> of the RelationshipAttribute is <code class="language-plaintext highlighter-rouge">"public"</code> and that it is stored locally within the <code class="language-plaintext highlighter-rouge">content</code> property of a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> of the Sender, which is also referred to as an <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-relationshipattributes">own shared RelationshipAttribute</a>.</p>
+<p>We now consider the case in which the Sender has an active <a href="/versions/v7/integrate/data-model-overview#relationship">Relationship</a> with a third party and owns a RelationshipAttribute, which has already been created by using an appropriate Request, of type <a href="/versions/v7/integrate/attribute-values#proprietarystring">ProprietaryString</a> of this Relationship.
+The Sender can request to share this RelationshipAttribute with the Recipient if its <code class="language-plaintext highlighter-rouge">confidentiality</code> is <code class="language-plaintext highlighter-rouge">"protected"</code> or <code class="language-plaintext highlighter-rouge">"public"</code>.
+In our example, we assume that the <code class="language-plaintext highlighter-rouge">confidentiality</code> of the RelationshipAttribute is <code class="language-plaintext highlighter-rouge">"public"</code> and that it is stored locally within the <code class="language-plaintext highlighter-rouge">content</code> property of a <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> of the Sender, which is also referred to as an <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-relationshipattributes">own shared RelationshipAttribute</a>.</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LocalAttribute"</span><span class="p">,</span><span class="w">
@@ -577,25 +587,35 @@ The value of the <code class="language-plaintext highlighter-rouge">mustBeAccept
 
 <h3 id="share-multiple-attributes">Share multiple Attributes</h3>
 
-<p>Sharing is not limited to just a single Attribute, but it is possible to request the sharing of multiple Attributes at the same time. For this purpose, several ShareAttributeRequestItems or suitable <a href="/versions/v7/integrate/data-model-overview#requestitemgroup">RequestItemGroups</a> can be inserted into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for sharing Attributes. If you want to use a RequestItemGroup in order to share multiple Attributes with the Recipient at the same time, you must insert corresponding ShareAttributeRequestItems into the <code class="language-plaintext highlighter-rouge">items</code> property of it.</p>
+<p>Sharing is not limited to just a single Attribute, but it is possible to request the sharing of multiple Attributes at the same time.
+For this purpose, several ShareAttributeRequestItems or suitable <a href="/versions/v7/integrate/data-model-overview#requestitemgroup">RequestItemGroups</a> can be inserted into the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for sharing Attributes.
+If you want to use a RequestItemGroup in order to share multiple Attributes with the Recipient at the same time, you must insert corresponding ShareAttributeRequestItems into the <code class="language-plaintext highlighter-rouge">items</code> property of it.</p>
 
 <h2 id="send-and-receive-the-request">Send and receive the Request</h2>
 
-<p>The Sender that wants to share an Attribute with the Recipient may or may not already have a Relationship with the Recipient. Depending on which is the case, a different method can be used to send the <a href="/versions/v7/integrate/share-attributes-with-peer#request-for-sharing-attributes">Request for sharing Attributes</a>. There are two ways to send the Request for sharing Attributes created by the Sender to the Recipient.</p>
+<p>The Sender that wants to share an Attribute with the Recipient may or may not already have a Relationship with the Recipient.
+Depending on which is the case, a different method can be used to send the <a href="/versions/v7/integrate/share-attributes-with-peer#request-for-sharing-attributes">Request for sharing Attributes</a>.
+There are two ways to send the Request for sharing Attributes created by the Sender to the Recipient.</p>
 
 <h3 id="request-via-relationshiptemplate">Request via RelationshipTemplate</h3>
 
-<p>If there is currently no Relationship between the Sender and the Recipient, this approach must be used. However, it is also possible for the Sender to use a <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> to send a Request to the Recipient if there is already an active Relationship between them. All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the <a href="/versions/v7/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a> guide.</p>
+<p>If there is currently no Relationship between the Sender and the Recipient, this approach must be used.
+However, it is also possible for the Sender to use a <a href="/versions/v7/integrate/data-model-overview#relationshiptemplate">RelationshipTemplate</a> to send a Request to the Recipient if there is already an active Relationship between them.
+All details on how to send and receive a Request via a RelationshipTemplate in general can be found in the <a href="/versions/v7/integrate/requests-via-relationshiptemplates">Requests via RelationshipTemplates</a> guide.</p>
 
 <h3 id="request-via-message">Request via Message</h3>
 
-<p>The Sender only has the option of sending a Request to the Recipient via a <a href="/versions/v7/integrate/data-model-overview#message">Message</a> if there is already an active Relationship between them. All information on how to send and receive a Request via a Message can be found in the <a href="/versions/v7/integrate/requests-via-messages">Requests via Messages</a> guide.</p>
+<p>The Sender only has the option of sending a Request to the Recipient via a <a href="/versions/v7/integrate/data-model-overview#message">Message</a> if there is already an active Relationship between them.
+All information on how to send and receive a Request via a Message can be found in the <a href="/versions/v7/integrate/requests-via-messages">Requests via Messages</a> guide.</p>
 
 <h2 id="accept-the-request-and-get-the-attributes">Accept the Request and get the Attributes</h2>
 
-<p>After the Recipient has received the <a href="/versions/v7/integrate/share-attributes-with-peer#request-for-sharing-attributes">Request for sharing Attributes</a>, it can accept it to get all or some of the Sender’s shared Attributes. To do this, proceed as described in the <a href="/versions/v7/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case documentation and specify the <code class="language-plaintext highlighter-rouge">id</code> of the received <a href="/versions/v7/integrate/data-model-overview#request">Request</a>. Also, you need to decide and specify for each ShareAttributeRequestItem contained in the Request for sharing Attributes whether you want to accept or reject it.</p>
+<p>After the Recipient has received the <a href="/versions/v7/integrate/share-attributes-with-peer#request-for-sharing-attributes">Request for sharing Attributes</a>, it can accept it to get all or some of the Sender’s shared Attributes.
+To do this, proceed as described in the <a href="/versions/v7/use-case-consumption-accept-incoming-request">Accept incoming Request</a> use case documentation and specify the <code class="language-plaintext highlighter-rouge">id</code> of the received <a href="/versions/v7/integrate/data-model-overview#request">Request</a>.
+Also, you need to decide and specify for each ShareAttributeRequestItem contained in the Request for sharing Attributes whether you want to accept or reject it.</p>
 
-<p class="notice--info">If the Recipient does not want to get any of the Sender’s shared Attributes and, therefore, does not want to accept the Request for sharing Attributes of the Sender, it can reject it as a whole too. For that, follow the instructions of the <a href="/versions/v7/use-case-consumption-reject-incoming-request">Reject incoming Request</a> use case.</p>
+<p class="notice--info">If the Recipient does not want to get any of the Sender’s shared Attributes and, therefore, does not want to accept the Request for sharing Attributes of the Sender, it can reject it as a whole too.
+For that, follow the instructions of the <a href="/versions/v7/use-case-consumption-reject-incoming-request">Reject incoming Request</a> use case.</p>
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/ac0ca016-1e9b-40f7-b897-290f54c43782" id="crwP~ShTXcFl"></iframe></div>
 
@@ -611,11 +631,17 @@ This will be contained within the <code class="language-plaintext highlighter-ro
 
 <h3 id="reject-a-shareattributerequestitem">Reject a ShareAttributeRequestItem</h3>
 
-<p>Even if the Recipient accepts the Request for sharing Attributes as a whole, it may decide not to accept all of the Sender’s shared Attributes. To be more precise, the Recipient has the option of rejecting <a href="/versions/v7/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItems</a> that have the value <code class="language-plaintext highlighter-rouge">false</code> specified in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property. To reject a ShareAttributeRequestItem, use the <a href="/versions/v7/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a>. The rejection of a ShareAttributeRequestItem leads to the creation of a corresponding ResponseItem of type <a href="/versions/v7/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a>. This will be contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#response">Response</a> to the Request for sharing Attributes.</p>
+<p>Even if the Recipient accepts the Request for sharing Attributes as a whole, it may decide not to accept all of the Sender’s shared Attributes.
+To be more precise, the Recipient has the option of rejecting <a href="/versions/v7/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItems</a> that have the value <code class="language-plaintext highlighter-rouge">false</code> specified in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property.
+To reject a ShareAttributeRequestItem, use the <a href="/versions/v7/integrate/data-model-overview#rejectrequestitemparameters">RejectRequestItemParameters</a>.
+The rejection of a ShareAttributeRequestItem leads to the creation of a corresponding ResponseItem of type <a href="/versions/v7/integrate/data-model-overview#rejectresponseitem">RejectResponseItem</a>.
+This will be contained within the <code class="language-plaintext highlighter-rouge">items</code> property of the <a href="/versions/v7/integrate/data-model-overview#response">Response</a> to the Request for sharing Attributes.</p>
 
 <h3 id="example-of-accepting-a-requestitemgroup">Example of accepting a RequestItemGroup</h3>
 
-<p>Let’s look at an example where the Sender wants to share its <a href="/versions/v7/integrate/attribute-values#displayname">DisplayName</a> and contact information in the form of an <a href="/versions/v7/integrate/attribute-values#emailaddress">EMailAddress</a> or a <a href="/versions/v7/integrate/attribute-values#phonenumber">PhoneNumber</a> with the Recipient. For this purpose, the Sender creates a <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for sharing Attributes, which contains a ShareAttributeRequestItem belonging to the DisplayName and a RequestItemGroup belonging to the contact information in its <code class="language-plaintext highlighter-rouge">items</code> property. The <a href="/versions/v7/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> itself includes two ShareAttributeRequestItems in its <code class="language-plaintext highlighter-rouge">items</code> property, namely one for the EMailAddress and one for the PhoneNumber.</p>
+<p>Let’s look at an example where the Sender wants to share its <a href="/versions/v7/integrate/attribute-values#displayname">DisplayName</a> and contact information in the form of an <a href="/versions/v7/integrate/attribute-values#emailaddress">EMailAddress</a> or a <a href="/versions/v7/integrate/attribute-values#phonenumber">PhoneNumber</a> with the Recipient.
+For this purpose, the Sender creates a <a href="/versions/v7/integrate/data-model-overview#request">Request</a> for sharing Attributes, which contains a ShareAttributeRequestItem belonging to the DisplayName and a RequestItemGroup belonging to the contact information in its <code class="language-plaintext highlighter-rouge">items</code> property.
+The <a href="/versions/v7/integrate/data-model-overview#requestitemgroup">RequestItemGroup</a> itself includes two ShareAttributeRequestItems in its <code class="language-plaintext highlighter-rouge">items</code> property, namely one for the EMailAddress and one for the PhoneNumber.</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request"</span><span class="p">,</span><span class="w">
@@ -668,11 +694,15 @@ This will be contained within the <code class="language-plaintext highlighter-ro
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>In our example, the Sender only requires the Recipient to accept the DisplayName and the EMailAddress, which is why the individual <a href="/versions/v7/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItems</a> within the Request have specified corresponding values in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property. We assume that the Recipient wants to accept the Request and all its ShareAttributeRequestItems with the exception of the PhoneNumber.</p>
+<p>In our example, the Sender only requires the Recipient to accept the DisplayName and the EMailAddress, which is why the individual <a href="/versions/v7/integrate/data-model-overview#shareattributerequestitem">ShareAttributeRequestItems</a> within the Request have specified corresponding values in their <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property.
+We assume that the Recipient wants to accept the Request and all its ShareAttributeRequestItems with the exception of the PhoneNumber.</p>
 
-<p class="notice--info">If the Recipient wants to accept the Request for sharing Attributes, it must accept all ShareAttributeRequestItems for which the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code>. It is therefore not permitted for the Recipient to refuse to accept the DisplayName or the EMailAddress shared by the Sender.</p>
+<p class="notice--info">If the Recipient wants to accept the Request for sharing Attributes, it must accept all ShareAttributeRequestItems for which the <code class="language-plaintext highlighter-rouge">mustBeAccepted</code> property is set to <code class="language-plaintext highlighter-rouge">true</code>.
+It is therefore not permitted for the Recipient to refuse to accept the DisplayName or the EMailAddress shared by the Sender.</p>
 
-<p>The Recipient accepts the DisplayName of the Sender. Also, the Recipient accepts the EMailAddress and rejects the PhoneNumber of the Sender. It therefore responds to the Request for sharing Attributes as follows:</p>
+<p>The Recipient accepts the DisplayName of the Sender.
+Also, the Recipient accepts the EMailAddress and rejects the PhoneNumber of the Sender.
+It therefore responds to the Request for sharing Attributes as follows:</p>
 
 <div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -700,7 +730,9 @@ This will be contained within the <code class="language-plaintext highlighter-ro
 
 <h2 id="receive-the-response-to-the-request">Receive the Response to the Request</h2>
 
-<p>We now assume that the Recipient has accepted the <a href="/versions/v7/integrate/share-attributes-with-peer#request-for-sharing-attributes">Request for sharing Attributes</a> of the Sender. In order for the Sender to receive the Response of the Recipient, it needs to <a href="/versions/v7/use-case-transport-synchronize-updates-of-backbone">synchronize the updates of the Backbone</a>. Please note that this synchronization can also be automated by using the <a href="/versions/v7/operate/modules#sync">Sync Module</a>.</p>
+<p>We now assume that the Recipient has accepted the <a href="/versions/v7/integrate/share-attributes-with-peer#request-for-sharing-attributes">Request for sharing Attributes</a> of the Sender.
+In order for the Sender to receive the Response of the Recipient, it needs to <a href="/versions/v7/use-case-transport-synchronize-updates-of-backbone">synchronize the updates of the Backbone</a>.
+Please note that this synchronization can also be automated by using the <a href="/versions/v7/operate/modules#sync">Sync Module</a>.</p>
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen="" frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/8c6f398e-07ad-43a9-8dda-d4e638c34e57" id="giwP0P_T6Pk8"></iframe></div>
 
@@ -717,11 +749,14 @@ Note that each accepted ShareAttributeRequestItem leads to the creation of an ap
 Depending on whether an IdentityAttribute or a RelationshipAttribute has been shared by the Sender, it is referred to as either an <a href="/versions/v7/integrate/attribute-introduction#own-shared-and-peer-shared-identityattributes">own shared IdentityAttribute</a> or an <a href="/versions/v7/integrate/attribute-introduction#emitted-and-received-thirdpartyrelationshipattributes">emitted ThirdPartyRelationshipAttribute</a>.
 The <code class="language-plaintext highlighter-rouge">content</code> of the LocalAttribute is the underlying <code class="language-plaintext highlighter-rouge">attribute</code> of the ShareAttributeRequestItem.</p>
 
-<p class="notice--info">In case of an error, <a href="/versions/v7/integrate/data-model-overview#errorresponseitem">ErrorResponseItems</a> can also be included in the Response. If the Request for sharing Attributes contains a RequestItemGroup in its <code class="language-plaintext highlighter-rouge">items</code> property, the Response to this Request contains a corresponding <a href="/versions/v7/integrate/data-model-overview#responseitemgroup">ResponseItemGroup</a> in its <code class="language-plaintext highlighter-rouge">items</code> property.</p>
+<p class="notice--info">In case of an error, <a href="/versions/v7/integrate/data-model-overview#errorresponseitem">ErrorResponseItems</a> can also be included in the Response.
+If the Request for sharing Attributes contains a RequestItemGroup in its <code class="language-plaintext highlighter-rouge">items</code> property, the Response to this Request contains a corresponding <a href="/versions/v7/integrate/data-model-overview#responseitemgroup">ResponseItemGroup</a> in its <code class="language-plaintext highlighter-rouge">items</code> property.</p>
 
 <h2 id="whats-next">What’s next?</h2>
 
-<p>Take a look at our <a href="/versions/v7/integrate/integration-example">Integration example</a> if you want to see how an Identity shares an Attribute with a peer in the context of a larger process. Also note that it is not only possible to share an Attribute with a peer, but you can also request to read an Attribute from a peer. Consult the <a href="/versions/v7/integrate/read-attributes-from-peer">Read Attributes from peer</a> guide for this.</p>
+<p>Take a look at our <a href="/versions/v7/integrate/integration-example">Integration example</a> if you want to see how an Identity shares an Attribute with a peer in the context of a larger process.
+Also note that it is not only possible to share an Attribute with a peer, but you can also request to read an Attribute from a peer.
+Consult the <a href="/versions/v7/integrate/read-attributes-from-peer">Read Attributes from peer</a> guide for this.</p>
 
         
       </section>
@@ -733,7 +768,7 @@ The <code class="language-plaintext highlighter-rouge">content</code> of the Loc
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T16:48:34+01:00">November 3, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-03T17:03:21+01:00">November 3, 2025</time></p>
 
       </footer>
 
