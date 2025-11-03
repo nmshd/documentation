@@ -366,7 +366,7 @@ In the [Attribute introduction]({% link _docs_integrate/attribute-introduction.m
 
 ### OwnIdentityAttribute
 
-If an Identity [creates an IdentityAttribute for itself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself), an OwnIdentityAttribute is created.
+If an Identity [creates an IdentityAttribute for itself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself), it is referred to as an OwnIdentityAttribute.
 The Identity can share an [IdentityAttribute](#identityattribute) of itself with another Identity by [exchanging]({% link _docs_integrate/attribute-introduction.md %}#attribute-management-options) it using a suitable [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 In that case, [AttributeForwardingDetails](#attributeforwardingdetails) are created, with their `attributeId` property set to the `id` of the OwnIdentityAttribute to represent their association.
 
