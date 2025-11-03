@@ -80,7 +80,8 @@ To do so, execute `POST /api/core/v1/Attributes` with the following payload:
 
 {% include rapidoc api_route_regex="^post /api/core/v1/Attributes$" %}
 
-{% include copy-notice description="Save the `id` and the `owner` of the Attribute that you can find in the response. You will need it in the next step." %}
+{% include copy-notice description="Save the `id` and the `owner` of the Attribute that you can find in the response.
+You will need it in the next step." %}
 
 ### Connector: Test your Request's Validity
 
@@ -179,7 +180,8 @@ Furthermore, we specify an expiration date, which is located in the future, and 
 
 {% include rapidoc api_route_regex="^post /api/core/v1/RelationshipTemplates/Own$" %}
 
-{% include copy-notice description="Save the `id` of the RelationshipTemplate that you can find in the Response. You will need it in the next step." %}
+{% include copy-notice description="Save the `id` of the RelationshipTemplate that you can find in the Response.
+You will need it in the next step." %}
 
 ### Connector: Create a QR code for the RelationshipTemplate
 
@@ -230,7 +232,8 @@ Example:
 }
 ```
 
-{% include copy-notice description="Save the `id` of the Relationship (`REL_________________`) and use it as input to the `PUT /api/core/v1/Relationships/{id}/Accept` route. You can leave that Request body as it is." %}
+{% include copy-notice description="Save the `id` of the Relationship (`REL_________________`) and use it as input to the `PUT /api/core/v1/Relationships/{id}/Accept` route.
+You can leave that Request body as it is." %}
 
 {% include rapidoc api_route_regex="^put /api/core/v1/Relationships/{id}/Accept$" %}
 
@@ -238,7 +241,8 @@ Now the Relationship is in the `Active` state, so we can start to communicate wi
 For this, we will need the `address` of that [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
 It can be found in the Response, when accepting the Relationship.
 
-{% include copy-notice description="Save the `peer` property of the Response (`did:e:_________________`). You will need it in the next step." %}
+{% include copy-notice description="Save the `peer` property of the Response (`did:e:_________________`).
+You will need it in the next step." %}
 
 ## Sending and Receiving Messages
 
