@@ -5,7 +5,7 @@
 <h6>Corresponding interactive API docs excerpt:</h6>
 {% endif %}
 <rapi-doc-mini
-    server-url="https://doc-demo-v7.is.enmeshed.eu/"
+    server-url="https://doc-demo.is.enmeshed.eu/"
     default-api-server="https://doc-demo-v7.is.enmeshed.eu/"
     api-key-name="x-api-key"
     api-key-location="header"
