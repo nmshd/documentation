@@ -516,7 +516,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Delete a ThirdPartyRelationshipAttribute and notify peer",
-        "excerpt":"This use case allows you to delete a ThirdPartyRelationshipAttribute, i.e. a LocalAttribute that has the property shareInfo.thirdPartyAddress set. Parameters The attributeId of the ThirdPartyRelationshipAttribute you want to delete. On Success The ThirdPartyRelationshipAttribute will be deleted. All predecessors of the ThirdPartyRelationshipAttribute will be deleted. If the ThirdPartyRelationshipAttribute was succeeded, the succeeds...","categories": [],
+        "excerpt":"This use case allows you to delete a ThirdPartyRelationshipAttribute, i.e. a LocalAttribute that has the property initialAttributePeer set. Parameters The attributeId of the ThirdPartyRelationshipAttribute you want to delete. On Success The ThirdPartyRelationshipAttribute will be deleted. All predecessors of the ThirdPartyRelationshipAttribute will be deleted. If the ThirdPartyRelationshipAttribute was succeeded, the succeeds...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer",
         "teaser": null
