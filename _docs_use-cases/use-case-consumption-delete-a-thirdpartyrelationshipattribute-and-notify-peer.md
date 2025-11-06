@@ -44,7 +44,7 @@ api_route_regex: ^DELETE /api/core/v1/Attributes/ThirdParty/{id}$
 
 {% include properties_list.html %}
 
-This use case allows you to delete a ThirdPartyRelationshipAttribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) that has the property `shareInfo.thirdPartyAddress` set.
+This use case allows you to delete a ThirdPartyRelationshipAttribute, i.e. a [LocalAttribute]({%link _docs_integrate/data-model-overview.md %}#localattribute) that has the property `initialAttributePeer` set.
 
 ## Parameters
 
