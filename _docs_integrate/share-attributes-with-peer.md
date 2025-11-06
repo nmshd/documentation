@@ -49,7 +49,7 @@ For sharing a single Attribute, the Sender needs to insert a single RequestItem 
 The Sender can only share an Attribute that already exists as a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) and, in the case of IdentityAttributes, is owned by it.
 The latter means that the address of the Sender is contained in the `content.owner` property of the corresponding LocalAttribute.
 The `id` of the LocalAttribute must be inserted into the `sourceAttributeId` property and the `content` of the LocalAttribute into the `attribute` property of the ShareAttributeRequestItem.
-If a RelationshipAttribute is to be shared, the `thirdPartyAddress` property of the ShareAttributeRequestItem must contain the address of the `peer` with whom the Sender has the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) from which the RelationshipAttribute originates.
+If a RelationshipAttribute is to be shared, the `initialAttributePeer` property of the ShareAttributeRequestItem must contain the address of the `peer` with whom the Sender has the [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) from which the RelationshipAttribute originates.
 
 To get a list of all LocalAttributes that are owned by the Sender, proceed as described in the [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}) use case documentation and use `content.owner=<address of Sender>` as query parameter.
 Please note that the `<...>` notation is used as a placeholder for the actual data as usual.
@@ -150,7 +150,7 @@ In our example, we assume that the `confidentiality` of the RelationshipAttribut
 ```
 
 To share the RelationshipAttribute with the Recipient, the Sender needs to insert the `id` of the corresponding own shared RelationshipAttribute into the `sourceAttributeId` property and the RelationshipAttribute itself into the `attribute` property of the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for sharing Attributes.
-Furthermore, the address of the third party, which corresponds to the `shareInfo.peer` of the own shared RelationshipAttribute, must be specified as the `thirdPartyAddress` of the ShareAttributeRequestItem.
+Furthermore, the address of the third party, which corresponds to the `shareInfo.peer` of the own shared RelationshipAttribute, must be specified as the `initialAttributePeer` of the ShareAttributeRequestItem.
 The value of the `mustBeAccepted` property is set to `true` in this example.
 
 ```jsonc
@@ -172,7 +172,7 @@ The value of the `mustBeAccepted` property is set to `true` in this example.
         }
       },
       "sourceAttributeId": "<ID of own shared RelationshipAttribute>",
-      "thirdPartyAddress": "<address of third party>"
+      "initialAttributePeer": "<address of third party>"
     }
   ]
 }
