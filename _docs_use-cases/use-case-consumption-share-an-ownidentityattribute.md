@@ -51,7 +51,7 @@ This own shared IdentityAttribute copy, however, in addition has a defined `shar
 It stores information about the `peer` you shared the Attribute with, the `id` of the original RepositoryAttribute in the field `sourceAttribute`, and a reference to the Request used to share the Attribute.
 Note that the own shared IdentityAttribute at your side and the peer shared IdentityAttribute at your peer's side are identical, except for the value in the `shareInfo.peer` field: on your side it will have the peer's address and on the peer's side it will have the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
 Please note further, that this use case is meant to be used to share a version of a RepositoryAttribute for the first time.
-If you have already shared another version of a succeeded Attribute with the peer and you want to let them know about the changes to its `value`, use the [NotifyPeerAboutRepositoryAttributeSuccession use-case]({% link _docs_use-cases/use-case-consumption-notify-peer-about-repositoryattribute-succession.md %}).
+If you have already shared another version of a succeeded Attribute with the peer and you want to let them know about the changes to its `value`, use the [Notify peer about OwnIdentityAttribute succession use case]({% link _docs_use-cases/use-case-consumption-notify-peer-about-ownidentityattribute-succession.md %}).
 
 ## Parameters
 

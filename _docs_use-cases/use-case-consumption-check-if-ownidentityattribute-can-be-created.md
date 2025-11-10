@@ -45,11 +45,11 @@ api_route_regex: ^PUT /api/core/v1/Attributes/CanCreate$
 {% include properties_list.html %}
 
 This use case checks whether a [RepositoryAttribute]({% link _docs_integrate/attribute-introduction.md %}#repositoryattributes), which is an unshared [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute), can be created without actually creating it.
-If a RepositoryAttribute can be created, this can be achieved by executing the [Create a RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-create-a-repositoryattribute.md %}) use case.
+If a RepositoryAttribute can be created, this can be achieved by executing the [Create an OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-create-an-ownidentityattribute.md %}) use case.
 
 ## Parameters
 
-- The `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) without the `owner` property, since its value would automatically be set to the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) during the potential [creation of the RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-create-a-repositoryattribute.md %}).
+- The `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) without the `owner` property, since its value would automatically be set to the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity) during the potential [creation of the OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-create-an-ownidentityattribute.md %}).
 
 ## On Success
 

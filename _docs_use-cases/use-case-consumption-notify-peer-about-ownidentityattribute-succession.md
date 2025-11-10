@@ -44,7 +44,7 @@ api_route_regex: ^POST /api/core/v1/Attributes/{attributeId}/NotifyPeer$
 
 {% include properties_list.html %}
 
-If you [succeeded a RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-succeed-a-repositoryattribute.md %}), whose previous version you [shared with a peer]({% link _docs_use-cases/use-case-consumption-share-a-repositoryattribute.md %}), you can decide to inform the peer about the succession.
+If you [succeeded an OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-succeed-an-ownidentityattribute.md %}), whose previous version you [shared with a peer]({% link _docs_use-cases/use-case-consumption-share-an-ownidentityattribute.md %}), you can decide to inform the peer about the succession.
 If you do so, the peer will receive a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification) via [Message]({% link _docs_integrate/data-model-overview.md %}#message), which handles the succession of their peer shared [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
 Also, the associated own shared IdentityAttribute at your side will be succeeded, i.e. a new version of the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be created and the predecessor will be updated to link to this successor in its `succeededBy` property.
 Note that it is possible to notify a peer about the succession of an IdentityAttribute you already shared with them, even if you didn't inform them about every previous version.
@@ -69,6 +69,6 @@ Moreover, it is also possible to notify a peer about the succession of an Identi
 - The response cannot be created if the `attributeId` belongs to an IdentityAttribute with a `shareInfo`.
 - The response cannot be created if you already notified the peer about the succession of the Attribute.
 - The response cannot be created if you already shared this or a newer version of the RepositoryAttribute with the peer.
-- The response cannot be created if you haven't shared a version of the Attribute with the peer before. To initially share a RepositoryAttribute, use the [ShareRepositoryAttribute use-case]({% link _docs_use-cases/use-case-consumption-share-a-repositoryattribute.md %}).
+- The response cannot be created if you haven't shared a version of the Attribute with the peer before. To initially share a RepositoryAttribute, use the [Share OwnIdentityAttribute use case]({% link _docs_use-cases/use-case-consumption-share-an-ownidentityattribute.md %}).
 - The response cannot be created if the latest previous version you shared has a `deletionInfo` with `deletionStatus` other than `"DeletionRequestRejected"`.
 - The response cannot be created if the parameters are malformed.

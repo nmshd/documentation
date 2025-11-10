@@ -107,7 +107,7 @@ The step-by-step instructions can be consulted to start the migration to version
 - For every Connector route originating from the [Core HTTP API Module]({% link _docs_operate/modules.md %}#corehttpapi), the prefix has been changed from `/api/v2` to `/api/core/v1` to reflect its origin.
   The prefix syntax change led to the version being reset.
 - The `GET /api/v2/Attributes/Valid` Connector route and its underlying [use case]({% link _docs_integrate/use-cases.md %}) for getting valid [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) were removed, because the properties `validFrom` and `validTo` have been removed from the Attributes.
-- For the same reason, the `onlyValid` parameter was removed from the use cases [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}), [Get own shared Attributes]({% link _docs_use-cases/use-case-consumption-get-own-shared-attributes.md %}) and [Get peer shared Attributes]({% link _docs_use-cases/use-case-consumption-get-peer-shared-attributes.md %}).
+- For the same reason, the `onlyValid` parameter was removed from the use cases [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}), [Get own Attributes shared with peer]({% link _docs_use-cases/use-case-consumption-get-own-attributes-shared-with-peer.md %}) and [Get peer Attributes]({% link _docs_use-cases/use-case-consumption-get-peer-attributes.md %}).
   Accordingly, it was removed from the associated Connector routes as well.
 
 - GetRepositoryAttributes was renamed to GetOwnIdentityAttributes.
@@ -155,7 +155,7 @@ However, the Connector routes associated with these use cases are not affected b
 
 - The nomenclature of [ThirdPartyRelationshipAttributes]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes) has already changed in version 6.
   In particular, the term third party owned RelationshipAttribute has become obsolete.
-  For this reason, the [Delete a ThirdPartyRelationshipAttribute and notify peer]({% link _docs_use-cases/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer.md %}) use case was already added in version 6 and the use case of deleting a third party owned RelationshipAttribute and notifying the peer was marked as deprecated.
+  For this reason, the [Delete a ThirdPartyRelationshipAttribute and notify peer]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}) use case was already added in version 6 and the use case of deleting a third party owned RelationshipAttribute and notifying the peer was marked as deprecated.
   It has now been deleted with the update to version 7.
 - It will be possible to load items not only from truncated references, but also from other references.
   For this reason, the [Load item from reference]({% link _docs_use-cases/use-case-transport-load-item-from-reference.md %}) use case was already added in version 6 and the use case of loading an item from a truncated reference was marked as deprecated.

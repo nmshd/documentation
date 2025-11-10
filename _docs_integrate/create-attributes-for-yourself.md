@@ -40,7 +40,7 @@ In particular, a description of the two kinds of IdentityAttributes, the [simple
 
 ### Input for creating a RepositoryAttribute
 
-To create a RepositoryAttribute, proceed as described in the [Create a RepositoryAttribute]({% link _docs_use-cases/use-case-consumption-create-a-repositoryattribute.md %}) use case documentation.
+To create a RepositoryAttribute, proceed as described in the [Create an OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-create-an-ownidentityattribute.md %}) use case documentation.
 As input for the creation of a RepositoryAttribute, the following `content` must be used:
 
 ```jsonc

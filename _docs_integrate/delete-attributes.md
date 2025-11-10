@@ -105,7 +105,7 @@ Receiving the Response with the [RejectResponseItem]({% link _docs_integrate/dat
 The actual deletion of a peer shared Attribute happens in a separate step.
 This can either be triggered if the `deletionInfo.deletionDate` is reached, in case the deletion was requested by the owner of the peer shared Attribute, or if the peer decides they no longer need it.
 
-To [delete a peer shared Attribute]({% link _docs_use-cases/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer.md %}), only its `attributeId` must be specified.
+To [delete a peer shared Attribute]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}), only its `attributeId` must be specified.
 Internally, not just the given peer shared Attribute is deleted, but also all its predecessors, in case there were any.
 Moreover, if the peer shared Attribute had a successor, its `succeeds` property will be set to undefined, as the corresponding predecessor no longer exists.
 Then, a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification) with a [ForwardedAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#forwardedattributedeletedbypeernotificationitem) or a [PeerRelationshipAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#peerrelationshipattributedeletedbypeernotificationitem) is generated and sent to the owner of the peer shared Attribute, informing them that you deleted the Attribute they shared with you.
@@ -118,7 +118,7 @@ It can then only be received and processed if the peer [cancels its deletion]({%
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/2385af4a-4bfa-43f4-a119-afb51273194d" id="HNEl2zIWWLxc"></iframe></div>
 
-If you want to [delete a ThirdPartyRelationshipAttribute]({% link _docs_use-cases/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer.md %}), the process will work analogously.
+If you want to [delete a ThirdPartyRelationshipAttribute]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}), the process will work analogously.
 In this case, a [ForwardedAttributeDeletedByPeerNotificationItem]({% link _docs_integrate/data-model-overview.md %}#forwardedattributedeletedbypeernotificationitem) will be sent.
 {: .notice--info}
 
@@ -129,7 +129,7 @@ Hence, it is always possible to delete own shared Attributes.
 Doing so before the [peer deleted their copy of the shared Attribute](#delete-peer-shared-attributes), however, you lose the information of having shared the Attribute with them and whether they keep their peer shared Attribute or delete it.
 Thus, we recommend to [request the deletion of own Attributes from the peer](#request-the-deletion-of-own-attributes-from-peer) before deleting them yourself.
 
-If you decide to [delete an own shared Attribute]({% link _docs_use-cases/use-case-consumption-delete-an-own-shared-attribute-and-notify-peer.md %}), you must specifiy its `attributeId`.
+If you decide to [delete an own shared Attribute]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}), you must specifiy its `attributeId`.
 Then, in addition to the own shared Attribute itself, also all its predecessors will be deleted, given there were any.
 Moreover, if the own shared Attribute had a successor, its `succeeds` property will be set to undefined, as the corresponding predecessor no longer exists.
 Then, a Notification with an [OwnAttributeDeletedByOwnerNotificationItem]({% link _docs_integrate/data-model-overview.md %}#ownattributedeletedbyownernotificationitem) is generated and sent to the peer you shared the Attribute with, informing them that you deleted that own shared Attribute.
@@ -145,12 +145,12 @@ It can then only be received and processed if the peer [cancels its deletion]({%
 
 ## Delete RepositoryAttributes
 
-Lastly, you can also [delete RepositoryAttributes]({% link _docs_use-cases/use-case-consumption-delete-a-repositoryattribute.md %}), i.e. LocalAttributes that are owned by yourself and whose `shareInfo` property is undefined.
+Lastly, you can also [delete RepositoryAttributes]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}), i.e. LocalAttributes that are owned by yourself and whose `shareInfo` property is undefined.
 Analogously to the cases above, also all predecessors of the RepositoryAttribute with specified `attributeId` will be deleted.
 Additionally, the `succeeds` property of the successor will be removed in case of [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}).
 If the RepositoryAttribute has [child Attributes]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), the same will hold true for all its children.
 
 Furthermore, if there are any shared copies of the RepositoryAttribute, their `shareInfo` will be updated such that `sourceAttribute` doesn't link to the deleted RepositoryAttribute anymore.
-As a consequence, the [get shared versions of an Attribute use case]({% link _docs_use-cases/use-case-consumption-get-shared-versions-of-an-attribute.md %}) will no longer return those shared versions.
-Now, in case you shared a RepositoryAttribute with a peer, succeeded it without notifying the peer and then delete the source Attribute of the predecessor, you won't be able to [notify the peer about the succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-repositoryattribute-succession.md %}) of this no longer existing RepositoryAttribute anymore.
-Instead, if you want to inform them about a newer version of this RepositoryAttribute, you must [share that version]({% link _docs_use-cases/use-case-consumption-share-a-repositoryattribute.md %}) again.
+As a consequence, the [get versions of Attribute shared with peer use case]({% link _docs_use-cases/use-case-consumption-get-versions-of-attribute-shared-with-peer.md %}) will no longer return those shared versions.
+Now, in case you shared a RepositoryAttribute with a peer, succeeded it without notifying the peer and then delete the source Attribute of the predecessor, you won't be able to [notify the peer about the succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-ownidentityattribute-succession.md %}) of this no longer existing RepositoryAttribute anymore.
+Instead, if you want to inform them about a newer version of this RepositoryAttribute, you must [share that version]({% link _docs_use-cases/use-case-consumption-share-an-ownidentityattribute.md %}) again.
