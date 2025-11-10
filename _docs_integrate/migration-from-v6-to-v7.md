@@ -110,6 +110,9 @@ The step-by-step instructions can be consulted to start the migration to version
 - For the same reason, the `onlyValid` parameter was removed from the use cases [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}), [Get own shared Attributes]({% link _docs_use-cases/use-case-consumption-get-own-shared-attributes.md %}) and [Get peer shared Attributes]({% link _docs_use-cases/use-case-consumption-get-peer-shared-attributes.md %}).
   Accordingly, it was removed from the associated Connector routes as well.
 
+- GetRepositoryAttributes was renamed to GetOwnIdentityAttributes.
+- Instead of GetOwnSharedIdentityAttributes and GetPeerSharedIdentityAttribute, there are GetOwnAttributesSharedWithPeer and GetPeerAttributes now.
+
 ### TypeScript SDK Changes
 
 With every version of the Connector, we ship a matching [TypeScript SDK]({% link _docs_integrate/access-the-connector.md %}#accessing-the-connector-by-software-development-kits-sdk).
@@ -157,3 +160,18 @@ However, the Connector routes associated with these use cases are not affected b
 - It will be possible to load items not only from truncated references, but also from other references.
   For this reason, the [Load item from reference]({% link _docs_use-cases/use-case-transport-load-item-from-reference.md %}) use case was already added in version 6 and the use case of loading an item from a truncated reference was marked as deprecated.
   It has now been deleted with the update to version 7.
+
+- CanCreateRepositoryAttribute use case was renamed to CanCreateOwnIdentityAttribute.
+- CreateRepositoryAttribute use case was renamed to CreateOwnIdentityAttribute.
+
+- ChangeDefaultRepositoryAttribute use case was renamed to ChangeDefaultOwnIdentityAttribute.
+
+- DeleteAttributeAndNotify use case replaces DeleteOwnSharedAttributeAndNotifyPeer, DeletePeerSharedAttributeAndNotifyOwner, DeleteRepositoryAttribute and DeleteThirdPartyRelationshipAttributeAndNotifyPeer use cases.
+
+- SucceedRepositoryAttribute and NotifyPeerAboutRepositoryAttributeSuccession use cases were renamed to SucceedOwnIdentityAttribute and NotifyPeerAboutOwnIdentityAttributeSuccession.
+
+- ShareRepositoryAttribute use case was renamed to ShareOwnIdentityAttribute.
+
+- GetForwardingDetailsForAttribute and GetVersionsOfAttributeSharedWithPeer use cases were added. GetSharedVersionsOfAttribute use case was removed.
+
+- DeleteSharedAttributesForRejectedOrRevokedRelationship, GetAttributes, GetVersionsOfAttribute and SucceedRelationshipAttributeAndNotifyPeer use cases were adjusted.
