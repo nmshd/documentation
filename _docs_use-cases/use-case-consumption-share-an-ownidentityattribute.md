@@ -1,19 +1,21 @@
 ---
 # Start automatic generation
-permalink: use-case-consumption-share-a-repositoryattribute
+permalink: use-case-consumption-share-an-ownidentityattribute
+redirect_from:
+  - /use-case-consumption-share-a-repositoryattribute
 published: true
-title: "Share a RepositoryAttribute"
+title: "Share an OwnIdentityAttribute"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA13
+  - id: RA3
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: shareRepositoryAttribute
+  - function: shareOwnIdentityAttribute
   - description:
   - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
@@ -31,7 +33,7 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: use-case-consumption-share-a-repositoryattribute
+  - link: use-case-consumption-share-an-ownidentityattribute
 require:
 required_by:
 # End automatic generation

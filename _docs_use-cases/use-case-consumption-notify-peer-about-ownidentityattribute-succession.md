@@ -1,19 +1,21 @@
 ---
 # Start automatic generation
-permalink: use-case-consumption-notify-peer-about-repositoryattribute-succession
+permalink: use-case-consumption-notify-peer-about-ownidentityattribute-succession
+redirect_from:
+  - /use-case-consumption-notify-peer-about-repositoryattribute-succession
 published: true
-title: "Notify peer about RepositoryAttribute succession"
+title: "Notify peer about OwnIdentityAttribute succession"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA18
+  - id: RA22
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: notifyPeerAboutRepositoryAttributeSuccession
+  - function: notifyPeerAboutOwnIdentityAttributeSuccession
   - description:
   - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
@@ -31,7 +33,7 @@ properties:
   - changed_at:
   - api_route_regex: POST /api/core/v1/Attributes/{attributeId}/NotifyPeer
   - published: default
-  - link: use-case-consumption-notify-peer-about-repositoryattribute-succession
+  - link: use-case-consumption-notify-peer-about-ownidentityattribute-succession
 require:
 required_by:
 api_route_regex: ^POST /api/core/v1/Attributes/{attributeId}/NotifyPeer$

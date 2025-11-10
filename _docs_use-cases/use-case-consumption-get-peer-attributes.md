@@ -1,21 +1,21 @@
 ---
 # Start automatic generation
-permalink: use-case-consumption-get-peer-shared-attributes
+permalink: use-case-consumption-get-peer-attributes
 redirect_from:
-  - /use-case-consumption-get-attributes-of-peer
+  - /use-case-consumption-get-peer-shared-attributes
 published: true
-title: "Get peer shared Attributes"
+title: "Get peer Attributes"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA3
+  - id: RA11
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: getPeerSharedAttributes
+  - function: getPeerAttributes
   - description:
   - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
@@ -31,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/core/v1/Attributes/Peer/Shared/Identity
+  - api_route_regex: GET /api/core/v1/Attributes/Peer/{peer}
   - published: default
-  - link: use-case-consumption-get-peer-shared-attributes
+  - link: use-case-consumption-get-peer-attributes
 require:
 required_by:
-api_route_regex: ^GET /api/core/v1/Attributes/Peer/Shared/Identity$
+api_route_regex: ^GET /api/core/v1/Attributes/Peer/{peer}$
 # End automatic generation
 ---
 

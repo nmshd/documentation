@@ -1,10 +1,10 @@
 ---
 # Start automatic generation
-permalink: use-case-consumption-create-a-repositoryattribute
+permalink: use-case-consumption-create-an-ownidentityattribute
 redirect_from:
-  - /use-case-consumption-create-an-attribute
+  - /use-case-consumption-create-a-repositoryattribute
 published: true
-title: "Create a RepositoryAttribute"
+title: "Create an OwnIdentityAttribute"
 type: use-case
 toc: true
 sidebar:
@@ -15,7 +15,7 @@ properties:
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: createRepositoryAttribute
+  - function: createOwnIdentityAttribute
   - description:
   - feature category: Normalized Attributes
   - tech category: Attributes
@@ -33,7 +33,7 @@ properties:
   - changed_at:
   - api_route_regex: POST /api/core/v1/Attributes
   - published: default
-  - link: use-case-consumption-create-a-repositoryattribute
+  - link: use-case-consumption-create-an-ownidentityattribute
 require:
 required_by:
 api_route_regex: ^POST /api/core/v1/Attributes$

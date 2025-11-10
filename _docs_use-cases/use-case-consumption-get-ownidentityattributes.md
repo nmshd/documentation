@@ -1,20 +1,22 @@
 ---
 # Start automatic generation
-permalink: use-case-consumption-get-repositoryattributes
+permalink: use-case-consumption-get-ownidentityattributes
+redirect_from:
+  - /use-case-consumption-get-repositoryattributes
 published: true
-title: "Get RepositoryAttributes"
+title: "Get OwnIdentityAttributes"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA22
+  - id: RA9
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: getRepositoryAttributes
-  - description: Fetches all RepositoryAttributes
+  - function: getOwnIdentityAttributes
+  - description: Fetches all OwnIdentityAttributes
   - feature category: Normalized Attributes
   - tech category: Attributes
   - status: DONE
@@ -29,12 +31,12 @@ properties:
   - size: n/a
   - created_at:
   - changed_at:
-  - api_route_regex: GET /api/core/v1/Attributes/Own/Repository
+  - api_route_regex: GET /api/core/v1/Attributes/Own/Identity
   - published: default
-  - link: use-case-consumption-get-repositoryattributes
+  - link: use-case-consumption-get-ownidentityattributes
 require:
 required_by:
-api_route_regex: ^GET /api/core/v1/Attributes/Own/Repository$
+api_route_regex: ^GET /api/core/v1/Attributes/Own/Identity$
 # End automatic generation
 ---
 

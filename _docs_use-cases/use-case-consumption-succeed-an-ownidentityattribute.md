@@ -1,19 +1,21 @@
 ---
 # Start automatic generation
-permalink: use-case-consumption-succeed-a-repositoryattribute
+permalink: use-case-consumption-succeed-an-ownidentityattribute
+redirect_from:
+  - /use-case-consumption-succeed-a-repositoryattribute
 published: true
-title: "Succeed a RepositoryAttribute"
+title: "Succeed an OwnIdentityAttribute"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA11
+  - id: RA21
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: succeedRepositoryAttribute
+  - function: succeedOwnIdentityAttribute
   - description:
   - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
@@ -31,7 +33,7 @@ properties:
   - changed_at:
   - api_route_regex: POST /api/core/v1/Attributes/{predecessorId}/Succeed
   - published: default
-  - link: use-case-consumption-succeed-a-repositoryattribute
+  - link: use-case-consumption-succeed-an-ownidentityattribute
 require:
 required_by:
 api_route_regex: ^POST /api/core/v1/Attributes/{predecessorId}/Succeed$

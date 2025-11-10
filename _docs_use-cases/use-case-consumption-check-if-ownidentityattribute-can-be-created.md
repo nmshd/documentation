@@ -1,19 +1,21 @@
 ---
 # Start automatic generation
-permalink: use-case-consumption-check-if-repositoryattribute-can-be-created
+permalink: use-case-consumption-check-if-ownidentityattribute-can-be-created
+redirect_from:
+  - /use-case-consumption-check-if-repositoryattribute-can-be-created
 published: true
-title: "Check if RepositoryAttribute can be created"
+title: "Check if OwnIdentityAttribute can be created"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA31
+  - id: RA2
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: canCreateRepositoryAttribute
+  - function: canCreateOwnIdentityAttribute
   - description:
   - feature category: Normalized Attributes
   - tech category: Attributes
@@ -31,7 +33,7 @@ properties:
   - changed_at:
   - api_route_regex: PUT /api/core/v1/Attributes/CanCreate
   - published: default
-  - link: use-case-consumption-check-if-repositoryattribute-can-be-created
+  - link: use-case-consumption-check-if-ownidentityattribute-can-be-created
 require:
 required_by:
 api_route_regex: ^PUT /api/core/v1/Attributes/CanCreate$

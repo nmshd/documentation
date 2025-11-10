@@ -1,19 +1,21 @@
 ---
 # Start automatic generation
-permalink: use-case-consumption-change-default-repositoryattribute
+permalink: use-case-consumption-change-default-ownidentityattribute
+redirect_from:
+  - /use-case-consumption-change-default-repositoryattribute
 published: true
-title: "Change default RepositoryAttribute"
+title: "Change default OwnIdentityAttribute"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA28
+  - id: RA4
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: changeDefaultRepositoryAttribute
+  - function: changeDefaultOwnIdentityAttribute
   - description:
   - feature category: Normalized Attributes
   - tech category: Attributes
@@ -31,7 +33,7 @@ properties:
   - changed_at:
   - api_route_regex:
   - published: default
-  - link: use-case-consumption-change-default-repositoryattribute
+  - link: use-case-consumption-change-default-ownidentityattribute
 require:
 required_by:
 # End automatic generation

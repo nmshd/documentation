@@ -1,21 +1,21 @@
 ---
 # Start automatic generation
-permalink: use-case-consumption-get-shared-versions-of-an-attribute
+permalink: use-case-consumption-get-versions-of-attribute-shared-with-peer
 redirect_from:
-  - /use-case-consumption-get-shared-versions-of-a-repositoryattribute
+  - /use-case-consumption-get-shared-versions-of-an-attribute
 published: true
-title: "Get shared versions of an Attribute"
+title: "Get versions of Attribute shared with peer"
 type: use-case
 toc: true
 sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA27
+  - id: RA14
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
-  - function: getSharedVersionsOfAttribute
+  - function: getVersionsOfAttributeSharedWithPeer
   - description:
   - feature category: Cross-Identity Attribute sharing
   - tech category: Attributes
@@ -33,7 +33,7 @@ properties:
   - changed_at:
   - api_route_regex: GET /api/core/v1/Attributes/{id}/Versions/Shared
   - published: default
-  - link: use-case-consumption-get-shared-versions-of-an-attribute
+  - link: use-case-consumption-get-versions-of-attribute-shared-with-peer
 require:
 required_by:
 api_route_regex: ^GET /api/core/v1/Attributes/{id}/Versions/Shared$
