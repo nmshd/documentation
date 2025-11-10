@@ -161,17 +161,16 @@ However, the Connector routes associated with these use cases are not affected b
   For this reason, the [Load item from reference]({% link _docs_use-cases/use-case-transport-load-item-from-reference.md %}) use case was already added in version 6 and the use case of loading an item from a truncated reference was marked as deprecated.
   It has now been deleted with the update to version 7.
 
-- CanCreateRepositoryAttribute use case was renamed to CanCreateOwnIdentityAttribute.
-- CreateRepositoryAttribute use case was renamed to CreateOwnIdentityAttribute.
-
-- ChangeDefaultRepositoryAttribute use case was renamed to ChangeDefaultOwnIdentityAttribute.
-
-- DeleteAttributeAndNotify use case replaces DeleteOwnSharedAttributeAndNotifyPeer, DeletePeerSharedAttributeAndNotifyOwner, DeleteRepositoryAttribute and DeleteThirdPartyRelationshipAttributeAndNotifyPeer use cases.
-
-- SucceedRepositoryAttribute and NotifyPeerAboutRepositoryAttributeSuccession use cases were renamed to SucceedOwnIdentityAttribute and NotifyPeerAboutOwnIdentityAttributeSuccession.
+- The use cases for checking if a RepositoryAttribute can be created and for creating a RepositoryAttribute were renamed to [Check if OwnIdentityAttribute can be created]({% link _docs_use-cases/use-case-consumption-check-if-ownidentityattribute-can-be-created.md %}) and [Create an OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-create-an-ownidentityattribute.md %}).
 
 - ShareRepositoryAttribute use case was renamed to ShareOwnIdentityAttribute.
 
+- The use case for changing a default RepositoryAttribute was renamed to [Change default OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-change-default-ownidentityattribute.md %}).
+
+- The [Delete an Attribute and notify]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}) use case replaces the use cases for deleting a RepositoryAttribute, deleting an own shared Attribute and notifying peer, deleting a peer shared Attribute and notifying owner, and deleting a ThirdPartyRelationshipAttribute and notifying peer use cases.
+
 - GetForwardingDetailsForAttribute and GetVersionsOfAttributeSharedWithPeer use cases were added. GetSharedVersionsOfAttribute use case was removed.
+
+- SucceedRepositoryAttribute and NotifyPeerAboutRepositoryAttributeSuccession use cases were renamed to SucceedOwnIdentityAttribute and NotifyPeerAboutOwnIdentityAttributeSuccession.
 
 - DeleteSharedAttributesForRejectedOrRevokedRelationship, GetAttributes, GetVersionsOfAttribute and SucceedRelationshipAttributeAndNotifyPeer use cases were adjusted.
