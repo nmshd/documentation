@@ -58,7 +58,7 @@ If an OwnIdentityAttribute can be created, this can be achieved by executing the
 - If the `isSuccess` property of the `result` has the value `false`, the OwnIdentityAttribute cannot currently be created. This may have the following reasons:
   - The provided `content.value.@type` does not match one of the allowed [IdentityAttribute value types]({% link _docs_integrate/attribute-values.md %}#identity-attributes).
   - Invalid `content.tags` were provided. A tag is invalid if it is neither contained in the [AttributeTagCollection]({% link _docs_integrate/data-model-overview.md %}#attributetagcollection) for the `content.value.@type` and starts with the prefix `bkb:` nor starts with the custom tag prefix `x:` or `X:`, the prefix `urn:`, the prefix `language:` followed by a valid ISO 639 language code nor the prefix `mimetype:` followed by a valid MIME type matching the pattern `^[a-z-*]+/[a-z-*]+$`.
-  - There is already an existing [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `succeededBy` property is undefined that has the exact same `content.value`.
+  - There is already an existing [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) whose `succeededBy` property is undefined that has the exact same `content.value`.
 
 ## On Failure
 
