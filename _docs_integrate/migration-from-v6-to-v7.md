@@ -106,12 +106,11 @@ The step-by-step instructions can be consulted to start the migration to version
 
 - For every Connector route originating from the [Core HTTP API Module]({% link _docs_operate/modules.md %}#corehttpapi), the prefix has been changed from `/api/v2` to `/api/core/v1` to reflect its origin.
   The prefix syntax change led to the version being reset.
+- The introduction of the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) subtypes has led to a change of some Connector routes and their underlying [use cases]({% link _docs_integrate/use-cases.md %}). The `GET /api/core/v1/Attributes/Own/Identity`, `GET /api/core/v1/Attributes/Own/Shared/{peer}`, and `GET /api/core/v1/Attributes/Peer/{peer}` Connector routes replace the `GET /api/v2/Attributes/Own/Repository`, `GET /api/v2/Attributes/Own/Shared/Identity`, and `GET /api/v2/Attributes/Peer/Shared/Identity` Connector routes.
+  The corresponding use cases for getting RepositoryAttributes, for getting own shared IdentityAttributes, and for getting peer shared IdentityAttributes were replaced by [Get OwnIdentityAttributes]({% link _docs_use-cases/use-case-consumption-get-ownidentityattributes.md %}), [Get own Attributes shared with peer]({% link _docs_use-cases/use-case-consumption-get-own-attributes-shared-with-peer.md %}) and [Get peer Attributes]({% link _docs_use-cases/use-case-consumption-get-peer-attributes.md %}).
 - The `GET /api/v2/Attributes/Valid` Connector route and its underlying [use case]({% link _docs_integrate/use-cases.md %}) for getting valid [Attributes]({% link _docs_integrate/data-model-overview.md %}#attributes) were removed, because the properties `validFrom` and `validTo` have been removed from the Attributes.
-- For the same reason, the `onlyValid` parameter was removed from the use cases [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}), [Get own Attributes shared with peer]({% link _docs_use-cases/use-case-consumption-get-own-attributes-shared-with-peer.md %}) and [Get peer Attributes]({% link _docs_use-cases/use-case-consumption-get-peer-attributes.md %}).
+  For the same reason, the `onlyValid` parameter was removed from the use cases [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}), [Get own Attributes shared with peer]({% link _docs_use-cases/use-case-consumption-get-own-attributes-shared-with-peer.md %}) and [Get peer Attributes]({% link _docs_use-cases/use-case-consumption-get-peer-attributes.md %}).
   Accordingly, it was removed from the associated Connector routes as well.
-
-- GetRepositoryAttributes was renamed to GetOwnIdentityAttributes.
-- Instead of GetOwnSharedIdentityAttributes and GetPeerSharedIdentityAttribute, there are GetOwnAttributesSharedWithPeer and GetPeerAttributes now.
 
 ### TypeScript SDK Changes
 
@@ -148,7 +147,7 @@ The most important changes regarding the error codes due to the update from vers
 
 As an Integrator of a Connector, the following changes do not need to be taken into account during migration to version 7, as they are Runtime-specific breaking changes handled internally by the Connector.
 
-### Removed Use Cases
+### Removed, Changed and Added Use Cases
 
 Some [use cases]({% link _docs_integrate/use-cases.md %}) of the Runtime that were previously marked as deprecated and replaced by new ones have now been removed.
 However, the Connector routes associated with these use cases are not affected by these replacements and can still be used.
@@ -161,16 +160,11 @@ However, the Connector routes associated with these use cases are not affected b
   For this reason, the [Load item from reference]({% link _docs_use-cases/use-case-transport-load-item-from-reference.md %}) use case was already added in version 6 and the use case of loading an item from a truncated reference was marked as deprecated.
   It has now been deleted with the update to version 7.
 
-- The use cases for checking if a RepositoryAttribute can be created and for creating a RepositoryAttribute were renamed to [Check if OwnIdentityAttribute can be created]({% link _docs_use-cases/use-case-consumption-check-if-ownidentityattribute-can-be-created.md %}) and [Create an OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-create-an-ownidentityattribute.md %}).
+The introduction of the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) subtypes has led to a renaming and replacement of some [use cases]({% link _docs_integrate/use-cases.md %}).
 
-- ShareRepositoryAttribute use case was renamed to ShareOwnIdentityAttribute.
-
-- The use case for changing a default RepositoryAttribute was renamed to [Change default OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-change-default-ownidentityattribute.md %}).
-
+- The use cases for checking if a RepositoryAttribute can be created, for creating a RepositoryAttribute, for sharing a RepositoryAttribute, and for changing a default RepositoryAttribute were renamed to [Check if OwnIdentityAttribute can be created]({% link _docs_use-cases/use-case-consumption-check-if-ownidentityattribute-can-be-created.md %}), [Create an OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-create-an-ownidentityattribute.md %}), [Share an OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-share-an-ownidentityattribute.md %}), and [Change default OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-change-default-ownidentityattribute.md %}).
 - The [Delete an Attribute and notify]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}) use case replaces the use cases for deleting a RepositoryAttribute, deleting an own shared Attribute and notifying peer, deleting a peer shared Attribute and notifying owner, and deleting a ThirdPartyRelationshipAttribute and notifying peer use cases.
-
-- GetForwardingDetailsForAttribute and GetVersionsOfAttributeSharedWithPeer use cases were added. GetSharedVersionsOfAttribute use case was removed.
-
-- SucceedRepositoryAttribute and NotifyPeerAboutRepositoryAttributeSuccession use cases were renamed to SucceedOwnIdentityAttribute and NotifyPeerAboutOwnIdentityAttributeSuccession.
-
-- DeleteSharedAttributesForRejectedOrRevokedRelationship, GetAttributes, GetVersionsOfAttribute and SucceedRelationshipAttributeAndNotifyPeer use cases were adjusted.
+- The [Get versions of Attribute shared with peer]({% link _docs_use-cases/use-case-consumption-get-versions-of-attribute-shared-with-peer.md %}) use case replaces the use case for getting shared versions of an Attribute.
+  Additionally, the [Get ForwardingDetails for Attribute]({% link _docs_use-cases/use-case-consumption-get-forwardingdetails-for-attribute.md %}) use case was added.
+- The use cases for succeeding a RepositoryAttribute and notifying a peer about a RepositoryAttribute succession were renamed to [Succeed an OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-succeed-an-ownidentityattribute.md %}) and [Notify peer about OwnIdentityAttribute succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-ownidentityattribute-succession.md %}).
+- The [Get Attributes]({% link _docs_use-cases/use-case-consumption-get-attributes.md %}), [Get versions of Attribute]({% link _docs_use-cases/use-case-consumption-get-versions-of-an-attribute.md %}), and [Succeed RelationshipAttribute and notify peer]({% link _docs_use-cases/use-case-consumption-succeed-a-relationshipattribute-and-notify-peer.md %}) use cases were adjusted.
