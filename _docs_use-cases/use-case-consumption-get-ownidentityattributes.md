@@ -51,10 +51,10 @@ The OwnIdentityAttributes can be specified using a complex query.
 ## Parameters
 
 - `query` allows to specify the conditions for the returned OwnIdentityAttributes. In detail, the following keys may be used:
-  - `createdAt` describes the time when the OwnIdentityAttributes was created.
+  - `createdAt` describes the time when the OwnIdentityAttribute was created.
   - The fields `content.value.@type` and `content.tags` can be used to describe the queried [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
   - `isDefault` states whether an OwnIdentityAttribute is the default for its value type.
-  - `wasViewedAt` describes the time when the OwnIdentityAttributes was firstly viewed.
+  - `wasViewedAt` describes the time when the OwnIdentityAttribute was firstly viewed.
 - Optionally, `onlyLatestVersions` can be disabled, such that in case of [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) all versions will be returned.
 
 ## On Success
