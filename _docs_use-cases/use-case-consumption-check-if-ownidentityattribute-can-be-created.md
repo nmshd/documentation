@@ -44,7 +44,7 @@ api_route_regex: ^PUT /api/core/v1/Attributes/CanCreate$
 
 {% include properties_list.html %}
 
-This use case checks whether an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute), which is an unshared [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute), can be created without actually creating it.
+This use case checks whether an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) can be created without actually creating it.
 If an OwnIdentityAttribute can be created, this can be achieved by executing the [Create an OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-create-an-ownidentityattribute.md %}) use case.
 
 ## Parameters

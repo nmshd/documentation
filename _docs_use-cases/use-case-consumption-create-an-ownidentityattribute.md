@@ -44,11 +44,11 @@ api_route_regex: ^POST /api/core/v1/Attributes$
 
 {% include properties_list.html %}
 
-This use case is intended to create an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute), i.e. an unshared [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) based on a given [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
+This use case is intended to create an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute).
 
 ## Parameters
 
-- The `content` for the OwnIdentityAttribute that ought to be created as IdentityAttribute without the `owner` property, since it is automatically set to the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
+- The `content` for the OwnIdentityAttribute that ought to be created as [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) without the `owner` property, since it is automatically set to the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
 
 ## On Success
 
