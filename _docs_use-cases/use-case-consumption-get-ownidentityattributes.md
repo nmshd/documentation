@@ -44,23 +44,23 @@ api_route_regex: ^GET /api/core/v1/Attributes/Own/Identity$
 
 {% include properties_list.html %}
 
-This use case is intended to return all RepositoryAttributes.
-RepositoryAttributes are own [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) with an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) as `content` that are classified by an undefined `shareInfo`.
+This use case is intended to return all [OwnIdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute).
 In case of [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}), by default only the latest version will be returned.
-The LocalAttributes can be specified using a complex query.
+The OwnIdentityAttributes can be specified using a complex query.
 
 ## Parameters
 
-- `query` allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used:
-  - `createdAt` describes the time when the LocalAttribute was created.
-  - The fields of `content` can be used to describe the queried IdentityAttribute.
-  - `isDefault` states whether a RepositoryAttribute is the default for its value type.
+- `query` allows to specify the conditions for the returned OwnIdentityAttributes. In detail, the following keys may be used:
+  - `createdAt` describes the time when the OwnIdentityAttributes was created.
+  - The fields `content.value.@type` and `content.tags` can be used to describe the queried [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute).
+  - `isDefault` states whether an OwnIdentityAttribute is the default for its value type.
+  - `wasViewedAt` describes the time when the OwnIdentityAttributes was firstly viewed.
 - Optionally, `onlyLatestVersions` can be disabled, such that in case of [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}) all versions will be returned.
 
 ## On Success
 
-- An array of [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be returned. It contains all RepositoryAttributes that match the query.
+- An array of [OwnIdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) will be returned. It contains all OwnIdentityAttributes that match the query.
 
 ## On Failure
 
-- No LocalAttributes can be returned if the parameters are malformed.
+- No OwnIdentityAttributes can be returned if the parameters are malformed.
