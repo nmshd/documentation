@@ -43,19 +43,18 @@ required_by:
 
 {% include properties_list.html %}
 
-If you wish to share one of your private [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute), called RepositoryAttributes, with a peer, this use case allows you to do so.
+If you wish to share one of your private [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute), called [OwnIdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute), with a peer, this use case allows you to do so.
 Internally, a [Request]({% link _docs_integrate/data-model-overview.md %}#request) with a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) will be created and will be sent via [Message]({% link _docs_integrate/data-model-overview.md %}#message) to the peer.
-Assuming your peer accepts the Request, at their side a peer shared IdentityAttribute will be created.
-The corresponding [Response]({% link _docs_integrate/data-model-overview.md %}#response) informs you about their acceptance and creates a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with a copy of the RepositoryAttribute's `content` you shared.
-This own shared IdentityAttribute copy, however, in addition has a defined `shareInfo` property.
-It stores information about the `peer` you shared the Attribute with, the `id` of the original RepositoryAttribute in the field `sourceAttribute`, and a reference to the Request used to share the Attribute.
-Note that the own shared IdentityAttribute at your side and the peer shared IdentityAttribute at your peer's side are identical, except for the value in the `shareInfo.peer` field: on your side it will have the peer's address and on the peer's side it will have the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity).
-Please note further, that this use case is meant to be used to share a version of a RepositoryAttribute for the first time.
+Assuming your peer accepts the Request, at their side a [PeerIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#peeridentityattribute) will be created.
+The corresponding [Response]({% link _docs_integrate/data-model-overview.md %}#response) informs you about their acceptance and creates [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails), with their `attributeId` property set to the `id` of the OwnIdentityAttribute to represent their association.
+
+Please note further, that this use case is meant to be used to share a version of an OwnIdentityAttribute for the first time.
 If you have already shared another version of a succeeded Attribute with the peer and you want to let them know about the changes to its `value`, use the [Notify peer about OwnIdentityAttribute succession use case]({% link _docs_use-cases/use-case-consumption-notify-peer-about-ownidentityattribute-succession.md %}).
+{: .notice--info}
 
 ## Parameters
 
-- The `attributeId` of your RepositoryAttribute.
+- The `attributeId` of your OwnIdentityAttribute.
 - The address of the `peer`.
 - Optionally `requestMetadata` as described in the [data model]({% link _docs_integrate/data-model-overview.md %}#request), except for the `id` and `items`, which are handled automatically.
 
@@ -66,8 +65,7 @@ If you have already shared another version of a succeeded Attribute with the pee
 ## On Failure
 
 - The Request cannot be created if the `peer` is unknown.
-- The Request cannot be created if the `attributeId` belongs to a RelationshipAttribute.
-- The Request cannot be created if the `attributeId` belongs to an IdentityAttribute with a `shareInfo`.
-- The Request cannot be created if the Attribute has already been shared with the peer and the own shared IdentityAttribute doesn't have `"DeletedByRecipient"` or `"ToBeDeletedByRecipient"` as `deletionInfo.deletionStatus`.
-- The Request cannot be created if another version of the Attribute regarding succession has already been shared with the peer, unless the latest shared version has `"DeletedByRecipient"` or `"ToBeDeletedByRecipient"` as `deletionInfo.deletionStatus`.
+- The Request cannot be created if the `attributeId` doesn't belong to an OwnIdentityAttribute.
+- The Request cannot be created if the OwnIdentityAttribute has already been shared with the peer and it doesn't have `"DeletedByRecipient"` or `"ToBeDeletedByRecipient"` as `deletionInfo.deletionStatus`.
+- The Request cannot be created if another version of the OwnIdentityAttribute regarding succession has already been shared with the peer, unless the latest shared version has `"DeletedByRecipient"` or `"ToBeDeletedByRecipient"` as `deletionInfo.deletionStatus`.
 - The Request cannot be created if the parameters are malformed.
