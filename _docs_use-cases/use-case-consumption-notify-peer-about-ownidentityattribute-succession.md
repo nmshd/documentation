@@ -49,7 +49,7 @@ If you do so, the peer will receive a [Notification]({% link _docs_integrate/dat
 Also, the associated own shared IdentityAttribute at your side will be succeeded, i.e. a new version of the [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be created and the predecessor will be updated to link to this successor in its `succeededBy` property.
 Note that it is possible to notify a peer about the succession of an IdentityAttribute you already shared with them, even if you didn't inform them about every previous version.
 In this case the `succeeds` field of the newly created LocalAttribute will link to the latest shared version.
-Moreover, it is also possible to notify a peer about the succession of an IdentityAttribute, if this in turn is already succeeded again, in case you didn't notify the peer about a newer version, yet.
+Moreover, it is also possible to notify a peer about the succession of an IdentityAttribute if this in turn is already succeeded again, in case you didn't notify the peer about a newer version, yet.
 
 ## Parameters
 

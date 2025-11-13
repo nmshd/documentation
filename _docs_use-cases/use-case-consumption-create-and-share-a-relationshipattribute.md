@@ -60,5 +60,5 @@ Once you receive the [Response]({% link _docs_integrate/data-model-overview.md %
 
 ## On Failure
 
-- The Request cannot be created, if the `peer` is unknown.
-- The Request cannot be created, if the parameters are malformed.
+- The Request cannot be created if the `peer` is unknown.
+- The Request cannot be created if the parameters are malformed.
