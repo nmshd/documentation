@@ -65,7 +65,7 @@ Since only the LocalAttribute subtypes [OwnIdentityAttribute]({% link _docs_inte
 
 ## On Success
 
-- Returns a list of [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) shared to the peer that matches the query.
+- Returns a list of [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) shared to the peer that match the query.
 
 ## On Failure
 
