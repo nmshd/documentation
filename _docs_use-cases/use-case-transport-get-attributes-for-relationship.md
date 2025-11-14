@@ -42,7 +42,7 @@ api_route_regex: ^GET /api/core/v1/Relationships/{id}/Attributes$
 
 {% include properties_list.html %}
 
-Retrieve all [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattributes) that are related to the given Relationship id.
+Retrieve all [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattributes) that are related to the given [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) `id`.
 
 ## Parameters
 
