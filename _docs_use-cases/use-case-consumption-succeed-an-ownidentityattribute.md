@@ -58,7 +58,8 @@ In case you shared the preceeding version of an OwnIdentityAttribute, the corres
 
 - The response returns a `predecessor` and a `successor` OwnIdentityAttribute.
 - The `predecessor` is an updated version of the OwnIdentityAttribute belonging to `predecessorId`, having the `succeededBy` field set to the `id` of the `successor`.
-- The `successor` is a new OwnIdentityAttribute with the updated `successorContent`. Its `succeeds` property links to the `predecessor`.
+- The `successor` is a new OwnIdentityAttribute with the updated `successorContent`.
+  Its `succeeds` property links to the `predecessor`.
 
 ## On Failure
 
