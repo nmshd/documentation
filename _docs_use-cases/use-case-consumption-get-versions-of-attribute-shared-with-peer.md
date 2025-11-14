@@ -44,24 +44,24 @@ api_route_regex: ^GET /api/core/v1/Attributes/{id}/Versions/Shared$
 
 {% include properties_list.html %}
 
-This use case allows you to retrieve a list of shared [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#lcoalattribute) for a given source Attribute.
-In case of [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) a list comprising of own shared IdentityAttributes for the specified RepositoryAttribute is returned.
-In case of [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) the list contains ThirdPartyRelationshipAttributes you re-shared based on the specified RelationshipAttribute.
+This use case allows you to retrieve a list of [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) versions shared with a given peer.
+Since only the LocalAttribute subtypes [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute), [OwnRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute), and [PeerRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute) represent forwardable Attributes, a list of shared versions can only be retrieved for such LocalAttributes.
 
 ## Parameters
 
-- The `attributeId` belonging to a LocalAttribute you would like to know all shared versions of
-- Optionally the returned LocalAttributes can be limited to those shared with specific `peers`.
-- `onlyLatestVersions` omits succeeded versions such that only the most recent version you shared per peer is returned. In detail, this means that if the `attributeId` given as input belongs to a LocalAttribute, that already has successors you also shared with the peer, only the shared copy corresponding to the most recently shared successor will be returned. By default this is set to be `true`.
+- The `attributeId` belonging to a LocalAttribute you would like to know the versions shared with a specific peer of.
+- The returned LocalAttribute versions are limited to those shared with a specific `peer`.
+- `onlyLatestVersions` omits succeeded versions such that only the most recent version you shared with the peer is returned.
+  In detail, this means that if the `attributeId` given as input belongs to a LocalAttribute that already has successors you also shared with the peer, only the most recently shared successor will be returned.
+  By default this is set to be `true`.
 
 ## On Success
 
-- A list of shared LocalAttribute versions of the source Attribute belonging to the `attributeId` given as input is returned.
-- If `peers` were specified, the list is limited to the entries shared with those peers.
-- If `onlyLatestVersions` is disabled, all versions will be returned, even if they already have successors.
+- A list of versions of the LocalAttribute belonging to the given `attributeId` shared with the specified `peer` is returned.
+- If `onlyLatestVersions` is disabled, all versions shared with the peer will be returned, even if they already have successors.
 
 ## On Failure
 
 - No LocalAttributes can be returned if the `attributeId` correlates to an unknown LocalAttribute.
-- No LocalAttributes can be returned if an empty list is provided for `peers`.
+- No LocalAttributes can be returned if the `attributeId` doesn't belong to an OwnIdentityAttribute, an OwnRelationshipAttribute, or a PeerRelationshipAttribute.
 - No LocalAttributes can be returned if the parameters are malformed.
