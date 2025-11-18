@@ -9,7 +9,7 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA21
+  - id: RA5
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
@@ -43,7 +43,7 @@ required_by:
 
 [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) are always associated with a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) between two Identities.
 Consequently, in contrast to [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute), there cannot be unshared RelationshipAttributes.
-Instead, you and your peer will always each have a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with the same RelationshipAttribute as `content` and which only differs in the `shareInfo.peer` property.
+Instead, you and your peer will always each have a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with the same RelationshipAttribute as `content`.
 Thus, wanting to create a new RelationshipAttribute, a [Request]({% link _docs_integrate/data-model-overview.md %}#request) is sent to the peer via [Message]({% link _docs_integrate/data-model-overview.md %}#message).
 Only if the peer accepts this Request, the RelationshipAttribute will be created at their side.
 Once you receive the [Response]({% link _docs_integrate/data-model-overview.md %}#response), a LocalAttribute with the same `content` will be created at your side.
@@ -56,9 +56,10 @@ Once you receive the [Response]({% link _docs_integrate/data-model-overview.md %
 
 ## On Success
 
-- A Request is sent via Message to the peer, containing a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) with the RelationshipAttribute you want to create and share with the peer. Furthermore, the Request is returned.
+- A Request is sent via Message to the peer, containing a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) with the RelationshipAttribute you want to create and share with the peer.
+  Furthermore, the Request is returned.
 
 ## On Failure
 
-- The Request cannot be created, if the `peer` is unknown.
-- The Request cannot be created, if the parameters are malformed.
+- The Request cannot be created if the `peer` is unknown.
+- The Request cannot be created if the parameters are malformed.

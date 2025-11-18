@@ -9,7 +9,7 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA16
+  - id: RA19
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
@@ -50,7 +50,7 @@ This use case executes an IQLQuery which returns a list of matching [IdentityAtt
 
 ## On Success
 
-- Returns the IdentityAttributes as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that match the given query.
+- Returns the IdentityAttributes as [OwnIdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) that match the given query.
 
 ## On Failure
 

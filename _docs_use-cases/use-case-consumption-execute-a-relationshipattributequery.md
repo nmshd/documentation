@@ -9,7 +9,7 @@ sidebar:
   - title: "Integrate enmeshed"
     nav: "docs_integrate"
 properties:
-  - id: RA9
+  - id: RA17
   - component: Runtime
   - layer: Consumption
   - facade: AttributesFacade
@@ -42,7 +42,7 @@ api_route_regex: ^POST /api/core/v1/Attributes/ExecuteRelationshipAttributeQuery
 
 {% include properties_list.html %}
 
-This use case is intended to execute an incoming [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) (e.g. received by a ReadAttributeRequestItem) which returns a list of matching [Relationship Attributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
+This use case is intended to execute an incoming [RelationshipAttributeQuery]({% link _docs_integrate/data-model-overview.md %}#relationshipattributequery) which returns a list of matching [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
 
 ## Parameters
 
@@ -50,7 +50,8 @@ This use case is intended to execute an incoming [RelationshipAttributeQuery]({%
 
 ## On Success
 
-- Returns the `RelationshipAttributes` as [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) that match the given query.
+- Returns the RelationshipAttributes as [OwnRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) or [PeerRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute) that match the given query.
+  [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with `private` as `confidentiality` are never returned.
 
 ## On Failure
 
