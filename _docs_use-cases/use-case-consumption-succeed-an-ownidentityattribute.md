@@ -47,7 +47,7 @@ api_route_regex: ^POST /api/core/v1/Attributes/{predecessorId}/Succeed$
 If the `content.value` of an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) changes, this can be replicated in enmeshed with this use case.
 It allows you to [update the `content`]({% link _docs_integrate/update-attributes-by-succession.md %}) and keeps a coherent history of all versions by establishing a doubly linked list, using the [OwnIdentityAttribute's]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) parameters `succeeds` and `succeededBy`.
 Hence, every OwnIdentityAttribute may have exactly one predecessor and one successor.
-In case you shared the preceeding version of an OwnIdentityAttribute, the corresponding successor will only be shared if you decide to [notify the peer]({% link _docs_use-cases/use-case-consumption-notify-peer-about-ownidentityattribute-succession.md %}) of the respective shared OwnIdentityAttribute about the succession.
+In case you shared the preceeding version of an OwnIdentityAttribute, the corresponding successor will only be shared if you decide to [notify the peer]({% link _docs_use-cases/use-case-consumption-notify-peer-about-ownidentityattribute-succession.md %}) about the succession.
 
 ## Parameters
 

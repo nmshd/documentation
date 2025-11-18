@@ -43,7 +43,7 @@ required_by:
 
 {% include properties_list.html %}
 
-If you wish to share one of your private [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute), called [OwnIdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute), with a peer, this use case allows you to do so.
+If you wish to share one of your [OwnIdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) with a peer, this use case allows you to do so.
 Internally, a [Request]({% link _docs_integrate/data-model-overview.md %}#request) with a [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) will be created and will be sent via [Message]({% link _docs_integrate/data-model-overview.md %}#message) to the peer.
 Assuming your peer accepts the Request, at their side a [PeerIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#peeridentityattribute) will be created.
 The corresponding [Response]({% link _docs_integrate/data-model-overview.md %}#response) informs you about their acceptance and creates [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails), with their `attributeId` property set to the `id` of the OwnIdentityAttribute to represent their association.
