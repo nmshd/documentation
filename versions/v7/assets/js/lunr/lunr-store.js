@@ -318,7 +318,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Use Cases",
-        "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Create empty Token Anonymous Identity AnonymousTokens Runtime Load Token by reference (without having an account) Anonymous Identity AnonymousTokens Runtime Accept incoming Request Consumption Identity Requests Runtime Change default RepositoryAttribute Consumption Identity Attributes Runtime Check if incoming Request can be accepted Consumption...","categories": [],
+        "excerpt":"Title Layer ⌄ Actor ⌄ Category ⌄ Component ⌄ Create empty Token Anonymous Identity AnonymousTokens Runtime Load Token by reference (without having an account) Anonymous Identity AnonymousTokens Runtime Accept incoming Request Consumption Identity Requests Runtime Change default OwnIdentityAttribute Consumption Identity Attributes Runtime Check if incoming Request can be accepted Consumption...","categories": [],
         "tags": [],
         "url": "/versions/v7/integrate/use-cases",
         "teaser": null
@@ -443,10 +443,10 @@ var store = [{
         "url": "/versions/v7/use-case-consumption-accept-incoming-request",
         "teaser": null
       },{
-        "title": "Change default RepositoryAttribute",
-        "excerpt":"This use case is only accessible if setting default RepositoryAttributes is enabled in the Runtime configuration. By default, this is only the case for the App and not for the Connector. If setting default RepositoryAttributes is enabled, for every IdentityAttribute value type exactly one RepositoryAttribute will have the property isDefault...","categories": [],
+        "title": "Change default OwnIdentityAttribute",
+        "excerpt":"This use case is only accessible if setting default OwnIdentityAttributes is enabled in the Runtime configuration. By default, this is only the case for the App and not for the Connector. If setting default OwnIdentityAttributes is enabled, for every IdentityAttribute value type exactly one OwnIdentityAttribute will have the property isDefault...","categories": [],
         "tags": [],
-        "url": "/versions/v7/use-case-consumption-change-default-repositoryattribute",
+        "url": "/versions/v7/use-case-consumption-change-default-ownidentityattribute",
         "teaser": null
       },{
         "title": "Check if incoming Request can be accepted",
@@ -467,22 +467,16 @@ var store = [{
         "url": "/versions/v7/use-case-consumption-check-if-outgoing-request-can-be-created",
         "teaser": null
       },{
-        "title": "Check if RepositoryAttribute can be created",
-        "excerpt":"This use case checks whether a RepositoryAttribute, which is an unshared LocalAttribute whose content is an IdentityAttribute, can be created without actually creating it. If a RepositoryAttribute can be created, this can be achieved by executing the Create a RepositoryAttribute use case. Parameters The content is an IdentityAttribute without the...","categories": [],
+        "title": "Check if OwnIdentityAttribute can be created",
+        "excerpt":"This use case checks whether an OwnIdentityAttribute can be created without actually creating it. If an OwnIdentityAttribute can be created, this can be achieved by executing the Create an OwnIdentityAttribute use case. Parameters The content is an IdentityAttribute without the owner property, since its value would automatically be set to...","categories": [],
         "tags": [],
-        "url": "/versions/v7/use-case-consumption-check-if-repositoryattribute-can-be-created",
+        "url": "/versions/v7/use-case-consumption-check-if-ownidentityattribute-can-be-created",
         "teaser": null
       },{
-        "title": "Create a RepositoryAttribute",
-        "excerpt":"This use case is intended to create a RepositoryAttribute, i.e. an unshared LocalAttribute based on a given IdentityAttribute. Parameters The content for the LocalAttribute that ought to be created as IdentityAttribute without the owner property, since it is automatically set to the address of your Identity. On Success A LocalAttribute...","categories": [],
+        "title": "Create an OwnIdentityAttribute",
+        "excerpt":"This use case is intended to create an OwnIdentityAttribute. Parameters The content for the OwnIdentityAttribute that ought to be created as IdentityAttribute without the owner property, since it is automatically set to the address of your Identity. On Success An OwnIdentityAttribute is created according to the parameters. On Failure The...","categories": [],
         "tags": [],
-        "url": "/versions/v7/use-case-consumption-create-a-repositoryattribute",
-        "teaser": null
-      },{
-        "title": "Create a shared Attribute copy",
-        "excerpt":"Be advised that this is a Runtime-internal use case which is automatically used by the module system. You should not call this use case without having good reason. This use case is intended to create a copy of a LocalAttribute with the intent to share it. The copy references the...","categories": [],
-        "tags": [],
-        "url": "/versions/v7/use-case-consumption-create-a-shared-attribute-copy",
+        "url": "/versions/v7/use-case-consumption-create-an-ownidentityattribute",
         "teaser": null
       },{
         "title": "Create and complete outgoing Request from RelationshipTemplate Response",
@@ -492,7 +486,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Create and share a RelationshipAttribute",
-        "excerpt":"RelationshipAttributes are always associated with a Relationship between two Identities. Consequently, in contrast to IdentityAttributes, there cannot be unshared RelationshipAttributes. Instead, you and your peer will always each have a LocalAttribute with the same RelationshipAttribute as content and which only differs in the shareInfo.peer property. Thus, wanting to create a...","categories": [],
+        "excerpt":"RelationshipAttributes are always associated with a Relationship between two Identities. Consequently, in contrast to IdentityAttributes, there cannot be unshared RelationshipAttributes. Instead, you and your peer will always each have a LocalAttribute with the same RelationshipAttribute as content. Thus, wanting to create a new RelationshipAttribute, a Request is sent to the...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-consumption-create-and-share-a-relationshipattribute",
         "teaser": null
@@ -503,28 +497,10 @@ var store = [{
         "url": "/versions/v7/use-case-consumption-create-outgoing-request",
         "teaser": null
       },{
-        "title": "Delete a peer shared Attribute and notify peer",
-        "excerpt":"This use case allows you to delete a peer shared Attribute, i.e. a LocalAttribute that a peer owns and has shared with you. Parameters The attributeId of the peer shared Attribute you want to delete. On Success The peer shared Attribute will be deleted. All predecessors of the peer shared...","categories": [],
+        "title": "Delete an Attribute and notify",
+        "excerpt":"This use case allows you to delete a LocalAttribute and notify the peers it is shared with. Parameters The attributeId of the LocalAttribute you want to delete. On Success The LocalAttribute will be deleted. All predecessors of the LocalAttribute will be deleted. If the LocalAttribute was succeeded, the succeeds property...","categories": [],
         "tags": [],
-        "url": "/versions/v7/use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer",
-        "teaser": null
-      },{
-        "title": "Delete a RepositoryAttribute",
-        "excerpt":"This use case allows you to delete a RepositoryAttribute, i.e. a LocalAttribute that is owned by yourself and whose shareInfo property is undefined. Parameters The attributeId of the RepositoryAttribute you want to delete. On Success The RepositoryAttribute will be deleted. All predecessors of the RepositoryAttribute will be deleted. If the...","categories": [],
-        "tags": [],
-        "url": "/versions/v7/use-case-consumption-delete-a-repositoryattribute",
-        "teaser": null
-      },{
-        "title": "Delete a ThirdPartyRelationshipAttribute and notify peer",
-        "excerpt":"This use case allows you to delete a ThirdPartyRelationshipAttribute, i.e. a LocalAttribute that has the property initialAttributePeer set. Parameters The attributeId of the ThirdPartyRelationshipAttribute you want to delete. On Success The ThirdPartyRelationshipAttribute will be deleted. All predecessors of the ThirdPartyRelationshipAttribute will be deleted. If the ThirdPartyRelationshipAttribute was succeeded, the succeeds...","categories": [],
-        "tags": [],
-        "url": "/versions/v7/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer",
-        "teaser": null
-      },{
-        "title": "Delete an own shared Attribute and notify peer",
-        "excerpt":"This use case allows you to delete an own shared Attribute, i.e. a LocalAttribute with a shareInfo, that is owned by you. It is created as a result of sharing the content of a RepositoryAttribute with a peer. Parameters The attributeId of the own shared Attribute you want to delete....","categories": [],
-        "tags": [],
-        "url": "/versions/v7/use-case-consumption-delete-an-own-shared-attribute-and-notify-peer",
+        "url": "/versions/v7/use-case-consumption-delete-an-attribute-and-notify",
         "teaser": null
       },{
         "title": "Delete IdentityMetadata",
@@ -540,7 +516,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Execute a RelationshipAttributeQuery",
-        "excerpt":"This use case is intended to execute an incoming RelationshipAttributeQuery (e.g. received by a ReadAttributeRequestItem) which returns a list of matching Relationship Attributes. Parameters The query for the RelationshipAttributes as described in the RelationshipAttributeQuery. On Success Returns the RelationshipAttributes as LocalAttributes that match the given query. On Failure The query...","categories": [],
+        "excerpt":"This use case is intended to execute an incoming RelationshipAttributeQuery which returns a list of matching RelationshipAttributes. Parameters The query for the RelationshipAttributes as described in the RelationshipAttributeQuery. On Success Returns the RelationshipAttributes as OwnRelationshipAttributes or PeerRelationshipAttributes that match the given query. RelationshipAttributes with private as confidentiality are never returned....","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-consumption-execute-a-relationshipattributequery",
         "teaser": null
@@ -552,13 +528,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Execute an IdentityAttributeQuery",
-        "excerpt":"This use case is intended to execute an incoming IdentityAttributeQuery (e.g. of a ReadAttributeRequestItem) which returns a list of matching Identity Attributes. Parameters The query for the IdentityAttributes as described in the IdentityAttributeQuery. On Success Returns the IdentityAttributes as LocalAttributes that match the given query. On Failure The query was...","categories": [],
+        "excerpt":"This use case is intended to execute an incoming IdentityAttributeQuery (e.g. of a ReadAttributeRequestItem) which returns a list of matching IdentityAttributes of the current Identity. Parameters The query for the IdentityAttributes as described in the IdentityAttributeQuery. On Success Returns the IdentityAttributes as OwnIdentityAttributes that match the given query. On Failure...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-consumption-execute-an-identityattributequery",
         "teaser": null
       },{
         "title": "Execute an IQLQuery",
-        "excerpt":"   This use case executes an IQLQuery which returns a list of matching IdentityAttributes.   Parameters      The query field of the IQLQuery as described in IQLQuery.   On Success      Returns the IdentityAttributes as LocalAttributes that match the given query.   On Failure      The query was malformed.  ","categories": [],
+        "excerpt":"   This use case executes an IQLQuery which returns a list of matching IdentityAttributes.   Parameters      The query field of the IQLQuery as described in IQLQuery.   On Success      Returns the IdentityAttributes as OwnIdentityAttributes that match the given query.   On Failure      The query was malformed.  ","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-consumption-execute-an-iqlquery",
         "teaser": null
@@ -570,7 +546,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Get Attributes",
-        "excerpt":"This use case is intended to query LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters query allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used: createdAt describes the time when the LocalAttribute was created. The fields of content can...","categories": [],
+        "excerpt":"This use case is intended to query LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters query allows to specify the conditions for the returned LocalAttributes. In detail, the following keys may be used: @type describes the LocalAttribute subtype. createdAt describes the time when the LocalAttribute was created....","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-consumption-get-attributes",
         "teaser": null
@@ -579,6 +555,12 @@ var store = [{
         "excerpt":"   This use case is intended to query the AttributeTagCollection from the Backbone.   On Success      Returns the AttributeTagCollection.  ","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-consumption-get-attributetagcollection",
+        "teaser": null
+      },{
+        "title": "Get ForwardingDetails for Attribute",
+        "excerpt":"This use case allows you to retrieve a list of AttributeForwardingDetails for a given LocalAttribute. Since only the LocalAttribute subtypes OwnIdentityAttribute, OwnRelationshipAttribute, and PeerRelationshipAttribute represent forwardable Attributes, AttributeForwardingDetails can only exist for such LocalAttributes. Parameters The attributeId belonging to a LocalAttribute you would like to retrieve AttributeForwardingDetails of. query allows...","categories": [],
+        "tags": [],
+        "url": "/versions/v7/use-case-consumption-get-forwardingdetails-for-attribute",
         "teaser": null
       },{
         "title": "Get IdentityMetadata",
@@ -599,28 +581,22 @@ var store = [{
         "url": "/versions/v7/use-case-consumption-get-outgoing-request",
         "teaser": null
       },{
-        "title": "Get own shared Attributes",
-        "excerpt":"This use case is intended to retrieve Attributes that the current Identity shared to a peer as LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters peer is the address of the Identity that the LocalAttributes are shared with. query allows to specify the conditions for the returned...","categories": [],
+        "title": "Get own Attributes shared with peer",
+        "excerpt":"This use case is intended to retrieve own Attributes that the current Identity shared to a peer as LocalAttributes. The LocalAttributes can be specified using a complex query. Since only the LocalAttribute subtypes OwnIdentityAttribute and OwnRelationshipAttribute represent own Attributes, only such LocalAttributes can be fetched through this use case. Parameters...","categories": [],
         "tags": [],
-        "url": "/versions/v7/use-case-consumption-get-own-shared-attributes",
+        "url": "/versions/v7/use-case-consumption-get-own-attributes-shared-with-peer",
         "teaser": null
       },{
-        "title": "Get peer shared Attributes",
-        "excerpt":"This use case is intended to retrieve Attributes that a peer has shared with the current Identity as LocalAttributes. The LocalAttributes can be specified using a complex query. Parameters peer is the address of the Identity that shared the LocalAttributes. query allows to specify the conditions for the returned LocalAttributes....","categories": [],
+        "title": "Get OwnIdentityAttributes",
+        "excerpt":"This use case is intended to return all OwnIdentityAttributes. In case of Attribute succession, by default only the latest version will be returned. The OwnIdentityAttributes can be specified using a complex query. Parameters query allows to specify the conditions for the returned OwnIdentityAttributes. In detail, the following keys may be...","categories": [],
         "tags": [],
-        "url": "/versions/v7/use-case-consumption-get-peer-shared-attributes",
+        "url": "/versions/v7/use-case-consumption-get-ownidentityattributes",
         "teaser": null
       },{
-        "title": "Get RepositoryAttributes",
-        "excerpt":"This use case is intended to return all RepositoryAttributes. RepositoryAttributes are own LocalAttributes with an IdentityAttribute as content that are classified by an undefined shareInfo. In case of Attribute succession, by default only the latest version will be returned. The LocalAttributes can be specified using a complex query. Parameters query...","categories": [],
+        "title": "Get peer Attributes",
+        "excerpt":"This use case is intended to retrieve Attributes that a peer has shared with the current Identity as LocalAttributes. The LocalAttributes can be specified using a complex query. Since only the LocalAttribute subtypes PeerIdentityAttribute, PeerRelationshipAttribute, and ThirdPartyRelationshipAttribute represent retrieved Attributes, only such LocalAttributes can be fetched through this use case....","categories": [],
         "tags": [],
-        "url": "/versions/v7/use-case-consumption-get-repositoryattributes",
-        "teaser": null
-      },{
-        "title": "Get shared versions of an Attribute",
-        "excerpt":"This use case allows you to retrieve a list of shared LocalAttributes for a given source Attribute. In case of IdentityAttributes a list comprising of own shared IdentityAttributes for the specified RepositoryAttribute is returned. In case of RelationshipAttributes the list contains ThirdPartyRelationshipAttributes you re-shared based on the specified RelationshipAttribute. Parameters...","categories": [],
-        "tags": [],
-        "url": "/versions/v7/use-case-consumption-get-shared-versions-of-an-attribute",
+        "url": "/versions/v7/use-case-consumption-get-peer-attributes",
         "teaser": null
       },{
         "title": "Get versions of an Attribute",
@@ -629,10 +605,16 @@ var store = [{
         "url": "/versions/v7/use-case-consumption-get-versions-of-an-attribute",
         "teaser": null
       },{
-        "title": "Notify peer about RepositoryAttribute succession",
-        "excerpt":"If you succeeded a RepositoryAttribute, whose previous version you shared with a peer, you can decide to inform the peer about the succession. If you do so, the peer will receive a Notification via Message, which handles the succession of their peer shared IdentityAttribute. Also, the associated own shared IdentityAttribute...","categories": [],
+        "title": "Get versions of Attribute shared with peer",
+        "excerpt":"This use case allows you to retrieve a list of LocalAttribute versions shared with a given peer. Since only the LocalAttribute subtypes OwnIdentityAttribute, OwnRelationshipAttribute, and PeerRelationshipAttribute represent forwardable Attributes, a list of shared versions can only be retrieved for such LocalAttributes. Parameters The attributeId belonging to a LocalAttribute you would...","categories": [],
         "tags": [],
-        "url": "/versions/v7/use-case-consumption-notify-peer-about-repositoryattribute-succession",
+        "url": "/versions/v7/use-case-consumption-get-versions-of-attribute-shared-with-peer",
+        "teaser": null
+      },{
+        "title": "Notify peer about OwnIdentityAttribute succession",
+        "excerpt":"If you succeeded an OwnIdentityAttribute, whose previous version you shared with a peer, you can decide to inform the peer about the succession. If you do so, the peer will receive a Notification via Message, which handles the succession of their PeerIdentityAttribute. This means, a new version of the PeerIdentityAttribute...","categories": [],
+        "tags": [],
+        "url": "/versions/v7/use-case-consumption-notify-peer-about-ownidentityattribute-succession",
         "teaser": null
       },{
         "title": "Query incoming Requests",
@@ -653,22 +635,22 @@ var store = [{
         "url": "/versions/v7/use-case-consumption-reject-incoming-request",
         "teaser": null
       },{
-        "title": "Share a RepositoryAttribute",
-        "excerpt":"If you wish to share one of your private IdentityAttributes, called RepositoryAttributes, with a peer, this use case allows you to do so. Internally, a Request with a ShareAttributeRequestItem will be created and will be sent via Message to the peer. Assuming your peer accepts the Request, at their side...","categories": [],
+        "title": "Share an OwnIdentityAttribute",
+        "excerpt":"If you wish to share one of your OwnIdentityAttributes with a peer, this use case allows you to do so. Internally, a Request with a ShareAttributeRequestItem will be created and will be sent via Message to the peer. Assuming your peer accepts the Request, at their side a PeerIdentityAttribute will...","categories": [],
         "tags": [],
-        "url": "/versions/v7/use-case-consumption-share-a-repositoryattribute",
+        "url": "/versions/v7/use-case-consumption-share-an-ownidentityattribute",
         "teaser": null
       },{
         "title": "Succeed a RelationshipAttribute and notify peer",
-        "excerpt":"This use case allows the owner to update a RelationshipAttribute, while automatically handling the coherent versioning at both your and your peer&#8217;s side. Succeeding an own RelationshipAttribute, a new LocalAttribute with the updated content will be created at your side. In its succeeds property it links to the predecessing version,...","categories": [],
+        "excerpt":"This use case allows the owner to update a RelationshipAttribute, while automatically handling the coherent versioning at both your and your peer&#8217;s side. Succeeding an OwnRelationshipAttribute, a new OwnRelationshipAttribute with the updated content will be created at your side. In its succeeds property it links to the predecessing version, which...","categories": [],
         "tags": [],
         "url": "/versions/v7/use-case-consumption-succeed-a-relationshipattribute-and-notify-peer",
         "teaser": null
       },{
-        "title": "Succeed a RepositoryAttribute",
-        "excerpt":"If the value of a RepositoryAttribute changes, this can be replicated in enmeshed with this use case. It allows you to update the content and keeps a coherent history of all versions by establishing a doubly linked list, using the LocalAttribute&#8217;s parameters succeeds and succeededBy. Hence, every LocalAttribute may have...","categories": [],
+        "title": "Succeed an OwnIdentityAttribute",
+        "excerpt":"If the content.value of an OwnIdentityAttribute changes, this can be replicated in enmeshed with this use case. It allows you to update the content and keeps a coherent history of all versions by establishing a doubly linked list, using the OwnIdentityAttribute&#8217;s parameters succeeds and succeededBy. Hence, every OwnIdentityAttribute may have...","categories": [],
         "tags": [],
-        "url": "/versions/v7/use-case-consumption-succeed-a-repositoryattribute",
+        "url": "/versions/v7/use-case-consumption-succeed-an-ownidentityattribute",
         "teaser": null
       },{
         "title": "Upsert IdentityMetadata",

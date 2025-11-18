@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-06T16:12:06+01:00">
+  <meta property="article:published_time" content="2025-11-18T13:21:44+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Migration From v4 to v5">
     <meta itemprop="description" content="The Runtime of enmeshed has recently been updated from version 4 to version 5.Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors.The version update has resulted in some breaking changes.To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
-    <meta itemprop="datePublished" content="2025-11-06T16:12:06+01:00">
+    <meta itemprop="datePublished" content="2025-11-18T13:21:44+01:00">
     
 
     <div class="page__inner-wrap">
@@ -468,9 +468,9 @@ In this case, it is worth taking a look at the following lists:</p>
   <li>An overview of the <a href="/versions/v7/integrate/migration-from-v4-to-v5#removed-changed-and-added-use-cases">removed, changed and added use cases</a> with regard to their impact on the Connector routes can be found below.
     <ul>
       <li>In particular, it must be noted that the <a href="/versions/v7/integrate/migration-from-v4-to-v5#renaming-of-the-use-case-getsharedversionsofrepositoryattribute-to-getsharedversionsofattribute">use case of getting shared versions of a RepositoryAttribute has been renamed</a>.
-The <a href="/versions/v7/use-case-consumption-get-shared-versions-of-an-attribute">Get shared versions of an Attribute</a> use case must now be executed instead.
+The <a href="/versions/v7/use-case-consumption-get-versions-of-attribute-shared-with-peer">Get shared versions of an Attribute</a> use case must now be executed instead.
 Please note, however, that the associated Connector route <code class="language-plaintext highlighter-rouge">GET /api/v2/Attributes/{id}/Versions/Shared</code> has not changed.</li>
-      <li>With the execution of the Connector route <code class="language-plaintext highlighter-rouge">POST /api/v2/Attributes</code>, which corresponds to the execution of the associated <a href="/versions/v7/use-case-consumption-create-a-repositoryattribute">Create a RepositoryAttribute</a> use case, an <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a> can be created for yourself.
+      <li>With the execution of the Connector route <code class="language-plaintext highlighter-rouge">POST /api/v2/Attributes</code>, which corresponds to the execution of the associated <a href="/versions/v7/use-case-consumption-create-an-ownidentityattribute">Create a RepositoryAttribute</a> use case, an <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a> can be created for yourself.
 When executing this Connector route, the fields <code class="language-plaintext highlighter-rouge">content.@type</code> and <code class="language-plaintext highlighter-rouge">content.owner</code> may no longer be specified as input.
 This is due to the fact that previously only the IdentityAttribute as <code class="language-plaintext highlighter-rouge">@type</code> and the own address as the value of the <code class="language-plaintext highlighter-rouge">owner</code> property of the <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a> to be created for yourself came into question anyway.
 Therefore, <a href="/versions/v7/integrate/migration-from-v4-to-v5#less-input-needed-for-the-use-case-createrepositoryattribute">less input needs to be provided when executing the use case to create a RepositoryAttribute</a>.</li>
@@ -769,11 +769,11 @@ In connection with this feature, the following use cases have been added, whereb
 
 <p>Taking <a href="/versions/v7/integrate/data-model-overview#localattribute">ThirdPartyRelationshipAttributes</a> into account, we wanted to extend the functionality of the use case of getting shared versions of a <a href="/versions/v7/integrate/data-model-overview#localattribute">RepositoryAttribute</a> to <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttributes</a>.</p>
 
-<p>For this reason, the <a href="/versions/v7/use-case-consumption-get-shared-versions-of-an-attribute">Get shared versions of an Attribute</a> use case was already added in version 4 and the use case of getting shared versions of a RepositoryAttribute was marked as deprecated.
+<p>For this reason, the <a href="/versions/v7/use-case-consumption-get-versions-of-attribute-shared-with-peer">Get shared versions of an Attribute</a> use case was already added in version 4 and the use case of getting shared versions of a RepositoryAttribute was marked as deprecated.
 It has now been deleted with the update to version 5.</p>
 
 <p>Please note, however, that the Connector route <code class="language-plaintext highlighter-rouge">GET /api/v2/Attributes/{id}/Versions/Shared</code> that belonged to the use case of getting shared versions of a RepositoryAttribute can still be used.
-If the Connector route <code class="language-plaintext highlighter-rouge">GET /api/v2/Attributes/{id}/Versions/Shared</code> is executed, the <a href="/versions/v7/use-case-consumption-get-shared-versions-of-an-attribute">Get shared versions of an Attribute</a> use case is now executed instead.
+If the Connector route <code class="language-plaintext highlighter-rouge">GET /api/v2/Attributes/{id}/Versions/Shared</code> is executed, the <a href="/versions/v7/use-case-consumption-get-versions-of-attribute-shared-with-peer">Get shared versions of an Attribute</a> use case is now executed instead.
 As the functionality has only been extended, there is no breaking change with regard to the Connector route.</p>
 
 <h4 id="less-input-needed-for-the-use-case-createrepositoryattribute">Less Input Needed for the Use Case CreateRepositoryAttribute</h4>
@@ -781,10 +781,10 @@ As the functionality has only been extended, there is no breaking change with re
 <p>In version 4, there was already a use case for creating Attributes for yourself that could be executed by Connector route <code class="language-plaintext highlighter-rouge">POST /api/v2/Attributes</code>.
 An Attribute created for yourself is automatically an <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a> which is owned by yourself.
 Technically, this corresponds exactly to the creation of a <a href="/versions/v7/integrate/data-model-overview#localattribute">RepositoryAttribute</a>.
-Therefore, the use case for creating Attributes for yourself is named the <a href="/versions/v7/use-case-consumption-create-a-repositoryattribute">Create a RepositoryAttribute</a> use case.</p>
+Therefore, the use case for creating Attributes for yourself is named the <a href="/versions/v7/use-case-consumption-create-an-ownidentityattribute">Create a RepositoryAttribute</a> use case.</p>
 
 <p>When <a href="/versions/v7/integrate/create-attributes-for-yourself">creating Attributes for yourself</a>, it is therefore apparently not valuable to have to explicitly specify that an IdentityAttribute should be created instead of a RelationshipAttribute and that the IdentityAttribute should be owned by yourself instead of another Identity.
-For this reason, when executing the Connector route <code class="language-plaintext highlighter-rouge">POST /api/v2/Attributes</code>, which corresponds to the execution of the associated <a href="/versions/v7/use-case-consumption-create-a-repositoryattribute">Create a RepositoryAttribute</a> use case, less input must now be provided, since the <code class="language-plaintext highlighter-rouge">@type</code> and the <code class="language-plaintext highlighter-rouge">owner</code> of the <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a> to be created may no longer be specified.</p>
+For this reason, when executing the Connector route <code class="language-plaintext highlighter-rouge">POST /api/v2/Attributes</code>, which corresponds to the execution of the associated <a href="/versions/v7/use-case-consumption-create-an-ownidentityattribute">Create a RepositoryAttribute</a> use case, less input must now be provided, since the <code class="language-plaintext highlighter-rouge">@type</code> and the <code class="language-plaintext highlighter-rouge">owner</code> of the <a href="/versions/v7/integrate/data-model-overview#attributes">Attribute</a> to be created may no longer be specified.</p>
 
 <h3 id="renamed-and-added-events">Renamed and Added Events</h3>
 
@@ -826,7 +826,7 @@ With the migration to version 5, the <code class="language-plaintext highlighter
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-06T16:12:06+01:00">November 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-18T13:21:44+01:00">November 18, 2025</time></p>
 
       </footer>
 

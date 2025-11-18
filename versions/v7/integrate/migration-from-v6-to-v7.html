@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-06T16:12:06+01:00">
+  <meta property="article:published_time" content="2025-11-18T13:21:44+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Migration From v6 to v7">
     <meta itemprop="description" content="The Runtime of enmeshed has recently been updated from version 6 to version 7.Accordingly, a new version of the Connector has also been released to make the updated Runtime available to Integrators of Connectors.The version update has resulted in some breaking changes.To support the migration of existing systems to the new version, the breaking changes made are listed and explained in this migration guide.">
-    <meta itemprop="datePublished" content="2025-11-06T16:12:06+01:00">
+    <meta itemprop="datePublished" content="2025-11-18T13:21:44+01:00">
     
 
     <div class="page__inner-wrap">
@@ -388,7 +388,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#step-by-step-instructions">Step-by-Step Instructions</a><ul><li><a href="#connector-setup">Connector Setup</a></li><li><a href="#removed-and-changed-data-structures">Removed and Changed Data Structures</a></li><li><a href="#changed-behavior-of-known-features">Changed Behavior of Known Features</a></li><li><a href="#removed-and-changed-connector-routes">Removed and Changed Connector Routes</a></li><li><a href="#typescript-sdk-changes">TypeScript SDK Changes</a></li><li><a href="#removed-and-changed-error-codes">Removed and Changed Error Codes</a></li></ul></li><li><a href="#runtime-specific-breaking-changes">Runtime-Specific Breaking Changes</a><ul><li><a href="#removed-use-cases">Removed Use Cases</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#step-by-step-instructions">Step-by-Step Instructions</a><ul><li><a href="#connector-setup">Connector Setup</a></li><li><a href="#removed-and-changed-data-structures">Removed and Changed Data Structures</a></li><li><a href="#changed-behavior-of-known-features">Changed Behavior of Known Features</a></li><li><a href="#removed-and-changed-connector-routes">Removed and Changed Connector Routes</a></li><li><a href="#typescript-sdk-changes">TypeScript SDK Changes</a></li><li><a href="#removed-and-changed-error-codes">Removed and Changed Error Codes</a></li></ul></li><li><a href="#runtime-specific-breaking-changes">Runtime-Specific Breaking Changes</a><ul><li><a href="#removed-and-changed-use-cases">Removed and Changed Use Cases</a></li></ul></li></ul>
             </nav>
           </aside>
         
@@ -490,8 +490,20 @@ An error with <a href="/versions/v7/integrate/error-codes">error code</a> <code 
 <ul>
   <li>For every Connector route originating from the <a href="/versions/v7/operate/modules#corehttpapi">Core HTTP API Module</a>, the prefix has been changed from <code class="language-plaintext highlighter-rouge">/api/v2</code> to <code class="language-plaintext highlighter-rouge">/api/core/v1</code> to reflect its origin.
 The prefix syntax change led to the version being reset.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">GET /api/v2/Attributes/Valid</code> Connector route and its underlying <a href="/versions/v7/integrate/use-cases">use case</a> for getting valid <a href="/versions/v7/integrate/data-model-overview#attributes">Attributes</a> were removed, because the properties <code class="language-plaintext highlighter-rouge">validFrom</code> and <code class="language-plaintext highlighter-rouge">validTo</code> have been removed from the Attributes.</li>
-  <li>For the same reason, the <code class="language-plaintext highlighter-rouge">onlyValid</code> parameter was removed from the use cases <a href="/versions/v7/use-case-consumption-get-attributes">Get Attributes</a>, <a href="/versions/v7/use-case-consumption-get-own-shared-attributes">Get own shared Attributes</a> and <a href="/versions/v7/use-case-consumption-get-peer-shared-attributes">Get peer shared Attributes</a>.
+  <li>The introduction of the <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> subtypes has led to a change of some Connector routes and their underlying <a href="/versions/v7/integrate/use-cases">use cases</a>.
+    <ul>
+      <li>The Connector routes <code class="language-plaintext highlighter-rouge">GET /api/core/v1/Attributes/Own/Identity</code>, <code class="language-plaintext highlighter-rouge">GET /api/core/v1/Attributes/Own/Shared/{peer}</code>, and <code class="language-plaintext highlighter-rouge">GET /api/core/v1/Attributes/Peer/{peer}</code> replace the <code class="language-plaintext highlighter-rouge">GET /api/v2/Attributes/Own/Repository</code>, <code class="language-plaintext highlighter-rouge">GET /api/v2/Attributes/Own/Shared/Identity</code>, and <code class="language-plaintext highlighter-rouge">GET /api/v2/Attributes/Peer/Shared/Identity</code> Connector routes.
+The corresponding use cases for getting RepositoryAttributes, for getting own shared IdentityAttributes, and for getting peer shared IdentityAttributes were replaced by <a href="/versions/v7/use-case-consumption-get-ownidentityattributes">Get OwnIdentityAttributes</a>, <a href="/versions/v7/use-case-consumption-get-own-attributes-shared-with-peer">Get own Attributes shared with peer</a> and <a href="/versions/v7/use-case-consumption-get-peer-attributes">Get peer Attributes</a>.</li>
+      <li>The <a href="/versions/v7/use-case-consumption-delete-an-attribute-and-notify">Delete an Attribute and notify</a> use case replaces the use cases for deleting a RepositoryAttribute, deleting an own shared Attribute and notifying peer, deleting a peer shared Attribute and notifying owner, and deleting a ThirdPartyRelationshipAttribute and notifying peer use cases.
+The corresponding Connector route now returns an array of <code class="language-plaintext highlighter-rouge">notificationIds</code> instead of a single <code class="language-plaintext highlighter-rouge">notificationId</code>.</li>
+      <li>The <a href="/versions/v7/use-case-consumption-get-versions-of-attribute-shared-with-peer">Get versions of Attribute shared with peer</a> use case replaces the use case for getting shared versions of an Attribute.
+The parameters of the corresponding Connector route have changed.
+Additionally, the <a href="/versions/v7/use-case-consumption-get-forwardingdetails-for-attribute">Get ForwardingDetails for Attribute</a> use case was added.
+Furthermore, the parameters of the Connector route associated with the <a href="/versions/v7/use-case-consumption-get-attributes">Get Attributes</a> use case have changed.</li>
+    </ul>
+  </li>
+  <li>The <code class="language-plaintext highlighter-rouge">GET /api/v2/Attributes/Valid</code> Connector route and its underlying <a href="/versions/v7/integrate/use-cases">use case</a> for getting valid <a href="/versions/v7/integrate/data-model-overview#attributes">Attributes</a> were removed, because the properties <code class="language-plaintext highlighter-rouge">validFrom</code> and <code class="language-plaintext highlighter-rouge">validTo</code> have been removed from the Attributes.
+For the same reason, the <code class="language-plaintext highlighter-rouge">onlyValid</code> parameter was removed from the use cases <a href="/versions/v7/use-case-consumption-get-attributes">Get Attributes</a>, <a href="/versions/v7/use-case-consumption-get-own-attributes-shared-with-peer">Get own Attributes shared with peer</a> and <a href="/versions/v7/use-case-consumption-get-peer-attributes">Get peer Attributes</a>.
 Accordingly, it was removed from the associated Connector routes as well.</li>
 </ul>
 
@@ -531,7 +543,7 @@ Similarly, other error codes have been renamed.</li>
 
 <p>As an Integrator of a Connector, the following changes do not need to be taken into account during migration to version 7, as they are Runtime-specific breaking changes handled internally by the Connector.</p>
 
-<h3 id="removed-use-cases">Removed Use Cases</h3>
+<h3 id="removed-and-changed-use-cases">Removed and Changed Use Cases</h3>
 
 <p>Some <a href="/versions/v7/integrate/use-cases">use cases</a> of the Runtime that were previously marked as deprecated and replaced by new ones have now been removed.
 However, the Connector routes associated with these use cases are not affected by these replacements and can still be used.</p>
@@ -539,11 +551,18 @@ However, the Connector routes associated with these use cases are not affected b
 <ul>
   <li>The nomenclature of <a href="/versions/v7/integrate/attribute-introduction#emitted-and-received-thirdpartyrelationshipattributes">ThirdPartyRelationshipAttributes</a> has already changed in version 6.
 In particular, the term third party owned RelationshipAttribute has become obsolete.
-For this reason, the <a href="/versions/v7/use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer">Delete a ThirdPartyRelationshipAttribute and notify peer</a> use case was already added in version 6 and the use case of deleting a third party owned RelationshipAttribute and notifying the peer was marked as deprecated.
+For this reason, the <a href="/versions/v7/use-case-consumption-delete-an-attribute-and-notify">Delete a ThirdPartyRelationshipAttribute and notify peer</a> use case was already added in version 6 and the use case of deleting a third party owned RelationshipAttribute and notifying the peer was marked as deprecated.
 It has now been deleted with the update to version 7.</li>
   <li>It will be possible to load items not only from truncated references, but also from other references.
 For this reason, the <a href="/versions/v7/use-case-transport-load-item-from-reference">Load item from reference</a> use case was already added in version 6 and the use case of loading an item from a truncated reference was marked as deprecated.
 It has now been deleted with the update to version 7.</li>
+</ul>
+
+<p>The introduction of the <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> subtypes has led to a renaming of some <a href="/versions/v7/integrate/use-cases">use cases</a>.</p>
+
+<ul>
+  <li>The use cases for checking if a RepositoryAttribute can be created, for creating a RepositoryAttribute, for sharing a RepositoryAttribute, and for changing a default RepositoryAttribute were renamed to <a href="/versions/v7/use-case-consumption-check-if-ownidentityattribute-can-be-created">Check if OwnIdentityAttribute can be created</a>, <a href="/versions/v7/use-case-consumption-create-an-ownidentityattribute">Create an OwnIdentityAttribute</a>, <a href="/versions/v7/use-case-consumption-share-an-ownidentityattribute">Share an OwnIdentityAttribute</a>, and <a href="/versions/v7/use-case-consumption-change-default-ownidentityattribute">Change default OwnIdentityAttribute</a>.</li>
+  <li>The use cases for succeeding a RepositoryAttribute and notifying a peer about a RepositoryAttribute succession were renamed to <a href="/versions/v7/use-case-consumption-succeed-an-ownidentityattribute">Succeed an OwnIdentityAttribute</a> and <a href="/versions/v7/use-case-consumption-notify-peer-about-ownidentityattribute-succession">Notify peer about OwnIdentityAttribute succession</a>.</li>
 </ul>
 
         
@@ -556,7 +575,7 @@ It has now been deleted with the update to version 7.</li>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-06T16:12:06+01:00">November 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-18T13:21:44+01:00">November 18, 2025</time></p>
 
       </footer>
 

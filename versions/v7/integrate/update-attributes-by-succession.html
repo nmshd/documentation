@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-06T16:12:06+01:00">
+  <meta property="article:published_time" content="2025-11-18T13:21:44+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Update Attributes by succession">
     <meta itemprop="description" content="The way enmeshed handles updates to your personal data is by succeeding old Attributes with new ones.Instead of simply replacing old data, a completely new Attribute is created which succeeds its predecessor.Thus, you and your peers are provided with a coherent history of all past versions.How the Attribute succession works in detail depends on the type of Attribute.">
-    <meta itemprop="datePublished" content="2025-11-06T16:12:06+01:00">
+    <meta itemprop="datePublished" content="2025-11-18T13:21:44+01:00">
     
 
     <div class="page__inner-wrap">
@@ -441,7 +441,7 @@ Its <code class="language-plaintext highlighter-rouge">shareInfo</code> stores t
 <h3 id="succeeding-a-repositoryattribute">Succeeding a RepositoryAttribute</h3>
 
 <p>Next, let’s consider the case that the <code class="language-plaintext highlighter-rouge">value</code> of your <a href="/versions/v7/integrate/data-model-overview#identityattribute">IdentityAttribute</a> changes and you want to update it.
-To <a href="/versions/v7/use-case-consumption-succeed-a-repositoryattribute">succeed the RepositoryAttribute</a>, a new <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> with the updated <code class="language-plaintext highlighter-rouge">content</code> will be created.
+To <a href="/versions/v7/use-case-consumption-succeed-an-ownidentityattribute">succeed the OwnIdentityAttribute</a>, a new <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> with the updated <code class="language-plaintext highlighter-rouge">content</code> will be created.
 This successor stores the <code class="language-plaintext highlighter-rouge">id</code> of the old version, the predecessor, in its <code class="language-plaintext highlighter-rouge">succeeds</code> property.
 The predecessor is updated, too, such that its <code class="language-plaintext highlighter-rouge">succeededBy</code> property links to the successor.
 Consequently, the different versions of a LocalAttribute created by Attribute successions make up a doubly linked list.</p>
@@ -453,7 +453,7 @@ During the succession of a <a href="/versions/v7/integrate/attribute-introductio
 
 <h3 id="notifying-a-peer-about-a-repositoryattribute-succession">Notifying a peer about a RepositoryAttribute succession</h3>
 
-<p>After succeeding a RepositoryAttribute, you can check <a href="/versions/v7/use-case-consumption-get-shared-versions-of-an-attribute">with which of your peers you have previously shared the succeeded Attribute</a> to choose those, you’d like to <a href="/versions/v7/use-case-consumption-notify-peer-about-repositoryattribute-succession">notify about the succession</a>.
+<p>After succeeding a RepositoryAttribute, you can check <a href="/versions/v7/use-case-consumption-get-versions-of-attribute-shared-with-peer">with which of your peers you have previously shared the succeeded Attribute</a> to choose those, you’d like to <a href="/versions/v7/use-case-consumption-notify-peer-about-ownidentityattribute-succession">notify about the succession</a>.
 Your own shared IdentityAttributes associated with the peers chosen will be succeeded in the same manner as your RepositoryAttribute before.
 Then, a <a href="/versions/v7/integrate/data-model-overview#notification">Notification</a> is sent to the peers, containing a <a href="/versions/v7/integrate/data-model-overview#peerattributesucceedednotificationitem">PeerAttributeSucceededNotificationItem</a>.
 In the <code class="language-plaintext highlighter-rouge">successorContent</code> property of the latter the updated IdentityAttribute is transmitted and automatically a likewise succession at the peers’ side will be triggered, such that their LocalAttribute versions replicate the succession chain at your side.
@@ -509,7 +509,7 @@ To do so, proceed as described in the guide on <a href="/versions/v7/integrate/d
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-06T16:12:06+01:00">November 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-18T13:21:44+01:00">November 18, 2025</time></p>
 
       </footer>
 

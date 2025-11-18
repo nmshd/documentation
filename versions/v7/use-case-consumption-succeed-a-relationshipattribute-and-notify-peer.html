@@ -35,7 +35,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-11-06T16:12:06+01:00">
+  <meta property="article:published_time" content="2025-11-18T13:21:44+01:00">
 
 
 
@@ -367,7 +367,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Succeed a RelationshipAttribute and notify peer">
     <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2025-11-06T16:12:06+01:00">
+    <meta itemprop="datePublished" content="2025-11-18T13:21:44+01:00">
     
 
     <div class="page__inner-wrap">
@@ -397,7 +397,7 @@
     <table>
         
         <tr><td>id</td>
-            <td>RA17</td></tr>
+            <td>RA23</td></tr>
         
         <tr><td>component</td>
             <td>Runtime</td></tr>
@@ -466,33 +466,34 @@
 -->
 
 <p>This use case allows the owner to update a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a>, while automatically handling the coherent versioning at both your and your peer&#8217;s side.
-<a href="/versions/v7/integrate/update-attributes-by-succession#succeeding-own-relationshipattributes">Succeeding an own RelationshipAttribute</a>, a new <a href="/versions/v7/integrate/data-model-overview#localattribute">LocalAttribute</a> with the updated <code class="language-plaintext highlighter-rouge">content</code> will be created at your side.
+<a href="/versions/v7/integrate/update-attributes-by-succession#succeeding-own-relationshipattributes">Succeeding an OwnRelationshipAttribute</a>, a new <a href="/versions/v7/integrate/data-model-overview#ownrelationshipattribute">OwnRelationshipAttribute</a> with the updated <code class="language-plaintext highlighter-rouge">content</code> will be created at your side.
 In its <code class="language-plaintext highlighter-rouge">succeeds</code> property it links to the predecessing version, which in turn is also updated and links to the newly created version in its <code class="language-plaintext highlighter-rouge">succeededBy</code> property.
 Thus, a doubly linked list is established, ensuring every version to have not more that one predecessor or successor.
 Once the succession at your side is completed, a <a href="/versions/v7/integrate/data-model-overview#notification">Notification</a> is sent automatically to your peer.
-It triggers the succession of their peer shared RelationshipAttribute in the same manner as described above, such that both your succession chains match.</p>
+It triggers the succession of their <a href="/versions/v7/integrate/data-model-overview#peerrelationshipattribute">PeerRelationshipAttribute</a> in the same manner as described above, such that both your succession chains match.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">predecessorId</code>: the <code class="language-plaintext highlighter-rouge">id</code> of the LocalAttribute with the RelationshipAttribute <code class="language-plaintext highlighter-rouge">content</code> you want to succeed</li>
-  <li>The updated <code class="language-plaintext highlighter-rouge">successorContent</code> limited to the <code class="language-plaintext highlighter-rouge">value</code> property of a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> that may be changed by a succession</li>
+  <li><code class="language-plaintext highlighter-rouge">predecessorId</code> is the <code class="language-plaintext highlighter-rouge">id</code> of the OwnRelationshipAttribute.</li>
+  <li>The updated <code class="language-plaintext highlighter-rouge">successorContent</code> limited to the <code class="language-plaintext highlighter-rouge">value</code> property of a <a href="/versions/v7/integrate/data-model-overview#relationshipattribute">RelationshipAttribute</a> that may be changed by a succession.</li>
 </ul>
 
 <h2 id="on-success">On Success</h2>
 
 <ul>
-  <li>The response returns a <code class="language-plaintext highlighter-rouge">predecessor</code> and a <code class="language-plaintext highlighter-rouge">successor</code> LocalAttribute, as well as the <code class="language-plaintext highlighter-rouge">notificationId</code> of the Notification sent to the peer.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">predecessor</code> is an updated version of the own shared RelationshipAttribute, having the <code class="language-plaintext highlighter-rouge">succeededBy</code> field set to the <code class="language-plaintext highlighter-rouge">successor</code>&#8217;s <code class="language-plaintext highlighter-rouge">id</code>.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">successor</code> is a new own shared RelationshipAttribute version with the specified <code class="language-plaintext highlighter-rouge">successorContent</code>. Its <code class="language-plaintext highlighter-rouge">succeeds</code> property links to the <code class="language-plaintext highlighter-rouge">predecessor</code>.</li>
+  <li>The response returns a <code class="language-plaintext highlighter-rouge">predecessor</code> and a <code class="language-plaintext highlighter-rouge">successor</code> OwnRelationshipAttribute, as well as the <code class="language-plaintext highlighter-rouge">notificationId</code> of the Notification sent to the peer.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">predecessor</code> is an updated version of the OwnRelationshipAttribute, having the <code class="language-plaintext highlighter-rouge">succeededBy</code> field set to the <code class="language-plaintext highlighter-rouge">id</code> of the <code class="language-plaintext highlighter-rouge">successor</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">successor</code> is a new OwnRelationshipAttribute version with the specified <code class="language-plaintext highlighter-rouge">successorContent</code>.
+Its <code class="language-plaintext highlighter-rouge">succeeds</code> property links to the <code class="language-plaintext highlighter-rouge">predecessor</code>.</li>
 </ul>
 
 <h2 id="on-failure">On Failure</h2>
 
 <ul>
-  <li>The response cannot be created if the <code class="language-plaintext highlighter-rouge">predecessorId</code> doesn&#8217;t belong to a valid own LocalAttribute with RelationshipAttribute <code class="language-plaintext highlighter-rouge">content</code>.</li>
-  <li>The response cannot be created if the LocalAttribute belonging to the <code class="language-plaintext highlighter-rouge">predecessorId</code> already has a successor.</li>
-  <li>The response cannot be created if the LocalAttribute belonging to the <code class="language-plaintext highlighter-rouge">predecessorId</code> has a <code class="language-plaintext highlighter-rouge">deletionInfo</code> with <code class="language-plaintext highlighter-rouge">deletionStatus</code> other than <code class="language-plaintext highlighter-rouge">"DeletionRequestRejected"</code>.</li>
+  <li>The response cannot be created if the <code class="language-plaintext highlighter-rouge">predecessorId</code> doesn&#8217;t belong to a valid OwnRelationshipAttribute.</li>
+  <li>The response cannot be created if the OwnRelationshipAttribute belonging to the <code class="language-plaintext highlighter-rouge">predecessorId</code> already has a successor.</li>
+  <li>The response cannot be created if the OwnRelationshipAttribute belonging to the <code class="language-plaintext highlighter-rouge">predecessorId</code> has a <code class="language-plaintext highlighter-rouge">deletionInfo</code> with <code class="language-plaintext highlighter-rouge">"DeletedByRecipient"</code> as <code class="language-plaintext highlighter-rouge">deletionInfo.deletionStatus</code>.</li>
   <li>The response cannot be created if the parameters are malformed.</li>
 </ul>
   <h2>How to execute this use case with the Connector?</h2>
@@ -532,7 +533,7 @@ This use case can be executed with the REST API of the Connector which you can <
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-06T16:12:06+01:00">November 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-18T13:21:44+01:00">November 18, 2025</time></p>
 
       </footer>
 
