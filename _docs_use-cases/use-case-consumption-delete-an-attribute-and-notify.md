@@ -1,6 +1,11 @@
 ---
 # Start automatic generation
 permalink: use-case-consumption-delete-an-attribute-and-notify
+redirect_from:
+  - /use-case-consumption-delete-a-repositoryattribute
+  - /use-case-consumption-delete-an-own-shared-attribute-and-notify-peer
+  - /use-case-consumption-delete-a-peer-shared-attribute-and-notify-peer
+  - /use-case-consumption-delete-a-thirdpartyrelationshipattribute-and-notify-peer
 published: true
 title: "Delete an Attribute and notify"
 type: use-case
