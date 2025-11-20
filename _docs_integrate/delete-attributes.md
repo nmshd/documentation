@@ -40,11 +40,11 @@ Note that this doesn't automatically delete their Attribute, since the peer may 
 
 ## Request the deletion of own Attributes from peer
 
-Wanting to delete a peer shared Attribute owned by you from the peer technically describes the endeavor of withdrawing the permission you gave them to use your Attribute.
+Wanting to delete a peer Attribute owned by you from the peer technically describes the endeavor of withdrawing the permission you gave them to use your Attribute.
 To this end, a [Request]({% link _docs_integrate/data-model-overview.md %}#request) must be used with a [DeleteAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#deleteattributerequestitem).
-As a parameter, the `attributeId` of the peer shared Attribute you would like the peer to delete must be provided.
-Note, that the peer shared Attribute at the peer's side has the same `id` like the own Attribute at your side.
-A possible Request for deleting a peer shared Attribute from a peer could look as follows:
+As a parameter, the `attributeId` of the peer Attribute you would like the peer to delete must be provided.
+Note, that the peer Attribute at the peer's side has the same `id` like the own Attribute at your side.
+A possible Request for deleting a peer Attribute from a peer could look as follows:
 
 ```json
 {
@@ -53,13 +53,13 @@ A possible Request for deleting a peer shared Attribute from a peer could look a
     {
       "@type": "DeleteAttributeRequestItem",
       "mustBeAccepted": true,
-      "attributeId": "<ID of peer shared Attribute>"
+      "attributeId": "<ID of peer Attribute>"
     }
   ]
 }
 ```
 
-Of course, it is also possible to request the deletion of multiple peer shared Attributes within a single Request.
+Of course, it is also possible to request the deletion of multiple peer Attributes within a single Request.
 For this purpose, several DeleteAttributeRequestItems or suitable [RequestItemGroups]({% link _docs_integrate/data-model-overview.md %}#requestitemgroup) can be inserted into the `items` property of the Request.
 
 Before sending the Request, we recommend to [validate its content]({% link _docs_use-cases/use-case-consumption-check-if-outgoing-request-can-be-created.md %}), since this will give you additional information in case of an error.
@@ -73,7 +73,7 @@ There, `"DeletionRequestSent"` is set as `deletionStatus` and the time of sendin
 
 When the peer receives the Request, they can accept or reject it.
 If they want to [accept it]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}), they must use the [AcceptDeleteAttributeRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptdeleteattributerequestitemparameters).
-Doing so, they specify a `deletionDate` on which they plan to delete the peer shared Attribute.
+Doing so, they specify a `deletionDate` on which they plan to delete the peer Attribute.
 In the given example, the payload would look like the following:
 
 ```json
@@ -81,33 +81,33 @@ In the given example, the payload would look like the following:
   "items": [
     {
       "accept": true,
-      "deletionDate": "<date the peer shared Attribute will be deleted>"
+      "deletionDate": "<date the peer Attribute will be deleted>"
     }
   ]
 }
 ```
 
-Now, the [enmeshed Runtime]({% link _docs_explore/61-runtime.md %}) sets the `deletionInfo` of the corresponding peer shared Attribute of the peer with `deletionStatus` `"ToBeDeleted"` and the specified `deletionDate`.
-The same is done for all predecessors of the peer shared Attribute.
+Now, the [enmeshed Runtime]({% link _docs_explore/61-runtime.md %}) sets the `deletionInfo` of the corresponding peer Attribute of the peer with `deletionStatus` `"ToBeDeleted"` and the specified `deletionDate`.
+The same is done for all predecessors of the peer Attribute.
 Then, the appropriate [DeleteAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#deleteattributeacceptresponseitem) is generated and sent back in the [Reponse]({% link _docs_integrate/data-model-overview.md %}#response) to the Sender of the Request.
 There, the `deletionInfo` of the corresponding own Attribute and its predecessors or of the associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) is set with `deletionStatus` `"ToBeDeletedByRecipient"` and the `deletionDate` received in the Response.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/a738fd76-2fe0-4e3e-a0fd-bec86b3b7939" id="ZGDlhHzeKlb-"></iframe></div>
 
-It is also possible for the peer to reject the DeleteAttributeRequestItem, if its `mustBeAccepted` property is set `false`, or to [reject the Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) for deleting a peer shared Attribute as a whole, if they have a valid reason for keeping the respective peer shared Attribute.
-In this case, the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) must be used and it is advised to provide a `message`, informing the Sender of the Request about the reason not to delete the peer shared Attribute.
+It is also possible for the peer to reject the DeleteAttributeRequestItem, if its `mustBeAccepted` property is set `false`, or to [reject the Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) for deleting a peer Attribute as a whole, if they have a valid reason for keeping the respective peer Attribute.
+In this case, the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) must be used and it is advised to provide a `message`, informing the Sender of the Request about the reason not to delete the peer Attribute.
 Receiving the Response with the [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem), the own Attribute of the `owner` or the associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) are given `"DeletionRequestRejected"` as `deletionStatus` and the receiving time is stored in the property `deletionDate`.
 {: .notice--info}
 
-## Delete peer shared Attributes
+## Delete peer Attributes
 
-The actual deletion of a peer shared Attribute happens in a separate step.
-This can either be triggered if the `deletionInfo.deletionDate` is reached, in case the deletion was requested by the owner of the peer shared Attribute, or if the peer decides they no longer need it.
+The actual deletion of a peer Attribute happens in a separate step.
+This can either be triggered if the `deletionInfo.deletionDate` is reached, in case the deletion was requested by the owner of the peer Attribute, or if the peer decides they no longer need it.
 
-To [delete a peer shared Attribute]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}), only its `attributeId` must be specified.
-Internally, not just the given peer shared Attribute is deleted, but also all its predecessors, in case there were any.
-Moreover, if the peer shared Attribute had a successor, its `succeeds` property will be set to undefined, as the corresponding predecessor no longer exists.
-Then, a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification) with a [ForwardedAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#forwardedattributedeletedbypeernotificationitem) or a [PeerRelationshipAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#peerrelationshipattributedeletedbypeernotificationitem) is generated and sent to the owner of the peer shared Attribute, informing them that you deleted the Attribute they shared with you.
+To [delete a peer Attribute]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}), only its `attributeId` must be specified.
+Internally, not just the given peer Attribute is deleted, but also all its predecessors, in case there were any.
+Moreover, if the peer Attribute had a successor, its `succeeds` property will be set to undefined, as the corresponding predecessor no longer exists.
+Then, a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification) with a [ForwardedAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#forwardedattributedeletedbypeernotificationitem) or a [PeerRelationshipAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#peerrelationshipattributedeletedbypeernotificationitem) is generated and sent to the owner of the peer Attribute, informing them that you deleted the Attribute they shared with you.
 Consequently, the `deletionInfo` of their corresponding own Attribute and of all potential predecessors or of the associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) is updated with `deletionStatus` `"DeletedByRecipient"` and the time of receiving the Notification as `deletionDate`.
 In case the owner already [deleted their own Attribute](#delete-own-attributes), nothing happens.
 Please further note that the Notification is queued if the [Relationship is currently terminated]({% link _docs_integrate/terminate-relationships.md %}#terminate-an-active-relationship) but not yet [decomposed]({% link _docs_integrate/terminate-relationships.md %}#decompose-a-relationship).
@@ -126,15 +126,15 @@ In this case, a [ForwardedAttributeDeletedByPeerNotificationItem]({% link _docs_
 The `owner` can always delete their LocalAttributes without having to ask for consent, even if they are shared.
 Hence, it is always possible to delete own Attributes.
 Then, associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) are deleted as well.
-Doing so before the [peer deleted their copy of the shared Attribute](#delete-peer-attributes), however, you lose the information of having shared the Attribute with them and whether they keep their peer shared Attribute or delete it.
+Doing so before the [peer deleted their copy of the shared Attribute](#delete-peer-attributes), however, you lose the information of having shared the Attribute with them and whether they keep their peer Attribute or delete it.
 Thus, we recommend to [request the deletion of own Attributes from the peer](#request-the-deletion-of-own-attributes-from-peer) before deleting them yourself.
 
 If you decide to [delete an own Attribute]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}), you must specifiy its `attributeId`.
 Then, in addition to the own Attribute itself, also all its predecessors will be deleted, given there were any.
 Moreover, if the own Attribute had a successor, its `succeeds` property will be set to undefined, as the corresponding predecessor no longer exists.
 Then, a Notification with an [OwnAttributeDeletedByOwnerNotificationItem]({% link _docs_integrate/data-model-overview.md %}#ownattributedeletedbyownernotificationitem) is generated and sent to the peer you shared the Attribute with, informing them that you deleted that own Attribute.
-If they already deleted their corresponding peer shared Attribute or marked it for deletion, nothing will change.
-However, if the `deletionInfo` of their peer shared Attribute was undefined before, since you didn't send a Request for Attribute deletion or the Request was rejected, a `deletionInfo` will be set.
+If they already deleted their corresponding peer Attribute or marked it for deletion, nothing will change.
+However, if the `deletionInfo` of their peer Attribute was undefined before, since you didn't send a Request for Attribute deletion or the Request was rejected, a `deletionInfo` will be set.
 Its `deletionStatus` will be set to `"DeletedByEmitter"` and the `deletionDate` will be the time of receiving the Notification.
 Please note that the Notification is queued if the [Relationship is currently terminated]({% link _docs_integrate/terminate-relationships.md %}#terminate-an-active-relationship) but not yet [decomposed]({% link _docs_integrate/terminate-relationships.md %}#decompose-a-relationship).
 It can then only be received and processed if the [Relationship is reactivated]({% link _docs_integrate/terminate-relationships.md %}#reactivate-a-terminated-relationship).
