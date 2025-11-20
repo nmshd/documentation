@@ -165,7 +165,7 @@ Note that it is possible to share a RelationshipAttribute with peers who are not
 The sharing of a RelationshipAttribute with such a peer leads to the creation of [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) in the wallet of the Identity who has the source RelationshipAttribute.
 It contains the `address` of this peer within its `peer` property.
 As it originates from another OwnRelationshipAttribute that exists in the context of a different Relationship, it contains the `id` of the source RelationshipAttribute within its `shareInfo.sourceAttribute` property.
-This is the case as long as the OwnRelationshipAttribute used as the source has not been [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-own-shared-attributes).
+This is the case as long as the OwnRelationshipAttribute used as the source has not been [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-own-attributes).
 Furthermore, in the `initialAttributePeer` property, the `address` of the peer of the source RelationshipAttribute is stored.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/5c9fc0f6-b5e4-4bfd-90b9-a046447ad47e" id="SsblHmOED0qR"></iframe></div>
@@ -220,4 +220,4 @@ The peers with whom the Identity may have shared the Attribute can be notified a
 An Identity may have created an Attribute for itself or received an Attribute from a peer that it does not need any longer.
 In both cases, it can [delete the Attribute]({% link _docs_integrate/delete-attributes.md %}).
 If an Identity has shared an Attribute that is owned by itself with a peer, it can [request the deletion of this Attribute from the peer]({% link _docs_integrate/delete-attributes.md %}#request-the-deletion-of-own-attributes-from-peer) in order to withdraw their permission to use the Attribute.
-Of course, the associated [own shared Attribute can be deleted]({% link _docs_integrate/delete-attributes.md %}#delete-own-shared-attributes), too.
+Of course, the associated [own Attribute can be deleted]({% link _docs_integrate/delete-attributes.md %}#delete-own-attributes), too.
