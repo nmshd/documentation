@@ -39,7 +39,7 @@ When talking about [IdentityAttributes]({% link _docs_integrate/data-model-overv
 - When sharing an OwnIdentityAttribute with a peer, a copy of the IdentityAttribute is created for the Sender and stored in the `content` field of a LocalAttribute with a defined `shareInfo`.
   We call this LocalAttribute an **own shared IdentityAttribute**.
 - Receiving a shared IdentityAttribute from a peer leads to the creation of a LocalAttribute with according `content` and a defined `shareInfo` for the Recipient.
-  We call this LocalAttribute a **peer shared IdentityAttribute**.
+  We call this LocalAttribute a **PeerIdentityAttribute**.
 
 Discussing the succession of IdentityAttributes requires some background knowledge about this differentiation and the behavior of shared Attributes.
 Hence, we will look at the process of creating, sharing and succeeding an IdentityAttribute step by step.
@@ -60,12 +60,12 @@ In the following examples, the `createdAt` and `deletionInfo` properties of all 
 
 Now, in order to [share an OwnIdentityAttribute]({% link _docs_integrate/share-attributes-with-peer.md %}), you need to send an according [Request]({% link _docs_integrate/data-model-overview.md %}#request) to the peer you want to share it with.
 If they [accept your Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}), a new LocalAttribute will be created at the peer's side.
-This peer shared IdentityAttribute has the same `content` like your OwnIdentityAttribute and, in addition, a defined `shareInfo` property.
+This PeerIdentityAttribute has the same `content` like your OwnIdentityAttribute and, in addition, a defined `shareInfo` property.
 It stores the address of the `peer` who shared the Attribute with them, i.e. the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity), and a reference to the Request that was used to share the Attribute.
 Receiving the [Response]({% link _docs_integrate/data-model-overview.md %}#response), an own shared IdentityAttribute with equal `content` will be created at your side.
 Its `shareInfo` stores the same `requestReference` and the peer's address, as well as the `id` of the OwnIdentityAttribute, whose `content` was copied, in the field `sourceAttribute`.
 
-Concluding, sharing an IdentityAttribute will create an own shared IdentityAttribute copy for every peer you shared the Attribute with at your side and a peer shared IdentityAttribute copy for each peer at their side.
+Concluding, sharing an IdentityAttribute will create an own shared IdentityAttribute copy for every peer you shared the Attribute with at your side and a PeerIdentityAttribute copy for each peer at their side.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/c1195765-c1ca-46b4-9468-1735f4a018cc" id="_s0-VcxrpcCM"></iframe></div>
 
