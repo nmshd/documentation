@@ -342,8 +342,8 @@ To view the Response to the Request, proceed as described in the [Query outgoing
 
 The Integrator of the Sender can now get the Response of the Recipient from the `response.content` property of the result.
 In the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) is a [ShareAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#shareattributeacceptresponseitem) for each accepted ShareAttributeRequestItem and a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) for each rejected ShareAttributeRequestItem included.
-Note that each accepted ShareAttributeRequestItem leads to the creation of an appropriate LocalAttribute of the Sender.
-Depending on whether an IdentityAttribute or a RelationshipAttribute has been shared by the Sender, it is referred to as either an [own shared IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#peeridentityattributes) or an [emitted ThirdPartyRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#thirdpartyrelationshipattributes).
+Note that each accepted ShareAttributeRequestItem leads to the creation of appropriate [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails).
+Depending on whether an IdentityAttribute or a RelationshipAttribute has been shared by the Sender, they refer either to an [OwnIdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#ownidentityattributes), an [OwnRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#ownrelationshipattributes-and-peerrelationshipattributes) or a [PeerRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#ownrelationshipattributes-and-peerrelationshipattributes).
 The `content` of the LocalAttribute is the underlying `attribute` of the ShareAttributeRequestItem.
 
 In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) can also be included in the Response.

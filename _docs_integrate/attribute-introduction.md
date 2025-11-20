@@ -165,8 +165,8 @@ Also, for both the OwnRelationshipAttribute and PeerRelationshipAttribute, there
 #### ThirdPartyRelationshipAttributes
 
 Note that it is possible to share a RelationshipAttribute with peers who are not involved in the Relationship in which the RelationshipAttribute exists, provided that the `confidentiality` of the RelationshipAttribute is not `"private"`.
-The sharing of a RelationshipAttribute with such a peer leads to the creation of a so-called emitted ThirdPartyRelationshipAttribute in the wallet of the Identity who has the source RelationshipAttribute.
-An emitted ThirdPartyRelationshipAttribute is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) similar to an OwnRelationshipAttribute that contains the `address` of this peer within its `shareInfo.peer` property.
+The sharing of a RelationshipAttribute with such a peer leads to the creation of [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) in the wallet of the Identity who has the source RelationshipAttribute.
+It contains the `address` of this peer within its `peer` property.
 As it originates from another OwnRelationshipAttribute that exists in the context of a different Relationship, it contains the `id` of the source RelationshipAttribute within its `shareInfo.sourceAttribute` property.
 This is the case as long as the OwnRelationshipAttribute used as the source has not been [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-own-shared-attributes).
 Furthermore, in the `initialAttributePeer` property, the `address` of the peer of the source RelationshipAttribute is stored.
@@ -174,8 +174,7 @@ Furthermore, in the `initialAttributePeer` property, the `address` of the peer o
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/5c9fc0f6-b5e4-4bfd-90b9-a046447ad47e" id="SsblHmOED0qR"></iframe></div>
 
 In the wallet of the peer with whom the underlying RelationshipAttribute of the source RelationshipAttribute was shared, a so-called ThirdPartyRelationshipAttribute is created.
-It is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) similar to a PeerRelationshipAttribute that can be interpreted as the counterpart of an emitted ThirdPartyRelationshipAttribute.
-As for the emitted ThirdPartyRelationshipAttribute, the `initialAttributePeer` property of the ThirdPartyRelationshipAttribute is set to the peer of the source RelationshipAttribute.
+The `initialAttributePeer` property of the ThirdPartyRelationshipAttribute is set to the peer of the source RelationshipAttribute.
 Lastly, the `shareInfo.sourceAttribute` property of a ThirdPartyRelationshipAttribute is always undefined, as the source RelationshipAttribute can only be available locally to the emitter of the ThirdPartyRelationshipAttribute.
 
 ## Attribute management options
