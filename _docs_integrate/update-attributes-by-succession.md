@@ -35,8 +35,8 @@ When talking about [IdentityAttributes]({% link _docs_integrate/data-model-overv
 
 - The Identity maintains an unshared Attribute about itself.
   This IdentityAttribute is stored in the `content` field of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute), whose `shareInfo` is undefined.
-  Since this LocalAttribute is created for the Identity's private repository of Attributes, it is referred to as **RepositoryAttribute**.
-- When sharing a RepositoryAttribute with a peer, a copy of the IdentityAttribute is created for the Sender and stored in the `content` field of a LocalAttribute with a defined `shareInfo`.
+  Since this LocalAttribute is created for the Identity's private repository of Attributes, it is referred to as **OwnIdentityAttribute**.
+- When sharing an OwnIdentityAttribute with a peer, a copy of the IdentityAttribute is created for the Sender and stored in the `content` field of a LocalAttribute with a defined `shareInfo`.
   We call this LocalAttribute an **own shared IdentityAttribute**.
 - Receiving a shared IdentityAttribute from a peer leads to the creation of a LocalAttribute with according `content` and a defined `shareInfo` for the Recipient.
   We call this LocalAttribute a **peer shared IdentityAttribute**.
@@ -44,32 +44,32 @@ When talking about [IdentityAttributes]({% link _docs_integrate/data-model-overv
 Discussing the succession of IdentityAttributes requires some background knowledge about this differentiation and the behavior of shared Attributes.
 Hence, we will look at the process of creating, sharing and succeeding an IdentityAttribute step by step.
 
-### Creating a RepositoryAttribute
+### Creating an OwnIdentityAttribute
 
 enmeshed allows you to store data about yourself in the form of IdentityAttributes.
 When [creating an IdentityAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}), it is not necessary to share it immediately with a peer.
 Instead, it will be stored in the `content` property of a LocalAttribute with an undefined `shareInfo`.
-We refer to these unshared LocalAttributes as RepositoryAttributes, since they make up your private repository of Attributes.
+We refer to these unshared LocalAttributes as OwnIdentityAttributes, since they make up your private repository of Attributes.
 
 In the following examples, the `createdAt` and `deletionInfo` properties of all occuring LocalAttributes is omitted, since they aren't required for the explanation.
 {: .notice--info}
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/33654502-420f-41bd-801a-e0d4c1564df0" id="zs0-w2Ag-nJ4"></iframe></div>
 
-### Sharing a RepositoryAttribute
+### Sharing an OwnIdentityAttribute
 
-Now, in order to [share a RepositoryAttribute]({% link _docs_integrate/share-attributes-with-peer.md %}), you need to send an according [Request]({% link _docs_integrate/data-model-overview.md %}#request) to the peer you want to share it with.
+Now, in order to [share an OwnIdentityAttribute]({% link _docs_integrate/share-attributes-with-peer.md %}), you need to send an according [Request]({% link _docs_integrate/data-model-overview.md %}#request) to the peer you want to share it with.
 If they [accept your Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}), a new LocalAttribute will be created at the peer's side.
-This peer shared IdentityAttribute has the same `content` like your RepositoryAttribute and, in addition, a defined `shareInfo` property.
+This peer shared IdentityAttribute has the same `content` like your OwnIdentityAttribute and, in addition, a defined `shareInfo` property.
 It stores the address of the `peer` who shared the Attribute with them, i.e. the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity), and a reference to the Request that was used to share the Attribute.
 Receiving the [Response]({% link _docs_integrate/data-model-overview.md %}#response), an own shared IdentityAttribute with equal `content` will be created at your side.
-Its `shareInfo` stores the same `requestReference` and the peer's address, as well as the `id` of the RepositoryAttribute, whose `content` was copied, in the field `sourceAttribute`.
+Its `shareInfo` stores the same `requestReference` and the peer's address, as well as the `id` of the OwnIdentityAttribute, whose `content` was copied, in the field `sourceAttribute`.
 
 Concluding, sharing an IdentityAttribute will create an own shared IdentityAttribute copy for every peer you shared the Attribute with at your side and a peer shared IdentityAttribute copy for each peer at their side.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/c1195765-c1ca-46b4-9468-1735f4a018cc" id="_s0-VcxrpcCM"></iframe></div>
 
-### Succeeding a RepositoryAttribute
+### Succeeding an OwnIdentityAttribute
 
 Next, let's consider the case that the `value` of your [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) changes and you want to update it.
 To [succeed the OwnIdentityAttribute]({% link _docs_use-cases/use-case-consumption-succeed-an-ownidentityattribute.md %}), a new [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) with the updated `content` will be created.
@@ -83,10 +83,10 @@ During the succession of a [complex IdentityAttribute]({% link _docs_integrate/a
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/8e81cd6b-240f-4e41-ae08-9eea13b32974" id="zt0-EawwJWIx"></iframe></div>
 
-### Notifying a peer about a RepositoryAttribute succession
+### Notifying a peer about an OwnIdentityAttribute succession
 
-After succeeding a RepositoryAttribute, you can check [with which of your peers you have previously shared the succeeded Attribute]({% link _docs_use-cases/use-case-consumption-get-versions-of-attribute-shared-with-peer.md %}) to choose those, you'd like to [notify about the succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-ownidentityattribute-succession.md %}).
-Your own shared IdentityAttributes associated with the peers chosen will be succeeded in the same manner as your RepositoryAttribute before.
+After succeeding an OwnIdentityAttribute, you can check [with which of your peers you have previously shared the succeeded Attribute]({% link _docs_use-cases/use-case-consumption-get-versions-of-attribute-shared-with-peer.md %}) to choose those, you'd like to [notify about the succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-ownidentityattribute-succession.md %}).
+Your own shared IdentityAttributes associated with the peers chosen will be succeeded in the same manner as your OwnIdentityAttribute before.
 Then, a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification) is sent to the peers, containing a [PeerAttributeSucceededNotificationItem]({% link _docs_integrate/data-model-overview.md %}#peerattributesucceedednotificationitem).
 In the `successorContent` property of the latter the updated IdentityAttribute is transmitted and automatically a likewise succession at the peers' side will be triggered, such that their LocalAttribute versions replicate the succession chain at your side.
 Please note that the Notification is queued if the [Relationship is currently terminated]({% link _docs_integrate/terminate-relationships.md %}#terminate-an-active-relationship) but not yet [decomposed]({% link _docs_integrate/terminate-relationships.md %}#decompose-a-relationship).

@@ -127,8 +127,8 @@ Instead, the ownership of the File needs to be transferred to the recipient.
 To this end, firstly the sender needs to [upload the File](#upload-a-file) to the Backbone.
 Then, an appropriate [TransferFileOwnershipRequestItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershiprequestitem) must be sent to the peer, who shall become the new owner of the File.
 If they accept it, the ownership of the File on the Backbone will be transferred to them.
-Additionally, a [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be created for the recipient, whose `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type`.
-Moreover, this RepositoryAttribute will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient and a peer shared IdentityAttribute will be created for the sender.
+Additionally, an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be created for the recipient, whose `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type`.
+Moreover, this OwnIdentityAttribute will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient and a peer shared IdentityAttribute will be created for the sender.
 
 ## Request for Transferring the Ownership of a File
 
@@ -217,11 +217,11 @@ If the recipient agrees to receive the ownership of one of the sender's Files, t
 The [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) must be used for this.
 The acceptance of a TransferFileOwnershipRequestItem leads to the transfer of the ownership of the File on the Backbone.
 Thereby, the `ownershipToken` of the File is regenerated.
-Additionally, a [RepositoryAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be created for the recipient, whose `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type`.
+Additionally, an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be created for the recipient, whose `content` is an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) with [IdentityFileReference]({% link _docs_integrate/attribute-values.md %}#identityfilereference) as `value.@type`.
 If the File has `tags`, the IdentityAttribute will have the same `tags`.
 The `value` of the IdentityFileReference is the value of `reference.truncated` of the File that is now owned by the recipient.
 Also, if the File has any `tags`, they will become `tags` of the IdentityAttribute.
-Moreover, the newly created RepositoryAttribute of the recipient will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient.
+Moreover, the newly created OwnIdentityAttribute of the recipient will be shared with the sender, i.e. an own shared IdentityAttribute will be created for the recipient.
 Based on this, an appropriate AcceptResponseItem of type [TransferFileOwnershipAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#transferfileownershipacceptresponseitem) is generated.
 It contains the `id` and the `content` of the created own shared IdentityAttribute in its `attributeId` and `attribute` property, respectively.
 This ResponseItem will appear within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for transferring the ownership of Files, which will be sent back to the sender.

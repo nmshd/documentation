@@ -209,7 +209,7 @@ Furthermore, an error with the code `error.consumption.requests.attributeQueryMi
 Accepting a ReadAttributeRequestItem with a new Attribute or an existing, that isn't shared with the Sender already neither itself nor any of its predecessing versions, leads to the creation of a LocalAttribute, whose underlying `content` is given by the shared Attribute.
 Depending on whether the Recipient sends back an IdentityAttribute or a RelationshipAttribute, the ownership, and, in the case of RelationshipAttributes, from which Relationship context the RelationshipAttribute originates, it is referred to as either an [own shared IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-identityattributes), an [own shared RelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-relationshipattributes), a [peer shared RelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-relationshipattributes) or an [emitted ThirdPartyRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes).
 An appropriate AcceptResponseItem of type [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem) is generated, which incorporates the `id` of the LocalAttribute in its `attributeId` property and the shared Attribute in its `attribute` property.
-If a new IdentityAttribute is to be shared, a [RepositoryAttribute]({% link _docs_integrate/attribute-introduction.md %}#repositoryattributes) will additionally be created for the Recipient beforehand.
+If a new IdentityAttribute is to be shared, an [OwnIdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#ownidentityattributes) will additionally be created for the Recipient beforehand.
 
 If the ReadAttributeRequestItem is accepted with an existing Attribute that the Recipient already shared with the Sender and the corresponding [own shared IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-identityattributes) or [emitted ThirdPartyRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes) does not have `"DeletedByRecipient"` or `"ToBeDeletedByRecipient"` as `deletionInfo.deletionStatus`, an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) will be generated.
 Instead of creating a further pair consisting of an [own shared and a peer shared IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#own-shared-and-peer-shared-identityattributes) or of an [emitted and a received ThirdPartyRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#emitted-and-received-thirdpartyrelationshipattributes), the `id` of the already existing [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute), which represent the sharing of the Attribute, is returned.
@@ -273,7 +273,7 @@ The [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#request
 ```
 
 In our example, the Sender only requires the Recipient to share its EMailAddress, which is why the individual [ReadAttributeRequestItems]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem) within the Request have specified corresponding values in their `mustBeAccepted` property.
-We assume that the Recipient wants to accept the Request and only wants to share its EMailAddress, which is already saved as an appropriate [RepositoryAttribute]({% link _docs_integrate/attribute-introduction.md %}#repositoryattributes), with the Sender.
+We assume that the Recipient wants to accept the Request and only wants to share its EMailAddress, which is already saved as an appropriate [OwnIdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#ownidentityattributes), with the Sender.
 
 If the Recipient wants to accept the Request for reading Attributes, it must accept all ReadAttributeRequestItems for which the `mustBeAccepted` property is set to `true`.
 It is therefore not permitted, for example, for the Recipient to refuse to share its EMailAddress and instead share its PhoneNumber.
@@ -295,7 +295,7 @@ Thus, it responds to the Request for reading Attributes as follows:
         {
           // Accept sharing of existing EMailAddress
           "accept": true,
-          "existingAttributeId": "<ID of RepositoryAttribute of EMailAddress>"
+          "existingAttributeId": "<ID of OwnIdentityAttribute of EMailAddress>"
         },
         {
           // Reject sharing of PhoneNumber

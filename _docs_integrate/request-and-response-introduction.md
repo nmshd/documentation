@@ -293,7 +293,7 @@ A screenshot from the App showing how the Request is displayed to the App user i
         },
         "tags": ["<tag of shared display name>"]
       },
-      "sourceAttributeId": "<ID of source RepositoryAttribute>"
+      "sourceAttributeId": "<ID of source OwnIdentityAttribute>"
     }
   ]
 }

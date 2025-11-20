@@ -73,13 +73,13 @@ If the Sender wants to share a RelationshipAttribute with the Recipient, it must
 ### Example of sharing an IdentityAttribute
 
 We assume that the Integrator of the Sender has created an IdentityAttribute of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) for the Sender by following the instructions of our [Create Attributes for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}) scenario documentation.
-This IdentityAttribute is stored locally within the `content` property of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) of the Sender, which is also referred to as a [RepositoryAttribute]({% link _docs_integrate/attribute-introduction.md %}#repositoryattributes).
+This IdentityAttribute is stored locally within the `content` property of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) of the Sender, which is also referred to as an [OwnIdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#ownidentityattributes).
 
 ```jsonc
 {
   "@type": "LocalAttribute",
-  "id": "<ID of RepositoryAttribute>",
-  "createdAt": "<creation date of RepositoryAttribute>",
+  "id": "<ID of OwnIdentityAttribute>",
+  "createdAt": "<creation date of OwnIdentityAttribute>",
   "content": {
     "@type": "IdentityAttribute",
     "owner": "<address of Sender>",
@@ -94,7 +94,7 @@ This IdentityAttribute is stored locally within the `content` property of a corr
 ```
 
 In our example, the Sender wants to share the IdentityAttribute with the Recipient.
-To do so, it needs to insert the `id` of the corresponding RepositoryAttribute into the `sourceAttributeId` property and the IdentityAttribute itself into the `attribute` property of the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for sharing Attributes.
+To do so, it needs to insert the `id` of the corresponding OwnIdentityAttribute into the `sourceAttributeId` property and the IdentityAttribute itself into the `attribute` property of the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for sharing Attributes.
 The value of the `mustBeAccepted` property of the ShareAttributeRequestItem is set to `true` in this example.
 
 ```jsonc
@@ -114,7 +114,7 @@ The value of the `mustBeAccepted` property of the ShareAttributeRequestItem is s
           "year": <year of birth date>
         }
       },
-      "sourceAttributeId": "<ID of RepositoryAttribute>"
+      "sourceAttributeId": "<ID of OwnIdentityAttribute>"
     }
   ]
 }
@@ -254,7 +254,7 @@ The [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#request
           "value": "<display name that the Sender wants to share>"
         }
       },
-      "sourceAttributeId": "<ID of source RepositoryAttribute of DisplayName>"
+      "sourceAttributeId": "<ID of source OwnIdentityAttribute of DisplayName>"
     },
     {
       "@type": "RequestItemGroup",
@@ -270,7 +270,7 @@ The [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#request
               "value": "<email address that the Sender wants to share>"
             }
           },
-          "sourceAttributeId": "<ID of source RepositoryAttribute of EMailAddress>"
+          "sourceAttributeId": "<ID of source OwnIdentityAttribute of EMailAddress>"
         },
         {
           "@type": "ShareAttributeRequestItem",
@@ -283,7 +283,7 @@ The [RequestItemGroup]({% link _docs_integrate/data-model-overview.md %}#request
               "value": "<phone number that the Sender wants to share>"
             }
           },
-          "sourceAttributeId": "<ID of source RepositoryAttribute of PhoneNumber>"
+          "sourceAttributeId": "<ID of source OwnIdentityAttribute of PhoneNumber>"
         }
       ]
     }

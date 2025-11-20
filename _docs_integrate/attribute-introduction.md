@@ -68,14 +68,14 @@ An IdentityAttribute value type that contains such a property can be recognized 
 Examples of complex IdentityAttributes are IdentityAttributes with IdentityAttribute value type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) or [StreetAddress]({% link _docs_integrate/attribute-values.md %}#streetaddress).
 When [creating a complex IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#example-of-creating-a-complex-identityattribute), there is an important detail to note in contrast to the [creation of a simple IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#example-of-creating-a-simple-identityattribute).
 Creating an IdentityAttribute for yourself always leads to the creation of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `shareInfo` property is undefined and whose `content` is given by the IdentityAttribute owned by yourself.
-Such a LocalAttribute is also referred to as a RepositoryAttribute.
-If a RepositoryAttribute is created that contains a complex IdentityAttribute within its `content` property, additional RepositoryAttributes are automatically created for each property of its IdentityAttribute value type that corresponds to another IdentityAttribute value type.
-These RepositoryAttributes are also referred to as children of the RepositoryAttribute belonging to the complex IdentityAttribute.
-The creation of these RepositoryAttributes makes it possible to share individual components of a complex IdentityAttribute.
+Such a LocalAttribute is also referred to as an OwnIdentityAttribute.
+If an OwnIdentityAttribute is created that contains a complex IdentityAttribute within its `content` property, additional OwnIdentityAttributes are automatically created for each property of its IdentityAttribute value type that corresponds to another IdentityAttribute value type.
+These OwnIdentityAttributes are also referred to as children of the OwnIdentityAttribute belonging to the complex IdentityAttribute.
+The creation of these OwnIdentityAttributes makes it possible to share individual components of a complex IdentityAttribute.
 For example, if an IdentityAttribute of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) has been created, it is possible to share only the `year` of birth with peers, instead of the full date of birth.
 The corresponding IdentityAttribute of type [BirthYear]({% link _docs_integrate/attribute-values.md %}#birthyear) does not have to be created manually, but is created automatically after the IdentityAttribute of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) has been created.
 
-Please note that when creating a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) that contains a complex IdentityAttribute in its `content` property, additional LocalAttributes are only created automatically if the LocalAttribute is a RepositoryAttribute.
+Please note that when creating a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) that contains a complex IdentityAttribute in its `content` property, additional LocalAttributes are only created automatically if the LocalAttribute is an OwnIdentityAttribute.
 However, if the LocalAttribute is an own shared IdentityAttribute or a peer shared IdentityAttribute, no additional LocalAttributes are created.
 More details on the terminology related to [LocalAttributes and IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#localattributes-and-identityattributes) can be found in the next section.
 {: .notice--info}
@@ -83,37 +83,37 @@ More details on the terminology related to [LocalAttributes and IdentityAttribut
 ### LocalAttributes and IdentityAttributes
 
 From a technical perspective, an IdentityAttribute is always stored as the `content` of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
-Depending on the values of certain properties of the LocalAttribute, a LocalAttribute whose `content` is given by an IdentityAttribute is also referred to as a **RepositoryAttribute**, an **own shared IdentityAttribute** or a **peer shared IdentityAttribute**.
+Depending on the values of certain properties of the LocalAttribute, a LocalAttribute whose `content` is given by an IdentityAttribute is also referred to as an **OwnIdentityAttribute**, an **own shared IdentityAttribute** or a **peer shared IdentityAttribute**.
 
-#### RepositoryAttributes
+#### OwnIdentityAttributes
 
-As already mentioned in the section on [complex IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), a RepositoryAttribute is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `content` is given by an IdentityAttribute owned by yourself and whose `shareInfo` property is undefined.
+As already mentioned in the section on [complex IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), an OwnIdentityAttribute is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `content` is given by an IdentityAttribute owned by yourself and whose `shareInfo` property is undefined.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/62b3b352-a6d7-4826-8693-e8527b0370e4" id="zVGxoOkr.UEQ"></iframe></div>
 
-A RepositoryAttribute is created when an Identity [creates an IdentityAttribute for itself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself).
-If the IdentityAttribute is a complex IdentityAttribute, RepositoryAttributes are also created for the properties of the IdentityAttribute value type that correspond to other IdentityAttribute value types.
-An Identity may share the underlying IdentityAttribute of a RepositoryAttribute with a peer.
+An OwnIdentityAttribute is created when an Identity [creates an IdentityAttribute for itself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself).
+If the IdentityAttribute is a complex IdentityAttribute, OwnIdentityAttributes are also created for the properties of the IdentityAttribute value type that correspond to other IdentityAttribute value types.
+An Identity may share the underlying IdentityAttribute of an OwnIdentityAttribute with a peer.
 This can be done by using a suitable [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 
 #### Own shared and peer shared IdentityAttributes
 
-When [exchanging the underlying IdentityAttribute of a RepositoryAttribute with a peer](#attribute-management-options), two corresponding copies of the RepositoryAttribute, the own shared IdentityAttribute and the peer shared IdentityAttribute, are created.
+When [exchanging the underlying IdentityAttribute of an OwnIdentityAttribute with a peer](#attribute-management-options), two corresponding copies of the OwnIdentityAttribute, the own shared IdentityAttribute and the peer shared IdentityAttribute, are created.
 This makes it possible to record with whom an IdentityAttribute has been shared or from whom an IdentityAttribute has been received.
-When an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is shared by its `owner`, an own shared IdentityAttribute is created as a copy of the associated RepositoryAttribute in the wallet of the `owner`.
-An own shared IdentityAttribute is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for which, in contrast to the RepositoryAttribute, the `shareInfo` property is set.
-The `content` of the own shared IdentityAttribute is the same as that of the RepositoryAttribute.
+When an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is shared by its `owner`, an own shared IdentityAttribute is created as a copy of the associated OwnIdentityAttribute in the wallet of the `owner`.
+An own shared IdentityAttribute is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for which, in contrast to the OwnIdentityAttribute, the `shareInfo` property is set.
+The `content` of the own shared IdentityAttribute is the same as that of the OwnIdentityAttribute.
 The `address` of the peer with whom the IdentityAttribute is shared is contained within its `shareInfo.peer` property.
-Furthermore, the `id` of the RepositoryAttribute used as the source is stored in its `shareInfo.sourceAttribute` property.
-This is the case as long as the RepositoryAttribute used as the source has not been [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-repositoryattributes).
+Furthermore, the `id` of the OwnIdentityAttribute used as the source is stored in its `shareInfo.sourceAttribute` property.
+This is the case as long as the OwnIdentityAttribute used as the source has not been [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-ownidentityattributes).
 If an IdentityAttribute is shared by its `owner` with several peers, a corresponding number of own shared IdentityAttributes are generated.
 
 <div style="width: 640px; height: 600px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:600px" src="https://lucid.app/documents/embedded/95394e3a-b857-4165-9b1a-824ad81e04d9" id="QViE651IOP3n"></iframe></div>
 
-If an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is shared by its `owner`, this not only leads to the creation of an own shared IdentityAttribute as a copy of the associated RepositoryAttribute for the `owner` of the IdentityAttribute, but also to the creation of a peer shared IdentityAttribute for the peer with whom the IdentityAttribute was shared.
+If an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is shared by its `owner`, this not only leads to the creation of an own shared IdentityAttribute as a copy of the associated OwnIdentityAttribute for the `owner` of the IdentityAttribute, but also to the creation of a peer shared IdentityAttribute for the peer with whom the IdentityAttribute was shared.
 A peer shared IdentityAttribute is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for which the `shareInfo` property is set.
 The `address` of the `owner` of the IdentityAttribute is contained within its `shareInfo.peer` property.
-The `shareInfo.sourceAttribute` property of a peer shared IdentityAttribute is always undefined, as the RepositoryAttribute used as the source is only stored locally for the `owner` of the IdentityAttribute.
+The `shareInfo.sourceAttribute` property of a peer shared IdentityAttribute is always undefined, as the OwnIdentityAttribute used as the source is only stored locally for the `owner` of the IdentityAttribute.
 Furthermore, note that the `id` of a peer shared IdentityAttribute is always the same as the `id` of the associated own shared IdentityAttribute.
 To ensure the privacy of an Identity's data, the IdentityAttribute shared by its `owner` with a peer cannot be shared by that peer with a third party.
 
