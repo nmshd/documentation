@@ -29,7 +29,7 @@ In the former case, a so-called OwnIdentityAttribute is created, which is a [Loc
 Afterwards, you may [share it]({% link _docs_integrate/share-attributes-with-peer.md %}) with a peer, which yields the creation of an own shared IdentityAttribute.
 This is a LocalAttribute with the copied `content` of the OwnIdentityAttribute, but an additional `shareInfo` property.
 Doing so, also a LocalAttribute with the same `content` and a respective `shareInfo` is created for the peer, which is referred to as peer shared Attribute.
-In the case of RelationshipAttributes we have own shared and PeerRelationshipAttributes analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with OwnIdentityAttributes.
+In the case of RelationshipAttributes we have OwnRelationshipAttributes and PeerRelationshipAttributes analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with OwnIdentityAttributes.
 These different kinds of Attributes have different demands that need to be taken into account, wanting to delete them.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/04c48548-90a3-4e9e-839a-4bb9a5dddcfb" id="9hZD~iRvE8aL"></iframe></div>

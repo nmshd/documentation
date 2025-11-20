@@ -157,8 +157,8 @@ If the Recipient does not want to agree to the issue that the Sender wants the R
 
 Accepting the CreateAttributeRequestItem leads to the creation of the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with Consent as `value.@type`.
 Technically, this is stored as the `content` of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
-As the Recipient is the `owner` of the underlying RelationshipAttribute in the example studied, the LocalAttribute is also referred to as own shared RelationshipAttribute.
-Based on this, an appropriate AcceptResponseItem of type [CreateAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#createattributeacceptresponseitem) is generated, which incorporates the `id` of the created own shared RelationshipAttribute in its `attributeId` property.
+As the Recipient is the `owner` of the underlying RelationshipAttribute in the example studied, the LocalAttribute is also referred to as OwnRelationshipAttribute.
+Based on this, an appropriate AcceptResponseItem of type [CreateAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#createattributeacceptresponseitem) is generated, which incorporates the `id` of the created OwnRelationshipAttribute in its `attributeId` property.
 This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for persistent consent that will be transferred to the Sender.
 
 ### Receive the Response to the Request
@@ -171,7 +171,7 @@ Please note that the required synchronization of both Identities can also be aut
 
 The accepted CreateAttributeRequestItem leads to the creation of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for the Sender, a so-called PeerRelationshipAttribute.
 Its `content` is given by the `attribute` specified within the [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem), in other words by the [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) with Consent as `value.@type`, which is owned by the Recipient.
-It represents the necessary counterpart to the Recipient's own shared RelationshipAttribute.
+It represents the necessary counterpart to the Recipient's OwnRelationshipAttribute.
 
 ## What's next?
 
