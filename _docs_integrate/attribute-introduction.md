@@ -96,7 +96,7 @@ If the IdentityAttribute is a complex IdentityAttribute, OwnIdentityAttributes a
 An Identity may share the underlying IdentityAttribute of an OwnIdentityAttribute with a peer.
 This can be done by using a suitable [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 
-#### Own shared and PeerIdentityAttributes
+#### PeerIdentityAttributes
 
 When [exchanging the underlying IdentityAttribute of an OwnIdentityAttribute with a peer](#attribute-management-options), two corresponding copies of the OwnIdentityAttribute, the own shared IdentityAttribute and the PeerIdentityAttribute, are created.
 This makes it possible to record with whom an IdentityAttribute has been shared or from whom an IdentityAttribute has been received.
