@@ -76,14 +76,14 @@ For example, if an IdentityAttribute of type [BirthDate]({% link _docs_integrate
 The corresponding IdentityAttribute of type [BirthYear]({% link _docs_integrate/attribute-values.md %}#birthyear) does not have to be created manually, but is created automatically after the IdentityAttribute of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) has been created.
 
 Please note that when creating a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) that contains a complex IdentityAttribute in its `content` property, additional LocalAttributes are only created automatically if the LocalAttribute is an OwnIdentityAttribute.
-However, if the LocalAttribute is an own shared IdentityAttribute or a PeerIdentityAttribute, no additional LocalAttributes are created.
+However, if the LocalAttribute is a PeerIdentityAttribute, no additional LocalAttributes are created.
 More details on the terminology related to [LocalAttributes and IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#localattributes-and-identityattributes) can be found in the next section.
 {: .notice--info}
 
 ### LocalAttributes and IdentityAttributes
 
 From a technical perspective, an IdentityAttribute is always stored as the `content` of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
-Depending on the values of certain properties of the LocalAttribute, a LocalAttribute whose `content` is given by an IdentityAttribute is also referred to as an **OwnIdentityAttribute**, an **own shared IdentityAttribute** or a **PeerIdentityAttribute**.
+Depending on the values of certain properties of the LocalAttribute, a LocalAttribute whose `content` is given by an IdentityAttribute is also referred to as an **OwnIdentityAttribute** or a **PeerIdentityAttribute**.
 
 #### OwnIdentityAttributes
 
@@ -98,23 +98,20 @@ This can be done by using a suitable [Request]({% link _docs_integrate/data-mode
 
 #### PeerIdentityAttributes
 
-When [exchanging the underlying IdentityAttribute of an OwnIdentityAttribute with a peer](#attribute-management-options), two corresponding copies of the OwnIdentityAttribute, the own shared IdentityAttribute and the PeerIdentityAttribute, are created.
+When [exchanging the underlying IdentityAttribute of an OwnIdentityAttribute with a peer](#attribute-management-options), [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) and the PeerIdentityAttribute as corresponding copy of the OwnIdentityAttribute are created.
 This makes it possible to record with whom an IdentityAttribute has been shared or from whom an IdentityAttribute has been received.
-When an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is shared by its `owner`, an own shared IdentityAttribute is created as a copy of the associated OwnIdentityAttribute in the wallet of the `owner`.
-An own shared IdentityAttribute is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for which, in contrast to the OwnIdentityAttribute, the `shareInfo` property is set.
-The `content` of the own shared IdentityAttribute is the same as that of the OwnIdentityAttribute.
-The `address` of the peer with whom the IdentityAttribute is shared is contained within its `shareInfo.peer` property.
-Furthermore, the `id` of the OwnIdentityAttribute used as the source is stored in its `shareInfo.sourceAttribute` property.
+When an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is shared by its `owner`, associated AttributeForwardingDetails are created in the wallet of the `owner`.
+The `id` of the OwnIdentityAttribute is stored in their `attributeId` property and the `address` of the peer with whom the IdentityAttribute is shared is contained within their `peer` property.
 This is the case as long as the OwnIdentityAttribute used as the source has not been [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-ownidentityattributes).
-If an IdentityAttribute is shared by its `owner` with several peers, a corresponding number of own shared IdentityAttributes are generated.
+If an IdentityAttribute is shared by its `owner` with several peers, a corresponding number of AttributeForwardingDetails is generated.
 
 <div style="width: 640px; height: 600px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:600px" src="https://lucid.app/documents/embedded/95394e3a-b857-4165-9b1a-824ad81e04d9" id="QViE651IOP3n"></iframe></div>
 
-If an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is shared by its `owner`, this not only leads to the creation of an own shared IdentityAttribute as a copy of the associated OwnIdentityAttribute for the `owner` of the IdentityAttribute, but also to the creation of a PeerIdentityAttribute for the peer with whom the IdentityAttribute was shared.
+If an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is shared by its `owner`, this not only leads to the creation of associated AttributeForwardingDetails for the `owner` of the IdentityAttribute, but also to the creation of a PeerIdentityAttribute for the peer with whom the IdentityAttribute was shared.
 A PeerIdentityAttribute is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for which the `shareInfo` property is set.
 The `address` of the `owner` of the IdentityAttribute is contained within its `shareInfo.peer` property.
 The `shareInfo.sourceAttribute` property of a PeerIdentityAttribute is always undefined, as the OwnIdentityAttribute used as the source is only stored locally for the `owner` of the IdentityAttribute.
-Furthermore, note that the `id` of a PeerIdentityAttribute is always the same as the `id` of the associated own shared IdentityAttribute.
+Furthermore, note that the `id` of a PeerIdentityAttribute is always the same as the `id` of the associated OwnIdentityAttribute.
 To ensure the privacy of an Identity's data, the IdentityAttribute shared by its `owner` with a peer cannot be shared by that peer with a third party.
 
 ## RelationshipAttributes
