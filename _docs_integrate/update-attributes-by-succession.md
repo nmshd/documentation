@@ -101,7 +101,7 @@ It can then only be received and processed if the peer [cancels its deletion]({%
 [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) are, as the name suggests, always associated with a [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship).
 Thus, it is not possible to have unshared instances of them.
 Instead, you and your peer will always each have a LocalAttribute with the same RelationshipAttribute as `content`.
-We refer to the LocalAttribute of the `owner` as **own shared RelationshipAttribute** and to the peer's LocalAttribute as **peer shared RelationshipAttribute**.
+We refer to the LocalAttribute of the `owner` as **own shared RelationshipAttribute** and to the peer's LocalAttribute as **PeerRelationshipAttribute**.
 
 ### Creating and sharing a RelationshipAttribute
 
@@ -117,7 +117,7 @@ Hence, you and your peer will always have an identical shared RelationshipAttrib
 Equally to IdentityAttributes, again only the `owner` can [succeed a RelationshipAttribute]({% link _docs_use-cases/use-case-consumption-succeed-a-relationshipattribute-and-notify-peer.md %}) to update its `value`.
 Doing so, a new version of the own shared RelationshipAttribute will be created at your side.
 The `succeeds` property of this LocalAttribute links to the old version, whose `succeededBy` property in turn is updated to the `id` of the newly created successor.
-Then, a Notification is sent automatically to the peer, which triggers the creation of a new peer shared RelationshipAttribute at their side, such that their LocalAttribute versions replicate the succession chain at your side.
+Then, a Notification is sent automatically to the peer, which triggers the creation of a new PeerRelationshipAttribute at their side, such that their LocalAttribute versions replicate the succession chain at your side.
 Please note that the Notification is queued if the [Relationship is currently terminated]({% link _docs_integrate/terminate-relationships.md %}#terminate-an-active-relationship) but not yet [decomposed]({% link _docs_integrate/terminate-relationships.md %}#decompose-a-relationship).
 It can then only be received and processed if the [Relationship is reactivated]({% link _docs_integrate/terminate-relationships.md %}#reactivate-a-terminated-relationship).
 Furthermore, the Notification is also queued if the [peer is currently in deletion]({% link _docs_integrate/delete-identities.md %}#effects-of-identity-deletion-on-relationships) but not yet deleted.
