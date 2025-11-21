@@ -103,7 +103,7 @@ A [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#rela
 Both Identities involved in the Relationship must agree to its creation.
 In the context of a single Relationship, each RelationshipAttribute has its unique `key` for identification.
 RelationshipAttributes can be shared with peers who are not involved in the Relationship in which the RelationshipAttribute exists as long as their `confidentiality` is not `"private"`.
-Such sharing leads to the creation of ThirdPartyRelationshipAttributes.
+Such sharing leads to the creation of [ThirdPartyRelationshipAttributes](#thirdpartyrelationshipattributes).
 
 For information on how to establish Relationships, refer to the [Establish Relationships]({% link _docs_integrate/establish-relationships.md %}) scenario documentation.
 {: .notice--info}
@@ -120,7 +120,7 @@ Accordingly, with the [Request persistent consent of peer]({% link _docs_integra
 ### LocalAttributes and RelationshipAttributes
 
 From a technical perspective, a RelationshipAttribute is always stored as the `content` of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
-Depending on the values of certain properties of the LocalAttribute, a LocalAttribute whose `content` is given by a RelationshipAttribute is also referred to as an **OwnRelationshipAttribute**, a **PeerRelationshipAttribute** or a **ThirdPartyRelationshipAttribute**.
+A LocalAttribute whose `content` is given by a RelationshipAttribute can be an [OwnRelationshipAttribute](#ownrelationshipattributes-and-peerrelationshipattributes), a [PeerRelationshipAttribute](#ownrelationshipattributes-and-peerrelationshipattributes) or a [ThirdPartyRelationshipAttribute](#thirdpartyrelationshipattributes).
 For the simple initial creation of a RelationshipAttribute within a given Relationship, the terms [OwnRelationshipAttribute and PeerRelationshipAttribute](#ownrelationshipattributes-and-peerrelationshipattributes) are relevant.
 The term [ThirdPartyRelationshipAttribute](#thirdpartyrelationshipattributes) is used if an existing RelationshipAttribute from one Relationship is shared with a peer from another Relationship.
 
@@ -130,7 +130,7 @@ A [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#rela
 Accordingly, the [creation of a RelationshipAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-a-relationshipattribute) corresponds to the creation of one [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for its `owner` and one LocalAttribute for the peer with whom the `owner` has established the Relationship in whose context the RelationshipAttribute is to exist.
 The [OwnRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) is the LocalAttribute of the `owner` of the RelationshipAttribute and the peer's LocalAttribute is referred to as a [PeerRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute).
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/dd79b31c-0404-48bb-9773-9b989801c03c" id="RbDyLSjh7BzY"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/fafb91f9-5b8e-4314-a86b-ac2107d0c39b" id="K72-4MVDLyCI"></iframe></div>
 
 Within the `peer` property of the OwnRelationshipAttribute, the `address` of the peer to whom the RelationshipAttribute's `owner` has established the Relationship in whose context the RelationshipAttribute exists is specified.
 The PeerRelationshipAttribute is the peer's [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) and forms the counterpart of the OwnRelationshipAttribute.
@@ -145,7 +145,7 @@ They contain the `address` of this peer within their `peer` property and the `id
 If the source RelationshipAttribute is [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-own-attributes), the associated AttributeForwardingDetails will be deleted as well.
 The source RelationshipAttribute is either an [OwnRelationshipAttribute](#ownrelationshipattributes-and-peerrelationshipattributes) or a [PeerRelationshipAttribute](#ownrelationshipattributes-and-peerrelationshipattributes).
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/5c9fc0f6-b5e4-4bfd-90b9-a046447ad47e" id="SsblHmOED0qR"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/c667865f-6cdb-443a-abcd-28d50d839d2a" id="c92-bMMibJ7p"></iframe></div>
 
 In the wallet of the peer with whom the underlying RelationshipAttribute of the source RelationshipAttribute was shared, a so-called [ThirdPartyRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattribute) is created.
 The `initialAttributePeer` property of the ThirdPartyRelationshipAttribute is set to the peer of the source RelationshipAttribute.
