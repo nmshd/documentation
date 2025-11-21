@@ -68,7 +68,7 @@ Otherwise, an OwnIdentityAttribute is created that contains the IdentityAttribut
 Regardless of whether it is a [simple IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#simple-identityattributes) or a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), a success response is sent directly.
 Note that the successful creation of a LocalAttribute, and therefore in particular the creation of an OwnIdentityAttribute, triggers the `consumption.attributeCreated` [Connector event]({% link _docs_integrate/connector-events.md %}).
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/310cea0e-6f6f-4ee0-9efd-55e180ec5dda" id="WT4OFNWd3bcS"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/0a610069-9c57-4480-aea0-57baefaef096" id="Fz3-jr0pKUQn"></iframe></div>
 
 ### Example of creating a simple IdentityAttribute
 
@@ -123,7 +123,7 @@ This is achieved by sending a [Request]({% link _docs_integrate/data-model-overv
 Depending on whether you or your peer should set the [RelationshipAttributeValue]({% link _docs_integrate/attribute-values.md %}#relationship-attributes) and depending on other factors, a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem), [ReadAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#readattributerequestitem), [ProposeAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributerequestitem) or [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) should be used for this.
 
 From a technical point of view, the creation of a RelationshipAttribute corresponds to the creation of one [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for yourself and one LocalAttribute for your peer, whereby their `content` is given by the RelationshipAttribute that is intended to be created.
-In terms of nomenclature, this pair of LocalAttributes consists of one OwnRelationshipAttribute and one PeerRelationshipAttribute.
+In terms of nomenclature, this pair of LocalAttributes consists of one [OwnRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) and one [PeerRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute).
 {: .notice--info}
 
 ### Utilization of a CreateAttributeRequestItem
