@@ -67,5 +67,5 @@ If you have already shared another version of a succeeded Attribute with the pee
 - The Request cannot be created if the `peer` is unknown.
 - The Request cannot be created if the `attributeId` doesn't belong to an OwnIdentityAttribute.
 - The Request cannot be created if the OwnIdentityAttribute has already been shared with the peer and it doesn't have `"DeletedByRecipient"` or `"ToBeDeletedByRecipient"` as `deletionInfo.deletionStatus`.
-- The Request cannot be created if another version of the OwnIdentityAttribute regarding succession has already been shared with the peer, unless the latest shared version has `"DeletedByRecipient"` or `"ToBeDeletedByRecipient"` as `deletionInfo.deletionStatus`.
+- The Request cannot be created if another version of the OwnIdentityAttribute regarding succession has already been shared with the peer, unless the latest shared version has `"DeletedByRecipient"` as `deletionInfo.deletionStatus`.
 - The Request cannot be created if the parameters are malformed.
