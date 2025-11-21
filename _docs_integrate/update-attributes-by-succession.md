@@ -62,7 +62,7 @@ If they [accept your Request]({% link _docs_use-cases/use-case-consumption-accep
 This PeerIdentityAttribute has the same `content` like your OwnIdentityAttribute and, in addition, a defined `shareInfo` property.
 It stores the address of the `peer` who shared the Attribute with them, i.e. the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity), and a reference to the Request that was used to share the Attribute.
 Receiving the [Response]({% link _docs_integrate/data-model-overview.md %}#response), [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) associated with your OwnIdentityAttribute will be created at your side.
-Its `shareInfo` stores the same `requestReference` and the peer's address, as well as the `id` of the OwnIdentityAttribute, whose `content` was copied, in the field `sourceAttribute`.
+Its `shareInfo` stores the same `sourceReference` and the peer's address, as well as the `id` of the OwnIdentityAttribute, whose `content` was copied, in the field `sourceAttribute`.
 
 Concluding, sharing an IdentityAttribute will create AttributeForwardingDetails for every peer you shared the Attribute with at your side and a PeerIdentityAttribute copy for each peer at their side.
 

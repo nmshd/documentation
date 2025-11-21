@@ -144,7 +144,7 @@ In our example, we assume that the `confidentiality` of the RelationshipAttribut
   },
   "shareInfo": {
     "peer": "<address of third party>",
-    "requestReference": "<ID of Request used for creation of OwnRelationshipAttribute>"
+    "sourceReference": "<ID of Request or Notification used for creation of OwnRelationshipAttribute>"
   }
 }
 ```
