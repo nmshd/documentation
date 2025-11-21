@@ -31,7 +31,7 @@ The Request-Response flow allows to establish transactional behavior between Ide
 
 ## Requests
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/03ed5248-af12-4a50-bac1-73831f2c3cf9" id="d~qRE5C7Dqig"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/ce5f3058-6659-4949-a2fa-7c024a0b2ea9" id="T7Y-AH0IjR.x"></iframe></div>
 
 ### Structure of Requests
 
@@ -151,8 +151,8 @@ Depending on whether the ProposeAttributeRequestItem is to be accepted or reject
 After the Recipient has responded to the ProposeAttributeRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
 
 - After accepting this RequestItem with a new Attribute or an existing one that isn't shared with the peer already neither itself nor any of its predecessing versions, a [ProposeAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#proposeattributeacceptresponseitem) will be transferred.
-- After accepting this RequestItem with an existing Attribute that was shared with the peer already, an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) will be transferred, given that the own LocalAttribute or the associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) don't have `"DeletedByRecipient"` as `deletionInfo.deletionStatus`.
-- After accepting this RequestItem with an existing Attribute of which a predecessor was shared with the peer already, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be transferred, given that the own predecessor or the associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) don't have `"DeletedByRecipient"` as `deletionInfo.deletionStatus`.
+- After accepting this RequestItem with an existing Attribute that was shared with the peer already, an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) will be transferred, given that the associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) don't have `"DeletedByRecipient"` as `deletionInfo.deletionStatus`.
+- After accepting this RequestItem with an existing Attribute of which a predecessor was shared with the peer already, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be transferred, given that the associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) don't have `"DeletedByRecipient"` as `deletionInfo.deletionStatus`.
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
@@ -170,8 +170,8 @@ Depending on whether the ReadAttributeRequestItem is to be accepted or rejected,
 After the Recipient has responded to the ReadAttributeRequestItem, a suitable [ResponseItem]({% link _docs_integrate/data-model-overview.md %}#responseitems) is generated and transferred to the Sender of the Request:
 
 - After accepting this RequestItem with a new Attribute or an existing one that isn't shared with the peer already neither itself nor any of its predecessing versions, a [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem) will be transferred.
-- After accepting this RequestItem with an existing Attribute that was shared with the peer already, an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) will be transferred, given that the own LocalAttribute or the associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) don't have `"DeletedByRecipient"` as `deletionInfo.deletionStatus`.
-- After accepting this RequestItem with an existing Attribute of which a predecessor was shared with the peer already, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be transferred, given that the own predecessor or the associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) don't have `"DeletedByRecipient"` as `deletionInfo.deletionStatus`.
+- After accepting this RequestItem with an existing Attribute that was shared with the peer already, an [AttributeAlreadySharedAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributealreadysharedacceptresponseitem) will be transferred, given that the associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) don't have `"DeletedByRecipient"` as `deletionInfo.deletionStatus`.
+- After accepting this RequestItem with an existing Attribute of which a predecessor was shared with the peer already, an [AttributeSuccessionAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#attributesuccessionacceptresponseitem) will be transferred, given that the associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) don't have `"DeletedByRecipient"` as `deletionInfo.deletionStatus`.
 - After rejecting this RequestItem, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) will be transferred.
 - In case of an error, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) will be transferred.
 
@@ -356,7 +356,7 @@ If a RequestItem is accepted, an [AcceptResponseItem]({% link _docs_integrate/da
 Depending on the kind of RequestItem, it might be a specific AcceptResponseItem, extending the base AcceptResponseItem to answer to RequestItems demanding additional information.
 For example, a ReadAttributeRequestItem is accepted using a [ReadAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#readattributeacceptresponseitem), additionally transmitting information about the respective Attribute.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/95b2ef47-7044-4ccd-a2f2-381cbd39231d" id="qUbBRbvLjxvP"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/ee05d3a9-d8a8-4096-8f92-ee1fa4300577" id="W1Y-VwMz6n.a"></iframe></div>
 
 If a RequestItem is rejected, however, a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) is created.
 Lastly, in case the enmeshed Runtime detects a problem, an [ErrorResponseItem]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) is generated.
