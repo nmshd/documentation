@@ -66,36 +66,31 @@ Examples of simple IdentityAttributes are IdentityAttributes with IdentityAttrib
 A complex IdentityAttribute is an IdentityAttribute with an [IdentityAttribute value type]({% link _docs_integrate/attribute-values.md %}#identity-attributes) for which at least one property corresponds to another IdentityAttribute value type.
 An IdentityAttribute value type that contains such a property can be recognized by whether another IdentityAttribute value type is mentioned in its table in the [documentation]({% link _docs_integrate/attribute-values.md %}#identity-attributes) with regard to the validation of the property.
 Examples of complex IdentityAttributes are IdentityAttributes with IdentityAttribute value type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) or [StreetAddress]({% link _docs_integrate/attribute-values.md %}#streetaddress).
-When [creating a complex IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#example-of-creating-a-complex-identityattribute) or [creating of a simple IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#example-of-creating-a-simple-identityattribute), an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) whose `content` is given by the IdentityAttribute owned by yourself is created.
-
-More details on the terminology related to [LocalAttributes and IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#localattributes-and-identityattributes) can be found in the next section.
-{: .notice--info}
 
 ### LocalAttributes and IdentityAttributes
 
 From a technical perspective, an IdentityAttribute is always stored as the `content` of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
-Depending on the values of certain properties of the LocalAttribute, a LocalAttribute whose `content` is given by an IdentityAttribute is also referred to as an **OwnIdentityAttribute** or a **PeerIdentityAttribute**.
+A LocalAttribute whose `content` is given by an IdentityAttribute can be an [OwnIdentityAttribute](#ownidentityattributes) or a [PeerIdentityAttribute](#peeridentityattributes).
 
 #### OwnIdentityAttributes
 
-As already mentioned in the section on [complex IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `content` is given by an IdentityAttribute owned by yourself.
+When an Identity [creates an IdentityAttribute for itself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself), an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) is created.
+Its `content` is given by the IdentityAttribute owned by the Identity.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/62b3b352-a6d7-4826-8693-e8527b0370e4" id="zVGxoOkr.UEQ"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/f22fa64d-6565-4e8e-bc37-7747aaa578f5" id="Ix2-71mPhs~V"></iframe></div>
 
-An OwnIdentityAttribute is created when an Identity [creates an IdentityAttribute for itself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself).
 An Identity may share the underlying IdentityAttribute of an OwnIdentityAttribute with a peer.
 This can be done by using a suitable [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 
 #### PeerIdentityAttributes
 
-When [exchanging the underlying IdentityAttribute of an OwnIdentityAttribute with a peer](#attribute-management-options), [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) and the PeerIdentityAttribute as corresponding copy of the OwnIdentityAttribute are created.
-This makes it possible to record with whom an IdentityAttribute has been shared or from whom an IdentityAttribute has been received.
-When an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is shared by its `owner`, associated AttributeForwardingDetails are created in the wallet of the `owner`.
+When an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is shared by its `owner`, [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) are created in the wallet of the `owner`.
+They make it possible to record with whom an IdentityAttribute has been shared.
 The `id` of the OwnIdentityAttribute is stored in their `attributeId` property and the `address` of the peer with whom the IdentityAttribute is shared is contained within their `peer` property.
-This is the case as long as the OwnIdentityAttribute used as the source has not been [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-ownidentityattributes).
 If an IdentityAttribute is shared by its `owner` with several peers, a corresponding number of AttributeForwardingDetails is generated.
+If the OwnIdentityAttribute is [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-ownidentityattributes), the associated AttributeForwardingDetails are deleted as well.
 
-<div style="width: 640px; height: 600px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:600px" src="https://lucid.app/documents/embedded/95394e3a-b857-4165-9b1a-824ad81e04d9" id="QViE651IOP3n"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/13632447-aad6-483c-826e-d69b5b7d6015" id="-I2-nxKO9t9T"></iframe></div>
 
 If an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is shared by its `owner`, this not only leads to the creation of associated AttributeForwardingDetails for the `owner` of the IdentityAttribute, but also to the creation of a [PeerIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#peeridentityattribute) for the peer with whom the IdentityAttribute was shared.
 The `address` of the `owner` of the IdentityAttribute is contained within its `peer` property.
