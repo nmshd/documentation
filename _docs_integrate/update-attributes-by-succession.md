@@ -34,11 +34,10 @@ How the Attribute succession works in detail depends on the type of Attribute.
 When talking about [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute), we need to distinguish three cases:
 
 - The Identity maintains an unshared Attribute about itself.
-  This IdentityAttribute is stored in the `content` field of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute), whose `shareInfo` is undefined.
-  Since this LocalAttribute is created for the Identity's private repository of Attributes, it is referred to as **OwnIdentityAttribute**.
+  This IdentityAttribute is stored in the `content` field of an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute).
+  It is created for the Identity's private repository of Attributes.
 - When sharing an OwnIdentityAttribute with a peer, associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) are created.
-- Receiving a shared IdentityAttribute from a peer leads to the creation of a LocalAttribute with according `content` and a defined `shareInfo` for the Recipient.
-  We call this LocalAttribute a **PeerIdentityAttribute**.
+- Receiving a shared IdentityAttribute from a peer leads to the creation of a [PeerIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#peeridentityattribute) with according `content` for the Recipient.
 
 Discussing the succession of IdentityAttributes requires some background knowledge about this differentiation and the behavior of shared Attributes.
 Hence, we will look at the process of creating, sharing and succeeding an IdentityAttribute step by step.
@@ -47,10 +46,9 @@ Hence, we will look at the process of creating, sharing and succeeding an Identi
 
 enmeshed allows you to store data about yourself in the form of IdentityAttributes.
 When [creating an IdentityAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}), it is not necessary to share it immediately with a peer.
-Instead, it will be stored in the `content` property of a LocalAttribute with an undefined `shareInfo`.
-We refer to these unshared LocalAttributes as OwnIdentityAttributes, since they make up your private repository of Attributes.
+Instead, it will be stored in the `content` property of an OwnIdentityAttribute.
 
-In the following examples, the `createdAt` and `deletionInfo` properties of all occuring LocalAttributes is omitted, since they aren't required for the explanation.
+In the following examples, the `createdAt` and `deletionInfo` properties of all occuring [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) is omitted, since they aren't required for the explanation.
 {: .notice--info}
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/33654502-420f-41bd-801a-e0d4c1564df0" id="zs0-w2Ag-nJ4"></iframe></div>
@@ -59,10 +57,10 @@ In the following examples, the `createdAt` and `deletionInfo` properties of all 
 
 Now, in order to [share an OwnIdentityAttribute]({% link _docs_integrate/share-attributes-with-peer.md %}), you need to send an according [Request]({% link _docs_integrate/data-model-overview.md %}#request) to the peer you want to share it with.
 If they [accept your Request]({% link _docs_use-cases/use-case-consumption-accept-incoming-request.md %}), a new LocalAttribute will be created at the peer's side.
-This PeerIdentityAttribute has the same `content` like your OwnIdentityAttribute and, in addition, a defined `shareInfo` property.
-It stores the address of the `peer` who shared the Attribute with them, i.e. the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity), and a reference to the Request that was used to share the Attribute.
+This PeerIdentityAttribute has the same `content` like your OwnIdentityAttribute and, in addition, defined `peer` and `sourceReference` properties.
+They store the address of the `peer` who shared the Attribute with them, i.e. the `address` of your [Identity]({% link _docs_integrate/data-model-overview.md %}#identity), and a reference to the Request or Notification that was used to share the Attribute.
 Receiving the [Response]({% link _docs_integrate/data-model-overview.md %}#response), [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) associated with your OwnIdentityAttribute will be created at your side.
-Its `shareInfo` stores the same `sourceReference` and the peer's address, as well as the `id` of the OwnIdentityAttribute, whose `content` was copied, in the field `sourceAttribute`.
+They store the same `sourceReference` and the peer's address, as well as the `id` of the OwnIdentityAttribute, which was shared, in the field `attributeId`.
 
 Concluding, sharing an IdentityAttribute will create AttributeForwardingDetails for every peer you shared the Attribute with at your side and a PeerIdentityAttribute copy for each peer at their side.
 
@@ -107,7 +105,7 @@ We refer to the LocalAttribute of the `owner` as **OwnRelationshipAttribute** an
 Wanting to [create a RelationshipAttribute]({% link _docs_use-cases/use-case-consumption-create-and-share-a-relationshipattribute.md %}) always involves sharing it directly with a peer.
 To this end, a Request containing a [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) with the RelationshipAttribute will be created and will be sent to the peer.
 Only if the peer accepts this Request will a LocalAttribute with the RelationshipAttribute as `content` be created at their side and after you receive their Response, at your side, too.
-Hence, you and your peer will always have an identical shared RelationshipAttribute, only differing in the LocalAttribute's `shareInfo.peer` property.
+Hence, you and your peer will always have an identical shared RelationshipAttribute, only differing in the LocalAttribute's `peer` property.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/11244175-05b4-4225-b08f-7da48aa21e2f" id="gw0-8Yqzp0IL"></iframe></div>
 

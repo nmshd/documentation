@@ -67,8 +67,7 @@ A complex IdentityAttribute is an IdentityAttribute with an [IdentityAttribute v
 An IdentityAttribute value type that contains such a property can be recognized by whether another IdentityAttribute value type is mentioned in its table in the [documentation]({% link _docs_integrate/attribute-values.md %}#identity-attributes) with regard to the validation of the property.
 Examples of complex IdentityAttributes are IdentityAttributes with IdentityAttribute value type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) or [StreetAddress]({% link _docs_integrate/attribute-values.md %}#streetaddress).
 When [creating a complex IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#example-of-creating-a-complex-identityattribute), there is an important detail to note in contrast to the [creation of a simple IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#example-of-creating-a-simple-identityattribute).
-Creating an IdentityAttribute for yourself always leads to the creation of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `shareInfo` property is undefined and whose `content` is given by the IdentityAttribute owned by yourself.
-Such a LocalAttribute is also referred to as an OwnIdentityAttribute.
+Creating an IdentityAttribute for yourself always leads to the creation of an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) whose `content` is given by the IdentityAttribute owned by yourself.
 If an OwnIdentityAttribute is created that contains a complex IdentityAttribute within its `content` property, additional OwnIdentityAttributes are automatically created for each property of its IdentityAttribute value type that corresponds to another IdentityAttribute value type.
 These OwnIdentityAttributes are also referred to as children of the OwnIdentityAttribute belonging to the complex IdentityAttribute.
 The creation of these OwnIdentityAttributes makes it possible to share individual components of a complex IdentityAttribute.
@@ -87,7 +86,7 @@ Depending on the values of certain properties of the LocalAttribute, a LocalAttr
 
 #### OwnIdentityAttributes
 
-As already mentioned in the section on [complex IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), an OwnIdentityAttribute is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `content` is given by an IdentityAttribute owned by yourself and whose `shareInfo` property is undefined.
+As already mentioned in the section on [complex IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `content` is given by an IdentityAttribute owned by yourself.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/62b3b352-a6d7-4826-8693-e8527b0370e4" id="zVGxoOkr.UEQ"></iframe></div>
 
@@ -107,10 +106,8 @@ If an IdentityAttribute is shared by its `owner` with several peers, a correspon
 
 <div style="width: 640px; height: 600px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:600px" src="https://lucid.app/documents/embedded/95394e3a-b857-4165-9b1a-824ad81e04d9" id="QViE651IOP3n"></iframe></div>
 
-If an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is shared by its `owner`, this not only leads to the creation of associated AttributeForwardingDetails for the `owner` of the IdentityAttribute, but also to the creation of a PeerIdentityAttribute for the peer with whom the IdentityAttribute was shared.
-A PeerIdentityAttribute is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for which the `shareInfo` property is set.
-The `address` of the `owner` of the IdentityAttribute is contained within its `shareInfo.peer` property.
-The `shareInfo.sourceAttribute` property of a PeerIdentityAttribute is always undefined, as the OwnIdentityAttribute used as the source is only stored locally for the `owner` of the IdentityAttribute.
+If an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) is shared by its `owner`, this not only leads to the creation of associated AttributeForwardingDetails for the `owner` of the IdentityAttribute, but also to the creation of a [PeerIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#peeridentityattribute) for the peer with whom the IdentityAttribute was shared.
+The `address` of the `owner` of the IdentityAttribute is contained within its `peer` property.
 Furthermore, note that the `id` of a PeerIdentityAttribute is always the same as the `id` of the associated OwnIdentityAttribute.
 To ensure the privacy of an Identity's data, the IdentityAttribute shared by its `owner` with a peer cannot be shared by that peer with a third party.
 
@@ -145,34 +142,28 @@ The term [ThirdPartyRelationshipAttribute](#thirdpartyrelationshipattributes) is
 
 A [RelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute) can only exist in the context of a Relationship and must therefore be stored locally for both Identities involved in the Relationship.
 Accordingly, the [creation of a RelationshipAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-a-relationshipattribute) corresponds to the creation of one [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) for its `owner` and one LocalAttribute for the peer with whom the `owner` has established the Relationship in whose context the RelationshipAttribute is to exist.
-The OwnRelationshipAttribute is the LocalAttribute of the `owner` of the RelationshipAttribute and the peer's LocalAttribute is referred to as a PeerRelationshipAttribute.
+The [OwnRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) is the LocalAttribute of the `owner` of the RelationshipAttribute and the peer's LocalAttribute is referred to as a [PeerRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute).
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/dd79b31c-0404-48bb-9773-9b989801c03c" id="RbDyLSjh7BzY"></iframe></div>
 
-Of course, the `shareInfo` property of the OwnRelationshipAttribute is set.
-Within the `shareInfo.peer` property, the `address` of the peer to whom the RelationshipAttribute's `owner` has established the Relationship in whose context the RelationshipAttribute exists is specified.
-If the RelationshipAttribute is initially created for a specific Relationship and does not originate from another RelationshipAttribute, the `shareInfo.sourceAttribute` property is undefined.
+Within the `peer` property of the OwnRelationshipAttribute, the `address` of the peer to whom the RelationshipAttribute's `owner` has established the Relationship in whose context the RelationshipAttribute exists is specified.
 The PeerRelationshipAttribute is the peer's [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) and forms the counterpart of the OwnRelationshipAttribute.
 The `id` of a PeerRelationshipAttribute is always the same as the `id` of the associated OwnRelationshipAttribute.
-As with the OwnRelationshipAttribute, the `shareInfo` property of a PeerRelationshipAttribute is of course set.
-Within the `shareInfo.peer` property, the `address` of the `owner` of the RelationshipAttribute is specified.
-Furthermore, the `shareInfo.sourceAttribute` property of a PeerRelationshipAttribute is undefined.
-Also, for both the OwnRelationshipAttribute and PeerRelationshipAttribute, there is no `initialAttributePeer` property, as it is only used for ThirdPartyRelationshipAttributes.
+Within the `peer` property of the PeerRelationshipAttribute, the `address` of the `owner` of the RelationshipAttribute is specified.
 
 #### ThirdPartyRelationshipAttributes
 
 Note that it is possible to share a RelationshipAttribute with peers who are not involved in the Relationship in which the RelationshipAttribute exists, provided that the `confidentiality` of the RelationshipAttribute is not `"private"`.
 The sharing of a RelationshipAttribute with such a peer leads to the creation of [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) in the wallet of the Identity who has the source RelationshipAttribute.
-It contains the `address` of this peer within its `peer` property.
-As it originates from another OwnRelationshipAttribute that exists in the context of a different Relationship, it contains the `id` of the source RelationshipAttribute within its `shareInfo.sourceAttribute` property.
-This is the case as long as the OwnRelationshipAttribute used as the source has not been [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-own-attributes).
-Furthermore, in the `initialAttributePeer` property, the `address` of the peer of the source RelationshipAttribute is stored.
+They contain the `address` of this peer within their `peer` property and the `id` of the source RelationshipAttribute within their `attributeId` property.
+If the source RelationshipAttribute is [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-own-attributes), the associated AttributeForwardingDetails will be deleted as well.
+The source RelationshipAttribute is either an [OwnRelationshipAttribute](#ownrelationshipattributes-and-peerrelationshipattributes) or a [PeerRelationshipAttribute](#ownrelationshipattributes-and-peerrelationshipattributes).
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/5c9fc0f6-b5e4-4bfd-90b9-a046447ad47e" id="SsblHmOED0qR"></iframe></div>
 
-In the wallet of the peer with whom the underlying RelationshipAttribute of the source RelationshipAttribute was shared, a so-called ThirdPartyRelationshipAttribute is created.
+In the wallet of the peer with whom the underlying RelationshipAttribute of the source RelationshipAttribute was shared, a so-called [ThirdPartyRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattribute) is created.
 The `initialAttributePeer` property of the ThirdPartyRelationshipAttribute is set to the peer of the source RelationshipAttribute.
-Lastly, the `shareInfo.sourceAttribute` property of a ThirdPartyRelationshipAttribute is always undefined, as the source RelationshipAttribute can only be available locally to the emitter of the ThirdPartyRelationshipAttribute.
+The `id` of a ThirdPartyRelationshipAttribute is always the same as the `id` of the associated source RelationshipAttribute.
 
 ## Attribute management options
 

@@ -124,11 +124,11 @@ The value of the `mustBeAccepted` property of the ShareAttributeRequestItem is s
 
 We now consider the case in which the Sender has an active [Relationship]({% link _docs_integrate/data-model-overview.md %}#relationship) with a third party and owns a RelationshipAttribute, which has already been created by using an appropriate Request, of type [ProprietaryString]({% link _docs_integrate/attribute-values.md %}#proprietarystring) of this Relationship.
 The Sender can request to share this RelationshipAttribute with the Recipient if its `confidentiality` is `"protected"` or `"public"`.
-In our example, we assume that the `confidentiality` of the RelationshipAttribute is `"public"` and that it is stored locally within the `content` property of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) of the Sender, which is also referred to as an [OwnRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#ownrelationshipattributes-and-peerrelationshipattributes).
+In our example, we assume that the `confidentiality` of the RelationshipAttribute is `"public"` and that it is stored locally within the `content` property of an [OwnRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) of the Sender.
 
 ```jsonc
 {
-  "@type": "LocalAttribute",
+  "@type": "OwnRelationshipAttribute",
   "id": "<ID of OwnRelationshipAttribute>",
   "createdAt": "<creation date of OwnRelationshipAttribute>",
   "content": {
@@ -142,15 +142,13 @@ In our example, we assume that the `confidentiality` of the RelationshipAttribut
       "value": "<actual value of RelationshipAttribute>"
     }
   },
-  "shareInfo": {
-    "peer": "<address of third party>",
-    "sourceReference": "<ID of Request or Notification used for creation of OwnRelationshipAttribute>"
-  }
+  "peer": "<address of third party>",
+  "sourceReference": "<ID of Request or Notification used for creation of OwnRelationshipAttribute>"
 }
 ```
 
 To share the RelationshipAttribute with the Recipient, the Sender needs to insert the `id` of the corresponding OwnRelationshipAttribute into the `attributeId` property and the RelationshipAttribute itself into the `attribute` property of the [ShareAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#shareattributerequestitem) contained within the `items` property of the [Request]({% link _docs_integrate/data-model-overview.md %}#request) for sharing Attributes.
-Furthermore, the address of the third party, which corresponds to the `shareInfo.peer` of the OwnRelationshipAttribute, must be specified as the `initialAttributePeer` of the ShareAttributeRequestItem.
+Furthermore, the address of the third party, which corresponds to the `peer` of the OwnRelationshipAttribute, must be specified as the `initialAttributePeer` of the ShareAttributeRequestItem.
 The value of the `mustBeAccepted` property is set to `true` in this example.
 
 ```jsonc

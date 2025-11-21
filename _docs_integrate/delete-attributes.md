@@ -25,10 +25,10 @@ required_by:
 
 The exact process of deleting an Attribute depends on the kind of Attribute at hand.
 [Creating an Attribute]({% link _docs_integrate/create-attributes-for-yourself.md %}), we must distinguish between [IdentityAttributes]({% link _docs_integrate/data-model-overview.md %}#identityattribute) and [RelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#relationshipattribute).
-In the former case, a so-called OwnIdentityAttribute is created, which is a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) without `shareInfo`, that you are the `owner` of.
-Afterwards, you may [share it]({% link _docs_integrate/share-attributes-with-peer.md %}) with a peer, which yields the creation of [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails).
-Doing so, also a LocalAttribute with the same `content` and a respective `shareInfo` is created for the peer, which is referred to as peer Attribute.
-In the case of RelationshipAttributes we have OwnRelationshipAttributes and PeerRelationshipAttributes analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with OwnIdentityAttributes.
+In the former case, a so-called [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) is created.
+Afterwards, you may [share it]({% link _docs_integrate/share-attributes-with-peer.md %}) with a peer, which yields the creation of associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails).
+Doing so, also a [PeerIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#peeridentityattribute) with the same `content` is created for the peer.
+In the case of RelationshipAttributes we have [OwnRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) and [PeerRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute) analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with OwnIdentityAttributes.
 These different kinds of Attributes have different demands that need to be taken into account, wanting to delete them.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/04c48548-90a3-4e9e-839a-4bb9a5dddcfb" id="9hZD~iRvE8aL"></iframe></div>
@@ -145,12 +145,11 @@ It can then only be received and processed if the peer [cancels its deletion]({%
 
 ## Delete OwnIdentityAttributes
 
-Lastly, you can also [delete OwnIdentityAttributes]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}), i.e. LocalAttributes that are owned by yourself and whose `shareInfo` property is undefined.
-Analogously to the cases above, also all predecessors of the OwnIdentityAttribute with specified `attributeId` will be deleted.
+Lastly, you can also [delete OwnIdentityAttributes]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}).
+Analogously to the cases above, also all predecessors of the [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) with specified `attributeId` will be deleted.
 Additionally, the `succeeds` property of the successor will be removed in case of [Attribute succession]({% link _docs_integrate/update-attributes-by-succession.md %}).
-If the OwnIdentityAttribute has [child Attributes]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), the same will hold true for all its children.
 
-Furthermore, if there are any shared copies of the OwnIdentityAttribute, their `shareInfo` will be updated such that `sourceAttribute` doesn't link to the deleted OwnIdentityAttribute anymore.
+Furthermore, if there are any [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) associated with the OwnIdentityAttribute, they will be deleted as well.
 As a consequence, the [get versions of Attribute shared with peer use case]({% link _docs_use-cases/use-case-consumption-get-versions-of-attribute-shared-with-peer.md %}) will no longer return those shared versions.
-Now, in case you shared an OwnIdentityAttribute with a peer, succeeded it without notifying the peer and then delete the source Attribute of the predecessor, you won't be able to [notify the peer about the succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-ownidentityattribute-succession.md %}) of this no longer existing OwnIdentityAttribute anymore.
+Now, in case you shared an OwnIdentityAttribute with a peer, succeeded it without notifying the peer and then delete the predecessor, you won't be able to [notify the peer about the succession]({% link _docs_use-cases/use-case-consumption-notify-peer-about-ownidentityattribute-succession.md %}) of this no longer existing OwnIdentityAttribute anymore.
 Instead, if you want to inform them about a newer version of this OwnIdentityAttribute, you must [share that version]({% link _docs_use-cases/use-case-consumption-share-an-ownidentityattribute.md %}) again.

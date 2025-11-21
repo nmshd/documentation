@@ -31,8 +31,7 @@ As there are two types of Attributes, [IdentityAttributes]({% link _docs_integra
 ## Create an IdentityAttribute for yourself
 
 This section is about how to create an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#identityattribute) for your own Connector that is not initially shared with any other Identity.
-From a technical point of view, this corresponds to the creation of a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) whose `content` is given by the IdentityAttribute that is intended to be created and whose `shareInfo` is undefined.
-Such a LocalAttribute is referred to as an OwnIdentityAttribute.
+From a technical point of view, this corresponds to the creation of an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute).
 
 Since knowledge about IdentityAttributes is required in the following, you should take a look at our [IdentityAttribute introduction]({% link _docs_integrate/attribute-introduction.md %}#identityattributes) before you continue reading this guide.
 In particular, a description of the two kinds of IdentityAttributes, the [simple IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#simple-identityattributes) and the [complex IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), can be found there.
