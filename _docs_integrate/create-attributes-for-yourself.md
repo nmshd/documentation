@@ -65,9 +65,7 @@ This is to prevent several latest OwnIdentityAttributes with the same `content.v
 As you can see from the diagram below, after you have entered the [input for creating an OwnIdentityAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}#input-for-creating-an-ownidentityattribute), a check is performed whether the input values for the properties of the specified [IdentityAttributeValue]({% link _docs_integrate/attribute-values.md %}#identity-attributes) meet the validation criteria documented on the [Attribute Values]({% link _docs_integrate/attribute-values.md %}) page.
 If the validation is not successful, an [error message]({% link _docs_integrate/error-codes.md %}) is sent in response.
 Otherwise, an OwnIdentityAttribute is created that contains the IdentityAttribute in its `content` property.
-If it is a [simple IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#simple-identityattributes), a success response is sent directly.
-In the case of a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), on the other hand, another OwnIdentityAttribute is created beforehand for each of its appropriate properties.
-These OwnIdentityAttributes for the properties are also referred to as children of the OwnIdentityAttribute belonging to the complex IdentityAttribute.
+Regardless of whether it is a [simple IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#simple-identityattributes) or a [complex IdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#complex-identityattributes), a success response is sent directly.
 Note that the successful creation of a LocalAttribute, and therefore in particular the creation of an OwnIdentityAttribute, triggers the `consumption.attributeCreated` [Connector event]({% link _docs_integrate/connector-events.md %}).
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/310cea0e-6f6f-4ee0-9efd-55e180ec5dda" id="WT4OFNWd3bcS"></iframe></div>
@@ -110,8 +108,6 @@ To create one for your own Connector without specifying optional parameters, the
 
 Assuming that the input values ​​for the properties `value.day`, `value.month` and `value.year` meet the [validation criteria]({% link _docs_integrate/attribute-values.md %}#birthdate), which means, for example, that the input value for `value.month` is an integer between 1 and 12, the IdentityAttribute is saved as an OwnIdentityAttribute.
 The properties `value.day`, `value.month` and `value.year` can each be understood as an additional simple IdentityAttribute of type [BirthDay]({% link _docs_integrate/attribute-values.md %}#birthday), [BirthMonth]({% link _docs_integrate/attribute-values.md %}#birthmonth) and [BirthYear]({% link _docs_integrate/attribute-values.md %}#birthyear), respectively.
-For this reason, another OwnIdentityAttribute is created internally for each of these properties before a success response is sent.
-So for the OwnIdentityAttribute, which belongs to the complex IdentityAttribute of type BirthDate, a total of three children are created.
 
 ### What's next?
 

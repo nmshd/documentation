@@ -66,16 +66,8 @@ Examples of simple IdentityAttributes are IdentityAttributes with IdentityAttrib
 A complex IdentityAttribute is an IdentityAttribute with an [IdentityAttribute value type]({% link _docs_integrate/attribute-values.md %}#identity-attributes) for which at least one property corresponds to another IdentityAttribute value type.
 An IdentityAttribute value type that contains such a property can be recognized by whether another IdentityAttribute value type is mentioned in its table in the [documentation]({% link _docs_integrate/attribute-values.md %}#identity-attributes) with regard to the validation of the property.
 Examples of complex IdentityAttributes are IdentityAttributes with IdentityAttribute value type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) or [StreetAddress]({% link _docs_integrate/attribute-values.md %}#streetaddress).
-When [creating a complex IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#example-of-creating-a-complex-identityattribute), there is an important detail to note in contrast to the [creation of a simple IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#example-of-creating-a-simple-identityattribute).
-Creating an IdentityAttribute for yourself always leads to the creation of an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) whose `content` is given by the IdentityAttribute owned by yourself.
-If an OwnIdentityAttribute is created that contains a complex IdentityAttribute within its `content` property, additional OwnIdentityAttributes are automatically created for each property of its IdentityAttribute value type that corresponds to another IdentityAttribute value type.
-These OwnIdentityAttributes are also referred to as children of the OwnIdentityAttribute belonging to the complex IdentityAttribute.
-The creation of these OwnIdentityAttributes makes it possible to share individual components of a complex IdentityAttribute.
-For example, if an IdentityAttribute of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) has been created, it is possible to share only the `year` of birth with peers, instead of the full date of birth.
-The corresponding IdentityAttribute of type [BirthYear]({% link _docs_integrate/attribute-values.md %}#birthyear) does not have to be created manually, but is created automatically after the IdentityAttribute of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) has been created.
+When [creating a complex IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#example-of-creating-a-complex-identityattribute) or [creating of a simple IdentityAttribute for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}#example-of-creating-a-simple-identityattribute), an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) whose `content` is given by the IdentityAttribute owned by yourself is created.
 
-Please note that when creating a [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) that contains a complex IdentityAttribute in its `content` property, additional LocalAttributes are only created automatically if the LocalAttribute is an OwnIdentityAttribute.
-However, if the LocalAttribute is a PeerIdentityAttribute, no additional LocalAttributes are created.
 More details on the terminology related to [LocalAttributes and IdentityAttributes]({% link _docs_integrate/attribute-introduction.md %}#localattributes-and-identityattributes) can be found in the next section.
 {: .notice--info}
 
@@ -91,7 +83,6 @@ As already mentioned in the section on [complex IdentityAttributes]({% link _doc
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/62b3b352-a6d7-4826-8693-e8527b0370e4" id="zVGxoOkr.UEQ"></iframe></div>
 
 An OwnIdentityAttribute is created when an Identity [creates an IdentityAttribute for itself]({% link _docs_integrate/create-attributes-for-yourself.md %}#create-an-identityattribute-for-yourself).
-If the IdentityAttribute is a complex IdentityAttribute, OwnIdentityAttributes are also created for the properties of the IdentityAttribute value type that correspond to other IdentityAttribute value types.
 An Identity may share the underlying IdentityAttribute of an OwnIdentityAttribute with a peer.
 This can be done by using a suitable [Request]({% link _docs_integrate/data-model-overview.md %}#request).
 
