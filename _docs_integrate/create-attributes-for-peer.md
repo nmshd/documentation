@@ -170,7 +170,7 @@ If the Recipient does not want to create any of the Attributes offered by the Se
 For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/970e4551-ac83-4130-bdc4-67e92a8aa033" id="H.NPTJ1Oxg-P"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/8990c4b4-6816-4488-844a-cf1321e5a486" id="ejW_iiCm9yDt"></iframe></div>
 
 ### Accept a CreateAttributeRequestItem
 
@@ -291,7 +291,7 @@ We now assume that the Recipient has accepted the [Request for creating Attribut
 In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/7b9d7d3f-796a-44fe-877a-520e952f672b" id="f~NPBql6VM9h"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/48a6d136-b197-40e9-878a-03df1dd3ff89" id="xjW_xScz4-EQ"></iframe></div>
 
 To view the Response to the Request, proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 

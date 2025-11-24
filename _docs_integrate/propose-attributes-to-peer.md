@@ -175,7 +175,7 @@ If the Recipient does not want to deal with any of the Attributes proposed by th
 For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
 
-<div style="width: 640px; height: 720px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:720px" src="https://lucid.app/documents/embedded/29d3e823-243d-461d-adc5-bf7a0c9dc9cd" id="wXPVli~HoyKf"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/9835347d-e79a-443f-a45f-2578ad5d46bd" id=".rV_gd90~VN_"></iframe></div>
 
 ### Accept a ProposeAttributeRequestItem
 
@@ -351,8 +351,8 @@ We now assume that the Recipient has accepted the [Request for proposing Attribu
 In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/91eaacd7-42db-48f9-80fc-72352d47dfc5" id="_XPVA7pau0KH"></iframe></div>
-s
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/8cc441fb-3ddb-4311-a0af-0e8837976224" id="RvV_GpEEW0An"></iframe></div>
+
 To view the Response to the Request, proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
 - If the [Request was sent via a RelationshipTemplate]({% link _docs_integrate/propose-attributes-to-peer.md %}#request-via-relationshiptemplate): Specify `<ID of RelationshipTemplate>` as the value for the `source.reference` query parameter.

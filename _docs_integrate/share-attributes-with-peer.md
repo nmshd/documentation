@@ -211,7 +211,7 @@ If the Recipient does not want to get any of the Sender's shared Attributes and,
 For that, follow the instructions of the [Reject incoming Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) use case.
 {: .notice--info}
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/ac0ca016-1e9b-40f7-b897-290f54c43782" id="crwP~ShTXcFl"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/9f9ad94d-1b83-46a5-90b0-5cbd064511e4" id="GrR_LR94fm6N"></iframe></div>
 
 ### Accept a ShareAttributeRequestItem
 
@@ -331,7 +331,7 @@ We now assume that the Recipient has accepted the [Request for sharing Attribute
 In order for the Sender to receive the Response of the Recipient, it needs to [synchronize the updates of the Backbone]({% link _docs_use-cases/use-case-transport-synchronize-updates-of-backbone.md %}).
 Please note that this synchronization can also be automated by using the [Sync Module]({% link _docs_operate/modules.md %}#sync).
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/8c6f398e-07ad-43a9-8dda-d4e638c34e57" id="giwP0P_T6Pk8"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/6d75dbf7-4ab2-4924-b579-ede8a889a0cb" id="1tR_SCPGgYJ-"></iframe></div>
 
 To view the Response to the Request, proceed as described in the [Query outgoing Requests]({% link _docs_use-cases/use-case-consumption-query-outgoing-requests.md %}) use case documentation and use the following query parameter:
 
