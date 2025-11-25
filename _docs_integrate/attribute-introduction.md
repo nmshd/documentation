@@ -196,5 +196,5 @@ The peers with whom the Identity may have shared the Attribute can be notified a
 
 An Identity may have created an Attribute for itself or received an Attribute from a peer that it does not need any longer.
 In both cases, it can [delete the Attribute]({% link _docs_integrate/delete-attributes.md %}).
-If an Identity has shared an Attribute with a peer, it can [request the deletion of this Attribute from the peer]({% link _docs_integrate/delete-attributes.md %}#request-the-deletion-of-emitted-attributes-from-peer) in order to withdraw their permission to use the Attribute.
+If an Identity has shared an Attribute with a peer, it can [request the deletion of this Attribute from its recipient]({% link _docs_integrate/delete-attributes.md %}#request-the-deletion-of-emitted-attributes-from-recipient) in order to withdraw their permission to use the Attribute.
 Of course, the associated [emitted Attribute can be deleted]({% link _docs_integrate/delete-attributes.md %}#delete-emitted-attributes), too.
