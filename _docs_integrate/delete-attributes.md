@@ -28,7 +28,8 @@ The exact process of deleting an Attribute depends on the kind of Attribute at h
 In the former case, a so-called [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) is created.
 Afterwards, you may [share it]({% link _docs_integrate/share-attributes-with-peer.md %}) with a peer, which yields the creation of associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails).
 Doing so, also a [PeerIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#peeridentityattribute) with the same `content` is created for the peer.
-In the case of RelationshipAttributes we have [OwnRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) and [PeerRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute) analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with OwnIdentityAttributes.
+In the case of RelationshipAttributes we have [OwnRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) and [PeerRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute).
+Analogeously, sharing an OwnRelationshipAttribute or a PeerRelationshipAttribute with a third party leads to the the creation of associated AttributeForwardingDetails for the emitter and a [ThirdPartyRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattribute) for the third party.
 These different kinds of Attributes have different demands that need to be taken into account, wanting to delete them.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/6c6d770c-f6f3-4d70-a4e9-cbfb46cc93a2" id="RT__5TJIaYhp"></iframe></div>
@@ -38,7 +39,7 @@ So, for example you can delete Attributes a peer shared with you from your walle
 Wanting to do so, you need to send a Request to the peer, asking them to delete the respective Attribute.
 Note that this doesn't automatically delete their Attribute, since the peer may have a valid reason to still keep it for a certain amount of time.
 
-## Request the deletion of own Attributes from peer
+## Request the deletion of emitted Attributes from peer
 
 Wanting to delete a peer Attribute owned by you from the peer technically describes the endeavor of withdrawing the permission you gave them to use your Attribute.
 To this end, a [Request]({% link _docs_integrate/data-model-overview.md %}#request) must be used with a [DeleteAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#deleteattributerequestitem).
@@ -99,7 +100,7 @@ In this case, the [RejectRequestItemParameters]({% link _docs_integrate/data-mod
 Receiving the Response with the [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem), the own Attribute of the `owner` or the associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) are given `"DeletionRequestRejected"` as `deletionStatus` and the receiving time is stored in the property `deletionDate`.
 {: .notice--info}
 
-## Delete peer Attributes
+## Delete received Attributes
 
 The actual deletion of a peer Attribute happens in a separate step.
 This can either be triggered if the `deletionInfo.deletionDate` is reached, in case the deletion was requested by the owner of the peer Attribute, or if the peer decides they no longer need it.
@@ -109,7 +110,7 @@ Internally, not just the given peer Attribute is deleted, but also all its prede
 Moreover, if the peer Attribute had a successor, its `succeeds` property will be set to undefined, as the corresponding predecessor no longer exists.
 Then, a [Notification]({% link _docs_integrate/data-model-overview.md %}#notification) with a [ForwardedAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#forwardedattributedeletedbypeernotificationitem) or a [PeerRelationshipAttributeDeletedByPeerNotificationItem]({%link _docs_integrate/data-model-overview.md %}#peerrelationshipattributedeletedbypeernotificationitem) is generated and sent to the owner of the peer Attribute, informing them that you deleted the Attribute they shared with you.
 Consequently, the `deletionInfo` of their corresponding own Attribute and of all potential predecessors or of the associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) is updated with `deletionStatus` `"DeletedByRecipient"` and the time of receiving the Notification as `deletionDate`.
-In case the owner already [deleted their own Attribute](#delete-own-attributes), nothing happens.
+In case the owner already [deleted their own Attribute](#delete-emitted-attributes), nothing happens.
 Please further note that the Notification is queued if the [Relationship is currently terminated]({% link _docs_integrate/terminate-relationships.md %}#terminate-an-active-relationship) but not yet [decomposed]({% link _docs_integrate/terminate-relationships.md %}#decompose-a-relationship).
 It can then only be received and processed if the [Relationship is reactivated]({% link _docs_integrate/terminate-relationships.md %}#reactivate-a-terminated-relationship).
 The Notification is also queued if the [peer is currently in deletion]({% link _docs_integrate/delete-identities.md %}#effects-of-identity-deletion-on-relationships) but not yet deleted.
@@ -121,13 +122,13 @@ If you want to [delete a ThirdPartyRelationshipAttribute]({% link _docs_use-case
 In this case, a [ForwardedAttributeDeletedByPeerNotificationItem]({% link _docs_integrate/data-model-overview.md %}#forwardedattributedeletedbypeernotificationitem) will be sent.
 {: .notice--info}
 
-## Delete own Attributes
+## Delete emitted Attributes
 
 The `owner` can always delete their LocalAttributes without having to ask for consent, even if they are shared.
 Hence, it is always possible to delete own Attributes.
 Then, associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) are deleted as well.
-Doing so before the [peer deleted their copy of the shared Attribute](#delete-peer-attributes), however, you lose the information of having shared the Attribute with them and whether they keep their peer Attribute or delete it.
-Thus, we recommend to [request the deletion of own Attributes from the peer](#request-the-deletion-of-own-attributes-from-peer) before deleting them yourself.
+Doing so before the [peer deleted their copy of the shared Attribute](#delete-received-attributes), however, you lose the information of having shared the Attribute with them and whether they keep their peer Attribute or delete it.
+Thus, we recommend to [request the deletion of emitted Attributes from the peer](#request-the-deletion-of-emitted-attributes-from-peer) before deleting them yourself.
 
 If you decide to [delete an own Attribute]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}), you must specifiy its `attributeId`.
 Then, in addition to the own Attribute itself, also all its predecessors will be deleted, given there were any.
@@ -142,8 +143,6 @@ Furthermore, the Notification is also queued if the [peer is currently in deleti
 It can then only be received and processed if the peer [cancels its deletion]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}).
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/ad2da820-7e33-497b-bf8b-2840d0b92fd5" id="2N__0cLJiA6a"></iframe></div>
-
-## Delete OwnIdentityAttributes
 
 Lastly, you can also [delete OwnIdentityAttributes]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}).
 Analogously to the cases above, also all predecessors of the [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) with specified `attributeId` will be deleted.

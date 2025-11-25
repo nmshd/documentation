@@ -105,7 +105,7 @@ After the Recipient has responded to the CreateAttributeRequestItem, a suitable 
 
 #### DeleteAttributeRequestItem
 
-If you want to [request the deletion of an own Attribute from a peer]({% link _docs_integrate/delete-attributes.md %}#request-the-deletion-of-own-attributes-from-peer), the [DeleteAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#deleteattributerequestitem) must be used.
+If you want to [request the deletion of an emitted Attribute from a peer]({% link _docs_integrate/delete-attributes.md %}#request-the-deletion-of-emitted-attributes-from-peer), the [DeleteAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#deleteattributerequestitem) must be used.
 
 Depending on whether the DeleteAttributeRequestItem is to be accepted or rejected, its Recipient has different parameters to choose from for responding to it:
 

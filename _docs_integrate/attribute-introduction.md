@@ -88,7 +88,7 @@ When an [IdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#id
 They make it possible to record with whom an IdentityAttribute has been shared.
 The `id` of the OwnIdentityAttribute is stored in their `attributeId` property and the `address` of the peer with whom the IdentityAttribute is shared is contained within their `peer` property.
 If an IdentityAttribute is shared by its `owner` with several peers, a corresponding number of AttributeForwardingDetails is generated.
-If the OwnIdentityAttribute is [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-ownidentityattributes), the associated AttributeForwardingDetails are deleted as well.
+If the OwnIdentityAttribute is [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-emitted-attributes), the associated AttributeForwardingDetails are deleted as well.
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/13632447-aad6-483c-826e-d69b5b7d6015" id="-I2-nxKO9t9T"></iframe></div>
 
@@ -142,7 +142,7 @@ Within the `peer` property of the PeerRelationshipAttribute, the `address` of th
 Note that it is possible to share a RelationshipAttribute with peers who are not involved in the Relationship in which the RelationshipAttribute exists, provided that the `confidentiality` of the RelationshipAttribute is not `"private"`.
 The sharing of a RelationshipAttribute with such a peer leads to the creation of [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) in the wallet of the Identity who has the source RelationshipAttribute.
 They contain the `address` of this peer within their `peer` property and the `id` of the source RelationshipAttribute within their `attributeId` property.
-If the source RelationshipAttribute is [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-own-attributes), the associated AttributeForwardingDetails will be deleted as well.
+If the source RelationshipAttribute is [deleted]({% link _docs_integrate/delete-attributes.md %}#delete-emitted-attributes), the associated AttributeForwardingDetails will be deleted as well.
 The source RelationshipAttribute is either an [OwnRelationshipAttribute](#ownrelationshipattributes-and-peerrelationshipattributes) or a [PeerRelationshipAttribute](#ownrelationshipattributes-and-peerrelationshipattributes).
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/c667865f-6cdb-443a-abcd-28d50d839d2a" id="c92-bMMibJ7p"></iframe></div>
@@ -196,5 +196,5 @@ The peers with whom the Identity may have shared the Attribute can be notified a
 
 An Identity may have created an Attribute for itself or received an Attribute from a peer that it does not need any longer.
 In both cases, it can [delete the Attribute]({% link _docs_integrate/delete-attributes.md %}).
-If an Identity has shared an Attribute that is owned by itself with a peer, it can [request the deletion of this Attribute from the peer]({% link _docs_integrate/delete-attributes.md %}#request-the-deletion-of-own-attributes-from-peer) in order to withdraw their permission to use the Attribute.
-Of course, the associated [own Attribute can be deleted]({% link _docs_integrate/delete-attributes.md %}#delete-own-attributes), too.
+If an Identity has shared an Attribute with a peer, it can [request the deletion of this Attribute from the peer]({% link _docs_integrate/delete-attributes.md %}#request-the-deletion-of-emitted-attributes-from-peer) in order to withdraw their permission to use the Attribute.
+Of course, the associated [emitted Attribute can be deleted]({% link _docs_integrate/delete-attributes.md %}#delete-emitted-attributes), too.
