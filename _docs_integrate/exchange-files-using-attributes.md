@@ -64,7 +64,7 @@ By [sending a suitable Request]({% link _docs_integrate/share-attributes-with-pe
 If the peer accepts the Request, a PeerIdentityAttribute will be created for them and they will gain read access to the underlying File, that was [uploaded to the Backbone](#upload-a-file).
 For the sender, [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) will be created.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/849a579c-15c6-4b9a-a652-ea51c31bb622" id="bJaM.8pgwNP3"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/7301a611-47ce-43fd-ac61-b3becf77c306" id="uEc.tXofzNzF"></iframe></div>
 
 ## Create an IdentityFileReference
 
