@@ -46,9 +46,9 @@ Hence, we will look at the process of creating, sharing and succeeding an Identi
 
 enmeshed allows you to store data about yourself in the form of IdentityAttributes.
 When [creating an IdentityAttribute]({% link _docs_integrate/create-attributes-for-yourself.md %}), it is not necessary to share it immediately with a peer.
-Instead, it will be stored in the `content` property of an OwnIdentityAttribute.
+Instead, it will be stored in the `content` property of an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute).
 
-In the following examples, the `createdAt` and `deletionInfo` properties of all occuring [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) is omitted, since they aren't required for the explanation.
+In the following examples, some properties of the occuring [LocalAttributes]({% link _docs_integrate/data-model-overview.md %}#localattribute) will be omitted if they aren't required for the explanation.
 {: .notice--info}
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/33654502-420f-41bd-801a-e0d4c1564df0" id="zs0-w2Ag-nJ4"></iframe></div>
