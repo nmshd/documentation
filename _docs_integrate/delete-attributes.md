@@ -31,7 +31,7 @@ Doing so, also a [PeerIdentityAttribute]({% link _docs_integrate/data-model-over
 In the case of RelationshipAttributes we have [OwnRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) and [PeerRelationshipAttributes]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute) analogeously, however, no unshared LocalAttributes like we have in the case of IdentityAttributes with OwnIdentityAttributes.
 These different kinds of Attributes have different demands that need to be taken into account, wanting to delete them.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/04c48548-90a3-4e9e-839a-4bb9a5dddcfb" id="9hZD~iRvE8aL"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/6c6d770c-f6f3-4d70-a4e9-cbfb46cc93a2" id="RT__5TJIaYhp"></iframe></div>
 
 In general, you can only delete data from your own wallet and never from the peer's.
 So, for example you can delete Attributes a peer shared with you from your wallet, but you can't delete Attributes you shared with a peer from their wallet.
@@ -92,7 +92,7 @@ The same is done for all predecessors of the peer Attribute.
 Then, the appropriate [DeleteAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#deleteattributeacceptresponseitem) is generated and sent back in the [Reponse]({% link _docs_integrate/data-model-overview.md %}#response) to the Sender of the Request.
 There, the `deletionInfo` of the corresponding own Attribute and its predecessors or of the associated [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) is set with `deletionStatus` `"ToBeDeletedByRecipient"` and the `deletionDate` received in the Response.
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/a738fd76-2fe0-4e3e-a0fd-bec86b3b7939" id="ZGDlhHzeKlb-"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/07f8fea4-6276-4cd2-9c72-607454ddd6d9" id="yq__~4ALaJT5"></iframe></div>
 
 It is also possible for the peer to reject the DeleteAttributeRequestItem, if its `mustBeAccepted` property is set `false`, or to [reject the Request]({% link _docs_use-cases/use-case-consumption-reject-incoming-request.md %}) for deleting a peer Attribute as a whole, if they have a valid reason for keeping the respective peer Attribute.
 In this case, the [RejectRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#rejectrequestitemparameters) must be used and it is advised to provide a `message`, informing the Sender of the Request about the reason not to delete the peer Attribute.
@@ -115,7 +115,7 @@ It can then only be received and processed if the [Relationship is reactivated](
 The Notification is also queued if the [peer is currently in deletion]({% link _docs_integrate/delete-identities.md %}#effects-of-identity-deletion-on-relationships) but not yet deleted.
 It can then only be received and processed if the peer [cancels its deletion]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}).
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/2385af4a-4bfa-43f4-a119-afb51273194d" id="HNEl2zIWWLxc"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/136bc4d8-96b5-4cc6-9171-5be3273dc42f" id="GF__p3.F2ywG"></iframe></div>
 
 If you want to [delete a ThirdPartyRelationshipAttribute]({% link _docs_use-cases/use-case-consumption-delete-an-attribute-and-notify.md %}), the process will work analogously.
 In this case, a [ForwardedAttributeDeletedByPeerNotificationItem]({% link _docs_integrate/data-model-overview.md %}#forwardedattributedeletedbypeernotificationitem) will be sent.
@@ -141,7 +141,7 @@ It can then only be received and processed if the [Relationship is reactivated](
 Furthermore, the Notification is also queued if the [peer is currently in deletion]({% link _docs_integrate/delete-identities.md %}#effects-of-identity-deletion-on-relationships) but not yet deleted.
 It can then only be received and processed if the peer [cancels its deletion]({% link _docs_use-cases/use-case-transport-cancel-identitydeletionprocess.md %}).
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/9aaf5a91-803b-4180-b0c7-4adb7bc5ced6" id="xQEl1j.jqJxq"></iframe></div>
+<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/ad2da820-7e33-497b-bf8b-2840d0b92fd5" id="2N__0cLJiA6a"></iframe></div>
 
 ## Delete OwnIdentityAttributes
 
