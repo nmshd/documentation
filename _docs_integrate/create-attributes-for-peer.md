@@ -176,12 +176,12 @@ For that, follow the instructions of the [Reject incoming Request]({% link _docs
 
 If the Recipient agrees to the creation of one of the Attributes offered by the Sender, it can accept the associated CreateAttributeRequestItem contained in the Request for creating Attributes.
 The [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) must be used for that.
-The acceptance of a CreateAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute) or [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails).
+The acceptance of a CreateAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
 The `content` of the LocalAttribute is the underlying `attribute` of the CreateAttributeRequestItem.
-Depending on whether an IdentityAttribute or a RelationshipAttribute is created and the ownership, it is referred to as either an [OwnRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) or a [PeerRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute).
+Depending on whether an IdentityAttribute or a RelationshipAttribute is created and the ownership, it is referred to as either an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute), an [OwnRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) or a [PeerRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute).
+If the underlying `attribute` of the accepted [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) is an IdentityAttribute, [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails) associated with the created OwnIdentityAttribute will additionally be created for the Recipient beforehand.
 Based on the created LocalAttribute, an appropriate AcceptResponseItem of type [CreateAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#createattributeacceptresponseitem) is generated, which incorporates the `id` of the LocalAttribute in its `attributeId` property.
 This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for creating Attributes that will be transferred to the Sender.
-If the underlying `attribute` of the accepted [CreateAttributeRequestItem]({% link _docs_integrate/data-model-overview.md %}#createattributerequestitem) is an IdentityAttribute, an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) will additionally be created for the Recipient beforehand.
 
 ### Reject a CreateAttributeRequestItem
 
