@@ -73,7 +73,7 @@ If the Sender wants to share a RelationshipAttribute with the Recipient, it must
 ### Example of sharing an IdentityAttribute
 
 We assume that the Integrator of the Sender has created an IdentityAttribute of type [BirthDate]({% link _docs_integrate/attribute-values.md %}#birthdate) for the Sender by following the instructions of our [Create Attributes for yourself]({% link _docs_integrate/create-attributes-for-yourself.md %}) scenario documentation.
-This IdentityAttribute is stored locally within the `content` property of a corresponding [OwnIdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#ownidentityattributes) of the Sender.
+This IdentityAttribute is stored locally within the `content` property of a corresponding [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute) of the Sender.
 
 ```jsonc
 {
@@ -218,7 +218,7 @@ For that, follow the instructions of the [Reject incoming Request]({% link _docs
 If the Recipient agrees to get one of the Sender's shared Attributes, it can accept the associated ShareAttributeRequestItem contained in the Request for sharing Attributes.
 The [AcceptRequestItemParameters]({% link _docs_integrate/data-model-overview.md %}#acceptrequestitemparameters) must be used for this.
 The acceptance of a ShareAttributeRequestItem leads to the creation of a corresponding [LocalAttribute]({% link _docs_integrate/data-model-overview.md %}#localattribute).
-Depending on whether an IdentityAttribute or a RelationshipAttribute has been shared by the Sender, it is referred to as either a [PeerIdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#peeridentityattributes) or a [ThirdPartyRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#thirdpartyrelationshipattributes).
+Depending on whether an IdentityAttribute or a RelationshipAttribute has been shared by the Sender, it is referred to as either a [PeerIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#peeridentityattribute) or a [ThirdPartyRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#thirdpartyrelationshipattribute).
 The `content` of the LocalAttribute corresponds to the underlying `attribute` of the ShareAttributeRequestItem.
 Based on this, an appropriate AcceptResponseItem of type [ShareAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#shareattributeacceptresponseitem) is generated, which incorporates the `id` of the created LocalAttribute in its `attributeId` property.
 This will be contained within the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) to the Request for sharing Attributes that will be transferred to the Sender.
@@ -341,7 +341,7 @@ To view the Response to the Request, proceed as described in the [Query outgoing
 The Integrator of the Sender can now get the Response of the Recipient from the `response.content` property of the result.
 In the `items` property of the [Response]({% link _docs_integrate/data-model-overview.md %}#response) is a [ShareAttributeAcceptResponseItem]({% link _docs_integrate/data-model-overview.md %}#shareattributeacceptresponseitem) for each accepted ShareAttributeRequestItem and a [RejectResponseItem]({% link _docs_integrate/data-model-overview.md %}#rejectresponseitem) for each rejected ShareAttributeRequestItem included.
 Note that each accepted ShareAttributeRequestItem leads to the creation of appropriate [AttributeForwardingDetails]({% link _docs_integrate/data-model-overview.md %}#attributeforwardingdetails).
-Depending on whether an IdentityAttribute or a RelationshipAttribute has been shared by the Sender, they refer either to an [OwnIdentityAttribute]({% link _docs_integrate/attribute-introduction.md %}#ownidentityattributes), an [OwnRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#ownrelationshipattributes-and-peerrelationshipattributes) or a [PeerRelationshipAttribute]({% link _docs_integrate/attribute-introduction.md %}#ownrelationshipattributes-and-peerrelationshipattributes).
+Depending on whether an IdentityAttribute or a RelationshipAttribute has been shared by the Sender, they refer either to an [OwnIdentityAttribute]({% link _docs_integrate/data-model-overview.md %}#ownidentityattribute), an [OwnRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#ownrelationshipattribute) or a [PeerRelationshipAttribute]({% link _docs_integrate/data-model-overview.md %}#peerrelationshipattribute).
 
 In case of an error, [ErrorResponseItems]({% link _docs_integrate/data-model-overview.md %}#errorresponseitem) can also be included in the Response.
 If the Request for sharing Attributes contains a RequestItemGroup in its `items` property, the Response to this Request contains a corresponding [ResponseItemGroup]({% link _docs_integrate/data-model-overview.md %}#responseitemgroup) in its `items` property.
